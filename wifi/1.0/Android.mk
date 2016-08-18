@@ -177,6 +177,40 @@ $(GEN): $(LOCAL_PATH)/types.hal
 LOCAL_GENERATED_SOURCES += $(GEN)
 
 #
+# Build types.hal (Bssid)
+#
+GEN := $(intermediates)/android/hardware/wifi/1.0/Bssid.java
+$(GEN): $(HIDL)
+$(GEN): PRIVATE_HIDL := $(HIDL)
+$(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/types.hal
+$(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
+$(GEN): PRIVATE_CUSTOM_TOOL = \
+    $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
+    -Ljava -randroid.hardware:hardware/interfaces \
+    android.hardware.wifi@1.0::types.Bssid
+
+$(GEN): $(LOCAL_PATH)/types.hal
+	$(transform-generated-source)
+LOCAL_GENERATED_SOURCES += $(GEN)
+
+#
+# Build types.hal (WifiBand)
+#
+GEN := $(intermediates)/android/hardware/wifi/1.0/WifiBand.java
+$(GEN): $(HIDL)
+$(GEN): PRIVATE_HIDL := $(HIDL)
+$(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/types.hal
+$(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
+$(GEN): PRIVATE_CUSTOM_TOOL = \
+    $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
+    -Ljava -randroid.hardware:hardware/interfaces \
+    android.hardware.wifi@1.0::types.WifiBand
+
+$(GEN): $(LOCAL_PATH)/types.hal
+	$(transform-generated-source)
+LOCAL_GENERATED_SOURCES += $(GEN)
+
+#
 # Build IWifi.hal
 #
 GEN := $(intermediates)/android/hardware/wifi/1.0/IWifi.java
