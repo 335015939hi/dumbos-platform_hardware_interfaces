@@ -25,4 +25,87 @@ interface IWifiChipEventCallback {
    * Callback with information about this chip
    */
   oneway onChipInfoAvailable(ChipInfo info);
+
+  /**
+   * Callback indicating that the requested packet filter was successfully
+   * installed.
+   */
+  oneway onInstallPacketFilterSuccess(uint64_t ifindex);
+
+  /**
+   * Callback indicating that installing a packet filter failed.
+   */
+  oneway onInstallPacketFilterFailure(uint64_t ifindex, FailureReason reason);
+
+  oneway onBackgroundScanStarted(uint32_t cmd_id);
+  oneway onBackgroundScanStartFailure(uint32_t cmd_id, FailureReason reason);
+  oneway onBackgroundScanStopped(uint32_t cmd_id);
+  oneway onBackgroundScanStopFailure(uint32_t cmd_id, FailureReason reason);
+
+  struct InformationElement {
+    uint8_t id;
+    vec<uint8_t> data;
+  };
+
+  struct ScanResult {
+    int64_t timestamp;
+    vec<uint8_t> ssid;
+    Bssid bssid;
+    uint32_t frequency;
+    int8_t rssi;
+    uint16_t beacon_period;
+    uint16_t capability;
+    vec<InformationElement> information_elements;
+  };
+
+  enum ScanDataFlag {
+    /**
+     * Indicates that a scan was interrupted/did not occur so results may be
+     * incomplete.
+     */
+    WIFI_SCAN_FLAG_INTERRUPTED = 1 << 0;
+  };
+
+  struct ScanData {
+    /**
+     * Bitset containing ScanDataFlag values.
+     */
+    uint32_t flags;
+    uint32_t buckets_scanned;
+    vec<ScanResult> results;
+  };
+
+  /**
+   * Called for each received beacon/probe response for a scan with the
+   * REPORT_EVENTS_FULL_RESULTS flag set.
+   */
+  oneway onBackgroundFullScanResult(uint32_t cmd_id, ScanResult result);
+  /**
+   * Called when the report_events flags for a least one bucket that was just
+   * scanned was REPORT_EVENTS_EACH_SCAN or one of the configured thresholds was
+   * breached. scans will contain all of the results since the last callback.
+   */
+  oneway onBackgroundScanResults(uint32_t cmd_id, vec<ScanData> scans);
+
+  /**
+   * In response to startLinkLayerStats if the request was successfully.
+   */
+  oneway onLinkLayerStatsStarted();
+  /**
+   * In response to startLinkLayerStats if the request failed.
+   */
+  oneway onLinkLayerStatsStartFailed(FailureReason reason);
+  /**
+   * In response to stopLinkLayerStats when collection has been stopped.
+   */
+  oneway onLinkLayerStatsStopped();
+
+  struct LinkLayerStats {
+    // TODO add stats
+  };
+
+  /**
+   * In response to pollLinkLayerStats with the latest link statistics.
+   */
+  oneway onLinkLayerStats(LinkLayerStats stats);
 };
