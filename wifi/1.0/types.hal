@@ -1,0 +1,25 @@
+package android.hardware.wifi@1.0;
+
+enum CommandFailureReason : uint32_t {
+  UNKNOWN,
+  DUPLICATE_COMMAND_ID,
+  NOT_SUPPORTED,
+  NOT_AVAILABLE,
+  INVALID_ARGS,
+  DRIVER_ERROR_OTHER,
+  FIRMWARE_ERROR_OTHER,
+  SCAN_INVALID_CHANNEL
+};
+
+/**
+ * Generic structure to return information about a failure.
+ */
+struct FailureReason {
+  CommandFailureReason reason;
+
+  /**
+   * A vendor specific error message from the vendor to provide more
+   * information beyond the reason code.
+   */
+  string description;
+};

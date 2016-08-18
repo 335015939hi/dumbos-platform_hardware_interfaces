@@ -1,0 +1,40 @@
+package android.hardware.wifi@1.0;
+
+interface IWifiChipEventCallback {
+  /**
+   * Callback indicating that the chip has been reconfigured successfully. At
+   * this point the interfaces available in the mode should be able to be
+   * configured. When this is called any previous interface indexes should be
+   * treated as invalid.
+   *
+   * @param modeId The mode that the chip switched to, corresponding to the id
+   *                property of the target ChipMode.
+   */
+  oneway onChipReconfigured(uint32_t modeId);
+
+  /**
+   * If this happens then the chips is now in an undefined state and
+   * configureChip should be called again. Any interface indexes should be
+   * assumed to be invalid.
+   *
+   * @param modeId The mode that the chip failed switched to, corresponding to
+   *                the id property of the target ChipMode.
+   */
+  oneway onChipReconfigureFailure(uint32_t modeId, FailureReason reason);
+
+  /**
+   * Information about the version of the driver and firmware running this chip.
+   *
+   * This information is vendor specific and does not need to take any
+   * particular format. It will be dumped as part of the bug report.
+   */
+  struct ChipInfo {
+    string driverVersion;
+    string firmwareVersion;
+  };
+
+  /**
+   * Callback with information about this chip
+   */
+  oneway onChipInfoAvailable(ChipInfo info);
+};
