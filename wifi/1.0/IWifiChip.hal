@@ -1,0 +1,126 @@
+package android.hardware.wifi@1.0;
+
+import IWifiChipEventCallback;
+
+/**
+ * Interface that represents a chip that must be configured as a single unit.
+ * The HAL/driver/firmware will be responsible for determining which phy is used
+ * to perform operations like NAN, RTT, etc.
+ */
+interface IWifiChip {
+  enum InterfaceType: uint32_t {
+    STA, AP, P2P,
+    /**
+     * NAN control interface. Datapath support may be queried and created
+     * through this interface.
+     */
+    NAN,
+  };
+
+  /**
+   * Set of interface types with the maximum number of interfaces that can have
+   * one of the types specified type for a given ChipInterfaceCombination. See
+   * ChipInterfaceCombination for examples.
+   */
+  struct ChipInterfaceCombinationLimit {
+    vec<InterfaceType> types; // Each InterfaceType may occur at most once
+    uint32_t max_ifaces;
+  };
+
+  /**
+   * Set of interfaces that can operate concurrently when in a given mode.
+   *
+   * For example:
+   *   [{STA} <= 2]
+   *       At most two STA interfaces are supported
+   *       [], [STA], [STA+STA]
+   *
+   *   [{STA} <= 1, {NAN} <= 1, {AP} <= 1]
+   *       Any combination of STA, NAN, AP
+   *       [], [STA], [NAN], [AP], [STA+NAN], [STA+AP], [NAN+AP], [STA+NAN+AP]
+   *
+   *   [{STA} <= 1, {NAN,P2P} <= 1]
+   *       Optionally a STA and either NAN or P2P
+   *       [], [STA], [STA+NAN], [STA+P2P], [NAN], [P2P]
+   *       Not included [NAN+P2P], [STA+NAN+P2P]
+   *
+   *   [{STA} <= 1, {STA,NAN} <= 1]
+   *       Optionally a STA and either a second STA or a NAN
+   *       [], [STA], [STA+NAN], [STA+STA], [NAN]
+   *       Not included [STA+STA+NAN]
+   */
+  struct ChipInterfaceCombination {
+    vec<ChipInterfaceCombinationLimit> limits;
+  };
+
+  /**
+   * A mode that the chip can be put in.
+   *
+   * When in a mode it is expected that it is possible to create all
+   * combinations of interfaces as limited by a single combination for each of
+   * available combinations. This means that if a chip has two available
+   * combinations, [{STA} <= 1] and [{AP} <= 1] then it is expected that exactly
+   * one STA interface or one AP interface can be created, but it is not
+   * expected that both a STA and AP interface could be created. If it was then
+   * there would be a single available combination [{STA} <=1, {AP} <= 1].
+   *
+   * When switching between two available combinations it is expected that
+   * interfaces only supported by the initial combination will be removed until
+   * the target combination is also satisfied. At that point new interfaces
+   * satisfying only the target combination can be added (meaning the initial
+   * combination limits will no longer satisfied). The addition of these new
+   * interfaces should not impact the existence of interfaces that satisfy both
+   * combinations.
+   *
+   * For example, a chip with available combinations:
+   *     [{STA} <= 2, {NAN} <=1] and [{STA} <=1, {NAN} <= 1, {AP} <= 1}]
+   * If the chip currently has 3 interfaces STA, STA and NAN and wants to add an
+   * AP interface in place of one of the STAs. First one of the STA interfaces
+   * would be removed. The AP interface would be created after the STA had been
+   * torn down. During this process the remaining STA and NAN interfaces should
+   * not be removed/recreated.
+   *
+   * If a chip does not support this kind of reconfiguration in this mode then
+   * the combinations should be separated into two separate modes. Before
+   * switching modes all interfaces will be torn down, the mode switch will be
+   * enacted and when it completes the new interfaces will be brought up.
+   */
+  struct ChipMode {
+    /**
+     * Id that can be used to put the chip in this mode.
+     */
+    uint32_t id;
+    /**
+     * A list of the possible interface combinations that the chip can have
+     * while in this mode.
+     */
+    vec<ChipInterfaceCombination> available_combinations;
+  };
+
+  /**
+   * Requests notifications of significant events on this chip. Multiple calls
+   * to this will register multiple callbacks each of which will receive all
+   * events.
+   */
+  oneway registerEventCallback(IWifiChipEventCallback callback);
+
+  /**
+   * Get the set of operation modes that the chip supports.
+   */
+  getAvailableModes() generates (vec<ChipMode> modes);
+
+  /**
+   * Reconfigure the Chip. Will trigger onChipReconfigured.
+   */
+  oneway configureChip(uint32_t mode_id);
+
+  /**
+   * Get the current mode that the chip is in.
+   */
+  getMode() generates (uint32_t mode_id);
+
+  /**
+   * Request information about the chip. Will trigger onChipInfoAvailable.
+   */
+  oneway pollChipInfo();
+};
