@@ -1,0 +1,21 @@
+package android.hardware.wifi@1.0;
+
+interface IWifiEventCallback {
+  oneway on_start_failure(uint32_t cmd_id, FailureReason reason);
+  oneway on_start(uint32_t cmd_id);
+  oneway on_stop(uint32_t cmd_id);
+
+  /**
+   * Called when the Wi-Fi system failed in a way that caused it be disabled.
+   * Calling start again should restart Wi-Fi as if stop then start was
+   * called (full state reset).
+   */
+  oneway on_failure(FailureReason reason);
+
+  /**
+   * Called when the Wi-Fi system failed in a way that caused it be disabled.
+   * This failure is not expected to be recoverable except through device
+   * reboot.
+   */
+  oneway on_unrecoverable_failure(FailureReason reason);
+};
