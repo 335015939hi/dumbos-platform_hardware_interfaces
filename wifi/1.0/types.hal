@@ -44,3 +44,11 @@ struct FailureReason {
  * An identifier for a mode that the chip can be put in.
  */
 typedef uint32_t ChipModeId;
+
+typedef uint8_t[6] Bssid;
+
+enum WifiBand: uint8_t {
+  WIFI_BAND_2_4GHZ = 1 << 0,
+  WIFI_BAND_5GHZ_NO_DFS = 1 << 1,
+  WIFI_BAND_5GHZ_DFS = 1 << 2,
+};

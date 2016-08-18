@@ -27,7 +27,7 @@ interface IWifiChip {
   enum InterfaceType : uint32_t {
     STA, AP, P2P,
     /**
-     * NAN control interface. Datapath support may be queried and created
+     * NAN control interface. Datapath support will be queried and created
      * through this interface.
      */
     NAN,
@@ -39,7 +39,7 @@ interface IWifiChip {
    * ChipInterfaceCombination for examples.
    */
   struct ChipInterfaceCombinationLimit {
-    vec<InterfaceType> types; // Each InterfaceType may occur at most once
+    vec<InterfaceType> types; // Each InterfaceType must occur at most once
     uint32_t maxIfaces;
   };
 
@@ -92,7 +92,7 @@ interface IWifiChip {
    * the target combination is also satisfied. At that point new interfaces
    * satisfying only the target combination can be added (meaning the initial
    * combination limits will no longer satisfied). The addition of these new
-   * interfaces should not impact the existence of interfaces that satisfy both
+   * interfaces must not impact the existence of interfaces that satisfy both
    * combinations.
    *
    * For example, a chip with available combinations:
@@ -101,10 +101,10 @@ interface IWifiChip {
    * AP interface in place of one of the STAs then first one of the STA
    * interfaces must be removed and then the AP interface can be created after
    * the STA had been torn down. During this process the remaining STA and NAN
-   * interfaces should not be removed/recreated.
+   * interfaces must not be removed/recreated.
    *
    * If a chip does not support this kind of reconfiguration in this mode then
-   * the combinations should be separated into two separate modes. Before
+   * the combinations must be separated into two separate modes. Before
    * switching modes all interfaces will be torn down, the mode switch will be
    * enacted and when it completes the new interfaces will be brought up.
    */
@@ -147,6 +147,26 @@ interface IWifiChip {
   getMode() generates (ChipModeId modeId);
 
   /**
+   * Bits in the capabilities value returned from getCapabilities
+   */
+  enum ChipCapability {
+    /**
+     * If set indicates that the APF APIs are supported
+     */
+    APF = 1 << 0,
+    /**
+     * If set indicates that the Background Scan APIs are supported
+     */
+    BACKGROUND_SCAN = 1 << 1,
+  };
+
+  /**
+   * Get the current capabilities supported by the chip. The capabilities must
+   * remain the same while in a given mode.
+   */
+  getCurrentCapabilities() generates (uint64_t capabilities);
+
+  /**
    * Request information about the chip. Will trigger onChipDebugInfoAvailable.
    */
   oneway requestChipDebugInfo();
@@ -162,4 +182,386 @@ interface IWifiChip {
    * onFirmwareDebugDumpAvailable.
    */
   oneway requestFirmwareDebugDump();
+
+  /*
+   * APF (Android Packet Filter) APIs
+   *
+   * APF is a BPF like packet filtering bytecode executed by the firmware.
+   * More details can be found here:
+   *   https://android.googlesource.com/platform/hardware/google/apf/+/master/apf.h
+   */
+
+  struct ApfPacketFilterCapabilities {
+    /**
+     * Version of the packet filter interpreter supported
+     */
+    uint32_t version;
+    /**
+     * Maximum size of the filter bytecodes in bytes for an interface.
+     */
+    uint32_t maxLength;
+  };
+
+  /**
+   * Used to query additional information about the chip's APF capabilities.
+   * Will fail if ChipCapability#APF is not set.
+   */
+  getApfPacketFilterCapabilities()
+      generates (ApfPacketFilterCapabilities capabilities);
+
+  /**
+   * Install an APF program on the given interface, replacing an existing
+   * program if present. Will fail if ChipCapability#APF is not set.
+   */
+  oneway installApfPacketFilter(uint32_t cmdId, uint64_t ifindex,
+                                vec<uint8_t> program);
+
+  /*
+   * Background Scan APIs
+   *
+   * Background scan allow the host to send a number of buckets down to the
+   * firmware. Each bucket contains a set of channels, a period, and some
+   * parameters about how and when to report results.
+   */
+
+  struct BackgroundScanCapabilities {
+    /**
+     * Maximum number of bytes available for cached scan results
+     */
+    uint32_t maxCacheSize;
+    /**
+     * Maximum number of buckets that can be supplied for a scan
+     */
+    uint32_t maxBuckets;
+    /**
+     * Maximum number of APs that will be stored for each scan.
+     */
+    uint32_t maxApCachePerScan;
+    /**
+     * Max reporting number of scans threshold that can be specified in the scan
+     * parameters.
+     */
+    int32_t maxReportingThreshold;
+  };
+
+  getBackgroundScanCapabilities()
+      generates (BackgroundScanCapabilities capabilities);
+
+  enum BucketReportEvents {
+    /**
+     * Report a scan completion event after scan. If this is not set then scan
+     * completion events must be reported if report_threshold_percent or
+     * report_threshold_num_scans is reached.
+     */
+    REPORT_EVENTS_EACH_SCAN = 1 << 0,
+    /**
+     * Forward scan results (beacons/probe responses + IEs) in real time to HAL,
+     * in addition to completion events.
+     * Note: To keep backward compatibility, fire completion events regardless
+     * of REPORT_EVENTS_EACH_SCAN.
+     */
+    REPORT_EVENTS_FULL_RESULTS = 1 << 1,
+    /**
+     * Controls if scans for this bucket must be placed in the results buffer.
+     */
+    REPORT_EVENTS_NO_BATCH = 1 << 2,
+  };
+
+  struct BackgroundScanBucketParameters {
+    /**
+     * Bitset containing WifiBand values. Bands to scan or 0 if frequencies list
+     * must be used instead.
+     */
+    uint32_t band;
+    /**
+     * Channel frequencies to scan if band is set to WIFI_BAND_UNSPECIFIED.
+     */
+    vec<uint32_t> frequencies;
+    /**
+     * Period at which this bucket must be scanned. Must be an integer
+     * multiple of the base_period specified in the BackgroundScanParameters.
+     */
+    uint32_t period;
+    /**
+     * Bitset of BucketReportEvents values controlling when events for this
+     * bucket must be reported.
+     */
+    uint32_t reportEvents;
+
+    /**
+     * For exponential back off. If exponential_max_period is non zero or
+     * different than period, then this bucket is an exponential backoff bucket
+     * and the scan period will grow exponentially as per formula:
+     *   actual_period(N) = period * (base ^ (N/step_count))
+     * to a maximum period of max_period.
+     */
+    uint32_t exponentialMaxPeriod;
+    /**
+     * For exponential back off. multiplier: new_period=old_period * base
+     */
+    uint32_t exponentialBase;
+    /**
+     * For exponential back off. Number of scans to perform for a given
+     * period.
+     */
+    uint32_t exponentialStepCount;
+  };
+
+  struct BackgroundScanParameters {
+    /**
+     * GCD of all bucket periods
+     */
+    uint32_t basePeriod;
+    /**
+     * Maximum number of APs that will be stored for each scan. If the maximum
+     * is reached the highest RSSI results must be returned.
+     */
+    uint32_t maxApPerScan;
+    /**
+     * % cache buffer filled threshold at which the host must be notified of
+     * batched scan results.
+     */
+    uint32_t reportThresholdPercent;
+    /**
+     * Threshold at which the AP must be woken up, in number of scans.
+     */
+    uint32_t reportThresholdNumScans;
+    /**
+     * List of buckets to be scheduled
+     */
+    vec<BackgroundScanBucketParameters> buckets;
+  };
+
+  /**
+   * Start a background scan using the given cmdId as an identifier. Only one
+   * active background scan need be supported.
+   *
+   * When this is called all requested buckets must be scanned, starting the
+   * beginning of the cycle.
+   *
+   * For example:
+   * If there are two buckets specified
+   *  - Bucket 1: period=10s
+   *  - Bucket 2: period=20s
+   *  - Bucket 3: period=30s
+   * Then the following scans must occur
+   *  - t=0  buckets 1, 2, and 3 are scanned
+   *  - t=10 bucket 1 is scanned
+   *  - t=20 bucket 1 and 2 are scanned
+   *  - t=30 bucket 1 and 3 are scanned
+   *  - t=40 bucket 1 and 2 are scanned
+   *  - t=50 bucket 1 is scanned
+   *  - t=60 buckets 1, 2, and 3 are scanned
+   *  - and the patter repeats
+   *
+   * If any scan does not occur or is incomplete (error, interrupted, etc) then
+   * a cached scan result must still be recorded with the
+   * WIFI_SCAN_FLAG_INTERRUPTED flag set.
+   */
+  oneway startBackgroundScan(uint32_t cmdId, BackgroundScanParameters params);
+  /**
+   * Stop the background scan started with the given cmdId.
+   */
+  oneway stopBackgroundScan(uint32_t cmdId);
+
+  // TODO fill in the rest of the needed HAL APIs
+
+  // wifi_error (* wifi_set_link_stats) (wifi_interface_handle, wifi_link_layer_params);
+  // wifi_error (* wifi_get_link_stats) (wifi_request_id,wifi_interface_handle,
+  //         wifi_stats_result_handler);
+  // wifi_error (* wifi_clear_link_stats)(wifi_interface_handle,u32, u32 *, u8, u8 *);
+
+  // wifi_error (* wifi_rtt_range_request)(wifi_request_id, wifi_interface_handle, unsigned,
+  //                                       wifi_rtt_config[], wifi_rtt_event_handler);
+  // wifi_error (* wifi_rtt_range_cancel)(wifi_request_id,  wifi_interface_handle, unsigned,
+  //                                      mac_addr[]);
+  // wifi_error (* wifi_get_rtt_capabilities)(wifi_interface_handle, wifi_rtt_capabilities *);
+  // wifi_error (* wifi_rtt_get_responder_info)(wifi_interface_handle iface,
+  //                                            wifi_rtt_responder *responder_info);
+  // wifi_error (* wifi_enable_responder)(wifi_request_id id, wifi_interface_handle iface,
+  //                                      wifi_channel_info channel_hint, unsigned max_duration_seconds,
+  //                                      wifi_rtt_responder *responder_info);
+  // wifi_error (* wifi_disable_responder)(wifi_request_id id, wifi_interface_handle iface);
+
+  // wifi_error (* wifi_get_logger_supported_feature_set)(wifi_interface_handle iface,
+  //                                                      unsigned int *support);
+  // wifi_error (* wifi_start_logging)(wifi_interface_handle, u32, u32, u32, u32, char *);
+  // wifi_error (* wifi_set_log_handler)(wifi_request_id id, wifi_interface_handle iface,
+  //                                     wifi_ring_buffer_data_handler handler);
+  // wifi_error (* wifi_reset_log_handler)(wifi_request_id id, wifi_interface_handle iface);
+
+  // wifi_error (* wifi_set_alert_handler)(wifi_request_id id, wifi_interface_handle iface,
+  //                                       wifi_alert_handler handler);
+  // wifi_error (* wifi_reset_alert_handler)(wifi_request_id id, wifi_interface_handle iface);
+
+  // wifi_error (* wifi_get_ring_buffers_status)(wifi_interface_handle iface,
+  //                                             u32 *num_rings, wifi_ring_buffer_status *status);
+  // wifi_error (* wifi_get_ring_data)(wifi_interface_handle iface, char *ring_name);
+
+  // wifi_error (*wifi_start_pkt_fate_monitoring)(wifi_interface_handle iface);
+  // wifi_error (*wifi_get_tx_pkt_fates)(wifi_interface_handle handle,
+  //                                     wifi_tx_report *tx_report_bufs,
+  //                                     size_t n_requested_fates,
+  //                                     size_t *n_provided_fates);
+  // wifi_error (*wifi_get_rx_pkt_fates)(wifi_interface_handle handle,
+  //                                     wifi_rx_report *rx_report_bufs,
+  //                                     size_t n_requested_fates,
+  //                                     size_t *n_provided_fates);
+
+  // wifi_error (* wifi_enable_tdls)(wifi_interface_handle, mac_addr, wifi_tdls_params *,
+  //                                 wifi_tdls_handler);
+  // wifi_error (* wifi_disable_tdls)(wifi_interface_handle, mac_addr);
+  // wifi_error (*wifi_get_tdls_status) (wifi_interface_handle, mac_addr, wifi_tdls_status *);
+  // wifi_error (*wifi_get_tdls_capabilities)(wifi_interface_handle iface,
+  //                                          wifi_tdls_capabilities *capabilities);
+
+  // wifi_error (*wifi_start_sending_offloaded_packet)(wifi_request_id id,
+  //                                                   wifi_interface_handle iface, u8 *ip_packet, u16 ip_packet_len,
+  //                                                   u8 *src_mac_addr, u8 *dst_mac_addr, u32 period_msec);
+  // wifi_error (*wifi_stop_sending_offloaded_packet)(wifi_request_id id,
+  //                                                  wifi_interface_handle iface);
+
+  // wifi_error (*wifi_start_rssi_monitoring)(wifi_request_id id, wifi_interface_handle
+  //                                          iface, s8 max_rssi, s8 min_rssi, wifi_rssi_event_handler eh);
+  // wifi_error (*wifi_stop_rssi_monitoring)(wifi_request_id id, wifi_interface_handle iface);
+
+  // wifi_error (*wifi_get_wake_reason_stats)(wifi_interface_handle iface,
+  //                                          WLAN_DRIVER_WAKE_REASON_CNT *wifi_wake_reason_cnt);
+
+  // wifi_error (*wifi_configure_nd_offload)(wifi_interface_handle iface, u8 enable);
+  // wifi_error (* wifi_get_supported_feature_set) (wifi_interface_handle, feature_set *);
+  // wifi_error (* wifi_get_concurrency_matrix) (wifi_interface_handle, int, feature_set *, int *);
+
+  // /* NAN functions */
+  // wifi_error (*wifi_nan_enable_request)(transaction_id id,
+  //                                       wifi_interface_handle iface,
+  //                                       NanEnableRequest* msg);
+  // wifi_error (*wifi_nan_disable_request)(transaction_id id,
+  //                                        wifi_interface_handle iface);
+  // wifi_error (*wifi_nan_publish_request)(transaction_id id,
+  //                                        wifi_interface_handle iface,
+  //                                        NanPublishRequest* msg);
+  // wifi_error (*wifi_nan_publish_cancel_request)(transaction_id id,
+  //                                               wifi_interface_handle iface,
+  //                                               NanPublishCancelRequest* msg);
+  // wifi_error (*wifi_nan_subscribe_request)(transaction_id id,
+  //                                          wifi_interface_handle iface,
+  //                                          NanSubscribeRequest* msg);
+  // wifi_error (*wifi_nan_subscribe_cancel_request)(transaction_id id,
+  //                                                 wifi_interface_handle iface,
+  //                                                 NanSubscribeCancelRequest* msg);
+  // wifi_error (*wifi_nan_transmit_followup_request)(transaction_id id,
+  //                                                  wifi_interface_handle iface,
+  //                                                  NanTransmitFollowupRequest* msg);
+  // wifi_error (*wifi_nan_stats_request)(transaction_id id,
+  //                                      wifi_interface_handle iface,
+  //                                      NanStatsRequest* msg);
+  // wifi_error (*wifi_nan_config_request)(transaction_id id,
+  //                                       wifi_interface_handle iface,
+  //                                       NanConfigRequest* msg);
+  // wifi_error (*wifi_nan_tca_request)(transaction_id id,
+  //                                    wifi_interface_handle iface,
+  //                                    NanTCARequest* msg);
+  // wifi_error (*wifi_nan_beacon_sdf_payload_request)(transaction_id id,
+  //                                                   wifi_interface_handle iface,
+  //                                                   NanBeaconSdfPayloadRequest* msg);
+  // wifi_error (*wifi_nan_register_handler)(wifi_interface_handle iface,
+  //                                         NanCallbackHandler handlers);
+  // wifi_error (*wifi_nan_get_version)(wifi_handle handle,
+  //                                    NanVersion* version);
+  // wifi_error (*wifi_nan_get_capabilities)(transaction_id id,
+  //                                         wifi_interface_handle iface);
+  // wifi_error (*wifi_nan_data_interface_create)(transaction_id id,
+  //                                              wifi_interface_handle iface,
+  //                                              char *iface_name);
+  // wifi_error (*wifi_nan_data_interface_delete)(transaction_id id,
+  //                                              wifi_interface_handle iface,
+  //                                              char *iface_name);
+  // wifi_error (*wifi_nan_data_request_initiator)(
+  //     transaction_id id, wifi_interface_handle iface,
+  //     NanDataPathInitiatorRequest *msg);
+  // wifi_error (*wifi_nan_data_indication_response)(
+  //     transaction_id id, wifi_interface_handle iface,
+  //     NanDataPathIndicationResponse *msg);
+  // wifi_error (*wifi_nan_data_end)(transaction_id id,
+  //                                 wifi_interface_handle iface,
+  //                                 NanDataPathEndRequest *msg);
+
+  // THINGS TO JUST CALL ON INITIALIZATION?
+  // wifi_error (* wifi_set_scanning_mac_oui) (wifi_interface_handle, unsigned char *);
+  // wifi_error (* wifi_set_nodfs_flag)(wifi_interface_handle, u32);
+
+
+  // UNNEEDED APIS
+  //
+  // DON'T KNOW IF WE NEED TO CALL THESE:
+  // wifi_error (* wifi_get_ifaces) (wifi_handle , int *, wifi_interface_handle **);
+  // wifi_error (* wifi_get_iface_name) (wifi_interface_handle, char *name, size_t);
+  // wifi_error (* wifi_get_valid_channels)(wifi_interface_handle,int, int, wifi_channel *, int *); // should be able to use NL80211_ATTR_WIPHY_BANDS
+
+  //
+  // DON'T CALL AND DON'T LOOK IMPLEMENTED:
+  // void (* wifi_get_error_info) (wifi_error , const char **);
+  // wifi_error (* wifi_is_epr_supported)(wifi_handle);
+  // wifi_error (* wifi_get_supported_channels)(wifi_handle, int *, wifi_channel *);
+  //
+  //
+  // DON'T THINK WE CALL THESE:
+  // wifi_error (* wifi_set_iface_event_handler) (wifi_request_id,wifi_interface_handle ,
+  //                                              wifi_event_handler);
+  // wifi_error (* wifi_reset_iface_event_handler) (wifi_request_id, wifi_interface_handle);
+  // wifi_error (* wifi_set_bssid_hotlist)(wifi_request_id, wifi_interface_handle,
+  //                                       wifi_bssid_hotlist_params, wifi_hotlist_ap_found_handler);
+  // wifi_error (* wifi_reset_bssid_hotlist)(wifi_request_id, wifi_interface_handle);
+  // wifi_error (* wifi_set_significant_change_handler)(wifi_request_id, wifi_interface_handle,
+  //                                                    wifi_significant_change_params, wifi_significant_change_handler);
+  // wifi_error (* wifi_reset_significant_change_handler)(wifi_request_id, wifi_interface_handle);
+  // wifi_error (* wifi_set_epno_list)(wifi_request_id, wifi_interface_handle,
+  //                                   const wifi_epno_params *, wifi_epno_handler);
+  // wifi_error (* wifi_reset_epno_list)(wifi_request_id, wifi_interface_handle);
+  // wifi_error (* wifi_set_country_code)(wifi_interface_handle, const char *);
+  // wifi_error (* wifi_set_passpoint_list)(wifi_request_id id, wifi_interface_handle iface,
+  //                                        int num, wifi_passpoint_network *networks, wifi_passpoint_event_handler handler);
+  // wifi_error (* wifi_reset_passpoint_list)(wifi_request_id id, wifi_interface_handle iface);
+  // wifi_error (*wifi_set_bssid_blacklist)(wifi_request_id id, wifi_interface_handle iface,
+  //                                        wifi_bssid_params params);
+  // wifi_error (*wifi_set_lci) (wifi_request_id id, wifi_interface_handle iface,
+  //                             wifi_lci_information *lci);
+  // wifi_error (*wifi_set_lcr) (wifi_request_id id, wifi_interface_handle iface,
+  //                             wifi_lcr_information *lcr);
+
+
+
+
+  // FEATURE FLAGS
+  //
+  // LINK_LAYER_STATS = 1 << X,
+  // LOGGER = 1 << X,
+  // WIFI_FEATURE_INFRA_5G             // Support for 5 GHz Band
+  // WIFI_FEATURE_HOTSPOT              // Support for GAS/ANQP
+  // WIFI_FEATURE_P2P                  // Wifi-Direct
+  // WIFI_FEATURE_D2D_RTT              // Device-to-device RTT
+  // WIFI_FEATURE_D2AP_RTT             // Device-to-AP RTT
+  // WIFI_FEATURE_TDLS                 // Tunnel directed link setup
+  // WIFI_FEATURE_TDLS_OFFCHANNEL      // Support for TDLS off channel
+  // WIFI_FEATURE_RSSI_MONITOR         // RSSI Monitor
+  // WIFI_FEATURE_MKEEP_ALIVE          // WiFi mkeep_alive
+  // WIFI_FEATURE_CONFIG_NDO           // ND offload configure
+  // WIFI_FEATURE_TX_TRANSMIT_POWER    // Capture Tx transmit power levels
+
+
+  // Overloaded (there is a config value for it that we use)
+  // WIFI_FEATURE_PNO                  // Preferred network offload
+
+  // Don't think we use
+  // WIFI_FEATURE_BATCH_SCAN           // Batched Scan (legacy)
+  // WIFI_FEATURE_EPR                  // Enhanced power reporting
+  // WIFI_FEATURE_HAL_EPNO             // WiFi PNO enhanced
+
+  // Interfaces, handled through modes
+  // WIFI_FEATURE_INFRA                // Basic infrastructure mode
+  // WIFI_FEATURE_SOFT_AP              // Soft AP
+  // WIFI_FEATURE_NAN                  // Neighbor Awareness Networking
+  // WIFI_FEATURE_AP_STA               // Support for AP STA Concurrency
+  // WIFI_FEATURE_ADDITIONAL_STA       // Support for two STAs
 };

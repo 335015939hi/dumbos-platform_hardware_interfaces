@@ -65,4 +65,80 @@ interface IWifiChipEventCallback {
    * This blob will be dumped as part of the bug report.
    */
   oneway onFirmwareDebugDumpAvailable(vec<uint8_t> blob);
+
+  /**
+   * Callback indicating that the requested packet filter was successfully
+   * installed.
+   */
+  oneway onInstallPacketFilterSuccess(uint64_t ifindex);
+
+  /**
+   * Callback indicating that installing a packet filter failed.
+   */
+  oneway onInstallPacketFilterFailure(uint64_t ifindex, FailureReason reason);
+
+  /**
+   * Callback indicating that a requested scan was started
+   */
+  oneway onBackgroundScanStarted(uint32_t cmdId);
+  /**
+   * Callback indicating that a requested scan failed to start
+   */
+  oneway onBackgroundScanStartFailure(uint32_t cmdId, FailureReason reason);
+  /**
+   * Callback indicating that a scan was stopped
+   */
+  oneway onBackgroundScanStopped(uint32_t cmdId);
+
+  struct InformationElement {
+    uint8_t id;
+    vec<uint8_t> data;
+  };
+
+  struct ScanResult {
+    int64_t timestamp;
+    vec<uint8_t> ssid;
+    Bssid bssid;
+    uint32_t frequency;
+    int8_t rssi;
+    uint16_t beaconPeriod;
+    uint16_t capability;
+    vec<InformationElement> informationElements;
+  };
+
+  enum ScanDataFlag {
+    /**
+     * Indicates that a scan was interrupted/did not occur so results may be
+     * incomplete.
+     */
+    WIFI_SCAN_FLAG_INTERRUPTED = 1 << 0,
+  };
+
+  struct ScanData {
+    /**
+     * Bitset containing ScanDataFlag values.
+     */
+    uint32_t flags;
+    /**
+     * Bitset where each bit indicates if the bucket with that index was scanned
+     */
+    uint32_t bucketsScanned;
+    /**
+     * List of scan results
+     */
+    vec<ScanResult> results;
+  };
+
+  /**
+   * Called for each received beacon/probe response for a scan with the
+   * REPORT_EVENTS_FULL_RESULTS flag set.
+   */
+  oneway onBackgroundFullScanResult(uint32_t cmdId, ScanResult result);
+
+  /**
+   * Called when the report_events flags for a least one bucket that was just
+   * scanned was REPORT_EVENTS_EACH_SCAN or one of the configured thresholds was
+   * breached. scans will contain all of the results since the last callback.
+   */
+  oneway onBackgroundScanResults(uint32_t cmdId, vec<ScanData> scans);
 };
