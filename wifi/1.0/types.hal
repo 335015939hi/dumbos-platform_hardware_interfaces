@@ -23,3 +23,11 @@ struct FailureReason {
    */
   string description;
 };
+
+typedef Bssid uint8_t[6];
+
+enum WifiBand: uint8_t {
+  WIFI_BAND_2_4GHZ = 1 << 0;
+  WIFI_BAND_5GHZ_NO_DFS = 1 << 1;
+  WIFI_BAND_5GHZ_DFS = 1 << 2;
+};
