@@ -1,0 +1,43 @@
+package android.hardware.tests.pointer@1.0;
+
+@hal_type(type="LIGHT")
+
+interface IGraph {
+
+  struct Node {
+    int32_t data;
+  };
+  struct Edge {
+    ref<Node> left;
+    ref<Node> right;
+  };
+  struct Graph {
+    vec<Node> nodes;
+    vec<Edge> edges;
+  };
+
+  struct Theta {
+    int32_t data;
+  };
+  struct Alpha {
+    ref<Theta> s_ptr;
+  };
+  struct Beta {
+    ref<Theta> s_ptr;
+  };
+  struct Gamma {
+    ref<Alpha> a_ptr;
+    ref<Beta> b_ptr;
+  };
+
+  passANode(Node n);
+  passAGraph(Graph g);
+  passTwoGraphs(ref<Graph> g1, ref<Graph> g2);
+  giveAGraph() generates (Graph g);
+  passAGamma(Gamma c);
+  passASimpleRef(ref<Alpha> a);
+  passASimpleRefS(ref<Theta> s);
+  giveASimpleRef() generates (ref<Alpha> a);
+
+  getErrors() generates (int32_t errors);
+};
