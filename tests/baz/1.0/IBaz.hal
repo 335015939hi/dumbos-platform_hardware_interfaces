@@ -18,6 +18,18 @@ interface IBaz extends IBase {
         blah = goober
     };
 
+    struct TopLevel {
+        uint32_t tl;
+    };
+
+    struct MiddleLevel {
+        uint32_t ml;
+    };
+
+    struct LowerLevel {
+        uint32_t ll;
+    };
+
     @Fragile @NoReally(very="yes", array={"a","b","c"})
     oneway doThis(float param);
 

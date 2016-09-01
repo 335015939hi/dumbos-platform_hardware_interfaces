@@ -15,6 +15,9 @@
  */
 
 package android.hardware.tests.expression@1.0;
+
+import android.hardware.tests.baz@1.0;
+
 @hal_type(type="LIGHT")
 interface IExpression {
   enum UInt64LiteralTypeGuessing : uint64_t {
@@ -144,4 +147,13 @@ interface IExpression {
     logand4 = (0 && 1) == 0,
   };
 
+  struct TopLevel {
+    struct MiddleLevel {
+      struct LowerLevel {
+        IBaz.TopLevel btl;
+      };
+      uint32_t ml;
+    };
+    uint32_t tl;
+  };
 };
