@@ -52,6 +52,24 @@
       "revId": "b350caf9dc61882d30a55d929ca6817c4e5a30d2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6f9dbd6_0d8c5935",
+        "filename": "nfc/1.0/Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1014088
+      },
+      "writtenOn": "2016-09-07T21:47:58Z",
+      "side": 1,
+      "message": "got it, was confused because I only the PRIVATE_DEPS lines jumped out at me and the PRIVATE_DEPS wasn\u0027t used anywhere.",
+      "parentUuid": "d6f9dbd6_adc1c546",
+      "revId": "b350caf9dc61882d30a55d929ca6817c4e5a30d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
