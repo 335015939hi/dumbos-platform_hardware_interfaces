@@ -16,6 +16,24 @@
       "revId": "b350caf9dc61882d30a55d929ca6817c4e5a30d2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6f9dbd6_ad3e6578",
+        "filename": "nfc/1.0/Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1014088
+      },
+      "writtenOn": "2016-09-07T21:43:02Z",
+      "side": 1,
+      "message": "I don\u0027t know what you mean, also did you see Dan\u0027s comments, PRIVATE_DEPS doesn\u0027t actually do anything by itself.\nI think either a rule\n$(GEN): $(PRIVATE_DEPS)\n\nor individual\n$(GEN): first_dep\n\n$(GEN): second_dep\n\n...\n\nwould do the trick.",
+      "parentUuid": "d6f9dbd6_6dcd0dad",
+      "revId": "b350caf9dc61882d30a55d929ca6817c4e5a30d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
