@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d6f9dbd6_8ab02f4f",
+        "filename": "nfc/1.0/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1074628
+      },
+      "writtenOn": "2016-09-07T21:07:49Z",
+      "side": 1,
+      "message": "What is PRIVATE_DEPS? It doesn\u0027t seem to be used.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 47
+      },
+      "revId": "82a07c6021223a6d4d74f8b5355b0d0427e10fc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d6f9dbd6_0a967f9a",
+        "filename": "nfc/1.0/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1074628
+      },
+      "writtenOn": "2016-09-07T21:07:49Z",
+      "side": 1,
+      "message": "Assuming PRIVATE_DEPS is what you think the dependencies will be, they\u0027re not included here on the actual dependency line.",
+      "revId": "82a07c6021223a6d4d74f8b5355b0d0427e10fc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
