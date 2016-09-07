@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d6f9dbd6_6dcd0dad",
+        "filename": "nfc/1.0/Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1000866
+      },
+      "writtenOn": "2016-09-07T21:39:31Z",
+      "side": 1,
+      "message": "Still need to emit the same for Java.",
+      "revId": "b350caf9dc61882d30a55d929ca6817c4e5a30d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
