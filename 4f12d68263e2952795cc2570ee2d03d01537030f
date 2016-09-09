@@ -1,0 +1,280 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "56832b87_32260e7a",
+        "filename": "wifi/1.0/IWifi.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-09-09T01:43:46Z",
+      "side": 1,
+      "message": "There is also a IWifiChip interface. What does \"this chip\" mean here?",
+      "range": {
+        "startLine": 13,
+        "startChar": 53,
+        "endLine": 13,
+        "endChar": 62
+      },
+      "revId": "4f12d68263e2952795cc2570ee2d03d01537030f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56832b87_b28f7e2b",
+        "filename": "wifi/1.0/IWifi.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-09-09T01:43:46Z",
+      "side": 1,
+      "message": "Name is actually onStart() - noticed these naming issues throughout - is that real or the official naming vs. documentation convention for HAL?",
+      "range": {
+        "startLine": 23,
+        "startChar": 61,
+        "endLine": 23,
+        "endChar": 69
+      },
+      "revId": "4f12d68263e2952795cc2570ee2d03d01537030f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56832b87_72fed699",
+        "filename": "wifi/1.0/IWifi.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-09-09T01:43:46Z",
+      "side": 1,
+      "message": "it\u0027s getChip below!?",
+      "range": {
+        "startLine": 28,
+        "startChar": 54,
+        "endLine": 28,
+        "endChar": 62
+      },
+      "revId": "4f12d68263e2952795cc2570ee2d03d01537030f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56832b87_d28c0239",
+        "filename": "wifi/1.0/IWifi.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-09-09T01:43:46Z",
+      "side": 1,
+      "message": "not there in the interface",
+      "range": {
+        "startLine": 35,
+        "startChar": 5,
+        "endLine": 35,
+        "endChar": 29
+      },
+      "revId": "4f12d68263e2952795cc2570ee2d03d01537030f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56832b87_12d82a42",
+        "filename": "wifi/1.0/IWifi.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-09-09T01:43:46Z",
+      "side": 1,
+      "message": "you seem to imply that stop is also allowed in the next callflow",
+      "range": {
+        "startLine": 41,
+        "startChar": 52,
+        "endLine": 41,
+        "endChar": 53
+      },
+      "revId": "4f12d68263e2952795cc2570ee2d03d01537030f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56832b87_72e7b603",
+        "filename": "wifi/1.0/IWifi.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-09-09T01:43:46Z",
+      "side": 1,
+      "message": "getChip?",
+      "range": {
+        "startLine": 44,
+        "startChar": 54,
+        "endLine": 44,
+        "endChar": 62
+      },
+      "revId": "4f12d68263e2952795cc2570ee2d03d01537030f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56832b87_f5ec90bb",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-09-09T01:43:46Z",
+      "side": 1,
+      "message": "Does this allow multiple registrations?",
+      "range": {
+        "startLine": 102,
+        "startChar": 5,
+        "endLine": 102,
+        "endChar": 13
+      },
+      "revId": "4f12d68263e2952795cc2570ee2d03d01537030f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56832b87_d5bf8ca7",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-09-09T01:43:46Z",
+      "side": 1,
+      "message": "For all registered callbacks or only the new one?",
+      "range": {
+        "startLine": 103,
+        "startChar": 5,
+        "endLine": 103,
+        "endChar": 24
+      },
+      "revId": "4f12d68263e2952795cc2570ee2d03d01537030f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56832b87_151734b5",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-09-09T01:43:46Z",
+      "side": 1,
+      "message": "But what if the chip is an indeterminate state (onChipReconfiguredFailed. Do we get the latter instead?",
+      "range": {
+        "startLine": 103,
+        "startChar": 27,
+        "endLine": 103,
+        "endChar": 45
+      },
+      "revId": "4f12d68263e2952795cc2570ee2d03d01537030f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56832b87_55fa9c5e",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-09-09T01:43:46Z",
+      "side": 1,
+      "message": "callback has a cmd_id - where does it come from? Add to poll request or (better) remove from callback.",
+      "range": {
+        "startLine": 115,
+        "startChar": 54,
+        "endLine": 115,
+        "endChar": 73
+      },
+      "revId": "4f12d68263e2952795cc2570ee2d03d01537030f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56832b87_b509288a",
+        "filename": "wifi/1.0/IWifiChipEventCallback.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-09-09T01:43:46Z",
+      "side": 1,
+      "message": "what\u0027s the value when triggered due to new callback registration",
+      "range": {
+        "startLine": 15,
+        "startChar": 37,
+        "endLine": 15,
+        "endChar": 43
+      },
+      "revId": "4f12d68263e2952795cc2570ee2d03d01537030f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56832b87_d506ac77",
+        "filename": "wifi/1.0/IWifiChipEventCallback.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-09-09T01:43:46Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 22,
+        "startChar": 43,
+        "endLine": 22,
+        "endChar": 49
+      },
+      "revId": "4f12d68263e2952795cc2570ee2d03d01537030f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
