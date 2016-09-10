@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cbe692fe_a6e34798",
+        "filename": "wifi/1.0/IWifi.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-09-10T05:37:32Z",
+      "side": 1,
+      "message": "noncoordinated cmd_id + multiple callbacks which are called for everyone doesn\u0027t work.\n\nE.g. P1 registers callback, P2 register callback\nP1 calls start(5) then P2 calls start(5) some time later .... some confusion?",
+      "range": {
+        "startLine": 34,
+        "startChar": 24,
+        "endLine": 34,
+        "endChar": 30
+      },
+      "revId": "c7ab96a1bd906aba50c36310cfddb400d0d1df61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbe692fe_468fe3dd",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-09-10T05:37:32Z",
+      "side": 1,
+      "message": "maybe for this specific command not relevant (in which case also get rid from callback).",
+      "range": {
+        "startLine": 125,
+        "startChar": 22,
+        "endLine": 125,
+        "endChar": 37
+      },
+      "revId": "c7ab96a1bd906aba50c36310cfddb400d0d1df61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
