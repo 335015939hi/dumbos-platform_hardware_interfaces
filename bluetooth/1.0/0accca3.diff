@@ -1,0 +1,253 @@
+From 0accca3670b2d1051505bc23750dfaf4c5b72a15 Mon Sep 17 00:00:00 2001
+From: Myles Watson <mylesgw@google.com>
+Date: Fri, 09 Sep 2016 16:29:43 -0700
+Subject: [PATCH] Add a Bluetooth HAL definition
+
+Change-Id: I7d07252a936b28cc3daa6faafd712522f5acddb7
+---
+
+diff --git a/bluetooth/1.0/Android.mk b/bluetooth/1.0/Android.mk
+new file mode 100644
+index 0000000..a79b7d3
+--- /dev/null
++++ b/bluetooth/1.0/Android.mk
+@@ -0,0 +1,143 @@
++LOCAL_PATH := $(call my-dir)
++include $(CLEAR_VARS)
++
++LOCAL_MODULE := android.hardware.bluetooth@1.0
++LOCAL_MODULE_CLASS := SHARED_LIBRARIES
++
++intermediates := $(local-generated-sources-dir)
++
++HIDL := $(HOST_OUT_EXECUTABLES)/hidl-gen$(HOST_EXECUTABLE_SUFFIX)
++
++#
++# Build types.hal
++#
++GEN := $(intermediates)/android/hardware/bluetooth/1.0/types.cpp
++$(GEN): $(HIDL)
++$(GEN): PRIVATE_HIDL := $(HIDL)
++$(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/types.hal
++$(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
++$(GEN): PRIVATE_CUSTOM_TOOL = \
++    $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
++    -Lc++ -randroid.hardware:hardware/interfaces \
++    android.hardware.bluetooth@1.0::types
++
++$(GEN): $(LOCAL_PATH)/types.hal
++	$(transform-generated-source)
++LOCAL_GENERATED_SOURCES += $(GEN)
++
++#
++# Build IBluetooth.hal
++#
++GEN := $(intermediates)/android/hardware/bluetooth/1.0/BluetoothAll.cpp
++$(GEN): $(HIDL)
++$(GEN): PRIVATE_HIDL := $(HIDL)
++$(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/IBluetooth.hal
++$(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/IBluetoothClientCallback.hal
++$(GEN): $(LOCAL_PATH)/IBluetoothClientCallback.hal
++$(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/types.hal
++$(GEN): $(LOCAL_PATH)/types.hal
++$(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
++$(GEN): PRIVATE_CUSTOM_TOOL = \
++    $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
++    -Lc++ -randroid.hardware:hardware/interfaces \
++    android.hardware.bluetooth@1.0::IBluetooth
++
++$(GEN): $(LOCAL_PATH)/IBluetooth.hal
++	$(transform-generated-source)
++LOCAL_GENERATED_SOURCES += $(GEN)
++
++#
++# Build IBluetoothClientCallback.hal
++#
++GEN := $(intermediates)/android/hardware/bluetooth/1.0/BluetoothClientCallbackAll.cpp
++$(GEN): $(HIDL)
++$(GEN): PRIVATE_HIDL := $(HIDL)
++$(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/IBluetoothClientCallback.hal
++$(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/types.hal
++$(GEN): $(LOCAL_PATH)/types.hal
++$(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
++$(GEN): PRIVATE_CUSTOM_TOOL = \
++    $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
++    -Lc++ -randroid.hardware:hardware/interfaces \
++    android.hardware.bluetooth@1.0::IBluetoothClientCallback
++
++$(GEN): $(LOCAL_PATH)/IBluetoothClientCallback.hal
++	$(transform-generated-source)
++LOCAL_GENERATED_SOURCES += $(GEN)
++
++LOCAL_EXPORT_C_INCLUDE_DIRS := $(intermediates)
++LOCAL_SHARED_LIBRARIES := \
++  libhidl \
++  libhwbinder \
++  libutils \
++
++LOCAL_MULTILIB := both
++include $(BUILD_SHARED_LIBRARY)
++
++################################################################################
++
++include $(CLEAR_VARS)
++LOCAL_MODULE := android.hardware.bluetooth@1.0-java
++LOCAL_MODULE_CLASS := JAVA_LIBRARIES
++
++intermediates := $(local-generated-sources-dir)
++
++HIDL := $(HOST_OUT_EXECUTABLES)/hidl-gen$(HOST_EXECUTABLE_SUFFIX)
++
++#
++# Build types.hal (bluetooth_hci_t)
++#
++GEN := $(intermediates)/android/hardware/bluetooth/1.0/bluetooth_hci_t.java
++$(GEN): $(HIDL)
++$(GEN): PRIVATE_HIDL := $(HIDL)
++$(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/types.hal
++$(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
++$(GEN): PRIVATE_CUSTOM_TOOL = \
++    $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
++    -Ljava -randroid.hardware:hardware/interfaces \
++    android.hardware.bluetooth@1.0::types.bluetooth_hci_t
++
++$(GEN): $(LOCAL_PATH)/types.hal
++	$(transform-generated-source)
++LOCAL_GENERATED_SOURCES += $(GEN)
++
++#
++# Build IBluetooth.hal
++#
++GEN := $(intermediates)/android/hardware/bluetooth/1.0/IBluetooth.java
++$(GEN): $(HIDL)
++$(GEN): PRIVATE_HIDL := $(HIDL)
++$(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/IBluetooth.hal
++$(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/IBluetoothClientCallback.hal
++$(GEN): $(LOCAL_PATH)/IBluetoothClientCallback.hal
++$(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/types.hal
++$(GEN): $(LOCAL_PATH)/types.hal
++$(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
++$(GEN): PRIVATE_CUSTOM_TOOL = \
++    $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
++    -Ljava -randroid.hardware:hardware/interfaces \
++    android.hardware.bluetooth@1.0::IBluetooth
++
++$(GEN): $(LOCAL_PATH)/IBluetooth.hal
++	$(transform-generated-source)
++LOCAL_GENERATED_SOURCES += $(GEN)
++
++#
++# Build IBluetoothClientCallback.hal
++#
++GEN := $(intermediates)/android/hardware/bluetooth/1.0/IBluetoothClientCallback.java
++$(GEN): $(HIDL)
++$(GEN): PRIVATE_HIDL := $(HIDL)
++$(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/IBluetoothClientCallback.hal
++$(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/types.hal
++$(GEN): $(LOCAL_PATH)/types.hal
++$(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
++$(GEN): PRIVATE_CUSTOM_TOOL = \
++    $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
++    -Ljava -randroid.hardware:hardware/interfaces \
++    android.hardware.bluetooth@1.0::IBluetoothClientCallback
++
++$(GEN): $(LOCAL_PATH)/IBluetoothClientCallback.hal
++	$(transform-generated-source)
++LOCAL_GENERATED_SOURCES += $(GEN)
++include $(BUILD_JAVA_LIBRARY)
+diff --git a/bluetooth/1.0/IBluetooth.hal b/bluetooth/1.0/IBluetooth.hal
+new file mode 100644
+index 0000000..8872c89
+--- /dev/null
++++ b/bluetooth/1.0/IBluetooth.hal
+@@ -0,0 +1,31 @@
++/*
++ * Copyright (C) 2016 The Android Open Source Project
++ *
++ * Licensed under the Apache License, Version 2.0 (the "License");
++ * you may not use this file except in compliance with the License.
++ * You may obtain a copy of the License at
++ *
++ *      http://www.apache.org/licenses/LICENSE-2.0
++ *
++ * Unless required by applicable law or agreed to in writing, software
++ * distributed under the License is distributed on an "AS IS" BASIS,
++ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++ * See the License for the specific language governing permissions and
++ * limitations under the License.
++ */
++
++package android.hardware.bluetooth@1.0;
++
++import IBluetoothClientCallback;
++
++@hal_type(type="Bluetooth")
++interface IBluetooth {
++    /*
++     * Performs an Bluetooth write.
++     *
++     * This method may queue writes and return immediately. The only
++     * requirement is that the writes are executed in order.
++     */
++    write(bluetooth_hci_t command);
++
++};
+diff --git a/bluetooth/1.0/IBluetoothClientCallback.hal b/bluetooth/1.0/IBluetoothClientCallback.hal
+new file mode 100644
+index 0000000..e277981
+--- /dev/null
++++ b/bluetooth/1.0/IBluetoothClientCallback.hal
+@@ -0,0 +1,26 @@
++/*
++ * Copyright (C) 2016 The Android Open Source Project
++ *
++ * Licensed under the Apache License, Version 2.0 (the "License");
++ * you may not use this file except in compliance with the License.
++ * You may obtain a copy of the License at
++ *
++ *      http://www.apache.org/licenses/LICENSE-2.0
++ *
++ * Unless required by applicable law or agreed to in writing, software
++ * distributed under the License is distributed on an "AS IS" BASIS,
++ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++ * See the License for the specific language governing permissions and
++ * limitations under the License.
++ */
++
++package android.hardware.bluetooth@1.0;
++
++@hal_type(type="Bluetooth")
++interface IBluetoothClientCallback {
++    /*
++     * The callback passed in from the Bluetooth stack that the HAL
++     * can use to pass events back to the stack.
++     */
++    sendEvent(bluetooth_hci_t event);
++};
+diff --git a/bluetooth/1.0/types.hal b/bluetooth/1.0/types.hal
+new file mode 100644
+index 0000000..b3172c6
+--- /dev/null
++++ b/bluetooth/1.0/types.hal
+@@ -0,0 +1,21 @@
++/*
++ * Copyright (C) 2016 The Android Open Source Project
++ *
++ * Licensed under the Apache License, Version 2.0 (the "License");
++ * you may not use this file except in compliance with the License.
++ * You may obtain a copy of the License at
++ *
++ *      http://www.apache.org/licenses/LICENSE-2.0
++ *
++ * Unless required by applicable law or agreed to in writing, software
++ * distributed under the License is distributed on an "AS IS" BASIS,
++ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++ * See the License for the specific language governing permissions and
++ * limitations under the License.
++ */
++
++package android.hardware.bluetooth@1.0;
++
++struct bluetooth_hci_t {
++    vec<uint8_t> packet;
++};
