@@ -30,7 +30,9 @@ LOCAL_SHARED_LIBRARIES := \
   libhidl \
   libhwbinder \
   libutils \
+  libcutils \
   android.hardware.tests.foo@1.0 \
+  
 
 LOCAL_MULTILIB := both
 include $(BUILD_SHARED_LIBRARY)
