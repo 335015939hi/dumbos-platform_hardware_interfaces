@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8b6c9a82_f82af385",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-09-14T17:37:21Z",
+      "side": 1,
+      "message": "This implies static capabilities. Is it possible that there is a dynamic aspect - e.g. scan supported if X or Y etc.",
+      "range": {
+        "startLine": 125,
+        "startChar": 7,
+        "endLine": 125,
+        "endChar": 21
+      },
+      "revId": "0d68540a10863ec97476729d2456b115662d2fa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b6c9a82_18a10704",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-09-14T17:37:21Z",
+      "side": 1,
+      "message": "total, per program, per interface?",
+      "range": {
+        "startLine": 162,
+        "startChar": 13,
+        "endLine": 162,
+        "endChar": 23
+      },
+      "revId": "0d68540a10863ec97476729d2456b115662d2fa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b6c9a82_78528305",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-09-14T17:37:21Z",
+      "side": 1,
+      "message": "why? either nop, or get failure back.",
+      "range": {
+        "startLine": 173,
+        "startChar": 17,
+        "endLine": 173,
+        "endChar": 26
+      },
+      "revId": "0d68540a10863ec97476729d2456b115662d2fa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b6c9a82_f8af53ec",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-09-14T17:37:21Z",
+      "side": 1,
+      "message": "how many APFs can we install, 1 / interface?",
+      "range": {
+        "startLine": 175,
+        "startChar": 58,
+        "endLine": 175,
+        "endChar": 65
+      },
+      "revId": "0d68540a10863ec97476729d2456b115662d2fa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b6c9a82_78c5a383",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-09-14T17:37:21Z",
+      "side": 1,
+      "message": "assumes single caller?",
+      "range": {
+        "startLine": 293,
+        "startChar": 38,
+        "endLine": 293,
+        "endChar": 44
+      },
+      "revId": "0d68540a10863ec97476729d2456b115662d2fa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b6c9a82_787fe338",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-09-14T17:37:21Z",
+      "side": 1,
+      "message": "should this be per interface?",
+      "range": {
+        "startLine": 316,
+        "startChar": 9,
+        "endLine": 316,
+        "endChar": 28
+      },
+      "revId": "0d68540a10863ec97476729d2456b115662d2fa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b6c9a82_b8855b40",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-09-14T17:37:21Z",
+      "side": 1,
+      "message": "what\u0027s the connection between clear \u0026 poll? I.e. is there a use-case for a clear parameter to synchronize (poll \u0026 clear so that on next poll I get a fresh batch).",
+      "range": {
+        "startLine": 320,
+        "startChar": 9,
+        "endLine": 320,
+        "endChar": 27
+      },
+      "revId": "0d68540a10863ec97476729d2456b115662d2fa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b6c9a82_384bab12",
+        "filename": "wifi/1.0/IWifiChipEventCallback.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-09-14T17:37:21Z",
+      "side": 1,
+      "message": "What\u0027s the expected action from the caller - try again?\n\nNotice that not all stopXXX() has an onXxxxStopFailed() - e.g. link stats.",
+      "range": {
+        "startLine": 43,
+        "startChar": 9,
+        "endLine": 43,
+        "endChar": 36
+      },
+      "revId": "0d68540a10863ec97476729d2456b115662d2fa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b6c9a82_18d02719",
+        "filename": "wifi/1.0/IWifiChipEventCallback.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-09-14T17:37:21Z",
+      "side": 1,
+      "message": "interaction not clear (apologies if this simply reflects current behavior):\n\nmultiple bits in this can be set (they are orthogonal flags) - what happens if both are set? get both callbacks (some duplicate info)?",
+      "range": {
+        "startLine": 73,
+        "startChar": 17,
+        "endLine": 73,
+        "endChar": 40
+      },
+      "revId": "0d68540a10863ec97476729d2456b115662d2fa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b6c9a82_7804c3b8",
+        "filename": "wifi/1.0/IWifiChipEventCallback.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-09-14T17:37:21Z",
+      "side": 1,
+      "message": "not defined yet?",
+      "range": {
+        "startLine": 76,
+        "startChar": 54,
+        "endLine": 76,
+        "endChar": 62
+      },
+      "revId": "0d68540a10863ec97476729d2456b115662d2fa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
