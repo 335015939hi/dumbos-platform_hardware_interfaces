@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eb3b56ab_47df72f6",
+        "filename": "tests/pointer/1.0/IGraph.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-15T20:50:58Z",
+      "side": 1,
+      "message": "You don\u0027t want this.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 23
+      },
+      "revId": "80bc4f44109d62d82f4f1db5ddd2d17175028bc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb3b56ab_c71522aa",
+        "filename": "tests/pointer/1.0/IPointer.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-15T20:50:58Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 23
+      },
+      "revId": "80bc4f44109d62d82f4f1db5ddd2d17175028bc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
