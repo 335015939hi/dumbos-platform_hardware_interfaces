@@ -1,0 +1,42 @@
+package android.hardware.wifi@1.0;
+
+/**
+ * Callback Interface exposed by the wpa_supplicant service
+ * for each network (ISupplicantNetwork).
+ *
+ * Clients need to host an instance of this HIDL object and
+ * pass a reference of the object to wpa_supplicant via the
+ * corresponding |ISupplicantNetwork.registerCallback| method.
+ */
+interface ISupplicantNetworkCallback {
+  /** Various request types received for the network from |OnNetworkRequest|.*/
+  enum NetworkRequestType : uint32_t {
+    UNKNOWN = 0,
+    EAP_IDENTITY = 1,
+    EAP_PASSWORD = 2,
+    EAP_NEW_PASSWORD = 3,
+    EAP_PIN = 4,
+    EAP_OTP = 5,
+    EAP_PASSPHRASE = 6,
+    SIM = 7,
+    PSK_PASSPHRASE = 8,
+    EXT_CERT_CHECK = 9
+  };
+
+  /**
+   * Used to indicate a request on this particular network. The type of
+   * request is one of the |NETWORK_REQ_| values above and depending on
+   * the request type may include additional params.
+   *
+   * The response for the request must be sent using the corresponding
+   * |ISupplicantNetwork.SendNetworkResponse| call.
+   *
+   *@param type Type of request. This will be one of the |NETWORK_REQ_|*
+   *        values above.
+   *@param param Additional param associated with the request.
+   *        For ex: NETWORK_REQ_SIM request type may contain either
+   *        "GSM-AUTH" or "UMTS-AUTH" param to indicate the need for
+   *        external GSM or 3G authentication.
+   */
+  oneway OnNetworkRequest(NetworkRequestType type, string param);
+};

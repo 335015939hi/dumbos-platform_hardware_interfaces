@@ -1,0 +1,118 @@
+package android.hardware.wifi@1.0;
+
+import ISupplicantIfaceCallback;
+import ISupplicantNetwork;
+
+/**
+ * Interface exposed by wpa_supplicant for each network interface it controls.
+ *
+ * All methods return an instance of |SupplicantCommandStatus status| to
+ * indicate the status of the operation.
+ */
+interface ISupplicantIface {
+  /**
+   * Constants used in this interface.
+   */
+  enum Constants : uint32_t {
+    /** Length of mac_address param in |InitiateTDLS|* functions. */
+    MAC_ADDRESS_LEN = 6
+  };
+
+  /**
+   * Retrieves the name of the network interface.
+   *
+   *@return Name of the network interface, e.g., wlan0
+   */
+  GetName() generates (SupplicantCommandStatus status, string name);
+
+  /**
+   * Add a new network to the interface.
+   *
+   *@return Binder object representing the new network if successful, null
+   *otherwise.
+   */
+  AddNetwork()
+      generates (SupplicantCommandStatus status, ISupplicantNetwork network);
+
+  /**
+   * Remove a network from the interface.
+   *
+   * Use |ISupplicantNetwork.GetId()| on the corresponding network HIDL object
+   * to retrieve the ID.
+   *
+   *@param id Network ID allocated to the corresponding network.
+   */
+  RemoveNetwork(uint32_t id) generates (SupplicantCommandStatus status);
+
+  /**
+   * Gets a HIDL object for the network corresponding to the network_id.
+   *
+   * Use |ISupplicantNetwork.GetId()| on the corresponding network HIDL object
+   * to retrieve the ID.
+   *
+   *@param id Network ID allocated to the corresponding network.
+   *
+   *@return Binder object representing the network if found, null otherwise.
+   */
+  GetNetwork(uint32_t id)
+      generates (SupplicantCommandStatus status, ISupplicantNetwork network);
+
+  /**
+   * Register for callbacks from this interface.
+   *
+   * These callbacks are invoked for events that are specific to this interface.
+   *
+   *@param callback Binder object reference to a |ISupplicantIfaceCallback|
+   *        instance.
+   */
+  RegisterCallback(ISupplicantIfaceCallback callback)
+      generates (SupplicantCommandStatus status);
+
+  /**
+   * Reconnect to the currently active network, even if we are already
+   * connected.
+   */
+  Reassociate() generates (SupplicantCommandStatus status);
+
+  /**
+   * Reconnect to the currently active network, if we are currently
+   * disconnected.
+   */
+  Reconnect() generates (SupplicantCommandStatus status);
+
+  /**
+   * Disconnect from the current active network.
+   */
+  Disconnect() generates (SupplicantCommandStatus status);
+
+  /**
+   * Turn on/off power save mode for the interface.
+   *
+   *@param enable Indicate if power save is to be turned on/off.
+   */
+  SetPowerSave(bool enable) generates (SupplicantCommandStatus status);
+
+  /**
+   * Initiate TDLS discover with the provided peer mac address.
+   *
+   *@param mac_address MAC address of the peer.
+   */
+  InitiateTDLSDiscover(vec<uint8_t> mac_address)
+      generates (SupplicantCommandStatus status);
+
+  /**
+   * Initiate TDLS setup with the provided peer mac address.
+   *
+   *@param mac_address MAC address of the peer.
+   */
+  InitiateTDLSSetup(vec<uint8_t> mac_address)
+      generates (SupplicantCommandStatus status);
+
+  /**
+   * Initiate TDLS teardown with the provided peer mac address.
+   *
+   *@param mac_address MAC address of the peer.
+   */
+  InitiateTDLSTeardown(vec<uint8_t> mac_address)
+      generates (SupplicantCommandStatus status);
+};
