@@ -23,3 +23,40 @@ struct FailureReason {
    */
   string description;
 };
+
+/**
+ * Enum values indicating the status of any supplicant operation.
+ */
+enum SupplicantCommandStatusCodes : uint32_t {
+  SUCCESS,
+  FAILURE_UNKNOWN,
+  FAILURE_ARGS_INVALID,
+  FAILURE_IFACE_INVALID,
+  FAILURE_IFACE_UNKOWN,
+  FAILURE_IFACE_EXISTS,
+  FAILURE_IFACE_DISABLED,
+  FAILURE_IFACE_NOT_DISCONNECTED,
+  FAILURE_NETWORK_INVALID,
+  FAILURE_NETWORK_UNKNOWN
+};
+
+/**
+ * Generic structure to return the status of any supplicant operation.
+ */
+struct SupplicantCommandStatus {
+  SupplicantCommandStatusCodes code;
+  /**
+   * A vendor specific error message to provide more information beyond the
+   * status code.
+   */
+  string description;
+};
+
+/** SSID type. */
+typedef vec<uint8_t> SSID_t;
+
+/** BSSID type. */
+typedef uint8_t[6] BSSID_t;
+
+/** MAC Address type */
+typedef BSSID_t MacAddr_t;
