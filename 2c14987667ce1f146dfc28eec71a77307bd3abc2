@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eb3b56ab_6729cea6",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-15T21:06:58Z",
+      "side": 1,
+      "message": "Looks like most of the methods have an async callback to indicate failure except this one. We might need some status returned here to indicate if the caller is holding onto a stale proxy.",
+      "range": {
+        "startLine": 105,
+        "startChar": 9,
+        "endLine": 105,
+        "endChar": 30
+      },
+      "revId": "2c14987667ce1f146dfc28eec71a77307bd3abc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
