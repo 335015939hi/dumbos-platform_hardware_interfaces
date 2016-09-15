@@ -1,0 +1,130 @@
+/*
+ * WPA Supplicant - binder interface for wpa_supplicant daemon
+ * Copyright (c) 2004-2016, Jouni Malinen <j@w1.fi>
+ * Copyright (c) 2004-2016, Roshan Pius <rpius@google.com>
+ *
+ * This software may be distributed under the terms of the BSD license.
+ * See README for more details.
+ */
+
+package android.hardware.wifi@1.0;
+
+import ISupplicantCallback;
+import ISupplicantIface;
+
+/**
+ * Interface exposed by the wpa_supplicant binder service registered
+ * with the service manager with name: wpa_supplicant.
+ *
+ * All methods return an instance of |SupplicantCommandStatus status| to
+ * indicate the
+ * status of the operation.
+ */
+interface ISupplicant {
+  /**
+   * Debug levels for wpa_supplicant.
+   * These correspond to levels defined in |wpa_debug.h|.
+   */
+  enum DebugLevel : uint32_t {
+    EXCESSIVE = 1,
+    MSGDUMP = 2,
+    DEBUG = 3,
+    INFO = 4,
+    WARNING = 5,
+    ERROR = 6
+  };
+
+  /**
+   * Structure to pass in for creating a new interface using
+   * |CreateInterface|.
+   */
+  struct IfaceParams {
+    // Name of the network interface to control, e.g., wlan0.
+    string ifname;
+    // BridgeIfname(String) Name of the bridge interface to control, e.g.,
+    // br0.
+    string bridge_ifname;
+    // Driver name which the interface uses, e.g., nl80211.
+    string driver;
+    // Configuration file path.
+    string config_file;
+  };
+
+  /**
+   * Registers a wireless interface in wpa_supplicant.
+   *
+   *@param params Instance of |IfaceParams| containing the
+   *       parameters of the interface.
+   *
+   *@return Binder object representing the interface if successful,
+   *        null otherwise.
+   */
+  CreateInterface(IfaceParams params)
+      generates (SupplicantCommandStatus status, ISupplicantIface iface);
+
+  /**
+   * Deregisters a wireless interface from wpa_supplicant.
+   *
+   *@param ifname Name of the network interface, e.g., wlan0
+   */
+  RemoveInterface(string ifname) generates (SupplicantCommandStatus status);
+
+  /**
+   * Gets a binder object for the interface corresponding to ifname
+   * which wpa_supplicant already controls.
+   *
+   *@param ifname Name of the network interface, e.g., wlan0
+   *
+   *@return Binder object representing the interface if found, null otherwise.
+   */
+  GetInterface(string ifname)
+      generates (SupplicantCommandStatus status, ISupplicantIface iface);
+
+  /**
+   * Set debug parameters for wpa_supplicant.
+   *
+   *@param level Debug logging level for wpa_supplicant.
+   *        (one of DEBUG_LEVEL_* values).
+   *@param timestamp Determines whether to show timestamps in logs or
+   *        not.
+   *@param show_keys Determines whether to show keys in debug logs or
+   *        not.
+   *        CAUTION: Do not set this param in production code!
+   */
+  SetDebugParams(DebugLevel level, bool show_timestamp, bool show_keys)
+      generates (SupplicantCommandStatus status);
+
+  /**
+   * Get the debug level set.
+   *
+   *@return one of DEBUG_LEVEL_* values.
+   */
+  GetDebugLevel() generates (SupplicantCommandStatus status, DebugLevel level);
+
+  /**
+   * Get whether the |show_timestamp| parameter has been set ot not.
+   *
+   *@return true if set, false otherwise.
+   */
+  GetDebugShowTimestamp()
+      generates (SupplicantCommandStatus status, bool show_timestamp);
+
+  /**
+   * Get whether the |show_keys| parameter has been set ot not.
+   *
+   *@return true if set, false otherwise.
+   */
+  GetDebugShowKeys() generates (SupplicantCommandStatus status, bool show_keys);
+
+  /**
+   * Register for callbacks from the wpa_supplicant service.
+   *
+   * These callbacks are invoked for global events that are not specific
+   * to any interface or network.
+   *
+   *@param callback Binder object reference to a |ISupplicantCallback|
+   *        instance.
+   */
+  RegisterCallback(ISupplicantCallback callback)
+      generates (SupplicantCommandStatus status);
+};
