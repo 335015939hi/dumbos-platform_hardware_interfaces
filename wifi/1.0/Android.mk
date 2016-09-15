@@ -103,6 +103,112 @@ $(GEN): $(LOCAL_PATH)/IWifiEventCallback.hal
 	$(transform-generated-source)
 LOCAL_GENERATED_SOURCES += $(GEN)
 
+#
+# Build ISupplicant.hal
+#
+GEN := $(intermediates)/android/hardware/wifi/1.0/SupplicantAll.cpp
+$(GEN): $(HIDL)
+$(GEN): PRIVATE_HIDL := $(HIDL)
+$(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/ISupplicant.hal
+$(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/ISupplicantCallback.hal
+$(GEN): $(LOCAL_PATH)/ISupplicantCallback.hal
+$(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/ISupplicantIface.hal
+$(GEN): $(LOCAL_PATH)/ISupplicantIface.hal
+$(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
+$(GEN): PRIVATE_CUSTOM_TOOL = \
+    $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
+    -Lc++ -randroid.hardware:hardware/interfaces \
+    android.hardware.wifi@1.0::ISupplicant
+$(GEN): $(LOCAL_PATH)/ISupplicant.hal
+	$(transform-generated-source)
+LOCAL_GENERATED_SOURCES += $(GEN)
+
+#
+# Build ISupplicantCallback.hal
+#
+GEN := $(intermediates)/android/hardware/wifi/1.0/SupplicantCallbackAll.cpp
+$(GEN): $(HIDL)
+$(GEN): PRIVATE_HIDL := $(HIDL)
+$(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/ISupplicantCallback.hal
+$(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
+$(GEN): PRIVATE_CUSTOM_TOOL = \
+    $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
+    -Lc++ -randroid.hardware:hardware/interfaces \
+    android.hardware.wifi@1.0::ISupplicantCallback
+$(GEN): $(LOCAL_PATH)/ISupplicantCallback.hal
+	$(transform-generated-source)
+LOCAL_GENERATED_SOURCES += $(GEN)
+
+#
+# Build ISupplicantIface.hal
+#
+GEN := $(intermediates)/android/hardware/wifi/1.0/SupplicantIfaceAll.cpp
+$(GEN): $(HIDL)
+$(GEN): PRIVATE_HIDL := $(HIDL)
+$(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/ISupplicantIface.hal
+$(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/ISupplicantIfaceCallback.hal
+$(GEN): $(LOCAL_PATH)/ISupplicantIfaceCallback.hal
+$(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/ISupplicantNetwork.hal
+$(GEN): $(LOCAL_PATH)/ISupplicantNetwork.hal
+$(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
+$(GEN): PRIVATE_CUSTOM_TOOL = \
+    $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
+    -Lc++ -randroid.hardware:hardware/interfaces \
+    android.hardware.wifi@1.0::ISupplicantIface
+$(GEN): $(LOCAL_PATH)/ISupplicantIface.hal
+	$(transform-generated-source)
+LOCAL_GENERATED_SOURCES += $(GEN)
+
+#
+# Build ISupplicantIfaceCallback.hal
+#
+GEN := $(intermediates)/android/hardware/wifi/1.0/SupplicantIfaceCallbackAll.cpp
+$(GEN): $(HIDL)
+$(GEN): PRIVATE_HIDL := $(HIDL)
+$(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/ISupplicantIface.hal
+$(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
+$(GEN): PRIVATE_CUSTOM_TOOL = \
+    $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
+    -Lc++ -randroid.hardware:hardware/interfaces \
+    android.hardware.wifi@1.0::ISupplicantIfaceCallback
+$(GEN): $(LOCAL_PATH)/ISupplicantIfaceCallback.hal
+	$(transform-generated-source)
+LOCAL_GENERATED_SOURCES += $(GEN)
+
+#
+# Build ISupplicantNetwork.hal
+#
+GEN := $(intermediates)/android/hardware/wifi/1.0/SupplicantNetworkAll.cpp
+$(GEN): $(HIDL)
+$(GEN): PRIVATE_HIDL := $(HIDL)
+$(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/ISupplicantNetwork.hal
+$(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/ISupplicantNetworkCallback.hal
+$(GEN): $(LOCAL_PATH)/ISupplicantNetworkCallback.hal
+$(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
+$(GEN): PRIVATE_CUSTOM_TOOL = \
+    $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
+    -Lc++ -randroid.hardware:hardware/interfaces \
+    android.hardware.wifi@1.0::ISupplicantNetwork
+$(GEN): $(LOCAL_PATH)/ISupplicantNetwork.hal
+	$(transform-generated-source)
+LOCAL_GENERATED_SOURCES += $(GEN)
+
+#
+# Build ISupplicantNetworkCallback.hal
+#
+GEN := $(intermediates)/android/hardware/wifi/1.0/SupplicantNetworkCallbackAll.cpp
+$(GEN): $(HIDL)
+$(GEN): PRIVATE_HIDL := $(HIDL)
+$(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/ISupplicantNetworkCallback.hal
+$(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
+$(GEN): PRIVATE_CUSTOM_TOOL = \
+    $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
+    -Lc++ -randroid.hardware:hardware/interfaces \
+    android.hardware.wifi@1.0::ISupplicantNetworkCallback
+$(GEN): $(LOCAL_PATH)/ISupplicantNetworkCallback.hal
+	$(transform-generated-source)
+LOCAL_GENERATED_SOURCES += $(GEN)
+
 LOCAL_EXPORT_C_INCLUDE_DIRS := $(intermediates)
 LOCAL_SHARED_LIBRARIES := \
   libhidl \
