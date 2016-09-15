@@ -45,6 +45,30 @@
       "revId": "8466956912703a3e4269eb5f2eaafbf49193fba6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb3b56ab_a262c43e",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-15T21:35:06Z",
+      "side": 1,
+      "message": "Hmm. Yeah. I wasn\u0027t sure either. But, I don\u0027t know if we can take this out fully either.",
+      "parentUuid": "eb3b56ab_22bb34c1",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 3
+      },
+      "revId": "8466956912703a3e4269eb5f2eaafbf49193fba6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
