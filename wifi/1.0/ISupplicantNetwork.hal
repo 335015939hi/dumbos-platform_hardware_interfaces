@@ -1,0 +1,430 @@
+/*
+ * Copyright 2016 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package android.hardware.wifi@1.0;
+
+import ISupplicantNetworkCallback;
+
+/**
+ * Interface exposed by wpa_supplicant for each network configuration it
+ * controls.
+ * A network is wpa_supplicant's way of representing the configuration
+ * parameters of a Wifi service set. Service sets are identified by their
+ * service set identitifier (SSID). The parameters for a network includes the
+ * credentials, bssid, etc.
+ *
+ * All methods return an instance of |SupplicantCommandStatus status| to
+ * indicate the status of the operation.
+ */
+interface ISupplicantNetwork {
+  /**
+   * Size limits for some of the params used in this interface.
+   */
+  enum ParamSizeLimits : uint32_t {
+    /** Max length of SSID param. */
+    SSID_MAX_LEN = 32,
+
+    /** Min length of PSK passphrase param. */
+    PSK_PASSPHRASE_MIN_LEN = 8,
+
+    /** Max length of PSK passphrase param. */
+    PSK_PASSPHRASE_MAX_LEN = 63,
+
+    /** Max number of WEP keys param. */
+    WEP_KEYS_MAX_NUM = 4,
+
+    /** Length of each WEP40 keys param. */
+    WEP40_KEY_LEN = 5,
+    /** Length of each WEP104 keys param. */
+    WEP104_KEY_LEN = 13,
+  };
+
+  /** Possble mask of values for KeyMgmt param. */
+  enum KeyMgmtMask : uint32_t {
+    WPA_EAP = 1 << 0,
+    WPA_PSK = 1 << 1,
+    NONE = 1 << 2,
+    IEEE8021X = 1 << 3
+  };
+
+  /** Possble mask of values for Proto param. */
+  enum ProtoMask : uint32_t {
+    WPA = 1 << 0,
+    RSN = 1 << 1,
+    OSEN = 1 << 3
+  };
+
+  /** Possble mask of values for AuthAlg param. */
+  enum AuthAlgMask : uint32_t {
+    OPEN = 1 << 0,
+    SHARED = 1 << 1,
+    LEAP = 1 << 2
+  };
+
+  /** Possble mask of values for GroupCipher param. */
+  enum GroupCipherMask : uint32_t {
+    WEP40 = 1 << 1,
+    WEP104 = 1 << 2,
+    TKIP = 1 << 3,
+    CCMP = 1 << 4
+  };
+
+  /** Possble mask of values for PairwiseCipher param. */
+  enum PairwiseCipherMask : uint32_t {
+    NONE = 1 << 0,
+    TKIP = 1 << 3,
+    CCMP = 1 << 4
+  };
+
+  /** Possble mask of values for EapMethod param. */
+  enum EapMethod : uint32_t {
+    PEAP = 0,
+    TLS = 1,
+    TTLS = 2,
+    PWD = 3,
+    SIM = 4,
+    AKA = 5,
+    AKA_PRIME = 6,
+    WFA_UNAUTH_TLS = 7
+  };
+
+  /** Possble mask of values for Phase2Method param. */
+  enum EapPhase2Method : uint32_t {
+    NONE = 0,
+    PAP = 1,
+    MSPAP = 2,
+    MSPAPV2 = 3,
+    GTC = 4
+  };
+
+  /** Params of |sendNetworkEapSimGsmAuthResponse| request. (RFC 4186) */
+  struct NetworkResponseEapSimGsmAuthParam {
+    uint8_t[8] kc;
+    uint8_t[4] sres;
+  };
+
+  /**
+   * Params of |sendNetworkEapSimUmtsAuthResponse| request. (RFC 4187)
+   */
+  struct NetworkResponseEapSimUmtsAuthParam {
+    vec<uint8_t> res;
+    uint8_t[16] ik;
+    uint8_t[16] ck;
+  };
+
+  /**
+   * Retrieves the ID allocated to this network by wpa_supplicant.
+   *
+   * This is not the |SSID| of the network, but an internal identifier for
+   * this network used by wpa_supplicant.
+   *
+   * @return network ID.
+   */
+  getId() generates (SupplicantCommandStatus status, SupplicantNetworkID id);
+
+  /**
+   * Retrieves the name of the interface this network belongs to.
+   *
+   * @return Name of the network interface, e.g., wlan0
+   */
+  getInterfaceName() generates (SupplicantCommandStatus status, string name);
+
+  /**
+   * Register for callbacks from this network.
+   *
+   * These callbacks are invoked for events that are specific to this network.
+   *
+   * @param callback Hidl object reference to a |ISupplicantNetworkCallback|
+   *        instance.
+   */
+  registerCallback(ISupplicantNetworkCallback callback)
+      generates (SupplicantCommandStatus status);
+
+  /**
+   * Setters for the various network params.
+   * These correspond to elements of |wpa_sssid| struct used internally by
+   * wpa_supplicant to represent each network.
+   * Sets |{struct wpa_ssid}.ssid|.
+   */
+  /** Set SSID for this network. Max length of |SSID_MAX_LEN|. */
+  setSSID(Ssid ssid) generates (SupplicantCommandStatus status);
+
+  /**
+   * Set the network to only connect to an AP with provided BSSSID.
+   * Sets |{struct wpa_ssid}.bssid|.
+   */
+  setBSSID(Bssid bssid) generates (SupplicantCommandStatus status);
+
+  /**
+   * Set whether to send Probe Requests for this network (hidden).
+   * Sets |{struct wpa_ssid}.scan_ssid|.
+   */
+  setScanSSID(bool enable) generates (SupplicantCommandStatus status);
+
+  /**
+   * Combination of |KeyMgmtMask| values above.
+   * Sets |{struct wpa_ssid}.key_mgmt|.
+   */
+  setKeyMgmt(uint32_t key_mgmt_mask) generates (SupplicantCommandStatus status);
+
+  /**
+   * Combination of |ProtoMask| values above.
+   * Sets |{struct wpa_ssid}.proto|.
+   */
+  setProto(uint32_t proto_mask) generates (SupplicantCommandStatus status);
+
+  /**
+   * Combination of |AuthAlgMask| values above.
+   * Sets |{struct wpa_ssid}.auth_alg|.
+   */
+  setAuthAlg(uint32_t auth_alg_mask) generates (SupplicantCommandStatus status);
+
+  /**
+   * Combination of |GroupCipherMask| values above.
+   * Sets |{struct wpa_ssid}.group_cipher|.
+   */
+  setGroupCipher(uint32_t group_cipher_mask)
+      generates (SupplicantCommandStatus status);
+
+  /**
+   * Combination of |PairwiseCipherMask| values above.
+   * Sets |{struct wpa_ssid}.pairwise_cipher|.
+   */
+  setPairwiseCipher(uint32_t pairwise_cipher_mask)
+      generates (SupplicantCommandStatus status);
+
+  /**
+   * Set passphrase for WPA_PSK network.
+   * Min length of value is |PSK_PASSPHRASE_MIN_LEN|.
+   * Max length of value is |PSK_PASSPHRASE_MAX_LEN|.
+   * Sets |{struct wpa_ssid}.passphrase|.
+   */
+  setPskPassphrase(string psk) generates (SupplicantCommandStatus status);
+
+  /**
+   * Set WEP key for WEP network.
+   * Length of each key should be either |WEP40_KEY_LEN| or
+   * |WEP104_KEY_LEN|.
+   * Sets |{struct wpa_ssid}.wep_key|.
+   *
+   * @param key_idx Index of wep key to be set.
+   *                Max of |WEP_KEYS_MAX_NUM| keys.
+   */
+  setWepKey(uint32_t key_idx, vec<uint8_t> wep_key)
+      generates (SupplicantCommandStatus status);
+
+  /**
+   * Set default Tx key index for WEP network.
+   * Sets |{struct wpa_ssid}.wep_tx_key_idx|.
+   */
+  setWepTxKeyIdx(uint32_t wep_tx_key_idx)
+      generates (SupplicantCommandStatus status);
+
+  /**
+   * Set whether RequirePMF is enabled for this network.
+   * Sets |{struct wpa_ssid}.ieee80211w|.
+   */
+  setRequirePMF(bool enable) generates (SupplicantCommandStatus status);
+
+  /**
+   * Set EAP Method for this network.
+   * Must be one of |EapMethod| values.
+   * Sets |{struct eap_peer_config}.eap_methods|.
+   */
+  setEapMethod(EapMethod method)
+      generates (SupplicantCommandStatus status);
+
+  /**
+   * Set EAP Phase2 Method for this network.
+   * Must be one of |EapPhase2Method| values.
+   * Sets |{struct eap_peer_config}.phase2|.
+   */
+  setEapPhase2Method(EapPhase2Method method)
+      generates (SupplicantCommandStatus status);
+
+  /**
+   * Set EAP Identity for this network.
+   * Sets |{struct eap_peer_config}.identity|.
+   */
+  setEapIdentity(vec<uint8_t> identity)
+      generates (SupplicantCommandStatus status);
+
+  /**
+   * Set EAP Anonymous Identity for this network.
+   * Sets |{struct eap_peer_config}.anonymous_identity|.
+   */
+  setEapAnonymousIdentity(vec<uint8_t> identity)
+      generates (SupplicantCommandStatus status);
+
+  /**
+   * Set EAP Password for this network.
+   * Sets |{struct eap_peer_config}.password|.
+   */
+  setEapPassword(vec<uint8_t> password)
+      generates (SupplicantCommandStatus status);
+
+  /**
+   * Set EAP CA certificate file path for this network.
+   * Sets |{struct eap_peer_config}.ca_cert|.
+   */
+  setEapCACert(string path) generates (SupplicantCommandStatus status);
+
+  /**
+   * Set EAP CA certificate directory path for this network.
+   * Sets |{struct eap_peer_config}.ca_path|.
+   */
+  setEapCAPath(string path) generates (SupplicantCommandStatus status);
+
+  /**
+   * Set EAP Client certificate file path for this network.
+   * Sets |{struct eap_peer_config}.client_cert|.
+   */
+  setEapClientCert(string path) generates (SupplicantCommandStatus status);
+
+  /**
+   * Set EAP private key file path for this network.
+   * Sets |{struct eap_peer_config}.private_key|.
+   */
+  setEapPrivateKey(string path) generates (SupplicantCommandStatus status);
+
+  /**
+   * Set EAP subject match for this network.
+   * Sets |{struct eap_peer_config}.subject_match|.
+   */
+  setEapSubjectMatch(string match) generates (SupplicantCommandStatus status);
+
+  /**
+   * Set EAP Altsubject match for this network.
+   * Sets |{struct eap_peer_config}.altsubject_match|.
+   */
+  setEapAltSubjectMatch(string match)
+      generates (SupplicantCommandStatus status);
+
+  /**
+   * Enable EAP Open SSL Engine for this network.
+   * Sets |{struct eap_peer_config}.engine|.
+   */
+  setEapEngine(bool enable) generates (SupplicantCommandStatus status);
+
+  /**
+   * Set EAP Open SSL Engine ID for this network.
+   * Sets |{struct eap_peer_config}.engine_id|.
+   */
+  setEapEngineID(string id) generates (SupplicantCommandStatus status);
+
+  /**
+   * Set EAP Domain suffix match for this network.
+   * Sets |{struct eap_peer_config}.domain_suffix_match|.
+   */
+  setEapDomainSuffixMatch(string match)
+      generates (SupplicantCommandStatus status);
+
+  /**
+   * Getters for the various network params.
+   */
+  /** Get SSID for this network. */
+  getSSID() generates (SupplicantCommandStatus status, Ssid ssid);
+
+  /** Get the BSSID set for this network. */
+  getBSSID() generates (SupplicantCommandStatus status, Bssid bssid);
+
+  /** Get whether Probe Requests are being sent for this network (hidden). */
+  getScanSSID() generates (SupplicantCommandStatus status, bool enable);
+
+  /** Combination of |KeyMgmtMask| values above. */
+  getKeyMgmt()
+      generates (SupplicantCommandStatus status, uint32_t key_mgmt_mask);
+
+  /** Combination of |ProtoMask| values above. */
+  getProto() generates (SupplicantCommandStatus status, uint32_t proto_mask);
+
+  /** Combination of |AuthAlgMask| values above. */
+  getAuthAlg()
+      generates (SupplicantCommandStatus status, uint32_t auth_alg_mask);
+
+  /** Combination of |GroupCipherMask| values above. */
+  getGroupCipher()
+      generates (SupplicantCommandStatus status, uint32_t group_cipher_mask);
+
+  /** Combination of |PairwiseCipherMask| values above. */
+  getPairwiseCipher()
+      generates (SupplicantCommandStatus status, uint32_t pairwise_cipher_mask);
+
+  /** Get passphrase for WPA_PSK network. */
+  getPskPassphrase() generates (SupplicantCommandStatus status, string psk);
+
+  /**
+   * Get WEP key for WEP network.
+   *
+   * @param key_idx Index of wep key to be fetched.
+   *                Max of |WEP_KEYS_MAX_NUM| keys.
+   */
+  getWepKey(uint32_t key_idx)
+      generates (SupplicantCommandStatus status, vec<uint8_t> wep_key);
+
+  /** Get default Tx key index for WEP network. */
+  getWepTxKeyIdx()
+      generates (SupplicantCommandStatus status, uint32_t wep_tx_key_idx);
+
+  /** Get whether RequirePMF is enabled for this network. */
+  getRequirePMF() generates (SupplicantCommandStatus status, bool enable);
+
+  /**
+   * Enable the network for connection purposes.
+   *
+   * This may trigger a connection to the network.
+   *
+   * @param no_connect Only enable the network, dont trigger a connect.
+   */
+  enable(bool no_connect) generates (SupplicantCommandStatus status);
+
+  /**
+   * Disable the network for connection purposes.
+   *
+   * This may trigger a disconnection from the network, if currently
+   * connected to this network.
+   */
+  disable() generates (SupplicantCommandStatus status);
+
+  /**
+   * Initiate connection to this network.
+   */
+  select() generates (SupplicantCommandStatus status);
+
+  /**
+   * Used to send a response to the |onNetworkEapSimGsmAuthRequest| request.
+   *
+   * @param param Params associated with the response.
+   */
+  sendNetworkEapSimGsmAuthResponse(NetworkResponseEapSimGsmAuthParam param)
+      generates (SupplicantCommandStatus status);
+
+  /**
+   * Used to send a response to the |onNetworkEapSimUmtsAuthRequest| request.
+   *
+   * @param param Params associated with the response.
+   */
+  sendNetworkEapSimUmtsAuthResponse(NetworkResponseEapSimUmtsAuthParam param)
+      generates (SupplicantCommandStatus status);
+
+  /**
+   * Used to send a response to the |onNetworkEapSimUmtsAuthRequest| request.
+   *
+   * @param param Params associated with the response.
+   */
+  sendNetworkEapIdentityResponse(vec<uint8_t> identity)
+      generates (SupplicantCommandStatus status);
+};
