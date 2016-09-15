@@ -1,0 +1,135 @@
+/*
+ * Copyright 2016 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package android.hardware.wifi@1.0;
+
+import ISupplicantCallback;
+import ISupplicantIface;
+
+/**
+ * Interface exposed by the wpa_supplicant HIDL service registered
+ * with the service manager using name: "wpa_supplicant".
+ * This is the root level object for any wpa_supplicant interactions.
+ *
+ * All methods return an instance of |SupplicantCommandStatus status| to
+ * indicate the status of the operation.
+ */
+interface ISupplicant {
+  /**
+   * Debug levels for wpa_supplicant.
+   * These correspond to levels defined in |wpa_debug.h|.
+   */
+  enum DebugLevel : uint32_t {
+    EXCESSIVE = 0,
+    MSGDUMP = 1,
+    DEBUG = 2,
+    INFO = 3,
+    WARNING = 4,
+    ERROR = 5
+  };
+
+  /**
+   * Structure to pass in for creating a new interface using |CreateInterface|.
+   */
+  struct IfaceParams {
+    /** Name of the network interface to control, e.g., wlan0. */
+    string ifname;
+    /** Name of the bridge interface to control, e.g., br0. */
+    string bridgeIfname;
+    /** Driver name which the interface uses, e.g., nl80211. */
+    string driver;
+    /** Configuration file path, e.g., /data/misc/wifi/wpa_supplicant.conf. */
+    string configFile;
+  };
+
+  /**
+   * Registers a wireless interface in wpa_supplicant.
+   *
+   * @param params Instance of |IfaceParams| containing the
+   *        parameters of the interface.
+   *
+   * @return Hidl object representing the interface if successful,
+   *         null otherwise.
+   */
+  createInterface(IfaceParams params)
+      generates (SupplicantCommandStatus status, ISupplicantIface iface);
+
+  /**
+   * Deregisters a wireless interface from wpa_supplicant.
+   *
+   * @param ifname Name of the network interface, e.g., wlan0
+   */
+  removeInterface(string ifname) generates (SupplicantCommandStatus status);
+
+  /**
+   * Gets a HIDL object for the interface corresponding to ifname
+   * which wpa_supplicant already controls.
+   *
+   * @param ifname Name of the network interface, e.g., wlan0
+   *
+   * @return Hidl object representing the interface if found, null otherwise.
+   */
+  getInterface(string ifname)
+      generates (SupplicantCommandStatus status, ISupplicantIface iface);
+
+  /**
+   * Set debug parameters for wpa_supplicant.
+   *
+   * @param level Debug logging level for wpa_supplicant.
+   *        (one of |DebugLevel| values).
+   * @param timestamp Determines whether to show timestamps in logs or
+   *        not.
+   * @param show_keys Determines whether to show keys in debug logs or
+   *        not.
+   *        CAUTION: Do not set this param in production code!
+   */
+  setDebugParams(DebugLevel level, bool show_timestamp, bool show_keys)
+      generates (SupplicantCommandStatus status);
+
+  /**
+   * Get the debug level set.
+   *
+   * @return one of DEBUG_LEVEL_* values.
+   */
+  getDebugLevel() generates (SupplicantCommandStatus status, DebugLevel level);
+
+  /**
+   * Get whether the |show_timestamp| parameter has been set ot not.
+   *
+   * @return true if set, false otherwise.
+   */
+  getDebugShowTimestamp()
+      generates (SupplicantCommandStatus status, bool show_timestamp);
+
+  /**
+   * Get whether the |show_keys| parameter has been set ot not.
+   *
+   * @return true if set, false otherwise.
+   */
+  getDebugShowKeys() generates (SupplicantCommandStatus status, bool show_keys);
+
+  /**
+   * Register for callbacks from the wpa_supplicant service.
+   *
+   * These callbacks are invoked for global events that are not specific
+   * to any interface or network.
+   *
+   * @param callback Hidl object reference to a |ISupplicantCallback|
+   *        instance.
+   */
+  registerCallback(ISupplicantCallback callback)
+      generates (SupplicantCommandStatus status);
+};

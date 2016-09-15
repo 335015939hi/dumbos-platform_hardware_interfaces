@@ -1,0 +1,58 @@
+/*
+ * Copyright 2016 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package android.hardware.wifi@1.0;
+
+/**
+ * Callback Interface exposed by the wpa_supplicant service
+ * for each network (ISupplicantNetwork).
+ *
+ * Clients need to host an instance of this HIDL object and
+ * pass a reference of the object to wpa_supplicant via the
+ * corresponding |ISupplicantNetwork.registerCallback| method.
+ */
+interface ISupplicantNetworkCallback {
+  /** Various request types received for the network from |OnNetworkRequest|.*/
+  enum NetworkRequestType : uint32_t {
+    UNKNOWN = 0,
+    EAP_IDENTITY = 1,
+    EAP_PASSWORD = 2,
+    EAP_NEW_PASSWORD = 3,
+    EAP_PIN = 4,
+    EAP_OTP_REQ = 5,
+    EAP_PASSPHRASE = 6,
+    SIM = 7,
+    PSK_PASSPHRASE = 8,
+    EXT_CERT_CHECK = 9
+  };
+
+  /**
+   * Used to indicate a request on this particular network. The type of
+   * request is one of the |NETWORK_REQ_| values above and depending on
+   * the request type may include additional params.
+   *
+   * The response for the request must be sent using the corresponding
+   * |ISupplicantNetwork.SendNetworkResponse| call.
+   *
+   * @param type Type of request. This will be one of the |NETWORK_REQ_|*
+   *        values above.
+   * @param param Additional param associated with the request.
+   *        For ex: NETWORK_REQ_SIM request type may contain either
+   *        "GSM-AUTH" or "UMTS-AUTH" param to indicate the need for
+   *        external GSM or 3G authentication.
+   */
+  oneway onNetworkRequest(NetworkRequestType type, string param);
+};
