@@ -23,3 +23,44 @@ struct FailureReason {
    */
   string description;
 };
+
+/**
+ * Enum values indicating the status of any supplicant operation.
+ */
+enum SupplicantCommandStatusCodes : uint32_t {
+  SUCCESS,
+  FAILURE_UNKNOWN,
+  FAILURE_ARGS_INVALID,
+  FAILURE_IFACE_INVALID,
+  FAILURE_IFACE_UNKOWN,
+  FAILURE_IFACE_EXISTS,
+  FAILURE_IFACE_DISABLED,
+  FAILURE_IFACE_NOT_DISCONNECTED,
+  FAILURE_NETWORK_INVALID,
+  FAILURE_NETWORK_UNKNOWN
+};
+
+/**
+ * Generic structure to return the status of any supplicant operation.
+ */
+struct SupplicantCommandStatus {
+  SupplicantCommandStatusCodes code;
+  /**
+   * A vendor specific error message to provide more information beyond the
+   * status code.
+   * This will be used for debbuging purposes only.
+   */
+  string debugMessage;
+};
+
+/** SSID type. Max of 32 octets representing service identifier of a network. */
+typedef vec<uint8_t> Ssid;
+
+/** MAC Address type. 6 octets representing physical address of a device. */
+typedef uint8_t[6] MacAddress;
+
+/** BSSID type. 6 octets representing the physical address of an AP. */
+typedef MacAddress Bssid;
+
+/** Supplicant network ID type. */
+typedef uint32_t SupplicantNetworkID;
