@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "eb3b56ab_20e3279b",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-16T04:25:19Z",
+      "side": 1,
+      "message": "What is the char limit for hidl files? 80 or 100? \nThis line doesn\u0027t fit in 80.",
+      "parentUuid": "eb3b56ab_6a542e51",
+      "revId": "b69f669abeb2efd9b037b7abe95532392803b69b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb3b56ab_ea673e4d",
         "filename": "wifi/1.0/ISupplicant.hal",
         "patchSetId": 4
@@ -30,6 +48,24 @@
       "writtenOn": "2016-09-16T00:39:08Z",
       "side": 1,
       "message": "Does this actually need to wrap?",
+      "revId": "b69f669abeb2efd9b037b7abe95532392803b69b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb3b56ab_40f83343",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-16T04:25:19Z",
+      "side": 1,
+      "message": "This line doesn\u0027t fit in 80.",
+      "parentUuid": "eb3b56ab_ea673e4d",
       "revId": "b69f669abeb2efd9b037b7abe95532392803b69b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -70,6 +106,30 @@
       "writtenOn": "2016-09-16T00:39:08Z",
       "side": 1,
       "message": "Missing newline. And some other places like above",
+      "range": {
+        "startLine": 218,
+        "startChar": 4,
+        "endLine": 218,
+        "endChar": 5
+      },
+      "revId": "b69f669abeb2efd9b037b7abe95532392803b69b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb3b56ab_60f52f48",
+        "filename": "wifi/1.0/ISupplicantNetwork.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-16T04:25:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb3b56ab_cabc428d",
       "range": {
         "startLine": 218,
         "startChar": 4,
