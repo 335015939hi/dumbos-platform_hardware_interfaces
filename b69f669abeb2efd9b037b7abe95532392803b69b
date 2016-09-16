@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eb3b56ab_6a542e51",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1079753
+      },
+      "writtenOn": "2016-09-16T00:39:08Z",
+      "side": 1,
+      "message": "does this need to wrap?",
+      "revId": "b69f669abeb2efd9b037b7abe95532392803b69b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb3b56ab_ea673e4d",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1079753
+      },
+      "writtenOn": "2016-09-16T00:39:08Z",
+      "side": 1,
+      "message": "Does this actually need to wrap?",
+      "revId": "b69f669abeb2efd9b037b7abe95532392803b69b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb3b56ab_eac1fef7",
+        "filename": "wifi/1.0/ISupplicantNetwork.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1079753
+      },
+      "writtenOn": "2016-09-16T00:39:08Z",
+      "side": 1,
+      "message": "There should be a space here I think. And other places in this CL.",
+      "range": {
+        "startLine": 202,
+        "startChar": 3,
+        "endLine": 202,
+        "endChar": 5
+      },
+      "revId": "b69f669abeb2efd9b037b7abe95532392803b69b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb3b56ab_cabc428d",
+        "filename": "wifi/1.0/ISupplicantNetwork.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1079753
+      },
+      "writtenOn": "2016-09-16T00:39:08Z",
+      "side": 1,
+      "message": "Missing newline. And some other places like above",
+      "range": {
+        "startLine": 218,
+        "startChar": 4,
+        "endLine": 218,
+        "endChar": 5
+      },
+      "revId": "b69f669abeb2efd9b037b7abe95532392803b69b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
