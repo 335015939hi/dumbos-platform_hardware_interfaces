@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eb3b56ab_603b6f27",
+        "filename": "wifi/1.0/IWifiEventCallback.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1081395
+      },
+      "writtenOn": "2016-09-16T04:06:47Z",
+      "side": 1,
+      "message": "It might be worth documenting what is expected after this callback.  Will any cleanup be needed?   Would start be called next and have a \"full state reset\" like onFailure?",
+      "range": {
+        "startLine": 4,
+        "startChar": 9,
+        "endLine": 4,
+        "endChar": 23
+      },
+      "revId": "b6064b831adbeaf7384397369d8b4b23bbb1fa21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
