@@ -95,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "eb3b56ab_e093df03",
+        "filename": "wifi/1.0/ISupplicantNetwork.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-16T04:26:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb3b56ab_eac1fef7",
+      "range": {
+        "startLine": 202,
+        "startChar": 3,
+        "endLine": 202,
+        "endChar": 5
+      },
+      "revId": "b69f669abeb2efd9b037b7abe95532392803b69b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb3b56ab_cabc428d",
         "filename": "wifi/1.0/ISupplicantNetwork.hal",
         "patchSetId": 4
