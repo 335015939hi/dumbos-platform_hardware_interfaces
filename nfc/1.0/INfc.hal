@@ -18,7 +18,6 @@ package android.hardware.nfc@1.0;
 
 import INfcClientCallback;
 
-@hal_type(type="NFC")
 interface INfc {
     /*
      * Opens the NFC controller device and performs initialization.
@@ -87,4 +86,12 @@ interface INfc {
      * HAL_OPEN_CPLT_EVT will notify when operation is complete.
      */
     power_cycle() generates (int32_t retval);
+
+    superSuperSuperSuperSuperSuperSuperLongMethodThatYouWillHateToTypeOnAnyKindOfEditor(
+            int32_t theFirstVeryLongParameter,
+            int32_t anotherVeryLongParameter
+        ) generates (
+            int32_t theFirstReturnValue,
+            int32_t anotherReturnValue
+        );
 };
