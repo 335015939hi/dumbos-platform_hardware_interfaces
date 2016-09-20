@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "70d83709_22120e10",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1079753
+      },
+      "writtenOn": "2016-09-20T23:07:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70d83709_c2cb0246",
+      "range": {
+        "startLine": 125,
+        "startChar": 9,
+        "endLine": 125,
+        "endChar": 21
+      },
+      "revId": "98bd7ac1be1b6fc9be8f133c904f753fd7bf95f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70d83709_2e699eee",
         "filename": "wifi/1.0/IWifiChipEventCallback.hal",
         "patchSetId": 13
@@ -261,6 +285,30 @@
     },
     {
       "key": {
+        "uuid": "70d83709_a558485a",
+        "filename": "wifi/1.0/IWifiChipEventCallback.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1079753
+      },
+      "writtenOn": "2016-09-20T23:07:09Z",
+      "side": 1,
+      "message": "Done. Comment already exists on next PS",
+      "parentUuid": "70d83709_3f946941",
+      "range": {
+        "startLine": 20,
+        "startChar": 4,
+        "endLine": 21,
+        "endChar": 27
+      },
+      "revId": "98bd7ac1be1b6fc9be8f133c904f753fd7bf95f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70d83709_c21542ab",
         "filename": "wifi/1.0/types.hal",
         "patchSetId": 13
@@ -272,6 +320,30 @@
       "writtenOn": "2016-09-20T22:25:33Z",
       "side": 1,
       "message": "Should be:\n\n\"CommandFailureReason : uint32_t\"",
+      "range": {
+        "startLine": 3,
+        "startChar": 25,
+        "endLine": 3,
+        "endChar": 27
+      },
+      "revId": "98bd7ac1be1b6fc9be8f133c904f753fd7bf95f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d83709_65626011",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1079753
+      },
+      "writtenOn": "2016-09-20T23:07:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70d83709_c21542ab",
       "range": {
         "startLine": 3,
         "startChar": 25,
