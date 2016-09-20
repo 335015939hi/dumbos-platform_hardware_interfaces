@@ -96,6 +96,53 @@
     },
     {
       "key": {
+        "uuid": "70d83709_e2aac671",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-20T22:25:33Z",
+      "side": 1,
+      "message": "Alright, that makes sense.",
+      "parentUuid": "70d83709_4e2742c0",
+      "range": {
+        "startLine": 115,
+        "startChar": 23,
+        "endLine": 115,
+        "endChar": 38
+      },
+      "revId": "98bd7ac1be1b6fc9be8f133c904f753fd7bf95f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d83709_c2cb0246",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-20T22:25:33Z",
+      "side": 1,
+      "message": "Likewise, this would become \u0027pollChipDebugInfo\u0027",
+      "range": {
+        "startLine": 125,
+        "startChar": 9,
+        "endLine": 125,
+        "endChar": 21
+      },
+      "revId": "98bd7ac1be1b6fc9be8f133c904f753fd7bf95f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70d83709_2e699eee",
         "filename": "wifi/1.0/IWifiChipEventCallback.hal",
         "patchSetId": 13
@@ -182,6 +229,53 @@
         "startLine": 20,
         "startChar": 4,
         "endLine": 21,
+        "endChar": 27
+      },
+      "revId": "98bd7ac1be1b6fc9be8f133c904f753fd7bf95f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d83709_3f946941",
+        "filename": "wifi/1.0/IWifiChipEventCallback.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-20T22:25:33Z",
+      "side": 1,
+      "message": "There should be a comment which explains this.\n\nWe want to avoid having client code do things conditionally based on something like this. That would defeat the whole purpose of the interface.\n\nWould it be okay to rename ChipInfo to ChipDebugInfo? Then rename driverVersion and firmwareVersion to driverDescription and firmwareDescription, or even better yet, combine the strings into a single string. i.e. onChipInfoAvailable(ChipInfo info) becomes onDebugDescriptionAvailable(string debugDescription)",
+      "parentUuid": "70d83709_6e880679",
+      "range": {
+        "startLine": 20,
+        "startChar": 4,
+        "endLine": 21,
+        "endChar": 27
+      },
+      "revId": "98bd7ac1be1b6fc9be8f133c904f753fd7bf95f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d83709_c21542ab",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-20T22:25:33Z",
+      "side": 1,
+      "message": "Should be:\n\n\"CommandFailureReason : uint32_t\"",
+      "range": {
+        "startLine": 3,
+        "startChar": 25,
+        "endLine": 3,
         "endChar": 27
       },
       "revId": "98bd7ac1be1b6fc9be8f133c904f753fd7bf95f8",
