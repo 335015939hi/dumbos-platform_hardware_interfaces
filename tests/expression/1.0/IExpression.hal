@@ -144,4 +144,12 @@ interface IExpression {
     logand4 = (0 && 1) == 0,
   };
 
+  enum Color : int8_t {
+    RED, // 0
+    GREEN, // 1
+    BLUE = 5,
+    CYAN, // 6
+    ORANGE, // 7
+  };
+
 };
