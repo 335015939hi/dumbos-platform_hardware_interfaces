@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "70d83709_4eaae2df",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1058798
+      },
+      "writtenOn": "2016-09-20T19:11:15Z",
+      "side": 1,
+      "message": "License?",
+      "revId": "4fdc07ca388482d26679d10104b19a070799b25c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70d83709_3daa3adf",
         "filename": "wifi/1.0/ISupplicant.hal",
         "patchSetId": 5
