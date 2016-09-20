@@ -144,4 +144,31 @@ interface IExpression {
     logand4 = (0 && 1) == 0,
   };
 
+  enum Color : int8_t {
+    RED, // 0
+    GREEN, // 1
+    BLUE = 5,
+    CYAN, // 6
+    ORANGE, // 7
+    GRAY = 127,
+    BLACK // -128
+  };
+
+  enum Number : uint8_t {
+    MAX = 255,
+    MAX_PLUS_1, // 0
+    MAX_PLUS_2 // 1
+  };
+
+  enum Constants {
+    CONST_FOO,
+    MAX_ARRAY_SIZE = 20,
+    MAX_ARRAY_SIZE2,
+    MAX_ARRAY_SIZE3 = MAX_ARRAY_SIZE + MAX_ARRAY_SIZE,
+  };
+
+  @entry(key=Constants.CONST_FOO + 1)
+  foo1(int32_t[Constants.CONST_FOO + 1] array);
+  foo2(int32_t[5 + 8] array);
+  foo3(int32_t[Constants.MAX_ARRAY_SIZE] array);
 };
