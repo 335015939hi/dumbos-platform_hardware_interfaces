@@ -1,0 +1,418 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "70d83709_3daa3adf",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-20T17:24:50Z",
+      "side": 1,
+      "message": "Don\u0027t Repeat Yourself. This makes it easy for ABI breaking changes to be made in wpa_debug.h without changing the interface here. Instead, make wpa_debug depend on this package.",
+      "range": {
+        "startLine": 17,
+        "startChar": 43,
+        "endLine": 17,
+        "endChar": 56
+      },
+      "revId": "4fdc07ca388482d26679d10104b19a070799b25c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d83709_7df20201",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-20T17:24:50Z",
+      "side": 1,
+      "message": "Should be camel case.\n\nCheckout go/android-lego-style-guide (WIP).",
+      "range": {
+        "startLine": 37,
+        "startChar": 11,
+        "endLine": 37,
+        "endChar": 24
+      },
+      "revId": "4fdc07ca388482d26679d10104b19a070799b25c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d83709_fde59235",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-20T17:24:50Z",
+      "side": 1,
+      "message": "camelCase\n\n(etc.. down the file)",
+      "range": {
+        "startLine": 53,
+        "startChar": 2,
+        "endLine": 53,
+        "endChar": 3
+      },
+      "revId": "4fdc07ca388482d26679d10104b19a070799b25c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d83709_1de3b631",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-20T17:24:50Z",
+      "side": 1,
+      "message": "Not called this anymore.",
+      "range": {
+        "startLine": 91,
+        "startChar": 20,
+        "endLine": 91,
+        "endChar": 33
+      },
+      "revId": "4fdc07ca388482d26679d10104b19a070799b25c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d83709_30e901aa",
+        "filename": "wifi/1.0/ISupplicantIface.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-20T17:24:50Z",
+      "side": 1,
+      "message": "Interface of Supplicant Interface?\n\nHelp me understand.",
+      "range": {
+        "startLine": 12,
+        "startChar": 10,
+        "endLine": 12,
+        "endChar": 26
+      },
+      "revId": "4fdc07ca388482d26679d10104b19a070799b25c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d83709_1dcc16b2",
+        "filename": "wifi/1.0/ISupplicantIface.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-20T17:24:50Z",
+      "side": 1,
+      "message": "Is there any reason why someone would use the id other when they are given an ISupplicantNetwork object? (as in, are you passing a uint32_t just because of the size of an ISupplicantNetwork implementation or because of someone might seriously need to pass in, say 0u)?",
+      "range": {
+        "startLine": 45,
+        "startChar": 16,
+        "endLine": 45,
+        "endChar": 27
+      },
+      "revId": "4fdc07ca388482d26679d10104b19a070799b25c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d83709_9d51e6d7",
+        "filename": "wifi/1.0/ISupplicantIface.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-20T17:24:50Z",
+      "side": 1,
+      "message": "This is not true.\n\nIt\u0027s returning something which implements the interface. The transport could be passthrough (on legacy devices), sockets (in the future, in the remote case), or some potentially other future mechanism.",
+      "range": {
+        "startLine": 55,
+        "startChar": 13,
+        "endLine": 55,
+        "endChar": 26
+      },
+      "revId": "4fdc07ca388482d26679d10104b19a070799b25c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d83709_7d476206",
+        "filename": "wifi/1.0/ISupplicantIface.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-20T17:24:50Z",
+      "side": 1,
+      "message": "From my understanding, mac addresses are 6 bytes. Are two of these bytes required (and enforced) to be a certain value? are they ignored? Are they parity bits? Are the lower or the upper six bytes relevant? Document. :)\n\nMight be best to:\ntypedef MacAddress uint8_t; and comment the requirements there.",
+      "range": {
+        "startLine": 100,
+        "startChar": 27,
+        "endLine": 100,
+        "endChar": 34
+      },
+      "revId": "4fdc07ca388482d26679d10104b19a070799b25c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d83709_7dd1a21d",
+        "filename": "wifi/1.0/ISupplicantIfaceCallback.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-20T17:24:50Z",
+      "side": 1,
+      "message": "These are already scoped within a State enum.\n\nThe implementation guarantees that these won\u0027t be leaked into the enclosing namespace (must be referred to as State.X).\n\nAlso, this may be pedantic, but is it required to have the name of the variable duplicated in the comment?",
+      "range": {
+        "startLine": 23,
+        "startChar": 6,
+        "endLine": 23,
+        "endChar": 12
+      },
+      "revId": "4fdc07ca388482d26679d10104b19a070799b25c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d83709_5dc93e6b",
+        "filename": "wifi/1.0/ISupplicantIfaceCallback.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-20T17:24:50Z",
+      "side": 1,
+      "message": "Same as mac address.\n\nA typedef Bssid vec\u003cuint8_t\u003e; with comments somewhere would be most clear.\n\nAlso, are bssid\u0027s fixed size? If so, you should use uint8_t[42]. I can\u0027t seem to find the answer quickly online.",
+      "range": {
+        "startLine": 152,
+        "startChar": 28,
+        "endLine": 152,
+        "endChar": 35
+      },
+      "revId": "4fdc07ca388482d26679d10104b19a070799b25c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d83709_10b71dd4",
+        "filename": "wifi/1.0/ISupplicantIfaceCallback.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-20T17:24:50Z",
+      "side": 1,
+      "message": "why not a vec of bytes?\n\nalso potentially same thing with the typedef.",
+      "range": {
+        "startLine": 154,
+        "startChar": 28,
+        "endLine": 154,
+        "endChar": 36
+      },
+      "revId": "4fdc07ca388482d26679d10104b19a070799b25c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d83709_b02df103",
+        "filename": "wifi/1.0/ISupplicantNetwork.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-20T17:24:50Z",
+      "side": 1,
+      "message": "Maybe a better name would be \u0027FieldSizes\u0027 (or something similar)\n\nAlso, perhaps since some of these, like \u0027SSID_MAX_LEN\u0027 would make sense to be used in other interfaces which use ssids, you should move this enumeration to a types.hal file.",
+      "range": {
+        "startLine": 20,
+        "startChar": 7,
+        "endLine": 20,
+        "endChar": 16
+      },
+      "revId": "4fdc07ca388482d26679d10104b19a070799b25c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d83709_301a61d9",
+        "filename": "wifi/1.0/ISupplicantNetwork.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-20T17:24:50Z",
+      "side": 1,
+      "message": "0x16? is this a typo?\n\nwould be cleaner to use:\n1 \u003c\u003c 0\n1 \u003c\u003c 1\n1 \u003c\u003c 2....\n\nfor these types of values.",
+      "range": {
+        "startLine": 61,
+        "startChar": 11,
+        "endLine": 61,
+        "endChar": 15
+      },
+      "revId": "4fdc07ca388482d26679d10104b19a070799b25c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d83709_50712506",
+        "filename": "wifi/1.0/ISupplicantNetworkCallback.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-20T17:24:50Z",
+      "side": 1,
+      "message": "NETWORK_REQ_*\n\nbut, also update this to be \u0027NetworkRequestType\u0027",
+      "range": {
+        "startLine": 28,
+        "startChar": 28,
+        "endLine": 28,
+        "endChar": 40
+      },
+      "revId": "4fdc07ca388482d26679d10104b19a070799b25c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d83709_d05c3579",
+        "filename": "wifi/1.0/ISupplicantNetworkCallback.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-20T17:24:50Z",
+      "side": 1,
+      "message": "These need to be documented. It also needs to be documented which types of requests support which params.",
+      "range": {
+        "startLine": 29,
+        "startChar": 21,
+        "endLine": 29,
+        "endChar": 51
+      },
+      "revId": "4fdc07ca388482d26679d10104b19a070799b25c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d83709_d0351531",
+        "filename": "wifi/1.0/ISupplicantNetworkCallback.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-20T17:24:50Z",
+      "side": 1,
+      "message": "Are there a finite number of these?\n\nWould make sense to bake into the interface what possibilities there are (i.e. enum).",
+      "range": {
+        "startLine": 41,
+        "startChar": 51,
+        "endLine": 41,
+        "endChar": 63
+      },
+      "revId": "4fdc07ca388482d26679d10104b19a070799b25c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d83709_10cddd26",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-20T17:24:50Z",
+      "side": 1,
+      "message": ":)",
+      "range": {
+        "startLine": 30,
+        "startChar": 5,
+        "endLine": 30,
+        "endChar": 33
+      },
+      "revId": "4fdc07ca388482d26679d10104b19a070799b25c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d83709_d0d675b8",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-20T17:24:50Z",
+      "side": 1,
+      "message": "Are these expected to be interpreted by software, or are they for displaying to the user?",
+      "range": {
+        "startLine": 48,
+        "startChar": 2,
+        "endLine": 51,
+        "endChar": 5
+      },
+      "revId": "4fdc07ca388482d26679d10104b19a070799b25c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
