@@ -22,6 +22,30 @@
       "revId": "9315411824543d6a57fe27cf605e7e0aa0727489",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d83709_653b40f9",
+        "filename": "wifi/1.0/IWifiChipEventCallback.hal",
+        "patchSetId": 14
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1079753
+      },
+      "writtenOn": "2016-09-20T23:07:09Z",
+      "side": 1,
+      "message": "This comment still exists.",
+      "parentUuid": "70d83709_02da6a03",
+      "range": {
+        "startLine": 25,
+        "startChar": 2,
+        "endLine": 30,
+        "endChar": 5
+      },
+      "revId": "9315411824543d6a57fe27cf605e7e0aa0727489",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
