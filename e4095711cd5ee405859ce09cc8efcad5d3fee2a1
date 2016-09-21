@@ -1,0 +1,395 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f074270d_3ffe7752",
+        "filename": "wifi/1.0/IWifi.hal",
+        "patchSetId": 22
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000866
+      },
+      "writtenOn": "2016-09-21T22:06:54Z",
+      "side": 1,
+      "message": "must or may.  must, if a WiFi HAL is required, may if a WiFi HAL is optional--whatever the CDD will say in O.",
+      "range": {
+        "startLine": 24,
+        "startChar": 53,
+        "endLine": 24,
+        "endChar": 59
+      },
+      "revId": "e4095711cd5ee405859ce09cc8efcad5d3fee2a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f074270d_3f503759",
+        "filename": "wifi/1.0/IWifi.hal",
+        "patchSetId": 22
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000866
+      },
+      "writtenOn": "2016-09-21T22:06:54Z",
+      "side": 1,
+      "message": "must--you\u0027re mandating an implementation detail",
+      "range": {
+        "startLine": 30,
+        "startChar": 57,
+        "endLine": 30,
+        "endChar": 61
+      },
+      "revId": "e4095711cd5ee405859ce09cc8efcad5d3fee2a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f074270d_7f4aafaa",
+        "filename": "wifi/1.0/IWifi.hal",
+        "patchSetId": 22
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000866
+      },
+      "writtenOn": "2016-09-21T22:06:54Z",
+      "side": 1,
+      "message": "must",
+      "range": {
+        "startLine": 30,
+        "startChar": 10,
+        "endLine": 30,
+        "endChar": 14
+      },
+      "revId": "e4095711cd5ee405859ce09cc8efcad5d3fee2a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f074270d_df06437b",
+        "filename": "wifi/1.0/IWifi.hal",
+        "patchSetId": 22
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000866
+      },
+      "writtenOn": "2016-09-21T22:06:54Z",
+      "side": 1,
+      "message": "must?",
+      "range": {
+        "startLine": 31,
+        "startChar": 45,
+        "endLine": 31,
+        "endChar": 51
+      },
+      "revId": "e4095711cd5ee405859ce09cc8efcad5d3fee2a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f074270d_1f629b41",
+        "filename": "wifi/1.0/IWifi.hal",
+        "patchSetId": 22
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000866
+      },
+      "writtenOn": "2016-09-21T22:06:54Z",
+      "side": 1,
+      "message": "must?",
+      "range": {
+        "startLine": 32,
+        "startChar": 32,
+        "endLine": 32,
+        "endChar": 38
+      },
+      "revId": "e4095711cd5ee405859ce09cc8efcad5d3fee2a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f074270d_9f3e8b15",
+        "filename": "wifi/1.0/IWifi.hal",
+        "patchSetId": 22
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000866
+      },
+      "writtenOn": "2016-09-21T22:06:54Z",
+      "side": 1,
+      "message": "must",
+      "range": {
+        "startLine": 45,
+        "startChar": 34,
+        "endLine": 45,
+        "endChar": 38
+      },
+      "revId": "e4095711cd5ee405859ce09cc8efcad5d3fee2a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f074270d_df38032a",
+        "filename": "wifi/1.0/IWifi.hal",
+        "patchSetId": 22
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000866
+      },
+      "writtenOn": "2016-09-21T22:06:54Z",
+      "side": 1,
+      "message": "must",
+      "range": {
+        "startLine": 47,
+        "startChar": 37,
+        "endLine": 47,
+        "endChar": 41
+      },
+      "revId": "e4095711cd5ee405859ce09cc8efcad5d3fee2a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f074270d_1fbc5b89",
+        "filename": "wifi/1.0/IWifi.hal",
+        "patchSetId": 22
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000866
+      },
+      "writtenOn": "2016-09-21T22:06:54Z",
+      "side": 1,
+      "message": "must",
+      "range": {
+        "startLine": 55,
+        "startChar": 23,
+        "endLine": 55,
+        "endChar": 27
+      },
+      "revId": "e4095711cd5ee405859ce09cc8efcad5d3fee2a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f074270d_3fc117f8",
+        "filename": "wifi/1.0/IWifi.hal",
+        "patchSetId": 22
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000866
+      },
+      "writtenOn": "2016-09-21T22:06:54Z",
+      "side": 1,
+      "message": "must",
+      "range": {
+        "startLine": 56,
+        "startChar": 26,
+        "endLine": 56,
+        "endChar": 30
+      },
+      "revId": "e4095711cd5ee405859ce09cc8efcad5d3fee2a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f074270d_5f6c1332",
+        "filename": "wifi/1.0/IWifi.hal",
+        "patchSetId": 22
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000866
+      },
+      "writtenOn": "2016-09-21T22:06:54Z",
+      "side": 1,
+      "message": "will--it is the framework that decides what to do, and here you\u0027re making a statement that it will consider them invalid.",
+      "range": {
+        "startLine": 57,
+        "startChar": 57,
+        "endLine": 57,
+        "endChar": 63
+      },
+      "revId": "e4095711cd5ee405859ce09cc8efcad5d3fee2a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f074270d_9f55ab51",
+        "filename": "wifi/1.0/IWifi.hal",
+        "patchSetId": 22
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000866
+      },
+      "writtenOn": "2016-09-21T22:06:54Z",
+      "side": 1,
+      "message": "s/should be a/is a valid/",
+      "range": {
+        "startLine": 60,
+        "startChar": 29,
+        "endLine": 60,
+        "endChar": 40
+      },
+      "revId": "e4095711cd5ee405859ce09cc8efcad5d3fee2a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f074270d_3423fe6d",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 22
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000866
+      },
+      "writtenOn": "2016-09-21T22:06:54Z",
+      "side": 1,
+      "message": "types",
+      "range": {
+        "startLine": 38,
+        "startChar": 32,
+        "endLine": 38,
+        "endChar": 36
+      },
+      "revId": "e4095711cd5ee405859ce09cc8efcad5d3fee2a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f074270d_d482aa36",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 22
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000866
+      },
+      "writtenOn": "2016-09-21T22:06:54Z",
+      "side": 1,
+      "message": "delete types",
+      "range": {
+        "startLine": 38,
+        "startChar": 16,
+        "endLine": 38,
+        "endChar": 21
+      },
+      "revId": "e4095711cd5ee405859ce09cc8efcad5d3fee2a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f074270d_9f876b11",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 22
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000866
+      },
+      "writtenOn": "2016-09-21T22:06:54Z",
+      "side": 1,
+      "message": "You refer to a mode, but you never define it.  What is a mode?",
+      "range": {
+        "startLine": 47,
+        "startChar": 69,
+        "endLine": 47,
+        "endChar": 73
+      },
+      "revId": "e4095711cd5ee405859ce09cc8efcad5d3fee2a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f074270d_3fa2f7a0",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 22
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000866
+      },
+      "writtenOn": "2016-09-21T22:06:54Z",
+      "side": 1,
+      "message": "You never formally define a mode.  What follows describes some traits of what a mode is, and how mode transitions occur, but not what a mode actually is.  Is a mode a set of ChipInterfaceCombinations?",
+      "range": {
+        "startLine": 73,
+        "startChar": 7,
+        "endLine": 73,
+        "endChar": 11
+      },
+      "revId": "e4095711cd5ee405859ce09cc8efcad5d3fee2a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f074270d_34edbeef",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 22
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000866
+      },
+      "writtenOn": "2016-09-21T22:06:54Z",
+      "side": 1,
+      "message": "This sentence is very difficult to parse.",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 28
+      },
+      "revId": "e4095711cd5ee405859ce09cc8efcad5d3fee2a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f074270d_94ad92a6",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 22
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000866
+      },
+      "writtenOn": "2016-09-21T22:06:54Z",
+      "side": 1,
+      "message": "The \"If\" creates a sentence fragment--there\u0027s a missing \"then\" clause in here.",
+      "range": {
+        "startLine": 93,
+        "startChar": 5,
+        "endLine": 93,
+        "endChar": 7
+      },
+      "revId": "e4095711cd5ee405859ce09cc8efcad5d3fee2a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
