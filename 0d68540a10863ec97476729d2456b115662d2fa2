@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f074270d_b43b6e24",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1079753
+      },
+      "writtenOn": "2016-09-21T21:33:05Z",
+      "side": 1,
+      "message": "I\u0027m open to suggestions on how to do this better. I think right now the HAL has something that looks like this and something that looks like a matrix. My hope was the the chip modes take care of most of conflicts that required the matrix.",
+      "parentUuid": "8b6c9a82_f82af385",
+      "range": {
+        "startLine": 125,
+        "startChar": 7,
+        "endLine": 125,
+        "endChar": 21
+      },
+      "revId": "0d68540a10863ec97476729d2456b115662d2fa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8b6c9a82_18a10704",
         "filename": "wifi/1.0/IWifiChip.hal",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2016-09-14T17:37:21Z",
       "side": 1,
       "message": "total, per program, per interface?",
+      "range": {
+        "startLine": 162,
+        "startChar": 13,
+        "endLine": 162,
+        "endChar": 23
+      },
+      "revId": "0d68540a10863ec97476729d2456b115662d2fa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f074270d_f4d6c6b7",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1079753
+      },
+      "writtenOn": "2016-09-21T21:33:05Z",
+      "side": 1,
+      "message": "I\u0027m honestly not sure what this value is today, but I think total is probably the best way to measure this.",
+      "parentUuid": "8b6c9a82_18a10704",
       "range": {
         "startLine": 162,
         "startChar": 13,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "f074270d_54c6ba10",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1079753
+      },
+      "writtenOn": "2016-09-21T21:33:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b6c9a82_78528305",
+      "range": {
+        "startLine": 173,
+        "startChar": 17,
+        "endLine": 173,
+        "endChar": 26
+      },
+      "revId": "0d68540a10863ec97476729d2456b115662d2fa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8b6c9a82_f8af53ec",
         "filename": "wifi/1.0/IWifiChip.hal",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2016-09-14T17:37:21Z",
       "side": 1,
       "message": "how many APFs can we install, 1 / interface?",
+      "range": {
+        "startLine": 175,
+        "startChar": 58,
+        "endLine": 175,
+        "endChar": 65
+      },
+      "revId": "0d68540a10863ec97476729d2456b115662d2fa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f074270d_74e496a2",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1079753
+      },
+      "writtenOn": "2016-09-21T21:33:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b6c9a82_f8af53ec",
       "range": {
         "startLine": 175,
         "startChar": 58,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "f074270d_b4f52e4c",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1079753
+      },
+      "writtenOn": "2016-09-21T21:33:05Z",
+      "side": 1,
+      "message": "we discussed this I think",
+      "parentUuid": "8b6c9a82_78c5a383",
+      "range": {
+        "startLine": 293,
+        "startChar": 38,
+        "endLine": 293,
+        "endChar": 44
+      },
+      "revId": "0d68540a10863ec97476729d2456b115662d2fa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8b6c9a82_787fe338",
         "filename": "wifi/1.0/IWifiChip.hal",
         "patchSetId": 2
@@ -128,6 +248,30 @@
       "writtenOn": "2016-09-14T17:37:21Z",
       "side": 1,
       "message": "should this be per interface?",
+      "range": {
+        "startLine": 316,
+        "startChar": 9,
+        "endLine": 316,
+        "endChar": 28
+      },
+      "revId": "0d68540a10863ec97476729d2456b115662d2fa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f074270d_d4f2aa60",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1079753
+      },
+      "writtenOn": "2016-09-21T21:33:05Z",
+      "side": 1,
+      "message": "removed from link layer stats from this CL for now",
+      "parentUuid": "8b6c9a82_787fe338",
       "range": {
         "startLine": 316,
         "startChar": 9,
@@ -186,6 +330,30 @@
     },
     {
       "key": {
+        "uuid": "f074270d_54987a1f",
+        "filename": "wifi/1.0/IWifiChipEventCallback.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1079753
+      },
+      "writtenOn": "2016-09-21T21:33:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b6c9a82_384bab12",
+      "range": {
+        "startLine": 43,
+        "startChar": 9,
+        "endLine": 43,
+        "endChar": 36
+      },
+      "revId": "0d68540a10863ec97476729d2456b115662d2fa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8b6c9a82_18d02719",
         "filename": "wifi/1.0/IWifiChipEventCallback.hal",
         "patchSetId": 2
@@ -209,6 +377,30 @@
     },
     {
       "key": {
+        "uuid": "f074270d_b47e0eb4",
+        "filename": "wifi/1.0/IWifiChipEventCallback.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1079753
+      },
+      "writtenOn": "2016-09-21T21:33:05Z",
+      "side": 1,
+      "message": "they are all independent reporting events",
+      "parentUuid": "8b6c9a82_18d02719",
+      "range": {
+        "startLine": 73,
+        "startChar": 17,
+        "endLine": 73,
+        "endChar": 40
+      },
+      "revId": "0d68540a10863ec97476729d2456b115662d2fa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8b6c9a82_7804c3b8",
         "filename": "wifi/1.0/IWifiChipEventCallback.hal",
         "patchSetId": 2
@@ -220,6 +412,30 @@
       "writtenOn": "2016-09-14T17:37:21Z",
       "side": 1,
       "message": "not defined yet?",
+      "range": {
+        "startLine": 76,
+        "startChar": 54,
+        "endLine": 76,
+        "endChar": 62
+      },
+      "revId": "0d68540a10863ec97476729d2456b115662d2fa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f074270d_f48886ce",
+        "filename": "wifi/1.0/IWifiChipEventCallback.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1079753
+      },
+      "writtenOn": "2016-09-21T21:33:05Z",
+      "side": 1,
+      "message": "Defined above onBackgroundFullScanResult",
+      "parentUuid": "8b6c9a82_7804c3b8",
       "range": {
         "startLine": 76,
         "startChar": 54,
