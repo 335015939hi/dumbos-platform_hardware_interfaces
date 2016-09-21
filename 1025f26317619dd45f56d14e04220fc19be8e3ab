@@ -1,0 +1,349 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "70d83709_1e6abea9",
+        "filename": "wifi/1.0/ISupplicantIface.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T17:03:09Z",
+      "side": 1,
+      "message": ":)",
+      "range": {
+        "startLine": 23,
+        "startChar": 71,
+        "endLine": 23,
+        "endChar": 76
+      },
+      "revId": "1025f26317619dd45f56d14e04220fc19be8e3ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d83709_5ef926ab",
+        "filename": "wifi/1.0/ISupplicantIface.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T17:03:09Z",
+      "side": 1,
+      "message": "Tdls\n\nsame below",
+      "range": {
+        "startLine": 117,
+        "startChar": 10,
+        "endLine": 117,
+        "endChar": 14
+      },
+      "revId": "1025f26317619dd45f56d14e04220fc19be8e3ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d83709_1edcfe2d",
+        "filename": "wifi/1.0/ISupplicantIfaceCallback.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T17:03:09Z",
+      "side": 1,
+      "message": "So, you could also typedef this.\n\nTwo benefits:\n- If it is typedef\u0027d, the underlying type is guaranteed to remain the same across all uses (if it gets changed, it only has to be updated in one place).\n- Additional type safety.",
+      "range": {
+        "startLine": 120,
+        "startChar": 24,
+        "endLine": 120,
+        "endChar": 32
+      },
+      "revId": "1025f26317619dd45f56d14e04220fc19be8e3ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d83709_beba92dc",
+        "filename": "wifi/1.0/ISupplicantIfaceCallback.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T17:03:09Z",
+      "side": 1,
+      "message": "o",
+      "range": {
+        "startLine": 120,
+        "startChar": 8,
+        "endLine": 120,
+        "endChar": 10
+      },
+      "revId": "1025f26317619dd45f56d14e04220fc19be8e3ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d83709_7ec42a57",
+        "filename": "wifi/1.0/ISupplicantIfaceCallback.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T17:03:09Z",
+      "side": 1,
+      "message": "o",
+      "range": {
+        "startLine": 127,
+        "startChar": 9,
+        "endLine": 127,
+        "endChar": 10
+      },
+      "revId": "1025f26317619dd45f56d14e04220fc19be8e3ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d83709_bee852e0",
+        "filename": "wifi/1.0/ISupplicantNetwork.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T17:03:09Z",
+      "side": 1,
+      "message": "Is this required now that it\u0027s baked into the type?",
+      "range": {
+        "startLine": 40,
+        "startChar": 3,
+        "endLine": 41,
+        "endChar": 18
+      },
+      "revId": "1025f26317619dd45f56d14e04220fc19be8e3ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d83709_de4c3629",
+        "filename": "wifi/1.0/ISupplicantNetwork.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T17:03:09Z",
+      "side": 1,
+      "message": "0x16? is this a typo?\nwould be cleaner to use:\n1 \u003c\u003c 0\n1 \u003c\u003c 1\n1 \u003c\u003c 2....\nfor these types of values.\n\nIf not, you need a comment explaining why 0x10 is necessary.",
+      "range": {
+        "startLine": 77,
+        "startChar": 11,
+        "endLine": 77,
+        "endChar": 15
+      },
+      "revId": "1025f26317619dd45f56d14e04220fc19be8e3ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d83709_dea8b690",
+        "filename": "wifi/1.0/ISupplicantNetwork.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T17:03:09Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 129,
+        "startChar": 53,
+        "endLine": 129,
+        "endChar": 61
+      },
+      "revId": "1025f26317619dd45f56d14e04220fc19be8e3ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d83709_7eaaeadf",
+        "filename": "wifi/1.0/ISupplicantNetwork.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T17:03:09Z",
+      "side": 1,
+      "message": "Should this be typedef\u0027d?\n\nNeeds comments here or on the typedef as to what this type is expecting.",
+      "range": {
+        "startLine": 257,
+        "startChar": 17,
+        "endLine": 257,
+        "endChar": 29
+      },
+      "revId": "1025f26317619dd45f56d14e04220fc19be8e3ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d83709_9eaf8eed",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T17:03:09Z",
+      "side": 1,
+      "message": "Should comment that the max size is 32 (I believe that is right).",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 17
+      },
+      "revId": "1025f26317619dd45f56d14e04220fc19be8e3ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d83709_de8e7687",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T17:03:09Z",
+      "side": 1,
+      "message": "Should be \u0027Ssid\u0027 according to the naming convention.",
+      "range": {
+        "startLine": 56,
+        "startChar": 21,
+        "endLine": 56,
+        "endChar": 27
+      },
+      "revId": "1025f26317619dd45f56d14e04220fc19be8e3ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d83709_be893281",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T17:03:09Z",
+      "side": 1,
+      "message": "Should comment on the structure of the data in the vec.",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 18
+      },
+      "revId": "1025f26317619dd45f56d14e04220fc19be8e3ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d83709_fec81a9f",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T17:03:09Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 59,
+        "startChar": 19,
+        "endLine": 59,
+        "endChar": 26
+      },
+      "revId": "1025f26317619dd45f56d14e04220fc19be8e3ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d83709_7e566acf",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T17:03:09Z",
+      "side": 1,
+      "message": "Get rid of the _t.\n\nVerbose is better than terse.",
+      "range": {
+        "startLine": 62,
+        "startChar": 16,
+        "endLine": 62,
+        "endChar": 25
+      },
+      "revId": "1025f26317619dd45f56d14e04220fc19be8e3ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d83709_5e86064e",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T17:03:09Z",
+      "side": 1,
+      "message": "This is pedantic, but the Bssid is more of a MacAddress than a MacAddress is a Bssid. I would switch the order.",
+      "range": {
+        "startLine": 62,
+        "startChar": 8,
+        "endLine": 62,
+        "endChar": 15
+      },
+      "revId": "1025f26317619dd45f56d14e04220fc19be8e3ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
