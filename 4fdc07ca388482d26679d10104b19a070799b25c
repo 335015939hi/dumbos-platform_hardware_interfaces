@@ -583,6 +583,30 @@
     },
     {
       "key": {
+        "uuid": "70d83709_5ef60658",
+        "filename": "wifi/1.0/ISupplicantNetwork.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-21T16:17:41Z",
+      "side": 1,
+      "message": "I have a bunch of these constants in each interface. Since we can\u0027t define constants in HIDL, it does make sense to group them together under \"Constants\"? I can use \"FieldSizes\" here, but it\u0027ll still remain \"Constants\" in the other interfaces.",
+      "parentUuid": "70d83709_fe2d7a02",
+      "range": {
+        "startLine": 20,
+        "startChar": 7,
+        "endLine": 20,
+        "endChar": 16
+      },
+      "revId": "4fdc07ca388482d26679d10104b19a070799b25c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70d83709_301a61d9",
         "filename": "wifi/1.0/ISupplicantNetwork.hal",
         "patchSetId": 5
