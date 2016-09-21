@@ -90,6 +90,30 @@
     },
     {
       "key": {
+        "uuid": "f074270d_a5141e4b",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-21T22:16:17Z",
+      "side": 1,
+      "message": "Removed the |wpa_debug.h| reference: b/31646498.",
+      "parentUuid": "70d83709_de5d164a",
+      "range": {
+        "startLine": 17,
+        "startChar": 43,
+        "endLine": 17,
+        "endChar": 56
+      },
+      "revId": "4fdc07ca388482d26679d10104b19a070799b25c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70d83709_7df20201",
         "filename": "wifi/1.0/ISupplicant.hal",
         "patchSetId": 5
@@ -361,6 +385,30 @@
       "side": 1,
       "message": "Do something like \u0027typedef uint32_t SupplicantID\u0027\n\nThis will do a variety of things:\n- ensure the underlying type matches up\n- add additional type safety",
       "parentUuid": "70d83709_3ee302cb",
+      "range": {
+        "startLine": 45,
+        "startChar": 16,
+        "endLine": 45,
+        "endChar": 27
+      },
+      "revId": "4fdc07ca388482d26679d10104b19a070799b25c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f074270d_25bf4ecf",
+        "filename": "wifi/1.0/ISupplicantIface.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-21T22:16:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70d83709_3e554217",
       "range": {
         "startLine": 45,
         "startChar": 16,
@@ -703,6 +751,30 @@
     },
     {
       "key": {
+        "uuid": "f074270d_883e5715",
+        "filename": "wifi/1.0/ISupplicantNetwork.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-21T22:16:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70d83709_9eb6ae8f",
+      "range": {
+        "startLine": 20,
+        "startChar": 7,
+        "endLine": 20,
+        "endChar": 16
+      },
+      "revId": "4fdc07ca388482d26679d10104b19a070799b25c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70d83709_301a61d9",
         "filename": "wifi/1.0/ISupplicantNetwork.hal",
         "patchSetId": 5
@@ -879,6 +951,30 @@
       "side": 1,
       "message": "Digging around is okay. If you can make this an enum, I would prefer you to go ahead and create one now, even if you only know a subset of the possibilities. This is important as each command defines a part of the interface. With the string, part of this interface is defined elsewhere. Thus, the interface can be modified without affecting hidl versioning.\n\nWe can talk about this offline more if you want.",
       "parentUuid": "70d83709_1e363e3d",
+      "range": {
+        "startLine": 41,
+        "startChar": 51,
+        "endLine": 41,
+        "endChar": 63
+      },
+      "revId": "4fdc07ca388482d26679d10104b19a070799b25c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f074270d_9f404b3a",
+        "filename": "wifi/1.0/ISupplicantNetworkCallback.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-21T22:16:17Z",
+      "side": 1,
+      "message": "Changed this generic interface and moved it to separate callbacks for each event type that we\u0027re interested in. This also avoids having to use a union to represent multiple different types of param.",
+      "parentUuid": "70d83709_be2db2a1",
       "range": {
         "startLine": 41,
         "startChar": 51,
