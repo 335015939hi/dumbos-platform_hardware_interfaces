@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "70d83709_de2f56ae",
+        "filename": "bluetooth/1.0/IBluetooth.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1014088
+      },
+      "writtenOn": "2016-09-21T16:33:10Z",
+      "side": 1,
+      "message": "not referenced in this file, unless you put it here because eventually you\u0027ll have to register such a callback as part of the IBluetooth interface.",
+      "revId": "e66026269c2ebb2154f4c81f188d615c1def3d09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
