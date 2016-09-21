@@ -1,0 +1,883 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d0e00315_8cf72774",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T23:57:21Z",
+      "side": 1,
+      "message": "Unnecessary. Delete",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 40
+      },
+      "revId": "f719ca25ad24857e51a1ea5b6137b30e09c63d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0e00315_2c071379",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T23:57:21Z",
+      "side": 1,
+      "message": "update name (throughout files)\n\nISupplicant?",
+      "range": {
+        "startLine": 32,
+        "startChar": 22,
+        "endLine": 32,
+        "endChar": 36
+      },
+      "revId": "f719ca25ad24857e51a1ea5b6137b30e09c63d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10e1bbe4_9e813daf",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T23:57:21Z",
+      "side": 1,
+      "message": "N",
+      "range": {
+        "startLine": 48,
+        "startChar": 13,
+        "endLine": 48,
+        "endChar": 14
+      },
+      "revId": "f719ca25ad24857e51a1ea5b6137b30e09c63d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0e38fef_9bcf8b20",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T23:57:21Z",
+      "side": 1,
+      "message": "N",
+      "range": {
+        "startLine": 50,
+        "startChar": 19,
+        "endLine": 50,
+        "endChar": 20
+      },
+      "revId": "f719ca25ad24857e51a1ea5b6137b30e09c63d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0e00315_8c704705",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T23:57:21Z",
+      "side": 1,
+      "message": "same (and down the file)",
+      "range": {
+        "startLine": 58,
+        "startChar": 39,
+        "endLine": 58,
+        "endChar": 53
+      },
+      "revId": "f719ca25ad24857e51a1ea5b6137b30e09c63d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0e00315_6c563b5d",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T23:57:21Z",
+      "side": 1,
+      "message": "update",
+      "range": {
+        "startLine": 104,
+        "startChar": 20,
+        "endLine": 104,
+        "endChar": 32
+      },
+      "revId": "f719ca25ad24857e51a1ea5b6137b30e09c63d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0e00315_2c603332",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T23:57:21Z",
+      "side": 1,
+      "message": "@return showTimestamp if timestamp is set\n\n(must specify the names of the return parameters since there are multiple)\n\nthis needs to be updated in all files",
+      "revId": "f719ca25ad24857e51a1ea5b6137b30e09c63d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0e00315_ac44239f",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T23:57:21Z",
+      "side": 1,
+      "message": "isDebugTimestamped? or something. Name should reflect boolean nature.\n\ndoesDebugShowTimestamp",
+      "range": {
+        "startLine": 113,
+        "startChar": 2,
+        "endLine": 113,
+        "endChar": 23
+      },
+      "revId": "f719ca25ad24857e51a1ea5b6137b30e09c63d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0e00315_2cda73dd",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T23:57:21Z",
+      "side": 1,
+      "message": "go/android-treble-style-guide\n\n(might be wise to grep for \u0027_\u0027)",
+      "range": {
+        "startLine": 114,
+        "startChar": 54,
+        "endLine": 114,
+        "endChar": 68
+      },
+      "revId": "f719ca25ad24857e51a1ea5b6137b30e09c63d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0e00315_0cd7b7b5",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T23:57:21Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 117,
+        "startChar": 22,
+        "endLine": 117,
+        "endChar": 31
+      },
+      "revId": "f719ca25ad24857e51a1ea5b6137b30e09c63d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0e00315_2c76f3cd",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T23:57:21Z",
+      "side": 1,
+      "message": "or",
+      "range": {
+        "startLine": 117,
+        "startChar": 56,
+        "endLine": 117,
+        "endChar": 58
+      },
+      "revId": "f719ca25ad24857e51a1ea5b6137b30e09c63d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0e00315_ecbb4b91",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T23:57:21Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 121,
+        "startChar": 2,
+        "endLine": 121,
+        "endChar": 18
+      },
+      "revId": "f719ca25ad24857e51a1ea5b6137b30e09c63d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0e00315_4c525f30",
+        "filename": "wifi/1.0/ISupplicantCallback.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T23:57:21Z",
+      "side": 1,
+      "message": "same in this file",
+      "range": {
+        "startLine": 23,
+        "startChar": 37,
+        "endLine": 23,
+        "endChar": 51
+      },
+      "revId": "f719ca25ad24857e51a1ea5b6137b30e09c63d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0e00315_ec290bad",
+        "filename": "wifi/1.0/ISupplicantIface.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T23:57:21Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 40
+      },
+      "revId": "f719ca25ad24857e51a1ea5b6137b30e09c63d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0e00315_2c015313",
+        "filename": "wifi/1.0/ISupplicantIface.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T23:57:21Z",
+      "side": 1,
+      "message": "same in this file\n\n@return name Name...",
+      "range": {
+        "startLine": 33,
+        "startChar": 6,
+        "endLine": 33,
+        "endChar": 12
+      },
+      "revId": "f719ca25ad24857e51a1ea5b6137b30e09c63d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0e00315_8c116766",
+        "filename": "wifi/1.0/ISupplicantIface.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T23:57:21Z",
+      "side": 1,
+      "message": "why exactly is SupplicantCommandStatus required here? You should specify which possible values a caller can expect (or break up the enum). I doubt every possible value can be returned for \u0027getName.\u0027",
+      "range": {
+        "startLine": 35,
+        "startChar": 23,
+        "endLine": 35,
+        "endChar": 54
+      },
+      "revId": "f719ca25ad24857e51a1ea5b6137b30e09c63d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0e00315_aca9c3eb",
+        "filename": "wifi/1.0/ISupplicantIface.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T23:57:21Z",
+      "side": 1,
+      "message": "same, probably grep for \u0027_\u0027 in all the files",
+      "range": {
+        "startLine": 110,
+        "startChar": 34,
+        "endLine": 110,
+        "endChar": 45
+      },
+      "revId": "f719ca25ad24857e51a1ea5b6137b30e09c63d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0e00315_ccec0ff5",
+        "filename": "wifi/1.0/ISupplicantIfaceCallback.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T23:57:21Z",
+      "side": 1,
+      "message": "Iface?",
+      "range": {
+        "startLine": 21,
+        "startChar": 23,
+        "endLine": 21,
+        "endChar": 29
+      },
+      "revId": "f719ca25ad24857e51a1ea5b6137b30e09c63d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0e00315_acf1c3ca",
+        "filename": "wifi/1.0/ISupplicantIfaceCallback.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T23:57:21Z",
+      "side": 1,
+      "message": "same?",
+      "range": {
+        "startLine": 25,
+        "startChar": 18,
+        "endLine": 25,
+        "endChar": 24
+      },
+      "revId": "f719ca25ad24857e51a1ea5b6137b30e09c63d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0e00315_accae368",
+        "filename": "wifi/1.0/ISupplicantIfaceCallback.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T23:57:21Z",
+      "side": 1,
+      "message": "SupplicantNetworkId",
+      "range": {
+        "startLine": 112,
+        "startChar": 24,
+        "endLine": 112,
+        "endChar": 32
+      },
+      "revId": "f719ca25ad24857e51a1ea5b6137b30e09c63d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0e00315_6ce51bfc",
+        "filename": "wifi/1.0/ISupplicantIfaceCallback.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T23:57:21Z",
+      "side": 1,
+      "message": "SupplicantNetworkId",
+      "range": {
+        "startLine": 119,
+        "startChar": 26,
+        "endLine": 119,
+        "endChar": 34
+      },
+      "revId": "f719ca25ad24857e51a1ea5b6137b30e09c63d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0e00315_ccbe4fd1",
+        "filename": "wifi/1.0/ISupplicantNetwork.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T23:57:21Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 28,
+        "startChar": 2,
+        "endLine": 30,
+        "endChar": 40
+      },
+      "revId": "f719ca25ad24857e51a1ea5b6137b30e09c63d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0e00315_4fb7f1d2",
+        "filename": "wifi/1.0/ISupplicantNetwork.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T23:57:21Z",
+      "side": 1,
+      "message": "size in bytes",
+      "range": {
+        "startLine": 37,
+        "startChar": 4,
+        "endLine": 44,
+        "endChar": 32
+      },
+      "revId": "f719ca25ad24857e51a1ea5b6137b30e09c63d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0e00315_efee9db3",
+        "filename": "wifi/1.0/ISupplicantNetwork.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T23:57:21Z",
+      "side": 1,
+      "message": "size in bytes",
+      "range": {
+        "startLine": 49,
+        "startChar": 4,
+        "endLine": 52,
+        "endChar": 24
+      },
+      "revId": "f719ca25ad24857e51a1ea5b6137b30e09c63d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0e00315_ef733d42",
+        "filename": "wifi/1.0/ISupplicantNetwork.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T23:57:21Z",
+      "side": 1,
+      "message": "should comment why 1 \u003c\u003c 2 is missing",
+      "revId": "f719ca25ad24857e51a1ea5b6137b30e09c63d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0e00315_4f85b106",
+        "filename": "wifi/1.0/ISupplicantNetwork.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T23:57:21Z",
+      "side": 1,
+      "message": "needs comment",
+      "range": {
+        "startLine": 115,
+        "startChar": 15,
+        "endLine": 115,
+        "endChar": 17
+      },
+      "revId": "f719ca25ad24857e51a1ea5b6137b30e09c63d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0e00315_0f8fa926",
+        "filename": "wifi/1.0/ISupplicantNetwork.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T23:57:21Z",
+      "side": 1,
+      "message": "needs comment",
+      "range": {
+        "startLine": 116,
+        "startChar": 15,
+        "endLine": 116,
+        "endChar": 19
+      },
+      "revId": "f719ca25ad24857e51a1ea5b6137b30e09c63d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0e00315_af96553b",
+        "filename": "wifi/1.0/ISupplicantNetwork.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T23:57:21Z",
+      "side": 1,
+      "message": "needs comments",
+      "range": {
+        "startLine": 121,
+        "startChar": 5,
+        "endLine": 123,
+        "endChar": 19
+      },
+      "revId": "f719ca25ad24857e51a1ea5b6137b30e09c63d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0e00315_afe895a6",
+        "filename": "wifi/1.0/ISupplicantNetwork.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T23:57:21Z",
+      "side": 1,
+      "message": "ParamSizeLimits.SSID_MAX_LEN (same throughout the file)",
+      "range": {
+        "startLine": 160,
+        "startChar": 48,
+        "endLine": 160,
+        "endChar": 60
+      },
+      "revId": "f719ca25ad24857e51a1ea5b6137b30e09c63d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0e00315_0fa8c977",
+        "filename": "wifi/1.0/ISupplicantNetwork.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T23:57:21Z",
+      "side": 1,
+      "message": "ProbeRequests?\nprobe requests?",
+      "range": {
+        "startLine": 170,
+        "startChar": 25,
+        "endLine": 170,
+        "endChar": 39
+      },
+      "revId": "f719ca25ad24857e51a1ea5b6137b30e09c63d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0e00315_efc57d35",
+        "filename": "wifi/1.0/ISupplicantNetwork.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T23:57:21Z",
+      "side": 1,
+      "message": "you need to update these",
+      "range": {
+        "startLine": 171,
+        "startChar": 12,
+        "endLine": 171,
+        "endChar": 27
+      },
+      "revId": "f719ca25ad24857e51a1ea5b6137b30e09c63d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0e00315_6fe3cdca",
+        "filename": "wifi/1.0/ISupplicantNetwork.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T23:57:21Z",
+      "side": 1,
+      "message": "getSsid() same down the file\n\n(acronyms treated as single words)",
+      "range": {
+        "startLine": 337,
+        "startChar": 2,
+        "endLine": 337,
+        "endChar": 9
+      },
+      "revId": "f719ca25ad24857e51a1ea5b6137b30e09c63d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0e00315_4fe011bc",
+        "filename": "wifi/1.0/ISupplicantNetwork.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T23:57:21Z",
+      "side": 1,
+      "message": "getBssid, etc..",
+      "range": {
+        "startLine": 340,
+        "startChar": 2,
+        "endLine": 340,
+        "endChar": 10
+      },
+      "revId": "f719ca25ad24857e51a1ea5b6137b30e09c63d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0e00315_ef0fbd9a",
+        "filename": "wifi/1.0/ISupplicantNetwork.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T23:57:21Z",
+      "side": 1,
+      "message": "again, why not string?",
+      "range": {
+        "startLine": 429,
+        "startChar": 33,
+        "endLine": 429,
+        "endChar": 45
+      },
+      "revId": "f719ca25ad24857e51a1ea5b6137b30e09c63d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0e00315_af19b5e5",
+        "filename": "wifi/1.0/ISupplicantNetworkCallback.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T23:57:21Z",
+      "side": 1,
+      "message": "params",
+      "range": {
+        "startLine": 46,
+        "startChar": 12,
+        "endLine": 46,
+        "endChar": 17
+      },
+      "revId": "f719ca25ad24857e51a1ea5b6137b30e09c63d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0e00315_cf1401b0",
+        "filename": "wifi/1.0/ISupplicantNetworkCallback.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T23:57:21Z",
+      "side": 1,
+      "message": "rename to params",
+      "revId": "f719ca25ad24857e51a1ea5b6137b30e09c63d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0e00315_4f21310f",
+        "filename": "wifi/1.0/ISupplicantNetworkCallback.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T23:57:21Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 56,
+        "startChar": 12,
+        "endLine": 56,
+        "endChar": 17
+      },
+      "revId": "f719ca25ad24857e51a1ea5b6137b30e09c63d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0e00315_0f2b29ef",
+        "filename": "wifi/1.0/ISupplicantNetworkCallback.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T23:57:21Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 58,
+        "startChar": 74,
+        "endLine": 58,
+        "endChar": 79
+      },
+      "revId": "f719ca25ad24857e51a1ea5b6137b30e09c63d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0e00315_8ff71974",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T23:57:21Z",
+      "side": 1,
+      "message": "SupplicantNetworkId",
+      "range": {
+        "startLine": 66,
+        "startChar": 17,
+        "endLine": 66,
+        "endChar": 36
+      },
+      "revId": "f719ca25ad24857e51a1ea5b6137b30e09c63d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
