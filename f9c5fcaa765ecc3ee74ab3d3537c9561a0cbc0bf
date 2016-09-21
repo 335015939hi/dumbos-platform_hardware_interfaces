@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "d0e00315_8fd4b9e4",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 23
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2016-09-21T23:50:35Z",
+      "side": 1,
+      "message": "ack - that can be skipped since that\u0027s the default definition.",
+      "parentUuid": "d0e00315_cca76fbf",
+      "range": {
+        "startLine": 129,
+        "startChar": 2,
+        "endLine": 129,
+        "endChar": 64
+      },
+      "revId": "f9c5fcaa765ecc3ee74ab3d3537c9561a0cbc0bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0e00315_0c3217a9",
         "filename": "wifi/1.0/IWifiChipEventCallback.hal",
         "patchSetId": 23
