@@ -307,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "90cdab7b_e24e268a",
+        "filename": "wifi/1.0/ISupplicantNetwork.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T23:57:21Z",
+      "side": 1,
+      "message": "Oh duh. 0x \u003c-\u003e hex. :)",
+      "parentUuid": "f074270d_8596424a",
+      "range": {
+        "startLine": 77,
+        "startChar": 11,
+        "endLine": 77,
+        "endChar": 15
+      },
+      "revId": "1025f26317619dd45f56d14e04220fc19be8e3ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70d83709_dea8b690",
         "filename": "wifi/1.0/ISupplicantNetwork.hal",
         "patchSetId": 7
@@ -389,6 +413,30 @@
       "side": 1,
       "message": "Nope. Don\u0027t think so. This is just a vector of bytes used in the authentication process. It\u0027s used in the EAP protocol exchange. So, there isn\u0027t any max length or other limitations of this from what I can gather.\n\nhttps://developer.android.com/reference/android/net/wifi/WifiEnterpriseConfig.html#setIdentity(java.lang.String)",
       "parentUuid": "70d83709_7eaaeadf",
+      "range": {
+        "startLine": 257,
+        "startChar": 17,
+        "endLine": 257,
+        "endChar": 29
+      },
+      "revId": "1025f26317619dd45f56d14e04220fc19be8e3ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f018a7be_45e42aa2",
+        "filename": "wifi/1.0/ISupplicantNetwork.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-21T23:57:21Z",
+      "side": 1,
+      "message": "It\u0027s a string in the link you gave me. Why isn\u0027t it a string here?",
+      "parentUuid": "f074270d_c8dccf02",
       "range": {
         "startLine": 257,
         "startChar": 17,
