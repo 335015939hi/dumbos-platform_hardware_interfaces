@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "70d83709_85b6648f",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-21T16:14:46Z",
+      "side": 1,
+      "message": "It has to be other way around here. wpa_supplicant has multiple control interfaces (HIDL, DBUS, socket, etc). We\u0027re only going to be using HIDL in android for O, but we cannot have the internal enum values of wpa_supplicant be dependent on the HIDL interface. This will not be accepted upstream.",
+      "parentUuid": "70d83709_3daa3adf",
+      "range": {
+        "startLine": 17,
+        "startChar": 43,
+        "endLine": 17,
+        "endChar": 56
+      },
+      "revId": "4fdc07ca388482d26679d10104b19a070799b25c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70d83709_7df20201",
         "filename": "wifi/1.0/ISupplicant.hal",
         "patchSetId": 5
@@ -53,6 +77,30 @@
       "writtenOn": "2016-09-20T17:24:50Z",
       "side": 1,
       "message": "Should be camel case.\n\nCheckout go/android-lego-style-guide (WIP).",
+      "range": {
+        "startLine": 37,
+        "startChar": 11,
+        "endLine": 37,
+        "endChar": 24
+      },
+      "revId": "4fdc07ca388482d26679d10104b19a070799b25c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d83709_05d7d4b5",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-21T16:14:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70d83709_7df20201",
       "range": {
         "startLine": 37,
         "startChar": 11,
@@ -88,6 +136,30 @@
     },
     {
       "key": {
+        "uuid": "70d83709_c55d4c4a",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-21T16:14:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70d83709_fde59235",
+      "range": {
+        "startLine": 53,
+        "startChar": 2,
+        "endLine": 53,
+        "endChar": 3
+      },
+      "revId": "4fdc07ca388482d26679d10104b19a070799b25c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70d83709_1de3b631",
         "filename": "wifi/1.0/ISupplicant.hal",
         "patchSetId": 5
@@ -99,6 +171,30 @@
       "writtenOn": "2016-09-20T17:24:50Z",
       "side": 1,
       "message": "Not called this anymore.",
+      "range": {
+        "startLine": 91,
+        "startChar": 20,
+        "endLine": 91,
+        "endChar": 33
+      },
+      "revId": "4fdc07ca388482d26679d10104b19a070799b25c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d83709_453e3cc7",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-21T16:14:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70d83709_1de3b631",
       "range": {
         "startLine": 91,
         "startChar": 20,
@@ -134,6 +230,30 @@
     },
     {
       "key": {
+        "uuid": "70d83709_455ddce3",
+        "filename": "wifi/1.0/ISupplicantIface.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-21T16:14:46Z",
+      "side": 1,
+      "message": "This is the object representing each network interface it controls. (for eg: wlan0, p2p0, etc). \nI know the name is a little confusing. But, interface/iface is the name used throughout the wifi codebase.",
+      "parentUuid": "70d83709_30e901aa",
+      "range": {
+        "startLine": 12,
+        "startChar": 10,
+        "endLine": 12,
+        "endChar": 26
+      },
+      "revId": "4fdc07ca388482d26679d10104b19a070799b25c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70d83709_1dcc16b2",
         "filename": "wifi/1.0/ISupplicantIface.hal",
         "patchSetId": 5
@@ -145,6 +265,30 @@
       "writtenOn": "2016-09-20T17:24:50Z",
       "side": 1,
       "message": "Is there any reason why someone would use the id other when they are given an ISupplicantNetwork object? (as in, are you passing a uint32_t just because of the size of an ISupplicantNetwork implementation or because of someone might seriously need to pass in, say 0u)?",
+      "range": {
+        "startLine": 45,
+        "startChar": 16,
+        "endLine": 45,
+        "endChar": 27
+      },
+      "revId": "4fdc07ca388482d26679d10104b19a070799b25c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d83709_3ee302cb",
+        "filename": "wifi/1.0/ISupplicantIface.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-21T16:14:46Z",
+      "side": 1,
+      "message": "Yeah. network ID is a simpler handle to pass around.",
+      "parentUuid": "70d83709_1dcc16b2",
       "range": {
         "startLine": 45,
         "startChar": 16,
@@ -180,6 +324,30 @@
     },
     {
       "key": {
+        "uuid": "70d83709_a547e804",
+        "filename": "wifi/1.0/ISupplicantIface.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-21T16:14:46Z",
+      "side": 1,
+      "message": "Done. Renamed to |Hidl|",
+      "parentUuid": "70d83709_9d51e6d7",
+      "range": {
+        "startLine": 55,
+        "startChar": 13,
+        "endLine": 55,
+        "endChar": 26
+      },
+      "revId": "4fdc07ca388482d26679d10104b19a070799b25c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70d83709_7d476206",
         "filename": "wifi/1.0/ISupplicantIface.hal",
         "patchSetId": 5
@@ -191,6 +359,30 @@
       "writtenOn": "2016-09-20T17:24:50Z",
       "side": 1,
       "message": "From my understanding, mac addresses are 6 bytes. Are two of these bytes required (and enforced) to be a certain value? are they ignored? Are they parity bits? Are the lower or the upper six bytes relevant? Document. :)\n\nMight be best to:\ntypedef MacAddress uint8_t; and comment the requirements there.",
+      "range": {
+        "startLine": 100,
+        "startChar": 27,
+        "endLine": 100,
+        "endChar": 34
+      },
+      "revId": "4fdc07ca388482d26679d10104b19a070799b25c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d83709_5ee046bb",
+        "filename": "wifi/1.0/ISupplicantIface.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-21T16:14:46Z",
+      "side": 1,
+      "message": "it\u0027s uint8_t[6]. Typedef\u0027ed it now.",
+      "parentUuid": "70d83709_7d476206",
       "range": {
         "startLine": 100,
         "startChar": 27,
@@ -226,6 +418,30 @@
     },
     {
       "key": {
+        "uuid": "70d83709_fedc9a01",
+        "filename": "wifi/1.0/ISupplicantIfaceCallback.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-21T16:14:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70d83709_7dd1a21d",
+      "range": {
+        "startLine": 23,
+        "startChar": 6,
+        "endLine": 23,
+        "endChar": 12
+      },
+      "revId": "4fdc07ca388482d26679d10104b19a070799b25c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70d83709_5dc93e6b",
         "filename": "wifi/1.0/ISupplicantIfaceCallback.hal",
         "patchSetId": 5
@@ -237,6 +453,30 @@
       "writtenOn": "2016-09-20T17:24:50Z",
       "side": 1,
       "message": "Same as mac address.\n\nA typedef Bssid vec\u003cuint8_t\u003e; with comments somewhere would be most clear.\n\nAlso, are bssid\u0027s fixed size? If so, you should use uint8_t[42]. I can\u0027t seem to find the answer quickly online.",
+      "range": {
+        "startLine": 152,
+        "startChar": 28,
+        "endLine": 152,
+        "endChar": 35
+      },
+      "revId": "4fdc07ca388482d26679d10104b19a070799b25c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d83709_be1052bb",
+        "filename": "wifi/1.0/ISupplicantIfaceCallback.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-21T16:14:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70d83709_5dc93e6b",
       "range": {
         "startLine": 152,
         "startChar": 28,
@@ -272,6 +512,30 @@
     },
     {
       "key": {
+        "uuid": "70d83709_de1516ab",
+        "filename": "wifi/1.0/ISupplicantIfaceCallback.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-21T16:14:46Z",
+      "side": 1,
+      "message": "Oops. This is a bug. Corrected it now.",
+      "parentUuid": "70d83709_10b71dd4",
+      "range": {
+        "startLine": 154,
+        "startChar": 28,
+        "endLine": 154,
+        "endChar": 36
+      },
+      "revId": "4fdc07ca388482d26679d10104b19a070799b25c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70d83709_b02df103",
         "filename": "wifi/1.0/ISupplicantNetwork.hal",
         "patchSetId": 5
@@ -283,6 +547,30 @@
       "writtenOn": "2016-09-20T17:24:50Z",
       "side": 1,
       "message": "Maybe a better name would be \u0027FieldSizes\u0027 (or something similar)\n\nAlso, perhaps since some of these, like \u0027SSID_MAX_LEN\u0027 would make sense to be used in other interfaces which use ssids, you should move this enumeration to a types.hal file.",
+      "range": {
+        "startLine": 20,
+        "startChar": 7,
+        "endLine": 20,
+        "endChar": 16
+      },
+      "revId": "4fdc07ca388482d26679d10104b19a070799b25c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d83709_fe2d7a02",
+        "filename": "wifi/1.0/ISupplicantNetwork.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-21T16:14:46Z",
+      "side": 1,
+      "message": "All of these constants are just used in this interface. Even though SSID \u0026 BSSID are passed on in other interfaces, this length declaration only needs to be here. This is only place where the setters for these exist and we only need these size checks in the setter.",
+      "parentUuid": "70d83709_b02df103",
       "range": {
         "startLine": 20,
         "startChar": 7,
@@ -341,6 +629,30 @@
     },
     {
       "key": {
+        "uuid": "70d83709_bef9326b",
+        "filename": "wifi/1.0/ISupplicantNetworkCallback.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-21T16:14:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70d83709_50712506",
+      "range": {
+        "startLine": 28,
+        "startChar": 28,
+        "endLine": 28,
+        "endChar": 40
+      },
+      "revId": "4fdc07ca388482d26679d10104b19a070799b25c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70d83709_d05c3579",
         "filename": "wifi/1.0/ISupplicantNetworkCallback.hal",
         "patchSetId": 5
@@ -364,6 +676,30 @@
     },
     {
       "key": {
+        "uuid": "70d83709_defe7651",
+        "filename": "wifi/1.0/ISupplicantNetworkCallback.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-21T16:14:46Z",
+      "side": 1,
+      "message": "There is a lot of combinations of these supported by wpa_supplicant. We only use the SIM related ones and they\u0027re explained in the comments below.",
+      "parentUuid": "70d83709_d05c3579",
+      "range": {
+        "startLine": 29,
+        "startChar": 21,
+        "endLine": 29,
+        "endChar": 51
+      },
+      "revId": "4fdc07ca388482d26679d10104b19a070799b25c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70d83709_d0351531",
         "filename": "wifi/1.0/ISupplicantNetworkCallback.hal",
         "patchSetId": 5
@@ -375,6 +711,30 @@
       "writtenOn": "2016-09-20T17:24:50Z",
       "side": 1,
       "message": "Are there a finite number of these?\n\nWould make sense to bake into the interface what possibilities there are (i.e. enum).",
+      "range": {
+        "startLine": 41,
+        "startChar": 51,
+        "endLine": 41,
+        "endChar": 63
+      },
+      "revId": "4fdc07ca388482d26679d10104b19a070799b25c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d83709_1e363e3d",
+        "filename": "wifi/1.0/ISupplicantNetworkCallback.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-21T16:14:46Z",
+      "side": 1,
+      "message": "There are a lot of possibile combinations. wpa_supplicant likes passing string commands around :). \nBut, in android we only use a subset of these. Maybe we can come up with a enum for those. This will require some digging around. Will follow up in a separate CL if this can be changed. Filed b/31646740 to track this.",
+      "parentUuid": "70d83709_d0351531",
       "range": {
         "startLine": 41,
         "startChar": 51,
@@ -421,6 +781,30 @@
       "writtenOn": "2016-09-20T17:24:50Z",
       "side": 1,
       "message": "Are these expected to be interpreted by software, or are they for displaying to the user?",
+      "range": {
+        "startLine": 48,
+        "startChar": 2,
+        "endLine": 51,
+        "endChar": 5
+      },
+      "revId": "4fdc07ca388482d26679d10104b19a070799b25c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "70d83709_9eeeaeb0",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-21T16:14:46Z",
+      "side": 1,
+      "message": "These are primarily for debugging purposes only. They will be logged when an error is encountered. For example, if a method returns FAILURE_ARGS_INVALID, the description can point to the exact argument which was invalid.",
+      "parentUuid": "70d83709_d0d675b8",
       "range": {
         "startLine": 48,
         "startChar": 2,
