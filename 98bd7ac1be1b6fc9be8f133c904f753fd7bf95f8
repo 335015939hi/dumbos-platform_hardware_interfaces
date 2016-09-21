@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f074270d_1f7ffb6f",
+        "filename": "wifi/1.0/IWifi.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1079753
+      },
+      "writtenOn": "2016-09-21T22:59:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f074270d_39d69717",
+      "range": {
+        "startLine": 8,
+        "startChar": 53,
+        "endLine": 8,
+        "endChar": 59
+      },
+      "revId": "98bd7ac1be1b6fc9be8f133c904f753fd7bf95f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f074270d_d990234f",
         "filename": "wifi/1.0/IWifi.hal",
         "patchSetId": 13
@@ -36,6 +60,30 @@
       "writtenOn": "2016-09-21T22:06:54Z",
       "side": 1,
       "message": "must?",
+      "range": {
+        "startLine": 15,
+        "startChar": 45,
+        "endLine": 15,
+        "endChar": 51
+      },
+      "revId": "98bd7ac1be1b6fc9be8f133c904f753fd7bf95f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f074270d_3f84b777",
+        "filename": "wifi/1.0/IWifi.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1079753
+      },
+      "writtenOn": "2016-09-21T22:59:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f074270d_d990234f",
       "range": {
         "startLine": 15,
         "startChar": 45,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "f074270d_5f797386",
+        "filename": "wifi/1.0/IWifi.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1079753
+      },
+      "writtenOn": "2016-09-21T22:59:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f074270d_1474422a",
+      "range": {
+        "startLine": 16,
+        "startChar": 32,
+        "endLine": 16,
+        "endChar": 38
+      },
+      "revId": "98bd7ac1be1b6fc9be8f133c904f753fd7bf95f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f074270d_54979a39",
         "filename": "wifi/1.0/IWifi.hal",
         "patchSetId": 13
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "f074270d_9f720ba2",
+        "filename": "wifi/1.0/IWifi.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1079753
+      },
+      "writtenOn": "2016-09-21T22:59:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f074270d_54979a39",
+      "range": {
+        "startLine": 29,
+        "startChar": 71,
+        "endLine": 29,
+        "endChar": 75
+      },
+      "revId": "98bd7ac1be1b6fc9be8f133c904f753fd7bf95f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f074270d_94b032e4",
         "filename": "wifi/1.0/IWifi.hal",
         "patchSetId": 13
@@ -105,6 +201,30 @@
       "writtenOn": "2016-09-21T22:06:54Z",
       "side": 1,
       "message": "must",
+      "range": {
+        "startLine": 39,
+        "startChar": 23,
+        "endLine": 39,
+        "endChar": 27
+      },
+      "revId": "98bd7ac1be1b6fc9be8f133c904f753fd7bf95f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f074270d_bf6fc7ba",
+        "filename": "wifi/1.0/IWifi.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1079753
+      },
+      "writtenOn": "2016-09-21T22:59:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f074270d_94b032e4",
       "range": {
         "startLine": 39,
         "startChar": 23,
@@ -163,6 +283,54 @@
     },
     {
       "key": {
+        "uuid": "f074270d_df6c83c8",
+        "filename": "wifi/1.0/IWifi.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1079753
+      },
+      "writtenOn": "2016-09-21T22:59:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f074270d_14c60242",
+      "range": {
+        "startLine": 40,
+        "startChar": 74,
+        "endLine": 40,
+        "endChar": 78
+      },
+      "revId": "98bd7ac1be1b6fc9be8f133c904f753fd7bf95f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f074270d_ff693fb5",
+        "filename": "wifi/1.0/IWifi.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1079753
+      },
+      "writtenOn": "2016-09-21T22:59:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f074270d_f4a7a6a8",
+      "range": {
+        "startLine": 40,
+        "startChar": 26,
+        "endLine": 40,
+        "endChar": 30
+      },
+      "revId": "98bd7ac1be1b6fc9be8f133c904f753fd7bf95f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f074270d_34cbfe48",
         "filename": "wifi/1.0/IWifi.hal",
         "patchSetId": 13
@@ -174,6 +342,30 @@
       "writtenOn": "2016-09-21T22:06:54Z",
       "side": 1,
       "message": "will (The framework does this)",
+      "range": {
+        "startLine": 41,
+        "startChar": 57,
+        "endLine": 41,
+        "endChar": 63
+      },
+      "revId": "98bd7ac1be1b6fc9be8f133c904f753fd7bf95f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f074270d_3fa59710",
+        "filename": "wifi/1.0/IWifi.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1079753
+      },
+      "writtenOn": "2016-09-21T22:59:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f074270d_34cbfe48",
       "range": {
         "startLine": 41,
         "startChar": 57,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "f074270d_5faa53df",
+        "filename": "wifi/1.0/IWifi.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1079753
+      },
+      "writtenOn": "2016-09-21T22:59:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f074270d_b4b60ed5",
+      "range": {
+        "startLine": 44,
+        "startChar": 29,
+        "endLine": 44,
+        "endChar": 35
+      },
+      "revId": "98bd7ac1be1b6fc9be8f133c904f753fd7bf95f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f074270d_b9936759",
         "filename": "wifi/1.0/IWifi.hal",
         "patchSetId": 13
@@ -220,6 +436,30 @@
       "writtenOn": "2016-09-21T22:06:54Z",
       "side": 1,
       "message": "Missing documentation.",
+      "range": {
+        "startLine": 52,
+        "startChar": 2,
+        "endLine": 52,
+        "endChar": 9
+      },
+      "revId": "98bd7ac1be1b6fc9be8f133c904f753fd7bf95f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f074270d_7faf0fee",
+        "filename": "wifi/1.0/IWifi.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1079753
+      },
+      "writtenOn": "2016-09-21T22:59:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f074270d_b9936759",
       "range": {
         "startLine": 52,
         "startChar": 2,
