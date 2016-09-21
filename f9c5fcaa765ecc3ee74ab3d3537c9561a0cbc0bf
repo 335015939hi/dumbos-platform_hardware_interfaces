@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d0e00315_cca76fbf",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 23
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1079753
+      },
+      "writtenOn": "2016-09-21T23:46:11Z",
+      "side": 1,
+      "message": "With very few exceptions (none of which actually exist yet) every method in this interface would be marked\n@entry\n@exit\n@callflow(next\u003d{\"*\"})",
+      "parentUuid": "d0e00315_2c35d390",
+      "range": {
+        "startLine": 129,
+        "startChar": 2,
+        "endLine": 129,
+        "endChar": 64
+      },
+      "revId": "f9c5fcaa765ecc3ee74ab3d3537c9561a0cbc0bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0e00315_0c3217a9",
         "filename": "wifi/1.0/IWifiChipEventCallback.hal",
         "patchSetId": 23
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "d0e00315_8ca167ac",
+        "filename": "wifi/1.0/IWifiChipEventCallback.hal",
+        "patchSetId": 23
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1079753
+      },
+      "writtenOn": "2016-09-21T23:46:11Z",
+      "side": 1,
+      "message": "There\u0027s no implementation to fuzz against",
+      "parentUuid": "d0e00315_0c3217a9",
+      "range": {
+        "startLine": 29,
+        "startChar": 2,
+        "endLine": 29,
+        "endChar": 8
+      },
+      "revId": "f9c5fcaa765ecc3ee74ab3d3537c9561a0cbc0bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0e00315_2c06f3c3",
         "filename": "wifi/1.0/IWifiEventCallback.hal",
         "patchSetId": 23
@@ -59,6 +107,30 @@
       "writtenOn": "2016-09-21T23:42:13Z",
       "side": 1,
       "message": "add vts annotations?",
+      "range": {
+        "startLine": 24,
+        "startChar": 2,
+        "endLine": 24,
+        "endChar": 8
+      },
+      "revId": "f9c5fcaa765ecc3ee74ab3d3537c9561a0cbc0bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0e00315_4c949f41",
+        "filename": "wifi/1.0/IWifiEventCallback.hal",
+        "patchSetId": 23
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1079753
+      },
+      "writtenOn": "2016-09-21T23:46:11Z",
+      "side": 1,
+      "message": "There\u0027s no implementation to fuzz against",
+      "parentUuid": "d0e00315_2c06f3c3",
       "range": {
         "startLine": 24,
         "startChar": 2,
