@@ -1,0 +1,7 @@
+package android.hardware.tests.baz@1.0;
+
+/*
+   Verify that introducing a typedef in types.hal does not mistakenly emit
+   a makefile section to create a dedicated ulong.java class as it used to.
+*/
+typedef uint32_t ulong;
