@@ -94,6 +94,29 @@
     },
     {
       "key": {
+        "uuid": "f08d07b7_6cda83de",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2016-09-22T22:49:35Z",
+      "side": 1,
+      "message": "this call flow from create and removeInterface can be caught by using VTS annotations. is it possible to add some annotations?",
+      "range": {
+        "startLine": 80,
+        "startChar": 2,
+        "endLine": 80,
+        "endChar": 17
+      },
+      "revId": "b1916c5feef9c306fd74de20297ca7d63e00ddc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f08d07b7_ac9c8b5e",
         "filename": "wifi/1.0/ISupplicantIfaceCallback.hal",
         "patchSetId": 13
