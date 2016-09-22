@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "901e8bf2_00eaea6f",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-22T18:25:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d0e00315_26804a2d",
+      "range": {
+        "startLine": 32,
+        "startChar": 22,
+        "endLine": 32,
+        "endChar": 36
+      },
+      "revId": "f719ca25ad24857e51a1ea5b6137b30e09c63d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "10e1bbe4_9e813daf",
         "filename": "wifi/1.0/ISupplicant.hal",
         "patchSetId": 9
@@ -178,6 +202,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "b0e38fef_9bcf8b20",
+      "range": {
+        "startLine": 50,
+        "startChar": 19,
+        "endLine": 50,
+        "endChar": 20
+      },
+      "revId": "f719ca25ad24857e51a1ea5b6137b30e09c63d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "901e8bf2_80f6fa54",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-22T18:25:09Z",
+      "side": 1,
+      "message": "Not done",
+      "parentUuid": "d0e00315_26196a2f",
       "range": {
         "startLine": 50,
         "startChar": 19,
@@ -1147,6 +1195,24 @@
       "side": 1,
       "message": "This param is unused in android.",
       "parentUuid": "d0e00315_ef733d42",
+      "revId": "f719ca25ad24857e51a1ea5b6137b30e09c63d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "901e8bf2_a0269ec1",
+        "filename": "wifi/1.0/ISupplicantNetwork.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-22T18:25:09Z",
+      "side": 1,
+      "message": "There should be a comment.",
+      "parentUuid": "901e8bf2_bd456bfb",
       "revId": "f719ca25ad24857e51a1ea5b6137b30e09c63d95",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
