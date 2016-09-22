@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "901e8bf2_20c92ea2",
+        "filename": "tests/baz/1.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1014088
+      },
+      "writtenOn": "2016-09-22T18:22:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "901e8bf2_a05f7e0f",
+      "revId": "8f217c667b838c419d4816101eb59f9312f1d766",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "901e8bf2_00a50a0f",
         "filename": "tests/baz/1.0/types.hal",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2016-09-22T18:18:40Z",
       "side": 1,
       "message": "I see that the HIDL style guide asks to use the following format for multi-line comments.\n/*\n *\n */",
+      "revId": "8f217c667b838c419d4816101eb59f9312f1d766",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "901e8bf2_40c6a293",
+        "filename": "tests/baz/1.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1014088
+      },
+      "writtenOn": "2016-09-22T18:22:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "901e8bf2_00a50a0f",
       "revId": "8f217c667b838c419d4816101eb59f9312f1d766",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
