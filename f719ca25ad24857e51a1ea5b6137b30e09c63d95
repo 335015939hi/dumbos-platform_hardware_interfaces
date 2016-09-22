@@ -238,6 +238,30 @@
     },
     {
       "key": {
+        "uuid": "901e8bf2_8e7f0bb1",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-22T20:08:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "901e8bf2_80f6fa54",
+      "range": {
+        "startLine": 50,
+        "startChar": 19,
+        "endLine": 50,
+        "endChar": 20
+      },
+      "revId": "f719ca25ad24857e51a1ea5b6137b30e09c63d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0e00315_8c704705",
         "filename": "wifi/1.0/ISupplicant.hal",
         "patchSetId": 9
@@ -1213,6 +1237,24 @@
       "side": 1,
       "message": "There should be a comment.",
       "parentUuid": "901e8bf2_bd456bfb",
+      "revId": "f719ca25ad24857e51a1ea5b6137b30e09c63d95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "901e8bf2_4e67b3ba",
+        "filename": "wifi/1.0/ISupplicantNetwork.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-22T20:08:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "901e8bf2_a0269ec1",
       "revId": "f719ca25ad24857e51a1ea5b6137b30e09c63d95",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
