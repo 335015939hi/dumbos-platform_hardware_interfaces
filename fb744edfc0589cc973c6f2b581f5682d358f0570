@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "901e8bf2_e9b6c192",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-22T20:35:42Z",
+      "side": 1,
+      "message": "Uniformity isn\u0027t as important as the extra SupplicantStatus is confusing.",
+      "parentUuid": "901e8bf2_ee88077e",
+      "range": {
+        "startLine": 108,
+        "startChar": 4,
+        "endLine": 110,
+        "endChar": 44
+      },
+      "revId": "fb744edfc0589cc973c6f2b581f5682d358f0570",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "901e8bf2_80a83a2c",
         "filename": "wifi/1.0/ISupplicant.hal",
         "patchSetId": 10
