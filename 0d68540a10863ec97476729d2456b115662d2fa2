@@ -49,6 +49,64 @@
     },
     {
       "key": {
+        "uuid": "901e8bf2_23c938a2",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-09-22T19:22:17Z",
+      "side": 1,
+      "message": "Agree on capabilities as-is.\n\nPer discussion - these are a function of the current mode. See comment about getCapabilities.",
+      "parentUuid": "f074270d_b43b6e24",
+      "range": {
+        "startLine": 125,
+        "startChar": 7,
+        "endLine": 125,
+        "endChar": 21
+      },
+      "revId": "0d68540a10863ec97476729d2456b115662d2fa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "901e8bf2_e34b4027",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-09-22T19:22:17Z",
+      "side": 1,
+      "message": "add \" in the current mode\".",
+      "revId": "0d68540a10863ec97476729d2456b115662d2fa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "901e8bf2_636090a5",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-09-22T19:22:17Z",
+      "side": 1,
+      "message": "possibly name change: getCurrentModeCapabilities or getCapabilitiesInCurrentMode or ...",
+      "revId": "0d68540a10863ec97476729d2456b115662d2fa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8b6c9a82_18a10704",
         "filename": "wifi/1.0/IWifiChip.hal",
         "patchSetId": 2
@@ -84,6 +142,30 @@
       "side": 1,
       "message": "I\u0027m honestly not sure what this value is today, but I think total is probably the best way to measure this.",
       "parentUuid": "8b6c9a82_18a10704",
+      "range": {
+        "startLine": 162,
+        "startChar": 13,
+        "endLine": 162,
+        "endChar": 23
+      },
+      "revId": "0d68540a10863ec97476729d2456b115662d2fa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "901e8bf2_231cd81e",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-09-22T19:22:17Z",
+      "side": 1,
+      "message": "Do we need to document it? Who is the customer of this?",
+      "parentUuid": "f074270d_f4d6c6b7",
       "range": {
         "startLine": 162,
         "startChar": 13,
