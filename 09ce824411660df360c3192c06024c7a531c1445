@@ -22,6 +22,30 @@
       "revId": "09ce824411660df360c3192c06024c7a531c1445",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "901e8bf2_00842a76",
+        "filename": "tests/expression/1.0/IExpressionExt.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2016-09-22T18:16:48Z",
+      "side": 1,
+      "message": "The actual math is actually this.\n20 \u003c\u003c (1 - ((0 + 1) * 8))\nso \u003c\u003c has a lower precedence than -.\nHence 1 - 8 \u003d -7, left shift by -7 is undefined in C (in our implementation, left shift by -7 is right shift by 7, so 20 \u003c\u003c -7 \u003d\u003d 20 \u003e\u003e 7 \u003d 0.",
+      "parentUuid": "901e8bf2_20c4ce31",
+      "range": {
+        "startLine": 23,
+        "startChar": 1,
+        "endLine": 25,
+        "endChar": 4
+      },
+      "revId": "09ce824411660df360c3192c06024c7a531c1445",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
