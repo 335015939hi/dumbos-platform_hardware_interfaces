@@ -21,6 +21,16 @@ interface IBase {
         Bar y;
     };
 
+    struct MoreThanOneArrayField {
+        /*
+           Generated (Java) code used to redeclare the same variable name
+           multiple times in the same scope, this test ensures that that's no
+           longer the case.
+        */
+        string[3] one;
+        string[5] two;
+    };
+
     typedef string[3] ThreeStrings;
     typedef string[5] FiveStrings;
 
