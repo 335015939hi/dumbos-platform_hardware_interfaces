@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "901e8bf2_20c4ce31",
+        "filename": "tests/expression/1.0/IExpressionExt.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000866
+      },
+      "writtenOn": "2016-09-22T18:00:37Z",
+      "side": 1,
+      "message": "Yifan, This should be 32, if my arithmetic is right.  MAX_ARRAY_SIZE is 20, \u003c\u003c 1 gives you 40, CONST_FOO is 0, so that minus 8 is 32.\n\nHowever, OUT/gen/SHARED_LIBRARIES/android.hardware.tests.expression@1.0_intermediates/android/hardware/tests/expression/1.0/IExpressionExt.h shows this:\n\n  struct ArrayOfColors {\n    IExpression::Color my32Colors[0];\n  };",
+      "range": {
+        "startLine": 23,
+        "startChar": 1,
+        "endLine": 25,
+        "endChar": 4
+      },
+      "revId": "09ce824411660df360c3192c06024c7a531c1445",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
