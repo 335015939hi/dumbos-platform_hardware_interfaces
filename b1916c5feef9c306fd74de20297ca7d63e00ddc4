@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f08d07b7_51f9e4ab",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1079753
+      },
+      "writtenOn": "2016-09-22T22:42:32Z",
+      "side": 1,
+      "message": "hardware service manager",
+      "range": {
+        "startLine": 24,
+        "startChar": 12,
+        "endLine": 24,
+        "endChar": 27
+      },
+      "revId": "b1916c5feef9c306fd74de20297ca7d63e00ddc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f08d07b7_11f75cbd",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1079753
+      },
+      "writtenOn": "2016-09-22T22:42:32Z",
+      "side": 1,
+      "message": "If the interface name is ISupplicant should the service manager name be \"supplicant\" or \"wifi_supplicant\"",
+      "range": {
+        "startLine": 24,
+        "startChar": 41,
+        "endLine": 24,
+        "endChar": 55
+      },
+      "revId": "b1916c5feef9c306fd74de20297ca7d63e00ddc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f08d07b7_d14b340e",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1079753
+      },
+      "writtenOn": "2016-09-22T22:42:32Z",
+      "side": 1,
+      "message": "(c)reateInterface",
+      "range": {
+        "startLine": 41,
+        "startChar": 62,
+        "endLine": 41,
+        "endChar": 77
+      },
+      "revId": "b1916c5feef9c306fd74de20297ca7d63e00ddc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f08d07b7_d1bed4d0",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1079753
+      },
+      "writtenOn": "2016-09-22T22:42:32Z",
+      "side": 1,
+      "message": "HIDL, same other places",
+      "range": {
+        "startLine": 64,
+        "startChar": 19,
+        "endLine": 64,
+        "endChar": 23
+      },
+      "revId": "b1916c5feef9c306fd74de20297ca7d63e00ddc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f08d07b7_ac9c8b5e",
+        "filename": "wifi/1.0/ISupplicantIfaceCallback.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1079753
+      },
+      "writtenOn": "2016-09-22T22:42:32Z",
+      "side": 1,
+      "message": "(o)nStateChanged",
+      "range": {
+        "startLine": 28,
+        "startChar": 51,
+        "endLine": 28,
+        "endChar": 65
+      },
+      "revId": "b1916c5feef9c306fd74de20297ca7d63e00ddc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
