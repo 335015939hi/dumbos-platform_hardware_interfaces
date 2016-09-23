@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "f08d07b7_9adffc23",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000866
+      },
+      "writtenOn": "2016-09-23T15:32:27Z",
+      "side": 1,
+      "message": "This ordering seems weird:\n1. What is the difference between EXCESSIVE and DEBUG?\n2. What is MSGDUMP?\n3. Shouldn\u0027t ERROR messages always be reported?  In any case, ERROR and WARNING aren\u0027t debug levels, so they shouldn\u0027t be here.  I think you should remove ERROR and move WARNING to its own enableWarnings(bool enable); method.",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 13
+      },
+      "revId": "d16970d89ecbaecdb4c210d8ed1b3aef9a16e071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f08d07b7_bab598e9",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000866
+      },
+      "writtenOn": "2016-09-23T15:32:27Z",
+      "side": 1,
+      "message": "How is this information retrieved by the framework?  The driver is a low-level concept, and is potentially something the framework should not be worried about.  Is this what tied into the IWiFi interface?",
+      "range": {
+        "startLine": 48,
+        "startChar": 4,
+        "endLine": 49,
+        "endChar": 18
+      },
+      "revId": "d16970d89ecbaecdb4c210d8ed1b3aef9a16e071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f08d07b7_daa264b1",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000866
+      },
+      "writtenOn": "2016-09-23T15:32:27Z",
+      "side": 1,
+      "message": "Configuration files in HIDL must be self-describable, so this needs to be converted to XML with its own schema that is then checked in with the interface as well.",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 22
+      },
+      "revId": "d16970d89ecbaecdb4c210d8ed1b3aef9a16e071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "658b17e1_20f8ca61",
         "filename": "wifi/1.0/ISupplicant.hal",
         "patchSetId": 15
@@ -18,6 +87,29 @@
         "startChar": 24,
         "endLine": 64,
         "endChar": 30
+      },
+      "revId": "d16970d89ecbaecdb4c210d8ed1b3aef9a16e071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f08d07b7_fabe40d0",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000866
+      },
+      "writtenOn": "2016-09-23T15:32:27Z",
+      "side": 1,
+      "message": "Don\u0027t you need a method to enumerate all availalble interfaces?",
+      "range": {
+        "startLine": 95,
+        "startChar": 2,
+        "endLine": 95,
+        "endChar": 29
       },
       "revId": "d16970d89ecbaecdb4c210d8ed1b3aef9a16e071",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -94,6 +186,30 @@
     },
     {
       "key": {
+        "uuid": "f08d07b7_dab984eb",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1000866
+      },
+      "writtenOn": "2016-09-23T15:32:27Z",
+      "side": 1,
+      "message": "Yeah, this needs to be spelled out.",
+      "parentUuid": "2554bf0d_a6d5e6db",
+      "range": {
+        "startLine": 140,
+        "startChar": 5,
+        "endLine": 141,
+        "endChar": 33
+      },
+      "revId": "d16970d89ecbaecdb4c210d8ed1b3aef9a16e071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "658b17e1_40fdce50",
         "filename": "wifi/1.0/ISupplicant.hal",
         "patchSetId": 15
@@ -110,6 +226,98 @@
         "startChar": 21,
         "endLine": 143,
         "endChar": 32
+      },
+      "revId": "d16970d89ecbaecdb4c210d8ed1b3aef9a16e071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f08d07b7_5aae54a1",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1000866
+      },
+      "writtenOn": "2016-09-23T15:32:27Z",
+      "side": 1,
+      "message": "I would move this method before all the debug-related ones.",
+      "range": {
+        "startLine": 150,
+        "startChar": 2,
+        "endLine": 150,
+        "endChar": 18
+      },
+      "revId": "d16970d89ecbaecdb4c210d8ed1b3aef9a16e071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f08d07b7_15973f3a",
+        "filename": "wifi/1.0/ISupplicantIface.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000866
+      },
+      "writtenOn": "2016-09-23T15:32:27Z",
+      "side": 1,
+      "message": "SupplicantNetworkId seems unnecessary.  If you are adding a network by passing an ISupplicantNetwork instance to it, why have all the other methods use a SupplicantNetworkId?  You should just remove SupplicantNetworkId and pass ISupplicantNetwork in all of the methods currently accepting SupplicantNetworkId.",
+      "range": {
+        "startLine": 66,
+        "startChar": 16,
+        "endLine": 66,
+        "endChar": 35
+      },
+      "revId": "d16970d89ecbaecdb4c210d8ed1b3aef9a16e071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f08d07b7_d5c5d735",
+        "filename": "wifi/1.0/ISupplicantIfaceCallback.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000866
+      },
+      "writtenOn": "2016-09-23T15:32:27Z",
+      "side": 1,
+      "message": "Just pass in SupplicantNetwork in here.  I don\u0027t think that SupplicantNetworkId is necessary.",
+      "range": {
+        "startLine": 112,
+        "startChar": 24,
+        "endLine": 112,
+        "endChar": 43
+      },
+      "revId": "d16970d89ecbaecdb4c210d8ed1b3aef9a16e071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f08d07b7_f5cad342",
+        "filename": "wifi/1.0/ISupplicantIfaceCallback.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000866
+      },
+      "writtenOn": "2016-09-23T15:32:27Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 119,
+        "startChar": 26,
+        "endLine": 119,
+        "endChar": 45
       },
       "revId": "d16970d89ecbaecdb4c210d8ed1b3aef9a16e071",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -163,6 +371,98 @@
     },
     {
       "key": {
+        "uuid": "f08d07b7_55baa7bb",
+        "filename": "wifi/1.0/ISupplicantIfaceCallback.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000866
+      },
+      "writtenOn": "2016-09-23T15:32:27Z",
+      "side": 1,
+      "message": "Same here--meaning of empty?",
+      "range": {
+        "startLine": 136,
+        "startChar": 39,
+        "endLine": 136,
+        "endChar": 44
+      },
+      "revId": "d16970d89ecbaecdb4c210d8ed1b3aef9a16e071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f08d07b7_15d01ff0",
+        "filename": "wifi/1.0/ISupplicantIfaceCallback.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000866
+      },
+      "writtenOn": "2016-09-23T15:32:27Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 140,
+        "startChar": 35,
+        "endLine": 140,
+        "endChar": 54
+      },
+      "revId": "d16970d89ecbaecdb4c210d8ed1b3aef9a16e071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f08d07b7_35eefbb1",
+        "filename": "wifi/1.0/ISupplicantNetwork.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000866
+      },
+      "writtenOn": "2016-09-23T15:32:27Z",
+      "side": 1,
+      "message": "Is this mandated by a standard, or just a limitation we\u0027re imposing here?  If the latter, you may want to remove it.",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 35,
+        "endChar": 25
+      },
+      "revId": "d16970d89ecbaecdb4c210d8ed1b3aef9a16e071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f08d07b7_15f3bf8a",
+        "filename": "wifi/1.0/ISupplicantNetwork.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000866
+      },
+      "writtenOn": "2016-09-23T15:32:27Z",
+      "side": 1,
+      "message": "Just to make sure you understand: you will not be able to modify this enum once the package is finalized.  Any modification must happen in a new version of the package.  Is there a reason OSEN can\u0027t be 1 \u003c\u003c 2?",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 24
+      },
+      "revId": "d16970d89ecbaecdb4c210d8ed1b3aef9a16e071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "658b17e1_4074eef4",
         "filename": "wifi/1.0/ISupplicantNetwork.hal",
         "patchSetId": 15
@@ -202,6 +502,29 @@
         "startChar": 14,
         "endLine": 102,
         "endChar": 18
+      },
+      "revId": "d16970d89ecbaecdb4c210d8ed1b3aef9a16e071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f08d07b7_9507cf76",
+        "filename": "wifi/1.0/ISupplicantNetwork.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000866
+      },
+      "writtenOn": "2016-09-23T15:32:27Z",
+      "side": 1,
+      "message": "If you get rid of the SupplicantNetworkId, you will not need this method.",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 70
       },
       "revId": "d16970d89ecbaecdb4c210d8ed1b3aef9a16e071",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
