@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f08d07b7_cbc53436",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-23T18:56:55Z",
+      "side": 1,
+      "message": "The HIDL interface for wpa_supplicant is a wrapper over the existing control interfaces exposed by wpa_supplicant. The ordering of this and most other parameters in these \nhidl interfaces mirror the existing internal values exposed by wpa_supplicant: https://cs.corp.google.com/android/external/wpa_supplicant_8/src/utils/wpa_debug.h?rcl\u003d370387c3707c1577dc33e4d6b2bb19f459325222\u0026l\u003d22.\n\nWe had a discussion regarding this in b/31646498. I\u0027m trying to avoid boilerplate code for things that will probably never be changed.",
+      "parentUuid": "f08d07b7_9adffc23",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 13
+      },
+      "revId": "d16970d89ecbaecdb4c210d8ed1b3aef9a16e071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f08d07b7_bab598e9",
         "filename": "wifi/1.0/ISupplicant.hal",
         "patchSetId": 15
@@ -36,6 +60,30 @@
       "writtenOn": "2016-09-23T15:32:27Z",
       "side": 1,
       "message": "How is this information retrieved by the framework?  The driver is a low-level concept, and is potentially something the framework should not be worried about.  Is this what tied into the IWiFi interface?",
+      "range": {
+        "startLine": 48,
+        "startChar": 4,
+        "endLine": 49,
+        "endChar": 18
+      },
+      "revId": "d16970d89ecbaecdb4c210d8ed1b3aef9a16e071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f08d07b7_700fb1e7",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-23T18:56:55Z",
+      "side": 1,
+      "message": "Hmm. I think we can get rid of this in the HIDL interface. \nThis is a generic interface exposed by wpa_supplicant to support multiple platforms. But, on android this will always be \"nl80211\" and I don\u0027t think any of the vendors configure this parameter in any other way.",
+      "parentUuid": "f08d07b7_bab598e9",
       "range": {
         "startLine": 48,
         "startChar": 4,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "f08d07b7_b08e992f",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-23T18:56:55Z",
+      "side": 1,
+      "message": "wpa_supplicant.conf is a custom file used by wpa_supplicant. We cannot change the format of this file. This will not be accepted upstream. \n\nWe\u0027ve been using the wpa_supplicant.conf file (controlled by wpa_supplicant) to persist all the wifi network configurations till now. For O, we\u0027ve now changed this to a new file (b/28966377) controlled directly by framework. \n\nSo, we\u0027re going to get rid of this eventually. b/29352330 is tracking this work item. However, we still need to handle the migration of network configuration data from existing devices.",
+      "parentUuid": "f08d07b7_daa264b1",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 22
+      },
+      "revId": "d16970d89ecbaecdb4c210d8ed1b3aef9a16e071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "658b17e1_20f8ca61",
         "filename": "wifi/1.0/ISupplicant.hal",
         "patchSetId": 15
@@ -82,6 +154,30 @@
       "writtenOn": "2016-09-23T12:04:38Z",
       "side": 1,
       "message": "I would call this a \"HIDL interface object\".",
+      "range": {
+        "startLine": 64,
+        "startChar": 24,
+        "endLine": 64,
+        "endChar": 30
+      },
+      "revId": "d16970d89ecbaecdb4c210d8ed1b3aef9a16e071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f08d07b7_ab2b88ec",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-23T18:56:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "658b17e1_20f8ca61",
       "range": {
         "startLine": 64,
         "startChar": 24,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "f08d07b7_4b41243c",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-23T18:56:55Z",
+      "side": 1,
+      "message": "Added one now for both interfaces \u0026 networks.",
+      "parentUuid": "f08d07b7_fabe40d0",
+      "range": {
+        "startLine": 95,
+        "startChar": 2,
+        "endLine": 95,
+        "endChar": 29
+      },
+      "revId": "d16970d89ecbaecdb4c210d8ed1b3aef9a16e071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "658b17e1_60fed253",
         "filename": "wifi/1.0/ISupplicant.hal",
         "patchSetId": 15
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "f08d07b7_8b608c34",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-23T18:56:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "658b17e1_60fed253",
+      "range": {
+        "startLine": 128,
+        "startChar": 48,
+        "endLine": 128,
+        "endChar": 54
+      },
+      "revId": "d16970d89ecbaecdb4c210d8ed1b3aef9a16e071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "658b17e1_8003d670",
         "filename": "wifi/1.0/ISupplicant.hal",
         "patchSetId": 15
@@ -151,6 +295,30 @@
       "writtenOn": "2016-09-23T12:04:38Z",
       "side": 1,
       "message": "nit: enabled",
+      "range": {
+        "startLine": 135,
+        "startChar": 43,
+        "endLine": 135,
+        "endChar": 49
+      },
+      "revId": "d16970d89ecbaecdb4c210d8ed1b3aef9a16e071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f08d07b7_6b53406b",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-23T18:56:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "658b17e1_8003d670",
       "range": {
         "startLine": 135,
         "startChar": 43,
@@ -210,6 +378,54 @@
     },
     {
       "key": {
+        "uuid": "f08d07b7_6b3c201d",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-23T18:56:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f08d07b7_dab984eb",
+      "range": {
+        "startLine": 140,
+        "startChar": 5,
+        "endLine": 141,
+        "endChar": 33
+      },
+      "revId": "d16970d89ecbaecdb4c210d8ed1b3aef9a16e071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f08d07b7_4b3f6412",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-23T18:56:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2554bf0d_a6d5e6db",
+      "range": {
+        "startLine": 140,
+        "startChar": 5,
+        "endLine": 141,
+        "endChar": 33
+      },
+      "revId": "d16970d89ecbaecdb4c210d8ed1b3aef9a16e071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "658b17e1_40fdce50",
         "filename": "wifi/1.0/ISupplicant.hal",
         "patchSetId": 15
@@ -221,6 +437,30 @@
       "writtenOn": "2016-09-23T12:04:38Z",
       "side": 1,
       "message": "An instance of the |ISupplicantCallback| HIDL interface object.",
+      "range": {
+        "startLine": 143,
+        "startChar": 21,
+        "endLine": 143,
+        "endChar": 32
+      },
+      "revId": "d16970d89ecbaecdb4c210d8ed1b3aef9a16e071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f08d07b7_0b62bc0f",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-23T18:56:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "658b17e1_40fdce50",
       "range": {
         "startLine": 143,
         "startChar": 21,
@@ -256,6 +496,30 @@
     },
     {
       "key": {
+        "uuid": "f08d07b7_2b67781f",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-23T18:56:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f08d07b7_5aae54a1",
+      "range": {
+        "startLine": 150,
+        "startChar": 2,
+        "endLine": 150,
+        "endChar": 18
+      },
+      "revId": "d16970d89ecbaecdb4c210d8ed1b3aef9a16e071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f08d07b7_15973f3a",
         "filename": "wifi/1.0/ISupplicantIface.hal",
         "patchSetId": 15
@@ -267,6 +531,30 @@
       "writtenOn": "2016-09-23T15:32:27Z",
       "side": 1,
       "message": "SupplicantNetworkId seems unnecessary.  If you are adding a network by passing an ISupplicantNetwork instance to it, why have all the other methods use a SupplicantNetworkId?  You should just remove SupplicantNetworkId and pass ISupplicantNetwork in all of the methods currently accepting SupplicantNetworkId.",
+      "range": {
+        "startLine": 66,
+        "startChar": 16,
+        "endLine": 66,
+        "endChar": 35
+      },
+      "revId": "d16970d89ecbaecdb4c210d8ed1b3aef9a16e071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f08d07b7_8b97ac94",
+        "filename": "wifi/1.0/ISupplicantIface.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-23T18:56:55Z",
+      "side": 1,
+      "message": "Within wpa_supplicant internally, ifaces are uniquely identified by the |ifName| and networks are uniquely identified by |networkId|. \n\nSo, every |ISupplicantNetwork| needs to stor/expose the corresponding |networkId| allocated to the network by wpa_supplicant core.\nEven if we pass the |ISupplicantNetwork| object in |removeNetwork|, we will still need to retrieve the |networkId| of the object to remove it from wpa_supplicant core using |ISupplicantNetwork.getId()|. So, we cannot totally get rid of |SupplicantNetworkId|.",
+      "parentUuid": "f08d07b7_15973f3a",
       "range": {
         "startLine": 66,
         "startChar": 16,
@@ -302,6 +590,30 @@
     },
     {
       "key": {
+        "uuid": "f08d07b7_2b5bf8f4",
+        "filename": "wifi/1.0/ISupplicantIfaceCallback.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-23T18:56:55Z",
+      "side": 1,
+      "message": "Same comment. We cannot totally get rid of the networkId.\n\nThis is similar to the iface added/removed callbacks. The unique name of the iface is passed.",
+      "parentUuid": "f08d07b7_d5c5d735",
+      "range": {
+        "startLine": 112,
+        "startChar": 24,
+        "endLine": 112,
+        "endChar": 43
+      },
+      "revId": "d16970d89ecbaecdb4c210d8ed1b3aef9a16e071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f08d07b7_f5cad342",
         "filename": "wifi/1.0/ISupplicantIfaceCallback.hal",
         "patchSetId": 15
@@ -313,6 +625,30 @@
       "writtenOn": "2016-09-23T15:32:27Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 119,
+        "startChar": 26,
+        "endLine": 119,
+        "endChar": 45
+      },
+      "revId": "d16970d89ecbaecdb4c210d8ed1b3aef9a16e071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f08d07b7_4b6044a5",
+        "filename": "wifi/1.0/ISupplicantIfaceCallback.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-23T18:56:55Z",
+      "side": 1,
+      "message": "Same.",
+      "parentUuid": "f08d07b7_f5cad342",
       "range": {
         "startLine": 119,
         "startChar": 26,
@@ -348,6 +684,30 @@
     },
     {
       "key": {
+        "uuid": "f08d07b7_cb745465",
+        "filename": "wifi/1.0/ISupplicantIfaceCallback.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-23T18:56:55Z",
+      "side": 1,
+      "message": "Yes. Depending on the |state|, the client should be able to interpret this. \nEmpty here means zero\u0027ed {0, 0, 0, 0, 0, 0}. Added a comment.",
+      "parentUuid": "658b17e1_806af610",
+      "range": {
+        "startLine": 130,
+        "startChar": 39,
+        "endLine": 130,
+        "endChar": 44
+      },
+      "revId": "d16970d89ecbaecdb4c210d8ed1b3aef9a16e071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "658b17e1_206f6a23",
         "filename": "wifi/1.0/ISupplicantIfaceCallback.hal",
         "patchSetId": 15
@@ -359,6 +719,30 @@
       "writtenOn": "2016-09-23T12:04:38Z",
       "side": 1,
       "message": "is this some magic value?",
+      "range": {
+        "startLine": 133,
+        "startChar": 45,
+        "endLine": 133,
+        "endChar": 52
+      },
+      "revId": "d16970d89ecbaecdb4c210d8ed1b3aef9a16e071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f08d07b7_cb461409",
+        "filename": "wifi/1.0/ISupplicantIfaceCallback.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-23T18:56:55Z",
+      "side": 1,
+      "message": "Depending on the |state|, the client should be able to interpret this.\nInvalid is UINT32_MAX here. Added a comment.",
+      "parentUuid": "658b17e1_206f6a23",
       "range": {
         "startLine": 133,
         "startChar": 45,
@@ -394,6 +778,30 @@
     },
     {
       "key": {
+        "uuid": "f08d07b7_6b0fc0e7",
+        "filename": "wifi/1.0/ISupplicantIfaceCallback.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-23T18:56:55Z",
+      "side": 1,
+      "message": "Ssid is a vector. So, empty means zero length.",
+      "parentUuid": "f08d07b7_55baa7bb",
+      "range": {
+        "startLine": 136,
+        "startChar": 39,
+        "endLine": 136,
+        "endChar": 44
+      },
+      "revId": "d16970d89ecbaecdb4c210d8ed1b3aef9a16e071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f08d07b7_15d01ff0",
         "filename": "wifi/1.0/ISupplicantIfaceCallback.hal",
         "patchSetId": 15
@@ -405,6 +813,30 @@
       "writtenOn": "2016-09-23T15:32:27Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 140,
+        "startChar": 35,
+        "endLine": 140,
+        "endChar": 54
+      },
+      "revId": "d16970d89ecbaecdb4c210d8ed1b3aef9a16e071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f08d07b7_8b1c0c21",
+        "filename": "wifi/1.0/ISupplicantIfaceCallback.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-23T18:56:55Z",
+      "side": 1,
+      "message": "Same.",
+      "parentUuid": "f08d07b7_15d01ff0",
       "range": {
         "startLine": 140,
         "startChar": 35,
@@ -440,6 +872,30 @@
     },
     {
       "key": {
+        "uuid": "f08d07b7_2b469806",
+        "filename": "wifi/1.0/ISupplicantNetwork.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-23T18:56:55Z",
+      "side": 1,
+      "message": "Yep, All of these limits are mandated by standard.",
+      "parentUuid": "f08d07b7_35eefbb1",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 35,
+        "endChar": 25
+      },
+      "revId": "d16970d89ecbaecdb4c210d8ed1b3aef9a16e071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f08d07b7_15f3bf8a",
         "filename": "wifi/1.0/ISupplicantNetwork.hal",
         "patchSetId": 15
@@ -451,6 +907,30 @@
       "writtenOn": "2016-09-23T15:32:27Z",
       "side": 1,
       "message": "Just to make sure you understand: you will not be able to modify this enum once the package is finalized.  Any modification must happen in a new version of the package.  Is there a reason OSEN can\u0027t be 1 \u003c\u003c 2?",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 24
+      },
+      "revId": "d16970d89ecbaecdb4c210d8ed1b3aef9a16e071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f08d07b7_6bab3f29",
+        "filename": "wifi/1.0/ISupplicantNetwork.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-23T18:56:55Z",
+      "side": 1,
+      "message": "These correspond to internal wpa_supplicant values. We don\u0027t use the value at (1 \u003c\u003c 2) in Android.\n\nhttps://cs.corp.google.com/android/external/wpa_supplicant_8/src/common/defs.h?rcl\u003d370387c3707c1577dc33e4d6b2bb19f459325222\u0026l\u003d128",
+      "parentUuid": "f08d07b7_15f3bf8a",
       "range": {
         "startLine": 64,
         "startChar": 0,
@@ -486,6 +966,30 @@
     },
     {
       "key": {
+        "uuid": "f08d07b7_cbe7f40f",
+        "filename": "wifi/1.0/ISupplicantNetwork.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-23T18:56:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "658b17e1_4074eef4",
+      "range": {
+        "startLine": 90,
+        "startChar": 14,
+        "endLine": 90,
+        "endChar": 18
+      },
+      "revId": "d16970d89ecbaecdb4c210d8ed1b3aef9a16e071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "658b17e1_e058a28e",
         "filename": "wifi/1.0/ISupplicantNetwork.hal",
         "patchSetId": 15
@@ -509,6 +1013,30 @@
     },
     {
       "key": {
+        "uuid": "f08d07b7_ab32a8a6",
+        "filename": "wifi/1.0/ISupplicantNetwork.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-23T18:56:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "658b17e1_e058a28e",
+      "range": {
+        "startLine": 102,
+        "startChar": 14,
+        "endLine": 102,
+        "endChar": 18
+      },
+      "revId": "d16970d89ecbaecdb4c210d8ed1b3aef9a16e071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f08d07b7_9507cf76",
         "filename": "wifi/1.0/ISupplicantNetwork.hal",
         "patchSetId": 15
@@ -520,6 +1048,30 @@
       "writtenOn": "2016-09-23T15:32:27Z",
       "side": 1,
       "message": "If you get rid of the SupplicantNetworkId, you will not need this method.",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 70
+      },
+      "revId": "d16970d89ecbaecdb4c210d8ed1b3aef9a16e071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f08d07b7_8b06ccc1",
+        "filename": "wifi/1.0/ISupplicantNetwork.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-23T18:56:55Z",
+      "side": 1,
+      "message": "Same. We still need networkId.",
+      "parentUuid": "f08d07b7_9507cf76",
       "range": {
         "startLine": 124,
         "startChar": 0,
