@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f08d07b7_bcf83867",
+        "filename": "tests/expression/1.0/IExpressionExt.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2016-09-23T01:51:28Z",
+      "side": 1,
+      "message": "split into 2 structs. b/31688683",
+      "range": {
+        "startLine": 27,
+        "startChar": 2,
+        "endLine": 27,
+        "endChar": 8
+      },
+      "revId": "0e36b8598f670034fba9cf43524c07907fa5ec85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
