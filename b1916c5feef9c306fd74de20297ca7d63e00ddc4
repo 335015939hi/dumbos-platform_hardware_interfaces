@@ -48,6 +48,54 @@
     },
     {
       "key": {
+        "uuid": "f08d07b7_4c3ce71c",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-23T00:02:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f08d07b7_51f9e4ab",
+      "range": {
+        "startLine": 24,
+        "startChar": 12,
+        "endLine": 24,
+        "endChar": 27
+      },
+      "revId": "b1916c5feef9c306fd74de20297ca7d63e00ddc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f08d07b7_ac29ebad",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-23T00:02:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f08d07b7_11f75cbd",
+      "range": {
+        "startLine": 24,
+        "startChar": 41,
+        "endLine": 24,
+        "endChar": 55
+      },
+      "revId": "b1916c5feef9c306fd74de20297ca7d63e00ddc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f08d07b7_d14b340e",
         "filename": "wifi/1.0/ISupplicant.hal",
         "patchSetId": 13
@@ -59,6 +107,30 @@
       "writtenOn": "2016-09-22T22:42:32Z",
       "side": 1,
       "message": "(c)reateInterface",
+      "range": {
+        "startLine": 41,
+        "startChar": 62,
+        "endLine": 41,
+        "endChar": 77
+      },
+      "revId": "b1916c5feef9c306fd74de20297ca7d63e00ddc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f08d07b7_acbbab91",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-23T00:02:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f08d07b7_d14b340e",
       "range": {
         "startLine": 41,
         "startChar": 62,
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "f08d07b7_0ccbbf16",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-23T00:02:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f08d07b7_d1bed4d0",
+      "range": {
+        "startLine": 64,
+        "startChar": 19,
+        "endLine": 64,
+        "endChar": 23
+      },
+      "revId": "b1916c5feef9c306fd74de20297ca7d63e00ddc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f08d07b7_6cda83de",
         "filename": "wifi/1.0/ISupplicant.hal",
         "patchSetId": 13
@@ -105,6 +201,30 @@
       "writtenOn": "2016-09-22T22:49:35Z",
       "side": 1,
       "message": "this call flow from create and removeInterface can be caught by using VTS annotations. is it possible to add some annotations?",
+      "range": {
+        "startLine": 80,
+        "startChar": 2,
+        "endLine": 80,
+        "endChar": 17
+      },
+      "revId": "b1916c5feef9c306fd74de20297ca7d63e00ddc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f08d07b7_3207f62a",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-23T00:02:16Z",
+      "side": 1,
+      "message": "@callflow(next\u003d{\"removeInterface\"}) on top of |createInterface| method? \n\nThis necessarily isn\u0027t the order. The client can chose to call any of the other methods in the interface after |createInterface|. I guess the only guaranteed callflow is that |removeInterface| should always be preceeded by a call to |createInterface|. But, i don\u0027t see a VTS annotation to state that.",
+      "parentUuid": "f08d07b7_6cda83de",
       "range": {
         "startLine": 80,
         "startChar": 2,
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "f08d07b7_0ce49fa0",
+        "filename": "wifi/1.0/ISupplicantIfaceCallback.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-23T00:02:16Z",
+      "side": 1,
+      "message": "ah. my regex didn\u0027t catch this.",
+      "parentUuid": "f08d07b7_ac9c8b5e",
+      "range": {
+        "startLine": 28,
+        "startChar": 51,
+        "endLine": 28,
+        "endChar": 65
+      },
+      "revId": "b1916c5feef9c306fd74de20297ca7d63e00ddc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f08d07b7_6cdd23fb",
         "filename": "wifi/1.0/ISupplicantNetwork.hal",
         "patchSetId": 13
@@ -151,6 +295,30 @@
       "writtenOn": "2016-09-22T22:44:57Z",
       "side": 1,
       "message": "Pmf",
+      "range": {
+        "startLine": 651,
+        "startChar": 12,
+        "endLine": 651,
+        "endChar": 15
+      },
+      "revId": "b1916c5feef9c306fd74de20297ca7d63e00ddc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f08d07b7_2c823bb2",
+        "filename": "wifi/1.0/ISupplicantNetwork.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 651,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-23T00:02:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f08d07b7_6cdd23fb",
       "range": {
         "startLine": 651,
         "startChar": 12,
