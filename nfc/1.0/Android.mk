@@ -66,6 +66,7 @@ $(GEN): $(LOCAL_PATH)/INfcClientCallback.hal
 LOCAL_GENERATED_SOURCES += $(GEN)
 
 LOCAL_EXPORT_C_INCLUDE_DIRS := $(intermediates)
+LOCAL_EXPORT_SHARED_LIBRARY_HEADERS := libhidl libhwbinder
 LOCAL_SHARED_LIBRARIES := \
   libhidl \
   libhwbinder \
@@ -86,9 +87,9 @@ intermediates := $(local-generated-sources-dir)
 HIDL := $(HOST_OUT_EXECUTABLES)/hidl-gen$(HOST_EXECUTABLE_SUFFIX)
 
 #
-# Build types.hal (nfc_event_t)
+# Build types.hal (NfcEvent)
 #
-GEN := $(intermediates)/android/hardware/nfc/1.0/nfc_event_t.java
+GEN := $(intermediates)/android/hardware/nfc/1.0/NfcEvent.java
 $(GEN): $(HIDL)
 $(GEN): PRIVATE_HIDL := $(HIDL)
 $(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/types.hal
@@ -96,16 +97,16 @@ $(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
 $(GEN): PRIVATE_CUSTOM_TOOL = \
     $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
     -Ljava -randroid.hardware:hardware/interfaces \
-    android.hardware.nfc@1.0::types.nfc_event_t
+    android.hardware.nfc@1.0::types.NfcEvent
 
 $(GEN): $(LOCAL_PATH)/types.hal
 	$(transform-generated-source)
 LOCAL_GENERATED_SOURCES += $(GEN)
 
 #
-# Build types.hal (nfc_status_t)
+# Build types.hal (NfcStatus)
 #
-GEN := $(intermediates)/android/hardware/nfc/1.0/nfc_status_t.java
+GEN := $(intermediates)/android/hardware/nfc/1.0/NfcStatus.java
 $(GEN): $(HIDL)
 $(GEN): PRIVATE_HIDL := $(HIDL)
 $(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/types.hal
@@ -113,24 +114,7 @@ $(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
 $(GEN): PRIVATE_CUSTOM_TOOL = \
     $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
     -Ljava -randroid.hardware:hardware/interfaces \
-    android.hardware.nfc@1.0::types.nfc_status_t
-
-$(GEN): $(LOCAL_PATH)/types.hal
-	$(transform-generated-source)
-LOCAL_GENERATED_SOURCES += $(GEN)
-
-#
-# Build types.hal (nfc_data_t)
-#
-GEN := $(intermediates)/android/hardware/nfc/1.0/nfc_data_t.java
-$(GEN): $(HIDL)
-$(GEN): PRIVATE_HIDL := $(HIDL)
-$(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/types.hal
-$(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
-$(GEN): PRIVATE_CUSTOM_TOOL = \
-    $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
-    -Ljava -randroid.hardware:hardware/interfaces \
-    android.hardware.nfc@1.0::types.nfc_data_t
+    android.hardware.nfc@1.0::types.NfcStatus
 
 $(GEN): $(LOCAL_PATH)/types.hal
 	$(transform-generated-source)
@@ -189,9 +173,9 @@ intermediates := $(local-generated-sources-dir)
 HIDL := $(HOST_OUT_EXECUTABLES)/hidl-gen$(HOST_EXECUTABLE_SUFFIX)
 
 #
-# Build types.hal (nfc_event_t)
+# Build types.hal (NfcEvent)
 #
-GEN := $(intermediates)/android/hardware/nfc/1.0/nfc_event_t.java
+GEN := $(intermediates)/android/hardware/nfc/1.0/NfcEvent.java
 $(GEN): $(HIDL)
 $(GEN): PRIVATE_HIDL := $(HIDL)
 $(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/types.hal
@@ -199,16 +183,16 @@ $(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
 $(GEN): PRIVATE_CUSTOM_TOOL = \
     $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
     -Ljava -randroid.hardware:hardware/interfaces \
-    android.hardware.nfc@1.0::types.nfc_event_t
+    android.hardware.nfc@1.0::types.NfcEvent
 
 $(GEN): $(LOCAL_PATH)/types.hal
 	$(transform-generated-source)
 LOCAL_GENERATED_SOURCES += $(GEN)
 
 #
-# Build types.hal (nfc_status_t)
+# Build types.hal (NfcStatus)
 #
-GEN := $(intermediates)/android/hardware/nfc/1.0/nfc_status_t.java
+GEN := $(intermediates)/android/hardware/nfc/1.0/NfcStatus.java
 $(GEN): $(HIDL)
 $(GEN): PRIVATE_HIDL := $(HIDL)
 $(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/types.hal
@@ -216,24 +200,7 @@ $(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
 $(GEN): PRIVATE_CUSTOM_TOOL = \
     $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
     -Ljava -randroid.hardware:hardware/interfaces \
-    android.hardware.nfc@1.0::types.nfc_status_t
-
-$(GEN): $(LOCAL_PATH)/types.hal
-	$(transform-generated-source)
-LOCAL_GENERATED_SOURCES += $(GEN)
-
-#
-# Build types.hal (nfc_data_t)
-#
-GEN := $(intermediates)/android/hardware/nfc/1.0/nfc_data_t.java
-$(GEN): $(HIDL)
-$(GEN): PRIVATE_HIDL := $(HIDL)
-$(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/types.hal
-$(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
-$(GEN): PRIVATE_CUSTOM_TOOL = \
-    $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
-    -Ljava -randroid.hardware:hardware/interfaces \
-    android.hardware.nfc@1.0::types.nfc_data_t
+    android.hardware.nfc@1.0::types.NfcStatus
 
 $(GEN): $(LOCAL_PATH)/types.hal
 	$(transform-generated-source)
