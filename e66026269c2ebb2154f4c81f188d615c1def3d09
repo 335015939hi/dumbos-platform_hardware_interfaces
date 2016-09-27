@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "45ba9338_78d995ee",
+        "filename": "bluetooth/1.0/IBluetooth.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2016-09-27T22:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70d83709_de2f56ae",
+      "revId": "e66026269c2ebb2154f4c81f188d615c1def3d09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f074270d_85556251",
         "filename": "bluetooth/1.0/IBluetooth.hal",
         "patchSetId": 5
@@ -30,6 +48,30 @@
       "writtenOn": "2016-09-21T17:57:35Z",
       "side": 1,
       "message": "remove. b/31527823",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 26
+      },
+      "revId": "e66026269c2ebb2154f4c81f188d615c1def3d09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45ba9338_b8e13d90",
+        "filename": "bluetooth/1.0/IBluetooth.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2016-09-27T22:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f074270d_85556251",
       "range": {
         "startLine": 20,
         "startChar": 0,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "45ba9338_38f6ed54",
+        "filename": "bluetooth/1.0/IBluetoothClientCallback.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2016-09-27T22:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f074270d_c5759ac2",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 27
+      },
+      "revId": "e66026269c2ebb2154f4c81f188d615c1def3d09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f074270d_652dc654",
         "filename": "bluetooth/1.0/tests/Android.mk",
         "patchSetId": 5
@@ -76,6 +142,30 @@
       "writtenOn": "2016-09-21T17:57:35Z",
       "side": 1,
       "message": "remove tabs",
+      "range": {
+        "startLine": 10,
+        "startChar": 32,
+        "endLine": 10,
+        "endChar": 33
+      },
+      "revId": "e66026269c2ebb2154f4c81f188d615c1def3d09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45ba9338_f868e5ea",
+        "filename": "bluetooth/1.0/tests/Android.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2016-09-27T22:40:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f074270d_652dc654",
       "range": {
         "startLine": 10,
         "startChar": 32,
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "45ba9338_7817d502",
+        "filename": "bluetooth/1.0/tests/main.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2016-09-27T22:40:24Z",
+      "side": 1,
+      "message": "I didn\u0027t find a difference here.",
+      "parentUuid": "f074270d_e85c2b79",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 1
+      },
+      "revId": "e66026269c2ebb2154f4c81f188d615c1def3d09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f074270d_a8523364",
         "filename": "bluetooth/1.0/tests/main.cpp",
         "patchSetId": 5
@@ -134,6 +248,30 @@
     },
     {
       "key": {
+        "uuid": "45ba9338_d83ec175",
+        "filename": "bluetooth/1.0/tests/main.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2016-09-27T22:40:24Z",
+      "side": 1,
+      "message": "I updated it.",
+      "parentUuid": "f074270d_a8523364",
+      "range": {
+        "startLine": 80,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 1
+      },
+      "revId": "e66026269c2ebb2154f4c81f188d615c1def3d09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f074270d_851d6280",
         "filename": "bluetooth/1.0/types.hal",
         "patchSetId": 5
@@ -145,6 +283,30 @@
       "writtenOn": "2016-09-21T17:57:35Z",
       "side": 1,
       "message": "Should be \u0027BluetoothHci\u0027 or \u0027BluetoothHciPacket\u0027\n\nAlso, would it make more sense to have this as a typedef?",
+      "range": {
+        "startLine": 19,
+        "startChar": 7,
+        "endLine": 19,
+        "endChar": 22
+      },
+      "revId": "e66026269c2ebb2154f4c81f188d615c1def3d09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45ba9338_d8fd219b",
+        "filename": "bluetooth/1.0/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2016-09-27T22:40:24Z",
+      "side": 1,
+      "message": "I\u0027d be happy to talk more about this.",
+      "parentUuid": "f074270d_851d6280",
       "range": {
         "startLine": 19,
         "startChar": 7,
