@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "45ba9338_83f32efa",
+        "filename": "bluetooth/1.0/IBluetoothHci.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2016-09-27T23:32:39Z",
+      "side": 1,
+      "message": "At this level, there are HCI packets in one direction and HCI events in the other.  That should be it.",
+      "parentUuid": "45ba9338_c32c16b9",
+      "range": {
+        "startLine": 21,
+        "startChar": 10,
+        "endLine": 21,
+        "endChar": 23
+      },
+      "revId": "e536d46d8cdd5f1e73f424cbe5fe4561572cd823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45ba9338_43a4a651",
         "filename": "bluetooth/1.0/IBluetoothHci.hal",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2016-09-27T23:01:09Z",
       "side": 1,
       "message": "What happens if this is called multiple times?",
+      "range": {
+        "startLine": 31,
+        "startChar": 7,
+        "endLine": 31,
+        "endChar": 52
+      },
+      "revId": "e536d46d8cdd5f1e73f424cbe5fe4561572cd823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45ba9338_c3db7674",
+        "filename": "bluetooth/1.0/IBluetoothHci.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2016-09-27T23:32:39Z",
+      "side": 1,
+      "message": "The callback gets replaced in the server?  Maybe I\u0027m misunderstanding the question.",
+      "parentUuid": "45ba9338_43a4a651",
       "range": {
         "startLine": 31,
         "startChar": 7,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "45ba9338_2383623f",
+        "filename": "bluetooth/1.0/IBluetoothHciEvent.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2016-09-27T23:32:39Z",
+      "side": 1,
+      "message": "Frequently, they are responses.  Sometimes they are not (e.g., scan results)",
+      "parentUuid": "45ba9338_0340de5a",
+      "range": {
+        "startLine": 21,
+        "startChar": 7,
+        "endLine": 22,
+        "endChar": 48
+      },
+      "revId": "e536d46d8cdd5f1e73f424cbe5fe4561572cd823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45ba9338_e344ba70",
         "filename": "bluetooth/1.0/IBluetoothHciEvent.hal",
         "patchSetId": 7
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "45ba9338_3eb535c8",
+        "filename": "bluetooth/1.0/IBluetoothHciEvent.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2016-09-27T23:32:39Z",
+      "side": 1,
+      "message": "I guess I\u0027m confused here.  It seems like the name should make sense from the caller\u0027s perspective.  The callee implements it, right?",
+      "parentUuid": "45ba9338_e344ba70",
+      "range": {
+        "startLine": 24,
+        "startChar": 4,
+        "endLine": 24,
+        "endChar": 16
+      },
+      "revId": "e536d46d8cdd5f1e73f424cbe5fe4561572cd823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45ba9338_23cc022d",
         "filename": "bluetooth/1.0/types.hal",
         "patchSetId": 7
@@ -105,6 +201,30 @@
       "writtenOn": "2016-09-27T23:01:09Z",
       "side": 1,
       "message": "still, go/android-treble-style-guide",
+      "range": {
+        "startLine": 19,
+        "startChar": 7,
+        "endLine": 19,
+        "endChar": 22
+      },
+      "revId": "e536d46d8cdd5f1e73f424cbe5fe4561572cd823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45ba9338_7ed69de7",
+        "filename": "bluetooth/1.0/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2016-09-27T23:32:39Z",
+      "side": 1,
+      "message": "sorry.  I copied it from nfc.",
+      "parentUuid": "45ba9338_23cc022d",
       "range": {
         "startLine": 19,
         "startChar": 7,
