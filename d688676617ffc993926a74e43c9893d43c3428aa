@@ -45,6 +45,75 @@
       "revId": "d688676617ffc993926a74e43c9893d43c3428aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5b2a710_1103361c",
+        "filename": "wifi/1.0/ISupplicantIface.hal",
+        "patchSetId": 18
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-27T16:06:41Z",
+      "side": 1,
+      "message": "TDLS (should be properly capitalized in the comments)",
+      "range": {
+        "startLine": 176,
+        "startChar": 14,
+        "endLine": 176,
+        "endChar": 18
+      },
+      "revId": "d688676617ffc993926a74e43c9893d43c3428aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5b2a710_f107aa23",
+        "filename": "wifi/1.0/ISupplicantIface.hal",
+        "patchSetId": 18
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-27T16:06:41Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 189,
+        "startChar": 14,
+        "endLine": 189,
+        "endChar": 18
+      },
+      "revId": "d688676617ffc993926a74e43c9893d43c3428aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5b2a710_d10cae4a",
+        "filename": "wifi/1.0/ISupplicantIface.hal",
+        "patchSetId": 18
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-27T16:06:41Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 202,
+        "startChar": 14,
+        "endLine": 202,
+        "endChar": 18
+      },
+      "revId": "d688676617ffc993926a74e43c9893d43c3428aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
