@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e5b2a710_2651570c",
+        "filename": "wifi/1.0/ISupplicantIface.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1060373
+      },
+      "writtenOn": "2016-09-27T18:03:58Z",
+      "side": 1,
+      "message": "So we are not requesting scan through supplicant any more?",
+      "range": {
+        "startLine": 26,
+        "startChar": 10,
+        "endLine": 26,
+        "endChar": 26
+      },
+      "revId": "9804bb2380d1ba361ff1bf1d26c22c5c7bbb5eec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
