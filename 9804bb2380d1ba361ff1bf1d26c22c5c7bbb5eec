@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "45ba9338_55d61cbe",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-27T22:02:34Z",
+      "side": 1,
+      "message": "This is only true in your implementation and is not part of the interface. Delete.",
+      "range": {
+        "startLine": 23,
+        "startChar": 3,
+        "endLine": 24,
+        "endChar": 62
+      },
+      "revId": "9804bb2380d1ba361ff1bf1d26c22c5c7bbb5eec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e5b2a710_2651570c",
         "filename": "wifi/1.0/ISupplicantIface.hal",
         "patchSetId": 19
@@ -42,6 +65,29 @@
         "startChar": 10,
         "endLine": 26,
         "endChar": 26
+      },
+      "revId": "9804bb2380d1ba361ff1bf1d26c22c5c7bbb5eec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45ba9338_f568f0ea",
+        "filename": "wifi/1.0/ISupplicantIfaceCallback.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-27T22:02:34Z",
+      "side": 1,
+      "message": "line up stars (needs one space per line, same below)",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 34,
+        "endChar": 6
       },
       "revId": "9804bb2380d1ba361ff1bf1d26c22c5c7bbb5eec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
