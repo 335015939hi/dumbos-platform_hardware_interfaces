@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "45ba9338_b5e788d1",
+        "filename": "benchmarks/msgq/1.0/IBenchmarkMsgQ.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2016-09-27T21:53:01Z",
+      "side": 1,
+      "message": "It was originally intended to pass back an error code when we moved away from Status. However, we really don\u0027t have the need for error codes to be passed back to the client for the benchmarks or unit tests. Will push another CL to change this to bool.",
+      "parentUuid": "e5b2a710_5c631239",
+      "range": {
+        "startLine": 23,
+        "startChar": 20,
+        "endLine": 23,
+        "endChar": 56
+      },
+      "revId": "44c8245519c2c7f85b27c6e681288b0382091122",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e5b2a710_1c4c6ac9",
         "filename": "benchmarks/msgq/1.0/IBenchmarkMsgQ.hal",
         "patchSetId": 3
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "45ba9338_75d6c0e7",
+        "filename": "benchmarks/msgq/1.0/IBenchmarkMsgQ.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2016-09-27T21:53:01Z",
+      "side": 1,
+      "message": "I had added a TODO to convert this to bool! Pushing another CL to take care of it.",
+      "parentUuid": "e5b2a710_7c0fee92",
+      "range": {
+        "startLine": 43,
+        "startChar": 8,
+        "endLine": 43,
+        "endChar": 11
+      },
+      "revId": "44c8245519c2c7f85b27c6e681288b0382091122",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e5b2a710_9c599a93",
         "filename": "tests/msgq/1.0/ITestMsgQ.hal",
         "patchSetId": 3
@@ -82,6 +130,30 @@
       "writtenOn": "2016-09-27T19:01:28Z",
       "side": 1,
       "message": "what if it\u0027s unsuccessful?\n\nshouldn\u0027t it just be a boolean?",
+      "range": {
+        "startLine": 23,
+        "startChar": 15,
+        "endLine": 23,
+        "endChar": 56
+      },
+      "revId": "44c8245519c2c7f85b27c6e681288b0382091122",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45ba9338_55329c5e",
+        "filename": "tests/msgq/1.0/ITestMsgQ.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2016-09-27T21:53:01Z",
+      "side": 1,
+      "message": "Currently, if unsuccessful it just returns a non-zero value.\nChanging to bool in another CL.",
+      "parentUuid": "e5b2a710_9c599a93",
       "range": {
         "startLine": 23,
         "startChar": 15,
