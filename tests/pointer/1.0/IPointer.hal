@@ -58,6 +58,7 @@ interface IPointer {
   foo17(ref<Ptr> p);
   foo18(ref<string> str_ref, ref<string> str_ref2, string str);
   foo19(ref<vec<Ada>> a_vec_ref, vec<Ada> a_vec, ref<vec<Ada>> a_vec_ref2);
+  foo20(vec<ref<Sam>> s_ptr_vec);
 
   bar1() generates (Sam s, ref<Sam> s_ptr);
   bar2() generates (Sam s, Ada a);
@@ -78,6 +79,7 @@ interface IPointer {
   bar17() generates (ref<Ptr> p);
   bar18() generates (ref<string> str_ref, ref<string> str_ref2, string str);
   bar19() generates (ref<vec<Ada>> a_vec_ref, vec<Ada> a_vec, ref<vec<Ada>> a_vec_ref2);
+  bar20() generates (vec<ref<Sam>> s_ptr_vec);
 
   getErrors() generates(int32_t errors);
 };
