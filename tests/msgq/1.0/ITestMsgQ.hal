@@ -25,19 +25,19 @@ interface ITestMsgQ {
      * set up by the service. Client can use it to set up the FMQ at its end.
      */
     configureFmqSyncReadWrite()
-        generates(int32_t ret, MQDescriptorSync mqDesc);
+        generates(bool ret, MQDescriptorSync mqDesc);
 
     /*
      * This method request the service to write into the FMQ.
      * @param count Number to messages to write.
      * @ret Number of messages succesfully written.
      */
-    requestWrite(int32_t count) generates(int32_t ret);
+    requestWrite(int32_t count) generates(bool ret);
 
     /*
      * This method request the service to read from the FMQ.
      * @param count Number to messages to read.
      * @ret Number of messages succesfully read.
      */
-    requestRead(int32_t count) generates(int32_t ret);
+    requestRead(int32_t count) generates(bool ret);
 };

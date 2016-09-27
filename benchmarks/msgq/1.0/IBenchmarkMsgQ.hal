@@ -25,7 +25,7 @@ interface IBenchmarkMsgQ {
      * by the service. Client can use it to set up the FMQ at its end.
      */
     configureClientInboxSyncReadWrite()
-        generates(int32_t ret, MQDescriptorSync mqDescIn);
+        generates(bool ret, MQDescriptorSync mqDescIn);
 
     /*
      * This method requests the service to set up Synchronous read/write
@@ -35,21 +35,21 @@ interface IBenchmarkMsgQ {
      * by the service. Client can use it to set up the FMQ at its end.
      */
     configureClientOutboxSyncReadWrite()
-        generates(int32_t ret, MQDescriptorSync mqDescOut);
+        generates(bool ret, MQDescriptorSync mqDescOut);
 
     /*
      * This method request the service to write into the FMQ.
      * @param count Number to messages to write.
      * @ret Number of messages succesfully written.
      */
-    requestWrite(int32_t count) generates (int32_t ret);
+    requestWrite(int32_t count) generates (bool ret);
 
     /*
      * This method request the service to read from the FMQ.
      * @param count Number to messages to read.
      * @ret Number of messages succesfully read.
      */
-    requestRead(int32_t count) generates (int32_t ret);
+    requestRead(int32_t count) generates (bool ret);
 
     /*
      * This method kicks off a benchmarking experiment where
