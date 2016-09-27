@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "45ba9338_f8c6255f",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-27T22:42:49Z",
+      "side": 1,
+      "message": "Removed it now. \nAs discussed offline, it\u0027s not entirely clear how the \"name of the HIDL\" needs to be communicated to the client.",
+      "parentUuid": "45ba9338_55d61cbe",
+      "range": {
+        "startLine": 23,
+        "startChar": 3,
+        "endLine": 24,
+        "endChar": 62
+      },
+      "revId": "9804bb2380d1ba361ff1bf1d26c22c5c7bbb5eec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e5b2a710_2651570c",
         "filename": "wifi/1.0/ISupplicantIface.hal",
         "patchSetId": 19
@@ -83,6 +107,30 @@
       "writtenOn": "2016-09-27T22:02:34Z",
       "side": 1,
       "message": "line up stars (needs one space per line, same below)",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 34,
+        "endChar": 6
+      },
+      "revId": "9804bb2380d1ba361ff1bf1d26c22c5c7bbb5eec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45ba9338_38b1cdfc",
+        "filename": "wifi/1.0/ISupplicantIfaceCallback.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-27T22:42:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45ba9338_f568f0ea",
       "range": {
         "startLine": 31,
         "startChar": 4,
