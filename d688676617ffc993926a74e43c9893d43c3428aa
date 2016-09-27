@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e5b2a710_512bfe99",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 18
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-27T16:02:32Z",
+      "side": 1,
+      "message": "must be",
+      "range": {
+        "startLine": 113,
+        "startChar": 41,
+        "endLine": 113,
+        "endChar": 44
+      },
+      "revId": "d688676617ffc993926a74e43c9893d43c3428aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5b2a710_3128729b",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 18
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-27T16:02:32Z",
+      "side": 1,
+      "message": "delete this, it doesn\u0027t describe the interface, it describes hidl\n\nsame in the other two comments that contain this.",
+      "range": {
+        "startLine": 114,
+        "startChar": 20,
+        "endLine": 114,
+        "endChar": 55
+      },
+      "revId": "d688676617ffc993926a74e43c9893d43c3428aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
