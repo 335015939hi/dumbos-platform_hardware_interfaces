@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "e5b2a710_e36ec124",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-27T16:55:02Z",
+      "side": 1,
+      "message": "DebugLevel ERROR means only errors are reported, right?\nWARNING means errors and warnings?\netc? can you comment this",
+      "parentUuid": "f08d07b7_cbc53436",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 13
+      },
+      "revId": "d16970d89ecbaecdb4c210d8ed1b3aef9a16e071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f08d07b7_bab598e9",
         "filename": "wifi/1.0/ISupplicant.hal",
         "patchSetId": 15
@@ -131,6 +155,30 @@
       "side": 1,
       "message": "wpa_supplicant.conf is a custom file used by wpa_supplicant. We cannot change the format of this file. This will not be accepted upstream. \n\nWe\u0027ve been using the wpa_supplicant.conf file (controlled by wpa_supplicant) to persist all the wifi network configurations till now. For O, we\u0027ve now changed this to a new file (b/28966377) controlled directly by framework. \n\nSo, we\u0027re going to get rid of this eventually. b/29352330 is tracking this work item. However, we still need to handle the migration of network configuration data from existing devices.",
       "parentUuid": "f08d07b7_daa264b1",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 22
+      },
+      "revId": "d16970d89ecbaecdb4c210d8ed1b3aef9a16e071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5b2a710_0351ad62",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-27T16:55:02Z",
+      "side": 1,
+      "message": "Can you put this in a comment? Can you mirror the conf in an xml file and convert between them?",
+      "parentUuid": "f08d07b7_b08e992f",
       "range": {
         "startLine": 50,
         "startChar": 0,
