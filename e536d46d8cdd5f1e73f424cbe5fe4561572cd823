@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "45ba9338_c32c16b9",
+        "filename": "bluetooth/1.0/IBluetoothHci.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-27T23:01:09Z",
+      "side": 1,
+      "message": "Doesn\u0027t seem like there are many methods here. Is there really not anything else that needs to be exposed?",
+      "range": {
+        "startLine": 21,
+        "startChar": 10,
+        "endLine": 21,
+        "endChar": 23
+      },
+      "revId": "e536d46d8cdd5f1e73f424cbe5fe4561572cd823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45ba9338_43a4a651",
+        "filename": "bluetooth/1.0/IBluetoothHci.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-27T23:01:09Z",
+      "side": 1,
+      "message": "What happens if this is called multiple times?",
+      "range": {
+        "startLine": 31,
+        "startChar": 7,
+        "endLine": 31,
+        "endChar": 52
+      },
+      "revId": "e536d46d8cdd5f1e73f424cbe5fe4561572cd823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45ba9338_0340de5a",
+        "filename": "bluetooth/1.0/IBluetoothHciEvent.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-27T23:01:09Z",
+      "side": 1,
+      "message": "It\u0027s a response?",
+      "range": {
+        "startLine": 21,
+        "startChar": 7,
+        "endLine": 22,
+        "endChar": 48
+      },
+      "revId": "e536d46d8cdd5f1e73f424cbe5fe4561572cd823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45ba9338_e344ba70",
+        "filename": "bluetooth/1.0/IBluetoothHciEvent.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-27T23:01:09Z",
+      "side": 1,
+      "message": "Keep in mind what this means to both the caller and the callee.\n\nPerhaps \u0027onHciEvent\u0027",
+      "range": {
+        "startLine": 24,
+        "startChar": 4,
+        "endLine": 24,
+        "endChar": 16
+      },
+      "revId": "e536d46d8cdd5f1e73f424cbe5fe4561572cd823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45ba9338_23cc022d",
+        "filename": "bluetooth/1.0/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-27T23:01:09Z",
+      "side": 1,
+      "message": "still, go/android-treble-style-guide",
+      "range": {
+        "startLine": 19,
+        "startChar": 7,
+        "endLine": 19,
+        "endChar": 22
+      },
+      "revId": "e536d46d8cdd5f1e73f424cbe5fe4561572cd823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
