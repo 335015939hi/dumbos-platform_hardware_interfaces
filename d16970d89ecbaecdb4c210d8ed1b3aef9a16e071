@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "e5b2a710_436335d0",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-27T17:30:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5b2a710_e36ec124",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 13
+      },
+      "revId": "d16970d89ecbaecdb4c210d8ed1b3aef9a16e071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f08d07b7_bab598e9",
         "filename": "wifi/1.0/ISupplicant.hal",
         "patchSetId": 15
@@ -179,6 +203,30 @@
       "side": 1,
       "message": "Can you put this in a comment? Can you mirror the conf in an xml file and convert between them?",
       "parentUuid": "f08d07b7_b08e992f",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 22
+      },
+      "revId": "d16970d89ecbaecdb4c210d8ed1b3aef9a16e071",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5b2a710_031e4d24",
+        "filename": "wifi/1.0/ISupplicant.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-27T17:30:29Z",
+      "side": 1,
+      "message": "So, we had an internal discussion and decided to take this file out of the HIDL interface. \nThis an implementation detail that should not be a part of the HIDL interface. This file will still be used in most of the HIDL implementations of wpa_supplicant. But, there is no need for this to be specified in the interface by framework.",
+      "parentUuid": "e5b2a710_0351ad62",
       "range": {
         "startLine": 50,
         "startChar": 0,
