@@ -215,6 +215,30 @@
     },
     {
       "key": {
+        "uuid": "45ba9338_84e96a0d",
+        "filename": "bluetooth/1.0/IBluetoothHciEvent.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2016-09-28T21:11:42Z",
+      "side": 1,
+      "message": "I tried to make it more clear.",
+      "parentUuid": "45ba9338_fe0d6d4d",
+      "range": {
+        "startLine": 21,
+        "startChar": 7,
+        "endLine": 22,
+        "endChar": 48
+      },
+      "revId": "e536d46d8cdd5f1e73f424cbe5fe4561572cd823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45ba9338_e344ba70",
         "filename": "bluetooth/1.0/IBluetoothHciEvent.hal",
         "patchSetId": 7
@@ -286,6 +310,30 @@
     },
     {
       "key": {
+        "uuid": "45ba9338_e42e7695",
+        "filename": "bluetooth/1.0/IBluetoothHciEvent.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2016-09-28T21:11:42Z",
+      "side": 1,
+      "message": "The callee will be sending it to the Bluetooth chip.  The HAL is just an intermediary between the Bluetooth stack and the hardware (or drivers).",
+      "parentUuid": "45ba9338_7e021d1a",
+      "range": {
+        "startLine": 24,
+        "startChar": 4,
+        "endLine": 24,
+        "endChar": 16
+      },
+      "revId": "e536d46d8cdd5f1e73f424cbe5fe4561572cd823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45ba9338_23cc022d",
         "filename": "bluetooth/1.0/types.hal",
         "patchSetId": 7
@@ -345,6 +393,30 @@
       "side": 1,
       "message": "It\u0027s all good man :)\n\nI understand.",
       "parentUuid": "45ba9338_7ed69de7",
+      "range": {
+        "startLine": 19,
+        "startChar": 7,
+        "endLine": 19,
+        "endChar": 22
+      },
+      "revId": "e536d46d8cdd5f1e73f424cbe5fe4561572cd823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45ba9338_04dc5a6b",
+        "filename": "bluetooth/1.0/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2016-09-28T21:11:42Z",
+      "side": 1,
+      "message": ":)",
+      "parentUuid": "45ba9338_de44e970",
       "range": {
         "startLine": 19,
         "startChar": 7,
