@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "45ba9338_355546c6",
+        "filename": "bluetooth/1.0/IBluetoothHci.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-28T23:00:10Z",
+      "side": 1,
+      "message": "Please point out where to find the format of HCI packets. Are HCI packet formats versioned?",
+      "range": {
+        "startLine": 31,
+        "startChar": 10,
+        "endLine": 31,
+        "endChar": 23
+      },
+      "revId": "6839231ea0ecd2e83ef43e6deda67ecae0c64f35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45ba9338_957d1240",
+        "filename": "bluetooth/1.0/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-28T23:00:10Z",
+      "side": 1,
+      "message": "Why not:\nstruct HciPacket {\n    HciPacketType type;\n    vec\u003cuint8_t\u003e body;\n}\n\n?\n\nIf HciPacketType isn\u0027t part of the interface, why do you need its definition above?",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 31
+      },
+      "revId": "6839231ea0ecd2e83ef43e6deda67ecae0c64f35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
