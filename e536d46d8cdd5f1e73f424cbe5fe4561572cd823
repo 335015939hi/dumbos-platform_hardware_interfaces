@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "45ba9338_044bba2c",
+        "filename": "bluetooth/1.0/IBluetoothHci.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2016-09-28T21:12:41Z",
+      "side": 1,
+      "message": "I tried to address this in the comments.",
+      "parentUuid": "45ba9338_7e54dd1d",
+      "range": {
+        "startLine": 21,
+        "startChar": 10,
+        "endLine": 21,
+        "endChar": 23
+      },
+      "revId": "e536d46d8cdd5f1e73f424cbe5fe4561572cd823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45ba9338_43a4a651",
         "filename": "bluetooth/1.0/IBluetoothHci.hal",
         "patchSetId": 7
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "Yeah, so you should specify in the comment that only one callback will be registered at a time.",
       "parentUuid": "45ba9338_c3db7674",
+      "range": {
+        "startLine": 31,
+        "startChar": 7,
+        "endLine": 31,
+        "endChar": 52
+      },
+      "revId": "e536d46d8cdd5f1e73f424cbe5fe4561572cd823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45ba9338_e44f9634",
+        "filename": "bluetooth/1.0/IBluetoothHci.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2016-09-28T21:12:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45ba9338_9e31c111",
       "range": {
         "startLine": 31,
         "startChar": 7,
