@@ -49,6 +49,53 @@
     },
     {
       "key": {
+        "uuid": "45ba9338_db9ea95b",
+        "filename": "bluetooth/1.0/IBluetoothHci.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-28T23:49:03Z",
+      "side": 1,
+      "message": "It appears that comment is directing to a specific listing of HCI packet types. I want direction to the HCI specification as a whole here.",
+      "parentUuid": "45ba9338_703ebcc6",
+      "range": {
+        "startLine": 31,
+        "startChar": 10,
+        "endLine": 31,
+        "endChar": 23
+      },
+      "revId": "6839231ea0ecd2e83ef43e6deda67ecae0c64f35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "45ba9338_7bae9d84",
+        "filename": "bluetooth/1.0/IBluetoothHci.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-28T23:49:03Z",
+      "side": 1,
+      "message": "If the packet is malformed, what is the expected result?",
+      "range": {
+        "startLine": 39,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 30
+      },
+      "revId": "6839231ea0ecd2e83ef43e6deda67ecae0c64f35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45ba9338_957d1240",
         "filename": "bluetooth/1.0/types.hal",
         "patchSetId": 8
