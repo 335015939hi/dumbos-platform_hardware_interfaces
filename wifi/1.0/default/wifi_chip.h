@@ -19,46 +19,47 @@
 
 #include <set>
 
-#include <android/hardware/wifi/1.0/IWifiChip.h>
 #include <android-base/macros.h>
-#include <hardware_legacy/wifi_hal.h>
+#include <android/hardware/wifi/1.0/IWifiChip.h>
 
-#include "wifi_hal_state.h"
+#include "wifi_legacy_hal.h"
 
 namespace android {
 namespace hardware {
 namespace wifi {
+namespace V1_0 {
+namespace implementation {
 
-class WifiChipService : public V1_0::IWifiChip {
+/**
+ * HIDL interface object used to control a Wifi HAL chip instance.
+ * Since there is only a single chip instance used today, there is no
+ * identifying handle information stored here.
+ */
+class WifiChip : public IWifiChip {
  public:
-  WifiChipService(
-      WifiHalState* hal_state, wifi_interface_handle interface_handle);
+  WifiChip(std::shared_ptr<WifiLegacyHal> legacy_hal);
+  // Invalidate this instance once the HAL is stopped.
+  void invalidate();
 
-  void Invalidate();
-
+  // HIDL methods exposed.
   Return<void> registerEventCallback(
-      const sp<V1_0::IWifiChipEventCallback>& callback) override;
-
+      const sp<IWifiChipEventCallback>& callback) override;
   Return<void> getAvailableModes(getAvailableModes_cb cb) override;
-
   Return<void> configureChip(uint32_t mode_id) override;
-
   Return<uint32_t> getMode() override;
-
   Return<void> requestChipDebugInfo() override;
-
   Return<void> requestDriverDebugDump() override;
-
   Return<void> requestFirmwareDebugDump() override;
 
  private:
-  WifiHalState* hal_state_;
-  wifi_interface_handle interface_handle_;
+  std::shared_ptr<WifiLegacyHal> legacy_hal_;
   std::set<sp<V1_0::IWifiChipEventCallback>> callbacks_;
 
-  DISALLOW_COPY_AND_ASSIGN(WifiChipService);
+  DISALLOW_COPY_AND_ASSIGN(WifiChip);
 };
 
+}  // namespace implementation
+}  // namespace V1_0
 }  // namespace wifi
 }  // namespace hardware
 }  // namespace android
