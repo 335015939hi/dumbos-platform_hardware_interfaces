@@ -23,26 +23,28 @@
 namespace android {
 namespace hardware {
 namespace wifi {
+namespace V1_0 {
+namespace implementation {
 
-WifiChipService::WifiChipService(
-    WifiHalState* hal_state, wifi_interface_handle interface_handle)
-    : hal_state_(hal_state), interface_handle_(interface_handle) {}
+WifiChip::WifiChip(std::shared_ptr<WifiLegacyHal> legacy_hal)
+    : legacy_hal_(legacy_hal) {}
 
-void WifiChipService::Invalidate() {
-  hal_state_ = nullptr;
+void WifiChip::invalidate() {
+  legacy_hal_.reset();
   callbacks_.clear();
 }
 
-Return<void> WifiChipService::registerEventCallback(
-    const sp<V1_0::IWifiChipEventCallback>& callback) {
-  if (!hal_state_) return Void();
+Return<void> WifiChip::registerEventCallback(
+    const sp<IWifiChipEventCallback>& callback) {
+  if (!legacy_hal_.get())
+    return Void();
   // TODO(b/31632518): remove the callback when the client is destroyed
   callbacks_.insert(callback);
   return Void();
 }
 
-Return<void> WifiChipService::getAvailableModes(getAvailableModes_cb cb) {
-  if (!hal_state_) {
+Return<void> WifiChip::getAvailableModes(getAvailableModes_cb cb) {
+  if (!legacy_hal_.get()) {
     cb(hidl_vec<ChipMode>());
     return Void();
   } else {
@@ -51,66 +53,35 @@ Return<void> WifiChipService::getAvailableModes(getAvailableModes_cb cb) {
   }
 }
 
-Return<void> WifiChipService::configureChip(uint32_t /*mode_id*/) {
-  if (!hal_state_) return Void();
+Return<void> WifiChip::configureChip(uint32_t /*mode_id*/) {
   // TODO add implementation
   return Void();
 }
 
-Return<uint32_t> WifiChipService::getMode() {
-  if (!hal_state_) return 0;
+Return<uint32_t> WifiChip::getMode() {
+  if (!legacy_hal_.get())
+    return 0;
   // TODO add implementation
   return 0;
 }
 
-Return<void> WifiChipService::requestChipDebugInfo() {
-  if (!hal_state_) return Void();
-
-  V1_0::IWifiChipEventCallback::ChipDebugInfo result;
-  result.driverDescription = "<unknown>";
-  result.firmwareDescription = "<unknown>";
-  char buffer[256];
-
-  // get driver version
-  bzero(buffer, sizeof(buffer));
-  wifi_error ret = hal_state_->func_table_.wifi_get_driver_version(
-      interface_handle_, buffer, sizeof(buffer));
-  if (ret == WIFI_SUCCESS) {
-    result.driverDescription = buffer;
-  } else {
-    LOG(WARNING) << "Failed to get driver version: "
-                 << LegacyErrorToString(ret);
-  }
-
-  // get firmware version
-  bzero(buffer, sizeof(buffer));
-  ret = hal_state_->func_table_.wifi_get_firmware_version(
-      interface_handle_, buffer, sizeof(buffer));
-  if (ret == WIFI_SUCCESS) {
-    result.firmwareDescription = buffer;
-  } else {
-    LOG(WARNING) << "Failed to get firmware version: "
-                 << LegacyErrorToString(ret);
-  }
-
-  // send callback
-  for (auto& callback : callbacks_) {
-    callback->onChipDebugInfoAvailable(result);
-  }
+Return<void> WifiChip::requestChipDebugInfo() {
+  // TODO add implementation
   return Void();
 }
 
-Return<void> WifiChipService::requestDriverDebugDump() {
+Return<void> WifiChip::requestDriverDebugDump() {
   // TODO implement
   return Void();
 }
 
-Return<void> WifiChipService::requestFirmwareDebugDump() {
+Return<void> WifiChip::requestFirmwareDebugDump() {
   // TODO implement
   return Void();
 }
 
-
+}  // namespace implementation
+}  // namespace V1_0
 }  // namespace wifi
 }  // namespace hardware
 }  // namespace android
