@@ -22,6 +22,30 @@
       "revId": "8eae2850a8cc03f11bcd3423701826b04f507e3a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c22d9995_b154f81f",
+        "filename": "wifi/1.0/default/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-09-29T20:33:06Z",
+      "side": 1,
+      "message": "No.\n\nIt should be android.hardware.wifi@1.0-service.\n\nandroid.hardware.wifi@1.0-impl should be a separate module (same folder).\n\nThis implementation should work in passthrough mode, right? It\u0027s only wpa_supplicant that is the exception afaik.",
+      "parentUuid": "45ba9338_7eb84630",
+      "range": {
+        "startLine": 18,
+        "startChar": 16,
+        "endLine": 18,
+        "endChar": 31
+      },
+      "revId": "8eae2850a8cc03f11bcd3423701826b04f507e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
