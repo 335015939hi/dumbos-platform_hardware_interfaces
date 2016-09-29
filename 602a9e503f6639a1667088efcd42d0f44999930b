@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "420d292b_7a9bf56c",
+        "filename": "bluetooth/1.0/test/main.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2016-09-29T09:28:59Z",
+      "side": 1,
+      "message": "we\u0027re trying to get of String8 dependencies (and libutils) as much as we can.\n\nHow about std::snprintf (since C++11?)",
+      "range": {
+        "startLine": 55,
+        "startChar": 15,
+        "endLine": 55,
+        "endChar": 41
+      },
+      "revId": "602a9e503f6639a1667088efcd42d0f44999930b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45ba9338_15b64245",
         "filename": "bluetooth/1.0/test/main.cpp",
         "patchSetId": 2
