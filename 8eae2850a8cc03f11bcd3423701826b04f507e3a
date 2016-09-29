@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "45ba9338_7eb84630",
+        "filename": "wifi/1.0/default/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-29T16:11:07Z",
+      "side": 1,
+      "message": "Should this have the \"android.hardware.wifi@1.0-impl\" name?",
+      "range": {
+        "startLine": 18,
+        "startChar": 16,
+        "endLine": 18,
+        "endChar": 31
+      },
+      "revId": "8eae2850a8cc03f11bcd3423701826b04f507e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
