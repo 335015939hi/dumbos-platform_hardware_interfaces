@@ -46,6 +46,30 @@
       "revId": "8eae2850a8cc03f11bcd3423701826b04f507e3a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c22d9995_51071427",
+        "filename": "wifi/1.0/default/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-09-29T20:34:48Z",
+      "side": 1,
+      "message": "Ok. I\u0027ve named it to service. Is there any need for a pass thru mode because it doesn\u0027t make sense for wifi in general?",
+      "parentUuid": "c22d9995_b154f81f",
+      "range": {
+        "startLine": 18,
+        "startChar": 16,
+        "endLine": 18,
+        "endChar": 31
+      },
+      "revId": "8eae2850a8cc03f11bcd3423701826b04f507e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
