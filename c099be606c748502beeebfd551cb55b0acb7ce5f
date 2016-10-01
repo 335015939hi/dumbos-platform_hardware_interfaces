@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c20e797c_e3f0b258",
+        "filename": "boot_control/1.0/IBootControl.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1077068
+      },
+      "writtenOn": "2016-10-01T02:14:08Z",
+      "side": 1,
+      "message": "This is the only CommandResult that is useful to have. In the previous HAL interface, returning an error code was trivial (just return an int); in this interface that requires another synchronous callback to pass the result back.\n\nI need to take a look at how does this work; if it works at all with our single-threaded asynchronous daemon \u003d/",
+      "range": {
+        "startLine": 64,
+        "startChar": 34,
+        "endLine": 64,
+        "endChar": 47
+      },
+      "revId": "c099be606c748502beeebfd551cb55b0acb7ce5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c20e797c_63920209",
+        "filename": "boot_control/1.0/IBootControl.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1077068
+      },
+      "writtenOn": "2016-10-01T02:14:08Z",
+      "side": 1,
+      "message": "Rom, should we keep this around or we settled on hard-coded string suffix (_a, _b ...)?",
+      "range": {
+        "startLine": 105,
+        "startChar": 2,
+        "endLine": 105,
+        "endChar": 11
+      },
+      "revId": "c099be606c748502beeebfd551cb55b0acb7ce5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c20e797c_a37b5ac3",
+        "filename": "boot_control/1.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1077068
+      },
+      "writtenOn": "2016-10-01T02:14:08Z",
+      "side": 1,
+      "message": "This could be replaced with a struct with a string value plus an error code or \"bool success\". The error code would be the same as this enum or a bool, and in case of error we could log the string in logcat. I don\u0027t know if that\u0027s needed or if the HAL is allowed to log stuff.",
+      "range": {
+        "startLine": 22,
+        "startChar": 5,
+        "endLine": 22,
+        "endChar": 18
+      },
+      "revId": "c099be606c748502beeebfd551cb55b0acb7ce5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
