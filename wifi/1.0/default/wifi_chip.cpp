@@ -99,12 +99,49 @@ Return<void> WifiChip::requestChipDebugInfo() {
 }
 
 Return<void> WifiChip::requestDriverDebugDump() {
-  // TODO implement
+  std::vector<uint8_t> driver_dump;
+  const auto on_dump_callback = [&driver_dump](char* buffer, int buffer_size) {
+    std::vector<uint8_t> dump;
+    dump.assign((uint8_t*)buffer, (uint8_t*)buffer + buffer_size);
+    driver_dump.insert(driver_dump.end(), dump.begin(), dump.end());
+  };
+  wifi_error status =
+      legacy_hal_->requestWlanDriverMemoryDump(on_dump_callback);
+  if (status != WIFI_SUCCESS) {
+    LOG(ERROR) << "Failed to get driver debug dump: "
+               << LegacyErrorToString(status);
+    return Void();
+  }
+
+  hidl_vec<uint8_t> hidl_data;
+  hidl_data.setToExternal(driver_dump.data(), driver_dump.size());
+  for (const auto& callback : callbacks_) {
+    callback->onDriverDebugDumpAvailable(hidl_data);
+  }
   return Void();
 }
 
 Return<void> WifiChip::requestFirmwareDebugDump() {
-  // TODO implement
+  std::vector<uint8_t> firmware_dump;
+  const auto on_dump_callback = [&firmware_dump](char* buffer,
+                                                 int buffer_size) {
+    std::vector<uint8_t> dump;
+    dump.assign((uint8_t*)buffer, (uint8_t*)buffer + buffer_size);
+    firmware_dump.insert(firmware_dump.end(), dump.begin(), dump.end());
+  };
+  wifi_error status =
+      legacy_hal_->requestWlanFirmwareMemoryDump(on_dump_callback);
+  if (status != WIFI_SUCCESS) {
+    LOG(ERROR) << "Failed to get firmware debug dump: "
+               << LegacyErrorToString(status);
+    return Void();
+  }
+
+  hidl_vec<uint8_t> hidl_data;
+  hidl_data.setToExternal(firmware_dump.data(), firmware_dump.size());
+  for (const auto& callback : callbacks_) {
+    callback->onDriverDebugDumpAvailable(hidl_data);
+  }
   return Void();
 }
 

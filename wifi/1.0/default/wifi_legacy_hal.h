@@ -44,6 +44,10 @@ class WifiLegacyHal {
   // Wrappers for all the functions in the legacy HAL function table.
   wifi_error getWlanDriverVersion(char* buffer, int buffer_size);
   wifi_error getWlanFirmwareVersion(char* buffer, int buffer_size);
+  wifi_error requestWlanDriverMemoryDump(
+      std::function<void(char*, int)> on_dump_callback);
+  wifi_error requestWlanFirmwareMemoryDump(
+      std::function<void(char*, int)> on_dump_callback);
 
  private:
   // Retrieve the interface handle to be used for the "wlan" interface.

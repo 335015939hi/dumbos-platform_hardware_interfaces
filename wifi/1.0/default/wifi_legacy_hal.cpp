@@ -39,6 +39,22 @@ void onStopComplete(wifi_handle handle) {
     on_stop_complete_callback_(handle);
   }
 }
+
+// Callback to be invoked for driver dump.
+std::function<void(char*, int)> on_driver_memory_dump_callback_ = nullptr;
+void onDriverMemoryDump(char* buffer, int buffer_size) {
+  if (on_driver_memory_dump_callback_) {
+    on_driver_memory_dump_callback_(buffer, buffer_size);
+  }
+}
+
+// Callback to be invoked for firmware dump.
+std::function<void(char*, int)> on_firmware_memory_dump_callback_ = nullptr;
+void onFirmwareMemoryDump(char* buffer, int buffer_size) {
+  if (on_firmware_memory_dump_callback_) {
+    on_firmware_memory_dump_callback_(buffer, buffer_size);
+  }
+}
 }
 
 namespace android {
@@ -109,6 +125,24 @@ wifi_error WifiLegacyHal::getWlanFirmwareVersion(char* buffer,
                                                  int buffer_size) {
   return global_func_table_.wifi_get_firmware_version(
       wlan_interface_handle_, buffer, buffer_size);
+}
+
+wifi_error WifiLegacyHal::requestWlanDriverMemoryDump(
+    std::function<void(char*, int)> on_dump_callback) {
+  on_driver_memory_dump_callback_ = on_dump_callback;
+  wifi_error status = global_func_table_.wifi_get_driver_memory_dump(
+      wlan_interface_handle_, {onDriverMemoryDump});
+  on_driver_memory_dump_callback_ = nullptr;
+  return status;
+}
+
+wifi_error WifiLegacyHal::requestWlanFirmwareMemoryDump(
+    std::function<void(char*, int)> on_dump_callback) {
+  on_firmware_memory_dump_callback_ = on_dump_callback;
+  wifi_error status = global_func_table_.wifi_get_firmware_memory_dump(
+      wlan_interface_handle_, {onFirmwareMemoryDump});
+  on_firmware_memory_dump_callback_ = nullptr;
+  return status;
 }
 
 wifi_error WifiLegacyHal::retrieveWlanInterfaceHandle() {
