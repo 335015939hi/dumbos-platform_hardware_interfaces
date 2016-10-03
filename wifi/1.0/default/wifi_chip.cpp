@@ -66,7 +66,35 @@ Return<uint32_t> WifiChip::getMode() {
 }
 
 Return<void> WifiChip::requestChipDebugInfo() {
-  // TODO add implementation
+  if (!legacy_hal_.get())
+    return Void();
+
+  IWifiChipEventCallback::ChipDebugInfo result;
+  result.driverDescription = "<unknown>";
+  result.firmwareDescription = "<unknown>";
+
+  char buffer[256];
+  bzero(buffer, sizeof(buffer));
+  wifi_error status = legacy_hal_->getWlanDriverVersion(buffer, sizeof(buffer));
+  if (status != WIFI_SUCCESS) {
+    LOG(ERROR) << "Failed to get driver version: "
+               << LegacyErrorToString(status);
+    return Void();
+  }
+  result.driverDescription = buffer;
+
+  bzero(buffer, sizeof(buffer));
+  status = legacy_hal_->getWlanFirmwareVersion(buffer, sizeof(buffer));
+  if (status != WIFI_SUCCESS) {
+    LOG(ERROR) << "Failed to get firmware version: "
+               << LegacyErrorToString(status);
+    return Void();
+  }
+  result.firmwareDescription = buffer;
+
+  for (const auto& callback : callbacks_) {
+    callback->onChipDebugInfoAvailable(result);
+  }
   return Void();
 }
 
