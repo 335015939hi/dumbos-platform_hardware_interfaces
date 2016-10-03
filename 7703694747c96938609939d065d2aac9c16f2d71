@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "42b1a9f0_1d2b7387",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-03T21:58:38Z",
+      "side": 1,
+      "message": "1) I don\u0027t understand why we need |dump|. Can we simplify to the following?\n\n    driver_dump.insert(buffer, buffer + buffer_size);\n\n2) No (c_style_casts) please. (cpplint.py should flag that, actually.)",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 68
+      },
+      "revId": "7703694747c96938609939d065d2aac9c16f2d71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42b1a9f0_bd40c732",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-03T21:58:38Z",
+      "side": 1,
+      "message": "As at line 104.",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 130,
+        "endChar": 72
+      },
+      "revId": "7703694747c96938609939d065d2aac9c16f2d71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42b1a9f0_9d7b03c4",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-03T21:58:38Z",
+      "side": 1,
+      "message": "Can you tell me more about this expression? Why do we need the braces?",
+      "range": {
+        "startLine": 134,
+        "startChar": 30,
+        "endLine": 134,
+        "endChar": 50
+      },
+      "revId": "7703694747c96938609939d065d2aac9c16f2d71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42b1a9f0_3db67791",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-03T21:58:38Z",
+      "side": 1,
+      "message": "As at line 134.",
+      "range": {
+        "startLine": 143,
+        "startChar": 30,
+        "endLine": 143,
+        "endChar": 52
+      },
+      "revId": "7703694747c96938609939d065d2aac9c16f2d71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42b1a9f0_ddb9fbe2",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-03T21:58:38Z",
+      "side": 1,
+      "message": "Do we really need a function here? It seems like the logic for appending into a buffer could live in requestWlanDriverMemoryDump(). The only thing that would need to be passed in is the buffer (std::vector*).\n\nAnd even the vector argument could be removed, if you return the vector by value:\n\n  std::pair\u003cwifi_error, std::vector\u003cchar\u003e\u003e requestWlanDriverMemoryDump();\n\nTo make this efficient, the std::vector can be placed into the pair using std::move().",
+      "range": {
+        "startLine": 48,
+        "startChar": 5,
+        "endLine": 48,
+        "endChar": 54
+      },
+      "revId": "7703694747c96938609939d065d2aac9c16f2d71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42b1a9f0_c0abd46f",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-03T21:58:38Z",
+      "side": 1,
+      "message": "Same comment as at line 48.",
+      "range": {
+        "startLine": 50,
+        "startChar": 6,
+        "endLine": 50,
+        "endChar": 54
+      },
+      "revId": "7703694747c96938609939d065d2aac9c16f2d71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
