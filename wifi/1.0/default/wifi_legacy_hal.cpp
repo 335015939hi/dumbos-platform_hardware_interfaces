@@ -90,6 +90,17 @@ wifi_error WifiLegacyHal::stop(
   return WIFI_SUCCESS;
 }
 
+wifi_error WifiLegacyHal::getWlanDriverVersion(char* buffer, int buffer_size) {
+  return global_func_table_.wifi_get_driver_version(
+      wlan_interface_handle_, buffer, buffer_size);
+}
+
+wifi_error WifiLegacyHal::getWlanFirmwareVersion(char* buffer,
+                                                 int buffer_size) {
+  return global_func_table_.wifi_get_firmware_version(
+      wlan_interface_handle_, buffer, buffer_size);
+}
+
 wifi_error WifiLegacyHal::retrieveWlanInterfaceHandle() {
   int num_iface_handles = 0;
   const std::string& wlan_ifname = getWlanInterfaceName();
