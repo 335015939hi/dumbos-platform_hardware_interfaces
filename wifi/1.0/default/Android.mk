@@ -31,7 +31,8 @@ LOCAL_SHARED_LIBRARIES := \
     libhwbinder \
     liblog \
     libnl \
-    libutils
+    libutils \
+    libwifi-system
 LOCAL_WHOLE_STATIC_LIBRARIES := $(LIB_WIFI_HAL)
 include $(BUILD_SHARED_LIBRARY)
 
@@ -50,7 +51,8 @@ LOCAL_SHARED_LIBRARIES := \
     libhwbinder \
     liblog \
     libnl \
-    libutils
+    libutils \
+    libwifi-system
 LOCAL_WHOLE_STATIC_LIBRARIES := $(LIB_WIFI_HAL)
 LOCAL_INIT_RC := android.hardware.wifi@1.0-service.rc
 include $(BUILD_EXECUTABLE)
