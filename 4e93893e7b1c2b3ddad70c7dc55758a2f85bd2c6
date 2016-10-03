@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "42b1a9f0_ba128d62",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-03T21:05:04Z",
+      "side": 1,
+      "message": "This CL probably isn\u0027t the place to address the issue, but... What style is this code supposed to be using?\n\nI believe Google C++ style is to name MethodsLikeThis(), rather than methodsLikeThis(). (https://google.github.io/styleguide/cppguide.html#Function_Names)",
+      "range": {
+        "startLine": 26,
+        "startChar": 12,
+        "endLine": 26,
+        "endChar": 32
+      },
+      "revId": "4e93893e7b1c2b3ddad70c7dc55758a2f85bd2c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42b1a9f0_da4d8169",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-03T21:05:04Z",
+      "side": 1,
+      "message": "Prior to this CL, this failure would be fatal (CHECK_EQ). Was that erroneous?\n\n(There\u0027s nothing in the commit message that motivates this part of the change.)",
+      "revId": "4e93893e7b1c2b3ddad70c7dc55758a2f85bd2c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
