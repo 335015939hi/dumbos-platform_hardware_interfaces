@@ -94,12 +94,38 @@ Return<void> WifiChip::requestChipDebugInfo() {
 }
 
 Return<void> WifiChip::requestDriverDebugDump() {
-  // TODO implement
+  std::pair<wifi_error, std::vector<char>> ret =
+      legacy_hal_->requestWlanDriverMemoryDump();
+  if (ret.first != WIFI_SUCCESS) {
+    LOG(ERROR) << "Failed to get driver debug dump: "
+               << LegacyErrorToString(ret.first);
+    return Void();
+  }
+
+  hidl_vec<uint8_t> hidl_data;
+  hidl_data.setToExternal(reinterpret_cast<uint8_t*>(ret.second.data()),
+                          ret.second.size());
+  for (const auto& callback : callbacks_) {
+    callback->onDriverDebugDumpAvailable(hidl_data);
+  }
   return Void();
 }
 
 Return<void> WifiChip::requestFirmwareDebugDump() {
-  // TODO implement
+  std::pair<wifi_error, std::vector<char>> ret =
+      legacy_hal_->requestWlanFirmwareMemoryDump();
+  if (ret.first != WIFI_SUCCESS) {
+    LOG(ERROR) << "Failed to get firmware debug dump: "
+               << LegacyErrorToString(ret.first);
+    return Void();
+  }
+
+  hidl_vec<uint8_t> hidl_data;
+  hidl_data.setToExternal(reinterpret_cast<uint8_t*>(ret.second.data()),
+                          ret.second.size());
+  for (const auto& callback : callbacks_) {
+    callback->onFirmwareDebugDumpAvailable(hidl_data);
+  }
   return Void();
 }
 
