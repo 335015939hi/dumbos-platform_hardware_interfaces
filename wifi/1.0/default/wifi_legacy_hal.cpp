@@ -35,10 +35,26 @@ std::string getWlanInterfaceName() {
 // functions to pass to the legacy HAL function and store the corresponding
 // std::function methods to be invoked.
 // Callback to be invoked once |stop| is complete.
-std::function<void(wifi_handle handle)> on_stop_complete_callback_ = nullptr;
+std::function<void(wifi_handle handle)> on_stop_complete_callback_;
 void onStopComplete(wifi_handle handle) {
   if (on_stop_complete_callback_) {
     on_stop_complete_callback_(handle);
+  }
+}
+
+// Callback to be invoked for driver dump.
+std::function<void(char*, int)> on_driver_memory_dump_callback_;
+void onDriverMemoryDump(char* buffer, int buffer_size) {
+  if (on_driver_memory_dump_callback_) {
+    on_driver_memory_dump_callback_(buffer, buffer_size);
+  }
+}
+
+// Callback to be invoked for firmware dump.
+std::function<void(char*, int)> on_firmware_memory_dump_callback_;
+void onFirmwareMemoryDump(char* buffer, int buffer_size) {
+  if (on_firmware_memory_dump_callback_) {
+    on_firmware_memory_dump_callback_(buffer, buffer_size);
   }
 }
 }
@@ -118,6 +134,32 @@ std::pair<wifi_error, std::string> WifiLegacyHal::getWlanFirmwareVersion() {
   wifi_error status = global_func_table_.wifi_get_firmware_version(
       wlan_interface_handle_, buffer.data(), buffer.size());
   return std::make_pair(status, buffer.data());
+}
+
+std::pair<wifi_error, std::vector<char>>
+WifiLegacyHal::requestWlanDriverMemoryDump() {
+  std::vector<char> driver_dump;
+  on_driver_memory_dump_callback_ = [&driver_dump](char* buffer,
+                                                   int buffer_size) {
+    driver_dump.insert(driver_dump.end(), buffer, buffer + buffer_size);
+  };
+  wifi_error status = global_func_table_.wifi_get_driver_memory_dump(
+      wlan_interface_handle_, {onDriverMemoryDump});
+  on_driver_memory_dump_callback_ = nullptr;
+  return std::make_pair(status, std::move(driver_dump));
+}
+
+std::pair<wifi_error, std::vector<char>>
+WifiLegacyHal::requestWlanFirmwareMemoryDump() {
+  std::vector<char> firmware_dump;
+  on_firmware_memory_dump_callback_ = [&firmware_dump](char* buffer,
+                                                       int buffer_size) {
+    firmware_dump.insert(firmware_dump.end(), buffer, buffer + buffer_size);
+  };
+  wifi_error status = global_func_table_.wifi_get_firmware_memory_dump(
+      wlan_interface_handle_, {onFirmwareMemoryDump});
+  on_firmware_memory_dump_callback_ = nullptr;
+  return std::make_pair(status, std::move(firmware_dump));
 }
 
 wifi_error WifiLegacyHal::retrieveWlanInterfaceHandle() {
