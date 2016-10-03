@@ -48,6 +48,54 @@
     },
     {
       "key": {
+        "uuid": "42b1a9f0_606e8826",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-03T22:57:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42b1a9f0_7a0395e8",
+      "range": {
+        "startLine": 7,
+        "startChar": 24,
+        "endLine": 7,
+        "endChar": 56
+      },
+      "revId": "aad4dbbb9d6eeef33a0d17b8b9b1a367f2db2152",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42b1a9f0_80739c0d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-03T22:57:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42b1a9f0_9aa229f6",
+      "range": {
+        "startLine": 7,
+        "startChar": 6,
+        "endLine": 7,
+        "endChar": 23
+      },
+      "revId": "aad4dbbb9d6eeef33a0d17b8b9b1a367f2db2152",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "42b1a9f0_1d9b736d",
         "filename": "wifi/1.0/default/wifi_chip.cpp",
         "patchSetId": 3
@@ -59,6 +107,30 @@
       "writtenOn": "2016-10-03T21:25:24Z",
       "side": 1,
       "message": "Are these values used for anything? It seems like, in the failure case, we never invoke the callbacks. And, in the success case, both fields will have been set from the values returned by the HAL.",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 43
+      },
+      "revId": "aad4dbbb9d6eeef33a0d17b8b9b1a367f2db2152",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42b1a9f0_604768a6",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-03T22:57:44Z",
+      "side": 1,
+      "message": "True. This is not needed now.",
+      "parentUuid": "42b1a9f0_1d9b736d",
       "range": {
         "startLine": 73,
         "startChar": 0,
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "42b1a9f0_606848e8",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-03T22:57:44Z",
+      "side": 1,
+      "message": "This buffer size is a port from the existing implementaion in WifiNative.cpp. Not sure what the motivation of the size is.\nhttps://cs.corp.google.com/android/frameworks/opt/net/wifi/service/jni/com_android_server_wifi_WifiNative.cpp?rcl\u003d69579a1c9289e53294ef870ac3727a0f09619793\u0026l\u003d1548\n\nRefactored to directly return a std::string instance from WifiLegacyHal.",
+      "parentUuid": "42b1a9f0_9ad0694e",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 32
+      },
+      "revId": "aad4dbbb9d6eeef33a0d17b8b9b1a367f2db2152",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "42b1a9f0_7afd5598",
         "filename": "wifi/1.0/default/wifi_chip.cpp",
         "patchSetId": 3
@@ -105,6 +201,24 @@
       "writtenOn": "2016-10-03T21:25:24Z",
       "side": 1,
       "message": "As above, consider using buffer.fill()",
+      "revId": "aad4dbbb9d6eeef33a0d17b8b9b1a367f2db2152",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42b1a9f0_c0575423",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-03T22:57:44Z",
+      "side": 1,
+      "message": "Refactored to directly return a std::string instance from WifiLegacyHal.",
+      "parentUuid": "42b1a9f0_7afd5598",
       "revId": "aad4dbbb9d6eeef33a0d17b8b9b1a367f2db2152",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
