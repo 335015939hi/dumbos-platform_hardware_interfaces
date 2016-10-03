@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "42b1a9f0_268f4888",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-03T23:55:16Z",
+      "side": 1,
+      "message": "I couldn\u0027t get rid of the dump variable. insert() requires iterators, so can\u0027t directly pass the buffer pointer.",
+      "parentUuid": "42b1a9f0_1d2b7387",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 68
+      },
+      "revId": "7703694747c96938609939d065d2aac9c16f2d71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "42b1a9f0_bd40c732",
         "filename": "wifi/1.0/default/wifi_chip.cpp",
         "patchSetId": 1
