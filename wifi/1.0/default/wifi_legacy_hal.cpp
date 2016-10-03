@@ -14,8 +14,10 @@
  * limitations under the License.
  */
 
-#include "wifi_legacy_hal.h"
+#include <array>
+
 #include "failure_reason_util.h"
+#include "wifi_legacy_hal.h"
 
 #include <android-base/logging.h>
 #include <cutils/properties.h>
@@ -46,6 +48,8 @@ namespace hardware {
 namespace wifi {
 namespace V1_0 {
 namespace implementation {
+
+const uint32_t WifiLegacyHal::kMaxVersionStringLength = 256;
 
 WifiLegacyHal::WifiLegacyHal()
     : global_handle_(nullptr),
@@ -98,6 +102,22 @@ wifi_error WifiLegacyHal::stop(
   global_func_table_.wifi_cleanup(global_handle_, onStopComplete);
   LOG(VERBOSE) << "Legacy HAL stop initiated";
   return WIFI_SUCCESS;
+}
+
+std::pair<wifi_error, std::string> WifiLegacyHal::getWlanDriverVersion() {
+  std::array<char, kMaxVersionStringLength> buffer;
+  buffer.fill(0);
+  wifi_error status = global_func_table_.wifi_get_driver_version(
+      wlan_interface_handle_, buffer.data(), buffer.size());
+  return std::make_pair(status, buffer.data());
+}
+
+std::pair<wifi_error, std::string> WifiLegacyHal::getWlanFirmwareVersion() {
+  std::array<char, kMaxVersionStringLength> buffer;
+  buffer.fill(0);
+  wifi_error status = global_func_table_.wifi_get_firmware_version(
+      wlan_interface_handle_, buffer.data(), buffer.size());
+  return std::make_pair(status, buffer.data());
 }
 
 wifi_error WifiLegacyHal::retrieveWlanInterfaceHandle() {
