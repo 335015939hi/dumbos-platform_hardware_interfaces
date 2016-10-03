@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "42b1a9f0_9aa229f6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-03T21:25:24Z",
+      "side": 1,
+      "message": "\"Add implementation of\"",
+      "range": {
+        "startLine": 7,
+        "startChar": 6,
+        "endLine": 7,
+        "endChar": 23
+      },
+      "revId": "aad4dbbb9d6eeef33a0d17b8b9b1a367f2db2152",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42b1a9f0_7a0395e8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-03T21:25:24Z",
+      "side": 1,
+      "message": "Consider removing the pipes. In this case, the syntax of the enclosed expression precludes the possibility that the expression is an English word. (Pipes are useful with words like this, where it\u0027s ambiguous if the word is meant as prose, or as a symbol.)",
+      "range": {
+        "startLine": 7,
+        "startChar": 24,
+        "endLine": 7,
+        "endChar": 56
+      },
+      "revId": "aad4dbbb9d6eeef33a0d17b8b9b1a367f2db2152",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42b1a9f0_1d9b736d",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-03T21:25:24Z",
+      "side": 1,
+      "message": "Are these values used for anything? It seems like, in the failure case, we never invoke the callbacks. And, in the success case, both fields will have been set from the values returned by the HAL.",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 43
+      },
+      "revId": "aad4dbbb9d6eeef33a0d17b8b9b1a367f2db2152",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42b1a9f0_9ad0694e",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-03T21:25:24Z",
+      "side": 1,
+      "message": "1) Why 256?\n2) Consider instead:\n      std::array\u003cchar, kOnstantExplainingSize\u003e buffer{};\n\nor, more explicitly:\n      std::array\u003cchar, kOnstantExplainingSize\u003e buffer;\n      buffer.fill(0);",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 32
+      },
+      "revId": "aad4dbbb9d6eeef33a0d17b8b9b1a367f2db2152",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42b1a9f0_7afd5598",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-03T21:25:24Z",
+      "side": 1,
+      "message": "As above, consider using buffer.fill()",
+      "revId": "aad4dbbb9d6eeef33a0d17b8b9b1a367f2db2152",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
