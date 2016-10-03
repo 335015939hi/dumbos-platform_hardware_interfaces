@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "42b1a9f0_8bfe5d4c",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-03T22:57:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42b1a9f0_1d2b7387",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 68
+      },
+      "revId": "7703694747c96938609939d065d2aac9c16f2d71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "42b1a9f0_bd40c732",
         "filename": "wifi/1.0/default/wifi_chip.cpp",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-03T21:58:38Z",
       "side": 1,
       "message": "As at line 104.",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 130,
+        "endChar": 72
+      },
+      "revId": "7703694747c96938609939d065d2aac9c16f2d71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42b1a9f0_ab1241bb",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-03T22:57:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42b1a9f0_bd40c732",
       "range": {
         "startLine": 128,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "42b1a9f0_8b73bd0d",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-03T22:57:50Z",
+      "side": 1,
+      "message": "That\u0027s because the callback is wrapped in a struct: \nhttps://cs.corp.google.com/android/hardware/libhardware_legacy/include/hardware_legacy/wifi_logger.h?rcl\u003da6bfa0db626b15ba96c6062fcc93154fd78fa7bb\u0026l\u003d421.",
+      "parentUuid": "42b1a9f0_9d7b03c4",
+      "range": {
+        "startLine": 134,
+        "startChar": 30,
+        "endLine": 134,
+        "endChar": 50
+      },
+      "revId": "7703694747c96938609939d065d2aac9c16f2d71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "42b1a9f0_3db67791",
         "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2016-10-03T21:58:38Z",
       "side": 1,
       "message": "As at line 134.",
+      "range": {
+        "startLine": 143,
+        "startChar": 30,
+        "endLine": 143,
+        "endChar": 52
+      },
+      "revId": "7703694747c96938609939d065d2aac9c16f2d71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42b1a9f0_ab57a15c",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-03T22:57:50Z",
+      "side": 1,
+      "message": "Same.",
+      "parentUuid": "42b1a9f0_3db67791",
       "range": {
         "startLine": 143,
         "startChar": 30,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "42b1a9f0_eb0c399e",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-03T22:57:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42b1a9f0_ddb9fbe2",
+      "range": {
+        "startLine": 48,
+        "startChar": 5,
+        "endLine": 48,
+        "endChar": 54
+      },
+      "revId": "7703694747c96938609939d065d2aac9c16f2d71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "42b1a9f0_c0abd46f",
         "filename": "wifi/1.0/default/wifi_legacy_hal.h",
         "patchSetId": 1
@@ -128,6 +248,30 @@
       "writtenOn": "2016-10-03T21:58:38Z",
       "side": 1,
       "message": "Same comment as at line 48.",
+      "range": {
+        "startLine": 50,
+        "startChar": 6,
+        "endLine": 50,
+        "endChar": 54
+      },
+      "revId": "7703694747c96938609939d065d2aac9c16f2d71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42b1a9f0_2b647146",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-03T22:57:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42b1a9f0_c0abd46f",
       "range": {
         "startLine": 50,
         "startChar": 6,
