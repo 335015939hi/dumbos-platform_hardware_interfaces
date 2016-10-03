@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "42b1a9f0_a01260bb",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-03T22:57:35Z",
+      "side": 1,
+      "message": "The HIDL style guide (go/android-hidl-code-style) wants us to use Android C++ style guide.",
+      "parentUuid": "42b1a9f0_ba128d62",
+      "range": {
+        "startLine": 26,
+        "startChar": 12,
+        "endLine": 26,
+        "endChar": 32
+      },
+      "revId": "4e93893e7b1c2b3ddad70c7dc55758a2f85bd2c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "42b1a9f0_da4d8169",
         "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
         "patchSetId": 2
@@ -36,6 +60,24 @@
       "writtenOn": "2016-10-03T21:05:04Z",
       "side": 1,
       "message": "Prior to this CL, this failure would be fatal (CHECK_EQ). Was that erroneous?\n\n(There\u0027s nothing in the commit message that motivates this part of the change.)",
+      "revId": "4e93893e7b1c2b3ddad70c7dc55758a2f85bd2c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42b1a9f0_80255c1a",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-03T22:57:35Z",
+      "side": 1,
+      "message": "I\u0027m not sure why mwills@ had a fatal failure before. \nI\u0027m now changing it to reflect the sequence of operations in WifiNative.cpp:\nhttps://cs.corp.google.com/android/frameworks/opt/net/wifi/service/jni/com_android_server_wifi_WifiNative.cpp?rcl\u003d69579a1c9289e53294ef870ac3727a0f09619793\u0026l\u003d228",
+      "parentUuid": "42b1a9f0_da4d8169",
       "revId": "4e93893e7b1c2b3ddad70c7dc55758a2f85bd2c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
