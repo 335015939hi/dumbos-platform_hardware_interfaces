@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "42ec493c_5fb74bee",
+        "filename": "wifi/1.0/default/service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-04T20:48:32Z",
+      "side": 1,
+      "message": "Consider making this more explicit:\n\n while (...) {\n    // Keep polling until failure.\n }\n\n(At least, that\u0027s what Google style would do. Ignore if HIDL style disagrees. https://google.github.io/styleguide/cppguide.html#Loops_and_Switch_Statements)",
+      "revId": "79a9975d07ec1fc583f4f281469bf3c05c909034",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
