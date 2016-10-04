@@ -41,11 +41,7 @@ class WifiHalState {
   /** opaque handle from vendor for use while HAL is running */
   wifi_handle hal_handle_;
 
-  enum class RunState {
-    STOPPED,
-    STARTED,
-    STOPPING
-  };
+  enum class RunState { STOPPED, STARTED, STOPPING };
 
   RunState run_state_;
 

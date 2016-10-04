@@ -24,8 +24,7 @@ namespace {
 class FunctionMessageHandler : public android::MessageHandler {
  public:
   explicit FunctionMessageHandler(const std::function<void()>& callback)
-      : callback_(callback) {
-  }
+      : callback_(callback) {}
 
   ~FunctionMessageHandler() override = default;
 
@@ -48,8 +47,7 @@ WifiHalState::WifiHalState(sp<Looper>& looper)
     : run_state_(RunState::STOPPED), looper_(looper) {}
 
 void WifiHalState::PostTask(const std::function<void()>& callback) {
-  sp<MessageHandler> message_handler =
-      new FunctionMessageHandler(callback);
+  sp<MessageHandler> message_handler = new FunctionMessageHandler(callback);
   looper_->sendMessage(message_handler, NULL);
 }
 
