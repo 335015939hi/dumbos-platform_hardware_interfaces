@@ -125,41 +125,51 @@ interface IWifiChip {
    * Requests notifications of significant events on this chip. Multiple calls
    * to this will register multiple callbacks each of which will receive all
    * events.
+   *
+   * @param callback An instance of the |IWifiChipEventCallback| HIDL interface
+   *        object.
    */
   oneway registerEventCallback(IWifiChipEventCallback callback);
 
   /**
    * Get the set of operation modes that the chip supports.
+   *
+   * @return modes List of modes supported by the device.
    */
   getAvailableModes() generates (vec<ChipMode> modes);
 
   /**
-   * Reconfigure the Chip. Will trigger onChipReconfigured.
+   * Reconfigure the Chip.
+   * Must trigger |IWifiChipEventCallback.onChipReconfigured|.
    *
    * @param modeId The mode that the chip should switch to, corresponding to the
-   *               id property of the target ChipMode.
+   *        id property of the target ChipMode.
    */
   oneway configureChip(ChipModeId modeId);
 
   /**
    * Get the current mode that the chip is in.
+   *
+   * @return modeId The mode that the chip is currently configured in,
+   *         corresponding to the id property of the target ChipMode.
    */
   getMode() generates (ChipModeId modeId);
 
   /**
-   * Request information about the chip. Will trigger onChipDebugInfoAvailable.
+   * Request information about the chip.
+   * Must trigger |IWifiChipEventCallback.onChipDebugInfoAvailable|.
    */
   oneway requestChipDebugInfo();
 
   /**
-   * Request vendor debug info from the driver. Will trigger
-   * onDriverDebugDumpAvailable.
+   * Request vendor debug info from the driver.
+   * Must trigger |IWifiChipEventCallback.onDriverDebugDumpAvailable|.
    */
   oneway requestDriverDebugDump();
 
   /**
-   * Request vendor debug info from the firmware. Will trigger
-   * onFirmwareDebugDumpAvailable.
+   * Request vendor debug info from the firmware.
+   * Must trigger |IWifiChipEventCallback.onFirmwareDebugDumpAvailable|.
    */
   oneway requestFirmwareDebugDump();
 };
