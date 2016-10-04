@@ -30,6 +30,9 @@ interface IWifi {
    * this must register multiple callbacks each of which must receive all
    * events. IWifiEventCallback registration must be independent of the state
    * of the rest of the HAL and must persist though stops/starts.
+   *
+   * @param callback An instance of the |IWifiEventCallback| HIDL interface
+   *        object.
    */
   @entry
   @callflow(next={"*"})
@@ -37,6 +40,8 @@ interface IWifi {
 
   /**
    * Get the current state of the HAL.
+   *
+   * @return started true if started, false otherwise.
    */
   isStarted() generates (bool started);
 
