@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0275f106_dfa80376",
+        "filename": "wifi/1.0/default/failure_reason_util.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-04T16:55:36Z",
+      "side": 1,
+      "message": "needed? (here and elsewhere in file)",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 6
+      },
+      "revId": "30f0738309d581176f86e68c718a97f566bc0845",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
