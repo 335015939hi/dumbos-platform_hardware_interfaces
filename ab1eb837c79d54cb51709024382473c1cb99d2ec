@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "22775548_147c7ca8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-04T19:02:50Z",
+      "side": 1,
+      "message": "Should this be WifiLegacyHal? (I don\u0027t see any file named wifi_legacy.h in this patch.)",
+      "range": {
+        "startLine": 10,
+        "startChar": 1,
+        "endLine": 10,
+        "endChar": 11
+      },
+      "revId": "ab1eb837c79d54cb51709024382473c1cb99d2ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "22775548_74a2a048",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-04T19:02:50Z",
+      "side": 1,
+      "message": "Can you file a more-specific bug for this? (The referenced bug talks about moving code a new directory, not restructuring the code.)\n\nIn particular, it would be helpful if the bug explained _why_ we want to restructure the code. Why is WifiHalState a poor fit for our needs?\n\n(I can probably study the CL and infer the reason. But the code review will go faster if the commit message and/or bug spell it out for me. :-))",
+      "range": {
+        "startLine": 13,
+        "startChar": 5,
+        "endLine": 13,
+        "endChar": 13
+      },
+      "revId": "ab1eb837c79d54cb51709024382473c1cb99d2ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "22775548_b477a891",
+        "filename": "wifi/1.0/default/failure_reason_util.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-04T19:02:50Z",
+      "side": 1,
+      "message": "Is it possible to split this mechanical change out into a separate CL?\n\nIt\u0027s easier to review, if each CL has just one purpose. (And a stand-alone mechanical change is super-easy to review.)",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 26
+      },
+      "revId": "ab1eb837c79d54cb51709024382473c1cb99d2ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
