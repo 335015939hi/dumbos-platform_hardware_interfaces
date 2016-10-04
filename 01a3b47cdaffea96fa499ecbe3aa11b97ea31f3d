@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "42ec493c_3fba4729",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-04T20:44:22Z",
+      "side": 1,
+      "message": "Consider adding a line above, to give a name to ret.second. (We\u0027re far enough away from the declaration here, that the meaning of ret.second might no longer be obvious.)\n\n  const auto\u0026 driver_dump \u003d ret.second;",
+      "revId": "01a3b47cdaffea96fa499ecbe3aa11b97ea31f3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42ec493c_5fc10b93",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-04T20:44:22Z",
+      "side": 1,
+      "message": "As at line 105, consider introducing a more expressive name for ret.second.",
+      "revId": "01a3b47cdaffea96fa499ecbe3aa11b97ea31f3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42ec493c_3f0c07f5",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-04T20:44:22Z",
+      "side": 1,
+      "message": "No need. std::function() is constructed as an empty function by default. (C++ classes should be in a good state after construction. i.e., anything with an explicit ctor should do the right thing.)\n\nhttp://en.cppreference.com/w/cpp/utility/functional/function/function",
+      "range": {
+        "startLine": 46,
+        "startChar": 64,
+        "endLine": 46,
+        "endChar": 74
+      },
+      "revId": "01a3b47cdaffea96fa499ecbe3aa11b97ea31f3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42ec493c_7f168f08",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-04T20:44:22Z",
+      "side": 1,
+      "message": "As at line 46.",
+      "range": {
+        "startLine": 54,
+        "startChar": 65,
+        "endLine": 54,
+        "endChar": 75
+      },
+      "revId": "01a3b47cdaffea96fa499ecbe3aa11b97ea31f3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
