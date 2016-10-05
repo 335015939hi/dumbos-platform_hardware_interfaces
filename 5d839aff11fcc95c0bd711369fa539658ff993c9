@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "bfffe021_5e6cb12f",
+        "filename": "wifi/1.0/IWifi.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-05T18:10:44Z",
+      "side": 1,
+      "message": "yea, that would be strange. OTOH we have some query functions here which would be useful no matter what.\n\nAnyway - not a big deal, just seems unnecessary.",
+      "parentUuid": "42ec493c_fed5780e",
+      "range": {
+        "startLine": 73,
+        "startChar": 18,
+        "endLine": 73,
+        "endChar": 30
+      },
+      "revId": "5d839aff11fcc95c0bd711369fa539658ff993c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "42ec493c_2b54c4c9",
         "filename": "wifi/1.0/IWifi.hal",
         "patchSetId": 4
@@ -344,6 +368,30 @@
       "side": 1,
       "message": "Hmm. I haven\u0027t really thought about this. \n\nI\u0027m assuming RTT will be a part of STA (wlan0) interface? Or do u think we should have separate interface type for RTT operations?",
       "parentUuid": "42ec493c_4b32e8a9",
+      "range": {
+        "startLine": 30,
+        "startChar": 10,
+        "endLine": 30,
+        "endChar": 19
+      },
+      "revId": "5d839aff11fcc95c0bd711369fa539658ff993c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bfffe021_1ec8691c",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-05T18:10:44Z",
+      "side": 1,
+      "message": "Not clear. Just forwarded you an email thread with Wei on this topic. Review and let\u0027s discuss tomorrow.",
+      "parentUuid": "42ec493c_217ce50c",
       "range": {
         "startLine": 30,
         "startChar": 10,
