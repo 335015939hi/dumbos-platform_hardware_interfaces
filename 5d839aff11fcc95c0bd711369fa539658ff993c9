@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "42ec493c_8bc870a0",
+        "filename": "wifi/1.0/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-05T15:40:46Z",
+      "side": 1,
+      "message": "is it necessary to commit into git an auto-generated file? I.e. isn\u0027t hidl-gen run as part of the make process?",
+      "range": {
+        "startLine": 1,
+        "startChar": 16,
+        "endLine": 1,
+        "endChar": 29
+      },
+      "revId": "5d839aff11fcc95c0bd711369fa539658ff993c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42ec493c_cb4ef838",
+        "filename": "wifi/1.0/IWifi.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-05T15:40:46Z",
+      "side": 1,
+      "message": "is it really configurable only?",
+      "range": {
+        "startLine": 73,
+        "startChar": 18,
+        "endLine": 73,
+        "endChar": 30
+      },
+      "revId": "5d839aff11fcc95c0bd711369fa539658ff993c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42ec493c_2b54c4c9",
+        "filename": "wifi/1.0/IWifi.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-05T15:40:46Z",
+      "side": 1,
+      "message": "considering this is a retrieval why list and not get?\n\n(unless this was feedback from API council)",
+      "range": {
+        "startLine": 79,
+        "startChar": 2,
+        "endLine": 79,
+        "endChar": 6
+      },
+      "revId": "5d839aff11fcc95c0bd711369fa539658ff993c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42ec493c_ab2f343b",
+        "filename": "wifi/1.0/IWifiApIface.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-05T15:40:46Z",
+      "side": 1,
+      "message": "Is there a concept of interface inheritance in HIDL? If so should there be a baseline interface which may provide some common behavior?",
+      "range": {
+        "startLine": 22,
+        "startChar": 10,
+        "endLine": 22,
+        "endChar": 22
+      },
+      "revId": "5d839aff11fcc95c0bd711369fa539658ff993c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42ec493c_4b32e8a9",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-05T15:40:46Z",
+      "side": 1,
+      "message": "Where does RTT fits into this? I.e. where do we execute those commands.",
+      "range": {
+        "startLine": 30,
+        "startChar": 10,
+        "endLine": 30,
+        "endChar": 19
+      },
+      "revId": "5d839aff11fcc95c0bd711369fa539658ff993c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42ec493c_0b274071",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-05T15:40:46Z",
+      "side": 1,
+      "message": "no param",
+      "range": {
+        "startLine": 187,
+        "startChar": 5,
+        "endLine": 187,
+        "endChar": 41
+      },
+      "revId": "5d839aff11fcc95c0bd711369fa539658ff993c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42ec493c_ab161405",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-05T15:40:46Z",
+      "side": 1,
+      "message": "NAN management interface. This is where it gets messy:\n\n- NAN discovery interface (which is the NAN management interface)\n- Multiple NAN data-path interfaces\n\nProbably have different API for each.",
+      "range": {
+        "startLine": 202,
+        "startChar": 14,
+        "endLine": 202,
+        "endChar": 17
+      },
+      "revId": "5d839aff11fcc95c0bd711369fa539658ff993c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
