@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "42ec493c_fed5780e",
+        "filename": "wifi/1.0/IWifi.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-05T17:33:51Z",
+      "side": 1,
+      "message": "Hmm. I\u0027m resuing the existing wording. Are there going to be non-configurable chips exposed?",
+      "parentUuid": "42ec493c_cb4ef838",
+      "range": {
+        "startLine": 73,
+        "startChar": 18,
+        "endLine": 73,
+        "endChar": 30
+      },
+      "revId": "5d839aff11fcc95c0bd711369fa539658ff993c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "42ec493c_2b54c4c9",
         "filename": "wifi/1.0/IWifi.hal",
         "patchSetId": 4
@@ -166,6 +190,54 @@
     },
     {
       "key": {
+        "uuid": "42ec493c_5e02a4b4",
+        "filename": "wifi/1.0/IWifi.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-05T17:33:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42ec493c_2b54c4c9",
+      "range": {
+        "startLine": 79,
+        "startChar": 2,
+        "endLine": 79,
+        "endChar": 6
+      },
+      "revId": "5d839aff11fcc95c0bd711369fa539658ff993c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42ec493c_3effe090",
+        "filename": "wifi/1.0/IWifi.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-05T17:33:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42ec493c_7ed4c8dd",
+      "range": {
+        "startLine": 79,
+        "startChar": 2,
+        "endLine": 79,
+        "endChar": 6
+      },
+      "revId": "5d839aff11fcc95c0bd711369fa539658ff993c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "42ec493c_ab2f343b",
         "filename": "wifi/1.0/IWifiApIface.hal",
         "patchSetId": 4
@@ -213,6 +285,30 @@
     },
     {
       "key": {
+        "uuid": "bfffe021_9b9c8b0d",
+        "filename": "wifi/1.0/IWifiApIface.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-05T17:33:51Z",
+      "side": 1,
+      "message": "Added a base IWifiIface object now.",
+      "parentUuid": "42ec493c_7ebb28ba",
+      "range": {
+        "startLine": 22,
+        "startChar": 10,
+        "endLine": 22,
+        "endChar": 22
+      },
+      "revId": "5d839aff11fcc95c0bd711369fa539658ff993c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "42ec493c_4b32e8a9",
         "filename": "wifi/1.0/IWifiChip.hal",
         "patchSetId": 4
@@ -236,6 +332,30 @@
     },
     {
       "key": {
+        "uuid": "42ec493c_217ce50c",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-05T17:33:51Z",
+      "side": 1,
+      "message": "Hmm. I haven\u0027t really thought about this. \n\nI\u0027m assuming RTT will be a part of STA (wlan0) interface? Or do u think we should have separate interface type for RTT operations?",
+      "parentUuid": "42ec493c_4b32e8a9",
+      "range": {
+        "startLine": 30,
+        "startChar": 10,
+        "endLine": 30,
+        "endChar": 19
+      },
+      "revId": "5d839aff11fcc95c0bd711369fa539658ff993c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "42ec493c_0b274071",
         "filename": "wifi/1.0/IWifiChip.hal",
         "patchSetId": 4
@@ -247,6 +367,30 @@
       "writtenOn": "2016-10-05T15:40:46Z",
       "side": 1,
       "message": "no param",
+      "range": {
+        "startLine": 187,
+        "startChar": 5,
+        "endLine": 187,
+        "endChar": 41
+      },
+      "revId": "5d839aff11fcc95c0bd711369fa539658ff993c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42ec493c_e19afd67",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-05T17:33:51Z",
+      "side": 1,
+      "message": "Oops. I had a single |createIface| before. Forgot to remove the param after splitting the API. \nRemoved now.",
+      "parentUuid": "42ec493c_0b274071",
       "range": {
         "startLine": 187,
         "startChar": 5,
