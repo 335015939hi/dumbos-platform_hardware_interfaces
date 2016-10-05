@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "42ec493c_3eda400c",
+        "filename": "wifi/1.0/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-05T15:59:50Z",
+      "side": 1,
+      "message": "For now, yes, the file has to be here because the build system must know about these targets.",
+      "parentUuid": "42ec493c_8bc870a0",
+      "range": {
+        "startLine": 1,
+        "startChar": 16,
+        "endLine": 1,
+        "endChar": 29
+      },
+      "revId": "5d839aff11fcc95c0bd711369fa539658ff993c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "42ec493c_cb4ef838",
         "filename": "wifi/1.0/IWifi.hal",
         "patchSetId": 4
@@ -71,6 +95,53 @@
     },
     {
       "key": {
+        "uuid": "42ec493c_de1514b2",
+        "filename": "wifi/1.0/IWifi.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-05T15:59:50Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be a collection of chips?",
+      "range": {
+        "startLine": 79,
+        "startChar": 25,
+        "endLine": 79,
+        "endChar": 39
+      },
+      "revId": "5d839aff11fcc95c0bd711369fa539658ff993c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42ec493c_7ed4c8dd",
+        "filename": "wifi/1.0/IWifi.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-05T15:59:50Z",
+      "side": 1,
+      "message": "I prefer get. List sounds more like \u0027list the chips elsewhere\u0027 to me.",
+      "parentUuid": "42ec493c_2b54c4c9",
+      "range": {
+        "startLine": 79,
+        "startChar": 2,
+        "endLine": 79,
+        "endChar": 6
+      },
+      "revId": "5d839aff11fcc95c0bd711369fa539658ff993c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "42ec493c_ab2f343b",
         "filename": "wifi/1.0/IWifiApIface.hal",
         "patchSetId": 4
@@ -82,6 +153,30 @@
       "writtenOn": "2016-10-05T15:40:46Z",
       "side": 1,
       "message": "Is there a concept of interface inheritance in HIDL? If so should there be a baseline interface which may provide some common behavior?",
+      "range": {
+        "startLine": 22,
+        "startChar": 10,
+        "endLine": 22,
+        "endChar": 22
+      },
+      "revId": "5d839aff11fcc95c0bd711369fa539658ff993c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42ec493c_7ebb28ba",
+        "filename": "wifi/1.0/IWifiApIface.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-05T15:59:50Z",
+      "side": 1,
+      "message": "There is",
+      "parentUuid": "42ec493c_ab2f343b",
       "range": {
         "startLine": 22,
         "startChar": 10,
