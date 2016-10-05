@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "42ec493c_e2ce8856",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-05T00:02:01Z",
+      "side": 1,
+      "message": "Thanks. The motivation is much clearer now.",
+      "parentUuid": "42ec493c_9f8c33ea",
+      "range": {
+        "startLine": 13,
+        "startChar": 5,
+        "endLine": 13,
+        "endChar": 13
+      },
+      "revId": "ab1eb837c79d54cb51709024382473c1cb99d2ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "22775548_b477a891",
         "filename": "wifi/1.0/default/failure_reason_util.h",
         "patchSetId": 8
