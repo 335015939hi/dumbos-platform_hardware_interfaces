@@ -70,10 +70,12 @@ interface IWifi {
   @callflow(next={"registerEventCallback", "start", "stop"})
   oneway stop();
 
-  // TODO(b/30570663) return vec<IWifiChip> instead
   /**
-   * Get the configurable chip on the device.
+   * Get all the configurable chips on the device.
+   *
+   * @return chip HIDL interface object representing the chip.
+   * TODO(b/30570663) return vec<IWifiChip> instead
    */
   @callflow(next={"*"})
-  getChip() generates (IWifiChip chip);
+  getChips() generates (IWifiChip chip);
 };
