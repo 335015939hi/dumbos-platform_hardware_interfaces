@@ -17,6 +17,10 @@
 package android.hardware.wifi@1.0;
 
 import IWifiChipEventCallback;
+import IWifiIfaceAp;
+import IWifiIfaceNan;
+import IWifiIfaceP2p;
+import IWifiIfaceSta;
 
 /**
  * Interface that represents a chip that must be configured as a single unit.
@@ -172,4 +176,88 @@ interface IWifiChip {
    * Must trigger |IWifiChipEventCallback.onFirmwareDebugDumpAvailable|.
    */
   oneway requestFirmwareDebugDump();
+
+  /**
+   * Create a AP iface on the chip.
+   *
+   * Depending on the mode the chip is configured in, the interface creation
+   * may fail if we've already reached the maximum allowed number of
+   * ifaces of the AP type.
+   *
+   * @param type Type of iface to create.
+   * @return iface HIDL interface object representing the iface if
+   *         successful, null otherwise.
+   */
+  createApIface() generates (IWifiIfaceAp iface);
+
+  /**
+   * List all the AP ifaces configured on the chip.
+   *
+   * @return iface HIDL interface object representing the AP iface.
+   * TODO(b/30570663) return vec<IWifiIfaceAp> instead
+   */
+  listApIface() generates (IWifiIfaceAp iface);
+
+  /**
+   * Create a P2P iface on the chip.
+   *
+   * Depending on the mode the chip is configured in, the interface creation
+   * may fail if we've already reached the maximum allowed number of
+   * ifaces of the P2P type.
+   *
+   * @param type Type of iface to create.
+   * @return iface HIDL interface object representing the iface if
+   *         successful, null otherwise.
+   */
+  createP2pIface() generates (IWifiIfaceP2p iface);
+
+  /**
+   * List all the P2P ifaces configured on the chip.
+   *
+   * @return iface HIDL interface object representing the P2P iface.
+   * TODO(b/30570663) return vec<IWifiIfaceP2p> instead
+   */
+  listP2pIface() generates (IWifiIfaceP2p iface);
+
+  /**
+   * Create a NAN iface on the chip.
+   *
+   * Depending on the mode the chip is configured in, the interface creation
+   * may fail if we've already reached the maximum allowed number of
+   * ifaces of the NAN type.
+   *
+   * @param type Type of iface to create.
+   * @return iface HIDL interface object representing the iface if
+   *         successful, null otherwise.
+   */
+  createNanIface() generates (IWifiIfaceNan iface);
+
+  /**
+   * List all the NAN ifaces configured on the chip.
+   *
+   * @return iface HIDL interface object representing the NAN iface.
+   * TODO(b/30570663) return vec<IWifiIfaceNan> instead
+   */
+  listNanIface() generates (IWifiIfaceNan iface);
+
+  /**
+   * Create a STA iface on the chip.
+   *
+   * Depending on the mode the chip is configured in, the interface creation
+   * may fail if we've already reached the maximum allowed number of
+   * ifaces of the STA type.
+   *
+   * @param type Type of iface to create.
+   * @return iface HIDL interface object representing the iface if
+   *         successful, null otherwise.
+   */
+  createStaIface() generates (IWifiIfaceSta iface);
+
+  /**
+   * List all the STA ifaces configured on the chip.
+   *
+   * @return iface HIDL interface object representing the STA iface.
+   * TODO(b/30570663) return vec<IWifiIfaceSta> instead
+   */
+  listStaIface() generates (IWifiIfaceSta iface);
 };
