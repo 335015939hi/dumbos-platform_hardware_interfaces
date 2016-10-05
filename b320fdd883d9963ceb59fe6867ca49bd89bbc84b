@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "42ec493c_cbdb9842",
+        "filename": "wifi/1.0/IWifi.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-05T15:47:32Z",
+      "side": 1,
+      "message": "May want to document how they are removed - unregister function?\n\nSeparately: is there anything which will wipe them? Reloading firmware? Should document.",
+      "range": {
+        "startLine": 32,
+        "startChar": 37,
+        "endLine": 32,
+        "endChar": 44
+      },
+      "revId": "b320fdd883d9963ceb59fe6867ca49bd89bbc84b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42ec493c_4badc89b",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-05T15:47:32Z",
+      "side": 1,
+      "message": "is there a failure possibility? If so will another callback be triggered?",
+      "range": {
+        "startLine": 143,
+        "startChar": 5,
+        "endLine": 143,
+        "endChar": 9
+      },
+      "revId": "b320fdd883d9963ceb59fe6867ca49bd89bbc84b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42ec493c_8bb7d0ed",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-05T15:47:32Z",
+      "side": 1,
+      "message": "nit: -\u003e to",
+      "range": {
+        "startLine": 153,
+        "startChar": 67,
+        "endLine": 153,
+        "endChar": 69
+      },
+      "revId": "b320fdd883d9963ceb59fe6867ca49bd89bbc84b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42ec493c_6b99ac7f",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-05T15:47:32Z",
+      "side": 1,
+      "message": "is there a failure possibility? If so will another callback be triggered?",
+      "range": {
+        "startLine": 160,
+        "startChar": 5,
+        "endLine": 160,
+        "endChar": 9
+      },
+      "revId": "b320fdd883d9963ceb59fe6867ca49bd89bbc84b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42ec493c_ab93b45e",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-05T15:47:32Z",
+      "side": 1,
+      "message": "is there a failure possibility? If so will another callback be triggered?",
+      "range": {
+        "startLine": 166,
+        "startChar": 5,
+        "endLine": 166,
+        "endChar": 9
+      },
+      "revId": "b320fdd883d9963ceb59fe6867ca49bd89bbc84b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42ec493c_de71943a",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-05T15:47:32Z",
+      "side": 1,
+      "message": "is there a failure possibility? If so will another callback be triggered?",
+      "range": {
+        "startLine": 172,
+        "startChar": 5,
+        "endLine": 172,
+        "endChar": 9
+      },
+      "revId": "b320fdd883d9963ceb59fe6867ca49bd89bbc84b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
