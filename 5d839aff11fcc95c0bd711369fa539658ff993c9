@@ -160,6 +160,30 @@
       "revId": "5d839aff11fcc95c0bd711369fa539658ff993c9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42ec493c_fece1856",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-05T15:55:15Z",
+      "side": 1,
+      "message": "Actually ignore. Create as many NAN interfaces as supported (chip will most likely support 1 - the management/discovery interface). Then from that interface can create NAN data-path interfaces which are related to the primary NAN interface.",
+      "parentUuid": "42ec493c_ab161405",
+      "range": {
+        "startLine": 202,
+        "startChar": 14,
+        "endLine": 202,
+        "endChar": 17
+      },
+      "revId": "5d839aff11fcc95c0bd711369fa539658ff993c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
