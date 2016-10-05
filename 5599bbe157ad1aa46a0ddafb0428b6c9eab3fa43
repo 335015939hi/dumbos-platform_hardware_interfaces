@@ -1,0 +1,227 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "42ec493c_42a3f4fb",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-05T00:02:01Z",
+      "side": 1,
+      "message": "I think this is unnecessary.\n\nhttp://en.cppreference.com/w/cpp/memory/shared_ptr/operator_bool",
+      "range": {
+        "startLine": 39,
+        "startChar": 19,
+        "endLine": 39,
+        "endChar": 24
+      },
+      "revId": "5599bbe157ad1aa46a0ddafb0428b6c9eab3fa43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42ec493c_22a070ed",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-05T00:02:01Z",
+      "side": 1,
+      "message": "As above.",
+      "range": {
+        "startLine": 47,
+        "startChar": 19,
+        "endLine": 47,
+        "endChar": 24
+      },
+      "revId": "5599bbe157ad1aa46a0ddafb0428b6c9eab3fa43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42ec493c_829dfcbb",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-05T00:02:01Z",
+      "side": 1,
+      "message": "As above.",
+      "range": {
+        "startLine": 62,
+        "startChar": 18,
+        "endLine": 62,
+        "endChar": 24
+      },
+      "revId": "5599bbe157ad1aa46a0ddafb0428b6c9eab3fa43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42ec493c_a25480fc",
+        "filename": "wifi/1.0/default/wifi_chip.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-05T00:02:01Z",
+      "side": 1,
+      "message": "If you keep this as a shared_ptr\u003c\u003e, please include a comment referring back to Wifi, for an explanation of the ownership strategy. (For weak_ptr\u003c\u003e, I think you can leave out the comment.)",
+      "revId": "5599bbe157ad1aa46a0ddafb0428b6c9eab3fa43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42ec493c_42b014f9",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-05T00:02:01Z",
+      "side": 1,
+      "message": "The trailing underscore is misleading. This is not an instance field.",
+      "range": {
+        "startLine": 34,
+        "startChar": 40,
+        "endLine": 34,
+        "endChar": 66
+      },
+      "revId": "5599bbe157ad1aa46a0ddafb0428b6c9eab3fa43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42ec493c_7331a859",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-05T00:02:01Z",
+      "side": 1,
+      "message": "Having two very similar names is confusing (on_stop_complete_callback_, on_complete_callback). This line almost looks like a recursive call.\n\nCan we choose names that make the distinction between the two clearer? E.g. on_stop_complete_internal, on_stop_complete_user.",
+      "range": {
+        "startLine": 82,
+        "startChar": 4,
+        "endLine": 82,
+        "endChar": 24
+      },
+      "revId": "5599bbe157ad1aa46a0ddafb0428b6c9eab3fa43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42ec493c_33cba017",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-05T00:02:01Z",
+      "side": 1,
+      "message": "Consider moving this declaration to line 97. (Closer to the point of use.)",
+      "revId": "5599bbe157ad1aa46a0ddafb0428b6c9eab3fa43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42ec493c_333e0014",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-05T00:02:01Z",
+      "side": 1,
+      "message": "1) Consider std::array, instead.\n2) Move inside the loop, since the variable isn\u0027t needed outside the loop.",
+      "revId": "5599bbe157ad1aa46a0ddafb0428b6c9eab3fa43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42ec493c_b3069028",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-05T00:02:01Z",
+      "side": 1,
+      "message": "These names are too generic to understand without context. Consider renaming, so that the code is more obvious. E.g.,\n\n   if (ifname_to_find \u003d\u003d current_ifname)",
+      "range": {
+        "startLine": 115,
+        "startChar": 8,
+        "endLine": 115,
+        "endChar": 29
+      },
+      "revId": "5599bbe157ad1aa46a0ddafb0428b6c9eab3fa43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42ec493c_4202d4b4",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-05T00:02:01Z",
+      "side": 1,
+      "message": "Not sure this is actualy used.",
+      "revId": "5599bbe157ad1aa46a0ddafb0428b6c9eab3fa43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42ec493c_22ffd090",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-05T00:02:01Z",
+      "side": 1,
+      "message": "Also not sure if this is used.",
+      "revId": "5599bbe157ad1aa46a0ddafb0428b6c9eab3fa43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "42ec493c_22ceb0ad",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-05T00:02:01Z",
+      "side": 0,
+      "message": "Should this have been replaced with the |legacy_hal| check, like the other methods?",
+      "range": {
+        "startLine": 58,
+        "startChar": 1,
+        "endLine": 59,
+        "endChar": 18
+      },
+      "revId": "79a9975d07ec1fc583f4f281469bf3c05c909034",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42ec493c_e2268873",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-05T00:02:01Z",
+      "side": 0,
+      "message": "As at line 58.\n\n(I know you add the null check back later. But I think this CL would be clearer with the null-check retained. Retaining the check would make the changes to the different methods symmetric. And the more symmetric things are, the easier the CL is to understand.)",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 18
+      },
+      "revId": "79a9975d07ec1fc583f4f281469bf3c05c909034",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
