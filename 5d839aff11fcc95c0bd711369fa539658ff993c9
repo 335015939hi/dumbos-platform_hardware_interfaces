@@ -142,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "42ec493c_be03f071",
+        "filename": "wifi/1.0/IWifi.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-05T16:02:39Z",
+      "side": 1,
+      "message": "It should. But, HIDL compiler doesn\u0027t allow me to add vec\u003cIWifiChip\u003e. \nSee the TODO(b/30570663) above.",
+      "parentUuid": "42ec493c_de1514b2",
+      "range": {
+        "startLine": 79,
+        "startChar": 25,
+        "endLine": 79,
+        "endChar": 39
+      },
+      "revId": "5d839aff11fcc95c0bd711369fa539658ff993c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "42ec493c_ab2f343b",
         "filename": "wifi/1.0/IWifiApIface.hal",
         "patchSetId": 4
