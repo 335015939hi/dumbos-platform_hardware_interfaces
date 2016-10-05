@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "42ec493c_22f4f04a",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-05T01:43:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42ec493c_3fba4729",
+      "revId": "01a3b47cdaffea96fa499ecbe3aa11b97ea31f3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "42ec493c_5fc10b93",
         "filename": "wifi/1.0/default/wifi_chip.cpp",
         "patchSetId": 8
@@ -30,6 +48,24 @@
       "writtenOn": "2016-10-04T20:44:22Z",
       "side": 1,
       "message": "As at line 105, consider introducing a more expressive name for ret.second.",
+      "revId": "01a3b47cdaffea96fa499ecbe3aa11b97ea31f3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42ec493c_62eef878",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-05T01:43:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42ec493c_5fc10b93",
       "revId": "01a3b47cdaffea96fa499ecbe3aa11b97ea31f3d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -59,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "42ec493c_a28c80e9",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-05T01:43:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42ec493c_3f0c07f5",
+      "range": {
+        "startLine": 46,
+        "startChar": 64,
+        "endLine": 46,
+        "endChar": 74
+      },
+      "revId": "01a3b47cdaffea96fa499ecbe3aa11b97ea31f3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "42ec493c_7f168f08",
         "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
         "patchSetId": 8
@@ -70,6 +130,30 @@
       "writtenOn": "2016-10-04T20:44:22Z",
       "side": 1,
       "message": "As at line 46.",
+      "range": {
+        "startLine": 54,
+        "startChar": 65,
+        "endLine": 54,
+        "endChar": 75
+      },
+      "revId": "01a3b47cdaffea96fa499ecbe3aa11b97ea31f3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42ec493c_427c94bb",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-05T01:43:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42ec493c_7f168f08",
       "range": {
         "startLine": 54,
         "startChar": 65,
