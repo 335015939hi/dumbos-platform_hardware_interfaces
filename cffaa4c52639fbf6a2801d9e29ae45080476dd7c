@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "42ec493c_e245e86c",
+        "filename": "wifi/1.0/default/wifi.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-05T00:02:01Z",
+      "side": 1,
+      "message": "Can this be |const auto\u0026|?",
+      "range": {
+        "startLine": 103,
+        "startChar": 9,
+        "endLine": 103,
+        "endChar": 14
+      },
+      "revId": "cffaa4c52639fbf6a2801d9e29ae45080476dd7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42ec493c_c263843e",
+        "filename": "wifi/1.0/default/wifi.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-05T00:02:01Z",
+      "side": 1,
+      "message": "For shared pointers, I think it\u0027s valuable to document the ownership strategy. i.e., who are we sharing with? (Documenting the strategy should help prevent ownership cycles, as the code evolves.)",
+      "range": {
+        "startLine": 54,
+        "startChar": 7,
+        "endLine": 54,
+        "endChar": 17
+      },
+      "revId": "cffaa4c52639fbf6a2801d9e29ae45080476dd7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42ec493c_ae4bc780",
+        "filename": "wifi/1.0/default/wifi_chip.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-05T00:02:01Z",
+      "side": 1,
+      "message": "Consider a weak_ptr\u003c\u003e instead. \n\n(A shared_ptr is useful if the referenced object must be kept alive. A weak_ptr is useful when we just need to know whether or not the referenced object is still around. From the code so far, it seems like WifiChip just wants to know whether or not the HAL is still around.)",
+      "range": {
+        "startLine": 40,
+        "startChar": 16,
+        "endLine": 40,
+        "endChar": 26
+      },
+      "revId": "cffaa4c52639fbf6a2801d9e29ae45080476dd7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
