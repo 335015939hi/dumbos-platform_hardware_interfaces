@@ -135,6 +135,30 @@
     },
     {
       "key": {
+        "uuid": "df3014eb_ef005dad",
+        "filename": "boot_control/1.0/IBootControl.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1115183
+      },
+      "writtenOn": "2016-10-05T22:06:28Z",
+      "side": 1,
+      "message": "If CommandResult is changed to a struct, this would require a callback though, right? Would that be a problem?",
+      "parentUuid": "c20e797c_d2129a11",
+      "range": {
+        "startLine": 64,
+        "startChar": 34,
+        "endLine": 64,
+        "endChar": 47
+      },
+      "revId": "c099be606c748502beeebfd551cb55b0acb7ce5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c20e797c_32184e37",
         "filename": "boot_control/1.0/IBootControl.hal",
         "patchSetId": 1
