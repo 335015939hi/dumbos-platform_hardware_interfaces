@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bf0e007b_e93531dd",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-06T18:59:26Z",
+      "side": 1,
+      "message": "I like RttController.",
+      "parentUuid": "bf0e007b_292f49af",
+      "range": {
+        "startLine": 320,
+        "startChar": 11,
+        "endLine": 320,
+        "endChar": 20
+      },
+      "revId": "7f87eaaae63265a3bc9319bbd7665f337cea7aa7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf0e007b_89063d2e",
         "filename": "wifi/1.0/IWifiRttResponder.hal",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "bf0e007b_496285da",
+        "filename": "wifi/1.0/IWifiRttResponder.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-06T18:59:26Z",
+      "side": 1,
+      "message": "Yep.",
+      "parentUuid": "bf0e007b_89063d2e",
+      "range": {
+        "startLine": 24,
+        "startChar": 10,
+        "endLine": 24,
+        "endChar": 27
+      },
+      "revId": "7f87eaaae63265a3bc9319bbd7665f337cea7aa7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf0e007b_29162963",
         "filename": "wifi/1.0/IWifiRttResponder.hal",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2016-10-06T18:47:27Z",
       "side": 1,
       "message": "Not sure this can be provided - it may be a run-time decision which depends on the specific configuration of the RTT. E.g. RTT to mac0 is on wlan0 (since that\u0027s where mac0 is associated), whereas RTT to mac1 may be on nan0 since it is a NAN mac address (of a peer).",
+      "range": {
+        "startLine": 31,
+        "startChar": 2,
+        "endLine": 31,
+        "endChar": 10
+      },
+      "revId": "7f87eaaae63265a3bc9319bbd7665f337cea7aa7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf0e007b_297aa97b",
+        "filename": "wifi/1.0/IWifiRttResponder.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-06T18:59:26Z",
+      "side": 1,
+      "message": "Ok. I\u0027ll change the return param doc to (mirroring the createRttController doc):\n\n\"iface HIDL interface object representing the iface if tied to a specific iface, null otherwise\"",
+      "parentUuid": "bf0e007b_29162963",
       "range": {
         "startLine": 31,
         "startChar": 2,
