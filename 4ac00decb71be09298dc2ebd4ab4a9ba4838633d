@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "bf0e007b_4379c682",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-06T17:10:23Z",
+      "side": 1,
+      "message": "As discussed offline, the ifname should be something that is given to framework by the HAL (instead of the other way).",
+      "parentUuid": "df9e5421_0507d82c",
+      "range": {
+        "startLine": 224,
+        "startChar": 17,
+        "endLine": 224,
+        "endChar": 30
+      },
+      "revId": "4ac00decb71be09298dc2ebd4ab4a9ba4838633d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f99cc37_18b65d42",
         "filename": "wifi/1.0/IWifiChip.hal",
         "patchSetId": 6
