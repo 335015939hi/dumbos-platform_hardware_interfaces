@@ -14,6 +14,7 @@ genrule {
         "IWifiIface.hal",
         "IWifiNanIface.hal",
         "IWifiP2pIface.hal",
+        "IWifiRttResponder.hal",
         "IWifiStaIface.hal",
     ],
     out: [
@@ -26,6 +27,7 @@ genrule {
         "android/hardware/wifi/1.0/WifiIfaceAll.cpp",
         "android/hardware/wifi/1.0/WifiNanIfaceAll.cpp",
         "android/hardware/wifi/1.0/WifiP2pIfaceAll.cpp",
+        "android/hardware/wifi/1.0/WifiRttResponderAll.cpp",
         "android/hardware/wifi/1.0/WifiStaIfaceAll.cpp",
     ],
 }
@@ -44,6 +46,7 @@ genrule {
         "IWifiIface.hal",
         "IWifiNanIface.hal",
         "IWifiP2pIface.hal",
+        "IWifiRttResponder.hal",
         "IWifiStaIface.hal",
     ],
     out: [
@@ -88,6 +91,11 @@ genrule {
         "android/hardware/wifi/1.0/BnWifiP2pIface.h",
         "android/hardware/wifi/1.0/BpWifiP2pIface.h",
         "android/hardware/wifi/1.0/BsWifiP2pIface.h",
+        "android/hardware/wifi/1.0/IWifiRttResponder.h",
+        "android/hardware/wifi/1.0/IHwWifiRttResponder.h",
+        "android/hardware/wifi/1.0/BnWifiRttResponder.h",
+        "android/hardware/wifi/1.0/BpWifiRttResponder.h",
+        "android/hardware/wifi/1.0/BsWifiRttResponder.h",
         "android/hardware/wifi/1.0/IWifiStaIface.h",
         "android/hardware/wifi/1.0/IHwWifiStaIface.h",
         "android/hardware/wifi/1.0/BnWifiStaIface.h",
