@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bf0e007b_292f49af",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-06T18:47:27Z",
+      "side": 1,
+      "message": "I don\u0027t think we want to Responder terminology. You have a responder and an initiator. Most of the time we\u0027re initiating (so need a mechanism to execute those API). We may also need to enable a Responder (e.g. for sta-to-sta NAN).\n\nMaybe: RttFunction, RttOperator, RttController",
+      "range": {
+        "startLine": 320,
+        "startChar": 11,
+        "endLine": 320,
+        "endChar": 20
+      },
+      "revId": "7f87eaaae63265a3bc9319bbd7665f337cea7aa7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf0e007b_89063d2e",
+        "filename": "wifi/1.0/IWifiRttResponder.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-06T18:47:27Z",
+      "side": 1,
+      "message": "Once this is IWifiRtt\u003csomethingelse, e.g. Controller\u003e: I assume all RTT operations will go in here: enable/disableResponder, initRtt ...",
+      "range": {
+        "startLine": 24,
+        "startChar": 10,
+        "endLine": 24,
+        "endChar": 27
+      },
+      "revId": "7f87eaaae63265a3bc9319bbd7665f337cea7aa7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf0e007b_29162963",
+        "filename": "wifi/1.0/IWifiRttResponder.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-06T18:47:27Z",
+      "side": 1,
+      "message": "Not sure this can be provided - it may be a run-time decision which depends on the specific configuration of the RTT. E.g. RTT to mac0 is on wlan0 (since that\u0027s where mac0 is associated), whereas RTT to mac1 may be on nan0 since it is a NAN mac address (of a peer).",
+      "range": {
+        "startLine": 31,
+        "startChar": 2,
+        "endLine": 31,
+        "endChar": 10
+      },
+      "revId": "7f87eaaae63265a3bc9319bbd7665f337cea7aa7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
