@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1f99cc37_185addf2",
+        "filename": "wifi/1.0/IWifi.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-06T16:36:29Z",
+      "side": 1,
+      "message": ":)",
+      "parentUuid": "1f99cc37_b86729de",
+      "range": {
+        "startLine": 81,
+        "startChar": 2,
+        "endLine": 81,
+        "endChar": 6
+      },
+      "revId": "4ac00decb71be09298dc2ebd4ab4a9ba4838633d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f99cc37_98aa6ddb",
         "filename": "wifi/1.0/IWifiChip.hal",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-06T16:22:18Z",
       "side": 1,
       "message": "get",
+      "range": {
+        "startLine": 202,
+        "startChar": 2,
+        "endLine": 202,
+        "endChar": 6
+      },
+      "revId": "4ac00decb71be09298dc2ebd4ab4a9ba4838633d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f99cc37_d86315a8",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-06T16:36:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f99cc37_98aa6ddb",
       "range": {
         "startLine": 202,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "df9e5421_0507d82c",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-06T16:36:29Z",
+      "side": 1,
+      "message": "Well, I\u0027m trying to follow the current model. Framework provides the ifname it is interested in. \n\nhttps://cs.corp.google.com/android/frameworks/opt/net/wifi/service/java/com/android/server/wifi/WifiNative.java?rcl\u003de2b3915ca8abad6914c081eec05c41fdb60dbf09\u0026l\u003d129\n\n\nIn the future if we have 2 STA iface\u0027s, wlan0 \u0026 wlan1. We should let framework create the STA iface on whichever the iface it wants.",
+      "parentUuid": "1f99cc37_580625fb",
+      "range": {
+        "startLine": 224,
+        "startChar": 17,
+        "endLine": 224,
+        "endChar": 30
+      },
+      "revId": "4ac00decb71be09298dc2ebd4ab4a9ba4838633d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f99cc37_18b65d42",
         "filename": "wifi/1.0/IWifiChip.hal",
         "patchSetId": 6
@@ -82,6 +154,30 @@
       "writtenOn": "2016-10-06T16:22:18Z",
       "side": 1,
       "message": "get",
+      "range": {
+        "startLine": 233,
+        "startChar": 2,
+        "endLine": 233,
+        "endChar": 6
+      },
+      "revId": "4ac00decb71be09298dc2ebd4ab4a9ba4838633d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f99cc37_7870c169",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-06T16:36:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f99cc37_18b65d42",
       "range": {
         "startLine": 233,
         "startChar": 2,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "1f99cc37_180c1df7",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-06T16:36:29Z",
+      "side": 1,
+      "message": "As far as the HIDL interface is concerned, IfaceType + IfName should be unique. So, even if there is another \"wlan0\" with different type, we should be ok.\n\nBut, in the overall system. I\u0027m not sure if linux kernel can handle duplicate iface names.",
+      "parentUuid": "1f99cc37_98e34d27",
+      "range": {
+        "startLine": 242,
+        "startChar": 14,
+        "endLine": 242,
+        "endChar": 27
+      },
+      "revId": "4ac00decb71be09298dc2ebd4ab4a9ba4838633d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f99cc37_d8bf9513",
         "filename": "wifi/1.0/IWifiChip.hal",
         "patchSetId": 6
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "1f99cc37_386a397c",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-06T16:36:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f99cc37_d8bf9513",
+      "range": {
+        "startLine": 264,
+        "startChar": 2,
+        "endLine": 264,
+        "endChar": 6
+      },
+      "revId": "4ac00decb71be09298dc2ebd4ab4a9ba4838633d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f99cc37_98910dab",
         "filename": "wifi/1.0/IWifiChip.hal",
         "patchSetId": 6
@@ -151,6 +295,30 @@
       "writtenOn": "2016-10-06T16:22:18Z",
       "side": 1,
       "message": "get",
+      "range": {
+        "startLine": 295,
+        "startChar": 2,
+        "endLine": 295,
+        "endChar": 6
+      },
+      "revId": "4ac00decb71be09298dc2ebd4ab4a9ba4838633d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f99cc37_586f058b",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-06T16:36:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f99cc37_98910dab",
       "range": {
         "startLine": 295,
         "startChar": 2,
