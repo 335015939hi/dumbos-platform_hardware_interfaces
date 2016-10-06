@@ -159,6 +159,30 @@
     },
     {
       "key": {
+        "uuid": "9f84dc25_2d01f96a",
+        "filename": "boot_control/1.0/IBootControl.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-06T23:12:38Z",
+      "side": 1,
+      "message": "No. What\u0027s wrong with the callback? You can just pass in a lambda to do the required functionality there. Execution blocks until the callback is complete.",
+      "parentUuid": "df3014eb_ef005dad",
+      "range": {
+        "startLine": 64,
+        "startChar": 34,
+        "endLine": 64,
+        "endChar": 47
+      },
+      "revId": "c099be606c748502beeebfd551cb55b0acb7ce5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c20e797c_32184e37",
         "filename": "boot_control/1.0/IBootControl.hal",
         "patchSetId": 1
