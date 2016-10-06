@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f99cc37_b86729de",
+        "filename": "wifi/1.0/IWifi.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-06T16:22:18Z",
+      "side": 1,
+      "message": "get",
+      "range": {
+        "startLine": 81,
+        "startChar": 2,
+        "endLine": 81,
+        "endChar": 6
+      },
+      "revId": "4ac00decb71be09298dc2ebd4ab4a9ba4838633d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f99cc37_98aa6ddb",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-06T16:22:18Z",
+      "side": 1,
+      "message": "get",
+      "range": {
+        "startLine": 202,
+        "startChar": 2,
+        "endLine": 202,
+        "endChar": 6
+      },
+      "revId": "4ac00decb71be09298dc2ebd4ab4a9ba4838633d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f99cc37_580625fb",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-06T16:22:18Z",
+      "side": 1,
+      "message": "why was this added? I understand the issue with vec\u003cbinder\u003e but that shouldn\u0027t impact the create functionality.\n\n(here and elsewhere)",
+      "range": {
+        "startLine": 224,
+        "startChar": 17,
+        "endLine": 224,
+        "endChar": 30
+      },
+      "revId": "4ac00decb71be09298dc2ebd4ab4a9ba4838633d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f99cc37_18b65d42",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-06T16:22:18Z",
+      "side": 1,
+      "message": "get",
+      "range": {
+        "startLine": 233,
+        "startChar": 2,
+        "endLine": 233,
+        "endChar": 6
+      },
+      "revId": "4ac00decb71be09298dc2ebd4ab4a9ba4838633d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f99cc37_98e34d27",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-06T16:22:18Z",
+      "side": 1,
+      "message": "Are we guaranteed uniqueness (or is that a requirement)?\n\nI.e. is it possible that \u0027wlan0\u0027 will be both a STA and something else?",
+      "range": {
+        "startLine": 242,
+        "startChar": 14,
+        "endLine": 242,
+        "endChar": 27
+      },
+      "revId": "4ac00decb71be09298dc2ebd4ab4a9ba4838633d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f99cc37_d8bf9513",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-06T16:22:18Z",
+      "side": 1,
+      "message": "get",
+      "range": {
+        "startLine": 264,
+        "startChar": 2,
+        "endLine": 264,
+        "endChar": 6
+      },
+      "revId": "4ac00decb71be09298dc2ebd4ab4a9ba4838633d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f99cc37_98910dab",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-06T16:22:18Z",
+      "side": 1,
+      "message": "get",
+      "range": {
+        "startLine": 295,
+        "startChar": 2,
+        "endLine": 295,
+        "endChar": 6
+      },
+      "revId": "4ac00decb71be09298dc2ebd4ab4a9ba4838633d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
