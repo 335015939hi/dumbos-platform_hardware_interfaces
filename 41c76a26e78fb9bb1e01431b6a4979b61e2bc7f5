@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f84dc25_aa6dcff9",
+        "filename": "tests/foo/1.0/IFoo.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2016-10-06T22:32:59Z",
+      "side": 1,
+      "message": "will have a collision on call enum.",
+      "range": {
+        "startLine": 83,
+        "startChar": 4,
+        "endLine": 83,
+        "endChar": 64
+      },
+      "revId": "41c76a26e78fb9bb1e01431b6a4979b61e2bc7f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
