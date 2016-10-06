@@ -26,12 +26,16 @@ namespace wifi {
 namespace V1_0 {
 namespace implementation {
 
-WifiChip::WifiChip(std::weak_ptr<WifiLegacyHal> legacy_hal)
-    : legacy_hal_(legacy_hal) {}
+WifiChip::WifiChip(ChipId chip_id, std::weak_ptr<WifiLegacyHal> legacy_hal)
+    : chip_id_(chip_id), legacy_hal_(legacy_hal) {}
 
 void WifiChip::invalidate() {
   legacy_hal_.reset();
   callbacks_.clear();
+}
+
+Return<ChipId> WifiChip::getId() {
+  return chip_id_;
 }
 
 Return<void> WifiChip::registerEventCallback(
