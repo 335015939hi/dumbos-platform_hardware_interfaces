@@ -27,13 +27,15 @@ namespace wifi {
 namespace V1_0 {
 namespace implementation {
 
+const ChipId Wifi::kChipId = 0;
+
 Wifi::Wifi()
     : legacy_hal_(new WifiLegacyHal()), run_state_(RunState::STOPPED) {}
 
 Return<void> Wifi::registerEventCallback(
     const sp<IWifiEventCallback>& callback) {
   // TODO(b/31632518): remove the callback when the client is destroyed
-  callbacks_.insert(callback);
+  callbacks_.emplace_back(callback);
   return Void();
 }
 
@@ -66,8 +68,8 @@ Return<void> Wifi::start() {
     return Void();
   }
 
-  // Create the chip instance once the HAL is started.
-  chip_ = new WifiChip(legacy_hal_);
+  // Create the only chip instance once the HAL is started.
+  chips_.emplace(kChipId, new WifiChip(kChipId, legacy_hal_));
   run_state_ = RunState::STARTED;
   for (const auto& callback : callbacks_) {
     callback->onStart();
@@ -88,10 +90,11 @@ Return<void> Wifi::stop() {
   LOG(INFO) << "Stopping HAL";
   run_state_ = RunState::STOPPING;
   const auto on_complete_callback_ = [&]() {
-    if (chip_.get()) {
-      chip_->invalidate();
+    // Invalidate and clear all the chip instances.
+    for (const auto& it : chips_) {
+      it.second->invalidate();
     }
-    chip_.clear();
+    chips_.clear();
     run_state_ = RunState::STOPPED;
     for (const auto& callback : callbacks_) {
       callback->onStop();
@@ -108,8 +111,24 @@ Return<void> Wifi::stop() {
   return Void();
 }
 
-Return<void> Wifi::getChip(getChip_cb cb) {
-  cb(chip_);
+Return<void> Wifi::getChipIds(getChipIds_cb cb) {
+  std::vector<ChipId> chip_ids;
+  for (const auto& it : chips_) {
+    chip_ids.push_back(it.first);
+  }
+  hidl_vec<ChipId> hidl_data;
+  hidl_data.setToExternal(chip_ids.data(), chip_ids.size());
+  cb(hidl_data);
+  return Void();
+}
+
+Return<void> Wifi::getChip(ChipId chip_id, getChip_cb cb) {
+  const auto it = chips_.find(chip_id);
+  if (it == chips_.end()) {
+    cb(nullptr);
+  } else {
+    cb(it->second);
+  }
   return Void();
 }
 
