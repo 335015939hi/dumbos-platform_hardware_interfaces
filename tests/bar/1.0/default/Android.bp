@@ -1,0 +1,23 @@
+// Using Soong instead of Android.mk for testing purposes.
+
+cc_library_shared {
+    name: "android.hardware.tests.bar@1.0-impl",
+    // not putting it in hw folder for testing purposes.
+    // DO NOT DO THIS IN PRODUCTION!
+    // relative_install_path: "hw",
+    srcs: ["Bar.cpp"],
+    // exporting include dirs for testing purposes.
+    // DO NOT DO THIS IN PRODUCTION!
+    export_include_dirs: ["include"],
+    local_include_dirs: ["include"],
+    shared_libs: [
+        "libhidl",
+        "libhwbinder",
+        "libutils",
+        "libbase",
+        "liblog",
+        "android.hardware.tests.bar@1.0",
+        "android.hardware.tests.foo@1.0",
+    ],
+
+}
