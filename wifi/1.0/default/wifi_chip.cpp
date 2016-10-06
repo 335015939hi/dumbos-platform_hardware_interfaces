@@ -20,6 +20,46 @@
 
 #include "failure_reason_util.h"
 
+namespace {
+using android::hardware::hidl_vec;
+using android::hardware::hidl_string;
+
+template <typename Iface>
+hidl_vec<hidl_string> getIfaceNames(
+    const std::map<std::string, android::sp<Iface>>& ifaces) {
+  std::vector<hidl_string> ifnames;
+  for (const auto& it : ifaces) {
+    hidl_string hidl_ifname;
+    hidl_ifname.setToExternal(it.first.c_str(), it.first.size());
+    ifnames.emplace_back(hidl_ifname);
+  }
+  hidl_vec<hidl_string> hidl_ifnames;
+  hidl_ifnames.setToExternal(ifnames.data(), ifnames.size());
+  return hidl_ifnames;
+}
+
+template <typename Iface>
+android::sp<Iface> getIface(
+    const hidl_string& ifname,
+    const std::map<std::string, android::sp<Iface>>& ifaces) {
+  const auto it = ifaces.find(ifname.c_str());
+  if (it == ifaces.end()) {
+    return nullptr;
+  } else {
+    return it->second;
+  }
+}
+
+template <typename Iface>
+void invalidateAndRemoveIfaces(
+    std::map<std::string, android::sp<Iface>>& ifaces) {
+  for (const auto& it : ifaces) {
+    it.second->invalidate();
+  }
+  ifaces.clear();
+}
+}  // namespace
+
 namespace android {
 namespace hardware {
 namespace wifi {
@@ -31,6 +71,7 @@ WifiChip::WifiChip(ChipId chip_id,
     : chip_id_(chip_id), legacy_hal_(legacy_hal) {}
 
 void WifiChip::invalidate() {
+  invalidateAndRemoveAllIfaces();
   legacy_hal_.reset();
   callbacks_.clear();
 }
@@ -44,7 +85,7 @@ Return<void> WifiChip::registerEventCallback(
   if (!legacy_hal_.lock())
     return Void();
   // TODO(b/31632518): remove the callback when the client is destroyed
-  callbacks_.insert(callback);
+  callbacks_.emplace_back(callback);
   return Void();
 }
 
@@ -61,6 +102,8 @@ Return<void> WifiChip::getAvailableModes(getAvailableModes_cb cb) {
 Return<void> WifiChip::configureChip(uint32_t /*mode_id*/) {
   if (!legacy_hal_.lock())
     return Void();
+
+  invalidateAndRemoveAllIfaces();
   // TODO add implementation
   return Void();
 }
@@ -143,6 +186,152 @@ Return<void> WifiChip::requestFirmwareDebugDump() {
     callback->onFirmwareDebugDumpAvailable(hidl_data);
   }
   return Void();
+}
+
+Return<void> WifiChip::createApIface(createApIface_cb cb) {
+  if (!legacy_hal_.lock()) {
+    cb(nullptr);
+    return Void();
+  }
+
+  // TODO(b/31997422): Disallow this based on the chip combination.
+  std::string ifname = legacy_hal_.lock()->getApIfaceName();
+  sp<WifiApIface> iface = new WifiApIface(ifname, legacy_hal_);
+  ap_ifaces_.emplace(ifname, iface);
+  cb(iface);
+  return Void();
+}
+
+Return<void> WifiChip::getApIfaceNames(getApIfaceNames_cb cb) {
+  if (!legacy_hal_.lock()) {
+    cb(hidl_vec<hidl_string>());
+    return Void();
+  }
+
+  cb(getIfaceNames(ap_ifaces_));
+  return Void();
+}
+
+Return<void> WifiChip::getApIface(const hidl_string& ifname, getApIface_cb cb) {
+  if (!legacy_hal_.lock()) {
+    cb(nullptr);
+    return Void();
+  }
+
+  cb(getIface(ifname, ap_ifaces_));
+  return Void();
+}
+
+Return<void> WifiChip::createNanIface(createNanIface_cb cb) {
+  if (!legacy_hal_.lock()) {
+    cb(nullptr);
+    return Void();
+  }
+
+  // TODO(b/31997422): Disallow this based on the chip combination.
+  std::string ifname = legacy_hal_.lock()->getNanIfaceName();
+  sp<WifiNanIface> iface = new WifiNanIface(ifname, legacy_hal_);
+  nan_ifaces_.emplace(ifname, iface);
+  cb(iface);
+  return Void();
+}
+
+Return<void> WifiChip::getNanIfaceNames(getNanIfaceNames_cb cb) {
+  if (!legacy_hal_.lock()) {
+    cb(hidl_vec<hidl_string>());
+    return Void();
+  }
+
+  cb(getIfaceNames(nan_ifaces_));
+  return Void();
+}
+
+Return<void> WifiChip::getNanIface(const hidl_string& ifname,
+                                   getNanIface_cb cb) {
+  if (!legacy_hal_.lock()) {
+    cb(nullptr);
+    return Void();
+  }
+
+  cb(getIface(ifname, nan_ifaces_));
+  return Void();
+}
+
+Return<void> WifiChip::createP2pIface(createP2pIface_cb cb) {
+  if (!legacy_hal_.lock()) {
+    cb(nullptr);
+    return Void();
+  }
+
+  // TODO(b/31997422): Disallow this based on the chip combination.
+  std::string ifname = legacy_hal_.lock()->getP2pIfaceName();
+  sp<WifiP2pIface> iface = new WifiP2pIface(ifname, legacy_hal_);
+  p2p_ifaces_.emplace(ifname, iface);
+  cb(iface);
+  return Void();
+}
+
+Return<void> WifiChip::getP2pIfaceNames(getP2pIfaceNames_cb cb) {
+  if (!legacy_hal_.lock()) {
+    cb(hidl_vec<hidl_string>());
+    return Void();
+  }
+
+  cb(getIfaceNames(p2p_ifaces_));
+  return Void();
+}
+
+Return<void> WifiChip::getP2pIface(const hidl_string& ifname,
+                                   getP2pIface_cb cb) {
+  if (!legacy_hal_.lock()) {
+    cb(nullptr);
+    return Void();
+  }
+
+  cb(getIface(ifname, p2p_ifaces_));
+  return Void();
+}
+
+Return<void> WifiChip::createStaIface(createStaIface_cb cb) {
+  if (!legacy_hal_.lock()) {
+    cb(nullptr);
+    return Void();
+  }
+
+  // TODO(b/31997422): Disallow this based on the chip combination.
+  std::string ifname = legacy_hal_.lock()->getStaIfaceName();
+  sp<WifiStaIface> iface = new WifiStaIface(ifname, legacy_hal_);
+  sta_ifaces_.emplace(ifname, iface);
+  cb(iface);
+  return Void();
+}
+
+Return<void> WifiChip::getStaIfaceNames(getStaIfaceNames_cb cb) {
+  if (!legacy_hal_.lock()) {
+    cb(hidl_vec<hidl_string>());
+    return Void();
+  }
+
+  cb(getIfaceNames(sta_ifaces_));
+  return Void();
+}
+
+Return<void> WifiChip::getStaIface(const hidl_string& ifname,
+                                   getStaIface_cb cb) {
+  if (!legacy_hal_.lock()) {
+    cb(nullptr);
+    return Void();
+  }
+
+  cb(getIface(ifname, sta_ifaces_));
+  return Void();
+}
+
+void WifiChip::invalidateAndRemoveAllIfaces() {
+  invalidateAndRemoveIfaces(ap_ifaces_);
+  invalidateAndRemoveIfaces(nan_ifaces_);
+  invalidateAndRemoveIfaces(p2p_ifaces_);
+  invalidateAndRemoveIfaces(sta_ifaces_);
 }
 
 }  // namespace implementation
