@@ -1,0 +1,124 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dfbf34c0_57014ee0",
+        "filename": "wifi/1.0/default/wifi.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-07T18:23:32Z",
+      "side": 1,
+      "message": "Similar to the comment in wifi.h: if we know we only have one chip, why add the complexity of pretending that we have multiple?",
+      "revId": "1373f43e9bdf499fb5abea3fda74d098c8a9be14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fcaac6e_7979e382",
+        "filename": "wifi/1.0/default/wifi.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-07T18:23:32Z",
+      "side": 1,
+      "message": "As at line 114.",
+      "revId": "1373f43e9bdf499fb5abea3fda74d098c8a9be14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7fec880a_2b625536",
+        "filename": "wifi/1.0/default/wifi.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-07T18:23:32Z",
+      "side": 1,
+      "message": "Consider constexpr instead. That will increase the number of contexts in which you can reference the symbol.",
+      "range": {
+        "startLine": 55,
+        "startChar": 9,
+        "endLine": 55,
+        "endChar": 14
+      },
+      "revId": "1373f43e9bdf499fb5abea3fda74d098c8a9be14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff8b1831_309066fc",
+        "filename": "wifi/1.0/default/wifi.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-07T18:23:32Z",
+      "side": 1,
+      "message": "If we know that we only support one chip (per the comment at line 54), why bother with a map?",
+      "revId": "1373f43e9bdf499fb5abea3fda74d098c8a9be14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff8b1831_99413ef3",
+        "filename": "wifi/1.0/default/wifi_chip.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-07T18:23:32Z",
+      "side": 1,
+      "message": "Is is meaningful for Wifi to assign chip IDs? Or would it make sense for the WifiChip class to manage those? E.g.\n\n  class WifiChip() {\n    private:\n      static ChipId next_id_;\n  }\n\n  WifiChip::WifiChip(...) {\n    chip_id_ \u003d next_id_++;\n  }",
+      "range": {
+        "startLine": 40,
+        "startChar": 18,
+        "endLine": 40,
+        "endChar": 25
+      },
+      "revId": "1373f43e9bdf499fb5abea3fda74d098c8a9be14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff8b1831_39704a69",
+        "filename": "wifi/1.0/default/wifi_chip.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-07T18:23:32Z",
+      "side": 1,
+      "message": "In general, I think it\u0027s preferred to pass smart pointer by value, rather than by reference. See, e.g., the example in the style guide [1], and a more explicit rationale on Stack Overflow [2].\n\nIs there any particular reason to prefer passing by reference here?\n\n[1] https://google.github.io/styleguide/cppguide.html\n[2] http://stackoverflow.com/a/8385581",
+      "range": {
+        "startLine": 40,
+        "startChar": 27,
+        "endLine": 40,
+        "endChar": 62
+      },
+      "revId": "1373f43e9bdf499fb5abea3fda74d098c8a9be14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
