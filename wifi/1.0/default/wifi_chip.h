@@ -76,6 +76,8 @@ class WifiChip : public IWifiChip {
 
  private:
   void invalidateAndRemoveAllIfaces();
+  void callWithEachCallback(
+      const std::function<Return<void>(sp<IWifiChipEventCallback>)>& method);
 
   ChipId chip_id_;
   std::weak_ptr<WifiLegacyHal> legacy_hal_;

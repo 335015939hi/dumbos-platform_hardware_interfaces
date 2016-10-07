@@ -54,6 +54,9 @@ class Wifi : public IWifi {
   // Chip ID to use for the only supported chip.
   static const ChipId kChipId;
 
+  void callWithEachCallback(
+      const std::function<Return<void>(sp<IWifiEventCallback>)>& method);
+
   // Instance is created in this root level |IWifi| HIDL interface object
   // and shared with all the child HIDL interface objects.
   std::shared_ptr<WifiLegacyHal> legacy_hal_;

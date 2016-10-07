@@ -138,9 +138,10 @@ Return<void> WifiChip::requestChipDebugInfo() {
   }
   result.firmwareDescription = ret.second.c_str();
 
-  for (const auto& callback : callbacks_) {
-    callback->onChipDebugInfoAvailable(result);
-  }
+  callWithEachCallback(
+      std::bind(&IWifiChipEventCallback::onChipDebugInfoAvailable,
+                std::placeholders::_1,
+                result));
   return Void();
 }
 
@@ -157,12 +158,13 @@ Return<void> WifiChip::requestDriverDebugDump() {
   }
 
   auto& driver_dump = ret.second;
-  hidl_vec<uint8_t> hidl_data;
-  hidl_data.setToExternal(reinterpret_cast<uint8_t*>(driver_dump.data()),
+  hidl_vec<uint8_t> hidl_dump;
+  hidl_dump.setToExternal(reinterpret_cast<uint8_t*>(driver_dump.data()),
                           driver_dump.size());
-  for (const auto& callback : callbacks_) {
-    callback->onDriverDebugDumpAvailable(hidl_data);
-  }
+  callWithEachCallback(
+      std::bind(&IWifiChipEventCallback::onDriverDebugDumpAvailable,
+                std::placeholders::_1,
+                hidl_dump));
   return Void();
 }
 
@@ -179,12 +181,13 @@ Return<void> WifiChip::requestFirmwareDebugDump() {
   }
 
   auto& firmware_dump = ret.second;
-  hidl_vec<uint8_t> hidl_data;
-  hidl_data.setToExternal(reinterpret_cast<uint8_t*>(firmware_dump.data()),
+  hidl_vec<uint8_t> hidl_dump;
+  hidl_dump.setToExternal(reinterpret_cast<uint8_t*>(firmware_dump.data()),
                           firmware_dump.size());
-  for (const auto& callback : callbacks_) {
-    callback->onFirmwareDebugDumpAvailable(hidl_data);
-  }
+  callWithEachCallback(
+      std::bind(&IWifiChipEventCallback::onFirmwareDebugDumpAvailable,
+                std::placeholders::_1,
+                hidl_dump));
   return Void();
 }
 
@@ -350,6 +353,13 @@ void WifiChip::invalidateAndRemoveAllIfaces() {
     rtt->invalidate();
   }
   rtt_controllers_.clear();
+}
+
+void WifiChip::callWithEachCallback(
+    const std::function<Return<void>(sp<IWifiChipEventCallback>)>& method) {
+  for (const auto& callback : callbacks_) {
+    method(callback);
+  }
 }
 
 }  // namespace implementation

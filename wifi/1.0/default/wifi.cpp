@@ -45,15 +45,15 @@ Return<bool> Wifi::isStarted() {
 
 Return<void> Wifi::start() {
   if (run_state_ == RunState::STARTED) {
-    for (const auto& callback : callbacks_) {
-      callback->onStart();
-    }
+    callWithEachCallback(
+        std::bind(&IWifiEventCallback::onStart, std::placeholders::_1));
     return Void();
   } else if (run_state_ == RunState::STOPPING) {
-    for (const auto& callback : callbacks_) {
-      callback->onStartFailure(CreateFailureReason(
-          CommandFailureReason::NOT_AVAILABLE, "HAL is stopping"));
-    }
+    callWithEachCallback(
+        std::bind(&IWifiEventCallback::onStartFailure,
+                  std::placeholders::_1,
+                  CreateFailureReason(CommandFailureReason::NOT_AVAILABLE,
+                                      "HAL is stopping")));
     return Void();
   }
 
@@ -61,27 +61,25 @@ Return<void> Wifi::start() {
   wifi_error status = legacy_hal_->start();
   if (status != WIFI_SUCCESS) {
     LOG(ERROR) << "Failed to start Wifi HAL";
-    for (auto& callback : callbacks_) {
-      callback->onStartFailure(
-          CreateFailureReasonLegacyError(status, "Failed to start HAL"));
-    }
+    callWithEachCallback(std::bind(
+        &IWifiEventCallback::onStartFailure,
+        std::placeholders::_1,
+        CreateFailureReasonLegacyError(status, "Failed to start HAL")));
     return Void();
   }
 
   // Create the only chip instance once the HAL is started.
   chips_.emplace(kChipId, new WifiChip(kChipId, legacy_hal_));
   run_state_ = RunState::STARTED;
-  for (const auto& callback : callbacks_) {
-    callback->onStart();
-  }
+  callWithEachCallback(
+      std::bind(&IWifiEventCallback::onStart, std::placeholders::_1));
   return Void();
 }
 
 Return<void> Wifi::stop() {
   if (run_state_ == RunState::STOPPED) {
-    for (const auto& callback : callbacks_) {
-      callback->onStop();
-    }
+    callWithEachCallback(
+        std::bind(&IWifiEventCallback::onStop, std::placeholders::_1));
     return Void();
   } else if (run_state_ == RunState::STOPPING) {
     return Void();
@@ -96,17 +94,16 @@ Return<void> Wifi::stop() {
     }
     chips_.clear();
     run_state_ = RunState::STOPPED;
-    for (const auto& callback : callbacks_) {
-      callback->onStop();
-    }
+    callWithEachCallback(
+        std::bind(&IWifiEventCallback::onStop, std::placeholders::_1));
   };
   wifi_error status = legacy_hal_->stop(on_complete_callback_);
   if (status != WIFI_SUCCESS) {
     LOG(ERROR) << "Failed to stop Wifi HAL";
-    for (const auto& callback : callbacks_) {
-      callback->onFailure(
-          CreateFailureReasonLegacyError(status, "Failed to stop HAL"));
-    }
+    callWithEachCallback(std::bind(
+        &IWifiEventCallback::onFailure,
+        std::placeholders::_1,
+        CreateFailureReasonLegacyError(status, "Failed to stop HAL")));
   }
   return Void();
 }
@@ -130,6 +127,13 @@ Return<void> Wifi::getChip(ChipId chip_id, getChip_cb cb) {
     cb(it->second);
   }
   return Void();
+}
+
+void Wifi::callWithEachCallback(
+    const std::function<Return<void>(sp<IWifiEventCallback>)>& method) {
+  for (const auto& callback : callbacks_) {
+    method(callback);
+  }
 }
 
 }  // namespace implementation
