@@ -51,7 +51,7 @@ enum IfaceType : uint32_t {
   AP,
   P2P,
   /**
-   * NAN control interface. Datapath support may be queried and created
+   * NAN control interface. Datapath support will be queried and created
    * through this interface.
    */
   NAN,
