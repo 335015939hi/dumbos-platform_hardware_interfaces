@@ -94,6 +94,30 @@
     },
     {
       "key": {
+        "uuid": "5f06e49f_8ea4bfb5",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-07T20:58:24Z",
+      "side": 1,
+      "message": "Correction: weak_ptr is not convertible to bool. So the code snippet in my previous comment should be replaced with:\n\n  if (legacy_hal_.expired()) {\n    // ...\n  }",
+      "parentUuid": "5f06e49f_8eb39f53",
+      "range": {
+        "startLine": 206,
+        "startChar": 6,
+        "endLine": 206,
+        "endChar": 25
+      },
+      "revId": "d176d4d8ef0f5aa6b8c8e8732f7f17fab3a54e04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f06e49f_8e8a7f75",
         "filename": "wifi/1.0/default/wifi_chip.cpp",
         "patchSetId": 3
