@@ -26,6 +26,7 @@
 #include "wifi_legacy_hal.h"
 #include "wifi_nan_iface.h"
 #include "wifi_p2p_iface.h"
+#include "wifi_rtt_controller.h"
 #include "wifi_sta_iface.h"
 
 namespace android {
@@ -70,6 +71,8 @@ class WifiChip : public IWifiChip {
   Return<void> getStaIfaceNames(getStaIfaceNames_cb cb) override;
   Return<void> getStaIface(const hidl_string& ifname,
                            getStaIface_cb cb) override;
+  Return<void> createRttController(const sp<IWifiIface>& bound_iface,
+                                   createRttController_cb cb) override;
 
  private:
   void invalidateAndRemoveAllIfaces();
@@ -81,6 +84,7 @@ class WifiChip : public IWifiChip {
   std::map<std::string, sp<WifiNanIface>> nan_ifaces_;
   std::map<std::string, sp<WifiP2pIface>> p2p_ifaces_;
   std::map<std::string, sp<WifiStaIface>> sta_ifaces_;
+  std::vector<sp<WifiRttController>> rtt_controllers_;
 
   DISALLOW_COPY_AND_ASSIGN(WifiChip);
 };
