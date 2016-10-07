@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7fc72882_397e2f3a",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-07T03:44:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf0e007b_e97d313e",
+      "range": {
+        "startLine": 320,
+        "startChar": 33,
+        "endLine": 320,
+        "endChar": 38
+      },
+      "revId": "9300d32b961ce2d2a914d202a58136f6f2802710",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bf0e007b_c97af543",
         "filename": "wifi/1.0/IWifiRttController.hal",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-06T19:05:01Z",
       "side": 1,
       "message": "nit (proposal only): getBoundIface",
+      "range": {
+        "startLine": 31,
+        "startChar": 2,
+        "endLine": 31,
+        "endChar": 10
+      },
+      "revId": "9300d32b961ce2d2a914d202a58136f6f2802710",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7fc72882_5981e335",
+        "filename": "wifi/1.0/IWifiRttController.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-07T03:44:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf0e007b_c97af543",
       "range": {
         "startLine": 31,
         "startChar": 2,
