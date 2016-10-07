@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5fa184a9_f3850aba",
+        "filename": "wifi/1.0/default/Android.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-07T18:30:13Z",
+      "side": 1,
+      "message": "Sort?",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 20
+      },
+      "revId": "6735027f8feef9cbf628d1de1a762b06f20610b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fa690c4_758020fd",
+        "filename": "wifi/1.0/default/wifi_ap_iface.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-07T18:30:13Z",
+      "side": 1,
+      "message": "As in a different CL: prefer passing smart pointers by value.",
+      "range": {
+        "startLine": 37,
+        "startChar": 14,
+        "endLine": 37,
+        "endChar": 49
+      },
+      "revId": "6735027f8feef9cbf628d1de1a762b06f20610b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3f4050d3_7f826f05",
+        "filename": "wifi/1.0/default/wifi_nan_iface.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-07T18:30:13Z",
+      "side": 1,
+      "message": "Prefer pass-by-value.",
+      "range": {
+        "startLine": 37,
+        "startChar": 15,
+        "endLine": 37,
+        "endChar": 50
+      },
+      "revId": "6735027f8feef9cbf628d1de1a762b06f20610b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f9bfc7b_95b82630",
+        "filename": "wifi/1.0/default/wifi_p2p_iface.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-07T18:30:13Z",
+      "side": 1,
+      "message": "Prefer pass-by-value",
+      "range": {
+        "startLine": 37,
+        "startChar": 15,
+        "endLine": 37,
+        "endChar": 50
+      },
+      "revId": "6735027f8feef9cbf628d1de1a762b06f20610b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffc6b868_78dd5d63",
+        "filename": "wifi/1.0/default/wifi_sta_iface.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-07T18:30:13Z",
+      "side": 1,
+      "message": "prefer pass-by-value",
+      "range": {
+        "startLine": 37,
+        "startChar": 15,
+        "endLine": 37,
+        "endChar": 50
+      },
+      "revId": "6735027f8feef9cbf628d1de1a762b06f20610b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
