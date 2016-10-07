@@ -87,6 +87,11 @@ Return<void> WifiChip::requestChipDebugInfo() {
   if (ret.first != WIFI_SUCCESS) {
     LOG(ERROR) << "Failed to get driver version: "
                << LegacyErrorToString(ret.first);
+    FailureReason reason = CreateFailureReasonLegacyError(
+        ret.first, " failed to get driver version");
+    for (const auto& callback : callbacks_) {
+      callback->onChipDebugInfoFailure(reason);
+    }
     return Void();
   }
   result.driverDescription = ret.second.c_str();
@@ -95,6 +100,11 @@ Return<void> WifiChip::requestChipDebugInfo() {
   if (ret.first != WIFI_SUCCESS) {
     LOG(ERROR) << "Failed to get firmware version: "
                << LegacyErrorToString(ret.first);
+    FailureReason reason = CreateFailureReasonLegacyError(
+        ret.first, " failed to get firmware version");
+    for (const auto& callback : callbacks_) {
+      callback->onChipDebugInfoFailure(reason);
+    }
     return Void();
   }
   result.firmwareDescription = ret.second.c_str();
@@ -114,6 +124,10 @@ Return<void> WifiChip::requestDriverDebugDump() {
   if (ret.first != WIFI_SUCCESS) {
     LOG(ERROR) << "Failed to get driver debug dump: "
                << LegacyErrorToString(ret.first);
+    FailureReason reason = CreateFailureReasonLegacyError(ret.first, "");
+    for (const auto& callback : callbacks_) {
+      callback->onDriverDebugDumpFailure(reason);
+    }
     return Void();
   }
 
@@ -136,6 +150,10 @@ Return<void> WifiChip::requestFirmwareDebugDump() {
   if (ret.first != WIFI_SUCCESS) {
     LOG(ERROR) << "Failed to get firmware debug dump: "
                << LegacyErrorToString(ret.first);
+    FailureReason reason = CreateFailureReasonLegacyError(ret.first, "");
+    for (const auto& callback : callbacks_) {
+      callback->onFirmwareDebugDumpFailure(reason);
+    }
     return Void();
   }
 
