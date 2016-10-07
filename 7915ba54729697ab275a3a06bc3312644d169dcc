@@ -22,6 +22,30 @@
       "revId": "7915ba54729697ab275a3a06bc3312644d169dcc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7fc72882_cdd76943",
+        "filename": "wifi/1.0/IWifiRttController.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-07T17:05:11Z",
+      "side": 1,
+      "message": "We\u0027re passing the reference of an android::sp in CPP implementation. The sp itself may contain a null pointer inside. \n\nThe implementation is here: https://android-review.googlesource.com/#/c/285565/3/wifi/1.0/default/wifi_chip.cpp",
+      "parentUuid": "7fc72882_8da051f1",
+      "range": {
+        "startLine": 29,
+        "startChar": 34,
+        "endLine": 29,
+        "endChar": 38
+      },
+      "revId": "7915ba54729697ab275a3a06bc3312644d169dcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
