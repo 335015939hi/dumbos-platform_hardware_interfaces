@@ -126,6 +126,10 @@ Return<void> WifiChip::requestChipDebugInfo() {
   if (ret.first != WIFI_SUCCESS) {
     LOG(ERROR) << "Failed to get driver version: "
                << LegacyErrorToString(ret.first);
+    callWithEachCallback(
+        std::bind(&IWifiChipEventCallback::onChipDebugInfoFailure,
+                  std::placeholders::_1,
+                  CreateFailureReasonLegacyError(ret.first, "")));
     return Void();
   }
   result.driverDescription = ret.second.c_str();
@@ -134,6 +138,10 @@ Return<void> WifiChip::requestChipDebugInfo() {
   if (ret.first != WIFI_SUCCESS) {
     LOG(ERROR) << "Failed to get firmware version: "
                << LegacyErrorToString(ret.first);
+    callWithEachCallback(
+        std::bind(&IWifiChipEventCallback::onChipDebugInfoFailure,
+                  std::placeholders::_1,
+                  CreateFailureReasonLegacyError(ret.first, "")));
     return Void();
   }
   result.firmwareDescription = ret.second.c_str();
@@ -154,6 +162,10 @@ Return<void> WifiChip::requestDriverDebugDump() {
   if (ret.first != WIFI_SUCCESS) {
     LOG(ERROR) << "Failed to get driver debug dump: "
                << LegacyErrorToString(ret.first);
+    callWithEachCallback(
+        std::bind(&IWifiChipEventCallback::onDriverDebugDumpFailure,
+                  std::placeholders::_1,
+                  CreateFailureReasonLegacyError(ret.first, "")));
     return Void();
   }
 
@@ -177,6 +189,10 @@ Return<void> WifiChip::requestFirmwareDebugDump() {
   if (ret.first != WIFI_SUCCESS) {
     LOG(ERROR) << "Failed to get firmware debug dump: "
                << LegacyErrorToString(ret.first);
+    callWithEachCallback(
+        std::bind(&IWifiChipEventCallback::onFirmwareDebugDumpFailure,
+                  std::placeholders::_1,
+                  CreateFailureReasonLegacyError(ret.first, "")));
     return Void();
   }
 
