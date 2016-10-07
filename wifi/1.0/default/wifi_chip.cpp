@@ -327,11 +327,29 @@ Return<void> WifiChip::getStaIface(const hidl_string& ifname,
   return Void();
 }
 
+Return<void> WifiChip::createRttController(const sp<IWifiIface>& bound_iface,
+                                           createRttController_cb cb) {
+  if (!legacy_hal_.lock()) {
+    cb(nullptr);
+    return Void();
+  }
+
+  sp<WifiRttController> rtt = new WifiRttController(bound_iface, legacy_hal_);
+  rtt_controllers_.emplace_back(rtt);
+  cb(rtt);
+  return Void();
+}
+
 void WifiChip::invalidateAndRemoveAllIfaces() {
   invalidateAndRemoveIfaces(ap_ifaces_);
   invalidateAndRemoveIfaces(nan_ifaces_);
   invalidateAndRemoveIfaces(p2p_ifaces_);
   invalidateAndRemoveIfaces(sta_ifaces_);
+  // All the RTT controllers are also invalid now.
+  for (const auto& rtt : rtt_controllers_) {
+    rtt->invalidate();
+  }
+  rtt_controllers_.clear();
 }
 
 }  // namespace implementation
