@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f06e49f_b19482f0",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-07T21:17:50Z",
+      "side": 1,
+      "message": "Should this case also be considered a failure?\n\nI\u0027m not necessarily arguing that this case _is_ a failure. But, if it\u0027s not, I\u0027d like to understand when callers should expect a failure callback, vs. when they should not. With the code as-is, it seems like there are three possible outcomes:\n- caller gets Success callback\n- caller gets Failure callback\n- caller gets no callback\n\nIs that as intended?",
+      "revId": "caf1a21dd265f4e3d92449c4fb16c2efa28595f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f06e49f_71716ad1",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-07T21:17:50Z",
+      "side": 1,
+      "message": "As at line 119.",
+      "revId": "caf1a21dd265f4e3d92449c4fb16c2efa28595f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5f06e49f_114fce8b",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-07T21:17:50Z",
+      "side": 1,
+      "message": "As at line 119.",
+      "revId": "caf1a21dd265f4e3d92449c4fb16c2efa28595f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
