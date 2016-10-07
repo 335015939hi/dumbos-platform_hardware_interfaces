@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f06e49f_91de1ecf",
+        "filename": "wifi/1.0/default/wifi.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-07T21:11:02Z",
+      "side": 1,
+      "message": "To my eye, the code on the left is much easier to read. What\u0027s the benefit of callWithEachCallback()?",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 72
+      },
+      "revId": "43c259224789d68c60bee5c9035cb72036e0851c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
