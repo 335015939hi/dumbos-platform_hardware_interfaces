@@ -1,0 +1,88 @@
+#define LOG_TAG "android.hardware.boot_control@1.0-impl"
+#include <utils/Log.h>
+
+#include <hardware/hardware.h>
+#include <hardware/boot_control.h>
+#include "BootControl.h"
+
+namespace android {
+namespace hardware {
+namespace boot_control {
+namespace V1_0 {
+namespace implementation {
+
+BootControl::BootControl(boot_control_module_t *module) : mModule(module){
+}
+
+// Methods from ::android::hardware::boot_control::V1_0::IBootControl follow.
+Return<uint32_t> BootControl::getNumberSlots()  {
+    return mModule->getNumberSlots(mModule);
+}
+
+Return<uint32_t> BootControl::getCurrentSlot()  {
+    return mModule->getCurrentSlot(mModule);
+}
+
+Return<void> BootControl::markBootSuccessful(markBootSuccessful_cb _hidl_cb)  {
+    int ret = mModule->markBootSuccessful(mModule);
+    struct CommandResult cr;
+    cr.success = (ret == 0);
+    cr.errMsg = strerror(-ret);
+    _hidl_cb(cr);
+    return Void();
+}
+
+Return<void> BootControl::setActiveBootSlot(uint32_t slot, setActiveBootSlot_cb _hidl_cb)  {
+    int ret = mModule->setActiveBootSlot(mModule, slot);
+    struct CommandResult cr;
+    cr.success = (ret == 0);
+    cr.errMsg = strerror(-ret);
+    _hidl_cb(cr);
+    return Void();
+}
+
+Return<void> BootControl::setSlotAsUnbootable(uint32_t slot, setSlotAsUnbootable_cb _hidl_cb)  {
+    int ret = mModule->setSlotAsUnbootable(mModule, slot);
+    struct CommandResult cr;
+    cr.success = (ret == 0);
+    cr.errMsg = strerror(-ret);
+    _hidl_cb(cr);
+    return Void();
+}
+
+Return<int32_t> BootControl::isSlotBootable(uint32_t slot)  {
+    return mModule->isSlotBootable(mModule, slot);
+}
+
+Return<int32_t> BootControl::isSlotMarkedSuccessful(uint32_t slot)  {
+    return mModule->isSlotMarkedSuccessful(mModule, slot);
+}
+
+Return<void> BootControl::getSuffix(uint32_t slot, getSuffix_cb _hidl_cb)  {
+    hidl_string ans;
+    const char *suffix = mModule->getSuffix(mModule, slot);
+    if (suffix) {
+        ans = suffix;
+    }
+    _hidl_cb(ans);
+    return Void();
+}
+
+
+IBootControl* HIDL_FETCH_IBootControl(const char* hal) {
+    int ret = 0;
+    boot_control_module_t* module = NULL;
+    ret = hw_get_module(hal, (const hw_module_t**)&module);
+    if (ret)
+    {
+        ALOGE("hw_get_module %s failed: %d", hal, ret);
+        return nullptr;
+    }
+    return new BootControl(module);
+}
+
+} // namespace implementation
+}  // namespace V1_0
+}  // namespace boot_control
+}  // namespace hardware
+}  // namespace android
