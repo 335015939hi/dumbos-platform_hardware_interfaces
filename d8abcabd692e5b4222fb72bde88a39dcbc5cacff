@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fcc6cf8_6fc1c125",
+        "filename": "boot_control/1.0/default/android.hardware.boot_control@1.0-service.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-10T23:00:18Z",
+      "side": 1,
+      "message": "\u003e 16 characters\n\ntry \u0027boot-hal-1-0\u0027",
+      "range": {
+        "startLine": 1,
+        "startChar": 8,
+        "endLine": 1,
+        "endChar": 32
+      },
+      "revId": "d8abcabd692e5b4222fb72bde88a39dcbc5cacff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff9f98ca_f96bc2e4",
+        "filename": "boot_control/1.0/default/android.hardware.boot_control@1.0-service.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-10T23:00:18Z",
+      "side": 1,
+      "message": "does this user exist?",
+      "range": {
+        "startLine": 3,
+        "startChar": 9,
+        "endLine": 3,
+        "endChar": 21
+      },
+      "revId": "d8abcabd692e5b4222fb72bde88a39dcbc5cacff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bfbe0035_631f226a",
+        "filename": "boot_control/1.0/default/service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-10T23:00:18Z",
+      "side": 1,
+      "message": "instance (or remove instance local variable)",
+      "range": {
+        "startLine": 28,
+        "startChar": 56,
+        "endLine": 28,
+        "endChar": 66
+      },
+      "revId": "d8abcabd692e5b4222fb72bde88a39dcbc5cacff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bfbe0035_0312ae61",
+        "filename": "boot_control/1.0/default/service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-10T23:00:18Z",
+      "side": 1,
+      "message": "instance",
+      "range": {
+        "startLine": 38,
+        "startChar": 31,
+        "endLine": 38,
+        "endChar": 42
+      },
+      "revId": "d8abcabd692e5b4222fb72bde88a39dcbc5cacff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
