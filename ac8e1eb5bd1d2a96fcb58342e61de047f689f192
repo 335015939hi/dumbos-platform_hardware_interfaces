@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7fc72882_88f4bf4a",
+        "filename": "wifi/1.0/IWifiApIface.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-10T21:17:08Z",
+      "side": 1,
+      "message": "if you\u0027re wanting to submit these without filling these out, please add \u0027TODO(username)\u0027 comments",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 2
+      },
+      "revId": "ac8e1eb5bd1d2a96fcb58342e61de047f689f192",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
