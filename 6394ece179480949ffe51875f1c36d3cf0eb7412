@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9fd85cb1_ca0543ee",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-10T16:38:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f06e49f_11a34e9b",
+      "revId": "6394ece179480949ffe51875f1c36d3cf0eb7412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f06e49f_1107ce7a",
         "filename": "wifi/1.0/default/wifi_rtt_controller.h",
         "patchSetId": 3
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "9fd85cb1_2aa05fef",
+        "filename": "wifi/1.0/default/wifi_rtt_controller.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-10T16:38:22Z",
+      "side": 1,
+      "message": "sp\u0027s are generally passed by reference everywhere.",
+      "parentUuid": "5f06e49f_1107ce7a",
+      "range": {
+        "startLine": 37,
+        "startChar": 20,
+        "endLine": 37,
+        "endChar": 41
+      },
+      "revId": "6394ece179480949ffe51875f1c36d3cf0eb7412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f06e49f_d11936eb",
         "filename": "wifi/1.0/default/wifi_rtt_controller.h",
         "patchSetId": 3
@@ -53,6 +95,30 @@
       "writtenOn": "2016-10-07T21:06:37Z",
       "side": 1,
       "message": "As elsewhere: prefer pass-by-value.",
+      "range": {
+        "startLine": 38,
+        "startChar": 20,
+        "endLine": 38,
+        "endChar": 55
+      },
+      "revId": "6394ece179480949ffe51875f1c36d3cf0eb7412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9fd85cb1_0a9d9bb9",
+        "filename": "wifi/1.0/default/wifi_rtt_controller.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-10T16:38:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f06e49f_d11936eb",
       "range": {
         "startLine": 38,
         "startChar": 20,
