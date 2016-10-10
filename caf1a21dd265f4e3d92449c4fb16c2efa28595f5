@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9fd85cb1_aa41eff5",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-10T16:38:36Z",
+      "side": 1,
+      "message": "That should return a failure as well. I think the initial design tried to keep the wifi hal as asynchronous as possible. We could indicate these errors via the |onFailure| callbacks here. But, there are other HIDL methods which are simple getters which have no corresponding callbacks. So, there is no way to indicate some straightforward API surface errors like this stale proxy, etc with the current mechanism.\n\nI\u0027ve filed b/32056230 to add a |Status| enum for every method which can be used to indicate these kind of errors. This will be similar to the wpa_supplicant\u0027s HIDL interface where we return a |SupplicantStatus| instance for every method:  https://cs.corp.google.com/android/hardware/interfaces/wifi/supplicant/1.0/ISupplicantIface.hal?type\u003dcs\u0026q\u003dISupplicantIface\u0026l\u003d1\n\nI\u0027ll take this up in a follow up CL though.",
+      "parentUuid": "5f06e49f_b19482f0",
+      "revId": "caf1a21dd265f4e3d92449c4fb16c2efa28595f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f06e49f_71716ad1",
         "filename": "wifi/1.0/default/wifi_chip.cpp",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "9fd85cb1_aad3af29",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-10T16:38:36Z",
+      "side": 1,
+      "message": "Same.",
+      "parentUuid": "5f06e49f_71716ad1",
+      "revId": "caf1a21dd265f4e3d92449c4fb16c2efa28595f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f06e49f_114fce8b",
         "filename": "wifi/1.0/default/wifi_chip.cpp",
         "patchSetId": 1
@@ -47,6 +83,24 @@
       "writtenOn": "2016-10-07T21:17:50Z",
       "side": 1,
       "message": "As at line 119.",
+      "revId": "caf1a21dd265f4e3d92449c4fb16c2efa28595f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9fd85cb1_8ad86b47",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-10T16:38:36Z",
+      "side": 1,
+      "message": "Same.",
+      "parentUuid": "5f06e49f_114fce8b",
       "revId": "caf1a21dd265f4e3d92449c4fb16c2efa28595f5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
