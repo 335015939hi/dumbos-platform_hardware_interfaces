@@ -22,6 +22,30 @@
       "revId": "6c1d5d01fda5d61ef7b2c2838bddb390f39017f0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f7dbc55_65a620ac",
+        "filename": "wifi/1.0/IWifi.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-10T23:38:29Z",
+      "side": 1,
+      "message": "Well, this API is blocking now. The caller can now invoke start() and check the status of the operation to determine if the HAL is started or not.\nThe caller doesn\u0027t need to wait for an asynchronous  |onStart| or |onStartFailure| callback to be informed of the status of the operation.\n\nThis is already blocking under the hood currently. So, there is no real advantage of keeping this asynchronous.\nhttps://cs.corp.google.com/android/frameworks/opt/net/wifi/service/java/com/android/server/wifi/WifiNative.java?rcl\u003d6e9f08dbd7b4a83b50579bf75e08d39e98ca56b7\u0026l\u003d1522.",
+      "parentUuid": "bfbe0035_c3141659",
+      "range": {
+        "startLine": 62,
+        "startChar": 10,
+        "endLine": 62,
+        "endChar": 38
+      },
+      "revId": "6c1d5d01fda5d61ef7b2c2838bddb390f39017f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
