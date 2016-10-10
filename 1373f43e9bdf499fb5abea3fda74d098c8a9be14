@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9fd85cb1_2a5b3f89",
+        "filename": "wifi/1.0/default/wifi.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-10T16:37:25Z",
+      "side": 1,
+      "message": "We still need to support the HIDL API\u0027s (which can support multiple chips) and return vectors. \nBut, for our legacy HAL implementation, we just have one chip today and hence we can internally keep a single object.",
+      "parentUuid": "dfbf34c0_57014ee0",
+      "revId": "1373f43e9bdf499fb5abea3fda74d098c8a9be14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1fcaac6e_7979e382",
         "filename": "wifi/1.0/default/wifi.cpp",
         "patchSetId": 4
@@ -30,6 +48,24 @@
       "writtenOn": "2016-10-07T18:23:32Z",
       "side": 1,
       "message": "As at line 114.",
+      "revId": "1373f43e9bdf499fb5abea3fda74d098c8a9be14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9fd85cb1_6a65373d",
+        "filename": "wifi/1.0/default/wifi.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-10T16:37:25Z",
+      "side": 1,
+      "message": "Same. We still need to support the HIDL API\u0027s.",
+      "parentUuid": "1fcaac6e_7979e382",
       "revId": "1373f43e9bdf499fb5abea3fda74d098c8a9be14",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -59,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "9fd85cb1_4a62f336",
+        "filename": "wifi/1.0/default/wifi.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-10T16:37:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7fec880a_2b625536",
+      "range": {
+        "startLine": 55,
+        "startChar": 9,
+        "endLine": 55,
+        "endChar": 14
+      },
+      "revId": "1373f43e9bdf499fb5abea3fda74d098c8a9be14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ff8b1831_309066fc",
         "filename": "wifi/1.0/default/wifi.h",
         "patchSetId": 4
@@ -70,6 +130,24 @@
       "writtenOn": "2016-10-07T18:23:32Z",
       "side": 1,
       "message": "If we know that we only support one chip (per the comment at line 54), why bother with a map?",
+      "revId": "1373f43e9bdf499fb5abea3fda74d098c8a9be14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9fd85cb1_aa4d6fca",
+        "filename": "wifi/1.0/default/wifi.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-10T16:37:25Z",
+      "side": 1,
+      "message": "Agree. We can get rid of this internally.",
+      "parentUuid": "ff8b1831_309066fc",
       "revId": "1373f43e9bdf499fb5abea3fda74d098c8a9be14",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -115,6 +193,54 @@
         "startChar": 27,
         "endLine": 40,
         "endChar": 62
+      },
+      "revId": "1373f43e9bdf499fb5abea3fda74d098c8a9be14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9fd85cb1_2a421f95",
+        "filename": "wifi/1.0/default/wifi_chip.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-10T16:37:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff8b1831_39704a69",
+      "range": {
+        "startLine": 40,
+        "startChar": 27,
+        "endLine": 40,
+        "endChar": 62
+      },
+      "revId": "1373f43e9bdf499fb5abea3fda74d098c8a9be14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9fd85cb1_8abd0b84",
+        "filename": "wifi/1.0/default/wifi_chip.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-10T16:37:25Z",
+      "side": 1,
+      "message": "Since we only have a single chip now. This static member should not be needed. \nIn general, i\u0027m trying to let the parent object assign the unique id/name for the child objects. So, IWifiIface objects are assigned name by IWifiChip. Similarly, IWifiChip objects are assigned a unique id by IWifi.",
+      "parentUuid": "ff8b1831_99413ef3",
+      "range": {
+        "startLine": 40,
+        "startChar": 18,
+        "endLine": 40,
+        "endChar": 25
       },
       "revId": "1373f43e9bdf499fb5abea3fda74d098c8a9be14",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
