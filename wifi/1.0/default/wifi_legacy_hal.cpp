@@ -16,8 +16,8 @@
 
 #include <array>
 
-#include "failure_reason_util.h"
 #include "wifi_legacy_hal.h"
+#include "wifi_status_util.h"
 
 #include <android-base/logging.h>
 #include <cutils/properties.h>
@@ -83,16 +83,16 @@ wifi_error WifiLegacyHal::start() {
   }
 
   LOG(INFO) << "Starting legacy HAL";
-  wifi_error status = global_func_table_.wifi_initialize(&global_handle_);
-  if (status != WIFI_SUCCESS || !global_handle_) {
+  wifi_error wifi_status = global_func_table_.wifi_initialize(&global_handle_);
+  if (wifi_status != WIFI_SUCCESS || !global_handle_) {
     LOG(ERROR) << "Failed to retrieve global handle";
-    return status;
+    return wifi_status;
   }
   event_loop_thread_ = std::thread(&WifiLegacyHal::runEventLoop, this);
-  status = retrieveWlanInterfaceHandle();
-  if (status != WIFI_SUCCESS || !wlan_interface_handle_) {
+  wifi_status = retrieveWlanInterfaceHandle();
+  if (wifi_status != WIFI_SUCCESS || !wlan_interface_handle_) {
     LOG(ERROR) << "Failed to retrieve wlan interface handle";
-    return status;
+    return wifi_status;
   }
   LOG(VERBOSE) << "Legacy HAL start complete";
   return WIFI_SUCCESS;
@@ -141,17 +141,17 @@ std::string WifiLegacyHal::getStaIfaceName() {
 std::pair<wifi_error, std::string> WifiLegacyHal::getDriverVersion() {
   std::array<char, kMaxVersionStringLength> buffer;
   buffer.fill(0);
-  wifi_error status = global_func_table_.wifi_get_driver_version(
+  wifi_error wifi_status = global_func_table_.wifi_get_driver_version(
       wlan_interface_handle_, buffer.data(), buffer.size());
-  return std::make_pair(status, buffer.data());
+  return std::make_pair(wifi_status, buffer.data());
 }
 
 std::pair<wifi_error, std::string> WifiLegacyHal::getFirmwareVersion() {
   std::array<char, kMaxVersionStringLength> buffer;
   buffer.fill(0);
-  wifi_error status = global_func_table_.wifi_get_firmware_version(
+  wifi_error wifi_status = global_func_table_.wifi_get_firmware_version(
       wlan_interface_handle_, buffer.data(), buffer.size());
-  return std::make_pair(status, buffer.data());
+  return std::make_pair(wifi_status, buffer.data());
 }
 
 std::pair<wifi_error, std::vector<char>>
@@ -161,10 +161,10 @@ WifiLegacyHal::requestDriverMemoryDump() {
                                                            int buffer_size) {
     driver_dump.insert(driver_dump.end(), buffer, buffer + buffer_size);
   };
-  wifi_error status = global_func_table_.wifi_get_driver_memory_dump(
+  wifi_error wifi_status = global_func_table_.wifi_get_driver_memory_dump(
       wlan_interface_handle_, {onDriverMemoryDump});
   on_driver_memory_dump_internal_callback = nullptr;
-  return std::make_pair(status, std::move(driver_dump));
+  return std::make_pair(wifi_status, std::move(driver_dump));
 }
 
 std::pair<wifi_error, std::vector<char>>
@@ -174,31 +174,31 @@ WifiLegacyHal::requestFirmwareMemoryDump() {
       char* buffer, int buffer_size) {
     firmware_dump.insert(firmware_dump.end(), buffer, buffer + buffer_size);
   };
-  wifi_error status = global_func_table_.wifi_get_firmware_memory_dump(
+  wifi_error wifi_status = global_func_table_.wifi_get_firmware_memory_dump(
       wlan_interface_handle_, {onFirmwareMemoryDump});
   on_firmware_memory_dump_internal_callback = nullptr;
-  return std::make_pair(status, std::move(firmware_dump));
+  return std::make_pair(wifi_status, std::move(firmware_dump));
 }
 
 wifi_error WifiLegacyHal::retrieveWlanInterfaceHandle() {
   const std::string& ifname_to_find = getStaIfaceName();
   wifi_interface_handle* iface_handles = nullptr;
   int num_iface_handles = 0;
-  wifi_error status = global_func_table_.wifi_get_ifaces(
+  wifi_error wifi_status = global_func_table_.wifi_get_ifaces(
       global_handle_, &num_iface_handles, &iface_handles);
-  if (status != WIFI_SUCCESS) {
+  if (wifi_status != WIFI_SUCCESS) {
     LOG(ERROR) << "Failed to enumerate interface handles: "
-               << LegacyErrorToString(status);
-    return status;
+               << legacyErrorToString(wifi_status);
+    return wifi_status;
   }
   for (int i = 0; i < num_iface_handles; ++i) {
     std::array<char, IFNAMSIZ> current_ifname;
     current_ifname.fill(0);
-    status = global_func_table_.wifi_get_iface_name(
+    wifi_status = global_func_table_.wifi_get_iface_name(
         iface_handles[i], current_ifname.data(), current_ifname.size());
-    if (status != WIFI_SUCCESS) {
+    if (wifi_status != WIFI_SUCCESS) {
       LOG(WARNING) << "Failed to get interface handle name: "
-                   << LegacyErrorToString(status);
+                   << legacyErrorToString(wifi_status);
       continue;
     }
     if (ifname_to_find == current_ifname.data()) {
