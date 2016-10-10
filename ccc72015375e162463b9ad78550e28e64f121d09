@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9fd85cb1_4abaf3d5",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-10T16:39:05Z",
+      "side": 1,
+      "message": "These are 80211 specified Wifi frequencies. These vary per country code and other parameters. \nhttps://en.wikipedia.org/wiki/List_of_WLAN_channels",
+      "parentUuid": "5f06e49f_cee4f7a0",
+      "range": {
+        "startLine": 141,
+        "startChar": 8,
+        "endLine": 141,
+        "endChar": 16
+      },
+      "revId": "ccc72015375e162463b9ad78550e28e64f121d09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f06e49f_4eca4716",
         "filename": "wifi/1.0/IWifiStaIface.hal",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-07T20:36:13Z",
       "side": 1,
       "message": "must (please grep for all should/can/might/could)",
+      "range": {
+        "startLine": 181,
+        "startChar": 34,
+        "endLine": 181,
+        "endChar": 38
+      },
+      "revId": "ccc72015375e162463b9ad78550e28e64f121d09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9fd85cb1_cd7f1dff",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-10T16:39:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f06e49f_4eca4716",
       "range": {
         "startLine": 181,
         "startChar": 34,
@@ -94,6 +142,54 @@
     },
     {
       "key": {
+        "uuid": "9fd85cb1_4a915352",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-10T16:39:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f06e49f_2e3cb317",
+      "range": {
+        "startLine": 202,
+        "startChar": 60,
+        "endLine": 202,
+        "endChar": 64
+      },
+      "revId": "ccc72015375e162463b9ad78550e28e64f121d09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9fd85cb1_ed7ae110",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-10T16:39:05Z",
+      "side": 1,
+      "message": "must register?",
+      "parentUuid": "5f06e49f_6e42ab96",
+      "range": {
+        "startLine": 202,
+        "startChar": 13,
+        "endLine": 202,
+        "endChar": 26
+      },
+      "revId": "ccc72015375e162463b9ad78550e28e64f121d09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f06e49f_eefb3b5e",
         "filename": "wifi/1.0/types.hal",
         "patchSetId": 1
@@ -105,6 +201,30 @@
       "writtenOn": "2016-10-07T20:36:13Z",
       "side": 1,
       "message": "must or is queried :)",
+      "range": {
+        "startLine": 54,
+        "startChar": 45,
+        "endLine": 54,
+        "endChar": 49
+      },
+      "revId": "ccc72015375e162463b9ad78550e28e64f121d09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9fd85cb1_2db7d9cf",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-10T16:39:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f06e49f_eefb3b5e",
       "range": {
         "startLine": 54,
         "startChar": 45,
