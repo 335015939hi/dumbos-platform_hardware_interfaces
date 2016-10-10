@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9fd85cb1_4415c248",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-10T21:17:08Z",
+      "side": 1,
+      "message": "where is this maximum specified?",
+      "range": {
+        "startLine": 186,
+        "startChar": 43,
+        "endLine": 186,
+        "endChar": 50
+      },
+      "revId": "0e46f10a9902a5d813236df1c0502382e646ab19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9fd85cb1_8404da26",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-10T21:17:08Z",
+      "side": 1,
+      "message": "are",
+      "range": {
+        "startLine": 196,
+        "startChar": 59,
+        "endLine": 196,
+        "endChar": 65
+      },
+      "revId": "0e46f10a9902a5d813236df1c0502382e646ab19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9fd85cb1_440ae236",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-10T21:17:08Z",
+      "side": 1,
+      "message": "are",
+      "range": {
+        "startLine": 227,
+        "startChar": 60,
+        "endLine": 227,
+        "endChar": 66
+      },
+      "revId": "0e46f10a9902a5d813236df1c0502382e646ab19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9fd85cb1_0410ea62",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-10T21:17:08Z",
+      "side": 1,
+      "message": "are",
+      "range": {
+        "startLine": 258,
+        "startChar": 60,
+        "endLine": 258,
+        "endChar": 66
+      },
+      "revId": "0e46f10a9902a5d813236df1c0502382e646ab19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9fd85cb1_c4153257",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-10T21:17:08Z",
+      "side": 1,
+      "message": "are",
+      "range": {
+        "startLine": 289,
+        "startChar": 60,
+        "endLine": 289,
+        "endChar": 66
+      },
+      "revId": "0e46f10a9902a5d813236df1c0502382e646ab19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
