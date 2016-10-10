@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "9f7dbc55_85624434",
+        "filename": "boot_control/1.0/default/android.hardware.boot_control@1.0-service.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1115183
+      },
+      "writtenOn": "2016-10-10T23:55:41Z",
+      "side": 1,
+      "message": "I\u0027m not sure, I was mostly following the example from the checklist - how do I check?",
+      "parentUuid": "ff9f98ca_f96bc2e4",
+      "range": {
+        "startLine": 3,
+        "startChar": 9,
+        "endLine": 3,
+        "endChar": 21
+      },
+      "revId": "d8abcabd692e5b4222fb72bde88a39dcbc5cacff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bfbe0035_631f226a",
         "filename": "boot_control/1.0/default/service.cpp",
         "patchSetId": 1
