@@ -96,6 +96,23 @@
     },
     {
       "key": {
+        "uuid": "5f06e49f_6ecd0b2c",
+        "filename": "wifi/1.0/default/wifi_ap_iface.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-10T23:53:36Z",
+      "side": 1,
+      "message": "Is there some documentation on what invalidation means, and how it should be used? E.g.\n\n- is it legal to call methods on an invalidated object? if yes, what is the expected behavior in such a case?\n- is it legal to invalidate an object when someone else still holds a reference to it?",
+      "revId": "6735027f8feef9cbf628d1de1a762b06f20610b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f4050d3_7f826f05",
         "filename": "wifi/1.0/default/wifi_nan_iface.h",
         "patchSetId": 3
