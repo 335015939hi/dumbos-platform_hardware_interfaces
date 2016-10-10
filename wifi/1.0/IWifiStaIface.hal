@@ -210,7 +210,7 @@ interface IWifiStaIface extends IWifiIface {
    *         |StatusCode.ERROR_WIFI_IFACE_INVALID|
    */
   registerEventCallback(IWifiStaIfaceEventCallback callback)
-      generates (StatusCode status);
+      generates (Status status);
 
   /**
    * Get the capabilities supported by this STA iface.
@@ -218,10 +218,12 @@ interface IWifiStaIface extends IWifiIface {
    * @return status Status of the operation.
    *         Possible status codes:
    *         |StatusCode.SUCCESS|,
-   *         |StatusCode.ERROR_WIFI_IFACE_INVALID|
+   *         |StatusCode.ERROR_WIFI_IFACE_INVALID|,
+   *         |StatusCode.ERROR_NOT_AVAILABLE|,
+   *         |StatusCode.ERROR_UNKNOWN|
    * @return capabilities Bitset of |StaIfaceCapabilityMask| values.
    */
-  getCapabilities() generates (StatusCode status, uint64_t capabilities);
+  getCapabilities() generates (Status status, uint64_t capabilities);
 
   /**
    * Used to query additional information about the chip's APF capabilities.
@@ -230,11 +232,13 @@ interface IWifiStaIface extends IWifiIface {
    * @return status Status of the operation.
    *         Possible status codes:
    *         |StatusCode.SUCCESS|,
-   *         |StatusCode.ERROR_WIFI_IFACE_INVALID|
+   *         |StatusCode.ERROR_WIFI_IFACE_INVALID|,
+   *         |StatusCode.ERROR_NOT_AVAILABLE|,
+   *         |StatusCode.ERROR_UNKNOWN|
    * @return capabilities Instance of |ApfPacketFilterCapabilities|.
    */
   getApfPacketFilterCapabilities()
-      generates (StatusCode status, ApfPacketFilterCapabilities capabilities);
+      generates (Status status, ApfPacketFilterCapabilities capabilities);
 
   /**
    * Installs an APF program on this iface, replacing an existing
@@ -245,9 +249,12 @@ interface IWifiStaIface extends IWifiIface {
    * @return status Status of the operation.
    *         Possible status codes:
    *         |StatusCode.SUCCESS|,
-   *         |StatusCode.ERROR_WIFI_IFACE_INVALID|
+   *         |StatusCode.ERROR_WIFI_IFACE_INVALID|,
+   *         |StatusCode.ERROR_INVALID_ARGS|,
+   *         |StatusCode.ERROR_NOT_AVAILABLE|,
+   *         |StatusCode.ERROR_UNKNOWN|
    */
-  instalApfPacketFilter(vec<uint8_t> program) generates (StatusCode status);
+  instalApfPacketFilter(vec<uint8_t> program) generates (Status status);
 
   /**
    * Used to query additional information about the chip's APF capabilities.
@@ -256,11 +263,13 @@ interface IWifiStaIface extends IWifiIface {
    * @return status Status of the operation.
    *         Possible status codes:
    *         |StatusCode.SUCCESS|,
-   *         |StatusCode.ERROR_WIFI_IFACE_INVALID|
+   *         |StatusCode.ERROR_WIFI_IFACE_INVALID|,
+   *         |StatusCode.ERROR_NOT_AVAILABLE|,
+   *         |StatusCode.ERROR_UNKNOWN|
    * @return capabilities Instance of |BackgroundScanCapabilities|.
    */
   getBackgroundScanCapabilities()
-      generates (StatusCode status, BackgroundScanCapabilities capabilities);
+      generates (Status status, BackgroundScanCapabilities capabilities);
 
   /**
    * Start a background scan using the given cmdId as an identifier. Only one
@@ -291,18 +300,22 @@ interface IWifiStaIface extends IWifiIface {
    * @params Background scan parameters.
    * @return status Status of the operation.
    *         Possible status codes:
-   *         |StatusCode.SUCCESS|,
-   *         |StatusCode.ERROR_WIFI_IFACE_INVALID|
+   *         |StatusCode.ERROR_WIFI_IFACE_INVALID|,
+   *         |StatusCode.ERROR_INVALID_ARGS|,
+   *         |StatusCode.ERROR_NOT_AVAILABLE|,
+   *         |StatusCode.ERROR_UNKNOWN|
    */
   startBackgroundScan(BackgroundScanParameters params)
-      generates (StatusCode status);
+      generates (Status status);
 
   /**
    * Stop the background scan started.
    * @return status Status of the operation.
    *         Possible status codes:
    *         |StatusCode.SUCCESS|,
-   *         |StatusCode.ERROR_WIFI_IFACE_INVALID|
+   *         |StatusCode.ERROR_WIFI_IFACE_INVALID|,
+   *         |StatusCode.ERROR_NOT_AVAILABLE|,
+   *         |StatusCode.ERROR_UNKNOWN|
    */
-  stopBackgroundScan() generates (StatusCode status);
+  stopBackgroundScan() generates (Status status);
 };
