@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9fd85cb1_aa8baf7c",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-10T16:38:14Z",
+      "side": 1,
+      "message": "Removed these since we\u0027re only going to expose a single iface of each type.",
+      "parentUuid": "5f06e49f_4b9d99b8",
+      "range": {
+        "startLine": 28,
+        "startChar": 22,
+        "endLine": 28,
+        "endChar": 35
+      },
+      "revId": "d176d4d8ef0f5aa6b8c8e8732f7f17fab3a54e04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f06e49f_ebdd6d67",
         "filename": "wifi/1.0/default/wifi_chip.cpp",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "9fd85cb1_8a906ba6",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-10T16:38:14Z",
+      "side": 1,
+      "message": "Removed these since we\u0027re only going to expose a single iface of each type.",
+      "parentUuid": "5f06e49f_ebdd6d67",
+      "range": {
+        "startLine": 42,
+        "startChar": 19,
+        "endLine": 42,
+        "endChar": 27
+      },
+      "revId": "d176d4d8ef0f5aa6b8c8e8732f7f17fab3a54e04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f06e49f_ae21c3a7",
         "filename": "wifi/1.0/default/wifi_chip.cpp",
         "patchSetId": 3
@@ -59,6 +107,30 @@
       "writtenOn": "2016-10-07T20:55:13Z",
       "side": 1,
       "message": "Consider holding the shared_ptr on the stack. It makes the code slightly simpler. And more importantly, I think that holding the shared_ptr continuously makes more sense semantically.\n\nSaid differently: I don\u0027t think we really want to lock and unlock the HAL in the midst of this method. We don\u0027t, e.g., expect any of the code in here to take a long time.",
+      "range": {
+        "startLine": 198,
+        "startChar": 23,
+        "endLine": 198,
+        "endChar": 42
+      },
+      "revId": "d176d4d8ef0f5aa6b8c8e8732f7f17fab3a54e04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9fd85cb1_aa43af6b",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-10T16:38:14Z",
+      "side": 1,
+      "message": "This is no longer needed since i\u0027m explicitly using a |is_valid_| boolean to check for the validity.",
+      "parentUuid": "5f06e49f_ae21c3a7",
       "range": {
         "startLine": 198,
         "startChar": 23,
@@ -118,6 +190,54 @@
     },
     {
       "key": {
+        "uuid": "9fd85cb1_0a6e3bf4",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-10T16:38:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f06e49f_8ea4bfb5",
+      "range": {
+        "startLine": 206,
+        "startChar": 6,
+        "endLine": 206,
+        "endChar": 25
+      },
+      "revId": "d176d4d8ef0f5aa6b8c8e8732f7f17fab3a54e04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9fd85cb1_8a618b09",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-10T16:38:14Z",
+      "side": 1,
+      "message": "Yep. This is to check for stale proxy objects. This should return an error status code in a future CL: b/32056230\n\nI\u0027ll add an explicit |is_valid| field, if that makes it clearer.",
+      "parentUuid": "5f06e49f_8eb39f53",
+      "range": {
+        "startLine": 206,
+        "startChar": 6,
+        "endLine": 206,
+        "endChar": 25
+      },
+      "revId": "d176d4d8ef0f5aa6b8c8e8732f7f17fab3a54e04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f06e49f_8e8a7f75",
         "filename": "wifi/1.0/default/wifi_chip.cpp",
         "patchSetId": 3
@@ -129,6 +249,30 @@
       "writtenOn": "2016-10-07T20:55:13Z",
       "side": 1,
       "message": "As at line 206.",
+      "range": {
+        "startLine": 216,
+        "startChar": 18,
+        "endLine": 216,
+        "endChar": 25
+      },
+      "revId": "d176d4d8ef0f5aa6b8c8e8732f7f17fab3a54e04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9fd85cb1_8a486b89",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-10T16:38:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f06e49f_8e8a7f75",
       "range": {
         "startLine": 216,
         "startChar": 18,
@@ -164,6 +308,30 @@
     },
     {
       "key": {
+        "uuid": "9fd85cb1_ea3da7e9",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-10T16:38:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f06e49f_8e295f48",
+      "range": {
+        "startLine": 232,
+        "startChar": 23,
+        "endLine": 232,
+        "endChar": 41
+      },
+      "revId": "d176d4d8ef0f5aa6b8c8e8732f7f17fab3a54e04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f06e49f_cefbd7d5",
         "filename": "wifi/1.0/default/wifi_chip.cpp",
         "patchSetId": 3
@@ -175,6 +343,30 @@
       "writtenOn": "2016-10-07T20:55:13Z",
       "side": 1,
       "message": "As at line 206.",
+      "range": {
+        "startLine": 240,
+        "startChar": 18,
+        "endLine": 240,
+        "endChar": 25
+      },
+      "revId": "d176d4d8ef0f5aa6b8c8e8732f7f17fab3a54e04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9fd85cb1_ca426365",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-10T16:38:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f06e49f_cefbd7d5",
       "range": {
         "startLine": 240,
         "startChar": 18,
@@ -210,6 +402,30 @@
     },
     {
       "key": {
+        "uuid": "9fd85cb1_2a585f52",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-10T16:38:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f06e49f_4ee80708",
+      "range": {
+        "startLine": 251,
+        "startChar": 18,
+        "endLine": 251,
+        "endChar": 25
+      },
+      "revId": "d176d4d8ef0f5aa6b8c8e8732f7f17fab3a54e04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f06e49f_6e0f4bee",
         "filename": "wifi/1.0/default/wifi_chip.cpp",
         "patchSetId": 3
@@ -221,6 +437,30 @@
       "writtenOn": "2016-10-07T20:55:13Z",
       "side": 1,
       "message": "As at line 198.",
+      "range": {
+        "startLine": 267,
+        "startChar": 23,
+        "endLine": 267,
+        "endChar": 41
+      },
+      "revId": "d176d4d8ef0f5aa6b8c8e8732f7f17fab3a54e04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9fd85cb1_6a525732",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-10T16:38:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f06e49f_6e0f4bee",
       "range": {
         "startLine": 267,
         "startChar": 23,
@@ -256,6 +496,30 @@
     },
     {
       "key": {
+        "uuid": "9fd85cb1_ca8a6376",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-10T16:38:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f06e49f_aed78343",
+      "range": {
+        "startLine": 275,
+        "startChar": 18,
+        "endLine": 275,
+        "endChar": 25
+      },
+      "revId": "d176d4d8ef0f5aa6b8c8e8732f7f17fab3a54e04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f06e49f_6e5d0bea",
         "filename": "wifi/1.0/default/wifi_chip.cpp",
         "patchSetId": 3
@@ -267,6 +531,30 @@
       "writtenOn": "2016-10-07T20:55:13Z",
       "side": 1,
       "message": "As at line 206.",
+      "range": {
+        "startLine": 286,
+        "startChar": 18,
+        "endLine": 286,
+        "endChar": 25
+      },
+      "revId": "d176d4d8ef0f5aa6b8c8e8732f7f17fab3a54e04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9fd85cb1_aa2e0faf",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-10T16:38:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f06e49f_6e5d0bea",
       "range": {
         "startLine": 286,
         "startChar": 18,
@@ -302,6 +590,30 @@
     },
     {
       "key": {
+        "uuid": "9fd85cb1_8a334b15",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-10T16:38:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f06e49f_4e0c87f7",
+      "range": {
+        "startLine": 302,
+        "startChar": 23,
+        "endLine": 302,
+        "endChar": 41
+      },
+      "revId": "d176d4d8ef0f5aa6b8c8e8732f7f17fab3a54e04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f06e49f_0e644faf",
         "filename": "wifi/1.0/default/wifi_chip.cpp",
         "patchSetId": 3
@@ -325,6 +637,30 @@
     },
     {
       "key": {
+        "uuid": "9fd85cb1_ca3d43e1",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-10T16:38:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f06e49f_0e644faf",
+      "range": {
+        "startLine": 310,
+        "startChar": 18,
+        "endLine": 310,
+        "endChar": 25
+      },
+      "revId": "d176d4d8ef0f5aa6b8c8e8732f7f17fab3a54e04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f06e49f_8e6eff8c",
         "filename": "wifi/1.0/default/wifi_chip.cpp",
         "patchSetId": 3
@@ -336,6 +672,30 @@
       "writtenOn": "2016-10-07T20:55:13Z",
       "side": 1,
       "message": "As at line 206.",
+      "range": {
+        "startLine": 321,
+        "startChar": 18,
+        "endLine": 321,
+        "endChar": 25
+      },
+      "revId": "d176d4d8ef0f5aa6b8c8e8732f7f17fab3a54e04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9fd85cb1_ea3807f3",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-10T16:38:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f06e49f_8e6eff8c",
       "range": {
         "startLine": 321,
         "startChar": 18,
