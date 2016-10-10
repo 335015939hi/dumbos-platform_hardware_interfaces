@@ -46,6 +46,30 @@
       "revId": "6c1d5d01fda5d61ef7b2c2838bddb390f39017f0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f7dbc55_25a6d85c",
+        "filename": "wifi/1.0/IWifi.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-10T23:53:40Z",
+      "side": 1,
+      "message": "In that case then why is the onStart getting called as well (based on the comments)?",
+      "parentUuid": "9f7dbc55_65a620ac",
+      "range": {
+        "startLine": 62,
+        "startChar": 10,
+        "endLine": 62,
+        "endChar": 38
+      },
+      "revId": "6c1d5d01fda5d61ef7b2c2838bddb390f39017f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
