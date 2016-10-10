@@ -40,7 +40,7 @@ class WifiApIface : public IWifiApIface {
 
   // HIDL methods exposed.
   Return<void> getName(getName_cb cb) override;
-  Return<IfaceType> getType() override;
+  Return<void> getType(getType_cb cb) override;
 
  private:
   std::string ifname_;

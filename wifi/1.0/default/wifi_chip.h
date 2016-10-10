@@ -47,15 +47,16 @@ class WifiChip : public IWifiChip {
   void invalidate();
 
   // HIDL methods exposed.
-  Return<ChipId> getId() override;
-  Return<void> registerEventCallback(
-      const sp<IWifiChipEventCallback>& callback) override;
+  Return<void> getId(getId_cb cb) override;
+  Return<void> registerEventCallback(const sp<IWifiChipEventCallback>& callback,
+                                     registerEventCallback_cb cb) override;
   Return<void> getAvailableModes(getAvailableModes_cb cb) override;
-  Return<void> configureChip(uint32_t mode_id) override;
-  Return<uint32_t> getMode() override;
-  Return<void> requestChipDebugInfo() override;
-  Return<void> requestDriverDebugDump() override;
-  Return<void> requestFirmwareDebugDump() override;
+  Return<void> configureChip(uint32_t mode_id, configureChip_cb cb) override;
+  Return<void> getMode(getMode_cb cb) override;
+  Return<void> requestChipDebugInfo(requestChipDebugInfo_cb cb) override;
+  Return<void> requestDriverDebugDump(requestDriverDebugDump_cb cb) override;
+  Return<void> requestFirmwareDebugDump(
+      requestFirmwareDebugDump_cb cb) override;
   Return<void> createApIface(createApIface_cb cb) override;
   Return<void> getApIfaceNames(getApIfaceNames_cb cb) override;
   Return<void> getApIface(const hidl_string& ifname, getApIface_cb cb) override;
