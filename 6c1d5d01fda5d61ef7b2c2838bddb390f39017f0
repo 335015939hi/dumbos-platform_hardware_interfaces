@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bfbe0035_c3141659",
+        "filename": "wifi/1.0/IWifi.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-10T22:57:56Z",
+      "side": 1,
+      "message": "So what does this mean/how is it different from the callback?",
+      "range": {
+        "startLine": 62,
+        "startChar": 10,
+        "endLine": 62,
+        "endChar": 38
+      },
+      "revId": "6c1d5d01fda5d61ef7b2c2838bddb390f39017f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
