@@ -87,6 +87,7 @@ class WifiLegacyHal {
       const on_gscan_results_callback& on_results_callback,
       const on_gscan_full_result_callback& on_full_result_callback);
   wifi_error stopGscan(wifi_request_id id);
+  wifi_error setPacketFilter(std::vector<uint8_t> program);
 
  private:
   // Retrieve the interface handle to be used for the "wlan" interface.
