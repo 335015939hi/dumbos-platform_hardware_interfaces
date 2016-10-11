@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9f7dbc55_6e07d42b",
+        "filename": "wifi/1.0/IWifi.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-11T23:32:14Z",
+      "side": 1,
+      "message": "Yep. it is.\nThe callbacks are invoked on all the registered callback handlers.",
+      "parentUuid": "9f7dbc55_53155b48",
+      "range": {
+        "startLine": 52,
+        "startChar": 10,
+        "endLine": 52,
+        "endChar": 17
+      },
+      "revId": "0929b268a331c3a312d76f70a42c092028406427",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f7dbc55_533c7bca",
         "filename": "wifi/1.0/IWifi.hal",
         "patchSetId": 10
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-11T22:58:26Z",
       "side": 1,
       "message": "The question is what happens on stop failure. Is it similar to start on already started - a nop or something else.\n\nIf stop failure indicates that wasn\u0027t stopped and still running then no need for the callback.",
+      "range": {
+        "startLine": 70,
+        "startChar": 5,
+        "endLine": 70,
+        "endChar": 60
+      },
+      "revId": "0929b268a331c3a312d76f70a42c092028406427",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f7dbc55_2e15cc52",
+        "filename": "wifi/1.0/IWifi.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-11T23:32:14Z",
+      "side": 1,
+      "message": "|onFailure| is used to indicate any fatal errors. If the hal stop fails, then we need to restart the HAL.\n\nSo, |onFailure| should always trigger an invalidation of HIDL objects. Added a comment to clarify that.",
+      "parentUuid": "9f7dbc55_533c7bca",
       "range": {
         "startLine": 70,
         "startChar": 5,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "9f7dbc55_2e278cba",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-11T23:32:14Z",
+      "side": 1,
+      "message": "Since this is a fatal error, we should again trigger a |IWifiEventCallback.onFailure| for this as well. \n\nAdded a comment to clarify that.",
+      "parentUuid": "9f7dbc55_93c3639e",
+      "range": {
+        "startLine": 170,
+        "startChar": 13,
+        "endLine": 170,
+        "endChar": 18
+      },
+      "revId": "0929b268a331c3a312d76f70a42c092028406427",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f7dbc55_53847b47",
         "filename": "wifi/1.0/IWifiChip.hal",
         "patchSetId": 10
@@ -82,6 +154,30 @@
       "writtenOn": "2016-10-11T22:58:26Z",
       "side": 1,
       "message": "Is this true for both success and fail?",
+      "range": {
+        "startLine": 172,
+        "startChar": 28,
+        "endLine": 172,
+        "endChar": 43
+      },
+      "revId": "0929b268a331c3a312d76f70a42c092028406427",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f7dbc55_ee5764fb",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-11T23:32:14Z",
+      "side": 1,
+      "message": "Yep. failure will trigger |IWifiEventCallback.onFailure| at which point all the objects are considered invalid.",
+      "parentUuid": "9f7dbc55_53847b47",
       "range": {
         "startLine": 172,
         "startChar": 28,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "9f7dbc55_4e47704c",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-11T23:32:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f7dbc55_d3a40b12",
+      "range": {
+        "startLine": 173,
+        "startChar": 65,
+        "endLine": 173,
+        "endChar": 71
+      },
+      "revId": "0929b268a331c3a312d76f70a42c092028406427",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f7dbc55_9367e3b5",
         "filename": "wifi/1.0/IWifiChip.hal",
         "patchSetId": 10
@@ -128,6 +248,30 @@
       "writtenOn": "2016-10-11T22:58:26Z",
       "side": 1,
       "message": "What does this mean in this context?",
+      "range": {
+        "startLine": 181,
+        "startChar": 14,
+        "endLine": 181,
+        "endChar": 48
+      },
+      "revId": "0929b268a331c3a312d76f70a42c092028406427",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f7dbc55_aec0fc91",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-11T23:32:14Z",
+      "side": 1,
+      "message": "This is used to indicate a temporary failure because the driver is busy?\nhttps://cs.corp.google.com/android/hardware/libhardware_legacy/include/hardware_legacy/wifi_hal.h?rcl\u003da6bfa0db626b15ba96c6062fcc93154fd78fa7bb\u0026l\u003d55",
+      "parentUuid": "9f7dbc55_9367e3b5",
       "range": {
         "startLine": 181,
         "startChar": 14,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "9f7dbc55_eef124c6",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-11T23:32:14Z",
+      "side": 1,
+      "message": "ERROR_UNKNOWN is catch all error code for a bunch of uninteresting legacy hal error code reasons. This should be there in all the API\u0027s that trigger a driver interaction. \n\nAdded it in some of the missing ones now.",
+      "parentUuid": "9f7dbc55_937e0338",
+      "range": {
+        "startLine": 182,
+        "startChar": 14,
+        "endLine": 182,
+        "endChar": 42
+      },
+      "revId": "0929b268a331c3a312d76f70a42c092028406427",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f7dbc55_73817f36",
         "filename": "wifi/1.0/IWifiChip.hal",
         "patchSetId": 10
@@ -174,6 +342,30 @@
       "writtenOn": "2016-10-11T22:58:26Z",
       "side": 1,
       "message": "What does this mean?",
+      "range": {
+        "startLine": 205,
+        "startChar": 14,
+        "endLine": 205,
+        "endChar": 48
+      },
+      "revId": "0929b268a331c3a312d76f70a42c092028406427",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f7dbc55_ce8b807c",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-11T23:32:14Z",
+      "side": 1,
+      "message": "Same.",
+      "parentUuid": "9f7dbc55_73817f36",
       "range": {
         "startLine": 205,
         "startChar": 14,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "9f7dbc55_ee9044a7",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-11T23:32:14Z",
+      "side": 1,
+      "message": "Yep. it is. Removed now.",
+      "parentUuid": "9f7dbc55_b3978796",
+      "range": {
+        "startLine": 226,
+        "startChar": 5,
+        "endLine": 227,
+        "endChar": 80
+      },
+      "revId": "0929b268a331c3a312d76f70a42c092028406427",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f7dbc55_730c1ff8",
         "filename": "wifi/1.0/IWifiChip.hal",
         "patchSetId": 10
@@ -220,6 +436,30 @@
       "writtenOn": "2016-10-11T22:58:26Z",
       "side": 1,
       "message": "With what error code? Don\u0027t seem to have one listed for this.\n\n(here and all other createXxx() APIs)",
+      "range": {
+        "startLine": 241,
+        "startChar": 5,
+        "endLine": 241,
+        "endChar": 13
+      },
+      "revId": "0929b268a331c3a312d76f70a42c092028406427",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f7dbc55_4e84d047",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-11T23:32:14Z",
+      "side": 1,
+      "message": "Done.\n\nERROR_NOT_SUPPORTED.",
+      "parentUuid": "9f7dbc55_730c1ff8",
       "range": {
         "startLine": 241,
         "startChar": 5,
@@ -255,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "9f7dbc55_8e6898b0",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-11T23:32:14Z",
+      "side": 1,
+      "message": "From what i\u0027ve read in the legacy HAL implementation, this is used to indicate a temporary failure because the driver is busy.",
+      "parentUuid": "9f7dbc55_b30867d3",
+      "range": {
+        "startLine": 235,
+        "startChar": 29,
+        "endLine": 235,
+        "endChar": 48
+      },
+      "revId": "0929b268a331c3a312d76f70a42c092028406427",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f7dbc55_b3df8727",
         "filename": "wifi/1.0/IWifiStaIface.hal",
         "patchSetId": 10
@@ -266,6 +530,30 @@
       "writtenOn": "2016-10-11T22:58:26Z",
       "side": 1,
       "message": "Wasn\u0027t this removed in this CL?",
+      "range": {
+        "startLine": 260,
+        "startChar": 19,
+        "endLine": 260,
+        "endChar": 72
+      },
+      "revId": "0929b268a331c3a312d76f70a42c092028406427",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f7dbc55_2e794c84",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-11T23:32:14Z",
+      "side": 1,
+      "message": "Removed the comment now.",
+      "parentUuid": "9f7dbc55_b3df8727",
       "range": {
         "startLine": 260,
         "startChar": 19,
@@ -301,6 +589,30 @@
     },
     {
       "key": {
+        "uuid": "9f7dbc55_4e6e90be",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-11T23:32:14Z",
+      "side": 1,
+      "message": "Removed the comment now.",
+      "parentUuid": "9f7dbc55_73b09ff5",
+      "range": {
+        "startLine": 316,
+        "startChar": 19,
+        "endLine": 316,
+        "endChar": 69
+      },
+      "revId": "0929b268a331c3a312d76f70a42c092028406427",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f7dbc55_93cc43b8",
         "filename": "wifi/1.0/types.hal",
         "patchSetId": 10
@@ -312,6 +624,30 @@
       "writtenOn": "2016-10-11T22:58:26Z",
       "side": 1,
       "message": "what does this mean?",
+      "range": {
+        "startLine": 32,
+        "startChar": 2,
+        "endLine": 32,
+        "endChar": 21
+      },
+      "revId": "0929b268a331c3a312d76f70a42c092028406427",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f7dbc55_ae655cd6",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-11T23:32:14Z",
+      "side": 1,
+      "message": "Same.",
+      "parentUuid": "9f7dbc55_93cc43b8",
       "range": {
         "startLine": 32,
         "startChar": 2,
