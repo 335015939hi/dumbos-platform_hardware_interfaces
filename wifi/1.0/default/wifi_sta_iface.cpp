@@ -71,6 +71,97 @@ Return<void> WifiStaIface::registerEventCallback(
   return Void();
 }
 
+Return<void> WifiStaIface::getCapabilities(getCapabilities_cb hidl_status_cb) {
+  if (!is_valid_) {
+    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_IFACE_INVALID),
+                   0);
+    return Void();
+  }
+
+  wifi_error legacy_status;
+  uint32_t feature_set;
+  std::tie(legacy_status, feature_set) =
+      legacy_hal_.lock()->getSupportedFeatureSet();
+  if (legacy_status != WIFI_SUCCESS) {
+    hidl_status_cb(createWifiStatusFromLegacyError(legacy_status), 0);
+    return Void();
+  }
+
+  uint32_t caps = 0;
+  typedef std::underlying_type<StaIfaceCapabilityMask>::type caps_type;
+  if (feature_set & WIFI_FEATURE_GSCAN) {
+    caps |= static_cast<caps_type>(StaIfaceCapabilityMask::BACKGROUND_SCAN);
+  }
+
+  // Argh. Currently APF filter capability is implicitly
+  // determined by the version provided in APF capabilities.
+  // If version is > 0, APF feature is supported.
+  PacketFilterCapabilities apf_caps;
+  std::tie(legacy_status, apf_caps) =
+      legacy_hal_.lock()->getPacketFilterCapabilities();
+  if (legacy_status != WIFI_SUCCESS) {
+    hidl_status_cb(createWifiStatusFromLegacyError(legacy_status), 0);
+    return Void();
+  }
+  if (apf_caps.version > 0) {
+    caps |= static_cast<caps_type>(StaIfaceCapabilityMask::APF);
+  }
+
+  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS), caps);
+  return Void();
+}
+
+Return<void> WifiStaIface::getApfPacketFilterCapabilities(
+    getApfPacketFilterCapabilities_cb hidl_status_cb) {
+  if (!is_valid_) {
+    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_IFACE_INVALID),
+                   ApfPacketFilterCapabilities());
+    return Void();
+  }
+
+  wifi_error legacy_status;
+  PacketFilterCapabilities apf_caps;
+  std::tie(legacy_status, apf_caps) =
+      legacy_hal_.lock()->getPacketFilterCapabilities();
+  if (legacy_status != WIFI_SUCCESS) {
+    hidl_status_cb(createWifiStatusFromLegacyError(legacy_status),
+                   ApfPacketFilterCapabilities());
+    return Void();
+  }
+  ApfPacketFilterCapabilities caps;
+  caps.version = apf_caps.version;
+  caps.maxLength = apf_caps.max_len;
+
+  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS), caps);
+  return Void();
+}
+
+Return<void> WifiStaIface::getBackgroundScanCapabilities(
+    getBackgroundScanCapabilities_cb hidl_status_cb) {
+  if (!is_valid_) {
+    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_IFACE_INVALID),
+                   BackgroundScanCapabilities());
+    return Void();
+  }
+
+  wifi_error legacy_status;
+  wifi_gscan_capabilities gscan_caps;
+  std::tie(legacy_status, gscan_caps) =
+      legacy_hal_.lock()->getGscanCapabilities();
+  if (legacy_status != WIFI_SUCCESS) {
+    hidl_status_cb(createWifiStatusFromLegacyError(legacy_status),
+                   BackgroundScanCapabilities());
+    return Void();
+  }
+  BackgroundScanCapabilities caps;
+  caps.maxCacheSize = gscan_caps.max_scan_cache_size;
+  caps.maxBuckets = gscan_caps.max_scan_buckets;
+  caps.maxApCachePerScan = gscan_caps.max_ap_cache_per_scan;
+  caps.maxReportingThreshold = gscan_caps.max_scan_reporting_threshold;
+
+  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS), caps);
+  return Void();
+}
 }  // namespace implementation
 }  // namespace V1_0
 }  // namespace wifi
