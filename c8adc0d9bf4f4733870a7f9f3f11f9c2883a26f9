@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9f7dbc55_f333cf13",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-11T22:40:37Z",
+      "side": 1,
+      "message": "because I changed the commit message in gerrit, but forgot to pull that change back to my local machine",
+      "parentUuid": "9f7dbc55_5371dbd0",
+      "range": {
+        "startLine": 7,
+        "startChar": 15,
+        "endLine": 7,
+        "endChar": 28
+      },
+      "revId": "c8adc0d9bf4f4733870a7f9f3f11f9c2883a26f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f7dbc55_b7d3fa29",
         "filename": "tests/foo/1.0/IFoo.hal",
         "patchSetId": 7
