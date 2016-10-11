@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f7dbc55_c5336c14",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-11T00:24:01Z",
+      "side": 1,
+      "message": "Consider collapsing this into the previous line.",
+      "revId": "327f1c566892be6d2e192d005f7b04b1846b9401",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f7dbc55_a552e80c",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-11T00:24:01Z",
+      "side": 1,
+      "message": "Would it make sense to factor this out as a function?",
+      "range": {
+        "startLine": 218,
+        "startChar": 0,
+        "endLine": 224,
+        "endChar": 61
+      },
+      "revId": "327f1c566892be6d2e192d005f7b04b1846b9401",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f7dbc55_85f244f2",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-11T00:24:01Z",
+      "side": 1,
+      "message": "Consider a template function to simplify.\n\n  template\u003ctypename T\u003e void InvalidateAndClear(T\u0026 iface_ptr) {\n    // ...\n  }\n\n  InvalidateAndClear(ap_iface_);\n  InvalidateAndClear(nan_iface_);\n  // ...",
+      "revId": "327f1c566892be6d2e192d005f7b04b1846b9401",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
