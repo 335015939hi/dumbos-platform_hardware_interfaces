@@ -346,6 +346,79 @@ Return<void> WifiStaIface::getBackgroundScanCapabilities(
   cb(createWifiStatus(WifiStatusCode::SUCCESS), caps);
   return Void();
 }
+
+Return<void> WifiStaIface::startBackgroundScan(
+    uint32_t cmdId,
+    const IWifiStaIface::BackgroundScanParameters& params,
+    startBackgroundScan_cb cb) {
+  if (!is_valid_) {
+    cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_IFACE_INVALID));
+    return Void();
+  }
+  wifi_scan_cmd_params internal_scan_params;
+  if (!convertHidlScanParamsToInternal(params, &internal_scan_params)) {
+    cb(createWifiStatus(WifiStatusCode::ERROR_INVALID_ARGS));
+    return Void();
+  }
+
+  const auto& on_failure_callback = [&](wifi_request_id id) {
+    for (const auto& callback : callbacks_) {
+      callback->onBackgroundScanFailure(id);
+    }
+  };
+  const auto& on_results_callback = [&](
+      wifi_request_id id,
+      const std::vector<wifi_cached_scan_results>& results) {
+    hidl_vec<IWifiStaIfaceEventCallback::ScanData> hidl_scan_datas;
+    if (!convertInternalVectorOfCachedScanResultsToHidl(results,
+                                                        &hidl_scan_datas)) {
+      LOG(ERROR) << "Failed to convert scan results to HIDL structs";
+      return;
+    }
+    for (const auto& callback : callbacks_) {
+      callback->onBackgroundScanResults(id, hidl_scan_datas);
+    }
+  };
+  const auto& on_full_result_callback = [&](wifi_request_id id,
+                                            const wifi_scan_result* result,
+                                            uint32_t /* buckets_scanned */) {
+    IWifiStaIfaceEventCallback::ScanResult hidl_scan_result;
+    if (!convertInternalScanResultToHidl(result, &hidl_scan_result, true)) {
+      LOG(ERROR) << "Failed to convert full scan results to HIDL structs";
+      return;
+    }
+    for (const auto& callback : callbacks_) {
+      callback->onBackgroundFullScanResult(id, hidl_scan_result);
+    }
+  };
+
+  wifi_error status = legacy_hal_.lock()->startGscan(cmdId,
+                                                     internal_scan_params,
+                                                     on_failure_callback,
+                                                     on_results_callback,
+                                                     on_full_result_callback);
+  if (status != WIFI_SUCCESS) {
+    cb(createWifiStatusFromLegacyError(status));
+  } else {
+    cb(createWifiStatus(WifiStatusCode::SUCCESS));
+  }
+  return Void();
+}
+
+Return<void> WifiStaIface::stopBackgroundScan(uint32_t cmdId,
+                                              stopBackgroundScan_cb cb) {
+  if (!is_valid_) {
+    cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_IFACE_INVALID));
+    return Void();
+  }
+  wifi_error status = legacy_hal_.lock()->stopGscan(cmdId);
+  if (status != WIFI_SUCCESS) {
+    cb(createWifiStatusFromLegacyError(status));
+  } else {
+    cb(createWifiStatus(WifiStatusCode::SUCCESS));
+  }
+  return Void();
+}
 }  // namespace implementation
 }  // namespace V1_0
 }  // namespace wifi
