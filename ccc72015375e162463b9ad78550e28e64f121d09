@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "9fd85cb1_508624c6",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-11T00:17:37Z",
+      "side": 1,
+      "message": "I meant say either:\n\n\"multiple calls to this must register\"\nor something like\n\"each call to this registers a callback\"\n\nsorry that was incredible unclear.",
+      "parentUuid": "9fd85cb1_ed7ae110",
+      "range": {
+        "startLine": 202,
+        "startChar": 13,
+        "endLine": 202,
+        "endChar": 26
+      },
+      "revId": "ccc72015375e162463b9ad78550e28e64f121d09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f06e49f_eefb3b5e",
         "filename": "wifi/1.0/types.hal",
         "patchSetId": 1
