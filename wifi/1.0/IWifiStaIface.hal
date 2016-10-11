@@ -259,8 +259,7 @@ interface IWifiStaIface extends IWifiIface {
    * program if present.
    * Will fail if |StaIfaceCapabilityMask.APF| is not set.
    *
-   * @param cmdId command Id to use for this invocation.
-   * @param APF Program to be set.
+   * @param program APF Program to be set.
    * @return status WifiStatus of the operation.
    *         Possible status codes:
    *         |WifiStatusCode.SUCCESS|,
@@ -270,8 +269,7 @@ interface IWifiStaIface extends IWifiIface {
    *         |WifiStatusCode.ERROR_NOT_AVAILABLE|,
    *         |WifiStatusCode.ERROR_UNKNOWN|
    */
-  installApfPacketFilter(CommandId cmdId, vec<uint8_t> program)
-      generates (WifiStatus status);
+  installApfPacketFilter(vec<uint8_t> program) generates (WifiStatus status);
 
   /**
    * Used to query additional information about the chip's APF capabilities.
