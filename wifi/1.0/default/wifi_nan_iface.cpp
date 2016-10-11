@@ -18,7 +18,7 @@
 
 #include <android-base/logging.h>
 
-#include "failure_reason_util.h"
+#include "wifi_status_util.h"
 
 namespace android {
 namespace hardware {
@@ -36,14 +36,25 @@ void WifiNanIface::invalidate() {
 }
 
 Return<void> WifiNanIface::getName(getName_cb cb) {
+  if (!is_valid_) {
+    cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_IFACE_INVALID),
+       hidl_string());
+    return Void();
+  }
   hidl_string hidl_ifname;
   hidl_ifname.setToExternal(ifname_.c_str(), ifname_.size());
-  cb(hidl_ifname);
+  cb(createWifiStatus(WifiStatusCode::SUCCESS), hidl_ifname);
   return Void();
 }
 
-Return<IfaceType> WifiNanIface::getType() {
-  return IfaceType::NAN;
+Return<void> WifiNanIface::getType(getType_cb cb) {
+  if (!is_valid_) {
+    cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_IFACE_INVALID),
+       IfaceType::AP);
+    return Void();
+  }
+  cb(createWifiStatus(WifiStatusCode::SUCCESS), IfaceType::AP);
+  return Void();
 }
 
 }  // namespace implementation
