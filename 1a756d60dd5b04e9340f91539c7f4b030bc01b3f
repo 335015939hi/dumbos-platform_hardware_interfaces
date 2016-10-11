@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f7dbc55_4bf12d58",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-11T01:28:21Z",
+      "side": 1,
+      "message": "where did it come from? I.e. how is an invalid object gets generated? Is it out-of-date?",
+      "range": {
+        "startLine": 26,
+        "startChar": 27,
+        "endLine": 26,
+        "endChar": 34
+      },
+      "revId": "1a756d60dd5b04e9340f91539c7f4b030bc01b3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
