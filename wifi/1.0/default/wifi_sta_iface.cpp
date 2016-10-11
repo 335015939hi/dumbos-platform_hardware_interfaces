@@ -18,6 +18,7 @@
 
 #include <android-base/logging.h>
 
+#include "hidl_struct_util.h"
 #include "wifi_status_util.h"
 
 namespace android {

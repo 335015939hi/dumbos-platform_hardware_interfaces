@@ -18,6 +18,7 @@ LOCAL_MODULE := android.hardware.wifi@1.0-impl
 LOCAL_MODULE_RELATIVE_PATH := hw
 LOCAL_CPPFLAGS := -std=c++11 -Wall -Wno-unused-parameter -Werror -Wextra
 LOCAL_SRC_FILES := \
+    hidl_struct_util.cpp \
     wifi.cpp \
     wifi_ap_iface.cpp \
     wifi_chip.cpp \
