@@ -22,6 +22,30 @@
       "revId": "d4d1148326e115c1d787e14f26b6ae84de1b237d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f7dbc55_65c3809f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-11T00:08:16Z",
+      "side": 1,
+      "message": "Oops. That is a typo. Fixed now.",
+      "parentUuid": "9f7dbc55_a5b82894",
+      "range": {
+        "startLine": 9,
+        "startChar": 57,
+        "endLine": 9,
+        "endChar": 62
+      },
+      "revId": "d4d1148326e115c1d787e14f26b6ae84de1b237d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
