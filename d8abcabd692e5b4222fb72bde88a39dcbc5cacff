@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "9f7dbc55_8ba33599",
+        "filename": "boot_control/1.0/default/android.hardware.boot_control@1.0-service.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-11T01:11:27Z",
+      "side": 1,
+      "message": "By testing it. If you want to, you can use \u0027system\u0027 as a placeholder for now, just add a TODO (or figure it out when you start testing this).",
+      "parentUuid": "9f7dbc55_85624434",
+      "range": {
+        "startLine": 3,
+        "startChar": 9,
+        "endLine": 3,
+        "endChar": 21
+      },
+      "revId": "d8abcabd692e5b4222fb72bde88a39dcbc5cacff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bfbe0035_631f226a",
         "filename": "boot_control/1.0/default/service.cpp",
         "patchSetId": 1
