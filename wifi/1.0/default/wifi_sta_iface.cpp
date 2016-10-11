@@ -137,6 +137,23 @@ Return<void> WifiStaIface::getApfPacketFilterCapabilities(
   return Void();
 }
 
+Return<void> WifiStaIface::installApfPacketFilter(
+    const hidl_vec<uint8_t>& program,
+    installApfPacketFilter_cb hidl_status_cb) {
+  if (!is_valid_) {
+    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_IFACE_INVALID));
+    return Void();
+  }
+  std::vector<uint8_t> program_vec(&program[0], &program[0] + program.size());
+  wifi_error status = legacy_hal_.lock()->setPacketFilter(program_vec);
+  if (status != WIFI_SUCCESS) {
+    hidl_status_cb(createWifiStatusFromLegacyError(status));
+  } else {
+    hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
+  }
+  return Void();
+}
+
 Return<void> WifiStaIface::getBackgroundScanCapabilities(
     getBackgroundScanCapabilities_cb hidl_status_cb) {
   if (!is_valid_) {
