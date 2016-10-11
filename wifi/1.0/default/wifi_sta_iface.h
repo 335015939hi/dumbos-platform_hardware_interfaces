@@ -19,6 +19,7 @@
 
 #include <android-base/macros.h>
 #include <android/hardware/wifi/1.0/IWifiStaIface.h>
+#include <android/hardware/wifi/1.0/IWifiStaIfaceEventCallback.h>
 
 #include "wifi_legacy_hal.h"
 
@@ -45,6 +46,7 @@ class WifiStaIface : public IWifiStaIface {
  private:
   std::string ifname_;
   std::weak_ptr<WifiLegacyHal> legacy_hal_;
+  std::vector<sp<IWifiStaIfaceEventCallback>> callbacks_;
   bool is_valid_;
 
   DISALLOW_COPY_AND_ASSIGN(WifiStaIface);
