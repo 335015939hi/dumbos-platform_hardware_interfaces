@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "9f7dbc55_8bd415b4",
+        "filename": "wifi/1.0/IWifi.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-11T01:19:29Z",
+      "side": 1,
+      "message": "These don\u0027t match to the callbacks. I think those are onStart() [success] and onFail(). What\u0027s the mapping?",
+      "range": {
+        "startLine": 56,
+        "startChar": 13,
+        "endLine": 58,
+        "endChar": 37
+      },
+      "revId": "6c1d5d01fda5d61ef7b2c2838bddb390f39017f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bfbe0035_c3141659",
         "filename": "wifi/1.0/IWifi.hal",
         "patchSetId": 5
@@ -85,6 +108,30 @@
       "side": 1,
       "message": "For multi-client scenarios. In our case, the NAN java framework code may want to know when the HAL is started by wificond.",
       "parentUuid": "9f7dbc55_25a6d85c",
+      "range": {
+        "startLine": 62,
+        "startChar": 10,
+        "endLine": 62,
+        "endChar": 38
+      },
+      "revId": "6c1d5d01fda5d61ef7b2c2838bddb390f39017f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f7dbc55_4bca0d16",
+        "filename": "wifi/1.0/IWifi.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-11T01:19:29Z",
+      "side": 1,
+      "message": "So duplicate ways of getting information ... but ok.",
+      "parentUuid": "9f7dbc55_65f540db",
       "range": {
         "startLine": 62,
         "startChar": 10,
