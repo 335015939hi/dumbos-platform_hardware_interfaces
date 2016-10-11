@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "9f7dbc55_5371dbd0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2016-10-11T22:37:00Z",
+      "side": 1,
+      "message": "why is it back to name mangling again?",
+      "range": {
+        "startLine": 7,
+        "startChar": 15,
+        "endLine": 7,
+        "endChar": 28
+      },
+      "revId": "c8adc0d9bf4f4733870a7f9f3f11f9c2883a26f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f7dbc55_b7d3fa29",
         "filename": "tests/foo/1.0/IFoo.hal",
         "patchSetId": 7
