@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f7dbc55_a5d3c829",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-11T00:14:17Z",
+      "side": 1,
+      "message": "Documentation is not clear. Is this the multiplier of base or just any number which must be an integer multiple of base?",
+      "range": {
+        "startLine": 156,
+        "startChar": 55,
+        "endLine": 156,
+        "endChar": 67
+      },
+      "revId": "4fd23ff4513858b64a16f0f7a715de49c38dac64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
