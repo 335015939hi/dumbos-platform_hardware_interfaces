@@ -22,6 +22,30 @@
       "revId": "1a756d60dd5b04e9340f91539c7f4b030bc01b3f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f7dbc55_11fcb69a",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-11T15:02:01Z",
+      "side": 1,
+      "message": "As mentioned in the other CL,\nwhen the HAL is stopped all the existing IWifiChip, IWifiIface, IWifiRttController HIDL objects become invalid. \nwhen the chip is reconfigured in a new mode all the existing IWifiIface, IWifiRttController HIDL objects become invalid.",
+      "parentUuid": "9f7dbc55_4bf12d58",
+      "range": {
+        "startLine": 26,
+        "startChar": 27,
+        "endLine": 26,
+        "endChar": 34
+      },
+      "revId": "1a756d60dd5b04e9340f91539c7f4b030bc01b3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
