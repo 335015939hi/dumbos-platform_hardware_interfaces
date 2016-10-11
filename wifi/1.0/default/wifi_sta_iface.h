@@ -48,6 +48,8 @@ class WifiStaIface : public IWifiStaIface {
   Return<void> getCapabilities(getCapabilities_cb cb) override;
   Return<void> getApfPacketFilterCapabilities(
       getApfPacketFilterCapabilities_cb cb) override;
+  Return<void> installApfPacketFilter(const hidl_vec<uint8_t>& program,
+                                      installApfPacketFilter_cb cb) override;
   Return<void> getBackgroundScanCapabilities(
       getBackgroundScanCapabilities_cb cb) override;
   Return<void> startBackgroundScan(
