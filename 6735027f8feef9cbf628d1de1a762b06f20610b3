@@ -113,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "9f7dbc55_4544bc46",
+        "filename": "wifi/1.0/default/wifi_ap_iface.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-11T00:08:33Z",
+      "side": 1,
+      "message": "I don\u0027t think there is a standard documentation on this. \n\nIn general, the binder IPC framework doesn\u0027t provide a mechanism for the server to take back (or invalidate) an object once a client process holds a reference to it.\nThe client can continue to invoke calls on this object even if the server tries to delete the object (in effect server releases on reference to the sp object). This is legal wrt binder IPC protocol.\nSo, if the server wants to control the lifetime of these binder objects, we need to add some custom logic to reject  method calls on such stale objects. Again the lifetime of the objects is controlled/defined by the server. \nIn our case, we\u0027re mandating that the iface objects will be marked invalid once the hal is stopped or the chip mode switches.",
+      "parentUuid": "5f06e49f_6ecd0b2c",
+      "revId": "6735027f8feef9cbf628d1de1a762b06f20610b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f4050d3_7f826f05",
         "filename": "wifi/1.0/default/wifi_nan_iface.h",
         "patchSetId": 3
