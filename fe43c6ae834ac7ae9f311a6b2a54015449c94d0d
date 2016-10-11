@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f7dbc55_abb1d997",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-11T01:28:21Z",
+      "side": 1,
+      "message": "But there\u0027s a callback for that. Granted no need to wait for that to indicate that object is invalid (though is that always clear?). But having 2 ways to get information back isn\u0027t great.\n\nUnless this is blocking as well?",
+      "range": {
+        "startLine": 10,
+        "startChar": 25,
+        "endLine": 11,
+        "endChar": 38
+      },
+      "revId": "fe43c6ae834ac7ae9f311a6b2a54015449c94d0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
