@@ -45,6 +45,11 @@ class WifiStaIface : public IWifiStaIface {
   Return<void> registerEventCallback(
       const sp<IWifiStaIfaceEventCallback>& event_callback,
       registerEventCallback_cb hidl_status_cb) override;
+  Return<void> getCapabilities(getCapabilities_cb hidl_status_cb) override;
+  Return<void> getApfPacketFilterCapabilities(
+      getApfPacketFilterCapabilities_cb hidl_status_cb) override;
+  Return<void> getBackgroundScanCapabilities(
+      getBackgroundScanCapabilities_cb hidl_status_cb) override;
 
  private:
   std::string ifname_;
