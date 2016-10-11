@@ -131,6 +131,24 @@
     },
     {
       "key": {
+        "uuid": "9f7dbc55_882a5b95",
+        "filename": "wifi/1.0/default/wifi_ap_iface.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-11T00:40:59Z",
+      "side": 1,
+      "message": "That sounds reasonable. Please document this in the code, to help developers maintain these invariants.\n\nE.g., maybe have the long version of the explanation in the documentation for Wifi::invalidate(). And, for all the objects that hang off a Wifi, have their invalidate() documentation refers back to the Wifi::invalidate().",
+      "parentUuid": "9f7dbc55_4544bc46",
+      "revId": "6735027f8feef9cbf628d1de1a762b06f20610b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f4050d3_7f826f05",
         "filename": "wifi/1.0/default/wifi_nan_iface.h",
         "patchSetId": 3
