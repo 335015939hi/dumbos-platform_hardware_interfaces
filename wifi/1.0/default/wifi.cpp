@@ -18,8 +18,8 @@
 
 #include <android-base/logging.h>
 
-#include "failure_reason_util.h"
 #include "wifi_chip.h"
+#include "wifi_status_util.h"
 
 namespace {
 // Chip ID to use for the only supported chip.
@@ -46,28 +46,21 @@ Return<bool> Wifi::isStarted() {
   return run_state_ != RunState::STOPPED;
 }
 
-Return<void> Wifi::start() {
+Return<void> Wifi::start(start_cb cb) {
   if (run_state_ == RunState::STARTED) {
-    for (const auto& callback : callbacks_) {
-      callback->onStart();
-    }
+    cb(createWifiStatus(WifiStatusCode::SUCCESS));
     return Void();
   } else if (run_state_ == RunState::STOPPING) {
-    for (const auto& callback : callbacks_) {
-      callback->onStartFailure(CreateFailureReason(
-          CommandFailureReason::NOT_AVAILABLE, "HAL is stopping"));
-    }
+    cb(createWifiStatus(WifiStatusCode::ERROR_NOT_AVAILABLE,
+                        "HAL is stopping"));
     return Void();
   }
 
   LOG(INFO) << "Starting HAL";
-  wifi_error status = legacy_hal_->start();
-  if (status != WIFI_SUCCESS) {
+  wifi_error wifi_status = legacy_hal_->start();
+  if (wifi_status != WIFI_SUCCESS) {
     LOG(ERROR) << "Failed to start Wifi HAL";
-    for (auto& callback : callbacks_) {
-      callback->onStartFailure(
-          CreateFailureReasonLegacyError(status, "Failed to start HAL"));
-    }
+    cb(createWifiStatusFromLegacyError(wifi_status, "Failed to start HAL"));
     return Void();
   }
 
@@ -77,16 +70,17 @@ Return<void> Wifi::start() {
   for (const auto& callback : callbacks_) {
     callback->onStart();
   }
+  cb(createWifiStatus(WifiStatusCode::SUCCESS));
   return Void();
 }
 
-Return<void> Wifi::stop() {
+Return<void> Wifi::stop(stop_cb cb) {
   if (run_state_ == RunState::STOPPED) {
-    for (const auto& callback : callbacks_) {
-      callback->onStop();
-    }
+    cb(createWifiStatus(WifiStatusCode::SUCCESS));
     return Void();
   } else if (run_state_ == RunState::STOPPING) {
+    cb(createWifiStatus(WifiStatusCode::ERROR_NOT_AVAILABLE,
+                        "HAL is stopping"));
     return Void();
   }
 
@@ -102,14 +96,17 @@ Return<void> Wifi::stop() {
       callback->onStop();
     }
   };
-  wifi_error status = legacy_hal_->stop(on_complete_callback_);
-  if (status != WIFI_SUCCESS) {
+  wifi_error wifi_status = legacy_hal_->stop(on_complete_callback_);
+  if (wifi_status != WIFI_SUCCESS) {
     LOG(ERROR) << "Failed to stop Wifi HAL";
     for (const auto& callback : callbacks_) {
       callback->onFailure(
-          CreateFailureReasonLegacyError(status, "Failed to stop HAL"));
+          createWifiStatusFromLegacyError(wifi_status, "Failed to stop HAL"));
     }
+    cb(createWifiStatusFromLegacyError(wifi_status, "Failed to stop HAL"));
+    return Void();
   }
+  cb(createWifiStatus(WifiStatusCode::SUCCESS));
   return Void();
 }
 

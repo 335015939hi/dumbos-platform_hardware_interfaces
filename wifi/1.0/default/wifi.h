@@ -43,8 +43,8 @@ class Wifi : public IWifi {
   Return<void> registerEventCallback(
       const sp<IWifiEventCallback>& callback) override;
   Return<bool> isStarted() override;
-  Return<void> start() override;
-  Return<void> stop() override;
+  Return<void> start(start_cb cb) override;
+  Return<void> stop(stop_cb cb) override;
   Return<void> getChipIds(getChipIds_cb cb) override;
   Return<void> getChip(ChipId chip_id, getChip_cb cb) override;
 
