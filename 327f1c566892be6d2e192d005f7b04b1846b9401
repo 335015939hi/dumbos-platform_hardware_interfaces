@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9f7dbc55_08764bfb",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-11T01:12:09Z",
+      "side": 1,
+      "message": "hidl_string() does not have a char* constructor. So, can\u0027t directly declare and assign.\nhttps://cs.corp.google.com/android/system/libhidl/include/hidl/HidlSupport.h?rcl\u003d249fd2df53a5a7f801c9f7f8c58356eb9124a4c0\u0026l\u003d32",
+      "parentUuid": "9f7dbc55_c5336c14",
+      "revId": "327f1c566892be6d2e192d005f7b04b1846b9401",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f7dbc55_a552e80c",
         "filename": "wifi/1.0/default/wifi_chip.cpp",
         "patchSetId": 6
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "9f7dbc55_c87e236e",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-11T01:12:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f7dbc55_a552e80c",
+      "range": {
+        "startLine": 218,
+        "startChar": 0,
+        "endLine": 224,
+        "endChar": 61
+      },
+      "revId": "327f1c566892be6d2e192d005f7b04b1846b9401",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f7dbc55_85f244f2",
         "filename": "wifi/1.0/default/wifi_chip.cpp",
         "patchSetId": 6
@@ -53,6 +95,24 @@
       "writtenOn": "2016-10-11T00:24:01Z",
       "side": 1,
       "message": "Consider a template function to simplify.\n\n  template\u003ctypename T\u003e void InvalidateAndClear(T\u0026 iface_ptr) {\n    // ...\n  }\n\n  InvalidateAndClear(ap_iface_);\n  InvalidateAndClear(nan_iface_);\n  // ...",
+      "revId": "327f1c566892be6d2e192d005f7b04b1846b9401",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f7dbc55_e873e7a2",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-11T01:12:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f7dbc55_85f244f2",
       "revId": "327f1c566892be6d2e192d005f7b04b1846b9401",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
