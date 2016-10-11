@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f7dbc55_82686fb0",
+        "filename": "boot_control/1.0/IBootControl.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-11T20:32:22Z",
+      "side": 1,
+      "message": "If there are only two values, why not have something like:\n\nenum Result {\n    TRUE \u003d 1,\n    FALSE \u003d 0,\n    INVALID_SLOT \u003d -1\n}\n\nwhich you return?",
+      "range": {
+        "startLine": 87,
+        "startChar": 40,
+        "endLine": 88,
+        "endChar": 15
+      },
+      "revId": "c746a98abc2c2b482220a752050405e43a3dc483",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
