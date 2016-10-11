@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f7dbc55_2536d89a",
+        "filename": "boot_control/1.0/IBootControl.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-11T00:13:40Z",
+      "side": 1,
+      "message": "must\n\n(grep for would/should/could please)",
+      "range": {
+        "startLine": 35,
+        "startChar": 60,
+        "endLine": 35,
+        "endChar": 65
+      },
+      "revId": "1b3b8aef769e15490ea2d8d11e1bbafe22a7cdcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f7dbc55_250178b0",
+        "filename": "boot_control/1.0/IBootControl.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-11T00:13:40Z",
+      "side": 1,
+      "message": "(everywhere) #15 go/android-hal-design-guidelines",
+      "range": {
+        "startLine": 97,
+        "startChar": 9,
+        "endLine": 97,
+        "endChar": 25
+      },
+      "revId": "1b3b8aef769e15490ea2d8d11e1bbafe22a7cdcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
