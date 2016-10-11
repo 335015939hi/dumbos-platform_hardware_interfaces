@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9f7dbc55_a5fbc85e",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-11T00:10:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9fd85cb1_b1e2ff21",
+      "range": {
+        "startLine": 91,
+        "startChar": 4,
+        "endLine": 91,
+        "endChar": 19
+      },
+      "revId": "9d24e873c898fd714d595bb829d2ad53f43a3031",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9fd85cb1_f15757c9",
         "filename": "wifi/1.0/IWifiStaIface.hal",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-10T22:52:04Z",
       "side": 1,
       "message": "Not crazy about the BGA terminology. Is there a reason we\u0027re not explicit about 2.4G and 5G?",
+      "range": {
+        "startLine": 92,
+        "startChar": 14,
+        "endLine": 92,
+        "endChar": 16
+      },
+      "revId": "9d24e873c898fd714d595bb829d2ad53f43a3031",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f7dbc55_c5ee0cb0",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-11T00:10:46Z",
+      "side": 1,
+      "message": "Hmm. true. Will change this. \nThis is the terminology used in gscan.h.",
+      "parentUuid": "9fd85cb1_f15757c9",
       "range": {
         "startLine": 92,
         "startChar": 14,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "9f7dbc55_e5e310c5",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-11T00:10:46Z",
+      "side": 1,
+      "message": "Yep.",
+      "parentUuid": "9fd85cb1_116aeb7b",
+      "range": {
+        "startLine": 106,
+        "startChar": 5,
+        "endLine": 106,
+        "endChar": 9
+      },
+      "revId": "9d24e873c898fd714d595bb829d2ad53f43a3031",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9fd85cb1_917edb37",
         "filename": "wifi/1.0/IWifiStaIface.hal",
         "patchSetId": 5
@@ -82,6 +154,30 @@
       "writtenOn": "2016-10-10T22:52:04Z",
       "side": 1,
       "message": "What\u0027s the format? Hz/kHz/MHz/freq band #?",
+      "range": {
+        "startLine": 139,
+        "startChar": 15,
+        "endLine": 139,
+        "endChar": 26
+      },
+      "revId": "9d24e873c898fd714d595bb829d2ad53f43a3031",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f7dbc55_45267c24",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-11T00:10:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9fd85cb1_917edb37",
       "range": {
         "startLine": 139,
         "startChar": 15,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "9f7dbc55_257178d2",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-11T00:10:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9fd85cb1_b11f9f1d",
+      "range": {
+        "startLine": 179,
+        "startChar": 13,
+        "endLine": 179,
+        "endChar": 23
+      },
+      "revId": "9d24e873c898fd714d595bb829d2ad53f43a3031",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9fd85cb1_510f43ed",
         "filename": "wifi/1.0/IWifiStaIface.hal",
         "patchSetId": 5
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "9f7dbc55_456e7cf5",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-11T00:10:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9fd85cb1_510f43ed",
+      "range": {
+        "startLine": 233,
+        "startChar": 14,
+        "endLine": 233,
+        "endChar": 15
+      },
+      "revId": "9d24e873c898fd714d595bb829d2ad53f43a3031",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9fd85cb1_9119bb37",
         "filename": "wifi/1.0/IWifiStaIfaceEventCallback.hal",
         "patchSetId": 5
@@ -151,6 +295,30 @@
       "writtenOn": "2016-10-10T22:52:04Z",
       "side": 1,
       "message": "time unit?",
+      "range": {
+        "startLine": 64,
+        "startChar": 12,
+        "endLine": 64,
+        "endChar": 21
+      },
+      "revId": "9d24e873c898fd714d595bb829d2ad53f43a3031",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f7dbc55_45203cb7",
+        "filename": "wifi/1.0/IWifiStaIfaceEventCallback.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-11T00:10:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9fd85cb1_9119bb37",
       "range": {
         "startLine": 64,
         "startChar": 12,
