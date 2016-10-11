@@ -29,6 +29,12 @@ namespace wifi {
 namespace V1_0 {
 namespace implementation {
 
+// APF capabilities supported by the iface.
+struct PacketFilterCapabilities {
+  uint32_t version;
+  uint32_t max_len;
+};
+
 /**
  * Class that encapsulates all legacy HAL interactions.
  * This class manages the lifetime of the event loop thread used by legacy HAL.
@@ -51,6 +57,9 @@ class WifiLegacyHal {
   std::pair<wifi_error, std::string> getFirmwareVersion();
   std::pair<wifi_error, std::vector<char>> requestDriverMemoryDump();
   std::pair<wifi_error, std::vector<char>> requestFirmwareMemoryDump();
+  std::pair<wifi_error, uint32_t> getSupportedFeatureSet();
+  std::pair<wifi_error, PacketFilterCapabilities> getPacketFilterCapabilities();
+  std::pair<wifi_error, wifi_gscan_capabilities> getGscanCapabilities();
 
  private:
   static const uint32_t kMaxVersionStringLength;
