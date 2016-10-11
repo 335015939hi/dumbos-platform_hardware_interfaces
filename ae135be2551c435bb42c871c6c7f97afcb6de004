@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f7dbc55_2b5b0989",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-11T01:17:11Z",
+      "side": 1,
+      "message": "does it have to be larger than period?",
+      "range": {
+        "startLine": 167,
+        "startChar": 7,
+        "endLine": 167,
+        "endChar": 16
+      },
+      "revId": "ae135be2551c435bb42c871c6c7f97afcb6de004",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
