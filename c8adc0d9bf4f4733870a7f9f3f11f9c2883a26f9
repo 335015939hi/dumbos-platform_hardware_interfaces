@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f7dbc55_b7d3fa29",
+        "filename": "tests/foo/1.0/IFoo.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1014088
+      },
+      "writtenOn": "2016-10-11T17:18:11Z",
+      "side": 1,
+      "message": "I thought we agreed not to support overloading.",
+      "revId": "c8adc0d9bf4f4733870a7f9f3f11f9c2883a26f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
