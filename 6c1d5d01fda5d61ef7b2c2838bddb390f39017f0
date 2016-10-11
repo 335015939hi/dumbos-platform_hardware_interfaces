@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9f7dbc55_71198234",
+        "filename": "wifi/1.0/IWifi.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-11T15:02:07Z",
+      "side": 1,
+      "message": "They are the same. Before we had a FailureReason code enum. Now we\u0027re merging that to StatusCode enum. So, all the reason codes from the old FailureReason enum are in the new StatusCode enum (except a couple of unused ones) plus a SUCCESS value.",
+      "parentUuid": "9f7dbc55_8bd415b4",
+      "range": {
+        "startLine": 56,
+        "startChar": 13,
+        "endLine": 58,
+        "endChar": 37
+      },
+      "revId": "6c1d5d01fda5d61ef7b2c2838bddb390f39017f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bfbe0035_c3141659",
         "filename": "wifi/1.0/IWifi.hal",
         "patchSetId": 5
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "So duplicate ways of getting information ... but ok.",
       "parentUuid": "9f7dbc55_65f540db",
+      "range": {
+        "startLine": 62,
+        "startChar": 10,
+        "endLine": 62,
+        "endChar": 38
+      },
+      "revId": "6c1d5d01fda5d61ef7b2c2838bddb390f39017f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f7dbc55_114116f1",
+        "filename": "wifi/1.0/IWifi.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-11T15:02:07Z",
+      "side": 1,
+      "message": "So, the events that are broadcast are these:\n1. IWifiEventCallback.onStart\n2. IWifiEventCallback.onStop\n3. IWifiEventCallback.onFailure\n4. IWifiChipEventCallback.onChipReconfigure.\n\nIn multi-client scenarios, this is important because the clients need to discard any existing IWifiChip, IWifiIface object references they are holding onto and get new ones. This is documented in the appropriate method docstrings.",
+      "parentUuid": "9f7dbc55_4bca0d16",
       "range": {
         "startLine": 62,
         "startChar": 10,
