@@ -292,6 +292,11 @@ wifi_error WifiLegacyHal::stopGscan(wifi_request_id id) {
   return status;
 }
 
+wifi_error WifiLegacyHal::setPacketFilter(std::vector<uint8_t> program) {
+  return global_func_table_.wifi_set_packet_filter(
+      wlan_interface_handle_, program.data(), program.size());
+}
+
 wifi_error WifiLegacyHal::retrieveWlanInterfaceHandle() {
   const std::string& ifname_to_find = getStaIfaceName();
   wifi_interface_handle* iface_handles = nullptr;
