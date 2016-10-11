@@ -32,6 +32,7 @@ WifiStaIface::WifiStaIface(const std::string& ifname,
 
 void WifiStaIface::invalidate() {
   legacy_hal_.reset();
+  callbacks_.clear();
   is_valid_ = false;
 }
 
@@ -54,6 +55,19 @@ Return<void> WifiStaIface::getType(getType_cb cb) {
     return Void();
   }
   cb(createWifiStatus(WifiStatusCode::SUCCESS), IfaceType::STA);
+  return Void();
+}
+
+Return<void> WifiStaIface::registerEventCallback(
+    const sp<IWifiStaIfaceEventCallback>& callback,
+    registerEventCallback_cb cb) {
+  if (!is_valid_) {
+    cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_IFACE_INVALID));
+    return Void();
+  }
+  // TODO(b/31632518): remove the callback when the client is destroyed
+  callbacks_.emplace_back(callback);
+  cb(createWifiStatus(WifiStatusCode::SUCCESS));
   return Void();
 }
 
