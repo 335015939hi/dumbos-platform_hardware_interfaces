@@ -42,6 +42,14 @@ class WifiStaIface : public IWifiStaIface {
   // HIDL methods exposed.
   Return<void> getName(getName_cb cb) override;
   Return<void> getType(getType_cb cb) override;
+  Return<void> registerEventCallback(
+      const sp<IWifiStaIfaceEventCallback>& callback,
+      registerEventCallback_cb cb) override;
+  Return<void> getCapabilities(getCapabilities_cb cb) override;
+  Return<void> getApfPacketFilterCapabilities(
+      getApfPacketFilterCapabilities_cb cb) override;
+  Return<void> getBackgroundScanCapabilities(
+      getBackgroundScanCapabilities_cb cb) override;
 
  private:
   std::string ifname_;
