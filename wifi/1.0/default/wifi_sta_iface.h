@@ -50,6 +50,12 @@ class WifiStaIface : public IWifiStaIface {
       getApfPacketFilterCapabilities_cb hidl_status_cb) override;
   Return<void> getBackgroundScanCapabilities(
       getBackgroundScanCapabilities_cb hidl_status_cb) override;
+  Return<void> startBackgroundScan(
+      uint32_t cmdId,
+      const IWifiStaIface::BackgroundScanParameters& params,
+      startBackgroundScan_cb hidl_status_cb) override;
+  Return<void> stopBackgroundScan(
+      uint32_t cmdId, stopBackgroundScan_cb hidl_status_cb) override;
 
  private:
   std::string ifname_;
