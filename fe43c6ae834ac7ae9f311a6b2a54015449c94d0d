@@ -22,6 +22,30 @@
       "revId": "fe43c6ae834ac7ae9f311a6b2a54015449c94d0d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f7dbc55_f1f672bb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-11T15:02:01Z",
+      "side": 1,
+      "message": "Yeah. The clients are supposed to use the callbacks to discard any  corresponding object references (depending on the situation).\nBut, the implementation still needs to ensure that any further calls on this object are rejected.\n\nBefore adding this status, the current implementation was silently ignoring these method calls on stale/invalid proxy objects. Now, this will return a definite error to inform the caller that the object is no longer valid.",
+      "parentUuid": "9f7dbc55_abb1d997",
+      "range": {
+        "startLine": 10,
+        "startChar": 25,
+        "endLine": 11,
+        "endChar": 38
+      },
+      "revId": "fe43c6ae834ac7ae9f311a6b2a54015449c94d0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
