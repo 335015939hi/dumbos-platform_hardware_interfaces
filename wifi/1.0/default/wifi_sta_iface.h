@@ -19,6 +19,7 @@
 
 #include <android-base/macros.h>
 #include <android/hardware/wifi/1.0/IWifiStaIface.h>
+#include <android/hardware/wifi/1.0/IWifiStaIfaceEventCallback.h>
 
 #include "wifi_legacy_hal.h"
 
@@ -41,10 +42,14 @@ class WifiStaIface : public IWifiStaIface {
   // HIDL methods exposed.
   Return<void> getName(getName_cb hidl_status_cb) override;
   Return<void> getType(getType_cb hidl_status_cb) override;
+  Return<void> registerEventCallback(
+      const sp<IWifiStaIfaceEventCallback>& event_callback,
+      registerEventCallback_cb hidl_status_cb) override;
 
  private:
   std::string ifname_;
   std::weak_ptr<WifiLegacyHal> legacy_hal_;
+  std::vector<sp<IWifiStaIfaceEventCallback>> event_callbacks_;
   bool is_valid_;
 
   DISALLOW_COPY_AND_ASSIGN(WifiStaIface);
