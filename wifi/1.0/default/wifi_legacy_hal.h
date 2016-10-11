@@ -51,6 +51,10 @@ class WifiLegacyHal {
   std::pair<wifi_error, std::string> getFirmwareVersion();
   std::pair<wifi_error, std::vector<char>> requestDriverMemoryDump();
   std::pair<wifi_error, std::vector<char>> requestFirmwareMemoryDump();
+  std::pair<wifi_error, uint32_t> getSupportedFeatureSet();
+  std::pair<wifi_error, std::pair<uint32_t, uint32_t>>
+  getPacketFilterCapabilities();
+  std::pair<wifi_error, wifi_gscan_capabilities> getGscanCapabilities();
 
  private:
   static const uint32_t kMaxVersionStringLength;
