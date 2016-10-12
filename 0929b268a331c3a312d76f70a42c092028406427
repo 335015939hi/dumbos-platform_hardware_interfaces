@@ -350,6 +350,24 @@
     },
     {
       "key": {
+        "uuid": "5ca192a9_9342fe93",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-12T22:43:31Z",
+      "side": 1,
+      "message": "Filed b/32120186 to track this. Will do it in a follow up CL because this is sitting below a bunch of other CL\u0027s now.",
+      "parentUuid": "5ca192a9_10be04cf",
+      "revId": "0929b268a331c3a312d76f70a42c092028406427",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f7dbc55_937e0338",
         "filename": "wifi/1.0/IWifiChip.hal",
         "patchSetId": 10
