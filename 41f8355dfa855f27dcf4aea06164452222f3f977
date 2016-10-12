@@ -119,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "dcf8228c_8f97594a",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-12T17:12:10Z",
+      "side": 1,
+      "message": "Isn\u0027t that already implied?",
+      "parentUuid": "dcf8228c_4f29f143",
+      "range": {
+        "startLine": 214,
+        "startChar": 5,
+        "endLine": 219,
+        "endChar": 19
+      },
+      "revId": "41f8355dfa855f27dcf4aea06164452222f3f977",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dcf8228c_2f43c5fe",
         "filename": "wifi/1.0/IWifiStaIface.hal",
         "patchSetId": 9
@@ -142,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "dcf8228c_4fa611c0",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-12T17:12:10Z",
+      "side": 1,
+      "message": "This is a customized bytecode. The language is defined in detail in this doc: https://docs.google.com/document/d/1zw2Ckq3cTYprBYTenzRRJCIVrMgFtxbGNNXbfQF69As/edit#heading\u003dh.mkcxnivmiwj3.\n\nIt\u0027s not feasible to express the meaning of this bytecode in the documentation here.",
+      "parentUuid": "dcf8228c_2f43c5fe",
+      "range": {
+        "startLine": 240,
+        "startChar": 17,
+        "endLine": 240,
+        "endChar": 28
+      },
+      "revId": "41f8355dfa855f27dcf4aea06164452222f3f977",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dcf8228c_8f33d9a9",
         "filename": "wifi/1.0/IWifiStaIfaceEventCallback.hal",
         "patchSetId": 9
@@ -153,6 +201,30 @@
       "writtenOn": "2016-10-12T17:05:43Z",
       "side": 1,
       "message": "what is in this data?\n\nwhat does the id correspond to?",
+      "range": {
+        "startLine": 50,
+        "startChar": 4,
+        "endLine": 51,
+        "endChar": 22
+      },
+      "revId": "41f8355dfa855f27dcf4aea06164452222f3f977",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf8228c_2fbe25cf",
+        "filename": "wifi/1.0/IWifiStaIfaceEventCallback.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-12T17:12:10Z",
+      "side": 1,
+      "message": "https://en.wikipedia.org/wiki/IEEE_802.11#Information_Elements",
+      "parentUuid": "dcf8228c_8f33d9a9",
       "range": {
         "startLine": 50,
         "startChar": 4,
