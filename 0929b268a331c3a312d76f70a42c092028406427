@@ -332,6 +332,24 @@
     },
     {
       "key": {
+        "uuid": "5ca192a9_10be04cf",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-12T22:19:28Z",
+      "side": 1,
+      "message": "We\u0027re stuck with ERROR_NOT_AVAILABLE in legacy_hal. But, for the HIDL API, can we find a better name?",
+      "parentUuid": "9f7dbc55_aec0fc91",
+      "revId": "0929b268a331c3a312d76f70a42c092028406427",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f7dbc55_937e0338",
         "filename": "wifi/1.0/IWifiChip.hal",
         "patchSetId": 10
