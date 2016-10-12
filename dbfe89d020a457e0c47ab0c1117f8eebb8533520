@@ -446,6 +446,30 @@
       "revId": "dbfe89d020a457e0c47ab0c1117f8eebb8533520",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf8228c_efcc1db8",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-12T16:53:11Z",
+      "side": 1,
+      "message": "Currently rates are calculated by timetamping the retrievals of at the caller side. This might be more accurate coming from the driver itself. \nWe\u0027ll have to fill this in our current legacy HAL wrapper. But, going forward, this might be better retrieved from the driver/firmware.\n\nAdded a timestamp field now.",
+      "parentUuid": "dcf8228c_4f7a9178",
+      "range": {
+        "startLine": 496,
+        "startChar": 2,
+        "endLine": 496,
+        "endChar": 19
+      },
+      "revId": "dbfe89d020a457e0c47ab0c1117f8eebb8533520",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
