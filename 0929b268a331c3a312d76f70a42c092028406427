@@ -214,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "9f7dbc55_73425c96",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-12T00:28:46Z",
+      "side": 1,
+      "message": "All of the existing ifaces are intended to be torn down once the chip is reconfigured. Reconfiguration would most likely result in a firmware reload under the hood. So, any existing iface objects will be invalid and starts with a clean slate.\n\nReordered the comments. Since this is most likely a fatal failure, we may even want to recommend restarting the HAL after a few retries?",
+      "parentUuid": "9f7dbc55_10fca6cc",
+      "range": {
+        "startLine": 172,
+        "startChar": 28,
+        "endLine": 172,
+        "endChar": 43
+      },
+      "revId": "0929b268a331c3a312d76f70a42c092028406427",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f7dbc55_d3a40b12",
         "filename": "wifi/1.0/IWifiChip.hal",
         "patchSetId": 10
@@ -614,6 +638,30 @@
     },
     {
       "key": {
+        "uuid": "9f7dbc55_b0bdbace",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-12T00:28:46Z",
+      "side": 1,
+      "message": "All of these operations (bgscan, apf) are designed to have only one instance running on a given iface.\nEven with the notification, this is potentially still a problem. Each request (by any client) will override the previous request. \nBy separating out the iface objects (NAN vs rest), we should be able to live with each interface being solely controlled by a single client. I don\u0027t see a use case for different clients to be interested in controlling the same iface object. \n\nBut, I guess this should be explicitly documented or enforced somehow. IWifi/IWifiChip objects can support multiple clients, but all the iface objects should be tied to a single client.",
+      "parentUuid": "9f7dbc55_50dd4e62",
+      "range": {
+        "startLine": 260,
+        "startChar": 19,
+        "endLine": 260,
+        "endChar": 72
+      },
+      "revId": "0929b268a331c3a312d76f70a42c092028406427",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f7dbc55_73b09ff5",
         "filename": "wifi/1.0/IWifiStaIface.hal",
         "patchSetId": 10
@@ -673,6 +721,30 @@
       "side": 1,
       "message": "Is the caller the only one interested? I.e. could there be interest from other clients?",
       "parentUuid": "9f7dbc55_4e6e90be",
+      "range": {
+        "startLine": 316,
+        "startChar": 19,
+        "endLine": 316,
+        "endChar": 69
+      },
+      "revId": "0929b268a331c3a312d76f70a42c092028406427",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f7dbc55_10f2e6c9",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-12T00:28:46Z",
+      "side": 1,
+      "message": "This API is again intended for a single client use.",
+      "parentUuid": "9f7dbc55_b0ccdab7",
       "range": {
         "startLine": 316,
         "startChar": 19,
