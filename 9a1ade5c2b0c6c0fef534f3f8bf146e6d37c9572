@@ -46,6 +46,30 @@
       "revId": "9a1ade5c2b0c6c0fef534f3f8bf146e6d37c9572",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ca192a9_76c7480f",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 14
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-12T23:42:29Z",
+      "side": 1,
+      "message": "There\u0027s nothing ASCII about std::string, as far as I know.\nhttp://en.cppreference.com/w/cpp/string/basic_string",
+      "parentUuid": "5ca192a9_70703068",
+      "range": {
+        "startLine": 125,
+        "startChar": 5,
+        "endLine": 125,
+        "endChar": 22
+      },
+      "revId": "9a1ade5c2b0c6c0fef534f3f8bf146e6d37c9572",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
