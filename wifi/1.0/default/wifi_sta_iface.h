@@ -58,6 +58,15 @@ class WifiStaIface : public IWifiStaIface {
       startBackgroundScan_cb cb) override;
   Return<void> stopBackgroundScan(uint32_t cmdId,
                                   stopBackgroundScan_cb cb) override;
+  Return<void> getValidFrequenciesForBackgroundScan(
+      IWifiStaIface::BackgroundScanBand band,
+      getValidFrequenciesForBackgroundScan_cb cb) override;
+  Return<void> enableLinkLayerStatsCollection(
+      const IWifiStaIface::LinkLayerStatsCollectionParams& params,
+      enableLinkLayerStatsCollection_cb cb) override;
+  Return<void> disableLinkLayerStatsCollection(
+      disableLinkLayerStatsCollection_cb cb) override;
+  Return<void> getLinkLayerStats(getLinkLayerStats_cb cb) override;
 
  private:
   std::string ifname_;
