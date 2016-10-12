@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dcf8228c_afacd58c",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-12T16:24:17Z",
+      "side": 1,
+      "message": "\"uint64_t\" there was a search \u0026 replace bug (s/long/uint64_t).\n\nThis is a remnant of the legacy HAL API. This is probably not needed in the HIDL interface because we\u0027re not exposing the stats which would classify the packets as long vs short.\n\nWill remove this.",
+      "parentUuid": "dcf8228c_4cd45f10",
+      "range": {
+        "startLine": 218,
+        "startChar": 19,
+        "endLine": 218,
+        "endChar": 57
+      },
+      "revId": "dbfe89d020a457e0c47ab0c1117f8eebb8533520",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dcf8228c_2c43d3fe",
         "filename": "wifi/1.0/IWifiStaIface.hal",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-12T15:45:09Z",
       "side": 1,
       "message": "Not clear: does this count any retransmission or 1 per packet which had to be retransmitted (no matter how many times)?",
+      "range": {
+        "startLine": 246,
+        "startChar": 7,
+        "endLine": 246,
+        "endChar": 12
+      },
+      "revId": "dbfe89d020a457e0c47ab0c1117f8eebb8533520",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf8228c_0fe6c9a8",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-12T16:24:17Z",
+      "side": 1,
+      "message": "No. This is the actual number of retry packets.\n\nAtleast that\u0027s my reading of the comments: https://cs.corp.google.com/android/hardware/libhardware_legacy/include/hardware_legacy/link_layer_stats.h?rcl\u003da6bfa0db626b15ba96c6062fcc93154fd78fa7bb\u0026l\u003d180",
+      "parentUuid": "dcf8228c_2c43d3fe",
       "range": {
         "startLine": 246,
         "startChar": 7,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "dcf8228c_ef87fdc1",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-12T16:24:17Z",
+      "side": 1,
+      "message": "Hmm. I don\u0027t know if there is a standard way of RSSSI computation. Each vendor does what it wants. This might need a bigger discussion if we want to standardize this.\n\nThe only implied window specified is that these stats are supposed to be reset at the begining of every connection.",
+      "parentUuid": "dcf8228c_6c3ddb77",
+      "range": {
+        "startLine": 260,
+        "startChar": 55,
+        "endLine": 260,
+        "endChar": 63
+      },
+      "revId": "dbfe89d020a457e0c47ab0c1117f8eebb8533520",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dcf8228c_ac36a399",
         "filename": "wifi/1.0/IWifiStaIface.hal",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2016-10-12T15:45:09Z",
       "side": 1,
       "message": "what does that mean?",
+      "range": {
+        "startLine": 282,
+        "startChar": 30,
+        "endLine": 282,
+        "endChar": 45
+      },
+      "revId": "dbfe89d020a457e0c47ab0c1117f8eebb8533520",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf8228c_2f662552",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-12T16:24:17Z",
+      "side": 1,
+      "message": "Reworded. This is basically the cumulative stats since the collection was enabled.",
+      "parentUuid": "dcf8228c_ac36a399",
       "range": {
         "startLine": 282,
         "startChar": 30,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "dcf8228c_4fd1f1f6",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-12T16:24:17Z",
+      "side": 1,
+      "message": "The number of levels and the power usage at each level is defined in vendor\u0027s config.xml.\n \nBullhead\u0027s for example is defined here: https://cs.corp.google.com/android/device/lge/bullhead/overlay/frameworks/base/core/res/res/xml/power_profile.xml?rcl\u003d1ea6206cfe712c7cb491fdeed470a4e5c5905b70\u0026l\u003d118",
+      "parentUuid": "dcf8228c_2cec73ef",
+      "range": {
+        "startLine": 294,
+        "startChar": 57,
+        "endLine": 294,
+        "endChar": 69
+      },
+      "revId": "dbfe89d020a457e0c47ab0c1117f8eebb8533520",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dcf8228c_6cf67bbf",
         "filename": "wifi/1.0/IWifiStaIface.hal",
         "patchSetId": 1
@@ -128,6 +248,30 @@
       "writtenOn": "2016-10-12T15:45:09Z",
       "side": 1,
       "message": "units?",
+      "range": {
+        "startLine": 298,
+        "startChar": 7,
+        "endLine": 298,
+        "endChar": 11
+      },
+      "revId": "dbfe89d020a457e0c47ab0c1117f8eebb8533520",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf8228c_efa09d40",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-12T16:24:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dcf8228c_6cf67bbf",
       "range": {
         "startLine": 298,
         "startChar": 7,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "dcf8228c_6f1e6dd2",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-12T16:24:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dcf8228c_acffc38d",
+      "range": {
+        "startLine": 393,
+        "startChar": 31,
+        "endLine": 393,
+        "endChar": 45
+      },
+      "revId": "dbfe89d020a457e0c47ab0c1117f8eebb8533520",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dcf8228c_8cfc879a",
         "filename": "wifi/1.0/IWifiStaIface.hal",
         "patchSetId": 1
@@ -186,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "dcf8228c_cfd5e1d9",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-12T16:24:17Z",
+      "side": 1,
+      "message": "There is a way to disable. But, it\u0027s not really being used. Will add it for completenes.",
+      "parentUuid": "dcf8228c_8cfc879a",
+      "range": {
+        "startLine": 479,
+        "startChar": 2,
+        "endLine": 479,
+        "endChar": 8
+      },
+      "revId": "dbfe89d020a457e0c47ab0c1117f8eebb8533520",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dcf8228c_0cda573d",
         "filename": "wifi/1.0/IWifiStaIface.hal",
         "patchSetId": 1
@@ -197,6 +389,30 @@
       "writtenOn": "2016-10-12T15:45:09Z",
       "side": 1,
       "message": "Should there be a timestamp associated with the stats from the firmware. That may enable more accurate assessments of bit-rates etc.",
+      "range": {
+        "startLine": 496,
+        "startChar": 2,
+        "endLine": 496,
+        "endChar": 19
+      },
+      "revId": "dbfe89d020a457e0c47ab0c1117f8eebb8533520",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf8228c_af421593",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-12T16:24:17Z",
+      "side": 1,
+      "message": "It\u0027s good to have, but we need a good way to convert firmware\u0027s timestamp (uptime or epoch) to android system time.\nThis might create more ambiguity than it\u0027s worth.",
+      "parentUuid": "dcf8228c_0cda573d",
       "range": {
         "startLine": 496,
         "startChar": 2,
