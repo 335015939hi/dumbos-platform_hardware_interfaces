@@ -22,6 +22,30 @@
       "revId": "9a1ade5c2b0c6c0fef534f3f8bf146e6d37c9572",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ca192a9_70703068",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 14
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-12T22:08:47Z",
+      "side": 1,
+      "message": "Hmm. The description variables are declared as strings below. Shouldn\u0027t that be enough to enforce the ASCII\u0027ness of the data?",
+      "parentUuid": "3c693ee5_407f0400",
+      "range": {
+        "startLine": 125,
+        "startChar": 5,
+        "endLine": 125,
+        "endChar": 22
+      },
+      "revId": "9a1ade5c2b0c6c0fef534f3f8bf146e6d37c9572",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
