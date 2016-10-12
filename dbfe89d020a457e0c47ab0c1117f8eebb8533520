@@ -422,6 +422,30 @@
       "revId": "dbfe89d020a457e0c47ab0c1117f8eebb8533520",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf8228c_4f7a9178",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-12T16:39:36Z",
+      "side": 1,
+      "message": "I\u0027m not concerned about absolute time - only relative time (while knowing the time scale/units). How else can you calculate rates?",
+      "parentUuid": "dcf8228c_af421593",
+      "range": {
+        "startLine": 496,
+        "startChar": 2,
+        "endLine": 496,
+        "endChar": 19
+      },
+      "revId": "dbfe89d020a457e0c47ab0c1117f8eebb8533520",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
