@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c693ee5_407f0400",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 14
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-12T22:00:41Z",
+      "side": 1,
+      "message": "Should we be a little more opinionated, and recommend that the data be ASCII?",
+      "range": {
+        "startLine": 125,
+        "startChar": 5,
+        "endLine": 125,
+        "endChar": 22
+      },
+      "revId": "9a1ade5c2b0c6c0fef534f3f8bf146e6d37c9572",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
