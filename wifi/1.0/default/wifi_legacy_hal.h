@@ -35,6 +35,21 @@ struct PacketFilterCapabilities {
   uint32_t max_len;
 };
 
+// WARNING: We don't care about the variable sized members of either
+// |wifi_iface_stat|, |wifi_radio_stat| structures. So, using the pragma
+// to escape the compiler warnings regarding this for now.
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wgnu-variable-sized-type-not-at-end"
+// The |wifi_radio_stat.tx_time_per_levels| stats is provided as a pointer in
+// |wifi_radio_stat| structure in the legacy HAL API. Separate that out
+// into a separate return element to avoid passing pointers around.
+struct LinkLayerStatsData {
+  wifi_iface_stat iface;
+  wifi_radio_stat radio;
+  std::vector<uint32_t> radio_tx_time_per_levels;
+};
+#pragma GCC diagnostic pop
+
 // These scan results have IE info at the end, so pass the pointer directly.
 // The memory is freed by the lower layers after the callback.
 typedef std::function<void(
@@ -45,6 +60,7 @@ typedef std::function<void(
 typedef std::function<void(
     wifi_request_id, const std::vector<wifi_cached_scan_results>& results)>
     on_gscan_results_callback;
+
 /**
  * Class that encapsulates all legacy HAL interactions.
  * This class manages the lifetime of the event loop thread used by legacy HAL.
@@ -88,6 +104,11 @@ class WifiLegacyHal {
       const on_gscan_full_result_callback& on_full_result_callback);
   wifi_error stopGscan(wifi_request_id id);
   wifi_error setPacketFilter(std::vector<uint8_t> program);
+  std::pair<wifi_error, std::vector<uint32_t>> getValidFrequenciesForGscan(
+      wifi_band band);
+  wifi_error enableLinkLayerStats(bool debug);
+  wifi_error disableLinkLayerStats();
+  std::pair<wifi_error, LinkLayerStatsData> getLinkLayerStats();
 
  private:
   // Retrieve the interface handle to be used for the "wlan" interface.
