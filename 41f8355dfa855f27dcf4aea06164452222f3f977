@@ -93,6 +93,75 @@
       "revId": "41f8355dfa855f27dcf4aea06164452222f3f977",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf8228c_4f29f143",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-12T17:05:43Z",
+      "side": 1,
+      "message": "please note in each of these comments the corresponding callbacks",
+      "range": {
+        "startLine": 214,
+        "startChar": 5,
+        "endLine": 219,
+        "endChar": 19
+      },
+      "revId": "41f8355dfa855f27dcf4aea06164452222f3f977",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf8228c_2f43c5fe",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-12T17:05:43Z",
+      "side": 1,
+      "message": "What are these written in/where can documentation be found on how to write one?",
+      "range": {
+        "startLine": 240,
+        "startChar": 17,
+        "endLine": 240,
+        "endChar": 28
+      },
+      "revId": "41f8355dfa855f27dcf4aea06164452222f3f977",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf8228c_8f33d9a9",
+        "filename": "wifi/1.0/IWifiStaIfaceEventCallback.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-12T17:05:43Z",
+      "side": 1,
+      "message": "what is in this data?\n\nwhat does the id correspond to?",
+      "range": {
+        "startLine": 50,
+        "startChar": 4,
+        "endLine": 51,
+        "endChar": 22
+      },
+      "revId": "41f8355dfa855f27dcf4aea06164452222f3f977",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
