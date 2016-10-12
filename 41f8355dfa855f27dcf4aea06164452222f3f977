@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dcf8228c_2c1ab32e",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-12T15:32:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f7dbc55_6c0d249b",
+      "range": {
+        "startLine": 58,
+        "startChar": 2,
+        "endLine": 65,
+        "endChar": 5
+      },
+      "revId": "41f8355dfa855f27dcf4aea06164452222f3f977",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f7dbc55_ac072c78",
         "filename": "wifi/1.0/IWifiStaIface.hal",
         "patchSetId": 9
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-12T02:23:39Z",
       "side": 1,
       "message": "remove prefix",
+      "range": {
+        "startLine": 90,
+        "startChar": 4,
+        "endLine": 90,
+        "endChar": 14
+      },
+      "revId": "41f8355dfa855f27dcf4aea06164452222f3f977",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf8228c_0c1ff71e",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-12T15:32:32Z",
+      "side": 1,
+      "message": "Can\u0027t fully remove the prefix because then the variables start with numbers (24GHZ, etc) which causes a compilation failure.\n\nRemoved |WIFI_| prefixes though.",
+      "parentUuid": "9f7dbc55_ac072c78",
       "range": {
         "startLine": 90,
         "startChar": 4,
