@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "9f7dbc55_10fca6cc",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-12T00:03:57Z",
+      "side": 1,
+      "message": "But what about success? If you reconfigure to a mode in which some of the interfaces could be valid ... are all interfaces torn down or a subset or what?\n\nIn any case, paragraph structure makes it appear that second sentence applies in the same condition as the first - only for failure. Please clarify or reorder (second sentence first).",
+      "parentUuid": "9f7dbc55_ee5764fb",
+      "range": {
+        "startLine": 172,
+        "startChar": 28,
+        "endLine": 172,
+        "endChar": 43
+      },
+      "revId": "0929b268a331c3a312d76f70a42c092028406427",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f7dbc55_d3a40b12",
         "filename": "wifi/1.0/IWifiChip.hal",
         "patchSetId": 10
@@ -566,6 +590,30 @@
     },
     {
       "key": {
+        "uuid": "9f7dbc55_50dd4e62",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-12T00:03:57Z",
+      "side": 1,
+      "message": "But that\u0027s an interesting question: would any one else be interested about an APF packet filter being installed? Or (since can only have one - true?) then what if someone installed a filter, then another client installed another filter. How would the first client find out? This API was one way.",
+      "parentUuid": "9f7dbc55_2e794c84",
+      "range": {
+        "startLine": 260,
+        "startChar": 19,
+        "endLine": 260,
+        "endChar": 72
+      },
+      "revId": "0929b268a331c3a312d76f70a42c092028406427",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f7dbc55_73b09ff5",
         "filename": "wifi/1.0/IWifiStaIface.hal",
         "patchSetId": 10
@@ -601,6 +649,30 @@
       "side": 1,
       "message": "Removed the comment now.",
       "parentUuid": "9f7dbc55_73b09ff5",
+      "range": {
+        "startLine": 316,
+        "startChar": 19,
+        "endLine": 316,
+        "endChar": 69
+      },
+      "revId": "0929b268a331c3a312d76f70a42c092028406427",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f7dbc55_b0ccdab7",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-12T00:03:57Z",
+      "side": 1,
+      "message": "Is the caller the only one interested? I.e. could there be interest from other clients?",
+      "parentUuid": "9f7dbc55_4e6e90be",
       "range": {
         "startLine": 316,
         "startChar": 19,
