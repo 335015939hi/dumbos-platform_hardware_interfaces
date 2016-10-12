@@ -70,6 +70,19 @@ void onGscanFullResult(wifi_request_id id,
     on_gscan_full_result_internal_callback(id, result, buckets_scanned);
   }
 }
+
+// Callback to be invoked for link layer stats results.
+std::function<void((wifi_request_id, wifi_iface_stat*, int, wifi_radio_stat*))>
+    on_link_layer_stats_result_internal_callback;
+void onLinkLayerStatsDataResult(wifi_request_id id,
+                                wifi_iface_stat* iface_stat,
+                                int num_radios,
+                                wifi_radio_stat* radio_stat) {
+  if (on_link_layer_stats_result_internal_callback) {
+    on_link_layer_stats_result_internal_callback(
+        id, iface_stat, num_radios, radio_stat);
+  }
+}
 }
 
 namespace android {
@@ -80,6 +93,8 @@ namespace implementation {
 
 static constexpr uint32_t kMaxVersionStringLength = 256;
 static constexpr uint32_t kMaxCachedGscanResults = 64;
+static constexpr uint32_t kMaxGscanFrequenciesForBand = 64;
+static constexpr uint32_t kLinkLayerStatsDataMpduSizeThreshold = 128;
 
 WifiLegacyHal::WifiLegacyHal()
     : global_handle_(nullptr),
@@ -179,7 +194,9 @@ WifiLegacyHal::requestDriverMemoryDump() {
   std::vector<char> driver_dump;
   on_driver_memory_dump_internal_callback = [&driver_dump](char* buffer,
                                                            int buffer_size) {
-    driver_dump.insert(driver_dump.end(), buffer, buffer + buffer_size);
+    if (buffer != nullptr) {
+      driver_dump.insert(driver_dump.end(), buffer, buffer + buffer_size);
+    }
   };
   wifi_error status = global_func_table_.wifi_get_driver_memory_dump(
       wlan_interface_handle_, {onDriverMemoryDump});
@@ -192,7 +209,9 @@ WifiLegacyHal::requestFirmwareMemoryDump() {
   std::vector<char> firmware_dump;
   on_firmware_memory_dump_internal_callback = [&firmware_dump](
       char* buffer, int buffer_size) {
-    firmware_dump.insert(firmware_dump.end(), buffer, buffer + buffer_size);
+    if (buffer != nullptr) {
+      firmware_dump.insert(firmware_dump.end(), buffer, buffer + buffer_size);
+    }
   };
   wifi_error status = global_func_table_.wifi_get_firmware_memory_dump(
       wlan_interface_handle_, {onFirmwareMemoryDump});
@@ -302,6 +321,76 @@ wifi_error WifiLegacyHal::setPacketFilter(std::vector<uint8_t> program) {
       wlan_interface_handle_, program.data(), program.size());
 }
 
+std::pair<wifi_error, std::vector<uint32_t>>
+WifiLegacyHal::getValidFrequenciesForGscan(wifi_band band) {
+  std::array<uint32_t, kMaxGscanFrequenciesForBand> freqs;
+  int32_t num_freqs = 0;
+  wifi_error status = global_func_table_.wifi_get_valid_channels(
+      wlan_interface_handle_,
+      band,
+      freqs.size(),
+      reinterpret_cast<wifi_channel*>(freqs.data()),
+      &num_freqs);
+  if (num_freqs < 0 ||
+      static_cast<uint32_t>(num_freqs) > kMaxGscanFrequenciesForBand) {
+    return std::make_pair(WIFI_ERROR_UNKNOWN, std::vector<uint32_t>());
+  }
+  std::vector<uint32_t> freqs_vector(freqs.begin(), freqs.begin() + num_freqs);
+  return std::make_pair(status, std::move(freqs_vector));
+}
+
+wifi_error WifiLegacyHal::enableLinkLayerStats(bool debugMode) {
+  wifi_link_layer_params params;
+  params.mpdu_size_threshold = kLinkLayerStatsDataMpduSizeThreshold;
+  params.aggressive_statistics_gathering = debugMode;
+  return global_func_table_.wifi_set_link_stats(wlan_interface_handle_, params);
+}
+
+wifi_error WifiLegacyHal::disableLinkLayerStats() {
+  // TODO: Do we care about these responses?
+  uint32_t clear_mask_rsp;
+  uint8_t stop_rsp;
+  return global_func_table_.wifi_clear_link_stats(
+      wlan_interface_handle_, 0xFFFFFFFF, &clear_mask_rsp, 1, &stop_rsp);
+}
+
+std::pair<wifi_error, LinkLayerStatsData> WifiLegacyHal::getLinkLayerStats() {
+  LinkLayerStatsData link_stats;
+  LinkLayerStatsData* link_stats_ptr = &link_stats;
+
+  on_link_layer_stats_result_internal_callback = [&link_stats_ptr](
+      wifi_request_id /* id */,
+      wifi_iface_stat* iface_stats_ptr,
+      int num_radios,
+      wifi_radio_stat* radio_stats_ptr) {
+    if (iface_stats_ptr != nullptr) {
+      memcpy(&link_stats_ptr->iface, iface_stats_ptr, sizeof(wifi_iface_stat));
+    } else {
+      LOG(ERROR) << "Invalid iface stats in link layer stats";
+      memset(&link_stats_ptr->iface, 0, sizeof(wifi_iface_stat));
+    }
+    if (num_radios > 0 && radio_stats_ptr != nullptr) {
+      memcpy(&link_stats_ptr->radio, radio_stats_ptr, sizeof(wifi_radio_stat));
+      // Copy over the tx level array to the separate vector.
+      if (radio_stats_ptr->num_tx_levels > 0 &&
+          radio_stats_ptr->tx_time_per_levels != nullptr) {
+        link_stats_ptr->radio_tx_time_per_levels.assign(
+            radio_stats_ptr->tx_time_per_levels,
+            radio_stats_ptr->tx_time_per_levels +
+                radio_stats_ptr->num_tx_levels);
+      }
+    } else {
+      LOG(ERROR) << "Invalid radio stats in link layer stats";
+      memset(&link_stats_ptr->radio, 0, sizeof(wifi_radio_stat));
+    }
+  };
+
+  wifi_error status = global_func_table_.wifi_get_link_stats(
+      0, wlan_interface_handle_, {onLinkLayerStatsDataResult});
+  on_link_layer_stats_result_internal_callback = nullptr;
+  return std::make_pair(status, link_stats);
+}
+
 wifi_error WifiLegacyHal::retrieveWlanInterfaceHandle() {
   const std::string& ifname_to_find = getStaIfaceName();
   wifi_interface_handle* iface_handles = nullptr;
@@ -351,6 +440,11 @@ WifiLegacyHal::getGscanCachedResults() {
                                                        scan_results.size(),
                                                        scan_results.data(),
                                                        &num_results);
+  if (num_results < 0 ||
+      static_cast<uint32_t>(num_results) > kMaxCachedGscanResults) {
+    return std::make_pair(WIFI_ERROR_UNKNOWN,
+                          std::vector<wifi_cached_scan_results>());
+  }
   std::vector<wifi_cached_scan_results> scan_results_vector(
       scan_results.begin(), scan_results.begin() + num_results);
   return std::make_pair(status, std::move(scan_results_vector));
