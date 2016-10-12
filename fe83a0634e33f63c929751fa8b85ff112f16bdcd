@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7c73b6d0_7f1f471e",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-12T20:23:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c73b6d0_5f17e35f",
+      "range": {
+        "startLine": 218,
+        "startChar": 40,
+        "endLine": 218,
+        "endChar": 46
+      },
+      "revId": "fe83a0634e33f63c929751fa8b85ff112f16bdcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc95e6fb_631496b3",
         "filename": "wifi/1.0/IWifiStaIface.hal",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-12T20:04:42Z",
       "side": 1,
       "message": "please replace these all with \u0027Must fail if\u0027",
+      "range": {
+        "startLine": 346,
+        "startChar": 5,
+        "endLine": 346,
+        "endChar": 17
+      },
+      "revId": "fe83a0634e33f63c929751fa8b85ff112f16bdcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c64320a_67bedcd0",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-12T20:23:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc95e6fb_631496b3",
       "range": {
         "startLine": 346,
         "startChar": 5,
