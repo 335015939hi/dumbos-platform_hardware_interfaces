@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dcf8228c_2f8d8590",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-12T16:53:11Z",
+      "side": 1,
+      "message": "I\u0027ll reword that to \"valid frequencies\". The units are mentioned in the return param.\n\n@return frequenciesInMhz vector of valid frequencies for the provided band.",
+      "parentUuid": "dcf8228c_af45f546",
+      "range": {
+        "startLine": 388,
+        "startChar": 31,
+        "endLine": 388,
+        "endChar": 45
+      },
+      "revId": "e16640e59008a166c2523a171983e624d277d728",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dcf8228c_6fae6df0",
         "filename": "wifi/1.0/IWifiStaIface.hal",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-12T16:39:36Z",
       "side": 1,
       "message": "Now that I had you add disable (sorry :)) this may need to be clarified.",
+      "range": {
+        "startLine": 465,
+        "startChar": 37,
+        "endLine": 465,
+        "endChar": 48
+      },
+      "revId": "e16640e59008a166c2523a171983e624d277d728",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf8228c_6f878d70",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-12T16:53:11Z",
+      "side": 1,
+      "message": "Aah. reworded.",
+      "parentUuid": "dcf8228c_6fae6df0",
       "range": {
         "startLine": 465,
         "startChar": 37,
