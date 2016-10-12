@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+#include <utils/SystemClock.h>
+
 #include "hidl_struct_util.h"
 
 namespace android {
@@ -210,6 +212,49 @@ bool convertInternalVectorOfCachedScanResultsToHidl(
   return true;
 }
 
+bool convertInternalLinkLayerStatsToHidl(
+    const android::hardware::wifi::V1_0::implementation::LinkLayerStatsData&
+        stats,
+    IWifiStaIface::LinkLayerStats* hidl_stats) {
+  if (hidl_stats == nullptr) {
+    return false;
+  }
+  // iface stats conversion.
+  hidl_stats->iface.beaconRx = stats.iface.beacon_rx;
+  hidl_stats->iface.avgRssiMgmt = stats.iface.rssi_mgmt;
+  hidl_stats->iface.wmeBePktStats.rxMpdu = stats.iface.ac[WIFI_AC_BE].rx_mpdu;
+  hidl_stats->iface.wmeBePktStats.txMpdu = stats.iface.ac[WIFI_AC_BE].tx_mpdu;
+  hidl_stats->iface.wmeBePktStats.lostMpdu =
+      stats.iface.ac[WIFI_AC_BE].mpdu_lost;
+  hidl_stats->iface.wmeBePktStats.retries = stats.iface.ac[WIFI_AC_BE].retries;
+  hidl_stats->iface.wmeBkPktStats.rxMpdu = stats.iface.ac[WIFI_AC_BK].rx_mpdu;
+  hidl_stats->iface.wmeBkPktStats.txMpdu = stats.iface.ac[WIFI_AC_BK].tx_mpdu;
+  hidl_stats->iface.wmeBkPktStats.lostMpdu =
+      stats.iface.ac[WIFI_AC_BK].mpdu_lost;
+  hidl_stats->iface.wmeBkPktStats.retries = stats.iface.ac[WIFI_AC_BK].retries;
+  hidl_stats->iface.wmeViPktStats.rxMpdu = stats.iface.ac[WIFI_AC_VI].rx_mpdu;
+  hidl_stats->iface.wmeViPktStats.txMpdu = stats.iface.ac[WIFI_AC_VI].tx_mpdu;
+  hidl_stats->iface.wmeViPktStats.lostMpdu =
+      stats.iface.ac[WIFI_AC_VI].mpdu_lost;
+  hidl_stats->iface.wmeViPktStats.retries = stats.iface.ac[WIFI_AC_VI].retries;
+  hidl_stats->iface.wmeVoPktStats.rxMpdu = stats.iface.ac[WIFI_AC_VO].rx_mpdu;
+  hidl_stats->iface.wmeVoPktStats.txMpdu = stats.iface.ac[WIFI_AC_VO].tx_mpdu;
+  hidl_stats->iface.wmeVoPktStats.lostMpdu =
+      stats.iface.ac[WIFI_AC_VO].mpdu_lost;
+  hidl_stats->iface.wmeVoPktStats.retries = stats.iface.ac[WIFI_AC_VO].retries;
+  // radio stats conversion.
+  hidl_stats->radio.onTimeInMs = stats.radio.on_time;
+  hidl_stats->radio.txTimeInMs = stats.radio.tx_time;
+  hidl_stats->radio.rxTimeInMs = stats.radio.rx_time;
+  hidl_stats->radio.onTimeInMsForScan = stats.radio.on_time_scan;
+  hidl_stats->radio.txTimeInMsPerLevel.setToExternal(
+      const_cast<uint32_t*>(stats.radio_tx_time_per_levels.data()),
+      stats.radio_tx_time_per_levels.size());
+  // Timestamp in the HAL wrapper here since it's not provided in the legacy
+  // HAL API.
+  hidl_stats->timeStampInMs = uptimeMillis();
+  return true;
+}
 }  // namespace internal
 }  // namespace implementation
 }  // namespace V1_0

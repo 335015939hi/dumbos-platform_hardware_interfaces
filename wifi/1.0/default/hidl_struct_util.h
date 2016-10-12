@@ -56,6 +56,11 @@ bool convertInternalScanResultToHidl(
 bool convertInternalVectorOfCachedScanResultsToHidl(
     const std::vector<wifi_cached_scan_results>& cached_results,
     hidl_vec<IWifiStaIfaceEventCallback::ScanData>* hidl_scan_datas);
+
+bool convertInternalLinkLayerStatsToHidl(
+    const android::hardware::wifi::V1_0::implementation::LinkLayerStatsData&
+        stats,
+    IWifiStaIface::LinkLayerStats* hidl_stats);
 }  // namespace internal
 }  // namespace implementation
 }  // namespace V1_0
