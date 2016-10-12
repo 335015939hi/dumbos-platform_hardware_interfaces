@@ -17,6 +17,7 @@
 #include "wifi_sta_iface.h"
 
 #include <android-base/logging.h>
+#include <utils/SystemClock.h>
 
 #include "wifi_status_util.h"
 
@@ -30,6 +31,9 @@ using android::hardware::wifi::V1_0::IWifiStaIfaceEventCallback;
 bool convertHidlScanParamsToInternal(
     const IWifiStaIface::BackgroundScanParameters& params,
     wifi_scan_cmd_params* internal_scan_params) {
+  if (internal_scan_params == nullptr) {
+    return false;
+  }
   internal_scan_params->base_period = params.basePeriodInMs;
   internal_scan_params->max_ap_per_scan = params.maxApPerScan;
   internal_scan_params->report_threshold_percent =
@@ -94,6 +98,9 @@ bool convertInternalIeBlobToHidl(
     uint32_t ie_blob_len,
     hidl_vec<IWifiStaIfaceEventCallback::InformationElement>*
         hidl_ie_elements) {
+  if (ie_blob == nullptr || hidl_ie_elements == nullptr) {
+    return false;
+  }
   // First convert to a std::vector of IE elements and then push it to a
   // hidl_vec.
   std::vector<IWifiStaIfaceEventCallback::InformationElement>
@@ -137,6 +144,9 @@ bool convertInternalScanResultToHidl(
     const wifi_scan_result* result,
     IWifiStaIfaceEventCallback::ScanResult* hidl_scan_result,
     bool has_ie_data) {
+  if (result == nullptr || hidl_scan_result == nullptr) {
+    return false;
+  }
   hidl_scan_result->timeStampInUs = result->ts;
   hidl_scan_result->ssid.setToExternal(
       const_cast<uint8_t*>(reinterpret_cast<const uint8_t*>(result->ssid)),
@@ -162,6 +172,9 @@ bool convertInternalScanResultToHidl(
 bool convertInternalCachedScanResultsToHidl(
     const wifi_cached_scan_results& cached_result,
     IWifiStaIfaceEventCallback::ScanData* hidl_scan_data) {
+  if (hidl_scan_data == nullptr) {
+    return false;
+  }
   hidl_scan_data->flags = cached_result.flags;
   hidl_scan_data->bucketsScanned = cached_result.buckets_scanned;
   // First convert to a std::vector of scan results and then push it to a
@@ -185,6 +198,9 @@ bool convertInternalCachedScanResultsToHidl(
 bool convertInternalVectorOfCachedScanResultsToHidl(
     const std::vector<wifi_cached_scan_results>& cached_results,
     hidl_vec<IWifiStaIfaceEventCallback::ScanData>* hidl_scan_datas) {
+  if (hidl_scan_datas == nullptr) {
+    return false;
+  }
   // First convert to a std::vector of scan datas and then push it to a
   // hidl_vec.
   std::vector<IWifiStaIfaceEventCallback::ScanData> hidl_scan_datas_vec;
@@ -198,6 +214,50 @@ bool convertInternalVectorOfCachedScanResultsToHidl(
   }
   hidl_scan_datas->setToExternal(hidl_scan_datas_vec.data(),
                                  hidl_scan_datas_vec.size());
+  return true;
+}
+
+bool convertInternalLinkLayerStatsToHidl(
+    const android::hardware::wifi::V1_0::implementation::LinkLayerStatsData&
+        stats,
+    IWifiStaIface::LinkLayerStats* hidl_stats) {
+  if (hidl_stats == nullptr) {
+    return false;
+  }
+  // iface stats conversion.
+  hidl_stats->iface.beaconRx = stats.iface.beacon_rx;
+  hidl_stats->iface.avgRssiMgmt = stats.iface.rssi_mgmt;
+  hidl_stats->iface.wmeBePktStats.rxMpdu = stats.iface.ac[WIFI_AC_BE].rx_mpdu;
+  hidl_stats->iface.wmeBePktStats.txMpdu = stats.iface.ac[WIFI_AC_BE].tx_mpdu;
+  hidl_stats->iface.wmeBePktStats.lostMpdu =
+      stats.iface.ac[WIFI_AC_BE].mpdu_lost;
+  hidl_stats->iface.wmeBePktStats.retries = stats.iface.ac[WIFI_AC_BE].retries;
+  hidl_stats->iface.wmeBkPktStats.rxMpdu = stats.iface.ac[WIFI_AC_BK].rx_mpdu;
+  hidl_stats->iface.wmeBkPktStats.txMpdu = stats.iface.ac[WIFI_AC_BK].tx_mpdu;
+  hidl_stats->iface.wmeBkPktStats.lostMpdu =
+      stats.iface.ac[WIFI_AC_BK].mpdu_lost;
+  hidl_stats->iface.wmeBkPktStats.retries = stats.iface.ac[WIFI_AC_BK].retries;
+  hidl_stats->iface.wmeViPktStats.rxMpdu = stats.iface.ac[WIFI_AC_VI].rx_mpdu;
+  hidl_stats->iface.wmeViPktStats.txMpdu = stats.iface.ac[WIFI_AC_VI].tx_mpdu;
+  hidl_stats->iface.wmeViPktStats.lostMpdu =
+      stats.iface.ac[WIFI_AC_VI].mpdu_lost;
+  hidl_stats->iface.wmeViPktStats.retries = stats.iface.ac[WIFI_AC_VI].retries;
+  hidl_stats->iface.wmeVoPktStats.rxMpdu = stats.iface.ac[WIFI_AC_VO].rx_mpdu;
+  hidl_stats->iface.wmeVoPktStats.txMpdu = stats.iface.ac[WIFI_AC_VO].tx_mpdu;
+  hidl_stats->iface.wmeVoPktStats.lostMpdu =
+      stats.iface.ac[WIFI_AC_VO].mpdu_lost;
+  hidl_stats->iface.wmeVoPktStats.retries = stats.iface.ac[WIFI_AC_VO].retries;
+  // radio stats conversion.
+  hidl_stats->radio.onTimeInMs = stats.radio.on_time;
+  hidl_stats->radio.txTimeInMs = stats.radio.tx_time;
+  hidl_stats->radio.rxTimeInMs = stats.radio.rx_time;
+  hidl_stats->radio.onTimeInMsForScan = stats.radio.on_time_scan;
+  hidl_stats->radio.txTimeInMsPerLevel.setToExternal(
+      const_cast<uint32_t*>(stats.radio_tx_time_per_levels.data()),
+      stats.radio_tx_time_per_levels.size());
+  // Timestamp in the HAL wrapper here since it's not provided in the legacy
+  // HAL API.
+  hidl_stats->timeStampInMs = android::uptimeMillis();
   return true;
 }
 }  // namespace
@@ -268,6 +328,9 @@ Return<void> WifiStaIface::getCapabilities(getCapabilities_cb cb) {
   uint32_t caps = 0;
   if (feature_set & WIFI_FEATURE_GSCAN) {
     caps &= static_cast<uint32_t>(StaIfaceCapabilityMask::BACKGROUND_SCAN);
+  }
+  if (feature_set & WIFI_FEATURE_LINK_LAYER_STATS) {
+    caps &= static_cast<uint32_t>(StaIfaceCapabilityMask::LINK_LAYER_STATS);
   }
   // Argh. Currently APF filter capability is implicitly
   // determined by the version provided in APF capabilities.
@@ -418,6 +481,86 @@ Return<void> WifiStaIface::stopBackgroundScan(uint32_t cmdId,
   } else {
     cb(createWifiStatus(WifiStatusCode::SUCCESS));
   }
+  return Void();
+}
+
+Return<void> WifiStaIface::getValidFrequenciesForBackgroundScan(
+    IWifiStaIface::BackgroundScanBand band,
+    getValidFrequenciesForBackgroundScan_cb cb) {
+  if (!is_valid_) {
+    cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_IFACE_INVALID),
+       hidl_vec<uint32_t>());
+    return Void();
+  }
+  std::pair<wifi_error, std::vector<uint32_t>> ret =
+      legacy_hal_.lock()->getValidFrequenciesForGscan(
+          static_cast<wifi_band>(band));
+  if (ret.first != WIFI_SUCCESS) {
+    cb(createWifiStatusFromLegacyError(ret.first), hidl_vec<uint32_t>());
+    return Void();
+  }
+  std::vector<uint32_t>& freqs = ret.second;
+  hidl_vec<uint32_t> hidl_freqs;
+  hidl_freqs.setToExternal(freqs.data(), freqs.size());
+  cb(createWifiStatus(WifiStatusCode::SUCCESS), hidl_freqs);
+  return Void();
+}
+
+Return<void> WifiStaIface::enableLinkLayerStatsCollection(
+    const IWifiStaIface::LinkLayerStatsCollectionParams& params,
+    enableLinkLayerStatsCollection_cb cb) {
+  if (!is_valid_) {
+    cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_IFACE_INVALID));
+    return Void();
+  }
+  wifi_error status =
+      legacy_hal_.lock()->enableLinkLayerStats(params.debugMode);
+  if (status != WIFI_SUCCESS) {
+    cb(createWifiStatusFromLegacyError(status));
+  } else {
+    cb(createWifiStatus(WifiStatusCode::SUCCESS));
+  }
+  return Void();
+}
+
+Return<void> WifiStaIface::disableLinkLayerStatsCollection(
+    disableLinkLayerStatsCollection_cb cb) {
+  if (!is_valid_) {
+    cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_IFACE_INVALID));
+    return Void();
+  }
+  wifi_error status = legacy_hal_.lock()->disableLinkLayerStats();
+  if (status != WIFI_SUCCESS) {
+    cb(createWifiStatusFromLegacyError(status));
+  } else {
+    cb(createWifiStatus(WifiStatusCode::SUCCESS));
+  }
+  return Void();
+}
+
+Return<void> WifiStaIface::getLinkLayerStats(getLinkLayerStats_cb cb) {
+  if (!is_valid_) {
+    cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_IFACE_INVALID),
+       IWifiStaIface::LinkLayerStats());
+    return Void();
+  }
+  std::pair<wifi_error, LinkLayerStatsData> ret =
+      legacy_hal_.lock()->getLinkLayerStats();
+  if (ret.first != WIFI_SUCCESS) {
+    cb(createWifiStatusFromLegacyError(ret.first),
+       IWifiStaIface::LinkLayerStats());
+    return Void();
+  }
+  LinkLayerStatsData& stats = ret.second;
+  IWifiStaIface::LinkLayerStats hidl_stats;
+  if (!convertInternalLinkLayerStatsToHidl(stats, &hidl_stats)) {
+    LOG(ERROR) << "Failed to convert link layer stats to HIDL structs";
+    cb(createWifiStatus(WifiStatusCode::ERROR_UNKNOWN),
+       IWifiStaIface::LinkLayerStats());
+    return Void();
+  }
+
+  cb(createWifiStatus(WifiStatusCode::SUCCESS), hidl_stats);
   return Void();
 }
 }  // namespace implementation
