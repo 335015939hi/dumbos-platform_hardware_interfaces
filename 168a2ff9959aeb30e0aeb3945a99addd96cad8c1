@@ -1,0 +1,199 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ca192a9_d0a63cab",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-12T23:43:32Z",
+      "side": 1,
+      "message": "I think this is misleading. In my mind, synchronous is roughly equivalent to blocking. And all of the methods here were already blocking.",
+      "range": {
+        "startLine": 9,
+        "startChar": 44,
+        "endLine": 9,
+        "endChar": 55
+      },
+      "revId": "168a2ff9959aeb30e0aeb3945a99addd96cad8c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ca192a9_10eb64a1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-12T23:43:32Z",
+      "side": 1,
+      "message": "Is this true? AFAICT, getChip() and getChipId() do not return status codes. I\u0027m not sure if that\u0027s an issue with the commit message, or with the implementation.\n\n(Said differently: have you deliberately decided that getChip() and getChipId() should be available when the HAL is stopped? I understand that implementation-wise, it\u0027s possible to support that. But the question is more about the API: should callers expect these methods to be available, even before starting the HAL, or after stopping the HAL?)",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 11
+      },
+      "revId": "168a2ff9959aeb30e0aeb3945a99addd96cad8c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ca192a9_50aeccef",
+        "filename": "wifi/1.0/default/wifi.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-12T23:43:32Z",
+      "side": 1,
+      "message": "If this method can Return\u003cWifiStatus\u003e instead, we\u0027ll eliminate the risk that we invoke the callback, but forget to |return|. (No such bugs right now, but it\u0027d be better if we can avoid the risk entirely.)",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 17
+      },
+      "revId": "168a2ff9959aeb30e0aeb3945a99addd96cad8c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ca192a9_d0363ce9",
+        "filename": "wifi/1.0/default/wifi.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-12T23:43:32Z",
+      "side": 1,
+      "message": "Consider a different name. This name suggests an instance of WifiStatus, even though the variable is an instance of wifi_error.",
+      "range": {
+        "startLine": 60,
+        "startChar": 13,
+        "endLine": 60,
+        "endChar": 24
+      },
+      "revId": "168a2ff9959aeb30e0aeb3945a99addd96cad8c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ca192a9_30614808",
+        "filename": "wifi/1.0/default/wifi.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-12T23:43:32Z",
+      "side": 1,
+      "message": "Out of scope for this CL, but... RunState::STOPPING seems like an non-recoverable condition. Is that intentional?\n\n(We\u0027ll be in the STOPPING state if a previous call to stop() failed. But there\u0027s no polling of whether that previously failed stop() has now completed. And any call to start() or stop() will exit before poking the legacy_hal_. So we never exit the STOPPING state.)",
+      "range": {
+        "startLine": 81,
+        "startChar": 37,
+        "endLine": 81,
+        "endChar": 45
+      },
+      "revId": "168a2ff9959aeb30e0aeb3945a99addd96cad8c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ca192a9_706110d5",
+        "filename": "wifi/1.0/default/wifi.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-12T23:43:32Z",
+      "side": 1,
+      "message": "As at line 60.",
+      "range": {
+        "startLine": 99,
+        "startChar": 13,
+        "endLine": 99,
+        "endChar": 24
+      },
+      "revId": "168a2ff9959aeb30e0aeb3945a99addd96cad8c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ca192a9_d0871cc2",
+        "filename": "wifi/1.0/default/wifi.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-12T23:43:32Z",
+      "side": 1,
+      "message": "Consider hoisting this outside the loop, to make line 106 simpler.",
+      "range": {
+        "startLine": 104,
+        "startChar": 10,
+        "endLine": 104,
+        "endChar": 42
+      },
+      "revId": "168a2ff9959aeb30e0aeb3945a99addd96cad8c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c64320a_72b3f89f",
+        "filename": "wifi/1.0/default/wifi.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-12T23:43:32Z",
+      "side": 1,
+      "message": "This might just be because I\u0027m new to HIDL, but I don\u0027t understand the asymmetry between start() and isStarted(). Why does start() return a result via a synchronous callback, while isStarted() returns its result in a more conventional way?\n\n(I\u0027m not necessarily opposed to what you have here, but I want to understand the rationale. Note that having a clear rationale will increase the odds of maintaining a uniform approach, if/when we add new methods in the future.)",
+      "revId": "168a2ff9959aeb30e0aeb3945a99addd96cad8c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ca192a9_30022871",
+        "filename": "wifi/1.0/default/wifi.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-12T23:43:32Z",
+      "side": 1,
+      "message": "As at line 46.",
+      "revId": "168a2ff9959aeb30e0aeb3945a99addd96cad8c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
