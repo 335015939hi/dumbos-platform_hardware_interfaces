@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dcf8228c_327b2880",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-12T17:59:45Z",
+      "side": 1,
+      "message": "fix indentation (should be two to match the rest of the file)\n\n.hal standard is four everywhere",
+      "range": {
+        "startLine": 217,
+        "startChar": 2,
+        "endLine": 221,
+        "endChar": 18
+      },
+      "revId": "a6890495e1af1ce701ec91b30831cd183fa48319",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf8228c_52b35454",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-12T17:59:45Z",
+      "side": 1,
+      "message": "must",
+      "range": {
+        "startLine": 471,
+        "startChar": 37,
+        "endLine": 471,
+        "endChar": 39
+      },
+      "revId": "a6890495e1af1ce701ec91b30831cd183fa48319",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
