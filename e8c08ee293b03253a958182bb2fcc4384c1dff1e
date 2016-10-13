@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "fc74060d_054332fe",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-10-13T17:42:52Z",
+      "side": 1,
+      "message": "Yes we should update it to ICC or UICC. Sinc function name is requestGetSimStatus, I am keeping it Sim. We can change everything later or if you want I can change everything to ICC or UICC along with this CL.",
+      "parentUuid": "5ca192a9_7f28fb88",
+      "revId": "e8c08ee293b03253a958182bb2fcc4384c1dff1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ca192a9_1f452f71",
         "filename": "radio/1.0/IRadio.hal",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2016-10-13T02:55:31Z",
       "side": 1,
       "message": "I don\u0027t think this is needed here. This is going to be something purely on the vendor side.\nSame for all functions below.",
+      "revId": "e8c08ee293b03253a958182bb2fcc4384c1dff1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc74060d_65cdc67c",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-10-13T17:42:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ca192a9_1f452f71",
       "revId": "e8c08ee293b03253a958182bb2fcc4384c1dff1e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "fc74060d_c8bf6fa3",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-10-13T17:42:52Z",
+      "side": 1,
+      "message": "I was going over hidl style doc and i saw @param is present before @return. Since errors are in a way returned values, I kept it at the end. Even ril.h has similar format. \nBut if its required by style, let me know, I will update it. If not i should probably have similar format for requestGetSimStatus.",
+      "parentUuid": "5ca192a9_5f3fb7e0",
+      "revId": "e8c08ee293b03253a958182bb2fcc4384c1dff1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ca192a9_bfb4233b",
         "filename": "radio/1.0/IRadio.hal",
         "patchSetId": 3
@@ -64,6 +118,30 @@
       "writtenOn": "2016-10-13T02:55:31Z",
       "side": 1,
       "message": ":",
+      "range": {
+        "startLine": 56,
+        "startChar": 19,
+        "endLine": 56,
+        "endChar": 20
+      },
+      "revId": "e8c08ee293b03253a958182bb2fcc4384c1dff1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc74060d_48e53fca",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-10-13T17:42:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ca192a9_bfb4233b",
       "range": {
         "startLine": 56,
         "startChar": 19,
@@ -99,6 +177,30 @@
     },
     {
       "key": {
+        "uuid": "fc74060d_c8d84f12",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-10-13T17:42:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ca192a9_1f2e0fb1",
+      "range": {
+        "startLine": 127,
+        "startChar": 4,
+        "endLine": 127,
+        "endChar": 8
+      },
+      "revId": "e8c08ee293b03253a958182bb2fcc4384c1dff1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ca192a9_5f0a572f",
         "filename": "radio/1.0/IRadioCallback.hal",
         "patchSetId": 3
@@ -116,6 +218,24 @@
     },
     {
       "key": {
+        "uuid": "fc74060d_68fcbb53",
+        "filename": "radio/1.0/IRadioCallback.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-10-13T17:42:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ca192a9_5f0a572f",
+      "revId": "e8c08ee293b03253a958182bb2fcc4384c1dff1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ca192a9_1f528f0f",
         "filename": "radio/1.0/IRadioCallback.hal",
         "patchSetId": 3
@@ -127,6 +247,30 @@
       "writtenOn": "2016-10-13T02:55:31Z",
       "side": 1,
       "message": "Currently its called Sim, but as I mentioned in the other file lets revisit all of these and have a consistent name.",
+      "range": {
+        "startLine": 31,
+        "startChar": 48,
+        "endLine": 31,
+        "endChar": 51
+      },
+      "revId": "e8c08ee293b03253a958182bb2fcc4384c1dff1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc74060d_e807cb78",
+        "filename": "radio/1.0/IRadioCallback.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-10-13T17:42:52Z",
+      "side": 1,
+      "message": "keeping it sim everywhere as of now. We can change it if required in this CL itself.",
+      "parentUuid": "5ca192a9_1f528f0f",
       "range": {
         "startLine": 31,
         "startChar": 48,
@@ -162,6 +306,30 @@
     },
     {
       "key": {
+        "uuid": "fc74060d_68167b62",
+        "filename": "radio/1.0/IRadioCallback.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-10-13T17:42:52Z",
+      "side": 1,
+      "message": "Currently response returned by QC is int[]. responseInts gets called for this RIL response and \"response\" passed is int[]. If we change this to int, all vendors would have to be required to do it for O.",
+      "parentUuid": "5ca192a9_1f8d2f90",
+      "range": {
+        "startLine": 37,
+        "startChar": 43,
+        "endLine": 37,
+        "endChar": 55
+      },
+      "revId": "e8c08ee293b03253a958182bb2fcc4384c1dff1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ca192a9_7f8c7b91",
         "filename": "radio/1.0/types.hal",
         "patchSetId": 3
@@ -173,6 +341,30 @@
       "writtenOn": "2016-10-13T02:55:31Z",
       "side": 1,
       "message": "Space after :",
+      "range": {
+        "startLine": 57,
+        "startChar": 16,
+        "endLine": 57,
+        "endChar": 17
+      },
+      "revId": "e8c08ee293b03253a958182bb2fcc4384c1dff1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc74060d_281f231f",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-10-13T17:42:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ca192a9_7f8c7b91",
       "range": {
         "startLine": 57,
         "startChar": 16,
@@ -208,6 +400,30 @@
     },
     {
       "key": {
+        "uuid": "fc74060d_a807932b",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-10-13T17:42:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ca192a9_1ff60ff0",
+      "range": {
+        "startLine": 225,
+        "startChar": 25,
+        "endLine": 225,
+        "endChar": 27
+      },
+      "revId": "e8c08ee293b03253a958182bb2fcc4384c1dff1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ca192a9_df9ac7bf",
         "filename": "radio/1.0/types.hal",
         "patchSetId": 3
@@ -219,6 +435,30 @@
       "writtenOn": "2016-10-13T02:55:31Z",
       "side": 1,
       "message": "I think we can get rid of these. Service should be able to handle it.",
+      "range": {
+        "startLine": 228,
+        "startChar": 7,
+        "endLine": 228,
+        "endChar": 38
+      },
+      "revId": "e8c08ee293b03253a958182bb2fcc4384c1dff1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc74060d_a80a33d9",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-10-13T17:42:52Z",
+      "side": 1,
+      "message": "Do you mean we should remove enums from 2 to 9 ?",
+      "parentUuid": "5ca192a9_df9ac7bf",
       "range": {
         "startLine": 228,
         "startChar": 7,
@@ -254,6 +494,30 @@
     },
     {
       "key": {
+        "uuid": "fc74060d_a83953da",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-10-13T17:42:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ca192a9_fff06bed",
+      "range": {
+        "startLine": 244,
+        "startChar": 4,
+        "endLine": 244,
+        "endChar": 9
+      },
+      "revId": "e8c08ee293b03253a958182bb2fcc4384c1dff1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ca192a9_ff014b16",
         "filename": "radio/1.0/types.hal",
         "patchSetId": 3
@@ -277,6 +541,30 @@
     },
     {
       "key": {
+        "uuid": "fc74060d_28a9e3e6",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-10-13T17:42:52Z",
+      "side": 1,
+      "message": "This is to differentiate RESPONSE_UNSOLICITED, RESPONSE_UNSOLICITED_ACK_EXP, RESPONSE_SOLICITED, RESPONSE_SOLICITED_ACK_EXP \u0026 RESPONSE_SOLICITED_ACK on RIL java side which cannot be differentiated based on callback.",
+      "parentUuid": "5ca192a9_ff014b16",
+      "range": {
+        "startLine": 279,
+        "startChar": 12,
+        "endLine": 279,
+        "endChar": 16
+      },
+      "revId": "e8c08ee293b03253a958182bb2fcc4384c1dff1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ca192a9_7f055bed",
         "filename": "radio/1.0/types.hal",
         "patchSetId": 3
@@ -288,6 +576,30 @@
       "writtenOn": "2016-10-13T02:55:31Z",
       "side": 1,
       "message": "RadioUusDcs",
+      "range": {
+        "startLine": 314,
+        "startChar": 4,
+        "endLine": 314,
+        "endChar": 17
+      },
+      "revId": "e8c08ee293b03253a958182bb2fcc4384c1dff1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc74060d_c8cccfb8",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-10-13T17:42:52Z",
+      "side": 1,
+      "message": "strange that this didn\u0027t get caught while compiling.\nI hope this is right way to build \nmake hidl-gen \u0026\u0026 hardware/interfaces/update-makefiles.sh \u0026\u0026 \nmake -j 32",
+      "parentUuid": "5ca192a9_7f055bed",
       "range": {
         "startLine": 314,
         "startChar": 4,
