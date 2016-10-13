@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1cd63a37_162e9c41",
+        "filename": "wifi/1.0/default/wifi.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-13T18:46:41Z",
+      "side": 1,
+      "message": "(Continued from PS5)\n\nSorry, but |status| still echoes WifiStatus. I\u0027d really like this name to convey that we\u0027re dealing with the lower-layer status, rather than the upper-layer status.\n\nMaybe |legacy_status|?",
+      "range": {
+        "startLine": 60,
+        "startChar": 13,
+        "endLine": 60,
+        "endChar": 19
+      },
+      "revId": "9c00014a5b63f63c64a0e3a17b1f037dcd49bb08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cd63a37_d6d9444a",
+        "filename": "wifi/1.0/default/wifi.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-13T18:46:41Z",
+      "side": 1,
+      "message": "(Continued from PS5)\n\nNope, not done! (I won\u0027t object if you disagree with the suggestion. But I\u0027d like to be clear on what you decided. \"Done\" seems to indicate that you agreed with it. But the code hasn\u0027t been modified accordingly.)",
+      "revId": "9c00014a5b63f63c64a0e3a17b1f037dcd49bb08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
