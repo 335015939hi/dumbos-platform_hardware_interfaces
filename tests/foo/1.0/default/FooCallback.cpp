@@ -1,3 +1,6 @@
+
+#define LOG_TAG "hidl_test"
+
 #include "FooCallback.h"
 #include <android-base/logging.h>
 #include <inttypes.h>
@@ -9,13 +12,27 @@ namespace foo {
 namespace V1_0 {
 namespace implementation {
 
+enum {
+    NOT_REPORTED = -1LL
+};
+
+FooCallback::FooCallback()
+        : mLock{}, mCond{} {
+    for (size_t i = 0; i < 3; i++) {
+        invokeInfo[i].invoked = false;
+        invokeInfo[i].timeNs = NOT_REPORTED;
+        invokeInfo[i].callerBlockedNs = NOT_REPORTED;
+    }
+}
+
 Return<void> FooCallback::heyItsYou(
         const sp<IFooCallback> &_cb) {
     nsecs_t start = systemTime();
     ALOGI("SERVER(FooCallback) heyItsYou cb = %p", _cb.get());
+    nsecs_t end = systemTime();
     mLock.lock();
     invokeInfo[0].invoked = true;
-    invokeInfo[0].timeNs = systemTime() - start;
+    invokeInfo[0].timeNs = end - start;
     mCond.signal();
     mLock.unlock();
     return Void();
@@ -26,9 +43,10 @@ Return<bool> FooCallback::heyItsYouIsntIt(const sp<IFooCallback> &_cb) {
     ALOGI("SERVER(FooCallback) heyItsYouIsntIt cb = %p sleeping for %" PRId64 " seconds", _cb.get(), DELAY_S);
     sleep(DELAY_S);
     ALOGI("SERVER(FooCallback) heyItsYouIsntIt cb = %p responding", _cb.get());
+    nsecs_t end = systemTime();
     mLock.lock();
     invokeInfo[1].invoked = true;
-    invokeInfo[1].timeNs = systemTime() - start;
+    invokeInfo[1].timeNs = end - start;
     mCond.signal();
     mLock.unlock();
     return true;
@@ -39,9 +57,10 @@ Return<void> FooCallback::heyItsTheMeaningOfLife(uint8_t tmol) {
     ALOGI("SERVER(FooCallback) heyItsTheMeaningOfLife = %d sleeping for %" PRId64 " seconds", tmol, DELAY_S);
     sleep(DELAY_S);
     ALOGI("SERVER(FooCallback) heyItsTheMeaningOfLife = %d done sleeping", tmol);
+    nsecs_t end = systemTime();
     mLock.lock();
     invokeInfo[2].invoked = true;
-    invokeInfo[2].timeNs = systemTime() - start;
+    invokeInfo[2].timeNs = end - start;
     mCond.signal();
     mLock.unlock();
     return Void();
@@ -52,6 +71,9 @@ Return<void> FooCallback::reportResults(int64_t ns, reportResults_cb cb) {
     nsecs_t leftToWaitNs = ns;
     mLock.lock();
     while (!(invokeInfo[0].invoked && invokeInfo[1].invoked && invokeInfo[2].invoked) &&
+           (invokeInfo[0].callerBlockedNs == NOT_REPORTED ||
+            invokeInfo[1].callerBlockedNs == NOT_REPORTED ||
+            invokeInfo[2].callerBlockedNs == NOT_REPORTED)   &&
            leftToWaitNs > 0) {
       nsecs_t start = systemTime();
       ::android::status_t rc = mCond.waitRelative(mLock, leftToWaitNs);
