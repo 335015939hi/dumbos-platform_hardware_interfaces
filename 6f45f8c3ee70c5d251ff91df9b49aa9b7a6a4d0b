@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "1cd63a37_19636fac",
+        "filename": "bluetooth/1.0/IBluetoothHci.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-13T19:26:52Z",
+      "side": 1,
+      "message": "Does this also apply to the below methods?",
+      "parentUuid": "1cd63a37_39506b00",
+      "range": {
+        "startLine": 48,
+        "startChar": 7,
+        "endLine": 49,
+        "endChar": 62
+      },
+      "revId": "6f45f8c3ee70c5d251ff91df9b49aa9b7a6a4d0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cd63a37_b61da8d5",
         "filename": "bluetooth/1.0/IBluetoothHci.hal",
         "patchSetId": 4
