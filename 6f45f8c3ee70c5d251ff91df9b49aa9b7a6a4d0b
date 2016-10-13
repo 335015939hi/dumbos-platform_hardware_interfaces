@@ -285,6 +285,30 @@
     },
     {
       "key": {
+        "uuid": "1cd63a37_dc604506",
+        "filename": "bluetooth/1.0/default/BluetoothHci.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1058798
+      },
+      "writtenOn": "2016-10-13T20:40:47Z",
+      "side": 1,
+      "message": "Again, ignore please ;)",
+      "parentUuid": "1cd63a37_d9473707",
+      "range": {
+        "startLine": 21,
+        "startChar": 2,
+        "endLine": 21,
+        "endChar": 16
+      },
+      "revId": "6f45f8c3ee70c5d251ff91df9b49aa9b7a6a4d0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cd63a37_d601446d",
         "filename": "bluetooth/1.0/default/BluetoothHci.cpp",
         "patchSetId": 4
@@ -391,6 +415,30 @@
       "side": 1,
       "message": "b/32109611",
       "parentUuid": "1cd63a37_596c47c2",
+      "range": {
+        "startLine": 1,
+        "startChar": 8,
+        "endLine": 1,
+        "endChar": 29
+      },
+      "revId": "6f45f8c3ee70c5d251ff91df9b49aa9b7a6a4d0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cd63a37_1c9ebd03",
+        "filename": "bluetooth/1.0/default/android.hardware.bluetooth@1.0-service.rc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1058798
+      },
+      "writtenOn": "2016-10-13T20:40:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cd63a37_1915aff7",
       "range": {
         "startLine": 1,
         "startChar": 8,
