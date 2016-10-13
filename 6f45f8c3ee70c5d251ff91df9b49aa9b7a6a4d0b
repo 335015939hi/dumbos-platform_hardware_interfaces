@@ -261,6 +261,30 @@
     },
     {
       "key": {
+        "uuid": "1cd63a37_d9473707",
+        "filename": "bluetooth/1.0/default/BluetoothHci.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-13T19:28:42Z",
+      "side": 1,
+      "message": "I suppose, but why include it here in the first place then?",
+      "parentUuid": "1cd63a37_d97f3768",
+      "range": {
+        "startLine": 21,
+        "startChar": 2,
+        "endLine": 21,
+        "endChar": 16
+      },
+      "revId": "6f45f8c3ee70c5d251ff91df9b49aa9b7a6a4d0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cd63a37_d601446d",
         "filename": "bluetooth/1.0/default/BluetoothHci.cpp",
         "patchSetId": 4
@@ -343,6 +367,30 @@
       "side": 1,
       "message": "Done (but why do we keep including version numbers??? Doesn\u0027t make sense to me.)",
       "parentUuid": "1cd63a37_d66a6413",
+      "range": {
+        "startLine": 1,
+        "startChar": 8,
+        "endLine": 1,
+        "endChar": 29
+      },
+      "revId": "6f45f8c3ee70c5d251ff91df9b49aa9b7a6a4d0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cd63a37_1915aff7",
+        "filename": "bluetooth/1.0/default/android.hardware.bluetooth@1.0-service.rc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-13T19:28:42Z",
+      "side": 1,
+      "message": "b/32109611",
+      "parentUuid": "1cd63a37_596c47c2",
       "range": {
         "startLine": 1,
         "startChar": 8,
