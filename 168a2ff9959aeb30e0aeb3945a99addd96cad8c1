@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5ca192a9_364dc03f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-13T00:07:26Z",
+      "side": 1,
+      "message": "True. The methods were blocking but operation status was delivered asynchonously via callbacks.\nReworded to indicate that the return is being made synchronous now.",
+      "parentUuid": "5ca192a9_d0a63cab",
+      "range": {
+        "startLine": 9,
+        "startChar": 44,
+        "endLine": 9,
+        "endChar": 55
+      },
+      "revId": "168a2ff9959aeb30e0aeb3945a99addd96cad8c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ca192a9_10eb64a1",
         "filename": "/COMMIT_MSG",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-12T23:43:32Z",
       "side": 1,
       "message": "Is this true? AFAICT, getChip() and getChipId() do not return status codes. I\u0027m not sure if that\u0027s an issue with the commit message, or with the implementation.\n\n(Said differently: have you deliberately decided that getChip() and getChipId() should be available when the HAL is stopped? I understand that implementation-wise, it\u0027s possible to support that. But the question is more about the API: should callers expect these methods to be available, even before starting the HAL, or after stopping the HAL?)",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 11
+      },
+      "revId": "168a2ff9959aeb30e0aeb3945a99addd96cad8c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ca192a9_f66258a5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-13T00:07:26Z",
+      "side": 1,
+      "message": "They were intentionally left out because there is no possible error cases for those methods. So, there is no need to return a status there.\n\nChanged commit message to reflect that.",
+      "parentUuid": "5ca192a9_10eb64a1",
       "range": {
         "startLine": 10,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "5ca192a9_16a43c10",
+        "filename": "wifi/1.0/default/wifi.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-13T00:07:26Z",
+      "side": 1,
+      "message": "As explained in the previous file. structs need to be returned via callbacks.\n\nIt\u0027s ugly looking code to get some minor performance improvements :(",
+      "parentUuid": "5ca192a9_50aeccef",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 17
+      },
+      "revId": "168a2ff9959aeb30e0aeb3945a99addd96cad8c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ca192a9_d0363ce9",
         "filename": "wifi/1.0/default/wifi.cpp",
         "patchSetId": 5
@@ -82,6 +154,30 @@
       "writtenOn": "2016-10-12T23:43:32Z",
       "side": 1,
       "message": "Consider a different name. This name suggests an instance of WifiStatus, even though the variable is an instance of wifi_error.",
+      "range": {
+        "startLine": 60,
+        "startChar": 13,
+        "endLine": 60,
+        "endChar": 24
+      },
+      "revId": "168a2ff9959aeb30e0aeb3945a99addd96cad8c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ca192a9_36a940e7",
+        "filename": "wifi/1.0/default/wifi.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-13T00:07:26Z",
+      "side": 1,
+      "message": "Oh. that was sed error. Renamed to |status| as used in the other files.",
+      "parentUuid": "5ca192a9_d0363ce9",
       "range": {
         "startLine": 60,
         "startChar": 13,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "5ca192a9_16f6fcef",
+        "filename": "wifi/1.0/default/wifi.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-13T00:07:26Z",
+      "side": 1,
+      "message": "Filed b/32125428",
+      "parentUuid": "5ca192a9_30614808",
+      "range": {
+        "startLine": 81,
+        "startChar": 37,
+        "endLine": 81,
+        "endChar": 45
+      },
+      "revId": "168a2ff9959aeb30e0aeb3945a99addd96cad8c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ca192a9_706110d5",
         "filename": "wifi/1.0/default/wifi.cpp",
         "patchSetId": 5
@@ -128,6 +248,30 @@
       "writtenOn": "2016-10-12T23:43:32Z",
       "side": 1,
       "message": "As at line 60.",
+      "range": {
+        "startLine": 99,
+        "startChar": 13,
+        "endLine": 99,
+        "endChar": 24
+      },
+      "revId": "168a2ff9959aeb30e0aeb3945a99addd96cad8c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ca192a9_d6c1d497",
+        "filename": "wifi/1.0/default/wifi.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-13T00:07:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ca192a9_706110d5",
       "range": {
         "startLine": 99,
         "startChar": 13,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "5ca192a9_168d1c90",
+        "filename": "wifi/1.0/default/wifi.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-13T00:07:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ca192a9_d0871cc2",
+      "range": {
+        "startLine": 104,
+        "startChar": 10,
+        "endLine": 104,
+        "endChar": 42
+      },
+      "revId": "168a2ff9959aeb30e0aeb3945a99addd96cad8c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5c64320a_72b3f89f",
         "filename": "wifi/1.0/default/wifi.h",
         "patchSetId": 5
@@ -180,6 +348,24 @@
     },
     {
       "key": {
+        "uuid": "5ca192a9_562324af",
+        "filename": "wifi/1.0/default/wifi.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-13T00:07:26Z",
+      "side": 1,
+      "message": "This part of HIDL semantics is pretty annoying for a lot of people :). See b/31951482 for more.\n\nThe simple answer is that\na) any HIDL method returning a primitive type (int, bool, string, etc) will directly return a value in the generated code.\nb) Any HIDL method returning a complex/user defined type (vector, structs, etc) will be returned via callbacks in the generated code.",
+      "parentUuid": "5c64320a_72b3f89f",
+      "revId": "168a2ff9959aeb30e0aeb3945a99addd96cad8c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ca192a9_30022871",
         "filename": "wifi/1.0/default/wifi.h",
         "patchSetId": 5
@@ -191,6 +377,24 @@
       "writtenOn": "2016-10-12T23:43:32Z",
       "side": 1,
       "message": "As at line 46.",
+      "revId": "168a2ff9959aeb30e0aeb3945a99addd96cad8c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ca192a9_76282889",
+        "filename": "wifi/1.0/default/wifi.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-13T00:07:26Z",
+      "side": 1,
+      "message": "Same.",
+      "parentUuid": "5ca192a9_30022871",
       "revId": "168a2ff9959aeb30e0aeb3945a99addd96cad8c1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
