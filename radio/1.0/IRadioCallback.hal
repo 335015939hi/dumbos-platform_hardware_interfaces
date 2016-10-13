@@ -17,16 +17,98 @@
 package android.hardware.radio@1.0;
 
 interface IRadioCallback {
-    /**
+    // Solicited callbacks are listed below
+
+    /*
      * Response callback for IRadio.requestGetSimStatus()
      *
-     * @param serial Serial number of request
-     * @param cardStatus ICC card status
+     * @param info Response info struct containing response type, serial no. & error
+     * @param cardStatus Sim card status
      */
-    responseGetSimStatus(int32_t serial, RadioCardStatus cardStatus);
+    responseGetSimStatus(ResponseInfo info, RadioCardStatus cardStatus);
 
-    // ONLY UNSOLICITED CALLBACKS BELOW
-    /**
+    /*
+     * Response callback for IRadio.requestEnterIccPin()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param remainingRetries Number of retries remaining will be stored in remainingRetries[0],
+     *                         will be equal to -1 if unknown.
+     */
+    responseEnterSimPin(ResponseInfo info, vec<int32_t> remainingRetries);
+
+    /*
+     * Response callback for IRadio.requestEnterIccPuk()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param remainingRetries Number of retries remaining will be stored in remainingRetries[0],
+     *                         will be equal to -1 if unknown.
+     */
+    responseEnterSimPuk(ResponseInfo info, vec<int32_t> remainingRetries);
+
+    /*
+     * Response callback for IRadio.requestEnterIccPin2()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param remainingRetries Number of retries remaining will be stored in remainingRetries[0],
+     *                         will be equal to -1 if unknown.
+     */
+    responseEnterSimPin2(ResponseInfo info, vec<int32_t> remainingRetries);
+
+    /*
+     * Response callback for IRadio.requestEnterIccPuk2()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param remainingRetries Number of retries remaining will be stored in remainingRetries[0],
+     *                         will be equal to -1 if unknown.
+     */
+    responseEnterSimPuk2(ResponseInfo info, vec<int32_t> remainingRetries);
+
+    /*
+     * Response callback for IRadio.requestChangeSimPin()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param remainingRetries Number of retries remaining will be stored in remainingRetries[0],
+     *                         will be equal to -1 if unknown.
+     */
+    responseChangeSimPin(ResponseInfo info, vec<int32_t> remainingRetries);
+
+    /*
+     * Response callback for IRadio.requestChangeSimPin2()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param remainingRetries Number of retries remaining will be stored in remainingRetries[0],
+     *                         will be equal to -1 if unknown.
+     */
+    responseChangeSimPin2(ResponseInfo info, vec<int32_t> remainingRetries);
+
+    /*
+     * Response callback for IRadio.requestEnterNetworkDepersonalization()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param remainingRetries Number of retries remaining will be stored in remainingRetries[0],
+     *                         will be equal to -1 if unknown.
+     */
+    responseEnterNetworkDepersonalization(ResponseInfo info, vec<int32_t> remainingRetries);
+
+    /*
+     * Response callback for IRadio.requestGetCurrentCalls()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param radioCalls Call list
+     */
+    responseGetCurrentCalls(ResponseInfo info, vec<RadioCall> radioCalls);
+
+    /*
+     * Response callback for IRadio.requestDial()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     */
+    responseDial(ResponseInfo info);
+
+
+    // UNSOLICITED CALLBACKS BELOW
+
+    /*
      * Called when radio state changes.
      *
      * @param radioState Current radio state
