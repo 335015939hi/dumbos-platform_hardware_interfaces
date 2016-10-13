@@ -29,11 +29,6 @@ interface IWifiStaIfaceEventCallback {
   };
 
   /**
-   * BSSID type. 6 octets representing the physical address of an AP.
-   */
-  typedef uint8_t[6] Bssid;
-
-  /**
    * Structure describing all the information about a single access point seen
    * during the scan.
    */
@@ -41,7 +36,7 @@ interface IWifiStaIfaceEventCallback {
     int64_t timeStampInUs;
     vec<uint8_t> ssid;
     Bssid bssid;
-    uint32_t frequencyInMhz;
+    WifiChannel frequencyInMhz;
     int8_t rssi;
     uint16_t beaconPeriodInMs;
     uint16_t capability;
