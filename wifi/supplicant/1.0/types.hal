@@ -54,14 +54,5 @@ struct SupplicantStatus {
   string debugMessage;
 };
 
-/** SSID type. Max of 32 octets representing service identifier of a network. */
-typedef vec<uint8_t> Ssid;
-
-/** MAC Address type. 6 octets representing physical address of a device. */
-typedef uint8_t[6] MacAddress;
-
-/** BSSID type. 6 octets representing the physical address of an AP. */
-typedef MacAddress Bssid;
-
 /** Supplicant network ID type. */
 typedef uint32_t SupplicantNetworkId;

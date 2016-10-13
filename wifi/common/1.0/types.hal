@@ -1,0 +1,44 @@
+/*
+ * Copyright 2016 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package android.hardware.wifi.common@1.0;
+
+/**
+ * Channel frequency in Mhz.
+ */
+typedef uint32_t WifiChannel;
+
+/**
+ * Mac Address type. 6 octets representing physical address of a device.
+ */
+typedef uint8_t[6] MacAddress;
+
+/**
+ * BSSID type. 6 octets representing the physical address of an AP.
+ */
+typedef MacAddress Bssid;
+
+/**
+ * SSID type. Max of 32 octets representing service identifier of a network.
+ */
+typedef vec<uint8_t> Ssid;
+
+/**
+ * A unique handle provided by the client to identify individual invocations of
+ * certain API's like |IWifiStaIface.startBackgroundScan|,
+ * |IWifiStaIface.installApfPacketFilter|, etc.
+ */
+typedef uint32_t CommandId;

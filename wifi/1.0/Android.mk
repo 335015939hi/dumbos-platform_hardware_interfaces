@@ -12,6 +12,11 @@ intermediates := $(local-generated-sources-dir)
 
 HIDL := $(HOST_OUT_EXECUTABLES)/hidl-gen$(HOST_EXECUTABLE_SUFFIX)
 
+LOCAL_JAVA_LIBRARIES := \
+    android.hardware.wifi.common@1.0-java \
+    android.hardware.wifi.nan@1.0-java \
+
+
 #
 # Build types.hal (IfaceType)
 #
@@ -307,6 +312,11 @@ LOCAL_MODULE_CLASS := JAVA_LIBRARIES
 intermediates := $(local-generated-sources-dir)
 
 HIDL := $(HOST_OUT_EXECUTABLES)/hidl-gen$(HOST_EXECUTABLE_SUFFIX)
+
+LOCAL_STATIC_JAVA_LIBRARIES := \
+    android.hardware.wifi.common@1.0-java-static \
+    android.hardware.wifi.nan@1.0-java-static \
+
 
 #
 # Build types.hal (IfaceType)
