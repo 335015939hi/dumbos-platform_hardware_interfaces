@@ -698,6 +698,30 @@
     },
     {
       "key": {
+        "uuid": "1cd63a37_b9da3bdb",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-13T19:06:33Z",
+      "side": 1,
+      "message": "Should probably be documented.",
+      "parentUuid": "9f7dbc55_b0bdbace",
+      "range": {
+        "startLine": 260,
+        "startChar": 19,
+        "endLine": 260,
+        "endChar": 72
+      },
+      "revId": "0929b268a331c3a312d76f70a42c092028406427",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f7dbc55_73b09ff5",
         "filename": "wifi/1.0/IWifiStaIface.hal",
         "patchSetId": 10
