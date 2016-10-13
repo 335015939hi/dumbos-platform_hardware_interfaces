@@ -1,0 +1,75 @@
+/*
+ * Copyright (C) 2016 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+#include <unistd.h>
+#include <iostream>
+
+#include <android/hardware/bluetooth/1.0/IBluetoothHci.h>
+
+#include <android-base/logging.h>
+#include <hwbinder/IPCThreadState.h>
+#include <hwbinder/ProcessState.h>
+#include <utils/Errors.h>
+#include <utils/Looper.h>
+#include <utils/StrongPointer.h>
+
+#include "BluetoothHci.h"
+
+using android::hardware::hidl_version;
+using android::hardware::IPCThreadState;
+using android::hardware::ProcessState;
+using android::Looper;
+using android::sp;
+
+using android::hardware::bluetooth::V1_0::IBluetoothHci;
+
+namespace {
+int OnBinderReadReady(int /*fd*/, int /*events*/, void* /*data*/) {
+  IPCThreadState::self()->handlePolledCommands();
+  return 1;  // continue receiving events
+}
+}
+
+int main(int /*argc*/, char** argv) {
+  android::base::InitLogging(argv,
+                             android::base::LogdLogger(android::base::SYSTEM));
+
+  // Setup binder
+  int binder_fd = -1;
+  ProcessState::self()->setThreadPoolMaxThreadCount(0);
+  CHECK_EQ(IPCThreadState::self()->setupPolling(&binder_fd), android::NO_ERROR)
+      << "Failed to initialize binder polling";
+  CHECK_GE(binder_fd, 0) << "Invalid binder FD: " << binder_fd;
+
+  // Setup looper
+  sp<Looper> looper = Looper::prepare(0 /* no options */);
+  CHECK(looper->addFd(binder_fd, 0, Looper::EVENT_INPUT, OnBinderReadReady,
+                      nullptr))
+      << "Failed to watch binder FD";
+
+  // Setup hwbinder service
+  sp<android::hardware::bluetooth::V1_0::IBluetoothHci> service =
+      new android::hardware::bluetooth::V1_0::implementation::BluetoothHci();
+  CHECK_EQ(service->registerAsService("bluetooth"), android::NO_ERROR)
+      << "Failed to register Bluetooth HAL";
+
+  // Loop
+  while (looper->pollAll(-1) != Looper::POLL_ERROR) {
+    // Keep polling until failure.
+  }
+
+  return 0;
+}
