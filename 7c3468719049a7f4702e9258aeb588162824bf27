@@ -1,0 +1,354 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c193e0f_3a087d88",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-13T22:51:32Z",
+      "side": 1,
+      "message": "I guess this will work on the platforms that we support, since I think they all use 32-bit ints. However, it would be better to make this a compile-time failure, if feature_set is larger than 32 bits. E.g.\n\n  static_assert(sizeof(set) \u003d\u003d sizeof(uint32_t), \"Some features can not be represented in output\");",
+      "range": {
+        "startLine": 186,
+        "startChar": 44,
+        "endLine": 186,
+        "endChar": 52
+      },
+      "revId": "7c3468719049a7f4702e9258aeb588162824bf27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c193e0f_9a10a966",
+        "filename": "wifi/1.0/default/wifi_sta_iface.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-13T22:51:32Z",
+      "side": 1,
+      "message": "Not fond of |ret1| and |ret2|. Both of the names are vague. And it\u0027s too easy to typo on for the other. Consider, e.g., |supported_features_result| and |capabilities_result|, instead.\n\nBut even better, consider using std::tie to capture the result:\n\n  wifi_error err;\n  uint32_t feature_set;\n  std::tie(err, feature_set) \u003d ...getSupportedFeatureSet();\n  if (err) {\n    ...\n  }",
+      "range": {
+        "startLine": 79,
+        "startChar": 34,
+        "endLine": 79,
+        "endChar": 38
+      },
+      "revId": "7c3468719049a7f4702e9258aeb588162824bf27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c193e0f_da28618e",
+        "filename": "wifi/1.0/default/wifi_sta_iface.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-13T22:51:32Z",
+      "side": 1,
+      "message": "If you don\u0027t move to std::tie(), then consider |const uint32_t\u0026| here. (When reading code, seeing |const| helps me understand which variables are input vs. intermediate values and outputs.)",
+      "range": {
+        "startLine": 85,
+        "startChar": 2,
+        "endLine": 85,
+        "endChar": 11
+      },
+      "revId": "7c3468719049a7f4702e9258aeb588162824bf27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c193e0f_9ace6981",
+        "filename": "wifi/1.0/default/wifi_sta_iface.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-13T22:51:32Z",
+      "side": 1,
+      "message": "Why make this smaller than the output type? (This method generates uint64_t.)",
+      "range": {
+        "startLine": 86,
+        "startChar": 2,
+        "endLine": 86,
+        "endChar": 10
+      },
+      "revId": "7c3468719049a7f4702e9258aeb588162824bf27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c193e0f_3a02bd1b",
+        "filename": "wifi/1.0/default/wifi_sta_iface.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-13T22:51:32Z",
+      "side": 1,
+      "message": "Do you mean |\u003d ?",
+      "range": {
+        "startLine": 88,
+        "startChar": 9,
+        "endLine": 88,
+        "endChar": 11
+      },
+      "revId": "7c3468719049a7f4702e9258aeb588162824bf27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c193e0f_9a3e69e3",
+        "filename": "wifi/1.0/default/wifi_sta_iface.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-13T22:51:32Z",
+      "side": 1,
+      "message": "Prefer to do this in a way that automatically figures the right integral type. See examples at http://stackoverflow.com/a/14589519.",
+      "range": {
+        "startLine": 88,
+        "startChar": 12,
+        "endLine": 88,
+        "endChar": 23
+      },
+      "revId": "7c3468719049a7f4702e9258aeb588162824bf27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c193e0f_fa1be587",
+        "filename": "wifi/1.0/default/wifi_sta_iface.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-13T22:51:32Z",
+      "side": 1,
+      "message": "As at line 79: consider using std::tie to avoid introducing a vague name.",
+      "range": {
+        "startLine": 93,
+        "startChar": 50,
+        "endLine": 93,
+        "endChar": 54
+      },
+      "revId": "7c3468719049a7f4702e9258aeb588162824bf27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c193e0f_fa2d259b",
+        "filename": "wifi/1.0/default/wifi_sta_iface.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-13T22:51:32Z",
+      "side": 1,
+      "message": "As at line 85.",
+      "revId": "7c3468719049a7f4702e9258aeb588162824bf27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c193e0f_1a057922",
+        "filename": "wifi/1.0/default/wifi_sta_iface.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-13T22:51:32Z",
+      "side": 1,
+      "message": "As at line 88.",
+      "range": {
+        "startLine": 101,
+        "startChar": 12,
+        "endLine": 101,
+        "endChar": 23
+      },
+      "revId": "7c3468719049a7f4702e9258aeb588162824bf27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c193e0f_daff01f1",
+        "filename": "wifi/1.0/default/wifi_sta_iface.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-13T22:51:32Z",
+      "side": 1,
+      "message": "As at line 88.",
+      "range": {
+        "startLine": 101,
+        "startChar": 9,
+        "endLine": 101,
+        "endChar": 11
+      },
+      "revId": "7c3468719049a7f4702e9258aeb588162824bf27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c193e0f_ba600dd3",
+        "filename": "wifi/1.0/default/wifi_sta_iface.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-13T22:51:32Z",
+      "side": 1,
+      "message": "std::tie()",
+      "range": {
+        "startLine": 114,
+        "startChar": 50,
+        "endLine": 114,
+        "endChar": 53
+      },
+      "revId": "7c3468719049a7f4702e9258aeb588162824bf27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c193e0f_da7aa17a",
+        "filename": "wifi/1.0/default/wifi_sta_iface.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-13T22:51:32Z",
+      "side": 1,
+      "message": "As at line 85.",
+      "revId": "7c3468719049a7f4702e9258aeb588162824bf27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c193e0f_9aad09f4",
+        "filename": "wifi/1.0/default/wifi_sta_iface.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-13T22:51:32Z",
+      "side": 1,
+      "message": "std::tie()",
+      "range": {
+        "startLine": 136,
+        "startChar": 49,
+        "endLine": 136,
+        "endChar": 52
+      },
+      "revId": "7c3468719049a7f4702e9258aeb588162824bf27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c193e0f_1a9b39c6",
+        "filename": "wifi/1.0/default/wifi_sta_iface.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-13T22:51:32Z",
+      "side": 1,
+      "message": "As at line 85.",
+      "revId": "7c3468719049a7f4702e9258aeb588162824bf27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c193e0f_fabc4586",
+        "filename": "wifi/1.0/default/wifi_sta_iface.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-13T22:51:32Z",
+      "side": 1,
+      "message": "As elsewhere: |event_callback| and |status_callback|.",
+      "range": {
+        "startLine": 46,
+        "startChar": 44,
+        "endLine": 46,
+        "endChar": 52
+      },
+      "revId": "7c3468719049a7f4702e9258aeb588162824bf27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c193e0f_7ac9151e",
+        "filename": "wifi/1.0/default/wifi_sta_iface.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-13T22:51:32Z",
+      "side": 1,
+      "message": "Consider |status_callback| here, and below.",
+      "range": {
+        "startLine": 48,
+        "startChar": 50,
+        "endLine": 48,
+        "endChar": 52
+      },
+      "revId": "7c3468719049a7f4702e9258aeb588162824bf27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
