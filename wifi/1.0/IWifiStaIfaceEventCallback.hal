@@ -16,6 +16,8 @@
 
 package android.hardware.wifi@1.0;
 
+import android.hardware.wifi.common@1.0;
+
 interface IWifiStaIfaceEventCallback {
  /**
   * Information elements contained within the |ScanResult| structure.

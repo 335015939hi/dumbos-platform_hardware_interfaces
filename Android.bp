@@ -12,5 +12,6 @@ subdirs = [
     "tests/msgq/1.0",
     "tests/pointer/1.0",
     "wifi/1.0",
+    "wifi/common/1.0",
     "wifi/supplicant/1.0",
 ]

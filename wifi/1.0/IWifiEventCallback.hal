@@ -16,6 +16,8 @@
 
 package android.hardware.wifi@1.0;
 
+import android.hardware.wifi.common@1.0;
+
 interface IWifiEventCallback {
   /**
    * Called in response to a call to start indicating that the operation

@@ -16,8 +16,8 @@
 
 package android.hardware.wifi@1.0;
 
+import android.hardware.wifi.common@1.0;
 import IWifiChipEventCallback;
-import IWifiIface;
 import IWifiApIface;
 import IWifiNanIface;
 import IWifiP2pIface;

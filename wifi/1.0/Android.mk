@@ -12,56 +12,9 @@ intermediates := $(local-generated-sources-dir)
 
 HIDL := $(HOST_OUT_EXECUTABLES)/hidl-gen$(HOST_EXECUTABLE_SUFFIX)
 
-#
-# Build types.hal (IfaceType)
-#
-GEN := $(intermediates)/android/hardware/wifi/1.0/IfaceType.java
-$(GEN): $(HIDL)
-$(GEN): PRIVATE_HIDL := $(HIDL)
-$(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/types.hal
-$(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
-$(GEN): PRIVATE_CUSTOM_TOOL = \
-        $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
-        -Ljava -randroid.hardware:hardware/interfaces \
-        android.hardware.wifi@1.0::types.IfaceType
+LOCAL_JAVA_LIBRARIES := \
+    android.hardware.wifi.common@1.0-java \
 
-$(GEN): $(LOCAL_PATH)/types.hal
-	$(transform-generated-source)
-LOCAL_GENERATED_SOURCES += $(GEN)
-
-#
-# Build types.hal (WifiStatus)
-#
-GEN := $(intermediates)/android/hardware/wifi/1.0/WifiStatus.java
-$(GEN): $(HIDL)
-$(GEN): PRIVATE_HIDL := $(HIDL)
-$(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/types.hal
-$(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
-$(GEN): PRIVATE_CUSTOM_TOOL = \
-        $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
-        -Ljava -randroid.hardware:hardware/interfaces \
-        android.hardware.wifi@1.0::types.WifiStatus
-
-$(GEN): $(LOCAL_PATH)/types.hal
-	$(transform-generated-source)
-LOCAL_GENERATED_SOURCES += $(GEN)
-
-#
-# Build types.hal (WifiStatusCode)
-#
-GEN := $(intermediates)/android/hardware/wifi/1.0/WifiStatusCode.java
-$(GEN): $(HIDL)
-$(GEN): PRIVATE_HIDL := $(HIDL)
-$(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/types.hal
-$(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
-$(GEN): PRIVATE_CUSTOM_TOOL = \
-        $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
-        -Ljava -randroid.hardware:hardware/interfaces \
-        android.hardware.wifi@1.0::types.WifiStatusCode
-
-$(GEN): $(LOCAL_PATH)/types.hal
-	$(transform-generated-source)
-LOCAL_GENERATED_SOURCES += $(GEN)
 
 #
 # Build IWifi.hal
@@ -93,8 +46,6 @@ GEN := $(intermediates)/android/hardware/wifi/1.0/IWifiApIface.java
 $(GEN): $(HIDL)
 $(GEN): PRIVATE_HIDL := $(HIDL)
 $(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/IWifiApIface.hal
-$(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/IWifiIface.hal
-$(GEN): $(LOCAL_PATH)/IWifiIface.hal
 $(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
 $(GEN): PRIVATE_CUSTOM_TOOL = \
         $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
@@ -116,8 +67,6 @@ $(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/IWifiApIface.hal
 $(GEN): $(LOCAL_PATH)/IWifiApIface.hal
 $(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/IWifiChipEventCallback.hal
 $(GEN): $(LOCAL_PATH)/IWifiChipEventCallback.hal
-$(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/IWifiIface.hal
-$(GEN): $(LOCAL_PATH)/IWifiIface.hal
 $(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/IWifiNanIface.hal
 $(GEN): $(LOCAL_PATH)/IWifiNanIface.hal
 $(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/IWifiP2pIface.hal
@@ -164,8 +113,6 @@ GEN := $(intermediates)/android/hardware/wifi/1.0/IWifiEventCallback.java
 $(GEN): $(HIDL)
 $(GEN): PRIVATE_HIDL := $(HIDL)
 $(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/IWifiEventCallback.hal
-$(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/types.hal
-$(GEN): $(LOCAL_PATH)/types.hal
 $(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
 $(GEN): PRIVATE_CUSTOM_TOOL = \
         $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
@@ -177,33 +124,12 @@ $(GEN): $(LOCAL_PATH)/IWifiEventCallback.hal
 LOCAL_GENERATED_SOURCES += $(GEN)
 
 #
-# Build IWifiIface.hal
-#
-GEN := $(intermediates)/android/hardware/wifi/1.0/IWifiIface.java
-$(GEN): $(HIDL)
-$(GEN): PRIVATE_HIDL := $(HIDL)
-$(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/IWifiIface.hal
-$(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/types.hal
-$(GEN): $(LOCAL_PATH)/types.hal
-$(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
-$(GEN): PRIVATE_CUSTOM_TOOL = \
-        $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
-        -Ljava -randroid.hardware:hardware/interfaces \
-        android.hardware.wifi@1.0::IWifiIface
-
-$(GEN): $(LOCAL_PATH)/IWifiIface.hal
-	$(transform-generated-source)
-LOCAL_GENERATED_SOURCES += $(GEN)
-
-#
 # Build IWifiNanIface.hal
 #
 GEN := $(intermediates)/android/hardware/wifi/1.0/IWifiNanIface.java
 $(GEN): $(HIDL)
 $(GEN): PRIVATE_HIDL := $(HIDL)
 $(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/IWifiNanIface.hal
-$(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/IWifiIface.hal
-$(GEN): $(LOCAL_PATH)/IWifiIface.hal
 $(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
 $(GEN): PRIVATE_CUSTOM_TOOL = \
         $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
@@ -221,8 +147,6 @@ GEN := $(intermediates)/android/hardware/wifi/1.0/IWifiP2pIface.java
 $(GEN): $(HIDL)
 $(GEN): PRIVATE_HIDL := $(HIDL)
 $(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/IWifiP2pIface.hal
-$(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/IWifiIface.hal
-$(GEN): $(LOCAL_PATH)/IWifiIface.hal
 $(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
 $(GEN): PRIVATE_CUSTOM_TOOL = \
         $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
@@ -240,10 +164,6 @@ GEN := $(intermediates)/android/hardware/wifi/1.0/IWifiRttController.java
 $(GEN): $(HIDL)
 $(GEN): PRIVATE_HIDL := $(HIDL)
 $(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/IWifiRttController.hal
-$(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/IWifiIface.hal
-$(GEN): $(LOCAL_PATH)/IWifiIface.hal
-$(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/types.hal
-$(GEN): $(LOCAL_PATH)/types.hal
 $(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
 $(GEN): PRIVATE_CUSTOM_TOOL = \
         $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
@@ -261,12 +181,8 @@ GEN := $(intermediates)/android/hardware/wifi/1.0/IWifiStaIface.java
 $(GEN): $(HIDL)
 $(GEN): PRIVATE_HIDL := $(HIDL)
 $(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/IWifiStaIface.hal
-$(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/IWifiIface.hal
-$(GEN): $(LOCAL_PATH)/IWifiIface.hal
 $(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/IWifiStaIfaceEventCallback.hal
 $(GEN): $(LOCAL_PATH)/IWifiStaIfaceEventCallback.hal
-$(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/types.hal
-$(GEN): $(LOCAL_PATH)/types.hal
 $(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
 $(GEN): PRIVATE_CUSTOM_TOOL = \
         $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
@@ -284,8 +200,6 @@ GEN := $(intermediates)/android/hardware/wifi/1.0/IWifiStaIfaceEventCallback.jav
 $(GEN): $(HIDL)
 $(GEN): PRIVATE_HIDL := $(HIDL)
 $(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/IWifiStaIfaceEventCallback.hal
-$(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/types.hal
-$(GEN): $(LOCAL_PATH)/types.hal
 $(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
 $(GEN): PRIVATE_CUSTOM_TOOL = \
         $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
@@ -308,56 +222,9 @@ intermediates := $(local-generated-sources-dir)
 
 HIDL := $(HOST_OUT_EXECUTABLES)/hidl-gen$(HOST_EXECUTABLE_SUFFIX)
 
-#
-# Build types.hal (IfaceType)
-#
-GEN := $(intermediates)/android/hardware/wifi/1.0/IfaceType.java
-$(GEN): $(HIDL)
-$(GEN): PRIVATE_HIDL := $(HIDL)
-$(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/types.hal
-$(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
-$(GEN): PRIVATE_CUSTOM_TOOL = \
-        $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
-        -Ljava -randroid.hardware:hardware/interfaces \
-        android.hardware.wifi@1.0::types.IfaceType
+LOCAL_STATIC_JAVA_LIBRARIES := \
+    android.hardware.wifi.common@1.0-java-static \
 
-$(GEN): $(LOCAL_PATH)/types.hal
-	$(transform-generated-source)
-LOCAL_GENERATED_SOURCES += $(GEN)
-
-#
-# Build types.hal (WifiStatus)
-#
-GEN := $(intermediates)/android/hardware/wifi/1.0/WifiStatus.java
-$(GEN): $(HIDL)
-$(GEN): PRIVATE_HIDL := $(HIDL)
-$(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/types.hal
-$(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
-$(GEN): PRIVATE_CUSTOM_TOOL = \
-        $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
-        -Ljava -randroid.hardware:hardware/interfaces \
-        android.hardware.wifi@1.0::types.WifiStatus
-
-$(GEN): $(LOCAL_PATH)/types.hal
-	$(transform-generated-source)
-LOCAL_GENERATED_SOURCES += $(GEN)
-
-#
-# Build types.hal (WifiStatusCode)
-#
-GEN := $(intermediates)/android/hardware/wifi/1.0/WifiStatusCode.java
-$(GEN): $(HIDL)
-$(GEN): PRIVATE_HIDL := $(HIDL)
-$(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/types.hal
-$(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
-$(GEN): PRIVATE_CUSTOM_TOOL = \
-        $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
-        -Ljava -randroid.hardware:hardware/interfaces \
-        android.hardware.wifi@1.0::types.WifiStatusCode
-
-$(GEN): $(LOCAL_PATH)/types.hal
-	$(transform-generated-source)
-LOCAL_GENERATED_SOURCES += $(GEN)
 
 #
 # Build IWifi.hal
@@ -389,8 +256,6 @@ GEN := $(intermediates)/android/hardware/wifi/1.0/IWifiApIface.java
 $(GEN): $(HIDL)
 $(GEN): PRIVATE_HIDL := $(HIDL)
 $(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/IWifiApIface.hal
-$(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/IWifiIface.hal
-$(GEN): $(LOCAL_PATH)/IWifiIface.hal
 $(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
 $(GEN): PRIVATE_CUSTOM_TOOL = \
         $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
@@ -412,8 +277,6 @@ $(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/IWifiApIface.hal
 $(GEN): $(LOCAL_PATH)/IWifiApIface.hal
 $(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/IWifiChipEventCallback.hal
 $(GEN): $(LOCAL_PATH)/IWifiChipEventCallback.hal
-$(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/IWifiIface.hal
-$(GEN): $(LOCAL_PATH)/IWifiIface.hal
 $(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/IWifiNanIface.hal
 $(GEN): $(LOCAL_PATH)/IWifiNanIface.hal
 $(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/IWifiP2pIface.hal
@@ -460,8 +323,6 @@ GEN := $(intermediates)/android/hardware/wifi/1.0/IWifiEventCallback.java
 $(GEN): $(HIDL)
 $(GEN): PRIVATE_HIDL := $(HIDL)
 $(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/IWifiEventCallback.hal
-$(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/types.hal
-$(GEN): $(LOCAL_PATH)/types.hal
 $(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
 $(GEN): PRIVATE_CUSTOM_TOOL = \
         $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
@@ -473,33 +334,12 @@ $(GEN): $(LOCAL_PATH)/IWifiEventCallback.hal
 LOCAL_GENERATED_SOURCES += $(GEN)
 
 #
-# Build IWifiIface.hal
-#
-GEN := $(intermediates)/android/hardware/wifi/1.0/IWifiIface.java
-$(GEN): $(HIDL)
-$(GEN): PRIVATE_HIDL := $(HIDL)
-$(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/IWifiIface.hal
-$(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/types.hal
-$(GEN): $(LOCAL_PATH)/types.hal
-$(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
-$(GEN): PRIVATE_CUSTOM_TOOL = \
-        $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
-        -Ljava -randroid.hardware:hardware/interfaces \
-        android.hardware.wifi@1.0::IWifiIface
-
-$(GEN): $(LOCAL_PATH)/IWifiIface.hal
-	$(transform-generated-source)
-LOCAL_GENERATED_SOURCES += $(GEN)
-
-#
 # Build IWifiNanIface.hal
 #
 GEN := $(intermediates)/android/hardware/wifi/1.0/IWifiNanIface.java
 $(GEN): $(HIDL)
 $(GEN): PRIVATE_HIDL := $(HIDL)
 $(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/IWifiNanIface.hal
-$(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/IWifiIface.hal
-$(GEN): $(LOCAL_PATH)/IWifiIface.hal
 $(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
 $(GEN): PRIVATE_CUSTOM_TOOL = \
         $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
@@ -517,8 +357,6 @@ GEN := $(intermediates)/android/hardware/wifi/1.0/IWifiP2pIface.java
 $(GEN): $(HIDL)
 $(GEN): PRIVATE_HIDL := $(HIDL)
 $(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/IWifiP2pIface.hal
-$(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/IWifiIface.hal
-$(GEN): $(LOCAL_PATH)/IWifiIface.hal
 $(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
 $(GEN): PRIVATE_CUSTOM_TOOL = \
         $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
@@ -536,10 +374,6 @@ GEN := $(intermediates)/android/hardware/wifi/1.0/IWifiRttController.java
 $(GEN): $(HIDL)
 $(GEN): PRIVATE_HIDL := $(HIDL)
 $(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/IWifiRttController.hal
-$(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/IWifiIface.hal
-$(GEN): $(LOCAL_PATH)/IWifiIface.hal
-$(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/types.hal
-$(GEN): $(LOCAL_PATH)/types.hal
 $(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
 $(GEN): PRIVATE_CUSTOM_TOOL = \
         $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
@@ -557,12 +391,8 @@ GEN := $(intermediates)/android/hardware/wifi/1.0/IWifiStaIface.java
 $(GEN): $(HIDL)
 $(GEN): PRIVATE_HIDL := $(HIDL)
 $(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/IWifiStaIface.hal
-$(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/IWifiIface.hal
-$(GEN): $(LOCAL_PATH)/IWifiIface.hal
 $(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/IWifiStaIfaceEventCallback.hal
 $(GEN): $(LOCAL_PATH)/IWifiStaIfaceEventCallback.hal
-$(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/types.hal
-$(GEN): $(LOCAL_PATH)/types.hal
 $(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
 $(GEN): PRIVATE_CUSTOM_TOOL = \
         $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
@@ -580,8 +410,6 @@ GEN := $(intermediates)/android/hardware/wifi/1.0/IWifiStaIfaceEventCallback.jav
 $(GEN): $(HIDL)
 $(GEN): PRIVATE_HIDL := $(HIDL)
 $(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/IWifiStaIfaceEventCallback.hal
-$(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/types.hal
-$(GEN): $(LOCAL_PATH)/types.hal
 $(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
 $(GEN): PRIVATE_CUSTOM_TOOL = \
         $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
