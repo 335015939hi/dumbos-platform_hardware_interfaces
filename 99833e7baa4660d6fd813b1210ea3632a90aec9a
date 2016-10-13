@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "3c193e0f_fa53e568",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-13T22:15:59Z",
+      "side": 1,
+      "message": ":)",
+      "parentUuid": "1cd63a37_7f0ec3f1",
+      "range": {
+        "startLine": 57,
+        "startChar": 5,
+        "endLine": 57,
+        "endChar": 15
+      },
+      "revId": "99833e7baa4660d6fd813b1210ea3632a90aec9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cd63a37_3cf4d9df",
         "filename": "radio/1.0/types.hal",
         "patchSetId": 5
@@ -178,6 +202,30 @@
       "side": 1,
       "message": "I am not clear about adding to vendor extension as this is part of enum RadioError, can you explain what needs to be done here ? \nJust want to explain the purpose of this.\nVendor code returns enum RadioError in callback. Sometimes they don\u0027t want their error code to be identified externally. So we have this mapping from their error code to generic type of error code. Two vendors may have different meaning for same OEM_ERROR_X. Purpose of this was that if a vendor sees a OEM_ERROR_X in bugreport, vendor will know what it corresponds to and thus help in debugging bugs quicker.",
       "parentUuid": "1cd63a37_3cf4d9df",
+      "range": {
+        "startLine": 123,
+        "startChar": 4,
+        "endLine": 149,
+        "endChar": 22
+      },
+      "revId": "99833e7baa4660d6fd813b1210ea3632a90aec9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c193e0f_1a3d7913",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-13T22:15:59Z",
+      "side": 1,
+      "message": "Yes, so basically remove all of these, and then vendors can define their own codes in a vendor extension to this hal.\n\nIf you want, you can define \"OEM_ERROR_ABOVE \u003d 500\" to specify the lowest possible error, but this shouldn\u0027t matter because all errors should be referenced by name anyway.\n\nYou can put TODO(b/32065239) here if you want. I will complete this bug by tomorrow (hopefully).",
+      "parentUuid": "3c193e0f_37a418a1",
       "range": {
         "startLine": 123,
         "startChar": 4,
