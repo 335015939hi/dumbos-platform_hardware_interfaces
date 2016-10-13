@@ -115,5 +115,6 @@ cc_library_shared {
         "libutils",
         "libcutils",
         "android.hardware.wifi.common@1.0",
+        "android.hardware.wifi.nan@1.0",
     ],
 }
