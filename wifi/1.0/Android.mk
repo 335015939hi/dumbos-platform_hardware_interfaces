@@ -14,6 +14,7 @@ HIDL := $(HOST_OUT_EXECUTABLES)/hidl-gen$(HOST_EXECUTABLE_SUFFIX)
 
 LOCAL_JAVA_LIBRARIES := \
     android.hardware.wifi.common@1.0-java \
+    android.hardware.wifi.nan@1.0-java \
 
 
 #
@@ -67,8 +68,6 @@ $(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/IWifiApIface.hal
 $(GEN): $(LOCAL_PATH)/IWifiApIface.hal
 $(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/IWifiChipEventCallback.hal
 $(GEN): $(LOCAL_PATH)/IWifiChipEventCallback.hal
-$(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/IWifiNanIface.hal
-$(GEN): $(LOCAL_PATH)/IWifiNanIface.hal
 $(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/IWifiP2pIface.hal
 $(GEN): $(LOCAL_PATH)/IWifiP2pIface.hal
 $(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/IWifiRttController.hal
@@ -224,6 +223,7 @@ HIDL := $(HOST_OUT_EXECUTABLES)/hidl-gen$(HOST_EXECUTABLE_SUFFIX)
 
 LOCAL_STATIC_JAVA_LIBRARIES := \
     android.hardware.wifi.common@1.0-java-static \
+    android.hardware.wifi.nan@1.0-java-static \
 
 
 #
@@ -277,8 +277,6 @@ $(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/IWifiApIface.hal
 $(GEN): $(LOCAL_PATH)/IWifiApIface.hal
 $(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/IWifiChipEventCallback.hal
 $(GEN): $(LOCAL_PATH)/IWifiChipEventCallback.hal
-$(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/IWifiNanIface.hal
-$(GEN): $(LOCAL_PATH)/IWifiNanIface.hal
 $(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/IWifiP2pIface.hal
 $(GEN): $(LOCAL_PATH)/IWifiP2pIface.hal
 $(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/IWifiRttController.hal
