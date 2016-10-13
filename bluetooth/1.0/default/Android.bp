@@ -1,0 +1,21 @@
+cc_library_shared {
+    name: "android.hardware.bluetooth@1.0-impl",
+    relative_install_path: "hw",
+    srcs: [
+        "async_fd_watcher.cc",
+        "bluetooth_hci.cc",
+        "vendor_interface.cc",
+    ],
+    shared_libs: [
+        "liblog",
+        "libcutils",
+        "libhardware",
+        "libhwbinder",
+        "libbase",
+        "libcutils",
+        "libutils",
+        "libhidlbase",
+        "libhidltransport",
+        "android.hardware.bluetooth@1.0",
+    ],
+}
