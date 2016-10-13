@@ -19,7 +19,7 @@ package android.hardware.radio@1.0;
 import IRadioCallback;
 
 interface IRadio {
-    /**
+    /*
      * Set callback that has response functions for requests
      *
      * @param slotId SIM slot id for which the function is called; needed for multi-sim
@@ -27,16 +27,208 @@ interface IRadio {
      */
     setCallback(int32_t slotId, IRadioCallback radioCallback);
 
-    /**
-     * Requests status of the ICC card
+    /*
+     * Requests status of the Sim card
      *
      * Response callback is IRadioCallback.responseGetSimStatus()
      *
      * Valid errors:
-     * Must never fail for a valid slot id
+     *   RadioErrno:SUCCESS (Must never fail for a valid slot id)
      *
      * @param slotId SIM slot id for which the function is called; needed for multi-sim
      * @param serial Serial number of request
+     *
      */
     oneway requestGetSimStatus(int32_t slotId, int32_t serial);
+
+    /*
+     * Supplies Sim PIN. Only called if RadioCardStatus has RadioAppState.PIN state
+     *
+     * Response callback is IRadioCallback.responseEnterSimPin()
+     *
+     * @param slotId SIM slot id for which the function is called; needed for multi-sim
+     * @param serial Serial number of request
+     * @param pin PIN value
+     * @param aid AID value, See ETSI 102.221 8.1 and 101.220 4, NULL if no value.
+     *
+     * Valid errors:
+     *   RadioErrno:SUCCESS
+     *   RadioErrno:RADIO_NOT_AVAILABLE (radio resetting)
+     *   RadioErrno:GENERIC_FAILURE
+     *   RadioErrno:PASSWORD_INCORRECT
+     *
+     */
+    oneway requestEnterSimPin(int32_t slotId, int32_t serial, string pin, string aid);
+
+    /*
+     * Supplies SIM PUK and new PIN.
+     *
+     * Response callback is IRadioCallback.responseEnterSimPuk()
+     *
+     * @param slotId SIM slot id for which the function is called; needed for multi-sim
+     * @param serial Serial number of request
+     * @param puk PUK value
+     * @param pin New PIN value
+     * @param aid AID value, See ETSI 102.221 8.1 and 101.220 4, NULL if no value.
+     *
+     * Valid errors:
+     *   RadioErrno:SUCCESS
+     *   RadioErrno:RADIO_NOT_AVAILABLE (radio resetting)
+     *   RadioErrno:GENERIC_FAILURE
+     *   RadioErrno:PASSWORD_INCORRECT (PUK is invalid)
+     *
+     */
+    oneway requestEnterSimPuk(int32_t slotId, int32_t serial, string puk, string pin, string aid);
+
+    /*
+     * Supplies SIM PIN2. Only called following operation where SIM_PIN2 was
+     * returned as a a failure from a previous operation.
+     *
+     * Response callback is IRadioCallback.responseEnterSimPin2()
+     *
+     * @param slotId SIM slot id for which the function is called; needed for multi-sim
+     * @param serial Serial number of request
+     * @param pin2 PIN2 value
+     * @param aid AID value, See ETSI 102.221 8.1 and 101.220 4, NULL if no value.
+     *
+     * Valid errors:
+     *   RadioErrno:SUCCESS
+     *   RadioErrno:RADIO_NOT_AVAILABLE (radio resetting)
+     *   RadioErrno:GENERIC_FAILURE
+     *   RadioErrno:PASSWORD_INCORRECT
+     *
+     */
+    oneway requestEnterSimPin2(int32_t slotId, int32_t serial, string pin2, string aid);
+
+    /*
+     * Supplies SIM PUK2 and new PIN2.
+     *
+     * Response callback is IRadioCallback.responseEnterSimPuk2()
+     *
+     * @param slotId SIM slot id for which the function is called; needed for multi-sim
+     * @param serial Serial number of request
+     * @param puk2 PUK2 value
+     * @param pin2 New PIN2 value
+     * @param aid AID value, See ETSI 102.221 8.1 and 101.220 4, NULL if no value.
+     *
+     * Valid errors:
+     *   RadioErrno:SUCCESS
+     *   RadioErrno:RADIO_NOT_AVAILABLE (radio resetting)
+     *   RadioErrno:GENERIC_FAILURE
+     *   RadioErrno:PASSWORD_INCORRECT (PUK is invalid)
+     *
+     */
+    oneway requestEnterSimPuk2(int32_t slotId, int32_t serial, string puk2, string pin2,
+            string aid);
+
+    /*
+     * Supplies old SIM PIN and new PIN.
+     *
+     * Response callback is IRadioCallback.responseChangeSimPin()
+     *
+     * @param slotId SIM slot id for which the function is called; needed for multi-sim
+     * @param serial Serial number of request
+     * @param oldPin Old pin value
+     * @param newPin New pin value
+     * @param aid AID value, See ETSI 102.221 8.1 and 101.220 4, NULL if no value.
+     *
+     * Valid errors:
+     *   RadioErrno:SUCCESS
+     *   RadioErrno:RADIO_NOT_AVAILABLE (radio resetting)
+     *   RadioErrno:GENERIC_FAILURE
+     *   RadioErrno:PASSWORD_INCORRECT
+     *
+     */
+    oneway requestChangeSimPin(int32_t slotId, int32_t serial, string oldPin, string newPin,
+            string aid);
+
+    /*
+     * Supplies old SIM PIN2 and new PIN2.
+     *
+     * Response callback is IRadioCallback.responseChangeSimPin2()
+     *
+     * @param slotId SIM slot id for which the function is called; needed for multi-sim
+     * @param serial Serial number of request
+     * @param oldPin2 Old pin2 value
+     * @param newPin2 New pin2 value
+     * @param aid AID value, See ETSI 102.221 8.1 and 101.220 4, NULL if no value.
+     *
+     * Valid errors:
+     *   RadioErrno:SUCCESS
+     *   RadioErrno:RADIO_NOT_AVAILABLE (radio resetting)
+     *   RadioErrno:GENERIC_FAILURE
+     *   RadioErrno:PASSWORD_INCORRECT (old PIN2 is invalid)
+     *
+     */
+    oneway requestChangeSimPin2(int32_t slotId, int32_t serial, string oldPin2, string newPin2,
+            string aid);
+
+    /*
+     * Requests that network personlization be deactivated
+     *
+     * Response callback is IRadioCallback.responseEnterNetworkDepersonalization()
+     *
+     * @param slotId SIM slot id for which the function is called; needed for multi-sim
+     * @param serial Serial number of request
+     * @param netPin Network depersonlization code
+     *
+     * Valid errors:
+     *   RadioErrno:SUCCESS
+     *   RadioErrno:RADIO_NOT_AVAILABLE (radio resetting)
+     *   RadioErrno:GENERIC_FAILURE
+     *   RadioErrno:PASSWORD_INCORRECT (code is invalid)
+     *
+     */
+    oneway requestEnterNetworkDepersonalization(int32_t slotId, int32_t serial, string netPin);
+
+    /*
+     * Requests current call list
+     *
+     * Response callback is IRadioCallback.responseGetCurrentCalls()
+     *
+     * @param slotId SIM slot id for which the function is called; needed for multi-sim
+     * @param serial Serial number of request
+     *
+     * Valid errors:
+     *   RadioErrno:SUCCESS
+     *   RadioErrno:RADIO_NOT_AVAILABLE (radio resetting)
+     *   RadioErrno:GENERIC_FAILURE (request will be made again in a few hundred msec)
+     *   RadioErrno:NO_MEMORY
+     *
+     */
+    oneway requestGetCurrentCalls(int32_t slotId, int32_t serial);
+
+    /*
+     * Initiate voice call.
+     * This method is never used for supplementary service codes
+     *
+     * Response callback is IRadioCallback.responseDial()
+     *
+     * @param slotId SIM slot id for which the function is called; needed for multi-sim
+     * @param serial Serial number of request
+     * @param radioDial RadioDial struct
+     *
+     * Valid errors:
+     *   RadioErrno:SUCCESS
+     *   RadioErrno:RADIO_NOT_AVAILABLE (radio resetting)
+     *   RadioErrno:GENERIC_FAILURE
+     *   RadioErrno:DIAL_MODIFIED_TO_USSD
+     *   RadioErrno:DIAL_MODIFIED_TO_SS
+     *   RadioErrno:DIAL_MODIFIED_TO_DIAL
+     *   RadioErrno:INVALID_ARGUMENTS
+     *   RadioErrno:NO_MEMORY
+     *   RadioErrno:INVALID_STATE
+     *   RadioErrno:NO_RESOURCES
+     *   RadioErrno:INTERNAL_ERR
+     *   RadioErrno:FDN_CHECK_FAILURE
+     *   RadioErrno:MODEM_ERR
+     *   RadioErrno:NO_SUBSCRIPTION
+     *   RadioErrno:NO_NETWORK_FOUND
+     *   RadioErrno:INVALID_CALL_ID
+     *   RadioErrno:DEVICE_IN_USE
+     *   RadioErrno:MODE_NOT_SUPPORTED
+     *   RadioErrno:ABORTED
+     *
+     */
+    oneway requestDial(int32_t slotId, int32_t serial, RadioDial radioDial);
 };
