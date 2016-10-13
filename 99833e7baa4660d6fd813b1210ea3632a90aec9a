@@ -238,6 +238,30 @@
     },
     {
       "key": {
+        "uuid": "3c193e0f_daeb81d7",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-10-13T22:39:52Z",
+      "side": 1,
+      "message": "Ok thanks, I will update this after above bug is fixed. Till then, i can work on extending this CL with more RIL commands.\nDo you have any example of vendor extension hal ? where do we place that file or how it looks ?",
+      "parentUuid": "3c193e0f_1a3d7913",
+      "range": {
+        "startLine": 123,
+        "startChar": 4,
+        "endLine": 149,
+        "endChar": 22
+      },
+      "revId": "99833e7baa4660d6fd813b1210ea3632a90aec9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cd63a37_9cdd2d65",
         "filename": "radio/1.0/types.hal",
         "patchSetId": 5
