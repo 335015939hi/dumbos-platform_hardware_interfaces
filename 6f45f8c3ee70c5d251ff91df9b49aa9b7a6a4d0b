@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1cd63a37_56b3f4e2",
+        "filename": "bluetooth/1.0/IBluetoothHci.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-13T18:24:24Z",
+      "side": 1,
+      "message": "some comments use single, some use double.\n\ns/\\.  /\\. /g please",
+      "range": {
+        "startLine": 25,
+        "startChar": 28,
+        "endLine": 25,
+        "endChar": 29
+      },
+      "revId": "6f45f8c3ee70c5d251ff91df9b49aa9b7a6a4d0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cd63a37_d61824e7",
+        "filename": "bluetooth/1.0/IBluetoothHci.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-13T18:24:24Z",
+      "side": 1,
+      "message": "please mention the standard where this is specified",
+      "range": {
+        "startLine": 46,
+        "startChar": 15,
+        "endLine": 46,
+        "endChar": 26
+      },
+      "revId": "6f45f8c3ee70c5d251ff91df9b49aa9b7a6a4d0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cd63a37_56253416",
+        "filename": "bluetooth/1.0/IBluetoothHci.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-13T18:24:24Z",
+      "side": 1,
+      "message": "Probably better to just say:\n\n\"Command must be executed in order.\" Since it is marked oneway, it will always just return immediately.\n\n(also, does this apply to the below methods?)",
+      "range": {
+        "startLine": 48,
+        "startChar": 7,
+        "endLine": 49,
+        "endChar": 62
+      },
+      "revId": "6f45f8c3ee70c5d251ff91df9b49aa9b7a6a4d0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cd63a37_b61da8d5",
+        "filename": "bluetooth/1.0/IBluetoothHci.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-13T18:24:24Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 56,
+        "startChar": 15,
+        "endLine": 56,
+        "endChar": 22
+      },
+      "revId": "6f45f8c3ee70c5d251ff91df9b49aa9b7a6a4d0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cd63a37_360bd888",
+        "filename": "bluetooth/1.0/default/BluetoothHci.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-13T18:24:24Z",
+      "side": 1,
+      "message": "no default implementation?",
+      "range": {
+        "startLine": 21,
+        "startChar": 2,
+        "endLine": 21,
+        "endChar": 16
+      },
+      "revId": "6f45f8c3ee70c5d251ff91df9b49aa9b7a6a4d0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cd63a37_d601446d",
+        "filename": "bluetooth/1.0/default/BluetoothHci.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-13T18:24:24Z",
+      "side": 1,
+      "message": "nit: you can /* command */ instead of \u0027UNUSED(command)\u0027",
+      "range": {
+        "startLine": 24,
+        "startChar": 67,
+        "endLine": 24,
+        "endChar": 74
+      },
+      "revId": "6f45f8c3ee70c5d251ff91df9b49aa9b7a6a4d0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cd63a37_d66a6413",
+        "filename": "bluetooth/1.0/default/android.hardware.bluetooth@1.0-service.rc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-13T18:24:24Z",
+      "side": 1,
+      "message": "this must be \u003c 16 characters\n\ntry bluetooth-1-0",
+      "range": {
+        "startLine": 1,
+        "startChar": 8,
+        "endLine": 1,
+        "endChar": 29
+      },
+      "revId": "6f45f8c3ee70c5d251ff91df9b49aa9b7a6a4d0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cd63a37_f6656045",
+        "filename": "bluetooth/1.0/default/android.hardware.bluetooth@1.0-service.rc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-13T18:24:24Z",
+      "side": 1,
+      "message": "is there a bluetooth user? if not, you can use system for now.",
+      "range": {
+        "startLine": 3,
+        "startChar": 9,
+        "endLine": 3,
+        "endChar": 18
+      },
+      "revId": "6f45f8c3ee70c5d251ff91df9b49aa9b7a6a4d0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cd63a37_3664f841",
+        "filename": "bluetooth/1.0/default/service.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-13T18:24:24Z",
+      "side": 1,
+      "message": "true /* getStub */",
+      "range": {
+        "startLine": 26,
+        "startChar": 42,
+        "endLine": 26,
+        "endChar": 46
+      },
+      "revId": "6f45f8c3ee70c5d251ff91df9b49aa9b7a6a4d0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cd63a37_36d638be",
+        "filename": "bluetooth/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-13T18:24:24Z",
+      "side": 1,
+      "message": "If this is supposed to refer to a binder transport error, remove it. Binder transport errors are specified in the Return\u003cT\u003e object in cpp.",
+      "range": {
+        "startLine": 21,
+        "startChar": 2,
+        "endLine": 21,
+        "endChar": 17
+      },
+      "revId": "6f45f8c3ee70c5d251ff91df9b49aa9b7a6a4d0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cd63a37_7643909a",
+        "filename": "bluetooth/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-13T18:24:24Z",
+      "side": 1,
+      "message": "I don\u0027t see where this is used",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 2
+      },
+      "revId": "6f45f8c3ee70c5d251ff91df9b49aa9b7a6a4d0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
