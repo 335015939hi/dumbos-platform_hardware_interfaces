@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1cd63a37_d91bb788",
+        "filename": "bluetooth/1.0/IBluetoothHci.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1058798
+      },
+      "writtenOn": "2016-10-13T19:22:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cd63a37_56b3f4e2",
+      "range": {
+        "startLine": 25,
+        "startChar": 28,
+        "endLine": 25,
+        "endChar": 29
+      },
+      "revId": "6f45f8c3ee70c5d251ff91df9b49aa9b7a6a4d0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cd63a37_d61824e7",
         "filename": "bluetooth/1.0/IBluetoothHci.hal",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-13T18:24:24Z",
       "side": 1,
       "message": "please mention the standard where this is specified",
+      "range": {
+        "startLine": 46,
+        "startChar": 15,
+        "endLine": 46,
+        "endChar": 26
+      },
+      "revId": "6f45f8c3ee70c5d251ff91df9b49aa9b7a6a4d0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cd63a37_19348fde",
+        "filename": "bluetooth/1.0/IBluetoothHci.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1058798
+      },
+      "writtenOn": "2016-10-13T19:22:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cd63a37_d61824e7",
       "range": {
         "startLine": 46,
         "startChar": 15,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "1cd63a37_39506b00",
+        "filename": "bluetooth/1.0/IBluetoothHci.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1058798
+      },
+      "writtenOn": "2016-10-13T19:22:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cd63a37_56253416",
+      "range": {
+        "startLine": 48,
+        "startChar": 7,
+        "endLine": 49,
+        "endChar": 62
+      },
+      "revId": "6f45f8c3ee70c5d251ff91df9b49aa9b7a6a4d0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cd63a37_b61da8d5",
         "filename": "bluetooth/1.0/IBluetoothHci.hal",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2016-10-13T18:24:24Z",
       "side": 1,
       "message": "same",
+      "range": {
+        "startLine": 56,
+        "startChar": 15,
+        "endLine": 56,
+        "endChar": 22
+      },
+      "revId": "6f45f8c3ee70c5d251ff91df9b49aa9b7a6a4d0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cd63a37_f97af379",
+        "filename": "bluetooth/1.0/IBluetoothHci.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1058798
+      },
+      "writtenOn": "2016-10-13T19:22:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cd63a37_b61da8d5",
       "range": {
         "startLine": 56,
         "startChar": 15,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "1cd63a37_d97f3768",
+        "filename": "bluetooth/1.0/default/BluetoothHci.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1058798
+      },
+      "writtenOn": "2016-10-13T19:22:39Z",
+      "side": 1,
+      "message": "Ignore; actual implementation will be submitted shortly.",
+      "parentUuid": "1cd63a37_360bd888",
+      "range": {
+        "startLine": 21,
+        "startChar": 2,
+        "endLine": 21,
+        "endChar": 16
+      },
+      "revId": "6f45f8c3ee70c5d251ff91df9b49aa9b7a6a4d0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cd63a37_d601446d",
         "filename": "bluetooth/1.0/default/BluetoothHci.cpp",
         "patchSetId": 4
@@ -128,6 +248,30 @@
       "writtenOn": "2016-10-13T18:24:24Z",
       "side": 1,
       "message": "nit: you can /* command */ instead of \u0027UNUSED(command)\u0027",
+      "range": {
+        "startLine": 24,
+        "startChar": 67,
+        "endLine": 24,
+        "endChar": 74
+      },
+      "revId": "6f45f8c3ee70c5d251ff91df9b49aa9b7a6a4d0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cd63a37_b9747b8d",
+        "filename": "bluetooth/1.0/default/BluetoothHci.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1058798
+      },
+      "writtenOn": "2016-10-13T19:22:39Z",
+      "side": 1,
+      "message": "Ignore; actual implementation will be submitted shortly.",
+      "parentUuid": "1cd63a37_d601446d",
       "range": {
         "startLine": 24,
         "startChar": 67,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "1cd63a37_596c47c2",
+        "filename": "bluetooth/1.0/default/android.hardware.bluetooth@1.0-service.rc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1058798
+      },
+      "writtenOn": "2016-10-13T19:22:39Z",
+      "side": 1,
+      "message": "Done (but why do we keep including version numbers??? Doesn\u0027t make sense to me.)",
+      "parentUuid": "1cd63a37_d66a6413",
+      "range": {
+        "startLine": 1,
+        "startChar": 8,
+        "endLine": 1,
+        "endChar": 29
+      },
+      "revId": "6f45f8c3ee70c5d251ff91df9b49aa9b7a6a4d0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cd63a37_f6656045",
         "filename": "bluetooth/1.0/default/android.hardware.bluetooth@1.0-service.rc",
         "patchSetId": 4
@@ -174,6 +342,30 @@
       "writtenOn": "2016-10-13T18:24:24Z",
       "side": 1,
       "message": "is there a bluetooth user? if not, you can use system for now.",
+      "range": {
+        "startLine": 3,
+        "startChar": 9,
+        "endLine": 3,
+        "endChar": 18
+      },
+      "revId": "6f45f8c3ee70c5d251ff91df9b49aa9b7a6a4d0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cd63a37_1966cfe2",
+        "filename": "bluetooth/1.0/default/android.hardware.bluetooth@1.0-service.rc",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1058798
+      },
+      "writtenOn": "2016-10-13T19:22:39Z",
+      "side": 1,
+      "message": "Yes",
+      "parentUuid": "1cd63a37_f6656045",
       "range": {
         "startLine": 3,
         "startChar": 9,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "1cd63a37_f98c3395",
+        "filename": "bluetooth/1.0/default/service.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1058798
+      },
+      "writtenOn": "2016-10-13T19:22:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cd63a37_3664f841",
+      "range": {
+        "startLine": 26,
+        "startChar": 42,
+        "endLine": 26,
+        "endChar": 46
+      },
+      "revId": "6f45f8c3ee70c5d251ff91df9b49aa9b7a6a4d0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cd63a37_36d638be",
         "filename": "bluetooth/1.0/types.hal",
         "patchSetId": 4
@@ -232,6 +448,30 @@
     },
     {
       "key": {
+        "uuid": "1cd63a37_d99177ab",
+        "filename": "bluetooth/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1058798
+      },
+      "writtenOn": "2016-10-13T19:22:39Z",
+      "side": 1,
+      "message": "Transport as in UART, socket etc. which actually talks to the Bluetooth chip.",
+      "parentUuid": "1cd63a37_36d638be",
+      "range": {
+        "startLine": 21,
+        "startChar": 2,
+        "endLine": 21,
+        "endChar": 17
+      },
+      "revId": "6f45f8c3ee70c5d251ff91df9b49aa9b7a6a4d0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cd63a37_7643909a",
         "filename": "bluetooth/1.0/types.hal",
         "patchSetId": 4
@@ -243,6 +483,30 @@
       "writtenOn": "2016-10-13T18:24:24Z",
       "side": 1,
       "message": "I don\u0027t see where this is used",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 2
+      },
+      "revId": "6f45f8c3ee70c5d251ff91df9b49aa9b7a6a4d0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cd63a37_b986bb71",
+        "filename": "bluetooth/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1058798
+      },
+      "writtenOn": "2016-10-13T19:22:39Z",
+      "side": 1,
+      "message": "WIP",
+      "parentUuid": "1cd63a37_7643909a",
       "range": {
         "startLine": 19,
         "startChar": 0,
