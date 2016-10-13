@@ -16,6 +16,7 @@
 
 package android.hardware.wifi.supplicant@1.0;
 
+import android.hardware.wifi.common@1.0;
 import ISupplicantNetworkCallback;
 
 /**

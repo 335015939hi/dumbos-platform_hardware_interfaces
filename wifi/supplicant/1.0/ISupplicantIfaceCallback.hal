@@ -16,6 +16,8 @@
 
 package android.hardware.wifi.supplicant@1.0;
 
+import android.hardware.wifi.common@1.0;
+
 /**
  * Callback Interface exposed by the wpa_supplicant service
  * for each interface (ISupplicantIface).

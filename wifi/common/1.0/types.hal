@@ -14,15 +14,24 @@
  * limitations under the License.
  */
 
-package android.hardware.wifi@1.0;
-
-import android.hardware.wifi.common@1.0;
-import android.hardware.wifi.nan@1.0;
-import IWifiIface;
+package android.hardware.wifi.common@1.0;
 
 /**
- * Interface used to represent a single NAN iface.
+ * Channel frequency in Mhz.
  */
-interface IWifiNanIface extends IWifiIface {
-  /** TODO(rpius): Add methods to the interface. */
-};
+typedef uint32_t WifiChannel;
+
+/**
+ * Mac Address type. 6 octets representing physical address of a device.
+ */
+typedef uint8_t[6] MacAddress;
+
+/**
+ * BSSID type. 6 octets representing the physical address of an AP.
+ */
+typedef MacAddress Bssid;
+
+/**
+ * SSID type. Max of 32 octets representing service identifier of a network.
+ */
+typedef vec<uint8_t> Ssid;
