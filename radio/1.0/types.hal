@@ -54,6 +54,101 @@ enum RadioCdmaSmsConst : int32_t {
     IP_ADDRESS_SIZE = 4,
 };
 
+enum RadioError : int32_t {
+    NONE = 0,
+    RADIO_NOT_AVAILABLE = 1,              // If radio did not start or is resetting
+    GENERIC_FAILURE = 2,
+    PASSWORD_INCORRECT = 3,               // for PIN/PIN2 methods only
+    SIM_PIN2 = 4,                         // Operation requires SIM PIN2 to be entered
+    SIM_PUK2 = 5,                         // Operation requires SIM PIN2 to be entered
+    REQUEST_NOT_SUPPORTED = 6,
+    CANCELLED = 7,
+    OP_NOT_ALLOWED_DURING_VOICE_CALL = 8, // data ops are not allowed during voice
+                                          // call on a Class C GPRS device
+    OP_NOT_ALLOWED_BEFORE_REG_TO_NW = 9,  // data ops are not allowed before device
+                                          // registers in network
+    SMS_SEND_FAIL_RETRY = 10,             // fail to send sms and need retry
+    SIM_ABSENT = 11,                      // fail to set the location where CDMA subscription
+                                          // shall be retrieved because of SIM or RUIM
+                                          // card absent
+    SUBSCRIPTION_NOT_AVAILABLE = 12,      // fail to find CDMA subscription from specified
+                                          // location
+    MODE_NOT_SUPPORTED = 13,              // HW does not support preferred network type
+    FDN_CHECK_FAILURE = 14,               // command failed because recipient is not on FDN list
+    ILLEGAL_SIM_OR_ME = 15,               // network selection failed due to illegal SIM or ME
+    MISSING_RESOURCE = 16,                // no logical channel available
+    NO_SUCH_ELEMENT = 17,                 // application not found on SIM
+    DIAL_MODIFIED_TO_USSD = 18,           // DIAL request modified to USSD
+    DIAL_MODIFIED_TO_SS = 19,             // DIAL request modified to SS
+    DIAL_MODIFIED_TO_DIAL = 20,           // DIAL request modified to DIAL with different data
+    USSD_MODIFIED_TO_DIAL = 21,           // USSD request modified to DIAL
+    USSD_MODIFIED_TO_SS = 22,             // USSD request modified to SS
+    USSD_MODIFIED_TO_USSD = 23,           // USSD request modified to different USSD request
+    SS_MODIFIED_TO_DIAL = 24,             // SS request modified to DIAL
+    SS_MODIFIED_TO_USSD = 25,             // SS request modified to USSD
+    SUBSCRIPTION_NOT_SUPPORTED = 26,      // Subscription not supported by RIL
+    SS_MODIFIED_TO_SS = 27,               // SS request modified to different SS request
+    LCE_NOT_SUPPORTED = 36,               // LCE service not supported(36 in RILConstants.java)
+    NO_MEMORY = 37,                       // Not sufficient memory to process the request
+    INTERNAL_ERR = 38,                    // Hit unexpected vendor internal error scenario
+    SYSTEM_ERR = 39,                      // Hit platform or system error
+    MODEM_ERR = 40,                       // Hit unexpected modem error
+    INVALID_STATE = 41,                   // Unexpected request for the current state
+    NO_RESOURCES = 42,                    // Not sufficient resource to process the request
+    SIM_ERR = 43,                         // Received error from SIM card
+    INVALID_ARGUMENTS = 44,               // Received invalid arguments in request
+    INVALID_SIM_STATE = 45,               // Can not process the request in current SIM state
+    INVALID_MODEM_STATE = 46,             // Can not process the request in current Modem state
+    INVALID_CALL_ID = 47,                 // Received invalid call id in request
+    NO_SMS_TO_ACK = 48,                   // ACK received when there is no SMS to ack
+    NETWORK_ERR = 49,                     // Received error from network
+    REQUEST_RATE_LIMITED = 50,            // Operation denied due to overly-frequent requests
+    SIM_BUSY = 51,                        // SIM is busy
+    SIM_FULL = 52,                        // The target EF is full
+    NETWORK_REJECT = 53,                  // Request is rejected by network
+    OPERATION_NOT_ALLOWED = 54,           // Not allowed the request now
+    EMPTY_RECORD = 55,                    // The request record is empty
+    INVALID_SMS_FORMAT = 56,              // Invalid sms format
+    ENCODING_ERR = 57,                    // Message not encoded properly
+    INVALID_SMSC_ADDRESS = 58,            // SMSC address specified is invalid
+    NO_SUCH_ENTRY = 59,                   // No such entry present to perform the request
+    NETWORK_NOT_READY = 60,               // Network is not ready to perform the request
+    NOT_PROVISIONED = 61,                 // Device doesnot have this value provisioned
+    NO_SUBSCRIPTION = 62,                 // Device doesnot have subscription
+    NO_NETWORK_FOUND = 63,                // Network cannot be found
+    DEVICE_IN_USE = 64,                   // Operation cannot be performed because the device
+                                          // is currently in use
+    RIL_E_ABORTED = 65,                   // Operation aborted
+
+    // OEM specific error codes. To be used by OEM when they don't want to reveal
+    // specific error codes which would be replaced by Generic failure.
+    OEM_ERROR_1 = 501,
+    OEM_ERROR_2 = 502,
+    OEM_ERROR_3 = 503,
+    OEM_ERROR_4 = 504,
+    OEM_ERROR_5 = 505,
+    OEM_ERROR_6 = 506,
+    OEM_ERROR_7 = 507,
+    OEM_ERROR_8 = 508,
+    OEM_ERROR_9 = 509,
+    OEM_ERROR_10 = 510,
+    OEM_ERROR_11 = 511,
+    OEM_ERROR_12 = 512,
+    OEM_ERROR_13 = 513,
+    OEM_ERROR_14 = 514,
+    OEM_ERROR_15 = 515,
+    OEM_ERROR_16 = 516,
+    OEM_ERROR_17 = 517,
+    OEM_ERROR_18 = 518,
+    OEM_ERROR_19 = 519,
+    OEM_ERROR_20 = 520,
+    OEM_ERROR_21 = 521,
+    OEM_ERROR_22 = 522,
+    OEM_ERROR_23 = 523,
+    OEM_ERROR_24 = 524,
+    OEM_ERROR_25 = 525
+};
+
 enum RadioRestrictedState : int32_t {
     NONE = 0x00,
     CS_EMERGENCY = 0x01,
@@ -91,30 +186,24 @@ enum RadioAppType : int32_t {
 enum RadioAppState : int32_t {
     UNKNOWN = 0,
     DETECTED = 1,
-    PIN = 2,
-    /* If PIN1 or UPin is required */
-    PUK = 3,
-    /* If PUK1 or Puk for UPin is required */
-    SUBSCRIPTION_PERSO = 4,
-    /* perso_substate should be look at when app_state is assigned to this value */
+    PIN = 2,                              // If PIN1 or UPin is required
+    PUK = 3,                              // If PUK1 or Puk for UPin is required
+    SUBSCRIPTION_PERSO = 4,               // perso_substate should be look at when app_state is
+                                          // assigned to this value
     READY = 5,
 };
 
 enum RadioPersoSubstate : int32_t {
-    UNKNOWN = 0,
-    /* initial state */
-    IN_PROGRESS = 1,
-    /* in between each lock transition */
-    READY = 2,
-    /* when either SIM or RUIM Perso is finished since each app can only have 1 active perso
-    involved */
+    UNKNOWN = 0,                          // initial state
+    IN_PROGRESS = 1,                      // in between each lock transition
+    READY = 2,                            // when either SIM or RUIM Perso is finished since each
+                                          // app can only have 1 active perso involved
     SIM_NETWORK = 3,
     SIM_NETWORK_SUBSET = 4,
     SIM_CORPORATE = 5,
     SIM_SERVICE_PROVIDER = 6,
     SIM_SIM = 7,
-    SIM_NETWORK_PUK = 8,
-    /* The corresponding perso lock is blocked */
+    SIM_NETWORK_PUK = 8,                  // The corresponding perso lock is blocked
     SIM_NETWORK_SUBSET_PUK = 9,
     SIM_CORPORATE_PUK = 10,
     SIM_SERVICE_PROVIDER_PUK = 11,
@@ -125,8 +214,7 @@ enum RadioPersoSubstate : int32_t {
     RUIM_CORPORATE = 16,
     RUIM_SERVICE_PROVIDER = 17,
     RUIM_RUIM = 18,
-    RUIM_NETWORK1_PUK = 19,
-    /* The corresponding perso lock is blocked */
+    RUIM_NETWORK1_PUK = 19,               // The corresponding perso lock is blocked
     RUIM_NETWORK2_PUK = 20,
     RUIM_HRPD_PUK = 21,
     RUIM_CORPORATE_PUK = 22,
@@ -134,58 +222,128 @@ enum RadioPersoSubstate : int32_t {
     RUIM_RUIM_PUK = 24,
 };
 
-enum RadioState : int32_t  {
-  OFF = 0,
-  /* Radio explictly powered off (eg CFUN=0) */
-  UNAVAILABLE = 1,
-  /* States 2-9 below are deprecated. Just leaving them here for backward compatibility. */
-  SIM_NOT_READY = 2,
-  /* Radio is on, but the SIM interface is not ready */
-  SIM_LOCKED_OR_ABSENT = 3,
-  /* SIM PIN locked, PUK required, network
-   personalization locked, or SIM absent */
-  SIM_READY = 4,
-  /* Radio is on and SIM interface is available */
-  RUIM_NOT_READY = 5,
-  /* Radio is on, but the RUIM interface is not ready */
-  RUIM_READY = 6,
-  /* Radio is on and the RUIM interface is available */
-  RUIM_LOCKED_OR_ABSENT = 7,
-  /* RUIM PIN locked, PUK required, network
-   personalization locked, or RUIM absent */
-  NV_NOT_READY = 8,
-  /* Radio is on, but the NV interface is not available */
-  NV_READY = 9,
-  /* Radio is on */
-  ON = 10,
+enum RadioState : int32_t {
+    OFF = 0,                              // Radio explictly powered off (eg CFUN=0)
+    UNAVAILABLE = 1,                      // Radio unavailable (eg, resetting or not booted)
+    // States 2-9 below are deprecated. Just leaving them here for backward compatibility
+    SIM_NOT_READY = 2,                    // Radio is on, but the SIM interface is not ready
+
+    SIM_LOCKED_OR_ABSENT = 3,             // SIM PIN locked, PUK required, network personalization
+                                          // locked, or SIM absent
+    SIM_READY = 4,                        // Radio is on and SIM interface is available
+    RUIM_NOT_READY = 5,                   // Radio is on, but the RUIM interface is not ready
+    RUIM_READY = 6,                       // Radio is on and the RUIM interface is available
+    RUIM_LOCKED_OR_ABSENT = 7,            // RUIM PIN locked, PUK required, network personalization
+                                          // locked, or RUIM absent
+    NV_NOT_READY = 8,                     // Radio is on, but the NV interface is not available
+    NV_READY = 9,                         // Radio is on and the NV interface is available
+    ON = 10,                              // Radio is on
+};
+
+enum RadioCallState : int32_t {
+    ACTIVE = 0,
+    HOLDING = 1,
+    DIALING = 2,                         // MO call only
+    ALERTING = 3,                        // MO call only
+    INCOMING = 4,                        // MT call only
+    WAITING = 5,                         // MT call only
+};
+
+/*
+ * User-to-User signaling Info activation types derived from 3GPP 23.087 v8.0
+ */
+enum RadioUusType : int32_t {
+    TYPE1_IMPLICIT = 0,
+    TYPE1_REQUIRED = 1,
+    TYPE1_NOT_REQUIRED = 2,
+    TYPE2_REQUIRED = 3,
+    TYPE2_NOT_REQUIRED = 4,
+    TYPE3_REQUIRED = 5,
+    TYPE3_NOT_REQUIRED = 6,
+};
+
+/*
+ * User-to-User Signaling Information data coding schemes. Possible values for
+ * Octet 3 (Protocol Discriminator field) in the UUIE. The values have been
+ * specified in section 10.5.4.25 of 3GPP TS 24.008
+ */
+enum RadioUusDcs : int32_t {
+    USP = 0,                              // User specified protocol
+    OSIHLP = 1,                           // OSI higher layer protocol
+    X244 = 2,                             // X.244
+    RMCF = 3,                             // Reserved for system mangement convergence function
+    IA5c = 4,                             // IA5 characters
+};
+
+struct ResponseInfo {
+    int32_t type;                         // Response type to differentiate Solicited, unsolicited
+                                          // or ack
+    int32_t serial;                       // Serial number of the request
+    int32_t error;                        // Response error
 };
 
 struct RadioAppStatus {
     RadioAppType appType;
     RadioAppState appState;
-    RadioPersoSubstate persoSubstate;
-    /* applicable only if app_state == SUBSCRIPTION_PERSO */
-    string aidPtr;
-    /* null terminated string, e.g., from 0xA0, 0x00 -> 0x41, 0x30, 0x30, 0x30 */
-    string appLabelPtr;
-    /* null terminated string */
-    int32_t pin1Replaced;
-    /* applicable to USIM, CSIM & ISIM */
+    RadioPersoSubstate persoSubstate;     // applicable only if app_state == SUBSCRIPTION_PERSO
+    string aidPtr;                        // null terminated string, e.g., from 0xA0, 0x00 -> 0x41,
+                                          // 0x30, 0x30, 0x30
+    string appLabelPtr;                   // null terminated string
+    int32_t pin1Replaced;                 // applicable to USIM, CSIM & ISIM
     RadioPinState pin1;
     RadioPinState pin2;
 };
 
 struct RadioCardStatus {
     RadioCardState cardState;
-    RadioPinState universalPinState;
-    /* applicable to USIM and CSIM */
-    int32_t gsmUmtsSubscriptionAppIndex;
-    /* value < RADIO_CARD_MAX_APPS, -1 if none */
-    int32_t cdmaSubscriptionAppIndex;
-    /* value < RADIO_CARD_MAX_APPS, -1 if none */
-    int32_t imsSubscriptionAppIndex;
-    /* value < RADIO_CARD_MAX_APPS, -1 if none */
-    int32_t numApplications;
-    /* value <= RADIO_CARD_MAX_APPS */
+    RadioPinState universalPinState;      // applicable to USIM and CSIM
+    int32_t gsmUmtsSubscriptionAppIndex;  // value < RADIO_CARD_MAX_APPS, -1 if none
+    int32_t cdmaSubscriptionAppIndex;     // value < RADIO_CARD_MAX_APPS, -1 if none
+    int32_t imsSubscriptionAppIndex;      // value < RADIO_CARD_MAX_APPS, -1 if none
+    int32_t numApplications;              // value <= RADIO_CARD_MAX_APPS
     RadioAppStatus[RadioConst:RADIO_CARD_MAX_APPS] applications;
+};
+
+/*
+ * User-to-User Signaling Information defined in 3GPP 23.087 v8.0
+ * This data is passed in RADIO_ExtensionRecord and rec contains this
+ * structure when type is RADIO_UUS_INFO_EXT_REC
+ */
+struct RadioUusInfo {
+    RadioUusType uusType;                 // UUS Type
+    RadioUusDcs uusDcs;                   // UUS Data Coding Scheme
+    int32_t uusLength;                    // Length of UUS Data
+    string uusData;                       // UUS data
+};
+
+struct RadioCall {
+    RadioCallState state;
+    int32_t index;                        // Connection Index for use with, eg, AT+CHLD
+    int32_t toa;                          // type of address, eg 145 = intl
+    bool isMpty;                          // true if is mpty call
+    bool isMT;                            // true if call is mobile terminated
+    uint8_t als;                          // ALS line indicator if available (0 = line 1)
+    bool isVoice;                         // true if this is is a voice call
+    bool isVoicePrivacy;                  // true if CDMA voice privacy mode is active
+    string number;                        // Remote party number
+    int32_t numberPresentation;           // 0=Allowed, 1=Restricted, 2=Not Specified/Unknown
+                                          // 3=Payphone
+    string name;                          // Remote party name
+    int32_t namePresentation;             // 0=Allowed, 1=Restricted, 2=Not Specified/Unknown
+                                          // 3=Payphone
+    vec<RadioUusInfo> uusInfo;            // Vector of User-User Signaling Information
+};
+
+/*
+ * Used by RADIO_REQUEST_DIAL
+ */
+struct RadioDial {
+    string address;
+    int32_t clir;                         // (same as 'n' paremeter in TS 27.007 7.7 "+CLIR"
+                                          // clir == 0 on "use subscription default value"
+                                          // clir == 1 on "CLIR invocation" (restrict CLI
+                                          //           presentation)
+                                          // clir == 2 on "CLIR suppression" (allow CLI
+                                          //           presentation)
+    vec<RadioUusInfo> uusInfo;            // Vector of User-User Signaling Information
 };
