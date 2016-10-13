@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c193e0f_5722ecc2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-13T22:00:16Z",
+      "side": 1,
+      "message": "Can you say more about why this is being done? It seems like logs would be easier to understand with the string, than with an integer.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 72
+      },
+      "revId": "d4d773801a6f1d04161666147d4cf33ac1109419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c193e0f_3763b8ac",
+        "filename": "wifi/1.0/default/wifi_ap_iface.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-13T22:00:16Z",
+      "side": 1,
+      "message": "Strictly speaking, maybe this is a don\u0027t care. But, for consistency with other classes, I think you want this to be IfaceType::AP.",
+      "range": {
+        "startLine": 53,
+        "startChar": 7,
+        "endLine": 53,
+        "endChar": 21
+      },
+      "revId": "d4d773801a6f1d04161666147d4cf33ac1109419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c193e0f_3702d81b",
+        "filename": "wifi/1.0/default/wifi_ap_iface.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-13T22:00:16Z",
+      "side": 1,
+      "message": "Should this be IfaceType::AP?",
+      "range": {
+        "startLine": 56,
+        "startChar": 48,
+        "endLine": 56,
+        "endChar": 62
+      },
+      "revId": "d4d773801a6f1d04161666147d4cf33ac1109419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c193e0f_f71ea020",
+        "filename": "wifi/1.0/default/wifi_nan_iface.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-13T22:00:16Z",
+      "side": 1,
+      "message": "Strictly speaking, maybe this is a don\u0027t care. But, for consistency with other classes, I think you want this to be IfaceType::NAN.",
+      "range": {
+        "startLine": 53,
+        "startChar": 7,
+        "endLine": 53,
+        "endChar": 20
+      },
+      "revId": "d4d773801a6f1d04161666147d4cf33ac1109419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c193e0f_f71b0088",
+        "filename": "wifi/1.0/default/wifi_nan_iface.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-13T22:00:16Z",
+      "side": 1,
+      "message": "Should this by IfaceType::NAN?",
+      "range": {
+        "startLine": 56,
+        "startChar": 48,
+        "endLine": 56,
+        "endChar": 61
+      },
+      "revId": "d4d773801a6f1d04161666147d4cf33ac1109419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
