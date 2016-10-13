@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3c193e0f_7a5915fc",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-13T23:30:43Z",
+      "side": 1,
+      "message": "The documentation for these have been changed in the HIDL interface in the CL: https://android-review.googlesource.com/#/c/286622/15/wifi/1.0/IWifiChip.hal\n\n\nWe\u0027re no longer delivering results asynchronously via callbacks for every method. Some like bgscans would still do.",
+      "parentUuid": "1cd63a37_d92df79b",
+      "range": {
+        "startLine": 121,
+        "startChar": 23,
+        "endLine": 121,
+        "endChar": 43
+      },
+      "revId": "6dddf05c9013dba7058d3c4a369c51b2b73557ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cd63a37_99609fd3",
         "filename": "wifi/1.0/default/wifi_chip.cpp",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-13T21:46:31Z",
       "side": 1,
       "message": "Same concern as for requestChipDebugInfo().",
+      "range": {
+        "startLine": 157,
+        "startChar": 23,
+        "endLine": 157,
+        "endChar": 45
+      },
+      "revId": "6dddf05c9013dba7058d3c4a369c51b2b73557ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c193e0f_fa75255a",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-13T23:30:43Z",
+      "side": 1,
+      "message": "These docs have all been changed.",
+      "parentUuid": "1cd63a37_99609fd3",
       "range": {
         "startLine": 157,
         "startChar": 23,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "3c193e0f_9a6ae979",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-13T23:30:43Z",
+      "side": 1,
+      "message": "These docs have all been changed.",
+      "parentUuid": "dc4e620b_bc27a1b9",
+      "range": {
+        "startLine": 181,
+        "startChar": 23,
+        "endLine": 181,
+        "endChar": 47
+      },
+      "revId": "6dddf05c9013dba7058d3c4a369c51b2b73557ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cd63a37_56989478",
         "filename": "wifi/1.0/default/wifi_chip.h",
         "patchSetId": 7
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "3c193e0f_5ae9b1d2",
+        "filename": "wifi/1.0/default/wifi_chip.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-13T23:30:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cd63a37_56989478",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 75
+      },
+      "revId": "6dddf05c9013dba7058d3c4a369c51b2b73557ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cd63a37_59256716",
         "filename": "wifi/1.0/default/wifi_chip.h",
         "patchSetId": 7
@@ -105,6 +201,30 @@
       "writtenOn": "2016-10-13T21:46:31Z",
       "side": 1,
       "message": "Consider |status_callback| here, and below, as well.",
+      "range": {
+        "startLine": 65,
+        "startChar": 54,
+        "endLine": 65,
+        "endChar": 56
+      },
+      "revId": "6dddf05c9013dba7058d3c4a369c51b2b73557ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c193e0f_7ae6f505",
+        "filename": "wifi/1.0/default/wifi_chip.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-13T23:30:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cd63a37_59256716",
       "range": {
         "startLine": 65,
         "startChar": 54,
