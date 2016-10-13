@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "1cd63a37_9f287f42",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-13T23:30:16Z",
+      "side": 1,
+      "message": "Alright. Will take it up in a separate CL then.",
+      "parentUuid": "1cd63a37_76ea7002",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 11
+      },
+      "revId": "168a2ff9959aeb30e0aeb3945a99addd96cad8c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ca192a9_50aeccef",
         "filename": "wifi/1.0/default/wifi.cpp",
         "patchSetId": 5
@@ -402,6 +426,24 @@
       "side": 1,
       "message": "Just to be clear: enums fall into category b? (On the one hand, they\u0027re represented as primitives, so maybe they\u0027re category a. On the other hand, they\u0027re user-defined, so maybe they\u0027re category b.)",
       "parentUuid": "5ca192a9_562324af",
+      "revId": "168a2ff9959aeb30e0aeb3945a99addd96cad8c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cd63a37_7f0003ad",
+        "filename": "wifi/1.0/default/wifi.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-13T23:30:16Z",
+      "side": 1,
+      "message": "Enums fall into category a) since they have an underlying primitive type.",
+      "parentUuid": "1cd63a37_3618782f",
       "revId": "168a2ff9959aeb30e0aeb3945a99addd96cad8c1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
