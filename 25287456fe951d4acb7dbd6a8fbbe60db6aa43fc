@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fc74060d_e5d296c7",
+        "filename": "boot_control/1.0/default/BootControl.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1077068
+      },
+      "writtenOn": "2016-10-13T16:15:26Z",
+      "side": 1,
+      "message": "Connor, you should probably call\n\n  module-\u003einit(module);\n\nafter this }.",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 4
+      },
+      "revId": "25287456fe951d4acb7dbd6a8fbbe60db6aa43fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
