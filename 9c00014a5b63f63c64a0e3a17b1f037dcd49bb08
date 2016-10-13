@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1cd63a37_7f37e397",
+        "filename": "wifi/1.0/default/wifi.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-13T23:30:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cd63a37_162e9c41",
+      "range": {
+        "startLine": 60,
+        "startChar": 13,
+        "endLine": 60,
+        "endChar": 19
+      },
+      "revId": "9c00014a5b63f63c64a0e3a17b1f037dcd49bb08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cd63a37_d6d9444a",
         "filename": "wifi/1.0/default/wifi.cpp",
         "patchSetId": 7
@@ -36,6 +60,24 @@
       "writtenOn": "2016-10-13T18:46:41Z",
       "side": 1,
       "message": "(Continued from PS5)\n\nNope, not done! (I won\u0027t object if you disagree with the suggestion. But I\u0027d like to be clear on what you decided. \"Done\" seems to indicate that you agreed with it. But the code hasn\u0027t been modified accordingly.)",
+      "revId": "9c00014a5b63f63c64a0e3a17b1f037dcd49bb08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cd63a37_1fb90fdf",
+        "filename": "wifi/1.0/default/wifi.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-13T23:30:16Z",
+      "side": 1,
+      "message": "Sorry, Missed this one.",
+      "parentUuid": "1cd63a37_d6d9444a",
       "revId": "9c00014a5b63f63c64a0e3a17b1f037dcd49bb08",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
