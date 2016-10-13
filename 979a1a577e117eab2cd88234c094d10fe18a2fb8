@@ -22,6 +22,30 @@
       "revId": "979a1a577e117eab2cd88234c094d10fe18a2fb8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cd63a37_df1ef720",
+        "filename": "wifi/1.0/default/wifi_status_util.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-13T23:29:41Z",
+      "side": 1,
+      "message": "Yep. WifiStatus is a struct (not an interface) in the HIDL interface. So, it auto-generates a WifiStatus class with the same name. That\u0027s the reason we don\u0027t have a WifiStatus class here.",
+      "parentUuid": "5c64320a_120e3c98",
+      "range": {
+        "startLine": 31,
+        "startChar": 11,
+        "endLine": 31,
+        "endChar": 27
+      },
+      "revId": "979a1a577e117eab2cd88234c094d10fe18a2fb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
