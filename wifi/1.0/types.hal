@@ -17,50 +17,6 @@
 package android.hardware.wifi@1.0;
 
 /**
- * Enum values indicating the status of operation.
- */
-enum WifiStatusCode : uint32_t {
-  /** No errors. */
-  SUCCESS,
-  /** Method invoked on an invalid |IWifiChip| object. */
-  ERROR_WIFI_CHIP_INVALID,
-  /** Method invoked on an invalid |IWifiIface| object. */
-  ERROR_WIFI_IFACE_INVALID,
-  /** Method invoked on an invalid |IWifiRttController| object. */
-  ERROR_WIFI_RTT_CONTROLLER_INVALID,
-  ERROR_NOT_SUPPORTED,
-  ERROR_NOT_AVAILABLE,
-  ERROR_INVALID_ARGS,
-  ERROR_UNKNOWN
-};
-
-/**
- * Generic structure to return the status of an operation.
- */
-struct WifiStatus {
-  WifiStatusCode code;
-  /**
-   * A vendor specific error message from the vendor to provide more
-   * information beyond the reason code.
-   */
-  string description;
-};
-
-/**
- * List of Iface types supported.
- */
-enum IfaceType : uint32_t {
-  STA,
-  AP,
-  P2P,
-  /**
-   * NAN control interface. Datapath support must be queried and created
-   * through this interface.
-   */
-  NAN,
-};
-
-/**
  * An identifier assigned to every chip on the device.
  */
 typedef uint32_t ChipId;
@@ -69,10 +25,3 @@ typedef uint32_t ChipId;
  * An identifier for a mode that the chip can be put in.
  */
 typedef uint32_t ChipModeId;
-
-/**
- * A unique handle provided by the client to identify individual invocations of
- * certain API's like |IWifiStaIface.startBackgroundScan|,
- * |IWifiStaIface.installApfPacketFilter|, etc.
- */
-typedef uint32_t CommandId;

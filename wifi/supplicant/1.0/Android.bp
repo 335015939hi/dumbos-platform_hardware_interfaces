@@ -82,5 +82,6 @@ cc_library_shared {
         "libhwbinder",
         "libutils",
         "libcutils",
+        "android.hardware.wifi.common@1.0",
     ],
 }

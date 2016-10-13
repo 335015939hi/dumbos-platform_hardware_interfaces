@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package android.hardware.wifi@1.0;
+package android.hardware.wifi.common@1.0;
 
 /**
  * Interface used to represent a single iface.

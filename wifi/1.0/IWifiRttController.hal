@@ -16,7 +16,7 @@
 
 package android.hardware.wifi@1.0;
 
-import IWifiIface;
+import android.hardware.wifi.common@1.0;
 
 /**
  * Interface used to perform RTT operations.
