@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3c193e0f_dab701a2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-13T23:31:00Z",
+      "side": 1,
+      "message": "I was trying to remove |wifi_status_util| usage from |wifi_legacy_hal| to prevent mixing of error code types (wifi_error vs WifiStatus).\n\nBut, it\u0027s probably not worth it. Moved it back.",
+      "parentUuid": "3c193e0f_5722ecc2",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 72
+      },
+      "revId": "d4d773801a6f1d04161666147d4cf33ac1109419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c193e0f_3763b8ac",
         "filename": "wifi/1.0/default/wifi_ap_iface.cpp",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-13T22:00:16Z",
       "side": 1,
       "message": "Strictly speaking, maybe this is a don\u0027t care. But, for consistency with other classes, I think you want this to be IfaceType::AP.",
+      "range": {
+        "startLine": 53,
+        "startChar": 7,
+        "endLine": 53,
+        "endChar": 21
+      },
+      "revId": "d4d773801a6f1d04161666147d4cf33ac1109419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c193e0f_dabdc1d2",
+        "filename": "wifi/1.0/default/wifi_ap_iface.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-13T23:31:00Z",
+      "side": 1,
+      "message": "Oops.",
+      "parentUuid": "3c193e0f_3763b8ac",
       "range": {
         "startLine": 53,
         "startChar": 7,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "3c193e0f_fac20550",
+        "filename": "wifi/1.0/default/wifi_ap_iface.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-13T23:31:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c193e0f_3702d81b",
+      "range": {
+        "startLine": 56,
+        "startChar": 48,
+        "endLine": 56,
+        "endChar": 62
+      },
+      "revId": "d4d773801a6f1d04161666147d4cf33ac1109419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c193e0f_f71ea020",
         "filename": "wifi/1.0/default/wifi_nan_iface.cpp",
         "patchSetId": 7
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "3c193e0f_bacc8d81",
+        "filename": "wifi/1.0/default/wifi_nan_iface.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-13T23:31:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c193e0f_f71ea020",
+      "range": {
+        "startLine": 53,
+        "startChar": 7,
+        "endLine": 53,
+        "endChar": 20
+      },
+      "revId": "d4d773801a6f1d04161666147d4cf33ac1109419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c193e0f_f71b0088",
         "filename": "wifi/1.0/default/wifi_nan_iface.cpp",
         "patchSetId": 7
@@ -105,6 +201,30 @@
       "writtenOn": "2016-10-13T22:00:16Z",
       "side": 1,
       "message": "Should this by IfaceType::NAN?",
+      "range": {
+        "startLine": 56,
+        "startChar": 48,
+        "endLine": 56,
+        "endChar": 61
+      },
+      "revId": "d4d773801a6f1d04161666147d4cf33ac1109419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c193e0f_5ab21101",
+        "filename": "wifi/1.0/default/wifi_nan_iface.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-13T23:31:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c193e0f_f71b0088",
       "range": {
         "startLine": 56,
         "startChar": 48,
