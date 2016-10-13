@@ -1,0 +1,161 @@
+/*
+ * Copyright 2016 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package android.hardware.wifi.nan@1.0;
+
+/** NAN Iface specific types */
+/**
+ * NAN data path identifiers.
+ */
+typedef uint32_t DataPathId;
+
+/**
+ * Data request Initiator/Responder app/service related info.
+ */
+struct DataPathAppInfo {
+  /**
+   * Max length: |DP_MAX_APP_INFO_LEN|.
+   */
+  vec<uint8_t> ndpAppInfo;
+};
+
+/**
+ * QoS configuration.
+ */
+enum DataPathQosCfg : uint32_t {
+  NO_QOS = 0,
+  QOS,
+};
+
+/**
+ * NAN DP security Configuration.
+ */
+enum DataPathSecurityCfgStatus : uint32_t {
+  NO_SECURITY = 0,
+  SECURITY,
+};
+
+/**
+ * Configuration params of Data request Initiator/Responder.
+ */
+struct DataPathCfg {
+  /**
+   * Status Indicating Security/No Security.
+   */
+  DataPathSecurityCfgStatus securityCfg;
+  DataPathQosCfg qosCfg;
+};
+
+/**
+ * Indicates the availability interval duration associated with the
+ * Availability Intervals Bitmap field
+ */
+enum AvailDuration : uint32_t {
+  DURATION_16MS = 0,
+  DURATION_32MS = 1,
+  DURATION_64MS = 2,
+};
+
+/**
+ * Possible connection types in Post NAN Discovery attributes.
+ */
+enum ConnectionType : uint32_t {
+  WLAN_INFRA = 0,
+  P2P_OPER = 1,
+  WLAN_IBSS = 2,
+  WLAN_MESH = 3,
+  FURTHER_SERVICE_AVAILABILITY = 4,
+  WLAN_RANGING = 5,
+};
+
+/**
+ * Possible device roles in Post NAN Discovery attributes.
+ */
+enum DeviceRole : uint32_t {
+  WLAN_INFRA_AP = 0,
+  WLAN_INFRA_STA = 1,
+  P2P_OPER_GO = 2,
+  P2P_OPER_DEV = 3,
+  P2P_OPER_CLI = 4,
+};
+
+/**
+ * Data request Responder's response.
+ */
+enum DataPathResponseCode : uint32_t {
+  ACCEPT = 0,
+  REJECT,
+};
+
+/**
+ * Further availability per channel information.
+ */
+struct FurtherAvailabilityChannel {
+  /**
+   * Defined above.
+   */
+  AvailDuration entryControl;
+  /**
+   * 1 byte field indicating the frequency band the NAN Device
+   * will be available as defined in IEEE Std. 802.11-2012
+   * Annex E Table E-4 Global Operating Classes
+   */
+  uint8_t classVal;
+  /**
+   * 1 byte field indicating the channel the NAN Device
+   * will be available.
+   */
+  uint8_t channel;
+  /**
+   * Map Id - 4 bit field which identifies the Further
+   * availability map attribute.
+   */
+  uint8_t mapid;
+  /**
+   * Divides the time between the beginnings of consecutive Discovery
+   * Windows of a given NAN cluster into consecutive time intervals
+   * of equal durations. The time interval duration is specified by
+   * the Availability Interval Duration subfield of the Entry Control
+   * field.
+   * A  device that sets the i-th bit of the Availability
+   * Intervals Bitmap to 1 shall be present during the corresponding
+   * i-th time interval in the operation channel indicated by the
+   * Operating Class and Channel Number fields in the same Availability Entry.
+   * A  device that sets the i-th bit of the Availability Intervals Bitmap to
+   * 0 may be present during the corresponding i-th time interval in the operation
+   * channel indicated by the Operating Class and Channel Number fields in the same
+   * Availability Entry.
+   * The size of the Bitmap is dependent upon the Availability Interval Duration
+   * Chosen in the Entry Control Field.  The size can be either 1, 2 or 4 bytes long
+   * - Duration field is equal to 0, only AIB[0] is valid
+   * - Duration field is equal to 1, only AIB [0] and AIB [1] is valid
+   * - Duration field is equal to 2, AIB [0], AIB [1], AIB [2] and AIB [3] are valid
+   */
+  uint32_t availIntervalBitmap;
+};
+
+/**
+ * Nan Further availability map which can be sent and received from
+ * Discovery engine
+ */
+struct FurtherAvailabilityMap {
+  /**
+   * Number of channels indicates the number of channel
+   * entries which is part of fam.
+   * Max length: |MAX_FAM_CHANNELS|.
+   */
+  vec<FurtherAvailabilityChannel> famChan;
+};

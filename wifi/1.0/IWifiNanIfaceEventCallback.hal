@@ -1,0 +1,692 @@
+/*
+ * Copyright 2016 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package android.hardware.wifi@1.0;
+
+import android.hardware.wifi.common@1.0;
+import android.hardware.wifi.nan@1.0;
+
+/**
+ * NAN Response and Event Callbacks.
+ */
+interface IWifiNanIfaceEventCallback {
+  /**
+   * Definition of various ResponseType
+   */
+  enum ResponseType : uint32_t  {
+    ENABLED = 0,
+    DISABLED = 1,
+    PUBLISH = 2,
+    PUBLISH_CANCEL = 3,
+    TRANSMIT_FOLLOWUP = 4,
+    SUBSCRIBE = 5,
+    SUBSCRIBE_CANCEL = 6,
+    CONFIG = 8,
+    ERROR = 10,
+    BEACON_SDF_PAYLOAD = 11,
+    GET_CAPABILITIES = 12,
+    DP_INTERFACE_CREATE = 13,
+    DP_INTERFACE_DELETE = 14,
+    DP_INITIATOR_RESPONSE = 15,
+    DP_RESPONDER_RESPONSE = 16,
+    DP_END = 17,
+  };
+
+  /**
+   * Various NAN Protocol Response code
+   */
+  enum StatusType : uint32_t {
+    /* NAN Protocol Response Codes */
+    SUCCESS = 0,
+    TIMEOUT = 1,
+    DE_FAILURE = 2,
+    INVALID_MSG_VERSION = 3,
+    INVALID_MSG_LEN = 4,
+    INVALID_MSG_ID = 5,
+    INVALID_HANDLE = 6,
+    NO_SPACE_AVAILABLE = 7,
+    INVALID_PUBLISH_TYPE = 8,
+    INVALID_TX_TYPE = 9,
+    INVALID_MATCH_ALGORITHM = 10,
+    DISABLE_IN_PROGRESS = 11,
+    INVALID_TLV_LEN = 12,
+    INVALID_TLV_TYPE = 13,
+    MISSING_TLV_TYPE = 14,
+    INVALID_TOTAL_TLVS_LEN = 15,
+    INVALID_MATCH_HANDLE = 16,
+    INVALID_TLV_VALUE = 17,
+    INVALID_TX_PRIORITY = 18,
+    INVALID_CONNECTION_MAP = 19,
+    NOT_ALLOWED = 22,
+    NO_OTA_ACK = 23,
+    TX_FAIL = 24,
+    ALREADY_ENABLED = 25,
+    FOLLOWUP_QUEUE_FULL = 26,
+
+    /* NAN Configuration Response codes */
+    INVALID_RSSI_CLOSE_VALUE = 4096,
+    INVALID_RSSI_MIDDLE_VALUE = 4097,
+    INVALID_HOP_COUNT_LIMIT = 4098,
+    INVALID_MASTER_PREFERENCE_VALUE = 4099,
+    INVALID_LOW_CLUSTER_ID_VALUE = 4100,
+    INVALID_HIGH_CLUSTER_ID_VALUE = 4101,
+    INVALID_BACKGROUND_SCAN_PERIOD = 4102,
+    INVALID_RSSI_PROXIMITY_VALUE = 4103,
+    INVALID_SCAN_CHANNEL = 4104,
+    INVALID_POST_CONNECTIVITY_CAPABILITIES_BITMAP = 4105,
+    INVALID_FURTHER_AVAILABILITY_MAP_NUMCHAN_VALUE = 4106,
+    INVALID_FURTHER_AVAILABILITY_MAP_DURATION_VALUE = 4107,
+    INVALID_FURTHER_AVAILABILITY_MAP_CLASS_VALUE = 4108,
+    INVALID_FURTHER_AVAILABILITY_MAP_CHANNEL_VALUE = 4109,
+    INVALID_FURTHER_AVAILABILITY_MAP_AVAILABILITY_INTERVAL_BITMAP_VALUE = 4110,
+    INVALID_FURTHER_AVAILABILITY_MAP_MAP_ID = 4111,
+    INVALID_POST_DISCOVERY_CONN_TYPE_VALUE = 4112,
+    INVALID_POST_DISCOVERY_DEVICE_ROLE_VALUE = 4113,
+    INVALID_POST_DISCOVERY_DURATION_VALUE = 4114,
+    INVALID_POST_DISCOVERY_BITMAP_VALUE = 4115,
+    MISSING_FUTHER_AVAILABILITY_MAP = 4116,
+    INVALID_BAND_CONFIG_FLAGS = 4117,
+    INVALID_RANDOM_FACTOR_UPDATE_TIME_VALUE = 4118,
+    INVALID_ONGOING_SCAN_PERIOD = 4119,
+    INVALID_DW_INTERVAL_VALUE = 4120,
+    INVALID_DB_INTERVAL_VALUE = 4121,
+
+    /* 4122-8191 RESERVED */
+    TERMINATED_REASON_INVALID = 8192,
+    TERMINATED_REASON_TIMEOUT = 8193,
+    TERMINATED_REASON_USER_REQUEST = 8194,
+    TERMINATED_REASON_FAILURE = 8195,
+    TERMINATED_REASON_COUNT_REACHED = 8196,
+    TERMINATED_REASON_DE_SHUTDOWN = 8197,
+    TERMINATED_REASON_DISABLE_IN_PROGRESS = 8198,
+    TERMINATED_REASON_POST_DISC_ATTR_EXPIRED = 8199,
+    TERMINATED_REASON_POST_DISC_LEN_EXCEEDED = 8200,
+    TERMINATED_REASON_FURTHER_AVAIL_MAP_EMPTY = 8201,
+
+    /* 9000-9500 NDP Status type */
+    NDP_UNSUPPORTED_CONCURRENCY = 9000,
+    NDP_DATA_IFACE_CREATE_FAILED = 9001,
+    NDP_DATA_IFACE_DELETE_FAILED = 9002,
+    NDP_DATA_INITIATOR_REQUEST_FAILED = 9003,
+    NDP_DATA_RESPONDER_REQUEST_FAILED = 9004,
+    NDP_INVALID_SERVICE_INSTANCE_ID = 9005,
+    NDP_INVALID_NDP_INSTANCE_ID = 9006,
+    NDP_INVALID_RESPONSE_CODE = 9007,
+    NDP_INVALID_APP_INFO_LEN = 9008,
+
+    /* OTA failures and timeouts during negotiation */
+    NDP_MGMT_FRAME_REQUEST_FAILED = 9009,
+    NDP_MGMT_FRAME_RESPONSE_FAILED = 9010,
+    NDP_MGMT_FRAME_CONFIRM_FAILED = 9011,
+    NDP_END_FAILED = 9012,
+    NDP_MGMT_FRAME_END_REQUEST_FAILED = 9013,
+
+    /* 9500 onwards vendor specific error codes */
+    NDP_VENDOR_SPECIFIC_ERROR = 9500,
+  };
+
+  /**
+   * Publish Response Message structure.
+   */
+  struct PublishResponse {
+    uint16_t publishId;
+  };
+
+  /**
+   * Subscribe Response Message structure.
+   */
+  struct SubscribeResponse {
+    uint16_t subscribeId;
+  };
+
+  /**
+   * Response returned for Initiators Data request.
+   */
+  struct DataPathRequestResponse {
+    /**
+     * Unique token Id generated on the initiator
+     * side used for a NDP session between two NAN devices
+     */
+    DataPathId ndpInstanceId;
+  };
+
+  /**
+   * /NDP Capabilites info.
+   */
+  struct Capabilities {
+    uint32_t maxConcurrentClusters;
+    uint32_t maxPublishes;
+    uint32_t maxSubscribes;
+    uint32_t maxServiceNameLen;
+    uint32_t maxMatchFilterLen;
+    uint32_t maxTotalMatchFilterLen;
+    uint32_t maxServiceSpecificInfoLen;
+    uint32_t maxVsaDataLen;
+    uint32_t maxMeshDataLen;
+    uint32_t maxNdiInterfaces;
+    uint32_t maxNdpSessions;
+    uint32_t maxAppInfoLen;
+    uint32_t maxQueuedTransmitFollowupMsgs;
+  };
+
+  /**
+   * NAN Response Messages.
+   */
+  struct ResponseMsg {
+    StatusType status;
+    /**
+     * Contains the result code.
+     */
+    uint32_t value;
+    /**
+     * For error returns the value is returned which was in error.
+     */
+    ResponseType responseType;
+    /**
+     * ResponseType Definitions.
+     */
+    struct Body {
+        PublishResponse publishResponse;
+        SubscribeResponse subscribeResponse;
+        DataPathRequestResponse dataRequestResponse;
+        Capabilities nanCapabilities;
+      };
+  };
+
+  /**
+   * Publish Terminated Message structure.
+   * The PublishTerminatedInd message is sent by the DE whenever a Publish
+   * terminates from a user-specified timeout or a unrecoverable error in the DE.
+   */
+  struct PublishTerminatedInd {
+    /**
+     * Id returned during the initial Publish.
+     */
+    uint16_t publishId;
+    StatusType reason;
+  };
+
+  /**
+   * Discovery engine providing the post connectivity capability
+   * received.
+   */
+  struct ReceivePostConnectivityCapability {
+    /**
+     * 1 - Wifi Direct supported 0 - Not supported.
+     */
+    uint8_t isWfdSupported;
+    /**
+     * 1 - Wifi Direct Services supported 0 - Not supported.
+     */
+    uint8_t isWfdsSupported;
+    /**
+     * 1 - TDLS supported 0 - Not supported.
+     */
+    uint8_t isTdlsSupported;
+    /**
+     * 1 - IBSS supported 0 - Not supported.
+     */
+    uint8_t isIbssSupported;
+    /**
+     * 1 - Mesh supported 0 - Not supported.
+     */
+    uint8_t isMeshSupported;
+    /**
+     * 1 - NAN Device currently connect to WLAN Infra AP.
+     * 0 - otherwise.
+     */
+    uint8_t wlanInfraField;
+  };
+
+  /**
+   * Discovery engine providing the structure of Post NAN
+   * Discovery message.
+   */
+  struct ReceivePostDiscovery {
+    /**
+     * Connection type of the host.
+     */
+    ConnectionType type;
+    /**
+     * Device role of the host based on the connection type.
+     */
+    DeviceRole role;
+    /**
+     * Duration of the availability bitmask.
+     */
+    AvailDuration duration;
+    /**
+     * Availability interval bitmap based on duration.
+     */
+    uint32_t availIntervalBitmap;
+    /**
+     * Map Id - 4 bit field which identifies the NanFurther
+     * availability map attribute.
+     */
+    uint8_t mapid;
+    /**
+     * Mac address depending on the conn type and device role
+     * --------------------------------------------------
+     * | Conn Type  |  Device Role |  Mac address Usage  |
+     * --------------------------------------------------
+     * | WLAN_INFRA |  AP/STA      |   BSSID of the AP   |
+     * --------------------------------------------------
+     * | P2P_OPER   |  GO          |   GO's address      |
+     * --------------------------------------------------
+     * | P2P_OPER   |  P2P_DEVICE  |   Address of who    |
+     * |            |              |   would become GO   |
+     * --------------------------------------------------
+     * | WLAN_IBSS  |  NA          |   BSSID             |
+     * --------------------------------------------------
+     * | WLAN_MESH  |  NA          |   BSSID             |
+     * --------------------------------------------------
+     */
+    MacAddress addr;
+    /**
+     * Mandatory mesh id value if connection type is WLAN_MESH
+     * Mesh id contains 0-32 octet identifier and should be
+     * as per IEEE Std.802.11-2012 spec.
+     * Max length: |MAX_MESH_DATA_LEN|.
+     */
+    vec<uint8_t> meshId;
+    /**
+     * Optional infra  structure SSID if conn_type is set to
+     * CONN_WLAN_INFRA
+     * Max length: |MAX_INFRA_DATA_LEN|.
+     */
+    vec<uint8_t> infrastructureSsidVal;
+  };
+
+  /**
+   * Match Indication Message structure.
+   * The MatchInd message is sent once per responding MAC address whenever
+   * the Discovery Engine detects a match for a previous SubscribeServiceReq
+   * or PublishServiceReq.
+   */
+  struct MatchInd {
+    /**
+     * Publish or Subscribe Id of an earlier Publish/Subscribe.
+     */
+    uint16_t publishSubscribeId;
+    /**
+     * A 32 bit Requestor Instance Id which is sent to the Application.
+     * This Id will be sent in any subsequent UnmatchInd/FollowupInd
+     * messages.
+     */
+    uint32_t requestorInstanceId;
+    MacAddress addr;
+    /**
+     * Sequence of octets which were received in a Discovery Frame matching the
+     * Subscribe Request.
+     * Max length: |MAX_SERVICE_SPECIFIC_INFO_LEN|.
+     */
+    vec<uint8_t> serviceSpecificInfo;
+    /**
+     * Ordered sequence of <length, value> pairs received in the Discovery Frame
+     * matching the Subscribe Request.
+     * Max length: |MAX_MATCH_FILTER_LEN|.
+     */
+    vec<uint8_t> sdfMatchFilter;
+    /**
+     * Flag to indicate if the Match occurred in a Beacon Frame or in a
+     * Service Discovery Frame.
+     * 0 - Match occured in a Service Discovery Frame
+     * 1 - Match occured in a Beacon Frame
+     */
+    uint8_t matchOccuredFlag;
+    /**
+     * Flag to indicate FW is out of resource and that it can no longer
+     * track this Service Name. The Host still need to send the received
+     * Match_Handle but duplicate MatchInd messages may be received on
+     * this Handle until the resource frees up.
+     * 0 - FW is caching this match
+     * 1 - FW is unable to cache this match
+     */
+    uint8_t outOfResourceFlag;
+    /**
+     * If RSSI filtering was configured in SubscribeRequest then this
+     * field will contain the received RSSI value. 0 if not.
+     * All rssi values should be specified without sign.
+     * For eg: -70dBm should be specified as 70.
+     */
+    uint8_t rssiValue;
+    /**
+     *  optional attributes. Each optional attribute is associated with a flag
+     *  which specifies whether the attribute is valid or not.
+     */
+    /**
+     * NAN Post Connectivity Capability received.
+     */
+    uint8_t isConnCapabilityValid;
+    ReceivePostConnectivityCapability connCapability;
+    /**
+     * NAN Post Discover Capability.
+     * Max length: |MAX_POSTDISCOVERY_LEN|.
+     */
+    vec<ReceivePostDiscovery> discoveryAttr;
+    /**
+     * NAN NanFurther availability Map.
+     * Max length: |MAX_FAM_CHANNELS|.
+     */
+    FurtherAvailabilityMap famChan;
+    /**
+     * NAN Cluster Attribute.
+     * Max length: |MAX_CLUSTER_ATTRIBUTE_LEN|.
+     */
+    vec<uint8_t> clusterAttribute;
+  };
+
+  /**
+   * MatchExpired Indication Message structure.
+   * The MatchExpiredInd message is sent whenever the Discovery Engine detects that
+   * a previously Matched Service has been gone for too long. If the previous
+   * MatchInd message for this Publish/Subscribe Id had the out_of_resource_flag
+   * set then this message will not be received
+   */
+  struct MatchExpiredInd {
+    /**
+     * Publish or Subscribe Id of an earlier Publish/Subscribe.
+     */
+    uint16_t publishSubscribeId;
+    /**
+     * 32 bit value sent by the DE in a previous
+     * MatchInd/FollowupInd to the application.
+     */
+    uint32_t requestorInstanceId;
+  };
+
+  /**
+   * Subscribe Terminated Message structure.
+   * The SubscribeTerminatedInd message is sent by the DE whenever a
+   * Subscribe terminates from a user-specified timeout or a unrecoverable error in the DE.
+   */
+  struct SubscribeTerminatedInd {
+    /**
+     * Id returned during initial Subscribe.
+     */
+    uint16_t subscribeId;
+    StatusType reason;
+  };
+
+  /**
+   * Followup Indication Message structure.
+   * The FollowupInd message is sent by the DE to the Host whenever it receives a
+   * Followup message from another peer.
+   */
+  struct FollowupInd {
+    /**
+     * Publish or Subscribe Id of an earlier Publish/Subscribe.
+     */
+    uint16_t publishSubscribeId;
+    /**
+     * A 32 bit Requestor instance Id which is sent to the Application.
+     * This Id will be used in subsequent UnmatchInd/FollowupInd messages.
+     */
+    uint32_t requestorInstanceId;
+    MacAddress addr;
+    /**
+     * Flag which the DE uses to decide if received in a DW or a FAW
+     */
+    uint8_t dwOrFaw;
+    /**
+     * Sequence of values which further specify the published service beyond
+     * the service name
+     * Max length: |MAX_SERVICE_SPECIFIC_INFO_LEN|.
+     */
+    vec<uint8_t> serviceSpecificInfo;
+  };
+
+  /**
+   * NAN Protocol Event ID Codes.
+   */
+  enum DiscEngEventType : uint32_t {
+    DISC_MAC_ADDR = 0,
+    STARTED_CLUSTER,
+    JOINED_CLUSTER,
+  };
+
+  /**
+   * Event data notifying the Mac address of the Discovery engine.
+   * which is reported as one of the Discovery engine event
+   */
+  struct MacAddressEvent {
+    MacAddress addr;
+  };
+
+  /**
+   * Event data notifying the Cluster address of the cluster
+   * which is reported as one of the Discovery engine event
+  */
+  struct ClusterEvent {
+    MacAddress addr;
+  };
+
+  /**
+   * Discovery Engine Event Indication Message structure.
+   * The Discovery Engine can inform the Host when significant events occur
+   * The data following the EventId is dependent upon the EventId type.
+   * In other words, each new event defined will carry a different
+   * structure of information back to the host.
+   */
+  struct DiscEngEventInd {
+    DiscEngEventType eventType;
+    /**
+     * NAN Protocol Event Codes.
+     */
+    struct Data {
+        /**
+         * MacAddressEvent which will have 6 byte mac address
+         * of the Discovery engine.
+         */
+        MacAddressEvent macAddr;
+        /**
+         * Cluster Event Data which will be obtained when the
+         * device starts a new cluster or joins a cluster.
+         * The event data will have 6 byte octet string of the
+         * cluster started or joined.
+         */
+        ClusterEvent cluster;
+      };
+  };
+
+  /**
+   * NAN Disabled Indication Message structure.
+   * The DisableInd message indicates to the upper layers that the Discovery
+   * Engine has flushed all state and has been shutdown.  When this message is
+   * received the DE is guaranteed to have left the NAN cluster it was part of
+   * and will have terminated any in progress Publishes or Subscribes.
+   */
+  struct DisabledInd {
+    StatusType reason;
+  };
+
+  /**
+   * Mask to determine on which frames attribute was received.
+   */
+  enum VsaRxFrameMask: uint32_t {
+    DISCOVERY_BEACON_MASK = 1 << 0,
+    SYNC_BEACON_MASK = 1 << 1,
+    SERVICE_DISCOVERY_MASK = 1 << 2
+  };
+
+  struct ReceiveVendorSpecificAttribute {
+    /**
+     * Frames on which this vendor specific attribute
+     * was received. Mask |VsaRxFrameMask| defined above.
+     */
+    uint8_t vsaReceivedOn;
+    /**
+     * Organizationally Unique Identifier.
+     */
+    uint32_t vendorOui;
+    /**
+     * Vendor specific attribute.
+     * Max length: |MAX_VSA_DATA_LEN|.
+     */
+    vec<uint8_t> vsa;
+  };
+
+  /**
+   * NAN Beacon SDF Payload Received Message structure.
+   * Discovery engine sends the details of received Beacon or
+   * Service Discovery Frames as part of this structure.
+   */
+  struct BeaconSdfPayloadReceive {
+    /**
+     * Frame data.
+     * Max length: |MAX_FRAME_DATA_LEN|.
+     */
+    vec<uint8_t> frameData;
+  };
+
+  /**
+   * NAN Beacon or SDF Payload Indication Message structure.
+   * The BeaconSdfPayloadInd message indicates to the upper layers that information
+   * elements were received either in a Beacon or SDF which needs to be delivered
+   * outside of a Publish/Subscribe Handle.
+   */
+  struct BeaconSdfPayloadInd {
+    /**
+     * The MAC address of the peer which sent the attributes.
+     */
+    MacAddress addr;
+    /**
+     * NAN Receive Vendor Specific Attribute.
+     */
+    uint8_t isVsaReceived;
+    ReceiveVendorSpecificAttribute vsa;
+    /**
+     * NAN Beacon or SDF Payload Received.
+     */
+    uint8_t isBeaconSdfPayloadReceived;
+    BeaconSdfPayloadReceive data;
+  };
+
+  /**
+   * NAN Data path request Indication Message structure.
+   * Event indication received on the responder side when a Nan Data request or
+   * NDP session is initiated on the Initiator side.
+   */
+  struct DataPathRequestInd {
+    /**
+     * Unique Instance Id corresponding to a service/session.
+     * This is similar to the publish_id generated on the
+     * publisher side.
+     */
+    uint16_t serviceInstanceId;
+    /**
+     * Discovery MAC addr of the peer/initiator.
+     */
+    MacAddress peerDiscMacAddr;
+    /**
+     * Unique token Id generated on the initiator/responder side
+     * used for a NDP session between two NAN devices.
+     */
+    DataPathId ndpInstanceId;
+    /**
+     * Initiator/Responder Security/QoS configuration.
+     */
+    DataPathCfg ndpCfg;
+    /**
+     * App/Service information of the initiator.
+     */
+    DataPathAppInfo appInfo;
+  };
+
+  /**
+   * NAN Data path confirmation Indication Message structure.
+   * Event indication of data confirm is received on both
+   * initiator and responder side confirming a NDP session.
+   */
+  struct DataPathConfirmInd {
+    /**
+     * Unique token Id generated on the initiator/responder side
+     * used for a NDP session between two NAN devices
+     */
+    DataPathId ndpInstanceId;
+    /**
+     * NDI mac address of the peer.
+     * (required to derive target ipv6 address)
+     */
+    MacAddress peerNdiMacAddr;
+    /**
+     * App/Service information of Initiator/Responder.
+     */
+    DataPathAppInfo appInfo;
+    /**
+     * Response code indicating ACCEPT/REJECT/DEFER.
+     */
+    DataPathResponseCode rspCode;
+    /**
+     * Reason code indicating the cause for REJECT.
+     */
+    StatusType reasonCode;
+  };
+
+  /**
+   * NAN Data path end Indication Message structure.
+   * Event indication received on the initiator/responder side terminating
+   * a NDP session
+   */
+  struct DataPathEndInd {
+    /**
+     * Unique token Id generated on the initiator/responder side
+     * used for a NDP session between two NAN devices
+     */
+    vec<DataPathId> ndpInstanceIds;
+  };
+
+  /**
+   * NAN Transmit followup Indication Message structure.
+   * Event Indication notifying the transmit followup in progress.
+   */
+  struct TransmitFollowupInd {
+    CommandId cmdId;
+    StatusType reason;
+  };
+
+  /**
+   * NotifyResponse invoked to notify the status of the Request.
+   */
+  oneway notifyResponse(CommandId id, ResponseMsg rspData);
+
+  /**
+   * Callbacks for the various asynchornous NAN Events.
+   */
+  oneway eventPublishTerminated(PublishTerminatedInd event);
+
+  oneway eventMatch(MatchInd event);
+
+  oneway eventMatchExpired(MatchExpiredInd event);
+
+  oneway eventSubscribeTerminated(SubscribeTerminatedInd event);
+
+  oneway eventFollowup(FollowupInd event);
+
+  oneway eventDiscEngEvent(DiscEngEventInd event);
+
+  oneway eventDisabled(DisabledInd event);
+
+  oneway eventBeaconSdfPayload(BeaconSdfPayloadInd event);
+
+  oneway eventDataRequest(DataPathRequestInd event);
+
+  oneway eventDataConfirm(DataPathConfirmInd event);
+
+  oneway eventDataEnd(DataPathEndInd event);
+
+  oneway eventTransmitFollowup(TransmitFollowupInd event);
+};
