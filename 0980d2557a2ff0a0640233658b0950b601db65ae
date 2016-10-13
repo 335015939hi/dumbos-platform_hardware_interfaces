@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fc74060d_a5241e1d",
+        "filename": "bluetooth/1.0/IBluetoothHci.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1058798
+      },
+      "writtenOn": "2016-10-13T16:16:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bcc9ae46_2b42f9f6",
+      "range": {
+        "startLine": 32,
+        "startChar": 22,
+        "endLine": 32,
+        "endChar": 33
+      },
+      "revId": "0980d2557a2ff0a0640233658b0950b601db65ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bcc9ae46_8b09add7",
         "filename": "bluetooth/1.0/IBluetoothHci.hal",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "fc74060d_e52e16f9",
+        "filename": "bluetooth/1.0/IBluetoothHci.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1058798
+      },
+      "writtenOn": "2016-10-13T16:16:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bcc9ae46_8b09add7",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 39
+      },
+      "revId": "0980d2557a2ff0a0640233658b0950b601db65ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bcc9ae46_cbe815d2",
         "filename": "bluetooth/1.0/IBluetoothHciCallback.hal",
         "patchSetId": 3
@@ -59,6 +107,30 @@
       "writtenOn": "2016-10-13T14:45:27Z",
       "side": 1,
       "message": "Now that there are three callbacks, I\u0027d prefer changing the name.\n\nIBluetoothHciCallbacks?\nIBluetoothHciFromController?\nIBluetoothHciToHost?\nIBluetoothToHost? (less redundancy)",
+      "range": {
+        "startLine": 20,
+        "startChar": 23,
+        "endLine": 20,
+        "endChar": 31
+      },
+      "revId": "0980d2557a2ff0a0640233658b0950b601db65ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc74060d_a50dfe9c",
+        "filename": "bluetooth/1.0/IBluetoothHciCallback.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1058798
+      },
+      "writtenOn": "2016-10-13T16:16:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bcc9ae46_cbe815d2",
       "range": {
         "startLine": 20,
         "startChar": 23,
@@ -117,6 +189,54 @@
     },
     {
       "key": {
+        "uuid": "fc74060d_6575c6ef",
+        "filename": "bluetooth/1.0/IBluetoothHciCallback.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1058798
+      },
+      "writtenOn": "2016-10-13T16:16:52Z",
+      "side": 1,
+      "message": "Won\u0027t fix.",
+      "parentUuid": "bcc9ae46_ebe5d1f8",
+      "range": {
+        "startLine": 23,
+        "startChar": 28,
+        "endLine": 23,
+        "endChar": 43
+      },
+      "revId": "0980d2557a2ff0a0640233658b0950b601db65ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc74060d_0566d251",
+        "filename": "bluetooth/1.0/IBluetoothHciCallback.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1058798
+      },
+      "writtenOn": "2016-10-13T16:16:52Z",
+      "side": 1,
+      "message": "Won\u0027t fix.",
+      "parentUuid": "bcc9ae46_8be20dee",
+      "range": {
+        "startLine": 22,
+        "startChar": 7,
+        "endLine": 23,
+        "endChar": 27
+      },
+      "revId": "0980d2557a2ff0a0640233658b0950b601db65ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bcc9ae46_cbb1f5fb",
         "filename": "bluetooth/1.0/types.hal",
         "patchSetId": 3
@@ -128,6 +248,30 @@
       "writtenOn": "2016-10-13T14:45:27Z",
       "side": 1,
       "message": "Do we expect this to grow?  Can we use a standard return type?",
+      "range": {
+        "startLine": 19,
+        "startChar": 14,
+        "endLine": 19,
+        "endChar": 22
+      },
+      "revId": "0980d2557a2ff0a0640233658b0950b601db65ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc74060d_654ea6c3",
+        "filename": "bluetooth/1.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1058798
+      },
+      "writtenOn": "2016-10-13T16:16:52Z",
+      "side": 1,
+      "message": "What is a standard return type and why does it matter?",
+      "parentUuid": "bcc9ae46_cbb1f5fb",
       "range": {
         "startLine": 19,
         "startChar": 14,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "fc74060d_e539b627",
+        "filename": "bluetooth/1.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1058798
+      },
+      "writtenOn": "2016-10-13T16:16:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bcc9ae46_ebae319b",
+      "range": {
+        "startLine": 22,
+        "startChar": 2,
+        "endLine": 22,
+        "endChar": 16
+      },
+      "revId": "0980d2557a2ff0a0640233658b0950b601db65ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bcc9ae46_2bcd197d",
         "filename": "bluetooth/1.0/types.hal",
         "patchSetId": 3
@@ -174,6 +342,30 @@
       "writtenOn": "2016-10-13T14:45:27Z",
       "side": 1,
       "message": "This is contradictory.  Once we\u0027ve split the packet types, and each type has a length, they should be able to make assumptions about the length to improve performance.  When we wanted to add new packets without changing the interface, we could say that they couldn\u0027t assume... right?",
+      "range": {
+        "startLine": 29,
+        "startChar": 3,
+        "endLine": 30,
+        "endChar": 57
+      },
+      "revId": "0980d2557a2ff0a0640233658b0950b601db65ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc74060d_65c7860f",
+        "filename": "bluetooth/1.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1058798
+      },
+      "writtenOn": "2016-10-13T16:16:52Z",
+      "side": 1,
+      "message": "You wrote it :p\nWhy are you arguing with yourself? :p",
+      "parentUuid": "bcc9ae46_2bcd197d",
       "range": {
         "startLine": 29,
         "startChar": 3,
