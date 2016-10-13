@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "1cd63a37_76ea7002",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-13T18:46:41Z",
+      "side": 1,
+      "message": "I agree that there are no error cases in the current implementation. But I disagree that this makes sense semantically. \n\nI don\u0027t want to hold up this CL on that point, though. So I\u0027ve forked this concern off to b/32146455.",
+      "parentUuid": "5ca192a9_f66258a5",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 11
+      },
+      "revId": "168a2ff9959aeb30e0aeb3945a99addd96cad8c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ca192a9_50aeccef",
         "filename": "wifi/1.0/default/wifi.cpp",
         "patchSetId": 5
@@ -360,6 +384,24 @@
       "side": 1,
       "message": "This part of HIDL semantics is pretty annoying for a lot of people :). See b/31951482 for more.\n\nThe simple answer is that\na) any HIDL method returning a primitive type (int, bool, string, etc) will directly return a value in the generated code.\nb) Any HIDL method returning a complex/user defined type (vector, structs, etc) will be returned via callbacks in the generated code.",
       "parentUuid": "5c64320a_72b3f89f",
+      "revId": "168a2ff9959aeb30e0aeb3945a99addd96cad8c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cd63a37_3618782f",
+        "filename": "wifi/1.0/default/wifi.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-13T18:46:41Z",
+      "side": 1,
+      "message": "Just to be clear: enums fall into category b? (On the one hand, they\u0027re represented as primitives, so maybe they\u0027re category a. On the other hand, they\u0027re user-defined, so maybe they\u0027re category b.)",
+      "parentUuid": "5ca192a9_562324af",
       "revId": "168a2ff9959aeb30e0aeb3945a99addd96cad8c1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
