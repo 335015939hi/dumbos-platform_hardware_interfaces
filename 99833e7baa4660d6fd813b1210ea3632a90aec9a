@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1cd63a37_5fb54734",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-10-13T21:27:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cd63a37_bcad89f3",
+      "range": {
+        "startLine": 31,
+        "startChar": 30,
+        "endLine": 31,
+        "endChar": 33
+      },
+      "revId": "99833e7baa4660d6fd813b1210ea3632a90aec9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cd63a37_5cb55534",
         "filename": "radio/1.0/IRadio.hal",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-13T20:12:49Z",
       "side": 1,
       "message": "valid errors on the callback?",
+      "range": {
+        "startLine": 35,
+        "startChar": 7,
+        "endLine": 36,
+        "endChar": 65
+      },
+      "revId": "99833e7baa4660d6fd813b1210ea3632a90aec9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cd63a37_9f6f5f89",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-10-13T21:27:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cd63a37_5cb55534",
       "range": {
         "startLine": 35,
         "startChar": 7,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "1cd63a37_7f0ec3f1",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-10-13T21:27:44Z",
+      "side": 1,
+      "message": "Success-\u003eNone.\nDone",
+      "parentUuid": "1cd63a37_9c040df3",
+      "range": {
+        "startLine": 57,
+        "startChar": 5,
+        "endLine": 57,
+        "endChar": 15
+      },
+      "revId": "99833e7baa4660d6fd813b1210ea3632a90aec9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cd63a37_3cf4d9df",
         "filename": "radio/1.0/types.hal",
         "patchSetId": 5
@@ -82,6 +154,30 @@
       "writtenOn": "2016-10-13T20:12:49Z",
       "side": 1,
       "message": "should be specified in vendor extension",
+      "range": {
+        "startLine": 123,
+        "startChar": 4,
+        "endLine": 149,
+        "endChar": 22
+      },
+      "revId": "99833e7baa4660d6fd813b1210ea3632a90aec9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c193e0f_37a418a1",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-10-13T21:27:44Z",
+      "side": 1,
+      "message": "I am not clear about adding to vendor extension as this is part of enum RadioError, can you explain what needs to be done here ? \nJust want to explain the purpose of this.\nVendor code returns enum RadioError in callback. Sometimes they don\u0027t want their error code to be identified externally. So we have this mapping from their error code to generic type of error code. Two vendors may have different meaning for same OEM_ERROR_X. Purpose of this was that if a vendor sees a OEM_ERROR_X in bugreport, vendor will know what it corresponds to and thus help in debugging bugs quicker.",
+      "parentUuid": "1cd63a37_3cf4d9df",
       "range": {
         "startLine": 123,
         "startChar": 4,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "1cd63a37_ffa653c0",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-10-13T21:27:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cd63a37_9cdd2d65",
+      "range": {
+        "startLine": 271,
+        "startChar": 4,
+        "endLine": 271,
+        "endChar": 8
+      },
+      "revId": "99833e7baa4660d6fd813b1210ea3632a90aec9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cd63a37_dc4cc544",
         "filename": "radio/1.0/types.hal",
         "patchSetId": 5
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "1cd63a37_aa4d37c6",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-10-13T21:27:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cd63a37_dc4cc544",
+      "range": {
+        "startLine": 323,
+        "startChar": 4,
+        "endLine": 323,
+        "endChar": 11
+      },
+      "revId": "99833e7baa4660d6fd813b1210ea3632a90aec9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1cd63a37_fc47811f",
         "filename": "radio/1.0/types.hal",
         "patchSetId": 5
@@ -151,6 +295,30 @@
       "writtenOn": "2016-10-13T20:12:49Z",
       "side": 1,
       "message": "Can\u0027t be null",
+      "range": {
+        "startLine": 334,
+        "startChar": 45,
+        "endLine": 334,
+        "endChar": 49
+      },
+      "revId": "99833e7baa4660d6fd813b1210ea3632a90aec9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cd63a37_2ad367ce",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-10-13T21:27:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cd63a37_fc47811f",
       "range": {
         "startLine": 334,
         "startChar": 45,
