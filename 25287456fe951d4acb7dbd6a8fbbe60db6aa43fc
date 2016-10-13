@@ -22,6 +22,30 @@
       "revId": "25287456fe951d4acb7dbd6a8fbbe60db6aa43fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cd63a37_9f4d1fc7",
+        "filename": "boot_control/1.0/default/BootControl.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1115183
+      },
+      "writtenOn": "2016-10-13T20:32:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc74060d_e5d296c7",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 4
+      },
+      "revId": "25287456fe951d4acb7dbd6a8fbbe60db6aa43fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
