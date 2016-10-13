@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3c193e0f_bd4d67c6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-13T23:31:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c193e0f_7734d091",
+      "range": {
+        "startLine": 7,
+        "startChar": 16,
+        "endLine": 7,
+        "endChar": 29
+      },
+      "revId": "4e131956c0388160840b7a823e0aacf6469fe8c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c193e0f_97a084a4",
         "filename": "wifi/1.0/default/wifi_sta_iface.cpp",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-13T22:04:05Z",
       "side": 1,
       "message": "I don\u0027t think I see this declared in the corresponding header file. Am I missing something?",
+      "range": {
+        "startLine": 61,
+        "startChar": 13,
+        "endLine": 61,
+        "endChar": 48
+      },
+      "revId": "4e131956c0388160840b7a823e0aacf6469fe8c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c193e0f_1d3d7313",
+        "filename": "wifi/1.0/default/wifi_sta_iface.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-13T23:31:11Z",
+      "side": 1,
+      "message": "It got pulled into the CL above. Pulled it back here.",
+      "parentUuid": "3c193e0f_97a084a4",
       "range": {
         "startLine": 61,
         "startChar": 13,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "3c193e0f_3d3ab71c",
+        "filename": "wifi/1.0/default/wifi_sta_iface.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-13T23:31:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c193e0f_77985079",
+      "range": {
+        "startLine": 62,
+        "startChar": 42,
+        "endLine": 62,
+        "endChar": 50
+      },
+      "revId": "4e131956c0388160840b7a823e0aacf6469fe8c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c193e0f_3792d859",
         "filename": "wifi/1.0/default/wifi_sta_iface.cpp",
         "patchSetId": 7
@@ -82,6 +154,30 @@
       "writtenOn": "2016-10-13T22:04:05Z",
       "side": 1,
       "message": "As elsewhere: consider |status_cb|.",
+      "range": {
+        "startLine": 63,
+        "startChar": 29,
+        "endLine": 63,
+        "endChar": 31
+      },
+      "revId": "4e131956c0388160840b7a823e0aacf6469fe8c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c193e0f_ddb7fba1",
+        "filename": "wifi/1.0/default/wifi_sta_iface.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-13T23:31:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c193e0f_3792d859",
       "range": {
         "startLine": 63,
         "startChar": 29,
