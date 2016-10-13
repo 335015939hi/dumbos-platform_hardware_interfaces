@@ -70,6 +70,30 @@
       "revId": "9a1ade5c2b0c6c0fef534f3f8bf146e6d37c9572",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ca192a9_7a52c6de",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 14
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-13T15:15:51Z",
+      "side": 1,
+      "message": "This would be translated to |hidl_string| in the generated code: https://cs.corp.google.com/android/system/libhidl/include/hidl/HidlSupport.h?rcl\u003d249fd2df53a5a7f801c9f7f8c58356eb9124a4c0\u0026l\u003d61.\n\nReworded the docstring to explicitly specify that this needs to be an ASCII string.",
+      "parentUuid": "5ca192a9_76c7480f",
+      "range": {
+        "startLine": 125,
+        "startChar": 5,
+        "endLine": 125,
+        "endChar": 22
+      },
+      "revId": "9a1ade5c2b0c6c0fef534f3f8bf146e6d37c9572",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
