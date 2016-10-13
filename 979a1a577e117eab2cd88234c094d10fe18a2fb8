@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5c64320a_120e3c98",
+        "filename": "wifi/1.0/default/wifi_status_util.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-13T18:27:13Z",
+      "side": 1,
+      "message": "Is WifiStatus auto-generated? (Otherwise, I\u0027m wondering why we have these methods, rather than just corresponding ctors in WifiStatus itself.)",
+      "range": {
+        "startLine": 31,
+        "startChar": 11,
+        "endLine": 31,
+        "endChar": 27
+      },
+      "revId": "979a1a577e117eab2cd88234c094d10fe18a2fb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
