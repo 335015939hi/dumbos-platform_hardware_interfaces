@@ -1,0 +1,302 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ca192a9_7f28fb88",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2016-10-13T02:55:31Z",
+      "side": 1,
+      "message": "Sim is GSM specific. We should call it ICC card or UICC and update function and struct names accordingly.",
+      "revId": "e8c08ee293b03253a958182bb2fcc4384c1dff1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ca192a9_1f452f71",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2016-10-13T02:55:31Z",
+      "side": 1,
+      "message": "I don\u0027t think this is needed here. This is going to be something purely on the vendor side.\nSame for all functions below.",
+      "revId": "e8c08ee293b03253a958182bb2fcc4384c1dff1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ca192a9_5f3fb7e0",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2016-10-13T02:55:31Z",
+      "side": 1,
+      "message": "Move errors above @param\nSame for all functions below.",
+      "revId": "e8c08ee293b03253a958182bb2fcc4384c1dff1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ca192a9_bfb4233b",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2016-10-13T02:55:31Z",
+      "side": 1,
+      "message": ":",
+      "range": {
+        "startLine": 56,
+        "startChar": 19,
+        "endLine": 56,
+        "endChar": 20
+      },
+      "revId": "e8c08ee293b03253a958182bb2fcc4384c1dff1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ca192a9_1f2e0fb1",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2016-10-13T02:55:31Z",
+      "side": 1,
+      "message": "Should be 8 spaces. Same for other multi line ones.",
+      "range": {
+        "startLine": 127,
+        "startChar": 4,
+        "endLine": 127,
+        "endChar": 8
+      },
+      "revId": "e8c08ee293b03253a958182bb2fcc4384c1dff1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ca192a9_5f0a572f",
+        "filename": "radio/1.0/IRadioCallback.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2016-10-13T02:55:31Z",
+      "side": 1,
+      "message": "Use same format for this and unsolicited.\nCurrently the other one is // UNSOLICITED CALLBACKS BELOW",
+      "revId": "e8c08ee293b03253a958182bb2fcc4384c1dff1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ca192a9_1f528f0f",
+        "filename": "radio/1.0/IRadioCallback.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2016-10-13T02:55:31Z",
+      "side": 1,
+      "message": "Currently its called Sim, but as I mentioned in the other file lets revisit all of these and have a consistent name.",
+      "range": {
+        "startLine": 31,
+        "startChar": 48,
+        "endLine": 31,
+        "endChar": 51
+      },
+      "revId": "e8c08ee293b03253a958182bb2fcc4384c1dff1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ca192a9_1f8d2f90",
+        "filename": "radio/1.0/IRadioCallback.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2016-10-13T02:55:31Z",
+      "side": 1,
+      "message": "Why vec? Should be int32_t\nSame for other callbacks below",
+      "range": {
+        "startLine": 37,
+        "startChar": 43,
+        "endLine": 37,
+        "endChar": 55
+      },
+      "revId": "e8c08ee293b03253a958182bb2fcc4384c1dff1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ca192a9_7f8c7b91",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2016-10-13T02:55:31Z",
+      "side": 1,
+      "message": "Space after :",
+      "range": {
+        "startLine": 57,
+        "startChar": 16,
+        "endLine": 57,
+        "endChar": 17
+      },
+      "revId": "e8c08ee293b03253a958182bb2fcc4384c1dff1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ca192a9_1ff60ff0",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2016-10-13T02:55:31Z",
+      "side": 1,
+      "message": "get rid of extra space. Same in other enums below.",
+      "range": {
+        "startLine": 225,
+        "startChar": 25,
+        "endLine": 225,
+        "endChar": 27
+      },
+      "revId": "e8c08ee293b03253a958182bb2fcc4384c1dff1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ca192a9_df9ac7bf",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2016-10-13T02:55:31Z",
+      "side": 1,
+      "message": "I think we can get rid of these. Service should be able to handle it.",
+      "range": {
+        "startLine": 228,
+        "startChar": 7,
+        "endLine": 228,
+        "endChar": 38
+      },
+      "revId": "e8c08ee293b03253a958182bb2fcc4384c1dff1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ca192a9_fff06bed",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2016-10-13T02:55:31Z",
+      "side": 1,
+      "message": "Get rid of prefixes. In other enums below as well.",
+      "range": {
+        "startLine": 244,
+        "startChar": 4,
+        "endLine": 244,
+        "endChar": 9
+      },
+      "revId": "e8c08ee293b03253a958182bb2fcc4384c1dff1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ca192a9_ff014b16",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2016-10-13T02:55:31Z",
+      "side": 1,
+      "message": "Is this needed? Based on the callback it should be clear what it is.",
+      "range": {
+        "startLine": 279,
+        "startChar": 12,
+        "endLine": 279,
+        "endChar": 16
+      },
+      "revId": "e8c08ee293b03253a958182bb2fcc4384c1dff1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ca192a9_7f055bed",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2016-10-13T02:55:31Z",
+      "side": 1,
+      "message": "RadioUusDcs",
+      "range": {
+        "startLine": 314,
+        "startChar": 4,
+        "endLine": 314,
+        "endChar": 17
+      },
+      "revId": "e8c08ee293b03253a958182bb2fcc4384c1dff1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
