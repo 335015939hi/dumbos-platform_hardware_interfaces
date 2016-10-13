@@ -330,6 +330,30 @@
     },
     {
       "key": {
+        "uuid": "1cd63a37_96418cf4",
+        "filename": "radio/1.0/IRadioCallback.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-10-13T18:43:22Z",
+      "side": 1,
+      "message": "Actually its possible to convert this to int32_t. In that case we will have to differentiate between RIL responses requiring int[] vs  int and that differentiation will have to been done in responseInts() in ril.cpp.",
+      "parentUuid": "fc74060d_68167b62",
+      "range": {
+        "startLine": 37,
+        "startChar": 43,
+        "endLine": 37,
+        "endChar": 55
+      },
+      "revId": "e8c08ee293b03253a958182bb2fcc4384c1dff1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ca192a9_7f8c7b91",
         "filename": "radio/1.0/types.hal",
         "patchSetId": 3
