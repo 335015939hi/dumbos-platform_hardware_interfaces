@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1cd63a37_d92df79b",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-13T21:46:31Z",
+      "side": 1,
+      "message": "I don\u0027t understand why the new version of this method ignores |callbacks_|. The documentation for IWifiChip still says that this method will invoke onChipDebugInfoAvailable or onChipDebugInfoFailure. But I don\u0027t see where that is done.",
+      "range": {
+        "startLine": 121,
+        "startChar": 23,
+        "endLine": 121,
+        "endChar": 43
+      },
+      "revId": "6dddf05c9013dba7058d3c4a369c51b2b73557ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cd63a37_99609fd3",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-13T21:46:31Z",
+      "side": 1,
+      "message": "Same concern as for requestChipDebugInfo().",
+      "range": {
+        "startLine": 157,
+        "startChar": 23,
+        "endLine": 157,
+        "endChar": 45
+      },
+      "revId": "6dddf05c9013dba7058d3c4a369c51b2b73557ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc4e620b_bc27a1b9",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-13T21:46:31Z",
+      "side": 1,
+      "message": "Same concern about |callbacks_| here.",
+      "range": {
+        "startLine": 181,
+        "startChar": 23,
+        "endLine": 181,
+        "endChar": 47
+      },
+      "revId": "6dddf05c9013dba7058d3c4a369c51b2b73557ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cd63a37_56989478",
+        "filename": "wifi/1.0/default/wifi_chip.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-13T21:46:31Z",
+      "side": 1,
+      "message": "The parameter names here aren\u0027t very descriptive. Consequently, the casual reader has to page in context about HIDL to understand this code.\n\nHow about |status_callback|, instead of |cb|. And |event_callback| instead of |callback|?",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 75
+      },
+      "revId": "6dddf05c9013dba7058d3c4a369c51b2b73557ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cd63a37_59256716",
+        "filename": "wifi/1.0/default/wifi_chip.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-13T21:46:31Z",
+      "side": 1,
+      "message": "Consider |status_callback| here, and below, as well.",
+      "range": {
+        "startLine": 65,
+        "startChar": 54,
+        "endLine": 65,
+        "endChar": 56
+      },
+      "revId": "6dddf05c9013dba7058d3c4a369c51b2b73557ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
