@@ -46,6 +46,30 @@
       "revId": "7e9b6234aff05b1b5c92028f1c0b1fafcbdfaa57",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c193e0f_0c05431f",
+        "filename": "boot_control/1.0/default/BootControl.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1115183
+      },
+      "writtenOn": "2016-10-14T03:01:48Z",
+      "side": 1,
+      "message": "No, the old module doesn\u0027t have one.",
+      "parentUuid": "3c193e0f_acc1b7fc",
+      "range": {
+        "startLine": 81,
+        "startChar": 27,
+        "endLine": 81,
+        "endChar": 33
+      },
+      "revId": "7e9b6234aff05b1b5c92028f1c0b1fafcbdfaa57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
