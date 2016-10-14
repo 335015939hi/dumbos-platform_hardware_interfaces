@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3c193e0f_b6ad81f3",
+        "filename": "wifi/nan/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-14T16:15:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c193e0f_b1acb03e",
+      "range": {
+        "startLine": 24,
+        "startChar": 5,
+        "endLine": 24,
+        "endChar": 14
+      },
+      "revId": "d8e6c7a00f2e216728a4ea0e00104324e8a81821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c193e0f_f1b2289b",
         "filename": "wifi/nan/1.0/types.hal",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-14T02:23:52Z",
       "side": 1,
       "message": "not allowed",
+      "range": {
+        "startLine": 25,
+        "startChar": 2,
+        "endLine": 27,
+        "endChar": 20
+      },
+      "revId": "d8e6c7a00f2e216728a4ea0e00104324e8a81821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c193e0f_760e09f2",
+        "filename": "wifi/nan/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-14T16:15:06Z",
+      "side": 1,
+      "message": "Will let etan@ comment on this.",
+      "parentUuid": "3c193e0f_f1b2289b",
       "range": {
         "startLine": 25,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "3c193e0f_76b8492e",
+        "filename": "wifi/nan/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-14T16:15:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c193e0f_91a40c55",
+      "range": {
+        "startLine": 40,
+        "startChar": 2,
+        "endLine": 40,
+        "endChar": 21
+      },
+      "revId": "d8e6c7a00f2e216728a4ea0e00104324e8a81821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c193e0f_31a18043",
         "filename": "wifi/nan/1.0/types.hal",
         "patchSetId": 4
@@ -82,6 +154,30 @@
       "writtenOn": "2016-10-14T02:23:52Z",
       "side": 1,
       "message": "why do you need a struct for this if it is only one item?",
+      "range": {
+        "startLine": 57,
+        "startChar": 7,
+        "endLine": 57,
+        "endChar": 22
+      },
+      "revId": "d8e6c7a00f2e216728a4ea0e00104324e8a81821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c193e0f_7637e997",
+        "filename": "wifi/nan/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-14T16:15:06Z",
+      "side": 1,
+      "message": "True. But, I need to replicate the comment about the max length everywhere this is used otherwise.",
+      "parentUuid": "3c193e0f_31a18043",
       "range": {
         "startLine": 57,
         "startChar": 7,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "3c8e9e81_c96f3588",
+        "filename": "wifi/nan/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-14T16:15:06Z",
+      "side": 1,
+      "message": "Will let etan@ comment on this.",
+      "parentUuid": "3c193e0f_d16a84e1",
+      "range": {
+        "startLine": 61,
+        "startChar": 15,
+        "endLine": 61,
+        "endChar": 25
+      },
+      "revId": "d8e6c7a00f2e216728a4ea0e00104324e8a81821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c193e0f_d1b28450",
         "filename": "wifi/nan/1.0/types.hal",
         "patchSetId": 4
@@ -128,6 +248,30 @@
       "writtenOn": "2016-10-14T02:23:52Z",
       "side": 1,
       "message": "not a proper noun?",
+      "range": {
+        "startLine": 157,
+        "startChar": 60,
+        "endLine": 158,
+        "endChar": 11
+      },
+      "revId": "d8e6c7a00f2e216728a4ea0e00104324e8a81821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c885ea4_9f6ff353",
+        "filename": "wifi/nan/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-14T16:15:06Z",
+      "side": 1,
+      "message": "I think it\u0027s a NAN terminology. Put quotes to highlight that.",
+      "parentUuid": "3c193e0f_d1b28450",
       "range": {
         "startLine": 157,
         "startChar": 60,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "3c885ea4_3f818700",
+        "filename": "wifi/nan/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-14T16:15:06Z",
+      "side": 1,
+      "message": "Hmm. Looks like the original documentation is wrong. Corrected it now.",
+      "parentUuid": "3c193e0f_919e4cb4",
+      "range": {
+        "startLine": 159,
+        "startChar": 25,
+        "endLine": 161,
+        "endChar": 11
+      },
+      "revId": "d8e6c7a00f2e216728a4ea0e00104324e8a81821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c193e0f_71ea9802",
         "filename": "wifi/nan/1.0/types.hal",
         "patchSetId": 4
@@ -174,6 +342,30 @@
       "writtenOn": "2016-10-14T02:23:52Z",
       "side": 1,
       "message": "SrfType? (etc)",
+      "range": {
+        "startLine": 228,
+        "startChar": 5,
+        "endLine": 228,
+        "endChar": 12
+      },
+      "revId": "d8e6c7a00f2e216728a4ea0e00104324e8a81821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c885ea4_7f2f8ff5",
+        "filename": "wifi/nan/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-14T16:15:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c193e0f_71ea9802",
       "range": {
         "startLine": 228,
         "startChar": 5,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "3c885ea4_3fb347e4",
+        "filename": "wifi/nan/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-14T16:15:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c193e0f_91e72c38",
+      "range": {
+        "startLine": 236,
+        "startChar": 0,
+        "endLine": 236,
+        "endChar": 32
+      },
+      "revId": "d8e6c7a00f2e216728a4ea0e00104324e8a81821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c193e0f_51f194ee",
         "filename": "wifi/nan/1.0/types.hal",
         "patchSetId": 4
@@ -232,6 +448,30 @@
     },
     {
       "key": {
+        "uuid": "3c885ea4_ffd0fff5",
+        "filename": "wifi/nan/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-14T16:15:06Z",
+      "side": 1,
+      "message": "Will remove these after discussing with etan@. The current HIDL surface reflects the underlying wifi_nan.h header file.",
+      "parentUuid": "3c193e0f_51f194ee",
+      "range": {
+        "startLine": 269,
+        "startChar": 0,
+        "endLine": 272,
+        "endChar": 2
+      },
+      "revId": "d8e6c7a00f2e216728a4ea0e00104324e8a81821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c193e0f_d1792484",
         "filename": "wifi/nan/1.0/types.hal",
         "patchSetId": 4
@@ -243,6 +483,30 @@
       "writtenOn": "2016-10-14T02:23:52Z",
       "side": 1,
       "message": "bool? (same below)",
+      "range": {
+        "startLine": 358,
+        "startChar": 10,
+        "endLine": 358,
+        "endChar": 24
+      },
+      "revId": "d8e6c7a00f2e216728a4ea0e00104324e8a81821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c885ea4_9f98d36f",
+        "filename": "wifi/nan/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-14T16:15:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c193e0f_d1792484",
       "range": {
         "startLine": 358,
         "startChar": 10,
