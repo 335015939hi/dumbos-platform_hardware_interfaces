@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7c8bb7e0_2078ca6d",
+        "filename": "wifi/1.0/IWifiRttController.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-14T23:47:13Z",
+      "side": 1,
+      "message": "Round trip time calculations. Expanded the acronym.",
+      "parentUuid": "7c8bb7e0_a0537a29",
+      "range": {
+        "startLine": 23,
+        "startChar": 29,
+        "endLine": 23,
+        "endChar": 32
+      },
+      "revId": "0064c336aea278dd803f4f9a7a37fc7e3f3aedbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c8bb7e0_60f81211",
         "filename": "wifi/1.0/IWifiRttController.hal",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-14T22:30:23Z",
       "side": 1,
       "message": "So client code is responsible for preventing id collisions? Seems like it would be better to have the implementation give out ids.",
+      "range": {
+        "startLine": 65,
+        "startChar": 25,
+        "endLine": 65,
+        "endChar": 30
+      },
+      "revId": "0064c336aea278dd803f4f9a7a37fc7e3f3aedbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c8bb7e0_83f520d9",
+        "filename": "wifi/1.0/IWifiRttController.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-14T23:47:13Z",
+      "side": 1,
+      "message": "This would require some significant rearch on the calling code side. I\u0027ve filed b/32178742 to investigate the work involved. Will do it in a separate CL if we decide to go that way.",
+      "parentUuid": "7c8bb7e0_60f81211",
       "range": {
         "startLine": 65,
         "startChar": 25,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "7c8bb7e0_802af644",
+        "filename": "wifi/1.0/IWifiRttController.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-14T23:47:13Z",
+      "side": 1,
+      "message": "Ah missed that.",
+      "parentUuid": "7c8bb7e0_601fb276",
+      "range": {
+        "startLine": 74,
+        "startChar": 14,
+        "endLine": 74,
+        "endChar": 28
+      },
+      "revId": "0064c336aea278dd803f4f9a7a37fc7e3f3aedbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c8bb7e0_00302601",
         "filename": "wifi/1.0/IWifiRttController.hal",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2016-10-14T22:30:23Z",
       "side": 1,
       "message": "an",
+      "range": {
+        "startLine": 82,
+        "startChar": 68,
+        "endLine": 82,
+        "endChar": 69
+      },
+      "revId": "0064c336aea278dd803f4f9a7a37fc7e3f3aedbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c8bb7e0_2379b43a",
+        "filename": "wifi/1.0/IWifiRttController.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-14T23:47:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c8bb7e0_00302601",
       "range": {
         "startLine": 82,
         "startChar": 68,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "7c8bb7e0_636fbc70",
+        "filename": "wifi/1.0/IWifiRttController.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-14T23:47:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c8bb7e0_40f70e1e",
+      "range": {
+        "startLine": 83,
+        "startChar": 22,
+        "endLine": 83,
+        "endChar": 26
+      },
+      "revId": "0064c336aea278dd803f4f9a7a37fc7e3f3aedbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c8bb7e0_80fd1602",
         "filename": "wifi/1.0/IWifiRttController.hal",
         "patchSetId": 2
@@ -128,6 +248,30 @@
       "writtenOn": "2016-10-14T22:30:23Z",
       "side": 1,
       "message": "must (same below)",
+      "range": {
+        "startLine": 84,
+        "startChar": 45,
+        "endLine": 84,
+        "endChar": 49
+      },
+      "revId": "0064c336aea278dd803f4f9a7a37fc7e3f3aedbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c8bb7e0_83744044",
+        "filename": "wifi/1.0/IWifiRttController.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-14T23:47:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c8bb7e0_80fd1602",
       "range": {
         "startLine": 84,
         "startChar": 45,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "7c8bb7e0_8351a0d8",
+        "filename": "wifi/1.0/IWifiRttController.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-14T23:47:13Z",
+      "side": 1,
+      "message": "I was able to hunt down a few of them. Couldn\u0027t find the others yet. etan@ might know what these stand for. Will wait for him to come back from his vacation.",
+      "parentUuid": "7c8bb7e0_c039deee",
+      "range": {
+        "startLine": 85,
+        "startChar": 50,
+        "endLine": 85,
+        "endChar": 52
+      },
+      "revId": "0064c336aea278dd803f4f9a7a37fc7e3f3aedbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c8bb7e0_402e2eaa",
         "filename": "wifi/1.0/IWifiRttController.hal",
         "patchSetId": 2
@@ -174,6 +342,30 @@
       "writtenOn": "2016-10-14T22:30:23Z",
       "side": 1,
       "message": "each",
+      "range": {
+        "startLine": 86,
+        "startChar": 11,
+        "endLine": 86,
+        "endChar": 15
+      },
+      "revId": "0064c336aea278dd803f4f9a7a37fc7e3f3aedbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c8bb7e0_e382ece5",
+        "filename": "wifi/1.0/IWifiRttController.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-14T23:47:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c8bb7e0_402e2eaa",
       "range": {
         "startLine": 86,
         "startChar": 11,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "7c8bb7e0_e3b0acc5",
+        "filename": "wifi/1.0/IWifiRttController.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-14T23:47:13Z",
+      "side": 1,
+      "message": "Expanded the abbreviation.",
+      "parentUuid": "7c8bb7e0_20776ab8",
+      "range": {
+        "startLine": 151,
+        "startChar": 26,
+        "endLine": 151,
+        "endChar": 29
+      },
+      "revId": "0064c336aea278dd803f4f9a7a37fc7e3f3aedbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c8bb7e0_407cee99",
         "filename": "wifi/1.0/IWifiRttController.hal",
         "patchSetId": 2
@@ -220,6 +436,30 @@
       "writtenOn": "2016-10-14T22:30:23Z",
       "side": 1,
       "message": "?",
+      "range": {
+        "startLine": 165,
+        "startChar": 26,
+        "endLine": 165,
+        "endChar": 29
+      },
+      "revId": "0064c336aea278dd803f4f9a7a37fc7e3f3aedbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c8bb7e0_03aef066",
+        "filename": "wifi/1.0/IWifiRttController.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-14T23:47:13Z",
+      "side": 1,
+      "message": "Expanded the abbreviation.",
+      "parentUuid": "7c8bb7e0_407cee99",
       "range": {
         "startLine": 165,
         "startChar": 26,
@@ -255,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "7c8bb7e0_038030db",
+        "filename": "wifi/1.0/IWifiRttController.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-14T23:47:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c8bb7e0_00e9063d",
+      "range": {
+        "startLine": 194,
+        "startChar": 75,
+        "endLine": 194,
+        "endChar": 81
+      },
+      "revId": "0064c336aea278dd803f4f9a7a37fc7e3f3aedbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c8bb7e0_e087425d",
         "filename": "wifi/1.0/IWifiRttControllerEventCallback.hal",
         "patchSetId": 2
@@ -278,6 +542,30 @@
     },
     {
       "key": {
+        "uuid": "7c8bb7e0_e33f4c7c",
+        "filename": "wifi/1.0/IWifiRttControllerEventCallback.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-14T23:47:13Z",
+      "side": 1,
+      "message": "This depends on the number of devices around.",
+      "parentUuid": "7c8bb7e0_e087425d",
+      "range": {
+        "startLine": 29,
+        "startChar": 36,
+        "endLine": 29,
+        "endChar": 39
+      },
+      "revId": "0064c336aea278dd803f4f9a7a37fc7e3f3aedbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c8bb7e0_802f56be",
         "filename": "wifi/1.0/IWifiStaIfaceEventCallback.hal",
         "patchSetId": 2
@@ -289,6 +577,30 @@
       "writtenOn": "2016-10-14T22:30:23Z",
       "side": 1,
       "message": "Right now, these typedefs aren\u0027t exposed in output code (and definitely not in java). Consider keeping Us in the name. (better might even be usTimestamp), same with Ms",
+      "range": {
+        "startLine": 25,
+        "startChar": 18,
+        "endLine": 25,
+        "endChar": 27
+      },
+      "revId": "0064c336aea278dd803f4f9a7a37fc7e3f3aedbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c8bb7e0_0304b0bf",
+        "filename": "wifi/1.0/IWifiStaIfaceEventCallback.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-14T23:47:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c8bb7e0_802f56be",
       "range": {
         "startLine": 25,
         "startChar": 18,
