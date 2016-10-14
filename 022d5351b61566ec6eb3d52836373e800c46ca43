@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fc0247f6_a2cefa3e",
+        "filename": "tests/foo/1.0/default/Foo.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-14T21:06:00Z",
+      "side": 1,
+      "message": "move to HidlSupport.h in libhidl",
+      "range": {
+        "startLine": 260,
+        "startChar": 0,
+        "endLine": 263,
+        "endChar": 1
+      },
+      "revId": "022d5351b61566ec6eb3d52836373e800c46ca43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc0247f6_4215f6b0",
+        "filename": "tests/foo/1.0/default/Foo.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-14T21:06:00Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 273,
+        "startChar": 0,
+        "endLine": 275,
+        "endChar": 1
+      },
+      "revId": "022d5351b61566ec6eb3d52836373e800c46ca43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
