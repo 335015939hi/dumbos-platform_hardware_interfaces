@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7c8bb7e0_03a7d092",
+        "filename": "tests/foo/1.0/default/FooCallback.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2016-10-14T22:51:58Z",
+      "side": 1,
+      "message": "just want to follow the Android Framework C++ style guide and use enums for public constants",
+      "parentUuid": "fc0247f6_629b5251",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 2
+      },
+      "revId": "d94b772531e50beddd1c4d3c4cebdbb6fe72ef19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc0247f6_c2a34683",
         "filename": "tests/foo/1.0/default/FooCallback.cpp",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-14T21:04:11Z",
       "side": 1,
       "message": "invokeInfo.size()",
+      "range": {
+        "startLine": 21,
+        "startChar": 27,
+        "endLine": 21,
+        "endChar": 28
+      },
+      "revId": "d94b772531e50beddd1c4d3c4cebdbb6fe72ef19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c8bb7e0_c3b7a8b8",
+        "filename": "tests/foo/1.0/default/FooCallback.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2016-10-14T22:51:58Z",
+      "side": 1,
+      "message": "will do",
+      "parentUuid": "fc0247f6_c2a34683",
       "range": {
         "startLine": 21,
         "startChar": 27,
