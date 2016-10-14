@@ -48,6 +48,9 @@ struct Bar : public IBar {
     virtual Return<void> transpose2(const hidl_array<hidl_string, 5 /* 5 */, 3 /* 3 */>& in, transpose2_cb _hidl_cb)  override;
     virtual Return<void> sendVec(const hidl_vec<uint8_t>& data, sendVec_cb _hidl_cb)  override;
     virtual Return<void> sendVecVec(sendVecVec_cb _hidl_cb)  override;
+    virtual Return<void> createMyHandle(createMyHandle_cb _hidl_cb)  override;
+    virtual Return<void> createHandles(uint32_t size, createHandles_cb _hidl_cb)  override;
+    virtual Return<void> closeHandles()  override;
 
     // Methods from ::android::hardware::tests::bar::V1_0::IBar follow.
     Return<void> thisIsNew()  override;

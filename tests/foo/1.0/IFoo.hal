@@ -79,6 +79,11 @@ interface IFoo {
         FloatArray myFloatArray;
     };
 
+    struct MyHandle {
+        handle h;
+        int32_t guard;
+    };
+
     doThis(float param);
     doThis(uint32_t param);
     doThatAndReturnSomething(int64_t param) generates (int32_t result);
@@ -107,4 +112,8 @@ interface IFoo {
     sendVec(vec<uint8_t> data) generates (vec<uint8_t> data);
 
     sendVecVec() generates (vec<vec<uint8_t>> vecvec);
+
+    createMyHandle() generates (MyHandle h);
+    createHandles(uint32_t size) generates (vec<handle> handles);
+    closeHandles();
 };
