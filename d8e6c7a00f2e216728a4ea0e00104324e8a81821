@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c193e0f_b1acb03e",
+        "filename": "wifi/nan/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-14T02:23:52Z",
+      "side": 1,
+      "message": "Constants -\u003e Sizes",
+      "range": {
+        "startLine": 24,
+        "startChar": 5,
+        "endLine": 24,
+        "endChar": 14
+      },
+      "revId": "d8e6c7a00f2e216728a4ea0e00104324e8a81821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c193e0f_f1b2289b",
+        "filename": "wifi/nan/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-14T02:23:52Z",
+      "side": 1,
+      "message": "not allowed",
+      "range": {
+        "startLine": 25,
+        "startChar": 2,
+        "endLine": 27,
+        "endChar": 20
+      },
+      "revId": "d8e6c7a00f2e216728a4ea0e00104324e8a81821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c193e0f_91a40c55",
+        "filename": "wifi/nan/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-14T02:23:52Z",
+      "side": 1,
+      "message": "MAX_DP_APP_INFO_LEN for consistency?",
+      "range": {
+        "startLine": 40,
+        "startChar": 2,
+        "endLine": 40,
+        "endChar": 21
+      },
+      "revId": "d8e6c7a00f2e216728a4ea0e00104324e8a81821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c193e0f_31a18043",
+        "filename": "wifi/nan/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-14T02:23:52Z",
+      "side": 1,
+      "message": "why do you need a struct for this if it is only one item?",
+      "range": {
+        "startLine": 57,
+        "startChar": 7,
+        "endLine": 57,
+        "endChar": 22
+      },
+      "revId": "d8e6c7a00f2e216728a4ea0e00104324e8a81821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c193e0f_d16a84e1",
+        "filename": "wifi/nan/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-14T02:23:52Z",
+      "side": 1,
+      "message": "what kind of information is contained here? is it versioned in any way?",
+      "range": {
+        "startLine": 61,
+        "startChar": 15,
+        "endLine": 61,
+        "endChar": 25
+      },
+      "revId": "d8e6c7a00f2e216728a4ea0e00104324e8a81821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c193e0f_d1b28450",
+        "filename": "wifi/nan/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-14T02:23:52Z",
+      "side": 1,
+      "message": "not a proper noun?",
+      "range": {
+        "startLine": 157,
+        "startChar": 60,
+        "endLine": 158,
+        "endChar": 11
+      },
+      "revId": "d8e6c7a00f2e216728a4ea0e00104324e8a81821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c193e0f_919e4cb4",
+        "filename": "wifi/nan/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-14T02:23:52Z",
+      "side": 1,
+      "message": "what subfield? It\u0027s just an enum.",
+      "range": {
+        "startLine": 159,
+        "startChar": 25,
+        "endLine": 161,
+        "endChar": 11
+      },
+      "revId": "d8e6c7a00f2e216728a4ea0e00104324e8a81821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c193e0f_71ea9802",
+        "filename": "wifi/nan/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-14T02:23:52Z",
+      "side": 1,
+      "message": "SrfType? (etc)",
+      "range": {
+        "startLine": 228,
+        "startChar": 5,
+        "endLine": 228,
+        "endChar": 12
+      },
+      "revId": "d8e6c7a00f2e216728a4ea0e00104324e8a81821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c193e0f_91e72c38",
+        "filename": "wifi/nan/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-14T02:23:52Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 236,
+        "startChar": 0,
+        "endLine": 236,
+        "endChar": 32
+      },
+      "revId": "d8e6c7a00f2e216728a4ea0e00104324e8a81821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c193e0f_51f194ee",
+        "filename": "wifi/nan/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-14T02:23:52Z",
+      "side": 1,
+      "message": "Seems to me like a \u0027bool required\u0027 would make much more sense than these. Doesn\u0027t this add a lot of unnecessary bloat (applies above as well as, and I\u0027m assuming this, below).",
+      "range": {
+        "startLine": 269,
+        "startChar": 0,
+        "endLine": 272,
+        "endChar": 2
+      },
+      "revId": "d8e6c7a00f2e216728a4ea0e00104324e8a81821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c193e0f_d1792484",
+        "filename": "wifi/nan/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-14T02:23:52Z",
+      "side": 1,
+      "message": "bool? (same below)",
+      "range": {
+        "startLine": 358,
+        "startChar": 10,
+        "endLine": 358,
+        "endChar": 24
+      },
+      "revId": "d8e6c7a00f2e216728a4ea0e00104324e8a81821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
