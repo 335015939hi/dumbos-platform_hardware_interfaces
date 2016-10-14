@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c193e0f_2cd607be",
+        "filename": "boot_control/1.0/default/service.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-14T02:44:32Z",
+      "side": 1,
+      "message": "instance, true /* getStub */",
+      "range": {
+        "startLine": 28,
+        "startChar": 56,
+        "endLine": 28,
+        "endChar": 64
+      },
+      "revId": "060bdd905d4f84be522f160a093d3ffc2e169177",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
