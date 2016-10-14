@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "7c8bb7e0_83d3e0be",
+        "filename": "tests/foo/1.0/default/Foo.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2016-10-14T23:03:15Z",
+      "side": 1,
+      "message": "Actually I don\u0027t think the to_string methods should go to libhidl though. For hidl_vec\u003cT\u003e and hidl_array\u003cT\u003e we don\u0027t necessary know how to stringify T. This is just a special case that we know here our T\u0027s will can be stringified with std::to_string.",
+      "parentUuid": "7c8bb7e0_6396dc2a",
+      "range": {
+        "startLine": 260,
+        "startChar": 0,
+        "endLine": 263,
+        "endChar": 1
+      },
+      "revId": "022d5351b61566ec6eb3d52836373e800c46ca43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc0247f6_4215f6b0",
         "filename": "tests/foo/1.0/default/Foo.cpp",
         "patchSetId": 4
