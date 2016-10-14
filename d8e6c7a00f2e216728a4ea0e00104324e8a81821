@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "3c885ea4_42a4b453",
+        "filename": "wifi/nan/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-14T18:07:54Z",
+      "side": 1,
+      "message": "agree",
+      "parentUuid": "3c193e0f_760e09f2",
+      "range": {
+        "startLine": 25,
+        "startChar": 2,
+        "endLine": 27,
+        "endChar": 20
+      },
+      "revId": "d8e6c7a00f2e216728a4ea0e00104324e8a81821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c193e0f_91a40c55",
         "filename": "wifi/nan/1.0/types.hal",
         "patchSetId": 4
@@ -225,6 +249,30 @@
       "side": 1,
       "message": "Will let etan@ comment on this.",
       "parentUuid": "3c193e0f_d16a84e1",
+      "range": {
+        "startLine": 61,
+        "startChar": 15,
+        "endLine": 61,
+        "endChar": 25
+      },
+      "revId": "d8e6c7a00f2e216728a4ea0e00104324e8a81821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c885ea4_4208343b",
+        "filename": "wifi/nan/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-14T18:07:54Z",
+      "side": 1,
+      "message": "arbitrary caller information",
+      "parentUuid": "3c8e9e81_c96f3588",
       "range": {
         "startLine": 61,
         "startChar": 15,
@@ -472,6 +520,30 @@
     },
     {
       "key": {
+        "uuid": "3c885ea4_4211145d",
+        "filename": "wifi/nan/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-14T18:07:54Z",
+      "side": 1,
+      "message": "I\u0027m ok with simplifying the API and getting rid of some of these enums",
+      "parentUuid": "3c885ea4_ffd0fff5",
+      "range": {
+        "startLine": 269,
+        "startChar": 0,
+        "endLine": 272,
+        "endChar": 2
+      },
+      "revId": "d8e6c7a00f2e216728a4ea0e00104324e8a81821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c193e0f_d1792484",
         "filename": "wifi/nan/1.0/types.hal",
         "patchSetId": 4
@@ -512,6 +584,190 @@
         "startChar": 10,
         "endLine": 358,
         "endChar": 24
+      },
+      "revId": "d8e6c7a00f2e216728a4ea0e00104324e8a81821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c885ea4_6218d830",
+        "filename": "wifi/nan/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-14T18:07:54Z",
+      "side": 1,
+      "message": "not sure needed anymore based on later simplifications",
+      "range": {
+        "startLine": 385,
+        "startChar": 7,
+        "endLine": 385,
+        "endChar": 28
+      },
+      "revId": "d8e6c7a00f2e216728a4ea0e00104324e8a81821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c885ea4_02054ced",
+        "filename": "wifi/nan/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 943,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-14T18:07:54Z",
+      "side": 1,
+      "message": "Simplify in v1 and remove these and dependent types",
+      "range": {
+        "startLine": 929,
+        "startChar": 2,
+        "endLine": 943,
+        "endChar": 32
+      },
+      "revId": "d8e6c7a00f2e216728a4ea0e00104324e8a81821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c885ea4_629b78c5",
+        "filename": "wifi/nan/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 1214,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-14T18:07:54Z",
+      "side": 1,
+      "message": "This is interesting: used to be an enum. Now by allocating all together rather wasteful. Should we consider separate notifications one per type?",
+      "range": {
+        "startLine": 1214,
+        "startChar": 2,
+        "endLine": 1214,
+        "endChar": 12
+      },
+      "revId": "d8e6c7a00f2e216728a4ea0e00104324e8a81821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c885ea4_82bf9c12",
+        "filename": "wifi/nan/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 1239,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-14T18:07:54Z",
+      "side": 1,
+      "message": "remove based later comment",
+      "range": {
+        "startLine": 1239,
+        "startChar": 7,
+        "endLine": 1239,
+        "endChar": 40
+      },
+      "revId": "d8e6c7a00f2e216728a4ea0e00104324e8a81821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c885ea4_42b59434",
+        "filename": "wifi/nan/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 1271,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-14T18:07:54Z",
+      "side": 1,
+      "message": "I think not needed anymore",
+      "range": {
+        "startLine": 1271,
+        "startChar": 7,
+        "endLine": 1271,
+        "endChar": 27
+      },
+      "revId": "d8e6c7a00f2e216728a4ea0e00104324e8a81821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c885ea4_6269b8b1",
+        "filename": "wifi/nan/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 1402,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-14T18:07:54Z",
+      "side": 1,
+      "message": "let\u0027s simplify and remove these from v1 - and remove all dependent types.",
+      "range": {
+        "startLine": 1383,
+        "startChar": 2,
+        "endLine": 1402,
+        "endChar": 32
+      },
+      "revId": "d8e6c7a00f2e216728a4ea0e00104324e8a81821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c885ea4_e25b0827",
+        "filename": "wifi/nan/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 1488,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-14T18:07:54Z",
+      "side": 1,
+      "message": "seems like an un-necessary abstraction",
+      "range": {
+        "startLine": 1474,
+        "startChar": 0,
+        "endLine": 1488,
+        "endChar": 2
+      },
+      "revId": "d8e6c7a00f2e216728a4ea0e00104324e8a81821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c885ea4_8234fce0",
+        "filename": "wifi/nan/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 1502,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-14T18:07:54Z",
+      "side": 1,
+      "message": "this was enum in the original - I\u0027m assuming enums are no longer supported - correct?\n\nIf so then can be completely collapsed. The two fields are identical",
+      "range": {
+        "startLine": 1502,
+        "startChar": 2,
+        "endLine": 1502,
+        "endChar": 13
       },
       "revId": "d8e6c7a00f2e216728a4ea0e00104324e8a81821",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
