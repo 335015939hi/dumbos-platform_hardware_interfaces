@@ -118,6 +118,18 @@ Return<void> Bar::sendVecVec(sendVecVec_cb _hidl_cb) {
     return mFoo->sendVecVec(_hidl_cb);
 }
 
+Return<void> Bar::createMyHandle(createMyHandle_cb _hidl_cb) {
+    return mFoo->createMyHandle(_hidl_cb);
+}
+
+Return<void> Bar::createHandles(uint32_t size, createHandles_cb _hidl_cb) {
+    return mFoo->createHandles(size, _hidl_cb);
+}
+
+Return<void> Bar::closeHandles() {
+    return mFoo->closeHandles();
+}
+
 // Methods from ::android::hardware::tests::bar::V1_0::IBar follow.
 Return<void> Bar::thisIsNew()  {
     ALOGI("SERVER(Bar) thisIsNew");
