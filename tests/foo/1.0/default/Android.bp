@@ -12,6 +12,7 @@ cc_library_shared {
 
     shared_libs: [
         "libbase",
+        "libcutils",
         "libhidl",
         "libhidl_test",
         "libhwbinder",
