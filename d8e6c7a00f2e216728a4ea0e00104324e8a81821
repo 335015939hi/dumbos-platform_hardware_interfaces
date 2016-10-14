@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "3c569eee_af1e391f",
+        "filename": "wifi/nan/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-14T19:51:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c885ea4_42a4b453",
+      "range": {
+        "startLine": 25,
+        "startChar": 2,
+        "endLine": 27,
+        "endChar": 20
+      },
+      "revId": "d8e6c7a00f2e216728a4ea0e00104324e8a81821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c193e0f_91a40c55",
         "filename": "wifi/nan/1.0/types.hal",
         "patchSetId": 4
@@ -544,6 +568,30 @@
     },
     {
       "key": {
+        "uuid": "fc0247f6_7c0bf997",
+        "filename": "wifi/nan/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-14T19:51:20Z",
+      "side": 1,
+      "message": "Changed couple of the obvious enums to bool now.",
+      "parentUuid": "3c885ea4_4211145d",
+      "range": {
+        "startLine": 269,
+        "startChar": 0,
+        "endLine": 272,
+        "endChar": 2
+      },
+      "revId": "d8e6c7a00f2e216728a4ea0e00104324e8a81821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c193e0f_d1792484",
         "filename": "wifi/nan/1.0/types.hal",
         "patchSetId": 4
@@ -614,6 +662,30 @@
     },
     {
       "key": {
+        "uuid": "3c569eee_8f4255f8",
+        "filename": "wifi/nan/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-14T19:51:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c885ea4_6218d830",
+      "range": {
+        "startLine": 385,
+        "startChar": 7,
+        "endLine": 385,
+        "endChar": 28
+      },
+      "revId": "d8e6c7a00f2e216728a4ea0e00104324e8a81821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c885ea4_02054ced",
         "filename": "wifi/nan/1.0/types.hal",
         "patchSetId": 4
@@ -637,6 +709,30 @@
     },
     {
       "key": {
+        "uuid": "3c569eee_8feb35d8",
+        "filename": "wifi/nan/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 943,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-14T19:51:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c885ea4_02054ced",
+      "range": {
+        "startLine": 929,
+        "startChar": 2,
+        "endLine": 943,
+        "endChar": 32
+      },
+      "revId": "d8e6c7a00f2e216728a4ea0e00104324e8a81821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c885ea4_629b78c5",
         "filename": "wifi/nan/1.0/types.hal",
         "patchSetId": 4
@@ -648,6 +744,30 @@
       "writtenOn": "2016-10-14T18:07:54Z",
       "side": 1,
       "message": "This is interesting: used to be an enum. Now by allocating all together rather wasteful. Should we consider separate notifications one per type?",
+      "range": {
+        "startLine": 1214,
+        "startChar": 2,
+        "endLine": 1214,
+        "endChar": 12
+      },
+      "revId": "d8e6c7a00f2e216728a4ea0e00104324e8a81821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c569eee_0fb2e5ff",
+        "filename": "wifi/nan/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 1214,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-14T19:51:20Z",
+      "side": 1,
+      "message": "Looks like only anonymous unions are not allowed. Named ones are. So, just changed to a named one now.",
+      "parentUuid": "3c885ea4_629b78c5",
       "range": {
         "startLine": 1214,
         "startChar": 2,
@@ -729,6 +849,30 @@
     },
     {
       "key": {
+        "uuid": "bc41ae2d_6b6361ab",
+        "filename": "wifi/nan/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 1402,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-14T19:51:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c885ea4_6269b8b1",
+      "range": {
+        "startLine": 1383,
+        "startChar": 2,
+        "endLine": 1402,
+        "endChar": 32
+      },
+      "revId": "d8e6c7a00f2e216728a4ea0e00104324e8a81821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c885ea4_e25b0827",
         "filename": "wifi/nan/1.0/types.hal",
         "patchSetId": 4
@@ -752,6 +896,30 @@
     },
     {
       "key": {
+        "uuid": "fc0247f6_9ca00578",
+        "filename": "wifi/nan/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 1488,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-14T19:51:20Z",
+      "side": 1,
+      "message": "true. Removed now.",
+      "parentUuid": "3c885ea4_e25b0827",
+      "range": {
+        "startLine": 1474,
+        "startChar": 0,
+        "endLine": 1488,
+        "endChar": 2
+      },
+      "revId": "d8e6c7a00f2e216728a4ea0e00104324e8a81821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c885ea4_8234fce0",
         "filename": "wifi/nan/1.0/types.hal",
         "patchSetId": 4
@@ -763,6 +931,30 @@
       "writtenOn": "2016-10-14T18:07:54Z",
       "side": 1,
       "message": "this was enum in the original - I\u0027m assuming enums are no longer supported - correct?\n\nIf so then can be completely collapsed. The two fields are identical",
+      "range": {
+        "startLine": 1502,
+        "startChar": 2,
+        "endLine": 1502,
+        "endChar": 13
+      },
+      "revId": "d8e6c7a00f2e216728a4ea0e00104324e8a81821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc0247f6_1cccf552",
+        "filename": "wifi/nan/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 1502,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-14T19:51:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c885ea4_8234fce0",
       "range": {
         "startLine": 1502,
         "startChar": 2,
