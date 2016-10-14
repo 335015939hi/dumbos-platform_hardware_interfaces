@@ -38,12 +38,13 @@ bool convertHidlScanParamsToInternal(
     const IWifiStaIface::BackgroundScanParameters& params,
     wifi_scan_cmd_params* internal_scan_params);
 
-// Convert the blob of packed IE elements to hidl_vec of |InformationElement|
+// Convert the blob of packed IE elements to hidl_vec of
+// |WifiInformationElement|
 // structures.
 bool convertInternalIeBlobToHidl(
     const uint8_t* ie_blob,
     uint32_t ie_blob_len,
-    hidl_vec<IWifiStaIfaceEventCallback::InformationElement>* hidl_ie_elements);
+    hidl_vec<WifiInformationElement>* hidl_ie_elements);
 
 // The scan result contains a variable sized IE info at the
 // end for full scan results. So, use the |has_ie_data| flag to

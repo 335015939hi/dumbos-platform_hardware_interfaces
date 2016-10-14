@@ -74,15 +74,15 @@ bool convertHidlScanParamsToInternal(
       internal_bucket_spec.report_events &= REPORT_EVENTS_NO_BATCH;
     }
     // TODO: Expose these max limits in the HIDL interface.
-    if (bucket_spec.frequenciesInMhz.size() > MAX_CHANNELS) {
+    if (bucket_spec.frequencies.size() > MAX_CHANNELS) {
       return false;
     }
-    internal_bucket_spec.num_channels = bucket_spec.frequenciesInMhz.size();
-    for (uint32_t freq_idx = 0; freq_idx < bucket_spec.frequenciesInMhz.size();
+    internal_bucket_spec.num_channels = bucket_spec.frequencies.size();
+    for (uint32_t freq_idx = 0; freq_idx < bucket_spec.frequencies.size();
          freq_idx++) {
       wifi_scan_channel_spec& internal_channel_spec =
           internal_bucket_spec.channels[freq_idx];
-      internal_channel_spec.channel = bucket_spec.frequenciesInMhz[freq_idx];
+      internal_channel_spec.channel = bucket_spec.frequencies[freq_idx];
     }
   }
   return true;
@@ -91,15 +91,13 @@ bool convertHidlScanParamsToInternal(
 bool convertInternalIeBlobToHidl(
     const uint8_t* ie_blob,
     uint32_t ie_blob_len,
-    hidl_vec<IWifiStaIfaceEventCallback::InformationElement>*
-        hidl_ie_elements) {
+    hidl_vec<WifiInformationElement>* hidl_ie_elements) {
   if (ie_blob == nullptr || hidl_ie_elements == nullptr) {
     return false;
   }
   // First convert to a std::vector of IE elements and then push it to a
   // hidl_vec.
-  std::vector<IWifiStaIfaceEventCallback::InformationElement>
-      hidl_ie_elements_vec;
+  std::vector<WifiInformationElement> hidl_ie_elements_vec;
   const uint8_t* ie_elems_address = ie_blob;
   uint32_t ie_elems_total_len = ie_blob_len;
   uint32_t processed_so_far = 0;
@@ -107,7 +105,7 @@ bool convertInternalIeBlobToHidl(
   // Each IE should atleast have the |id| & |len| field.
   while (processed_so_far + sizeof(wifi_information_element) <
          ie_elems_total_len) {
-    IWifiStaIfaceEventCallback::InformationElement hidl_ie_element;
+    WifiInformationElement hidl_ie_element;
     const wifi_information_element* ie_element =
         reinterpret_cast<const wifi_information_element*>(
             &ie_elems_address[processed_so_far]);
@@ -150,7 +148,7 @@ bool convertInternalScanResultToHidl(
        bssid_idx++) {
     hidl_scan_result->bssid[bssid_idx] = result->bssid[bssid_idx];
   }
-  hidl_scan_result->frequencyInMhz = result->channel;
+  hidl_scan_result->frequency = result->channel;
   hidl_scan_result->rssi = result->rssi;
   hidl_scan_result->beaconPeriodInMs = result->beacon_period;
   hidl_scan_result->capability = result->capability;
