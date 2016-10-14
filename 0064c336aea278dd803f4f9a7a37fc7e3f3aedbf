@@ -1,0 +1,303 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c8bb7e0_a0537a29",
+        "filename": "wifi/1.0/IWifiRttController.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-14T22:30:23Z",
+      "side": 1,
+      "message": "what does this stand for",
+      "range": {
+        "startLine": 23,
+        "startChar": 29,
+        "endLine": 23,
+        "endChar": 32
+      },
+      "revId": "0064c336aea278dd803f4f9a7a37fc7e3f3aedbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c8bb7e0_60f81211",
+        "filename": "wifi/1.0/IWifiRttController.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-14T22:30:23Z",
+      "side": 1,
+      "message": "So client code is responsible for preventing id collisions? Seems like it would be better to have the implementation give out ids.",
+      "range": {
+        "startLine": 65,
+        "startChar": 25,
+        "endLine": 65,
+        "endChar": 30
+      },
+      "revId": "0064c336aea278dd803f4f9a7a37fc7e3f3aedbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c8bb7e0_601fb276",
+        "filename": "wifi/1.0/IWifiRttController.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-14T22:30:23Z",
+      "side": 1,
+      "message": "Not success? (same everywhere)",
+      "range": {
+        "startLine": 74,
+        "startChar": 14,
+        "endLine": 74,
+        "endChar": 28
+      },
+      "revId": "0064c336aea278dd803f4f9a7a37fc7e3f3aedbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c8bb7e0_00302601",
+        "filename": "wifi/1.0/IWifiRttController.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-14T22:30:23Z",
+      "side": 1,
+      "message": "an",
+      "range": {
+        "startLine": 82,
+        "startChar": 68,
+        "endLine": 82,
+        "endChar": 69
+      },
+      "revId": "0064c336aea278dd803f4f9a7a37fc7e3f3aedbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c8bb7e0_40f70e1e",
+        "filename": "wifi/1.0/IWifiRttController.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-14T22:30:23Z",
+      "side": 1,
+      "message": "must",
+      "range": {
+        "startLine": 83,
+        "startChar": 22,
+        "endLine": 83,
+        "endChar": 26
+      },
+      "revId": "0064c336aea278dd803f4f9a7a37fc7e3f3aedbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c8bb7e0_80fd1602",
+        "filename": "wifi/1.0/IWifiRttController.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-14T22:30:23Z",
+      "side": 1,
+      "message": "must (same below)",
+      "range": {
+        "startLine": 84,
+        "startChar": 45,
+        "endLine": 84,
+        "endChar": 49
+      },
+      "revId": "0064c336aea278dd803f4f9a7a37fc7e3f3aedbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c8bb7e0_c039deee",
+        "filename": "wifi/1.0/IWifiRttController.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-14T22:30:23Z",
+      "side": 1,
+      "message": "what are these acronyms (they look android specific)\nNBD\nSDF\nDE\nDW",
+      "range": {
+        "startLine": 85,
+        "startChar": 50,
+        "endLine": 85,
+        "endChar": 52
+      },
+      "revId": "0064c336aea278dd803f4f9a7a37fc7e3f3aedbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c8bb7e0_402e2eaa",
+        "filename": "wifi/1.0/IWifiRttController.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-14T22:30:23Z",
+      "side": 1,
+      "message": "each",
+      "range": {
+        "startLine": 86,
+        "startChar": 11,
+        "endLine": 86,
+        "endChar": 15
+      },
+      "revId": "0064c336aea278dd803f4f9a7a37fc7e3f3aedbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c8bb7e0_20776ab8",
+        "filename": "wifi/1.0/IWifiRttController.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-14T22:30:23Z",
+      "side": 1,
+      "message": "?",
+      "range": {
+        "startLine": 151,
+        "startChar": 26,
+        "endLine": 151,
+        "endChar": 29
+      },
+      "revId": "0064c336aea278dd803f4f9a7a37fc7e3f3aedbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c8bb7e0_407cee99",
+        "filename": "wifi/1.0/IWifiRttController.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-14T22:30:23Z",
+      "side": 1,
+      "message": "?",
+      "range": {
+        "startLine": 165,
+        "startChar": 26,
+        "endLine": 165,
+        "endChar": 29
+      },
+      "revId": "0064c336aea278dd803f4f9a7a37fc7e3f3aedbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c8bb7e0_00e9063d",
+        "filename": "wifi/1.0/IWifiRttController.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-14T22:30:23Z",
+      "side": 1,
+      "message": "must",
+      "range": {
+        "startLine": 194,
+        "startChar": 75,
+        "endLine": 194,
+        "endChar": 81
+      },
+      "revId": "0064c336aea278dd803f4f9a7a37fc7e3f3aedbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c8bb7e0_e087425d",
+        "filename": "wifi/1.0/IWifiRttControllerEventCallback.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-14T22:30:23Z",
+      "side": 1,
+      "message": "just so I understand, exactly in what circumstances are there expected to be a how many results?",
+      "range": {
+        "startLine": 29,
+        "startChar": 36,
+        "endLine": 29,
+        "endChar": 39
+      },
+      "revId": "0064c336aea278dd803f4f9a7a37fc7e3f3aedbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c8bb7e0_802f56be",
+        "filename": "wifi/1.0/IWifiStaIfaceEventCallback.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-14T22:30:23Z",
+      "side": 1,
+      "message": "Right now, these typedefs aren\u0027t exposed in output code (and definitely not in java). Consider keeping Us in the name. (better might even be usTimestamp), same with Ms",
+      "range": {
+        "startLine": 25,
+        "startChar": 18,
+        "endLine": 25,
+        "endChar": 27
+      },
+      "revId": "0064c336aea278dd803f4f9a7a37fc7e3f3aedbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
