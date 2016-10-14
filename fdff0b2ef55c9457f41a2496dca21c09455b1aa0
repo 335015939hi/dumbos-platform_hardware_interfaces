@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fc0247f6_5c839d25",
+        "filename": "boot_control/1.0/IBootControl.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-14T20:23:50Z",
+      "side": 1,
+      "message": "numSlots",
+      "range": {
+        "startLine": 41,
+        "startChar": 39,
+        "endLine": 41,
+        "endChar": 48
+      },
+      "revId": "fdff0b2ef55c9457f41a2496dca21c09455b1aa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc0247f6_5c515dd5",
+        "filename": "boot_control/1.0/IBootControl.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-14T20:23:50Z",
+      "side": 1,
+      "message": "where would this information be used?",
+      "range": {
+        "startLine": 101,
+        "startChar": 41,
+        "endLine": 101,
+        "endChar": 51
+      },
+      "revId": "fdff0b2ef55c9457f41a2496dca21c09455b1aa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc0247f6_fcedc9db",
+        "filename": "boot_control/1.0/types.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-14T20:23:50Z",
+      "side": 1,
+      "message": "FALSE \u003d 0,\nTRUE \u003d 1, is better (since they match up with bool values)\n\nsorry if I suggested otherwise",
+      "range": {
+        "startLine": 38,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 14
+      },
+      "revId": "fdff0b2ef55c9457f41a2496dca21c09455b1aa0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
