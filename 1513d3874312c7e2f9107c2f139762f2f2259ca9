@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7c8bb7e0_66110a77",
+        "filename": "wifi/1.0/IWifiNanIface.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-15T00:26:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c8bb7e0_c0d55e46",
+      "range": {
+        "startLine": 57,
+        "startChar": 17,
+        "endLine": 57,
+        "endChar": 30
+      },
+      "revId": "1513d3874312c7e2f9107c2f139762f2f2259ca9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c8bb7e0_00fa66cc",
         "filename": "wifi/1.0/IWifiNanIface.hal",
         "patchSetId": 9
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-14T22:42:15Z",
       "side": 1,
       "message": "same comment on CommandId as in rtt cl",
+      "range": {
+        "startLine": 133,
+        "startChar": 26,
+        "endLine": 133,
+        "endChar": 41
+      },
+      "revId": "1513d3874312c7e2f9107c2f139762f2f2259ca9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c8bb7e0_86168e6e",
+        "filename": "wifi/1.0/IWifiNanIface.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-15T00:26:52Z",
+      "side": 1,
+      "message": "Filed b/32178742",
+      "parentUuid": "7c8bb7e0_00fa66cc",
       "range": {
         "startLine": 133,
         "startChar": 26,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "7c8bb7e0_462086c2",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-15T00:26:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c8bb7e0_c0da3e5e",
+      "range": {
+        "startLine": 102,
+        "startChar": 5,
+        "endLine": 102,
+        "endChar": 13
+      },
+      "revId": "1513d3874312c7e2f9107c2f139762f2f2259ca9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c8bb7e0_805c3609",
         "filename": "wifi/1.0/types.hal",
         "patchSetId": 9
@@ -82,6 +154,30 @@
       "writtenOn": "2016-10-14T22:42:15Z",
       "side": 1,
       "message": "Delete prefix",
+      "range": {
+        "startLine": 103,
+        "startChar": 2,
+        "endLine": 103,
+        "endChar": 6
+      },
+      "revId": "1513d3874312c7e2f9107c2f139762f2f2259ca9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c8bb7e0_c60b363f",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-15T00:26:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c8bb7e0_805c3609",
       "range": {
         "startLine": 103,
         "startChar": 2,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "7c8bb7e0_86fd2e02",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-15T00:26:52Z",
+      "side": 1,
+      "message": "I have made a bunch of these 2 val enums into bool now. But, this one seems to be more descriptive as an enum.",
+      "parentUuid": "7c8bb7e0_40662ed9",
+      "range": {
+        "startLine": 278,
+        "startChar": 0,
+        "endLine": 284,
+        "endChar": 2
+      },
+      "revId": "1513d3874312c7e2f9107c2f139762f2f2259ca9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c8bb7e0_8083d624",
         "filename": "wifi/1.0/types.hal",
         "patchSetId": 9
@@ -128,6 +248,30 @@
       "writtenOn": "2016-10-14T22:42:15Z",
       "side": 1,
       "message": "must?",
+      "range": {
+        "startLine": 410,
+        "startChar": 7,
+        "endLine": 410,
+        "endChar": 13
+      },
+      "revId": "1513d3874312c7e2f9107c2f139762f2f2259ca9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c8bb7e0_c67ed686",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-15T00:26:52Z",
+      "side": 1,
+      "message": "should sounds better. should use the value below or not. the value itself describes whether 5g must be supported or not.",
+      "parentUuid": "7c8bb7e0_8083d624",
       "range": {
         "startLine": 410,
         "startChar": 7,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "7c8bb7e0_06e91e3d",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-15T00:26:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c8bb7e0_a0229a66",
+      "range": {
+        "startLine": 436,
+        "startChar": 5,
+        "endLine": 436,
+        "endChar": 8
+      },
+      "revId": "1513d3874312c7e2f9107c2f139762f2f2259ca9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c8bb7e0_008fc647",
         "filename": "wifi/1.0/types.hal",
         "patchSetId": 9
@@ -174,6 +342,30 @@
       "writtenOn": "2016-10-14T22:42:15Z",
       "side": 1,
       "message": "look for all will/would/could/should and update them to must/may \n\n#21 http://go/android-hal-design-guidelines",
+      "range": {
+        "startLine": 488,
+        "startChar": 50,
+        "endLine": 488,
+        "endChar": 54
+      },
+      "revId": "1513d3874312c7e2f9107c2f139762f2f2259ca9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c8bb7e0_462e46aa",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-15T00:26:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c8bb7e0_008fc647",
       "range": {
         "startLine": 488,
         "startChar": 50,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "7c8bb7e0_26c54298",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 1102,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-15T00:26:52Z",
+      "side": 1,
+      "message": "These keep the message struct uniform and hence can be clearly demarcated in the union below.",
+      "parentUuid": "7c8bb7e0_c088fe3d",
+      "range": {
+        "startLine": 1090,
+        "startChar": 0,
+        "endLine": 1102,
+        "endChar": 2
+      },
+      "revId": "1513d3874312c7e2f9107c2f139762f2f2259ca9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c8bb7e0_60257275",
         "filename": "wifi/1.0/types.hal",
         "patchSetId": 9
@@ -232,6 +448,30 @@
     },
     {
       "key": {
+        "uuid": "7c8bb7e0_065efe2c",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 1210,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-15T00:26:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c8bb7e0_60257275",
+      "range": {
+        "startLine": 1209,
+        "startChar": 5,
+        "endLine": 1210,
+        "endChar": 40
+      },
+      "revId": "1513d3874312c7e2f9107c2f139762f2f2259ca9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c8bb7e0_a0393a98",
         "filename": "wifi/1.0/types.hal",
         "patchSetId": 9
@@ -243,6 +483,30 @@
       "writtenOn": "2016-10-14T22:42:15Z",
       "side": 1,
       "message": "why shouldn\u0027t these be part of a vendor extension?",
+      "range": {
+        "startLine": 1347,
+        "startChar": 7,
+        "endLine": 1347,
+        "endChar": 40
+      },
+      "revId": "1513d3874312c7e2f9107c2f139762f2f2259ca9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c8bb7e0_268ea27e",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 1347,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-15T00:26:52Z",
+      "side": 1,
+      "message": "Hmm. I don\u0027t know enough on the NAN use case to comment on that.\nWill let etan@ take that up.",
+      "parentUuid": "7c8bb7e0_a0393a98",
       "range": {
         "startLine": 1347,
         "startChar": 7,
