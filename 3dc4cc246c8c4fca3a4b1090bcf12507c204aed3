@@ -16,6 +16,24 @@
       "revId": "3dc4cc246c8c4fca3a4b1090bcf12507c204aed3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c8bb7e0_071fd5d2",
+        "filename": "tests/foo/1.0/default/FooCallback.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2016-10-17T17:22:09Z",
+      "side": 1,
+      "message": "No it is a bug. Thanks for catching that.",
+      "parentUuid": "7c8bb7e0_b51092fe",
+      "revId": "3dc4cc246c8c4fca3a4b1090bcf12507c204aed3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
