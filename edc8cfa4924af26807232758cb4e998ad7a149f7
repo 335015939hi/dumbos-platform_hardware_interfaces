@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7c8bb7e0_c08c731b",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-17T20:10:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c8bb7e0_a72f09be",
+      "range": {
+        "startLine": 164,
+        "startChar": 2,
+        "endLine": 166,
+        "endChar": 5
+      },
+      "revId": "edc8cfa4924af26807232758cb4e998ad7a149f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c8bb7e0_273bf901",
         "filename": "wifi/1.0/types.hal",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-17T17:33:50Z",
       "side": 1,
       "message": "enum?\n\nAlso, wouldn\u0027t n:nxn make more sense? Anyway, enum is probably better.",
+      "range": {
+        "startLine": 168,
+        "startChar": 2,
+        "endLine": 170,
+        "endChar": 5
+      },
+      "revId": "edc8cfa4924af26807232758cb4e998ad7a149f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c8bb7e0_e0897708",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-17T20:10:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c8bb7e0_273bf901",
       "range": {
         "startLine": 168,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "fc9ec720_8b2f79be",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 1705,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-17T20:10:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c8bb7e0_c70ecd51",
+      "range": {
+        "startLine": 1705,
+        "startChar": 5,
+        "endLine": 1705,
+        "endChar": 7
+      },
+      "revId": "edc8cfa4924af26807232758cb4e998ad7a149f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c8bb7e0_87f8c511",
         "filename": "wifi/1.0/types.hal",
         "patchSetId": 5
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "9c730bd0_02b10bc7",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 1707,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-17T20:10:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c8bb7e0_87f8c511",
+      "range": {
+        "startLine": 1707,
+        "startChar": 7,
+        "endLine": 1707,
+        "endChar": 13
+      },
+      "revId": "edc8cfa4924af26807232758cb4e998ad7a149f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c8bb7e0_8746856d",
         "filename": "wifi/1.0/types.hal",
         "patchSetId": 5
@@ -105,6 +201,30 @@
       "writtenOn": "2016-10-17T17:33:50Z",
       "side": 1,
       "message": "must (etc)",
+      "range": {
+        "startLine": 1886,
+        "startChar": 31,
+        "endLine": 1886,
+        "endChar": 37
+      },
+      "revId": "edc8cfa4924af26807232758cb4e998ad7a149f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc9bc331_b8a16032",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 1886,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-17T20:10:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c8bb7e0_8746856d",
       "range": {
         "startLine": 1886,
         "startChar": 31,
