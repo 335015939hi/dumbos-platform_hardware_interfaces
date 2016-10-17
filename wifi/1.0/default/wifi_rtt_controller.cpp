@@ -36,17 +36,174 @@ void WifiRttController::invalidate() {
   is_valid_ = false;
 }
 
-Return<void> WifiRttController::getBoundIface(getBoundIface_cb hidl_status_cb) {
+Return<void> WifiRttController::getBoundIface(getBoundIface_cb cb) {
   if (!is_valid_) {
-    hidl_status_cb(
-        createWifiStatus(WifiStatusCode::ERROR_WIFI_RTT_CONTROLLER_INVALID),
-        nullptr);
+    cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_RTT_CONTROLLER_INVALID),
+       nullptr);
     return Void();
   }
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS), bound_iface_);
+  cb(createWifiStatus(WifiStatusCode::SUCCESS), bound_iface_);
   return Void();
 }
 
+Return<void> WifiRttController::registerEventCallback(
+    const sp<IWifiRttControllerEventCallback>& event_callback,
+    registerEventCallback_cb hidl_status_cb) {
+  if (!is_valid_) {
+    hidl_status_cb(
+        createWifiStatus(WifiStatusCode::ERROR_WIFI_RTT_CONTROLLER_INVALID));
+    return Void();
+  }
+  // TODO(b/31632518): remove the callback when the client is destroyed
+  event_callbacks_.emplace_back(event_callback);
+  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
+  return Void();
+}
+
+Return<void> WifiRttController::rangeRequest(
+    uint32_t /* cmdId */,
+    const hidl_vec<RttConfig>& /* rttConfigs */,
+    rangeRequest_cb hidl_status_cb) {
+  if (!is_valid_) {
+    hidl_status_cb(
+        createWifiStatus(WifiStatusCode::ERROR_WIFI_RTT_CONTROLLER_INVALID));
+    return Void();
+  }
+  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
+  return Void();
+}
+
+Return<void> WifiRttController::rangeCancel(
+    uint32_t /* cmdId */,
+    const hidl_vec<hidl_array<uint8_t, 6 /* 6 */>>& /* addrs */,
+    rangeCancel_cb hidl_status_cb) {
+  if (!is_valid_) {
+    hidl_status_cb(
+        createWifiStatus(WifiStatusCode::ERROR_WIFI_RTT_CONTROLLER_INVALID));
+    return Void();
+  }
+  return Void();
+}
+
+Return<void> WifiRttController::setChannelMap(uint32_t /* cmdId */,
+                                              const RttChannelMap& /* params */,
+                                              uint32_t /* numDw */,
+                                              setChannelMap_cb hidl_status_cb) {
+  if (!is_valid_) {
+    hidl_status_cb(
+        createWifiStatus(WifiStatusCode::ERROR_WIFI_RTT_CONTROLLER_INVALID));
+    return Void();
+  }
+  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
+  return Void();
+}
+
+Return<void> WifiRttController::clearChannelMap(
+    uint32_t /* cmdId */, clearChannelMap_cb hidl_status_cb) {
+  if (!is_valid_) {
+    hidl_status_cb(
+        createWifiStatus(WifiStatusCode::ERROR_WIFI_RTT_CONTROLLER_INVALID));
+    return Void();
+  }
+  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
+  return Void();
+}
+
+Return<void> WifiRttController::getCapabilities(
+    getCapabilities_cb hidl_status_cb) {
+  if (!is_valid_) {
+    hidl_status_cb(
+        createWifiStatus(WifiStatusCode::ERROR_WIFI_RTT_CONTROLLER_INVALID),
+        RttCapabilities());
+    return Void();
+  }
+  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS), RttCapabilities());
+  return Void();
+}
+
+Return<void> WifiRttController::setDebugCfg(RttDebugType /* Type */,
+                                            setDebugCfg_cb hidl_status_cb) {
+  if (!is_valid_) {
+    hidl_status_cb(
+        createWifiStatus(WifiStatusCode::ERROR_WIFI_RTT_CONTROLLER_INVALID));
+    return Void();
+  }
+  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
+  return Void();
+}
+
+Return<void> WifiRttController::getDebugInfo(getDebugInfo_cb hidl_status_cb) {
+  if (!is_valid_) {
+    hidl_status_cb(
+        createWifiStatus(WifiStatusCode::ERROR_WIFI_RTT_CONTROLLER_INVALID),
+        RttDebugInfo());
+    return Void();
+  }
+  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS), RttDebugInfo());
+  return Void();
+}
+
+Return<void> WifiRttController::setLci(uint32_t /* cmdId */,
+                                       const RttLciInformation& /* lci */,
+                                       setLci_cb hidl_status_cb) {
+  if (!is_valid_) {
+    hidl_status_cb(
+        createWifiStatus(WifiStatusCode::ERROR_WIFI_RTT_CONTROLLER_INVALID));
+    return Void();
+  }
+  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
+  return Void();
+}
+
+Return<void> WifiRttController::setLcr(uint32_t /* cmdId */,
+                                       const RttLcrInformation& /* lcr */,
+                                       setLcr_cb hidl_status_cb) {
+  if (!is_valid_) {
+    hidl_status_cb(
+        createWifiStatus(WifiStatusCode::ERROR_WIFI_RTT_CONTROLLER_INVALID));
+    return Void();
+  }
+  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
+  return Void();
+}
+
+Return<void> WifiRttController::getResponderInfo(
+    getResponderInfo_cb hidl_status_cb) {
+  if (!is_valid_) {
+    hidl_status_cb(
+        createWifiStatus(WifiStatusCode::ERROR_WIFI_RTT_CONTROLLER_INVALID),
+        RttResponder());
+    return Void();
+  }
+  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS), RttResponder());
+  return Void();
+}
+
+Return<void> WifiRttController::enableResponder(
+    uint32_t /* cmdId */,
+    const WifiChannelInfo& /* channelHint */,
+    uint32_t /* maxDurationSeconds */,
+    const RttResponder& /* info */,
+    enableResponder_cb hidl_status_cb) {
+  if (!is_valid_) {
+    hidl_status_cb(
+        createWifiStatus(WifiStatusCode::ERROR_WIFI_RTT_CONTROLLER_INVALID));
+    return Void();
+  }
+  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
+  return Void();
+}
+
+Return<void> WifiRttController::disableResponder(
+    uint32_t /* cmdId */, disableResponder_cb hidl_status_cb) {
+  if (!is_valid_) {
+    hidl_status_cb(
+        createWifiStatus(WifiStatusCode::ERROR_WIFI_RTT_CONTROLLER_INVALID));
+    return Void();
+  }
+  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
+  return Void();
+}
 }  // namespace implementation
 }  // namespace V1_0
 }  // namespace wifi
