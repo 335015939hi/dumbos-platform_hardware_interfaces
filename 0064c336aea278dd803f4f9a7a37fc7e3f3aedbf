@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "7c8bb7e0_553fc61e",
+        "filename": "wifi/1.0/IWifiRttController.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-17T16:34:18Z",
+      "side": 1,
+      "message": "That is fine. For hals that are getting converted from libhardware, this is unavoidable in some cases. However, since you\u0027re writing new logic here, it\u0027s much more desirable/cleaner to have the \u0027prevent collision\u0027 logic guaranteed to be in just this one place. A new CL is fine. Thanks for the bug :)",
+      "parentUuid": "7c8bb7e0_83f520d9",
+      "range": {
+        "startLine": 65,
+        "startChar": 25,
+        "endLine": 65,
+        "endChar": 30
+      },
+      "revId": "0064c336aea278dd803f4f9a7a37fc7e3f3aedbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c8bb7e0_601fb276",
         "filename": "wifi/1.0/IWifiRttController.hal",
         "patchSetId": 2
@@ -319,6 +343,30 @@
       "side": 1,
       "message": "I was able to hunt down a few of them. Couldn\u0027t find the others yet. etan@ might know what these stand for. Will wait for him to come back from his vacation.",
       "parentUuid": "7c8bb7e0_c039deee",
+      "range": {
+        "startLine": 85,
+        "startChar": 50,
+        "endLine": 85,
+        "endChar": 52
+      },
+      "revId": "0064c336aea278dd803f4f9a7a37fc7e3f3aedbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c8bb7e0_b52df2f2",
+        "filename": "wifi/1.0/IWifiRttController.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-17T16:34:18Z",
+      "side": 1,
+      "message": "Nothing in glossary/?",
+      "parentUuid": "7c8bb7e0_8351a0d8",
       "range": {
         "startLine": 85,
         "startChar": 50,
