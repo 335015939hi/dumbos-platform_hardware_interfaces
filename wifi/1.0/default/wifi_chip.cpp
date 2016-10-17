@@ -92,7 +92,7 @@ Return<void> WifiChip::getAvailableModes(getAvailableModes_cb hidl_status_cb) {
                    hidl_vec<ChipMode>());
     return Void();
   }
-  // TODO add implementation
+  // TODO: add implementation
   hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS),
                  hidl_vec<ChipMode>());
   return Void();
@@ -106,7 +106,7 @@ Return<void> WifiChip::configureChip(uint32_t /*mode_id*/,
   }
 
   invalidateAndRemoveAllIfaces();
-  // TODO add implementation
+  // TODO: add implementation
   hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
   return Void();
 }
@@ -117,7 +117,7 @@ Return<void> WifiChip::getMode(getMode_cb hidl_status_cb) {
                    UINT32_MAX);
     return Void();
   }
-  // TODO add implementation
+  // TODO: add implementation
   hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS), 0);
   return Void();
 }
