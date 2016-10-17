@@ -16,6 +16,24 @@
       "revId": "47a8bedd631378d78cacfc0732794bbaa70e83a3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c8bb7e0_4724fddf",
+        "filename": "tests/foo/1.0/default/FooCallback.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2016-10-17T17:31:09Z",
+      "side": 1,
+      "message": "Thanks. How dumb was I.",
+      "parentUuid": "7c8bb7e0_473abd30",
+      "revId": "47a8bedd631378d78cacfc0732794bbaa70e83a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
