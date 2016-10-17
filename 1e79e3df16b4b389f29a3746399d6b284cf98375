@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c8bb7e0_8743e585",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-17T17:29:37Z",
+      "side": 1,
+      "message": "why do you need a struct for this?",
+      "range": {
+        "startLine": 216,
+        "startChar": 2,
+        "endLine": 222,
+        "endChar": 4
+      },
+      "revId": "1e79e3df16b4b389f29a3746399d6b284cf98375",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
