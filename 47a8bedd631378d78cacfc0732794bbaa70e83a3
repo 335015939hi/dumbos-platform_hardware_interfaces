@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c8bb7e0_473abd30",
+        "filename": "tests/foo/1.0/default/FooCallback.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1014088
+      },
+      "writtenOn": "2016-10-17T17:25:40Z",
+      "side": 1,
+      "message": "it\u0027s a little bit safer ;), but you still want to signal the condition I think.",
+      "revId": "47a8bedd631378d78cacfc0732794bbaa70e83a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
