@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c8bb7e0_b5a3b283",
+        "filename": "tests/foo/1.0/default/FooCallback.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1014088
+      },
+      "writtenOn": "2016-10-17T16:10:46Z",
+      "side": 1,
+      "message": "Use Autolock",
+      "revId": "0c632f0160f56fdecb7d2cbfc681b8fd863d9cc7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c8bb7e0_d5a0b678",
+        "filename": "tests/foo/1.0/default/FooCallback.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1014088
+      },
+      "writtenOn": "2016-10-17T16:10:46Z",
+      "side": 1,
+      "message": "use Autolock everywhere.",
+      "revId": "0c632f0160f56fdecb7d2cbfc681b8fd863d9cc7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
