@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1c6b9b00_5b451b5e",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-17T22:24:03Z",
+      "side": 1,
+      "message": "I don\u0027t think you need to reserve this unless it\u0027s reserved by some standard.",
+      "range": {
+        "startLine": 165,
+        "startChar": 2,
+        "endLine": 165,
+        "endChar": 14
+      },
+      "revId": "fff9d16cb52b5b813b042c1141513e3acd210ee2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
