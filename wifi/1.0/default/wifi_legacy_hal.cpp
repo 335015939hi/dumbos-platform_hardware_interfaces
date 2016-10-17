@@ -84,6 +84,18 @@ void onLinkLayerStatsDataResult(wifi_request_id id,
         id, iface_stat, num_radios, radio_stat);
   }
 }
+
+// Callback to be invoked for rtt results results.
+std::function<void(
+    wifi_request_id, unsigned num_results, wifi_rtt_result* rtt_results[])>
+    on_rtt_results_internal_callback;
+void onRttResults(wifi_request_id id,
+                  unsigned num_results,
+                  wifi_rtt_result* rtt_results[]) {
+  if (on_rtt_results_internal_callback) {
+    on_rtt_results_internal_callback(id, num_results, rtt_results);
+  }
+}
 }
 
 namespace android {
@@ -392,6 +404,53 @@ std::pair<wifi_error, LinkLayerStatsData> WifiLegacyHal::getLinkLayerStats() {
       0, wlan_interface_handle_, {onLinkLayerStatsDataResult});
   on_link_layer_stats_result_internal_callback = nullptr;
   return std::make_pair(status, link_stats);
+}
+
+wifi_error WifiLegacyHal::rttRangeRequest(
+    wifi_request_id id,
+    std::vector<wifi_rtt_config> rtt_configs,
+    on_rtt_results_callback on_results_user_callback) {
+  if (on_rtt_results_internal_callback) {
+    return WIFI_ERROR_NOT_AVAILABLE;
+  }
+
+  on_rtt_results_internal_callback = [&on_results_user_callback](
+      wifi_request_id id,
+      unsigned num_results,
+      wifi_rtt_result* rtt_results[]) {
+    if (num_results > 0 && !rtt_results) {
+      return;
+    }
+    std::vector<wifi_rtt_result*> rtt_results_vec;
+    for (uint32_t i = 0; i < num_results; i++) {
+      wifi_rtt_result* rtt_result = rtt_results[i];
+      if (rtt_result) {
+        rtt_results_vec.emplace_back(rtt_result);
+      }
+    }
+    on_results_user_callback(id, rtt_results_vec);
+  };
+
+  return global_func_table_.wifi_rtt_range_request(id,
+                                                   wlan_interface_handle_,
+                                                   rtt_configs.size(),
+                                                   rtt_configs.data(),
+                                                   {onRttResults});
+}
+
+wifi_error WifiLegacyHal::rttRangeCancel(wifi_request_id id,
+                                         std::vector<uint8_t[6]> mac_addrs) {
+  if (!on_rtt_results_internal_callback) {
+    return WIFI_ERROR_NOT_AVAILABLE;
+  }
+  wifi_error status = global_func_table_.wifi_rtt_range_cancel(
+      id, wlan_interface_handle_, mac_addrs.size(), mac_addrs.data());
+  // If the request Id is wrong, don't stop the ongoing range request. Any
+  // other error should be treated as the end of rtt ranging.
+  if (status != WIFI_ERROR_INVALID_REQUEST_ID) {
+    on_rtt_results_internal_callback = nullptr;
+  }
+  return status;
 }
 
 wifi_error WifiLegacyHal::retrieveWlanInterfaceHandle() {
