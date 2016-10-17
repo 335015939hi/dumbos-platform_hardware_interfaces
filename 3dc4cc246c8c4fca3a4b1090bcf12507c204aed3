@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c8bb7e0_b51092fe",
+        "filename": "tests/foo/1.0/default/FooCallback.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1014088
+      },
+      "writtenOn": "2016-10-17T17:15:53Z",
+      "side": 1,
+      "message": "modification of callerBlockedNs does not signal the condition, so I see a possiblity that all three invokeInfos show invoked and the condition won\u0027t ever be signaled again. Is that intentional?",
+      "revId": "3dc4cc246c8c4fca3a4b1090bcf12507c204aed3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
