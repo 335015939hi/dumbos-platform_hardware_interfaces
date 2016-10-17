@@ -237,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "7c8bb7e0_f504da33",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-17T16:56:14Z",
+      "side": 1,
+      "message": "Yeah, PASSIVE vs ACTIVE is good. Did you upload the part of the change where you removed the enums? I don\u0027t see any removed (like NanDataPathSecurityCfgStatus)",
+      "parentUuid": "7c8bb7e0_86fd2e02",
+      "range": {
+        "startLine": 278,
+        "startChar": 0,
+        "endLine": 284,
+        "endChar": 2
+      },
+      "revId": "1513d3874312c7e2f9107c2f139762f2f2259ca9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c8bb7e0_8083d624",
         "filename": "wifi/1.0/types.hal",
         "patchSetId": 9
