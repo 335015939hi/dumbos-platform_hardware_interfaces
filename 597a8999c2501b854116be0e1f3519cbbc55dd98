@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c8bb7e0_679341a6",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 1170,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-17T17:35:24Z",
+      "side": 1,
+      "message": "what possible errors does this take up when it is returned from the various methods?",
+      "range": {
+        "startLine": 1167,
+        "startChar": 2,
+        "endLine": 1170,
+        "endChar": 17
+      },
+      "revId": "597a8999c2501b854116be0e1f3519cbbc55dd98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
