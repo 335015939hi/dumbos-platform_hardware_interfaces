@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7c8bb7e0_955c6e09",
+        "filename": "tests/foo/1.0/default/FooCallback.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2016-10-17T17:11:18Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "7c8bb7e0_b5a3b283",
+      "revId": "0c632f0160f56fdecb7d2cbfc681b8fd863d9cc7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c8bb7e0_d5a0b678",
         "filename": "tests/foo/1.0/default/FooCallback.cpp",
         "patchSetId": 4
