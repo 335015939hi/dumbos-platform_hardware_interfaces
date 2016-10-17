@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1c6b9b00_b568c013",
+        "filename": "tests/foo/1.0/default/FooCallback.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-17T20:24:01Z",
+      "side": 1,
+      "message": "I think calling this mMutex would make the code much more readable.",
+      "range": {
+        "startLine": 83,
+        "startChar": 56,
+        "endLine": 83,
+        "endChar": 61
+      },
+      "revId": "bb7ebd43216c7180f20c4383d6063d3538be06b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
