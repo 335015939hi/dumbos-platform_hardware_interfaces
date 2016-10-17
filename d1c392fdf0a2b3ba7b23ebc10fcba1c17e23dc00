@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1c6b9b00_9884d95a",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 14
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-17T21:41:50Z",
+      "side": 1,
+      "message": "probably better as just \u0027debug\u0027",
+      "range": {
+        "startLine": 474,
+        "startChar": 38,
+        "endLine": 474,
+        "endChar": 47
+      },
+      "revId": "d1c392fdf0a2b3ba7b23ebc10fcba1c17e23dc00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
