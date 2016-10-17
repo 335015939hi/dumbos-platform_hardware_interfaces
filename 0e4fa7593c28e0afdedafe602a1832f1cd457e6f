@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c8bb7e0_f5329a0b",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-17T16:56:14Z",
+      "side": 1,
+      "message": "wait, the value is also a boolean? What exactly are these values?\n\nconfig* says whether to apply the value which is described by *val?",
+      "range": {
+        "startLine": 443,
+        "startChar": 2,
+        "endLine": 443,
+        "endChar": 6
+      },
+      "revId": "0e4fa7593c28e0afdedafe602a1832f1cd457e6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
