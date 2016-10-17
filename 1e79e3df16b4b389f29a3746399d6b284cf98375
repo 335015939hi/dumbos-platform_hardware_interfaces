@@ -22,6 +22,29 @@
       "revId": "1e79e3df16b4b389f29a3746399d6b284cf98375",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c6b9b00_3594b08f",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-17T20:41:33Z",
+      "side": 1,
+      "message": "may",
+      "range": {
+        "startLine": 395,
+        "startChar": 43,
+        "endLine": 395,
+        "endChar": 46
+      },
+      "revId": "1e79e3df16b4b389f29a3746399d6b284cf98375",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
