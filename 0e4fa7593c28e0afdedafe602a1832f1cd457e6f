@@ -22,6 +22,30 @@
       "revId": "0e4fa7593c28e0afdedafe602a1832f1cd457e6f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c8bb7e0_55d9063c",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-17T17:19:56Z",
+      "side": 1,
+      "message": "Hmm. yeah. it does look a little odd. This is reflecting the legacy HAL interface. I\u0027m not very clear on how these params are used in the calling/HAL code. Will have to wait for etan@ to clarify these. \nFiled b/32207606 to track this.",
+      "parentUuid": "7c8bb7e0_f5329a0b",
+      "range": {
+        "startLine": 443,
+        "startChar": 2,
+        "endLine": 443,
+        "endChar": 6
+      },
+      "revId": "0e4fa7593c28e0afdedafe602a1832f1cd457e6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
