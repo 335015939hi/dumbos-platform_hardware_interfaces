@@ -22,6 +22,30 @@
       "revId": "597a8999c2501b854116be0e1f3519cbbc55dd98",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c8bb7e0_076b55a0",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 1170,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-17T17:41:37Z",
+      "side": 1,
+      "message": "It\u0027s unclear in the legacy HAL interface. Will have to wait for etan to clarify this as well. Added this AI to the tracking bug.",
+      "parentUuid": "7c8bb7e0_679341a6",
+      "range": {
+        "startLine": 1167,
+        "startChar": 2,
+        "endLine": 1170,
+        "endChar": 17
+      },
+      "revId": "597a8999c2501b854116be0e1f3519cbbc55dd98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
