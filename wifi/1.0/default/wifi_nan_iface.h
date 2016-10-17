@@ -19,6 +19,7 @@
 
 #include <android-base/macros.h>
 #include <android/hardware/wifi/1.0/IWifiNanIface.h>
+#include <android/hardware/wifi/1.0/IWifiNanIfaceEventCallback.h>
 
 #include "wifi_legacy_hal.h"
 
@@ -41,10 +42,66 @@ class WifiNanIface : public IWifiNanIface {
   // HIDL methods exposed.
   Return<void> getName(getName_cb hidl_status_cb) override;
   Return<void> getType(getType_cb hidl_status_cb) override;
+  Return<void> registerEventCallback(
+      const sp<IWifiNanIfaceEventCallback>& event_callback,
+      registerEventCallback_cb hidl_status_cb) override;
+  Return<void> enableRequest(uint32_t cmdId,
+                             const NanEnableRequest& msg,
+                             enableRequest_cb hidl_status_cb) override;
+  Return<void> disableRequest(uint32_t cmdId,
+                              disableRequest_cb hidl_status_cb) override;
+  Return<void> publishRequest(uint32_t cmdId,
+                              const NanPublishRequest& msg,
+                              publishRequest_cb hidl_status_cb) override;
+  Return<void> publishCancelRequest(
+      uint32_t cmdId,
+      const NanPublishCancelRequest& msg,
+      publishCancelRequest_cb hidl_status_cb) override;
+  Return<void> subscribeRequest(uint32_t cmdId,
+                                const NanSubscribeRequest& msg,
+                                subscribeRequest_cb hidl_status_cb) override;
+  Return<void> subscribeCancelRequest(
+      uint32_t cmdId,
+      const NanSubscribeCancelRequest& msg,
+      subscribeCancelRequest_cb hidl_status_cb) override;
+  Return<void> transmitFollowupRequest(
+      uint32_t cmdId,
+      const NanTransmitFollowupRequest& msg,
+      transmitFollowupRequest_cb hidl_status_cb) override;
+  Return<void> configRequest(uint32_t cmdId,
+                             const NanConfigRequest& msg,
+                             configRequest_cb hidl_status_cb) override;
+  Return<void> beaconSdfPayloadRequest(
+      uint32_t cmdId,
+      const NanBeaconSdfPayloadRequest& msg,
+      beaconSdfPayloadRequest_cb hidl_status_cb) override;
+  Return<void> getVersion(getVersion_cb hidl_status_cb) override;
+  Return<void> getCapabilities(uint32_t cmdId,
+                               getCapabilities_cb hidl_status_cb) override;
+  Return<void> dataInterfaceCreate(
+      uint32_t cmdId,
+      const hidl_string& ifaceName,
+      dataInterfaceCreate_cb hidl_status_cb) override;
+  Return<void> dataInterfaceDelete(
+      uint32_t cmdId,
+      const hidl_string& ifaceName,
+      dataInterfaceDelete_cb hidl_status_cb) override;
+  Return<void> dataRequestInitiator(
+      uint32_t cmdId,
+      const NanDataPathInitiatorRequest& msg,
+      dataRequestInitiator_cb hidl_status_cb) override;
+  Return<void> dataIndicationResponse(
+      uint32_t cmdId,
+      const NanDataPathIndicationResponse& msg,
+      dataIndicationResponse_cb hidl_status_cb) override;
+  Return<void> dataEnd(uint32_t cmdId,
+                       const NanDataPathEndRequest& msg,
+                       dataEnd_cb hidl_status_cb) override;
 
  private:
   std::string ifname_;
   std::weak_ptr<WifiLegacyHal> legacy_hal_;
+  std::vector<sp<IWifiNanIfaceEventCallback>> event_callbacks_;
   bool is_valid_;
 
   DISALLOW_COPY_AND_ASSIGN(WifiNanIface);
