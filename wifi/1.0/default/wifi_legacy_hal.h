@@ -61,6 +61,10 @@ typedef std::function<void(
     wifi_request_id, const std::vector<wifi_cached_scan_results>& results)>
     on_gscan_results_callback;
 
+// Callback for RTT range request results.
+typedef std::function<void(wifi_request_id id, std::vector<wifi_rtt_result*>)>
+    on_rtt_results_callback;
+
 /**
  * Class that encapsulates all legacy HAL interactions.
  * This class manages the lifetime of the event loop thread used by legacy HAL.
@@ -109,6 +113,22 @@ class WifiLegacyHal {
   wifi_error enableLinkLayerStats(bool debug);
   wifi_error disableLinkLayerStats();
   std::pair<wifi_error, LinkLayerStatsData> getLinkLayerStats();
+  // RTT related methods.
+  wifi_error startRttRangeRequest(
+      wifi_request_id id,
+      const std::vector<wifi_rtt_config>& rtt_configs,
+      on_rtt_results_callback on_results_callback);
+  wifi_error cancelRttRangeRequest(
+      wifi_request_id id, const std::vector<std::array<uint8_t, 6>>& mac_addrs);
+  std::pair<wifi_error, wifi_rtt_capabilities> getRttCapabilities();
+  std::pair<wifi_error, wifi_rtt_responder> getRttResponderInfo();
+  wifi_error enableRttResponder(wifi_request_id id,
+                                const wifi_channel_info& channel_hint,
+                                uint32_t max_duration_secs,
+                                const wifi_rtt_responder& info);
+  wifi_error disableRttResponder(wifi_request_id id);
+  wifi_error setRttLci(wifi_request_id id, const wifi_lci_information& info);
+  wifi_error setRttLcr(wifi_request_id id, const wifi_lcr_information& info);
 
  private:
   // Retrieve the interface handle to be used for the "wlan" interface.
