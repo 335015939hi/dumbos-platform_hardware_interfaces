@@ -36,7 +36,7 @@ namespace internal {
 
 bool convertHidlScanParamsToInternal(
     const IWifiStaIface::BackgroundScanParameters& params,
-    wifi_scan_cmd_params* internal_scan_params);
+    legacy_hal::wifi_scan_cmd_params* internal_scan_params);
 
 // Convert the blob of packed IE elements to hidl_vec of
 // |WifiInformationElement|
@@ -50,17 +50,16 @@ bool convertInternalIeBlobToHidl(
 // end for full scan results. So, use the |has_ie_data| flag to
 // indicate if the IE info needs to be parsed or not.
 bool convertInternalScanResultToHidl(
-    const wifi_scan_result* result,
+    const legacy_hal::wifi_scan_result* result,
     IWifiStaIfaceEventCallback::ScanResult* hidl_scan_result,
     bool has_ie_data);
 
 bool convertInternalVectorOfCachedScanResultsToHidl(
-    const std::vector<wifi_cached_scan_results>& cached_results,
+    const std::vector<legacy_hal::wifi_cached_scan_results>& cached_results,
     hidl_vec<IWifiStaIfaceEventCallback::ScanData>* hidl_scan_datas);
 
 bool convertInternalLinkLayerStatsToHidl(
-    const android::hardware::wifi::V1_0::implementation::LinkLayerStatsData&
-        stats,
+    const legacy_hal::LinkLayerStats& stats,
     IWifiStaIface::LinkLayerStats* hidl_stats);
 }  // namespace internal
 }  // namespace implementation

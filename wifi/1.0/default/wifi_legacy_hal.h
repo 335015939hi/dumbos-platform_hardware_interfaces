@@ -21,13 +21,17 @@
 #include <thread>
 #include <vector>
 
-#include <hardware_legacy/wifi_hal.h>
-
 namespace android {
 namespace hardware {
 namespace wifi {
 namespace V1_0 {
 namespace implementation {
+// This is in a separate namespace to prevent typename conflicts between
+// the legacy HAL types and the HIDL interface types.
+namespace legacy_hal {
+// Wrap all the types defined inside the legacy HAL header files inside this
+// namespace.
+#include <hardware_legacy/wifi_hal.h>
 
 // APF capabilities supported by the iface.
 struct PacketFilterCapabilities {
@@ -43,7 +47,7 @@ struct PacketFilterCapabilities {
 // The |wifi_radio_stat.tx_time_per_levels| stats is provided as a pointer in
 // |wifi_radio_stat| structure in the legacy HAL API. Separate that out
 // into a separate return element to avoid passing pointers around.
-struct LinkLayerStatsData {
+struct LinkLayerStats {
   wifi_iface_stat iface;
   wifi_radio_stat radio;
   std::vector<uint32_t> radio_tx_time_per_levels;
@@ -118,7 +122,7 @@ class WifiLegacyHal {
       wifi_band band);
   wifi_error enableLinkLayerStats(bool debug);
   wifi_error disableLinkLayerStats();
-  std::pair<wifi_error, LinkLayerStatsData> getLinkLayerStats();
+  std::pair<wifi_error, LinkLayerStats> getLinkLayerStats();
   // RTT related methods.
   wifi_error startRttRangeRequest(
       wifi_request_id id,
@@ -159,6 +163,7 @@ class WifiLegacyHal {
   bool awaiting_event_loop_termination_;
 };
 
+}  // namespace legacy_hal
 }  // namespace implementation
 }  // namespace V1_0
 }  // namespace wifi

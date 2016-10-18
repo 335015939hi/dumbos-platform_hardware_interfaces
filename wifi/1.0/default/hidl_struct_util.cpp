@@ -27,7 +27,7 @@ namespace internal {
 
 bool convertHidlScanParamsToInternal(
     const IWifiStaIface::BackgroundScanParameters& params,
-    wifi_scan_cmd_params* internal_scan_params) {
+    legacy_hal::wifi_scan_cmd_params* internal_scan_params) {
   if (internal_scan_params == nullptr) {
     return false;
   }
@@ -46,10 +46,11 @@ bool convertHidlScanParamsToInternal(
        bucket_idx++) {
     const IWifiStaIface::BackgroundScanBucketParameters& bucket_spec =
         params.buckets[bucket_idx];
-    wifi_scan_bucket_spec& internal_bucket_spec =
+    legacy_hal::wifi_scan_bucket_spec& internal_bucket_spec =
         internal_scan_params->buckets[bucket_idx];
     internal_bucket_spec.bucket = bucket_idx;
-    internal_bucket_spec.band = static_cast<wifi_band>(bucket_spec.band);
+    internal_bucket_spec.band =
+        static_cast<legacy_hal::wifi_band>(bucket_spec.band);
     internal_bucket_spec.period = bucket_spec.periodInMs;
     internal_bucket_spec.max_period = bucket_spec.exponentialMaxPeriodInMs;
     internal_bucket_spec.base = bucket_spec.exponentialBase;
@@ -80,7 +81,7 @@ bool convertHidlScanParamsToInternal(
     internal_bucket_spec.num_channels = bucket_spec.frequencies.size();
     for (uint32_t freq_idx = 0; freq_idx < bucket_spec.frequencies.size();
          freq_idx++) {
-      wifi_scan_channel_spec& internal_channel_spec =
+      legacy_hal::wifi_scan_channel_spec& internal_channel_spec =
           internal_bucket_spec.channels[freq_idx];
       internal_channel_spec.channel = bucket_spec.frequencies[freq_idx];
     }
@@ -103,15 +104,15 @@ bool convertInternalIeBlobToHidl(
   uint32_t processed_so_far = 0;
 
   // Each IE should atleast have the |id| & |len| field.
-  while (processed_so_far + sizeof(wifi_information_element) <
+  while (processed_so_far + sizeof(legacy_hal::wifi_information_element) <
          ie_elems_total_len) {
     WifiInformationElement hidl_ie_element;
-    const wifi_information_element* ie_element =
-        reinterpret_cast<const wifi_information_element*>(
+    const legacy_hal::wifi_information_element* ie_element =
+        reinterpret_cast<const legacy_hal::wifi_information_element*>(
             &ie_elems_address[processed_so_far]);
 
     uint32_t curr_ie_elem_len =
-        sizeof(wifi_information_element) + ie_element->len;
+        sizeof(legacy_hal::wifi_information_element) + ie_element->len;
     if (processed_so_far + curr_ie_elem_len > ie_elems_total_len) {
       return false;
     }
@@ -134,7 +135,7 @@ bool convertInternalIeBlobToHidl(
 // end for full scan results. So, use the |has_ie_data| flag to
 // indicate if the IE info needs to be parsed or not.
 bool convertInternalScanResultToHidl(
-    const wifi_scan_result* result,
+    const legacy_hal::wifi_scan_result* result,
     IWifiStaIfaceEventCallback::ScanResult* hidl_scan_result,
     bool has_ie_data) {
   if (result == nullptr || hidl_scan_result == nullptr) {
@@ -163,7 +164,7 @@ bool convertInternalScanResultToHidl(
 }
 
 bool convertInternalCachedScanResultsToHidl(
-    const wifi_cached_scan_results& cached_result,
+    const legacy_hal::wifi_cached_scan_results& cached_result,
     IWifiStaIfaceEventCallback::ScanData* hidl_scan_data) {
   if (hidl_scan_data == nullptr) {
     return false;
@@ -189,7 +190,7 @@ bool convertInternalCachedScanResultsToHidl(
 }
 
 bool convertInternalVectorOfCachedScanResultsToHidl(
-    const std::vector<wifi_cached_scan_results>& cached_results,
+    const std::vector<legacy_hal::wifi_cached_scan_results>& cached_results,
     hidl_vec<IWifiStaIfaceEventCallback::ScanData>* hidl_scan_datas) {
   if (hidl_scan_datas == nullptr) {
     return false;
@@ -211,8 +212,7 @@ bool convertInternalVectorOfCachedScanResultsToHidl(
 }
 
 bool convertInternalLinkLayerStatsToHidl(
-    const android::hardware::wifi::V1_0::implementation::LinkLayerStatsData&
-        stats,
+    const legacy_hal::LinkLayerStats& stats,
     IWifiStaIface::LinkLayerStats* hidl_stats) {
   if (hidl_stats == nullptr) {
     return false;
@@ -220,26 +220,38 @@ bool convertInternalLinkLayerStatsToHidl(
   // iface stats conversion.
   hidl_stats->iface.beaconRx = stats.iface.beacon_rx;
   hidl_stats->iface.avgRssiMgmt = stats.iface.rssi_mgmt;
-  hidl_stats->iface.wmeBePktStats.rxMpdu = stats.iface.ac[WIFI_AC_BE].rx_mpdu;
-  hidl_stats->iface.wmeBePktStats.txMpdu = stats.iface.ac[WIFI_AC_BE].tx_mpdu;
+  hidl_stats->iface.wmeBePktStats.rxMpdu =
+      stats.iface.ac[legacy_hal::WIFI_AC_BE].rx_mpdu;
+  hidl_stats->iface.wmeBePktStats.txMpdu =
+      stats.iface.ac[legacy_hal::WIFI_AC_BE].tx_mpdu;
   hidl_stats->iface.wmeBePktStats.lostMpdu =
-      stats.iface.ac[WIFI_AC_BE].mpdu_lost;
-  hidl_stats->iface.wmeBePktStats.retries = stats.iface.ac[WIFI_AC_BE].retries;
-  hidl_stats->iface.wmeBkPktStats.rxMpdu = stats.iface.ac[WIFI_AC_BK].rx_mpdu;
-  hidl_stats->iface.wmeBkPktStats.txMpdu = stats.iface.ac[WIFI_AC_BK].tx_mpdu;
+      stats.iface.ac[legacy_hal::WIFI_AC_BE].mpdu_lost;
+  hidl_stats->iface.wmeBePktStats.retries =
+      stats.iface.ac[legacy_hal::WIFI_AC_BE].retries;
+  hidl_stats->iface.wmeBkPktStats.rxMpdu =
+      stats.iface.ac[legacy_hal::WIFI_AC_BK].rx_mpdu;
+  hidl_stats->iface.wmeBkPktStats.txMpdu =
+      stats.iface.ac[legacy_hal::WIFI_AC_BK].tx_mpdu;
   hidl_stats->iface.wmeBkPktStats.lostMpdu =
-      stats.iface.ac[WIFI_AC_BK].mpdu_lost;
-  hidl_stats->iface.wmeBkPktStats.retries = stats.iface.ac[WIFI_AC_BK].retries;
-  hidl_stats->iface.wmeViPktStats.rxMpdu = stats.iface.ac[WIFI_AC_VI].rx_mpdu;
-  hidl_stats->iface.wmeViPktStats.txMpdu = stats.iface.ac[WIFI_AC_VI].tx_mpdu;
+      stats.iface.ac[legacy_hal::WIFI_AC_BK].mpdu_lost;
+  hidl_stats->iface.wmeBkPktStats.retries =
+      stats.iface.ac[legacy_hal::WIFI_AC_BK].retries;
+  hidl_stats->iface.wmeViPktStats.rxMpdu =
+      stats.iface.ac[legacy_hal::WIFI_AC_VI].rx_mpdu;
+  hidl_stats->iface.wmeViPktStats.txMpdu =
+      stats.iface.ac[legacy_hal::WIFI_AC_VI].tx_mpdu;
   hidl_stats->iface.wmeViPktStats.lostMpdu =
-      stats.iface.ac[WIFI_AC_VI].mpdu_lost;
-  hidl_stats->iface.wmeViPktStats.retries = stats.iface.ac[WIFI_AC_VI].retries;
-  hidl_stats->iface.wmeVoPktStats.rxMpdu = stats.iface.ac[WIFI_AC_VO].rx_mpdu;
-  hidl_stats->iface.wmeVoPktStats.txMpdu = stats.iface.ac[WIFI_AC_VO].tx_mpdu;
+      stats.iface.ac[legacy_hal::WIFI_AC_VI].mpdu_lost;
+  hidl_stats->iface.wmeViPktStats.retries =
+      stats.iface.ac[legacy_hal::WIFI_AC_VI].retries;
+  hidl_stats->iface.wmeVoPktStats.rxMpdu =
+      stats.iface.ac[legacy_hal::WIFI_AC_VO].rx_mpdu;
+  hidl_stats->iface.wmeVoPktStats.txMpdu =
+      stats.iface.ac[legacy_hal::WIFI_AC_VO].tx_mpdu;
   hidl_stats->iface.wmeVoPktStats.lostMpdu =
-      stats.iface.ac[WIFI_AC_VO].mpdu_lost;
-  hidl_stats->iface.wmeVoPktStats.retries = stats.iface.ac[WIFI_AC_VO].retries;
+      stats.iface.ac[legacy_hal::WIFI_AC_VO].mpdu_lost;
+  hidl_stats->iface.wmeVoPktStats.retries =
+      stats.iface.ac[legacy_hal::WIFI_AC_VO].retries;
   // radio stats conversion.
   hidl_stats->radio.onTimeInMs = stats.radio.on_time;
   hidl_stats->radio.txTimeInMs = stats.radio.tx_time;

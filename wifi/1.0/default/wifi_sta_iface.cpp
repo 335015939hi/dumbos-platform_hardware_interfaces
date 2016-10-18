@@ -27,8 +27,9 @@ namespace wifi {
 namespace V1_0 {
 namespace implementation {
 
-WifiStaIface::WifiStaIface(const std::string& ifname,
-                           const std::weak_ptr<WifiLegacyHal> legacy_hal)
+WifiStaIface::WifiStaIface(
+    const std::string& ifname,
+    const std::weak_ptr<legacy_hal::WifiLegacyHal> legacy_hal)
     : ifname_(ifname), legacy_hal_(legacy_hal), is_valid_(true) {}
 
 void WifiStaIface::invalidate() {
@@ -79,11 +80,11 @@ Return<void> WifiStaIface::getCapabilities(getCapabilities_cb hidl_status_cb) {
     return Void();
   }
 
-  wifi_error legacy_status;
+  legacy_hal::wifi_error legacy_status;
   uint32_t feature_set;
   std::tie(legacy_status, feature_set) =
       legacy_hal_.lock()->getSupportedFeatureSet();
-  if (legacy_status != WIFI_SUCCESS) {
+  if (legacy_status != legacy_hal::WIFI_SUCCESS) {
     hidl_status_cb(createWifiStatusFromLegacyError(legacy_status), 0);
     return Void();
   }
@@ -100,10 +101,10 @@ Return<void> WifiStaIface::getCapabilities(getCapabilities_cb hidl_status_cb) {
   // Argh. Currently APF filter capability is implicitly
   // determined by the version provided in APF capabilities.
   // If version is > 0, APF feature is supported.
-  PacketFilterCapabilities apf_caps;
+  legacy_hal::PacketFilterCapabilities apf_caps;
   std::tie(legacy_status, apf_caps) =
       legacy_hal_.lock()->getPacketFilterCapabilities();
-  if (legacy_status != WIFI_SUCCESS) {
+  if (legacy_status != legacy_hal::WIFI_SUCCESS) {
     hidl_status_cb(createWifiStatusFromLegacyError(legacy_status), 0);
     return Void();
   }
@@ -123,11 +124,11 @@ Return<void> WifiStaIface::getApfPacketFilterCapabilities(
     return Void();
   }
 
-  wifi_error legacy_status;
-  PacketFilterCapabilities apf_caps;
+  legacy_hal::wifi_error legacy_status;
+  legacy_hal::PacketFilterCapabilities apf_caps;
   std::tie(legacy_status, apf_caps) =
       legacy_hal_.lock()->getPacketFilterCapabilities();
-  if (legacy_status != WIFI_SUCCESS) {
+  if (legacy_status != legacy_hal::WIFI_SUCCESS) {
     hidl_status_cb(createWifiStatusFromLegacyError(legacy_status),
                    ApfPacketFilterCapabilities());
     return Void();
@@ -148,8 +149,9 @@ Return<void> WifiStaIface::installApfPacketFilter(
     return Void();
   }
   std::vector<uint8_t> program_vec(&program[0], &program[0] + program.size());
-  wifi_error status = legacy_hal_.lock()->setPacketFilter(program_vec);
-  if (status != WIFI_SUCCESS) {
+  legacy_hal::wifi_error status =
+      legacy_hal_.lock()->setPacketFilter(program_vec);
+  if (status != legacy_hal::WIFI_SUCCESS) {
     hidl_status_cb(createWifiStatusFromLegacyError(status));
   } else {
     hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
@@ -165,11 +167,11 @@ Return<void> WifiStaIface::getBackgroundScanCapabilities(
     return Void();
   }
 
-  wifi_error legacy_status;
-  wifi_gscan_capabilities gscan_caps;
+  legacy_hal::wifi_error legacy_status;
+  legacy_hal::wifi_gscan_capabilities gscan_caps;
   std::tie(legacy_status, gscan_caps) =
       legacy_hal_.lock()->getGscanCapabilities();
-  if (legacy_status != WIFI_SUCCESS) {
+  if (legacy_status != legacy_hal::WIFI_SUCCESS) {
     hidl_status_cb(createWifiStatusFromLegacyError(legacy_status),
                    BackgroundScanCapabilities());
     return Void();
@@ -192,21 +194,21 @@ Return<void> WifiStaIface::startBackgroundScan(
     hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_IFACE_INVALID));
     return Void();
   }
-  wifi_scan_cmd_params internal_scan_params;
+  legacy_hal::wifi_scan_cmd_params internal_scan_params;
   if (!internal::convertHidlScanParamsToInternal(params,
                                                  &internal_scan_params)) {
     hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_INVALID_ARGS));
     return Void();
   }
 
-  const auto& on_failure_callback = [&](wifi_request_id id) {
+  const auto& on_failure_callback = [&](legacy_hal::wifi_request_id id) {
     for (const auto& callback : event_callbacks_) {
       callback->onBackgroundScanFailure(id);
     }
   };
   const auto& on_results_callback = [&](
-      wifi_request_id id,
-      const std::vector<wifi_cached_scan_results>& results) {
+      legacy_hal::wifi_request_id id,
+      const std::vector<legacy_hal::wifi_cached_scan_results>& results) {
     hidl_vec<IWifiStaIfaceEventCallback::ScanData> hidl_scan_datas;
     if (!internal::convertInternalVectorOfCachedScanResultsToHidl(
             results, &hidl_scan_datas)) {
@@ -217,9 +219,10 @@ Return<void> WifiStaIface::startBackgroundScan(
       callback->onBackgroundScanResults(id, hidl_scan_datas);
     }
   };
-  const auto& on_full_result_callback = [&](wifi_request_id id,
-                                            const wifi_scan_result* result,
-                                            uint32_t /* buckets_scanned */) {
+  const auto& on_full_result_callback = [&](
+      legacy_hal::wifi_request_id id,
+      const legacy_hal::wifi_scan_result* result,
+      uint32_t /* buckets_scanned */) {
     IWifiStaIfaceEventCallback::ScanResult hidl_scan_result;
     if (!internal::convertInternalScanResultToHidl(
             result, &hidl_scan_result, true)) {
@@ -231,13 +234,13 @@ Return<void> WifiStaIface::startBackgroundScan(
     }
   };
 
-  wifi_error legacy_status =
+  legacy_hal::wifi_error legacy_status =
       legacy_hal_.lock()->startGscan(cmdId,
                                      internal_scan_params,
                                      on_failure_callback,
                                      on_results_callback,
                                      on_full_result_callback);
-  if (legacy_status != WIFI_SUCCESS) {
+  if (legacy_status != legacy_hal::WIFI_SUCCESS) {
     hidl_status_cb(createWifiStatusFromLegacyError(legacy_status));
   } else {
     hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
@@ -251,8 +254,8 @@ Return<void> WifiStaIface::stopBackgroundScan(
     hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_IFACE_INVALID));
     return Void();
   }
-  wifi_error legacy_status = legacy_hal_.lock()->stopGscan(cmdId);
-  if (legacy_status != WIFI_SUCCESS) {
+  legacy_hal::wifi_error legacy_status = legacy_hal_.lock()->stopGscan(cmdId);
+  if (legacy_status != legacy_hal::WIFI_SUCCESS) {
     hidl_status_cb(createWifiStatusFromLegacyError(legacy_status));
   } else {
     hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
@@ -269,12 +272,12 @@ Return<void> WifiStaIface::getValidFrequenciesForBackgroundScan(
     return Void();
   }
 
-  wifi_error legacy_status;
+  legacy_hal::wifi_error legacy_status;
   std::vector<uint32_t> freqs;
   std::tie(legacy_status, freqs) =
       legacy_hal_.lock()->getValidFrequenciesForGscan(
-          static_cast<wifi_band>(band));
-  if (legacy_status != WIFI_SUCCESS) {
+          static_cast<legacy_hal::wifi_band>(band));
+  if (legacy_status != legacy_hal::WIFI_SUCCESS) {
     hidl_status_cb(createWifiStatusFromLegacyError(legacy_status),
                    hidl_vec<uint32_t>());
     return Void();
@@ -293,8 +296,9 @@ Return<void> WifiStaIface::enableLinkLayerStatsCollection(
     return Void();
   }
 
-  wifi_error legacy_status = legacy_hal_.lock()->enableLinkLayerStats(debug);
-  if (legacy_status != WIFI_SUCCESS) {
+  legacy_hal::wifi_error legacy_status =
+      legacy_hal_.lock()->enableLinkLayerStats(debug);
+  if (legacy_status != legacy_hal::WIFI_SUCCESS) {
     hidl_status_cb(createWifiStatusFromLegacyError(legacy_status));
   } else {
     hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
@@ -309,8 +313,9 @@ Return<void> WifiStaIface::disableLinkLayerStatsCollection(
     return Void();
   }
 
-  wifi_error legacy_status = legacy_hal_.lock()->disableLinkLayerStats();
-  if (legacy_status != WIFI_SUCCESS) {
+  legacy_hal::wifi_error legacy_status =
+      legacy_hal_.lock()->disableLinkLayerStats();
+  if (legacy_status != legacy_hal::WIFI_SUCCESS) {
     hidl_status_cb(createWifiStatusFromLegacyError(legacy_status));
   } else {
     hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
@@ -326,10 +331,10 @@ Return<void> WifiStaIface::getLinkLayerStats(
     return Void();
   }
 
-  wifi_error legacy_status;
-  LinkLayerStatsData stats;
+  legacy_hal::wifi_error legacy_status;
+  legacy_hal::LinkLayerStats stats;
   std::tie(legacy_status, stats) = legacy_hal_.lock()->getLinkLayerStats();
-  if (legacy_status != WIFI_SUCCESS) {
+  if (legacy_status != legacy_hal::WIFI_SUCCESS) {
     hidl_status_cb(createWifiStatusFromLegacyError(legacy_status),
                    IWifiStaIface::LinkLayerStats());
     return Void();
