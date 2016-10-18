@@ -88,6 +88,24 @@
       "revId": "fff9d16cb52b5b813b042c1141513e3acd210ee2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c6b9b00_5ea7c45e",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-18T16:02:04Z",
+      "side": 1,
+      "message": "Part of the idea in hidl is to get rid of \u0027reserved\u0027 fields. Whatever field needs to go here can just be added in the next version of the hal. However, if it is part of the standard, then that is okay.",
+      "parentUuid": "7c9f377a_00964628",
+      "revId": "fff9d16cb52b5b813b042c1141513e3acd210ee2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
