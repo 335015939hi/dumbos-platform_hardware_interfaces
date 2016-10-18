@@ -379,6 +379,24 @@
     },
     {
       "key": {
+        "uuid": "7c9f377a_208a6afd",
+        "filename": "wifi/1.0/IWifiRttController.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-18T07:22:44Z",
+      "side": 1,
+      "message": "Don\u0027t think Android specific. I think they are part of the spec (recognize DW from NAN spec).",
+      "parentUuid": "7c8bb7e0_b52df2f2",
+      "revId": "0064c336aea278dd803f4f9a7a37fc7e3f3aedbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c8bb7e0_402e2eaa",
         "filename": "wifi/1.0/IWifiRttController.hal",
         "patchSetId": 2
