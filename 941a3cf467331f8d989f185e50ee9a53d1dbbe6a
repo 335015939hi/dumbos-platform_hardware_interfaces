@@ -22,6 +22,30 @@
       "revId": "941a3cf467331f8d989f185e50ee9a53d1dbbe6a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c6b9b00_64ef9405",
+        "filename": "boot_control/1.0/IBootControl.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1115183
+      },
+      "writtenOn": "2016-10-18T01:30:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c6b9b00_44bd38a0",
+      "range": {
+        "startLine": 71,
+        "startChar": 36,
+        "endLine": 71,
+        "endChar": 40
+      },
+      "revId": "941a3cf467331f8d989f185e50ee9a53d1dbbe6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
