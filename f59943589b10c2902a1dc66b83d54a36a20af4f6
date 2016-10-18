@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "1c6b9b00_1e38ac01",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1077073
+      },
+      "writtenOn": "2016-10-18T16:13:36Z",
+      "side": 1,
+      "message": "Hi Steven.  Our job here isn\u0027t to rewrite the entire specification in HIDL.  Information elements are not just clearly definied elsewhere (and while finite, definitely mutable with reserved-for-future-use and vendor specific elements).  They can be interpreted at multiple levels, not only in the framework but possibly later in applications that use them.  There\u0027s no valid reason for them to be fully parsed and repackaged at this layer.",
+      "parentUuid": "1c6b9b00_1edc2cca",
+      "range": {
+        "startLine": 156,
+        "startChar": 2,
+        "endLine": 156,
+        "endChar": 13
+      },
+      "revId": "f59943589b10c2902a1dc66b83d54a36a20af4f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c6b9b00_7bf2972f",
         "filename": "wifi/1.0/types.hal",
         "patchSetId": 8
