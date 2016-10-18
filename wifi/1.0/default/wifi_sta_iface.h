@@ -35,7 +35,7 @@ namespace implementation {
 class WifiStaIface : public IWifiStaIface {
  public:
   WifiStaIface(const std::string& ifname,
-               const std::weak_ptr<WifiLegacyHal> legacy_hal);
+               const std::weak_ptr<legacy_hal::WifiLegacyHal> legacy_hal);
   // Refer to |WifiChip::invalidate()|.
   void invalidate();
 
@@ -70,7 +70,7 @@ class WifiStaIface : public IWifiStaIface {
 
  private:
   std::string ifname_;
-  std::weak_ptr<WifiLegacyHal> legacy_hal_;
+  std::weak_ptr<legacy_hal::WifiLegacyHal> legacy_hal_;
   std::vector<sp<IWifiStaIfaceEventCallback>> event_callbacks_;
   bool is_valid_;
 
