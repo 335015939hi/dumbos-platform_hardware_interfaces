@@ -70,6 +70,24 @@
       "revId": "fff9d16cb52b5b813b042c1141513e3acd210ee2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c9f377a_00964628",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-18T07:22:44Z",
+      "side": 1,
+      "message": "I think RESERVED is part of the standard (not certain - but it is a typical standard naming convention).",
+      "parentUuid": "1c6b9b00_24ad9c86",
+      "revId": "fff9d16cb52b5b813b042c1141513e3acd210ee2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
