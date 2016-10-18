@@ -70,6 +70,24 @@
       "revId": "f59943589b10c2902a1dc66b83d54a36a20af4f6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c9f377a_408d6e13",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-10-18T07:22:44Z",
+      "side": 1,
+      "message": "Not part of this CL (so can discuss as part of NAN review). There are multiple optional parameters which can be configured, each has:\n\nbool isConfigurationValid;\n\u003ctype\u003e configurationValue;",
+      "parentUuid": "1c6b9b00_be1eddd3",
+      "revId": "f59943589b10c2902a1dc66b83d54a36a20af4f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
