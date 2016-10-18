@@ -33,7 +33,8 @@ namespace V1_0 {
 namespace implementation {
 
 Wifi::Wifi()
-    : legacy_hal_(new WifiLegacyHal()), run_state_(RunState::STOPPED) {}
+    : legacy_hal_(new legacy_hal::WifiLegacyHal()),
+      run_state_(RunState::STOPPED) {}
 
 Return<void> Wifi::registerEventCallback(
     const sp<IWifiEventCallback>& event_callback) {
@@ -57,9 +58,10 @@ Return<void> Wifi::start(start_cb hidl_status_cb) {
   }
 
   LOG(INFO) << "Starting HAL";
-  wifi_error legacy_status = legacy_hal_->start();
-  if (legacy_status != WIFI_SUCCESS) {
-    LOG(ERROR) << "Failed to start Wifi HAL";
+  legacy_hal::wifi_error legacy_status = legacy_hal_->start();
+  if (legacy_status != legacy_hal::WIFI_SUCCESS) {
+    LOG(ERROR) << "Failed to start Wifi HAL "
+               << legacyErrorToString(legacy_status);
     hidl_status_cb(
         createWifiStatusFromLegacyError(legacy_status, "Failed to start HAL"));
     return Void();
@@ -97,8 +99,9 @@ Return<void> Wifi::stop(stop_cb hidl_status_cb) {
       callback->onStop();
     }
   };
-  wifi_error legacy_status = legacy_hal_->stop(on_complete_callback_);
-  if (legacy_status != WIFI_SUCCESS) {
+  legacy_hal::wifi_error legacy_status =
+      legacy_hal_->stop(on_complete_callback_);
+  if (legacy_status != legacy_hal::WIFI_SUCCESS) {
     LOG(ERROR) << "Failed to stop Wifi HAL";
     WifiStatus wifi_status =
         createWifiStatusFromLegacyError(legacy_status, "Failed to stop HAL");
