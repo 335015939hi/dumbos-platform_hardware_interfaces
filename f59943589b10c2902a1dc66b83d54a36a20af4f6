@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1c6b9b00_fe3970ee",
+        "filename": "wifi/1.0/IWifiRttController.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-18T16:17:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c6b9b00_9eb15c9c",
+      "range": {
+        "startLine": 224,
+        "startChar": 6,
+        "endLine": 225,
+        "endChar": 52
+      },
+      "revId": "f59943589b10c2902a1dc66b83d54a36a20af4f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c6b9b00_1edc2cca",
         "filename": "wifi/1.0/types.hal",
         "patchSetId": 8
