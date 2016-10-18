@@ -46,6 +46,30 @@
       "revId": "fff9d16cb52b5b813b042c1141513e3acd210ee2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c6b9b00_24ad9c86",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-18T02:05:15Z",
+      "side": 1,
+      "message": "Could we rename it to \u0027OTHER\u0027 then? or \u0027NONE\u0027?",
+      "parentUuid": "1c6b9b00_de259920",
+      "range": {
+        "startLine": 165,
+        "startChar": 2,
+        "endLine": 165,
+        "endChar": 14
+      },
+      "revId": "fff9d16cb52b5b813b042c1141513e3acd210ee2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
