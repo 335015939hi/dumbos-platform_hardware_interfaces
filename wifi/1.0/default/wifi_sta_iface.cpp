@@ -25,10 +25,23 @@ namespace {
 // TODO(b/32093047): Add unit tests for these conversion methods in the VTS test
 // suite.
 using android::hardware::hidl_vec;
+using android::hardware::wifi::V1_0::legacy_hal::wifi_information_element;
+using android::hardware::wifi::V1_0::legacy_hal::wifi_band;
+using android::hardware::wifi::V1_0::legacy_hal::wifi_cached_scan_results;
+using android::hardware::wifi::V1_0::legacy_hal::wifi_scan_bucket_spec;
+using android::hardware::wifi::V1_0::legacy_hal::wifi_scan_channel_spec;
+using android::hardware::wifi::V1_0::legacy_hal::wifi_scan_cmd_params;
+using android::hardware::wifi::V1_0::legacy_hal::wifi_scan_result;
+using android::hardware::wifi::V1_0::legacy_hal::LinkLayerStats;
+using android::hardware::wifi::V1_0::legacy_hal::WIFI_AC_BE;
+using android::hardware::wifi::V1_0::legacy_hal::WIFI_AC_BK;
+using android::hardware::wifi::V1_0::legacy_hal::WIFI_AC_VI;
+using android::hardware::wifi::V1_0::legacy_hal::WIFI_AC_VO;
+using android::hardware::wifi::V1_0::WifiInformationElement;
 using android::hardware::wifi::V1_0::IWifiStaIface;
 using android::hardware::wifi::V1_0::IWifiStaIfaceEventCallback;
 
-bool convertHidlScanParamsToInternal(
+bool convertHidlScanParamsToLegacy(
     const IWifiStaIface::BackgroundScanParameters& params,
     wifi_scan_cmd_params* internal_scan_params) {
   if (internal_scan_params == nullptr) {
@@ -93,18 +106,16 @@ bool convertHidlScanParamsToInternal(
 
 // Convert the blob of packed IE elements to hidl_vec of |InformationElement|
 // structures.
-bool convertInternalIeBlobToHidl(
+bool convertLegacyIeBlobToHidl(
     const uint8_t* ie_blob,
     uint32_t ie_blob_len,
-    hidl_vec<android::hardware::wifi::V1_0::WifiInformationElement>*
-        hidl_ie_elements) {
+    hidl_vec<WifiInformationElement>* hidl_ie_elements) {
   if (ie_blob == nullptr || hidl_ie_elements == nullptr) {
     return false;
   }
   // First convert to a std::vector of IE elements and then push it to a
   // hidl_vec.
-  std::vector<android::hardware::wifi::V1_0::WifiInformationElement>
-      hidl_ie_elements_vec;
+  std::vector<WifiInformationElement> hidl_ie_elements_vec;
   const uint8_t* ie_elems_address = ie_blob;
   uint32_t ie_elems_total_len = ie_blob_len;
   uint32_t processed_so_far = 0;
@@ -112,7 +123,7 @@ bool convertInternalIeBlobToHidl(
   // Each IE should atleast have the |id| & |len| field.
   while (processed_so_far + sizeof(wifi_information_element) <
          ie_elems_total_len) {
-    android::hardware::wifi::V1_0::WifiInformationElement hidl_ie_element;
+    WifiInformationElement hidl_ie_element;
     const wifi_information_element* ie_element =
         reinterpret_cast<const wifi_information_element*>(
             &ie_elems_address[processed_so_far]);
@@ -140,7 +151,7 @@ bool convertInternalIeBlobToHidl(
 // The scan result contains a variable sized IE info at the
 // end for full scan results. So, use the |has_ie_data| flag to
 // indicate if the IE info needs to be parsed or not.
-bool convertInternalScanResultToHidl(
+bool convertLegacyScanResultToHidl(
     const wifi_scan_result* result,
     IWifiStaIfaceEventCallback::ScanResult* hidl_scan_result,
     bool has_ie_data) {
@@ -161,7 +172,7 @@ bool convertInternalScanResultToHidl(
   hidl_scan_result->capability = result->capability;
   // If there is no IE info, the |informationElements| vector is left empty.
   if (has_ie_data) {
-    return convertInternalIeBlobToHidl(
+    return convertLegacyIeBlobToHidl(
         reinterpret_cast<const uint8_t*>(result->ie_data),
         result->ie_length,
         &hidl_scan_result->informationElements);
@@ -169,7 +180,7 @@ bool convertInternalScanResultToHidl(
   return true;
 }
 
-bool convertInternalCachedScanResultsToHidl(
+bool convertLegacyCachedScanResultsToHidl(
     const wifi_cached_scan_results& cached_result,
     IWifiStaIfaceEventCallback::ScanData* hidl_scan_data) {
   if (hidl_scan_data == nullptr) {
@@ -184,7 +195,7 @@ bool convertInternalCachedScanResultsToHidl(
        result_idx < static_cast<uint32_t>(cached_result.num_results);
        result_idx++) {
     IWifiStaIfaceEventCallback::ScanResult hidl_scan_result;
-    if (!convertInternalScanResultToHidl(
+    if (!convertLegacyScanResultToHidl(
             &cached_result.results[result_idx], &hidl_scan_result, false)) {
       return false;
     }
@@ -195,7 +206,7 @@ bool convertInternalCachedScanResultsToHidl(
   return true;
 }
 
-bool convertInternalVectorOfCachedScanResultsToHidl(
+bool convertLegacyVectorOfCachedScanResultsToHidl(
     const std::vector<wifi_cached_scan_results>& cached_results,
     hidl_vec<IWifiStaIfaceEventCallback::ScanData>* hidl_scan_datas) {
   if (hidl_scan_datas == nullptr) {
@@ -206,8 +217,7 @@ bool convertInternalVectorOfCachedScanResultsToHidl(
   std::vector<IWifiStaIfaceEventCallback::ScanData> hidl_scan_datas_vec;
   for (const auto& cached_result : cached_results) {
     IWifiStaIfaceEventCallback::ScanData hidl_scan_data;
-    if (!convertInternalCachedScanResultsToHidl(cached_result,
-                                                &hidl_scan_data)) {
+    if (!convertLegacyCachedScanResultsToHidl(cached_result, &hidl_scan_data)) {
       return false;
     }
     hidl_scan_datas_vec.emplace_back(hidl_scan_data);
@@ -217,10 +227,8 @@ bool convertInternalVectorOfCachedScanResultsToHidl(
   return true;
 }
 
-bool convertInternalLinkLayerStatsToHidl(
-    const android::hardware::wifi::V1_0::implementation::LinkLayerStatsData&
-        stats,
-    IWifiStaIface::LinkLayerStats* hidl_stats) {
+bool convertLegacyLinkLayerStatsToHidl(
+    const LinkLayerStats& stats, IWifiStaIface::LinkLayerStats* hidl_stats) {
   if (hidl_stats == nullptr) {
     return false;
   }
@@ -268,8 +276,9 @@ namespace wifi {
 namespace V1_0 {
 namespace implementation {
 
-WifiStaIface::WifiStaIface(const std::string& ifname,
-                           const std::weak_ptr<WifiLegacyHal> legacy_hal)
+WifiStaIface::WifiStaIface(
+    const std::string& ifname,
+    const std::weak_ptr<legacy_hal::WifiLegacyHal> legacy_hal)
     : ifname_(ifname), legacy_hal_(legacy_hal), is_valid_(true) {}
 
 void WifiStaIface::invalidate() {
@@ -320,11 +329,11 @@ Return<void> WifiStaIface::getCapabilities(getCapabilities_cb hidl_status_cb) {
     return Void();
   }
 
-  wifi_error legacy_status;
+  legacy_hal::wifi_error legacy_status;
   uint32_t feature_set;
   std::tie(legacy_status, feature_set) =
       legacy_hal_.lock()->getSupportedFeatureSet();
-  if (legacy_status != WIFI_SUCCESS) {
+  if (legacy_status != legacy_hal::WIFI_SUCCESS) {
     hidl_status_cb(createWifiStatusFromLegacyError(legacy_status), 0);
     return Void();
   }
@@ -341,10 +350,10 @@ Return<void> WifiStaIface::getCapabilities(getCapabilities_cb hidl_status_cb) {
   // Argh. Currently APF filter capability is implicitly
   // determined by the version provided in APF capabilities.
   // If version is > 0, APF feature is supported.
-  PacketFilterCapabilities apf_caps;
+  legacy_hal::PacketFilterCapabilities apf_caps;
   std::tie(legacy_status, apf_caps) =
       legacy_hal_.lock()->getPacketFilterCapabilities();
-  if (legacy_status != WIFI_SUCCESS) {
+  if (legacy_status != legacy_hal::WIFI_SUCCESS) {
     hidl_status_cb(createWifiStatusFromLegacyError(legacy_status), 0);
     return Void();
   }
@@ -364,11 +373,11 @@ Return<void> WifiStaIface::getApfPacketFilterCapabilities(
     return Void();
   }
 
-  wifi_error legacy_status;
-  PacketFilterCapabilities apf_caps;
+  legacy_hal::wifi_error legacy_status;
+  legacy_hal::PacketFilterCapabilities apf_caps;
   std::tie(legacy_status, apf_caps) =
       legacy_hal_.lock()->getPacketFilterCapabilities();
-  if (legacy_status != WIFI_SUCCESS) {
+  if (legacy_status != legacy_hal::WIFI_SUCCESS) {
     hidl_status_cb(createWifiStatusFromLegacyError(legacy_status),
                    ApfPacketFilterCapabilities());
     return Void();
@@ -389,8 +398,9 @@ Return<void> WifiStaIface::installApfPacketFilter(
     return Void();
   }
   std::vector<uint8_t> program_vec(&program[0], &program[0] + program.size());
-  wifi_error status = legacy_hal_.lock()->setPacketFilter(program_vec);
-  if (status != WIFI_SUCCESS) {
+  legacy_hal::wifi_error status =
+      legacy_hal_.lock()->setPacketFilter(program_vec);
+  if (status != legacy_hal::WIFI_SUCCESS) {
     hidl_status_cb(createWifiStatusFromLegacyError(status));
   } else {
     hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
@@ -406,11 +416,11 @@ Return<void> WifiStaIface::getBackgroundScanCapabilities(
     return Void();
   }
 
-  wifi_error legacy_status;
-  wifi_gscan_capabilities gscan_caps;
+  legacy_hal::wifi_error legacy_status;
+  legacy_hal::wifi_gscan_capabilities gscan_caps;
   std::tie(legacy_status, gscan_caps) =
       legacy_hal_.lock()->getGscanCapabilities();
-  if (legacy_status != WIFI_SUCCESS) {
+  if (legacy_status != legacy_hal::WIFI_SUCCESS) {
     hidl_status_cb(createWifiStatusFromLegacyError(legacy_status),
                    BackgroundScanCapabilities());
     return Void();
@@ -434,22 +444,22 @@ Return<void> WifiStaIface::startBackgroundScan(
     return Void();
   }
   wifi_scan_cmd_params internal_scan_params;
-  if (!convertHidlScanParamsToInternal(params, &internal_scan_params)) {
+  if (!convertHidlScanParamsToLegacy(params, &internal_scan_params)) {
     hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_INVALID_ARGS));
     return Void();
   }
 
-  const auto& on_failure_callback = [&](wifi_request_id id) {
+  const auto& on_failure_callback = [&](legacy_hal::wifi_request_id id) {
     for (const auto& callback : event_callbacks_) {
       callback->onBackgroundScanFailure(id);
     }
   };
   const auto& on_results_callback = [&](
-      wifi_request_id id,
+      legacy_hal::wifi_request_id id,
       const std::vector<wifi_cached_scan_results>& results) {
     hidl_vec<IWifiStaIfaceEventCallback::ScanData> hidl_scan_datas;
-    if (!convertInternalVectorOfCachedScanResultsToHidl(results,
-                                                        &hidl_scan_datas)) {
+    if (!convertLegacyVectorOfCachedScanResultsToHidl(results,
+                                                      &hidl_scan_datas)) {
       LOG(ERROR) << "Failed to convert scan results to HIDL structs";
       return;
     }
@@ -457,11 +467,12 @@ Return<void> WifiStaIface::startBackgroundScan(
       callback->onBackgroundScanResults(id, hidl_scan_datas);
     }
   };
-  const auto& on_full_result_callback = [&](wifi_request_id id,
-                                            const wifi_scan_result* result,
-                                            uint32_t /* buckets_scanned */) {
+  const auto& on_full_result_callback = [&](
+      legacy_hal::wifi_request_id id,
+      const legacy_hal::wifi_scan_result* result,
+      uint32_t /* buckets_scanned */) {
     IWifiStaIfaceEventCallback::ScanResult hidl_scan_result;
-    if (!convertInternalScanResultToHidl(result, &hidl_scan_result, true)) {
+    if (!convertLegacyScanResultToHidl(result, &hidl_scan_result, true)) {
       LOG(ERROR) << "Failed to convert full scan results to HIDL structs";
       return;
     }
@@ -470,13 +481,13 @@ Return<void> WifiStaIface::startBackgroundScan(
     }
   };
 
-  wifi_error legacy_status =
+  legacy_hal::wifi_error legacy_status =
       legacy_hal_.lock()->startGscan(cmdId,
                                      internal_scan_params,
                                      on_failure_callback,
                                      on_results_callback,
                                      on_full_result_callback);
-  if (legacy_status != WIFI_SUCCESS) {
+  if (legacy_status != legacy_hal::WIFI_SUCCESS) {
     hidl_status_cb(createWifiStatusFromLegacyError(legacy_status));
   } else {
     hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
@@ -490,8 +501,8 @@ Return<void> WifiStaIface::stopBackgroundScan(
     hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_IFACE_INVALID));
     return Void();
   }
-  wifi_error legacy_status = legacy_hal_.lock()->stopGscan(cmdId);
-  if (legacy_status != WIFI_SUCCESS) {
+  legacy_hal::wifi_error legacy_status = legacy_hal_.lock()->stopGscan(cmdId);
+  if (legacy_status != legacy_hal::WIFI_SUCCESS) {
     hidl_status_cb(createWifiStatusFromLegacyError(legacy_status));
   } else {
     hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
@@ -508,12 +519,12 @@ Return<void> WifiStaIface::getValidFrequenciesForBackgroundScan(
     return Void();
   }
 
-  wifi_error legacy_status;
+  legacy_hal::wifi_error legacy_status;
   std::vector<uint32_t> freqs;
   std::tie(legacy_status, freqs) =
       legacy_hal_.lock()->getValidFrequenciesForGscan(
           static_cast<wifi_band>(band));
-  if (legacy_status != WIFI_SUCCESS) {
+  if (legacy_status != legacy_hal::WIFI_SUCCESS) {
     hidl_status_cb(createWifiStatusFromLegacyError(legacy_status),
                    hidl_vec<uint32_t>());
     return Void();
@@ -532,8 +543,9 @@ Return<void> WifiStaIface::enableLinkLayerStatsCollection(
     return Void();
   }
 
-  wifi_error legacy_status = legacy_hal_.lock()->enableLinkLayerStats(debug);
-  if (legacy_status != WIFI_SUCCESS) {
+  legacy_hal::wifi_error legacy_status =
+      legacy_hal_.lock()->enableLinkLayerStats(debug);
+  if (legacy_status != legacy_hal::WIFI_SUCCESS) {
     hidl_status_cb(createWifiStatusFromLegacyError(legacy_status));
   } else {
     hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
@@ -548,8 +560,9 @@ Return<void> WifiStaIface::disableLinkLayerStatsCollection(
     return Void();
   }
 
-  wifi_error legacy_status = legacy_hal_.lock()->disableLinkLayerStats();
-  if (legacy_status != WIFI_SUCCESS) {
+  legacy_hal::wifi_error legacy_status =
+      legacy_hal_.lock()->disableLinkLayerStats();
+  if (legacy_status != legacy_hal::WIFI_SUCCESS) {
     hidl_status_cb(createWifiStatusFromLegacyError(legacy_status));
   } else {
     hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
@@ -565,16 +578,16 @@ Return<void> WifiStaIface::getLinkLayerStats(
     return Void();
   }
 
-  wifi_error legacy_status;
-  LinkLayerStatsData stats;
+  legacy_hal::wifi_error legacy_status;
+  legacy_hal::LinkLayerStats stats;
   std::tie(legacy_status, stats) = legacy_hal_.lock()->getLinkLayerStats();
-  if (legacy_status != WIFI_SUCCESS) {
+  if (legacy_status != legacy_hal::WIFI_SUCCESS) {
     hidl_status_cb(createWifiStatusFromLegacyError(legacy_status),
                    IWifiStaIface::LinkLayerStats());
     return Void();
   }
   IWifiStaIface::LinkLayerStats hidl_stats;
-  if (!convertInternalLinkLayerStatsToHidl(stats, &hidl_stats)) {
+  if (!convertLegacyLinkLayerStatsToHidl(stats, &hidl_stats)) {
     LOG(ERROR) << "Failed to convert link layer stats to HIDL structs";
     hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_UNKNOWN),
                    IWifiStaIface::LinkLayerStats());
