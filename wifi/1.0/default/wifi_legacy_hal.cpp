@@ -17,14 +17,18 @@
 #include <array>
 
 #include "wifi_legacy_hal.h"
-#include "wifi_status_util.h"
 
 #include <android-base/logging.h>
 #include <cutils/properties.h>
-#include <wifi_system/hal_tool.h>
+#include <hardware_legacy/wifi_hal.h>
 #include <wifi_system/interface_tool.h>
 
-namespace {
+namespace android {
+namespace hardware {
+namespace wifi {
+namespace V1_0 {
+namespace legacy_hal {
+
 // Legacy HAL functions accept "C" style function pointers, so use global
 // functions to pass to the legacy HAL function and store the corresponding
 // std::function methods to be invoked.
@@ -96,13 +100,7 @@ void onRttResults(wifi_request_id id,
     on_rtt_results_internal_callback(id, num_results, rtt_results);
   }
 }
-}
-
-namespace android {
-namespace hardware {
-namespace wifi {
-namespace V1_0 {
-namespace implementation {
+// End of the free-standing "C" style callbacks.
 
 static constexpr uint32_t kMaxVersionStringLength = 256;
 static constexpr uint32_t kMaxCachedGscanResults = 64;
@@ -119,9 +117,11 @@ wifi_error WifiLegacyHal::start() {
   CHECK(!global_handle_ && !wlan_interface_handle_ &&
         !awaiting_event_loop_termination_);
 
-  android::wifi_system::HalTool hal_tool;
   android::wifi_system::InterfaceTool if_tool;
-  if (!hal_tool.InitFunctionTable(&global_func_table_)) {
+  // TODO: Add back the HAL Tool if we need to. All we need from the HAL tool
+  // for now is this function call which we can directly call.
+  wifi_error status = init_wifi_vendor_hal_func_table(&global_func_table_);
+  if (status != WIFI_SUCCESS) {
     LOG(ERROR) << "Failed to initialize legacy hal function table";
     return WIFI_ERROR_UNKNOWN;
   }
@@ -131,7 +131,7 @@ wifi_error WifiLegacyHal::start() {
   }
 
   LOG(INFO) << "Starting legacy HAL";
-  wifi_error status = global_func_table_.wifi_initialize(&global_handle_);
+  status = global_func_table_.wifi_initialize(&global_handle_);
   if (status != WIFI_SUCCESS || !global_handle_) {
     LOG(ERROR) << "Failed to retrieve global handle";
     return status;
@@ -152,9 +152,9 @@ wifi_error WifiLegacyHal::stop(
   on_stop_complete_internal_callback = [&](wifi_handle handle) {
     CHECK_EQ(global_handle_, handle) << "Handle mismatch";
     on_stop_complete_user_callback();
-    global_handle_ = nullptr;
-    wlan_interface_handle_ = nullptr;
-    on_stop_complete_internal_callback = nullptr;
+    // Invalidate all the internal pointers now that the HAL is
+    // stopped.
+    invalidate();
   };
   awaiting_event_loop_termination_ = true;
   global_func_table_.wifi_cleanup(global_handle_, onStopComplete);
@@ -369,9 +369,9 @@ wifi_error WifiLegacyHal::disableLinkLayerStats() {
       wlan_interface_handle_, 0xFFFFFFFF, &clear_mask_rsp, 1, &stop_rsp);
 }
 
-std::pair<wifi_error, LinkLayerStatsData> WifiLegacyHal::getLinkLayerStats() {
-  LinkLayerStatsData link_stats;
-  LinkLayerStatsData* link_stats_ptr = &link_stats;
+std::pair<wifi_error, LinkLayerStats> WifiLegacyHal::getLinkLayerStats() {
+  LinkLayerStats link_stats;
+  LinkLayerStats* link_stats_ptr = &link_stats;
 
   on_link_layer_stats_result_internal_callback = [&link_stats_ptr](
       wifi_request_id /* id */,
@@ -511,8 +511,7 @@ wifi_error WifiLegacyHal::retrieveWlanInterfaceHandle() {
   wifi_error status = global_func_table_.wifi_get_ifaces(
       global_handle_, &num_iface_handles, &iface_handles);
   if (status != WIFI_SUCCESS) {
-    LOG(ERROR) << "Failed to enumerate interface handles: "
-               << legacyErrorToString(status);
+    LOG(ERROR) << "Failed to enumerate interface handles";
     return status;
   }
   for (int i = 0; i < num_iface_handles; ++i) {
@@ -521,8 +520,7 @@ wifi_error WifiLegacyHal::retrieveWlanInterfaceHandle() {
     status = global_func_table_.wifi_get_iface_name(
         iface_handles[i], current_ifname.data(), current_ifname.size());
     if (status != WIFI_SUCCESS) {
-      LOG(WARNING) << "Failed to get interface handle name: "
-                   << legacyErrorToString(status);
+      LOG(WARNING) << "Failed to get interface handle name";
       continue;
     }
     if (ifname_to_find == current_ifname.data()) {
@@ -564,7 +562,20 @@ WifiLegacyHal::getGscanCachedResults() {
       scan_results.begin(), scan_results.begin() + num_results);
   return std::make_pair(status, std::move(scan_results_vector));
 }
-}  // namespace implementation
+
+void WifiLegacyHal::invalidate() {
+  global_handle_ = nullptr;
+  wlan_interface_handle_ = nullptr;
+  on_stop_complete_internal_callback = nullptr;
+  on_driver_memory_dump_internal_callback = nullptr;
+  on_firmware_memory_dump_internal_callback = nullptr;
+  on_gscan_event_internal_callback = nullptr;
+  on_gscan_full_result_internal_callback = nullptr;
+  on_link_layer_stats_result_internal_callback = nullptr;
+  on_rtt_results_internal_callback = nullptr;
+}
+
+}  // namespace legacy_hal
 }  // namespace V1_0
 }  // namespace wifi
 }  // namespace hardware
