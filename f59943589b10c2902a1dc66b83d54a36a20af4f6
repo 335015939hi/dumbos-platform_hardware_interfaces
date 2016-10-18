@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "1c6b9b00_529975c6",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-18T19:27:57Z",
+      "side": 1,
+      "message": "If this is the case, then why are we bothering to unpack the WifiInformationElement into an id and data separately in the first place?",
+      "parentUuid": "1c6b9b00_1e38ac01",
+      "range": {
+        "startLine": 156,
+        "startChar": 2,
+        "endLine": 156,
+        "endChar": 13
+      },
+      "revId": "f59943589b10c2902a1dc66b83d54a36a20af4f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c6b9b00_7bf2972f",
         "filename": "wifi/1.0/types.hal",
         "patchSetId": 8
