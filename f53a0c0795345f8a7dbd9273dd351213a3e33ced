@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1c6b9b00_dbfd9098",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-19T22:01:28Z",
+      "side": 1,
+      "message": "Everything should be indented with four not two spaces (this may be because you are using a very old version of c2hal).",
+      "range": {
+        "startLine": 438,
+        "startChar": 0,
+        "endLine": 438,
+        "endChar": 2
+      },
+      "revId": "f53a0c0795345f8a7dbd9273dd351213a3e33ced",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c6b9b00_7bc6fc56",
+        "filename": "wifi/1.0/IWifiChipEventCallback.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-19T22:01:28Z",
+      "side": 1,
+      "message": "I know you split these up for now, but won\u0027t this mess up bucketing and reduce efficiency? We might have to come up with a better solution.",
+      "range": {
+        "startLine": 55,
+        "startChar": 2,
+        "endLine": 72,
+        "endChar": 49
+      },
+      "revId": "f53a0c0795345f8a7dbd9273dd351213a3e33ced",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
