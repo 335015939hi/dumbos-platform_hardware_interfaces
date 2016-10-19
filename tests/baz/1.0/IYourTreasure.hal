@@ -14,23 +14,9 @@
  * limitations under the License.
  */
 
-package android.hardware.tests.bar@1.0;
+package android.hardware.tests.baz@1.0;
+import IMyTreasure;
 
-import android.hardware.tests.foo@1.0::IFoo;
-import android.hardware.tests.foo@1.0::Unrelated;
-import IMyPrecious;
-import IYourPrecious;
-
-interface IBar extends android.hardware.tests.foo@1.0::IFoo {
-
-    typedef android.hardware.tests.foo@1.0::IFoo FunkyAlias;
-    typedef Unrelated Related;
-
-    struct SomethingRelated {
-        Related myRelated;
-    };
-
-    thisIsNew();
-    getMyPrecious(bool sendRemote) generates (IMyPrecious precious);
-    getYourPrecious(bool sendRemote) generates (IYourPrecious precious);
+interface IYourTreasure extends IMyTreasure {
+    dontYouTakeMyTreasure();
 };

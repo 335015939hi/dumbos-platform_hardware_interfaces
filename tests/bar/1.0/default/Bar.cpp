@@ -14,6 +14,9 @@ namespace implementation {
 
 Bar::Bar() {
     mFoo = IFoo::getService("", true);
+    CHECK(!mFoo->isRemote());
+    mPrecious = IYourPrecious::getService("local your precious", true);
+    CHECK(!mPrecious->isRemote());
 }
 
 // Methods from ::android::hardware::tests::foo::V1_0::IFoo follow.
@@ -122,6 +125,36 @@ Return<void> Bar::sendVecVec(sendVecVec_cb _hidl_cb) {
 Return<void> Bar::thisIsNew()  {
     ALOGI("SERVER(Bar) thisIsNew");
 
+    return Void();
+}
+
+Return<void> Bar::getMyPrecious(bool sendRemote, getMyPrecious_cb _hidl_cb)  {
+    sp<IYourPrecious> toSend;
+    if (sendRemote) {
+        toSend = IYourPrecious::getService("your precious");
+        if (!toSend->isRemote()) {
+            return Status::fromExceptionCode(Status::EX_ILLEGAL_STATE);
+        }
+    } else {
+        toSend = mPrecious;
+    }
+    ALOGI("SERVER(Bar) getMyPrecious returning %p", toSend.get());
+    _hidl_cb(toSend);
+    return Void();
+}
+
+Return<void> Bar::getYourPrecious(bool sendRemote, getYourPrecious_cb _hidl_cb)  {
+    sp<IYourPrecious> toSend;
+    if (sendRemote) {
+        toSend = IYourPrecious::getService("your precious");
+        if (!toSend->isRemote()) {
+            return Status::fromExceptionCode(Status::EX_ILLEGAL_STATE);
+        }
+    } else {
+        toSend = mPrecious;
+    }
+    ALOGI("SERVER(Bar) getYourPrecious returning %p", toSend.get());
+    _hidl_cb(toSend);
     return Void();
 }
 

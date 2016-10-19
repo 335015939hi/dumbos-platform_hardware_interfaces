@@ -9,12 +9,16 @@ genrule {
         "IBase.hal",
         "IBaz.hal",
         "IBazCallback.hal",
+        "IMyTreasure.hal",
+        "IYourTreasure.hal",
     ],
     out: [
         "android/hardware/tests/baz/1.0/types.cpp",
         "android/hardware/tests/baz/1.0/BaseAll.cpp",
         "android/hardware/tests/baz/1.0/BazAll.cpp",
         "android/hardware/tests/baz/1.0/BazCallbackAll.cpp",
+        "android/hardware/tests/baz/1.0/MyTreasureAll.cpp",
+        "android/hardware/tests/baz/1.0/YourTreasureAll.cpp",
     ],
 }
 
@@ -27,6 +31,8 @@ genrule {
         "IBase.hal",
         "IBaz.hal",
         "IBazCallback.hal",
+        "IMyTreasure.hal",
+        "IYourTreasure.hal",
     ],
     out: [
         "android/hardware/tests/baz/1.0/types.h",
@@ -45,6 +51,16 @@ genrule {
         "android/hardware/tests/baz/1.0/BnBazCallback.h",
         "android/hardware/tests/baz/1.0/BpBazCallback.h",
         "android/hardware/tests/baz/1.0/BsBazCallback.h",
+        "android/hardware/tests/baz/1.0/IMyTreasure.h",
+        "android/hardware/tests/baz/1.0/IHwMyTreasure.h",
+        "android/hardware/tests/baz/1.0/BnMyTreasure.h",
+        "android/hardware/tests/baz/1.0/BpMyTreasure.h",
+        "android/hardware/tests/baz/1.0/BsMyTreasure.h",
+        "android/hardware/tests/baz/1.0/IYourTreasure.h",
+        "android/hardware/tests/baz/1.0/IHwYourTreasure.h",
+        "android/hardware/tests/baz/1.0/BnYourTreasure.h",
+        "android/hardware/tests/baz/1.0/BpYourTreasure.h",
+        "android/hardware/tests/baz/1.0/BsYourTreasure.h",
     ],
 }
 
