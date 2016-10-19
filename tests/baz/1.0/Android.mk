@@ -66,6 +66,42 @@ $(GEN): PRIVATE_CUSTOM_TOOL = \
 $(GEN): $(LOCAL_PATH)/IBazCallback.hal
 	$(transform-generated-source)
 LOCAL_GENERATED_SOURCES += $(GEN)
+
+#
+# Build IMyTreasure.hal
+#
+GEN := $(intermediates)/android/hardware/tests/baz/1.0/IMyTreasure.java
+$(GEN): $(HIDL)
+$(GEN): PRIVATE_HIDL := $(HIDL)
+$(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/IMyTreasure.hal
+$(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
+$(GEN): PRIVATE_CUSTOM_TOOL = \
+        $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
+        -Ljava -randroid.hardware:hardware/interfaces \
+        android.hardware.tests.baz@1.0::IMyTreasure
+
+$(GEN): $(LOCAL_PATH)/IMyTreasure.hal
+	$(transform-generated-source)
+LOCAL_GENERATED_SOURCES += $(GEN)
+
+#
+# Build IYourTreasure.hal
+#
+GEN := $(intermediates)/android/hardware/tests/baz/1.0/IYourTreasure.java
+$(GEN): $(HIDL)
+$(GEN): PRIVATE_HIDL := $(HIDL)
+$(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/IYourTreasure.hal
+$(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/IMyTreasure.hal
+$(GEN): $(LOCAL_PATH)/IMyTreasure.hal
+$(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
+$(GEN): PRIVATE_CUSTOM_TOOL = \
+        $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
+        -Ljava -randroid.hardware:hardware/interfaces \
+        android.hardware.tests.baz@1.0::IYourTreasure
+
+$(GEN): $(LOCAL_PATH)/IYourTreasure.hal
+	$(transform-generated-source)
+LOCAL_GENERATED_SOURCES += $(GEN)
 include $(BUILD_JAVA_LIBRARY)
 
 
@@ -131,6 +167,42 @@ $(GEN): PRIVATE_CUSTOM_TOOL = \
         android.hardware.tests.baz@1.0::IBazCallback
 
 $(GEN): $(LOCAL_PATH)/IBazCallback.hal
+	$(transform-generated-source)
+LOCAL_GENERATED_SOURCES += $(GEN)
+
+#
+# Build IMyTreasure.hal
+#
+GEN := $(intermediates)/android/hardware/tests/baz/1.0/IMyTreasure.java
+$(GEN): $(HIDL)
+$(GEN): PRIVATE_HIDL := $(HIDL)
+$(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/IMyTreasure.hal
+$(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
+$(GEN): PRIVATE_CUSTOM_TOOL = \
+        $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
+        -Ljava -randroid.hardware:hardware/interfaces \
+        android.hardware.tests.baz@1.0::IMyTreasure
+
+$(GEN): $(LOCAL_PATH)/IMyTreasure.hal
+	$(transform-generated-source)
+LOCAL_GENERATED_SOURCES += $(GEN)
+
+#
+# Build IYourTreasure.hal
+#
+GEN := $(intermediates)/android/hardware/tests/baz/1.0/IYourTreasure.java
+$(GEN): $(HIDL)
+$(GEN): PRIVATE_HIDL := $(HIDL)
+$(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/IYourTreasure.hal
+$(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/IMyTreasure.hal
+$(GEN): $(LOCAL_PATH)/IMyTreasure.hal
+$(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
+$(GEN): PRIVATE_CUSTOM_TOOL = \
+        $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
+        -Ljava -randroid.hardware:hardware/interfaces \
+        android.hardware.tests.baz@1.0::IYourTreasure
+
+$(GEN): $(LOCAL_PATH)/IYourTreasure.hal
 	$(transform-generated-source)
 LOCAL_GENERATED_SOURCES += $(GEN)
 include $(BUILD_STATIC_JAVA_LIBRARY)
