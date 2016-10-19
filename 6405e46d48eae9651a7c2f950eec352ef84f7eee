@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1c6b9b00_2540e3fc",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-19T21:58:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c6b9b00_e5242be2",
+      "range": {
+        "startLine": 440,
+        "startChar": 41,
+        "endLine": 440,
+        "endChar": 45
+      },
+      "revId": "6405e46d48eae9651a7c2f950eec352ef84f7eee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c6b9b00_450cff57",
         "filename": "wifi/1.0/IWifiChipEventCallback.hal",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-19T20:20:33Z",
       "side": 1,
       "message": "possibilities?",
+      "range": {
+        "startLine": 48,
+        "startChar": 20,
+        "endLine": 48,
+        "endChar": 26
+      },
+      "revId": "6405e46d48eae9651a7c2f950eec352ef84f7eee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c6b9b00_00ae7566",
+        "filename": "wifi/1.0/IWifiChipEventCallback.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-19T21:58:11Z",
+      "side": 1,
+      "message": "This is not an instance of WifiStatus. This is an instance of WifiDebugRingBufferStatus. The status represents the name, free size, etc of the corresponding ring buffer.",
+      "parentUuid": "1c6b9b00_450cff57",
       "range": {
         "startLine": 48,
         "startChar": 20,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "1c6b9b00_c593efa3",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 2130,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-19T21:58:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c6b9b00_852457ca",
+      "range": {
+        "startLine": 2130,
+        "startChar": 18,
+        "endLine": 2130,
+        "endChar": 40
+      },
+      "revId": "6405e46d48eae9651a7c2f950eec352ef84f7eee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c6b9b00_653dbbda",
         "filename": "wifi/1.0/types.hal",
         "patchSetId": 1
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "1c6b9b00_e5ea6bf4",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 2537,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-19T21:58:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c6b9b00_653dbbda",
+      "range": {
+        "startLine": 2537,
+        "startChar": 2,
+        "endLine": 2537,
+        "endChar": 13
+      },
+      "revId": "6405e46d48eae9651a7c2f950eec352ef84f7eee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c6b9b00_854bb775",
         "filename": "wifi/1.0/types.hal",
         "patchSetId": 1
@@ -105,6 +201,30 @@
       "writtenOn": "2016-10-19T20:20:33Z",
       "side": 1,
       "message": "this doesn\u0027t make sense as these are not PODs",
+      "range": {
+        "startLine": 2567,
+        "startChar": 25,
+        "endLine": 2569,
+        "endChar": 36
+      },
+      "revId": "6405e46d48eae9651a7c2f950eec352ef84f7eee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c6b9b00_45db5f62",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 2569,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-19T21:58:11Z",
+      "side": 1,
+      "message": "Wish we had unions :(. Anyway split these up now.",
+      "parentUuid": "1c6b9b00_854bb775",
       "range": {
         "startLine": 2567,
         "startChar": 25,
