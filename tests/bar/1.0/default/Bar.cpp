@@ -14,6 +14,7 @@ namespace implementation {
 
 Bar::Bar() {
     mFoo = IFoo::getService("", true);
+    mPrecious = sp<YourPrecious>(new YourPrecious());
 }
 
 // Methods from ::android::hardware::tests::foo::V1_0::IFoo follow.
@@ -122,6 +123,18 @@ Return<void> Bar::sendVecVec(sendVecVec_cb _hidl_cb) {
 Return<void> Bar::thisIsNew()  {
     ALOGI("SERVER(Bar) thisIsNew");
 
+    return Void();
+}
+
+Return<void> Bar::getMyPrecious(getMyPrecious_cb _hidl_cb)  {
+    ALOGI("SERVER(Bar) getMyPrecious returning %p", mPrecious.get());
+    _hidl_cb(mPrecious);
+    return Void();
+}
+
+Return<void> Bar::getYourPrecious(getYourPrecious_cb _hidl_cb)  {
+    ALOGI("SERVER(Bar) getYourPrecious returning %p", mPrecious.get());
+    _hidl_cb(mPrecious);
     return Void();
 }
 
