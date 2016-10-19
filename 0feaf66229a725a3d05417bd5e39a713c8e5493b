@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1c6b9b00_fb8cccc3",
+        "filename": "nfc/1.0/default/service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2016-10-19T21:37:41Z",
+      "side": 1,
+      "message": "why _nci is dropped? Or does it not matter at all",
+      "range": {
+        "startLine": 12,
+        "startChar": 58,
+        "endLine": 12,
+        "endChar": 61
+      },
+      "revId": "0feaf66229a725a3d05417bd5e39a713c8e5493b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
