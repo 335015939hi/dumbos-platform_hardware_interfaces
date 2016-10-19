@@ -17,16 +17,542 @@
 package android.hardware.radio@1.0;
 
 interface IRadioCallback {
-    /**
+    // SOLICITED CALLBACKS ARE LISTED BELOW
+
+    /*
      * Response callback for IRadio.requestGetSimStatus()
      *
-     * @param serial Serial number of request
-     * @param cardStatus ICC card status
+     * @param info Response info struct containing response type, serial no. & error
+     * @param cardStatus Sim card status
      */
-    responseGetSimStatus(int32_t serial, RadioCardStatus cardStatus);
+    responseGetSimStatus(ResponseInfo info, RadioCardStatus cardStatus);
 
-    // ONLY UNSOLICITED CALLBACKS BELOW
-    /**
+    /*
+     * Response callback for IRadio.requestEnterSimPin()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param remainingRetries Number of retries remaining, will be equal to -1 if unknown.
+     */
+    responseEnterSimPin(ResponseInfo info, int32_t remainingRetries);
+
+    /*
+     * Response callback for IRadio.requestEnterIccPuk()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param remainingRetries Number of retries remaining, will be equal to -1 if unknown.
+     */
+    responseEnterSimPuk(ResponseInfo info, int32_t remainingRetries);
+
+    /*
+     * Response callback for IRadio.requestEnterIccPin2()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param remainingRetries Number of retries remaining, will be equal to -1 if unknown.
+     */
+    responseEnterSimPin2(ResponseInfo info, int32_t remainingRetries);
+
+    /*
+     * Response callback for IRadio.requestEnterIccPuk2()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param remainingRetries Number of retries remaining, will be equal to -1 if unknown.
+     */
+    responseEnterSimPuk2(ResponseInfo info, int32_t remainingRetries);
+
+    /*
+     * Response callback for IRadio.requestChangeSimPin()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param remainingRetries Number of retries remaining, will be equal to -1 if unknown.
+     */
+    responseChangeSimPin(ResponseInfo info, int32_t remainingRetries);
+
+    /*
+     * Response callback for IRadio.requestChangeSimPin2()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param remainingRetries Number of retries remaining, will be equal to -1 if unknown.
+     */
+    responseChangeSimPin2(ResponseInfo info, int32_t remainingRetries);
+
+    /*
+     * Response callback for IRadio.requestEnterNetworkDepersonalization()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param remainingRetries Number of retries remaining, will be equal to -1 if unknown.
+     */
+    responseEnterNetworkDepersonalization(ResponseInfo info, int32_t remainingRetries);
+
+    /*
+     * Response callback for IRadio.requestGetCurrentCalls()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param radioCalls Call list
+     */
+    responseGetCurrentCalls(ResponseInfo info, vec<RadioCall> radioCalls);
+
+    /*
+     * Response callback for IRadio.requestDial()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     */
+    responseDial(ResponseInfo info);
+
+    /*
+     * Response callback for IRadio.requestGetImsi()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param imsi String containing the IMSI
+     */
+    responseGetImsi(ResponseInfo info, string imsi);
+
+    /*
+     * Response callback for IRadio.requestHangup()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     */
+    responseHangup(ResponseInfo info);
+
+    /*
+     * Response callback for IRadio.requestHangupWaitingOrBackground()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     */
+    responseHangupWaitingOrBackground(ResponseInfo info);
+
+    /*
+     * Response callback for IRadio.requestHangupForegroundResumeBackground()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     */
+    responseHangupForegroundResumeBackground(ResponseInfo info);
+
+    /*
+     * Response callback for IRadio.requestSwitchWaitingOrHoldingAndActive()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     */
+    responseSwitchWaitingOrHoldingAndActive(ResponseInfo info);
+
+    /*
+     * Response callback for IRadio.requestConference()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     */
+    responseConference(ResponseInfo info);
+
+    /*
+     * Response callback for IRadio.requestUdub()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     */
+    responseUdub(ResponseInfo info);
+
+    /*
+     * Response callback for IRadio.requestLastCallFailCause()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param failCause failCause is RadioLastCallFailCause. GSM failure reasons are
+     *        mapped to cause codes defined in TS 24.008 Annex H where possible. CDMA
+     *        failure reasons are derived from the possible call failure scenarios
+     *        described in the "CDMA IS-2000 Release A (C.S0005-A v6.0)" standard.
+     *
+     * The implementation should return RadioLastCallFailCause:ERROR_UNSPECIFIED for blocked
+     * MO calls by restricted state (See unsolRestrictedStateChanged)
+     *
+     * If the implementation does not have access to the exact cause codes,
+     * then it should return one of the values listed in RadioLastCallFailCause,
+     * as the UI layer needs to distinguish these cases for tone generation or
+     * error notification.
+     */
+    responseLastCallFailCause(ResponseInfo info, int32_t failCause);
+
+    /*
+     * Response callback for IRadio.requestSignalStrength()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param signalStrength Radio signal strength
+     */
+    responseSignalStrength(ResponseInfo info, RadioSignalStrength signalStrength);
+
+    /*
+     * Response callback for IRadio.requestVoiceRegistrationState()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param regState is registration state 0-6,
+     *        0 - Not registered, MT is not currently searching a new operator to register
+     *        1 - Registered, home network
+     *        2 - Not registered, but MT is currently searching a new operator to register
+     *        3 - Registration denied
+     *        4 - Unknown
+     *        5 - Registered, roaming
+     *        10 - Same as 0, but indicates that emergency calls are enabled.
+     *        12 - Same as 2, but indicates that emergency calls are enabled.
+     *        13 - Same as 3, but indicates that emergency calls are enabled.
+     *        14 - Same as 4, but indicates that emergency calls are enabled.
+     * @param lac is LAC if registered on a GSM/WCDMA system or
+     *        NULL if not.Valid LAC are 0x0000 - 0xffff
+     * @param cid is CID if registered on a * GSM/WCDMA or
+     *        NULL if not.
+     *        Valid CID are 0x00000000 - 0xffffffff
+     *        In GSM, CID is Cell ID (see TS 27.007) in 16 bits
+     *        In UMTS, CID is UMTS Cell Identity (see TS 25.331) in 28 bits
+     * @param rat indicates the available voice radio technology,
+     *        valid values as defined by RIL_RadioTechnology.
+     * @param baseStationId is Base Station ID if registered on a CDMA
+     *        system or NULL if not.  Base Station ID in decimal format
+     * @param baseStationLatitude is Base Station latitude if registered on a
+     *        CDMA system or NULL if not. Base Station latitude is a decimal number
+     *        as specified in 3GPP2 C.S0005-A v6.0. It is represented in
+     *        units of 0.25 seconds and ranges from -1296000
+     *        to 1296000, both values inclusive (corresponding
+     *        to a range of -90 to +90 degrees).
+     * @param baseStationLongitude is Base Station longitude if registered on a
+     *        CDMA system or NULL if not. Base Station
+     *        longitude is a decimal number as specified in
+     *        3GPP2 C.S0005-A v6.0. It is represented in
+     *        units of 0.25 seconds and ranges from -2592000
+     *        to 2592000, both values inclusive (corresponding
+     *        to a range of -180 to +180 degrees).
+     * @param cssIndicator is concurrent services support indicator if
+     *        registered on a CDMA system 0-1.
+     *        0 - Concurrent services not supported,
+     *        1 - Concurrent services supported
+     * @param systemId is System ID if registered on a CDMA system or
+     *        NULL if not. Valid System ID are 0 - 32767
+     * @param networkId is Network ID if registered on a CDMA system or
+     *        NULL if not. Valid System ID are 0 - 65535
+     * @param roamingIndicator is the TSB-58 Roaming Indicator if registered
+     *        on a CDMA or EVDO system or NULL if not. Valid values are 0-255.
+     * @param systemIsInPrl indicates whether the current system is in the
+     *        PRL if registered on a CDMA or EVDO system or NULL if
+     *        not. 0=not in the PRL, 1=in the PRL
+     * @param defaultRoamingIndicator is the default Roaming Indicator from the PRL,
+     *        if registered on a CDMA or EVDO system or NULL if not.
+     *        Valid values are 0-255.
+     * @param reasonForDenial if registration state is 3 (Registration
+     *        denied) this is an enumerated reason why
+     *        registration was denied.  See 3GPP TS 24.008,
+     *        10.5.3.6 and Annex G.
+     *        0 - General
+     *        1 - Authentication Failure
+     *        2 - IMSI unknown in HLR
+     *        3 - Illegal MS
+     *        4 - Illegal ME
+     *        5 - PLMN not allowed
+     *        6 - Location area not allowed
+     *        7 - Roaming not allowed
+     *        8 - No Suitable Cells in this Location Area
+     *        9 - Network failure
+     *        10 - Persistent location update reject
+     *        11 - PLMN not allowed
+     *        12 - Location area not allowed
+     *        13 - Roaming not allowed in this Location Area
+     *        15 - No Suitable Cells in this Location Area
+     *        17 - Network Failure
+     *        20 - MAC Failure
+     *        21 - Sync Failure
+     *        22 - Congestion
+     *        23 - GSM Authentication unacceptable
+     *        25 - Not Authorized for this CSG
+     *        32 - Service option not supported
+     *        33 - Requested service option not subscribed
+     *        34 - Service option temporarily out of order
+     *        38 - Call cannot be identified
+     *        48-63 - Retry upon entry into a new cell
+     *        95 - Semantically incorrect message
+     *        96 - Invalid mandatory information
+     *        97 - Message type non-existent or not implemented
+     *        98 - Message type not compatible with protocol state
+     *        99 - Information element non-existent or not implemented
+     *        100 - Conditional IE error
+     *        101 - Message not compatible with protocol state
+     *        111 - Protocol error, unspecified
+     * @param psc is the Primary Scrambling Code of the current
+     *        cell as described in TS 25.331, in hexadecimal
+     *        format, or NULL if unknown or not registered
+     *        to a UMTS network.
+     *
+     * Please note that registration state 4 ("unknown") is treated
+     * as "out of service" in the Android telephony system
+     *
+     * Registration state 3 can be returned if Location Update Reject
+     * (with cause 17 - Network Failure) is received repeatedly from the network,
+     * to facilitate "managed roaming"
+     *
+     */
+    responseVoiceRegistrationState(ResponseInfo info, int32_t regState, int32_t lac, int32_t cid,
+            int32_t rat, int32_t baseStationId, int32_t baseStationLatitude,
+            int32_t baseStationLongitude, int32_t cssIndicator,
+            int32_t systemId, int32_t networkId, int32_t roamingIndicator, int32_t systemIsInPrl,
+            int32_t defaultRoamingIndicator, int32_t reasonForDenial, int32_t psc);
+
+    /*
+     * Response callback for IRadio.requestDataRegistrationState()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param regState is registration state 0-5 from TS 27.007 10.1.20 AT+CGREG
+     * @param lac is LAC if registered or NULL if not
+     * @param cid is CID if registered or NULL if not
+     * @param rat indicates the available data radio technology,
+     *        valid values as defined by RIL_RadioTechnology.
+     * @param reasonDataDenied if registration state is 3 (Registration
+     *        denied) this is an enumerated reason why
+     *        registration was denied.  See 3GPP TS 24.008,
+     *        Annex G.6 "Additonal cause codes for GMM".
+     *        7 == GPRS services not allowed
+     *        8 == GPRS services and non-GPRS services not allowed
+     *        9 == MS identity cannot be derived by the network
+     *        10 == Implicitly detached
+     *        14 == GPRS services not allowed in this PLMN
+     *        16 == MSC temporarily not reachable
+     *        40 == No PDP context activated
+     * @param maxDataCalls The maximum number of simultaneous Data Calls that can be
+     *        established using RIL_REQUEST_SETUP_DATA_CALL.
+     * The values below are optional LTE location information in decimal.
+     * If a value is unknown that value may be NULL. If all values are NULL,
+     * none need to be present.
+     * @param tac is TAC, a 16-bit Tracking Area Code.
+     * @param cid is CID, a 0-503 Physical Cell Identifier.
+     * @param eci is ECI, a 28-bit E-UTRAN Cell Identifier.
+     * @param csgid is CSGID, a 27-bit Closed Subscriber Group Identity.
+     * @param tadv is TADV, a 6-bit timing advance value.
+     *
+     * LAC and CID are in hexadecimal format.
+     * valid LAC are 0x0000 - 0xffff
+     * valid CID are 0x00000000 - 0x0fffffff
+     *
+     * Please note that registration state 4 ("unknown") is treated
+     * as "out of service" in the Android telephony system
+     */
+    responseDataRegistrationState(ResponseInfo info, int32_t regState, int32_t lac, int32_t cid,
+            int32_t rat, int32_t reasonDataDenied, int32_t maxDataCalls, int32_t tac, int32_t cid,
+            int32_t eci, int32_t csgid, int32_t tadv);
+
+    /*
+     * Response callback for IRadio.requestOperator()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param longName is long alpha ONS or EONS or NULL if unregistered
+     * @param shortName is short alpha ONS or EONS or NULL if unregistered
+     * @param numeric is 5 or 6 digit numeric code (MCC + MNC) or NULL if unregistered
+     */
+    responseOperator(ResponseInfo info, string longName, string shortName, string numeric);
+
+    /*
+     * Response callback for IRadio.requestRadioPower()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     */
+    responseRadioPower(ResponseInfo info);
+
+    /*
+     * Response callback for IRadio.requestDtmf()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     */
+    responseDtmf(ResponseInfo info);
+
+    /*
+     * Response callback for IRadio.requestSendSms()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param smsResponse Sms response
+     */
+    responseSendSms(ResponseInfo info, RadioSmsResponse smsResponse);
+
+    /*
+     * Response callback for IRadio.requestSendSmsExpectMore()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param smsResponse Sms response
+     */
+    responseSendSmsExpectMore(ResponseInfo info, RadioSmsResponse smsResponse);
+
+    /*
+     * Response callback for IRadio.requestSetupDataCall()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param dcResponse Data call response
+     */
+    responseSetupDataCall(ResponseInfo info, RadioDataCallResponse dcResponse);
+
+    /*
+     * Response callback for IRadio.requestSimIo()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param simIoResponse Data call response
+     */
+    responseSimIo(ResponseInfo info, RadioSimIoResponse simIoResponse);
+
+    /*
+     * Response callback for IRadio.requestSendUssd()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     */
+    responseSendUssd(ResponseInfo info);
+
+    /*
+     * Response callback for IRadio.requestCancelUssd()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     */
+    responseCancelUssd(ResponseInfo info);
+
+    /*
+     * Response callback for IRadio.requestGetClir()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param n is "n" parameter from TS 27.007 7.7
+     * @param m is "m" parameter from TS 27.007 7.7
+     */
+    responseGetClir(ResponseInfo info, int32_t n, int32_t m);
+
+    /*
+     * Response callback for IRadio.requestSetClir()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     */
+    responseSetClir(ResponseInfo info);
+
+    /*
+     * Response callback for IRadio.requestQueryCallForwardStatus()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param callForwardInfos points to a vector of RadioCallForwardInfo, one for
+     *        each distinct registered phone number.
+     *
+     * For example, if data is forwarded to +18005551212 and voice is forwarded
+     * to +18005559999, then two separate RIL_CallForwardInfo's should be returned
+     *
+     * If, however, both data and voice are forwarded to +18005551212, then
+     * a single RIL_CallForwardInfo can be returned with the service class
+     * set to "data + voice = 3")
+     */
+    responseQueryCallForwardStatus(ResponseInfo info, vec<RadioCallForwardInfo> callForwardInfos);
+
+    /*
+     * Response callback for IRadio.requestSetCallForward()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     */
+    responseSetCallForward(ResponseInfo info);
+
+    /*
+     * Response callback for IRadio.requestQueryCallWaiting()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param enable is false for "disabled" and true for "enabled"
+     * @param serviceClass If enable = true, then callWaitingResp[1]
+     *        must follow, with the TS 27.007 service class bit vector of services
+     *        for which call waiting is enabled.
+     *        For example, if callWaitingResp[0]  is 1 and
+     *        callWaitingResp[1] is 3, then call waiting is enabled for data
+     *        and voice and disabled for everything else.
+     */
+    responseQueryCallWaiting(ResponseInfo info, bool enable, int32_t serviceClass);
+
+    /*
+     * Response callback for IRadio.requestSetCallWaiting()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     */
+    responseSetCallWaiting(ResponseInfo info);
+
+    /*
+     * Response callback for IRadio.requestSmsAcknowledge()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     */
+    responseSmsAcknowledge(ResponseInfo info);
+
+    /*
+     * Response callback for IRadio.requestAnswer()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     */
+    responseAnswer(ResponseInfo info);
+
+    /*
+     * Response callback for IRadio.requestDeactivateDataCall()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     */
+    responseDeactivateDataCall(ResponseInfo info);
+
+    /*
+     * Response callback for IRadio.requestQueryFacilityLock()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param response 0 is the TS 27.007 service class bit vector of
+     *        services for which the specified barring facility
+     *        is active. "0" means "disabled for all"
+     */
+    responseQueryFacilityLock(ResponseInfo info, int32_t response);
+
+    /*
+     * Response callback for IRadio.requestSetFacilityLock()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param retry 0 is the number of retries remaining, or -1 if unknown
+     */
+    responseSetFacilityLock(ResponseInfo info, int32_t retry);
+
+    /*
+     * Response callback for IRadio.requestChangeBarringPassword()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     */
+    responseChangeBarringPassword(ResponseInfo info);
+
+    /*
+     * Response callback for IRadio.requestQueryNetworkSelectionMode()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param selection 0 for automatic selection, 1 for manual selection
+     */
+    responseQueryNetworkSelectionMode(ResponseInfo info, int32_t selection);
+
+    /*
+     * Response callback for IRadio.requestSetNetworkSelectionAutomatic()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     */
+    responseSetNetworkSelectionAutomatic(ResponseInfo info);
+
+    /*
+     * Response callback for IRadio.requestSetNetworkSelectionManual()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     */
+    responseSetNetworkSelectionManual(ResponseInfo info);
+
+    /*
+     * Response callback for IRadio.requestQueryAvailableNetworks()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param networkInfos OperatorInfo struct defined in types.hal
+     */
+    responseQueryAvailableNetworks(ResponseInfo info, vec<OperatorInfo> networkInfos);
+
+    /*
+     * Response callback for IRadio.requestDtmfStart()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     */
+    responseDtmfStart(ResponseInfo info);
+
+    /*
+     * Response callback for IRadio.requestDtmfStop()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     */
+    responseDtmfStop(ResponseInfo info);
+
+
+    // UNSOLICITED CALLBACKS ARE LISTED BELOW
+
+    /*
      * Called when radio state changes.
      *
      * @param radioState Current radio state
