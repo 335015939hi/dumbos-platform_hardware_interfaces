@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9c886b74_14c55af3",
+        "filename": "radio/1.0/IRadioCallback.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2016-10-19T23:37:51Z",
+      "side": 1,
+      "message": "why operator and not network? API name says networks.",
+      "range": {
+        "startLine": 534,
+        "startChar": 14,
+        "endLine": 534,
+        "endChar": 22
+      },
+      "revId": "5e4e25bfbe11d2ef0a40402f7ebbaf856d90107d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
