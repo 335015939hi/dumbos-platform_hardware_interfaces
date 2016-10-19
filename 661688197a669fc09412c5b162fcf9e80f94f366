@@ -1,0 +1,205 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1c6b9b00_f7334a56",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 666,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2016-10-19T01:37:09Z",
+      "side": 1,
+      "message": "Doesn\u0027t need to be a vector, and can even make a struct for it instead of using string.",
+      "range": {
+        "startLine": 666,
+        "startChar": 64,
+        "endLine": 666,
+        "endChar": 75
+      },
+      "revId": "661688197a669fc09412c5b162fcf9e80f94f366",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c6b9b00_372942fd",
+        "filename": "radio/1.0/IRadioCallback.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2016-10-19T01:37:09Z",
+      "side": 1,
+      "message": "why vec? Can be just string, right?\nit may even make sense to make a struct for it instead of passing parameters as string.",
+      "range": {
+        "startLine": 298,
+        "startChar": 54,
+        "endLine": 298,
+        "endChar": 65
+      },
+      "revId": "661688197a669fc09412c5b162fcf9e80f94f366",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c6b9b00_57f79e6f",
+        "filename": "radio/1.0/IRadioCallback.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2016-10-19T01:37:09Z",
+      "side": 1,
+      "message": "same here",
+      "range": {
+        "startLine": 341,
+        "startChar": 53,
+        "endLine": 341,
+        "endChar": 64
+      },
+      "revId": "661688197a669fc09412c5b162fcf9e80f94f366",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c6b9b00_97f1367b",
+        "filename": "radio/1.0/IRadioCallback.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2016-10-19T01:37:09Z",
+      "side": 1,
+      "message": "same here",
+      "range": {
+        "startLine": 353,
+        "startChar": 40,
+        "endLine": 353,
+        "endChar": 51
+      },
+      "revId": "661688197a669fc09412c5b162fcf9e80f94f366",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c6b9b00_7759faa7",
+        "filename": "radio/1.0/IRadioCallback.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2016-10-19T01:37:09Z",
+      "side": 1,
+      "message": "same here",
+      "range": {
+        "startLine": 423,
+        "startChar": 39,
+        "endLine": 423,
+        "endChar": 51
+      },
+      "revId": "661688197a669fc09412c5b162fcf9e80f94f366",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c6b9b00_d749eed2",
+        "filename": "radio/1.0/IRadioCallback.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2016-10-19T01:37:09Z",
+      "side": 1,
+      "message": "same here",
+      "range": {
+        "startLine": 470,
+        "startChar": 48,
+        "endLine": 470,
+        "endChar": 60
+      },
+      "revId": "661688197a669fc09412c5b162fcf9e80f94f366",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c6b9b00_7740daa1",
+        "filename": "radio/1.0/IRadioCallback.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 563,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2016-10-19T01:37:09Z",
+      "side": 1,
+      "message": "Can consider making a struct, instead of using string.",
+      "range": {
+        "startLine": 563,
+        "startChar": 58,
+        "endLine": 563,
+        "endChar": 64
+      },
+      "revId": "661688197a669fc09412c5b162fcf9e80f94f366",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c6b9b00_378dc215",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2016-10-19T01:37:09Z",
+      "side": 1,
+      "message": "use capital C?",
+      "range": {
+        "startLine": 276,
+        "startChar": 7,
+        "endLine": 276,
+        "endChar": 8
+      },
+      "revId": "661688197a669fc09412c5b162fcf9e80f94f366",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c6b9b00_37d2e2e6",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2016-10-19T01:37:09Z",
+      "side": 1,
+      "message": "move this to the top of structs",
+      "revId": "661688197a669fc09412c5b162fcf9e80f94f366",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
