@@ -1,6 +1,7 @@
 #ifndef HIDL_GENERATED_android_hardware_tests_bar_V1_0_Bar_H_
 #define HIDL_GENERATED_android_hardware_tests_bar_V1_0_Bar_H_
 
+#include "YourPrecious.h"
 #include <android/hardware/tests/bar/1.0/IBar.h>
 #include <hidl/Status.h>
 
@@ -51,9 +52,12 @@ struct Bar : public IBar {
 
     // Methods from ::android::hardware::tests::bar::V1_0::IBar follow.
     Return<void> thisIsNew()  override;
+    Return<void> getMyPrecious(getMyPrecious_cb _hidl_cb)  override;
+    Return<void> getYourPrecious(getYourPrecious_cb _hidl_cb)  override;
 
 private:
     sp<IFoo> mFoo;
+    sp<YourPrecious> mPrecious;
 };
 
 extern "C" IBar* HIDL_FETCH_IBar(const char* name);
