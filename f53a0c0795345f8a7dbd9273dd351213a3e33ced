@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1c6b9b00_568dd713",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-19T22:07:39Z",
+      "side": 1,
+      "message": "The wifi hal was started with 2 space indentation. So, I have been following the same. Filed b/32287573 to fix this in a follow up CL. \n\nDo we have some kind of clang-format style to autoformat the .hal files?",
+      "parentUuid": "1c6b9b00_dbfd9098",
+      "range": {
+        "startLine": 438,
+        "startChar": 0,
+        "endLine": 438,
+        "endChar": 2
+      },
+      "revId": "f53a0c0795345f8a7dbd9273dd351213a3e33ced",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c6b9b00_7bc6fc56",
         "filename": "wifi/1.0/IWifiChipEventCallback.hal",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-19T22:01:28Z",
       "side": 1,
       "message": "I know you split these up for now, but won\u0027t this mess up bucketing and reduce efficiency? We might have to come up with a better solution.",
+      "range": {
+        "startLine": 55,
+        "startChar": 2,
+        "endLine": 72,
+        "endChar": 49
+      },
+      "revId": "f53a0c0795345f8a7dbd9273dd351213a3e33ced",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c6b9b00_16b19fc7",
+        "filename": "wifi/1.0/IWifiChipEventCallback.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-19T22:07:39Z",
+      "side": 1,
+      "message": "Well, it might be less efficient for the current legacy HAL shim layer we\u0027re writing. But, in the future the vendors can ensure that each of this data in a separate ring buffer so that they don\u0027t have to mix these callbacks from the same ring buffer.",
+      "parentUuid": "1c6b9b00_7bc6fc56",
       "range": {
         "startLine": 55,
         "startChar": 2,
