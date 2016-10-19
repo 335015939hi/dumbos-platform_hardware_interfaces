@@ -434,4 +434,80 @@ interface IWifiChip {
    */
   createRttController(IWifiIface boundIface)
       generates (WifiStatus status, IWifiRttController rtt);
+
+  /**
+   * WiFi debug ring buffer life cycle is as follow:
+   * - At initialization time, framework will call |getDebugRingBuffersStatus|.
+   *   to obtain the names and list of supported ring buffers.
+   *   The driver may expose several different rings each holding a different
+   *   type of data (connection events, power events, etc).
+   * - When WiFi operation start framework will call
+   *   |startLoggingToDebugRingBuffer| to trigger log collection for a specific
+   *   ring. The vebose level for each ring buffer can be specified in this API.
+   * - During wifi operations, driver will periodically report per ring data to
+   *   framework by invoking the
+   *   |IWifiChipEventCallback.onDebugRingBufferDataAvailable| callback.
+   * - When capturing a bug report, framework will indicate to driver that all
+   *   the data has to be uploaded urgently by calling
+   *   |forceDumpToDebugRingBuffer|.
+   *
+   * The data uploaded by driver will be stored by framework in separate files,
+   * with one stream of file per ring. Framework will store the files in pcapng
+   * format, allowing for easy merging and parsing with network analyzer tools.
+   * TODO: Since we're not longer dumping out the raw data, storing in separate pcapng files
+   * for parsing later will not work anymore.
+   */
+  /**
+   * API to get the status of all ring buffers supported by driver.
+   *
+   * @return status WifiStatus of the operation.
+   *         Possible status codes:
+   *         |WifiStatusCode.SUCCESS|,
+   *         |WifiStatusCode.ERROR_WIFI_CHIP_INVALID|,
+   *         |WifiStatusCode.NOT_AVAILABLE|,
+   *         |WifiStatusCode.UNKNOWN|
+   * @return status Vector of |WifiDebugRingBufferStatus| corresponding to the
+   *         status of each ring bufffer on the device.
+   */
+  getDebugRingBuffersStatus() generates (WifiStatus status,
+                                         vec<WifiDebugRingBufferStatus> status);
+
+  /**
+   * API to trigger the debug data collection.
+   *
+   * @param ringName represent the name of the ring for which data collection
+   *        shall start. This can be retrieved via the corresponding
+   *        |WifiDebugRingBufferStatus|.
+   * @parm maxIntervalInSec Maximum interval in seconds for driver to invoke
+   *       |onDebugRingBufferData|, ignore if zero.
+   * @parm minDataSizeInBytes: Minimum data size in buffer for driver to invoke
+   *       |onDebugRingBufferData|, ignore if zero.
+   * @return status WifiStatus of the operation.
+   *         Possible status codes:
+   *         |WifiStatusCode.SUCCESS|,
+   *         |WifiStatusCode.ERROR_WIFI_CHIP_INVALID|,
+   *         |WifiStatusCode.NOT_AVAILABLE|,
+   *         |WifiStatusCode.UNKNOWN|
+   */
+  startLoggingToDebugRingBuffer(string ringName,
+                                WifiDebugRingBufferVerboseLevel verboseLevel,
+                                uint32_t maxIntervalInSec,
+                                uint32_t minDataSizeInBytes)
+      generates (WifiStatus status);
+
+  /**
+   * API to force dump data into the corresponding ring buffer.
+   * This is to be invoked during bugreport collection.
+   *
+   * @param ringName represent the name of the ring for which data collection
+   *        shall be forced. This can be retrieved via the corresponding
+   *        |WifiDebugRingBufferStatus|.
+   * @return status WifiStatus of the operation.
+   *         Possible status codes:
+   *         |WifiStatusCode.SUCCESS|,
+   *         |WifiStatusCode.ERROR_WIFI_CHIP_INVALID|,
+   *         |WifiStatusCode.NOT_AVAILABLE|,
+   *         |WifiStatusCode.UNKNOWN|
+   */
+  forceDumpToDebugRingBuffer(string ringName) generates (WifiStatus status);
 };
