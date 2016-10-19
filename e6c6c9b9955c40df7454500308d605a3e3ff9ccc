@@ -117,6 +117,30 @@
       "revId": "e6c6c9b9955c40df7454500308d605a3e3ff9ccc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c6b9b00_2f5a8241",
+        "filename": "boot_control/1.0/default/BootControl.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1115183
+      },
+      "writtenOn": "2016-10-19T19:11:09Z",
+      "side": 1,
+      "message": "Right, neither of the implementations of the old HAL (in hardware/qcom/bootctrl and system/extras/boot_control_copy) implement open",
+      "parentUuid": "1c6b9b00_6f611a1b",
+      "range": {
+        "startLine": 83,
+        "startChar": 10,
+        "endLine": 83,
+        "endChar": 23
+      },
+      "revId": "e6c6c9b9955c40df7454500308d605a3e3ff9ccc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
