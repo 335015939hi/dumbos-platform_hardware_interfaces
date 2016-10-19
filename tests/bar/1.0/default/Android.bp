@@ -5,7 +5,9 @@ cc_library_shared {
     relative_install_path: "hw",
     srcs: [
         "Bar.cpp",
+        "MyPrecious.cpp",
         "ImportTypes.cpp",
+        "YourPrecious.cpp",
     ],
 
     shared_libs: [

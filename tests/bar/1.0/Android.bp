@@ -7,10 +7,14 @@ genrule {
     srcs: [
         "IBar.hal",
         "IImportTypes.hal",
+        "IMyPrecious.hal",
+        "IYourPrecious.hal",
     ],
     out: [
         "android/hardware/tests/bar/1.0/BarAll.cpp",
         "android/hardware/tests/bar/1.0/ImportTypesAll.cpp",
+        "android/hardware/tests/bar/1.0/MyPreciousAll.cpp",
+        "android/hardware/tests/bar/1.0/YourPreciousAll.cpp",
     ],
 }
 
@@ -21,6 +25,8 @@ genrule {
     srcs: [
         "IBar.hal",
         "IImportTypes.hal",
+        "IMyPrecious.hal",
+        "IYourPrecious.hal",
     ],
     out: [
         "android/hardware/tests/bar/1.0/IBar.h",
@@ -33,6 +39,16 @@ genrule {
         "android/hardware/tests/bar/1.0/BnImportTypes.h",
         "android/hardware/tests/bar/1.0/BpImportTypes.h",
         "android/hardware/tests/bar/1.0/BsImportTypes.h",
+        "android/hardware/tests/bar/1.0/IMyPrecious.h",
+        "android/hardware/tests/bar/1.0/IHwMyPrecious.h",
+        "android/hardware/tests/bar/1.0/BnMyPrecious.h",
+        "android/hardware/tests/bar/1.0/BpMyPrecious.h",
+        "android/hardware/tests/bar/1.0/BsMyPrecious.h",
+        "android/hardware/tests/bar/1.0/IYourPrecious.h",
+        "android/hardware/tests/bar/1.0/IHwYourPrecious.h",
+        "android/hardware/tests/bar/1.0/BnYourPrecious.h",
+        "android/hardware/tests/bar/1.0/BpYourPrecious.h",
+        "android/hardware/tests/bar/1.0/BsYourPrecious.h",
     ],
 }
 

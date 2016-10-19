@@ -107,4 +107,5 @@ interface IFoo {
     sendVec(vec<uint8_t> data) generates (vec<uint8_t> data);
 
     sendVecVec() generates (vec<vec<uint8_t>> vecvec);
+
 };
