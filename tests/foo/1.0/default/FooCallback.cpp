@@ -120,10 +120,6 @@ Return<void> FooCallback::youBlockedMeFor(const hidl_array<int64_t, 3> &ns) {
     return Void();
 }
 
-IFooCallback* HIDL_FETCH_IFooCallback(const char* /* name */) {
-    return new FooCallback();
-}
-
 } // namespace implementation
 }  // namespace V1_0
 }  // namespace foo
