@@ -143,28 +143,31 @@ Return<void> WifiChip::requestChipDebugInfo(
 
   IWifiChip::ChipDebugInfo result;
 
-  std::pair<legacy_hal::wifi_error, std::string> legacy_ret =
-      legacy_hal_.lock()->getDriverVersion();
-  if (legacy_ret.first != legacy_hal::WIFI_SUCCESS) {
+  legacy_hal::wifi_error legacy_status;
+  std::string driver_desc;
+  std::tie(legacy_status, driver_desc) = legacy_hal_.lock()->getDriverVersion();
+  if (legacy_status != legacy_hal::WIFI_SUCCESS) {
     LOG(ERROR) << "Failed to get driver version: "
-               << legacyErrorToString(legacy_ret.first);
+               << legacyErrorToString(legacy_status);
     WifiStatus status = createWifiStatusFromLegacyError(
-        legacy_ret.first, "failed to get driver version");
+        legacy_status, "failed to get driver version");
     hidl_status_cb(status, result);
     return Void();
   }
-  result.driverDescription = legacy_ret.second.c_str();
+  result.driverDescription = driver_desc.c_str();
 
-  legacy_ret = legacy_hal_.lock()->getFirmwareVersion();
-  if (legacy_ret.first != legacy_hal::WIFI_SUCCESS) {
+  std::string firmware_desc;
+  std::tie(legacy_status, firmware_desc) =
+      legacy_hal_.lock()->getFirmwareVersion();
+  if (legacy_status != legacy_hal::WIFI_SUCCESS) {
     LOG(ERROR) << "Failed to get firmware version: "
-               << legacyErrorToString(legacy_ret.first);
+               << legacyErrorToString(legacy_status);
     WifiStatus status = createWifiStatusFromLegacyError(
-        legacy_ret.first, "failed to get firmware version");
+        legacy_status, "failed to get firmware version");
     hidl_status_cb(status, result);
     return Void();
   }
-  result.firmwareDescription = legacy_ret.second.c_str();
+  result.firmwareDescription = firmware_desc.c_str();
 
   hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS), result);
   return Void();
@@ -178,17 +181,18 @@ Return<void> WifiChip::requestDriverDebugDump(
     return Void();
   }
 
-  std::pair<legacy_hal::wifi_error, std::vector<char>> legacy_ret =
+  legacy_hal::wifi_error legacy_status;
+  std::vector<char> driver_dump;
+  std::tie(legacy_status, driver_dump) =
       legacy_hal_.lock()->requestDriverMemoryDump();
-  if (legacy_ret.first != legacy_hal::WIFI_SUCCESS) {
+  if (legacy_status != legacy_hal::WIFI_SUCCESS) {
     LOG(ERROR) << "Failed to get driver debug dump: "
-               << legacyErrorToString(legacy_ret.first);
-    hidl_status_cb(createWifiStatusFromLegacyError(legacy_ret.first),
+               << legacyErrorToString(legacy_status);
+    hidl_status_cb(createWifiStatusFromLegacyError(legacy_status),
                    hidl_vec<uint8_t>());
     return Void();
   }
 
-  auto& driver_dump = legacy_ret.second;
   hidl_vec<uint8_t> hidl_data;
   hidl_data.setToExternal(reinterpret_cast<uint8_t*>(driver_dump.data()),
                           driver_dump.size());
@@ -204,17 +208,18 @@ Return<void> WifiChip::requestFirmwareDebugDump(
     return Void();
   }
 
-  std::pair<legacy_hal::wifi_error, std::vector<char>> legacy_ret =
+  legacy_hal::wifi_error legacy_status;
+  std::vector<char> firmware_dump;
+  std::tie(legacy_status, firmware_dump) =
       legacy_hal_.lock()->requestFirmwareMemoryDump();
-  if (legacy_ret.first != legacy_hal::WIFI_SUCCESS) {
+  if (legacy_status != legacy_hal::WIFI_SUCCESS) {
     LOG(ERROR) << "Failed to get firmware debug dump: "
-               << legacyErrorToString(legacy_ret.first);
-    hidl_status_cb(createWifiStatusFromLegacyError(legacy_ret.first),
+               << legacyErrorToString(legacy_status);
+    hidl_status_cb(createWifiStatusFromLegacyError(legacy_status),
                    hidl_vec<uint8_t>());
     return Void();
   }
 
-  auto& firmware_dump = legacy_ret.second;
   hidl_vec<uint8_t> hidl_data;
   hidl_data.setToExternal(reinterpret_cast<uint8_t*>(firmware_dump.data()),
                           firmware_dump.size());
