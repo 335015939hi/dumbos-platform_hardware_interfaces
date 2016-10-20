@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "9c886b74_cb51694e",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-20T16:15:09Z",
+      "side": 1,
+      "message": "I must have just not noticed it. There\u0027s nothing to autoformat the hal files yet. This is a pretty non critical issue though.",
+      "parentUuid": "1c6b9b00_568dd713",
+      "range": {
+        "startLine": 438,
+        "startChar": 0,
+        "endLine": 438,
+        "endChar": 2
+      },
+      "revId": "f53a0c0795345f8a7dbd9273dd351213a3e33ced",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c6b9b00_7bc6fc56",
         "filename": "wifi/1.0/IWifiChipEventCallback.hal",
         "patchSetId": 3
