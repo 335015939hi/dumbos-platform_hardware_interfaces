@@ -86,6 +86,16 @@ Return<void> WifiChip::registerEventCallback(
   return Void();
 }
 
+Return<void> WifiChip::getCapabilities(getCapabilities_cb hidl_status_cb) {
+  if (!is_valid_) {
+    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_CHIP_INVALID),
+                   0);
+    return Void();
+  }
+  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS), 0);
+  return Void();
+}
+
 Return<void> WifiChip::getAvailableModes(getAvailableModes_cb hidl_status_cb) {
   if (!is_valid_) {
     hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_CHIP_INVALID),
@@ -414,6 +424,59 @@ Return<void> WifiChip::createRttController(
   sp<WifiRttController> rtt = new WifiRttController(bound_iface, legacy_hal_);
   rtt_controllers_.emplace_back(rtt);
   hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS), rtt);
+  return Void();
+}
+
+Return<void> WifiChip::getDebugRingBuffersStatus(
+    getDebugRingBuffersStatus_cb hidl_status_cb) {
+  if (!is_valid_) {
+    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_CHIP_INVALID),
+                   hidl_vec<WifiDebugRingBufferStatus>());
+    return Void();
+  }
+  // TODO: add implementation
+  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS),
+                 hidl_vec<WifiDebugRingBufferStatus>());
+  return Void();
+}
+
+Return<void> WifiChip::startLoggingToDebugRingBuffer(
+    const hidl_string& /* ringName */,
+    WifiDebugRingBufferVerboseLevel /* verboseLevel */,
+    uint32_t /* maxIntervalInSec */,
+    uint32_t /* minDataSizeInBytes */,
+    startLoggingToDebugRingBuffer_cb hidl_status_cb) {
+  if (!is_valid_) {
+    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_CHIP_INVALID));
+    return Void();
+  }
+  // TODO: add implementation
+  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
+  return Void();
+}
+
+Return<void> WifiChip::forceDumpToDebugRingBuffer(
+    const hidl_string& /* ringName */,
+    forceDumpToDebugRingBuffer_cb hidl_status_cb) {
+  if (!is_valid_) {
+    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_CHIP_INVALID));
+    return Void();
+  }
+  // TODO: add implementation
+  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
+  return Void();
+}
+
+Return<void> WifiChip::getDebugHostWakeReasonStats(
+    getDebugHostWakeReasonStats_cb hidl_status_cb) {
+  if (!is_valid_) {
+    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_CHIP_INVALID),
+                   WifiDebugHostWakeReasonStats());
+    return Void();
+  }
+  // TODO: add implementation
+  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS),
+                 WifiDebugHostWakeReasonStats());
   return Void();
 }
 
