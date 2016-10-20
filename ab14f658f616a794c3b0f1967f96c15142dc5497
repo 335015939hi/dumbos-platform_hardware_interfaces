@@ -16,6 +16,24 @@
       "revId": "ab14f658f616a794c3b0f1967f96c15142dc5497",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c886b74_6e3ac6e4",
+        "filename": "tests/foo/1.0/default/FooCallback.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-20T22:06:43Z",
+      "side": 1,
+      "message": "Ah. The implementation of IFooCallback should actually be in hidl_test. It isn\u0027t part of the service. It\u0027s supposed to be used as a callback.",
+      "parentUuid": "9c886b74_93b39737",
+      "revId": "ab14f658f616a794c3b0f1967f96c15142dc5497",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
