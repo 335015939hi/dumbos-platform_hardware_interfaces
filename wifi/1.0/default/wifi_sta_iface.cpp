@@ -350,6 +350,54 @@ Return<void> WifiStaIface::getLinkLayerStats(
   hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS), hidl_stats);
   return Void();
 }
+
+Return<void> WifiStaIface::startDebugPacketFateMonitoring(
+    startDebugPacketFateMonitoring_cb hidl_status_cb) {
+  if (!is_valid_) {
+    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_IFACE_INVALID));
+    return Void();
+  }
+  // TODO: add implementation
+  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
+  return Void();
+}
+
+Return<void> WifiStaIface::stopDebugPacketFateMonitoring(
+    stopDebugPacketFateMonitoring_cb hidl_status_cb) {
+  if (!is_valid_) {
+    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_IFACE_INVALID));
+    return Void();
+  }
+  // TODO: add implementation
+  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
+  return Void();
+}
+
+Return<void> WifiStaIface::getDebugTxPacketFates(
+    getDebugTxPacketFates_cb hidl_status_cb) {
+  if (!is_valid_) {
+    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_IFACE_INVALID),
+                   hidl_vec<WifiDebugTxPacketFateReport>());
+    return Void();
+  }
+  // TODO: add implementation
+  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS),
+                 hidl_vec<WifiDebugTxPacketFateReport>());
+  return Void();
+}
+
+Return<void> WifiStaIface::getDebugRxPacketFates(
+    getDebugRxPacketFates_cb hidl_status_cb) {
+  if (!is_valid_) {
+    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_IFACE_INVALID),
+                   hidl_vec<WifiDebugRxPacketFateReport>());
+    return Void();
+  }
+  // TODO: add implementation
+  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS),
+                 hidl_vec<WifiDebugRxPacketFateReport>());
+  return Void();
+}
 }  // namespace implementation
 }  // namespace V1_0
 }  // namespace wifi
