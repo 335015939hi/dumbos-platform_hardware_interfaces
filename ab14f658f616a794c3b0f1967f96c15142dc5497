@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9c886b74_93b39737",
+        "filename": "tests/foo/1.0/default/FooCallback.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2016-10-20T21:27:35Z",
+      "side": 1,
+      "message": "I don\u0027t think we can getService for IFooCallBack if we remove this? (It is used in hidl_test)",
+      "revId": "ab14f658f616a794c3b0f1967f96c15142dc5497",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
