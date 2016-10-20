@@ -64,6 +64,7 @@ class WifiChip : public IWifiChip {
   Return<void> registerEventCallback(
       const sp<IWifiChipEventCallback>& event_callback,
       registerEventCallback_cb hidl_status_cb) override;
+  Return<void> getCapabilities(getCapabilities_cb hidl_status_cb) override;
   Return<void> getAvailableModes(getAvailableModes_cb hidl_status_cb) override;
   Return<void> configureChip(uint32_t mode_id,
                              configureChip_cb hidl_status_cb) override;
@@ -93,6 +94,19 @@ class WifiChip : public IWifiChip {
   Return<void> createRttController(
       const sp<IWifiIface>& bound_iface,
       createRttController_cb hidl_status_cb) override;
+  Return<void> getDebugRingBuffersStatus(
+      getDebugRingBuffersStatus_cb hidl_status_cb) override;
+  Return<void> startLoggingToDebugRingBuffer(
+      const hidl_string& ringName,
+      WifiDebugRingBufferVerboseLevel verboseLevel,
+      uint32_t maxIntervalInSec,
+      uint32_t minDataSizeInBytes,
+      startLoggingToDebugRingBuffer_cb hidl_status_cb) override;
+  Return<void> forceDumpToDebugRingBuffer(
+      const hidl_string& ringName,
+      forceDumpToDebugRingBuffer_cb hidl_status_cb) override;
+  Return<void> getDebugHostWakeReasonStats(
+      getDebugHostWakeReasonStats_cb hidl_status_cb) override;
 
  private:
   void invalidateAndRemoveAllIfaces();
