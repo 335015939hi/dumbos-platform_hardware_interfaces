@@ -53,6 +53,17 @@ struct LinkLayerStats {
 };
 #pragma GCC diagnostic pop
 
+// The |WLAN_DRIVER_WAKE_REASON_CNT.cmd_event_wake_cnt| and
+// |WLAN_DRIVER_WAKE_REASON_CNT.driver_fw_local_wake_cnt| stats is provided
+// as a pointer in |WLAN_DRIVER_WAKE_REASON_CNT| structure in the legacy HAL
+// API. Separate that out into a separate return elements to avoid passing
+// pointers around.
+struct WakeReasonStats {
+  WLAN_DRIVER_WAKE_REASON_CNT wake_reason_cnt;
+  std::vector<uint32_t> cmd_event_wake_cnt;
+  std::vector<uint32_t> driver_fw_local_wake_cnt;
+};
+
 // NAN response and event callbacks.
 struct NanCallbackHandlers {
   // NotifyResponse invoked to notify the status of the Request.
@@ -142,6 +153,11 @@ class WifiLegacyHal {
   wifi_error enableLinkLayerStats(bool debug);
   wifi_error disableLinkLayerStats();
   std::pair<wifi_error, LinkLayerStats> getLinkLayerStats();
+  std::pair<wifi_error, uint32_t> getLoggerSupportedFeatureSet();
+  wifi_error startPktFateMonitoring();
+  std::pair<wifi_error, std::vector<wifi_tx_report>> getTxPktFates();
+  std::pair<wifi_error, std::vector<wifi_rx_report>> getRxPktFates();
+  std::pair<wifi_error, WakeReasonStats> getWakeReasonStats();
   // RTT related methods.
   wifi_error startRttRangeRequest(
       wifi_request_id id,
