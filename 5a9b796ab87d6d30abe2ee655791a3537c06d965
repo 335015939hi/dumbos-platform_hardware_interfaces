@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9c886b74_a077647d",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 526,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-20T15:12:05Z",
+      "side": 1,
+      "message": "Hmm. There isn\u0027t a stop in the legacy HAL, but  I\u0027ll add a stop for completeness.",
+      "parentUuid": "5cba7338_6f8d5114",
+      "range": {
+        "startLine": 526,
+        "startChar": 2,
+        "endLine": 526,
+        "endChar": 32
+      },
+      "revId": "5a9b796ab87d6d30abe2ee655791a3537c06d965",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5cba7338_4f8a0dfe",
         "filename": "wifi/1.0/IWifiStaIface.hal",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "9c886b74_a02e8457",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-20T15:12:05Z",
+      "side": 1,
+      "message": "Added a new NOT_STARTED error code for these kind of errors.",
+      "parentUuid": "5cba7338_4f8a0dfe",
+      "range": {
+        "startLine": 541,
+        "startChar": 13,
+        "endLine": 541,
+        "endChar": 19
+      },
+      "revId": "5a9b796ab87d6d30abe2ee655791a3537c06d965",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c0657a0_e8f213c8",
         "filename": "wifi/1.0/IWifiStaIface.hal",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2016-10-20T07:52:18Z",
       "side": 1,
       "message": "What happens on sequential gets? Do we get different packets/same? (i.e. is it reset of get?).",
+      "range": {
+        "startLine": 551,
+        "startChar": 2,
+        "endLine": 551,
+        "endChar": 5
+      },
+      "revId": "5a9b796ab87d6d30abe2ee655791a3537c06d965",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c886b74_c03388c0",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 551,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-20T15:12:05Z",
+      "side": 1,
+      "message": "This is just a get (no reset) of the packets from the most recent association attempt. Sequentual gets would get u the same data untill the next association.",
+      "parentUuid": "7c0657a0_e8f213c8",
       "range": {
         "startLine": 551,
         "startChar": 2,
