@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "1c6b9b00_7d1f1976",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-20T00:16:23Z",
+      "side": 1,
+      "message": "wouldn\u0027t it make more sense for the hal to keep track of serial numbers?",
+      "range": {
+        "startLine": 61,
+        "startChar": 46,
+        "endLine": 61,
+        "endChar": 60
+      },
+      "revId": "661688197a669fc09412c5b162fcf9e80f94f366",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c6b9b00_f7334a56",
         "filename": "radio/1.0/IRadio.hal",
         "patchSetId": 8
@@ -42,6 +65,29 @@
         "startChar": 64,
         "endLine": 666,
         "endChar": 75
+      },
+      "revId": "661688197a669fc09412c5b162fcf9e80f94f366",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c6b9b00_9df7951d",
+        "filename": "radio/1.0/IRadioCallback.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-20T00:16:23Z",
+      "side": 1,
+      "message": "shouldn\u0027t these all be oneway as well?",
+      "range": {
+        "startLine": 28,
+        "startChar": 4,
+        "endLine": 28,
+        "endChar": 24
       },
       "revId": "661688197a669fc09412c5b162fcf9e80f94f366",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -331,6 +377,29 @@
     },
     {
       "key": {
+        "uuid": "1c6b9b00_fd32090b",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-20T00:16:23Z",
+      "side": 1,
+      "message": "Just delete them here. In a vendor HAL extension, there will be no \"OEM_ERROR_*\", just explicit error names like you have above that are specified by the vendor. That bug is \u0027fixed\u0027 (except for the fact that the mentioned CL is not merged).",
+      "range": {
+        "startLine": 123,
+        "startChar": 4,
+        "endLine": 123,
+        "endChar": 52
+      },
+      "revId": "661688197a669fc09412c5b162fcf9e80f94f366",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c6b9b00_378dc215",
         "filename": "radio/1.0/types.hal",
         "patchSetId": 8
@@ -378,6 +447,29 @@
     },
     {
       "key": {
+        "uuid": "1c6b9b00_dd2f4da1",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-20T00:16:23Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 413,
+        "startChar": 4,
+        "endLine": 429,
+        "endChar": 32
+      },
+      "revId": "661688197a669fc09412c5b162fcf9e80f94f366",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c6b9b00_37d2e2e6",
         "filename": "radio/1.0/types.hal",
         "patchSetId": 8
@@ -407,6 +499,190 @@
       "side": 1,
       "message": "top of structs ? Its already first struct defined in this file.",
       "parentUuid": "1c6b9b00_37d2e2e6",
+      "revId": "661688197a669fc09412c5b162fcf9e80f94f366",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c6b9b00_dd010d22",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-20T00:16:23Z",
+      "side": 1,
+      "message": "which can these be?",
+      "range": {
+        "startLine": 481,
+        "startChar": 12,
+        "endLine": 481,
+        "endChar": 16
+      },
+      "revId": "661688197a669fc09412c5b162fcf9e80f94f366",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c6b9b00_7df8b910",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-20T00:16:23Z",
+      "side": 1,
+      "message": "What possibilities are there here?",
+      "range": {
+        "startLine": 484,
+        "startChar": 12,
+        "endLine": 484,
+        "endChar": 17
+      },
+      "revId": "661688197a669fc09412c5b162fcf9e80f94f366",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c6b9b00_9d2e75a7",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-20T00:16:23Z",
+      "side": 1,
+      "message": "please update comments (there are several mentioning null)",
+      "range": {
+        "startLine": 491,
+        "startChar": 45,
+        "endLine": 491,
+        "endChar": 67
+      },
+      "revId": "661688197a669fc09412c5b162fcf9e80f94f366",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c6b9b00_5d4b3d76",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-20T00:16:23Z",
+      "side": 1,
+      "message": "why not just use a uint of some type then? (same below)",
+      "range": {
+        "startLine": 559,
+        "startChar": 45,
+        "endLine": 559,
+        "endChar": 78
+      },
+      "revId": "661688197a669fc09412c5b162fcf9e80f94f366",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c6b9b00_fd6049eb",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 686,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-20T00:16:23Z",
+      "side": 1,
+      "message": "what do these hold?",
+      "range": {
+        "startLine": 684,
+        "startChar": 4,
+        "endLine": 686,
+        "endChar": 15
+      },
+      "revId": "661688197a669fc09412c5b162fcf9e80f94f366",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c6b9b00_bd409150",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-20T00:16:23Z",
+      "side": 1,
+      "message": "what is in this? doesn\u0027t seem like something called \u0027data\u0027 should be a string.",
+      "range": {
+        "startLine": 687,
+        "startChar": 11,
+        "endLine": 687,
+        "endChar": 15
+      },
+      "revId": "661688197a669fc09412c5b162fcf9e80f94f366",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c6b9b00_9d2035c4",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 688,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-20T00:16:23Z",
+      "side": 1,
+      "message": "May be empty (now)?",
+      "range": {
+        "startLine": 687,
+        "startChar": 45,
+        "endLine": 688,
+        "endChar": 56
+      },
+      "revId": "661688197a669fc09412c5b162fcf9e80f94f366",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c6b9b00_9d45d561",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 711,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-20T00:16:23Z",
+      "side": 1,
+      "message": "use an enumeration",
+      "range": {
+        "startLine": 707,
+        "startChar": 42,
+        "endLine": 711,
+        "endChar": 56
+      },
       "revId": "661688197a669fc09412c5b162fcf9e80f94f366",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
