@@ -1,0 +1,740 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9c886b74_34209e5e",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-20T00:16:23Z",
+      "side": 1,
+      "message": "what error is returned if there is an invalid slot id?",
+      "range": {
+        "startLine": 39,
+        "startChar": 48,
+        "endLine": 39,
+        "endChar": 61
+      },
+      "revId": "4122c67da284c659949c480c528e4909fdc5457b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c886b74_d4c0323c",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-20T00:16:23Z",
+      "side": 1,
+      "message": "I think I\u0027ve mentioned this in other CLs, but serial ids should really be determined by the hal implementation. Multiple different clients could request colliding serials or if the client restarts without the hal implementation realizing it.",
+      "range": {
+        "startLine": 61,
+        "startChar": 54,
+        "endLine": 61,
+        "endChar": 60
+      },
+      "revId": "4122c67da284c659949c480c528e4909fdc5457b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c886b74_34373ea3",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-20T00:16:23Z",
+      "side": 1,
+      "message": "There is no null. Please update comments (actually grep for null, it\u0027s in several places).",
+      "range": {
+        "startLine": 70,
+        "startChar": 65,
+        "endLine": 70,
+        "endChar": 69
+      },
+      "revId": "4122c67da284c659949c480c528e4909fdc5457b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c886b74_b4a6cea5",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-20T00:16:23Z",
+      "side": 1,
+      "message": "personalization",
+      "range": {
+        "startLine": 167,
+        "startChar": 29,
+        "endLine": 167,
+        "endChar": 43
+      },
+      "revId": "4122c67da284c659949c480c528e4909fdc5457b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c886b74_3493be43",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-20T00:16:23Z",
+      "side": 1,
+      "message": "must",
+      "range": {
+        "startLine": 333,
+        "startChar": 25,
+        "endLine": 333,
+        "endChar": 31
+      },
+      "revId": "4122c67da284c659949c480c528e4909fdc5457b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c886b74_d76ef472",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-20T00:16:23Z",
+      "side": 1,
+      "message": "as",
+      "range": {
+        "startLine": 333,
+        "startChar": 35,
+        "endLine": 333,
+        "endChar": 37
+      },
+      "revId": "4122c67da284c659949c480c528e4909fdc5457b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c886b74_f773f859",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-20T00:16:23Z",
+      "side": 1,
+      "message": "unfinished",
+      "range": {
+        "startLine": 335,
+        "startChar": 50,
+        "endLine": 335,
+        "endChar": 65
+      },
+      "revId": "4122c67da284c659949c480c528e4909fdc5457b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c886b74_5783e4ea",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-20T00:16:23Z",
+      "side": 1,
+      "message": "what exactly does this mean?",
+      "range": {
+        "startLine": 391,
+        "startChar": 27,
+        "endLine": 391,
+        "endChar": 47
+      },
+      "revId": "4122c67da284c659949c480c528e4909fdc5457b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c886b74_1496ba32",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-20T00:16:23Z",
+      "side": 1,
+      "message": "must",
+      "range": {
+        "startLine": 496,
+        "startChar": 32,
+        "endLine": 496,
+        "endChar": 36
+      },
+      "revId": "4122c67da284c659949c480c528e4909fdc5457b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c886b74_d795941c",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 518,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-20T00:16:23Z",
+      "side": 1,
+      "message": "must",
+      "range": {
+        "startLine": 518,
+        "startChar": 7,
+        "endLine": 518,
+        "endChar": 13
+      },
+      "revId": "4122c67da284c659949c480c528e4909fdc5457b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c886b74_b794901d",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-20T00:16:23Z",
+      "side": 1,
+      "message": "must",
+      "range": {
+        "startLine": 655,
+        "startChar": 25,
+        "endLine": 655,
+        "endChar": 31
+      },
+      "revId": "4122c67da284c659949c480c528e4909fdc5457b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c886b74_b7cb303c",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 884,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-20T00:16:23Z",
+      "side": 1,
+      "message": "please update comment",
+      "range": {
+        "startLine": 884,
+        "startChar": 21,
+        "endLine": 884,
+        "endChar": 60
+      },
+      "revId": "4122c67da284c659949c480c528e4909fdc5457b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c886b74_57b1a4c6",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 915,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-20T00:16:23Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 915,
+        "startChar": 32,
+        "endLine": 915,
+        "endChar": 36
+      },
+      "revId": "4122c67da284c659949c480c528e4909fdc5457b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c886b74_77d5c8cd",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 916,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-20T00:16:23Z",
+      "side": 1,
+      "message": "Delete. Must specify what an implementation of @1.0::IRadio does exactly",
+      "range": {
+        "startLine": 916,
+        "startChar": 38,
+        "endLine": 916,
+        "endChar": 47
+      },
+      "revId": "4122c67da284c659949c480c528e4909fdc5457b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c886b74_f7e8d89f",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 917,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-20T00:16:23Z",
+      "side": 1,
+      "message": "shouldn\u0027t this be an enum?",
+      "range": {
+        "startLine": 916,
+        "startChar": 38,
+        "endLine": 917,
+        "endChar": 75
+      },
+      "revId": "4122c67da284c659949c480c528e4909fdc5457b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c886b74_17d23ce7",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 930,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-20T00:16:23Z",
+      "side": 1,
+      "message": "must",
+      "range": {
+        "startLine": 930,
+        "startChar": 7,
+        "endLine": 930,
+        "endChar": 11
+      },
+      "revId": "4122c67da284c659949c480c528e4909fdc5457b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c886b74_d70a7493",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 931,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-20T00:16:23Z",
+      "side": 1,
+      "message": "must\n\n(please grep for will/should/could and replace appropriately, I\u0027ll continue marking ones that I see).",
+      "range": {
+        "startLine": 931,
+        "startChar": 48,
+        "endLine": 931,
+        "endChar": 52
+      },
+      "revId": "4122c67da284c659949c480c528e4909fdc5457b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c886b74_9714ecb6",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 955,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-20T00:16:23Z",
+      "side": 1,
+      "message": "must",
+      "range": {
+        "startLine": 955,
+        "startChar": 14,
+        "endLine": 955,
+        "endChar": 20
+      },
+      "revId": "4122c67da284c659949c480c528e4909fdc5457b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c886b74_b719f0ef",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 956,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-20T00:16:23Z",
+      "side": 1,
+      "message": "why?",
+      "range": {
+        "startLine": 956,
+        "startChar": 15,
+        "endLine": 956,
+        "endChar": 35
+      },
+      "revId": "4122c67da284c659949c480c528e4909fdc5457b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c886b74_571f64d1",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 959,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-20T00:16:23Z",
+      "side": 1,
+      "message": "elaborate when it could be?",
+      "range": {
+        "startLine": 957,
+        "startChar": 53,
+        "endLine": 959,
+        "endChar": 54
+      },
+      "revId": "4122c67da284c659949c480c528e4909fdc5457b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c886b74_d7f1147d",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 966,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-20T00:16:23Z",
+      "side": 1,
+      "message": "replace with bool?",
+      "range": {
+        "startLine": 965,
+        "startChar": 14,
+        "endLine": 966,
+        "endChar": 43
+      },
+      "revId": "4122c67da284c659949c480c528e4909fdc5457b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c886b74_b7f01076",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 1014,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-20T00:16:23Z",
+      "side": 1,
+      "message": "update comments",
+      "range": {
+        "startLine": 1014,
+        "startChar": 24,
+        "endLine": 1014,
+        "endChar": 59
+      },
+      "revId": "4122c67da284c659949c480c528e4909fdc5457b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c886b74_9762ac53",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 1150,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-20T00:16:23Z",
+      "side": 1,
+      "message": "must",
+      "range": {
+        "startLine": 1150,
+        "startChar": 10,
+        "endLine": 1150,
+        "endChar": 16
+      },
+      "revId": "4122c67da284c659949c480c528e4909fdc5457b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c886b74_37542068",
+        "filename": "radio/1.0/IRadioCallback.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-20T00:16:23Z",
+      "side": 1,
+      "message": "should be an enumeration?",
+      "range": {
+        "startLine": 168,
+        "startChar": 49,
+        "endLine": 168,
+        "endChar": 56
+      },
+      "revId": "4122c67da284c659949c480c528e4909fdc5457b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c886b74_d73fd41f",
+        "filename": "radio/1.0/IRadioCallback.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-20T00:16:23Z",
+      "side": 1,
+      "message": "please update these in comments",
+      "range": {
+        "startLine": 196,
+        "startChar": 14,
+        "endLine": 196,
+        "endChar": 18
+      },
+      "revId": "4122c67da284c659949c480c528e4909fdc5457b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c886b74_d7cd941b",
+        "filename": "radio/1.0/IRadioCallback.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-20T00:16:23Z",
+      "side": 1,
+      "message": "is there a better value than 3?",
+      "range": {
+        "startLine": 233,
+        "startChar": 33,
+        "endLine": 233,
+        "endChar": 56
+      },
+      "revId": "4122c67da284c659949c480c528e4909fdc5457b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c886b74_97394c3d",
+        "filename": "radio/1.0/IRadioCallback.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-20T00:16:23Z",
+      "side": 1,
+      "message": "why not an enumeration. Doesn\u0027t seem to make sense to have here",
+      "range": {
+        "startLine": 233,
+        "startChar": 14,
+        "endLine": 233,
+        "endChar": 29
+      },
+      "revId": "4122c67da284c659949c480c528e4909fdc5457b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c886b74_57bbe479",
+        "filename": "radio/1.0/IRadioCallback.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-20T00:16:23Z",
+      "side": 1,
+      "message": "How about combining some of these into semantic groups using structs? This is a lot of arguments.",
+      "range": {
+        "startLine": 284,
+        "startChar": 34,
+        "endLine": 288,
+        "endChar": 83
+      },
+      "revId": "4122c67da284c659949c480c528e4909fdc5457b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c886b74_77df08c1",
+        "filename": "radio/1.0/IRadioCallback.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-20T00:16:23Z",
+      "side": 1,
+      "message": "same with anything with more than 6 or so arguments. It just leads to hard to read code.",
+      "range": {
+        "startLine": 328,
+        "startChar": 34,
+        "endLine": 330,
+        "endChar": 52
+      },
+      "revId": "4122c67da284c659949c480c528e4909fdc5457b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c886b74_17dc7cc9",
+        "filename": "radio/1.0/IRadioCallback.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 550,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-20T00:16:23Z",
+      "side": 1,
+      "message": "shouldn\u0027t basically every one of these be oneway?",
+      "range": {
+        "startLine": 550,
+        "startChar": 4,
+        "endLine": 550,
+        "endChar": 20
+      },
+      "revId": "4122c67da284c659949c480c528e4909fdc5457b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c886b74_f779b8ec",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-20T00:16:23Z",
+      "side": 1,
+      "message": "nit-ish: you could also just say:\n\nNONE,\nRADIO_NOT_AVAILABLE,\n...\n\nThe underlying values representing these concepts shouldn\u0027t really matter.",
+      "range": {
+        "startLine": 58,
+        "startChar": 11,
+        "endLine": 58,
+        "endChar": 12
+      },
+      "revId": "4122c67da284c659949c480c528e4909fdc5457b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c886b74_f7a0d82e",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 686,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-20T00:16:23Z",
+      "side": 1,
+      "message": "what are these?",
+      "range": {
+        "startLine": 684,
+        "startChar": 4,
+        "endLine": 686,
+        "endChar": 15
+      },
+      "revId": "4122c67da284c659949c480c528e4909fdc5457b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
