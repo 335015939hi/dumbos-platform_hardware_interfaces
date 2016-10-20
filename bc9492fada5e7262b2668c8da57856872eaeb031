@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9c886b74_90d5cdd0",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 556,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-20T19:56:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c886b74_5dfd3e48",
+      "range": {
+        "startLine": 556,
+        "startChar": 17,
+        "endLine": 556,
+        "endChar": 20
+      },
+      "revId": "bc9492fada5e7262b2668c8da57856872eaeb031",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c886b74_bd622a53",
         "filename": "wifi/1.0/IWifiStaIface.hal",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-20T18:43:12Z",
       "side": 1,
       "message": "same",
+      "range": {
+        "startLine": 582,
+        "startChar": 17,
+        "endLine": 582,
+        "endChar": 20
+      },
+      "revId": "bc9492fada5e7262b2668c8da57856872eaeb031",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c886b74_b0eb3189",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 582,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-20T19:56:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c886b74_bd622a53",
       "range": {
         "startLine": 582,
         "startChar": 17,
