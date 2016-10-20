@@ -67,6 +67,14 @@ class WifiStaIface : public IWifiStaIface {
   Return<void> disableLinkLayerStatsCollection(
       disableLinkLayerStatsCollection_cb hidl_status_cb) override;
   Return<void> getLinkLayerStats(getLinkLayerStats_cb hidl_status_cb) override;
+  Return<void> startDebugPacketFateMonitoring(
+      startDebugPacketFateMonitoring_cb hidl_status_cb) override;
+  Return<void> stopDebugPacketFateMonitoring(
+      stopDebugPacketFateMonitoring_cb hidl_status_cb) override;
+  Return<void> getDebugTxPacketFates(
+      getDebugTxPacketFates_cb hidl_status_cb) override;
+  Return<void> getDebugRxPacketFates(
+      getDebugRxPacketFates_cb hidl_status_cb) override;
 
  private:
   std::string ifname_;
