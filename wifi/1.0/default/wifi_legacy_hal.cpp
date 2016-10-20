@@ -219,6 +219,7 @@ static constexpr uint32_t kMaxVersionStringLength = 256;
 static constexpr uint32_t kMaxCachedGscanResults = 64;
 static constexpr uint32_t kMaxGscanFrequenciesForBand = 64;
 static constexpr uint32_t kLinkLayerStatsDataMpduSizeThreshold = 128;
+static constexpr uint32_t kMaxWakeReasonStatsType = 32;
 
 WifiLegacyHal::WifiLegacyHal()
     : global_handle_(nullptr),
@@ -517,6 +518,95 @@ std::pair<wifi_error, LinkLayerStats> WifiLegacyHal::getLinkLayerStats() {
       0, wlan_interface_handle_, {onLinkLayerStatsDataResult});
   on_link_layer_stats_result_internal_callback = nullptr;
   return std::make_pair(status, link_stats);
+}
+
+std::pair<wifi_error, uint32_t> WifiLegacyHal::getLoggerSupportedFeatureSet() {
+  uint32_t supported_features;
+  wifi_error status = global_func_table_.wifi_get_logger_supported_feature_set(
+      wlan_interface_handle_, &supported_features);
+  return std::make_pair(status, supported_features);
+}
+
+wifi_error WifiLegacyHal::startPktFateMonitoring() {
+  return global_func_table_.wifi_start_pkt_fate_monitoring(
+      wlan_interface_handle_);
+}
+
+std::pair<wifi_error, std::vector<wifi_tx_report>>
+WifiLegacyHal::getTxPktFates() {
+  std::array<wifi_tx_report, MAX_FATE_LOG_LEN> tx_pkt_fates;
+  size_t num_fates = 0;
+  wifi_error status =
+      global_func_table_.wifi_get_tx_pkt_fates(wlan_interface_handle_,
+                                               tx_pkt_fates.data(),
+                                               MAX_FATE_LOG_LEN,
+                                               &num_fates);
+  if (num_fates > MAX_FATE_LOG_LEN) {
+    return std::make_pair(WIFI_ERROR_UNKNOWN, std::vector<wifi_tx_report>());
+  }
+  std::vector<wifi_tx_report> tx_pkt_fates_vec(
+      tx_pkt_fates.begin(), tx_pkt_fates.begin() + num_fates);
+  return std::make_pair(status, std::move(tx_pkt_fates_vec));
+}
+
+std::pair<wifi_error, std::vector<wifi_rx_report>>
+WifiLegacyHal::getRxPktFates() {
+  std::array<wifi_rx_report, MAX_FATE_LOG_LEN> rx_pkt_fates;
+  size_t num_fates = 0;
+  wifi_error status =
+      global_func_table_.wifi_get_rx_pkt_fates(wlan_interface_handle_,
+                                               rx_pkt_fates.data(),
+                                               MAX_FATE_LOG_LEN,
+                                               &num_fates);
+  if (num_fates > MAX_FATE_LOG_LEN) {
+    return std::make_pair(WIFI_ERROR_UNKNOWN, std::vector<wifi_rx_report>());
+  }
+  std::vector<wifi_rx_report> rx_pkt_fates_vec(
+      rx_pkt_fates.begin(), rx_pkt_fates.begin() + num_fates);
+  return std::make_pair(status, std::move(rx_pkt_fates_vec));
+}
+
+std::pair<wifi_error, WakeReasonStats> WifiLegacyHal::getWakeReasonStats() {
+  WLAN_DRIVER_WAKE_REASON_CNT wlan_wake_reason_cnt;
+  std::array<uint32_t, kMaxWakeReasonStatsType> cmd_event_wake_cnt_arr;
+  std::array<uint32_t, kMaxWakeReasonStatsType> driver_fw_local_wake_cnt_arr;
+  // This struct needs separate memory to store the variable sized wake
+  // reason types.
+  wlan_wake_reason_cnt.cmd_event_wake_cnt =
+      reinterpret_cast<int32_t*>(cmd_event_wake_cnt_arr.data());
+  wlan_wake_reason_cnt.cmd_event_wake_cnt_sz = cmd_event_wake_cnt_arr.size();
+  wlan_wake_reason_cnt.cmd_event_wake_cnt_used = 0;
+  wlan_wake_reason_cnt.driver_fw_local_wake_cnt =
+      reinterpret_cast<int32_t*>(driver_fw_local_wake_cnt_arr.data());
+  wlan_wake_reason_cnt.driver_fw_local_wake_cnt_sz =
+      driver_fw_local_wake_cnt_arr.size();
+  wlan_wake_reason_cnt.driver_fw_local_wake_cnt_used = 0;
+
+  wifi_error status = global_func_table_.wifi_get_wake_reason_stats(
+      wlan_interface_handle_, &wlan_wake_reason_cnt);
+
+  // This is ugly! Copy over the retrieved stats/arrays to the external
+  // struct.
+  WakeReasonStats wake_reason_stats_ext;
+  wake_reason_stats_ext.wake_reason_cnt = wlan_wake_reason_cnt;
+  if (wlan_wake_reason_cnt.cmd_event_wake_cnt_used > 0 &&
+      static_cast<uint32_t>(wlan_wake_reason_cnt.cmd_event_wake_cnt_used) <
+          kMaxWakeReasonStatsType) {
+    wake_reason_stats_ext.cmd_event_wake_cnt.assign(
+        cmd_event_wake_cnt_arr.begin(),
+        cmd_event_wake_cnt_arr.begin() +
+            wlan_wake_reason_cnt.cmd_event_wake_cnt_used);
+  }
+  if (wlan_wake_reason_cnt.driver_fw_local_wake_cnt_used > 0 &&
+      static_cast<uint32_t>(
+          wlan_wake_reason_cnt.driver_fw_local_wake_cnt_used) <
+          kMaxWakeReasonStatsType) {
+    wake_reason_stats_ext.driver_fw_local_wake_cnt.assign(
+        driver_fw_local_wake_cnt_arr.begin(),
+        driver_fw_local_wake_cnt_arr.begin() +
+            wlan_wake_reason_cnt.driver_fw_local_wake_cnt_used);
+  }
+  return std::make_pair(status, wake_reason_stats_ext);
 }
 
 wifi_error WifiLegacyHal::startRttRangeRequest(
