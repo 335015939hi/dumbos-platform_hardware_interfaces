@@ -377,6 +377,30 @@
       "revId": "e5595adb2354e2a3f8ff4466e57e883b59acd61f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc6ca3ba_79e31f5c",
+        "filename": "manager/1.0/default/service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-21T18:57:35Z",
+      "side": 1,
+      "message": "This will have to be accomplished another way though. This function call won\u0027t actually work because the hwservicemanager service won\u0027t be running yet.",
+      "parentUuid": "7cce57f1_3dd8a308",
+      "range": {
+        "startLine": 56,
+        "startChar": 4,
+        "endLine": 56,
+        "endChar": 42
+      },
+      "revId": "e5595adb2354e2a3f8ff4466e57e883b59acd61f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
