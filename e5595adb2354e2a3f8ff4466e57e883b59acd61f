@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7cce57f1_7dbb3ba8",
+        "filename": "manager/1.0/IServiceManager.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-21T16:19:53Z",
+      "side": 1,
+      "message": "I did this because these methods shouldn\u0027t be called directly by anything outside of hidl. For get/check service, Interface::getService should be used. For register service, service-\u003eregisterAsService should be used. For something like \u0027listServices\u0027, a literal call like:\n\nauto sm \u003d IServiceManager::getService(\"manager\");\nsm-\u003elistServices(...);\n\ncould be made. However, one would never say:\n\nsm-\u003egetService(...);\n\nexcept for the calls made internally by Interface::getService.\n\nWant me to remove it?",
+      "parentUuid": "5cba7338_52c2b2ec",
+      "range": {
+        "startLine": 26,
+        "startChar": 4,
+        "endLine": 26,
+        "endChar": 28
+      },
+      "revId": "e5595adb2354e2a3f8ff4466e57e883b59acd61f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7cce57f1_1cd5e5ce",
         "filename": "manager/1.0/IServiceManager.hal",
         "patchSetId": 1
@@ -60,6 +84,30 @@
       "side": 1,
       "message": "we have the \"interface\" keyword for this in HIDL, it maps to sp\u003cIBinder\u003e (though I question whether it should really map to IHidlInterface)",
       "parentUuid": "7cce57f1_1cd5e5ce",
+      "range": {
+        "startLine": 27,
+        "startChar": 19,
+        "endLine": 27,
+        "endChar": 25
+      },
+      "revId": "e5595adb2354e2a3f8ff4466e57e883b59acd61f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7cce57f1_5db8f7a9",
+        "filename": "manager/1.0/IServiceManager.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-21T16:19:53Z",
+      "side": 1,
+      "message": "I never actually noticed the keyword before. Thank you!",
+      "parentUuid": "5cba7338_32bbae7b",
       "range": {
         "startLine": 27,
         "startChar": 19,
@@ -166,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "7cce57f1_fddd6bfb",
+        "filename": "manager/1.0/default/ServiceManager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-21T16:19:53Z",
+      "side": 1,
+      "message": "Up to you. In that case, should we tell the wifi team and telephony team to not use /default/ as well?",
+      "parentUuid": "5cba7338_92d25aba",
+      "range": {
+        "startLine": 56,
+        "startChar": 29,
+        "endLine": 56,
+        "endChar": 55
+      },
+      "revId": "e5595adb2354e2a3f8ff4466e57e883b59acd61f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7cce57f1_7c734107",
         "filename": "manager/1.0/default/ServiceManager.h",
         "patchSetId": 1
@@ -213,6 +285,30 @@
     },
     {
       "key": {
+        "uuid": "7cce57f1_bde3f3c1",
+        "filename": "manager/1.0/default/ServiceManager.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-21T16:19:53Z",
+      "side": 1,
+      "message": "In hwservicemanager right now:\n\n    virtual sp\u003cIBinder\u003e         getService( const String16\u0026 name,\n                                            const hidl_version\u0026 version) const {\n        return checkService(name, version);\n    }\n\nI don\u0027t really understand the difference.",
+      "parentUuid": "5cba7338_12b82a7b",
+      "range": {
+        "startLine": 29,
+        "startChar": 32,
+        "endLine": 30,
+        "endChar": 35
+      },
+      "revId": "e5595adb2354e2a3f8ff4466e57e883b59acd61f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7cce57f1_5ccf5d3c",
         "filename": "manager/1.0/default/service.cpp",
         "patchSetId": 1
@@ -248,6 +344,30 @@
       "side": 1,
       "message": "haha. But this is not needed - setTheContextObject() below takes care of letting the kernel driver know this is the service manager.",
       "parentUuid": "7cce57f1_5ccf5d3c",
+      "range": {
+        "startLine": 56,
+        "startChar": 4,
+        "endLine": 56,
+        "endChar": 42
+      },
+      "revId": "e5595adb2354e2a3f8ff4466e57e883b59acd61f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7cce57f1_3dd8a308",
+        "filename": "manager/1.0/default/service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-21T16:19:53Z",
+      "side": 1,
+      "message": "Yes, I know. This is so that people don\u0027t have to know about the context object. Instead they can just say:\n\nauto sm \u003d IServiceManager::getService(\"manager\");\n\nwhich is much more intuitive for someone who has been using hidl.",
+      "parentUuid": "5cba7338_d2cce21d",
       "range": {
         "startLine": 56,
         "startChar": 4,
