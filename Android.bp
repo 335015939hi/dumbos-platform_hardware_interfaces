@@ -3,7 +3,7 @@ subdirs = [
     "benchmarks/msgq/1.0",
     "bluetooth/1.0",
     "boot/1.0",
-    "boot/1.0/default",
+    "manager/1.0",
     "nfc/1.0",
     "nfc/1.0/default",
     "radio/1.0",
