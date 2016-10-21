@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c0017b3_52fd74c3",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 18
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-21T23:31:42Z",
+      "side": 1,
+      "message": "may/must ?",
+      "range": {
+        "startLine": 125,
+        "startChar": 46,
+        "endLine": 125,
+        "endChar": 50
+      },
+      "revId": "5008f61485533b4ceec8b174ff7c6c30beee85f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
