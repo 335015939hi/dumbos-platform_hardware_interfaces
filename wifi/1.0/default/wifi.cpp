@@ -18,8 +18,8 @@
 
 #include <android-base/logging.h>
 
+#include "hidl_return_macros.h"
 #include "wifi_chip.h"
-#include "wifi_status_util.h"
 
 namespace {
 // Chip ID to use for the only supported chip.
@@ -49,12 +49,10 @@ Return<bool> Wifi::isStarted() {
 
 Return<void> Wifi::start(start_cb hidl_status_cb) {
   if (run_state_ == RunState::STARTED) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
+    HIDL_RETURN0(WifiStatusCode::SUCCESS);
     return Void();
   } else if (run_state_ == RunState::STOPPING) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_NOT_AVAILABLE,
-                                    "HAL is stopping"));
-    return Void();
+    HIDL_RETURN0(WifiStatusCode::ERROR_NOT_AVAILABLE, "HAL is stopping");
   }
 
   LOG(INFO) << "Starting HAL";
@@ -62,9 +60,7 @@ Return<void> Wifi::start(start_cb hidl_status_cb) {
   if (legacy_status != legacy_hal::WIFI_SUCCESS) {
     LOG(ERROR) << "Failed to start Wifi HAL "
                << legacyErrorToString(legacy_status);
-    hidl_status_cb(
-        createWifiStatusFromLegacyError(legacy_status, "Failed to start HAL"));
-    return Void();
+    HIDL_RETURN0_FROM_LEGACY_ERROR(legacy_status, "Failed to start HAL");
   }
 
   // Create the chip instance once the HAL is started.
@@ -73,18 +69,14 @@ Return<void> Wifi::start(start_cb hidl_status_cb) {
   for (const auto& callback : event_callbacks_) {
     callback->onStart();
   }
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
-  return Void();
+  HIDL_RETURN0(WifiStatusCode::SUCCESS);
 }
 
 Return<void> Wifi::stop(stop_cb hidl_status_cb) {
   if (run_state_ == RunState::STOPPED) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
-    return Void();
+    HIDL_RETURN0(WifiStatusCode::SUCCESS);
   } else if (run_state_ == RunState::STOPPING) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_NOT_AVAILABLE,
-                                    "HAL is stopping"));
-    return Void();
+    HIDL_RETURN0(WifiStatusCode::ERROR_NOT_AVAILABLE, "HAL is stopping");
   }
 
   LOG(INFO) << "Stopping HAL";
@@ -108,11 +100,9 @@ Return<void> Wifi::stop(stop_cb hidl_status_cb) {
     for (const auto& callback : event_callbacks_) {
       callback->onFailure(wifi_status);
     }
-    hidl_status_cb(wifi_status);
-    return Void();
+    HIDL_RETURN0_FROM_LEGACY_ERROR(legacy_status);
   }
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
-  return Void();
+  HIDL_RETURN0(WifiStatusCode::SUCCESS);
 }
 
 Return<void> Wifi::getChipIds(getChipIds_cb hidl_status_cb) {
@@ -120,6 +110,7 @@ Return<void> Wifi::getChipIds(getChipIds_cb hidl_status_cb) {
   if (chip_.get()) {
     chip_ids.emplace_back(kChipId);
   }
+  // TODO(32146455): Return status
   hidl_vec<ChipId> hidl_data;
   hidl_data.setToExternal(chip_ids.data(), chip_ids.size());
   hidl_status_cb(hidl_data);
@@ -127,6 +118,7 @@ Return<void> Wifi::getChipIds(getChipIds_cb hidl_status_cb) {
 }
 
 Return<void> Wifi::getChip(ChipId chip_id, getChip_cb hidl_status_cb) {
+  // TODO(32146455): Return status
   if (chip_.get() && chip_id == kChipId) {
     hidl_status_cb(chip_);
   } else {
