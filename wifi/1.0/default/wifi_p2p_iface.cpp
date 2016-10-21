@@ -18,7 +18,7 @@
 
 #include <android-base/logging.h>
 
-#include "wifi_status_util.h"
+#include "hidl_return_macros.h"
 
 namespace android {
 namespace hardware {
@@ -38,24 +38,20 @@ void WifiP2pIface::invalidate() {
 
 Return<void> WifiP2pIface::getName(getName_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_IFACE_INVALID),
-                   hidl_string());
-    return Void();
+    HIDL_RETURN1_WITH_CB(WifiStatusCode::ERROR_WIFI_IFACE_INVALID,
+                         hidl_string());
   }
   hidl_string hidl_ifname;
   hidl_ifname.setToExternal(ifname_.c_str(), ifname_.size());
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS), hidl_ifname);
-  return Void();
+  HIDL_RETURN1_WITH_CB(WifiStatusCode::SUCCESS, hidl_ifname);
 }
 
 Return<void> WifiP2pIface::getType(getType_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_IFACE_INVALID),
-                   IfaceType::P2P);
-    return Void();
+    HIDL_RETURN1_WITH_CB(WifiStatusCode::ERROR_WIFI_IFACE_INVALID,
+                         IfaceType::P2P);
   }
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS), IfaceType::P2P);
-  return Void();
+  HIDL_RETURN1_WITH_CB(WifiStatusCode::SUCCESS, IfaceType::P2P);
 }
 
 }  // namespace implementation

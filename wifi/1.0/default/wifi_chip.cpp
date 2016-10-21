@@ -18,7 +18,7 @@
 
 #include <android-base/logging.h>
 
-#include "wifi_status_util.h"
+#include "hidl_return_macros.h"
 
 namespace {
 using android::sp;
@@ -65,80 +65,63 @@ void WifiChip::invalidate() {
 
 Return<void> WifiChip::getId(getId_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_CHIP_INVALID),
-                   UINT32_MAX);
-    return Void();
+    HIDL_RETURN1_WITH_CB(WifiStatusCode::ERROR_WIFI_CHIP_INVALID, UINT32_MAX);
   }
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS), chip_id_);
-  return Void();
+  HIDL_RETURN1_WITH_CB(WifiStatusCode::SUCCESS, chip_id_);
 }
 
 Return<void> WifiChip::registerEventCallback(
     const sp<IWifiChipEventCallback>& event_callback,
     registerEventCallback_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_CHIP_INVALID));
-    return Void();
+    HIDL_RETURN0_WITH_CB(WifiStatusCode::ERROR_WIFI_CHIP_INVALID);
   }
   // TODO(b/31632518): remove the callback when the client is destroyed
   event_callbacks_.emplace_back(event_callback);
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
-  return Void();
+  HIDL_RETURN0_WITH_CB(WifiStatusCode::SUCCESS);
 }
 
 Return<void> WifiChip::getCapabilities(getCapabilities_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_CHIP_INVALID),
-                   0);
-    return Void();
+    HIDL_RETURN1_WITH_CB(WifiStatusCode::ERROR_WIFI_CHIP_INVALID, 0);
   }
   // TODO: add implementation
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS), 0);
-  return Void();
+  HIDL_RETURN1_WITH_CB(WifiStatusCode::SUCCESS, 0);
 }
 
 Return<void> WifiChip::getAvailableModes(getAvailableModes_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_CHIP_INVALID),
-                   hidl_vec<ChipMode>());
-    return Void();
+    HIDL_RETURN1_WITH_CB(WifiStatusCode::ERROR_WIFI_CHIP_INVALID,
+                         hidl_vec<ChipMode>());
   }
   // TODO: add implementation
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS),
-                 hidl_vec<ChipMode>());
-  return Void();
+  HIDL_RETURN1_WITH_CB(WifiStatusCode::SUCCESS, hidl_vec<ChipMode>());
 }
 
 Return<void> WifiChip::configureChip(uint32_t /*mode_id*/,
                                      configureChip_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_CHIP_INVALID));
-    return Void();
+    HIDL_RETURN0_WITH_CB(WifiStatusCode::ERROR_WIFI_CHIP_INVALID);
   }
 
   invalidateAndRemoveAllIfaces();
   // TODO: add implementation
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
-  return Void();
+  HIDL_RETURN0_WITH_CB(WifiStatusCode::SUCCESS);
 }
 
 Return<void> WifiChip::getMode(getMode_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_CHIP_INVALID),
-                   UINT32_MAX);
-    return Void();
+    HIDL_RETURN1_WITH_CB(WifiStatusCode::ERROR_WIFI_CHIP_INVALID, UINT32_MAX);
   }
   // TODO: add implementation
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS), 0);
-  return Void();
+  HIDL_RETURN1_WITH_CB(WifiStatusCode::SUCCESS, 0);
 }
 
 Return<void> WifiChip::requestChipDebugInfo(
     requestChipDebugInfo_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_CHIP_INVALID),
-                   IWifiChip::ChipDebugInfo());
-    return Void();
+    HIDL_RETURN1_WITH_CB(WifiStatusCode::ERROR_WIFI_CHIP_INVALID,
+                         IWifiChip::ChipDebugInfo());
   }
 
   IWifiChip::ChipDebugInfo result;
@@ -149,10 +132,8 @@ Return<void> WifiChip::requestChipDebugInfo(
   if (legacy_status != legacy_hal::WIFI_SUCCESS) {
     LOG(ERROR) << "Failed to get driver version: "
                << legacyErrorToString(legacy_status);
-    WifiStatus status = createWifiStatusFromLegacyError(
-        legacy_status, "failed to get driver version");
-    hidl_status_cb(status, result);
-    return Void();
+    HIDL_RETURN1_WITH_CB_FROM_LEGACY_ERROR(
+        legacy_status, "failed to get driver version", result);
   }
   result.driverDescription = driver_desc.c_str();
 
@@ -162,23 +143,19 @@ Return<void> WifiChip::requestChipDebugInfo(
   if (legacy_status != legacy_hal::WIFI_SUCCESS) {
     LOG(ERROR) << "Failed to get firmware version: "
                << legacyErrorToString(legacy_status);
-    WifiStatus status = createWifiStatusFromLegacyError(
-        legacy_status, "failed to get firmware version");
-    hidl_status_cb(status, result);
-    return Void();
+    HIDL_RETURN1_WITH_CB_FROM_LEGACY_ERROR(
+        legacy_status, "failed to get fimware version", result);
   }
   result.firmwareDescription = firmware_desc.c_str();
 
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS), result);
-  return Void();
+  HIDL_RETURN1_WITH_CB(WifiStatusCode::SUCCESS, result);
 }
 
 Return<void> WifiChip::requestDriverDebugDump(
     requestDriverDebugDump_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_CHIP_INVALID),
-                   hidl_vec<uint8_t>());
-    return Void();
+    HIDL_RETURN1_WITH_CB(WifiStatusCode::ERROR_WIFI_CHIP_INVALID,
+                         hidl_vec<uint8_t>());
   }
 
   legacy_hal::wifi_error legacy_status;
@@ -188,24 +165,20 @@ Return<void> WifiChip::requestDriverDebugDump(
   if (legacy_status != legacy_hal::WIFI_SUCCESS) {
     LOG(ERROR) << "Failed to get driver debug dump: "
                << legacyErrorToString(legacy_status);
-    hidl_status_cb(createWifiStatusFromLegacyError(legacy_status),
-                   hidl_vec<uint8_t>());
-    return Void();
+    HIDL_RETURN1_WITH_CB_FROM_LEGACY_ERROR(legacy_status, hidl_vec<uint8_t>());
   }
 
   hidl_vec<uint8_t> hidl_data;
   hidl_data.setToExternal(reinterpret_cast<uint8_t*>(driver_dump.data()),
                           driver_dump.size());
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS), hidl_data);
-  return Void();
+  HIDL_RETURN1_WITH_CB(WifiStatusCode::SUCCESS, hidl_data);
 }
 
 Return<void> WifiChip::requestFirmwareDebugDump(
     requestFirmwareDebugDump_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_CHIP_INVALID),
-                   hidl_vec<uint8_t>());
-    return Void();
+    HIDL_RETURN1_WITH_CB(WifiStatusCode::ERROR_WIFI_CHIP_INVALID,
+                         hidl_vec<uint8_t>());
   }
 
   legacy_hal::wifi_error legacy_status;
@@ -215,235 +188,191 @@ Return<void> WifiChip::requestFirmwareDebugDump(
   if (legacy_status != legacy_hal::WIFI_SUCCESS) {
     LOG(ERROR) << "Failed to get firmware debug dump: "
                << legacyErrorToString(legacy_status);
-    hidl_status_cb(createWifiStatusFromLegacyError(legacy_status),
-                   hidl_vec<uint8_t>());
-    return Void();
+    HIDL_RETURN1_WITH_CB_FROM_LEGACY_ERROR(legacy_status, hidl_vec<uint8_t>());
   }
 
   hidl_vec<uint8_t> hidl_data;
   hidl_data.setToExternal(reinterpret_cast<uint8_t*>(firmware_dump.data()),
                           firmware_dump.size());
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS), hidl_data);
-  return Void();
+  HIDL_RETURN1_WITH_CB(WifiStatusCode::SUCCESS, hidl_data);
 }
 
 Return<void> WifiChip::createApIface(createApIface_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_CHIP_INVALID),
-                   nullptr);
-    return Void();
+    HIDL_RETURN1_WITH_CB(WifiStatusCode::ERROR_WIFI_CHIP_INVALID, nullptr);
   }
 
   // TODO(b/31997422): Disallow this based on the chip combination.
   std::string ifname = legacy_hal_.lock()->getApIfaceName();
   ap_iface_ = new WifiApIface(ifname, legacy_hal_);
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS), ap_iface_);
-  return Void();
+  HIDL_RETURN1_WITH_CB(WifiStatusCode::SUCCESS, ap_iface_)
 }
 
 Return<void> WifiChip::getApIfaceNames(getApIfaceNames_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_CHIP_INVALID),
-                   hidl_vec<hidl_string>());
-    return Void();
+    HIDL_RETURN1_WITH_CB(WifiStatusCode::ERROR_WIFI_CHIP_INVALID,
+                         hidl_vec<hidl_string>());
   }
 
   std::string ifname;
   if (ap_iface_.get()) {
     ifname = legacy_hal_.lock()->getApIfaceName().c_str();
   }
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS),
-                 createHidlVecOfIfaceNames(ifname));
-  return Void();
+  HIDL_RETURN1_WITH_CB(WifiStatusCode::SUCCESS,
+                       createHidlVecOfIfaceNames(ifname));
 }
 
 Return<void> WifiChip::getApIface(const hidl_string& ifname,
                                   getApIface_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_CHIP_INVALID),
-                   nullptr);
-    return Void();
+    HIDL_RETURN1_WITH_CB(WifiStatusCode::ERROR_WIFI_CHIP_INVALID, nullptr);
   }
 
   if (ap_iface_.get() &&
       (ifname.c_str() == legacy_hal_.lock()->getApIfaceName())) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS), ap_iface_);
+    HIDL_RETURN1_WITH_CB(WifiStatusCode::SUCCESS, ap_iface_);
   } else {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_INVALID_ARGS),
-                   nullptr);
+    HIDL_RETURN1_WITH_CB(WifiStatusCode::ERROR_INVALID_ARGS, nullptr);
   }
-  return Void();
 }
 
 Return<void> WifiChip::createNanIface(createNanIface_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_CHIP_INVALID),
-                   nullptr);
-    return Void();
+    HIDL_RETURN1_WITH_CB(WifiStatusCode::ERROR_WIFI_CHIP_INVALID, nullptr);
   }
 
   // TODO(b/31997422): Disallow this based on the chip combination.
   std::string ifname = legacy_hal_.lock()->getNanIfaceName();
   nan_iface_ = new WifiNanIface(ifname, legacy_hal_);
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS), nan_iface_);
-  return Void();
+  HIDL_RETURN1_WITH_CB(WifiStatusCode::SUCCESS, nan_iface_);
 }
 
 Return<void> WifiChip::getNanIfaceNames(getNanIfaceNames_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_CHIP_INVALID),
-                   hidl_vec<hidl_string>());
-    return Void();
+    HIDL_RETURN1_WITH_CB(WifiStatusCode::ERROR_WIFI_CHIP_INVALID,
+                         hidl_vec<hidl_string>());
   }
 
   std::string ifname;
   if (nan_iface_.get()) {
     ifname = legacy_hal_.lock()->getNanIfaceName().c_str();
   }
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS),
-                 createHidlVecOfIfaceNames(ifname));
-  return Void();
+  HIDL_RETURN1_WITH_CB(WifiStatusCode::SUCCESS,
+                       createHidlVecOfIfaceNames(ifname));
 }
 
 Return<void> WifiChip::getNanIface(const hidl_string& ifname,
                                    getNanIface_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_CHIP_INVALID),
-                   nullptr);
-    return Void();
+    HIDL_RETURN1_WITH_CB(WifiStatusCode::ERROR_WIFI_CHIP_INVALID, nullptr);
   }
 
   if (nan_iface_.get() &&
       (ifname.c_str() == legacy_hal_.lock()->getNanIfaceName())) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS), nan_iface_);
+    HIDL_RETURN1_WITH_CB(WifiStatusCode::SUCCESS, nan_iface_);
   } else {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_INVALID_ARGS),
-                   nullptr);
+    HIDL_RETURN1_WITH_CB(WifiStatusCode::ERROR_INVALID_ARGS, nullptr);
   }
-  return Void();
 }
 
 Return<void> WifiChip::createP2pIface(createP2pIface_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_CHIP_INVALID),
-                   nullptr);
-    return Void();
+    HIDL_RETURN1_WITH_CB(WifiStatusCode::ERROR_WIFI_CHIP_INVALID, nullptr);
   }
 
   // TODO(b/31997422): Disallow this based on the chip combination.
   std::string ifname = legacy_hal_.lock()->getP2pIfaceName();
   p2p_iface_ = new WifiP2pIface(ifname, legacy_hal_);
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS), p2p_iface_);
-  return Void();
+  HIDL_RETURN1_WITH_CB(WifiStatusCode::SUCCESS, p2p_iface_);
 }
 
 Return<void> WifiChip::getP2pIfaceNames(getP2pIfaceNames_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_CHIP_INVALID),
-                   hidl_vec<hidl_string>());
-    return Void();
+    HIDL_RETURN1_WITH_CB(WifiStatusCode::ERROR_WIFI_CHIP_INVALID,
+                         hidl_vec<hidl_string>());
   }
 
   std::string ifname;
   if (p2p_iface_.get()) {
     ifname = legacy_hal_.lock()->getP2pIfaceName().c_str();
   }
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS),
-                 createHidlVecOfIfaceNames(ifname));
-  return Void();
+  HIDL_RETURN1_WITH_CB(WifiStatusCode::SUCCESS,
+                       createHidlVecOfIfaceNames(ifname));
 }
 
 Return<void> WifiChip::getP2pIface(const hidl_string& ifname,
                                    getP2pIface_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_CHIP_INVALID),
-                   nullptr);
-    return Void();
+    HIDL_RETURN1_WITH_CB(WifiStatusCode::ERROR_WIFI_CHIP_INVALID, nullptr);
   }
 
   if (p2p_iface_.get() &&
       (ifname.c_str() == legacy_hal_.lock()->getP2pIfaceName())) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS), p2p_iface_);
+    HIDL_RETURN1_WITH_CB(WifiStatusCode::SUCCESS, p2p_iface_);
   } else {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_INVALID_ARGS),
-                   nullptr);
+    HIDL_RETURN1_WITH_CB(WifiStatusCode::ERROR_INVALID_ARGS, nullptr);
   }
-  return Void();
 }
 
 Return<void> WifiChip::createStaIface(createStaIface_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_CHIP_INVALID),
-                   nullptr);
-    return Void();
+    HIDL_RETURN1_WITH_CB(WifiStatusCode::ERROR_WIFI_CHIP_INVALID, nullptr);
   }
 
   // TODO(b/31997422): Disallow this based on the chip combination.
   std::string ifname = legacy_hal_.lock()->getStaIfaceName();
   sta_iface_ = new WifiStaIface(ifname, legacy_hal_);
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS), sta_iface_);
-  return Void();
+  HIDL_RETURN1_WITH_CB(WifiStatusCode::SUCCESS, sta_iface_);
 }
 
 Return<void> WifiChip::getStaIfaceNames(getStaIfaceNames_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_CHIP_INVALID),
-                   hidl_vec<hidl_string>());
-    return Void();
+    HIDL_RETURN1_WITH_CB(WifiStatusCode::ERROR_WIFI_CHIP_INVALID,
+                         hidl_vec<hidl_string>());
   }
 
   std::string ifname;
   if (sta_iface_.get()) {
     ifname = legacy_hal_.lock()->getStaIfaceName().c_str();
   }
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS),
-                 createHidlVecOfIfaceNames(ifname));
-  return Void();
+  HIDL_RETURN1_WITH_CB(WifiStatusCode::SUCCESS,
+                       createHidlVecOfIfaceNames(ifname));
 }
 
 Return<void> WifiChip::getStaIface(const hidl_string& ifname,
                                    getStaIface_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_CHIP_INVALID),
-                   nullptr);
-    return Void();
+    HIDL_RETURN1_WITH_CB(WifiStatusCode::ERROR_WIFI_CHIP_INVALID, nullptr);
   }
 
   if (sta_iface_.get() &&
       (ifname.c_str() == legacy_hal_.lock()->getStaIfaceName())) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS), sta_iface_);
+    HIDL_RETURN1_WITH_CB(WifiStatusCode::SUCCESS, sta_iface_);
   } else {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_INVALID_ARGS),
-                   nullptr);
+    HIDL_RETURN1_WITH_CB(WifiStatusCode::ERROR_INVALID_ARGS, nullptr);
   }
-  return Void();
 }
 
 Return<void> WifiChip::createRttController(
     const sp<IWifiIface>& bound_iface, createRttController_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_CHIP_INVALID),
-                   nullptr);
-    return Void();
+    HIDL_RETURN1_WITH_CB(WifiStatusCode::ERROR_WIFI_CHIP_INVALID, nullptr);
   }
 
   sp<WifiRttController> rtt = new WifiRttController(bound_iface, legacy_hal_);
   rtt_controllers_.emplace_back(rtt);
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS), rtt);
-  return Void();
+  HIDL_RETURN1_WITH_CB(WifiStatusCode::SUCCESS, rtt);
 }
 
 Return<void> WifiChip::getDebugRingBuffersStatus(
     getDebugRingBuffersStatus_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_CHIP_INVALID),
-                   hidl_vec<WifiDebugRingBufferStatus>());
-    return Void();
+    HIDL_RETURN1_WITH_CB(WifiStatusCode::ERROR_WIFI_CHIP_INVALID,
+                         hidl_vec<WifiDebugRingBufferStatus>());
   }
   // TODO: add implementation
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS),
-                 hidl_vec<WifiDebugRingBufferStatus>());
-  return Void();
+  HIDL_RETURN1_WITH_CB(WifiStatusCode::SUCCESS,
+                       hidl_vec<WifiDebugRingBufferStatus>());
 }
 
 Return<void> WifiChip::startLoggingToDebugRingBuffer(
@@ -453,37 +382,30 @@ Return<void> WifiChip::startLoggingToDebugRingBuffer(
     uint32_t /* minDataSizeInBytes */,
     startLoggingToDebugRingBuffer_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_CHIP_INVALID));
-    return Void();
+    HIDL_RETURN0_WITH_CB(WifiStatusCode::ERROR_WIFI_CHIP_INVALID);
   }
   // TODO: add implementation
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
-  return Void();
+  HIDL_RETURN0_WITH_CB(WifiStatusCode::SUCCESS);
 }
 
 Return<void> WifiChip::forceDumpToDebugRingBuffer(
     const hidl_string& /* ringName */,
     forceDumpToDebugRingBuffer_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_CHIP_INVALID));
-    return Void();
+    HIDL_RETURN0_WITH_CB(WifiStatusCode::ERROR_WIFI_CHIP_INVALID);
   }
   // TODO: add implementation
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
-  return Void();
+  HIDL_RETURN0_WITH_CB(WifiStatusCode::SUCCESS);
 }
 
 Return<void> WifiChip::getDebugHostWakeReasonStats(
     getDebugHostWakeReasonStats_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_CHIP_INVALID),
-                   WifiDebugHostWakeReasonStats());
-    return Void();
+    HIDL_RETURN1_WITH_CB(WifiStatusCode::ERROR_WIFI_CHIP_INVALID,
+                         WifiDebugHostWakeReasonStats());
   }
   // TODO: add implementation
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS),
-                 WifiDebugHostWakeReasonStats());
-  return Void();
+  HIDL_RETURN1_WITH_CB(WifiStatusCode::SUCCESS, WifiDebugHostWakeReasonStats());
 }
 
 void WifiChip::invalidateAndRemoveAllIfaces() {
