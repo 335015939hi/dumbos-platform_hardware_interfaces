@@ -17,16 +17,407 @@
 package android.hardware.radio@1.0;
 
 interface IRadioCallback {
-    /**
+    // SOLICITED CALLBACKS ARE LISTED BELOW
+
+    /*
      * Response callback for IRadio.requestGetSimStatus()
      *
-     * @param serial Serial number of request
-     * @param cardStatus ICC card status
+     * @param info Response info struct containing response type, serial no. & error
+     * @param cardStatus Sim card status
      */
-    responseGetSimStatus(int32_t serial, RadioCardStatus cardStatus);
+    oneway responseGetSimStatus(ResponseInfo info, RadioCardStatus cardStatus);
 
-    // ONLY UNSOLICITED CALLBACKS BELOW
-    /**
+    /*
+     * Response callback for IRadio.requestEnterSimPin()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param remainingRetries Number of retries remaining, must be equal to -1 if unknown.
+     */
+    oneway responseEnterSimPin(ResponseInfo info, int32_t remainingRetries);
+
+    /*
+     * Response callback for IRadio.requestEnterIccPuk()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param remainingRetries Number of retries remaining, must be equal to -1 if unknown.
+     */
+    oneway responseEnterSimPuk(ResponseInfo info, int32_t remainingRetries);
+
+    /*
+     * Response callback for IRadio.requestEnterIccPin2()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param remainingRetries Number of retries remaining, must be equal to -1 if unknown.
+     */
+    oneway responseEnterSimPin2(ResponseInfo info, int32_t remainingRetries);
+
+    /*
+     * Response callback for IRadio.requestEnterIccPuk2()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param remainingRetries Number of retries remaining, must be equal to -1 if unknown.
+     */
+    oneway responseEnterSimPuk2(ResponseInfo info, int32_t remainingRetries);
+
+    /*
+     * Response callback for IRadio.requestChangeSimPin()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param remainingRetries Number of retries remaining, must be equal to -1 if unknown.
+     */
+    oneway responseChangeSimPin(ResponseInfo info, int32_t remainingRetries);
+
+    /*
+     * Response callback for IRadio.requestChangeSimPin2()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param remainingRetries Number of retries remaining, must be equal to -1 if unknown.
+     */
+    oneway responseChangeSimPin2(ResponseInfo info, int32_t remainingRetries);
+
+    /*
+     * Response callback for IRadio.requestEnterNetworkDepersonalization()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param remainingRetries Number of retries remaining, must be equal to -1 if unknown.
+     */
+    oneway responseEnterNetworkDepersonalization(ResponseInfo info, int32_t remainingRetries);
+
+    /*
+     * Response callback for IRadio.requestGetCurrentCalls()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param radioCalls Call list
+     */
+    oneway responseGetCurrentCalls(ResponseInfo info, vec<RadioCall> radioCalls);
+
+    /*
+     * Response callback for IRadio.requestDial()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     */
+    oneway responseDial(ResponseInfo info);
+
+    /*
+     * Response callback for IRadio.requestGetImsi()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param imsi String containing the IMSI
+     */
+    oneway responseGetImsi(ResponseInfo info, string imsi);
+
+    /*
+     * Response callback for IRadio.requestHangup()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     */
+    oneway responseHangup(ResponseInfo info);
+
+    /*
+     * Response callback for IRadio.requestHangupWaitingOrBackground()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     */
+    oneway responseHangupWaitingOrBackground(ResponseInfo info);
+
+    /*
+     * Response callback for IRadio.requestHangupForegroundResumeBackground()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     */
+    oneway responseHangupForegroundResumeBackground(ResponseInfo info);
+
+    /*
+     * Response callback for IRadio.requestSwitchWaitingOrHoldingAndActive()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     */
+    oneway responseSwitchWaitingOrHoldingAndActive(ResponseInfo info);
+
+    /*
+     * Response callback for IRadio.requestConference()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     */
+    oneway responseConference(ResponseInfo info);
+
+    /*
+     * Response callback for IRadio.requestUdub()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     */
+    oneway responseUdub(ResponseInfo info);
+
+    /*
+     * Response callback for IRadio.requestLastCallFailCause()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param failCause failCause is RadioLastCallFailCause. GSM failure reasons are
+     *        mapped to cause codes defined in TS 24.008 Annex H where possible. CDMA
+     *        failure reasons are derived from the possible call failure scenarios
+     *        described in the "CDMA IS-2000 Release A (C.S0005-A v6.0)" standard.
+     *
+     * The implementation must return RadioLastCallFailCause:ERROR_UNSPECIFIED for blocked
+     * MO calls by restricted state (See unsolRestrictedStateChanged)
+     *
+     * If the implementation does not have access to the exact cause codes,
+     * then it must return one of the values listed in RadioLastCallFailCause,
+     * as the UI layer needs to distinguish these cases for tone generation or
+     * error notification.
+     */
+    oneway responseLastCallFailCause(ResponseInfo info, RadioLastCallFailCause failCause);
+
+    /*
+     * Response callback for IRadio.requestSignalStrength()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param signalStrength Radio signal strength
+     */
+    oneway responseSignalStrength(ResponseInfo info, RadioSignalStrength signalStrength);
+
+    /*
+     * Response callback for IRadio.requestVoiceRegistrationState()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param voiceRegResponse VoiceRegStateResponse defined in types.hal
+     *
+     */
+    oneway responseVoiceRegistrationState(ResponseInfo info,
+            VoiceRegStateResponse voiceRegResponse);
+
+    /*
+     * Response callback for IRadio.requestDataRegistrationState()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param dataRegResponse DataRegStateResponse defined in types.hal
+     */
+    oneway responseDataRegistrationState(ResponseInfo info, DataRegStateResponse dataRegResponse);
+
+    /*
+     * Response callback for IRadio.requestOperator()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param longName is long alpha ONS or EONS or empty string if unregistered
+     * @param shortName is short alpha ONS or EONS or empty string if unregistered
+     * @param numeric is 5 or 6 digit numeric code (MCC + MNC) or empty string if unregistered
+     */
+    oneway responseOperator(ResponseInfo info, string longName, string shortName, string numeric);
+
+    /*
+     * Response callback for IRadio.requestRadioPower()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     */
+    oneway responseRadioPower(ResponseInfo info);
+
+    /*
+     * Response callback for IRadio.requestDtmf()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     */
+    oneway responseDtmf(ResponseInfo info);
+
+    /*
+     * Response callback for IRadio.requestSendSms()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param smsResponse Sms response
+     */
+    oneway responseSendSms(ResponseInfo info, RadioSmsResponse smsResponse);
+
+    /*
+     * Response callback for IRadio.requestSendSmsExpectMore()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param smsResponse Sms response
+     */
+    oneway responseSendSmsExpectMore(ResponseInfo info, RadioSmsResponse smsResponse);
+
+    /*
+     * Response callback for IRadio.requestSetupDataCall()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param dcResponse Data call response
+     */
+    oneway responseSetupDataCall(ResponseInfo info, RadioDataCallResponse dcResponse);
+
+    /*
+     * Response callback for IRadio.requestSimIo()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param simIoResponse Data call response
+     */
+    oneway responseSimIo(ResponseInfo info, RadioSimIoResponse simIoResponse);
+
+    /*
+     * Response callback for IRadio.requestSendUssd()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     */
+    oneway responseSendUssd(ResponseInfo info);
+
+    /*
+     * Response callback for IRadio.requestCancelUssd()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     */
+    oneway responseCancelUssd(ResponseInfo info);
+
+    /*
+     * Response callback for IRadio.requestGetClir()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param n is "n" parameter from TS 27.007 7.7
+     * @param m is "m" parameter from TS 27.007 7.7
+     */
+    oneway responseGetClir(ResponseInfo info, int32_t n, int32_t m);
+
+    /*
+     * Response callback for IRadio.requestSetClir()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     */
+    oneway responseSetClir(ResponseInfo info);
+
+    /*
+     * Response callback for IRadio.requestQueryCallForwardStatus()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param callForwardInfos points to a vector of RadioCallForwardInfo, one for
+     *        each distinct registered phone number.
+     *
+     * For example, if data is forwarded to +18005551212 and voice is forwarded
+     * to +18005559999, then two separate RadioCallForwardInfo's must be returned
+     *
+     * If, however, both data and voice are forwarded to +18005551212, then
+     * a single RIL_CallForwardInfo can be returned with the service class
+     * set to "data + voice = 3")
+     */
+    oneway responseQueryCallForwardStatus(ResponseInfo info,
+            vec<RadioCallForwardInfo> callForwardInfos);
+
+    /*
+     * Response callback for IRadio.requestSetCallForward()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     */
+    oneway responseSetCallForward(ResponseInfo info);
+
+    /*
+     * Response callback for IRadio.requestQueryCallWaiting()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param enable is false for "disabled" and true for "enabled"
+     * @param serviceClass If enable = true, then callWaitingResp[1]
+     *        must follow, with the TS 27.007 service class bit vector of services
+     *        for which call waiting is enabled.
+     *        For example, if callWaitingResp[0]  is 1 and
+     *        callWaitingResp[1] is 3, then call waiting is enabled for data
+     *        and voice and disabled for everything else.
+     */
+    oneway responseQueryCallWaiting(ResponseInfo info, bool enable, int32_t serviceClass);
+
+    /*
+     * Response callback for IRadio.requestSetCallWaiting()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     */
+    oneway responseSetCallWaiting(ResponseInfo info);
+
+    /*
+     * Response callback for IRadio.requestSmsAcknowledge()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     */
+    oneway responseSmsAcknowledge(ResponseInfo info);
+
+    /*
+     * Response callback for IRadio.requestAnswer()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     */
+    oneway responseAnswer(ResponseInfo info);
+
+    /*
+     * Response callback for IRadio.requestDeactivateDataCall()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     */
+    oneway responseDeactivateDataCall(ResponseInfo info);
+
+    /*
+     * Response callback for IRadio.requestQueryFacilityLock()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param response 0 is the TS 27.007 service class bit vector of
+     *        services for which the specified barring facility
+     *        is active. "0" means "disabled for all"
+     */
+    oneway responseQueryFacilityLock(ResponseInfo info, int32_t response);
+
+    /*
+     * Response callback for IRadio.requestSetFacilityLock()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param retry 0 is the number of retries remaining, or -1 if unknown
+     */
+    oneway responseSetFacilityLock(ResponseInfo info, int32_t retry);
+
+    /*
+     * Response callback for IRadio.requestChangeBarringPassword()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     */
+    oneway responseChangeBarringPassword(ResponseInfo info);
+
+    /*
+     * Response callback for IRadio.requestQueryNetworkSelectionMode()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param selection 0 for automatic selection, 1 for manual selection
+     */
+    oneway responseQueryNetworkSelectionMode(ResponseInfo info, int32_t selection);
+
+    /*
+     * Response callback for IRadio.requestSetNetworkSelectionAutomatic()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     */
+    oneway responseSetNetworkSelectionAutomatic(ResponseInfo info);
+
+    /*
+     * Response callback for IRadio.requestSetNetworkSelectionManual()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     */
+    oneway responseSetNetworkSelectionManual(ResponseInfo info);
+
+    /*
+     * Response callback for IRadio.requestQueryAvailableNetworks()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     * @param networkInfos OperatorInfo struct defined in types.hal
+     */
+    oneway responseQueryAvailableNetworks(ResponseInfo info, vec<OperatorInfo> networkInfos);
+
+    /*
+     * Response callback for IRadio.requestDtmfStart()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     */
+    oneway responseDtmfStart(ResponseInfo info);
+
+    /*
+     * Response callback for IRadio.requestDtmfStop()
+     *
+     * @param info Response info struct containing response type, serial no. & error
+     */
+    oneway responseDtmfStop(ResponseInfo info);
+
+
+    // UNSOLICITED CALLBACKS ARE LISTED BELOW
+
+    /*
      * Called when radio state changes.
      *
      * @param radioState Current radio state
