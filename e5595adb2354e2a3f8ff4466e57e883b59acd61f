@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "7cce57f1_dc834d9a",
+        "filename": "manager/1.0/IServiceManager.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-21T02:35:25Z",
+      "side": 1,
+      "message": "(I\u0027ll remove these before I commit)",
+      "parentUuid": "7cce57f1_7cd221e8",
+      "range": {
+        "startLine": 41,
+        "startChar": 7,
+        "endLine": 41,
+        "endChar": 11
+      },
+      "revId": "e5595adb2354e2a3f8ff4466e57e883b59acd61f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7cce57f1_5ccf5d3c",
         "filename": "manager/1.0/default/service.cpp",
         "patchSetId": 1
