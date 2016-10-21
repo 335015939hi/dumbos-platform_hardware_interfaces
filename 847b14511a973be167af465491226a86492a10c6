@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5cba7338_32060e83",
+        "filename": "tests/bar/1.0/default/Bar.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2016-10-21T13:17:03Z",
+      "side": 1,
+      "message": "FYI, this is not really a comment for this CL, but I\u0027ve been considering adding a IHidlInterface type to represent the HIDL \"interface\" keyword. This type would have methods to retrieve the interface name, version as well as a way to get the transport object (eg an IBinder). This would allow clients to pass \"any HIDL interface\", and the remote could use the name/version information to convert it back to the correct object.\n\nReason: camera guys have\nopen(ICameraDevice@1.0 device);\nopen_2x(ICameraDevice@2.0 device);\nopen_3x(ICameraDevice@3.0 device);\n\nideally they want\n\nopen(interface device);\nor\nopen(ICameraDevice@* device);\n\nit removes type-safety from the interface, but it\u0027s probably a net-positive in code simplicity.",
+      "range": {
+        "startLine": 58,
+        "startChar": 30,
+        "endLine": 58,
+        "endChar": 56
+      },
+      "revId": "847b14511a973be167af465491226a86492a10c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
