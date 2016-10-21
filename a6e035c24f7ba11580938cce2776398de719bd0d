@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c0017b3_32e1e015",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 14
+      },
+      "lineNbr": 783,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-21T23:34:06Z",
+      "side": 1,
+      "message": "are you going to change these too?",
+      "range": {
+        "startLine": 783,
+        "startChar": 7,
+        "endLine": 783,
+        "endChar": 37
+      },
+      "revId": "a6e035c24f7ba11580938cce2776398de719bd0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
