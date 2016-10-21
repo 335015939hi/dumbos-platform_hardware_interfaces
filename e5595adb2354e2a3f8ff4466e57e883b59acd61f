@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "5cba7338_52c2b2ec",
+        "filename": "manager/1.0/IServiceManager.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2016-10-21T14:59:57Z",
+      "side": 1,
+      "message": "why HIDL_INTERNAL?",
+      "range": {
+        "startLine": 26,
+        "startChar": 4,
+        "endLine": 26,
+        "endChar": 28
+      },
+      "revId": "e5595adb2354e2a3f8ff4466e57e883b59acd61f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7cce57f1_1cd5e5ce",
         "filename": "manager/1.0/IServiceManager.hal",
         "patchSetId": 1
@@ -13,6 +36,30 @@
       "writtenOn": "2016-10-21T02:10:21Z",
       "side": 1,
       "message": "what should we do here, you think?",
+      "range": {
+        "startLine": 27,
+        "startChar": 19,
+        "endLine": 27,
+        "endChar": 25
+      },
+      "revId": "e5595adb2354e2a3f8ff4466e57e883b59acd61f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5cba7338_32bbae7b",
+        "filename": "manager/1.0/IServiceManager.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2016-10-21T14:59:57Z",
+      "side": 1,
+      "message": "we have the \"interface\" keyword for this in HIDL, it maps to sp\u003cIBinder\u003e (though I question whether it should really map to IHidlInterface)",
+      "parentUuid": "7cce57f1_1cd5e5ce",
       "range": {
         "startLine": 27,
         "startChar": 19,
@@ -95,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "5cba7338_92d25aba",
+        "filename": "manager/1.0/default/ServiceManager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2016-10-21T14:59:57Z",
+      "side": 1,
+      "message": "HidlService.mService (an sp\u003cIBinder\u003e);\n\nBTW it might still be nice to keep the hwservicemanager in a separate git project. I can imagine it will share a lot of code between versions, if there will be any new versions at all. And it doesn\u0027t need a passthrough implementation anyway, I think.",
+      "parentUuid": "7cce57f1_bc9bf900",
+      "range": {
+        "startLine": 56,
+        "startChar": 29,
+        "endLine": 56,
+        "endChar": 55
+      },
+      "revId": "e5595adb2354e2a3f8ff4466e57e883b59acd61f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7cce57f1_7c734107",
         "filename": "manager/1.0/default/ServiceManager.h",
         "patchSetId": 1
@@ -118,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "5cba7338_12b82a7b",
+        "filename": "manager/1.0/default/ServiceManager.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2016-10-21T14:59:57Z",
+      "side": 1,
+      "message": "yeah probably can. getService() blocks, checkService() doesn\u0027t, but we have that retry already implemented ourselves.",
+      "parentUuid": "7cce57f1_7c734107",
+      "range": {
+        "startLine": 29,
+        "startChar": 32,
+        "endLine": 30,
+        "endChar": 35
+      },
+      "revId": "e5595adb2354e2a3f8ff4466e57e883b59acd61f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7cce57f1_5ccf5d3c",
         "filename": "manager/1.0/default/service.cpp",
         "patchSetId": 1
@@ -129,6 +224,30 @@
       "writtenOn": "2016-10-21T02:10:21Z",
       "side": 1,
       "message": ":D",
+      "range": {
+        "startLine": 56,
+        "startChar": 4,
+        "endLine": 56,
+        "endChar": 42
+      },
+      "revId": "e5595adb2354e2a3f8ff4466e57e883b59acd61f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5cba7338_d2cce21d",
+        "filename": "manager/1.0/default/service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2016-10-21T14:59:57Z",
+      "side": 1,
+      "message": "haha. But this is not needed - setTheContextObject() below takes care of letting the kernel driver know this is the service manager.",
+      "parentUuid": "7cce57f1_5ccf5d3c",
       "range": {
         "startLine": 56,
         "startChar": 4,
