@@ -18,7 +18,7 @@
 
 #include <android-base/logging.h>
 
-#include "wifi_status_util.h"
+#include "hidl_return_macros.h"
 
 namespace android {
 namespace hardware {
@@ -36,28 +36,22 @@ void WifiRttController::invalidate() {
   is_valid_ = false;
 }
 
-Return<void> WifiRttController::getBoundIface(getBoundIface_cb cb) {
+Return<void> WifiRttController::getBoundIface(getBoundIface_cb hidl_status_cb) {
   if (!is_valid_) {
-    cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_RTT_CONTROLLER_INVALID),
-       nullptr);
-    return Void();
+    HIDL_RETURN1(WifiStatusCode::ERROR_WIFI_RTT_CONTROLLER_INVALID, nullptr);
   }
-  cb(createWifiStatus(WifiStatusCode::SUCCESS), bound_iface_);
-  return Void();
+  HIDL_RETURN1(WifiStatusCode::SUCCESS, bound_iface_);
 }
 
 Return<void> WifiRttController::registerEventCallback(
     const sp<IWifiRttControllerEventCallback>& event_callback,
     registerEventCallback_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(
-        createWifiStatus(WifiStatusCode::ERROR_WIFI_RTT_CONTROLLER_INVALID));
-    return Void();
+    HIDL_RETURN0(WifiStatusCode::ERROR_WIFI_RTT_CONTROLLER_INVALID);
   }
   // TODO(b/31632518): remove the callback when the client is destroyed
   event_callbacks_.emplace_back(event_callback);
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
-  return Void();
+  HIDL_RETURN0(WifiStatusCode::SUCCESS);
 }
 
 Return<void> WifiRttController::rangeRequest(
@@ -65,13 +59,10 @@ Return<void> WifiRttController::rangeRequest(
     const hidl_vec<RttConfig>& /* rttConfigs */,
     rangeRequest_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(
-        createWifiStatus(WifiStatusCode::ERROR_WIFI_RTT_CONTROLLER_INVALID));
-    return Void();
+    HIDL_RETURN0(WifiStatusCode::ERROR_WIFI_RTT_CONTROLLER_INVALID);
   }
   // TODO: add implementation
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
-  return Void();
+  HIDL_RETURN0(WifiStatusCode::SUCCESS);
 }
 
 Return<void> WifiRttController::rangeCancel(
@@ -79,13 +70,10 @@ Return<void> WifiRttController::rangeCancel(
     const hidl_vec<hidl_array<uint8_t, 6 /* 6 */>>& /* addrs */,
     rangeCancel_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(
-        createWifiStatus(WifiStatusCode::ERROR_WIFI_RTT_CONTROLLER_INVALID));
-    return Void();
+    HIDL_RETURN0(WifiStatusCode::ERROR_WIFI_RTT_CONTROLLER_INVALID);
   }
   // TODO: add implementation
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
-  return Void();
+  HIDL_RETURN0(WifiStatusCode::SUCCESS);
 }
 
 Return<void> WifiRttController::setChannelMap(uint32_t /* cmdId */,
@@ -93,101 +81,77 @@ Return<void> WifiRttController::setChannelMap(uint32_t /* cmdId */,
                                               uint32_t /* numDw */,
                                               setChannelMap_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(
-        createWifiStatus(WifiStatusCode::ERROR_WIFI_RTT_CONTROLLER_INVALID));
-    return Void();
+    HIDL_RETURN0(WifiStatusCode::ERROR_WIFI_RTT_CONTROLLER_INVALID);
   }
   // TODO: add implementation
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
-  return Void();
+  HIDL_RETURN0(WifiStatusCode::SUCCESS);
 }
 
 Return<void> WifiRttController::clearChannelMap(
     uint32_t /* cmdId */, clearChannelMap_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(
-        createWifiStatus(WifiStatusCode::ERROR_WIFI_RTT_CONTROLLER_INVALID));
-    return Void();
+    HIDL_RETURN0(WifiStatusCode::ERROR_WIFI_RTT_CONTROLLER_INVALID);
   }
   // TODO: add implementation
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
-  return Void();
+  HIDL_RETURN0(WifiStatusCode::SUCCESS);
 }
 
 Return<void> WifiRttController::getCapabilities(
     getCapabilities_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(
-        createWifiStatus(WifiStatusCode::ERROR_WIFI_RTT_CONTROLLER_INVALID),
-        RttCapabilities());
-    return Void();
+    HIDL_RETURN1(WifiStatusCode::ERROR_WIFI_RTT_CONTROLLER_INVALID,
+                 RttCapabilities());
   }
   // TODO: add implementation
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS), RttCapabilities());
-  return Void();
+  HIDL_RETURN1(WifiStatusCode::SUCCESS, RttCapabilities());
 }
 
 Return<void> WifiRttController::setDebugCfg(RttDebugType /* Type */,
                                             setDebugCfg_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(
-        createWifiStatus(WifiStatusCode::ERROR_WIFI_RTT_CONTROLLER_INVALID));
-    return Void();
+    HIDL_RETURN0(WifiStatusCode::ERROR_WIFI_RTT_CONTROLLER_INVALID);
   }
   // TODO: add implementation
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
-  return Void();
+  HIDL_RETURN0(WifiStatusCode::SUCCESS);
 }
 
 Return<void> WifiRttController::getDebugInfo(getDebugInfo_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(
-        createWifiStatus(WifiStatusCode::ERROR_WIFI_RTT_CONTROLLER_INVALID),
-        RttDebugInfo());
-    return Void();
+    HIDL_RETURN1(WifiStatusCode::ERROR_WIFI_RTT_CONTROLLER_INVALID,
+                 RttDebugInfo());
   }
   // TODO: add implementation
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS), RttDebugInfo());
-  return Void();
+  HIDL_RETURN1(WifiStatusCode::SUCCESS, RttDebugInfo());
 }
 
 Return<void> WifiRttController::setLci(uint32_t /* cmdId */,
                                        const RttLciInformation& /* lci */,
                                        setLci_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(
-        createWifiStatus(WifiStatusCode::ERROR_WIFI_RTT_CONTROLLER_INVALID));
-    return Void();
+    HIDL_RETURN0(WifiStatusCode::ERROR_WIFI_RTT_CONTROLLER_INVALID);
   }
   // TODO: add implementation
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
-  return Void();
+  HIDL_RETURN0(WifiStatusCode::SUCCESS);
 }
 
 Return<void> WifiRttController::setLcr(uint32_t /* cmdId */,
                                        const RttLcrInformation& /* lcr */,
                                        setLcr_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(
-        createWifiStatus(WifiStatusCode::ERROR_WIFI_RTT_CONTROLLER_INVALID));
-    return Void();
+    HIDL_RETURN0(WifiStatusCode::ERROR_WIFI_RTT_CONTROLLER_INVALID);
   }
   // TODO: add implementation
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
-  return Void();
+  HIDL_RETURN0(WifiStatusCode::SUCCESS);
 }
 
 Return<void> WifiRttController::getResponderInfo(
     getResponderInfo_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(
-        createWifiStatus(WifiStatusCode::ERROR_WIFI_RTT_CONTROLLER_INVALID),
-        RttResponder());
-    return Void();
+    HIDL_RETURN1(WifiStatusCode::ERROR_WIFI_RTT_CONTROLLER_INVALID,
+                 RttResponder());
   }
   // TODO: add implementation
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS), RttResponder());
-  return Void();
+  HIDL_RETURN1(WifiStatusCode::SUCCESS, RttResponder());
 }
 
 Return<void> WifiRttController::enableResponder(
@@ -197,25 +161,19 @@ Return<void> WifiRttController::enableResponder(
     const RttResponder& /* info */,
     enableResponder_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(
-        createWifiStatus(WifiStatusCode::ERROR_WIFI_RTT_CONTROLLER_INVALID));
-    return Void();
+    HIDL_RETURN0(WifiStatusCode::ERROR_WIFI_RTT_CONTROLLER_INVALID);
   }
   // TODO: add implementation
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
-  return Void();
+  HIDL_RETURN0(WifiStatusCode::SUCCESS);
 }
 
 Return<void> WifiRttController::disableResponder(
     uint32_t /* cmdId */, disableResponder_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(
-        createWifiStatus(WifiStatusCode::ERROR_WIFI_RTT_CONTROLLER_INVALID));
-    return Void();
+    HIDL_RETURN0(WifiStatusCode::ERROR_WIFI_RTT_CONTROLLER_INVALID);
   }
   // TODO: add implementation
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
-  return Void();
+  HIDL_RETURN0(WifiStatusCode::SUCCESS);
 }
 }  // namespace implementation
 }  // namespace V1_0

@@ -19,7 +19,7 @@
 #include <android-base/logging.h>
 #include <utils/SystemClock.h>
 
-#include "wifi_status_util.h"
+#include "hidl_return_macros.h"
 
 namespace {
 // TODO(b/32093047): Add unit tests for these conversion methods in the VTS test
@@ -289,44 +289,34 @@ void WifiStaIface::invalidate() {
 
 Return<void> WifiStaIface::getName(getName_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_IFACE_INVALID),
-                   hidl_string());
-    return Void();
+    HIDL_RETURN1(WifiStatusCode::ERROR_WIFI_IFACE_INVALID, hidl_string());
   }
   hidl_string hidl_ifname;
   hidl_ifname.setToExternal(ifname_.c_str(), ifname_.size());
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS), hidl_ifname);
-  return Void();
+  HIDL_RETURN1(WifiStatusCode::SUCCESS, hidl_ifname);
 }
 
 Return<void> WifiStaIface::getType(getType_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_IFACE_INVALID),
-                   IfaceType::STA);
-    return Void();
+    HIDL_RETURN1(WifiStatusCode::ERROR_WIFI_IFACE_INVALID, IfaceType::STA);
   }
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS), IfaceType::STA);
-  return Void();
+  HIDL_RETURN1(WifiStatusCode::SUCCESS, IfaceType::STA);
 }
 
 Return<void> WifiStaIface::registerEventCallback(
     const sp<IWifiStaIfaceEventCallback>& event_callback,
     registerEventCallback_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_IFACE_INVALID));
-    return Void();
+    HIDL_RETURN0(WifiStatusCode::ERROR_WIFI_IFACE_INVALID);
   }
   // TODO(b/31632518): remove the callback when the client is destroyed
   event_callbacks_.emplace_back(event_callback);
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
-  return Void();
+  HIDL_RETURN0(WifiStatusCode::SUCCESS);
 }
 
 Return<void> WifiStaIface::getCapabilities(getCapabilities_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_IFACE_INVALID),
-                   0);
-    return Void();
+    HIDL_RETURN1(WifiStatusCode::ERROR_WIFI_IFACE_INVALID, 0);
   }
 
   legacy_hal::wifi_error legacy_status;
@@ -334,8 +324,7 @@ Return<void> WifiStaIface::getCapabilities(getCapabilities_cb hidl_status_cb) {
   std::tie(legacy_status, feature_set) =
       legacy_hal_.lock()->getSupportedFeatureSet();
   if (legacy_status != legacy_hal::WIFI_SUCCESS) {
-    hidl_status_cb(createWifiStatusFromLegacyError(legacy_status), 0);
-    return Void();
+    HIDL_RETURN1_FROM_LEGACY_ERROR(legacy_status, 0);
   }
 
   uint32_t caps = 0;
@@ -354,23 +343,20 @@ Return<void> WifiStaIface::getCapabilities(getCapabilities_cb hidl_status_cb) {
   std::tie(legacy_status, apf_caps) =
       legacy_hal_.lock()->getPacketFilterCapabilities();
   if (legacy_status != legacy_hal::WIFI_SUCCESS) {
-    hidl_status_cb(createWifiStatusFromLegacyError(legacy_status), 0);
-    return Void();
+    HIDL_RETURN1_FROM_LEGACY_ERROR(legacy_status, 0);
   }
   if (apf_caps.version > 0) {
     caps |= static_cast<caps_type>(StaIfaceCapabilityMask::APF);
   }
 
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS), caps);
-  return Void();
+  HIDL_RETURN1(WifiStatusCode::SUCCESS, caps);
 }
 
 Return<void> WifiStaIface::getApfPacketFilterCapabilities(
     getApfPacketFilterCapabilities_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_IFACE_INVALID),
-                   ApfPacketFilterCapabilities());
-    return Void();
+    HIDL_RETURN1(WifiStatusCode::ERROR_WIFI_IFACE_INVALID,
+                 ApfPacketFilterCapabilities());
   }
 
   legacy_hal::wifi_error legacy_status;
@@ -378,42 +364,37 @@ Return<void> WifiStaIface::getApfPacketFilterCapabilities(
   std::tie(legacy_status, apf_caps) =
       legacy_hal_.lock()->getPacketFilterCapabilities();
   if (legacy_status != legacy_hal::WIFI_SUCCESS) {
-    hidl_status_cb(createWifiStatusFromLegacyError(legacy_status),
-                   ApfPacketFilterCapabilities());
-    return Void();
+    HIDL_RETURN1_FROM_LEGACY_ERROR(legacy_status,
+                                   ApfPacketFilterCapabilities());
   }
   ApfPacketFilterCapabilities caps;
   caps.version = apf_caps.version;
   caps.maxLength = apf_caps.max_len;
 
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS), caps);
-  return Void();
+  HIDL_RETURN1(WifiStatusCode::SUCCESS, caps);
 }
 
 Return<void> WifiStaIface::installApfPacketFilter(
     const hidl_vec<uint8_t>& program,
     installApfPacketFilter_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_IFACE_INVALID));
-    return Void();
+    HIDL_RETURN0(WifiStatusCode::ERROR_WIFI_IFACE_INVALID);
   }
   std::vector<uint8_t> program_vec(&program[0], &program[0] + program.size());
-  legacy_hal::wifi_error status =
+  legacy_hal::wifi_error legacy_status =
       legacy_hal_.lock()->setPacketFilter(program_vec);
-  if (status != legacy_hal::WIFI_SUCCESS) {
-    hidl_status_cb(createWifiStatusFromLegacyError(status));
+  if (legacy_status != legacy_hal::WIFI_SUCCESS) {
+    HIDL_RETURN0_FROM_LEGACY_ERROR(legacy_status);
   } else {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
+    HIDL_RETURN0(WifiStatusCode::SUCCESS);
   }
-  return Void();
 }
 
 Return<void> WifiStaIface::getBackgroundScanCapabilities(
     getBackgroundScanCapabilities_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_IFACE_INVALID),
-                   BackgroundScanCapabilities());
-    return Void();
+    HIDL_RETURN1(WifiStatusCode::ERROR_WIFI_IFACE_INVALID,
+                 BackgroundScanCapabilities());
   }
 
   legacy_hal::wifi_error legacy_status;
@@ -421,9 +402,7 @@ Return<void> WifiStaIface::getBackgroundScanCapabilities(
   std::tie(legacy_status, gscan_caps) =
       legacy_hal_.lock()->getGscanCapabilities();
   if (legacy_status != legacy_hal::WIFI_SUCCESS) {
-    hidl_status_cb(createWifiStatusFromLegacyError(legacy_status),
-                   BackgroundScanCapabilities());
-    return Void();
+    HIDL_RETURN1_FROM_LEGACY_ERROR(legacy_status, BackgroundScanCapabilities());
   }
   BackgroundScanCapabilities caps;
   caps.maxCacheSize = gscan_caps.max_scan_cache_size;
@@ -431,8 +410,7 @@ Return<void> WifiStaIface::getBackgroundScanCapabilities(
   caps.maxApCachePerScan = gscan_caps.max_ap_cache_per_scan;
   caps.maxReportingThreshold = gscan_caps.max_scan_reporting_threshold;
 
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS), caps);
-  return Void();
+  HIDL_RETURN1(WifiStatusCode::SUCCESS, caps);
 }
 
 Return<void> WifiStaIface::startBackgroundScan(
@@ -440,13 +418,11 @@ Return<void> WifiStaIface::startBackgroundScan(
     const IWifiStaIface::BackgroundScanParameters& params,
     startBackgroundScan_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_IFACE_INVALID));
-    return Void();
+    HIDL_RETURN0(WifiStatusCode::ERROR_WIFI_IFACE_INVALID);
   }
   wifi_scan_cmd_params internal_scan_params;
   if (!convertHidlScanParamsToLegacy(params, &internal_scan_params)) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_INVALID_ARGS));
-    return Void();
+    HIDL_RETURN0(WifiStatusCode::ERROR_INVALID_ARGS);
   }
 
   const auto& on_failure_callback = [&](legacy_hal::wifi_request_id id) {
@@ -488,35 +464,31 @@ Return<void> WifiStaIface::startBackgroundScan(
                                      on_results_callback,
                                      on_full_result_callback);
   if (legacy_status != legacy_hal::WIFI_SUCCESS) {
-    hidl_status_cb(createWifiStatusFromLegacyError(legacy_status));
+    HIDL_RETURN0_FROM_LEGACY_ERROR(legacy_status);
   } else {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
+    HIDL_RETURN0(WifiStatusCode::SUCCESS);
   }
-  return Void();
 }
 
 Return<void> WifiStaIface::stopBackgroundScan(
     uint32_t cmdId, stopBackgroundScan_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_IFACE_INVALID));
-    return Void();
+    HIDL_RETURN0(WifiStatusCode::ERROR_WIFI_IFACE_INVALID);
   }
   legacy_hal::wifi_error legacy_status = legacy_hal_.lock()->stopGscan(cmdId);
   if (legacy_status != legacy_hal::WIFI_SUCCESS) {
-    hidl_status_cb(createWifiStatusFromLegacyError(legacy_status));
+    HIDL_RETURN0_FROM_LEGACY_ERROR(legacy_status);
   } else {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
+    HIDL_RETURN0(WifiStatusCode::SUCCESS);
   }
-  return Void();
 }
 
 Return<void> WifiStaIface::getValidFrequenciesForBackgroundScan(
     IWifiStaIface::BackgroundScanBand band,
     getValidFrequenciesForBackgroundScan_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_IFACE_INVALID),
-                   hidl_vec<uint32_t>());
-    return Void();
+    HIDL_RETURN1(WifiStatusCode::ERROR_WIFI_IFACE_INVALID,
+                 hidl_vec<uint32_t>());
   }
 
   legacy_hal::wifi_error legacy_status;
@@ -525,125 +497,106 @@ Return<void> WifiStaIface::getValidFrequenciesForBackgroundScan(
       legacy_hal_.lock()->getValidFrequenciesForGscan(
           static_cast<wifi_band>(band));
   if (legacy_status != legacy_hal::WIFI_SUCCESS) {
-    hidl_status_cb(createWifiStatusFromLegacyError(legacy_status),
-                   hidl_vec<uint32_t>());
-    return Void();
+    HIDL_RETURN1_FROM_LEGACY_ERROR(legacy_status, hidl_vec<uint32_t>());
   }
   hidl_vec<uint32_t> hidl_freqs;
   hidl_freqs.setToExternal(freqs.data(), freqs.size());
 
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS), hidl_freqs);
-  return Void();
+  HIDL_RETURN1(WifiStatusCode::SUCCESS, hidl_freqs);
 }
 
 Return<void> WifiStaIface::enableLinkLayerStatsCollection(
     bool debug, enableLinkLayerStatsCollection_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_IFACE_INVALID));
-    return Void();
+    HIDL_RETURN0(WifiStatusCode::ERROR_WIFI_IFACE_INVALID);
   }
 
   legacy_hal::wifi_error legacy_status =
       legacy_hal_.lock()->enableLinkLayerStats(debug);
   if (legacy_status != legacy_hal::WIFI_SUCCESS) {
-    hidl_status_cb(createWifiStatusFromLegacyError(legacy_status));
+    HIDL_RETURN0_FROM_LEGACY_ERROR(legacy_status);
   } else {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
+    HIDL_RETURN0(WifiStatusCode::SUCCESS);
   }
-  return Void();
 }
 
 Return<void> WifiStaIface::disableLinkLayerStatsCollection(
     disableLinkLayerStatsCollection_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_IFACE_INVALID));
-    return Void();
+    HIDL_RETURN0(WifiStatusCode::ERROR_WIFI_IFACE_INVALID);
   }
 
   legacy_hal::wifi_error legacy_status =
       legacy_hal_.lock()->disableLinkLayerStats();
   if (legacy_status != legacy_hal::WIFI_SUCCESS) {
-    hidl_status_cb(createWifiStatusFromLegacyError(legacy_status));
+    HIDL_RETURN0_FROM_LEGACY_ERROR(legacy_status);
   } else {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
+    HIDL_RETURN0(WifiStatusCode::SUCCESS);
   }
-  return Void();
 }
 
 Return<void> WifiStaIface::getLinkLayerStats(
     getLinkLayerStats_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_IFACE_INVALID),
-                   IWifiStaIface::LinkLayerStats());
-    return Void();
+    HIDL_RETURN1(WifiStatusCode::ERROR_WIFI_IFACE_INVALID,
+                 IWifiStaIface::LinkLayerStats());
   }
 
   legacy_hal::wifi_error legacy_status;
   legacy_hal::LinkLayerStats stats;
   std::tie(legacy_status, stats) = legacy_hal_.lock()->getLinkLayerStats();
   if (legacy_status != legacy_hal::WIFI_SUCCESS) {
-    hidl_status_cb(createWifiStatusFromLegacyError(legacy_status),
-                   IWifiStaIface::LinkLayerStats());
-    return Void();
+    HIDL_RETURN1_FROM_LEGACY_ERROR(legacy_status,
+                                   IWifiStaIface::LinkLayerStats());
   }
   IWifiStaIface::LinkLayerStats hidl_stats;
   if (!convertLegacyLinkLayerStatsToHidl(stats, &hidl_stats)) {
     LOG(ERROR) << "Failed to convert link layer stats to HIDL structs";
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_UNKNOWN),
-                   IWifiStaIface::LinkLayerStats());
-    return Void();
+    HIDL_RETURN1(WifiStatusCode::ERROR_UNKNOWN,
+                 IWifiStaIface::LinkLayerStats());
   }
 
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS), hidl_stats);
-  return Void();
+  HIDL_RETURN1(WifiStatusCode::SUCCESS, hidl_stats);
 }
 
 Return<void> WifiStaIface::startDebugPacketFateMonitoring(
     startDebugPacketFateMonitoring_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_IFACE_INVALID));
-    return Void();
+    HIDL_RETURN0(WifiStatusCode::ERROR_WIFI_IFACE_INVALID);
   }
   // TODO: add implementation
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
-  return Void();
+  HIDL_RETURN0(WifiStatusCode::SUCCESS);
 }
 
 Return<void> WifiStaIface::stopDebugPacketFateMonitoring(
     stopDebugPacketFateMonitoring_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_IFACE_INVALID));
-    return Void();
+    HIDL_RETURN0(WifiStatusCode::ERROR_WIFI_IFACE_INVALID);
   }
   // TODO: add implementation
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS));
-  return Void();
+  HIDL_RETURN0(WifiStatusCode::SUCCESS);
 }
 
 Return<void> WifiStaIface::getDebugTxPacketFates(
     getDebugTxPacketFates_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_IFACE_INVALID),
-                   hidl_vec<WifiDebugTxPacketFateReport>());
-    return Void();
+    HIDL_RETURN1(WifiStatusCode::ERROR_WIFI_IFACE_INVALID,
+                 hidl_vec<WifiDebugTxPacketFateReport>());
   }
   // TODO: add implementation
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS),
-                 hidl_vec<WifiDebugTxPacketFateReport>());
-  return Void();
+  HIDL_RETURN1(WifiStatusCode::SUCCESS,
+               hidl_vec<WifiDebugTxPacketFateReport>());
 }
 
 Return<void> WifiStaIface::getDebugRxPacketFates(
     getDebugRxPacketFates_cb hidl_status_cb) {
   if (!is_valid_) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_IFACE_INVALID),
-                   hidl_vec<WifiDebugRxPacketFateReport>());
-    return Void();
+    HIDL_RETURN1(WifiStatusCode::ERROR_WIFI_IFACE_INVALID,
+                 hidl_vec<WifiDebugRxPacketFateReport>());
   }
   // TODO: add implementation
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS),
-                 hidl_vec<WifiDebugRxPacketFateReport>());
-  return Void();
+  HIDL_RETURN1(WifiStatusCode::SUCCESS,
+               hidl_vec<WifiDebugRxPacketFateReport>());
 }
 }  // namespace implementation
 }  // namespace V1_0
