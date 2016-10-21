@@ -72,6 +72,52 @@
     },
     {
       "key": {
+        "uuid": "7cce57f1_bc9bf900",
+        "filename": "manager/1.0/default/ServiceManager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-21T02:37:05Z",
+      "side": 1,
+      "message": "the big question is, what do I pass into the dummy callback?",
+      "range": {
+        "startLine": 56,
+        "startChar": 29,
+        "endLine": 56,
+        "endChar": 55
+      },
+      "revId": "e5595adb2354e2a3f8ff4466e57e883b59acd61f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7cce57f1_7c734107",
+        "filename": "manager/1.0/default/ServiceManager.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-21T02:37:05Z",
+      "side": 1,
+      "message": "can we combine these two together? they\u0027re aliased for eachother right now",
+      "range": {
+        "startLine": 29,
+        "startChar": 32,
+        "endLine": 30,
+        "endChar": 35
+      },
+      "revId": "e5595adb2354e2a3f8ff4466e57e883b59acd61f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7cce57f1_5ccf5d3c",
         "filename": "manager/1.0/default/service.cpp",
         "patchSetId": 1
