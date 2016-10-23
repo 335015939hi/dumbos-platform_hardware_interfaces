@@ -1,0 +1,114 @@
+/*
+ * Copyright (C) 2016 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package android.hardware.radio@1.0;
+
+interface ISapCallback {
+    /**
+     * CONNECT_RESP from SAP 1.1 spec 5.1.2
+     *
+     * @param msgHeader Message header containing token and error info
+     * @param connectRsp Connection Status
+     * @param maxMsgSize MaxMsgSize supported by server if request cannot be fulfilled.
+     *        Valid only if connectRsp is SapConnectRsp:MSG_SIZE_TOO_LARGE.
+     */
+    oneway connectRsp(SapMsgHeader msgHeader, SapConnectRsp connectRsp, int32_t maxMsgSize);
+
+    /**
+     * DISCONNECT_RESP from SAP 1.1 spec 5.1.4
+     *
+     * @param msgHeader Message header containing token and error info
+     */
+    oneway disconnectRsp(SapMsgHeader msgHeader);
+
+    /**
+     * DISCONNECT_IND from SAP 1.1 spec 5.1.5
+     *
+     * @param msgHeader Message header containing token and error info
+     * @param disconnectType Disconnect Type to indicate if shutdown is graceful or immediate
+     */
+    oneway disconnectInd(SapMsgHeader msgHeader, SapDisconnectType disconnectType);
+
+    /**
+     * TRANSFER_APDU_RESP from SAP 1.1 spec 5.1.7
+     *
+     * @param msgHeader Message header containing token and error info
+     * @param type APDU command type
+     * @param resultCode ResultCode to indicate if command was processed correctly
+     * @param apduResponse APDU Response. Valid only if command was processed correctly and no error
+     *        occurred.
+     */
+    oneway apduRsp(SapMsgHeader msgHeader, SapApduType type, SapResultCode resultCode,
+            vec<uint8_t> apduResponse);
+
+    /**
+     * TRANSFER_ATR_RESP from SAP 1.1 spec 5.1.9
+     *
+     * @param msgHeader Message header containing token and error info
+     * @param resultCode ResultCode to indicate if command was processed correctly
+     * @param atr Answer to Reset from the subscription module. Included only if no error occurred.
+     */
+    oneway transferAtrRsp(SapMsgHeader msgHeader, SapResultCode resultCode, vec<uint8_t> atr);
+
+    /**
+     * POWER_SIM_OFF_RESP and POWER_SIM_ON_RESP from SAP 1.1 spec 5.1.11 + 5.1.13
+     *
+     * @param msgHeader Message header containing token and error info
+     * @param resultCode ResultCode to indicate if command was processed correctly
+     */
+    oneway powerRsp(SapMsgHeader msgHeader, SapResultCode resultCode);
+
+    /**
+     * RESET_SIM_RESP from SAP 1.1 spec 5.1.15
+     *
+     * @param msgHeader Message header containing token and error info
+     * @param resultCode ResultCode to indicate if command was processed correctly
+     */
+    oneway resetSimRsp(SapMsgHeader msgHeader, SapResultCode resultCode);
+
+    /**
+     * STATUS_IND from SAP 1.1 spec 5.1.16
+     *
+     * @param msgHeader Message header containing token and error info
+     * @param status Parameter to indicate reason for the status change.
+     */
+    oneway statusInd(SapMsgHeader msgHeader, SapStatus status);
+
+    /**
+     * TRANSFER_CARD_READER_STATUS_REQ from SAP 1.1 spec 5.1.18
+     *
+     * @param msgHeader Message header containing token and error info
+     * @param resultCode ResultCode to indicate if command was processed correctly
+     * @param cardReaderStatus CardReaderStatus. Valid only if no error occurred.
+     */
+    oneway transferCardReaderStatusRsp(SapMsgHeader msgHeader, SapResultCode resultCode,
+            int32_t cardReaderStatus);
+
+    /**
+     * ERROR_RESP from SAP 1.1 spec 5.1.19
+     *
+     * @param msgHeader Message header containing token and error info
+     */
+    oneway errorRsp(SapMsgHeader msgHeader);
+
+    /**
+     * SET_TRANSPORT_PROTOCOL_RESP from SAP 1.1 spec 5.1.21
+     *
+     * @param msgHeader Message header containing token and error info
+     * @param resultCode ResultCode to indicate if command was processed correctly
+     */
+    oneway transferProtocolRsp(SapMsgHeader msgHeader, SapResultCode resultCode);
+};
