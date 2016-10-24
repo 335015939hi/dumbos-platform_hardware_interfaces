@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7c0017b3_9368abd1",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 2370,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-24T16:18:48Z",
+      "side": 1,
+      "message": "Added a comment for the size.",
+      "parentUuid": "7c0017b3_72d6b852",
+      "range": {
+        "startLine": 2370,
+        "startChar": 13,
+        "endLine": 2370,
+        "endChar": 20
+      },
+      "revId": "96b1a44e6c2e9668d8def2fcee9a41d3a79025fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c0017b3_32cc40c1",
         "filename": "wifi/1.0/types.hal",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-21T23:30:18Z",
       "side": 1,
       "message": ":/\n\nThis is really messy without a union.\n\nI know it\u0027s messy, but you could consider just doing a pseudo union for the time being:\n\n// union\nint32_t integerValue;\nMacAddress address;\n... etc",
+      "range": {
+        "startLine": 2409,
+        "startChar": 2,
+        "endLine": 2409,
+        "endChar": 21
+      },
+      "revId": "96b1a44e6c2e9668d8def2fcee9a41d3a79025fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c0017b3_d3bfc306",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 2409,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-24T16:18:48Z",
+      "side": 1,
+      "message": "I did think about that. There is just too many possible combinations. Also, the vendor specific reason has to be a raw byte stream. So, we do need a vec\u003cuint8_t\u003e in the union.",
+      "parentUuid": "7c0017b3_32cc40c1",
       "range": {
         "startLine": 2409,
         "startChar": 2,
