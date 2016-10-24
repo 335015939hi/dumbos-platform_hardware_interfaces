@@ -119,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "7c0017b3_f308070d",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 2719,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-24T16:18:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c0017b3_92826c4b",
+      "range": {
+        "startLine": 2719,
+        "startChar": 42,
+        "endLine": 2719,
+        "endChar": 51
+      },
+      "revId": "bc9492fada5e7262b2668c8da57856872eaeb031",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c0017b3_727fd882",
         "filename": "wifi/1.0/types.hal",
         "patchSetId": 4
@@ -130,6 +154,30 @@
       "writtenOn": "2016-10-21T23:26:54Z",
       "side": 1,
       "message": "what goes in here exactly?",
+      "range": {
+        "startLine": 2721,
+        "startChar": 15,
+        "endLine": 2721,
+        "endChar": 27
+      },
+      "revId": "bc9492fada5e7262b2668c8da57856872eaeb031",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c0017b3_13181b59",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 2721,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-24T16:18:36Z",
+      "side": 1,
+      "message": "Raw bytes of the corresponding IP packet.",
+      "parentUuid": "7c0017b3_727fd882",
       "range": {
         "startLine": 2721,
         "startChar": 15,
