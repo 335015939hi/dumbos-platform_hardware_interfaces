@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "7c0017b3_cebf1c07",
+        "filename": "manager/1.0/IServiceManager.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-24T17:14:11Z",
+      "side": 1,
+      "message": "Good point. I started a conversation online with him.\n\nPerhaps we should allow IServiceManager to exist in passthrough mode and just try to do the best it can (obviously, it won\u0027t know the names of the passthrough services hidden in -impl\u0027s, but perhaps it can at least do something).",
+      "parentUuid": "41260cae_161f3c83",
+      "range": {
+        "startLine": 26,
+        "startChar": 4,
+        "endLine": 26,
+        "endChar": 28
+      },
+      "revId": "e5595adb2354e2a3f8ff4466e57e883b59acd61f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7cce57f1_1cd5e5ce",
         "filename": "manager/1.0/IServiceManager.hal",
         "patchSetId": 1
@@ -286,6 +310,30 @@
     },
     {
       "key": {
+        "uuid": "7c0017b3_6ecff0b7",
+        "filename": "manager/1.0/default/ServiceManager.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-24T17:14:11Z",
+      "side": 1,
+      "message": "I personally prefer them all here. But, there is definitely no rush.",
+      "parentUuid": "41260cae_b60d2856",
+      "range": {
+        "startLine": 56,
+        "startChar": 29,
+        "endLine": 56,
+        "endChar": 55
+      },
+      "revId": "e5595adb2354e2a3f8ff4466e57e883b59acd61f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7cce57f1_7c734107",
         "filename": "manager/1.0/default/ServiceManager.h",
         "patchSetId": 1
@@ -369,6 +417,30 @@
       "side": 1,
       "message": "Yeah actually this is a legacy libbinder thing - the blocking is implemented outside the interface. We should just have one of these (get() being my preference).",
       "parentUuid": "7cce57f1_bde3f3c1",
+      "range": {
+        "startLine": 29,
+        "startChar": 32,
+        "endLine": 30,
+        "endChar": 35
+      },
+      "revId": "e5595adb2354e2a3f8ff4466e57e883b59acd61f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c0017b3_ae0748f3",
+        "filename": "manager/1.0/default/ServiceManager.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-24T17:14:11Z",
+      "side": 1,
+      "message": "Alright, I\u0027ll add that in my next CL.",
+      "parentUuid": "41260cae_d600a41f",
       "range": {
         "startLine": 29,
         "startChar": 32,
@@ -488,6 +560,30 @@
       "side": 1,
       "message": "I\u0027m not sure you can ever get the servicemanager over binder itself, since the kernel driver treats it as a special entity. I\u0027ll double check the kernel code.\n\nauto sm \u003d getDefaultServiceManager() would also work? Though that is annoying with the versioning.\n\nAlso see my earlier comment, we need to think about the passthrough case also. I don\u0027t think we can enumerate services - we don\u0027t know which library names to look for.",
       "parentUuid": "dc6ca3ba_79e31f5c",
+      "range": {
+        "startLine": 56,
+        "startChar": 4,
+        "endLine": 56,
+        "endChar": 42
+      },
+      "revId": "e5595adb2354e2a3f8ff4466e57e883b59acd61f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c0017b3_2e133840",
+        "filename": "manager/1.0/default/service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-24T17:14:11Z",
+      "side": 1,
+      "message": "See my later CL. I fixed it :)\n\nAlso, we can enumerate services, I\u0027m planning on changing (HIDL_INTERNAL_)addService to make use of I*::hidlDescriptorChain (or whatever that gets renamed to) in Yifan\u0027s CLs. This way, the service manager will know what particular service everything is going to be. This will also solve b/31861268.",
+      "parentUuid": "41260cae_76f9d012",
       "range": {
         "startLine": 56,
         "startChar": 4,
