@@ -90,6 +90,19 @@ void onLinkLayerStatsDataResult(wifi_request_id id,
   }
 }
 
+// Callback to be invoked for ring buffer data indication.
+std::function<void(char*, char*, int, wifi_ring_buffer_status*)>
+    on_ring_buffer_data_internal_callback;
+void onRingBufferData(char* ring_name,
+                      char* buffer,
+                      int buffer_size,
+                      wifi_ring_buffer_status* status) {
+  if (on_ring_buffer_data_internal_callback) {
+    on_ring_buffer_data_internal_callback(
+        ring_name, buffer, buffer_size, status);
+  }
+}
+
 // Callback to be invoked for rtt results results.
 std::function<void(
     wifi_request_id, unsigned num_results, wifi_rtt_result* rtt_results[])>
@@ -207,6 +220,7 @@ static constexpr uint32_t kMaxCachedGscanResults = 64;
 static constexpr uint32_t kMaxGscanFrequenciesForBand = 64;
 static constexpr uint32_t kLinkLayerStatsDataMpduSizeThreshold = 128;
 static constexpr uint32_t kMaxWakeReasonStatsType = 32;
+static constexpr uint32_t kMaxRingBuffers = 10;
 
 WifiLegacyHal::WifiLegacyHal()
     : global_handle_(nullptr),
@@ -596,6 +610,59 @@ std::pair<wifi_error, WakeReasonStats> WifiLegacyHal::getWakeReasonStats() {
   return std::make_pair(status, wake_reason_stats_ext);
 }
 
+wifi_error WifiLegacyHal::registerRingBufferCallbackHandler(
+    const on_ring_buffer_data_callback& on_user_data_callback) {
+  if (on_ring_buffer_data_internal_callback) {
+    return WIFI_ERROR_NOT_AVAILABLE;
+  }
+  on_ring_buffer_data_internal_callback = [&on_user_data_callback](
+      char* ring_name,
+      char* buffer,
+      int buffer_size,
+      wifi_ring_buffer_status* status) {
+    if (status && buffer) {
+      std::vector<uint8_t> buffer_vector(
+          reinterpret_cast<uint8_t*>(buffer),
+          reinterpret_cast<uint8_t*>(buffer) + buffer_size);
+      on_user_data_callback(ring_name, buffer_vector, *status);
+    }
+  };
+  return global_func_table_.wifi_set_log_handler(
+      0, wlan_interface_handle_, {onRingBufferData});
+}
+
+std::pair<wifi_error, std::vector<wifi_ring_buffer_status>>
+WifiLegacyHal::getRingBuffersStatus() {
+  std::array<wifi_ring_buffer_status, kMaxRingBuffers> ring_buffers_status;
+  uint32_t num_rings = 0;
+  wifi_error status = global_func_table_.wifi_get_ring_buffers_status(
+      wlan_interface_handle_, &num_rings, ring_buffers_status.data());
+  std::vector<wifi_ring_buffer_status> ring_buffers_status_vector;
+  if (num_rings > 0 && num_rings < kMaxRingBuffers) {
+    ring_buffers_status_vector.assign(ring_buffers_status.begin(),
+                                      ring_buffers_status.begin() + num_rings);
+  }
+  return std::make_pair(status, std::move(ring_buffers_status_vector));
+}
+
+wifi_error WifiLegacyHal::startRingBufferLogging(const std::string& ring_name,
+                                                 uint32_t verbose_level,
+                                                 uint32_t max_interval_sec,
+                                                 uint32_t min_data_size) {
+  return global_func_table_.wifi_start_logging(
+      wlan_interface_handle_,
+      verbose_level,
+      0,
+      max_interval_sec,
+      min_data_size,
+      const_cast<char*>(ring_name.c_str()));
+}
+
+wifi_error WifiLegacyHal::getRingBufferData(const std::string& ring_name) {
+  return global_func_table_.wifi_get_ring_data(
+      wlan_interface_handle_, const_cast<char*>(ring_name.c_str()));
+}
+
 wifi_error WifiLegacyHal::startRttRangeRequest(
     wifi_request_id id,
     const std::vector<wifi_rtt_config>& rtt_configs,
@@ -940,6 +1007,7 @@ void WifiLegacyHal::invalidate() {
   on_nan_event_data_path_confirm_user_callback = nullptr;
   on_nan_event_data_path_end_user_callback = nullptr;
   on_nan_event_transmit_follow_up_user_callback = nullptr;
+  on_ring_buffer_data_internal_callback = nullptr;
 }
 
 }  // namespace legacy_hal
