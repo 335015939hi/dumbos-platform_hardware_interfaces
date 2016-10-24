@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7c0017b3_ce71dcc4",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-10-24T17:10:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c0017b3_b5295754",
+      "range": {
+        "startLine": 22,
+        "startChar": 60,
+        "endLine": 22,
+        "endChar": 82
+      },
+      "revId": "dd052645aa3276128b353b253aa0e216055e2e20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c0017b3_152f6356",
         "filename": "radio/1.0/types.hal",
         "patchSetId": 12
@@ -36,6 +60,24 @@
       "writtenOn": "2016-10-23T23:52:01Z",
       "side": 1,
       "message": "not a todo i guess?",
+      "revId": "dd052645aa3276128b353b253aa0e216055e2e20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c0017b3_6e337011",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-10-24T17:10:05Z",
+      "side": 1,
+      "message": "Steven had a comment to add it so that he can verify it from Iliyan",
+      "parentUuid": "7c0017b3_152f6356",
       "revId": "dd052645aa3276128b353b253aa0e216055e2e20",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
