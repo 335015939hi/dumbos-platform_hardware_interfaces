@@ -109,6 +109,12 @@ typedef std::function<void(wifi_request_id,
                            const std::vector<const wifi_rtt_result*>&)>
     on_rtt_results_callback;
 
+// Callback for ring buffer data.
+typedef std::function<void(const std::string&,
+                           const std::vector<uint8_t>&,
+                           const wifi_ring_buffer_status&)>
+    on_ring_buffer_data_callback;
+
 /**
  * Class that encapsulates all legacy HAL interactions.
  * This class manages the lifetime of the event loop thread used by legacy HAL.
@@ -162,6 +168,15 @@ class WifiLegacyHal {
   std::pair<wifi_error, std::vector<wifi_tx_report>> getTxPktFates();
   std::pair<wifi_error, std::vector<wifi_rx_report>> getRxPktFates();
   std::pair<wifi_error, WakeReasonStats> getWakeReasonStats();
+  wifi_error registerRingBufferCallbackHandler(
+      const on_ring_buffer_data_callback& on_data_callback);
+  std::pair<wifi_error, std::vector<wifi_ring_buffer_status>>
+  getRingBuffersStatus();
+  wifi_error startRingBufferLogging(const std::string& ring_name,
+                                    uint32_t verbose_level,
+                                    uint32_t max_interval_sec,
+                                    uint32_t min_data_size);
+  wifi_error getRingBufferData(const std::string& ring_name);
   // RTT related methods.
   wifi_error startRttRangeRequest(
       wifi_request_id id,
