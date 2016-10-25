@@ -22,6 +22,30 @@
       "revId": "3fb3b9ebdee3a1411d55db91a55c52e34002c652",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a19ee87a_35386890",
+        "filename": "tests/foo/1.0/IFoo.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2016-10-25T23:30:54Z",
+      "side": 1,
+      "message": "But if so, then object initialization time will increase. I am not sure if it will have an impact on the boot time, etc. Right now the queue is initialized lazily.",
+      "parentUuid": "a19ee87a_5522cc6a",
+      "range": {
+        "startLine": 90,
+        "startChar": 11,
+        "endLine": 90,
+        "endChar": 26
+      },
+      "revId": "3fb3b9ebdee3a1411d55db91a55c52e34002c652",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
