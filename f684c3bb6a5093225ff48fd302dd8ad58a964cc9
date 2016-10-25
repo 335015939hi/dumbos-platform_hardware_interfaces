@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e147008e_9bca0ba4",
+        "filename": "manager/1.0/default/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-25T00:01:11Z",
+      "side": 1,
+      "message": "should it be called this?\n\nshould we put this in system/bin/hw?",
+      "range": {
+        "startLine": 2,
+        "startChar": 11,
+        "endLine": 2,
+        "endChar": 47
+      },
+      "revId": "f684c3bb6a5093225ff48fd302dd8ad58a964cc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
