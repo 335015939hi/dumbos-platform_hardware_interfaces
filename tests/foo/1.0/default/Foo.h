@@ -31,6 +31,7 @@ struct Foo : public IFoo {
     virtual Return<void> doStuffAndReturnAString(doStuffAndReturnAString_cb _hidl_cb)  override;
     virtual Return<void> mapThisVector(const hidl_vec<int32_t>& param, mapThisVector_cb _hidl_cb)  override;
     virtual Return<void> callMe(const sp<IFooCallback>& cb)  override;
+    virtual Return<void> initOnewayQueue() override;
     virtual Return<IFoo::SomeEnum> useAnEnum(IFoo::SomeEnum zzz)  override;
     virtual Return<void> haveAGooberVec(const hidl_vec<IFoo::Goober>& param)  override;
     virtual Return<void> haveAGoober(const IFoo::Goober& g)  override;

@@ -87,6 +87,7 @@ interface IFoo {
     doStuffAndReturnAString() generates (string something);
     mapThisVector(vec<int32_t> param) generates (vec<int32_t> something);
     oneway callMe(IFooCallback cb);
+    oneway initOnewayQueue();
     useAnEnum(SomeEnum zzz) generates (SomeEnum sleepy);
 
     haveAGooberVec(vec<Goober> param);

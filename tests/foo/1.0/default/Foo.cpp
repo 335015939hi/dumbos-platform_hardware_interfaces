@@ -133,6 +133,10 @@ Return<void> Foo::callMe(
     return Void();
 }
 
+Return<void> Foo::initOnewayQueue() {
+    return Void();
+}
+
 Return<Foo::SomeEnum> Foo::useAnEnum(SomeEnum param) {
     ALOGI("SERVER(Foo) useAnEnum %d", (int)param);
 

@@ -54,6 +54,10 @@ Return<void> Bar::callMe(
     return mFoo->callMe(cb);
 }
 
+Return<void> Bar::initOnewayQueue() {
+    return mFoo->initOnewayQueue();
+}
+
 Return<Bar::SomeEnum> Bar::useAnEnum(SomeEnum param) {
     return mFoo->useAnEnum(param);
 }
