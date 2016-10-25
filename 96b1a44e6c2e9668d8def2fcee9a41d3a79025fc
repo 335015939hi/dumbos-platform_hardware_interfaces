@@ -93,6 +93,30 @@
       "revId": "96b1a44e6c2e9668d8def2fcee9a41d3a79025fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e147008e_44a9c478",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 2409,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-25T01:45:12Z",
+      "side": 1,
+      "message": "I\u0027m not convinced. I suppose it\u0027s fine for now.",
+      "parentUuid": "7c0017b3_d3bfc306",
+      "range": {
+        "startLine": 2409,
+        "startChar": 2,
+        "endLine": 2409,
+        "endChar": 21
+      },
+      "revId": "96b1a44e6c2e9668d8def2fcee9a41d3a79025fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
