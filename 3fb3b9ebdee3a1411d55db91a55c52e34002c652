@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a19ee87a_5522cc6a",
+        "filename": "tests/foo/1.0/IFoo.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-25T23:28:55Z",
+      "side": 1,
+      "message": "I\u0027m not sure the correct solution to this is to add an \u0027initOnewayQueue\u0027 call to a specific interface.\n\nThe correct solution could just be changing the initialization of the queue to occur at object initialization time (so during the call of X::getService). I\u0027ll +1.",
+      "range": {
+        "startLine": 90,
+        "startChar": 11,
+        "endLine": 90,
+        "endChar": 26
+      },
+      "revId": "3fb3b9ebdee3a1411d55db91a55c52e34002c652",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
