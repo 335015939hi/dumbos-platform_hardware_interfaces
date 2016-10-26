@@ -1130,6 +1130,29 @@
     },
     {
       "key": {
+        "uuid": "810004b4_813b408e",
+        "filename": "radio/1.0/IRadioCallback.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-26T17:17:06Z",
+      "side": 1,
+      "message": "enum (talked offline)",
+      "range": {
+        "startLine": 182,
+        "startChar": 14,
+        "endLine": 182,
+        "endChar": 22
+      },
+      "revId": "4122c67da284c659949c480c528e4909fdc5457b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c886b74_d73fd41f",
         "filename": "radio/1.0/IRadioCallback.hal",
         "patchSetId": 10
@@ -1170,6 +1193,29 @@
         "startChar": 14,
         "endLine": 196,
         "endChar": 18
+      },
+      "revId": "4122c67da284c659949c480c528e4909fdc5457b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "810004b4_e14b1c22",
+        "filename": "radio/1.0/IRadioCallback.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-26T17:17:06Z",
+      "side": 1,
+      "message": "should be boolean",
+      "range": {
+        "startLine": 219,
+        "startChar": 14,
+        "endLine": 220,
+        "endChar": 47
       },
       "revId": "4122c67da284c659949c480c528e4909fdc5457b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -1247,6 +1293,30 @@
     },
     {
       "key": {
+        "uuid": "810004b4_0147301a",
+        "filename": "radio/1.0/IRadioCallback.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-26T17:17:06Z",
+      "side": 1,
+      "message": "If you just use them for logging, just rename it to \u0027debugDenialReason\u0027",
+      "parentUuid": "7cce57f1_6b29bdfc",
+      "range": {
+        "startLine": 233,
+        "startChar": 14,
+        "endLine": 233,
+        "endChar": 29
+      },
+      "revId": "4122c67da284c659949c480c528e4909fdc5457b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c886b74_57bbe479",
         "filename": "radio/1.0/IRadioCallback.hal",
         "patchSetId": 10
@@ -1287,6 +1357,29 @@
         "startChar": 34,
         "endLine": 288,
         "endChar": 83
+      },
+      "revId": "4122c67da284c659949c480c528e4909fdc5457b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "810004b4_a1f644ba",
+        "filename": "radio/1.0/IRadioCallback.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-26T17:17:06Z",
+      "side": 1,
+      "message": "enum (talked offline)",
+      "range": {
+        "startLine": 303,
+        "startChar": 14,
+        "endLine": 309,
+        "endChar": 44
       },
       "revId": "4122c67da284c659949c480c528e4909fdc5457b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -1423,6 +1516,30 @@
       "side": 1,
       "message": "Do you have strong position here to remove int values ?\nCurrently vendor is returning error as an int. If we remove int values, then it will require our service to convert those ints to enums by using switch cases (for eg. currently vendor would return error code 501 corresponding to OEM_ERROR_1 which needs to be converted to enum by our service) Adding such switch cases for all enums could be considerable work while writing code for service.",
       "parentUuid": "9c886b74_f779b8ec",
+      "range": {
+        "startLine": 58,
+        "startChar": 11,
+        "endLine": 58,
+        "endChar": 12
+      },
+      "revId": "4122c67da284c659949c480c528e4909fdc5457b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "810004b4_a128044e",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-26T17:17:06Z",
+      "side": 1,
+      "message": "No, it\u0027s okay.",
+      "parentUuid": "7cce57f1_8e823f20",
       "range": {
         "startLine": 58,
         "startChar": 11,
