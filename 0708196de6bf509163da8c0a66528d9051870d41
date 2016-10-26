@@ -117,6 +117,30 @@
       "revId": "0708196de6bf509163da8c0a66528d9051870d41",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "810004b4_279a4458",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 2350,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-26T20:07:55Z",
+      "side": 1,
+      "message": "That is if we have a union. If the value is a generic vec\u003cuint8_t\u003e, then the value will be based on type.\n\nFor ex. If type \u003d\u003d BACKGROUND_SCAN_PARAMS, then the value is a vector of bytes which represent the |BackgroundScanParameters|. \n\nAnyway, we\u0027ve moved to unions now.",
+      "parentUuid": "810004b4_6c94232a",
+      "range": {
+        "startLine": 2350,
+        "startChar": 28,
+        "endLine": 2350,
+        "endChar": 52
+      },
+      "revId": "0708196de6bf509163da8c0a66528d9051870d41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
