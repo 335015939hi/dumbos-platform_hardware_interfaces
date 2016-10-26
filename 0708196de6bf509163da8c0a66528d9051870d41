@@ -93,6 +93,30 @@
       "revId": "0708196de6bf509163da8c0a66528d9051870d41",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "810004b4_6c94232a",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 2350,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-26T18:17:34Z",
+      "side": 1,
+      "message": "so,\n\ntemplate\u003ctypename T\u003e\nstruct hidl_vec {\n    T *mBuffer; size_t mSize; bool mOwnsBuffer;\n}\n\nif you have:\nunion Example {\n    hidl_vec a;\n    int b;\n};\n\nand you\u0027re trying to pass the union across a process boundary, we have no clue if the first sizeof(T*) bytes represent the hidl_vec or represent the integer. Because of this, we have no clue what to copy over.",
+      "parentUuid": "810004b4_1e15cdff",
+      "range": {
+        "startLine": 2350,
+        "startChar": 28,
+        "endLine": 2350,
+        "endChar": 52
+      },
+      "revId": "0708196de6bf509163da8c0a66528d9051870d41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
