@@ -35,11 +35,16 @@ namespace implementation {
 Wifi::Wifi()
     : legacy_hal_(new WifiLegacyHal()), run_state_(RunState::STOPPED) {}
 
-Return<void> Wifi::registerEventCallback(
+bool Wifi::isValid() {
+  // This object is always valid.
+  return true;
+}
+
+WifiStatus Wifi::registerEventCallbackInternal(
     const sp<IWifiEventCallback>& event_callback) {
   // TODO(b/31632518): remove the callback when the client is destroyed
   event_callbacks_.emplace_back(event_callback);
-  return Void();
+  return createWifiStatus(WifiStatusCode::SUCCESS);
 }
 
 Return<bool> Wifi::isStarted() {

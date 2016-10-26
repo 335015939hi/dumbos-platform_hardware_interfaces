@@ -23,6 +23,7 @@
 #include <android/hardware/wifi/1.0/IWifi.h>
 #include <utils/Looper.h>
 
+#include "hidl_return_util.h"
 #include "wifi_chip.h"
 #include "wifi_legacy_hal.h"
 
@@ -39,9 +40,19 @@ class Wifi : public IWifi {
  public:
   Wifi();
 
+  bool isValid();
+
   // HIDL methods exposed.
   Return<void> registerEventCallback(
-      const sp<IWifiEventCallback>& event_callback) override;
+      const sp<IWifiEventCallback>& event_callback,
+      registerEventCallback_cb hidl_status_cb) override {
+    return hidl_return_util::ValidateAndCall0(
+        this,
+        WifiStatusCode::ERROR_UNKNOWN,
+        &Wifi::registerEventCallbackInternal,
+        hidl_status_cb,
+        event_callback);
+  }
   Return<bool> isStarted() override;
   Return<void> start(start_cb hidl_status_cb) override;
   Return<void> stop(stop_cb hidl_status_cb) override;
@@ -50,6 +61,9 @@ class Wifi : public IWifi {
 
  private:
   enum class RunState { STOPPED, STARTED, STOPPING };
+
+  WifiStatus registerEventCallbackInternal(
+      const sp<IWifiEventCallback>& event_callback);
 
   // Instance is created in this root level |IWifi| HIDL interface object
   // and shared with all the child HIDL interface objects.
