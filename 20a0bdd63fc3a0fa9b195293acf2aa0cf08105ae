@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "810004b4_b855d9de",
+        "filename": "radio/1.0/ISap.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-10-26T01:25:56Z",
+      "side": 1,
+      "message": "should -\u003e must everywhere ?",
+      "range": {
+        "startLine": 32,
+        "startChar": 47,
+        "endLine": 32,
+        "endChar": 53
+      },
+      "revId": "20a0bdd63fc3a0fa9b195293acf2aa0cf08105ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
