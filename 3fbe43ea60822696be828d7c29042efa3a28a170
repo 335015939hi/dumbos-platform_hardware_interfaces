@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "810004b4_f2cda817",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 744,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-10-26T19:33:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "810004b4_d26d0477",
+      "range": {
+        "startLine": 744,
+        "startChar": 61,
+        "endLine": 744,
+        "endChar": 66
+      },
+      "revId": "3fbe43ea60822696be828d7c29042efa3a28a170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "810004b4_5235743b",
         "filename": "radio/1.0/IRadio.hal",
         "patchSetId": 19
@@ -94,6 +118,54 @@
     },
     {
       "key": {
+        "uuid": "810004b4_b27850e8",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 1565,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-10-26T19:33:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "810004b4_32328055",
+      "range": {
+        "startLine": 1565,
+        "startChar": 30,
+        "endLine": 1565,
+        "endChar": 34
+      },
+      "revId": "3fbe43ea60822696be828d7c29042efa3a28a170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "810004b4_f282c897",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 1565,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-10-26T19:33:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "810004b4_5235743b",
+      "range": {
+        "startLine": 1565,
+        "startChar": 7,
+        "endLine": 1565,
+        "endChar": 12
+      },
+      "revId": "3fbe43ea60822696be828d7c29042efa3a28a170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "810004b4_f23f681b",
         "filename": "radio/1.0/IRadio.hal",
         "patchSetId": 19
@@ -105,6 +177,30 @@
       "writtenOn": "2016-10-26T19:26:11Z",
       "side": 1,
       "message": "Modes",
+      "range": {
+        "startLine": 1571,
+        "startChar": 43,
+        "endLine": 1571,
+        "endChar": 71
+      },
+      "revId": "3fbe43ea60822696be828d7c29042efa3a28a170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "810004b4_f29be8fb",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 1571,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-10-26T19:33:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "810004b4_f23f681b",
       "range": {
         "startLine": 1571,
         "startChar": 43,
@@ -140,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "810004b4_5291f4db",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 1579,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-10-26T19:33:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "810004b4_123bfc33",
+      "range": {
+        "startLine": 1579,
+        "startChar": 11,
+        "endLine": 1579,
+        "endChar": 31
+      },
+      "revId": "3fbe43ea60822696be828d7c29042efa3a28a170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "810004b4_92a54c8b",
         "filename": "radio/1.0/IRadioResponse.hal",
         "patchSetId": 19
@@ -151,6 +271,30 @@
       "writtenOn": "2016-10-26T19:26:11Z",
       "side": 1,
       "message": "send",
+      "range": {
+        "startLine": 468,
+        "startChar": 36,
+        "endLine": 468,
+        "endChar": 58
+      },
+      "revId": "3fbe43ea60822696be828d7c29042efa3a28a170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "810004b4_d2418480",
+        "filename": "radio/1.0/IRadioResponse.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-10-26T19:33:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "810004b4_92a54c8b",
       "range": {
         "startLine": 468,
         "startChar": 36,
@@ -186,6 +330,30 @@
     },
     {
       "key": {
+        "uuid": "810004b4_b2469094",
+        "filename": "radio/1.0/IRadioResponse.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-10-26T19:33:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "810004b4_12c65c35",
+      "range": {
+        "startLine": 476,
+        "startChar": 36,
+        "endLine": 476,
+        "endChar": 62
+      },
+      "revId": "3fbe43ea60822696be828d7c29042efa3a28a170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "810004b4_72535883",
         "filename": "radio/1.0/IRadioResponse.hal",
         "patchSetId": 19
@@ -209,6 +377,30 @@
     },
     {
       "key": {
+        "uuid": "810004b4_124c9cb2",
+        "filename": "radio/1.0/IRadioResponse.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 520,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-10-26T19:33:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "810004b4_72535883",
+      "range": {
+        "startLine": 520,
+        "startChar": 36,
+        "endLine": 520,
+        "endChar": 56
+      },
+      "revId": "3fbe43ea60822696be828d7c29042efa3a28a170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "810004b4_d24064a5",
         "filename": "radio/1.0/IRadioResponse.hal",
         "patchSetId": 19
@@ -220,6 +412,30 @@
       "writtenOn": "2016-10-26T19:26:11Z",
       "side": 1,
       "message": "Modes",
+      "range": {
+        "startLine": 525,
+        "startChar": 11,
+        "endLine": 525,
+        "endChar": 39
+      },
+      "revId": "3fbe43ea60822696be828d7c29042efa3a28a170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "810004b4_f250084c",
+        "filename": "radio/1.0/IRadioResponse.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-10-26T19:33:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "810004b4_d24064a5",
       "range": {
         "startLine": 525,
         "startChar": 11,
