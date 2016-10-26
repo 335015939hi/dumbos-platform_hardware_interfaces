@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "810004b4_5268d411",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1002609
+      },
+      "writtenOn": "2016-10-26T19:29:16Z",
+      "side": 1,
+      "message": "maybe comments on where these came from (sap spec sections)?",
+      "range": {
+        "startLine": 163,
+        "startChar": 5,
+        "endLine": 163,
+        "endChar": 13
+      },
+      "revId": "751d2f5cb4506037677d8555f21fd244cecd2106",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
