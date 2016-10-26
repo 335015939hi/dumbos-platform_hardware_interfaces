@@ -1317,6 +1317,30 @@
     },
     {
       "key": {
+        "uuid": "810004b4_8760701a",
+        "filename": "radio/1.0/IRadioCallback.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2016-10-26T18:26:59Z",
+      "side": 1,
+      "message": "Do we really need to specify \u0027debug\u0027 in the interface? It can potentially be used for other purposes later.",
+      "parentUuid": "810004b4_0147301a",
+      "range": {
+        "startLine": 233,
+        "startChar": 14,
+        "endLine": 233,
+        "endChar": 29
+      },
+      "revId": "4122c67da284c659949c480c528e4909fdc5457b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c886b74_57bbe479",
         "filename": "radio/1.0/IRadioCallback.hal",
         "patchSetId": 10
