@@ -1153,6 +1153,30 @@
     },
     {
       "key": {
+        "uuid": "810004b4_27f9a4d7",
+        "filename": "radio/1.0/IRadioCallback.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-10-26T18:49:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "810004b4_813b408e",
+      "range": {
+        "startLine": 182,
+        "startChar": 14,
+        "endLine": 182,
+        "endChar": 22
+      },
+      "revId": "4122c67da284c659949c480c528e4909fdc5457b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c886b74_d73fd41f",
         "filename": "radio/1.0/IRadioCallback.hal",
         "patchSetId": 10
@@ -1211,6 +1235,30 @@
       "writtenOn": "2016-10-26T17:17:06Z",
       "side": 1,
       "message": "should be boolean",
+      "range": {
+        "startLine": 219,
+        "startChar": 14,
+        "endLine": 220,
+        "endChar": 47
+      },
+      "revId": "4122c67da284c659949c480c528e4909fdc5457b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "810004b4_8706b0f7",
+        "filename": "radio/1.0/IRadioCallback.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-10-26T18:49:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "810004b4_e14b1c22",
       "range": {
         "startLine": 219,
         "startChar": 14,
@@ -1341,6 +1389,30 @@
     },
     {
       "key": {
+        "uuid": "810004b4_e7efac01",
+        "filename": "radio/1.0/IRadioCallback.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-10-26T18:49:27Z",
+      "side": 1,
+      "message": "Haven\u0027t changed it to debug yet, let me know if its required.",
+      "parentUuid": "810004b4_8760701a",
+      "range": {
+        "startLine": 233,
+        "startChar": 14,
+        "endLine": 233,
+        "endChar": 29
+      },
+      "revId": "4122c67da284c659949c480c528e4909fdc5457b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c886b74_57bbe479",
         "filename": "radio/1.0/IRadioCallback.hal",
         "patchSetId": 10
@@ -1399,6 +1471,30 @@
       "writtenOn": "2016-10-26T17:17:06Z",
       "side": 1,
       "message": "enum (talked offline)",
+      "range": {
+        "startLine": 303,
+        "startChar": 14,
+        "endLine": 309,
+        "endChar": 44
+      },
+      "revId": "4122c67da284c659949c480c528e4909fdc5457b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "810004b4_47e5b821",
+        "filename": "radio/1.0/IRadioCallback.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-10-26T18:49:27Z",
+      "side": 1,
+      "message": "This is similar to line 233, haven\u0027t changed to debugReasonCode yet. Let me know if its required.",
+      "parentUuid": "810004b4_a1f644ba",
       "range": {
         "startLine": 303,
         "startChar": 14,
