@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "810004b4_4782d8e8",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 735,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-26T18:17:34Z",
+      "side": 0,
+      "message": "Leave this in please. I think I still want to consult with Iliyan on this to make sure everything is okay (it can still be submitting of course with the TODO).",
+      "range": {
+        "startLine": 735,
+        "startChar": 3,
+        "endLine": 735,
+        "endChar": 71
+      },
+      "revId": "8e53dce682690008eb2a50611a595b82156ff9c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

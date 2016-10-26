@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "810004b4_277fe41c",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 2351,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-26T18:17:34Z",
+      "side": 1,
+      "message": "but you\u0027re not going to delete this one?",
+      "range": {
+        "startLine": 2351,
+        "startChar": 3,
+        "endLine": 2351,
+        "endChar": 56
+      },
+      "revId": "ed765b36d1d638282efe2eabac0bc33199a89acc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "810004b4_6789dc06",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 2591,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-26T18:17:34Z",
+      "side": 1,
+      "message": "you can take all of these sizes out now",
+      "range": {
+        "startLine": 2591,
+        "startChar": 13,
+        "endLine": 2591,
+        "endChar": 19
+      },
+      "revId": "ed765b36d1d638282efe2eabac0bc33199a89acc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "810004b4_67d0bcde",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 2717,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-26T18:17:34Z",
+      "side": 1,
+      "message": "can you add that todo here as well?",
+      "range": {
+        "startLine": 2717,
+        "startChar": 2,
+        "endLine": 2717,
+        "endChar": 31
+      },
+      "revId": "ed765b36d1d638282efe2eabac0bc33199a89acc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "810004b4_e7ca0c37",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 2720,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-26T18:17:34Z",
+      "side": 1,
+      "message": "no camel case",
+      "range": {
+        "startLine": 2720,
+        "startChar": 18,
+        "endLine": 2720,
+        "endChar": 30
+      },
+      "revId": "ed765b36d1d638282efe2eabac0bc33199a89acc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
