@@ -46,6 +46,30 @@
       "revId": "20a0bdd63fc3a0fa9b195293acf2aa0cf08105ae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "810004b4_ac991bc9",
+        "filename": "radio/1.0/ISap.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2016-10-26T17:53:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "810004b4_e13f9c1b",
+      "range": {
+        "startLine": 32,
+        "startChar": 47,
+        "endLine": 32,
+        "endChar": 53
+      },
+      "revId": "20a0bdd63fc3a0fa9b195293acf2aa0cf08105ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
