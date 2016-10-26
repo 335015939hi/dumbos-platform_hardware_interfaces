@@ -22,6 +22,30 @@
       "revId": "8e53dce682690008eb2a50611a595b82156ff9c4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "810004b4_3290c067",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 735,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-26T20:07:55Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "810004b4_4782d8e8",
+      "range": {
+        "startLine": 735,
+        "startChar": 3,
+        "endLine": 735,
+        "endChar": 71
+      },
+      "revId": "8e53dce682690008eb2a50611a595b82156ff9c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
