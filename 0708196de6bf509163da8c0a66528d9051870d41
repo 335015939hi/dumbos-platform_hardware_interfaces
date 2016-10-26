@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "810004b4_de16b52d",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 2301,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-26T15:45:31Z",
+      "side": 1,
+      "message": "just one now?",
+      "range": {
+        "startLine": 2301,
+        "startChar": 14,
+        "endLine": 2301,
+        "endChar": 29
+      },
+      "revId": "0708196de6bf509163da8c0a66528d9051870d41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "810004b4_7e0689fa",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 2350,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-26T15:45:31Z",
+      "side": 1,
+      "message": "not a POD\n\nAlso, this won\u0027t work at all. The data that the pointer in the vec is pointing to won\u0027t get copied over to the new process, only the pointer itself.",
+      "range": {
+        "startLine": 2350,
+        "startChar": 28,
+        "endLine": 2350,
+        "endChar": 52
+      },
+      "revId": "0708196de6bf509163da8c0a66528d9051870d41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
