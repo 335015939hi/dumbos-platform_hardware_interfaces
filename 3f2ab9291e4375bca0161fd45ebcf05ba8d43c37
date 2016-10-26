@@ -1,0 +1,372 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "810004b4_5f93bc75",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 20
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-26T21:48:48Z",
+      "side": 1,
+      "message": ":/\n\nProbably better to say something like: \"Serial numbers must only be memorized for the duration of this method call.\"\n\nSerial numbers definitely should not collide. This would confuse callback implementations.",
+      "range": {
+        "startLine": 144,
+        "startChar": 47,
+        "endLine": 144,
+        "endChar": 84
+      },
+      "revId": "3f2ab9291e4375bca0161fd45ebcf05ba8d43c37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "810004b4_bf28184e",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 20
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-26T21:48:48Z",
+      "side": 1,
+      "message": "Rather than repeating this comment so many times, why not just explain the serial scheme in a comment on the interface. This adds a lot of maintenance cost.",
+      "range": {
+        "startLine": 400,
+        "startChar": 47,
+        "endLine": 401,
+        "endChar": 82
+      },
+      "revId": "3f2ab9291e4375bca0161fd45ebcf05ba8d43c37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "810004b4_bf7018c1",
+        "filename": "radio/1.0/IRadioResponse.hal",
+        "patchSetId": 20
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-26T21:48:48Z",
+      "side": 1,
+      "message": "Rather than repeating this over and over, probably better to just say in the comment for IRadioResponse:\n\n\u0027\u003cxyz\u003eResponse is a solicited callback to IRadio.\u003cxyz\u003e\u0027",
+      "range": {
+        "startLine": 24,
+        "startChar": 7,
+        "endLine": 24,
+        "endChar": 54
+      },
+      "revId": "3f2ab9291e4375bca0161fd45ebcf05ba8d43c37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "810004b4_5f5bbc44",
+        "filename": "radio/1.0/IRadioResponse.hal",
+        "patchSetId": 20
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-26T21:48:48Z",
+      "side": 1,
+      "message": "possible values? all of them?\n\nactually I see now, the possible values are listed in the other file.\n\nWhy exactly do you need all these callbacks? Why not have just:\n\niccCardStatus(...) generates(info, cardStatus)?",
+      "range": {
+        "startLine": 26,
+        "startChar": 79,
+        "endLine": 26,
+        "endChar": 84
+      },
+      "revId": "3f2ab9291e4375bca0161fd45ebcf05ba8d43c37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "810004b4_7f2cc0f2",
+        "filename": "radio/1.0/IRadioResponse.hal",
+        "patchSetId": 20
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-26T21:48:48Z",
+      "side": 1,
+      "message": "You know, something that has this little added value is just going to be a maintenance cost.",
+      "range": {
+        "startLine": 27,
+        "startChar": 7,
+        "endLine": 27,
+        "endChar": 40
+      },
+      "revId": "3f2ab9291e4375bca0161fd45ebcf05ba8d43c37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "810004b4_3f536856",
+        "filename": "radio/1.0/IRadioResponse.hal",
+        "patchSetId": 20
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-26T21:48:48Z",
+      "side": 1,
+      "message": "\u0027redefining\u0027 the struct in every comment just adds bloat/makes things unmaintainable.\n\nIt would be much better to just not include this at all.",
+      "range": {
+        "startLine": 34,
+        "startChar": 28,
+        "endLine": 34,
+        "endChar": 84
+      },
+      "revId": "3f2ab9291e4375bca0161fd45ebcf05ba8d43c37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "810004b4_bf2f78bc",
+        "filename": "radio/1.0/IRadioResponse.hal",
+        "patchSetId": 20
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-26T21:48:48Z",
+      "side": 1,
+      "message": "see, this is perfect :)",
+      "range": {
+        "startLine": 35,
+        "startChar": 7,
+        "endLine": 35,
+        "endChar": 91
+      },
+      "revId": "3f2ab9291e4375bca0161fd45ebcf05ba8d43c37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "810004b4_5f60dcea",
+        "filename": "radio/1.0/IRadioResponse.hal",
+        "patchSetId": 20
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-26T21:48:48Z",
+      "side": 1,
+      "message": "Could be more descriptive:\n\"List of calls that are currently in progress.\"\n\nOr just remove.",
+      "range": {
+        "startLine": 91,
+        "startChar": 7,
+        "endLine": 91,
+        "endChar": 29
+      },
+      "revId": "3f2ab9291e4375bca0161fd45ebcf05ba8d43c37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "810004b4_3f5d282f",
+        "filename": "radio/1.0/IRadioResponse.hal",
+        "patchSetId": 20
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-26T21:48:48Z",
+      "side": 1,
+      "message": "please grep for these unnecessary extra spaces",
+      "range": {
+        "startLine": 175,
+        "startChar": 26,
+        "endLine": 175,
+        "endChar": 27
+      },
+      "revId": "3f2ab9291e4375bca0161fd45ebcf05ba8d43c37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "810004b4_ff661067",
+        "filename": "radio/1.0/IRadioResponse.hal",
+        "patchSetId": 20
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-26T21:48:48Z",
+      "side": 1,
+      "message": "This does nothing to say what enable does.",
+      "range": {
+        "startLine": 313,
+        "startChar": 20,
+        "endLine": 313,
+        "endChar": 67
+      },
+      "revId": "3f2ab9291e4375bca0161fd45ebcf05ba8d43c37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "810004b4_3f49a8d1",
+        "filename": "radio/1.0/IRadioResponse.hal",
+        "patchSetId": 20
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-26T21:48:48Z",
+      "side": 1,
+      "message": "d",
+      "range": {
+        "startLine": 314,
+        "startChar": 36,
+        "endLine": 314,
+        "endChar": 43
+      },
+      "revId": "3f2ab9291e4375bca0161fd45ebcf05ba8d43c37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "810004b4_7f532083",
+        "filename": "radio/1.0/IRadioResponse.hal",
+        "patchSetId": 20
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-26T21:48:48Z",
+      "side": 1,
+      "message": "remove extra space",
+      "range": {
+        "startLine": 317,
+        "startChar": 49,
+        "endLine": 317,
+        "endChar": 50
+      },
+      "revId": "3f2ab9291e4375bca0161fd45ebcf05ba8d43c37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "810004b4_9fd8b47f",
+        "filename": "radio/1.0/IRadioResponse.hal",
+        "patchSetId": 20
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-26T21:48:48Z",
+      "side": 1,
+      "message": ":( lol, nit: could rename sentTermainlResponse to something that doesn\u0027t end in response since /Response$/ on a method name has a special meaning here.",
+      "range": {
+        "startLine": 541,
+        "startChar": 23,
+        "endLine": 541,
+        "endChar": 39
+      },
+      "revId": "3f2ab9291e4375bca0161fd45ebcf05ba8d43c37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "810004b4_bfa778f5",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 20
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-26T21:48:48Z",
+      "side": 1,
+      "message": "must/may",
+      "range": {
+        "startLine": 458,
+        "startChar": 33,
+        "endLine": 458,
+        "endChar": 36
+      },
+      "revId": "3f2ab9291e4375bca0161fd45ebcf05ba8d43c37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "810004b4_7f8840ab",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 20
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-26T21:48:48Z",
+      "side": 1,
+      "message": "Aren\u0027t these contained in the struct?",
+      "range": {
+        "startLine": 576,
+        "startChar": 42,
+        "endLine": 576,
+        "endChar": 51
+      },
+      "revId": "3f2ab9291e4375bca0161fd45ebcf05ba8d43c37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "810004b4_ff6450d1",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 20
+      },
+      "lineNbr": 731,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-26T21:48:48Z",
+      "side": 1,
+      "message": "must\n\nPlease grep for these ambiguous words, I could do a close read, but there are many.\n#21 go/android-hal-design-guidelines",
+      "range": {
+        "startLine": 731,
+        "startChar": 69,
+        "endLine": 731,
+        "endChar": 75
+      },
+      "revId": "3f2ab9291e4375bca0161fd45ebcf05ba8d43c37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
