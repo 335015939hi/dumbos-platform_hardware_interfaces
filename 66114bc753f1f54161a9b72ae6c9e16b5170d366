@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "06318aec_ecb62bde",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 14
+      },
+      "lineNbr": 2605,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-27T19:55:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "810004b4_ed45c3b2",
+      "range": {
+        "startLine": 2605,
+        "startChar": 11,
+        "endLine": 2605,
+        "endChar": 12
+      },
+      "revId": "66114bc753f1f54161a9b72ae6c9e16b5170d366",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "810004b4_edd303bf",
         "filename": "wifi/1.0/types.hal",
         "patchSetId": 14
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-27T15:55:14Z",
       "side": 1,
       "message": "it\u0027s no longer a C string (it was on a buffer before, but now it\u0027s just a hidl string)",
+      "range": {
+        "startLine": 2642,
+        "startChar": 13,
+        "endLine": 2642,
+        "endChar": 14
+      },
+      "revId": "66114bc753f1f54161a9b72ae6c9e16b5170d366",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "06318aec_0c0057af",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 14
+      },
+      "lineNbr": 2642,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-27T19:55:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "810004b4_edd303bf",
       "range": {
         "startLine": 2642,
         "startChar": 13,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "06318aec_4cf65fbb",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 14
+      },
+      "lineNbr": 2734,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-27T19:55:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "810004b4_0da63763",
+      "range": {
+        "startLine": 2734,
+        "startChar": 32,
+        "endLine": 2734,
+        "endChar": 33
+      },
+      "revId": "66114bc753f1f54161a9b72ae6c9e16b5170d366",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "810004b4_edaae324",
         "filename": "wifi/1.0/types.hal",
         "patchSetId": 14
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "06318aec_6cf11bc1",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 14
+      },
+      "lineNbr": 2735,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-27T19:55:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "810004b4_edaae324",
+      "range": {
+        "startLine": 2735,
+        "startChar": 34,
+        "endLine": 2735,
+        "endChar": 35
+      },
+      "revId": "66114bc753f1f54161a9b72ae6c9e16b5170d366",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "810004b4_0d7477f3",
         "filename": "wifi/1.0/types.hal",
         "patchSetId": 14
@@ -105,6 +201,30 @@
       "writtenOn": "2016-10-27T15:55:14Z",
       "side": 1,
       "message": "not sure which of these corresponds to these enum values:\nTSCO\nLINK_STATE\nREQUEST_ID\n\nAlso, you could change this so that you just have a single \u0027uint32_t integerValue\u0027 if you wanted",
+      "range": {
+        "startLine": 2743,
+        "startChar": 2,
+        "endLine": 2743,
+        "endChar": 10
+      },
+      "revId": "66114bc753f1f54161a9b72ae6c9e16b5170d366",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "06318aec_ac3b838c",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 14
+      },
+      "lineNbr": 2743,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-10-27T19:55:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "810004b4_0d7477f3",
       "range": {
         "startLine": 2743,
         "startChar": 2,
