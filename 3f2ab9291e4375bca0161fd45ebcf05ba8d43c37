@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "810004b4_84da23cc",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 20
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-27T01:44:48Z",
+      "side": 1,
+      "message": "find/replace or regex. I don\u0027t think it\u0027s necessary to be repeated so much, but if you insist, it\u0027s your maintenance cost.",
+      "parentUuid": "810004b4_78e696fd",
+      "range": {
+        "startLine": 400,
+        "startChar": 47,
+        "endLine": 401,
+        "endChar": 82
+      },
+      "revId": "3f2ab9291e4375bca0161fd45ebcf05ba8d43c37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "810004b4_bf7018c1",
         "filename": "radio/1.0/IRadioResponse.hal",
         "patchSetId": 20
@@ -190,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "810004b4_24c9970c",
+        "filename": "radio/1.0/IRadioResponse.hal",
+        "patchSetId": 20
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-27T01:44:48Z",
+      "side": 1,
+      "message": "Yes, that makes sense. What I was asking though is if all possible values defined in RadioResponseInfo are possible here.",
+      "parentUuid": "810004b4_58047232",
+      "range": {
+        "startLine": 26,
+        "startChar": 79,
+        "endLine": 26,
+        "endChar": 84
+      },
+      "revId": "3f2ab9291e4375bca0161fd45ebcf05ba8d43c37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "810004b4_7f2cc0f2",
         "filename": "radio/1.0/IRadioResponse.hal",
         "patchSetId": 20
@@ -272,6 +320,30 @@
       "side": 1,
       "message": "Already half way through, 70 out of 135 commands have this now. Removing this would take same effort as adding, so i am keeping it.",
       "parentUuid": "810004b4_3f536856",
+      "range": {
+        "startLine": 34,
+        "startChar": 28,
+        "endLine": 34,
+        "endChar": 84
+      },
+      "revId": "3f2ab9291e4375bca0161fd45ebcf05ba8d43c37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "810004b4_64e38f90",
+        "filename": "radio/1.0/IRadioResponse.hal",
+        "patchSetId": 20
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-27T01:44:48Z",
+      "side": 1,
+      "message": "find/replace or regular expressions. I wouldn\u0027t ask you to manually remove each individual one.",
+      "parentUuid": "810004b4_d81d227d",
       "range": {
         "startLine": 34,
         "startChar": 28,
