@@ -22,6 +22,30 @@
       "revId": "751d2f5cb4506037677d8555f21fd244cecd2106",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "810004b4_d8da4234",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2016-10-27T00:09:09Z",
+      "side": 1,
+      "message": "This is not from specs, its just carried over from proto.\nTook a closer look at the usage and it looks like its never used; it\u0027s always overwritten with the error/status from individual responses. Getting rid of this.",
+      "parentUuid": "810004b4_5268d411",
+      "range": {
+        "startLine": 163,
+        "startChar": 5,
+        "endLine": 163,
+        "endChar": 13
+      },
+      "revId": "751d2f5cb4506037677d8555f21fd244cecd2106",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
