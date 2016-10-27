@@ -52,6 +52,8 @@ struct Foo : public IFoo {
     Return<void> haveAVectorOfGenericInterfaces(
             const hidl_vec<sp<android::hardware::IBinder> > &in,
             haveAVectorOfGenericInterfaces_cb _hidl_cb) override;
+
+    Return<void> echoNullInterface(const sp<IFooCallback> &cb, echoNullInterface_cb _hidl_cb) override;
 };
 
 extern "C" IFoo* HIDL_FETCH_IFoo(const char* name);

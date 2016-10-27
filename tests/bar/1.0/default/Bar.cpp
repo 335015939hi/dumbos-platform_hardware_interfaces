@@ -130,6 +130,12 @@ Return<void> Bar::haveAVectorOfGenericInterfaces(
     return Void();
 }
 
+Return<void> Bar::echoNullInterface(const sp<IFooCallback> &cb, echoNullInterface_cb _hidl_cb) {
+    _hidl_cb(cb == nullptr, cb);
+
+    return Void();
+}
+
 // Methods from ::android::hardware::tests::bar::V1_0::IBar follow.
 Return<void> Bar::thisIsNew()  {
     ALOGI("SERVER(Bar) thisIsNew");

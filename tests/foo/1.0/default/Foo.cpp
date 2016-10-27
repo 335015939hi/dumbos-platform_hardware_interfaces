@@ -295,6 +295,12 @@ Return<void> Foo::haveAVectorOfGenericInterfaces(
     return Void();
 }
 
+Return<void> Foo::echoNullInterface(const sp<IFooCallback> &cb, echoNullInterface_cb _hidl_cb) {
+    _hidl_cb(cb == nullptr, cb);
+
+    return Void();
+}
+
 IFoo* HIDL_FETCH_IFoo(const char* /* name */) {
     return new Foo();
 }
