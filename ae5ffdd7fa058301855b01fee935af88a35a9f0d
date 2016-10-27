@@ -1,0 +1,153 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "810004b4_901edad2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-27T17:16:50Z",
+      "side": 1,
+      "message": "HIDL (for consistency with next paragraph)",
+      "range": {
+        "startLine": 10,
+        "startChar": 50,
+        "endLine": 10,
+        "endChar": 54
+      },
+      "revId": "ae5ffdd7fa058301855b01fee935af88a35a9f0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "810004b4_501442b6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-27T17:16:50Z",
+      "side": 1,
+      "message": "\"the\" (typo)",
+      "range": {
+        "startLine": 10,
+        "startChar": 45,
+        "endLine": 10,
+        "endChar": 49
+      },
+      "revId": "ae5ffdd7fa058301855b01fee935af88a35a9f0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "810004b4_f00e36a4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-27T17:16:50Z",
+      "side": 1,
+      "message": "Consider a blank line before the new paragraph, to make make skimming easier.",
+      "revId": "ae5ffdd7fa058301855b01fee935af88a35a9f0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "810004b4_b025de21",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-27T17:16:50Z",
+      "side": 1,
+      "message": "Please elaborate on _why_ we want to do this. (Something about simplifying control-flow in the implementing code.)",
+      "range": {
+        "startLine": 12,
+        "startChar": 14,
+        "endLine": 12,
+        "endChar": 18
+      },
+      "revId": "ae5ffdd7fa058301855b01fee935af88a35a9f0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "810004b4_f04596b2",
+        "filename": "wifi/1.0/default/wifi.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-27T17:16:50Z",
+      "side": 1,
+      "message": "Consider a using declaration, since the helpers are used pervasively.",
+      "range": {
+        "startLine": 45,
+        "startChar": 8,
+        "endLine": 45,
+        "endChar": 27
+      },
+      "revId": "ae5ffdd7fa058301855b01fee935af88a35a9f0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "810004b4_d02fb2e6",
+        "filename": "wifi/1.0/default/wifi.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-27T17:16:50Z",
+      "side": 1,
+      "message": "If the return code for the invalid case will always be ERROR_UNKNOWN, feel free to remove the |status_code_if_invalid| parameter, and just bake this into the template definitions.\n\n(Seems like we always use ERROR_UNKNOWN for this class. I\u0027m just not sure if that will also be true for the other classes.)",
+      "range": {
+        "startLine": 78,
+        "startChar": 44,
+        "endLine": 78,
+        "endChar": 73
+      },
+      "revId": "ae5ffdd7fa058301855b01fee935af88a35a9f0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "810004b4_509722d3",
+        "filename": "wifi/1.0/default/wifi.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-10-27T17:16:50Z",
+      "side": 1,
+      "message": "Consider this alternative (both here, and throughout the file):\n\n   return {WifiStatusCode::SUCCESS, \"\"};\n\nNow that hidl_string has a copying conversion constructor, I think we really only need createWifiStatus() when we\u0027re mapping from a legacy error.\n\n(Strictly speaking, I think this particular case could have been handled before the copying conversion constructor, with |{WifiStatusCode::SUCCESS, {}}|. But it wouldn\u0027t have made much sense to switch to this style for just one case. Now, we can use this more compact style for all cases where we\u0027re not dealing with legacy errors.)",
+      "revId": "ae5ffdd7fa058301855b01fee935af88a35a9f0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
