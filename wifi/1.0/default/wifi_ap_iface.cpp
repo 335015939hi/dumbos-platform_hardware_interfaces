@@ -14,11 +14,16 @@
  * limitations under the License.
  */
 
-#include "wifi_ap_iface.h"
-
 #include <android-base/logging.h>
 
+#include "hidl_return_util.h"
+#include "wifi_ap_iface.h"
 #include "wifi_status_util.h"
+
+using android::hardware::wifi::V1_0::implementation::hidl_return_util::
+    validateAndCall0;
+using android::hardware::wifi::V1_0::implementation::hidl_return_util::
+    validateAndCall1;
 
 namespace android {
 namespace hardware {
@@ -35,24 +40,31 @@ void WifiApIface::invalidate() {
   is_valid_ = false;
 }
 
+bool WifiApIface::isValid() {
+  return is_valid_;
+}
+
 Return<void> WifiApIface::getName(getName_cb hidl_status_cb) {
-  if (!is_valid_) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_IFACE_INVALID),
-                   hidl_string());
-    return Void();
-  }
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS), ifname_);
-  return Void();
+  return validateAndCall1(this,
+                          WifiStatusCode::ERROR_WIFI_IFACE_INVALID,
+                          &WifiApIface::getNameInternal,
+                          hidl_status_cb);
 }
 
 Return<void> WifiApIface::getType(getType_cb hidl_status_cb) {
-  if (!is_valid_) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_IFACE_INVALID),
-                   IfaceType::AP);
-    return Void();
-  }
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS), IfaceType::AP);
-  return Void();
+  return validateAndCall1(this,
+                          WifiStatusCode::ERROR_WIFI_IFACE_INVALID,
+                          &WifiApIface::getTypeInternal,
+                          hidl_status_cb);
+}
+
+std::pair<WifiStatus, std::string> WifiApIface::getNameInternal() {
+  return std::make_pair(createWifiStatus(WifiStatusCode::SUCCESS), ifname_);
+}
+
+std::pair<WifiStatus, IfaceType> WifiApIface::getTypeInternal() {
+  return std::make_pair(createWifiStatus(WifiStatusCode::SUCCESS),
+                        IfaceType::AP);
 }
 
 }  // namespace implementation
