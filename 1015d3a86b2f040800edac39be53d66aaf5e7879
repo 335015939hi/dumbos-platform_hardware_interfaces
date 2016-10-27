@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "81b56446_1a62fa55",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 2679,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-27T23:12:59Z",
+      "side": 1,
+      "message": "this one is tricky since it\u0027s actually taking a WifiChannelInMhz",
+      "range": {
+        "startLine": 2677,
+        "startChar": 2,
+        "endLine": 2679,
+        "endChar": 5
+      },
+      "revId": "1015d3a86b2f040800edac39be53d66aaf5e7879",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e19380d8_309d2e50",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 2735,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-27T23:12:59Z",
+      "side": 1,
+      "message": "yeah, ref here. From the comment, I would have used the integerVal.",
+      "range": {
+        "startLine": 2735,
+        "startChar": 2,
+        "endLine": 2735,
+        "endChar": 27
+      },
+      "revId": "1015d3a86b2f040800edac39be53d66aaf5e7879",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
