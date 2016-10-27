@@ -14,11 +14,16 @@
  * limitations under the License.
  */
 
-#include "wifi_rtt_controller.h"
-
 #include <android-base/logging.h>
 
+#include "hidl_return_util.h"
+#include "wifi_rtt_controller.h"
 #include "wifi_status_util.h"
+
+using android::hardware::wifi::V1_0::implementation::hidl_return_util::
+    validateAndCall0;
+using android::hardware::wifi::V1_0::implementation::hidl_return_util::
+    validateAndCall1;
 
 namespace android {
 namespace hardware {
@@ -36,15 +41,21 @@ void WifiRttController::invalidate() {
   is_valid_ = false;
 }
 
+bool WifiRttController::isValid() {
+  return is_valid_;
+}
+
 Return<void> WifiRttController::getBoundIface(getBoundIface_cb hidl_status_cb) {
-  if (!is_valid_) {
-    hidl_status_cb(
-        createWifiStatus(WifiStatusCode::ERROR_WIFI_RTT_CONTROLLER_INVALID),
-        nullptr);
-    return Void();
-  }
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS), bound_iface_);
-  return Void();
+  return validateAndCall1(this,
+                          WifiStatusCode::ERROR_WIFI_RTT_CONTROLLER_INVALID,
+                          &WifiRttController::getBoundIfaceInternal,
+                          hidl_status_cb);
+}
+
+std::pair<WifiStatus, sp<IWifiIface>>
+WifiRttController::getBoundIfaceInternal() {
+  return std::make_pair(createWifiStatus(WifiStatusCode::SUCCESS),
+                        bound_iface_);
 }
 
 }  // namespace implementation
