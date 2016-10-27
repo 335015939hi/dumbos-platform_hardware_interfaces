@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "810004b4_f09916c8",
+        "filename": "tests/bar/1.0/default/Bar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2016-10-27T17:25:46Z",
+      "side": 1,
+      "message": "return mFoo-\u003eechoNullInterface(cb, _hidl_cb)",
+      "range": {
+        "startLine": 134,
+        "startChar": 4,
+        "endLine": 136,
+        "endChar": 18
+      },
+      "revId": "275fe96f7b515c27badbb5181ed44b0e781c7c70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
