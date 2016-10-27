@@ -144,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "a617de36_7c94151e",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 20
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-27T18:30:11Z",
+      "side": 1,
+      "message": "You could always keep \u0027@param Serial number of request\u0027 but have an explicative comment at the top of the file which clarifies the scheme.",
+      "parentUuid": "810004b4_c446db95",
+      "range": {
+        "startLine": 400,
+        "startChar": 47,
+        "endLine": 401,
+        "endChar": 82
+      },
+      "revId": "3f2ab9291e4375bca0161fd45ebcf05ba8d43c37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "810004b4_bf7018c1",
         "filename": "radio/1.0/IRadioResponse.hal",
         "patchSetId": 20
@@ -274,6 +298,30 @@
       "side": 1,
       "message": "Possible values of errors are given in the description of request functions defined in other file IRadio.hal",
       "parentUuid": "810004b4_24c9970c",
+      "range": {
+        "startLine": 26,
+        "startChar": 79,
+        "endLine": 26,
+        "endChar": 84
+      },
+      "revId": "3f2ab9291e4375bca0161fd45ebcf05ba8d43c37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a617de36_dc19e1ea",
+        "filename": "radio/1.0/IRadioResponse.hal",
+        "patchSetId": 20
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-27T18:30:11Z",
+      "side": 1,
+      "message": "nit:\n\nIt makes more sense to have them here, no? Right now you\u0027re explaining what function y does in the comment on function x.",
+      "parentUuid": "810004b4_e42affad",
       "range": {
         "startLine": 26,
         "startChar": 79,
