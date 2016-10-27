@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-#include "wifi_nan_iface.h"
-
 #include <android-base/logging.h>
 
+#include "hidl_return_util.h"
+#include "wifi_nan_iface.h"
 #include "wifi_status_util.h"
 
 namespace android {
@@ -35,24 +35,33 @@ void WifiNanIface::invalidate() {
   is_valid_ = false;
 }
 
+bool WifiNanIface::isValid() {
+  return is_valid_;
+}
+
 Return<void> WifiNanIface::getName(getName_cb hidl_status_cb) {
-  if (!is_valid_) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_IFACE_INVALID),
-                   hidl_string());
-    return Void();
-  }
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS), ifname_);
-  return Void();
+  return hidl_return_util::validateAndCall1(
+      this,
+      WifiStatusCode::ERROR_WIFI_IFACE_INVALID,
+      &WifiNanIface::getNameInternal,
+      hidl_status_cb);
 }
 
 Return<void> WifiNanIface::getType(getType_cb hidl_status_cb) {
-  if (!is_valid_) {
-    hidl_status_cb(createWifiStatus(WifiStatusCode::ERROR_WIFI_IFACE_INVALID),
-                   IfaceType::NAN);
-    return Void();
-  }
-  hidl_status_cb(createWifiStatus(WifiStatusCode::SUCCESS), IfaceType::NAN);
-  return Void();
+  return hidl_return_util::validateAndCall1(
+      this,
+      WifiStatusCode::ERROR_WIFI_IFACE_INVALID,
+      &WifiNanIface::getNameInternal,
+      hidl_status_cb);
+}
+
+std::pair<WifiStatus, std::string> WifiNanIface::getNameInternal() {
+  return std::make_pair(createWifiStatus(WifiStatusCode::SUCCESS), ifname_);
+}
+
+std::pair<WifiStatus, IfaceType> WifiNanIface::getTypeInternal() {
+  return std::make_pair(createWifiStatus(WifiStatusCode::SUCCESS),
+                        IfaceType::NAN);
 }
 
 }  // namespace implementation
