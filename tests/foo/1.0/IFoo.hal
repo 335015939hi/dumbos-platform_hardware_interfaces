@@ -112,4 +112,6 @@ interface IFoo {
 
     haveAVectorOfGenericInterfaces(vec<interface> in)
         generates (vec<interface> out);
+
+    echoNullInterface(IFooCallback cb) generates (bool receivedNull, IFooCallback cb);
 };
