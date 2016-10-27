@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "810004b4_c446db95",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 20
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-10-27T01:59:41Z",
+      "side": 1,
+      "message": "I think its good idea to keep it because if someone looks at only one of the function in the interface then @param would be easily visible to him rather than something which is at the top of the file as he may not be aware of it.",
+      "parentUuid": "810004b4_84da23cc",
+      "range": {
+        "startLine": 400,
+        "startChar": 47,
+        "endLine": 401,
+        "endChar": 82
+      },
+      "revId": "3f2ab9291e4375bca0161fd45ebcf05ba8d43c37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "810004b4_bf7018c1",
         "filename": "radio/1.0/IRadioResponse.hal",
         "patchSetId": 20
@@ -238,6 +262,30 @@
     },
     {
       "key": {
+        "uuid": "810004b4_e42affad",
+        "filename": "radio/1.0/IRadioResponse.hal",
+        "patchSetId": 20
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-10-27T01:59:41Z",
+      "side": 1,
+      "message": "Possible values of errors are given in the description of request functions defined in other file IRadio.hal",
+      "parentUuid": "810004b4_24c9970c",
+      "range": {
+        "startLine": 26,
+        "startChar": 79,
+        "endLine": 26,
+        "endChar": 84
+      },
+      "revId": "3f2ab9291e4375bca0161fd45ebcf05ba8d43c37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "810004b4_7f2cc0f2",
         "filename": "radio/1.0/IRadioResponse.hal",
         "patchSetId": 20
@@ -344,6 +392,30 @@
       "side": 1,
       "message": "find/replace or regular expressions. I wouldn\u0027t ask you to manually remove each individual one.",
       "parentUuid": "810004b4_d81d227d",
+      "range": {
+        "startLine": 34,
+        "startChar": 28,
+        "endLine": 34,
+        "endChar": 84
+      },
+      "revId": "3f2ab9291e4375bca0161fd45ebcf05ba8d43c37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "810004b4_845d035f",
+        "filename": "radio/1.0/IRadioResponse.hal",
+        "patchSetId": 20
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-10-27T01:59:41Z",
+      "side": 1,
+      "message": "I would keep it for the same reason as given in IRadio.hal (my previous comment)",
+      "parentUuid": "810004b4_64e38f90",
       "range": {
         "startLine": 34,
         "startChar": 28,
