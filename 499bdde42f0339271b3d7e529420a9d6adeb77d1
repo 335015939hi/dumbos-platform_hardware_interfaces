@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a617de36_1ce519c5",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 21
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-27T18:30:11Z",
+      "side": 1,
+      "message": "Yeah, why don\u0027t you just move these comments to one place on the interface and describe things in more detail there. Still keeping \"@param serial Serial number of request.\", but at the top of the file: \"Clients must provide non-colliding serials (a collision includes passing the same serial to different methods).\" or \"If clients provide colliding serials (including passing the same serial to different methods), multiple responses (one for each method call) must still be served.\"\n\nI still strongly recommend something like \"getIccCardStatus(int32_t slotId) generates (int32_t serial)\", otherwise, we really need to define whether colliding serials are allowed or not (and what the behavior is if they are allowed).",
+      "range": {
+        "startLine": 40,
+        "startChar": 47,
+        "endLine": 41,
+        "endChar": 42
+      },
+      "revId": "499bdde42f0339271b3d7e529420a9d6adeb77d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
