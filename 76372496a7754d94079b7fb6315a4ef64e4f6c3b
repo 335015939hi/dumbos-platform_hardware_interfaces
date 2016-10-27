@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c1667cd0_21e40dc7",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 22
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1125174
+      },
+      "writtenOn": "2016-10-27T23:28:08Z",
+      "side": 1,
+      "message": "We may not want to tie a Radio to a slot. Especially with E-SIM coming up, there may be cases phones will have both physical SIM slot and E-SIM and single radio/ril may use both.",
+      "revId": "76372496a7754d94079b7fb6315a4ef64e4f6c3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
