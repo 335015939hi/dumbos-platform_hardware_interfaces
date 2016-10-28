@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "663c06f3_9f0153b5",
+        "filename": "nfc/1.0/default/android.hardware.nfc@1.0-service.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-28T18:28:00Z",
+      "side": 1,
+      "message": "do you need this as well? user nfc is already in group nfc.",
+      "range": {
+        "startLine": 4,
+        "startChar": 10,
+        "endLine": 4,
+        "endChar": 13
+      },
+      "revId": "42eba0a071386bd7a9d3898695205acbdb2a7f55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
