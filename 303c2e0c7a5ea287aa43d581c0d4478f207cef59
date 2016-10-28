@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "81ce44ee_9eb1c231",
+        "filename": "radio/1.0/ISap.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-28T16:14:37Z",
+      "side": 1,
+      "message": "sorry, one last thing.\n\nMy copy of the SAP V1.1 spec says that these are explained in section 5.3.5. But these sections don\u0027t exist. Any ideas?",
+      "range": {
+        "startLine": 51,
+        "startChar": 52,
+        "endLine": 51,
+        "endChar": 72
+      },
+      "revId": "303c2e0c7a5ea287aa43d581c0d4478f207cef59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
