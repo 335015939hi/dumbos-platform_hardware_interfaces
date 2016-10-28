@@ -46,6 +46,30 @@
       "revId": "303c2e0c7a5ea287aa43d581c0d4478f207cef59",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "663c06f3_9f65d3cd",
+        "filename": "radio/1.0/ISap.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-10-28T18:18:43Z",
+      "side": 1,
+      "message": "typo in 5.1.6 incorrectly says that these are listed in 5.3.5",
+      "parentUuid": "663c06f3_1f2263bf",
+      "range": {
+        "startLine": 51,
+        "startChar": 52,
+        "endLine": 51,
+        "endChar": 72
+      },
+      "revId": "303c2e0c7a5ea287aa43d581c0d4478f207cef59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
