@@ -22,6 +22,30 @@
       "revId": "42eba0a071386bd7a9d3898695205acbdb2a7f55",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a150a8f0_b4a76ef5",
+        "filename": "nfc/1.0/default/android.hardware.nfc@1.0-service.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2016-10-28T19:31:42Z",
+      "side": 1,
+      "message": "This controls what gid the service runs as - if you don\u0027t specify it, the service gid will be root (since that\u0027s the group that init is in).",
+      "parentUuid": "663c06f3_9f0153b5",
+      "range": {
+        "startLine": 4,
+        "startChar": 10,
+        "endLine": 4,
+        "endChar": 13
+      },
+      "revId": "42eba0a071386bd7a9d3898695205acbdb2a7f55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
