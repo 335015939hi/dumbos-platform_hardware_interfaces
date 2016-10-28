@@ -22,6 +22,30 @@
       "revId": "303c2e0c7a5ea287aa43d581c0d4478f207cef59",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "663c06f3_1f2263bf",
+        "filename": "radio/1.0/ISap.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2016-10-28T17:53:36Z",
+      "side": 1,
+      "message": "I am looking at https://www.bluetooth.org/docman/handlers/DownloadDoc.ashx?doc_id\u003d158740\n\nSection 5.2.5 has info about these commands in this doc.",
+      "parentUuid": "81ce44ee_9eb1c231",
+      "range": {
+        "startLine": 51,
+        "startChar": 52,
+        "endLine": 51,
+        "endChar": 72
+      },
+      "revId": "303c2e0c7a5ea287aa43d581c0d4478f207cef59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
