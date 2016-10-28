@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "01a974f7_f6b46d8b",
+        "filename": "radio/1.0/ISapCallback.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2016-10-28T00:22:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6eefe70_d6c0a237",
+      "range": {
+        "startLine": 43,
+        "startChar": 21,
+        "endLine": 43,
+        "endChar": 24
+      },
+      "revId": "51b13b6416d1f862b6985e81405ea1cca6bebee0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "81b56446_5a9122dc",
         "filename": "radio/1.0/ISapCallback.hal",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2016-10-27T23:31:13Z",
       "side": 1,
       "message": "\"The parameter CardReaderStatus shall contain the Card Reader Status and is coded\nas described in the GSM 11.14 specification and TS 31.111 specification.\"\n\nFrom TS 31.111: (this is right, right?)\n\"GET READER STATUS\n\u002700\u0027 \u003d Card reader status\n\u002701\u0027 \u003d Card reader identifier\n\u002702\u0027 to \u0027FF\u0027 \u003d Reserved\"\n\nCan you at least mention GSM 11.14 or TS 31.111 in a comment?",
+      "range": {
+        "startLine": 128,
+        "startChar": 12,
+        "endLine": 128,
+        "endChar": 19
+      },
+      "revId": "51b13b6416d1f862b6985e81405ea1cca6bebee0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c1667cd0_c1f0b1eb",
+        "filename": "radio/1.0/ISapCallback.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2016-10-28T00:22:17Z",
+      "side": 1,
+      "message": "Done.\nThe format is as described in 12.33 in http://www.etsi.org/deliver/etsi_ts/101200_101299/101267/08.05.00_60/ts_101267v080500p.pdf",
+      "parentUuid": "81b56446_5a9122dc",
       "range": {
         "startLine": 128,
         "startChar": 12,
