@@ -22,6 +22,30 @@
       "revId": "275fe96f7b515c27badbb5181ed44b0e781c7c70",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a150a8f0_14bafa74",
+        "filename": "tests/bar/1.0/default/Bar.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2016-10-28T09:00:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "810004b4_f09916c8",
+      "range": {
+        "startLine": 134,
+        "startChar": 4,
+        "endLine": 136,
+        "endChar": 18
+      },
+      "revId": "275fe96f7b515c27badbb5181ed44b0e781c7c70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
