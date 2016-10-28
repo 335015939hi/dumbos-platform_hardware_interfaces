@@ -21,13 +21,17 @@
 #include <thread>
 #include <vector>
 
-#include <hardware_legacy/wifi_hal.h>
-
 namespace android {
 namespace hardware {
 namespace wifi {
 namespace V1_0 {
 namespace implementation {
+// This is in a separate namespace to prevent typename conflicts between
+// the legacy HAL types and the HIDL interface types.
+namespace legacy_hal {
+// Wrap all the types defined inside the legacy HAL header files inside this
+// namespace.
+#include <hardware_legacy/wifi_hal.h>
 
 /**
  * Class that encapsulates all legacy HAL interactions.
@@ -53,12 +57,11 @@ class WifiLegacyHal {
   std::pair<wifi_error, std::vector<uint8_t>> requestFirmwareMemoryDump();
 
  private:
-  static const uint32_t kMaxVersionStringLength;
-
   // Retrieve the interface handle to be used for the "wlan" interface.
   wifi_error retrieveWlanInterfaceHandle();
   // Run the legacy HAL event loop thread.
   void runEventLoop();
+  void invalidate();
 
   // Event loop thread used by legacy HAL.
   std::thread event_loop_thread_;
@@ -72,6 +75,7 @@ class WifiLegacyHal {
   bool awaiting_event_loop_termination_;
 };
 
+}  // namespace legacy_hal
 }  // namespace implementation
 }  // namespace V1_0
 }  // namespace wifi
