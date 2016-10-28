@@ -77,6 +77,15 @@ typedef std::function<void(wifi_request_id,
                            const std::vector<wifi_cached_scan_results>&)>
     on_gscan_results_callback;
 
+// Callback for RTT range request results. These have IE info at the end, so
+// pass the pointer directly.
+// The memory is freed by the lower layers after the callback.
+// We could pull the IE blob into a separate vector to avoid sending pointers,
+// but that may be too expensive.
+typedef std::function<void(wifi_request_id,
+                           const std::vector<const wifi_rtt_result*>&)>
+    on_rtt_results_callback;
+
 // Callback for ring buffer data.
 typedef std::function<void(const std::string&,
                            const std::vector<uint8_t>&,
@@ -149,6 +158,22 @@ class WifiLegacyHal {
                                     uint32_t max_interval_sec,
                                     uint32_t min_data_size);
   wifi_error getRingBufferData(const std::string& ring_name);
+  // RTT functions.
+  wifi_error startRttRangeRequest(
+      wifi_request_id id,
+      const std::vector<wifi_rtt_config>& rtt_configs,
+      on_rtt_results_callback on_results_callback);
+  wifi_error cancelRttRangeRequest(
+      wifi_request_id id, const std::vector<std::array<uint8_t, 6>>& mac_addrs);
+  std::pair<wifi_error, wifi_rtt_capabilities> getRttCapabilities();
+  std::pair<wifi_error, wifi_rtt_responder> getRttResponderInfo();
+  wifi_error enableRttResponder(wifi_request_id id,
+                                const wifi_channel_info& channel_hint,
+                                uint32_t max_duration_secs,
+                                const wifi_rtt_responder& info);
+  wifi_error disableRttResponder(wifi_request_id id);
+  wifi_error setRttLci(wifi_request_id id, const wifi_lci_information& info);
+  wifi_error setRttLcr(wifi_request_id id, const wifi_lcr_information& info);
 
  private:
   // Retrieve the interface handle to be used for the "wlan" interface.
