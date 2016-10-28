@@ -184,6 +184,28 @@ WifiLegacyHal::requestFirmwareMemoryDump() {
   return std::make_pair(status, std::move(firmware_dump));
 }
 
+std::pair<wifi_error, uint32_t> WifiLegacyHal::getSupportedFeatureSet() {
+  feature_set set;
+  static_assert(sizeof(set) == sizeof(uint32_t),
+                "Some features can not be represented in output");
+  wifi_error status = global_func_table_.wifi_get_supported_feature_set(
+      wlan_interface_handle_, &set);
+  return std::make_pair(status, static_cast<uint32_t>(set));
+}
+
+std::pair<wifi_error, PacketFilterCapabilities>
+WifiLegacyHal::getPacketFilterCapabilities() {
+  PacketFilterCapabilities caps;
+  wifi_error status = global_func_table_.wifi_get_packet_filter_capabilities(
+      wlan_interface_handle_, &caps.version, &caps.max_len);
+  return std::make_pair(status, caps);
+}
+
+wifi_error WifiLegacyHal::setPacketFilter(std::vector<uint8_t> program) {
+  return global_func_table_.wifi_set_packet_filter(
+      wlan_interface_handle_, program.data(), program.size());
+}
+
 wifi_error WifiLegacyHal::retrieveWlanInterfaceHandle() {
   const std::string& ifname_to_find = getStaIfaceName();
   wifi_interface_handle* iface_handles = nullptr;
