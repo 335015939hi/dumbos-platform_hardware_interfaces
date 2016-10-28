@@ -102,7 +102,8 @@ WifiStatus Wifi::startInternal() {
   LOG(INFO) << "Starting HAL";
   wifi_error legacy_status = legacy_hal_->start();
   if (legacy_status != WIFI_SUCCESS) {
-    LOG(ERROR) << "Failed to start Wifi HAL";
+    LOG(ERROR) << "Failed to start Wifi HAL: "
+               << legacyErrorToString(legacy_status);
     return createWifiStatusFromLegacyError(legacy_status,
                                            "Failed to start HAL");
   }
@@ -138,7 +139,8 @@ WifiStatus Wifi::stopInternal() {
   };
   wifi_error legacy_status = legacy_hal_->stop(on_complete_callback_);
   if (legacy_status != WIFI_SUCCESS) {
-    LOG(ERROR) << "Failed to stop Wifi HAL";
+    LOG(ERROR) << "Failed to stop Wifi HAL: "
+               << legacyErrorToString(legacy_status);
     WifiStatus wifi_status =
         createWifiStatusFromLegacyError(legacy_status, "Failed to stop HAL");
     for (const auto& callback : event_callbacks_) {
