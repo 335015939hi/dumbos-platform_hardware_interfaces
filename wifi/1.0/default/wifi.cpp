@@ -36,7 +36,8 @@ namespace wifi {
 namespace V1_0 {
 namespace implementation {
 Wifi::Wifi()
-    : legacy_hal_(new WifiLegacyHal()), run_state_(RunState::STOPPED) {}
+    : legacy_hal_(new legacy_hal::WifiLegacyHal()),
+      run_state_(RunState::STOPPED) {}
 
 bool Wifi::isValid() {
   // This object is always valid.

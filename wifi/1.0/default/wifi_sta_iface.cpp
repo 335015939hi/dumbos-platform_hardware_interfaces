@@ -31,8 +31,9 @@ namespace wifi {
 namespace V1_0 {
 namespace implementation {
 
-WifiStaIface::WifiStaIface(const std::string& ifname,
-                           const std::weak_ptr<WifiLegacyHal> legacy_hal)
+WifiStaIface::WifiStaIface(
+    const std::string& ifname,
+    const std::weak_ptr<legacy_hal::WifiLegacyHal> legacy_hal)
     : ifname_(ifname), legacy_hal_(legacy_hal), is_valid_(true) {}
 
 void WifiStaIface::invalidate() {
