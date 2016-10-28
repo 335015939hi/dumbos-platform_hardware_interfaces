@@ -34,6 +34,24 @@
       "revId": "76372496a7754d94079b7fb6315a4ef64e4f6c3b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "868bbadf_4f0099b0",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 22
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1002609
+      },
+      "writtenOn": "2016-10-28T16:19:43Z",
+      "side": 1,
+      "message": "Esim is supposed to be thought of as a slot.  Anything else would be a huge change (which we can do, but lets not hold this up on that potential refactor).",
+      "parentUuid": "868bbadf_0955b10c",
+      "revId": "76372496a7754d94079b7fb6315a4ef64e4f6c3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
