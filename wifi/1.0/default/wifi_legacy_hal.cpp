@@ -110,6 +110,18 @@ void onRingBufferData(char* ring_name,
   }
 }
 
+// Callback to be invoked for rtt results results.
+std::function<void(
+    wifi_request_id, unsigned num_results, wifi_rtt_result* rtt_results[])>
+    on_rtt_results_internal_callback;
+void onRttResults(wifi_request_id id,
+                  unsigned num_results,
+                  wifi_rtt_result* rtt_results[]) {
+  if (on_rtt_results_internal_callback) {
+    on_rtt_results_internal_callback(id, num_results, rtt_results);
+  }
+}
+
 // End of the free-standing "C" style callbacks.
 
 WifiLegacyHal::WifiLegacyHal()
@@ -552,6 +564,104 @@ wifi_error WifiLegacyHal::getRingBufferData(const std::string& ring_name) {
       wlan_interface_handle_, const_cast<char*>(ring_name.c_str()));
 }
 
+wifi_error WifiLegacyHal::startRttRangeRequest(
+    wifi_request_id id,
+    const std::vector<wifi_rtt_config>& rtt_configs,
+    on_rtt_results_callback on_results_user_callback) {
+  if (on_rtt_results_internal_callback) {
+    return WIFI_ERROR_NOT_AVAILABLE;
+  }
+
+  on_rtt_results_internal_callback = [&on_results_user_callback](
+      wifi_request_id id,
+      unsigned num_results,
+      wifi_rtt_result* rtt_results[]) {
+    if (num_results > 0 && !rtt_results) {
+      return;
+    }
+    std::vector<const wifi_rtt_result*> rtt_results_vec;
+    for (uint32_t i = 0; i < num_results; i++) {
+      wifi_rtt_result* rtt_result = rtt_results[i];
+      if (rtt_result) {
+        rtt_results_vec.emplace_back(rtt_result);
+      }
+    }
+    on_results_user_callback(id, rtt_results_vec);
+  };
+
+  return global_func_table_.wifi_rtt_range_request(
+      id,
+      wlan_interface_handle_,
+      rtt_configs.size(),
+      const_cast<wifi_rtt_config*>(rtt_configs.data()),
+      {onRttResults});
+}
+
+wifi_error WifiLegacyHal::cancelRttRangeRequest(
+    wifi_request_id id, const std::vector<std::array<uint8_t, 6>>& mac_addrs) {
+  if (!on_rtt_results_internal_callback) {
+    return WIFI_ERROR_NOT_AVAILABLE;
+  }
+  // TODO: How do we handle partial cancels (i.e only a subset of enabled mac
+  // addressed are cancelled).
+  wifi_error status = global_func_table_.wifi_rtt_range_cancel(
+      id,
+      wlan_interface_handle_,
+      mac_addrs.size(),
+      const_cast<mac_addr*>(
+          reinterpret_cast<const mac_addr*>(mac_addrs.data())));
+  // If the request Id is wrong, don't stop the ongoing range request. Any
+  // other error should be treated as the end of rtt ranging.
+  if (status != WIFI_ERROR_INVALID_REQUEST_ID) {
+    on_rtt_results_internal_callback = nullptr;
+  }
+  return status;
+}
+
+std::pair<wifi_error, wifi_rtt_capabilities>
+WifiLegacyHal::getRttCapabilities() {
+  wifi_rtt_capabilities rtt_caps;
+  wifi_error status = global_func_table_.wifi_get_rtt_capabilities(
+      wlan_interface_handle_, &rtt_caps);
+  return {status, rtt_caps};
+}
+
+std::pair<wifi_error, wifi_rtt_responder> WifiLegacyHal::getRttResponderInfo() {
+  wifi_rtt_responder rtt_responder;
+  wifi_error status = global_func_table_.wifi_rtt_get_responder_info(
+      wlan_interface_handle_, &rtt_responder);
+  return {status, rtt_responder};
+}
+
+wifi_error WifiLegacyHal::enableRttResponder(
+    wifi_request_id id,
+    const wifi_channel_info& channel_hint,
+    uint32_t max_duration_secs,
+    const wifi_rtt_responder& info) {
+  return global_func_table_.wifi_enable_responder(
+      id,
+      wlan_interface_handle_,
+      channel_hint,
+      max_duration_secs,
+      const_cast<wifi_rtt_responder*>(&info));
+}
+
+wifi_error WifiLegacyHal::disableRttResponder(wifi_request_id id) {
+  return global_func_table_.wifi_disable_responder(id, wlan_interface_handle_);
+}
+
+wifi_error WifiLegacyHal::setRttLci(wifi_request_id id,
+                                    const wifi_lci_information& info) {
+  return global_func_table_.wifi_set_lci(
+      id, wlan_interface_handle_, const_cast<wifi_lci_information*>(&info));
+}
+
+wifi_error WifiLegacyHal::setRttLcr(wifi_request_id id,
+                                    const wifi_lcr_information& info) {
+  return global_func_table_.wifi_set_lcr(
+      id, wlan_interface_handle_, const_cast<wifi_lcr_information*>(&info));
+}
+
 wifi_error WifiLegacyHal::retrieveWlanInterfaceHandle() {
   const std::string& ifname_to_find = getStaIfaceName();
   wifi_interface_handle* iface_handles = nullptr;
@@ -620,6 +730,7 @@ void WifiLegacyHal::invalidate() {
   on_gscan_full_result_internal_callback = nullptr;
   on_link_layer_stats_result_internal_callback = nullptr;
   on_ring_buffer_data_internal_callback = nullptr;
+  on_rtt_results_internal_callback = nullptr;
 }
 
 }  // namespace legacy_hal
