@@ -33,6 +33,8 @@ interface INfc {
      * If open() returns any other value, the NCI stack will stop.
      *
      */
+    @entry
+    @callflow(next={"powerCycle", "controlGranted", "close", "prediscover", "coreInitialized", "write"})
     open(INfcClientCallback clientCallback) generates (int32_t retval);
 
     /*
@@ -41,6 +43,7 @@ interface INfc {
      * This method may queue writes and return immediately. The only
      * requirement is that the writes are executed in order.
      */
+    @callflow(next={"powerCycle", "controlGranted", "close", "prediscover", "coreInitialized"})
     write(NfcData data) generates (int32_t retval);
 
     /*
@@ -53,6 +56,7 @@ interface INfc {
      * If coreInitialized() returns any other value, the NCI stack will continue
      * immediately.
      */
+    @callflow(next={"powerCycle", "controlGranted", "close", "prediscover", "write"})
     coreInitialized(NfcData data) generates (int32_t retval);
 
     /*
@@ -66,11 +70,13 @@ interface INfc {
      * If prediscover() returns any other value, the NCI stack will start
      * RF discovery immediately.
      */
+    @callflow(next={"powerCycle", "controlGranted", "close", "coreInitialized", "write"})
     prediscover() generates (int32_t retval);
 
     /*
      * Close the NFC controller. Should free all resources.
      */
+    @exit
     close() generates (int32_t retval);
 
     /*
@@ -79,11 +85,13 @@ interface INfc {
      * Must only be called when there are no NCI commands pending.
      * NfcEvent.RELEASE_CONTROL will notify when HAL no longer needs exclusive control.
      */
+    @callflow(next={"powerCycle", "close", "prediscover", "coreInitialized", "write"})
     controlGranted() generates (int32_t retval);
 
      /*
      * Restart controller by power cyle;
      * NfcEvent.OPEN_CPLT will notify when operation is complete.
      */
+    @callflow(next={"controlGranted", "close", "prediscover", "coreInitialized", "write"})
     powerCycle() generates (int32_t retval);
 };
