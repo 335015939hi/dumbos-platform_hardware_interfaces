@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "06318aec_520ef4a9",
+        "filename": "radio/1.0/ISapCallback.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1002609
+      },
+      "writtenOn": "2016-10-31T21:56:30Z",
+      "side": 1,
+      "message": "I think it\u0027s mimic-ing the spec which calls this CONNECT_RESP, though it should be called connectResp",
+      "parentUuid": "810004b4_448e4bba",
+      "range": {
+        "startLine": 28,
+        "startChar": 18,
+        "endLine": 28,
+        "endChar": 21
+      },
+      "revId": "1cf8d70a9092dd22a24474739824ec83aecfd3bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "810004b4_e4415f80",
         "filename": "radio/1.0/ISapCallback.hal",
         "patchSetId": 4
