@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "e6dd565f_659bea5b",
+        "filename": "nfc/1.0/INfc.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-01T22:37:52Z",
+      "side": 1,
+      "message": "Keun Soo is referring to the fact that the nth function in the list will be the nth most likely function to be the next one called during fuzzing.",
+      "parentUuid": "06cc2aaa_fbc78051",
+      "range": {
+        "startLine": 37,
+        "startChar": 53,
+        "endLine": 37,
+        "endChar": 58
+      },
+      "revId": "8de4b274ee634ce59ada73aca12aa7f6508c3eab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "06cc2aaa_5b0f94df",
         "filename": "nfc/1.0/INfc.hal",
         "patchSetId": 1
