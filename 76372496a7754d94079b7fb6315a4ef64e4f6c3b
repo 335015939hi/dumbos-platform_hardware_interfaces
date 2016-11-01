@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "663c06f3_42e6d4d5",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 22
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1126544
+      },
+      "writtenOn": "2016-11-01T04:22:17Z",
+      "side": 1,
+      "message": "Consider providing an interface object per slot so that you need not use an id per request.\n\nSo we\u0027d have an interface that notifies the client of slots. Then client then registers an interface per slot. Seems like that is closer to how it is used anyway.",
+      "range": {
+        "startLine": 25,
+        "startChar": 3,
+        "endLine": 25,
+        "endChar": 9
+      },
+      "revId": "76372496a7754d94079b7fb6315a4ef64e4f6c3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "663c06f3_82e0dcb6",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 22
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1126544
+      },
+      "writtenOn": "2016-11-01T04:22:17Z",
+      "side": 1,
+      "message": "Consider using callbacks to declare the response objects explicitly and simplify usage.\n\nSee b/32552481",
+      "range": {
+        "startLine": 26,
+        "startChar": 3,
+        "endLine": 26,
+        "endChar": 9
+      },
+      "revId": "76372496a7754d94079b7fb6315a4ef64e4f6c3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c1667cd0_21e40dc7",
         "filename": "radio/1.0/IRadio.hal",
         "patchSetId": 22
@@ -49,6 +95,52 @@
       "side": 1,
       "message": "Esim is supposed to be thought of as a slot.  Anything else would be a huge change (which we can do, but lets not hold this up on that potential refactor).",
       "parentUuid": "868bbadf_0955b10c",
+      "revId": "76372496a7754d94079b7fb6315a4ef64e4f6c3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "06cc2aaa_08faf707",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 22
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1126544
+      },
+      "writtenOn": "2016-11-01T04:22:17Z",
+      "side": 1,
+      "message": "Will all of these calls fail if setResponseFunction has not been called first?\n\nIf an order of calls is required then consider coding that into your API. For example, the setResponseFunctions call would return an interface with all these calls in it.",
+      "range": {
+        "startLine": 42,
+        "startChar": 7,
+        "endLine": 42,
+        "endChar": 15
+      },
+      "revId": "76372496a7754d94079b7fb6315a4ef64e4f6c3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "06cc2aaa_e8fe9bf9",
+        "filename": "radio/1.0/IRadioIndication.hal",
+        "patchSetId": 22
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1126544
+      },
+      "writtenOn": "2016-11-01T04:22:17Z",
+      "side": 1,
+      "message": "Where are all the other unsolicited messages ie. callstatechanged?",
+      "range": {
+        "startLine": 22,
+        "startChar": 10,
+        "endLine": 22,
+        "endChar": 26
+      },
       "revId": "76372496a7754d94079b7fb6315a4ef64e4f6c3b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
