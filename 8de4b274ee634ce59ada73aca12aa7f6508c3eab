@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "06cc2aaa_fbc78051",
+        "filename": "nfc/1.0/INfc.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1041663
+      },
+      "writtenOn": "2016-11-01T19:24:58Z",
+      "side": 1,
+      "message": "I don\u0027t think there will be cases under normal functioning, where there is an open call and then a close. But I listed it for completeness, in case we wanted to test that case too.",
+      "parentUuid": "06cc2aaa_fbf540ad",
+      "range": {
+        "startLine": 37,
+        "startChar": 53,
+        "endLine": 37,
+        "endChar": 58
+      },
+      "revId": "8de4b274ee634ce59ada73aca12aa7f6508c3eab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "06cc2aaa_5b0f94df",
         "filename": "nfc/1.0/INfc.hal",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-11-01T19:16:02Z",
       "side": 1,
       "message": "the list here doesn\u0027t need to be complete (it\u0027s mainly for hinting some common call flows).",
+      "range": {
+        "startLine": 59,
+        "startChar": 21,
+        "endLine": 59,
+        "endChar": 82
+      },
+      "revId": "8de4b274ee634ce59ada73aca12aa7f6508c3eab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "06cc2aaa_fe71ae51",
+        "filename": "nfc/1.0/INfc.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1041663
+      },
+      "writtenOn": "2016-11-01T19:24:58Z",
+      "side": 1,
+      "message": "what do you suggest? Randomly remove some of them?",
+      "parentUuid": "06cc2aaa_5b0f94df",
       "range": {
         "startLine": 59,
         "startChar": 21,
