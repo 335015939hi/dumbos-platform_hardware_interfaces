@@ -1,0 +1,487 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "86b57a46_b3e5e2c9",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 964,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-01T23:55:42Z",
+      "side": 1,
+      "message": "I don\u0027t see this parameter",
+      "range": {
+        "startLine": 964,
+        "startChar": 14,
+        "endLine": 964,
+        "endChar": 20
+      },
+      "revId": "e451ed7faa4a7132e8ab445e7fca0cf3a246608a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_93ea5e97",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 984,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-01T23:55:42Z",
+      "side": 1,
+      "message": "what is this?",
+      "range": {
+        "startLine": 984,
+        "startChar": 26,
+        "endLine": 984,
+        "endChar": 31
+      },
+      "revId": "e451ed7faa4a7132e8ab445e7fca0cf3a246608a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_73d41ad0",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 1085,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-01T23:55:42Z",
+      "side": 1,
+      "message": "please be consistent about spacing. Preferred s/\\.  /\\. /g",
+      "range": {
+        "startLine": 1085,
+        "startChar": 71,
+        "endLine": 1085,
+        "endChar": 72
+      },
+      "revId": "e451ed7faa4a7132e8ab445e7fca0cf3a246608a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_b308429e",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 1129,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-01T23:55:42Z",
+      "side": 1,
+      "message": "must",
+      "range": {
+        "startLine": 1129,
+        "startChar": 27,
+        "endLine": 1129,
+        "endChar": 31
+      },
+      "revId": "e451ed7faa4a7132e8ab445e7fca0cf3a246608a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_d3b3469e",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 761,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-01T23:55:42Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 761,
+        "startChar": 4,
+        "endLine": 761,
+        "endChar": 9
+      },
+      "revId": "e451ed7faa4a7132e8ab445e7fca0cf3a246608a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_33b9f27f",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 767,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-01T23:55:42Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 767,
+        "startChar": 4,
+        "endLine": 767,
+        "endChar": 9
+      },
+      "revId": "e451ed7faa4a7132e8ab445e7fca0cf3a246608a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_f3c5aaf2",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 785,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-01T23:55:42Z",
+      "side": 1,
+      "message": "also, just for the record, this is (1 \u003c\u003c 8). I\u0027m pretty sure the compiler could choose to fit these in a uint8_t if it wanted, right, in the original C code?",
+      "range": {
+        "startLine": 785,
+        "startChar": 12,
+        "endLine": 785,
+        "endChar": 22
+      },
+      "revId": "e451ed7faa4a7132e8ab445e7fca0cf3a246608a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_13b66e8d",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 785,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-01T23:55:42Z",
+      "side": 1,
+      "message": "same (and elsewhere if exists)",
+      "range": {
+        "startLine": 785,
+        "startChar": 4,
+        "endLine": 785,
+        "endChar": 9
+      },
+      "revId": "e451ed7faa4a7132e8ab445e7fca0cf3a246608a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_73da5acf",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 1256,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-01T23:55:42Z",
+      "side": 1,
+      "message": "is this required anymore?",
+      "range": {
+        "startLine": 1256,
+        "startChar": 12,
+        "endLine": 1256,
+        "endChar": 26
+      },
+      "revId": "e451ed7faa4a7132e8ab445e7fca0cf3a246608a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_d3ca2602",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 1258,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-01T23:55:42Z",
+      "side": 1,
+      "message": "is string the right container for this?",
+      "range": {
+        "startLine": 1257,
+        "startChar": 41,
+        "endLine": 1258,
+        "endChar": 56
+      },
+      "revId": "e451ed7faa4a7132e8ab445e7fca0cf3a246608a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_937b7ee2",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 1263,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-01T23:55:42Z",
+      "side": 1,
+      "message": "what is this?",
+      "range": {
+        "startLine": 1263,
+        "startChar": 12,
+        "endLine": 1263,
+        "endChar": 15
+      },
+      "revId": "e451ed7faa4a7132e8ab445e7fca0cf3a246608a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_53d756a3",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 1264,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-01T23:55:42Z",
+      "side": 1,
+      "message": "same (and below)",
+      "range": {
+        "startLine": 1264,
+        "startChar": 12,
+        "endLine": 1264,
+        "endChar": 26
+      },
+      "revId": "e451ed7faa4a7132e8ab445e7fca0cf3a246608a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_b37682f8",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 1265,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-01T23:55:42Z",
+      "side": 1,
+      "message": "same (and below)",
+      "range": {
+        "startLine": 1265,
+        "startChar": 11,
+        "endLine": 1265,
+        "endChar": 17
+      },
+      "revId": "e451ed7faa4a7132e8ab445e7fca0cf3a246608a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_13682e13",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 1286,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-01T23:55:42Z",
+      "side": 1,
+      "message": "coded how?",
+      "range": {
+        "startLine": 1286,
+        "startChar": 4,
+        "endLine": 1286,
+        "endChar": 11
+      },
+      "revId": "e451ed7faa4a7132e8ab445e7fca0cf3a246608a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_336bb213",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 1287,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-01T23:55:42Z",
+      "side": 1,
+      "message": "coded how?",
+      "range": {
+        "startLine": 1287,
+        "startChar": 4,
+        "endLine": 1287,
+        "endChar": 11
+      },
+      "revId": "e451ed7faa4a7132e8ab445e7fca0cf3a246608a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_d38506a2",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 1288,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-01T23:55:42Z",
+      "side": 1,
+      "message": "bool? What is this",
+      "range": {
+        "startLine": 1288,
+        "startChar": 9,
+        "endLine": 1288,
+        "endChar": 10
+      },
+      "revId": "e451ed7faa4a7132e8ab445e7fca0cf3a246608a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_d39ce6f5",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 1440,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-01T23:55:42Z",
+      "side": 1,
+      "message": "IRadio.SendSmsResult?",
+      "range": {
+        "startLine": 1440,
+        "startChar": 69,
+        "endLine": 1440,
+        "endChar": 82
+      },
+      "revId": "e451ed7faa4a7132e8ab445e7fca0cf3a246608a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_b340427d",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 1468,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-01T23:55:42Z",
+      "side": 1,
+      "message": "please use camel case (everywhere)\n\nsee go/android-treble-style-guide",
+      "range": {
+        "startLine": 1468,
+        "startChar": 12,
+        "endLine": 1468,
+        "endChar": 21
+      },
+      "revId": "e451ed7faa4a7132e8ab445e7fca0cf3a246608a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_932c1ecd",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 1488,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-01T23:55:42Z",
+      "side": 1,
+      "message": "RADIO_?\n\nalso, update these",
+      "range": {
+        "startLine": 1488,
+        "startChar": 44,
+        "endLine": 1488,
+        "endChar": 49
+      },
+      "revId": "e451ed7faa4a7132e8ab445e7fca0cf3a246608a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_b3120279",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 1597,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-01T23:55:42Z",
+      "side": 1,
+      "message": "how does the framework get access to this?",
+      "range": {
+        "startLine": 1596,
+        "startChar": 74,
+        "endLine": 1597,
+        "endChar": 61
+      },
+      "revId": "e451ed7faa4a7132e8ab445e7fca0cf3a246608a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_9317fe68",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 1611,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-01T23:55:42Z",
+      "side": 1,
+      "message": "what is in here?",
+      "range": {
+        "startLine": 1611,
+        "startChar": 11,
+        "endLine": 1611,
+        "endChar": 20
+      },
+      "revId": "e451ed7faa4a7132e8ab445e7fca0cf3a246608a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
