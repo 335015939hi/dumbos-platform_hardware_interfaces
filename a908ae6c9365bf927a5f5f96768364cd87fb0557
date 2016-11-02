@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "86b57a46_7f84db59",
+        "filename": "wifi/supplicant/1.0/ISupplicantP2pIfaceCallback.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-02T17:17:29Z",
+      "side": 1,
+      "message": "Will remove these in a follow up CL.",
+      "parentUuid": "86b57a46_7f305b48",
+      "range": {
+        "startLine": 24,
+        "startChar": 37,
+        "endLine": 24,
+        "endChar": 51
+      },
+      "revId": "a908ae6c9365bf927a5f5f96768364cd87fb0557",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "06cc2aaa_aecaeb00",
         "filename": "wifi/supplicant/1.0/ISupplicantP2pNetworkCallback.hal",
         "patchSetId": 2
