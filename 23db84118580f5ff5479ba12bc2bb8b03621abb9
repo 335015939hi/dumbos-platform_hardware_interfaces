@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "86b57a46_4d696ea8",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 1259,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-11-02T22:27:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86b57a46_cd76fef9",
+      "range": {
+        "startLine": 1259,
+        "startChar": 66,
+        "endLine": 1259,
+        "endChar": 67
+      },
+      "revId": "23db84118580f5ff5479ba12bc2bb8b03621abb9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "86b57a46_4d6b2e12",
         "filename": "radio/1.0/types.hal",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "86b57a46_90c369f2",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 1268,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-11-02T22:27:42Z",
+      "side": 1,
+      "message": "Its as per spec. added comment.",
+      "parentUuid": "86b57a46_4d6b2e12",
+      "range": {
+        "startLine": 1268,
+        "startChar": 17,
+        "endLine": 1268,
+        "endChar": 27
+      },
+      "revId": "23db84118580f5ff5479ba12bc2bb8b03621abb9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "86b57a46_ada29a35",
         "filename": "radio/1.0/types.hal",
         "patchSetId": 3
@@ -59,6 +107,30 @@
       "writtenOn": "2016-11-02T21:40:14Z",
       "side": 1,
       "message": "so this is a vec of these indices? it\u0027s still not clear",
+      "range": {
+        "startLine": 1595,
+        "startChar": 46,
+        "endLine": 1595,
+        "endChar": 57
+      },
+      "revId": "23db84118580f5ff5479ba12bc2bb8b03621abb9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_50b741da",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 1595,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-11-02T22:27:42Z",
+      "side": 1,
+      "message": "updated comment.",
+      "parentUuid": "86b57a46_ada29a35",
       "range": {
         "startLine": 1595,
         "startChar": 46,
