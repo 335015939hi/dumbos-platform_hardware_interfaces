@@ -64,6 +64,12 @@ interface IBase {
         vec<MacAddress> addresses;
     };
 
+    typedef int32_t[3] ThreeInts;
+    struct T {
+        ThreeInts[5]  matrix5x3;
+        int32_t[3][5] matrix3x5;
+    };
+
     someBaseMethod();
 
     someBoolMethod(bool x) generates (bool y);

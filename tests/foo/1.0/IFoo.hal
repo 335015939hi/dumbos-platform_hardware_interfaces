@@ -85,6 +85,12 @@ interface IFoo {
         int32_t guard;
     };
 
+    typedef int32_t[3] ThreeInts;
+    struct T {
+        ThreeInts[5]  matrix5x3;
+        int32_t[3][5] matrix3x5;
+    };
+
     doThis(float param);
     doThatAndReturnSomething(int64_t param) generates (int32_t result);
     doQuiteABit(int32_t a, int64_t b, float c, double d) generates (double something);
