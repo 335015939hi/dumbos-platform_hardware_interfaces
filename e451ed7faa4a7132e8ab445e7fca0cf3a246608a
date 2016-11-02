@@ -519,6 +519,30 @@
     },
     {
       "key": {
+        "uuid": "86b57a46_8d5996a3",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 1263,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-02T21:40:14Z",
+      "side": 1,
+      "message": "yes, but what is it?",
+      "parentUuid": "86b57a46_96bd2c10",
+      "range": {
+        "startLine": 1263,
+        "startChar": 12,
+        "endLine": 1263,
+        "endChar": 15
+      },
+      "revId": "e451ed7faa4a7132e8ab445e7fca0cf3a246608a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "86b57a46_53d756a3",
         "filename": "radio/1.0/types.hal",
         "patchSetId": 2
@@ -648,6 +672,30 @@
       "side": 1,
       "message": "this is int in Java class",
       "parentUuid": "86b57a46_13682e13",
+      "range": {
+        "startLine": 1286,
+        "startChar": 4,
+        "endLine": 1286,
+        "endChar": 11
+      },
+      "revId": "e451ed7faa4a7132e8ab445e7fca0cf3a246608a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_ed69423b",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 1286,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-02T21:40:14Z",
+      "side": 1,
+      "message": "yes, but what possible values does it take on? same for language",
+      "parentUuid": "86b57a46_b60af003",
       "range": {
         "startLine": 1286,
         "startChar": 4,
@@ -801,6 +849,30 @@
     },
     {
       "key": {
+        "uuid": "86b57a46_ed4022a3",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 1440,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-02T21:40:14Z",
+      "side": 1,
+      "message": "ah :)",
+      "parentUuid": "86b57a46_16fc9cc4",
+      "range": {
+        "startLine": 1440,
+        "startChar": 69,
+        "endLine": 1440,
+        "endChar": 82
+      },
+      "revId": "e451ed7faa4a7132e8ab445e7fca0cf3a246608a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "86b57a46_b340427d",
         "filename": "radio/1.0/types.hal",
         "patchSetId": 2
@@ -895,6 +967,30 @@
     },
     {
       "key": {
+        "uuid": "86b57a46_ada9fa35",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 1488,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-02T21:40:14Z",
+      "side": 1,
+      "message": "Yeah, where is RADIO_MAX_UUID_LENGTH specified?",
+      "parentUuid": "86b57a46_56dd8452",
+      "range": {
+        "startLine": 1488,
+        "startChar": 44,
+        "endLine": 1488,
+        "endChar": 49
+      },
+      "revId": "e451ed7faa4a7132e8ab445e7fca0cf3a246608a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "86b57a46_b3120279",
         "filename": "radio/1.0/types.hal",
         "patchSetId": 2
@@ -977,6 +1073,30 @@
       "side": 1,
       "message": "Its the data corresponding to particular matchType. Comment above.",
       "parentUuid": "86b57a46_9317fe68",
+      "range": {
+        "startLine": 1611,
+        "startChar": 11,
+        "endLine": 1611,
+        "endChar": 20
+      },
+      "revId": "e451ed7faa4a7132e8ab445e7fca0cf3a246608a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_8dc356f2",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 1611,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-02T21:40:14Z",
+      "side": 1,
+      "message": "ack",
+      "parentUuid": "86b57a46_768a4839",
       "range": {
         "startLine": 1611,
         "startChar": 11,
