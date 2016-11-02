@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "86b57a46_4d1b2e34",
+        "filename": "tests/baz/1.0/IBase.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2016-11-02T22:01:56Z",
+      "side": 1,
+      "message": "Yeah.\nActually I don\u0027t even need these though, because IPointer.hal and Pointer.h already ensures the order is correct.",
+      "parentUuid": "86b57a46_2d87ca60",
+      "revId": "f31d64be243144890dbee86e6ad4b7f9653651b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "86b57a46_cdb8be21",
         "filename": "tests/foo/1.0/IFoo.hal",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2016-11-02T21:50:41Z",
       "side": 1,
       "message": "I think verifying this in IBaz.hal should be enough, that in turn will generate both java and native code.",
+      "revId": "f31d64be243144890dbee86e6ad4b7f9653651b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_2d186a35",
+        "filename": "tests/foo/1.0/IFoo.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2016-11-02T22:01:56Z",
+      "side": 1,
+      "message": "Same as the other comment.\nI\u0027ll move to IBaz.hal",
+      "parentUuid": "86b57a46_cdb8be21",
       "revId": "f31d64be243144890dbee86e6ad4b7f9653651b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
