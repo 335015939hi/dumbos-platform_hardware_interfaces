@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "86b57a46_7f305b48",
+        "filename": "wifi/supplicant/1.0/ISupplicantP2pIfaceCallback.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-02T16:52:52Z",
+      "side": 1,
+      "message": "Remove, it\u0027s implementation specific.",
+      "range": {
+        "startLine": 24,
+        "startChar": 37,
+        "endLine": 24,
+        "endChar": 51
+      },
+      "revId": "a908ae6c9365bf927a5f5f96768364cd87fb0557",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "06cc2aaa_aecaeb00",
         "filename": "wifi/supplicant/1.0/ISupplicantP2pNetworkCallback.hal",
         "patchSetId": 2
