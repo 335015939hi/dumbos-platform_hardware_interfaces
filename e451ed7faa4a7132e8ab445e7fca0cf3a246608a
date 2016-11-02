@@ -543,6 +543,30 @@
     },
     {
       "key": {
+        "uuid": "86b57a46_edc7829f",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 1263,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-11-02T22:27:42Z",
+      "side": 1,
+      "message": "thanks for catching this. I had to look up the specs and looks like this should be bool.",
+      "parentUuid": "86b57a46_8d5996a3",
+      "range": {
+        "startLine": 1263,
+        "startChar": 12,
+        "endLine": 1263,
+        "endChar": 15
+      },
+      "revId": "e451ed7faa4a7132e8ab445e7fca0cf3a246608a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "86b57a46_53d756a3",
         "filename": "radio/1.0/types.hal",
         "patchSetId": 2
@@ -696,6 +720,30 @@
       "side": 1,
       "message": "yes, but what possible values does it take on? same for language",
       "parentUuid": "86b57a46_b60af003",
+      "range": {
+        "startLine": 1286,
+        "startChar": 4,
+        "endLine": 1286,
+        "endChar": 11
+      },
+      "revId": "e451ed7faa4a7132e8ab445e7fca0cf3a246608a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_2dfceac4",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 1286,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-11-02T22:27:42Z",
+      "side": 1,
+      "message": "updated from comments in frameworks.",
+      "parentUuid": "86b57a46_ed69423b",
       "range": {
         "startLine": 1286,
         "startChar": 4,
@@ -979,6 +1027,30 @@
       "side": 1,
       "message": "Yeah, where is RADIO_MAX_UUID_LENGTH specified?",
       "parentUuid": "86b57a46_56dd8452",
+      "range": {
+        "startLine": 1488,
+        "startChar": 44,
+        "endLine": 1488,
+        "endChar": 49
+      },
+      "revId": "e451ed7faa4a7132e8ab445e7fca0cf3a246608a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_4de68e31",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 1488,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-11-02T22:27:42Z",
+      "side": 1,
+      "message": "Defined at the top in this file in RadioConst enum",
+      "parentUuid": "86b57a46_ada9fa35",
       "range": {
         "startLine": 1488,
         "startChar": 44,
