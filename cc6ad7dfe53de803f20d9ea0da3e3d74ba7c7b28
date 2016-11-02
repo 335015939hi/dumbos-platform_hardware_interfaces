@@ -22,6 +22,30 @@
       "revId": "cc6ad7dfe53de803f20d9ea0da3e3d74ba7c7b28",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_46caeba9",
+        "filename": "tests/inheritance/1.0/default/Fetcher.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2016-11-02T23:46:28Z",
+      "side": 1,
+      "message": "Yeah, I agree, this is wrong indeed.\nI\u0027ll put a follow-up CL to fix this.",
+      "parentUuid": "86b57a46_864fb37d",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 9
+      },
+      "revId": "cc6ad7dfe53de803f20d9ea0da3e3d74ba7c7b28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
