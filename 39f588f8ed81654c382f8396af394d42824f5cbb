@@ -22,6 +22,30 @@
       "revId": "39f588f8ed81654c382f8396af394d42824f5cbb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_5f811748",
+        "filename": "wifi/supplicant/1.0/ISupplicantP2pNetworkCallback.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-02T17:17:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86b57a46_dfb3479e",
+      "range": {
+        "startLine": 20,
+        "startChar": 37,
+        "endLine": 20,
+        "endChar": 51
+      },
+      "revId": "39f588f8ed81654c382f8396af394d42824f5cbb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
