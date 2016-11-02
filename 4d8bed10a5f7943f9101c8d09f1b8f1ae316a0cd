@@ -1,0 +1,164 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "86b57a46_6b1b7a34",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 843,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2016-11-02T23:15:00Z",
+      "side": 1,
+      "message": "mobile equipment? If yes, should be called device/client instead.",
+      "range": {
+        "startLine": 843,
+        "startChar": 27,
+        "endLine": 843,
+        "endChar": 29
+      },
+      "revId": "4d8bed10a5f7943f9101c8d09f1b8f1ae316a0cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_cb2b864b",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 844,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2016-11-02T23:15:00Z",
+      "side": 1,
+      "message": "to",
+      "range": {
+        "startLine": 844,
+        "startChar": 76,
+        "endLine": 844,
+        "endChar": 78
+      },
+      "revId": "4d8bed10a5f7943f9101c8d09f1b8f1ae316a0cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_abe602fc",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2016-11-02T23:15:00Z",
+      "side": 1,
+      "message": "Should have ON too",
+      "revId": "4d8bed10a5f7943f9101c8d09f1b8f1ae316a0cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_ebc2ca43",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2016-11-02T23:15:00Z",
+      "side": 1,
+      "message": "space",
+      "revId": "4d8bed10a5f7943f9101c8d09f1b8f1ae316a0cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_0bd2ae0f",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 825,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2016-11-02T23:15:00Z",
+      "side": 1,
+      "message": "indentation",
+      "revId": "4d8bed10a5f7943f9101c8d09f1b8f1ae316a0cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_eba92a7e",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 848,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2016-11-02T23:15:00Z",
+      "side": 1,
+      "message": "caps",
+      "range": {
+        "startLine": 848,
+        "startChar": 4,
+        "endLine": 848,
+        "endChar": 12
+      },
+      "revId": "4d8bed10a5f7943f9101c8d09f1b8f1ae316a0cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_6b9eda4c",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 943,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2016-11-02T23:15:00Z",
+      "side": 1,
+      "message": "extra line",
+      "revId": "4d8bed10a5f7943f9101c8d09f1b8f1ae316a0cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_268ec70f",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 1423,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2016-11-02T23:15:00Z",
+      "side": 1,
+      "message": "Has this in place of union been approved by treble folks?",
+      "range": {
+        "startLine": 1415,
+        "startChar": 4,
+        "endLine": 1423,
+        "endChar": 49
+      },
+      "revId": "4d8bed10a5f7943f9101c8d09f1b8f1ae316a0cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
