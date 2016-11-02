@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "86b57a46_2d87ca60",
+        "filename": "tests/baz/1.0/IBase.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1014088
+      },
+      "writtenOn": "2016-11-02T21:50:41Z",
+      "side": 1,
+      "message": "This isn\u0027t used anywhere, do you just want to see if it properly parses/builds?",
+      "revId": "f31d64be243144890dbee86e6ad4b7f9653651b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_cdb8be21",
+        "filename": "tests/foo/1.0/IFoo.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1014088
+      },
+      "writtenOn": "2016-11-02T21:50:41Z",
+      "side": 1,
+      "message": "I think verifying this in IBaz.hal should be enough, that in turn will generate both java and native code.",
+      "revId": "f31d64be243144890dbee86e6ad4b7f9653651b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
