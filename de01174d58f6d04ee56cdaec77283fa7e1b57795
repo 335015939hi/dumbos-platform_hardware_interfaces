@@ -1,0 +1,349 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "86b57a46_28e5f1c4",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-03T18:31:09Z",
+      "side": 1,
+      "message": "Let\u0027s remove the \"RADIO_\" prefixes. (this can be in a separate CL).",
+      "range": {
+        "startLine": 20,
+        "startChar": 4,
+        "endLine": 20,
+        "endChar": 10
+      },
+      "revId": "de01174d58f6d04ee56cdaec77283fa7e1b57795",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_281851e7",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-03T18:31:09Z",
+      "side": 1,
+      "message": "can we delete all of these that end in _VERSION?\n\nThey shouldn\u0027t be used anywhere.",
+      "range": {
+        "startLine": 20,
+        "startChar": 9,
+        "endLine": 20,
+        "endChar": 17
+      },
+      "revId": "de01174d58f6d04ee56cdaec77283fa7e1b57795",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_c8270529",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-03T18:31:09Z",
+      "side": 1,
+      "message": ":(",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 31,
+        "endChar": 16
+      },
+      "revId": "de01174d58f6d04ee56cdaec77283fa7e1b57795",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_4865d55c",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 1241,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-03T18:31:09Z",
+      "side": 1,
+      "message": "so, with 4-bit digits, should we interpret each byte of the digits vec as two digits?\n\nAlso,\n4-bits \u003c-\u003e literal value e.x. 0b0111 would be 7\n8-bits \u003c-\u003e ascii value e.x. 0b00110111 would be 7\n??",
+      "range": {
+        "startLine": 1241,
+        "startChar": 54,
+        "endLine": 1241,
+        "endChar": 59
+      },
+      "revId": "de01174d58f6d04ee56cdaec77283fa7e1b57795",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_e8980954",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 1245,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-03T18:31:09Z",
+      "side": 1,
+      "message": "Where are these defined?",
+      "range": {
+        "startLine": 1245,
+        "startChar": 56,
+        "endLine": 1245,
+        "endChar": 85
+      },
+      "revId": "de01174d58f6d04ee56cdaec77283fa7e1b57795",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_085bcda0",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 1250,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-03T18:31:09Z",
+      "side": 1,
+      "message": "delete",
+      "range": {
+        "startLine": 1250,
+        "startChar": 85,
+        "endLine": 1250,
+        "endChar": 86
+      },
+      "revId": "de01174d58f6d04ee56cdaec77283fa7e1b57795",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_a5958a24",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 1268,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-03T18:31:09Z",
+      "side": 1,
+      "message": "add a space before this so that it lines up with the other comments.",
+      "range": {
+        "startLine": 1268,
+        "startChar": 40,
+        "endLine": 1268,
+        "endChar": 41
+      },
+      "revId": "de01174d58f6d04ee56cdaec77283fa7e1b57795",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_884fbdd8",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 1320,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-03T18:31:09Z",
+      "side": 1,
+      "message": "lower 4 bits in ascii? How about using string for these?",
+      "range": {
+        "startLine": 1320,
+        "startChar": 44,
+        "endLine": 1320,
+        "endChar": 51
+      },
+      "revId": "de01174d58f6d04ee56cdaec77283fa7e1b57795",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_488e7510",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 1364,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-03T18:31:09Z",
+      "side": 1,
+      "message": "can you find this?",
+      "range": {
+        "startLine": 1364,
+        "startChar": 81,
+        "endLine": 1364,
+        "endChar": 84
+      },
+      "revId": "de01174d58f6d04ee56cdaec77283fa7e1b57795",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_88a85d66",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 1412,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-03T18:31:09Z",
+      "side": 1,
+      "message": "bool",
+      "range": {
+        "startLine": 1412,
+        "startChar": 4,
+        "endLine": 1412,
+        "endChar": 11
+      },
+      "revId": "de01174d58f6d04ee56cdaec77283fa7e1b57795",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_28ce914e",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 1456,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-03T18:31:09Z",
+      "side": 1,
+      "message": "so (0x)?([1-9a-fA-F][0-9a-fA-F]*|0) or what?\n\nYou don\u0027t have to be that specific, but please be more specific.",
+      "range": {
+        "startLine": 1456,
+        "startChar": 51,
+        "endLine": 1456,
+        "endChar": 57
+      },
+      "revId": "de01174d58f6d04ee56cdaec77283fa7e1b57795",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_68b099c1",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 1481,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-03T18:31:09Z",
+      "side": 1,
+      "message": "this should be specified in an enum",
+      "range": {
+        "startLine": 1481,
+        "startChar": 43,
+        "endLine": 1481,
+        "endChar": 64
+      },
+      "revId": "de01174d58f6d04ee56cdaec77283fa7e1b57795",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_08e62dd4",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 1563,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-03T18:31:09Z",
+      "side": 1,
+      "message": "must be RadioConst:RADIO_CAPABILITY_VERSION?",
+      "range": {
+        "startLine": 1563,
+        "startChar": 66,
+        "endLine": 1563,
+        "endChar": 90
+      },
+      "revId": "de01174d58f6d04ee56cdaec77283fa7e1b57795",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_481315cd",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 1563,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-03T18:31:09Z",
+      "side": 1,
+      "message": "delete this,\nversioning information is contained in this interface already",
+      "range": {
+        "startLine": 1563,
+        "startChar": 12,
+        "endLine": 1563,
+        "endChar": 19
+      },
+      "revId": "de01174d58f6d04ee56cdaec77283fa7e1b57795",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_48779544",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 1593,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-03T18:31:09Z",
+      "side": 1,
+      "message": "so why not use uint32_t[RadioNum:TX_POWER_LEVELS] ?",
+      "range": {
+        "startLine": 1593,
+        "startChar": 61,
+        "endLine": 1593,
+        "endChar": 86
+      },
+      "revId": "de01174d58f6d04ee56cdaec77283fa7e1b57795",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
