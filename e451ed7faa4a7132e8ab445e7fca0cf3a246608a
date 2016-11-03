@@ -1063,6 +1063,30 @@
     },
     {
       "key": {
+        "uuid": "86b57a46_08f0ed74",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 1488,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-03T18:31:09Z",
+      "side": 1,
+      "message": "Use \u0027RadioConst:MAX_UUID_LENGTH\u0027 here instead then.",
+      "parentUuid": "86b57a46_4de68e31",
+      "range": {
+        "startLine": 1488,
+        "startChar": 44,
+        "endLine": 1488,
+        "endChar": 49
+      },
+      "revId": "e451ed7faa4a7132e8ab445e7fca0cf3a246608a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "86b57a46_b3120279",
         "filename": "radio/1.0/types.hal",
         "patchSetId": 2
