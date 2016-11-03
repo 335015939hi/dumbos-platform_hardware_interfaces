@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "86b57a46_5733ac55",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 1241,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-03T23:35:33Z",
+      "side": 1,
+      "message": "This needs to be clear in the comments.",
+      "parentUuid": "86b57a46_51557c0b",
+      "range": {
+        "startLine": 1241,
+        "startChar": 54,
+        "endLine": 1241,
+        "endChar": 59
+      },
+      "revId": "de01174d58f6d04ee56cdaec77283fa7e1b57795",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "86b57a46_e8980954",
         "filename": "radio/1.0/types.hal",
         "patchSetId": 6
@@ -284,6 +308,52 @@
     },
     {
       "key": {
+        "uuid": "86b57a46_57dd6cc4",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 1252,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-03T23:35:33Z",
+      "side": 1,
+      "message": "represents",
+      "range": {
+        "startLine": 1252,
+        "startChar": 68,
+        "endLine": 1252,
+        "endChar": 77
+      },
+      "revId": "de01174d58f6d04ee56cdaec77283fa7e1b57795",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_5768cc13",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 1253,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-03T23:35:33Z",
+      "side": 1,
+      "message": "this makes me think that each byte contains a single digit whether that digit is 4 or 8 bits",
+      "range": {
+        "startLine": 1252,
+        "startChar": 78,
+        "endLine": 1253,
+        "endChar": 59
+      },
+      "revId": "de01174d58f6d04ee56cdaec77283fa7e1b57795",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "86b57a46_a5958a24",
         "filename": "radio/1.0/types.hal",
         "patchSetId": 6
@@ -366,6 +436,30 @@
       "side": 1,
       "message": "yes ideally they should be string. As sometimes they are represented as 004 (string) which would get converted to 4 (int).",
       "parentUuid": "86b57a46_884fbdd8",
+      "range": {
+        "startLine": 1320,
+        "startChar": 44,
+        "endLine": 1320,
+        "endChar": 51
+      },
+      "revId": "de01174d58f6d04ee56cdaec77283fa7e1b57795",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_b7301849",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 1320,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-03T23:35:33Z",
+      "side": 1,
+      "message": "so, is the the literal value, or is mcc four ascii bytes?",
+      "parentUuid": "86b57a46_915c0461",
       "range": {
         "startLine": 1320,
         "startChar": 44,
