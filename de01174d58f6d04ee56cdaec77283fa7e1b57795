@@ -214,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "86b57a46_97e51463",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 1241,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-11-03T23:46:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86b57a46_5733ac55",
+      "range": {
+        "startLine": 1241,
+        "startChar": 54,
+        "endLine": 1241,
+        "endChar": 59
+      },
+      "revId": "de01174d58f6d04ee56cdaec77283fa7e1b57795",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "86b57a46_e8980954",
         "filename": "radio/1.0/types.hal",
         "patchSetId": 6
@@ -331,6 +355,30 @@
     },
     {
       "key": {
+        "uuid": "86b57a46_773cf0f6",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 1252,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-11-03T23:46:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86b57a46_57dd6cc4",
+      "range": {
+        "startLine": 1252,
+        "startChar": 68,
+        "endLine": 1252,
+        "endChar": 77
+      },
+      "revId": "de01174d58f6d04ee56cdaec77283fa7e1b57795",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "86b57a46_5768cc13",
         "filename": "radio/1.0/types.hal",
         "patchSetId": 6
@@ -342,6 +390,30 @@
       "writtenOn": "2016-11-03T23:35:33Z",
       "side": 1,
       "message": "this makes me think that each byte contains a single digit whether that digit is 4 or 8 bits",
+      "range": {
+        "startLine": 1252,
+        "startChar": 78,
+        "endLine": 1253,
+        "endChar": 59
+      },
+      "revId": "de01174d58f6d04ee56cdaec77283fa7e1b57795",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_b7365812",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 1253,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-11-03T23:46:47Z",
+      "side": 1,
+      "message": "yes, that is how it is. They have same one byte to hold either 4bit or 8bit data.",
+      "parentUuid": "86b57a46_5768cc13",
       "range": {
         "startLine": 1252,
         "startChar": 78,
@@ -460,6 +532,30 @@
       "side": 1,
       "message": "so, is the the literal value, or is mcc four ascii bytes?",
       "parentUuid": "86b57a46_915c0461",
+      "range": {
+        "startLine": 1320,
+        "startChar": 44,
+        "endLine": 1320,
+        "endChar": 51
+      },
+      "revId": "de01174d58f6d04ee56cdaec77283fa7e1b57795",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86b57a46_1722c4cd",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 1320,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-11-03T23:46:47Z",
+      "side": 1,
+      "message": "mcc is 3 digit number. \"735\", \"123\", etc",
+      "parentUuid": "86b57a46_b7301849",
       "range": {
         "startLine": 1320,
         "startChar": 44,
