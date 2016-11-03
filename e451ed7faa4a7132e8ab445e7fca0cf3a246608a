@@ -1087,6 +1087,30 @@
     },
     {
       "key": {
+        "uuid": "86b57a46_110014b0",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 1488,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-11-03T22:26:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86b57a46_08f0ed74",
+      "range": {
+        "startLine": 1488,
+        "startChar": 44,
+        "endLine": 1488,
+        "endChar": 49
+      },
+      "revId": "e451ed7faa4a7132e8ab445e7fca0cf3a246608a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "86b57a46_b3120279",
         "filename": "radio/1.0/types.hal",
         "patchSetId": 2
