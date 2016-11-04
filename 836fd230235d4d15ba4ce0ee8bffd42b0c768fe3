@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "eb47df8d_9b016b6e",
+        "filename": "wifi/1.0/default/hidl_return_util.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-04T04:17:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86b57a46_fc5447df",
+      "range": {
+        "startLine": 51,
+        "startChar": 13,
+        "endLine": 51,
+        "endChar": 29
+      },
+      "revId": "836fd230235d4d15ba4ce0ee8bffd42b0c768fe3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "663c06f3_85d2a616",
         "filename": "wifi/1.0/default/wifi.cpp",
         "patchSetId": 7
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "eb47df8d_fbfeaf43",
+        "filename": "wifi/1.0/default/wifi.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-04T04:17:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "663c06f3_85d2a616",
+      "revId": "836fd230235d4d15ba4ce0ee8bffd42b0c768fe3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "663c06f3_45f25eef",
         "filename": "wifi/1.0/default/wifi.cpp",
         "patchSetId": 7
@@ -53,6 +95,24 @@
       "writtenOn": "2016-11-04T02:29:04Z",
       "side": 1,
       "message": "(continued from PS4)\n\nI don\u0027t think createWifiStatus is necessary for the pair (or tuple) case. Here are a couple of alternatives:\n\n  // We name the type, so that the make_pair template\n  // can deduce the types of the pair\u0027s elements.\n  std::make_pair(WifiStatus{WifiStatusCode::SUCCESS, \"\"}, \u003cvalue\u003e);\n\nor\n\n  // Alternatively, we can explicitly specify the types of the pair.\n  std::pair\u003cWifiStatus, OtherT\u003e{ {WifiStatusCode::SUCCESS, \"\"}, \u003cother-value\u003e );\n\nThat said, the argument above is strictly technical (i.e., I\u0027m identifying what alternatives are possible).\n\nI\u0027ll leave it to your judgment about what\u0027s best stylistically.",
+      "revId": "836fd230235d4d15ba4ce0ee8bffd42b0c768fe3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb47df8d_7b645f63",
+        "filename": "wifi/1.0/default/wifi.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-04T04:17:38Z",
+      "side": 1,
+      "message": "I\u0027ll leave it as it is for now because we need to anyway use status util for legacy error code conversion (createWifiStatusFromLegacyError).",
+      "parentUuid": "663c06f3_45f25eef",
       "revId": "836fd230235d4d15ba4ce0ee8bffd42b0c768fe3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
