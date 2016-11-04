@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "eb47df8d_d569fc18",
+        "filename": "radio/1.0/IRadioIndication.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-11-04T23:13:21Z",
+      "side": 1,
+      "message": "This is used to identify type of unsolicited cmd based on whether it acquires wakelock in ril.cpp or not. Depending on that condition ril.java would send an ack to ril.cpp",
+      "parentUuid": "eb47df8d_64ffa08c",
+      "range": {
+        "startLine": 42,
+        "startChar": 28,
+        "endLine": 42,
+        "endChar": 52
+      },
+      "revId": "d90f7a8d39c3876b68f864020ad4b4d4c2e95636",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb47df8d_c4ecb4e2",
         "filename": "radio/1.0/IRadioIndication.hal",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-11-04T19:04:47Z",
       "side": 1,
       "message": "Pass an object with the ACK method on it.",
+      "range": {
+        "startLine": 66,
+        "startChar": 11,
+        "endLine": 66,
+        "endChar": 17
+      },
+      "revId": "d90f7a8d39c3876b68f864020ad4b4d4c2e95636",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb47df8d_556e8ce5",
+        "filename": "radio/1.0/IRadioIndication.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-11-04T23:13:21Z",
+      "side": 1,
+      "message": "That would require removing acknowledgeLastIncomingGsmSms() Radio request and making frameworks side change.\nThis would be similar to b/32552481. We can open a new bug or fix it as a part of above bug.",
+      "parentUuid": "eb47df8d_c4ecb4e2",
       "range": {
         "startLine": 66,
         "startChar": 11,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "eb47df8d_d0fd8ac3",
+        "filename": "radio/1.0/IRadioIndication.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-11-04T23:13:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb47df8d_e4e3b0ec",
+      "range": {
+        "startLine": 90,
+        "startChar": 57,
+        "endLine": 90,
+        "endChar": 61
+      },
+      "revId": "d90f7a8d39c3876b68f864020ad4b4d4c2e95636",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb47df8d_44ab8474",
         "filename": "radio/1.0/IRadioIndication.hal",
         "patchSetId": 1
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "eb47df8d_5054dade",
+        "filename": "radio/1.0/IRadioIndication.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-11-04T23:13:21Z",
+      "side": 1,
+      "message": "Probably we don\u0027t need version to be sent explicity. But we are calling some functions from RILJ which needs to be called when RIL gets connected.",
+      "parentUuid": "eb47df8d_44ab8474",
+      "range": {
+        "startLine": 353,
+        "startChar": 10,
+        "endLine": 353,
+        "endChar": 22
+      },
+      "revId": "d90f7a8d39c3876b68f864020ad4b4d4c2e95636",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb47df8d_507dfa5c",
         "filename": "radio/1.0/IRadioIndication.hal",
         "patchSetId": 1
@@ -105,6 +201,30 @@
       "writtenOn": "2016-11-04T22:49:51Z",
       "side": 1,
       "message": "must",
+      "range": {
+        "startLine": 459,
+        "startChar": 72,
+        "endLine": 459,
+        "endChar": 76
+      },
+      "revId": "d90f7a8d39c3876b68f864020ad4b4d4c2e95636",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb47df8d_f0e366ec",
+        "filename": "radio/1.0/IRadioIndication.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-11-04T23:13:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb47df8d_507dfa5c",
       "range": {
         "startLine": 459,
         "startChar": 72,
@@ -163,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "eb47df8d_50c21a46",
+        "filename": "radio/1.0/IRadioIndication.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-11-04T23:13:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb47df8d_10725291",
+      "range": {
+        "startLine": 471,
+        "startChar": 13,
+        "endLine": 471,
+        "endChar": 18
+      },
+      "revId": "d90f7a8d39c3876b68f864020ad4b4d4c2e95636",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb47df8d_905e62fb",
         "filename": "radio/1.0/types.hal",
         "patchSetId": 1
@@ -174,6 +318,30 @@
       "writtenOn": "2016-11-04T22:49:51Z",
       "side": 1,
       "message": "what is this?",
+      "range": {
+        "startLine": 1905,
+        "startChar": 12,
+        "endLine": 1905,
+        "endChar": 24
+      },
+      "revId": "d90f7a8d39c3876b68f864020ad4b4d4c2e95636",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb47df8d_70aab66e",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 1905,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-11-04T23:13:21Z",
+      "side": 1,
+      "message": "Added enum to represent framework code constants.",
+      "parentUuid": "eb47df8d_905e62fb",
       "range": {
         "startLine": 1905,
         "startChar": 12,
