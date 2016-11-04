@@ -148,9 +148,12 @@ enum RadioError : int32_t {
 
 enum RadioResponseType : int32_t {
     RESPONSE_SOLICITED,
-    RESPONSE_UNSOLICITED,
     RESPONSE_SOLICITED_ACK,
     RESPONSE_SOLICITED_ACK_EXP,
+};
+
+enum RadioIndicationType : int32_t {
+    RESPONSE_UNSOLICITED,
     RESPONSE_UNSOLICITED_ACK_EXP,
 };
 
@@ -1625,4 +1628,297 @@ struct CarrierRestrictions {
                                            // gid1 is ABCD. It means except the carrier whose gid1
                                            // is ABCD, all carriers with the same mcc/mnc are
                                            // allowed.
+};
+
+enum UssdModeType : int32_t {
+    NOTIFY,                                // USSD-Notify
+    REQUEST,                               // USSD-Request
+    NW_RELEASE,                            // Session terminated by network
+    LOCAL_CLIENT,                          // other local client (eg, SIM Toolkit) has responded
+    NOT_SUPPORTED,                         // Operation not supported
+    NW_TIMEOUT,                            // Network timeout
+};
+
+struct SuppSvcNotification {
+    bool isMT;                             // notification type
+                                           // false = MO intermediate result code
+                                           // true = MT unsolicited result code
+    bool isCode1;                          // See 27.007 7.17
+                                           // true = "code1" for MO
+                                           // false = "code2" for MT
+    int32_t index;                         // CUG index. See 27.007 7.17.
+    int32_t type;                          // "type" from 27.007 7.17 (MT only).
+    string number;                         // "number" from 27.007 7.17
+                                           // (MT only, may be empty string).
+};
+
+enum SimRefreshType : int32_t {
+    SIM_FILE_UPDATE = 0,                   // A file on SIM has been updated.
+    SIM_INIT = 1,                          // SIM initialized.  All files should be re-read.
+    SIM_RESET = 2                          // SIM reset.  SIM power required, SIM may be locked a
+                                           // nd all files must be re-read.
+};
+
+struct SimRefreshResult {
+    SimRefreshType type;
+    int32_t efId;                          // is the EFID of the updated file if the result is
+                                           // SIM_FILE_UPDATE or 0 for any other result.
+    string aid;                            // is AID(application ID) of the card application
+                                           // See ETSI 102.221 8.1 and 101.220 4
+                                           // For SIM_FILE_UPDATE result it must be set to AID of
+                                           // application in which updated EF resides or it must be
+                                           // empty string if EF is outside of an application.
+                                           // For SIM_INIT result this field is set to AID of
+                                           // application that caused REFRESH
+                                           // For SIM_RESET result it is empty string.
+};
+
+enum SrvccState :int32_t {
+    HANDOVER_STARTED = 0,
+    HANDOVER_COMPLETED = 1,
+    HANDOVER_FAILED = 2,
+    HANDOVER_CANCELED = 3
+};
+
+/* CDMA Signal Information Record as defined in C.S0005 section 3.7.5.5 */
+struct CdmaSignalInfoRecord {
+    bool isPresent;                        // true if signal information record is present
+    int8_t signalType;                     // as defined 3.7.5.5-1
+    int8_t alertPitch;                     // as defined 3.7.5.5-2
+    int8_t signal;                         // as defined 3.7.5.5-3, 3.7.5.5-4 or 3.7.5.5-5
+};
+
+enum PhoneRestrictedState : int32_t {
+    NONE = 0x00,                           // No restriction at all including voice/SMS/USSD/SS/AV64
+                                           // and packet data
+    CS_EMERGENCY = 0x01,                   // Block emergency call due to restriction. But allow all
+                                           // normal voice/SMS/USSD/SS/AV64.
+    CS_NORMAL = 0x02,                      // Block all normal voice/SMS/USSD/SS/AV64 due to
+                                           // restriction. Only Emergency call allowed.
+    CS_ALL = 0x04,                         // Block all voice/SMS/USSD/SS/AV64 including emergency
+                                           // call due to restriction.
+    PS_ALL = 0x10                          // Block packet data access due to restriction.
+};
+
+enum CdmaCallWaitingNumberPresentation : int32_t {
+    ALLOWED = 0,
+    RESTRICTED = 1,
+    UNKNOWN = 2,
+};
+
+enum CdmaCallWaitingNumberType : int32_t {
+    UNKNOWN = 0,
+    INTERNATIONAL = 1,
+    NATIONAL = 2,
+    NETWORK_SPECIFIC = 3,
+    SUBSCRIBER = 4
+};
+
+enum CdmaCallWaitingNumberPlan : int32_t {
+    UNKNOWN = 0,
+    ISDN = 1,
+    DATA = 3,
+    TELEX = 4,
+    NATIONAL = 8,
+    PRIVATE = 9
+};
+
+struct CdmaCallWaiting {
+    string number;                         // Remote party number
+    CdmaCallWaitingNumberPresentation numberPresentation;
+    string name;                           // Remote party name
+    CdmaSignalInfoRecord signalInfoRecord;
+    // Number type/Number plan required to support International Call Waiting
+    CdmaCallWaitingNumberType numbertype;
+    CdmaCallWaitingNumberPlan numberPlan;
+};
+
+enum CdmaOtaProvisionStatus : int32_t {
+    SPL_UNLOCKED,
+    SPC_RETRIES_EXCEEDED,
+    A_KEY_EXCHANGED,
+    SSD_UPDATED,
+    NAM_DOWNLOADED,
+    MDN_DOWNLOADED,
+    IMSI_DOWNLOADED,
+    PRL_DOWNLOADED,
+    COMMITTED,
+    OTAPA_STARTED,
+    OTAPA_STOPPED,
+    OTAPA_ABORTED
+};
+
+/* Names of the CDMA info records (C.S0005 section 3.7.5) */
+enum CdmaInfoRecName : int32_t {
+    DISPLAY,
+    CALLED_PARTY_NUMBER,
+    CALLING_PARTY_NUMBER,
+    CONNECTED_NUMBER,
+    SIGNAL,
+    REDIRECTING_NUMBER,
+    LINE_CONTROL,
+    EXTENDED_DISPLAY,
+    T53_CLIR,
+    T53_RELEASE,
+    T53_AUDIO_CONTROL
+};
+
+/*
+ * Display Info Rec as defined in C.S0005 section 3.7.5.1
+ * Extended Display Info Rec as defined in C.S0005 section 3.7.5.16
+ * Note: the Extended Display info rec contains multiple records of the
+ * form: display_tag, display_len, and display_len occurrences of the
+ * char field if the display_tag is not 10000000 or 10000001.
+ * To save space, the records are stored consecutively in a byte buffer.
+ * The display_tag, display_len and chari fields are all 1 byte.
+ */
+
+struct CdmaDisplayInfoRecord {
+    string alphaBuf;                       // Max length = RadioConst:CDMA_ALPHA_INFO_BUFFER_LENGTH
+};
+
+/*
+ * Called Party Number Info Rec as defined in C.S0005 section 3.7.5.2
+ * Calling Party Number Info Rec as defined in C.S0005 section 3.7.5.3
+ * Connected Number Info Rec as defined in C.S0005 section 3.7.5.4
+ */
+struct CdmaNumberInfoRecord {
+    string number;                         // Max length = RADIP_CDMA_NUMBER_INFO_BUFFER_LENGTH
+    uint8_t numberType;
+    uint8_t numberPlan;
+    uint8_t pi;
+    uint8_t si;
+};
+
+/* Redirecting Number Information Record as defined in C.S0005 section 3.7.5.11 */
+enum CdmaRedirectingReason : int32_t {
+    UNKNOWN = 0,
+    CALL_FORWARDING_BUSY = 1,
+    CALL_FORWARDING_NO_REPLY = 2,
+    CALLED_DTE_OUT_OF_ORDER = 9,
+    CALL_FORWARDING_BY_THE_CALLED_DTE = 10,
+    CALL_FORWARDING_UNCONDITIONAL = 15,
+    RESERVED
+};
+
+struct  CdmaRedirectingNumberInfoRecord{
+    CdmaNumberInfoRecord redirectingNumber;
+    CdmaRedirectingReason redirectingReason; // redirectingReason is set to UNKNOWN if not included
+};
+
+/* Line Control Information Record as defined in C.S0005 section 3.7.5.15 */
+struct CdmaLineControlInfoRecord {
+    uint8_t lineCtrlPolarityIncluded;
+    uint8_t lineCtrlToggle;
+    uint8_t lineCtrlReverse;
+    uint8_t lineCtrlPowerDenial;
+};
+
+/* T53 CLIR Information Record */
+struct CdmaT53ClirInfoRecord {
+    uint8_t cause;
+};
+
+/* T53 Audio Control Information Record */
+struct CdmaT53AudioControlInfoRecord {
+    uint8_t upLink;
+    uint8_t downLink;
+};
+
+struct CdmaInformationRecord {
+    CdmaInfoRecName name;
+    // Only one of the below vectors must have size = 1 based on the
+    // CdmaInfoRecName. All other vectors must have size 0.
+    vec<CdmaDisplayInfoRecord> display;  // Display and Extended Display Info Rec
+    vec<CdmaNumberInfoRecord> number;    // Called Party Number, Calling Party Number, Connected
+                                         // umber Info Rec
+    vec<CdmaSignalInfoRecord> signal;    // Signal Info Rec
+    vec<CdmaRedirectingNumberInfoRecord> redir; // Redirecting Number Info Rec
+    vec<CdmaLineControlInfoRecord> lineCtrl;    // Line Control Info Rec
+    vec<CdmaT53ClirInfoRecord> clir;     // T53 CLIR Info Rec
+    vec<CdmaT53AudioControlInfoRecord> audioCtrl; // T53 Audio Control Info Rec
+};
+
+struct CdmaInformationRecords {
+    vec<CdmaInformationRecord> infoRec;  // Max length = RadioConst:CDMA_MAX_NUMBER_OF_INFO_RECS
+};
+
+enum SsServiceType : int32_t {
+    CFU,
+    CF_BUSY,
+    CF_NO_REPLY,
+    CF_NOT_REACHABLE,
+    CF_ALL,
+    CF_ALL_CONDITIONAL,
+    CLIP,
+    CLIR,
+    COLP,
+    COLR,
+    WAIT,
+    BAOC,
+    BAOIC,
+    BAOIC_EXC_HOME,
+    BAIC,
+    BAIC_ROAMING,
+    ALL_BARRING,
+    OUTGOING_BARRING,
+    INCOMING_BARRING
+};
+
+enum SsRequestType : int32_t {
+    ACTIVATION,
+    DEACTIVATION,
+    INTERROGATION,
+    REGISTRATION,
+    ERASURE
+};
+
+enum SsTeleserviceType : int32_t {
+    ALL_TELE_AND_BEARER_SERVICES,
+    ALL_TELESEVICES,
+    TELEPHONY,
+    ALL_DATA_TELESERVICES,
+    SMS_SERVICES,
+    ALL_TELESERVICES_EXCEPT_SMS
+};
+
+struct CfData {
+    vec<CallForwardInfo> cfInfo;         // This is the response data
+                                         // for SS request to query call
+                                         // forward status. see getCallForwardStatus()
+                                         // Max size = RadioConst:NUM_SERVICE_CLASSES
+};
+
+struct SsInfoData {
+    vec<int32_t> ssInfo;                 // This is the response data for all of the SS GET/SET
+                                         // Radio requests. E.g. IRadio.getClir() returns
+                                         // two ints, so first two values of ssInfo[] will be
+                                         // used for response if serviceType is SS_CLIR and
+                                         // requestType is SS_INTERROGATION
+                                         // Max size = RadioConst:SS_INFO_MAX
+};
+
+struct StkCcUnsolSsResult {
+    SsServiceType serviceType;
+    SsRequestType requestType;
+    SsTeleserviceType teleserviceType;
+    int32_t serviceClass;
+    RadioError result;
+    // Only 1 of the below vectors must be of size 1 based on the SsserviceType & other must be
+    // of size 0
+    vec<SsInfoData> ssInfo;              // Valid only for all SsserviceType except
+                                         // SsServiceType:CF_* else empty.
+    vec<CfData> cfData;                  // Valid for SsServiceType:CF_* else empty
+};
+
+struct PcoDataInfo {
+    int32_t cid;                         // Context ID, uniquely identifies this call
+    string bearerProto;                  // One of the PDP_type values in TS 27.007 section 10.1.1.
+                                         // For example, "IP", "IPV6", "IPV4V6"
+    int32_t pcoId;                       // The protocol ID for this box.  Note that only IDs from
+                                         // FF00H - FFFFH are accepted.  If more than one is
+                                         // included from the network, multiple calls must be made
+                                         // to send all of them.
+    vec<uint8_t> contents;               // Carrier-defined content.  It is binary, opaque and
+                                         // loosely defined in LTE Layer 3 spec 24.008
 };
