@@ -91,6 +91,98 @@
       "revId": "d90f7a8d39c3876b68f864020ad4b4d4c2e95636",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb47df8d_507dfa5c",
+        "filename": "radio/1.0/IRadioIndication.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-04T22:49:51Z",
+      "side": 1,
+      "message": "must",
+      "range": {
+        "startLine": 459,
+        "startChar": 72,
+        "endLine": 459,
+        "endChar": 76
+      },
+      "revId": "d90f7a8d39c3876b68f864020ad4b4d4c2e95636",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb47df8d_d0674ad4",
+        "filename": "radio/1.0/IRadioIndication.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-04T22:49:51Z",
+      "side": 1,
+      "message": "may",
+      "range": {
+        "startLine": 466,
+        "startChar": 28,
+        "endLine": 466,
+        "endChar": 33
+      },
+      "revId": "d90f7a8d39c3876b68f864020ad4b4d4c2e95636",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb47df8d_10725291",
+        "filename": "radio/1.0/IRadioIndication.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-04T22:49:51Z",
+      "side": 1,
+      "message": "must/may?",
+      "range": {
+        "startLine": 471,
+        "startChar": 13,
+        "endLine": 471,
+        "endChar": 18
+      },
+      "revId": "d90f7a8d39c3876b68f864020ad4b4d4c2e95636",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb47df8d_905e62fb",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 1905,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-04T22:49:51Z",
+      "side": 1,
+      "message": "what is this?",
+      "range": {
+        "startLine": 1905,
+        "startChar": 12,
+        "endLine": 1905,
+        "endChar": 24
+      },
+      "revId": "d90f7a8d39c3876b68f864020ad4b4d4c2e95636",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
