@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "86b57a46_fc5447df",
+        "filename": "wifi/1.0/default/hidl_return_util.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-04T02:29:04Z",
+      "side": 1,
+      "message": "Now that we\u0027re using templates, instead of macros, I think distinct names are no longer necessary:\n- I believe that any of our given invocations can only match one of the templates. (We can\u0027t, e.g., construct a std::function that takes two parameters, from a method that takes no parameters. Nor the other way around.)\n- Hence: we can use a single name, and let the compiler resolve the overloads.\n- And I think using overloading here would fit within the constraints of our style guide: \"Use overloaded functions (including constructors) only if a reader looking at a call site can get a good idea of what is happening without having to first figure out exactly which overload is being called.\"\n\nBut ultimately, I\u0027ll leave the choice of whether or not to use overloading to your judgment.",
+      "range": {
+        "startLine": 51,
+        "startChar": 13,
+        "endLine": 51,
+        "endChar": 29
+      },
+      "revId": "836fd230235d4d15ba4ce0ee8bffd42b0c768fe3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "663c06f3_85d2a616",
+        "filename": "wifi/1.0/default/wifi.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-04T02:29:04Z",
+      "side": 1,
+      "message": "Consider placing these inside the |implementation| namespace. (It\u0027ll make the lines shorter, since you can drop everything before hidl_return_util.)",
+      "revId": "836fd230235d4d15ba4ce0ee8bffd42b0c768fe3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "663c06f3_45f25eef",
+        "filename": "wifi/1.0/default/wifi.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-04T02:29:04Z",
+      "side": 1,
+      "message": "(continued from PS4)\n\nI don\u0027t think createWifiStatus is necessary for the pair (or tuple) case. Here are a couple of alternatives:\n\n  // We name the type, so that the make_pair template\n  // can deduce the types of the pair\u0027s elements.\n  std::make_pair(WifiStatus{WifiStatusCode::SUCCESS, \"\"}, \u003cvalue\u003e);\n\nor\n\n  // Alternatively, we can explicitly specify the types of the pair.\n  std::pair\u003cWifiStatus, OtherT\u003e{ {WifiStatusCode::SUCCESS, \"\"}, \u003cother-value\u003e );\n\nThat said, the argument above is strictly technical (i.e., I\u0027m identifying what alternatives are possible).\n\nI\u0027ll leave it to your judgment about what\u0027s best stylistically.",
+      "revId": "836fd230235d4d15ba4ce0ee8bffd42b0c768fe3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
