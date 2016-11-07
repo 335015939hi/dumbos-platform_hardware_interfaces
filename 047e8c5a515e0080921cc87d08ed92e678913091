@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0be7d3fb_bcdd21c7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 17
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-07T18:40:37Z",
+      "side": 1,
+      "message": "I think the commit message should call out the change in semantics around existing event listeners.\n\n(Previously, existing event listeners would be notified of no-op and error events. But, after this change, only the synchronous caller gets notified. That sounds like an appropriate change. Having it documented in the commit message will make it clear that the semantic change was intentional.)",
+      "revId": "047e8c5a515e0080921cc87d08ed92e678913091",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
