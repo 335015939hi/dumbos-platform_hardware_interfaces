@@ -238,6 +238,30 @@
     },
     {
       "key": {
+        "uuid": "0be7d3fb_5c789da3",
+        "filename": "radio/1.0/IRadioIndication.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-11-07T20:30:49Z",
+      "side": 1,
+      "message": "latest patch has the comment for spec. \nFrameworks expects it to be a string here.",
+      "parentUuid": "0bcd134f_c189d0b1",
+      "range": {
+        "startLine": 165,
+        "startChar": 52,
+        "endLine": 165,
+        "endChar": 62
+      },
+      "revId": "d90f7a8d39c3876b68f864020ad4b4d4c2e95636",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb47df8d_44ab8474",
         "filename": "radio/1.0/IRadioIndication.hal",
         "patchSetId": 1
@@ -297,6 +321,30 @@
       "side": 1,
       "message": "So the client will get an interface where all requests will fail until this is called?",
       "parentUuid": "eb47df8d_5054dade",
+      "range": {
+        "startLine": 353,
+        "startChar": 10,
+        "endLine": 353,
+        "endChar": 22
+      },
+      "revId": "d90f7a8d39c3876b68f864020ad4b4d4c2e95636",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0be7d3fb_df23bf6d",
+        "filename": "radio/1.0/IRadioIndication.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-11-07T20:30:49Z",
+      "side": 1,
+      "message": "I don\u0027t think we need any interface here as each function would be returning \"Radio not available\" error code if called without ril being connected.",
+      "parentUuid": "0bcd134f_331ca78b",
       "range": {
         "startLine": 353,
         "startChar": 10,
