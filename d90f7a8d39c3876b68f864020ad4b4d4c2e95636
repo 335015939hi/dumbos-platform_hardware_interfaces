@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "0bcd134f_812188bd",
+        "filename": "radio/1.0/IRadioIndication.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1126544
+      },
+      "writtenOn": "2016-11-07T17:45:14Z",
+      "side": 1,
+      "message": "The wakelock is used to ensure the cpu isn\u0027t shut off before it can handle the request, right? +smoreland@ does HIDL take care of that for us? If not, should it?",
+      "parentUuid": "eb47df8d_d569fc18",
+      "range": {
+        "startLine": 42,
+        "startChar": 28,
+        "endLine": 42,
+        "endChar": 52
+      },
+      "revId": "d90f7a8d39c3876b68f864020ad4b4d4c2e95636",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb47df8d_c4ecb4e2",
         "filename": "radio/1.0/IRadioIndication.hal",
         "patchSetId": 1
@@ -190,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "0bcd134f_c189d0b1",
+        "filename": "radio/1.0/IRadioIndication.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1126544
+      },
+      "writtenOn": "2016-11-07T17:45:14Z",
+      "side": 1,
+      "message": "Would be nice to at least include the spec reference (ie 3gpp 31.111)\n\nAlso, reserve string usage for actual strings and use vector for buffers.",
+      "parentUuid": "eb47df8d_4771c150",
+      "range": {
+        "startLine": 165,
+        "startChar": 52,
+        "endLine": 165,
+        "endChar": 62
+      },
+      "revId": "d90f7a8d39c3876b68f864020ad4b4d4c2e95636",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb47df8d_44ab8474",
         "filename": "radio/1.0/IRadioIndication.hal",
         "patchSetId": 1
@@ -225,6 +273,30 @@
       "side": 1,
       "message": "Probably we don\u0027t need version to be sent explicity. But we are calling some functions from RILJ which needs to be called when RIL gets connected.",
       "parentUuid": "eb47df8d_44ab8474",
+      "range": {
+        "startLine": 353,
+        "startChar": 10,
+        "endLine": 353,
+        "endChar": 22
+      },
+      "revId": "d90f7a8d39c3876b68f864020ad4b4d4c2e95636",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0bcd134f_331ca78b",
+        "filename": "radio/1.0/IRadioIndication.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1126544
+      },
+      "writtenOn": "2016-11-07T17:45:14Z",
+      "side": 1,
+      "message": "So the client will get an interface where all requests will fail until this is called?",
+      "parentUuid": "eb47df8d_5054dade",
       "range": {
         "startLine": 353,
         "startChar": 10,
