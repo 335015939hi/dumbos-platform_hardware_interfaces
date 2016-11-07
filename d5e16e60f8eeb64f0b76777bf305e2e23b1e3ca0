@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0be7d3fb_45a600fe",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-07T22:43:58Z",
+      "side": 1,
+      "message": "The name here is misleading.\n\n1. \"VecOfIfaceNames\" suggests that the returned vector will, at least in some cases, have multiple entries. But the input argument is a single string. So, AIUI, the returned vector will have at most one entry.\n\n2. This function no longer returns a hidl_vec.\n\nBut we can worry about this later. (In https://android-review.googlesource.com/#/c/296285/4/wifi/1.0/default/wifi_chip.cpp)",
+      "range": {
+        "startLine": 28,
+        "startChar": 25,
+        "endLine": 28,
+        "endChar": 50
+      },
+      "revId": "d5e16e60f8eeb64f0b76777bf305e2e23b1e3ca0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0be7d3fb_c5b1302f",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-07T22:43:58Z",
+      "side": 1,
+      "message": "I believe this can be simplified:\n\n  if (ifname.empty()) {\n    return {};\n  }\n  return {ifname};\n\nThis might be less efficient, since it might copy the hidl_string. But the clarity is a win. (With this version, it\u0027s dead-simple what\u0027s being returned in each case.)\n\nAs above, though, let\u0027s worry about this later. (In https://android-review.googlesource.com/#/c/296285/4/wifi/1.0/default/wifi_chip.cpp)",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 1
+      },
+      "revId": "d5e16e60f8eeb64f0b76777bf305e2e23b1e3ca0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
