@@ -1,0 +1,694 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0be7d3fb_36f3e8f4",
+        "filename": "radio/1.0/IRadioIndication.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-08T18:10:29Z",
+      "side": 1,
+      "message": "where is this defined?",
+      "range": {
+        "startLine": 98,
+        "startChar": 22,
+        "endLine": 98,
+        "endChar": 26
+      },
+      "revId": "072f8af211412e5c388b9c87ff5d82699a998d9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0be7d3fb_367da85e",
+        "filename": "radio/1.0/IRadioIndication.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-08T18:10:29Z",
+      "side": 1,
+      "message": "Yes, that\u0027s what it is.\n\nprobably better to say something like \u0027Result of sim refresh\u0027 if you are going to have a comment at all",
+      "range": {
+        "startLine": 194,
+        "startChar": 28,
+        "endLine": 194,
+        "endChar": 68
+      },
+      "revId": "072f8af211412e5c388b9c87ff5d82699a998d9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0be7d3fb_56823425",
+        "filename": "radio/1.0/IRadioIndication.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-08T18:10:29Z",
+      "side": 1,
+      "message": "Hmmm. So code on both sides of the hal boundary talk using these system properties?",
+      "range": {
+        "startLine": 207,
+        "startChar": 49,
+        "endLine": 207,
+        "endChar": 77
+      },
+      "revId": "072f8af211412e5c388b9c87ff5d82699a998d9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0be7d3fb_7677307e",
+        "filename": "radio/1.0/IRadioIndication.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-08T18:10:29Z",
+      "side": 1,
+      "message": "nit: delete",
+      "range": {
+        "startLine": 231,
+        "startChar": 37,
+        "endLine": 231,
+        "endChar": 71
+      },
+      "revId": "072f8af211412e5c388b9c87ff5d82699a998d9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0be7d3fb_b690d867",
+        "filename": "radio/1.0/IRadioIndication.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-08T18:10:29Z",
+      "side": 1,
+      "message": "can we remove all of the \u0027as defined in types.hal\u0027 comments?",
+      "range": {
+        "startLine": 232,
+        "startChar": 33,
+        "endLine": 232,
+        "endChar": 56
+      },
+      "revId": "072f8af211412e5c388b9c87ff5d82699a998d9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0be7d3fb_f68a6035",
+        "filename": "radio/1.0/IRadioIndication.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-08T18:10:29Z",
+      "side": 1,
+      "message": "or the device dies? or they will fail?",
+      "range": {
+        "startLine": 251,
+        "startChar": 6,
+        "endLine": 251,
+        "endChar": 25
+      },
+      "revId": "072f8af211412e5c388b9c87ff5d82699a998d9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0be7d3fb_36268886",
+        "filename": "radio/1.0/IRadioIndication.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-08T18:10:29Z",
+      "side": 1,
+      "message": "let\u0027s nix this type of comment as well. The type is already in the function declaration.",
+      "range": {
+        "startLine": 277,
+        "startChar": 37,
+        "endLine": 277,
+        "endChar": 71
+      },
+      "revId": "072f8af211412e5c388b9c87ff5d82699a998d9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0be7d3fb_96359ca6",
+        "filename": "radio/1.0/IRadioIndication.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-08T18:10:29Z",
+      "side": 1,
+      "message": "periods at the end of @params should be consistent",
+      "range": {
+        "startLine": 367,
+        "startChar": 60,
+        "endLine": 367,
+        "endChar": 61
+      },
+      "revId": "072f8af211412e5c388b9c87ff5d82699a998d9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0be7d3fb_16218c65",
+        "filename": "radio/1.0/IRadioIndication.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-08T18:10:29Z",
+      "side": 1,
+      "message": "w",
+      "range": {
+        "startLine": 385,
+        "startChar": 9,
+        "endLine": 385,
+        "endChar": 10
+      },
+      "revId": "072f8af211412e5c388b9c87ff5d82699a998d9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0be7d3fb_b6429807",
+        "filename": "radio/1.0/IRadioIndication.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-08T18:10:29Z",
+      "side": 1,
+      "message": "d",
+      "range": {
+        "startLine": 388,
+        "startChar": 45,
+        "endLine": 388,
+        "endChar": 46
+      },
+      "revId": "072f8af211412e5c388b9c87ff5d82699a998d9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0be7d3fb_7649f02c",
+        "filename": "radio/1.0/IRadioIndication.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-08T18:10:29Z",
+      "side": 1,
+      "message": "s",
+      "range": {
+        "startLine": 388,
+        "startChar": 32,
+        "endLine": 388,
+        "endChar": 33
+      },
+      "revId": "072f8af211412e5c388b9c87ff5d82699a998d9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0be7d3fb_d63f2478",
+        "filename": "radio/1.0/IRadioIndication.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-08T18:10:29Z",
+      "side": 1,
+      "message": "add space after",
+      "range": {
+        "startLine": 393,
+        "startChar": 51,
+        "endLine": 393,
+        "endChar": 52
+      },
+      "revId": "072f8af211412e5c388b9c87ff5d82699a998d9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0be7d3fb_76fad09d",
+        "filename": "radio/1.0/IRadioIndication.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-08T18:10:29Z",
+      "side": 1,
+      "message": "what exactly does it contain?",
+      "range": {
+        "startLine": 433,
+        "startChar": 19,
+        "endLine": 433,
+        "endChar": 24
+      },
+      "revId": "072f8af211412e5c388b9c87ff5d82699a998d9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0be7d3fb_d602c427",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 853,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-08T18:10:29Z",
+      "side": 1,
+      "message": "I don\u0027t understand what this means.",
+      "range": {
+        "startLine": 853,
+        "startChar": 47,
+        "endLine": 853,
+        "endChar": 93
+      },
+      "revId": "072f8af211412e5c388b9c87ff5d82699a998d9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0be7d3fb_5600741b",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 853,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-08T18:10:29Z",
+      "side": 1,
+      "message": "what is this?",
+      "range": {
+        "startLine": 853,
+        "startChar": 44,
+        "endLine": 853,
+        "endChar": 46
+      },
+      "revId": "072f8af211412e5c388b9c87ff5d82699a998d9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0be7d3fb_96fafc01",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 855,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-08T18:10:29Z",
+      "side": 1,
+      "message": "APPLY",
+      "range": {
+        "startLine": 855,
+        "startChar": 65,
+        "endLine": 855,
+        "endChar": 70
+      },
+      "revId": "072f8af211412e5c388b9c87ff5d82699a998d9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0be7d3fb_d6eba435",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 856,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-08T18:10:29Z",
+      "side": 1,
+      "message": "is?",
+      "range": {
+        "startLine": 856,
+        "startChar": 49,
+        "endLine": 856,
+        "endChar": 57
+      },
+      "revId": "072f8af211412e5c388b9c87ff5d82699a998d9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0be7d3fb_f6e8a03b",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 857,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-08T18:10:29Z",
+      "side": 1,
+      "message": "nit: no need to wrap here.",
+      "range": {
+        "startLine": 857,
+        "startChar": 44,
+        "endLine": 857,
+        "endChar": 82
+      },
+      "revId": "072f8af211412e5c388b9c87ff5d82699a998d9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0be7d3fb_f63980ec",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 859,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-08T18:10:29Z",
+      "side": 1,
+      "message": "nit: fail,",
+      "range": {
+        "startLine": 859,
+        "startChar": 87,
+        "endLine": 859,
+        "endChar": 91
+      },
+      "revId": "072f8af211412e5c388b9c87ff5d82699a998d9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0be7d3fb_1637ccf9",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 859,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-08T18:10:29Z",
+      "side": 1,
+      "message": ". If",
+      "range": {
+        "startLine": 859,
+        "startChar": 70,
+        "endLine": 859,
+        "endChar": 74
+      },
+      "revId": "072f8af211412e5c388b9c87ff5d82699a998d9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0be7d3fb_763f30cd",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 860,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-08T18:10:29Z",
+      "side": 1,
+      "message": "the hal implementation must not send APPLY.",
+      "range": {
+        "startLine": 859,
+        "startChar": 92,
+        "endLine": 860,
+        "endChar": 62
+      },
+      "revId": "072f8af211412e5c388b9c87ff5d82699a998d9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0be7d3fb_d655640f",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 863,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-08T18:10:29Z",
+      "side": 1,
+      "message": "nit: command,",
+      "range": {
+        "startLine": 863,
+        "startChar": 73,
+        "endLine": 863,
+        "endChar": 80
+      },
+      "revId": "072f8af211412e5c388b9c87ff5d82699a998d9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0be7d3fb_9644bc67",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 864,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-08T18:10:29Z",
+      "side": 1,
+      "message": "must",
+      "range": {
+        "startLine": 864,
+        "startChar": 92,
+        "endLine": 864,
+        "endChar": 96
+      },
+      "revId": "072f8af211412e5c388b9c87ff5d82699a998d9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0be7d3fb_366e88e5",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 868,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-08T18:10:29Z",
+      "side": 1,
+      "message": "can we be more clear on when one happens over the other?",
+      "range": {
+        "startLine": 866,
+        "startChar": 85,
+        "endLine": 868,
+        "endChar": 77
+      },
+      "revId": "072f8af211412e5c388b9c87ff5d82699a998d9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0be7d3fb_f66b40cc",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 872,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-08T18:10:29Z",
+      "side": 1,
+      "message": "RadioCapabilityPhase:START",
+      "range": {
+        "startLine": 872,
+        "startChar": 68,
+        "endLine": 872,
+        "endChar": 82
+      },
+      "revId": "072f8af211412e5c388b9c87ff5d82699a998d9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0be7d3fb_36976895",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 881,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-08T18:10:29Z",
+      "side": 1,
+      "message": "nit: these parens shouldn\u0027t be needed",
+      "range": {
+        "startLine": 881,
+        "startChar": 15,
+        "endLine": 881,
+        "endChar": 16
+      },
+      "revId": "072f8af211412e5c388b9c87ff5d82699a998d9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0be7d3fb_d687245f",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 900,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-08T18:10:29Z",
+      "side": 1,
+      "message": "nit: is this enumeration actually required?",
+      "range": {
+        "startLine": 880,
+        "startChar": 0,
+        "endLine": 900,
+        "endChar": 2
+      },
+      "revId": "072f8af211412e5c388b9c87ff5d82699a998d9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0be7d3fb_b6fd38c4",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 1885,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-08T18:10:29Z",
+      "side": 1,
+      "message": "number",
+      "range": {
+        "startLine": 1885,
+        "startChar": 44,
+        "endLine": 1885,
+        "endChar": 49
+      },
+      "revId": "072f8af211412e5c388b9c87ff5d82699a998d9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0be7d3fb_f6aee0cd",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 1920,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-08T18:10:29Z",
+      "side": 1,
+      "message": "nit: this is kind of overkill since CfData/SsInfo both only contain a vec. Wouldn\u0027t it make more sense to just say only one of these will contain values, the other will be empty?",
+      "range": {
+        "startLine": 1919,
+        "startChar": 4,
+        "endLine": 1920,
+        "endChar": 16
+      },
+      "revId": "072f8af211412e5c388b9c87ff5d82699a998d9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0be7d3fb_560f9413",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 1934,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-08T18:10:29Z",
+      "side": 1,
+      "message": "please s/\\.  /\\. /g",
+      "range": {
+        "startLine": 1934,
+        "startChar": 69,
+        "endLine": 1934,
+        "endChar": 70
+      },
+      "revId": "072f8af211412e5c388b9c87ff5d82699a998d9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
