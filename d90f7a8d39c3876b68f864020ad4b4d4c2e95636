@@ -310,6 +310,30 @@
     },
     {
       "key": {
+        "uuid": "0be7d3fb_08a32488",
+        "filename": "radio/1.0/IRadioIndication.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-11-08T22:50:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0be7d3fb_b63c58f7",
+      "range": {
+        "startLine": 165,
+        "startChar": 52,
+        "endLine": 165,
+        "endChar": 62
+      },
+      "revId": "d90f7a8d39c3876b68f864020ad4b4d4c2e95636",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb47df8d_44ab8474",
         "filename": "radio/1.0/IRadioIndication.hal",
         "patchSetId": 1
