@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0be7d3fb_f1a8a065",
+        "filename": "nfc/1.0/INfc.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2016-11-08T20:58:19Z",
+      "side": 1,
+      "message": "new line?",
+      "range": {
+        "startLine": 46,
+        "startChar": 87,
+        "endLine": 46,
+        "endChar": 101
+      },
+      "revId": "1ffde836e69822e9daeb52da8971b0fdf1c34cba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
