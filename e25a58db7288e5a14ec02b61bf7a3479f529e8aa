@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6b8e8f82_b5cc8855",
+        "filename": "radio/1.0/IRadioIndication.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2016-11-09T22:13:17Z",
+      "side": 1,
+      "message": "Should this be int8 or uint8?",
+      "range": {
+        "startLine": 64,
+        "startChar": 48,
+        "endLine": 64,
+        "endChar": 54
+      },
+      "revId": "e25a58db7288e5a14ec02b61bf7a3479f529e8aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
