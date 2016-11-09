@@ -70,6 +70,54 @@
       "revId": "1491a06f785139a50212938cbdf20f514d0bbebe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0bb35316_4b08f105",
+        "filename": "radio/1.0/IRadioIndication.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-11-09T19:32:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0bb35316_5072dc92",
+      "range": {
+        "startLine": 65,
+        "startChar": 44,
+        "endLine": 65,
+        "endChar": 50
+      },
+      "revId": "1491a06f785139a50212938cbdf20f514d0bbebe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0bb35316_0b266985",
+        "filename": "radio/1.0/IRadioIndication.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-11-09T19:32:29Z",
+      "side": 1,
+      "message": "Converted for newSms() \u0026 newSmsStatusReport(). There are other 3 instances of string in this file which are actually string.",
+      "parentUuid": "0bb35316_f0f56866",
+      "range": {
+        "startLine": 65,
+        "startChar": 44,
+        "endLine": 65,
+        "endChar": 50
+      },
+      "revId": "1491a06f785139a50212938cbdf20f514d0bbebe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
