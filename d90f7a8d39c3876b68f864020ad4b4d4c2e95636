@@ -477,6 +477,30 @@
     },
     {
       "key": {
+        "uuid": "6b8e8f82_d294c220",
+        "filename": "radio/1.0/IRadioIndication.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-11-09T19:32:29Z",
+      "side": 1,
+      "message": "This would require changes in IRadioResponse.hal as well. We would prefer to get all the API\u0027s in before that.\nAdded a TODO.\nWill discuss this with Amit \u0026 Robert and consider making this part of a separate interface.",
+      "parentUuid": "0bb35316_704b98cc",
+      "range": {
+        "startLine": 353,
+        "startChar": 10,
+        "endLine": 353,
+        "endChar": 22
+      },
+      "revId": "d90f7a8d39c3876b68f864020ad4b4d4c2e95636",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb47df8d_507dfa5c",
         "filename": "radio/1.0/IRadioIndication.hal",
         "patchSetId": 1
