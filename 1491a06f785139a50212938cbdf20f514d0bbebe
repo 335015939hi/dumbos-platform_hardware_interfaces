@@ -22,6 +22,30 @@
       "revId": "1491a06f785139a50212938cbdf20f514d0bbebe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0bb35316_10457464",
+        "filename": "radio/1.0/IRadioIndication.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-09T17:45:06Z",
+      "side": 1,
+      "message": "Actually, I think these are supposed to be strings.",
+      "parentUuid": "0bb35316_f0f56866",
+      "range": {
+        "startLine": 65,
+        "startChar": 44,
+        "endLine": 65,
+        "endChar": 50
+      },
+      "revId": "1491a06f785139a50212938cbdf20f514d0bbebe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
