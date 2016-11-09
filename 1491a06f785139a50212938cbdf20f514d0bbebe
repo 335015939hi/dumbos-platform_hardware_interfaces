@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0bb35316_f0f56866",
+        "filename": "radio/1.0/IRadioIndication.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1126544
+      },
+      "writtenOn": "2016-11-09T17:10:14Z",
+      "side": 1,
+      "message": "Please convert all instances of passing buffers to vector",
+      "range": {
+        "startLine": 65,
+        "startChar": 44,
+        "endLine": 65,
+        "endChar": 50
+      },
+      "revId": "1491a06f785139a50212938cbdf20f514d0bbebe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
