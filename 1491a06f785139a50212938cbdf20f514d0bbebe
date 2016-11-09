@@ -46,6 +46,30 @@
       "revId": "1491a06f785139a50212938cbdf20f514d0bbebe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0bb35316_5072dc92",
+        "filename": "radio/1.0/IRadioIndication.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1126544
+      },
+      "writtenOn": "2016-11-09T18:08:04Z",
+      "side": 1,
+      "message": "So this is coming back to me. Why is this passed as a buffer when the client just in turn converts it to a buffer. Shouldn\u0027t we just convert it to a buffer first? The HAL is faster with smaller chunks of code so that sounds like the better way to go if possible.\n\nhttp://cs/android/frameworks/opt/telephony/src/java/com/android/internal/telephony/gsm/SmsMessage.java?l\u003d98\u0026rcl\u003d9ce8d6f5a6b378d02f4da031a87b279b1a9ada43\n\nNote, if we change it to a buffer then the comment would need to change.",
+      "parentUuid": "0bb35316_10457464",
+      "range": {
+        "startLine": 65,
+        "startChar": 44,
+        "endLine": 65,
+        "endChar": 50
+      },
+      "revId": "1491a06f785139a50212938cbdf20f514d0bbebe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
