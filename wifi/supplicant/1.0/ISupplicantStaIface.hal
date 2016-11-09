@@ -25,6 +25,61 @@ import ISupplicantStaIfaceCallback;
  */
 interface ISupplicantStaIface extends ISupplicantIface {
   /**
+   * Access Network Query Protocol info ID elements
+   * for IEEE Std 802.11u-2011.
+   */
+  enum AnqpDataId : uint32_t {
+    QUERY_LIST = 256,
+    VENUE_NAME = 258,
+    ROAMING_CONSORTIUM = 261,
+    IP_ADDR_TYPE_AVAILABILITY = 262,
+    NAI_REALM = 263,
+    ANQP_3GPP_CELLULAR_NETWORK = 264,
+    DOMAIN_NAME = 268,
+    VENDOR_SPECIFIC = 56797
+  };
+
+  /**
+   * Access Network Query Protocol subtype elements
+   * for Hotspot 2.0.
+   */
+  enum Hs20AnqpSubtypes : uint32_t {
+    QUERY_LIST = 1,
+    OPERATOR_FRIENDLY_NAME = 2,
+    WAN_METRICS = 4,
+    CONNECTION_CAPABILITY = 5,
+    NAI_HOME_REALM_QUERY = 6,
+    OSU_PROVIDERS_LIST = 8,
+    ICON_REQUEST = 10
+  };
+
+  /**
+   * ANQP data for IEEE Std 802.11u-2011.
+   * The format of the data within these elements follow the IEEE
+   * Std 802.11u-2011 standard.
+   */
+  struct AnqpData {
+    vec<uint8_t> venueName;
+    vec<uint8_t> roamingConsortium;
+    vec<uint8_t> ipAddrTypeAvailability;
+    vec<uint8_t> naiRealm;
+    vec<uint8_t> anqp3gppCellularNetwork;
+    vec<uint8_t> domainName;
+  };
+
+  /**
+   * ANQP data for Hotspot 2.0.
+   * The format of the data within these elements follow the Hotspot 2.0
+   * standard.
+   */
+  struct Hs20AnqpData {
+    vec<uint8_t> operatorFriendlyName;
+    vec<uint8_t> wanMetrics;
+    vec<uint8_t> connectionCapability;
+    vec<uint8_t> osuProvidersList;
+  };
+
+  /**
    * Register for callbacks from this interface.
    *
    * These callbacks are invoked for events that are specific to this interface.
@@ -132,5 +187,87 @@ interface ISupplicantStaIface extends ISupplicantIface {
    *         |SupplicantStatusCode.FAILURE_IFACE_INVALID|
    */
   initiateTdlsTeardown(MacAddress macAddress)
+      generates (SupplicantStatus status);
+
+  /**
+   * Initiate ANQP (for IEEE 802.11u Interworking/Hotspot 2.0) queries with the
+   * specified access point.
+   *
+   * @param macAddress MAC address of the access point.
+   * @param infoElements List of information elements to query for.
+   * @param subtypes List of HS20 subtypes to query for.
+   * @return status Status of the operation.
+   *         Possible status codes:
+   *         |SupplicantStatusCode.SUCCESS|,
+   *         |SupplicantStatusCode.FAILURE_UNKNOWN|,
+   *         |SupplicantStatusCode.FAILURE_IFACE_INVALID|
+   */
+  initiateAnqpQuery(MacAddress macAddress,
+                    vec<AnqpDataId> infoElements,
+                    vec<Hs20AnqpSubtypes> subTypes)
+      generates (SupplicantStatus status);
+
+  /**
+   * Retrieve the data fetched from the last ANQP query.
+   *
+   * @param macAddress MAC address of the access point.
+   * @return status Status of the operation.
+   *         Possible status codes:
+   *         |SupplicantStatusCode.SUCCESS|,
+   *         |SupplicantStatusCode.FAILURE_UNKNOWN|,
+   *         |SupplicantStatusCode.FAILURE_IFACE_INVALID|
+   * @return data ANQP data fetched from the access point.
+   * @return hs20Data ANQP data fetched from the Hotspot 2.0 access point.
+   */
+  getAnqpQueryData(MacAddress macAddress)
+      generates (SupplicantStatus status, AnqpData data, Hs20AnqpData hs20Data);
+
+  /**
+   * Initiate the Hotspot 2.0 icon query with the specified accesss point.
+   *
+   * @param macAddress MAC address of the access point.
+   * @param fileName Name of the file to request.
+   * @return status Status of the operation.
+   *         Possible status codes:
+   *         |SupplicantStatusCode.SUCCESS|,
+   *         |SupplicantStatusCode.FAILURE_UNKNOWN|,
+   *         |SupplicantStatusCode.FAILURE_IFACE_INVALID|
+   */
+  initiateHs20IconQuery(MacAddress macAddress, string fileName)
+      generates (SupplicantStatus status);
+
+  /**
+   * Retrieve the last Hotspot 2.0 icon query data.
+   *
+   * @param macAddress MAC address of the access point.
+   * @param fileName Name of the file that was requested.
+   * @param offset Offset in the file to fetch the data from.
+   * @param size Size of the data to be fetched.
+   * @return status Status of the operation.
+   *         Possible status codes:
+   *         |SupplicantStatusCode.SUCCESS|,
+   *         |SupplicantStatusCode.FAILURE_UNKNOWN|,
+   *         |SupplicantStatusCode.FAILURE_IFACE_INVALID|
+   * @return data Icon data fetched from the access point.
+   */
+  getHs20IconQueryData(MacAddress macAddress,
+                       string fileName,
+                       uint32_t offset,
+                       uint32_t size)
+      generates (SupplicantStatus status, vec<uint8_t> data);
+
+  /**
+   * Delete the Hotspot 2.0 icon query data.
+   *
+   * @param macAddress MAC address of the access point.
+   * @param fileName Name of the file that was requested.
+   * @return status Status of the operation.
+   *         Possible status codes:
+   *         |SupplicantStatusCode.SUCCESS|,
+   *         |SupplicantStatusCode.FAILURE_UNKNOWN|,
+   *         |SupplicantStatusCode.FAILURE_IFACE_INVALID|
+   * @return data Icon data fetched from the access point.
+   */
+  deleteHs20IconQueryData(MacAddress macAddress, string fileName)
       generates (SupplicantStatus status);
 };
