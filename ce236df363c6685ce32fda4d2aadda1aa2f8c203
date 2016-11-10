@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "cb669bd0_2305f878",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-10T21:44:33Z",
+      "side": 1,
+      "message": "go/hs2r2",
+      "parentUuid": "cb669bd0_a3e668d3",
+      "range": {
+        "startLine": 62,
+        "startChar": 17,
+        "endLine": 62,
+        "endChar": 26
+      },
+      "revId": "ce236df363c6685ce32fda4d2aadda1aa2f8c203",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b8e8f82_04f68472",
         "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
         "patchSetId": 2
