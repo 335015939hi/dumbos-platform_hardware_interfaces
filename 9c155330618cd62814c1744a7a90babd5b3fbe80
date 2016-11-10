@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0b97d3c5_45ecc04e",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIfaceCallback.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1079868
+      },
+      "writtenOn": "2016-11-10T23:11:56Z",
+      "side": 1,
+      "message": "result?",
+      "range": {
+        "startLine": 177,
+        "startChar": 26,
+        "endLine": 177,
+        "endChar": 29
+      },
+      "revId": "9c155330618cd62814c1744a7a90babd5b3fbe80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b91cbcd_52c9e4b1",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIfaceCallback.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1079868
+      },
+      "writtenOn": "2016-11-10T23:11:56Z",
+      "side": 1,
+      "message": "Might want to document the expected value (e.g. null) of |data| and |hs20data| when the request failed (e.g. failed to receive response from the AP).",
+      "revId": "9c155330618cd62814c1744a7a90babd5b3fbe80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb669bd0_8edeeb4d",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIfaceCallback.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1079868
+      },
+      "writtenOn": "2016-11-10T23:11:56Z",
+      "side": 1,
+      "message": "result?",
+      "range": {
+        "startLine": 189,
+        "startChar": 26,
+        "endLine": 189,
+        "endChar": 29
+      },
+      "revId": "9c155330618cd62814c1744a7a90babd5b3fbe80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b5ca306_de48952c",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIfaceCallback.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1079868
+      },
+      "writtenOn": "2016-11-10T23:11:56Z",
+      "side": 1,
+      "message": "Might want to document the expected value (e.g. null) of |data| when the request failed (e.g. failed to receive response from the AP or file doesn\u0027t exist).",
+      "revId": "9c155330618cd62814c1744a7a90babd5b3fbe80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
