@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6b8e8f82_24262830",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-10T00:42:56Z",
+      "side": 1,
+      "message": "should some of these be strings though?",
+      "range": {
+        "startLine": 62,
+        "startChar": 17,
+        "endLine": 62,
+        "endChar": 26
+      },
+      "revId": "ce236df363c6685ce32fda4d2aadda1aa2f8c203",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b8e8f82_04f68472",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-10T00:42:56Z",
+      "side": 1,
+      "message": "follows",
+      "range": {
+        "startLine": 72,
+        "startChar": 50,
+        "endLine": 72,
+        "endChar": 56
+      },
+      "revId": "ce236df363c6685ce32fda4d2aadda1aa2f8c203",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b8e8f82_e4f02079",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-10T00:42:56Z",
+      "side": 1,
+      "message": "this should definitely be a string",
+      "range": {
+        "startLine": 76,
+        "startChar": 4,
+        "endLine": 76,
+        "endChar": 16
+      },
+      "revId": "ce236df363c6685ce32fda4d2aadda1aa2f8c203",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b8e8f82_e44260ad",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-10T00:42:56Z",
+      "side": 1,
+      "message": "where is the location of the file supposed to be? on the device or online?",
+      "range": {
+        "startLine": 236,
+        "startChar": 54,
+        "endLine": 236,
+        "endChar": 62
+      },
+      "revId": "ce236df363c6685ce32fda4d2aadda1aa2f8c203",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b8e8f82_64051078",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIfaceCallback.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-10T00:42:56Z",
+      "side": 1,
+      "message": "please document possible values\n\nalso, what does this stand for?",
+      "range": {
+        "startLine": 164,
+        "startChar": 22,
+        "endLine": 164,
+        "endChar": 32
+      },
+      "revId": "ce236df363c6685ce32fda4d2aadda1aa2f8c203",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b8e8f82_8434b43e",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIfaceCallback.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-10T00:42:56Z",
+      "side": 1,
+      "message": "in centuries? ;)",
+      "range": {
+        "startLine": 173,
+        "startChar": 37,
+        "endLine": 173,
+        "endChar": 53
+      },
+      "revId": "ce236df363c6685ce32fda4d2aadda1aa2f8c203",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b8e8f82_a43c5828",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIfaceCallback.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-10T00:42:56Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 176,
+        "startChar": 45,
+        "endLine": 176,
+        "endChar": 49
+      },
+      "revId": "ce236df363c6685ce32fda4d2aadda1aa2f8c203",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
