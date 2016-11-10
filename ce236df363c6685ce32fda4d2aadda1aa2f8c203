@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6b8e8f82_4ce7cefb",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-10T17:51:19Z",
+      "side": 1,
+      "message": "These are values returned according to the standard. Yes, some of them are string. I would rather keep all of these uniform and let the caller handle the values.",
+      "parentUuid": "6b8e8f82_24262830",
+      "range": {
+        "startLine": 62,
+        "startChar": 17,
+        "endLine": 62,
+        "endChar": 26
+      },
+      "revId": "ce236df363c6685ce32fda4d2aadda1aa2f8c203",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b8e8f82_04f68472",
         "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2016-11-10T00:42:56Z",
       "side": 1,
       "message": "follows",
+      "range": {
+        "startLine": 72,
+        "startChar": 50,
+        "endLine": 72,
+        "endChar": 56
+      },
+      "revId": "ce236df363c6685ce32fda4d2aadda1aa2f8c203",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b8e8f82_6ce412f6",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-10T17:51:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b8e8f82_04f68472",
       "range": {
         "startLine": 72,
         "startChar": 50,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "6b8e8f82_0cc22646",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-10T17:51:19Z",
+      "side": 1,
+      "message": "Same.",
+      "parentUuid": "6b8e8f82_e4f02079",
+      "range": {
+        "startLine": 76,
+        "startChar": 4,
+        "endLine": 76,
+        "endChar": 16
+      },
+      "revId": "ce236df363c6685ce32fda4d2aadda1aa2f8c203",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b8e8f82_e44260ad",
         "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2016-11-10T00:42:56Z",
       "side": 1,
       "message": "where is the location of the file supposed to be? on the device or online?",
+      "range": {
+        "startLine": 236,
+        "startChar": 54,
+        "endLine": 236,
+        "endChar": 62
+      },
+      "revId": "ce236df363c6685ce32fda4d2aadda1aa2f8c203",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b8e8f82_2cc7ea55",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-10T17:51:19Z",
+      "side": 1,
+      "message": "This is a file name on the access point. This is not a direct path. It\u0027s something advertised by the AP.",
+      "parentUuid": "6b8e8f82_e44260ad",
       "range": {
         "startLine": 236,
         "startChar": 54,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "6b8e8f82_cccbbe5d",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIfaceCallback.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-10T17:51:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b8e8f82_4cafceca",
+      "range": {
+        "startLine": 148,
+        "startChar": 9,
+        "endLine": 148,
+        "endChar": 24
+      },
+      "revId": "ce236df363c6685ce32fda4d2aadda1aa2f8c203",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b8e8f82_acfbdacc",
         "filename": "wifi/supplicant/1.0/ISupplicantStaIfaceCallback.hal",
         "patchSetId": 2
@@ -128,6 +248,30 @@
       "writtenOn": "2016-11-10T17:31:50Z",
       "side": 1,
       "message": "Similarly here, pass the icon data in the callback as well. And delete the icon data inside supplicant as well.",
+      "range": {
+        "startLine": 157,
+        "startChar": 9,
+        "endLine": 157,
+        "endChar": 28
+      },
+      "revId": "ce236df363c6685ce32fda4d2aadda1aa2f8c203",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b8e8f82_ecd0020a",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIfaceCallback.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-10T17:51:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b8e8f82_acfbdacc",
       "range": {
         "startLine": 157,
         "startChar": 9,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "6b8e8f82_67874df7",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIfaceCallback.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-10T17:51:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b8e8f82_64051078",
+      "range": {
+        "startLine": 164,
+        "startChar": 22,
+        "endLine": 164,
+        "endChar": 32
+      },
+      "revId": "ce236df363c6685ce32fda4d2aadda1aa2f8c203",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b8e8f82_8434b43e",
         "filename": "wifi/supplicant/1.0/ISupplicantStaIfaceCallback.hal",
         "patchSetId": 2
@@ -186,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "6b8e8f82_8cb616de",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIfaceCallback.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-10T17:51:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b8e8f82_8434b43e",
+      "range": {
+        "startLine": 173,
+        "startChar": 37,
+        "endLine": 173,
+        "endChar": 53
+      },
+      "revId": "ce236df363c6685ce32fda4d2aadda1aa2f8c203",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b8e8f82_a43c5828",
         "filename": "wifi/supplicant/1.0/ISupplicantStaIfaceCallback.hal",
         "patchSetId": 2
@@ -197,6 +389,30 @@
       "writtenOn": "2016-11-10T00:42:56Z",
       "side": 1,
       "message": "same",
+      "range": {
+        "startLine": 176,
+        "startChar": 45,
+        "endLine": 176,
+        "endChar": 49
+      },
+      "revId": "ce236df363c6685ce32fda4d2aadda1aa2f8c203",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b8e8f82_0795211a",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIfaceCallback.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-10T17:51:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b8e8f82_a43c5828",
       "range": {
         "startLine": 176,
         "startChar": 45,
