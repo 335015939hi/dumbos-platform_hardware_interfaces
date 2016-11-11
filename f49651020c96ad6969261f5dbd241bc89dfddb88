@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb669bd0_77c08737",
+        "filename": "bluetooth/1.0/default/Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-11T16:39:31Z",
+      "side": 1,
+      "message": "nit: feel free to add this in the .bp. As far as I know, everything you\u0027re depending on has already been converted to soong.",
+      "revId": "f49651020c96ad6969261f5dbd241bc89dfddb88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb669bd0_57b383ee",
+        "filename": "bluetooth/1.0/default/Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-11T16:39:31Z",
+      "side": 1,
+      "message": "s/\\t/    /g",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 1
+      },
+      "revId": "f49651020c96ad6969261f5dbd241bc89dfddb88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb669bd0_97bd1bb9",
+        "filename": "bluetooth/1.0/default/BluetoothHci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-11T16:39:31Z",
+      "side": 1,
+      "message": "preferred: /* data */",
+      "range": {
+        "startLine": 29,
+        "startChar": 64,
+        "endLine": 29,
+        "endChar": 68
+      },
+      "revId": "f49651020c96ad6969261f5dbd241bc89dfddb88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb669bd0_b7aa1f6f",
+        "filename": "bluetooth/1.0/default/android.hardware.bluetooth@1.0-service.rc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-11T16:39:31Z",
+      "side": 1,
+      "message": "is this actually required?",
+      "range": {
+        "startLine": 4,
+        "startChar": 20,
+        "endLine": 4,
+        "endChar": 28
+      },
+      "revId": "f49651020c96ad6969261f5dbd241bc89dfddb88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb669bd0_da709a50",
+        "filename": "bluetooth/1.0/default/service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-11T16:39:31Z",
+      "side": 1,
+      "message": "Use libhidl\u0027s LegacySupport.h\u0027s defaultPassthroughServiceImplementation.",
+      "range": {
+        "startLine": 47,
+        "startChar": 2,
+        "endLine": 74,
+        "endChar": 11
+      },
+      "revId": "f49651020c96ad6969261f5dbd241bc89dfddb88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
