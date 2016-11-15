@@ -1,0 +1,114 @@
+/*
+ * Copyright (C) 2016 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package android.hardware.dumpstate@1.0;
+
+/*
+ * Helper used to dump device-specific state into a running dumpstate.
+ */
+interface IDumper {
+
+    /*
+     * Runs a command in the device, redirecting its stdout to dumpstate's bug report file and
+     * using the default options (like default timeout).
+     *
+     * Example:
+     *     runCommand("RAMDUMP LIST", {"/system/bin/sh", "-c",
+     *                                 "cat /data/data/com.android.ramdump/files/RAMDUMP_LIST"});
+     *
+     *
+     * @param title Description of the bug report section.
+     * @param args Command (first element is the full path of the command; remaining are the args).
+     * @return retval Exit code of the command.
+     */
+    runCommand(string title, vec<string> args) generates (int32_t retval);
+
+    /*
+     * Runs a command in the device, passing custom options.
+     *
+     * Example:
+     *     CommandOptions options = {0};
+     *     options.timeoutMs = 30000;
+     *     options.asRoot = true;
+     *
+     *     runCommand("RAMDUMP LIST", {"/system/bin/sh", "-c",
+     *                                 "cat /data/data/com.android.ramdump/files/RAMDUMP_LIST"},
+     *                                options);
+     *
+     * @param Title description of the bug report section.
+     * @param Args command (first element is the full path of the command; remaining are the args).
+     * @param Options custom options.
+     * @return Retval exit code of the command.
+     */
+    runCommandWithOptions(string title, vec<string> args, CommandOptions options) generates (int32_t retval);
+
+    /*
+     * Dumps the contents of a file into dumpstate's bug report file.
+     *
+     * Example:
+     *    dumpFile("CPU PRESENT", "/sys/devices/system/cpu/present");
+     *
+     * @param title Description of the bug report section.
+     * @param path Location of the file in the device's filesystem.
+     * @return success Whether or not the dump was successful.
+     */
+    dumpFile(string title, string path) generates (bool success);
+
+    /*
+     * Adds a new entry to the bug report zip file.
+     *
+     * The entry will be add relative to the zip's root. For example:
+     *     addEntry("entry1.txt", "/data/my_logs/dir1/log1.txt");
+     *     addEntry("my_dir/entry2.txt", "/data/my_logs/dir2/log2.txt");
+     *
+     * would result in:
+     *     entry1.txt
+     *     my_dir/entry2.txt
+     *
+     * @param entryName Name of the entry inside the zip file.
+     * @param path Location of the file in the device's filesystem.
+     *
+     * @return success Whether the entry was successfully added.
+     */
+    addFile(string entryName, string path) generates (bool success);
+
+    /*
+     * Adds all files of a local directly in the zip file.
+     *
+     * The exact root location of the files inside the zip is defined by dumpstate, but the absolute
+     * path from the filesystem will be preserved.
+     *
+     * For example, if dumpstate's root location is 'FS' and this function is called as:
+     *
+     *    addDir("/data/my_logs", true)
+     *
+     * and that directory contains:
+     *
+     *    /data/my_logs/dir1/log1.txt
+     *    /data/my_logs/dir2/log2.txt
+     *
+     * the resulting entries in the zip file would be:
+     *
+     *    FS/data/my_logs/dir1/log1.txt
+     *    FS/data/my_logs/dir2/log2.txt
+     *
+     * @param dir Location of the directory in the device's filesystem.
+     * @param recursive Whether the subdirectories should be recursively added as well
+     *
+     * @return success Whether the directory was successfully added.
+     */
+    addDir(string dir, bool recursive) generates (bool retval);
+};

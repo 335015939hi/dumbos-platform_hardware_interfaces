@@ -1,0 +1,46 @@
+/*
+ * Copyright (C) 2016 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package android.hardware.dumpstate@1.0;
+
+enum StdoutMode : uint32_t {
+    /* Don't change stdout. */
+    NORMAL_STDOUT      = 0,
+    /* Redirect stdout to `stderr`. */
+    REDIRECT_TO_STDERR = 1
+};
+
+/*
+ * Options that change the behavior of a command.
+ */
+struct CommandOptions {
+  /* How long dumpstate should wait for the command completion in milliseconds. */
+  uint32_t timeoutMs;
+
+  /* If true, command will always run, even when dumpstate is runing on dry-run mode. */
+  bool always;
+
+  /* Whether the command should be running as 'su root'
+     NOTE: There is no guarantee 'su' is available; in fact, most likely it's not unless the device
+     is using an userbuild or eng build. */
+  bool asRoot;
+
+  /* Defines what should happen with the stdout stream of a command. */
+  StdoutMode stdoutMode;
+
+  /* Optional message logged on logcat before the command runs. */
+  string loggingMessage;
+};
