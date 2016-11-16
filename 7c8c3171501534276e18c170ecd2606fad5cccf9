@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7037600d_599d0041",
+        "filename": "wifi/1.0/default/wifi_ap_iface.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-16T22:38:28Z",
+      "side": 1,
+      "message": "why not IfaceType::AP?",
+      "range": {
+        "startLine": 41,
+        "startChar": 19,
+        "endLine": 41,
+        "endChar": 32
+      },
+      "revId": "7c8c3171501534276e18c170ecd2606fad5cccf9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7037600d_b95d2c9b",
+        "filename": "wifi/1.0/default/wifi_nan_iface.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-16T22:38:28Z",
+      "side": 1,
+      "message": "same (and other places as well maybe, I\u0027m sure there is a good reason, I just don\u0027t see it)",
+      "range": {
+        "startLine": 41,
+        "startChar": 19,
+        "endLine": 41,
+        "endChar": 32
+      },
+      "revId": "7c8c3171501534276e18c170ecd2606fad5cccf9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
