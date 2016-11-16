@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7037600d_8604477d",
+        "filename": "wifi/1.0/default/wifi_sta_iface.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-16T22:12:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7037600d_a3ab3dbd",
+      "range": {
+        "startLine": 61,
+        "startChar": 9,
+        "endLine": 61,
+        "endChar": 27
+      },
+      "revId": "71ea1621ab044df353d3bcc8875b59f3ee8f4fd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7037600d_235a8d3c",
         "filename": "wifi/1.0/default/wifi_sta_iface.h",
         "patchSetId": 7
@@ -36,6 +60,24 @@
       "writtenOn": "2016-11-16T21:56:16Z",
       "side": 1,
       "message": "indent?",
+      "revId": "71ea1621ab044df353d3bcc8875b59f3ee8f4fd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7037600d_c65daf9a",
+        "filename": "wifi/1.0/default/wifi_sta_iface.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-16T22:12:20Z",
+      "side": 1,
+      "message": "Will change the .clang-format file in a future CL.",
+      "parentUuid": "7037600d_235a8d3c",
       "revId": "71ea1621ab044df353d3bcc8875b59f3ee8f4fd2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "7037600d_46519f7e",
+        "filename": "wifi/1.0/default/wifi_sta_iface.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-16T22:12:20Z",
+      "side": 1,
+      "message": "Same.",
+      "parentUuid": "7037600d_636495f7",
+      "revId": "71ea1621ab044df353d3bcc8875b59f3ee8f4fd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7037600d_c39001a2",
         "filename": "wifi/1.0/default/wifi_sta_iface.h",
         "patchSetId": 7
@@ -70,6 +130,24 @@
       "writtenOn": "2016-11-16T21:56:16Z",
       "side": 1,
       "message": "indent?",
+      "revId": "71ea1621ab044df353d3bcc8875b59f3ee8f4fd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7037600d_264e1bdf",
+        "filename": "wifi/1.0/default/wifi_sta_iface.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-16T22:12:20Z",
+      "side": 1,
+      "message": "Same.",
+      "parentUuid": "7037600d_c39001a2",
       "revId": "71ea1621ab044df353d3bcc8875b59f3ee8f4fd2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -93,6 +171,24 @@
     },
     {
       "key": {
+        "uuid": "7037600d_865ba79e",
+        "filename": "wifi/1.0/default/wifi_sta_iface.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-16T22:12:20Z",
+      "side": 1,
+      "message": "Same.",
+      "parentUuid": "7037600d_837ef981",
+      "revId": "71ea1621ab044df353d3bcc8875b59f3ee8f4fd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7037600d_c3bf6104",
         "filename": "wifi/1.0/default/wifi_sta_iface.h",
         "patchSetId": 7
@@ -104,6 +200,24 @@
       "writtenOn": "2016-11-16T21:56:16Z",
       "side": 1,
       "message": "indent?",
+      "revId": "71ea1621ab044df353d3bcc8875b59f3ee8f4fd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7037600d_c6448fbc",
+        "filename": "wifi/1.0/default/wifi_sta_iface.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-16T22:12:20Z",
+      "side": 1,
+      "message": "Same.",
+      "parentUuid": "7037600d_c3bf6104",
       "revId": "71ea1621ab044df353d3bcc8875b59f3ee8f4fd2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
