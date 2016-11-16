@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7037600d_262c5ba9",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-16T22:17:48Z",
+      "side": 1,
+      "message": "Consider initializer-list syntax (here and at line 201).",
+      "range": {
+        "startLine": 193,
+        "startChar": 9,
+        "endLine": 193,
+        "endChar": 23
+      },
+      "revId": "f04f67da7304bf026f9104db61e9cd8f645886df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7037600d_66e78364",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-16T22:17:48Z",
+      "side": 1,
+      "message": "Is the copying here required? Or could we use const-ref instead?",
+      "range": {
+        "startLine": 67,
+        "startChar": 29,
+        "endLine": 67,
+        "endChar": 49
+      },
+      "revId": "f04f67da7304bf026f9104db61e9cd8f645886df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
