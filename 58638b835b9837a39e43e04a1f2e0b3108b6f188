@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7037600d_9947886d",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-16T22:47:29Z",
+      "side": 1,
+      "message": "why not std::move or std::forward these pairs to avoid all the extra copies?",
+      "range": {
+        "startLine": 266,
+        "startChar": 0,
+        "endLine": 266,
+        "endChar": 47
+      },
+      "revId": "58638b835b9837a39e43e04a1f2e0b3108b6f188",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
