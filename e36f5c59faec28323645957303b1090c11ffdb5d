@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7037600d_59da207b",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-16T22:51:12Z",
+      "side": 1,
+      "message": "is there a bug for this?",
+      "range": {
+        "startLine": 487,
+        "startChar": 5,
+        "endLine": 487,
+        "endChar": 9
+      },
+      "revId": "e36f5c59faec28323645957303b1090c11ffdb5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
