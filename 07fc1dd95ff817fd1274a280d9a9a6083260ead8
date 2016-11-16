@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7037600d_86ec47da",
+        "filename": "wifi/1.0/default/wifi.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-16T22:29:57Z",
+      "side": 1,
+      "message": ".getStatus().isOk()? Do we care if it succeeds? Should we do anything if it doesn\u0027t?",
+      "range": {
+        "startLine": 72,
+        "startChar": 14,
+        "endLine": 72,
+        "endChar": 21
+      },
+      "revId": "07fc1dd95ff817fd1274a280d9a9a6083260ead8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
