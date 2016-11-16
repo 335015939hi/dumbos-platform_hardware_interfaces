@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "7037600d_4684ff5d",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-16T22:25:43Z",
+      "side": 1,
+      "message": "These callbacks use struct\u0027s and types defined inside wifi_hal.h. Since we\u0027re moving the header file inside the namespace, it\u0027s easier to access these types from within the same namespace.\nIf we leave it in the anonymous namespace, we\u0027ll have to use \"using\" for each type.\n\n\"using android::hardware::wifi::V1_0::implementation::legacy_hal::wifi_handle;\" for example.",
+      "parentUuid": "7037600d_66d5c3a0",
+      "revId": "cdc2ff9b0dcdd828b7dbe0492d09a2281594289b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7037600d_6601436a",
         "filename": "wifi/1.0/default/wifi_legacy_hal.h",
         "patchSetId": 7
@@ -30,6 +48,24 @@
       "writtenOn": "2016-11-16T22:14:27Z",
       "side": 1,
       "message": "Have you considered adding the namespaces to wifi_hal.h, instead? You\u0027d need to guard the namespace declarations for the C compiler. And maybe update some existing C++ client code. But it might be a cleaner end-state than having the clients pull the symbols into a namespace themselves.",
+      "revId": "cdc2ff9b0dcdd828b7dbe0492d09a2281594289b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7037600d_e679d36e",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-16T22:25:43Z",
+      "side": 1,
+      "message": "Hmm. Haven\u0027t considered that. But, I\u0027m wary of touching the wifi_hal.h because we may break a lot of OEM\u0027s codebase (especially non-nexus devices which are not in our branch).",
+      "parentUuid": "7037600d_6601436a",
       "revId": "cdc2ff9b0dcdd828b7dbe0492d09a2281594289b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
