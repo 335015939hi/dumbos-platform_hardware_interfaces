@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7037600d_46235f1a",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-16T22:10:36Z",
+      "side": 1,
+      "message": "Missed removing them. Done now.",
+      "parentUuid": "7037600d_8339d9ec",
+      "range": {
+        "startLine": 77,
+        "startChar": 9,
+        "endLine": 77,
+        "endChar": 27
+      },
+      "revId": "70046c996c61966811351a047ad8323738061fc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7037600d_23060d3e",
         "filename": "wifi/1.0/default/wifi_chip.h",
         "patchSetId": 7
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "7037600d_a6fb4b57",
+        "filename": "wifi/1.0/default/wifi_chip.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-16T22:10:36Z",
+      "side": 1,
+      "message": "The .clang-format file I was using formats it this way. Will change to a different format.",
+      "parentUuid": "7037600d_23060d3e",
+      "revId": "70046c996c61966811351a047ad8323738061fc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7037600d_8313997d",
         "filename": "wifi/1.0/default/wifi_chip.h",
         "patchSetId": 7
@@ -53,6 +95,24 @@
       "writtenOn": "2016-11-16T21:49:18Z",
       "side": 1,
       "message": "indent?",
+      "revId": "70046c996c61966811351a047ad8323738061fc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7037600d_06f15775",
+        "filename": "wifi/1.0/default/wifi_chip.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-16T22:10:36Z",
+      "side": 1,
+      "message": "Same.",
+      "parentUuid": "7037600d_8313997d",
       "revId": "70046c996c61966811351a047ad8323738061fc6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
