@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7037600d_51b67adc",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-16T21:39:07Z",
+      "side": 1,
+      "message": "Not sure you need make_pair here. I think you could just use the initializer-list syntax:\n\n  return {createWifiStatus(...), std:vector...};\n\nThe initializer list will be used to call the std::pair\u003cWifiStatus, std::vector\u003chidl_string\u003e\u003e ctor. And the types of the parameters are already correct, so no conversion is necessary. (make_pair would be useful if we needed to explicitly convert one or more of the pair elements.)\n\nSimilarly throughout this file.\n\n\n(In fact, I think you can even go so far as to nest the initializer lists, and just say\n\n  return {createWifiStatus(...), {}};\n\nBut explicitly initializing a vector is fine, too.)",
+      "range": {
+        "startLine": 337,
+        "startChar": 11,
+        "endLine": 337,
+        "endChar": 26
+      },
+      "revId": "ac7e31396488a7edf4a8a02fb79849a143d0533f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7037600d_6301356a",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-16T21:39:07Z",
+      "side": 1,
+      "message": "Following the example above, I believe this could simplify to\n\n  return {createWifiStatus(...), {legacy_hal_.lock()-\u003egetApIfaceName()}};",
+      "revId": "ac7e31396488a7edf4a8a02fb79849a143d0533f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7037600d_518b1a3e",
+        "filename": "wifi/1.0/default/wifi_chip.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-16T21:39:07Z",
+      "side": 1,
+      "message": "Probably want to indent here.",
+      "revId": "ac7e31396488a7edf4a8a02fb79849a143d0533f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7037600d_312c965c",
+        "filename": "wifi/1.0/default/wifi_chip.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-16T21:39:07Z",
+      "side": 1,
+      "message": "Also need indent here.",
+      "revId": "ac7e31396488a7edf4a8a02fb79849a143d0533f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
