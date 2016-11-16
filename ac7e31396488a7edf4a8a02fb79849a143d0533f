@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7037600d_e691d331",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-16T22:06:08Z",
+      "side": 1,
+      "message": "Yep. Will do. This is much cleaner.",
+      "parentUuid": "7037600d_51b67adc",
+      "range": {
+        "startLine": 337,
+        "startChar": 11,
+        "endLine": 337,
+        "endChar": 26
+      },
+      "revId": "ac7e31396488a7edf4a8a02fb79849a143d0533f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7037600d_6301356a",
         "filename": "wifi/1.0/default/wifi_chip.cpp",
         "patchSetId": 7
@@ -36,6 +60,24 @@
       "writtenOn": "2016-11-16T21:39:07Z",
       "side": 1,
       "message": "Following the example above, I believe this could simplify to\n\n  return {createWifiStatus(...), {legacy_hal_.lock()-\u003egetApIfaceName()}};",
+      "revId": "ac7e31396488a7edf4a8a02fb79849a143d0533f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7037600d_46a6bf93",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-16T22:06:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7037600d_6301356a",
       "revId": "ac7e31396488a7edf4a8a02fb79849a143d0533f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "7037600d_23ed6d46",
+        "filename": "wifi/1.0/default/wifi_chip.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-16T22:06:08Z",
+      "side": 1,
+      "message": "Hmm. I\u0027ve been using brillo\u0027s clang-format style so far to format all the files (don\u0027t remember why i picked that):\nhttps://cs.corp.google.com/android/build/make/tools/brillo-clang-format?q\u003dbrillo-clang-format\u0026dr\n\nI\u0027ll maybe move it all to plain \"Google\" style later. I\u0027ll have to redo all the other CL\u0027s otherwise.",
+      "parentUuid": "7037600d_518b1a3e",
+      "revId": "ac7e31396488a7edf4a8a02fb79849a143d0533f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7037600d_312c965c",
         "filename": "wifi/1.0/default/wifi_chip.h",
         "patchSetId": 7
@@ -70,6 +130,24 @@
       "writtenOn": "2016-11-16T21:39:07Z",
       "side": 1,
       "message": "Also need indent here.",
+      "revId": "ac7e31396488a7edf4a8a02fb79849a143d0533f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7037600d_63e77564",
+        "filename": "wifi/1.0/default/wifi_chip.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-16T22:06:08Z",
+      "side": 1,
+      "message": "Same.",
+      "parentUuid": "7037600d_312c965c",
       "revId": "ac7e31396488a7edf4a8a02fb79849a143d0533f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
