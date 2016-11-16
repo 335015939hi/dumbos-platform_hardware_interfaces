@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7037600d_99978827",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-16T22:32:12Z",
+      "side": 1,
+      "message": "These don\u0027t appear to be used anywhere except for adding and removing them?",
+      "range": {
+        "startLine": 73,
+        "startChar": 38,
+        "endLine": 73,
+        "endChar": 52
+      },
+      "revId": "893341f12655af1ecabc6589c85fecdfd7abb912",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
