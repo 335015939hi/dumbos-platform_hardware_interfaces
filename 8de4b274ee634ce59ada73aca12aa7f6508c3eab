@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "0be7d3fb_e58aac35",
+        "filename": "nfc/1.0/INfc.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1041663
+      },
+      "writtenOn": "2016-11-16T00:17:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b6e2b0f_169a5c49",
+      "range": {
+        "startLine": 37,
+        "startChar": 53,
+        "endLine": 37,
+        "endChar": 58
+      },
+      "revId": "8de4b274ee634ce59ada73aca12aa7f6508c3eab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4b6e2b0f_768f500b",
         "filename": "nfc/1.0/INfc.hal",
         "patchSetId": 1
