@@ -22,6 +22,30 @@
       "revId": "07fc1dd95ff817fd1274a280d9a9a6083260ead8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7037600d_d9f59062",
+        "filename": "wifi/1.0/default/wifi.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-16T22:55:58Z",
+      "side": 1,
+      "message": "Added an error log. Not much else we can do, especially if there are multiple clients.",
+      "parentUuid": "7037600d_86ec47da",
+      "range": {
+        "startLine": 72,
+        "startChar": 14,
+        "endLine": 72,
+        "endChar": 21
+      },
+      "revId": "07fc1dd95ff817fd1274a280d9a9a6083260ead8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
