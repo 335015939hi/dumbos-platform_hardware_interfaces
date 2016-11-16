@@ -22,6 +22,30 @@
       "revId": "134ebe605b75b3b79b1784193f9e6df53dd967a7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7037600d_790ba405",
+        "filename": "wifi/1.0/default/wifi.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-16T22:51:59Z",
+      "side": 1,
+      "message": "IT\u0027s being moved below.\n\n\"return {createWifiStatus(WifiStatusCode::SUCCESS), std::move(chip_ids)}\"",
+      "parentUuid": "7037600d_f9f6941d",
+      "range": {
+        "startLine": 149,
+        "startChar": 22,
+        "endLine": 149,
+        "endChar": 41
+      },
+      "revId": "134ebe605b75b3b79b1784193f9e6df53dd967a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
