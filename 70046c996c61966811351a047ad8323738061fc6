@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7037600d_8339d9ec",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-16T21:49:18Z",
+      "side": 1,
+      "message": "Consider removing, since you\u0027ve already got a using declaration above. (See also, other cases below.)",
+      "range": {
+        "startLine": 77,
+        "startChar": 9,
+        "endLine": 77,
+        "endChar": 27
+      },
+      "revId": "70046c996c61966811351a047ad8323738061fc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7037600d_23060d3e",
+        "filename": "wifi/1.0/default/wifi_chip.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-16T21:49:18Z",
+      "side": 1,
+      "message": "indent?",
+      "revId": "70046c996c61966811351a047ad8323738061fc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7037600d_8313997d",
+        "filename": "wifi/1.0/default/wifi_chip.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-16T21:49:18Z",
+      "side": 1,
+      "message": "indent?",
+      "revId": "70046c996c61966811351a047ad8323738061fc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
