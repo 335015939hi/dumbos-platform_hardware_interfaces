@@ -22,6 +22,30 @@
       "revId": "893341f12655af1ecabc6589c85fecdfd7abb912",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7037600d_f9da1406",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-16T22:35:04Z",
+      "side": 1,
+      "message": "Will come in future CL\u0027s. They will be triggered when we implement |configureChip| below (b/31997422).",
+      "parentUuid": "7037600d_99978827",
+      "range": {
+        "startLine": 73,
+        "startChar": 38,
+        "endLine": 73,
+        "endChar": 52
+      },
+      "revId": "893341f12655af1ecabc6589c85fecdfd7abb912",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
