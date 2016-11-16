@@ -22,6 +22,30 @@
       "revId": "3e8bfbe66a7b12a93706736f38f5e79b1b371b56",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7037600d_198b783f",
+        "filename": "wifi/1.0/default/wifi_sta_iface.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-16T22:54:11Z",
+      "side": 1,
+      "message": "Well, the same bug I\u0027m using in this CL. The bug will be kept open until the implementation is complete.",
+      "parentUuid": "7037600d_9912e83d",
+      "range": {
+        "startLine": 208,
+        "startChar": 5,
+        "endLine": 208,
+        "endChar": 9
+      },
+      "revId": "3e8bfbe66a7b12a93706736f38f5e79b1b371b56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
