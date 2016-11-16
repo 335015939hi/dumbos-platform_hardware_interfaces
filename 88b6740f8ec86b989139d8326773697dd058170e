@@ -22,6 +22,30 @@
       "revId": "88b6740f8ec86b989139d8326773697dd058170e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7037600d_bc907aa0",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-16T23:11:25Z",
+      "side": 1,
+      "message": "Nope. This is some constant value that has been working in the previous implementation: https://cs.corp.google.com/android/frameworks/opt/net/wifi/service/jni/com_android_server_wifi_WifiNative.cpp?rcl\u003da5847dea76362c2ba3521824d11f226a9ba04cbf\u0026l\u003d1555.",
+      "parentUuid": "7037600d_5912200a",
+      "range": {
+        "startLine": 27,
+        "startChar": 26,
+        "endLine": 27,
+        "endChar": 49
+      },
+      "revId": "88b6740f8ec86b989139d8326773697dd058170e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
