@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7037600d_f9f6941d",
+        "filename": "wifi/1.0/default/wifi.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-16T22:46:34Z",
+      "side": 1,
+      "message": "you\u0027re going to make a copy of this?",
+      "range": {
+        "startLine": 149,
+        "startChar": 22,
+        "endLine": 149,
+        "endChar": 41
+      },
+      "revId": "134ebe605b75b3b79b1784193f9e6df53dd967a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
