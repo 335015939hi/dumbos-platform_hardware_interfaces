@@ -1,0 +1,112 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7037600d_a3ab3dbd",
+        "filename": "wifi/1.0/default/wifi_sta_iface.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-16T21:56:16Z",
+      "side": 1,
+      "message": "Consider removing (both here, and below).",
+      "range": {
+        "startLine": 61,
+        "startChar": 9,
+        "endLine": 61,
+        "endChar": 27
+      },
+      "revId": "71ea1621ab044df353d3bcc8875b59f3ee8f4fd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7037600d_235a8d3c",
+        "filename": "wifi/1.0/default/wifi_sta_iface.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-16T21:56:16Z",
+      "side": 1,
+      "message": "indent?",
+      "revId": "71ea1621ab044df353d3bcc8875b59f3ee8f4fd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7037600d_636495f7",
+        "filename": "wifi/1.0/default/wifi_sta_iface.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-16T21:56:16Z",
+      "side": 1,
+      "message": "indent?",
+      "revId": "71ea1621ab044df353d3bcc8875b59f3ee8f4fd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7037600d_c39001a2",
+        "filename": "wifi/1.0/default/wifi_sta_iface.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-16T21:56:16Z",
+      "side": 1,
+      "message": "indent?",
+      "revId": "71ea1621ab044df353d3bcc8875b59f3ee8f4fd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7037600d_837ef981",
+        "filename": "wifi/1.0/default/wifi_sta_iface.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-16T21:56:16Z",
+      "side": 1,
+      "message": "indent?",
+      "revId": "71ea1621ab044df353d3bcc8875b59f3ee8f4fd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7037600d_c3bf6104",
+        "filename": "wifi/1.0/default/wifi_sta_iface.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-16T21:56:16Z",
+      "side": 1,
+      "message": "indent?",
+      "revId": "71ea1621ab044df353d3bcc8875b59f3ee8f4fd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
