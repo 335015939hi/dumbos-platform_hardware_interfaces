@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7037600d_66d5c3a0",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-16T22:14:27Z",
+      "side": 1,
+      "message": "I understand why we\u0027re adding the legacy_hal namespace here. But I\u0027m not clear on why we\u0027re moving the constants and callbacks out of the anonymous namespace. Could you elaborate on the rationale for that?",
+      "revId": "cdc2ff9b0dcdd828b7dbe0492d09a2281594289b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7037600d_6601436a",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-16T22:14:27Z",
+      "side": 1,
+      "message": "Have you considered adding the namespaces to wifi_hal.h, instead? You\u0027d need to guard the namespace declarations for the C compiler. And maybe update some existing C++ client code. But it might be a cleaner end-state than having the clients pull the symbols into a namespace themselves.",
+      "revId": "cdc2ff9b0dcdd828b7dbe0492d09a2281594289b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
