@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d0bc8cd0_bf8d1255",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-17T23:30:01Z",
+      "side": 1,
+      "message": "Yep. std::function is copyable and I think that\u0027s the best solution which would allow us to use lambda\u0027s in the HIDL objects.",
+      "parentUuid": "d0bc8cd0_c863fbbf",
+      "range": {
+        "startLine": 256,
+        "startChar": 7,
+        "endLine": 256,
+        "endChar": 59
+      },
+      "revId": "d8caeb14e3c13392a7aca434be5489b19bfe0fd0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0bc8cd0_287aaf65",
         "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
         "patchSetId": 10
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "d0bc8cd0_5ff95ece",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-17T23:30:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0bc8cd0_287aaf65",
+      "range": {
+        "startLine": 281,
+        "startChar": 44,
+        "endLine": 281,
+        "endChar": 73
+      },
+      "revId": "d8caeb14e3c13392a7aca434be5489b19bfe0fd0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0bc8cd0_f6bdfe66",
         "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
         "patchSetId": 10
@@ -59,6 +107,24 @@
       "writtenOn": "2016-11-17T22:33:44Z",
       "side": 1,
       "message": "I wonder if we should do a little more validation, before returning the results. Specifically... should we ensure that ie_length of each |wifi_scan_result| is 0?\n\nConsider the following situation:\n- driver\u0027s wifi_get_cached_gscan_results() naively copies IE data into wifi_scan_results. (this is buggy, because the IE info would overlap the next scan result. but i\u0027d like to be robust to bugs where it\u0027s reasonably possible.)\n- upper layers use the same code to wifi_scan_result, regardless of whether the result is coming from a gscan event, or from a full result\n- in this case, upper layers will provide garbage IEs, and also overrun the buffer\n\nWe could avoid this by checking that all the |ie_length| fields are zero here. If a non-zero value is found, either a) zero it, and log a message, or b) abort. (I\u0027d lean towards zero-and-log, since I think that\u0027ll fixup the data in any common buggy case. But maybe I\u0027m not being imaginative enough, about likely bugs.)\n\n(Sorry I didn\u0027t mention this in the previous revision!)",
+      "revId": "d8caeb14e3c13392a7aca434be5489b19bfe0fd0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0bc8cd0_5fab1ebe",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-17T23:30:01Z",
+      "side": 1,
+      "message": "Hmm. We could do this. But, I\u0027m worried if there is going to be a performance impact with this loop. \nIn the conversion functions that I had written up (yet to upload), I was explicitly using a flag |is_ie_data_present| to indicate if I need to parse out the IE info from the scan result or not.\nFor the |onResults| callback, the flag is set to false and for the |onFullResult| callback the flag is set to true.\n\nSo, we\u0027ll end up having 2 loops around all these scan results one in WifiLegacyHal and one in WifiStaIface to convert to HIDL type from legacy HAL type.",
+      "parentUuid": "d0bc8cd0_f6bdfe66",
       "revId": "d8caeb14e3c13392a7aca434be5489b19bfe0fd0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
