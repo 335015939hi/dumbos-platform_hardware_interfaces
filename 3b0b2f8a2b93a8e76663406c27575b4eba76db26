@@ -1,0 +1,347 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7037600d_d9c8f045",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-17T00:03:53Z",
+      "side": 1,
+      "message": "Consider |unsigned int|, for clarity.",
+      "range": {
+        "startLine": 77,
+        "startChar": 23,
+        "endLine": 77,
+        "endChar": 31
+      },
+      "revId": "3b0b2f8a2b93a8e76663406c27575b4eba76db26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7037600d_f9c4d4f9",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-17T00:03:53Z",
+      "side": 1,
+      "message": "Consider initializer-list syntax (here and elsewhere).",
+      "range": {
+        "startLine": 237,
+        "startChar": 9,
+        "endLine": 237,
+        "endChar": 23
+      },
+      "revId": "3b0b2f8a2b93a8e76663406c27575b4eba76db26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7037600d_b971ac01",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-17T00:03:53Z",
+      "side": 1,
+      "message": "\"either\" (typo)",
+      "range": {
+        "startLine": 252,
+        "startChar": 35,
+        "endLine": 252,
+        "endChar": 40
+      },
+      "revId": "3b0b2f8a2b93a8e76663406c27575b4eba76db26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7037600d_596ce01f",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-17T00:03:53Z",
+      "side": 1,
+      "message": "Are we sure this is safe? I\u0027m imagining that, once started, gscan keeps running indefinitely. That would mean that the event callback might be executed after startGscan() has returned. In that case, we have a reference to something that may be out of scope.\n\nOr perhaps there\u0027s something I don\u0027t understand about the execution model here...",
+      "range": {
+        "startLine": 255,
+        "startChar": 7,
+        "endLine": 255,
+        "endChar": 59
+      },
+      "revId": "3b0b2f8a2b93a8e76663406c27575b4eba76db26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7037600d_7913a47e",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-17T00:03:53Z",
+      "side": 1,
+      "message": "Prefer to place this outside the switch, and remove the |default| case. Rationale: if there\u0027s no default case, the compiler can warn us about missing enum values. If there _is_ a default case, the compiler no longer considers any values missing.",
+      "range": {
+        "startLine": 276,
+        "startChar": 12,
+        "endLine": 276,
+        "endChar": 17
+      },
+      "revId": "3b0b2f8a2b93a8e76663406c27575b4eba76db26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7037600d_77860bfd",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-17T00:03:53Z",
+      "side": 1,
+      "message": "As at line 255.",
+      "range": {
+        "startLine": 280,
+        "startChar": 44,
+        "endLine": 280,
+        "endChar": 73
+      },
+      "revId": "3b0b2f8a2b93a8e76663406c27575b4eba76db26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7037600d_19537830",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-17T00:03:53Z",
+      "side": 1,
+      "message": "As elsewhere: consider |unsigned int|, for clarity.",
+      "range": {
+        "startLine": 281,
+        "startChar": 52,
+        "endLine": 281,
+        "endChar": 60
+      },
+      "revId": "3b0b2f8a2b93a8e76663406c27575b4eba76db26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7037600d_f98a146c",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-17T00:03:53Z",
+      "side": 1,
+      "message": "Consider omitting. (If result is null, then it\u0027ll convert to false on its own. No need for the comparison, to force evaluation to bool.)",
+      "range": {
+        "startLine": 282,
+        "startChar": 14,
+        "endLine": 282,
+        "endChar": 25
+      },
+      "revId": "3b0b2f8a2b93a8e76663406c27575b4eba76db26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7037600d_d962b0be",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-17T00:03:53Z",
+      "side": 1,
+      "message": "Does the caller expect an error callback in this case, or only for asynchronous failure?",
+      "revId": "3b0b2f8a2b93a8e76663406c27575b4eba76db26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7037600d_776c4b20",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-17T00:03:53Z",
+      "side": 1,
+      "message": "Consider prefacing this line, with an assertion that uint32_t is big enough.\n\n  static_assert(sizeof(uint32_t) \u003e\u003d sizeof(wifi_channel), \"some error message\");\n\nThat would make it clearer that the cast at line 324 is safe. (Well, safe is we\u0027re compiling with -fno-strict-aliasing, at least.)",
+      "revId": "3b0b2f8a2b93a8e76663406c27575b4eba76db26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7037600d_97390fed",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-17T00:03:53Z",
+      "side": 1,
+      "message": "No need for the two step process. Consider a couple of alternatives:\n\n  return {status, std::vector\u003cuint32_t\u003e(freqs.begin(), freqs.begin() + num_freqs)};\nor\n  return {status, {freqs.begin(), freqs.begin() + num_freqs}};\n\nThe first formulation inlines the temporary, instead of having a local, and then asking the compiler to treat that local as a temporary (via std::move()).\n\nThe second pushes a bit further, by nesting the initializer lists.\n\nNote that I\u0027m making this argument entirely on the basis of style (what I think is easiest to read). I suspect that any of the three cases compiles down to the same code (when optimization is enabled).",
+      "revId": "3b0b2f8a2b93a8e76663406c27575b4eba76db26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7037600d_72b459b1",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-17T00:03:53Z",
+      "side": 1,
+      "message": "Would prefer to have this limit expressed in terms of total-size, rather than per-element size. That would make the full computation explicit.\n\n  static_assert(sizeof(...) * kMaxCachedGscanResults \u003c kStackAllocLimitBytes, ...);\n\nOr, if you place the assertion after the declaration:\n\n  static_assert(sizeof(scan_results) \u003c kStackAllocLimitBytes, ...);",
+      "revId": "3b0b2f8a2b93a8e76663406c27575b4eba76db26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7037600d_12934deb",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-17T00:03:53Z",
+      "side": 1,
+      "message": "As at line 331.",
+      "revId": "3b0b2f8a2b93a8e76663406c27575b4eba76db26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7037600d_dc41fe57",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-17T00:03:53Z",
+      "side": 1,
+      "message": "I appreciate the comment here, but it doesn\u0027t quite provide enough context to understand the problem. I think we can explain the problem in terms of C constructs, to make the situation clearer:\n\n  // Full scan results are passed by reference, to preserve \n  // flexible array member |ie_data|. Callee must not retain \n  // the pointer.\n\n(This is bending the truth, since ie_data is char[1] rather than char[]. But I think this gets the idea across.)",
+      "revId": "3b0b2f8a2b93a8e76663406c27575b4eba76db26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7037600d_e66273be",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-17T00:03:53Z",
+      "side": 1,
+      "message": "Consider |using| syntax instead:\n\n  using on_gscan_full_result_callback \u003d ...;",
+      "revId": "3b0b2f8a2b93a8e76663406c27575b4eba76db26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7037600d_6612e30a",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-17T00:03:53Z",
+      "side": 1,
+      "message": "As above.",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 7
+      },
+      "revId": "3b0b2f8a2b93a8e76663406c27575b4eba76db26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7037600d_0618375d",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-17T00:03:53Z",
+      "side": 1,
+      "message": "indent?",
+      "revId": "3b0b2f8a2b93a8e76663406c27575b4eba76db26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
