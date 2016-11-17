@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d0bc8cd0_13f44cd7",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-17T17:57:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7037600d_262c5ba9",
+      "range": {
+        "startLine": 193,
+        "startChar": 9,
+        "endLine": 193,
+        "endChar": 23
+      },
+      "revId": "f04f67da7304bf026f9104db61e9cd8f645886df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7037600d_66e78364",
         "filename": "wifi/1.0/default/wifi_legacy_hal.h",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2016-11-16T22:17:48Z",
       "side": 1,
       "message": "Is the copying here required? Or could we use const-ref instead?",
+      "range": {
+        "startLine": 67,
+        "startChar": 29,
+        "endLine": 67,
+        "endChar": 49
+      },
+      "revId": "f04f67da7304bf026f9104db61e9cd8f645886df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0bc8cd0_7362e0c0",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-17T17:57:28Z",
+      "side": 1,
+      "message": "Nope. Copying definitely not needed. Just forgot to add the const-ref. Done now.",
+      "parentUuid": "7037600d_66e78364",
       "range": {
         "startLine": 67,
         "startChar": 29,
