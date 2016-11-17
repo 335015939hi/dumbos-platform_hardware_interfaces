@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d0bc8cd0_7273b1c6",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-17T23:58:40Z",
+      "side": 1,
+      "message": "Lambda\u0027s don\u0027t allow you to pass structs with variable size in the capture list.\n\nhardware/interfaces/wifi/1.0/default/wifi_legacy_hal.cpp:369:52: error: variable \u0027link_stats\u0027 with flexible array member cannot be captured in a lambda expression",
+      "parentUuid": "d0bc8cd0_72dad108",
+      "range": {
+        "startLine": 369,
+        "startChar": 50,
+        "endLine": 369,
+        "endChar": 65
+      },
+      "revId": "37dbb48a3299de837b42301882f9e7144fbd1919",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0bc8cd0_fce15810",
         "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
         "patchSetId": 11
@@ -36,6 +60,24 @@
       "writtenOn": "2016-11-17T23:42:55Z",
       "side": 1,
       "message": "1. Can we simply use the assignment operator?\n\n  link_stats_ptr-\u003eiface \u003d *iface_stats_ptr;\n\n2. It might be worth clearing the |num_peers| field, to avoid problems in the caller. (Clearing |num_peers| would let the caller know that there\u0027s no |peer_info|.)",
+      "revId": "37dbb48a3299de837b42301882f9e7144fbd1919",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0bc8cd0_928f6d7c",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-17T23:58:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0bc8cd0_fce15810",
       "revId": "37dbb48a3299de837b42301882f9e7144fbd1919",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "d0bc8cd0_b2838955",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-17T23:58:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0bc8cd0_72c3b128",
+      "revId": "37dbb48a3299de837b42301882f9e7144fbd1919",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0bc8cd0_fceb18bf",
         "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
         "patchSetId": 11
@@ -70,6 +130,24 @@
       "writtenOn": "2016-11-17T23:42:55Z",
       "side": 1,
       "message": "Similar to 375 (both points).",
+      "revId": "37dbb48a3299de837b42301882f9e7144fbd1919",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0bc8cd0_d280054b",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-17T23:58:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0bc8cd0_fceb18bf",
       "revId": "37dbb48a3299de837b42301882f9e7144fbd1919",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -93,6 +171,24 @@
     },
     {
       "key": {
+        "uuid": "d0bc8cd0_32a699f7",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-17T23:58:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0bc8cd0_3f6bc260",
+      "revId": "37dbb48a3299de837b42301882f9e7144fbd1919",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0bc8cd0_b2ac696c",
         "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
         "patchSetId": 11
@@ -104,6 +200,24 @@
       "writtenOn": "2016-11-17T23:42:55Z",
       "side": 1,
       "message": "As at line 378.",
+      "revId": "37dbb48a3299de837b42301882f9e7144fbd1919",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0bc8cd0_52ab15be",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-17T23:58:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0bc8cd0_b2ac696c",
       "revId": "37dbb48a3299de837b42301882f9e7144fbd1919",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -133,6 +247,30 @@
     },
     {
       "key": {
+        "uuid": "d0bc8cd0_d2056532",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-17T23:58:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0bc8cd0_9c6ce445",
+      "range": {
+        "startLine": 44,
+        "startChar": 50,
+        "endLine": 44,
+        "endChar": 57
+      },
+      "revId": "37dbb48a3299de837b42301882f9e7144fbd1919",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0bc8cd0_9c24e4d4",
         "filename": "wifi/1.0/default/wifi_legacy_hal.h",
         "patchSetId": 11
@@ -144,6 +282,30 @@
       "writtenOn": "2016-11-17T23:42:55Z",
       "side": 1,
       "message": "Instead of a struct, you might consider having getLinkLayerStats() return a tuple. E.g.\n\n  std::tuple\u003cwifi_error, wifi_iface_stat, wifi_radio_stat, std::vector\u003cuint32_t\u003e /* radio_tx_time_per_levels */\u003e\n\nI\u0027ll leave that to your judgment.",
+      "range": {
+        "startLine": 50,
+        "startChar": 7,
+        "endLine": 50,
+        "endChar": 21
+      },
+      "revId": "37dbb48a3299de837b42301882f9e7144fbd1919",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0bc8cd0_12e7dd64",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-17T23:58:40Z",
+      "side": 1,
+      "message": "Hmm. I\u0027ll leave the struct to avoid making the return type of |getLinkLayerStats| too long.\n\nstd::pair\u003cwifi_error, std::tuple\u003cwifi_error, wifi_iface_stat, wifi_radio_stat, std::vector\u003cuint32_t\u003e\u003e getLinkLayerStats();",
+      "parentUuid": "d0bc8cd0_9c24e4d4",
       "range": {
         "startLine": 50,
         "startChar": 7,
