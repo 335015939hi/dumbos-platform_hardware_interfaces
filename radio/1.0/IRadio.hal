@@ -1556,4 +1556,13 @@ interface IRadio {
      * Response callback is IRadioCallback.getAllowedCarriersResponse()
      */
     oneway getAllowedCarriers(int32_t serial);
+
+    /*
+     * When response type received from a radio indication & radio response is
+     * RadioIndicationType:UNSOLICITED_ACK_EXP or RadioResponseType:SOLICITED_ACK_EXP,
+     * acknowledge the receipt of those messages in RIL.java by sending reseponeAcknowledgement().
+     * On receiving this message, earlier held wakelock in ril.cpp must be released.
+     *
+     */
+    oneway responseAcknowledgement();
 };
