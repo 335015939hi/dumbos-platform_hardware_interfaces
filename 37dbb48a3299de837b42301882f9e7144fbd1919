@@ -1,0 +1,158 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d0bc8cd0_72dad108",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-17T23:42:55Z",
+      "side": 1,
+      "message": "Do we actually need |link_stats_ptr|? I think we could use |link_stats|, and replace the use of \u0027-\u003e\u0027 with \u0027.\u0027, below. \n\nPerhaps I\u0027m missing something, though?",
+      "range": {
+        "startLine": 369,
+        "startChar": 50,
+        "endLine": 369,
+        "endChar": 65
+      },
+      "revId": "37dbb48a3299de837b42301882f9e7144fbd1919",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0bc8cd0_fce15810",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-17T23:42:55Z",
+      "side": 1,
+      "message": "1. Can we simply use the assignment operator?\n\n  link_stats_ptr-\u003eiface \u003d *iface_stats_ptr;\n\n2. It might be worth clearing the |num_peers| field, to avoid problems in the caller. (Clearing |num_peers| would let the caller know that there\u0027s no |peer_info|.)",
+      "revId": "37dbb48a3299de837b42301882f9e7144fbd1919",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0bc8cd0_72c3b128",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-17T23:42:55Z",
+      "side": 1,
+      "message": "Consider simply zeroing link_stats when it\u0027s created.\n\n  LinkLayerStats link_stats{};",
+      "revId": "37dbb48a3299de837b42301882f9e7144fbd1919",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0bc8cd0_fceb18bf",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-17T23:42:55Z",
+      "side": 1,
+      "message": "Similar to 375 (both points).",
+      "revId": "37dbb48a3299de837b42301882f9e7144fbd1919",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0bc8cd0_3f6bc260",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-17T23:42:55Z",
+      "side": 1,
+      "message": "Probably worth setting |tx_time_per_levels| to nullptr, to avoid any confusion.",
+      "revId": "37dbb48a3299de837b42301882f9e7144fbd1919",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0bc8cd0_b2ac696c",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-17T23:42:55Z",
+      "side": 1,
+      "message": "As at line 378.",
+      "revId": "37dbb48a3299de837b42301882f9e7144fbd1919",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0bc8cd0_9c6ce445",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-17T23:42:55Z",
+      "side": 1,
+      "message": "If this is something we intend to fix later, please file a bug, and reference it here.\n\nIf this isn\u0027t something we intend to fix, please delete \"for now\".",
+      "range": {
+        "startLine": 44,
+        "startChar": 50,
+        "endLine": 44,
+        "endChar": 57
+      },
+      "revId": "37dbb48a3299de837b42301882f9e7144fbd1919",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0bc8cd0_9c24e4d4",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-17T23:42:55Z",
+      "side": 1,
+      "message": "Instead of a struct, you might consider having getLinkLayerStats() return a tuple. E.g.\n\n  std::tuple\u003cwifi_error, wifi_iface_stat, wifi_radio_stat, std::vector\u003cuint32_t\u003e /* radio_tx_time_per_levels */\u003e\n\nI\u0027ll leave that to your judgment.",
+      "range": {
+        "startLine": 50,
+        "startChar": 7,
+        "endLine": 50,
+        "endChar": 21
+      },
+      "revId": "37dbb48a3299de837b42301882f9e7144fbd1919",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
