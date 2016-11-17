@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7037600d_a20a0c89",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-17T17:55:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7037600d_d9c8f045",
+      "range": {
+        "startLine": 77,
+        "startChar": 23,
+        "endLine": 77,
+        "endChar": 31
+      },
+      "revId": "3b0b2f8a2b93a8e76663406c27575b4eba76db26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7037600d_f9c4d4f9",
         "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2016-11-17T00:03:53Z",
       "side": 1,
       "message": "Consider initializer-list syntax (here and elsewhere).",
+      "range": {
+        "startLine": 237,
+        "startChar": 9,
+        "endLine": 237,
+        "endChar": 23
+      },
+      "revId": "3b0b2f8a2b93a8e76663406c27575b4eba76db26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7037600d_c201106c",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-17T17:55:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7037600d_f9c4d4f9",
       "range": {
         "startLine": 237,
         "startChar": 9,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "7037600d_225efc95",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-17T17:55:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7037600d_b971ac01",
+      "range": {
+        "startLine": 252,
+        "startChar": 35,
+        "endLine": 252,
+        "endChar": 40
+      },
+      "revId": "3b0b2f8a2b93a8e76663406c27575b4eba76db26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7037600d_596ce01f",
         "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
         "patchSetId": 7
@@ -82,6 +154,30 @@
       "writtenOn": "2016-11-17T00:03:53Z",
       "side": 1,
       "message": "Are we sure this is safe? I\u0027m imagining that, once started, gscan keeps running indefinitely. That would mean that the event callback might be executed after startGscan() has returned. In that case, we have a reference to something that may be out of scope.\n\nOr perhaps there\u0027s something I don\u0027t understand about the execution model here...",
+      "range": {
+        "startLine": 255,
+        "startChar": 7,
+        "endLine": 255,
+        "endChar": 59
+      },
+      "revId": "3b0b2f8a2b93a8e76663406c27575b4eba76db26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7037600d_8262682b",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-17T17:55:54Z",
+      "side": 1,
+      "message": "These callbacks are passed into this function by the caller (HIDL object). I would assume that it\u0027s the responsibility of the caller to maintain the lifetime of these callbacks.\n\nBut, that does make it harder for the HIDL objects to maintain these callback objects (will need to store the lambda\u0027s used for these callbacks in some global variable) untill stopGscan() is invoked.\n\nIs there a different way to handle this?",
+      "parentUuid": "7037600d_596ce01f",
       "range": {
         "startLine": 255,
         "startChar": 7,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "7037600d_6293e4ea",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-17T17:55:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7037600d_7913a47e",
+      "range": {
+        "startLine": 276,
+        "startChar": 12,
+        "endLine": 276,
+        "endChar": 17
+      },
+      "revId": "3b0b2f8a2b93a8e76663406c27575b4eba76db26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7037600d_77860bfd",
         "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
         "patchSetId": 7
@@ -128,6 +248,30 @@
       "writtenOn": "2016-11-17T00:03:53Z",
       "side": 1,
       "message": "As at line 255.",
+      "range": {
+        "startLine": 280,
+        "startChar": 44,
+        "endLine": 280,
+        "endChar": 73
+      },
+      "revId": "3b0b2f8a2b93a8e76663406c27575b4eba76db26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7037600d_e286d4a3",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-17T17:55:54Z",
+      "side": 1,
+      "message": "Same.",
+      "parentUuid": "7037600d_77860bfd",
       "range": {
         "startLine": 280,
         "startChar": 44,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "7037600d_c283d091",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-17T17:55:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7037600d_19537830",
+      "range": {
+        "startLine": 281,
+        "startChar": 52,
+        "endLine": 281,
+        "endChar": 60
+      },
+      "revId": "3b0b2f8a2b93a8e76663406c27575b4eba76db26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7037600d_f98a146c",
         "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
         "patchSetId": 7
@@ -174,6 +342,30 @@
       "writtenOn": "2016-11-17T00:03:53Z",
       "side": 1,
       "message": "Consider omitting. (If result is null, then it\u0027ll convert to false on its own. No need for the comparison, to force evaluation to bool.)",
+      "range": {
+        "startLine": 282,
+        "startChar": 14,
+        "endLine": 282,
+        "endChar": 25
+      },
+      "revId": "3b0b2f8a2b93a8e76663406c27575b4eba76db26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7037600d_2248bca5",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-17T17:55:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7037600d_f98a146c",
       "range": {
         "startLine": 282,
         "startChar": 14,
@@ -203,6 +395,24 @@
     },
     {
       "key": {
+        "uuid": "7037600d_6252c457",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-17T17:55:54Z",
+      "side": 1,
+      "message": "It\u0027s only for asynchronous failures. Failure to schedule the scans will be indicated by the synchronous WifiStatus we return for each of the method.",
+      "parentUuid": "7037600d_d962b0be",
+      "revId": "3b0b2f8a2b93a8e76663406c27575b4eba76db26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7037600d_776c4b20",
         "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
         "patchSetId": 7
@@ -214,6 +424,24 @@
       "writtenOn": "2016-11-17T00:03:53Z",
       "side": 1,
       "message": "Consider prefacing this line, with an assertion that uint32_t is big enough.\n\n  static_assert(sizeof(uint32_t) \u003e\u003d sizeof(wifi_channel), \"some error message\");\n\nThat would make it clearer that the cast at line 324 is safe. (Well, safe is we\u0027re compiling with -fno-strict-aliasing, at least.)",
+      "revId": "3b0b2f8a2b93a8e76663406c27575b4eba76db26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7037600d_422ea0bd",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-17T17:55:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7037600d_776c4b20",
       "revId": "3b0b2f8a2b93a8e76663406c27575b4eba76db26",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -237,6 +465,24 @@
     },
     {
       "key": {
+        "uuid": "7037600d_823f08e8",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-17T17:55:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7037600d_97390fed",
+      "revId": "3b0b2f8a2b93a8e76663406c27575b4eba76db26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7037600d_72b459b1",
         "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
         "patchSetId": 7
@@ -248,6 +494,24 @@
       "writtenOn": "2016-11-17T00:03:53Z",
       "side": 1,
       "message": "Would prefer to have this limit expressed in terms of total-size, rather than per-element size. That would make the full computation explicit.\n\n  static_assert(sizeof(...) * kMaxCachedGscanResults \u003c kStackAllocLimitBytes, ...);\n\nOr, if you place the assertion after the declaration:\n\n  static_assert(sizeof(scan_results) \u003c kStackAllocLimitBytes, ...);",
+      "revId": "3b0b2f8a2b93a8e76663406c27575b4eba76db26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7037600d_62f7641b",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-17T17:55:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7037600d_72b459b1",
       "revId": "3b0b2f8a2b93a8e76663406c27575b4eba76db26",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -271,6 +535,24 @@
     },
     {
       "key": {
+        "uuid": "7037600d_221c3c84",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-17T17:55:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7037600d_12934deb",
+      "revId": "3b0b2f8a2b93a8e76663406c27575b4eba76db26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7037600d_dc41fe57",
         "filename": "wifi/1.0/default/wifi_legacy_hal.h",
         "patchSetId": 7
@@ -288,6 +570,24 @@
     },
     {
       "key": {
+        "uuid": "d0bc8cd0_731ca052",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-17T17:55:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7037600d_dc41fe57",
+      "revId": "3b0b2f8a2b93a8e76663406c27575b4eba76db26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7037600d_e66273be",
         "filename": "wifi/1.0/default/wifi_legacy_hal.h",
         "patchSetId": 7
@@ -299,6 +599,24 @@
       "writtenOn": "2016-11-17T00:03:53Z",
       "side": 1,
       "message": "Consider |using| syntax instead:\n\n  using on_gscan_full_result_callback \u003d ...;",
+      "revId": "3b0b2f8a2b93a8e76663406c27575b4eba76db26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7037600d_e239b4eb",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-17T17:55:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7037600d_e66273be",
       "revId": "3b0b2f8a2b93a8e76663406c27575b4eba76db26",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -328,6 +646,30 @@
     },
     {
       "key": {
+        "uuid": "7037600d_c23630f9",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-17T17:55:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7037600d_6612e30a",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 7
+      },
+      "revId": "3b0b2f8a2b93a8e76663406c27575b4eba76db26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7037600d_0618375d",
         "filename": "wifi/1.0/default/wifi_legacy_hal.h",
         "patchSetId": 7
@@ -339,6 +681,24 @@
       "writtenOn": "2016-11-17T00:03:53Z",
       "side": 1,
       "message": "indent?",
+      "revId": "3b0b2f8a2b93a8e76663406c27575b4eba76db26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7037600d_623da4d2",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-17T17:55:54Z",
+      "side": 1,
+      "message": "Will change the indent (using a different .clang-format) in all of these files in a future Cl.",
+      "parentUuid": "7037600d_0618375d",
       "revId": "3b0b2f8a2b93a8e76663406c27575b4eba76db26",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
