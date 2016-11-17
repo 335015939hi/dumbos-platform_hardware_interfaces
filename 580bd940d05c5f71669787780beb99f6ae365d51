@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d0bc8cd0_ff2cea0a",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 1561,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-11-17T23:08:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0bc8cd0_7cee2807",
+      "range": {
+        "startLine": 1561,
+        "startChar": 59,
+        "endLine": 1561,
+        "endChar": 60
+      },
+      "revId": "580bd940d05c5f71669787780beb99f6ae365d51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0bc8cd0_9cf304ed",
         "filename": "radio/1.0/IRadio.hal",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "d0bc8cd0_1f2a86ec",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 1563,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-11-17T23:08:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0bc8cd0_9cf304ed",
+      "range": {
+        "startLine": 1563,
+        "startChar": 49,
+        "endLine": 1563,
+        "endChar": 60
+      },
+      "revId": "580bd940d05c5f71669787780beb99f6ae365d51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d0bc8cd0_bc6600d1",
         "filename": "radio/1.0/IRadio.hal",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2016-11-17T22:57:05Z",
       "side": 1,
       "message": "implementation can release wakelock if needed.\n\nAlthough I am not sure if that really needs to be added here because that\u0027s more of an implementation thing that we don\u0027t really care about.",
+      "range": {
+        "startLine": 1564,
+        "startChar": 15,
+        "endLine": 1564,
+        "endChar": 67
+      },
+      "revId": "580bd940d05c5f71669787780beb99f6ae365d51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0bc8cd0_df1f2ed3",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 1564,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-11-17T23:08:45Z",
+      "side": 1,
+      "message": "We should definitely call releaseWakelock() after this message is sent. For a response, Type \u003d UNSOLICITED_ACK_EXP or SOLICITED_ACK_EXP indicates wakelock was acquired earlier.\nYou can search for RIL_RESPONSE_ACKNOWLEDGEMENT in ril.cpp to see we always call releaseWakelock()",
+      "parentUuid": "d0bc8cd0_bc6600d1",
       "range": {
         "startLine": 1564,
         "startChar": 15,
