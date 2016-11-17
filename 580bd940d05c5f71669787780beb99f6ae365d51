@@ -140,6 +140,30 @@
       "revId": "580bd940d05c5f71669787780beb99f6ae365d51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0bc8cd0_3f210266",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 1564,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-11-17T23:29:15Z",
+      "side": 1,
+      "message": "Yes, probably we should not mention that as it would be implementation dependent.",
+      "parentUuid": "d0bc8cd0_df1f2ed3",
+      "range": {
+        "startLine": 1564,
+        "startChar": 15,
+        "endLine": 1564,
+        "endChar": 67
+      },
+      "revId": "580bd940d05c5f71669787780beb99f6ae365d51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
