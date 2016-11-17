@@ -23,6 +23,7 @@ LOCAL_SRC_FILES := \
     wifi_ap_iface.cpp \
     wifi_chip.cpp \
     wifi_legacy_hal.cpp \
+    wifi_mode_controller.cpp \
     wifi_nan_iface.cpp \
     wifi_p2p_iface.cpp \
     wifi_rtt_controller.cpp \
@@ -36,6 +37,7 @@ LOCAL_SHARED_LIBRARIES := \
     libhidltransport \
     libhwbinder \
     liblog \
+    libminijail \
     libnl \
     libutils \
     libwifi-system
