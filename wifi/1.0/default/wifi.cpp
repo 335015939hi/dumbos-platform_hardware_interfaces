@@ -34,6 +34,7 @@ using hidl_return_util::validateAndCall;
 
 Wifi::Wifi()
     : legacy_hal_(new legacy_hal::WifiLegacyHal()),
+      mode_controller_(new mode_controller::WifiModeController()),
       run_state_(RunState::STOPPED) {}
 
 bool Wifi::isValid() {
@@ -107,7 +108,7 @@ WifiStatus Wifi::startInternal() {
   }
 
   // Create the chip instance once the HAL is started.
-  chip_ = new WifiChip(kChipId, legacy_hal_);
+  chip_ = new WifiChip(kChipId, legacy_hal_, mode_controller_);
   run_state_ = RunState::STARTED;
   for (const auto& callback : event_callbacks_) {
     if (!callback->onStart().getStatus().isOk()) {
