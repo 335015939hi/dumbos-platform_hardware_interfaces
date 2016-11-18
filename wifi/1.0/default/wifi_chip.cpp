@@ -24,6 +24,31 @@ namespace {
 using android::sp;
 using android::hardware::hidl_vec;
 using android::hardware::hidl_string;
+using android::hardware::wifi::V1_0::IWifiChip;
+using android::hardware::wifi::V1_0::IfaceType;
+
+// The chip combination supported for current devices is fixed for now with
+// 2 separate modes of operation:
+// Mode 1 (STA mode): Will support 1 STA, 1 P2P and 1 NAN iface operations
+// concurrently.
+// Mode 2 (AP mode): Will support 1 AP iface operations.
+// TODO (b/32997844): Read this from some device specific flags in the makefile.
+const IWifiChip::ChipIfaceCombinationLimit kStaChipIfaceCombinationLimit = {
+    {IfaceType::STA, IfaceType::P2P, IfaceType::NAN}, 1};
+const IWifiChip::ChipIfaceCombination kStaChipIfaceCombination = {
+    {kStaChipIfaceCombinationLimit}};
+const IWifiChip::ChipMode kStaChipMode = {
+    0 /* id */, {kStaChipIfaceCombination} /* availableCombinations */
+};
+const IWifiChip::ChipIfaceCombinationLimit kApChipIfaceCombinationLimit = {
+    {IfaceType::AP}, 1};
+const IWifiChip::ChipIfaceCombination kApChipIfaceCombination = {
+    {kApChipIfaceCombinationLimit}};
+const IWifiChip::ChipMode kApChipMode = {
+    1 /* id */, {kApChipIfaceCombination} /* availableCombinations */
+};
+
+constexpr uint32_t kInvalidModeId = UINT32_MAX;
 
 template <typename Iface>
 void invalidateAndClear(sp<Iface>& iface) {
@@ -41,9 +66,15 @@ namespace V1_0 {
 namespace implementation {
 using hidl_return_util::validateAndCall;
 
-WifiChip::WifiChip(ChipId chip_id,
-                   const std::weak_ptr<legacy_hal::WifiLegacyHal> legacy_hal)
-    : chip_id_(chip_id), legacy_hal_(legacy_hal), is_valid_(true) {}
+WifiChip::WifiChip(
+    ChipId chip_id,
+    const std::weak_ptr<legacy_hal::WifiLegacyHal> legacy_hal,
+    const std::weak_ptr<mode_controller::WifiModeController> mode_controller)
+    : chip_id_(chip_id),
+      legacy_hal_(legacy_hal),
+      mode_controller_(mode_controller),
+      is_valid_(true),
+      current_mode_id_(kInvalidModeId) {}
 
 void WifiChip::invalidate() {
   invalidateAndRemoveAllIfaces();
@@ -301,19 +332,37 @@ std::pair<WifiStatus, uint32_t> WifiChip::getCapabilitiesInternal() {
 
 std::pair<WifiStatus, std::vector<IWifiChip::ChipMode>>
 WifiChip::getAvailableModesInternal() {
-  // TODO add implementation
-  return {createWifiStatus(WifiStatusCode::SUCCESS), {}};
+  return {createWifiStatus(WifiStatusCode::SUCCESS),
+          {kStaChipMode, kApChipMode}};
 }
 
-WifiStatus WifiChip::configureChipInternal(uint32_t /* mode_id */) {
+WifiStatus WifiChip::configureChipInternal(uint32_t mode_id) {
+  if (mode_id != kStaChipMode.id && mode_id != kApChipMode.id) {
+    return createWifiStatus(WifiStatusCode::ERROR_INVALID_ARGS);
+  }
+  if (mode_id == current_mode_id_) {
+    LOG(INFO) << "Already in the specified mode " << mode_id;
+    return createWifiStatus(WifiStatusCode::SUCCESS);
+  }
   invalidateAndRemoveAllIfaces();
-  // TODO add implementation
+  bool success;
+  if (mode_id == kStaChipMode.id) {
+    success = mode_controller_.lock()->changeFirmwareMode(IfaceType::STA);
+  } else {
+    success = mode_controller_.lock()->changeFirmwareMode(IfaceType::AP);
+  }
+  if (!success) {
+    return createWifiStatus(WifiStatusCode::ERROR_UNKNOWN);
+  }
   return createWifiStatus(WifiStatusCode::SUCCESS);
 }
 
 std::pair<WifiStatus, uint32_t> WifiChip::getModeInternal() {
-  // TODO add implementation
-  return {createWifiStatus(WifiStatusCode::SUCCESS), 0};
+  if (current_mode_id_ == kInvalidModeId) {
+    return {createWifiStatus(WifiStatusCode::ERROR_NOT_AVAILABLE),
+            current_mode_id_};
+  }
+  return {createWifiStatus(WifiStatusCode::SUCCESS), current_mode_id_};
 }
 
 std::pair<WifiStatus, IWifiChip::ChipDebugInfo>

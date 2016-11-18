@@ -25,6 +25,7 @@
 
 #include "wifi_chip.h"
 #include "wifi_legacy_hal.h"
+#include "wifi_mode_controller.h"
 
 namespace android {
 namespace hardware {
@@ -65,6 +66,7 @@ class Wifi : public IWifi {
   // Instance is created in this root level |IWifi| HIDL interface object
   // and shared with all the child HIDL interface objects.
   std::shared_ptr<legacy_hal::WifiLegacyHal> legacy_hal_;
+  std::shared_ptr<mode_controller::WifiModeController> mode_controller_;
   RunState run_state_;
   std::vector<sp<IWifiEventCallback>> event_callbacks_;
   sp<WifiChip> chip_;

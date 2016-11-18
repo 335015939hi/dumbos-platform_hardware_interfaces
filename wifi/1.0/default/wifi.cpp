@@ -34,6 +34,7 @@ using hidl_return_util::validateAndCall;
 
 Wifi::Wifi()
     : legacy_hal_(new legacy_hal::WifiLegacyHal()),
+      mode_controller_(new mode_controller::WifiModeController()),
       run_state_(RunState::STOPPED) {}
 
 bool Wifi::isValid() {
@@ -97,6 +98,10 @@ WifiStatus Wifi::startInternal() {
                             "HAL is stopping");
   }
 
+  LOG(INFO) << "Initializing firmware mode controller";
+  // Initialize the mode controller and drop root priviliges of the process.
+  CHECK(mode_controller_->initializeAndDropPriviliges());
+
   LOG(INFO) << "Starting HAL";
   wifi_error legacy_status = legacy_hal_->start();
   if (legacy_status != WIFI_SUCCESS) {
@@ -107,7 +112,7 @@ WifiStatus Wifi::startInternal() {
   }
 
   // Create the chip instance once the HAL is started.
-  chip_ = new WifiChip(kChipId, legacy_hal_);
+  chip_ = new WifiChip(kChipId, legacy_hal_, mode_controller_);
   run_state_ = RunState::STARTED;
   for (const auto& callback : event_callbacks_) {
     if (!callback->onStart().getStatus().isOk()) {
