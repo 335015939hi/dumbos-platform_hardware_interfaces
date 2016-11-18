@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30040898_2feca9d7",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 824,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-18T22:26:38Z",
+      "side": 1,
+      "message": "Same concern about const_cast as in other CLs. (Also several instances below.)",
+      "range": {
+        "startLine": 824,
+        "startChar": 34,
+        "endLine": 824,
+        "endChar": 44
+      },
+      "revId": "c705328b912a474a2b11e7c398ebf37fb102840a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
