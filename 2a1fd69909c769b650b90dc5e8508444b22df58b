@@ -1,0 +1,182 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30040898_efbe9108",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-18T22:14:36Z",
+      "side": 1,
+      "message": "Do we want to log in this case, or is it considered expected behavior?",
+      "revId": "2a1fd69909c769b650b90dc5e8508444b22df58b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30040898_ef8fb17d",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 590,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-18T22:14:36Z",
+      "side": 1,
+      "message": "Consider using the copy_if algorithm.\n\n  std::copy_if(\n    rtt_results, rtt_results + num_results, \n    rtt_results_vec.data(),\n    [](wifi_rtt_result* rtt_result) {\n      return rtt_result !\u003d nullptr;\n    });",
+      "range": {
+        "startLine": 585,
+        "startChar": 0,
+        "endLine": 590,
+        "endChar": 5
+      },
+      "revId": "2a1fd69909c769b650b90dc5e8508444b22df58b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30040898_8fa4bdeb",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 598,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-18T22:14:36Z",
+      "side": 1,
+      "message": "We should either adjust our parameter type, or make a copy. If we don\u0027t, the pointer that we pass in might be in a read-only memory region.",
+      "range": {
+        "startLine": 598,
+        "startChar": 6,
+        "endLine": 598,
+        "endChar": 34
+      },
+      "revId": "2a1fd69909c769b650b90dc5e8508444b22df58b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30040898_af165930",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-18T22:14:36Z",
+      "side": 1,
+      "message": "As at line 598.",
+      "range": {
+        "startLine": 613,
+        "startChar": 6,
+        "endLine": 613,
+        "endChar": 27
+      },
+      "revId": "2a1fd69909c769b650b90dc5e8508444b22df58b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30040898_2fe26915",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 648,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-18T22:14:36Z",
+      "side": 1,
+      "message": "As at line 598.",
+      "range": {
+        "startLine": 648,
+        "startChar": 6,
+        "endLine": 648,
+        "endChar": 16
+      },
+      "revId": "2a1fd69909c769b650b90dc5e8508444b22df58b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30040898_ef5211f8",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 658,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-18T22:14:36Z",
+      "side": 1,
+      "message": "As at line 598.",
+      "range": {
+        "startLine": 658,
+        "startChar": 34,
+        "endLine": 658,
+        "endChar": 44
+      },
+      "revId": "2a1fd69909c769b650b90dc5e8508444b22df58b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30040898_cf5755e6",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-18T22:14:36Z",
+      "side": 1,
+      "message": "As at line 598.",
+      "range": {
+        "startLine": 664,
+        "startChar": 34,
+        "endLine": 664,
+        "endChar": 44
+      },
+      "revId": "2a1fd69909c769b650b90dc5e8508444b22df58b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30040898_8f7f1dca",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-18T22:14:36Z",
+      "side": 1,
+      "message": "This could probably be const-ref?",
+      "range": {
+        "startLine": 161,
+        "startChar": 6,
+        "endLine": 161,
+        "endChar": 29
+      },
+      "revId": "2a1fd69909c769b650b90dc5e8508444b22df58b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
