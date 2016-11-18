@@ -128,6 +128,24 @@
       "revId": "d8caeb14e3c13392a7aca434be5489b19bfe0fd0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30040898_89f4bd65",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-18T20:04:53Z",
+      "side": 1,
+      "message": "I don\u0027t think we need to be super-concerned about iterating over the data twice. It\u0027ll probably all be in L2 cache anyway. (And checking the value of |ie_length| should be highly predictable.)\n\nI see your point about the |is_ie_data_present| flag. That does make the code _within_ the upper layer clear. But IMO, the interface _between_ the layers is a bit subtle with the current CL. And the |is_ie_data_present| flag in the upper layer wouldn\u0027t make the cross-layer interaction simpler.\n\nThat said, I\u0027ll leave the performance-vs-robustness trade-off to your judgment.",
+      "parentUuid": "d0bc8cd0_5fab1ebe",
+      "revId": "d8caeb14e3c13392a7aca434be5489b19bfe0fd0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
