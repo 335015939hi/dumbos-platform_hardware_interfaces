@@ -34,6 +34,7 @@ using hidl_return_util::validateAndCall;
 
 Wifi::Wifi()
     : legacy_hal_(new legacy_hal::WifiLegacyHal()),
+      mode_controller_(new mode_controller::WifiModeController()),
       run_state_(RunState::STOPPED) {}
 
 bool Wifi::isValid() {
@@ -97,17 +98,20 @@ WifiStatus Wifi::startInternal() {
                             "HAL is stopping");
   }
 
-  LOG(INFO) << "Starting HAL";
-  wifi_error legacy_status = legacy_hal_->start();
+  LOG(INFO) << "Initializing firmware mode controller";
+  // Initialize the mode controller and drop root priviliges of the process.
+  CHECK(mode_controller_->initializeAndDropPriviliges());
+
+  LOG(INFO) << "Initializing legacy HAL";
+  wifi_error legacy_status = legacy_hal_->initialize();
   if (legacy_status != WIFI_SUCCESS) {
-    LOG(ERROR) << "Failed to start Wifi HAL: "
+    LOG(ERROR) << "Failed to initialize legacy HAL: "
                << legacyErrorToString(legacy_status);
-    return createWifiStatusFromLegacyError(legacy_status,
-                                           "Failed to start HAL");
+    return createWifiStatusFromLegacyError(legacy_status);
   }
 
   // Create the chip instance once the HAL is started.
-  chip_ = new WifiChip(kChipId, legacy_hal_);
+  chip_ = new WifiChip(kChipId, legacy_hal_, mode_controller_);
   run_state_ = RunState::STARTED;
   for (const auto& callback : event_callbacks_) {
     if (!callback->onStart().getStatus().isOk()) {
@@ -125,7 +129,7 @@ WifiStatus Wifi::stopInternal() {
                             "HAL is stopping");
   }
 
-  LOG(INFO) << "Stopping HAL";
+  LOG(INFO) << "Stopping legacy HAL";
   run_state_ = RunState::STOPPING;
   const auto on_complete_callback_ = [&]() {
     if (chip_.get()) {
@@ -141,14 +145,21 @@ WifiStatus Wifi::stopInternal() {
   };
   wifi_error legacy_status = legacy_hal_->stop(on_complete_callback_);
   if (legacy_status != WIFI_SUCCESS) {
-    LOG(ERROR) << "Failed to stop Wifi HAL: "
+    LOG(ERROR) << "Failed to stop legacy HAL: "
                << legacyErrorToString(legacy_status);
-    WifiStatus wifi_status =
-        createWifiStatusFromLegacyError(legacy_status, "Failed to stop HAL");
+    WifiStatus wifi_status = createWifiStatusFromLegacyError(legacy_status);
     for (const auto& callback : event_callbacks_) {
       callback->onFailure(wifi_status);
     }
     return wifi_status;
+  }
+  if (!mode_controller_->deinitialize()) {
+    LOG(ERROR) << "Failed to deinitialize firmware mode controller";
+    WifiStatus wifi_status = createWifiStatusFromLegacyError(legacy_status);
+    for (const auto& callback : event_callbacks_) {
+      callback->onFailure(wifi_status);
+    }
+    return createWifiStatus(WifiStatusCode::ERROR_UNKNOWN);
   }
   return createWifiStatus(WifiStatusCode::SUCCESS);
 }
