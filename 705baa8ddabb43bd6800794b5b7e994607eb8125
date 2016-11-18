@@ -1,0 +1,290 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d0bc8cd0_50a30d4e",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-18T01:38:28Z",
+      "side": 1,
+      "message": "This name is a bit confusing. It suggests a type, rather than a variable.",
+      "range": {
+        "startLine": 37,
+        "startChar": 45,
+        "endLine": 37,
+        "endChar": 49
+      },
+      "revId": "705baa8ddabb43bd6800794b5b7e994607eb8125",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0bc8cd0_90da0506",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-18T01:38:28Z",
+      "side": 1,
+      "message": "Packet-fate data is large enough that you might consider using std::vector\u003c\u003e here, and moving the data out at the end. (Just initialize the vector to be large enough.)\n\nSince we\u0027re (almost always) going to do a dynamic allocation anyway, we might as well do it up front.",
+      "revId": "705baa8ddabb43bd6800794b5b7e994607eb8125",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0bc8cd0_305851a1",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-18T01:38:28Z",
+      "side": 1,
+      "message": "Consider tx_pkt_fates.size() here, to avoid repeating yourself. Same at line 438.",
+      "range": {
+        "startLine": 436,
+        "startChar": 47,
+        "endLine": 436,
+        "endChar": 63
+      },
+      "revId": "705baa8ddabb43bd6800794b5b7e994607eb8125",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0bc8cd0_758c7b19",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-18T01:38:28Z",
+      "side": 1,
+      "message": "Consider CHECK() instead. If the vendor HAL code has written more than we had space for, then we may have trashed memory.",
+      "revId": "705baa8ddabb43bd6800794b5b7e994607eb8125",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0bc8cd0_d0d39dee",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-18T01:38:28Z",
+      "side": 1,
+      "message": "As at line 431.",
+      "revId": "705baa8ddabb43bd6800794b5b7e994607eb8125",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0bc8cd0_5044edb9",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 451,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-18T01:38:28Z",
+      "side": 1,
+      "message": "As at line 436. And same below at line 453.",
+      "range": {
+        "startLine": 451,
+        "startChar": 47,
+        "endLine": 451,
+        "endChar": 63
+      },
+      "revId": "705baa8ddabb43bd6800794b5b7e994607eb8125",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0bc8cd0_b5a53388",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 453,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-18T01:38:28Z",
+      "side": 1,
+      "message": "As at line 438.",
+      "revId": "705baa8ddabb43bd6800794b5b7e994607eb8125",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0bc8cd0_90c4c5f9",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-18T01:38:28Z",
+      "side": 1,
+      "message": "Are we sure we want to present these as unsigned counts? I could imagine, for example, a vendor HAL using -1 to indicate error.",
+      "range": {
+        "startLine": 461,
+        "startChar": 13,
+        "endLine": 461,
+        "endChar": 21
+      },
+      "revId": "705baa8ddabb43bd6800794b5b7e994607eb8125",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0bc8cd0_b0562148",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-18T01:38:28Z",
+      "side": 1,
+      "message": "You might be able to avoid this, by using std::vector\u003c\u003e above (instead of std::array\u003c\u003e), and moving the vector out at the end.\n\n(The benefit of std::array is that we can allocate it on the stack, and avoid dynamic memory allocation. But, if we\u0027re returning std::vector, we\u0027re going to do a dynamic allocation in any case.)",
+      "revId": "705baa8ddabb43bd6800794b5b7e994607eb8125",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0bc8cd0_704c89ba",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-18T01:38:28Z",
+      "side": 1,
+      "message": "Consider nulling out the pointers in wake_reason_stats_ext, since they\u0027ll be invalid when this function returns.",
+      "revId": "705baa8ddabb43bd6800794b5b7e994607eb8125",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0bc8cd0_10e27514",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-18T01:38:28Z",
+      "side": 1,
+      "message": "Ring buffers are large enough that we might care about the cost of copying. (But let\u0027s not worry about that for now.)",
+      "range": {
+        "startLine": 513,
+        "startChar": 27,
+        "endLine": 513,
+        "endChar": 40
+      },
+      "revId": "705baa8ddabb43bd6800794b5b7e994607eb8125",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0bc8cd0_903cc5d8",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-18T01:38:28Z",
+      "side": 1,
+      "message": "As elsewhere, consider std::vector\u003c\u003e here, to avoid the need to copy. (In this case, it\u0027s less about the amount of data, and more about reducing the number of lines of code to read. The body of the function gets cut in half. :-))",
+      "range": {
+        "startLine": 525,
+        "startChar": 2,
+        "endLine": 525,
+        "endChar": 12
+      },
+      "revId": "705baa8ddabb43bd6800794b5b7e994607eb8125",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0bc8cd0_7095698e",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-18T01:38:28Z",
+      "side": 1,
+      "message": "It\u0027s unfortunate that the API was specified as non-const. But given that\u0027s what we have to work with, I think we\u0027re better off copying the const-arg into a (non-const) local, and using that local for the arg to the vendor HAL.",
+      "range": {
+        "startLine": 547,
+        "startChar": 6,
+        "endLine": 547,
+        "endChar": 23
+      },
+      "revId": "705baa8ddabb43bd6800794b5b7e994607eb8125",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0bc8cd0_50906d9f",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-18T01:38:28Z",
+      "side": 1,
+      "message": "As at line 547.",
+      "range": {
+        "startLine": 552,
+        "startChar": 30,
+        "endLine": 552,
+        "endChar": 47
+      },
+      "revId": "705baa8ddabb43bd6800794b5b7e994607eb8125",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
