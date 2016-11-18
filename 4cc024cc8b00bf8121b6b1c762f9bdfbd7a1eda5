@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30040898_6fb74189",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-18T21:52:02Z",
+      "side": 1,
+      "message": "Do we need these? Or would it be better to move the WakeReasonStats declaration to line 460, and then operate on the fields of WakeReasonStats (instead of these local variables)?",
+      "range": {
+        "startLine": 460,
+        "startChar": 0,
+        "endLine": 462,
+        "endChar": 53
+      },
+      "revId": "4cc024cc8b00bf8121b6b1c762f9bdfbd7a1eda5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30040898_ef5c519e",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-18T21:52:02Z",
+      "side": 1,
+      "message": "(Continued from PS11)\n\nRight you are. :-)\n\nI still think we should honor the interface, though. Can we copy to a std::vector\u003cchar\u003e, and pass vec.data()?",
+      "range": {
+        "startLine": 549,
+        "startChar": 6,
+        "endLine": 549,
+        "endChar": 23
+      },
+      "revId": "4cc024cc8b00bf8121b6b1c762f9bdfbd7a1eda5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30040898_2f5b89a1",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-18T21:52:02Z",
+      "side": 1,
+      "message": "As at line 549.",
+      "range": {
+        "startLine": 554,
+        "startChar": 30,
+        "endLine": 554,
+        "endChar": 47
+      },
+      "revId": "4cc024cc8b00bf8121b6b1c762f9bdfbd7a1eda5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
