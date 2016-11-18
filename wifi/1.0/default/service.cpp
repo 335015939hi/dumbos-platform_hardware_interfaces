@@ -21,10 +21,14 @@
 #include <utils/StrongPointer.h>
 
 #include "wifi.h"
+#include "wifi_mode_controller.h"
 
 using android::hardware::hidl_version;
 using android::hardware::IPCThreadState;
 using android::hardware::ProcessState;
+using android::hardware::wifi::V1_0::implementation::mode_controller::
+    WifiModeController;
+using android::hardware::wifi::V1_0::implementation::Wifi;
 using android::Looper;
 
 namespace {
@@ -52,9 +56,16 @@ int main(int /*argc*/, char** argv) {
       binder_fd, 0, Looper::EVENT_INPUT, OnBinderReadReady, nullptr))
       << "Failed to watch binder FD";
 
+  // Change ownership of the firmware reload sysfs paths and drop the root
+  // priviliges before processing any RPC methods.
+  std::shared_ptr<WifiModeController> mode_controller(new WifiModeController());
+  // Initialize the mode controller and drop root priviliges of the process.
+  CHECK(mode_controller->initializeAndDropPriviliges())
+      << "Failed to initialize mode controller and drop root priviliges.";
+
   // Setup hwbinder service
   android::sp<android::hardware::wifi::V1_0::IWifi> service =
-      new android::hardware::wifi::V1_0::implementation::Wifi();
+      new Wifi(mode_controller);
   CHECK_EQ(service->registerAsService("wifi"), android::NO_ERROR)
       << "Failed to register wifi HAL";
 
