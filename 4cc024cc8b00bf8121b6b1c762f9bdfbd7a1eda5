@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "30040898_8faa7d67",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-19T01:15:29Z",
+      "side": 1,
+      "message": "We could. But, it will make the lines below where we assign these to the legacy HAL struct very long.\n\nwlan_wake_reason_cnt.cmd_event_wake_cnt \u003d reinterpret_cast\u003cint32_t*\u003e(wake_reason_stats_ext.cmd_event_wake_cnt.data());\n\nwlan_wake_reason_cnt.cmd_event_wake_cnt_sz \u003d wake_reason_stats_ext.cmd_event_wake_cnt.size();",
+      "parentUuid": "30040898_6fb74189",
+      "range": {
+        "startLine": 460,
+        "startChar": 0,
+        "endLine": 462,
+        "endChar": 53
+      },
+      "revId": "4cc024cc8b00bf8121b6b1c762f9bdfbd7a1eda5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30040898_ef5c519e",
         "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
         "patchSetId": 16
@@ -48,6 +72,54 @@
     },
     {
       "key": {
+        "uuid": "30040898_1a86cdfb",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-19T01:15:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30040898_ef5c519e",
+      "range": {
+        "startLine": 549,
+        "startChar": 6,
+        "endLine": 549,
+        "endChar": 23
+      },
+      "revId": "4cc024cc8b00bf8121b6b1c762f9bdfbd7a1eda5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30040898_7a23811b",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-19T01:15:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30040898_ef5c519e",
+      "range": {
+        "startLine": 549,
+        "startChar": 6,
+        "endLine": 549,
+        "endChar": 23
+      },
+      "revId": "4cc024cc8b00bf8121b6b1c762f9bdfbd7a1eda5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30040898_2f5b89a1",
         "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
         "patchSetId": 16
@@ -59,6 +131,54 @@
       "writtenOn": "2016-11-18T21:52:02Z",
       "side": 1,
       "message": "As at line 549.",
+      "range": {
+        "startLine": 554,
+        "startChar": 30,
+        "endLine": 554,
+        "endChar": 47
+      },
+      "revId": "4cc024cc8b00bf8121b6b1c762f9bdfbd7a1eda5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30040898_5a20c50c",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-19T01:15:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30040898_2f5b89a1",
+      "range": {
+        "startLine": 554,
+        "startChar": 30,
+        "endLine": 554,
+        "endChar": 47
+      },
+      "revId": "4cc024cc8b00bf8121b6b1c762f9bdfbd7a1eda5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30040898_fa91b134",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-19T01:15:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30040898_2f5b89a1",
       "range": {
         "startLine": 554,
         "startChar": 30,
