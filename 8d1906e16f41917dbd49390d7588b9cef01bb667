@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d0248c49_135b2ca1",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-21T18:47:24Z",
+      "side": 1,
+      "message": "None unfortunately. This is one of the benefits of going away from the legacy HAL interface. There are some random constants (which just works) not defined in any headers used all over the place.",
+      "parentUuid": "30040898_f2130dd2",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 59
+      },
+      "revId": "8d1906e16f41917dbd49390d7588b9cef01bb667",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30040898_322ac5ed",
         "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
         "patchSetId": 14
@@ -36,6 +60,30 @@
       "writtenOn": "2016-11-21T16:44:31Z",
       "side": 1,
       "message": "LOG(FATAL)",
+      "range": {
+        "startLine": 277,
+        "startChar": 8,
+        "endLine": 277,
+        "endChar": 16
+      },
+      "revId": "8d1906e16f41917dbd49390d7588b9cef01bb667",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0248c49_d3a2944a",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-21T18:47:24Z",
+      "side": 1,
+      "message": "Uhmm. I\u0027m using CHECK all over the codebase. Unless there is a reason to make these LOG(FATAL), i\u0027ll leave it as is.",
+      "parentUuid": "30040898_322ac5ed",
       "range": {
         "startLine": 277,
         "startChar": 8,
