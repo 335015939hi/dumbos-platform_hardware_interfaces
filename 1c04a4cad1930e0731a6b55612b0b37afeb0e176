@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30040898_523c21f2",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-11-21T17:18:10Z",
+      "side": 1,
+      "message": "no requirement for wfd + nan concurrently",
+      "range": {
+        "startLine": 32,
+        "startChar": 42,
+        "endLine": 32,
+        "endChar": 57
+      },
+      "revId": "1c04a4cad1930e0731a6b55612b0b37afeb0e176",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
