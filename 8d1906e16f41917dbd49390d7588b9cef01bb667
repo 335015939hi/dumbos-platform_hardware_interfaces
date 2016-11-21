@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "9015b4c1_dcc384ef",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-21T18:58:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0248c49_b3c8380d",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 59
+      },
+      "revId": "8d1906e16f41917dbd49390d7588b9cef01bb667",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30040898_322ac5ed",
         "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
         "patchSetId": 14
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "They\u0027re defined in the same file:\nhttps://cs.corp.google.com/piper///depot/google3/base/logging.h\n\nLOG(FATAL) will produce a better warning message.",
       "parentUuid": "d0248c49_d3a2944a",
+      "range": {
+        "startLine": 277,
+        "startChar": 8,
+        "endLine": 277,
+        "endChar": 16
+      },
+      "revId": "8d1906e16f41917dbd49390d7588b9cef01bb667",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0f990d6_81424d79",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-21T18:58:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0b27010_3c3611a3",
       "range": {
         "startLine": 277,
         "startChar": 8,
