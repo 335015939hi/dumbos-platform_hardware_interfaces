@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30040898_5401ae69",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2016-11-21T18:15:42Z",
+      "side": 1,
+      "message": "style question: why the individual vars? could be done in one big struct. Is it to pre-parse effectively?",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 2
+      },
+      "revId": "5d26123efff15c30eb9ff4bb7ac8ac82bf2c6729",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
