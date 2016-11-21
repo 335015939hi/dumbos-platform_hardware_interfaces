@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "d0248c49_b3c8380d",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-21T18:52:44Z",
+      "side": 1,
+      "message": "nit: add a comment here saying that these are legacy constraints and that new implementations should ideally support \u0027arbitrary sized\u0027 items, perhaps",
+      "parentUuid": "d0248c49_135b2ca1",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 59
+      },
+      "revId": "8d1906e16f41917dbd49390d7588b9cef01bb667",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30040898_322ac5ed",
         "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
         "patchSetId": 14
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "Uhmm. I\u0027m using CHECK all over the codebase. Unless there is a reason to make these LOG(FATAL), i\u0027ll leave it as is.",
       "parentUuid": "30040898_322ac5ed",
+      "range": {
+        "startLine": 277,
+        "startChar": 8,
+        "endLine": 277,
+        "endChar": 16
+      },
+      "revId": "8d1906e16f41917dbd49390d7588b9cef01bb667",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0b27010_3c3611a3",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-21T18:52:44Z",
+      "side": 1,
+      "message": "They\u0027re defined in the same file:\nhttps://cs.corp.google.com/piper///depot/google3/base/logging.h\n\nLOG(FATAL) will produce a better warning message.",
+      "parentUuid": "d0248c49_d3a2944a",
       "range": {
         "startLine": 277,
         "startChar": 8,
