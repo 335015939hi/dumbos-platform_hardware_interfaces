@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d0248c49_b3b11897",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-21T18:49:30Z",
+      "side": 1,
+      "message": "why not?",
+      "range": {
+        "startLine": 42,
+        "startChar": 12,
+        "endLine": 43,
+        "endChar": 51
+      },
+      "revId": "b62613f1ddbf253fdfc4fa7652c08af0126609a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
