@@ -70,6 +70,30 @@
       "revId": "b62613f1ddbf253fdfc4fa7652c08af0126609a8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30040898_5d1c312d",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-21T21:34:07Z",
+      "side": 1,
+      "message": "But, why? None of these variable sized fields are needed or used. Prefer not to send pointers around unless we absolutely need to (like scan results because of it\u0027s size).\n\nThis shim layer is needed to extract only what is needed from the legacy HAL to be exposed in the HIDL interface. Going forward, these can be cleaned up by the vendors to remove the unnecessary fields altogether from their implementation.",
+      "parentUuid": "30040898_bdd32568",
+      "range": {
+        "startLine": 42,
+        "startChar": 12,
+        "endLine": 43,
+        "endChar": 51
+      },
+      "revId": "b62613f1ddbf253fdfc4fa7652c08af0126609a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
