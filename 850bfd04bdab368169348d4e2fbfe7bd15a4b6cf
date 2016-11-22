@@ -22,6 +22,30 @@
       "revId": "850bfd04bdab368169348d4e2fbfe7bd15a4b6cf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0248c49_6884e75d",
+        "filename": "tests/foo/1.0/default/Foo.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-22T23:45:53Z",
+      "side": 1,
+      "message": "I mean, I already took the time to spell it out :)\n\nI\u0027ll remove it if you really want me to",
+      "parentUuid": "d0248c49_e870f7fd",
+      "range": {
+        "startLine": 111,
+        "startChar": 8,
+        "endLine": 111,
+        "endChar": 20
+      },
+      "revId": "850bfd04bdab368169348d4e2fbfe7bd15a4b6cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
