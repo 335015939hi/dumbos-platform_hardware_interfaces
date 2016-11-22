@@ -46,6 +46,30 @@
       "revId": "850bfd04bdab368169348d4e2fbfe7bd15a4b6cf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0248c49_680b87d8",
+        "filename": "tests/foo/1.0/default/Foo.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000866
+      },
+      "writtenOn": "2016-11-22T23:59:45Z",
+      "side": 1,
+      "message": "It\u0027s fine.",
+      "parentUuid": "d0248c49_6884e75d",
+      "range": {
+        "startLine": 111,
+        "startChar": 8,
+        "endLine": 111,
+        "endChar": 20
+      },
+      "revId": "850bfd04bdab368169348d4e2fbfe7bd15a4b6cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
