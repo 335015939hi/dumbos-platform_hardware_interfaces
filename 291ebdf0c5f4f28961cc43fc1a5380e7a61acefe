@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d0248c49_c8965bd9",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-22T23:47:23Z",
+      "side": 1,
+      "message": "Done. \nThis is only used in getAvailableModes() HIDL method. So, moved all of these to that method implementation.",
+      "parentUuid": "30040898_7adee1ca",
+      "range": {
+        "startLine": 36,
+        "startChar": 17,
+        "endLine": 36,
+        "endChar": 42
+      },
+      "revId": "291ebdf0c5f4f28961cc43fc1a5380e7a61acefe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30040898_5a3fa5e8",
         "filename": "wifi/1.0/default/wifi_chip.cpp",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2016-11-22T23:25:53Z",
       "side": 1,
       "message": "Maybe DEBUG instead? I think we\u0027d only need to know this if we were trying to debug why a mode change didn\u0027t cause any activity in the vendor HAL.",
+      "range": {
+        "startLine": 344,
+        "startChar": 8,
+        "endLine": 344,
+        "endChar": 12
+      },
+      "revId": "291ebdf0c5f4f28961cc43fc1a5380e7a61acefe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0248c49_c8cdfbc4",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-22T23:47:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30040898_5a3fa5e8",
       "range": {
         "startLine": 344,
         "startChar": 8,
