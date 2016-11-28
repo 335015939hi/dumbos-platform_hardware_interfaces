@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6d56a716_48acffd4",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 1001,
+      "author": {
+        "id": 1061057
+      },
+      "writtenOn": "2016-11-28T10:08:50Z",
+      "side": 1,
+      "message": "Should WcdmaSignalStrength join the struct here too?",
+      "range": {
+        "startLine": 1001,
+        "startChar": 0,
+        "endLine": 1001,
+        "endChar": 23
+      },
+      "revId": "d52335cb6483f46c85ee2753f3936022b1d1cb54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
