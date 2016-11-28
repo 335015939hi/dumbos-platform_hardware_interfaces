@@ -22,6 +22,30 @@
       "revId": "d55bd5fe082ee44db7bb173a338a289774ba482b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2dfd8f27_d299c60c",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-28T23:32:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2dfd8f27_ec34e9f3",
+      "range": {
+        "startLine": 460,
+        "startChar": 0,
+        "endLine": 462,
+        "endChar": 53
+      },
+      "revId": "d55bd5fe082ee44db7bb173a338a289774ba482b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
