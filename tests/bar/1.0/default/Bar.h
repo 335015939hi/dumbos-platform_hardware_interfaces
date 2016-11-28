@@ -66,6 +66,9 @@ struct Bar : public IBar {
     Return<void> thisIsNew()  override;
     Return<void> expectNullHandle(const hidl_handle& h, const Abc& xyz, expectNullHandle_cb _hidl_cb)  override;
 
+    Return<void> haveAInterface(const sp<ISimple> &in,
+            haveAInterface_cb _hidl_cb) override;
+
 private:
     sp<IFoo> mFoo;
 };
