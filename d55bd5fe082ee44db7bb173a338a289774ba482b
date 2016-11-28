@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2dfd8f27_ec34e9f3",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-28T22:06:48Z",
+      "side": 1,
+      "message": "(Cont\u0027d from PS16)\n\nI think I didn\u0027t explain the motivation for the change very well. At present, line 481 has a comment about how it\u0027s ugly to be moving the data over from the locals to the external struct.\n\nI agree with that comment. And that\u0027s the motivation for the suggestion to eliminate these local variables.\n\nAs for the length of the statements, I think that can be addressed by using a shorter name for the stats variable. If we eliminate the two sets of variables, then \u0027_ext\u0027 is no longer needed. And really, since the function only deals with one type of stats object, we don\u0027t even need to have \u0027wake reason\u0027 in the variable name.\n\nHence, we could have\n\n   WakeReasonStats stats;\n   wlan_wake_reason_cnt.cmd_event_wake_cnt \u003d reinterpret_cast\u003cint32_t*\u003e(stats.cmd_event_wake_cnt.data());\n   ...\n\nOr we could have\n\n   WakeReasonStats all_wake_stats;\n   auto\u0026 command_wake_stats \u003d all_wake_stats.cmd_event_wake_cnt_vec;\n   auto\u0026 driver_fw_wake_stats \u003d all_wake_stats.driver_fw_local_wake_cnt_vec;\n   wlan_wake_reason_cnt.cmd_event_wake_cnt \u003d reinterpret_cast\u003cint32_t*\u003e(command_wake_stats.data());\n   ...\n\nBut I\u0027ll leave that to your judgment.",
+      "range": {
+        "startLine": 460,
+        "startChar": 0,
+        "endLine": 462,
+        "endChar": 53
+      },
+      "revId": "d55bd5fe082ee44db7bb173a338a289774ba482b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
