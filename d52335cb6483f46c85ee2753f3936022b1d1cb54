@@ -22,6 +22,30 @@
       "revId": "d52335cb6483f46c85ee2753f3936022b1d1cb54",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2dfd8f27_b9e188b8",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 1001,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-11-28T18:11:46Z",
+      "side": 1,
+      "message": "This would require change from vendor as it changes what a RIL command returns currently. For this release we are trying to convert RIL interface to HIDL without any change expected from vendor code. But its a good suggestion and we can do that for next release.",
+      "parentUuid": "6d56a716_48acffd4",
+      "range": {
+        "startLine": 1001,
+        "startChar": 0,
+        "endLine": 1001,
+        "endChar": 23
+      },
+      "revId": "d52335cb6483f46c85ee2753f3936022b1d1cb54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
