@@ -122,7 +122,6 @@ Return<void> Bar::haveAVectorOfInterfaces(
     return Void();
 }
 
-// TODO: remove after b/33173166 is fixed.
 struct Simple : public ISimple {
     Simple(int32_t cookie)
         : mCookie(cookie) {
@@ -130,6 +129,30 @@ struct Simple : public ISimple {
 
     Return<int32_t> getCookie() override {
         return mCookie;
+    }
+
+    Return<void> customVecInt(customVecInt_cb _cb) override {
+        _cb(hidl_vec<int32_t>());
+        return Void();
+    }
+
+    Return<void> customVecStr(customVecStr_cb _cb) override {
+        hidl_vec<hidl_string> vec;
+        vec.resize(2);
+        _cb(vec);
+        return Void();
+    }
+
+    Return<void> mystr(mystr_cb _cb) override {
+        _cb(hidl_string());
+        return Void();
+    }
+
+    Return<void> myhandle(myhandle_cb _cb) override {
+        auto h = native_handle_create(0, 1);
+        _cb(h);
+        native_handle_delete(h);
+        return Void();
     }
 
 private:
@@ -190,6 +213,13 @@ Return<void> Bar::takeAMask(BitField bf, uint8_t first, const MyMask& second, ui
     _hidl_cb(bf, bf | first, second.value & bf, (bf | bf) & third);
     return Void();
 }
+
+Return<void> Bar::haveAInterface(const sp<ISimple> &in,
+            haveAInterface_cb _hidl_cb) {
+    _hidl_cb(in);
+    return Void();
+}
+
 
 IBar* HIDL_FETCH_IBar(const char* /* name */) {
     return new Bar();
