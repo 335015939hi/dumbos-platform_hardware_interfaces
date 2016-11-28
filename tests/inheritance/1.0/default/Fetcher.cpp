@@ -3,6 +3,7 @@
 
 #include "Fetcher.h"
 #include <android-base/logging.h>
+#include <android/log.h>
 #include <inttypes.h>
 
 namespace android {
