@@ -159,6 +159,19 @@ Return<void> Bar::expectNullHandle(const hidl_handle& h, const Abc& xyz, expectN
     return Void();
 }
 
+Return<void> Bar::haveAGenericInterface(const sp<android::hardware::IBinder> &in,
+        haveAGenericInterface_cb _hidl_cb) {
+    _hidl_cb(in);
+    return Void();
+}
+
+Return<void> Bar::haveAInterface(const sp<ISimple> &in,
+            haveAInterface_cb _hidl_cb) {
+    _hidl_cb(in);
+    return Void();
+}
+
+
 IBar* HIDL_FETCH_IBar(const char* /* name */) {
     return new Bar();
 }
