@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package android.hardware.tests.foo@1.0;
+package android.hardware.tests.bar@1.0;
 
-interface ISimple {
-    getCookie() generates (int32_t cookie);
-    customChain() generates (vec<int32_t> chain);
+import android.hardware.tests.foo@1.0::ISimple;
+
+interface IComplicated extends ISimple {
 };
