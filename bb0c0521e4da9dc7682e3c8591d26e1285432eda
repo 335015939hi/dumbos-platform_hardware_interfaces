@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30288869_ba866bf9",
+        "filename": "tests/expression/1.0/IExpression.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2016-11-29T22:12:17Z",
+      "side": 1,
+      "message": "default is int32_t.\nThe test below assumes int32_t.",
+      "range": {
+        "startLine": 181,
+        "startChar": 19,
+        "endLine": 181,
+        "endChar": 27
+      },
+      "revId": "bb0c0521e4da9dc7682e3c8591d26e1285432eda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
