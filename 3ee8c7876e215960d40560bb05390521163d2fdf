@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "30288869_b0b855ae",
+        "filename": "tests/foo/1.0/default/Foo.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2016-11-29T05:19:49Z",
+      "side": 1,
+      "message": "It is mixed; line 28 uses this",
+      "parentUuid": "30288869_dbc897b7",
+      "range": {
+        "startLine": 6,
+        "startChar": 10,
+        "endLine": 6,
+        "endChar": 15
+      },
+      "revId": "3ee8c7876e215960d40560bb05390521163d2fdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30288869_7bda437c",
         "filename": "tests/pointer/1.0/default/Graph.cpp",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-11-29T02:20:31Z",
       "side": 1,
       "message": "also, all these log tags should be updated appropriately, no?",
+      "range": {
+        "startLine": 1,
+        "startChar": 17,
+        "endLine": 1,
+        "endChar": 26
+      },
+      "revId": "3ee8c7876e215960d40560bb05390521163d2fdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30288869_f0c2cd23",
+        "filename": "tests/pointer/1.0/default/Graph.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2016-11-29T05:19:49Z",
+      "side": 1,
+      "message": "it is good to use adb logcat *:S hidl_test:D for me...",
+      "parentUuid": "30288869_7bda437c",
       "range": {
         "startLine": 1,
         "startChar": 17,
