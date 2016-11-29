@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30288869_dbc897b7",
+        "filename": "tests/foo/1.0/default/Foo.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-29T02:20:31Z",
+      "side": 1,
+      "message": "?",
+      "range": {
+        "startLine": 6,
+        "startChar": 10,
+        "endLine": 6,
+        "endChar": 15
+      },
+      "revId": "3ee8c7876e215960d40560bb05390521163d2fdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30288869_7bda437c",
+        "filename": "tests/pointer/1.0/default/Graph.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-11-29T02:20:31Z",
+      "side": 1,
+      "message": "also, all these log tags should be updated appropriately, no?",
+      "range": {
+        "startLine": 1,
+        "startChar": 17,
+        "endLine": 1,
+        "endChar": 26
+      },
+      "revId": "3ee8c7876e215960d40560bb05390521163d2fdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
