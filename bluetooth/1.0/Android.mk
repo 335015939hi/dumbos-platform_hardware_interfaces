@@ -12,6 +12,10 @@ intermediates := $(local-generated-sources-dir)
 
 HIDL := $(HOST_OUT_EXECUTABLES)/hidl-gen$(HOST_EXECUTABLE_SUFFIX)
 
+LOCAL_JAVA_LIBRARIES := \
+    android.hidl.base@1.0-java \
+
+
 #
 # Build types.hal (Status)
 #
@@ -23,6 +27,7 @@ $(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
 $(GEN): PRIVATE_CUSTOM_TOOL = \
         $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
         -Ljava -randroid.hardware:hardware/interfaces \
+         -randroid.hidl:system/libhidl/transport \
         android.hardware.bluetooth@1.0::types.Status
 
 $(GEN): $(LOCAL_PATH)/types.hal
@@ -44,6 +49,7 @@ $(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
 $(GEN): PRIVATE_CUSTOM_TOOL = \
         $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
         -Ljava -randroid.hardware:hardware/interfaces \
+         -randroid.hidl:system/libhidl/transport \
         android.hardware.bluetooth@1.0::IBluetoothHci
 
 $(GEN): $(LOCAL_PATH)/IBluetoothHci.hal
@@ -63,6 +69,7 @@ $(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
 $(GEN): PRIVATE_CUSTOM_TOOL = \
         $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
         -Ljava -randroid.hardware:hardware/interfaces \
+         -randroid.hidl:system/libhidl/transport \
         android.hardware.bluetooth@1.0::IBluetoothHciCallbacks
 
 $(GEN): $(LOCAL_PATH)/IBluetoothHciCallbacks.hal
@@ -81,6 +88,10 @@ intermediates := $(local-generated-sources-dir)
 
 HIDL := $(HOST_OUT_EXECUTABLES)/hidl-gen$(HOST_EXECUTABLE_SUFFIX)
 
+LOCAL_STATIC_JAVA_LIBRARIES := \
+    android.hidl.base@1.0-java-static \
+
+
 #
 # Build types.hal (Status)
 #
@@ -92,6 +103,7 @@ $(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
 $(GEN): PRIVATE_CUSTOM_TOOL = \
         $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
         -Ljava -randroid.hardware:hardware/interfaces \
+         -randroid.hidl:system/libhidl/transport \
         android.hardware.bluetooth@1.0::types.Status
 
 $(GEN): $(LOCAL_PATH)/types.hal
@@ -113,6 +125,7 @@ $(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
 $(GEN): PRIVATE_CUSTOM_TOOL = \
         $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
         -Ljava -randroid.hardware:hardware/interfaces \
+         -randroid.hidl:system/libhidl/transport \
         android.hardware.bluetooth@1.0::IBluetoothHci
 
 $(GEN): $(LOCAL_PATH)/IBluetoothHci.hal
@@ -132,6 +145,7 @@ $(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
 $(GEN): PRIVATE_CUSTOM_TOOL = \
         $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
         -Ljava -randroid.hardware:hardware/interfaces \
+         -randroid.hidl:system/libhidl/transport \
         android.hardware.bluetooth@1.0::IBluetoothHciCallbacks
 
 $(GEN): $(LOCAL_PATH)/IBluetoothHciCallbacks.hal

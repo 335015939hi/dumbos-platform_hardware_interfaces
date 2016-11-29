@@ -12,6 +12,10 @@ intermediates := $(local-generated-sources-dir)
 
 HIDL := $(HOST_OUT_EXECUTABLES)/hidl-gen$(HOST_EXECUTABLE_SUFFIX)
 
+LOCAL_JAVA_LIBRARIES := \
+    android.hidl.base@1.0-java \
+
+
 #
 # Build IChild.hal
 #
@@ -25,6 +29,7 @@ $(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
 $(GEN): PRIVATE_CUSTOM_TOOL = \
         $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
         -Ljava -randroid.hardware:hardware/interfaces \
+         -randroid.hidl:system/libhidl/transport \
         android.hardware.tests.inheritance@1.0::IChild
 
 $(GEN): $(LOCAL_PATH)/IChild.hal
@@ -48,6 +53,7 @@ $(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
 $(GEN): PRIVATE_CUSTOM_TOOL = \
         $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
         -Ljava -randroid.hardware:hardware/interfaces \
+         -randroid.hidl:system/libhidl/transport \
         android.hardware.tests.inheritance@1.0::IFetcher
 
 $(GEN): $(LOCAL_PATH)/IFetcher.hal
@@ -65,6 +71,7 @@ $(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
 $(GEN): PRIVATE_CUSTOM_TOOL = \
         $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
         -Ljava -randroid.hardware:hardware/interfaces \
+         -randroid.hidl:system/libhidl/transport \
         android.hardware.tests.inheritance@1.0::IGrandparent
 
 $(GEN): $(LOCAL_PATH)/IGrandparent.hal
@@ -84,6 +91,7 @@ $(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
 $(GEN): PRIVATE_CUSTOM_TOOL = \
         $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
         -Ljava -randroid.hardware:hardware/interfaces \
+         -randroid.hidl:system/libhidl/transport \
         android.hardware.tests.inheritance@1.0::IParent
 
 $(GEN): $(LOCAL_PATH)/IParent.hal
@@ -102,6 +110,10 @@ intermediates := $(local-generated-sources-dir)
 
 HIDL := $(HOST_OUT_EXECUTABLES)/hidl-gen$(HOST_EXECUTABLE_SUFFIX)
 
+LOCAL_STATIC_JAVA_LIBRARIES := \
+    android.hidl.base@1.0-java-static \
+
+
 #
 # Build IChild.hal
 #
@@ -115,6 +127,7 @@ $(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
 $(GEN): PRIVATE_CUSTOM_TOOL = \
         $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
         -Ljava -randroid.hardware:hardware/interfaces \
+         -randroid.hidl:system/libhidl/transport \
         android.hardware.tests.inheritance@1.0::IChild
 
 $(GEN): $(LOCAL_PATH)/IChild.hal
@@ -138,6 +151,7 @@ $(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
 $(GEN): PRIVATE_CUSTOM_TOOL = \
         $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
         -Ljava -randroid.hardware:hardware/interfaces \
+         -randroid.hidl:system/libhidl/transport \
         android.hardware.tests.inheritance@1.0::IFetcher
 
 $(GEN): $(LOCAL_PATH)/IFetcher.hal
@@ -155,6 +169,7 @@ $(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
 $(GEN): PRIVATE_CUSTOM_TOOL = \
         $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
         -Ljava -randroid.hardware:hardware/interfaces \
+         -randroid.hidl:system/libhidl/transport \
         android.hardware.tests.inheritance@1.0::IGrandparent
 
 $(GEN): $(LOCAL_PATH)/IGrandparent.hal
@@ -174,6 +189,7 @@ $(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
 $(GEN): PRIVATE_CUSTOM_TOOL = \
         $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
         -Ljava -randroid.hardware:hardware/interfaces \
+         -randroid.hidl:system/libhidl/transport \
         android.hardware.tests.inheritance@1.0::IParent
 
 $(GEN): $(LOCAL_PATH)/IParent.hal
