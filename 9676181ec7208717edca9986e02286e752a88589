@@ -1,0 +1,875 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30288869_55dd5671",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-29T01:18:20Z",
+      "side": 1,
+      "message": "Prefer |hidl_params|, to make the arguments mirror the function name.",
+      "range": {
+        "startLine": 29,
+        "startChar": 39,
+        "endLine": 29,
+        "endChar": 45
+      },
+      "revId": "9676181ec7208717edca9986e02286e752a88589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30288869_f5cd62c4",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-29T01:18:20Z",
+      "side": 1,
+      "message": "As in header file, prefer \"legacy\", as that fits with the existing terminology. (These functions are concerned with converting between hidl and legacy.)",
+      "range": {
+        "startLine": 30,
+        "startChar": 38,
+        "endLine": 30,
+        "endChar": 46
+      },
+      "revId": "9676181ec7208717edca9986e02286e752a88589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0248c49_48648bf6",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-29T01:18:20Z",
+      "side": 1,
+      "message": "Please file a bug, so that we don\u0027t forget. Or, if there\u0027s an existing bug, please reference that bug here.",
+      "revId": "9676181ec7208717edca9986e02286e752a88589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30288869_75da527c",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-29T01:18:20Z",
+      "side": 1,
+      "message": "Similarly to line 29, prefer |hidl_bucket_spec|.",
+      "range": {
+        "startLine": 47,
+        "startChar": 45,
+        "endLine": 47,
+        "endChar": 56
+      },
+      "revId": "9676181ec7208717edca9986e02286e752a88589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30288869_f5a482ec",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-29T01:18:20Z",
+      "side": 1,
+      "message": "Similarly to line 30, prefer |legacy_bucket_spec|.",
+      "range": {
+        "startLine": 49,
+        "startChar": 39,
+        "endLine": 49,
+        "endChar": 59
+      },
+      "revId": "9676181ec7208717edca9986e02286e752a88589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30288869_15a03e85",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-29T01:18:20Z",
+      "side": 1,
+      "message": "Consider instead:\n\n(top-level)\n  uint8_t ConvertHidlReportEventFlagToLegacyReportEventFlag(StaBackgroundScanBucketEventReportSchemeMask hidl_flag) {\n      using HidlFlag \u003d StaBackgroundScanBucketEventReportSchemeMask;\n      switch (hidl_flag) {\n          case HidlFlag::EACH_SCAN:\n              return REPORT_EVENTS_EACH_SCAN;\n          // ...\n      };\n  }\n\n(at line 59)\n  using HidlFlag \u003d StaBackgroundScanBucketEventReportSchemeMask;\n  for (const auto flag : {HidlFlag::EACH_SCAN, ...}) {\n      if (hidl_bucket_spec.eventReportScheme \u0026 static_cast\u003cstd::underlying_type\u003cHidlFlag\u003e::type\u003e(flag)) {\n          legacy_bucket_spec.report_events |\u003d\n               ConvertHidlReportEventFlagToLegacyReportEventFlag(flag);\n      }\n  }\n\nAdvantages of this structuring:\n1) using a loop makes it obvious that there\u0027s a common behavior across values\n2) using underlying_type makes it clear that the cast is safe\n3) moving the mapping to a separate function makes it easier to review the mapping\n4) using a switch for the mapping enables the compiler to check that we\u0027ve covered all the cases (all the values in the enum)",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 5
+      },
+      "revId": "9676181ec7208717edca9986e02286e752a88589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0248c49_28710f8a",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-29T01:18:20Z",
+      "side": 1,
+      "message": "As at line 40.",
+      "revId": "9676181ec7208717edca9986e02286e752a88589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30288869_60860ea6",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-29T01:18:20Z",
+      "side": 1,
+      "message": "Recommend removing this alias, since the alias is only used once. Hence, the cost of naming the alias is higher than the value of making line 83 shorter.\n\nHowever, if you keep this alias, prefer |legacy_channel_spec|.",
+      "revId": "9676181ec7208717edca9986e02286e752a88589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0248c49_e8dd5731",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-29T01:18:20Z",
+      "side": 1,
+      "message": "What about the other two fields (|dwellTimeMs| and |passive|)?",
+      "revId": "9676181ec7208717edca9986e02286e752a88589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0248c49_c8dc1b34",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-29T01:18:20Z",
+      "side": 1,
+      "message": "Should |ie_blob| be a reference, instead?",
+      "range": {
+        "startLine": 93,
+        "startChar": 6,
+        "endLine": 93,
+        "endChar": 14
+      },
+      "revId": "9676181ec7208717edca9986e02286e752a88589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0248c49_bc74803e",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-29T01:18:20Z",
+      "side": 1,
+      "message": "Consider instead:\n\n  const uint8_t* ies_begin \u003d ie_blob;\n  const uint8_t* ies_end \u003d ie_blob + ie_blob_len;\n  const uint8_t* next_ie \u003d ies_begin;\n\nBorrowing the STL terminology would make the code more familar, to someone new to the codebase.",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 32
+      },
+      "revId": "9676181ec7208717edca9986e02286e752a88589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0248c49_7c5d8833",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-29T01:18:20Z",
+      "side": 1,
+      "message": "Consider adding a couple lines before the loop, to make the body less verbose:\n\n  using wifi_ie \u003d legacy_hal::wifi_information_element;\n  constexpr size_t kIeHeaderLen \u003d sizeof(wifi_ie);",
+      "revId": "9676181ec7208717edca9986e02286e752a88589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0248c49_3c04f07a",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-29T01:18:20Z",
+      "side": 1,
+      "message": "Should this be less-than-or-equal? Consider an ie_blob with exactly one information element. Suppose that IE has id\u003d1, len\u003d0, and that ie_blob_len\u003d2. I believe this code will skip that IE.\n\n(On the other hand, if the requirement is that the length is non-zero, I believe the comment is misleading.)",
+      "range": {
+        "startLine": 100,
+        "startChar": 73,
+        "endLine": 100,
+        "endChar": 74
+      },
+      "revId": "9676181ec7208717edca9986e02286e752a88589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0248c49_9c62e42c",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-29T01:18:20Z",
+      "side": 1,
+      "message": "1) Consider moving to ine 112.\n\n  \"We encourage you to declare [local variables] in as local a scope as possible, and as close to the first use as possible.\"\n\nhttps://google.github.io/styleguide/cppguide.html#Local_Variables\n\n2) Isn\u0027t ie_element redundant? Seems like the name should be hidl_ie.",
+      "revId": "9676181ec7208717edca9986e02286e752a88589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0248c49_9c53c42f",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-29T01:18:20Z",
+      "side": 1,
+      "message": "1) Consider reference instead. (It\u0027ll make the code below slightly tighter, with dot instead of arrow.)\n\n2) Should the name be legacy_ie, rather than ie_element?",
+      "range": {
+        "startLine": 103,
+        "startChar": 46,
+        "endLine": 103,
+        "endChar": 47
+      },
+      "revId": "9676181ec7208717edca9986e02286e752a88589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0248c49_bc50004f",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-29T01:18:20Z",
+      "side": 1,
+      "message": "Consider deleting blank line. (The declarations at 103 and 107 are pretty closely related. Not sure why we\u0027d want to break them up.)",
+      "revId": "9676181ec7208717edca9986e02286e752a88589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30288869_a041e65b",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-29T01:18:20Z",
+      "side": 1,
+      "message": "Similar to above, should be curr_ie_len?",
+      "range": {
+        "startLine": 107,
+        "startChar": 13,
+        "endLine": 107,
+        "endChar": 29
+      },
+      "revId": "9676181ec7208717edca9986e02286e752a88589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30288869_0078faa0",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-29T01:18:20Z",
+      "side": 1,
+      "message": "I believe this makes the interface of convertLegacyIeBlobToHidl() rather complicated. In particular, I think this requires the caller to ensure that |hidl_ie_elements| does not outlive |ie_blob|. And I don\u0027t see that requirement document in the docstring for this function.\n\nHow critical is to avoid this copy?",
+      "range": {
+        "startLine": 113,
+        "startChar": 25,
+        "endLine": 113,
+        "endChar": 38
+      },
+      "revId": "9676181ec7208717edca9986e02286e752a88589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0248c49_bc9fa09e",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-29T01:18:20Z",
+      "side": 1,
+      "message": "No const_cast, please.",
+      "range": {
+        "startLine": 114,
+        "startChar": 8,
+        "endLine": 114,
+        "endChar": 28
+      },
+      "revId": "9676181ec7208717edca9986e02286e752a88589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0248c49_7cf268ba",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-29T01:18:20Z",
+      "side": 1,
+      "message": "I\u0027m not sure that emplace_back() makes sense here. AIUI, the point of emplace_back is to avoid creation of a temporary, by forwarding the parameters to the element\u0027s ctor.\n\nSo the idiomatic use of emplace_back would be something like\n\n  hidl_ie_elements-\u003eemplace_back(id, ie_element-\u003edata, ie_element-\u003elen);\n\nThat\u0027s assuming that WifiInformationElement had a ctor with the appropriate arguments. But WIE does not have such a ctor. \n\nSo, instead, we use emplace_back to call the copy ctor. That works, but I don\u0027t believe it\u0027s any more efficient than push_back.",
+      "range": {
+        "startLine": 117,
+        "startChar": 22,
+        "endLine": 117,
+        "endChar": 34
+      },
+      "revId": "9676181ec7208717edca9986e02286e752a88589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30288869_e0891e7a",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-29T01:18:20Z",
+      "side": 1,
+      "message": "Prefer legacy_scan_result",
+      "range": {
+        "startLine": 124,
+        "startChar": 71,
+        "endLine": 124,
+        "endChar": 77
+      },
+      "revId": "9676181ec7208717edca9986e02286e752a88589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30288869_f5400255",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-29T01:18:20Z",
+      "side": 1,
+      "message": "Should |result| be a const-ref, instead?",
+      "range": {
+        "startLine": 127,
+        "startChar": 6,
+        "endLine": 127,
+        "endChar": 13
+      },
+      "revId": "9676181ec7208717edca9986e02286e752a88589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30288869_4081124c",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-29T01:18:20Z",
+      "side": 1,
+      "message": "Same concern as at line 113.",
+      "range": {
+        "startLine": 131,
+        "startChar": 25,
+        "endLine": 131,
+        "endChar": 38
+      },
+      "revId": "9676181ec7208717edca9986e02286e752a88589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0248c49_fcabd86d",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-29T01:18:20Z",
+      "side": 1,
+      "message": "No const_cast, please.",
+      "range": {
+        "startLine": 132,
+        "startChar": 6,
+        "endLine": 132,
+        "endChar": 16
+      },
+      "revId": "9676181ec7208717edca9986e02286e752a88589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0248c49_3f6702fe",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-29T01:18:20Z",
+      "side": 1,
+      "message": "Consider memcpy(), instead.",
+      "revId": "9676181ec7208717edca9986e02286e752a88589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0248c49_5f867efc",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-29T01:18:20Z",
+      "side": 1,
+      "message": "Not sure this comment adds anything. At least to me, it\u0027s not surprising that we leave the IE vector empty in this case. Hence, no need for a comment.",
+      "revId": "9676181ec7208717edca9986e02286e752a88589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0248c49_9f7c1625",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-29T01:18:20Z",
+      "side": 1,
+      "message": "Any reason not to pass this as an arg to convertLegacyIeBlobToHidl()?",
+      "range": {
+        "startLine": 151,
+        "startChar": 4,
+        "endLine": 151,
+        "endChar": 41
+      },
+      "revId": "9676181ec7208717edca9986e02286e752a88589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30288869_80b14a2b",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-29T01:18:20Z",
+      "side": 1,
+      "message": "Prefer legacy_cached_result",
+      "range": {
+        "startLine": 157,
+        "startChar": 48,
+        "endLine": 157,
+        "endChar": 61
+      },
+      "revId": "9676181ec7208717edca9986e02286e752a88589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0248c49_bf3d5224",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-29T01:18:20Z",
+      "side": 1,
+      "message": "We should be more careful here. If the legacy HAL returns a negative number, then we\u0027re gonna read way past the end of the buffer. Same if cached_results.num_results is \u003eMAX_AP_CACHE_PER_SCAN",
+      "range": {
+        "startLine": 167,
+        "startChar": 20,
+        "endLine": 167,
+        "endChar": 41
+      },
+      "revId": "9676181ec7208717edca9986e02286e752a88589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0248c49_3fd862da",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-29T01:18:20Z",
+      "side": 1,
+      "message": "Similar to the comment at line 117: I\u0027m not sure if this is the intended use of emplace_back.",
+      "range": {
+        "startLine": 174,
+        "startChar": 22,
+        "endLine": 174,
+        "endChar": 34
+      },
+      "revId": "9676181ec7208717edca9986e02286e752a88589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0248c49_dfb12e96",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-29T01:18:20Z",
+      "side": 1,
+      "message": "Similar to the comment at line 151: any reason not to operate on |hidl_scan_data-\u003eresults| directly? (i.e., why have |hidl_scan_results| in the first place?)",
+      "revId": "9676181ec7208717edca9986e02286e752a88589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0248c49_1f76c6f7",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-29T01:18:20Z",
+      "side": 1,
+      "message": "Same as at line 174.",
+      "range": {
+        "startLine": 191,
+        "startChar": 21,
+        "endLine": 191,
+        "endChar": 33
+      },
+      "revId": "9676181ec7208717edca9986e02286e752a88589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0248c49_5f83de93",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-29T01:18:20Z",
+      "side": 1,
+      "message": "Same concern as at line 113.",
+      "range": {
+        "startLine": 241,
+        "startChar": 39,
+        "endLine": 241,
+        "endChar": 52
+      },
+      "revId": "9676181ec7208717edca9986e02286e752a88589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0248c49_1f47a66e",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-29T01:18:20Z",
+      "side": 1,
+      "message": "No const cast, please.",
+      "range": {
+        "startLine": 242,
+        "startChar": 6,
+        "endLine": 242,
+        "endChar": 16
+      },
+      "revId": "9676181ec7208717edca9986e02286e752a88589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0248c49_3f6f0217",
+        "filename": "wifi/1.0/default/hidl_struct_util.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-29T01:18:20Z",
+      "side": 1,
+      "message": "Are all of the functions meant to be used from outside the file? Or would some of them make more sense as anonymous-namespace functions in the implementation file?",
+      "revId": "9676181ec7208717edca9986e02286e752a88589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0248c49_c8a41bed",
+        "filename": "wifi/1.0/default/hidl_struct_util.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-29T01:18:20Z",
+      "side": 1,
+      "message": "Consider |legacy| instead. (Better to stick with one concept.)",
+      "range": {
+        "startLine": 40,
+        "startChar": 38,
+        "endLine": 40,
+        "endChar": 46
+      },
+      "revId": "9676181ec7208717edca9986e02286e752a88589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0248c49_8862a32c",
+        "filename": "wifi/1.0/default/hidl_struct_util.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-29T01:18:20Z",
+      "side": 1,
+      "message": "IIRC, the question isn\u0027t whether or not the data should be parsed. The question is whether or not the data is present at all. But that is not clear from the comment as written.\n\n\"The scan result contains...\" suggests that the data in |result| _will_ always contain IE data. (I think what the sentence is referring to is the fact that the struct has such a field. But that\u0027s subtle.)\n\nConsider rephrasing:\n\n  // |has_ie_data| indicates whether or not the wifi_scan_result includes 802.11 Information Elements (IEs)",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 53
+      },
+      "revId": "9676181ec7208717edca9986e02286e752a88589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0248c49_883f03e8",
+        "filename": "wifi/1.0/default/hidl_struct_util.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-29T01:18:20Z",
+      "side": 1,
+      "message": "Style guide recommends ordering all input parameters before any output parameters. I think that means |has_ie_data| should be the middle parameter. https://google.github.io/styleguide/cppguide.html#Function_Parameter_Ordering",
+      "range": {
+        "startLine": 51,
+        "startChar": 35,
+        "endLine": 53,
+        "endChar": 51
+      },
+      "revId": "9676181ec7208717edca9986e02286e752a88589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0248c49_882ce3aa",
+        "filename": "wifi/1.0/default/hidl_struct_util.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-29T01:18:20Z",
+      "side": 1,
+      "message": "1) What the passed in vector contains is really under the control of the caller. I think what we want to say here is something like\n\n  |cached_results| is assumed to not include IEs\nor\n  Any IEs present in |cached_results| are ignored.\n\n2) The implementation detail (second sentence) is unnecessary. All it\u0027s doing is reassuring the caller that the implementation isn\u0027t buggy. But we shouldn\u0027t have to comment every function that isn\u0027t buggy. :-)",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 57
+      },
+      "revId": "9676181ec7208717edca9986e02286e752a88589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0248c49_e868f7d4",
+        "filename": "wifi/1.0/default/hidl_struct_util.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-29T01:18:20Z",
+      "side": 1,
+      "message": "Consider omitting \"VectorOf\". The fact that we have multiple is evident from the remainder of the name. (\"CachedScanResults\").",
+      "range": {
+        "startLine": 59,
+        "startChar": 18,
+        "endLine": 59,
+        "endChar": 26
+      },
+      "revId": "9676181ec7208717edca9986e02286e752a88589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0248c49_0847736e",
+        "filename": "wifi/1.0/default/hidl_struct_util.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-29T01:18:20Z",
+      "side": 1,
+      "message": "not sure this comment adds anything. the purpose of the function seems pretty clear from the function name, and the parameter types.",
+      "revId": "9676181ec7208717edca9986e02286e752a88589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
