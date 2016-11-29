@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "30288869_d5c306ef",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-29T18:23:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2dfd8f27_12e3ae1a",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 13
+      },
+      "revId": "3886ee2856b4ed17784c601c18a13e5c2a2314cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "702a0062_97918e36",
         "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
         "patchSetId": 4
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "30288869_f5f48266",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-29T18:23:53Z",
+      "side": 1,
+      "message": "hmm. I could add a variable to check that. But, all the function pointers will be null if it\u0027s not initialized. So, we would have an instant failure.",
+      "parentUuid": "702a0062_97918e36",
+      "range": {
+        "startLine": 258,
+        "startChar": 32,
+        "endLine": 258,
+        "endChar": 47
+      },
+      "revId": "3886ee2856b4ed17784c601c18a13e5c2a2314cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2dfd8f27_12372ea1",
         "filename": "wifi/1.0/default/wifi_legacy_hal.h",
         "patchSetId": 4
@@ -59,6 +107,30 @@
       "writtenOn": "2016-11-29T00:00:50Z",
       "side": 1,
       "message": "Any reason this can\u0027t be an inline member? i.e.\n\n  wifi_system::InterfaceTool iface_tool_;",
+      "range": {
+        "startLine": 252,
+        "startChar": 2,
+        "endLine": 252,
+        "endChar": 17
+      },
+      "revId": "3886ee2856b4ed17784c601c18a13e5c2a2314cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30288869_3520da0c",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-29T18:23:53Z",
+      "side": 1,
+      "message": "Yeah. u\u0027re right. Not gaining anything by making it a pointer.",
+      "parentUuid": "2dfd8f27_12372ea1",
       "range": {
         "startLine": 252,
         "startChar": 2,
