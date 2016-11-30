@@ -43,3 +43,19 @@ LOCAL_SHARED_LIBRARIES := \
 LOCAL_WHOLE_STATIC_LIBRARIES := $(LIB_WIFI_HAL)
 LOCAL_INIT_RC := android.hardware.wifi@1.0-service.rc
 include $(BUILD_EXECUTABLE)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := wifi_firmware_reload_chown_helper
+LOCAL_MODULE_RELATIVE_PATH := hw
+LOCAL_CPPFLAGS := -std=c++11 -Wall -Wno-unused-parameter -Werror -Wextra
+LOCAL_SRC_FILES := \
+    wifi_firmware_reload_chown_helper.cpp
+LOCAL_SHARED_LIBRARIES := \
+    libbase \
+    libcutils \
+    liblog \
+    libnl \
+    libutils \
+    libwifi-hal
+LOCAL_WHOLE_STATIC_LIBRARIES := $(LIB_WIFI_HAL)
+include $(BUILD_EXECUTABLE)
