@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "30288869_e543d7b0",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-30T18:31:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30288869_ee1f4176",
+      "range": {
+        "startLine": 96,
+        "startChar": 31,
+        "endLine": 96,
+        "endChar": 44
+      },
+      "revId": "fc6be72946cb185cc4636b449c8d920463e2c30a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30288869_eef821ce",
         "filename": "wifi/1.0/default/hidl_struct_util.cpp",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2016-11-30T01:32:28Z",
       "side": 1,
       "message": "Consider the following instead. (I think they\u0027re equivalent... an array decays to a pointer in this context, no?)\n\n   legacy_ie.data, legacy_ie.data + legacy_ie.len",
+      "range": {
+        "startLine": 116,
+        "startChar": 33,
+        "endLine": 117,
+        "endChar": 67
+      },
+      "revId": "fc6be72946cb185cc4636b449c8d920463e2c30a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30288869_85db03d8",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-30T18:31:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30288869_eef821ce",
       "range": {
         "startLine": 116,
         "startChar": 33,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "30288869_85586375",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-30T18:31:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30288869_ee11013c",
+      "revId": "fc6be72946cb185cc4636b449c8d920463e2c30a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30288869_eeaae1b9",
         "filename": "wifi/1.0/default/hidl_struct_util.cpp",
         "patchSetId": 5
@@ -76,6 +142,30 @@
       "writtenOn": "2016-11-30T01:32:28Z",
       "side": 1,
       "message": "Maybe std::move() here?",
+      "range": {
+        "startLine": 119,
+        "startChar": 24,
+        "endLine": 119,
+        "endChar": 31
+      },
+      "revId": "fc6be72946cb185cc4636b449c8d920463e2c30a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30288869_c5d5fba1",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-30T18:31:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30288869_eeaae1b9",
       "range": {
         "startLine": 119,
         "startChar": 24,
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "30288869_65652735",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-30T18:31:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30288869_ce5285f8",
+      "range": {
+        "startLine": 135,
+        "startChar": 6,
+        "endLine": 136,
+        "endChar": 67
+      },
+      "revId": "fc6be72946cb185cc4636b449c8d920463e2c30a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30288869_6e6431c9",
         "filename": "wifi/1.0/default/hidl_struct_util.cpp",
         "patchSetId": 5
@@ -122,6 +236,24 @@
       "writtenOn": "2016-11-30T01:32:28Z",
       "side": 1,
       "message": "Similar suggestion as at line 119.",
+      "revId": "fc6be72946cb185cc4636b449c8d920463e2c30a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30288869_257b2fe1",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-11-30T18:31:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30288869_6e6431c9",
       "revId": "fc6be72946cb185cc4636b449c8d920463e2c30a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
