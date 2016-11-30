@@ -1,0 +1,130 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30288869_ee1f4176",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-30T01:32:28Z",
+      "side": 1,
+      "message": "Sorry, what I had in mind was |const uint8_t\u0026 ie_blob|. But, you\u0027re right -- using a reference in that way is confusing.\n\nConsider going back to what you had, since the array syntax doesn\u0027t actually prevent passing in nullptr.",
+      "range": {
+        "startLine": 96,
+        "startChar": 31,
+        "endLine": 96,
+        "endChar": 44
+      },
+      "revId": "fc6be72946cb185cc4636b449c8d920463e2c30a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30288869_eef821ce",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-30T01:32:28Z",
+      "side": 1,
+      "message": "Consider the following instead. (I think they\u0027re equivalent... an array decays to a pointer in this context, no?)\n\n   legacy_ie.data, legacy_ie.data + legacy_ie.len",
+      "range": {
+        "startLine": 116,
+        "startChar": 33,
+        "endLine": 117,
+        "endChar": 67
+      },
+      "revId": "fc6be72946cb185cc4636b449c8d920463e2c30a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30288869_ee11013c",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-30T01:32:28Z",
+      "side": 1,
+      "message": "Consider collapsing these two lines:\n\n  hidl_ie.data \u003d std::vector\u003cuint8_t\u003e(...);",
+      "revId": "fc6be72946cb185cc4636b449c8d920463e2c30a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30288869_eeaae1b9",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-30T01:32:28Z",
+      "side": 1,
+      "message": "Maybe std::move() here?",
+      "range": {
+        "startLine": 119,
+        "startChar": 24,
+        "endLine": 119,
+        "endChar": 31
+      },
+      "revId": "fc6be72946cb185cc4636b449c8d920463e2c30a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30288869_ce5285f8",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-30T01:32:28Z",
+      "side": 1,
+      "message": "Similar suggestion as at line 117.",
+      "range": {
+        "startLine": 135,
+        "startChar": 6,
+        "endLine": 136,
+        "endChar": 67
+      },
+      "revId": "fc6be72946cb185cc4636b449c8d920463e2c30a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30288869_6e6431c9",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-30T01:32:28Z",
+      "side": 1,
+      "message": "Similar suggestion as at line 119.",
+      "revId": "fc6be72946cb185cc4636b449c8d920463e2c30a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
