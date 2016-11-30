@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "30288869_a3e72262",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-11-30T00:51:44Z",
+      "side": 1,
+      "message": "Sure. But a log message is easier to read than a core dump. :-)",
+      "parentUuid": "30288869_f5f48266",
+      "range": {
+        "startLine": 258,
+        "startChar": 32,
+        "endLine": 258,
+        "endChar": 47
+      },
+      "revId": "3886ee2856b4ed17784c601c18a13e5c2a2314cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2dfd8f27_12372ea1",
         "filename": "wifi/1.0/default/wifi_legacy_hal.h",
         "patchSetId": 4
