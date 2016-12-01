@@ -251,6 +251,422 @@ bool convertLegacyLinkLayerStatsToHidl(
   hidl_stats->timeStampInMs = uptimeMillis();
   return true;
 }
+
+bool convertHidlNanEnableRequestToLegacy(
+    const NanEnableRequest& hidl_request,
+    legacy_hal::NanEnableRequest* legacy_request) {
+  if (!legacy_request) {
+    return false;
+  }
+  legacy_request->master_pref = hidl_request.masterPref;
+  legacy_request->cluster_low = hidl_request.clusterLow;
+  legacy_request->cluster_high = hidl_request.clusterHigh;
+  legacy_request->config_support_5g = hidl_request.validSupport5gVal;
+  legacy_request->support_5g_val = hidl_request.support5gVal;
+  legacy_request->config_sid_beacon = hidl_request.validSidBeaconVal;
+  legacy_request->sid_beacon_val = hidl_request.sidBeaconVal;
+  legacy_request->config_2dot4g_rssi_close =
+      hidl_request.valid2dot4gRssiCloseVal;
+  legacy_request->rssi_close_2dot4g_val = hidl_request.rssiClose2dot4gVal;
+  legacy_request->config_2dot4g_rssi_middle =
+      hidl_request.valid2dot4gRssiMiddleVal;
+  legacy_request->rssi_middle_2dot4g_val = hidl_request.rssiMiddle2dot4gVal;
+  legacy_request->config_2dot4g_rssi_proximity =
+      hidl_request.valid2dot4gRssiProximityVal;
+  legacy_request->rssi_proximity_2dot4g_val =
+      hidl_request.rssiProximity2dot4gVal;
+  legacy_request->config_hop_count_limit = hidl_request.validHopCountLimitVal;
+  legacy_request->hop_count_limit_val = hidl_request.hopCountLimitVal;
+  legacy_request->config_2dot4g_support = hidl_request.valid2dot4gSupportVal;
+  legacy_request->support_2dot4g_val = hidl_request.support2dot4gVal;
+  legacy_request->config_2dot4g_beacons = hidl_request.valid2dot4gBeaconsVal;
+  legacy_request->beacon_2dot4g_val = hidl_request.beacon2dot4gVal;
+  legacy_request->config_2dot4g_sdf = hidl_request.valid2dot4gSdfVal;
+  legacy_request->sdf_2dot4g_val = hidl_request.sdf2dot4gVal;
+  legacy_request->config_5g_beacons = hidl_request.valid5gBeaconsVal;
+  legacy_request->beacon_5g_val = hidl_request.beacon5gVal;
+  legacy_request->config_5g_sdf = hidl_request.valid5gSdfVal;
+  legacy_request->sdf_5g_val = hidl_request.sdf5gVal;
+  legacy_request->config_5g_rssi_close = hidl_request.valid5gRssiCloseVal;
+  legacy_request->rssi_close_5g_val = hidl_request.rssiClose5gVal;
+  legacy_request->config_5g_rssi_middle = hidl_request.valid5gRssiMiddleVal;
+  legacy_request->rssi_middle_5g_val = hidl_request.rssiMiddle5gVal;
+  legacy_request->config_5g_rssi_close_proximity =
+      hidl_request.valid5gRssiCloseProximityVal;
+  legacy_request->rssi_close_proximity_5g_val =
+      hidl_request.rssiCloseProximity5gVal;
+  legacy_request->config_rssi_window_size = hidl_request.validRssiWindowSizeVal;
+  legacy_request->rssi_window_size_val = hidl_request.rssiWindowSizeVal;
+  legacy_request->config_oui = hidl_request.validOuiVal;
+  legacy_request->oui_val = hidl_request.ouiVal;
+  legacy_request->config_intf_addr = hidl_request.validIntfAddrVal;
+  memcpy(legacy_request->intf_addr_val,
+         hidl_request.intfAddrVal.data(),
+         hidl_request.intfAddrVal.size());
+  legacy_request->config_cluster_attribute_val =
+      hidl_request.configClusterAttributeVal;
+  legacy_request->config_scan_params = hidl_request.validScanParamsVal;
+  CHECK(hidl_request.scanParamsVal.dwellTime.size() <=
+        sizeof(legacy_request->scan_params_val.dwell_time));
+  memcpy(legacy_request->scan_params_val.dwell_time,
+         hidl_request.scanParamsVal.dwellTime.data(),
+         hidl_request.scanParamsVal.dwellTime.size());
+  CHECK(hidl_request.scanParamsVal.scanPeriod.size() <=
+        sizeof(legacy_request->scan_params_val.scan_period));
+  memcpy(legacy_request->scan_params_val.scan_period,
+         hidl_request.scanParamsVal.scanPeriod.data(),
+         hidl_request.scanParamsVal.scanPeriod.size());
+  legacy_request->config_random_factor_force =
+      hidl_request.validRandomFactorForceVal;
+  legacy_request->random_factor_force_val = hidl_request.randomFactorForceVal;
+  legacy_request->config_hop_count_force = hidl_request.validHopCountLimitVal;
+  legacy_request->hop_count_force_val = hidl_request.hopCountLimitVal;
+  legacy_request->config_24g_channel = hidl_request.valid24gChannelVal;
+  legacy_request->channel_24g_val = hidl_request.channel24gVal;
+  legacy_request->config_5g_channel = hidl_request.valid5gChannelVal;
+  legacy_request->channel_5g_val = hidl_request.channel5gVal;
+  return true;
+}
+
+bool convertHidlNanPublishRequestToLegacy(
+    const NanPublishRequest& hidl_request,
+    legacy_hal::NanPublishRequest* legacy_request) {
+  if (!legacy_request) {
+    return false;
+  }
+  legacy_request->publish_id = hidl_request.publishId;
+  legacy_request->ttl = hidl_request.ttl;
+  legacy_request->period = hidl_request.period;
+  static_assert(static_cast<std::underlying_type<NanPublishType>::type>(
+                    NanPublishType::UNSOLICITED) ==
+                    legacy_hal::NAN_PUBLISH_TYPE_UNSOLICITED,
+                "Enum value mismatch");
+  static_assert(
+      static_cast<std::underlying_type<NanPublishType>::type>(
+          NanPublishType::SOLICITED) == legacy_hal::NAN_PUBLISH_TYPE_SOLICITED,
+      "Enum value mismatch");
+  static_assert(static_cast<std::underlying_type<NanPublishType>::type>(
+                    NanPublishType::UNSOLICITED_SOLICITED) ==
+                    legacy_hal::NAN_PUBLISH_TYPE_UNSOLICITED_SOLICITED,
+                "Enum value mismatch");
+  legacy_request->publish_type = static_cast<legacy_hal::NanPublishType>(
+      static_cast<std::underlying_type<NanPublishType>::type>(
+          hidl_request.publishType));
+  static_assert(static_cast<std::underlying_type<NanTxType>::type>(
+                    NanTxType::BROADCAST) == legacy_hal::NAN_TX_TYPE_BROADCAST,
+                "Enum value mismatch");
+  static_assert(static_cast<std::underlying_type<NanTxType>::type>(
+                    NanTxType::UNICAST) == legacy_hal::NAN_TX_TYPE_UNICAST,
+                "Enum value mismatch");
+  legacy_request->tx_type = static_cast<legacy_hal::NanTxType>(
+      static_cast<std::underlying_type<NanTxType>::type>(hidl_request.txType));
+  legacy_request->publish_count = hidl_request.publishCount;
+  CHECK(hidl_request.serviceName.size() <=
+        sizeof(legacy_request->service_name));
+  legacy_request->service_name_len = hidl_request.serviceName.size();
+  memcpy(legacy_request->service_name,
+         hidl_request.serviceName.c_str(),
+         hidl_request.serviceName.size());
+  static_assert(
+      static_cast<std::underlying_type<NanMatchAlg>::type>(
+          NanMatchAlg::MATCH_ONCE) == legacy_hal::NAN_MATCH_ALG_MATCH_ONCE,
+      "Enum value mismatch");
+  static_assert(static_cast<std::underlying_type<NanMatchAlg>::type>(
+                    NanMatchAlg::MATCH_CONTINUOUS) ==
+                    legacy_hal::NAN_MATCH_ALG_MATCH_CONTINUOUS,
+                "Enum value mismatch");
+  static_assert(
+      static_cast<std::underlying_type<NanMatchAlg>::type>(
+          NanMatchAlg::MATCH_NEVER) == legacy_hal::NAN_MATCH_ALG_MATCH_NEVER,
+      "Enum value mismatch");
+  legacy_request->publish_match_indicator =
+      static_cast<legacy_hal::NanMatchAlg>(
+          static_cast<std::underlying_type<NanTxType>::type>(
+              hidl_request.publishMatchIndicator));
+  CHECK(hidl_request.serviceSpecificInfo.size() <=
+        sizeof(legacy_request->service_specific_info));
+  legacy_request->service_specific_info_len =
+      hidl_request.serviceSpecificInfo.size();
+  memcpy(legacy_request->service_specific_info,
+         hidl_request.serviceSpecificInfo.data(),
+         hidl_request.serviceSpecificInfo.size());
+  CHECK(hidl_request.rxMatchFilter.size() <=
+        sizeof(legacy_request->rx_match_filter));
+  legacy_request->rx_match_filter_len = hidl_request.rxMatchFilter.size();
+  memcpy(legacy_request->rx_match_filter,
+         hidl_request.rxMatchFilter.data(),
+         hidl_request.rxMatchFilter.size());
+  CHECK(hidl_request.txMatchFilter.size() <=
+        sizeof(legacy_request->tx_match_filter));
+  legacy_request->tx_match_filter_len = hidl_request.txMatchFilter.size();
+  memcpy(legacy_request->tx_match_filter,
+         hidl_request.txMatchFilter.data(),
+         hidl_request.txMatchFilter.size());
+  legacy_request->rssi_threshold_flag = hidl_request.useRssiThreshold;
+  legacy_request->connmap = hidl_request.connmap;
+  legacy_request->recv_indication_cfg = hidl_request.recvIndicationCfg;
+  return true;
+}
+
+bool convertHidlNanPublishCancelRequestToLegacy(
+    const NanPublishCancelRequest& hidl_request,
+    legacy_hal::NanPublishCancelRequest* legacy_request) {
+  legacy_request->publish_id = hidl_request.publishId;
+  return true;
+}
+
+bool convertHidlNanSubscribeRequestToLegacy(
+    const NanSubscribeRequest& hidl_request,
+    legacy_hal::NanSubscribeRequest* legacy_request) {
+  if (!legacy_request) {
+    return false;
+  }
+  legacy_request->subscribe_id = hidl_request.subscribeId;
+  legacy_request->ttl = hidl_request.ttl;
+  legacy_request->period = hidl_request.period;
+  static_assert(
+      static_cast<std::underlying_type<NanSubscribeType>::type>(
+          NanSubscribeType::PASSIVE) == legacy_hal::NAN_SUBSCRIBE_TYPE_PASSIVE,
+      "Enum value mismatch");
+  static_assert(
+      static_cast<std::underlying_type<NanSubscribeType>::type>(
+          NanSubscribeType::ACTIVE) == legacy_hal::NAN_SUBSCRIBE_TYPE_ACTIVE,
+      "Enum value mismatch");
+  legacy_request->subscribe_type = static_cast<legacy_hal::NanSubscribeType>(
+      static_cast<std::underlying_type<NanSubscribeType>::type>(
+          hidl_request.subscribeType));
+  static_assert(
+      static_cast<std::underlying_type<NanSrfType>::type>(
+          NanSrfType::BLOOM_FILTER) == legacy_hal::NAN_SRF_ATTR_BLOOM_FILTER,
+      "Enum value mismatch");
+  static_assert(static_cast<std::underlying_type<NanSrfType>::type>(
+                    NanSrfType::PARTIAL_MAC_ADDR) ==
+                    legacy_hal::NAN_SRF_ATTR_PARTIAL_MAC_ADDR,
+                "Enum value mismatch");
+  legacy_request->serviceResponseFilter = static_cast<legacy_hal::NanSRFType>(
+      static_cast<std::underlying_type<NanSrfType>::type>(
+          hidl_request.serviceResponseFilter));
+  static_assert(static_cast<std::underlying_type<NanSrfIncludeType>::type>(
+                    NanSrfIncludeType::DO_NOT_RESPOND) ==
+                    legacy_hal::NAN_SRF_INCLUDE_DO_NOT_RESPOND,
+                "Enum value mismatch");
+  static_assert(
+      static_cast<std::underlying_type<NanSrfIncludeType>::type>(
+          NanSrfIncludeType::RESPOND) == legacy_hal::NAN_SRF_INCLUDE_RESPOND,
+      "Enum value mismatch");
+  legacy_request->serviceResponseInclude =
+      static_cast<legacy_hal::NanSRFIncludeType>(
+          static_cast<std::underlying_type<NanSrfIncludeType>::type>(
+              hidl_request.serviceResponseInclude));
+  legacy_request->useServiceResponseFilter =
+      hidl_request.shouldUseServiceResponseFilter
+          ? legacy_hal::NAN_USE_SRF
+          : legacy_hal::NAN_DO_NOT_USE_SRF;
+  legacy_request->ssiRequiredForMatchIndication =
+      hidl_request.isSsiRequiredForMatchIndication
+          ? legacy_hal::NAN_SSI_NOT_REQUIRED_IN_MATCH_IND
+          : legacy_hal::NAN_SSI_REQUIRED_IN_MATCH_IND;
+  legacy_request->subscribe_match_indicator =
+      static_cast<legacy_hal::NanMatchAlg>(
+          static_cast<std::underlying_type<NanTxType>::type>(
+              hidl_request.subscribeMatchIndicator));
+  legacy_request->subscribe_count = hidl_request.subscribeCount;
+  CHECK(hidl_request.serviceName.size() <=
+        sizeof(legacy_request->service_name));
+  legacy_request->service_name_len = hidl_request.serviceName.size();
+  memcpy(legacy_request->service_name,
+         hidl_request.serviceName.c_str(),
+         hidl_request.serviceName.size());
+  CHECK(hidl_request.serviceSpecificInfo.size() <=
+        sizeof(legacy_request->service_specific_info));
+  legacy_request->service_specific_info_len =
+      hidl_request.serviceSpecificInfo.size();
+  memcpy(legacy_request->service_specific_info,
+         hidl_request.serviceSpecificInfo.data(),
+         hidl_request.serviceSpecificInfo.size());
+  CHECK(hidl_request.rxMatchFilter.size() <=
+        sizeof(legacy_request->rx_match_filter));
+  legacy_request->rx_match_filter_len = hidl_request.rxMatchFilter.size();
+  memcpy(legacy_request->rx_match_filter,
+         hidl_request.rxMatchFilter.data(),
+         hidl_request.rxMatchFilter.size());
+  CHECK(hidl_request.txMatchFilter.size() <=
+        sizeof(legacy_request->tx_match_filter));
+  legacy_request->tx_match_filter_len = hidl_request.txMatchFilter.size();
+  memcpy(legacy_request->tx_match_filter,
+         hidl_request.txMatchFilter.data(),
+         hidl_request.txMatchFilter.size());
+  legacy_request->rssi_threshold_flag = hidl_request.useRssiThreshold;
+  legacy_request->connmap = hidl_request.connmap;
+  CHECK(hidl_request.intfAddr.size() <= NAN_MAX_SUBSCRIBE_MAX_ADDRESS);
+  for (uint32_t i = 0; i < hidl_request.intfAddr.size(); i++) {
+    memcpy(legacy_request->intf_addr[i],
+           hidl_request.intfAddr[i].data(),
+           hidl_request.intfAddr[i].size());
+  }
+  legacy_request->recv_indication_cfg = hidl_request.recvIndicationCfg;
+  return true;
+}
+
+bool convertHidlNanSubscribeCancelRequestToLegacy(
+    const NanSubscribeCancelRequest& /* hidl_request */,
+    legacy_hal::NanSubscribeCancelRequest* /* legacy_request */) {
+  return true;
+}
+
+bool convertHidlNanTransmitFollowupRequestToLegacy(
+    const NanTransmitFollowupRequest& /* hidl_request */,
+    legacy_hal::NanTransmitFollowupRequest* /* legacy_request */) {
+  return true;
+}
+
+bool convertHidlNanConfigRequestToLegacy(
+    const NanConfigRequest& /* hidl_request */,
+    legacy_hal::NanConfigRequest* /* legacy_request */) {
+  return true;
+}
+
+bool convertHidlNanBeaconSdfPayloadRequestToLegacy(
+    const NanBeaconSdfPayloadRequest& /* hidl_request */,
+    legacy_hal::NanBeaconSdfPayloadRequest* /* legacy_request */) {
+  return true;
+}
+
+bool convertHidlNanDataPathInitiatorRequestToLegacy(
+    const NanDataPathInitiatorRequest& /* hidl_request */,
+    legacy_hal::NanDataPathInitiatorRequest* /* legacy_request */) {
+  return true;
+}
+
+bool convertHidlNanDataPathIndicationResponseToLegacy(
+    const NanDataPathIndicationResponse& /* hidl_response */,
+    legacy_hal::NanDataPathIndicationResponse* /* legacy_response */) {
+  return true;
+}
+
+bool convertHidlNanDataPathEndRequestToLegacy(
+    const NanDataPathEndRequest& /* hidl_request */,
+    legacy_hal::NanDataPathEndRequest* /* legacy_request */) {
+  return true;
+}
+
+bool convertLegacyNanResponseHeaderToHidl(
+    const legacy_hal::NanResponseMsg& legacy_response,
+    NanResponseMsgHeader* hidl_response) {
+  if (!hidl_response) {
+    return false;
+  }
+  // TODO: The |NanStatusType| has changed in legacy HAL and no longer in sync
+  // with the HIDL interface.
+  hidl_response->status = static_cast<NanStatusType>(legacy_response.status);
+  hidl_response->value = legacy_response.value;
+  static_assert(
+      static_cast<std::underlying_type<NanResponseType>::type>(
+          NanResponseType::ENABLED) == legacy_hal::NAN_RESPONSE_ENABLED,
+      "Enum value mismatch");
+  static_assert(static_cast<std::underlying_type<NanResponseType>::type>(
+                    NanResponseType::DP_END) == legacy_hal::NAN_DP_END,
+                "Enum value mismatch");
+  hidl_response->responseType =
+      static_cast<NanResponseType>(legacy_response.response_type);
+  return true;
+}
+
+bool convertLegacyNanPublishResponseToHidl(
+    const legacy_hal::NanPublishResponse& /* legacy_response */,
+    NanPublishResponse* /* hidl_response */) {
+  return true;
+}
+
+bool convertLegacyNanSubscribeResponseToHidl(
+    const legacy_hal::NanSubscribeResponse& /* legacy_response */,
+    NanSubscribeResponse* /* hidl_response */) {
+  return true;
+}
+
+bool convertLegacyNanDataPathResponseToHidl(
+    const legacy_hal::NanDataPathRequestResponse& /* legacy_response */,
+    NanDataPathResponse* /* hidl_response */) {
+  return true;
+}
+
+bool convertLegacyNanCapabilitiesResponseToHidl(
+    const legacy_hal::NanCapabilities& /* legacy_response */,
+    NanCapabilitiesResponse* /* hidl_response */) {
+  return true;
+}
+
+bool convertLegacyNanPublishTerminatedIndToHidl(
+    const legacy_hal::NanPublishTerminatedInd& /* legacy_ind */,
+    NanPublishTerminatedInd* /* hidl_ind */) {
+  return true;
+}
+
+bool convertLegacyNanMatchIndToHidl(
+    const legacy_hal::NanMatchInd& /* legacy_ind */,
+    NanMatchInd* /* hidl_ind */) {
+  return true;
+}
+
+bool convertLegacyNanMatchExpiredIndToHidl(
+    const legacy_hal::NanMatchExpiredInd& /* legacy_ind */,
+    NanMatchExpiredInd* /* hidl_ind */) {
+  return true;
+}
+
+bool convertLegacyNanSubscribeTerminatedIndToHidl(
+    const legacy_hal::NanSubscribeTerminatedInd& /* legacy_ind */,
+    NanSubscribeTerminatedInd* /* hidl_ind */) {
+  return true;
+}
+
+bool convertLegacyNanFollowupIndToHidl(
+    const legacy_hal::NanFollowupInd& /* legacy_ind */,
+    NanFollowupInd* /* hidl_ind */) {
+  return true;
+}
+
+bool convertLegacyNanDiscEngEventIndToHidl(
+    const legacy_hal::NanDiscEngEventInd& /* legacy_ind */,
+    NanDiscEngEventInd* /* hidl_ind */) {
+  return true;
+}
+
+bool convertLegacyNanDisabledIndToHidl(
+    const legacy_hal::NanDisabledInd& /* legacy_ind */,
+    NanDisabledInd* /* hidl_ind */) {
+  return true;
+}
+
+bool convertLegacyNanBeaconSdfPayloadIndToHidl(
+    const legacy_hal::NanBeaconSdfPayloadInd& /* legacy_ind */,
+    NanBeaconSdfPayloadInd* /* hidl_ind */) {
+  return true;
+}
+
+bool convertLegacyNanDataPathRequestIndToHidl(
+    const legacy_hal::NanDataPathRequestInd& /* legacy_ind */,
+    NanDataPathRequestInd* /* hidl_ind */) {
+  return true;
+}
+
+bool convertLegacyNanDataPathConfirmIndToHidl(
+    const legacy_hal::NanDataPathConfirmInd& /* legacy_ind */,
+    NanDataPathConfirmInd* /* hidl_ind */) {
+  return true;
+}
+
+bool convertLegacyNanDataPathEndIndToHidl(
+    const legacy_hal::NanDataPathEndInd& /* legacy_ind */,
+    NanDataPathEndInd* /* hidl_ind */) {
+  return true;
+}
+
+bool convertLegacyNanTransmitFollowupIndToHidl(
+    const legacy_hal::NanTransmitFollowupInd& /* legacy_ind */,
+    NanTransmitFollowupInd* /* hidl_ind */) {
+  return true;
+}
 }  // namespace hidl_struct_util
 }  // namespace implementation
 }  // namespace V1_0
