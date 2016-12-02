@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cd47938e_a742385a",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-02T16:21:03Z",
+      "side": 1,
+      "message": "nit, just change this type to avoid having the static cast in the for loop head",
+      "range": {
+        "startLine": 168,
+        "startChar": 7,
+        "endLine": 168,
+        "endChar": 15
+      },
+      "revId": "c341bb20914b529cbdb5ab57c6e8c5bde74e4884",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
