@@ -1,0 +1,394 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cd47938e_ed7a6726",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-02T01:34:26Z",
+      "side": 1,
+      "message": "\"HIDL\" (since it\u0027s an acronym, and for consistency with the rest of the commit message)",
+      "range": {
+        "startLine": 10,
+        "startChar": 60,
+        "endLine": 10,
+        "endChar": 64
+      },
+      "revId": "4a5a3583d50328e67841ad6a4f41ced04525df61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd47938e_9393023d",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-02T01:34:26Z",
+      "side": 1,
+      "message": "Consider a CHECK on the size, similar to what you have for other arrays below.\n\nYou may have skipped the check due to the fact that the size is hard-coded in the HAL file, and you know that value obviates the need for a check.\n\nBut it would be better for this code to be obviously correct, without having to cross-check against the HAL file.",
+      "revId": "4a5a3583d50328e67841ad6a4f41ced04525df61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd47938e_73347610",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-02T01:34:26Z",
+      "side": 1,
+      "message": "Will the calling code be responsible for checking size() before calling this function? If not, this CHECK might be too strong.\n\nIn more detail:\n- suppose client passes in overly long array over HIDL\n- suppose also that the upper-layer of our HAL implementation calls this conversion function without checking the array length\n- then a malicious client can easily crash the wifi hal.\n\nOf course, if the upper layer of the HAL implementation does the check, then no problem. But I want to be clear on where the responsibility lies.\n\n(Similar question applies to most of the CHECKs in this file. But not validIntfAddrVal, since that\u0027s an array.)",
+      "range": {
+        "startLine": 310,
+        "startChar": 2,
+        "endLine": 310,
+        "endChar": 7
+      },
+      "revId": "4a5a3583d50328e67841ad6a4f41ced04525df61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd47938e_d3c8eab5",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-02T01:34:26Z",
+      "side": 1,
+      "message": "Consider having convert\u003cHidlEnum\u003eToLegacy functions, with each one being implemented as a switch. It might seem silly, because the code doesn\u0027t really \"do\" anything to the bits. \n\nBut such functions would improve readability, because all of the enum-related static asserts would go away, and many of the enum-related static casts would go away as well. Also, we\u0027d get the benefit of having the compiler check that we\u0027ve considered all the values of each enumeration.\n\nAlternatively... Consider placing the static_asserts at the beginning of the function. (I think it would be easier to read with all of the enum-validations grouped in one place, and all of the assignments grouped after. But I do see the argument for the way you have it -- makes it clear that we\u0027re checking the enum values for each enum type.)",
+      "range": {
+        "startLine": 341,
+        "startChar": 2,
+        "endLine": 341,
+        "endChar": 15
+      },
+      "revId": "4a5a3583d50328e67841ad6a4f41ced04525df61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd47938e_f39d2654",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-02T01:34:26Z",
+      "side": 1,
+      "message": "Are you sure you need this here?",
+      "range": {
+        "startLine": 354,
+        "startChar": 6,
+        "endLine": 354,
+        "endChar": 61
+      },
+      "revId": "4a5a3583d50328e67841ad6a4f41ced04525df61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd47938e_539b3a5e",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-02T01:34:26Z",
+      "side": 1,
+      "message": "Are you sure you need this here?",
+      "range": {
+        "startLine": 363,
+        "startChar": 6,
+        "endLine": 363,
+        "endChar": 57
+      },
+      "revId": "4a5a3583d50328e67841ad6a4f41ced04525df61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd47938e_b3b1de97",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-02T01:34:26Z",
+      "side": 1,
+      "message": "Prefer |data()| here, since we\u0027re not actually copying the null terminator over. (Functionally, the two are the same as of C++11. But I think data() more accurately conveys our intent.)",
+      "range": {
+        "startLine": 369,
+        "startChar": 34,
+        "endLine": 369,
+        "endChar": 41
+      },
+      "revId": "4a5a3583d50328e67841ad6a4f41ced04525df61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd47938e_b679cc36",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-02T01:34:26Z",
+      "side": 1,
+      "message": "Are you sure you need this here?",
+      "range": {
+        "startLine": 385,
+        "startChar": 10,
+        "endLine": 385,
+        "endChar": 60
+      },
+      "revId": "4a5a3583d50328e67841ad6a4f41ced04525df61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd47938e_d3162a33",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-02T01:34:26Z",
+      "side": 1,
+      "message": "Same thought as at line 341.",
+      "revId": "4a5a3583d50328e67841ad6a4f41ced04525df61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd47938e_56884807",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-02T01:34:26Z",
+      "side": 1,
+      "message": "Are you sure you need this here?",
+      "range": {
+        "startLine": 437,
+        "startChar": 6,
+        "endLine": 437,
+        "endChar": 64
+      },
+      "revId": "4a5a3583d50328e67841ad6a4f41ced04525df61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd47938e_3685bcf0",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-02T01:34:26Z",
+      "side": 1,
+      "message": "Are you sure you need this here?",
+      "range": {
+        "startLine": 448,
+        "startChar": 6,
+        "endLine": 448,
+        "endChar": 58
+      },
+      "revId": "4a5a3583d50328e67841ad6a4f41ced04525df61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd47938e_7698e456",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-02T01:34:26Z",
+      "side": 1,
+      "message": "Are you sure you need this here?",
+      "range": {
+        "startLine": 460,
+        "startChar": 10,
+        "endLine": 460,
+        "endChar": 68
+      },
+      "revId": "4a5a3583d50328e67841ad6a4f41ced04525df61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd47938e_b6e0acb0",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-02T01:34:26Z",
+      "side": 1,
+      "message": "Is this correct? Maybe my eyes are deceiving me, but it seems reversed.",
+      "range": {
+        "startLine": 466,
+        "startChar": 0,
+        "endLine": 469,
+        "endChar": 54
+      },
+      "revId": "4a5a3583d50328e67841ad6a4f41ced04525df61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd47938e_369e5c3e",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-02T01:34:26Z",
+      "side": 1,
+      "message": "Are you sure you need this here?",
+      "range": {
+        "startLine": 472,
+        "startChar": 10,
+        "endLine": 472,
+        "endChar": 61
+      },
+      "revId": "4a5a3583d50328e67841ad6a4f41ced04525df61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd47938e_f3e5261f",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-02T01:34:26Z",
+      "side": 1,
+      "message": "As elsewhere, consider |data()| instead.",
+      "range": {
+        "startLine": 479,
+        "startChar": 34,
+        "endLine": 479,
+        "endChar": 41
+      },
+      "revId": "4a5a3583d50328e67841ad6a4f41ced04525df61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd47938e_13141208",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-02T01:34:26Z",
+      "side": 1,
+      "message": "Did we skip the num_intf_add_present field?",
+      "revId": "4a5a3583d50328e67841ad6a4f41ced04525df61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd47938e_3334ae99",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-02T01:34:26Z",
+      "side": 1,
+      "message": "Should we go with |false| for now, to make it obvious that these are not yet implemented?",
+      "range": {
+        "startLine": 515,
+        "startChar": 9,
+        "endLine": 515,
+        "endChar": 13
+      },
+      "revId": "4a5a3583d50328e67841ad6a4f41ced04525df61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd47938e_33bf8eaf",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-02T01:34:26Z",
+      "side": 1,
+      "message": "Same thought as at line 341.",
+      "revId": "4a5a3583d50328e67841ad6a4f41ced04525df61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
