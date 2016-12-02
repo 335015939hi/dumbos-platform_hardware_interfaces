@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8decbb0b_808fe049",
+        "filename": "tests/bar/1.0/default/Bar.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-02T22:41:11Z",
+      "side": 1,
+      "message": "why are we and-ing things from two different bitfields :/",
+      "range": {
+        "startLine": 164,
+        "startChar": 29,
+        "endLine": 164,
+        "endChar": 46
+      },
+      "revId": "3378080041d5ddb44ca85870d48d16c5e2480e3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
