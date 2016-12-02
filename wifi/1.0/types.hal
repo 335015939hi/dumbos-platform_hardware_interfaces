@@ -2231,45 +2231,6 @@ struct RttCapabilities {
 };
 
 /**
- * Debugging definitions.
- */
-enum RttDebugType : uint32_t {
-  DISABLE,
-  LOG,
-  PROTO,
-  BURST,
-  ACCURACY,
-  LOGDETAIL,
-};
-
-enum RttDebugFormat : uint32_t {
-  TXT,
-  BINARY,
-};
-
-/**
- * Debug info.
- */
-struct RttDebugInfo {
-  /**
-   * Version info.
-   */
-  uint32_t version;
-  /**
-   * Debug data type.
-   */
-  RttDebugType type;
-  /**
-   * Debug data format.
-   */
-  RttDebugFormat format;
-  /**
-   * Debug data content.
-   */
-  vec<uint8_t> data;
-};
-
-/**
  * Structs for setting LCI/LCR information to be provided to a requestor.
  */
 enum RttMotionPattern : uint32_t {

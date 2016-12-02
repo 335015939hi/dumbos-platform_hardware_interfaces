@@ -59,9 +59,6 @@ class WifiRttController : public IWifiRttController {
   Return<void> clearChannelMap(uint32_t cmd_id,
                                clearChannelMap_cb hidl_status_cb) override;
   Return<void> getCapabilities(getCapabilities_cb hidl_status_cb) override;
-  Return<void> setDebugCfg(RttDebugType type,
-                           setDebugCfg_cb hidl_status_cb) override;
-  Return<void> getDebugInfo(getDebugInfo_cb hidl_status_cb) override;
   Return<void> setLci(uint32_t cmd_id,
                       const RttLciInformation& lci,
                       setLci_cb hidl_status_cb) override;
@@ -91,8 +88,6 @@ class WifiRttController : public IWifiRttController {
                                    uint32_t num_dw);
   WifiStatus clearChannelMapInternal(uint32_t cmd_id);
   std::pair<WifiStatus, RttCapabilities> getCapabilitiesInternal();
-  WifiStatus setDebugCfgInternal(RttDebugType type);
-  std::pair<WifiStatus, RttDebugInfo> getDebugInfoInternal();
   WifiStatus setLciInternal(uint32_t cmd_id, const RttLciInformation& lci);
   WifiStatus setLcrInternal(uint32_t cmd_id, const RttLcrInformation& lcr);
   std::pair<WifiStatus, RttResponder> getResponderInfoInternal();
