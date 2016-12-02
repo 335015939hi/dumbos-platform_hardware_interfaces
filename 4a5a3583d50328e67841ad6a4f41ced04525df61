@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cd47938e_a76198bd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-02T18:32:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd47938e_ed7a6726",
+      "range": {
+        "startLine": 10,
+        "startChar": 60,
+        "endLine": 10,
+        "endChar": 64
+      },
+      "revId": "4a5a3583d50328e67841ad6a4f41ced04525df61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd47938e_9393023d",
         "filename": "wifi/1.0/default/hidl_struct_util.cpp",
         "patchSetId": 1
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "8decbb0b_316e5019",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-02T18:32:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd47938e_9393023d",
+      "revId": "4a5a3583d50328e67841ad6a4f41ced04525df61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd47938e_73347610",
         "filename": "wifi/1.0/default/hidl_struct_util.cpp",
         "patchSetId": 1
@@ -53,6 +95,30 @@
       "writtenOn": "2016-12-02T01:34:26Z",
       "side": 1,
       "message": "Will the calling code be responsible for checking size() before calling this function? If not, this CHECK might be too strong.\n\nIn more detail:\n- suppose client passes in overly long array over HIDL\n- suppose also that the upper-layer of our HAL implementation calls this conversion function without checking the array length\n- then a malicious client can easily crash the wifi hal.\n\nOf course, if the upper layer of the HAL implementation does the check, then no problem. But I want to be clear on where the responsibility lies.\n\n(Similar question applies to most of the CHECKs in this file. But not validIntfAddrVal, since that\u0027s an array.)",
+      "range": {
+        "startLine": 310,
+        "startChar": 2,
+        "endLine": 310,
+        "endChar": 7
+      },
+      "revId": "4a5a3583d50328e67841ad6a4f41ced04525df61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd47938e_27862835",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-02T18:32:00Z",
+      "side": 1,
+      "message": "Yeah. I think it\u0027s better to return false for the vectors since that will be returned as an \"invalid args\" failure by the HIDL method. These max sizes are already called out in the .hal file.",
+      "parentUuid": "cd47938e_73347610",
       "range": {
         "startLine": 310,
         "startChar": 2,
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "cd47938e_6275beeb",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-02T18:32:00Z",
+      "side": 1,
+      "message": "Moved to helper conversion functions.\nI did think about this initially. But, became too lazy to do it :).",
+      "parentUuid": "cd47938e_d3c8eab5",
+      "range": {
+        "startLine": 341,
+        "startChar": 2,
+        "endLine": 341,
+        "endChar": 15
+      },
+      "revId": "4a5a3583d50328e67841ad6a4f41ced04525df61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd47938e_f39d2654",
         "filename": "wifi/1.0/default/hidl_struct_util.cpp",
         "patchSetId": 1
@@ -99,6 +189,30 @@
       "writtenOn": "2016-12-02T01:34:26Z",
       "side": 1,
       "message": "Are you sure you need this here?",
+      "range": {
+        "startLine": 354,
+        "startChar": 6,
+        "endLine": 354,
+        "endChar": 61
+      },
+      "revId": "4a5a3583d50328e67841ad6a4f41ced04525df61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd47938e_e22a6e8c",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-02T18:32:00Z",
+      "side": 1,
+      "message": "Added a conversion method now.",
+      "parentUuid": "cd47938e_f39d2654",
       "range": {
         "startLine": 354,
         "startChar": 6,
@@ -134,6 +248,30 @@
     },
     {
       "key": {
+        "uuid": "8decbb0b_315ad09b",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-02T18:32:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd47938e_539b3a5e",
+      "range": {
+        "startLine": 363,
+        "startChar": 6,
+        "endLine": 363,
+        "endChar": 57
+      },
+      "revId": "4a5a3583d50328e67841ad6a4f41ced04525df61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd47938e_b3b1de97",
         "filename": "wifi/1.0/default/hidl_struct_util.cpp",
         "patchSetId": 1
@@ -145,6 +283,30 @@
       "writtenOn": "2016-12-02T01:34:26Z",
       "side": 1,
       "message": "Prefer |data()| here, since we\u0027re not actually copying the null terminator over. (Functionally, the two are the same as of C++11. But I think data() more accurately conveys our intent.)",
+      "range": {
+        "startLine": 369,
+        "startChar": 34,
+        "endLine": 369,
+        "endChar": 41
+      },
+      "revId": "4a5a3583d50328e67841ad6a4f41ced04525df61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8decbb0b_b13ec01c",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-02T18:32:00Z",
+      "side": 1,
+      "message": "This is a |hidl_string| instance and they don\u0027t have a |data()| function exposed. They only have c_str().",
+      "parentUuid": "cd47938e_b3b1de97",
       "range": {
         "startLine": 369,
         "startChar": 34,
@@ -180,6 +342,30 @@
     },
     {
       "key": {
+        "uuid": "8decbb0b_51367445",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-02T18:32:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd47938e_b679cc36",
+      "range": {
+        "startLine": 385,
+        "startChar": 10,
+        "endLine": 385,
+        "endChar": 60
+      },
+      "revId": "4a5a3583d50328e67841ad6a4f41ced04525df61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd47938e_d3162a33",
         "filename": "wifi/1.0/default/hidl_struct_util.cpp",
         "patchSetId": 1
@@ -197,6 +383,24 @@
     },
     {
       "key": {
+        "uuid": "8decbb0b_3133f055",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-02T18:32:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd47938e_d3162a33",
+      "revId": "4a5a3583d50328e67841ad6a4f41ced04525df61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd47938e_56884807",
         "filename": "wifi/1.0/default/hidl_struct_util.cpp",
         "patchSetId": 1
@@ -208,6 +412,30 @@
       "writtenOn": "2016-12-02T01:34:26Z",
       "side": 1,
       "message": "Are you sure you need this here?",
+      "range": {
+        "startLine": 437,
+        "startChar": 6,
+        "endLine": 437,
+        "endChar": 64
+      },
+      "revId": "4a5a3583d50328e67841ad6a4f41ced04525df61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8decbb0b_1130ec44",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-02T18:32:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd47938e_56884807",
       "range": {
         "startLine": 437,
         "startChar": 6,
@@ -243,6 +471,30 @@
     },
     {
       "key": {
+        "uuid": "8decbb0b_f1a1e847",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-02T18:32:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd47938e_3685bcf0",
+      "range": {
+        "startLine": 448,
+        "startChar": 6,
+        "endLine": 448,
+        "endChar": 58
+      },
+      "revId": "4a5a3583d50328e67841ad6a4f41ced04525df61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd47938e_7698e456",
         "filename": "wifi/1.0/default/hidl_struct_util.cpp",
         "patchSetId": 1
@@ -254,6 +506,30 @@
       "writtenOn": "2016-12-02T01:34:26Z",
       "side": 1,
       "message": "Are you sure you need this here?",
+      "range": {
+        "startLine": 460,
+        "startChar": 10,
+        "endLine": 460,
+        "endChar": 68
+      },
+      "revId": "4a5a3583d50328e67841ad6a4f41ced04525df61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8decbb0b_d1a6e45d",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-02T18:32:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd47938e_7698e456",
       "range": {
         "startLine": 460,
         "startChar": 10,
@@ -289,6 +565,30 @@
     },
     {
       "key": {
+        "uuid": "8decbb0b_51b3149d",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-02T18:32:00Z",
+      "side": 1,
+      "message": "Yep. that\u0027s wrong. Thanks for catching it.",
+      "parentUuid": "cd47938e_b6e0acb0",
+      "range": {
+        "startLine": 466,
+        "startChar": 0,
+        "endLine": 469,
+        "endChar": 54
+      },
+      "revId": "4a5a3583d50328e67841ad6a4f41ced04525df61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd47938e_369e5c3e",
         "filename": "wifi/1.0/default/hidl_struct_util.cpp",
         "patchSetId": 1
@@ -300,6 +600,30 @@
       "writtenOn": "2016-12-02T01:34:26Z",
       "side": 1,
       "message": "Are you sure you need this here?",
+      "range": {
+        "startLine": 472,
+        "startChar": 10,
+        "endLine": 472,
+        "endChar": 61
+      },
+      "revId": "4a5a3583d50328e67841ad6a4f41ced04525df61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8decbb0b_11bd8c64",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-02T18:32:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd47938e_369e5c3e",
       "range": {
         "startLine": 472,
         "startChar": 10,
@@ -335,6 +659,30 @@
     },
     {
       "key": {
+        "uuid": "8decbb0b_d1cf0414",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-02T18:32:00Z",
+      "side": 1,
+      "message": "Same as above.",
+      "parentUuid": "cd47938e_f3e5261f",
+      "range": {
+        "startLine": 479,
+        "startChar": 34,
+        "endLine": 479,
+        "endChar": 41
+      },
+      "revId": "4a5a3583d50328e67841ad6a4f41ced04525df61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd47938e_13141208",
         "filename": "wifi/1.0/default/hidl_struct_util.cpp",
         "patchSetId": 1
@@ -346,6 +694,24 @@
       "writtenOn": "2016-12-02T01:34:26Z",
       "side": 1,
       "message": "Did we skip the num_intf_add_present field?",
+      "revId": "4a5a3583d50328e67841ad6a4f41ced04525df61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8decbb0b_51dc34ce",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-02T18:32:00Z",
+      "side": 1,
+      "message": "Yep. Missed it. Added now.",
+      "parentUuid": "cd47938e_13141208",
       "revId": "4a5a3583d50328e67841ad6a4f41ced04525df61",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -375,6 +741,30 @@
     },
     {
       "key": {
+        "uuid": "8decbb0b_91c97c11",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-02T18:32:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd47938e_3334ae99",
+      "range": {
+        "startLine": 515,
+        "startChar": 9,
+        "endLine": 515,
+        "endChar": 13
+      },
+      "revId": "4a5a3583d50328e67841ad6a4f41ced04525df61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd47938e_33bf8eaf",
         "filename": "wifi/1.0/default/hidl_struct_util.cpp",
         "patchSetId": 1
@@ -386,6 +776,24 @@
       "writtenOn": "2016-12-02T01:34:26Z",
       "side": 1,
       "message": "Same thought as at line 341.",
+      "revId": "4a5a3583d50328e67841ad6a4f41ced04525df61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8decbb0b_f16fa818",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-02T18:32:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd47938e_33bf8eaf",
       "revId": "4a5a3583d50328e67841ad6a4f41ced04525df61",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
