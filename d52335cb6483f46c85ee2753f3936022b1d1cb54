@@ -2,6 +2,121 @@
   "comments": [
     {
       "key": {
+        "uuid": "4d3c83f2_3ffda7fc",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 926,
+      "author": {
+        "id": 1039969
+      },
+      "writtenOn": "2016-12-02T05:36:30Z",
+      "side": 1,
+      "message": "From TS 27.007 chapter 8.69, the range should be 0~61",
+      "range": {
+        "startLine": 926,
+        "startChar": 63,
+        "endLine": 926,
+        "endChar": 67
+      },
+      "revId": "d52335cb6483f46c85ee2753f3936022b1d1cb54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d3c83f2_df0e3b53",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 934,
+      "author": {
+        "id": 1039969
+      },
+      "writtenOn": "2016-12-02T05:36:30Z",
+      "side": 1,
+      "message": "From TS 27.007 chapter 8.69, the range should be 0~96 for wcdma",
+      "range": {
+        "startLine": 934,
+        "startChar": 63,
+        "endLine": 934,
+        "endChar": 67
+      },
+      "revId": "d52335cb6483f46c85ee2753f3936022b1d1cb54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d3c83f2_ff117f77",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 934,
+      "author": {
+        "id": 1039969
+      },
+      "writtenOn": "2016-12-02T05:36:30Z",
+      "side": 1,
+      "message": "Better to change as rscp to sync spec naming",
+      "range": {
+        "startLine": 934,
+        "startChar": 12,
+        "endLine": 934,
+        "endChar": 26
+      },
+      "revId": "d52335cb6483f46c85ee2753f3936022b1d1cb54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d3c83f2_1f026326",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 935,
+      "author": {
+        "id": 1039969
+      },
+      "writtenOn": "2016-12-02T05:36:30Z",
+      "side": 1,
+      "message": "Better to change as ecno to sync spec naming",
+      "range": {
+        "startLine": 935,
+        "startChar": 12,
+        "endLine": 935,
+        "endChar": 24
+      },
+      "revId": "d52335cb6483f46c85ee2753f3936022b1d1cb54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4d3c83f2_7ff72f1c",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 935,
+      "author": {
+        "id": 1039969
+      },
+      "writtenOn": "2016-12-02T05:36:30Z",
+      "side": 1,
+      "message": "From TS 27.007 chapter 8.69, the range should be 0-49",
+      "range": {
+        "startLine": 935,
+        "startChar": 61,
+        "endLine": 935,
+        "endChar": 64
+      },
+      "revId": "d52335cb6483f46c85ee2753f3936022b1d1cb54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6d56a716_48acffd4",
         "filename": "radio/1.0/types.hal",
         "patchSetId": 8
