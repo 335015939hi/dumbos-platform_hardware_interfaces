@@ -22,6 +22,30 @@
       "revId": "c341bb20914b529cbdb5ab57c6e8c5bde74e4884",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd47938e_6796709e",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-02T16:33:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd47938e_a742385a",
+      "range": {
+        "startLine": 168,
+        "startChar": 7,
+        "endLine": 168,
+        "endChar": 15
+      },
+      "revId": "c341bb20914b529cbdb5ab57c6e8c5bde74e4884",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
