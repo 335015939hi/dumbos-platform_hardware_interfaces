@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8decbb0b_a56af625",
+        "filename": "tests/bar/1.0/default/Bar.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-02T21:31:17Z",
+      "side": 1,
+      "message": "Let\u0027s not submit this part.\n\nA value that is not a member of the enum should never be passed as the enum\u0027s type.",
+      "range": {
+        "startLine": 164,
+        "startChar": 29,
+        "endLine": 164,
+        "endChar": 54
+      },
+      "revId": "a7b6e9f50e0bf3d2492ad42792f6d8d09d0cc16b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8decbb0b_054542b6",
+        "filename": "tests/bar/1.0/default/Bar.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-02T21:31:17Z",
+      "side": 1,
+      "message": "Same here.",
+      "range": {
+        "startLine": 164,
+        "startChar": 56,
+        "endLine": 164,
+        "endChar": 73
+      },
+      "revId": "a7b6e9f50e0bf3d2492ad42792f6d8d09d0cc16b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
