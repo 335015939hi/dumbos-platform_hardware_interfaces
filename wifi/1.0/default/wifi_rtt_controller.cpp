@@ -113,22 +113,6 @@ Return<void> WifiRttController::getCapabilities(
                          hidl_status_cb);
 }
 
-Return<void> WifiRttController::setDebugCfg(RttDebugType type,
-                                            setDebugCfg_cb hidl_status_cb) {
-  return validateAndCall(this,
-                         WifiStatusCode::ERROR_WIFI_RTT_CONTROLLER_INVALID,
-                         &WifiRttController::setDebugCfgInternal,
-                         hidl_status_cb,
-                         type);
-}
-
-Return<void> WifiRttController::getDebugInfo(getDebugInfo_cb hidl_status_cb) {
-  return validateAndCall(this,
-                         WifiStatusCode::ERROR_WIFI_RTT_CONTROLLER_INVALID,
-                         &WifiRttController::getDebugInfoInternal,
-                         hidl_status_cb);
-}
-
 Return<void> WifiRttController::setLci(uint32_t cmd_id,
                                        const RttLciInformation& lci,
                                        setLci_cb hidl_status_cb) {
@@ -224,16 +208,6 @@ WifiStatus WifiRttController::clearChannelMapInternal(uint32_t /* cmd_id */) {
 
 std::pair<WifiStatus, RttCapabilities>
 WifiRttController::getCapabilitiesInternal() {
-  // TODO implement
-  return {createWifiStatus(WifiStatusCode::SUCCESS), {}};
-}
-
-WifiStatus WifiRttController::setDebugCfgInternal(RttDebugType /* type */) {
-  // TODO implement
-  return createWifiStatus(WifiStatusCode::SUCCESS);
-}
-
-std::pair<WifiStatus, RttDebugInfo> WifiRttController::getDebugInfoInternal() {
   // TODO implement
   return {createWifiStatus(WifiStatusCode::SUCCESS), {}};
 }
