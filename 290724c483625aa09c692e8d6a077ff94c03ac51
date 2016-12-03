@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8decbb0b_3ab2a02f",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-03T01:25:08Z",
+      "side": 1,
+      "message": "You can leave this out, if you\u0027d like. (We don\u0027t actually read it. See com_android_server_wifi_WifiNative.cpp line 2008.)",
+      "revId": "290724c483625aa09c692e8d6a077ff94c03ac51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
