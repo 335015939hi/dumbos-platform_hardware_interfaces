@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8decbb0b_da1714be",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1105,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-03T01:13:41Z",
+      "side": 1,
+      "message": "Is this correct?",
+      "revId": "033d06323a0995350dd3313020bf614c33be6e02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8decbb0b_fa1898a0",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1114,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-03T01:13:41Z",
+      "side": 1,
+      "message": "See comment at line 1174.",
+      "range": {
+        "startLine": 1114,
+        "startChar": 32,
+        "endLine": 1114,
+        "endChar": 34
+      },
+      "revId": "033d06323a0995350dd3313020bf614c33be6e02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8decbb0b_da1dd48e",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1141,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-03T01:13:41Z",
+      "side": 1,
+      "message": "See comment at line 1174.",
+      "range": {
+        "startLine": 1141,
+        "startChar": 36,
+        "endLine": 1141,
+        "endChar": 38
+      },
+      "revId": "033d06323a0995350dd3313020bf614c33be6e02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8decbb0b_bab0d092",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1174,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-03T01:13:41Z",
+      "side": 1,
+      "message": "Should this be strict equality? (Having a country code that is smaller than expected would confuse the HAL implementation, since there\u0027s no length field.)\n\nAlso: consider a static_assert, instead. (For hidl_array, size() is a constexpr function. So we should be able to eliminate this possibility at compile time.)",
+      "range": {
+        "startLine": 1174,
+        "startChar": 37,
+        "endLine": 1174,
+        "endChar": 39
+      },
+      "revId": "033d06323a0995350dd3313020bf614c33be6e02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8decbb0b_da4f14ab",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1274,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-03T01:13:41Z",
+      "side": 1,
+      "message": "As at line 1174.",
+      "range": {
+        "startLine": 1274,
+        "startChar": 35,
+        "endLine": 1274,
+        "endChar": 37
+      },
+      "revId": "033d06323a0995350dd3313020bf614c33be6e02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
