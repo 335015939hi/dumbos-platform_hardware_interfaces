@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8decbb0b_3a1bc037",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-03T01:40:00Z",
+      "side": 1,
+      "message": "As noted in a later CL :-), many of the checks on array sizes should probably be of the following form:\n\n  static_assert(some_array.size() \u003d\u003d sizeof(...));\n\nI think this applies any time there\u0027s no length field in the legacy format.",
+      "range": {
+        "startLine": 415,
+        "startChar": 40,
+        "endLine": 415,
+        "endChar": 42
+      },
+      "revId": "14775216ceeaa19d4db11d0d43972989e58cc726",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
