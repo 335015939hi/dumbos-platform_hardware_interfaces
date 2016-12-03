@@ -22,6 +22,30 @@
       "revId": "3378080041d5ddb44ca85870d48d16c5e2480e3f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8decbb0b_930bb78e",
+        "filename": "tests/bar/1.0/default/Bar.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000866
+      },
+      "writtenOn": "2016-12-03T14:50:49Z",
+      "side": 1,
+      "message": "It\u0027s the same bitfield, typedef\u0027ed to MyMask.  Yifan\u0027s example says that this is OK, which it is.",
+      "parentUuid": "8decbb0b_808fe049",
+      "range": {
+        "startLine": 164,
+        "startChar": 29,
+        "endLine": 164,
+        "endChar": 46
+      },
+      "revId": "3378080041d5ddb44ca85870d48d16c5e2480e3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
