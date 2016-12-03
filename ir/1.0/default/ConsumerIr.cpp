@@ -38,22 +38,25 @@ Return<bool> ConsumerIr::transmit(int32_t carrierFreq, const hidl_vec<int32_t>& 
 
 Return<void> ConsumerIr::getCarrierFreqs(getCarrierFreqs_cb _hidl_cb) {
     int32_t len = mDevice->get_num_carrier_freqs(mDevice);
-    hidl_vec<ConsumerIrFreqRange> rangeVec;
     if (len < 0) {
         _hidl_cb(false, {});
         return Void();
     }
-    consumerir_freq_range_t *oldRangeAr = new consumerir_freq_range_t[len];
-    bool success = (mDevice->get_carrier_freqs(mDevice, len, oldRangeAr) >= 0);
-    if (success) {
-        ConsumerIrFreqRange *newRangeAr = new ConsumerIrFreqRange[len];
-        for (int32_t i = 0; i < len; i++) {
-            newRangeAr[i].min = static_cast<uint32_t>(oldRangeAr[i].min);
-            newRangeAr[i].max = static_cast<uint32_t>(oldRangeAr[i].max);
-        }
-        rangeVec.setToExternal(newRangeAr, len);
+
+    consumerir_freq_range_t *rangeAr = new consumerir_freq_range_t[len];
+    bool success = (mDevice->get_carrier_freqs(mDevice, len, rangeAr) >= 0);
+    if (!success) {
+        _hidl_cb(false, {});
+        return Void();
     }
-    _hidl_cb(success, rangeVec);
+
+    hidl_vec<ConsumerIrFreqRange> rangeVec;
+    rangeVec.resize(len);
+    for (int32_t i = 0; i < len; i++) {
+        rangeVec[i].min = static_cast<uint32_t>(rangeAr[i].min);
+        rangeVec[i].max = static_cast<uint32_t>(rangeAr[i].max);
+    }
+    _hidl_cb(true, rangeVec);
     return Void();
 }
 
