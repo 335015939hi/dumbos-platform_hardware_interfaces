@@ -178,6 +178,30 @@
     },
     {
       "key": {
+        "uuid": "8decbb0b_fa4d383d",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-03T01:40:00Z",
+      "side": 1,
+      "message": "Sounds like we both like this idea, then. :-)",
+      "parentUuid": "cd47938e_6275beeb",
+      "range": {
+        "startLine": 341,
+        "startChar": 2,
+        "endLine": 341,
+        "endChar": 15
+      },
+      "revId": "4a5a3583d50328e67841ad6a4f41ced04525df61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd47938e_f39d2654",
         "filename": "wifi/1.0/default/hidl_struct_util.cpp",
         "patchSetId": 1
