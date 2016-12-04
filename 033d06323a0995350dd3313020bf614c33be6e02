@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8decbb0b_ee4fb6aa",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1105,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-04T18:54:28Z",
+      "side": 1,
+      "message": "Oops.",
+      "parentUuid": "8decbb0b_da1714be",
+      "revId": "033d06323a0995350dd3313020bf614c33be6e02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8decbb0b_fa1898a0",
         "filename": "wifi/1.0/default/hidl_struct_util.cpp",
         "patchSetId": 1
@@ -30,6 +48,30 @@
       "writtenOn": "2016-12-03T01:13:41Z",
       "side": 1,
       "message": "See comment at line 1174.",
+      "range": {
+        "startLine": 1114,
+        "startChar": 32,
+        "endLine": 1114,
+        "endChar": 34
+      },
+      "revId": "033d06323a0995350dd3313020bf614c33be6e02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8decbb0b_ce54f243",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1114,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-04T18:54:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8decbb0b_fa1898a0",
       "range": {
         "startLine": 1114,
         "startChar": 32,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "8decbb0b_ae5ace6a",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1141,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-04T18:54:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8decbb0b_da1dd48e",
+      "range": {
+        "startLine": 1141,
+        "startChar": 36,
+        "endLine": 1141,
+        "endChar": 38
+      },
+      "revId": "033d06323a0995350dd3313020bf614c33be6e02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8decbb0b_bab0d092",
         "filename": "wifi/1.0/default/hidl_struct_util.cpp",
         "patchSetId": 1
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "8decbb0b_8e570a44",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1174,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-04T18:54:28Z",
+      "side": 1,
+      "message": "This doesn\u0027t compile as mentioned in the other CL. Made it an \u003d\u003d CHECK now.",
+      "parentUuid": "8decbb0b_bab0d092",
+      "range": {
+        "startLine": 1174,
+        "startChar": 37,
+        "endLine": 1174,
+        "endChar": 39
+      },
+      "revId": "033d06323a0995350dd3313020bf614c33be6e02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8decbb0b_da4f14ab",
         "filename": "wifi/1.0/default/hidl_struct_util.cpp",
         "patchSetId": 1
@@ -99,6 +189,30 @@
       "writtenOn": "2016-12-03T01:13:41Z",
       "side": 1,
       "message": "As at line 1174.",
+      "range": {
+        "startLine": 1274,
+        "startChar": 35,
+        "endLine": 1274,
+        "endChar": 37
+      },
+      "revId": "033d06323a0995350dd3313020bf614c33be6e02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8decbb0b_6e64e628",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1274,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-04T18:54:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8decbb0b_da4f14ab",
       "range": {
         "startLine": 1274,
         "startChar": 35,
