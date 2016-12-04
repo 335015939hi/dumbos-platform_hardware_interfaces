@@ -36,7 +36,27 @@ namespace V1_0 {
 namespace implementation {
 namespace hidl_struct_util {
 
+// Chip conversion methods.
+bool convertLegacyFeaturesToHidlChipCapabilities(
+    uint32_t legacy_logger_feature_set, uint32_t* hidl_caps);
+bool convertLegacyVectorOfDebugRingBufferStatusToHidl(
+    const std::vector<legacy_hal::wifi_ring_buffer_status>& legacy_status_vec,
+    std::vector<WifiDebugRingBufferStatus>* hidl_status_vec);
+bool convertLegacyWakeReasonStatsToHidl(
+    const legacy_hal::WakeReasonStats& legacy_stats,
+    WifiDebugHostWakeReasonStats* hidl_stats);
+
 // STA iface conversion methods.
+bool convertLegacyFeaturesToHidlStaCapabilities(
+    uint32_t legacy_feature_set,
+    uint32_t legacy_logger_feature_set,
+    uint32_t* hidl_caps);
+bool convertLegacyApfCapabilitiesToHidl(
+    const legacy_hal::PacketFilterCapabilities& legacy_caps,
+    StaApfPacketFilterCapabilities* hidl_caps);
+bool convertLegacyScanCapabilitiesToHidl(
+    const legacy_hal::wifi_gscan_capabilities& legacy_caps,
+    StaBackgroundScanCapabilities* hidl_caps);
 bool convertHidlScanParamsToLegacy(
     const StaBackgroundScanParameters& hidl_scan_params,
     legacy_hal::wifi_scan_cmd_params* legacy_scan_params);
