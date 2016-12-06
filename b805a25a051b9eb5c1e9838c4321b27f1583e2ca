@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8decbb0b_796ee919",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1174,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-06T00:22:09Z",
+      "side": 1,
+      "message": "sorry. missed this one.",
+      "parentUuid": "8decbb0b_6ec29d43",
+      "range": {
+        "startLine": 1174,
+        "startChar": 37,
+        "endLine": 1174,
+        "endChar": 39
+      },
+      "revId": "b805a25a051b9eb5c1e9838c4321b27f1583e2ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8decbb0b_2eadb581",
         "filename": "wifi/1.0/default/hidl_struct_util.cpp",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2016-12-06T00:08:43Z",
       "side": 1,
       "message": "Same here. (Did you mean to change this to \u0027\u003d\u003d\u0027?)",
+      "range": {
+        "startLine": 1276,
+        "startChar": 35,
+        "endLine": 1276,
+        "endChar": 37
+      },
+      "revId": "b805a25a051b9eb5c1e9838c4321b27f1583e2ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8decbb0b_199ebdf3",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1276,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-06T00:22:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8decbb0b_2eadb581",
       "range": {
         "startLine": 1276,
         "startChar": 35,
