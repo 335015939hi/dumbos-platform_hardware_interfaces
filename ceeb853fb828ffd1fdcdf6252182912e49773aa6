@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ad1edff1_ef6fa118",
+        "filename": "wifi/1.0/default/wifi_sta_iface.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-06T22:54:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad1edff1_94dcfccf",
+      "range": {
+        "startLine": 292,
+        "startChar": 36,
+        "endLine": 292,
+        "endChar": 40
+      },
+      "revId": "ceeb853fb828ffd1fdcdf6252182912e49773aa6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad1edff1_b42820b1",
         "filename": "wifi/1.0/default/wifi_sta_iface.cpp",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2016-12-06T22:09:00Z",
       "side": 1,
       "message": "Once you make the change at line 292, I think you\u0027ll find that this code is implicitly using |this|.\n\nI believe that will work ok, since we\u0027ve acquired the sp at line 293. Stylistically, though, this makes the code a bit subtle. For clarity, I\u0027d rather we only access the object only through |shared_ptr|.\n\nThat will probably require either exposing a public method to access event_callbacks_, or a public method to invoke onBackgroundScanFailure() on all event listeners.\n\nBut avoiding implicit use of |this| still seems like the right thing to do, given that the lambda might outlive the object.",
+      "range": {
+        "startLine": 298,
+        "startChar": 32,
+        "endLine": 298,
+        "endChar": 48
+      },
+      "revId": "ceeb853fb828ffd1fdcdf6252182912e49773aa6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad1edff1_af79a9e7",
+        "filename": "wifi/1.0/default/wifi_sta_iface.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-06T22:54:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad1edff1_b42820b1",
       "range": {
         "startLine": 298,
         "startChar": 32,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "ad1edff1_6f64f13a",
+        "filename": "wifi/1.0/default/wifi_sta_iface.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-06T22:54:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad1edff1_74436880",
+      "revId": "ceeb853fb828ffd1fdcdf6252182912e49773aa6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad1edff1_94407c73",
         "filename": "wifi/1.0/default/wifi_sta_iface.cpp",
         "patchSetId": 5
@@ -76,6 +142,24 @@
       "writtenOn": "2016-12-06T22:09:00Z",
       "side": 1,
       "message": "As at line 292.",
+      "revId": "ceeb853fb828ffd1fdcdf6252182912e49773aa6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad1edff1_cf7e5dcd",
+        "filename": "wifi/1.0/default/wifi_sta_iface.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-06T22:54:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad1edff1_94407c73",
       "revId": "ceeb853fb828ffd1fdcdf6252182912e49773aa6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
