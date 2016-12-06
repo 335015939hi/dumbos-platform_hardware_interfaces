@@ -62,7 +62,7 @@ class WifiRttController : public IWifiRttController {
   Return<void> getResponderInfo(getResponderInfo_cb hidl_status_cb) override;
   Return<void> enableResponder(uint32_t cmd_id,
                                const WifiChannelInfo& channel_hint,
-                               uint32_t maxDurationSeconds,
+                               uint32_t max_duration_seconds,
                                const RttResponder& info,
                                enableResponder_cb hidl_status_cb) override;
   Return<void> disableResponder(uint32_t cmd_id,
@@ -83,7 +83,7 @@ class WifiRttController : public IWifiRttController {
   std::pair<WifiStatus, RttResponder> getResponderInfoInternal();
   WifiStatus enableResponderInternal(uint32_t cmd_id,
                                      const WifiChannelInfo& channel_hint,
-                                     uint32_t maxDurationSeconds,
+                                     uint32_t max_duration_seconds,
                                      const RttResponder& info);
   WifiStatus disableResponderInternal(uint32_t cmd_id);
 
