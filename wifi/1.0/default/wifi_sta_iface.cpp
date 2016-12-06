@@ -159,6 +159,29 @@ Return<void> WifiStaIface::getLinkLayerStats(
                          hidl_status_cb);
 }
 
+Return<void> WifiStaIface::startRssiMonitoring(
+    uint32_t cmd_id,
+    int32_t max_rssi,
+    int32_t min_rssi,
+    startRssiMonitoring_cb hidl_status_cb) {
+  return validateAndCall(this,
+                         WifiStatusCode::ERROR_WIFI_IFACE_INVALID,
+                         &WifiStaIface::startRssiMonitoringInternal,
+                         hidl_status_cb,
+                         cmd_id,
+                         max_rssi,
+                         min_rssi);
+}
+
+Return<void> WifiStaIface::stopRssiMonitoring(
+    uint32_t cmd_id, stopRssiMonitoring_cb hidl_status_cb) {
+  return validateAndCall(this,
+                         WifiStatusCode::ERROR_WIFI_IFACE_INVALID,
+                         &WifiStaIface::stopRssiMonitoringInternal,
+                         hidl_status_cb,
+                         cmd_id);
+}
+
 Return<void> WifiStaIface::startDebugPacketFateMonitoring(
     startDebugPacketFateMonitoring_cb hidl_status_cb) {
   return validateAndCall(this,
@@ -377,6 +400,35 @@ WifiStaIface::getLinkLayerStatsInternal() {
     return {createWifiStatus(WifiStatusCode::ERROR_UNKNOWN), {}};
   }
   return {createWifiStatus(WifiStatusCode::SUCCESS), hidl_stats};
+}
+
+WifiStatus WifiStaIface::startRssiMonitoringInternal(uint32_t cmd_id,
+                                                     int32_t max_rssi,
+                                                     int32_t min_rssi) {
+  android::wp<WifiStaIface> weak_ptr(this);
+  const auto& on_threshold_breached_callback = [=](
+      legacy_hal::wifi_request_id id,
+      std::array<uint8_t, 6> bssid,
+      int8_t rssi) {
+    const auto shared_ptr = weak_ptr.promote();
+    if (!shared_ptr.get() || !isValid()) {
+      LOG(ERROR) << "Callback invoked on an invalid object";
+      return;
+    }
+    for (const auto& callback : event_callbacks_) {
+      callback->onRssiThresholdBreached(id, bssid, rssi);
+    }
+  };
+  legacy_hal::wifi_error legacy_status =
+      legacy_hal_.lock()->startRssiMonitoring(
+          cmd_id, max_rssi, min_rssi, on_threshold_breached_callback);
+  return createWifiStatusFromLegacyError(legacy_status);
+}
+
+WifiStatus WifiStaIface::stopRssiMonitoringInternal(uint32_t cmd_id) {
+  legacy_hal::wifi_error legacy_status =
+      legacy_hal_.lock()->stopRssiMonitoring(cmd_id);
+  return createWifiStatusFromLegacyError(legacy_status);
 }
 
 WifiStatus WifiStaIface::startDebugPacketFateMonitoringInternal() {
