@@ -266,7 +266,7 @@ interface IWifiStaIface extends IWifiIface {
    * Start RSSI monitoring on the currently connected access point.
    * Once the monitoring is enabled,
    * |IWifiStaIfaceEventCallback.onRssiThresholdBreached| callback must be
-   * be invoked to indicate if the RSSI goes above |maxRssi| or below |minRssi|.
+   * invoked to indicate if the RSSI goes above |maxRssi| or below |minRssi|.
    * Must fail if |StaIfaceCapabilityMask.RSSI_MONITOR| is not set.
    *
    * @param cmdId command Id to use for this invocation.
