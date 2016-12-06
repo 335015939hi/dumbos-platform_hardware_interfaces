@@ -43,4 +43,14 @@ interface IWifiStaIfaceEventCallback {
    * @parm scanDatas List of scan result for all AP's seen since last callback.
    */
   oneway onBackgroundScanResults(CommandId cmdId, vec<StaScanData> scanDatas);
+
+  /**
+   * Called when the RSSI of the currently connected access point goes beyond the
+   * thresholds set via |IWifiStaIface.startRssiMonitoring|.
+   *
+   * @param cmdId command Id corresponding to the request.
+   * @param currBssid BSSID of the currently connected access point.
+   * @param currRssi RSSI of the currently connected access point.
+   */
+  oneway onRssiThresholdBreached(CommandId cmdId, Bssid currBssid, Rssi currRssi);
 };

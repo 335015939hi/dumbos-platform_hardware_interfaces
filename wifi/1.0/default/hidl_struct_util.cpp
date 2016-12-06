@@ -64,6 +64,8 @@ convertLegacyFeatureToHidlStaIfaceCapability(uint32_t feature) {
       return HidlStaIfaceCaps::BACKGROUND_SCAN;
     case WIFI_FEATURE_LINK_LAYER_STATS:
       return HidlStaIfaceCaps::LINK_LAYER_STATS;
+    case WIFI_FEATURE_RSSI_MONITOR:
+      return HidlStaIfaceCaps::RSSI_MONITOR;
   };
   CHECK(0);
   return static_cast<IWifiStaIface::StaIfaceCapabilityMask>(0);
