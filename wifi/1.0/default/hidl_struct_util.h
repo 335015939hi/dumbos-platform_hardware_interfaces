@@ -166,8 +166,9 @@ bool convertLegacyNanTransmitFollowupIndToHidl(
     NanTransmitFollowupInd* hidl_ind);
 
 // RTT controller conversion methods.
-bool convertHidlRttConfigToLegacy(const RttConfig& hidl_config,
-                                  legacy_hal::wifi_rtt_config* legacy_config);
+bool convertHidlVectorOfRttConfigToLegacy(
+    const std::vector<RttConfig>& hidl_configs,
+    std::vector<legacy_hal::wifi_rtt_config>* legacy_configs);
 bool convertHidlRttChannelMapToLegacy(const RttChannelMap& hidl_map,
                                       legacy_hal::wifi_channel_map* legacy_map);
 bool convertHidlRttLciInformationToLegacy(
@@ -185,8 +186,9 @@ bool convertLegacyRttResponderToHidl(
 bool convertLegacyRttCapabilitiesToHidl(
     const legacy_hal::wifi_rtt_capabilities& legacy_capabilities,
     RttCapabilities* hidl_capabilities);
-bool convertLegacyRttResultToHidl(
-    const legacy_hal::wifi_rtt_result& legacy_result, RttResult* hidl_result);
+bool convertLegacyVectorOfRttResultToHidl(
+    const std::vector<legacy_hal::wifi_rtt_result>& legacy_results,
+    std::vector<RttResult>* hidl_results);
 }  // namespace hidl_struct_util
 }  // namespace implementation
 }  // namespace V1_0

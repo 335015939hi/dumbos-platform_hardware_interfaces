@@ -181,9 +181,28 @@ WifiStatus WifiRttController::registerEventCallbackInternal(
 }
 
 WifiStatus WifiRttController::rangeRequestInternal(
-    uint32_t /* cmd_id */, const std::vector<RttConfig>& /* rtt_configs */) {
-  // TODO implement
-  return createWifiStatus(WifiStatusCode::SUCCESS);
+    uint32_t cmd_id, const std::vector<RttConfig>& rtt_configs) {
+  std::vector<legacy_hal::wifi_rtt_config> legacy_configs;
+  if (!hidl_struct_util::convertHidlVectorOfRttConfigToLegacy(
+          rtt_configs, &legacy_configs)) {
+    return createWifiStatus(WifiStatusCode::ERROR_INVALID_ARGS);
+  }
+  const auto& on_results_callback = [&](
+      wifi_request_id id, const std::vector<const wifi_rtt_result*>& results) {
+    std::vector<RttResult> hidl_results;
+    if (!hidl_struct_util::convertLegacyVectorOfRttResultToHidl(
+            results, &hidl_results)) {
+      LOG(ERROR) << "Failed to convert rtt results to HIDL structs";
+      return;
+    }
+    for (const auto& callback : event_callbacks_) {
+      callback->onResults(id, hidl_results);
+    }
+  };
+  legacy_hal::wifi_error legacy_status =
+      legacy_hal_.lock()->startRttRangeRequest(
+          cmd_id, legacy_configs, on_results_callback);
+  return createWifiStatusFromLegacyError(legacy_status);
 }
 
 WifiStatus WifiRttController::rangeCancelInternal(

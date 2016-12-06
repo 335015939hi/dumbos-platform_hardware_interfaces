@@ -1414,6 +1414,23 @@ bool convertHidlRttConfigToLegacy(const RttConfig& hidl_config,
   return true;
 }
 
+bool convertHidlVectorOfRttConfigToLegacy(
+    const std::vector<RttConfig>& hidl_configs,
+    std::vector<legacy_hal::wifi_rtt_config>* legacy_configs) {
+  if (!hidl_configs) {
+    return false;
+  }
+  legacy_configs->clear();
+  for (const auto& hidl_config : hidl_configs) {
+    legacy_hal::wifi_rtt_config legacy_config;
+    if (!convertHidlRttConfigToLegacy(hidl_config, &legacy_config) {
+      return false;
+    }
+    legacy_configs->push_back(legacy_config);
+  }
+  return true;
+}
+
 bool convertHidlRttChannelMapToLegacy(
     const RttChannelMap& hidl_map, legacy_hal::wifi_channel_map* legacy_map) {
   if (!legacy_map) {
@@ -1588,6 +1605,23 @@ bool convertLegacyRttResultToHidl(
   }
   if (!convertLegacyIeToHidl(*legacy_result.LCR, &hidl_result->lcr)) {
     return false;
+  }
+  return true;
+}
+
+bool convertLegacyVectorOfRttResultToHidl(
+    const std::vector<legacy_hal::wifi_rtt_result>& legacy_results,
+    std::vector<RttResult>* hidl_results) {
+  if (!hidl_results) {
+    return false;
+  }
+  hidl_results->clear();
+  for (const auto& legacy_result : legacy_results) {
+    RttResult hidl_result;
+    if (!convertLegacyRttResultToHidl(legacy_result, &hidl_result)) {
+      return false;
+    }
+    hidl_results->push_back(hidl_result);
   }
   return true;
 }
