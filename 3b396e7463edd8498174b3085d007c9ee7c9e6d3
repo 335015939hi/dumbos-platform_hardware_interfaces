@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ad1edff1_34edf0d3",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-06T22:54:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad1edff1_09c3f59b",
+      "revId": "3b396e7463edd8498174b3085d007c9ee7c9e6d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad1edff1_a9152928",
         "filename": "wifi/1.0/default/hidl_struct_util.cpp",
         "patchSetId": 8
@@ -30,6 +48,30 @@
       "writtenOn": "2016-12-06T21:45:42Z",
       "side": 1,
       "message": "Does this need to be swapped with line 245?",
+      "range": {
+        "startLine": 238,
+        "startChar": 10,
+        "endLine": 238,
+        "endChar": 54
+      },
+      "revId": "3b396e7463edd8498174b3085d007c9ee7c9e6d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad1edff1_d4d27416",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-06T22:54:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad1edff1_a9152928",
       "range": {
         "startLine": 238,
         "startChar": 10,
