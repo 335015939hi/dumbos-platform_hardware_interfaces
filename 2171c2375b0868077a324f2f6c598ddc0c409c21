@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cdbcf3d0_93593c7a",
+        "filename": "consumerir/1.0/IConsumerir.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-06T01:34:29Z",
+      "side": 1,
+      "message": "IConsumerIr",
+      "range": {
+        "startLine": 19,
+        "startChar": 10,
+        "endLine": 19,
+        "endChar": 21
+      },
+      "revId": "2171c2375b0868077a324f2f6c598ddc0c409c21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cdbcf3d0_b3563847",
+        "filename": "consumerir/1.0/IConsumerir.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-06T01:34:29Z",
+      "side": 1,
+      "message": "s/\\.  /\\/ /g",
+      "range": {
+        "startLine": 25,
+        "startChar": 21,
+        "endLine": 25,
+        "endChar": 22
+      },
+      "revId": "2171c2375b0868077a324f2f6c598ddc0c409c21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cdbcf3d0_d363b41f",
+        "filename": "consumerir/1.0/IConsumerir.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-06T01:34:29Z",
+      "side": 1,
+      "message": "#15 go/android-hal-design-guidelines",
+      "range": {
+        "startLine": 32,
+        "startChar": 87,
+        "endLine": 32,
+        "endChar": 94
+      },
+      "revId": "2171c2375b0868077a324f2f6c598ddc0c409c21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cdbcf3d0_f360b015",
+        "filename": "consumerir/1.0/IConsumerir.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-06T01:34:29Z",
+      "side": 1,
+      "message": "must",
+      "range": {
+        "startLine": 46,
+        "startChar": 7,
+        "endLine": 46,
+        "endChar": 13
+      },
+      "revId": "2171c2375b0868077a324f2f6c598ddc0c409c21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cdbcf3d0_132fecbb",
+        "filename": "consumerir/1.0/IConsumerir.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-06T01:34:29Z",
+      "side": 1,
+      "message": "Seems a bit much. How about something like:\n\n@return ranges list of all supported frequency ranges truncated to len if longer than len.",
+      "range": {
+        "startLine": 45,
+        "startChar": 55,
+        "endLine": 47,
+        "endChar": 66
+      },
+      "revId": "2171c2375b0868077a324f2f6c598ddc0c409c21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cdbcf3d0_3334e80f",
+        "filename": "consumerir/1.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-06T01:34:29Z",
+      "side": 1,
+      "message": "uint?",
+      "range": {
+        "startLine": 20,
+        "startChar": 4,
+        "endLine": 20,
+        "endChar": 11
+      },
+      "revId": "2171c2375b0868077a324f2f6c598ddc0c409c21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
