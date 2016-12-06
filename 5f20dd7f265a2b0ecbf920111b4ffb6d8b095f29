@@ -39,6 +39,30 @@
       "revId": "5f20dd7f265a2b0ecbf920111b4ffb6d8b095f29",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8decbb0b_c8f05cb2",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 703,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-06T02:30:12Z",
+      "side": 1,
+      "message": "Because it\u0027s not implemented yet. Better to return false indicating that it\u0027s not complete.",
+      "parentUuid": "cdbcf3d0_33022827",
+      "range": {
+        "startLine": 703,
+        "startChar": 9,
+        "endLine": 703,
+        "endChar": 14
+      },
+      "revId": "5f20dd7f265a2b0ecbf920111b4ffb6d8b095f29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
