@@ -318,6 +318,30 @@
     },
     {
       "key": {
+        "uuid": "ad1edff1_49bfadad",
+        "filename": "wifi/1.0/default/hidl_struct_util.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-06T21:45:42Z",
+      "side": 1,
+      "message": "Looking at the generated IWifiChip.h, I see an operator overload that seems like it\u0027d do the job:\n\n   IWifiChip::ChipCapabilityMask \u0026 operator|\u003d(\n        IWifiChip::ChipCapabilityMask \u0026lhs, \n        IWifiChip::ChipCapabilityMask rhs)",
+      "parentUuid": "8decbb0b_28c24826",
+      "range": {
+        "startLine": 41,
+        "startChar": 40,
+        "endLine": 41,
+        "endChar": 48
+      },
+      "revId": "28d9d41537a934288ca79df24766c8515d846832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8decbb0b_94403473",
         "filename": "wifi/1.0/default/hidl_struct_util.h",
         "patchSetId": 4
@@ -353,6 +377,30 @@
       "side": 1,
       "message": "Same.",
       "parentUuid": "8decbb0b_94403473",
+      "range": {
+        "startLine": 53,
+        "startChar": 4,
+        "endLine": 53,
+        "endChar": 12
+      },
+      "revId": "28d9d41537a934288ca79df24766c8515d846832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad1edff1_299b5960",
+        "filename": "wifi/1.0/default/hidl_struct_util.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-06T21:45:42Z",
+      "side": 1,
+      "message": "Similarly to above. (In this case, the generated overloads are in IWifiStaIface.h, of course.)",
+      "parentUuid": "8decbb0b_e8ac406b",
       "range": {
         "startLine": 53,
         "startChar": 4,
