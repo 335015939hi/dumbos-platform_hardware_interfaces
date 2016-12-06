@@ -16,6 +16,29 @@
       "revId": "5f20dd7f265a2b0ecbf920111b4ffb6d8b095f29",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cdbcf3d0_33022827",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 703,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-06T02:22:14Z",
+      "side": 1,
+      "message": "what?\n\nWhy did you add a bunch of methods that just return false?",
+      "range": {
+        "startLine": 703,
+        "startChar": 9,
+        "endLine": 703,
+        "endChar": 14
+      },
+      "revId": "5f20dd7f265a2b0ecbf920111b4ffb6d8b095f29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
