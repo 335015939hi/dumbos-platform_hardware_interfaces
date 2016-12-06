@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad1edff1_af4f69ab",
+        "filename": "wifi/1.0/default/wifi.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-06T22:49:23Z",
+      "side": 1,
+      "message": "Can we do this in service.cpp, instead? E.g.\n\n  int main(...) {\n    // ...\n\n   \n    DriverTool::TakeOwnershipOfFirmwareReload();\n    CHECK(dropPrivileges());\n\n    // Setup binder\n    // ...\n  }\n\nSomething like this would make it much clearer that the process only briefly runs as root. (And, in particular: that we drop root before processing any IPCs.)",
+      "revId": "c63913598425337b82c11d5143bd947dad3c5fb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
