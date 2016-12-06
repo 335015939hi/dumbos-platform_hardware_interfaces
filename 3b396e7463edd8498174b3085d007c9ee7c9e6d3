@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad1edff1_09c3f59b",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-06T21:45:42Z",
+      "side": 1,
+      "message": "Ah, I see. Your earlier CL probably had INTERRUPTED, to avoid the static_cast\u003c\u003e clutter.\n\nThis is fine as is. But if you want to de-clutter, consider an empty initializer list. i.e.:\n\n  return {};",
+      "revId": "3b396e7463edd8498174b3085d007c9ee7c9e6d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad1edff1_a9152928",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-06T21:45:42Z",
+      "side": 1,
+      "message": "Does this need to be swapped with line 245?",
+      "range": {
+        "startLine": 238,
+        "startChar": 10,
+        "endLine": 238,
+        "endChar": 54
+      },
+      "revId": "3b396e7463edd8498174b3085d007c9ee7c9e6d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
