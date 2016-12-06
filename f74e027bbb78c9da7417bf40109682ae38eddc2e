@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad1edff1_1411cc3b",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-06T22:37:23Z",
+      "side": 1,
+      "message": "Prefer \u0027RSSI\u0027. (It\u0027s an acronym. Also, I want to be consistent with the comments added in this CL.)",
+      "range": {
+        "startLine": 48,
+        "startChar": 33,
+        "endLine": 48,
+        "endChar": 37
+      },
+      "revId": "f74e027bbb78c9da7417bf40109682ae38eddc2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad1edff1_340ad001",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-06T22:37:23Z",
+      "side": 1,
+      "message": "\"invoked to indicate if the...\", or \"invoked when the...\"",
+      "range": {
+        "startLine": 269,
+        "startChar": 16,
+        "endLine": 269,
+        "endChar": 24
+      },
+      "revId": "f74e027bbb78c9da7417bf40109682ae38eddc2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad1edff1_74e928f9",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-06T22:37:23Z",
+      "side": 1,
+      "message": "RSSI",
+      "range": {
+        "startLine": 273,
+        "startChar": 28,
+        "endLine": 273,
+        "endChar": 32
+      },
+      "revId": "f74e027bbb78c9da7417bf40109682ae38eddc2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad1edff1_94e63c29",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-06T22:37:23Z",
+      "side": 1,
+      "message": "RSSI",
+      "revId": "f74e027bbb78c9da7417bf40109682ae38eddc2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad1edff1_d46034ba",
+        "filename": "wifi/1.0/IWifiStaIfaceEventCallback.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-06T22:37:23Z",
+      "side": 1,
+      "message": "ID",
+      "range": {
+        "startLine": 51,
+        "startChar": 26,
+        "endLine": 51,
+        "endChar": 28
+      },
+      "revId": "f74e027bbb78c9da7417bf40109682ae38eddc2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad1edff1_6fa71190",
+        "filename": "wifi/1.0/default/wifi_sta_iface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-06T22:37:23Z",
+      "side": 1,
+      "message": "As elsewhere: prefer explicit capture when the lambda might outlive the object.",
+      "range": {
+        "startLine": 409,
+        "startChar": 47,
+        "endLine": 409,
+        "endChar": 51
+      },
+      "revId": "f74e027bbb78c9da7417bf40109682ae38eddc2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad1edff1_0fbd359a",
+        "filename": "wifi/1.0/default/wifi_sta_iface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-06T22:37:23Z",
+      "side": 1,
+      "message": "As elsewhere: prefer not to capture |this| when the lambda might outlive the object.",
+      "range": {
+        "startLine": 418,
+        "startChar": 32,
+        "endLine": 418,
+        "endChar": 48
+      },
+      "revId": "f74e027bbb78c9da7417bf40109682ae38eddc2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
