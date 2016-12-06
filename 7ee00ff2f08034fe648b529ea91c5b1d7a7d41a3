@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8decbb0b_a864f828",
+        "filename": "wifi/1.0/default/wifi_sta_iface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-06T02:16:06Z",
+      "side": 1,
+      "message": "1. Given that these callbacks are passed to another object, and that the receiving object stores them beyond the scope of this method call, I don\u0027t think a default capture-by-reference is appropriate here. We should be explicit about what will be referenced after this method\u0027s stack frame is popped. [a]\n\n2. It\u0027s not clear to me that this code properly respects the lifetime of |this|. Consider, e.g.\n\ni) StaIface is created\nii) we start Gscan on sta iface\niii) A P2P iface is created\niv) the StaIface is removed\nv) the last Gscan result comes back\n\nI don\u0027t know how to convince myself that the last Gscan result won\u0027t try to invoke a method on a deleted WifiStaIface.\n\nBut even if I could convince myself that the code is correct today, I\u0027m skeptical that we could maintain that correctness if/when this code is updated.\n\nCould we do something like the following, instead?\n- Have the callbacks take a weak pointer to WifiStaIface.\n- Have the callbacks lock() the weak pointer while iterating over event_callbacks_?\n\n[a] \"Use default capture by reference ([\u0026]) only when the lifetime of the lambda is obviously shorter than any potential captures.\" https://google.github.io/styleguide/cppguide.html#Lambda_expressions",
+      "range": {
+        "startLine": 291,
+        "startChar": 36,
+        "endLine": 291,
+        "endChar": 40
+      },
+      "revId": "7ee00ff2f08034fe648b529ea91c5b1d7a7d41a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8decbb0b_682f30bb",
+        "filename": "wifi/1.0/default/wifi_sta_iface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-06T02:16:06Z",
+      "side": 1,
+      "message": "As at line 291.",
+      "range": {
+        "startLine": 296,
+        "startChar": 36,
+        "endLine": 296,
+        "endChar": 40
+      },
+      "revId": "7ee00ff2f08034fe648b529ea91c5b1d7a7d41a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8decbb0b_082e64bb",
+        "filename": "wifi/1.0/default/wifi_sta_iface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-06T02:16:06Z",
+      "side": 1,
+      "message": "As at line 291.",
+      "range": {
+        "startLine": 309,
+        "startChar": 41,
+        "endLine": 309,
+        "endChar": 42
+      },
+      "revId": "7ee00ff2f08034fe648b529ea91c5b1d7a7d41a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
