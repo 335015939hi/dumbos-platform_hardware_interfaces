@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cdbcf3d0_d311f477",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-06T02:18:50Z",
+      "side": 1,
+      "message": "should we also have a NONE flag?\n\nOtherwise, why do we even need a flag if there is only one possible value?",
+      "range": {
+        "startLine": 494,
+        "startChar": 2,
+        "endLine": 494,
+        "endChar": 13
+      },
+      "revId": "c8949c5df7ff2ba3df78f6a6474b3fa36da8055e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
