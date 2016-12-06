@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8decbb0b_f9c419fa",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-06T00:20:27Z",
+      "side": 1,
+      "message": "Interesting. Thanks for digging up that explanation.\n\nIf you still want to go for a static check, you could do something like this:\n\n  static_assert(std::tuple_size\u003cdecltype(request.intfAddrVal)\u003e() \u003d\u003d sizeof(...), \"error message here\");\n\nBut I\u0027ll leave that choice up to you.",
+      "revId": "5f20dd7f265a2b0ecbf920111b4ffb6d8b095f29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
