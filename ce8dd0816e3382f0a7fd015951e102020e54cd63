@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad1edff1_1448ec7b",
+        "filename": "wifi/1.0/default/wifi_rtt_controller.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-06T22:17:30Z",
+      "side": 1,
+      "message": "Same concern about implicit capture (as in IWifiStaIface CL).",
+      "range": {
+        "startLine": 170,
+        "startChar": 36,
+        "endLine": 170,
+        "endChar": 40
+      },
+      "revId": "ce8dd0816e3382f0a7fd015951e102020e54cd63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad1edff1_f4677801",
+        "filename": "wifi/1.0/default/wifi_rtt_controller.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-06T22:17:30Z",
+      "side": 1,
+      "message": "Same concern about use of |this| (as in IWifiStaIface CL).",
+      "range": {
+        "startLine": 184,
+        "startChar": 32,
+        "endLine": 184,
+        "endChar": 48
+      },
+      "revId": "ce8dd0816e3382f0a7fd015951e102020e54cd63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
