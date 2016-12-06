@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "ad1edff1_745cc837",
+        "filename": "wifi/1.0/default/hidl_struct_util.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-06T22:17:30Z",
+      "side": 1,
+      "message": "Ok.",
+      "parentUuid": "8decbb0b_7ed6caaf",
+      "range": {
+        "startLine": 191,
+        "startChar": 22,
+        "endLine": 191,
+        "endChar": 56
+      },
+      "revId": "752f5150ae0c4f39d0df9daa02caaae9dda8ec6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8decbb0b_a89bd85d",
         "filename": "wifi/1.0/default/wifi_rtt_controller.cpp",
         "patchSetId": 3
