@@ -1,0 +1,181 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8decbb0b_b9bb310c",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-06T01:37:39Z",
+      "side": 1,
+      "message": "Maybe \"return 0\" in this case? No functional difference, of course. But, when reading the code, \"0\" seems like a more obvious value for the error case.",
+      "revId": "28d9d41537a934288ca79df24766c8515d846832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8decbb0b_99b86d10",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-06T01:37:39Z",
+      "side": 1,
+      "message": "As at line 69.",
+      "revId": "28d9d41537a934288ca79df24766c8515d846832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8decbb0b_59b20530",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-06T01:37:39Z",
+      "side": 1,
+      "message": "As at line 69.",
+      "revId": "28d9d41537a934288ca79df24766c8515d846832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8decbb0b_596d65a9",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-06T01:37:39Z",
+      "side": 1,
+      "message": "As at line 69.",
+      "revId": "28d9d41537a934288ca79df24766c8515d846832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8decbb0b_34be2809",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-06T01:37:39Z",
+      "side": 1,
+      "message": "Is the calculation correct?\n\nHere\u0027s how I\u0027m diagramming the situation:\n\n   +--------+-------+\n   |    a   |   b   |\n   +--------+-------+\n   R        W\n\n|W-R| gives us the size of region A. But that\u0027s the data that is pending, rather than the free space. (The free space would be region b, I think.)",
+      "revId": "28d9d41537a934288ca79df24766c8515d846832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8decbb0b_b4221816",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-06T01:37:39Z",
+      "side": 1,
+      "message": "Should this be swapped with line 244? (PACKET_FATE seems like something that would be in the logger feature-set. GSCAN and LINK_LAYER_STATS seem like they would be in regular feature-set.)",
+      "range": {
+        "startLine": 236,
+        "startChar": 18,
+        "endLine": 236,
+        "endChar": 36
+      },
+      "revId": "28d9d41537a934288ca79df24766c8515d846832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8decbb0b_54308c45",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-06T01:37:39Z",
+      "side": 1,
+      "message": "Should be HidlStaIfaceCaps, no?",
+      "range": {
+        "startLine": 237,
+        "startChar": 53,
+        "endLine": 237,
+        "endChar": 65
+      },
+      "revId": "28d9d41537a934288ca79df24766c8515d846832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8decbb0b_543accf6",
+        "filename": "wifi/1.0/default/hidl_struct_util.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-06T01:37:39Z",
+      "side": 1,
+      "message": "Could we make this ChipCapabilityMask, instead? (I know the underlying type is the same. But contextually, the enum type makes more sense.)",
+      "range": {
+        "startLine": 41,
+        "startChar": 40,
+        "endLine": 41,
+        "endChar": 48
+      },
+      "revId": "28d9d41537a934288ca79df24766c8515d846832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8decbb0b_94403473",
+        "filename": "wifi/1.0/default/hidl_struct_util.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-06T01:37:39Z",
+      "side": 1,
+      "message": "Similarly to line 41... Could we make this StaIfaceCapabilityMask, instead?",
+      "range": {
+        "startLine": 53,
+        "startChar": 4,
+        "endLine": 53,
+        "endChar": 12
+      },
+      "revId": "28d9d41537a934288ca79df24766c8515d846832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
