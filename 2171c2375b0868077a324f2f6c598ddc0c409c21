@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "cdbcf3d0_f3399001",
+        "filename": "consumerir/1.0/IConsumerir.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-06T01:37:53Z",
+      "side": 1,
+      "message": "how about:\n\nandroid.hardware.ir@1.0 ? seems cleaner to me?\n\nWhy is it \u0027consumer\u0027? Is there a \u0027ProducerIr\u0027 ? ;) No, but really, what are we contrasting with?",
+      "range": {
+        "startLine": 17,
+        "startChar": 25,
+        "endLine": 17,
+        "endChar": 35
+      },
+      "revId": "2171c2375b0868077a324f2f6c598ddc0c409c21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cdbcf3d0_93593c7a",
         "filename": "consumerir/1.0/IConsumerir.hal",
         "patchSetId": 1
