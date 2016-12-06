@@ -22,6 +22,54 @@
       "revId": "c8949c5df7ff2ba3df78f6a6474b3fa36da8055e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8decbb0b_6bcbaa0b",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-06T02:56:56Z",
+      "side": 1,
+      "message": "Having a NONE doesn\u0027t make sense here. We only want the call out any special events using the mask.\nif (flag \u0026 StaScanDataFlagMask::NONE) doesn\u0027t provide any info to the client.\n\nI\u0027m assuming this is going to be extended in the future. Currently, we only have 1 value in the legacy HAL.",
+      "parentUuid": "cdbcf3d0_d311f477",
+      "range": {
+        "startLine": 494,
+        "startChar": 2,
+        "endLine": 494,
+        "endChar": 13
+      },
+      "revId": "c8949c5df7ff2ba3df78f6a6474b3fa36da8055e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8decbb0b_ebb67a8c",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-06T02:56:56Z",
+      "side": 1,
+      "message": "I think this was added as a mask because we could have more values added later.",
+      "parentUuid": "cdbcf3d0_d311f477",
+      "range": {
+        "startLine": 494,
+        "startChar": 2,
+        "endLine": 494,
+        "endChar": 13
+      },
+      "revId": "c8949c5df7ff2ba3df78f6a6474b3fa36da8055e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
