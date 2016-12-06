@@ -16,6 +16,24 @@
       "revId": "c63913598425337b82c11d5143bd947dad3c5fb6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad1edff1_c1ab9123",
+        "filename": "wifi/1.0/default/wifi.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-06T23:18:48Z",
+      "side": 1,
+      "message": "How about moving the mode controller creation to service.cpp and then move the shared_ptr to Wifi()?",
+      "parentUuid": "ad1edff1_af4f69ab",
+      "revId": "c63913598425337b82c11d5143bd947dad3c5fb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
