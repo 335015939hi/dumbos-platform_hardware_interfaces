@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8decbb0b_7ed6caaf",
+        "filename": "wifi/1.0/default/hidl_struct_util.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-06T06:11:23Z",
+      "side": 1,
+      "message": "hmm. yeah. this is pretty ugly. I\u0027ll have to deep copy the structure (wifi_rtt_result.LCI \u0026 wifi_rtt_result.LCR) in legacy HAL to avoid passing pointers.",
+      "parentUuid": "8decbb0b_687bb069",
+      "range": {
+        "startLine": 191,
+        "startChar": 22,
+        "endLine": 191,
+        "endChar": 56
+      },
+      "revId": "752f5150ae0c4f39d0df9daa02caaae9dda8ec6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8decbb0b_a89bd85d",
         "filename": "wifi/1.0/default/wifi_rtt_controller.cpp",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2016-12-06T03:01:25Z",
       "side": 1,
       "message": "Same concerns as in an earlier CL.",
+      "range": {
+        "startLine": 169,
+        "startChar": 36,
+        "endLine": 169,
+        "endChar": 40
+      },
+      "revId": "752f5150ae0c4f39d0df9daa02caaae9dda8ec6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8decbb0b_5e70a6fc",
+        "filename": "wifi/1.0/default/wifi_rtt_controller.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-06T06:11:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8decbb0b_a89bd85d",
       "range": {
         "startLine": 169,
         "startChar": 36,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "8decbb0b_ebf1da25",
+        "filename": "wifi/1.0/default/wifi_rtt_controller.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-06T06:11:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8decbb0b_4b6fc669",
+      "revId": "752f5150ae0c4f39d0df9daa02caaae9dda8ec6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8decbb0b_0be09eae",
         "filename": "wifi/1.0/default/wifi_rtt_controller.cpp",
         "patchSetId": 3
@@ -76,6 +142,30 @@
       "writtenOn": "2016-12-06T03:01:25Z",
       "side": 1,
       "message": "Not sure emplace_back() buys us anything here. (We\u0027ll be using the copy constructor for std::array\u003c\u003e either way.)\n\n\nThe benefit of emplace_back() is avoiding the creation of a temporary. E.g.\n\n  legacy_addrs.push_back(std::array\u003cuint8_t, 6\u003e{1, 2, 3, 4, 5, 6});\n\nIf we use emplace_back in that case:\n\n  legacy_addrs.emplace_back(1, 2, 3, 4, 5, 6);\n\nthen we avoid creating a temporary array.\n\n\nBut, in our case, we\u0027ve already got an array (the array referenced by |addr|). So there\u0027s no temporary to optimize out.",
+      "range": {
+        "startLine": 193,
+        "startChar": 17,
+        "endLine": 193,
+        "endChar": 29
+      },
+      "revId": "752f5150ae0c4f39d0df9daa02caaae9dda8ec6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8decbb0b_6b2f2abb",
+        "filename": "wifi/1.0/default/wifi_rtt_controller.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-06T06:11:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8decbb0b_0be09eae",
       "range": {
         "startLine": 193,
         "startChar": 17,
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "8decbb0b_8b0fee4e",
+        "filename": "wifi/1.0/default/wifi_rtt_controller.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-06T06:11:23Z",
+      "side": 1,
+      "message": ":(.\nNeed to start writing VTS tests for all of these very soon to catch these errors.",
+      "parentUuid": "8decbb0b_6bf72a6e",
+      "range": {
+        "startLine": 210,
+        "startChar": 2,
+        "endLine": 210,
+        "endChar": 22
+      },
+      "revId": "752f5150ae0c4f39d0df9daa02caaae9dda8ec6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8decbb0b_2b66c265",
         "filename": "wifi/1.0/default/wifi_rtt_controller.cpp",
         "patchSetId": 3
@@ -122,6 +236,24 @@
       "writtenOn": "2016-12-06T03:01:25Z",
       "side": 1,
       "message": "As at line 210.",
+      "revId": "752f5150ae0c4f39d0df9daa02caaae9dda8ec6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8decbb0b_0bfc1efb",
+        "filename": "wifi/1.0/default/wifi_rtt_controller.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-06T06:11:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8decbb0b_2b66c265",
       "revId": "752f5150ae0c4f39d0df9daa02caaae9dda8ec6f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
