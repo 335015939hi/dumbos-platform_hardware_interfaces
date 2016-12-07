@@ -22,6 +22,30 @@
       "revId": "b3bdf4a9fc8b266fffe52f203c223bfe793a8b33",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad1edff1_1520e361",
+        "filename": "radio/1.0/IRadioResponse.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 1940,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-12-07T02:45:50Z",
+      "side": 1,
+      "message": "Its decided by vendors based on power measurements to find out if sending ack leads to power saving as wakelock would be released when ack would be sent and re-acquired when response is sent.",
+      "parentUuid": "ad1edff1_d574ab78",
+      "range": {
+        "startLine": 1940,
+        "startChar": 7,
+        "endLine": 1940,
+        "endChar": 52
+      },
+      "revId": "b3bdf4a9fc8b266fffe52f203c223bfe793a8b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
