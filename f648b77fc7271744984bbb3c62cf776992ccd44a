@@ -22,6 +22,30 @@
       "revId": "f648b77fc7271744984bbb3c62cf776992ccd44a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad1edff1_7a858e59",
+        "filename": "radio/1.0/IRadioResponse.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 1940,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-12-07T01:26:37Z",
+      "side": 1,
+      "message": "updated the sentence.",
+      "parentUuid": "ad1edff1_dafb7a04",
+      "range": {
+        "startLine": 1940,
+        "startChar": 7,
+        "endLine": 1940,
+        "endChar": 33
+      },
+      "revId": "f648b77fc7271744984bbb3c62cf776992ccd44a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
