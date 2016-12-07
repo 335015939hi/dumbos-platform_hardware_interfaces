@@ -1934,4 +1934,12 @@ interface IRadioResponse {
      */
     oneway getAllowedCarriersResponse(RadioResponseInfo info, bool allAllowed,
             CarrierRestrictions carriers);
+
+    /*
+     * Acknowldege the receipt of radio request sent to the vendor. This must be sent only for
+     * asynchronous radio request.
+     *
+     * @param serial Serial no. of the request whose acknowledgement is sent.
+     */
+    oneway sendRequestAcknowledgement(int32_t serial);
 };
