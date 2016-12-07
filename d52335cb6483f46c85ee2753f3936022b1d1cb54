@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ad1edff1_2f1d88dc",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 1275,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-12-07T22:41:34Z",
+      "side": 1,
+      "message": "Will delete \"Values\". Values are defined by ApnAuthType.",
+      "parentUuid": "ad1edff1_fd798d6d",
+      "range": {
+        "startLine": 1275,
+        "startChar": 52,
+        "endLine": 1275,
+        "endChar": 58
+      },
+      "revId": "d52335cb6483f46c85ee2753f3936022b1d1cb54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d3c83f2_3ffda7fc",
         "filename": "radio/1.0/types.hal",
         "patchSetId": 8
