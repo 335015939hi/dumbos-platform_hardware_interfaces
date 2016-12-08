@@ -46,6 +46,24 @@
       "revId": "88b5ce2129a5f7ce79b076f8b8456a2239f868b9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eda8d7f5_2cf19325",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-08T01:55:29Z",
+      "side": 1,
+      "message": "You CHECK(0). It never returns. This is a cleaner way than having the comment and return.",
+      "parentUuid": "ad1edff1_c350637f",
+      "revId": "88b5ce2129a5f7ce79b076f8b8456a2239f868b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
