@@ -238,6 +238,30 @@
     },
     {
       "key": {
+        "uuid": "2d3f4f99_0eacab68",
+        "filename": "consumerir/1.0/IConsumerir.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-08T23:39:43Z",
+      "side": 1,
+      "message": "ping\n\nor enum with SUCCESS/FAILURE\n\nWhat does the framework currently do with the return value?",
+      "parentUuid": "eda8d7f5_accaa304",
+      "range": {
+        "startLine": 32,
+        "startChar": 87,
+        "endLine": 32,
+        "endChar": 94
+      },
+      "revId": "2171c2375b0868077a324f2f6c598ddc0c409c21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cdbcf3d0_f360b015",
         "filename": "consumerir/1.0/IConsumerir.hal",
         "patchSetId": 1
