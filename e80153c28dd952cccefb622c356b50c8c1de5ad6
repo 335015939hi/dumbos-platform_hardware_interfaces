@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eda8d7f5_6c38bbe6",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-08T02:04:24Z",
+      "side": 1,
+      "message": "default",
+      "range": {
+        "startLine": 289,
+        "startChar": 2,
+        "endLine": 289,
+        "endChar": 3
+      },
+      "revId": "e80153c28dd952cccefb622c356b50c8c1de5ad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
