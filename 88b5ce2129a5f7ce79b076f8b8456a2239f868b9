@@ -22,6 +22,30 @@
       "revId": "88b5ce2129a5f7ce79b076f8b8456a2239f868b9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad1edff1_c350637f",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-08T01:48:26Z",
+      "side": 1,
+      "message": "[[noreturn]] from my understanding is only used for methods which will never return which is not the case here. http://en.cppreference.com/w/cpp/language/attributes\n\nThis has been changed to return {} in a future CL which makes it a little more cleaner.",
+      "parentUuid": "eda8d7f5_4c3a1ff7",
+      "range": {
+        "startLine": 47,
+        "startChar": 2,
+        "endLine": 50,
+        "endChar": 42
+      },
+      "revId": "88b5ce2129a5f7ce79b076f8b8456a2239f868b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
