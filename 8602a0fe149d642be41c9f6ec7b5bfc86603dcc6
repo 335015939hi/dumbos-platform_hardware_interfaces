@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d3f4f99_4e887308",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-08T22:13:35Z",
+      "side": 1,
+      "message": "uint8_t* -copy-\u003e std::vector -copy-\u003e hidl_vec\n\nIf you constructed a hidl_vec directly, this could only be one copy.\nIf you constructed a hidl_vec using setExternal, this could be zero copies.",
+      "range": {
+        "startLine": 115,
+        "startChar": 11,
+        "endLine": 115,
+        "endChar": 17
+      },
+      "revId": "8602a0fe149d642be41c9f6ec7b5bfc86603dcc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d3f4f99_6e852fef",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-08T22:13:35Z",
+      "side": 1,
+      "message": "nit: why only nice error messages on some?",
+      "range": {
+        "startLine": 403,
+        "startChar": 14,
+        "endLine": 403,
+        "endChar": 15
+      },
+      "revId": "8602a0fe149d642be41c9f6ec7b5bfc86603dcc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
