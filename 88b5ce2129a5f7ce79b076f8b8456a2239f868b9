@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eda8d7f5_4c3a1ff7",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-08T00:05:05Z",
+      "side": 1,
+      "message": "[[noreturn]] ???\n\nAlso, how about something like:\n\nCHECK(false) \u003c\u003c \"Unknown legacy flag: \" \u003c\u003c legacy_flag",
+      "range": {
+        "startLine": 47,
+        "startChar": 2,
+        "endLine": 50,
+        "endChar": 42
+      },
+      "revId": "88b5ce2129a5f7ce79b076f8b8456a2239f868b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
