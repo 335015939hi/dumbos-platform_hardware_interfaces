@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad1edff1_c3a7038e",
+        "filename": "wifi/1.0/default/wifi_sta_iface.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-08T01:27:44Z",
+      "side": 1,
+      "message": "The body of the lambda is correct, but I think the capture list is still problematic.",
+      "range": {
+        "startLine": 325,
+        "startChar": 40,
+        "endLine": 325,
+        "endChar": 44
+      },
+      "revId": "4d75c72a3c80f4b699cd3174482ebbd3b056f82e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
