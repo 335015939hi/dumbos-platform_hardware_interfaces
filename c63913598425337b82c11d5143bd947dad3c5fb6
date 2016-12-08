@@ -34,6 +34,24 @@
       "revId": "c63913598425337b82c11d5143bd947dad3c5fb6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad1edff1_033dfbd0",
+        "filename": "wifi/1.0/default/wifi.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-08T01:49:17Z",
+      "side": 1,
+      "message": "If I understand correctly, moving the WifiModeController to service.cpp will not be necessary. Hence this CL is ready to go as is.\n\nPlease correct if I\u0027m mistaken.",
+      "parentUuid": "ad1edff1_c1ab9123",
+      "revId": "c63913598425337b82c11d5143bd947dad3c5fb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
