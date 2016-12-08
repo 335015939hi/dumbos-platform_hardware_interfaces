@@ -42,7 +42,7 @@ interface ISupplicantStaIface extends ISupplicantIface {
    * for Hotspot 2.0.
    */
   enum Hs20AnqpSubtypes : uint32_t {
-    OPERATOR_FRIENDLY_NAME = 2,
+    OPERATOR_FRIENDLY_NAME = 3,
     WAN_METRICS = 4,
     CONNECTION_CAPABILITY = 5,
     OSU_PROVIDERS_LIST = 8,
