@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eda8d7f5_6c51db26",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-08T02:09:45Z",
+      "side": 0,
+      "message": "Why not fix this in the CL that is being reviewed that actually introduces this?\n\nhttps://android-review.googlesource.com/c/310723/4/wifi/1.0/IWifiStaIface.hal#269\n\nThis just messes with git history :(",
+      "range": {
+        "startLine": 269,
+        "startChar": 5,
+        "endLine": 269,
+        "endChar": 7
+      },
+      "revId": "8c780ab9636173587b46210bf600994284da01ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
