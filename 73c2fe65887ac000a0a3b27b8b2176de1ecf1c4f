@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ad1edff1_c33dc380",
+        "filename": "wifi/1.0/vts/functional/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-08T02:59:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eda8d7f5_8c1887a0",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 5
+      },
+      "revId": "73c2fe65887ac000a0a3b27b8b2176de1ecf1c4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad1edff1_e3fd67bf",
         "filename": "wifi/1.0/vts/functional/Android.bp",
         "patchSetId": 2
@@ -36,6 +60,24 @@
       "writtenOn": "2016-12-08T02:20:40Z",
       "side": 1,
       "message": "Please sort alphabetically. (Should be after wifi_nan)",
+      "revId": "73c2fe65887ac000a0a3b27b8b2176de1ecf1c4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad1edff1_7e66d002",
+        "filename": "wifi/1.0/vts/functional/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-08T02:59:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad1edff1_e3fd67bf",
       "revId": "73c2fe65887ac000a0a3b27b8b2176de1ecf1c4f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -89,6 +131,30 @@
     },
     {
       "key": {
+        "uuid": "ad1edff1_be85485c",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-08T02:59:22Z",
+      "side": 1,
+      "message": "Hmm. Will remove it now. But, we\u0027ll probably need to add them back since this fixture is intended to test all IWifi related methods. All the future tests added to this file will need to perform |getWifi|.",
+      "parentUuid": "ad1edff1_83702b88",
+      "range": {
+        "startLine": 48,
+        "startChar": 29,
+        "endLine": 48,
+        "endChar": 31
+      },
+      "revId": "73c2fe65887ac000a0a3b27b8b2176de1ecf1c4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eda8d7f5_cc228fc8",
         "filename": "wifi/1.0/vts/functional/wifi_hidl_test_utils.cpp",
         "patchSetId": 2
@@ -112,6 +178,30 @@
     },
     {
       "key": {
+        "uuid": "ad1edff1_fec740a3",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_test_utils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-08T02:59:22Z",
+      "side": 1,
+      "message": "hmm. we\u0027ve been using 2 spaces throughout the wifi codebase. Is this in a style doc somewhere? Will take this up in a separate CL then.",
+      "parentUuid": "eda8d7f5_cc228fc8",
+      "range": {
+        "startLine": 141,
+        "startChar": 0,
+        "endLine": 141,
+        "endChar": 2
+      },
+      "revId": "73c2fe65887ac000a0a3b27b8b2176de1ecf1c4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eda8d7f5_2c087349",
         "filename": "wifi/1.0/vts/functional/wifi_nan_iface_hidl_test.cpp",
         "patchSetId": 2
@@ -123,6 +213,30 @@
       "writtenOn": "2016-12-08T00:11:03Z",
       "side": 1,
       "message": "same",
+      "range": {
+        "startLine": 48,
+        "startChar": 37,
+        "endLine": 48,
+        "endChar": 39
+      },
+      "revId": "73c2fe65887ac000a0a3b27b8b2176de1ecf1c4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad1edff1_7edc9075",
+        "filename": "wifi/1.0/vts/functional/wifi_nan_iface_hidl_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-08T02:59:22Z",
+      "side": 1,
+      "message": "Same.",
+      "parentUuid": "eda8d7f5_2c087349",
       "range": {
         "startLine": 48,
         "startChar": 37,
@@ -170,6 +284,30 @@
       "side": 1,
       "message": "Placing tests for multiple classes in one file runs counter to convention [1]. Is there something to be gained by testing all classes in one file?\n\n[1] https://google.github.io/styleguide/cppguide.html#File_Names",
       "parentUuid": "eda8d7f5_0c05b731",
+      "range": {
+        "startLine": 48,
+        "startChar": 37,
+        "endLine": 48,
+        "endChar": 39
+      },
+      "revId": "73c2fe65887ac000a0a3b27b8b2176de1ecf1c4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad1edff1_3ea7f8f4",
+        "filename": "wifi/1.0/vts/functional/wifi_p2p_iface_hidl_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-08T02:59:22Z",
+      "side": 1,
+      "message": "Right. We want to place the tests for all the methods in each interface in a separate file.",
+      "parentUuid": "ad1edff1_03c89bb2",
       "range": {
         "startLine": 48,
         "startChar": 37,
