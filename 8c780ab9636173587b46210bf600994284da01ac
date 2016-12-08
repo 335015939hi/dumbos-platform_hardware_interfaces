@@ -67,6 +67,24 @@
     },
     {
       "key": {
+        "uuid": "ad1edff1_3e6858d1",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-08T02:48:28Z",
+      "side": 1,
+      "message": "Added a comment here: https://b.corp.google.com/issues/32337212",
+      "parentUuid": "eda8d7f5_ec714bc0",
+      "revId": "8c780ab9636173587b46210bf600994284da01ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eda8d7f5_cc41ef59",
         "filename": "wifi/1.0/IWifiStaIface.hal",
         "patchSetId": 4
