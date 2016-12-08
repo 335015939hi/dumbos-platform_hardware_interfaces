@@ -64,6 +64,24 @@
       "revId": "e80153c28dd952cccefb622c356b50c8c1de5ad6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad1edff1_9e572472",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-08T02:18:50Z",
+      "side": 1,
+      "message": "It\u0027s an enum class. So, we shouldn\u0027t have any garbage values. We\u0027ll run into a compiler error if someone sends us a garbage value.",
+      "parentUuid": "eda8d7f5_4c633ff1",
+      "revId": "e80153c28dd952cccefb622c356b50c8c1de5ad6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
