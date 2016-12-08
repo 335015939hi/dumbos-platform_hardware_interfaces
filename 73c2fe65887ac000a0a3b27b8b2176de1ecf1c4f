@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eda8d7f5_8c1887a0",
+        "filename": "wifi/1.0/vts/functional/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-08T00:11:03Z",
+      "side": 1,
+      "message": "spaces",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 5
+      },
+      "revId": "73c2fe65887ac000a0a3b27b8b2176de1ecf1c4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eda8d7f5_ec1dcb8e",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-08T00:11:03Z",
+      "side": 1,
+      "message": "This is not what you\u0027re testing. You should move the getWifi here instead of in setup if you want to test it.",
+      "range": {
+        "startLine": 48,
+        "startChar": 29,
+        "endLine": 48,
+        "endChar": 31
+      },
+      "revId": "73c2fe65887ac000a0a3b27b8b2176de1ecf1c4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eda8d7f5_cc228fc8",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_test_utils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-08T00:11:03Z",
+      "side": 1,
+      "message": "4 spaces (everywhere)",
+      "range": {
+        "startLine": 141,
+        "startChar": 0,
+        "endLine": 141,
+        "endChar": 2
+      },
+      "revId": "73c2fe65887ac000a0a3b27b8b2176de1ecf1c4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eda8d7f5_2c087349",
+        "filename": "wifi/1.0/vts/functional/wifi_nan_iface_hidl_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-08T00:11:03Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 48,
+        "startChar": 37,
+        "endLine": 48,
+        "endChar": 39
+      },
+      "revId": "73c2fe65887ac000a0a3b27b8b2176de1ecf1c4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eda8d7f5_0c05b731",
+        "filename": "wifi/1.0/vts/functional/wifi_p2p_iface_hidl_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-08T00:11:03Z",
+      "side": 1,
+      "message": "same for all of these.\n\nWhy do you have all of these test files anyway? Why not just have one that tests for the creation of each interface",
+      "range": {
+        "startLine": 48,
+        "startChar": 37,
+        "endLine": 48,
+        "endChar": 39
+      },
+      "revId": "73c2fe65887ac000a0a3b27b8b2176de1ecf1c4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
