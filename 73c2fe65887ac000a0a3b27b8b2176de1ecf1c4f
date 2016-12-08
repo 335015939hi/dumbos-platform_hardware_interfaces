@@ -25,6 +25,23 @@
     },
     {
       "key": {
+        "uuid": "ad1edff1_e3fd67bf",
+        "filename": "wifi/1.0/vts/functional/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-08T02:20:40Z",
+      "side": 1,
+      "message": "Please sort alphabetically. (Should be after wifi_nan)",
+      "revId": "73c2fe65887ac000a0a3b27b8b2176de1ecf1c4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eda8d7f5_ec1dcb8e",
         "filename": "wifi/1.0/vts/functional/wifi_hidl_test.cpp",
         "patchSetId": 2
@@ -36,6 +53,30 @@
       "writtenOn": "2016-12-08T00:11:03Z",
       "side": 1,
       "message": "This is not what you\u0027re testing. You should move the getWifi here instead of in setup if you want to test it.",
+      "range": {
+        "startLine": 48,
+        "startChar": 29,
+        "endLine": 48,
+        "endChar": 31
+      },
+      "revId": "73c2fe65887ac000a0a3b27b8b2176de1ecf1c4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad1edff1_83702b88",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-08T02:20:40Z",
+      "side": 1,
+      "message": "\u003d\u003dsmoreland\n\nHaving the fixture create the Wifi object makes the behavior of this test case implicit. But test cases should be explicit about what they\u0027re doing. See http://go/unit-test-readability (slide 15), and http://go/unit-test-practices#setUp\n\nOnce you\u0027ve added getWifi() to the Create tests, please also remove the |wifi_| bits of code from the fixture. (While I suspect you\u0027ll need to add those bits back eventually, this CL will be cleaner without them.)",
+      "parentUuid": "eda8d7f5_ec1dcb8e",
       "range": {
         "startLine": 48,
         "startChar": 29,
@@ -105,6 +146,30 @@
       "writtenOn": "2016-12-08T00:11:03Z",
       "side": 1,
       "message": "same for all of these.\n\nWhy do you have all of these test files anyway? Why not just have one that tests for the creation of each interface",
+      "range": {
+        "startLine": 48,
+        "startChar": 37,
+        "endLine": 48,
+        "endChar": 39
+      },
+      "revId": "73c2fe65887ac000a0a3b27b8b2176de1ecf1c4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad1edff1_03c89bb2",
+        "filename": "wifi/1.0/vts/functional/wifi_p2p_iface_hidl_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-08T02:20:40Z",
+      "side": 1,
+      "message": "Placing tests for multiple classes in one file runs counter to convention [1]. Is there something to be gained by testing all classes in one file?\n\n[1] https://google.github.io/styleguide/cppguide.html#File_Names",
+      "parentUuid": "eda8d7f5_0c05b731",
       "range": {
         "startLine": 48,
         "startChar": 37,
