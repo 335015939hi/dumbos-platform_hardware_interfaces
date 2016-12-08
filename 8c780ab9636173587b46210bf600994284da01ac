@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eda8d7f5_ec3cabd7",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-08T02:08:00Z",
+      "side": 1,
+      "message": "with which status?",
+      "range": {
+        "startLine": 270,
+        "startChar": 10,
+        "endLine": 270,
+        "endChar": 14
+      },
+      "revId": "8c780ab9636173587b46210bf600994284da01ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eda8d7f5_cc41ef59",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-08T02:08:00Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 289,
+        "startChar": 10,
+        "endLine": 289,
+        "endChar": 14
+      },
+      "revId": "8c780ab9636173587b46210bf600994284da01ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
