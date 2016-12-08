@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d3f4f99_ae971727",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-08T22:16:03Z",
+      "side": 1,
+      "message": "nit: same as other CL, why only nice error messages on some.",
+      "revId": "1eaa1a8a138213e42cf5d56bfef465b1d08f5ecc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d3f4f99_ce8c631a",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-08T22:16:03Z",
+      "side": 1,
+      "message": "shouldn\u0027t you also need this after line 247 and other places below? I don\u0027t understand.",
+      "range": {
+        "startLine": 256,
+        "startChar": 2,
+        "endLine": 258,
+        "endChar": 12
+      },
+      "revId": "1eaa1a8a138213e42cf5d56bfef465b1d08f5ecc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
