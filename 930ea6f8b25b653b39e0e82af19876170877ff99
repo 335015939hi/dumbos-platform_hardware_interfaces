@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad1edff1_48f6b2ba",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-08T01:33:09Z",
+      "side": 1,
+      "message": "Please double-check the comment on PS2. (The comment is marked done, but gerrit isn\u0027t showing any diffs here.)",
+      "revId": "930ea6f8b25b653b39e0e82af19876170877ff99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
