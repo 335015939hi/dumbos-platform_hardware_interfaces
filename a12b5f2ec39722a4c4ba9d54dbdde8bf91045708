@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eda8d7f5_cc28cf99",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 984,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-08T02:03:12Z",
+      "side": 1,
+      "message": "default (same above)",
+      "range": {
+        "startLine": 984,
+        "startChar": 2,
+        "endLine": 984,
+        "endChar": 3
+      },
+      "revId": "a12b5f2ec39722a4c4ba9d54dbdde8bf91045708",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eda8d7f5_ec230bbc",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1001,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-08T02:03:12Z",
+      "side": 1,
+      "message": "default?",
+      "revId": "a12b5f2ec39722a4c4ba9d54dbdde8bf91045708",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eda8d7f5_8c1ec779",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1013,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-08T02:03:12Z",
+      "side": 1,
+      "message": "default?",
+      "range": {
+        "startLine": 1013,
+        "startChar": 2,
+        "endLine": 1013,
+        "endChar": 3
+      },
+      "revId": "a12b5f2ec39722a4c4ba9d54dbdde8bf91045708",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eda8d7f5_ac190396",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1080,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-08T02:03:12Z",
+      "side": 1,
+      "message": "default?",
+      "range": {
+        "startLine": 1080,
+        "startChar": 2,
+        "endLine": 1080,
+        "endChar": 3
+      },
+      "revId": "a12b5f2ec39722a4c4ba9d54dbdde8bf91045708",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
