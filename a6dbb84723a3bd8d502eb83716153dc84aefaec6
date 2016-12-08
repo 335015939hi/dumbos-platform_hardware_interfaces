@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad1edff1_4b18e1ed",
+        "filename": "wifi/1.0/vts/functional/main.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-08T21:56:07Z",
+      "side": 1,
+      "message": "Neat. I didn\u0027t know about this one.",
+      "range": {
+        "startLine": 32,
+        "startChar": 13,
+        "endLine": 32,
+        "endChar": 37
+      },
+      "revId": "a6dbb84723a3bd8d502eb83716153dc84aefaec6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad1edff1_8b4599b8",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_test.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-08T21:56:07Z",
+      "side": 1,
+      "message": "Do you want to inline the getWifi() call into the assertion, instead? (Doesn\u0027t seem like we need the local for anything.)\n\nBut if you don\u0027t go so far as inlining the call into the assertion, consider moving this assignment to line 43, for consistency with the other files.",
+      "revId": "a6dbb84723a3bd8d502eb83716153dc84aefaec6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad1edff1_4bc541f3",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_test.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-08T21:56:07Z",
+      "side": 1,
+      "message": "EXPECT_* here, and in the rest of the files. ASSERT_* is useful when we need to quit a test early [1], because some preconditions can\u0027t be satisfied. But, for the actual thing we want to test, stick with EXPECT_*.\n\n(While non-null usually _is_ a precondition, this test is an exception. Non-null is precisely the thing we want to verify.)\n\n[1] \"ASSERT_* versions ... abort the current function.\" https://github.com/google/googletest/blob/master/googletest/docs/Primer.md#assertions",
+      "range": {
+        "startLine": 45,
+        "startChar": 2,
+        "endLine": 45,
+        "endChar": 11
+      },
+      "revId": "a6dbb84723a3bd8d502eb83716153dc84aefaec6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
