@@ -91,6 +91,29 @@
       "revId": "df6c5abca4bb4fb4e0ea64fd6e525aeaf38ac754",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d3f4f99_ee43dfae",
+        "filename": "ir/1.0/IConsumerIr.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-09T02:40:12Z",
+      "side": 1,
+      "message": "likewise, we probably don\u0027t need the length here. The implementation of getCarrierFreqs can just call the getNumCarrierFreqs on the original hal. I think we can greatly simplify this hal by avoiding these extra steps.",
+      "range": {
+        "startLine": 50,
+        "startChar": 29,
+        "endLine": 50,
+        "endChar": 32
+      },
+      "revId": "df6c5abca4bb4fb4e0ea64fd6e525aeaf38ac754",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
