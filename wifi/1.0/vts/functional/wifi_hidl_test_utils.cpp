@@ -93,24 +93,18 @@ sp<IWifiChip> getWifiChip() {
   return wifi_chip;
 }
 
-// Since we currently only support one iface of each type. Just iterate thru the
-// modes of operation and find the mode ID to use for that iface type.
-bool findModeToSupportIfaceType(IfaceType type,
-                                const std::vector<IWifiChip::ChipMode>& modes,
-                                ChipModeId* mode_id) {
+bool findAnyModeSupportingIfaceType(
+    IfaceType desired_type,
+    const std::vector<IWifiChip::ChipMode>& modes,
+    ChipModeId* mode_id) {
   for (const auto& mode : modes) {
-    std::vector<IWifiChip::ChipIfaceCombination> combinations =
-        mode.availableCombinations;
-    for (const auto& combination : combinations) {
-      std::vector<IWifiChip::ChipIfaceCombinationLimit> iface_limits =
-          combination.limits;
-      for (const auto& iface_limit : iface_limits) {
-        std::vector<IfaceType> iface_types = iface_limit.types;
-        for (const auto& iface_type : iface_types) {
-          if (iface_type == type) {
-            *mode_id = mode.id;
-            return true;
-          }
+    for (const auto& combination : mode.availableCombinations) {
+      for (const auto& iface_limit : combination.limits) {
+        const auto& iface_types = iface_limit.types;
+        if (std::find(iface_types.begin(), iface_types.end(), desired_type) !=
+            iface_types.end()) {
+          *mode_id = mode.id;
+          return true;
         }
       }
     }
@@ -119,13 +113,19 @@ bool findModeToSupportIfaceType(IfaceType type,
 }
 
 bool configureChipToSupportIfaceType(const sp<IWifiChip>& wifi_chip,
-                                     IfaceType type) {
+                                     IfaceType type,
+                                     ChipModeId* configured_mode_id) {
+  if (!configured_mode_id) {
+    return false;
+  }
+
   bool operation_failed = false;
   std::vector<IWifiChip::ChipMode> chip_modes;
   wifi_chip->getAvailableModes(
       [&](WifiStatus status, const hidl_vec<IWifiChip::ChipMode>& modes) {
         if (status.code != WifiStatusCode::SUCCESS) {
           operation_failed = true;
+          return;
         }
         chip_modes = modes;
       });
@@ -133,20 +133,23 @@ bool configureChipToSupportIfaceType(const sp<IWifiChip>& wifi_chip,
     return false;
   }
 
-  ChipModeId mode_id;
-  if (!findModeToSupportIfaceType(type, chip_modes, &mode_id)) {
+  if (!findAnyModeSupportingIfaceType(type, chip_modes, configured_mode_id)) {
     return false;
   }
 
-  wifi_chip->configureChip(mode_id, [&](WifiStatus status) {
+  wifi_chip->configureChip(*configured_mode_id, [&](WifiStatus status) {
     if (status.code != WifiStatusCode::SUCCESS) {
       operation_failed = true;
+      return;
     }
   });
-  if (operation_failed) {
-    return false;
-  }
-  return true;
+  return !operation_failed;
+}
+
+bool configureChipToSupportIfaceType(const sp<IWifiChip>& wifi_chip,
+                                     IfaceType type) {
+  ChipModeId mode_id;
+  return configureChipToSupportIfaceType(wifi_chip, type, &mode_id);
 }
 
 sp<IWifiApIface> getWifiApIface() {
@@ -164,6 +167,7 @@ sp<IWifiApIface> getWifiApIface() {
       [&](const WifiStatus& status, const sp<IWifiApIface>& iface) {
         if (status.code != WifiStatusCode::SUCCESS) {
           operation_failed = true;
+          return;
         }
         wifi_ap_iface = iface;
       });
@@ -212,6 +216,7 @@ sp<IWifiP2pIface> getWifiP2pIface() {
       [&](const WifiStatus& status, const sp<IWifiP2pIface>& iface) {
         if (status.code != WifiStatusCode::SUCCESS) {
           operation_failed = true;
+          return;
         }
         wifi_p2p_iface = iface;
       });
@@ -236,6 +241,7 @@ sp<IWifiStaIface> getWifiStaIface() {
       [&](const WifiStatus& status, const sp<IWifiStaIface>& iface) {
         if (status.code != WifiStatusCode::SUCCESS) {
           operation_failed = true;
+          return;
         }
         wifi_sta_iface = iface;
       });
@@ -262,6 +268,7 @@ sp<IWifiRttController> getWifiRttController() {
       [&](const WifiStatus& status, const sp<IWifiRttController>& controller) {
         if (status.code != WifiStatusCode::SUCCESS) {
           operation_failed = true;
+          return;
         }
         wifi_rtt_controller = controller;
       });
