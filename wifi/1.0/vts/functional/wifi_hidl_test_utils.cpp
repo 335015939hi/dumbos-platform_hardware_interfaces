@@ -93,68 +93,13 @@ sp<IWifiChip> getWifiChip() {
   return wifi_chip;
 }
 
-// Since we currently only support one iface of each type. Just iterate thru the
-// modes of operation and find the mode ID to use for that iface type.
-bool findModeToSupportIfaceType(IfaceType type,
-                                const std::vector<IWifiChip::ChipMode>& modes,
-                                ChipModeId* mode_id) {
-  for (const auto& mode : modes) {
-    std::vector<IWifiChip::ChipIfaceCombination> combinations =
-        mode.availableCombinations;
-    for (const auto& combination : combinations) {
-      std::vector<IWifiChip::ChipIfaceCombinationLimit> iface_limits =
-          combination.limits;
-      for (const auto& iface_limit : iface_limits) {
-        std::vector<IfaceType> iface_types = iface_limit.types;
-        for (const auto& iface_type : iface_types) {
-          if (iface_type == type) {
-            *mode_id = mode.id;
-            return true;
-          }
-        }
-      }
-    }
-  }
-  return false;
-}
-
-bool configureChipToSupportIfaceType(const sp<IWifiChip>& wifi_chip,
-                                     IfaceType type) {
-  bool operation_failed = false;
-  std::vector<IWifiChip::ChipMode> chip_modes;
-  wifi_chip->getAvailableModes(
-      [&](WifiStatus status, const hidl_vec<IWifiChip::ChipMode>& modes) {
-        if (status.code != WifiStatusCode::SUCCESS) {
-          operation_failed = true;
-        }
-        chip_modes = modes;
-      });
-  if (operation_failed) {
-    return false;
-  }
-
-  ChipModeId mode_id;
-  if (!findModeToSupportIfaceType(type, chip_modes, &mode_id)) {
-    return false;
-  }
-
-  wifi_chip->configureChip(mode_id, [&](WifiStatus status) {
-    if (status.code != WifiStatusCode::SUCCESS) {
-      operation_failed = true;
-    }
-  });
-  if (operation_failed) {
-    return false;
-  }
-  return true;
-}
-
 sp<IWifiApIface> getWifiApIface() {
   sp<IWifiChip> wifi_chip = getWifiChip();
   if (!wifi_chip.get()) {
     return nullptr;
   }
-  if (!configureChipToSupportIfaceType(wifi_chip, IfaceType::AP)) {
+  ChipModeId mode_id;
+  if (!configureChipToSupportIfaceType(wifi_chip, IfaceType::AP, &mode_id)) {
     return nullptr;
   }
 
@@ -178,7 +123,8 @@ sp<IWifiNanIface> getWifiNanIface() {
   if (!wifi_chip.get()) {
     return nullptr;
   }
-  if (!configureChipToSupportIfaceType(wifi_chip, IfaceType::NAN)) {
+  ChipModeId mode_id;
+  if (!configureChipToSupportIfaceType(wifi_chip, IfaceType::NAN, &mode_id)) {
     return nullptr;
   }
 
@@ -202,7 +148,8 @@ sp<IWifiP2pIface> getWifiP2pIface() {
   if (!wifi_chip.get()) {
     return nullptr;
   }
-  if (!configureChipToSupportIfaceType(wifi_chip, IfaceType::P2P)) {
+  ChipModeId mode_id;
+  if (!configureChipToSupportIfaceType(wifi_chip, IfaceType::P2P, &mode_id)) {
     return nullptr;
   }
 
@@ -226,7 +173,8 @@ sp<IWifiStaIface> getWifiStaIface() {
   if (!wifi_chip.get()) {
     return nullptr;
   }
-  if (!configureChipToSupportIfaceType(wifi_chip, IfaceType::STA)) {
+  ChipModeId mode_id;
+  if (!configureChipToSupportIfaceType(wifi_chip, IfaceType::STA, &mode_id)) {
     return nullptr;
   }
 
@@ -269,6 +217,68 @@ sp<IWifiRttController> getWifiRttController() {
     return nullptr;
   }
   return wifi_rtt_controller;
+}
+
+// Since we currently only support one iface of each type. Just iterate thru the
+// modes of operation and find the mode ID to use for that iface type.
+bool findModeToSupportIfaceType(IfaceType type,
+                                const std::vector<IWifiChip::ChipMode>& modes,
+                                ChipModeId* mode_id) {
+  if (!mode_id) {
+    return false;
+  }
+  for (const auto& mode : modes) {
+    std::vector<IWifiChip::ChipIfaceCombination> combinations =
+        mode.availableCombinations;
+    for (const auto& combination : combinations) {
+      std::vector<IWifiChip::ChipIfaceCombinationLimit> iface_limits =
+          combination.limits;
+      for (const auto& iface_limit : iface_limits) {
+        std::vector<IfaceType> iface_types = iface_limit.types;
+        for (const auto& iface_type : iface_types) {
+          if (iface_type == type) {
+            *mode_id = mode.id;
+            return true;
+          }
+        }
+      }
+    }
+  }
+  return false;
+}
+
+bool configureChipToSupportIfaceType(const sp<IWifiChip>& wifi_chip,
+                                     IfaceType type,
+                                     ChipModeId* configured_mode_id) {
+  if (!configured_mode_id) {
+    return false;
+  }
+  bool operation_failed = false;
+  std::vector<IWifiChip::ChipMode> chip_modes;
+  wifi_chip->getAvailableModes(
+      [&](WifiStatus status, const hidl_vec<IWifiChip::ChipMode>& modes) {
+        if (status.code != WifiStatusCode::SUCCESS) {
+          operation_failed = true;
+        }
+        chip_modes = modes;
+      });
+  if (operation_failed) {
+    return false;
+  }
+
+  if (!findModeToSupportIfaceType(type, chip_modes, configured_mode_id)) {
+    return false;
+  }
+
+  wifi_chip->configureChip(*configured_mode_id, [&](WifiStatus status) {
+    if (status.code != WifiStatusCode::SUCCESS) {
+      operation_failed = true;
+    }
+  });
+  if (operation_failed) {
+    return false;
+  }
+  return true;
 }
 
 void stopWifi() {
