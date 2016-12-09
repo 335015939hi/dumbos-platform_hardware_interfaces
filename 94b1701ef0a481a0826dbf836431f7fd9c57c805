@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d3f4f99_aea6375c",
+        "filename": "ir/1.0/IConsumerIr.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-09T03:30:46Z",
+      "side": 1,
+      "message": "nit: eh, more like returns, but it\u0027s nbd.",
+      "range": {
+        "startLine": 34,
+        "startChar": 25,
+        "endLine": 34,
+        "endChar": 35
+      },
+      "revId": "94b1701ef0a481a0826dbf836431f7fd9c57c805",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
