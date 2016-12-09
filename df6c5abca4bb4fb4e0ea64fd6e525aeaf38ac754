@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "3a26a7ad_bf129b06",
+        "filename": "ir/1.0/IConsumerIr.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1115183
+      },
+      "writtenOn": "2016-12-09T02:51:00Z",
+      "side": 1,
+      "message": "I think this is specifying when the function returns, not what the return value should be",
+      "parentUuid": "2d3f4f99_0e502b7c",
+      "range": {
+        "startLine": 28,
+        "startChar": 24,
+        "endLine": 28,
+        "endChar": 30
+      },
+      "revId": "df6c5abca4bb4fb4e0ea64fd6e525aeaf38ac754",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d3f4f99_8e441bbc",
         "filename": "ir/1.0/IConsumerIr.hal",
         "patchSetId": 7
