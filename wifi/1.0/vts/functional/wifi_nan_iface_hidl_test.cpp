@@ -22,6 +22,9 @@
 
 #include "wifi_hidl_test_utils.h"
 
+// Don't run the NAN tests on devices which do not support it.
+#ifdef BOARD_HAS_NAN
+
 using ::android::hardware::wifi::V1_0::IWifiNanIface;
 using ::android::sp;
 
@@ -43,3 +46,5 @@ TEST(WifiNanIfaceHidlTestNoFixture, Create) {
   EXPECT_NE(getWifiNanIface(), nullptr);
   stopWifi();
 }
+
+#endif  // BOARD_HAS_NAN
