@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d3f4f99_2edc07ce",
+        "filename": "ir/1.0/default/ConsumerIr.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-09T05:33:15Z",
+      "side": 1,
+      "message": "oh wait. I totally missed this part.\n\nYou should use C++ style casts -- this would be a reinterpret cast. There is no guarantee that these data types will stay in sync (or that they are the same even now). This conversion is not safe.\n\nYou should explicitly perform the conversion.",
+      "range": {
+        "startLine": 49,
+        "startChar": 32,
+        "endLine": 49,
+        "endChar": 51
+      },
+      "revId": "fe0228c6ca897a3ea81e9c6017a7d503e06af4ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
