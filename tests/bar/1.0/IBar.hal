@@ -32,5 +32,5 @@ interface IBar extends android.hardware.tests.foo@1.0::IFoo {
     thisIsNew();
     expectNullHandle(handle h, Abc xyz) generates (bool hIsNull, bool xyzHasNull);
     takeAMask(BitField bf, bitfield<BitField> first, MyMask second, Mask third)
-            generates (BitField bf, uint8_t first, uint8_t second, uint8_t third);
+            generates (BitField outbf, uint8_t outfirst, uint8_t outsecond, uint8_t outthird);
 };

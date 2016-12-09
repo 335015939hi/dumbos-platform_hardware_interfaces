@@ -122,7 +122,7 @@ interface IFoo {
     transpose(StringMatrix5x3 in) generates (StringMatrix3x5 out);
     transpose2(ThreeStrings[5] in) generates (FiveStrings[3] out);
 
-    sendVec(vec<uint8_t> data) generates (vec<uint8_t> data);
+    sendVec(vec<uint8_t> in) generates (vec<uint8_t> out);
 
     sendVecVec() generates (vec<vec<uint8_t>> vecvec);
 
@@ -131,7 +131,7 @@ interface IFoo {
     haveAVectorOfGenericInterfaces(vec<interface> in)
         generates (vec<interface> out);
 
-    echoNullInterface(IFooCallback cb) generates (bool receivedNull, IFooCallback cb);
+    echoNullInterface(IFooCallback in) generates (bool receivedNull, IFooCallback out);
 
     createMyHandle() generates (MyHandle h);
     createHandles(uint32_t size) generates (vec<handle> handles);
