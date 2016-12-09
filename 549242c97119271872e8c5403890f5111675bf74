@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3a26a7ad_2b3f69ca",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1079868
+      },
+      "writtenOn": "2016-12-09T17:29:42Z",
+      "side": 1,
+      "message": "Based on offline discussion, consider changing this to uint16_t instead, since that\u0027s the type being used for ANQP IDs in wpa_supplicant.",
+      "range": {
+        "startLine": 31,
+        "startChar": 20,
+        "endLine": 31,
+        "endChar": 28
+      },
+      "revId": "549242c97119271872e8c5403890f5111675bf74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
