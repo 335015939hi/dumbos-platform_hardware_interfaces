@@ -22,6 +22,30 @@
       "revId": "fe0228c6ca897a3ea81e9c6017a7d503e06af4ac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d3f4f99_6ed60fb0",
+        "filename": "ir/1.0/default/ConsumerIr.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-09T05:36:59Z",
+      "side": 1,
+      "message": "Yeah, in fact, they aren\u0027t even in sync now (sometimes).\n\nconsumerir_freq_range_t contains two ints (which aren\u0027t guaranteed to be 32 bits). ConsumerIrFreqRange contains two uint32_t\u0027s (which will always be 32bits).",
+      "parentUuid": "2d3f4f99_2edc07ce",
+      "range": {
+        "startLine": 49,
+        "startChar": 32,
+        "endLine": 49,
+        "endChar": 51
+      },
+      "revId": "fe0228c6ca897a3ea81e9c6017a7d503e06af4ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
