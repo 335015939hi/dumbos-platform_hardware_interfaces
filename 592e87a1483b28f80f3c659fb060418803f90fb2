@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d3f4f99_0eb66b8d",
+        "filename": "ir/1.0/default/ConsumerIr.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-09T03:33:07Z",
+      "side": 1,
+      "message": "nit: might be cleaner to use \u0027{}\u0027 here and move the declaration of rangeVec to line 48",
+      "range": {
+        "startLine": 43,
+        "startChar": 24,
+        "endLine": 43,
+        "endChar": 32
+      },
+      "revId": "592e87a1483b28f80f3c659fb060418803f90fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d3f4f99_eeb03f94",
+        "filename": "ir/1.0/default/ConsumerIr.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-09T03:33:07Z",
+      "side": 1,
+      "message": "this should not be set if success is false, right?",
+      "range": {
+        "startLine": 48,
+        "startChar": 13,
+        "endLine": 48,
+        "endChar": 26
+      },
+      "revId": "592e87a1483b28f80f3c659fb060418803f90fb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
