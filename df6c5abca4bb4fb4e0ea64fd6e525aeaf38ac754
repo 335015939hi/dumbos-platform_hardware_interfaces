@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d3f4f99_0e502b7c",
+        "filename": "ir/1.0/IConsumerIr.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-09T02:36:44Z",
+      "side": 1,
+      "message": "nit: should return false?",
+      "range": {
+        "startLine": 28,
+        "startChar": 24,
+        "endLine": 28,
+        "endChar": 30
+      },
+      "revId": "df6c5abca4bb4fb4e0ea64fd6e525aeaf38ac754",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
