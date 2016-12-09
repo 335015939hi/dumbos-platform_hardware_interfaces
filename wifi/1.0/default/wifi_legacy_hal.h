@@ -260,6 +260,8 @@ class WifiLegacyHal {
   wifi_interface_handle wlan_interface_handle_;
   // Flag to indicate if we have initiated the cleanup of legacy HAL.
   bool awaiting_event_loop_termination_;
+  // Flag to indicate if the legacy HAL has been started.
+  bool is_started_;
   wifi_system::InterfaceTool iface_tool_;
 };
 
