@@ -34,6 +34,24 @@
       "revId": "daf0a0c99316a60101e353180ce627032e256b26",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a26a7ad_02d927dd",
+        "filename": "wifi/supplicant/1.0/ISupplicantP2pIface.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-10T00:12:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a26a7ad_4cf518ce",
+      "revId": "daf0a0c99316a60101e353180ce627032e256b26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
