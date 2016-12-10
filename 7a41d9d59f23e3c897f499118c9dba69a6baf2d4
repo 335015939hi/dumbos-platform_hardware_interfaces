@@ -22,6 +22,30 @@
       "revId": "7a41d9d59f23e3c897f499118c9dba69a6baf2d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a26a7ad_0a37fdf5",
+        "filename": "wifi/supplicant/1.0/ISupplicantP2pIface.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-10T17:56:43Z",
+      "side": 0,
+      "message": "It\u0027s not used in wpa_supplicant.",
+      "parentUuid": "2d3f4f99_4e895343",
+      "range": {
+        "startLine": 44,
+        "startChar": 4,
+        "endLine": 44,
+        "endChar": 9
+      },
+      "revId": "7a41d9d59f23e3c897f499118c9dba69a6baf2d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

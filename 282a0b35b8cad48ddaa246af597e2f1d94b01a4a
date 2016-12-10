@@ -22,6 +22,30 @@
       "revId": "282a0b35b8cad48ddaa246af597e2f1d94b01a4a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a26a7ad_ea33a105",
+        "filename": "wifi/supplicant/1.0/ISupplicantP2pIface.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-10T17:56:43Z",
+      "side": 1,
+      "message": "Nope. SSID\u0027s are always vector of bytes. Not null terminated.",
+      "parentUuid": "2d3f4f99_6e860f36",
+      "range": {
+        "startLine": 105,
+        "startChar": 21,
+        "endLine": 105,
+        "endChar": 28
+      },
+      "revId": "282a0b35b8cad48ddaa246af597e2f1d94b01a4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
