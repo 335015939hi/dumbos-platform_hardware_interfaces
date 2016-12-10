@@ -46,6 +46,30 @@
       "revId": "fe0228c6ca897a3ea81e9c6017a7d503e06af4ac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a26a7ad_c4733c05",
+        "filename": "ir/1.0/default/ConsumerIr.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1115183
+      },
+      "writtenOn": "2016-12-10T01:03:10Z",
+      "side": 1,
+      "message": "Ok, I think the new version should resolve this - it just explicitly converts each frequency range instead of assuming the data types will be in sync",
+      "parentUuid": "2d3f4f99_6ed60fb0",
+      "range": {
+        "startLine": 49,
+        "startChar": 32,
+        "endLine": 49,
+        "endChar": 51
+      },
+      "revId": "fe0228c6ca897a3ea81e9c6017a7d503e06af4ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
