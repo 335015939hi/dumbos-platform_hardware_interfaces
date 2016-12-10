@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3a26a7ad_6426a8df",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-10T01:09:02Z",
+      "side": 1,
+      "message": "I like this cleanup. Thanks. :-)",
+      "range": {
+        "startLine": 14,
+        "startChar": 16,
+        "endLine": 14,
+        "endChar": 22
+      },
+      "revId": "08efc7048d98a695e2bf4a88307603b657930522",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a26a7ad_a47840e2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-10T01:09:02Z",
+      "side": 1,
+      "message": "\"docstring\"",
+      "range": {
+        "startLine": 15,
+        "startChar": 14,
+        "endLine": 15,
+        "endChar": 21
+      },
+      "revId": "08efc7048d98a695e2bf4a88307603b657930522",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a26a7ad_2408b04a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-10T01:09:02Z",
+      "side": 1,
+      "message": "stray pipe here? (just need one.)",
+      "range": {
+        "startLine": 15,
+        "startChar": 25,
+        "endLine": 15,
+        "endChar": 27
+      },
+      "revId": "08efc7048d98a695e2bf4a88307603b657930522",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
