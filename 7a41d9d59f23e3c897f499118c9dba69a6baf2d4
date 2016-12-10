@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d3f4f99_4e895343",
+        "filename": "wifi/supplicant/1.0/ISupplicantP2pIface.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-10T03:56:06Z",
+      "side": 0,
+      "message": "Why get rid of this?",
+      "range": {
+        "startLine": 44,
+        "startChar": 4,
+        "endLine": 44,
+        "endChar": 9
+      },
+      "revId": "7a41d9d59f23e3c897f499118c9dba69a6baf2d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
