@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d3f4f99_ce29c34d",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-10T03:56:47Z",
+      "side": 1,
+      "message": "what makes sure these are in sync with the framework?",
+      "revId": "e3f25f1d0fbcb0d9e62d321db9625e56cddc7be5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
