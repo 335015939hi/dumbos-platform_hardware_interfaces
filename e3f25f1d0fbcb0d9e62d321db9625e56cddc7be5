@@ -16,6 +16,24 @@
       "revId": "e3f25f1d0fbcb0d9e62d321db9625e56cddc7be5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a26a7ad_aa45a968",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-10T17:57:41Z",
+      "side": 1,
+      "message": "There are static asserts added in the implementation. That\u0027s how i found this mismatch.\n\nhttps://android-review.googlesource.com/#/c/311461/4/wpa_supplicant/hidl/hidl_manager.h",
+      "parentUuid": "2d3f4f99_ce29c34d",
+      "revId": "e3f25f1d0fbcb0d9e62d321db9625e56cddc7be5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
