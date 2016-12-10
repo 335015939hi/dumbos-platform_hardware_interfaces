@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3a26a7ad_02eda7d7",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-10T00:56:08Z",
+      "side": 1,
+      "message": "Consider NOT_AVAILABLE instead. (My instinct would be to interpret \"NOT_SUPPORTED\" as this device can\u0027t do AP mode at all.)",
+      "range": {
+        "startLine": 469,
+        "startChar": 45,
+        "endLine": 469,
+        "endChar": 64
+      },
+      "revId": "adef76f5f7aca2847461e2635d0c177d5b617bab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a26a7ad_24ac306b",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 495,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-10T00:56:08Z",
+      "side": 1,
+      "message": "Consider filing a bug to come back and implement this in terms of |sta_chip_iface_combination| some fine day.",
+      "revId": "adef76f5f7aca2847461e2635d0c177d5b617bab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a26a7ad_44216c12",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-10T00:56:08Z",
+      "side": 1,
+      "message": "As at line 469.",
+      "range": {
+        "startLine": 498,
+        "startChar": 45,
+        "endLine": 498,
+        "endChar": 64
+      },
+      "revId": "adef76f5f7aca2847461e2635d0c177d5b617bab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a26a7ad_042b74f4",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 527,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-10T00:56:08Z",
+      "side": 1,
+      "message": "As at line 469.",
+      "range": {
+        "startLine": 527,
+        "startChar": 45,
+        "endLine": 527,
+        "endChar": 64
+      },
+      "revId": "adef76f5f7aca2847461e2635d0c177d5b617bab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a26a7ad_e4275824",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-10T00:56:08Z",
+      "side": 1,
+      "message": "As at line 469.",
+      "range": {
+        "startLine": 554,
+        "startChar": 45,
+        "endLine": 554,
+        "endChar": 64
+      },
+      "revId": "adef76f5f7aca2847461e2635d0c177d5b617bab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
