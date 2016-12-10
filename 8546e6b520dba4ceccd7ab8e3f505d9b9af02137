@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d3f4f99_0e8f4b4b",
+        "filename": "ir/1.0/default/ConsumerIr.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-10T03:39:17Z",
+      "side": 1,
+      "message": "you should declare this as late as possible",
+      "range": {
+        "startLine": 41,
+        "startChar": 4,
+        "endLine": 41,
+        "endChar": 43
+      },
+      "revId": "8546e6b520dba4ceccd7ab8e3f505d9b9af02137",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d3f4f99_ee791f6e",
+        "filename": "ir/1.0/default/ConsumerIr.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-10T03:39:17Z",
+      "side": 1,
+      "message": "We\u0027re leaking memory here. Using setToExternal means ownership is not transferred: https://cs.corp.google.com/android/system/libhidl/base/include/hidl/HidlSupport.h?q\u003dhidlsupport.h\u0026dr\u0026l\u003d296\n\nYou should use it with shouldOwn\u003dtrue.\n\nHowever, even cleaner (and removes nesting) would be:\n\nif (!success) { _hidl_cb(false, {}); return Void(); }\n\nhidl_vec\u003cConsumerIrFreqRange\u003e rangeVec;\nrangeVec.resize(len);\nfor .... { rangeVec[i] \u003d ...; }\n\n(there are many ways to do it)",
+      "range": {
+        "startLine": 54,
+        "startChar": 17,
+        "endLine": 54,
+        "endChar": 30
+      },
+      "revId": "8546e6b520dba4ceccd7ab8e3f505d9b9af02137",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
