@@ -16,6 +16,24 @@
       "revId": "072b98d841b46ceed2d9463679113afd01fd4eb7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_5adb5538",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-12T22:25:18Z",
+      "side": 1,
+      "message": "The reason I had to do this was because the statement raised an abort when start is called the 2nd time. Basically assigning to an already initialized std::thread raises an exception. \nhttp://en.cppreference.com/w/cpp/thread/thread/operator%3D\n\nThe other option I explored was to let the |stop| join this thread. But, I did not see a way to this with some timeout. I don\u0027t want the stop to hang forever if there is a bug in the vendor implementation and the event loop thread never exits.",
+      "parentUuid": "3a26a7ad_c4469cc4",
+      "revId": "072b98d841b46ceed2d9463679113afd01fd4eb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
