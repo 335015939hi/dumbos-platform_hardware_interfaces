@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3a26a7ad_c4469cc4",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-12T21:50:23Z",
+      "side": 1,
+      "message": "1) I\u0027m not sure what to make of the comment. When I read \"execute independently\", I think that without detach(), the child thread is blocked on some action from the parent thread.\n\nBut I thought all detach() really meant was \"we\u0027re not going to join this thread, so discard any state we\u0027d need to join\".\n\nAnd if that understanding is correct, then I think the comment is unnecessary.\n\n2) If we\u0027re detach()-ing the thread, does the thread still need to be a member variable? Seems like an opportunity for bugs. (We might try to join() the thread, and thereby generate an exception.)",
+      "revId": "072b98d841b46ceed2d9463679113afd01fd4eb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
