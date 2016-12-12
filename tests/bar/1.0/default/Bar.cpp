@@ -191,6 +191,10 @@ Return<void> Bar::takeAMask(BitField bf, uint8_t first, const MyMask& second, ui
     return Void();
 }
 
+Return<uint32_t> Bar::size(uint32_t size) {
+    return size;
+}
+
 IBar* HIDL_FETCH_IBar(const char* /* name */) {
     return new Bar();
 }
