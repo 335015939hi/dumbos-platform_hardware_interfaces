@@ -217,4 +217,20 @@ interface ISupplicantStaIfaceCallback {
   oneway onHs20DeauthImminentNotice(uint32_t reasonCode,
                                     uint32_t reAuthDelayInSec,
                                     string url);
+
+  /**
+   * Used to indicate a disconnect from the currently connected
+   * network on this iface,.
+   * @param reasonCode 80211 code to indicate the disconnect reason.
+   */
+  oneway onDisconnected(uint32_t reasonCode);
+
+  /**
+   * Used to indicate an association rejection recieved from the AP
+   * to which the connection is being attempted.
+   * @param bssid BSSID of the corresponding AP which sent this
+   *        reject.
+   * @param statusCode 80211 code to indicate the reject reason.
+   */
+  oneway onAssociationRejected(Bssid bssid, uint32_t statusCode);
 };
