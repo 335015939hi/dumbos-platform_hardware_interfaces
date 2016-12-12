@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa632f25_da83e5eb",
+        "filename": "wifi/1.0/vts/functional/wifi_chip_hidl_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-12T21:53:01Z",
+      "side": 1,
+      "message": "EXPECT, rather than ASSERT",
+      "range": {
+        "startLine": 43,
+        "startChar": 2,
+        "endLine": 43,
+        "endChar": 8
+      },
+      "revId": "7833314f078251029c517372217ab1f867d4d52a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_1a955d1d",
+        "filename": "wifi/1.0/vts/functional/wifi_nan_iface_hidl_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-12T21:53:01Z",
+      "side": 1,
+      "message": "EXPECT",
+      "range": {
+        "startLine": 43,
+        "startChar": 2,
+        "endLine": 43,
+        "endChar": 8
+      },
+      "revId": "7833314f078251029c517372217ab1f867d4d52a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
