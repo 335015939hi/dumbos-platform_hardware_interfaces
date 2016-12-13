@@ -16,6 +16,24 @@
       "revId": "2c87368485013b1ebd379ac83f599ed57d03c93e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba845725_aa506f21",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-13T21:27:18Z",
+      "side": 1,
+      "message": "Oh. Actually, that\u0027s what i ended up doing in the last patch uploaded. :)",
+      "parentUuid": "ba845725_0a197b92",
+      "revId": "2c87368485013b1ebd379ac83f599ed57d03c93e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
