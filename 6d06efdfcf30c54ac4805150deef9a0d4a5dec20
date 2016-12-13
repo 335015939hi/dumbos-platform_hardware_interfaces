@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba845725_2d457967",
+        "filename": "wifi/1.0/default/wifi_legacy_hal_stubs.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-13T22:19:55Z",
+      "side": 1,
+      "message": "It\u0027s a shame you can iterate over struct members in a sane fashion in C++.",
+      "range": {
+        "startLine": 47,
+        "startChar": 2,
+        "endLine": 47,
+        "endChar": 17
+      },
+      "revId": "6d06efdfcf30c54ac4805150deef9a0d4a5dec20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
