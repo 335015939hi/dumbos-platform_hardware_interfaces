@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fa632f25_e9841d9f",
+        "filename": "wifi/1.0/vts/functional/wifi_chip_hidl_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-13T01:40:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa632f25_da83e5eb",
+      "range": {
+        "startLine": 43,
+        "startChar": 2,
+        "endLine": 43,
+        "endChar": 8
+      },
+      "revId": "7833314f078251029c517372217ab1f867d4d52a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa632f25_1a955d1d",
         "filename": "wifi/1.0/vts/functional/wifi_nan_iface_hidl_test.cpp",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2016-12-12T21:53:01Z",
       "side": 1,
       "message": "EXPECT",
+      "range": {
+        "startLine": 43,
+        "startChar": 2,
+        "endLine": 43,
+        "endChar": 8
+      },
+      "revId": "7833314f078251029c517372217ab1f867d4d52a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_c93fa1e6",
+        "filename": "wifi/1.0/vts/functional/wifi_nan_iface_hidl_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-13T01:40:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa632f25_1a955d1d",
       "range": {
         "startLine": 43,
         "startChar": 2,
