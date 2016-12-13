@@ -22,6 +22,30 @@
       "revId": "009044927955758448f598782a9744e40ab713c4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba845725_0df43565",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIfaceCallback.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-13T21:55:56Z",
+      "side": 1,
+      "message": "It\u0027s not from the same. 802.11 is wlan spec. These codes are present in the wlan spec: https://en.wikipedia.org/wiki/IEEE_802.11",
+      "parentUuid": "ba845725_8aa1eb8d",
+      "range": {
+        "startLine": 229,
+        "startChar": 23,
+        "endLine": 229,
+        "endChar": 28
+      },
+      "revId": "009044927955758448f598782a9744e40ab713c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
