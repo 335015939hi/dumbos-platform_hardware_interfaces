@@ -1,0 +1,226 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa632f25_fbb500ac",
+        "filename": "wifi/1.0/default/wifi_legacy_hal_stubs.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T03:58:09Z",
+      "side": 1,
+      "message": "Any reason to tweak diagnostics settings, rather than commenting out the parameter names? E.g.\n\n  wifi_error wifi_initilize_stub(wifi_handle* /* handle */) {",
+      "revId": "f3d4f5e036c558cbf6f86e9c99cd6523576d2e23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_fbcce04f",
+        "filename": "wifi/1.0/default/wifi_legacy_hal_stubs.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T03:58:09Z",
+      "side": 1,
+      "message": "What\u0027s the rationale for UNINITIALIZED in some cases, and NOT_SUPPORTED in others?",
+      "range": {
+        "startLine": 42,
+        "startChar": 9,
+        "endLine": 42,
+        "endChar": 33
+      },
+      "revId": "f3d4f5e036c558cbf6f86e9c99cd6523576d2e23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_db8da4c6",
+        "filename": "wifi/1.0/default/wifi_legacy_hal_stubs.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T03:58:09Z",
+      "side": 1,
+      "message": "a) Consider placing all of these functions inside an anonymous namespace. That way, the compiler might be able to warn us about functions that are defined, but never referenced. (I believe this function falls into that bin.)\n\nb) Alternatively, consider using templates to auto-generate this code. I think the following would work:\n\n  template \u003ctypename\u003e\n  struct ReturnNotSupported;\n\n  template \u003ctypename R, typename... Args\u003e\n  struct ReturnNotSupported\u003cR (*)(Args...)\u003e {\n    R operator()(Args...) { return WIFI_ERROR_NOT_SUPPORTED; }\n  };\n\n  bool initHalFuncTableWithStubs(wifi_hal_fn* hal_fn) {\n    // ...\n    hal_fn-\u003ewifi_initialize \u003d ReturnNotSupported(decltype(hal_fn-\u003ewifi_initialize)){};\n    hal_fn-\u003ewifi_cleanup \u003d ReturnNotSupported(decltype(hal_fn-\u003ewifi_cleanup_stub)){};\n    // ...\n  }",
+      "range": {
+        "startLine": 82,
+        "startChar": 11,
+        "endLine": 82,
+        "endChar": 44
+      },
+      "revId": "f3d4f5e036c558cbf6f86e9c99cd6523576d2e23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_1b2b9cf4",
+        "filename": "wifi/1.0/default/wifi_legacy_hal_stubs.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T03:58:09Z",
+      "side": 1,
+      "message": "Seems to be missing:\n\n  wifi_set_iface_event_handler()",
+      "range": {
+        "startLine": 515,
+        "startChar": 10,
+        "endLine": 515,
+        "endChar": 40
+      },
+      "revId": "f3d4f5e036c558cbf6f86e9c99cd6523576d2e23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_bb042880",
+        "filename": "wifi/1.0/default/wifi_legacy_hal_stubs.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T03:58:09Z",
+      "side": 1,
+      "message": "Seem to be missing:\n\n  wifi_rtt_get_responder_info()\n  wifi_enable_responder()\n  wifi_disable_responder()\n  wifi_set_nodfs_flag()",
+      "revId": "f3d4f5e036c558cbf6f86e9c99cd6523576d2e23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_1b027c72",
+        "filename": "wifi/1.0/default/wifi_legacy_hal_stubs.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T03:58:09Z",
+      "side": 1,
+      "message": "Seems to be missing:\n  wifi_reset_epno_list()",
+      "revId": "f3d4f5e036c558cbf6f86e9c99cd6523576d2e23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_3ba65860",
+        "filename": "wifi/1.0/default/wifi_legacy_hal_stubs.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T03:58:09Z",
+      "side": 1,
+      "message": "Please move these four to right after get_ring_data, for consistent ordering with struct declaration.",
+      "revId": "f3d4f5e036c558cbf6f86e9c99cd6523576d2e23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_db52c481",
+        "filename": "wifi/1.0/default/wifi_legacy_hal_stubs.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T03:58:09Z",
+      "side": 1,
+      "message": "Please move to immediately before set_epno_list, for consistent ordering with struct declaration.",
+      "revId": "f3d4f5e036c558cbf6f86e9c99cd6523576d2e23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_9bc20ced",
+        "filename": "wifi/1.0/default/wifi_legacy_hal_stubs.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T03:58:09Z",
+      "side": 1,
+      "message": "I must be missing something, as I can\u0027t find a corresponding field in hardware_legacy/wifi_hal.h. Can you help me understand what\u0027s going on?",
+      "revId": "f3d4f5e036c558cbf6f86e9c99cd6523576d2e23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_db664444",
+        "filename": "wifi/1.0/default/wifi_legacy_hal_stubs.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 553,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T03:58:09Z",
+      "side": 1,
+      "message": "Seem to be missing:\n  wifi_set_passpoint_list()\n  wifi_reset_passpoint_list()\n  wifi_set_lci()\n  wifi_set_lcr()",
+      "revId": "f3d4f5e036c558cbf6f86e9c99cd6523576d2e23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_bb638832",
+        "filename": "wifi/1.0/default/wifi_legacy_hal_stubs.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T03:58:09Z",
+      "side": 1,
+      "message": "Seem to be missing:\n  wifi_start_rssi_monitoring()\n  wifi_stop_rssi_monitoring()",
+      "revId": "f3d4f5e036c558cbf6f86e9c99cd6523576d2e23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_9b94ccd1",
+        "filename": "wifi/1.0/default/wifi_legacy_hal_stubs.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T03:58:09Z",
+      "side": 1,
+      "message": "Seem to be missing:\n\n  wifi_get_roaming_capabilities()\n  wifi_enable_firmware_roaming()\n  wifi_configure_romaing()",
+      "revId": "f3d4f5e036c558cbf6f86e9c99cd6523576d2e23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
