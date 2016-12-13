@@ -1,0 +1,793 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa632f25_1d1ef77a",
+        "filename": "wifi/1.0/vts/functional/wifi_chip_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T02:11:20Z",
+      "side": 1,
+      "message": "Consider \"non-mode-configuration-related\", to make parsing the sentence a little easier. (These four words combine to modify the noun \"methods\".)",
+      "range": {
+        "startLine": 67,
+        "startChar": 17,
+        "endLine": 67,
+        "endChar": 39
+      },
+      "revId": "75b8e705a64b4b81d1b64f91c2b7d88ff4bff19f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_dd33df05",
+        "filename": "wifi/1.0/vts/functional/wifi_chip_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T02:11:20Z",
+      "side": 1,
+      "message": "Maybe |configureChipForIfaceType()|? (configureChip() is kinda ambiguous. There might be many knobs to tweak.)",
+      "range": {
+        "startLine": 69,
+        "startChar": 13,
+        "endLine": 69,
+        "endChar": 26
+      },
+      "revId": "75b8e705a64b4b81d1b64f91c2b7d88ff4bff19f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_fdda1b78",
+        "filename": "wifi/1.0/vts/functional/wifi_chip_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T02:11:20Z",
+      "side": 1,
+      "message": "Maybe |configureChipForStaIfaceAndGetCapabilities()|. As much as possible, we\u0027d like the test cases to make sense without referring to other code or documentation.\n\n(go/unit-test-readability, slide 15.)",
+      "range": {
+        "startLine": 75,
+        "startChar": 11,
+        "endLine": 75,
+        "endChar": 42
+      },
+      "revId": "75b8e705a64b4b81d1b64f91c2b7d88ff4bff19f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_5df50fce",
+        "filename": "wifi/1.0/vts/functional/wifi_chip_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T02:11:20Z",
+      "side": 1,
+      "message": "Thanks for writing the thunks above. Without them, reading the test cases would be rather painful.",
+      "revId": "75b8e705a64b4b81d1b64f91c2b7d88ff4bff19f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_e89a5b47",
+        "filename": "wifi/1.0/vts/functional/wifi_chip_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T02:11:20Z",
+      "side": 1,
+      "message": "Do we require HAL implementations to start from id 0? (This EXPECTation might be over-constraining implementations.)",
+      "revId": "75b8e705a64b4b81d1b64f91c2b7d88ff4bff19f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_082b57f4",
+        "filename": "wifi/1.0/vts/functional/wifi_chip_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T02:11:20Z",
+      "side": 1,
+      "message": "Are HALs required to support any of the capabilities in ChipCapabilityMask?",
+      "revId": "75b8e705a64b4b81d1b64f91c2b7d88ff4bff19f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_284bb3cd",
+        "filename": "wifi/1.0/vts/functional/wifi_chip_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T02:11:20Z",
+      "side": 1,
+      "message": "Do we intend to enable this at some point? (Maybe there should be a comment referring to a bug.)",
+      "revId": "75b8e705a64b4b81d1b64f91c2b7d88ff4bff19f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_884007a7",
+        "filename": "wifi/1.0/vts/functional/wifi_chip_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T02:11:20Z",
+      "side": 1,
+      "message": "As at line 273.",
+      "revId": "75b8e705a64b4b81d1b64f91c2b7d88ff4bff19f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_43f41066",
+        "filename": "wifi/1.0/vts/functional/wifi_chip_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T02:11:20Z",
+      "side": 1,
+      "message": "The name of this constant is too terse to convey its meaning. And I can\u0027t actually think of a better name. It might be better to have a helper function, which makes the intent clearer.\n\nConsider:\n\n   if (hasAnyRingBufferCapabilities(caps)) {\n     // ...\n   }",
+      "range": {
+        "startLine": 309,
+        "startChar": 19,
+        "endLine": 309,
+        "endChar": 49
+      },
+      "revId": "75b8e705a64b4b81d1b64f91c2b7d88ff4bff19f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_6845abb4",
+        "filename": "wifi/1.0/vts/functional/wifi_chip_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T02:11:20Z",
+      "side": 1,
+      "message": "As at line 273.",
+      "revId": "75b8e705a64b4b81d1b64f91c2b7d88ff4bff19f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_c3b4a084",
+        "filename": "wifi/1.0/vts/functional/wifi_chip_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T02:11:20Z",
+      "side": 1,
+      "message": "Do we need the std::vector here, or could we operate on the hidl_vec directly? hidl_vec has begin() and end() methods, so I\u0027d have thought we could iterate over |ring_buffers| below, at line 314.",
+      "revId": "75b8e705a64b4b81d1b64f91c2b7d88ff4bff19f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_83c2a8ec",
+        "filename": "wifi/1.0/vts/functional/wifi_chip_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T02:11:20Z",
+      "side": 1,
+      "message": "I don\u0027t know that we can always expect this to be true. I believe that free size is a dynamic property of the system.",
+      "revId": "75b8e705a64b4b81d1b64f91c2b7d88ff4bff19f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_8e948fd1",
+        "filename": "wifi/1.0/vts/functional/wifi_chip_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T02:11:20Z",
+      "side": 1,
+      "message": "I think this needs to be ASSERT. Otherwise, we risk invalid memory access on the next line.",
+      "range": {
+        "startLine": 337,
+        "startChar": 10,
+        "endLine": 337,
+        "endChar": 16
+      },
+      "revId": "75b8e705a64b4b81d1b64f91c2b7d88ff4bff19f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_ae3cebf2",
+        "filename": "wifi/1.0/vts/functional/wifi_chip_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T02:11:20Z",
+      "side": 1,
+      "message": "As at line 337.",
+      "range": {
+        "startLine": 370,
+        "startChar": 10,
+        "endLine": 370,
+        "endChar": 19
+      },
+      "revId": "75b8e705a64b4b81d1b64f91c2b7d88ff4bff19f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_c90201ec",
+        "filename": "wifi/1.0/vts/functional/wifi_chip_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T02:11:20Z",
+      "side": 1,
+      "message": "Consider removing these comments. Parsing the text is no easier than parsing the test. And, over time, the comments are likely to drift apart from the actual implementation.",
+      "range": {
+        "startLine": 388,
+        "startChar": 3,
+        "endLine": 389,
+        "endChar": 15
+      },
+      "revId": "75b8e705a64b4b81d1b64f91c2b7d88ff4bff19f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_8ef80f0a",
+        "filename": "wifi/1.0/vts/functional/wifi_chip_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T02:11:20Z",
+      "side": 1,
+      "message": "Please file a bug to update this EXPECTation, to reflect ChipIfaceCombination info. It would be a shame to have a device fail VTS, simply because the device supports multiple simultaneous soft APs.",
+      "revId": "75b8e705a64b4b81d1b64f91c2b7d88ff4bff19f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_a9886544",
+        "filename": "wifi/1.0/vts/functional/wifi_chip_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T02:11:20Z",
+      "side": 1,
+      "message": "Consider breaking up the subsections of the test, with vertical whitespace, to make the test easier to skim. I think a reasonable way to do this is to have some whitespace after each Arrange-Act-Assert sequence. (See go/unit-test-practices#structure for the idea behind the sequences.)\n\nHere, that would be something like:\n\n\n  configureChip(...);\n  //...\n\n\n  sp\u003cIWifiApIface\u003e iface;\n  // ...\n\n\n  std::string iface_name \u003d ...;\n  // ...\n\n\n  EXPECT_EQ(removeApIface(...));\n  // ...\n\nSame suggestion for other tests that have multiple AAA sequences.",
+      "revId": "75b8e705a64b4b81d1b64f91c2b7d88ff4bff19f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_2e457b67",
+        "filename": "wifi/1.0/vts/functional/wifi_chip_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T02:11:20Z",
+      "side": 1,
+      "message": "Similar to line 337, this should be ASSERT.",
+      "range": {
+        "startLine": 441,
+        "startChar": 8,
+        "endLine": 441,
+        "endChar": 14
+      },
+      "revId": "75b8e705a64b4b81d1b64f91c2b7d88ff4bff19f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_6e7ad399",
+        "filename": "wifi/1.0/vts/functional/wifi_chip_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T02:11:20Z",
+      "side": 1,
+      "message": "Can we use a different name here? This name shadows the local variable at line 462. (While I believe this code will behave as expected, the shadowing makes the code hard to read.)",
+      "range": {
+        "startLine": 467,
+        "startChar": 72,
+        "endLine": 467,
+        "endChar": 77
+      },
+      "revId": "75b8e705a64b4b81d1b64f91c2b7d88ff4bff19f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_ce5e872f",
+        "filename": "wifi/1.0/vts/functional/wifi_chip_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T02:11:20Z",
+      "side": 1,
+      "message": "As at line 467.",
+      "range": {
+        "startLine": 474,
+        "startChar": 60,
+        "endLine": 474,
+        "endChar": 65
+      },
+      "revId": "75b8e705a64b4b81d1b64f91c2b7d88ff4bff19f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_2efa9b9a",
+        "filename": "wifi/1.0/vts/functional/wifi_chip_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T02:11:20Z",
+      "side": 1,
+      "message": "1) Is skipping these tests the right behavior in the !NAN case? Or should we call the functions anyway, and verify that they return failure? (The latter would be similar to what we do for debug features.)\n\n2) If skipping the test _is_ the right behavior, then consider using the DISABLED_ prefix, to ensure that this code compiles, even if the board doesn\u0027t support NAN.\n\n  #ifdef BOARD_HAS_NAN\n  #define REQUIRES_NAN_\n  #else\n  #define REQUIRES_NAN_ DISABLED_\n  #endif\n\nhttps://github.com/google/googletest/blob/master/googletest/docs/V1_7_AdvancedGuide.md#temporarily-disabling-tests\n\n3) I thought we were moving to using the name \"Aware\", instead of NAN? I guess we don\u0027t have to do that right now. But is there an open bug for that?",
+      "revId": "75b8e705a64b4b81d1b64f91c2b7d88ff4bff19f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_0934f936",
+        "filename": "wifi/1.0/vts/functional/wifi_chip_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T02:11:20Z",
+      "side": 1,
+      "message": "ASSERT (as at line 337).",
+      "range": {
+        "startLine": 539,
+        "startChar": 8,
+        "endLine": 539,
+        "endChar": 14
+      },
+      "revId": "75b8e705a64b4b81d1b64f91c2b7d88ff4bff19f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_89abe926",
+        "filename": "wifi/1.0/vts/functional/wifi_chip_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 566,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T02:11:20Z",
+      "side": 1,
+      "message": "As at line 467. (Shadowing.)",
+      "range": {
+        "startLine": 566,
+        "startChar": 61,
+        "endLine": 566,
+        "endChar": 66
+      },
+      "revId": "75b8e705a64b4b81d1b64f91c2b7d88ff4bff19f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_69b00d8f",
+        "filename": "wifi/1.0/vts/functional/wifi_chip_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T02:11:20Z",
+      "side": 1,
+      "message": "As at line 467. (Shadowing.)",
+      "range": {
+        "startLine": 573,
+        "startChar": 61,
+        "endLine": 573,
+        "endChar": 66
+      },
+      "revId": "75b8e705a64b4b81d1b64f91c2b7d88ff4bff19f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_897da9d3",
+        "filename": "wifi/1.0/vts/functional/wifi_chip_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T02:11:20Z",
+      "side": 1,
+      "message": "As at line 416.",
+      "revId": "75b8e705a64b4b81d1b64f91c2b7d88ff4bff19f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_e936dd0e",
+        "filename": "wifi/1.0/vts/functional/wifi_chip_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 638,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T02:11:20Z",
+      "side": 1,
+      "message": "ASSERT (as at line 337).",
+      "range": {
+        "startLine": 638,
+        "startChar": 8,
+        "endLine": 638,
+        "endChar": 14
+      },
+      "revId": "75b8e705a64b4b81d1b64f91c2b7d88ff4bff19f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_a9ece5dc",
+        "filename": "wifi/1.0/vts/functional/wifi_chip_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 711,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T02:11:20Z",
+      "side": 1,
+      "message": "As at line 416.",
+      "revId": "75b8e705a64b4b81d1b64f91c2b7d88ff4bff19f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_29cc557b",
+        "filename": "wifi/1.0/vts/functional/wifi_chip_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 736,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T02:11:20Z",
+      "side": 1,
+      "message": "ASSERT (as at line 337).",
+      "range": {
+        "startLine": 736,
+        "startChar": 8,
+        "endLine": 736,
+        "endChar": 14
+      },
+      "revId": "75b8e705a64b4b81d1b64f91c2b7d88ff4bff19f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_e9c1bd3d",
+        "filename": "wifi/1.0/vts/functional/wifi_chip_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 763,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T02:11:20Z",
+      "side": 1,
+      "message": "As at line 467. (Shadowing.)",
+      "range": {
+        "startLine": 763,
+        "startChar": 61,
+        "endLine": 763,
+        "endChar": 66
+      },
+      "revId": "75b8e705a64b4b81d1b64f91c2b7d88ff4bff19f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_89a80974",
+        "filename": "wifi/1.0/vts/functional/wifi_chip_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 770,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T02:11:20Z",
+      "side": 1,
+      "message": "As at line 467. (Shadowing.)",
+      "range": {
+        "startLine": 770,
+        "startChar": 61,
+        "endLine": 770,
+        "endChar": 66
+      },
+      "revId": "75b8e705a64b4b81d1b64f91c2b7d88ff4bff19f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_ddb59fac",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_test_utils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T02:11:20Z",
+      "side": 1,
+      "message": "1) This might make more sense at line 230. (That\u0027s where the information is most relevant.)\n\n2) This comment doesn\u0027t quite hit the nail on the head. \n\nSupporting only one interface of each type isn\u0027t what makes the current algorithm suitable. What makes the current algorithm suitable is that any given iface type is only supported in one mode.\n\nConsider if AP mode supported on P2P iface, and STA mode did the same. In that case, we\u0027d still \"only support one iface of each type\". But returning the first matching mode wouldn\u0027t (necessarily) be correct.",
+      "revId": "75b8e705a64b4b81d1b64f91c2b7d88ff4bff19f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_3adc9932",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_test_utils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T02:11:20Z",
+      "side": 1,
+      "message": "Consider |desired_type|.",
+      "range": {
+        "startLine": 224,
+        "startChar": 42,
+        "endLine": 224,
+        "endChar": 46
+      },
+      "revId": "75b8e705a64b4b81d1b64f91c2b7d88ff4bff19f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_fa7fc17b",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_test_utils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T02:11:20Z",
+      "side": 1,
+      "message": "Should this function be in an anonymous namespace instead? (The function isn\u0027t mentioned in the header file, leading me to believe that this function is an internal utility.)",
+      "revId": "75b8e705a64b4b81d1b64f91c2b7d88ff4bff19f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_1da6f75f",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_test_utils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T02:11:20Z",
+      "side": 1,
+      "message": "Consider renaming to |findAnyModeSupportingIfaceType|. This would make the semantics clearer to callers. (i.e., if a iface type might be supported by multiple modes, then this function isn\u0027t suitable for their needs.)\n\nThat might also eliminate the need for the comment at line 222.",
+      "range": {
+        "startLine": 224,
+        "startChar": 5,
+        "endLine": 224,
+        "endChar": 31
+      },
+      "revId": "75b8e705a64b4b81d1b64f91c2b7d88ff4bff19f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_1a56fde9",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_test_utils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T02:11:20Z",
+      "side": 1,
+      "message": "1) Is there something subtle going on here, or could we just inline mode.availableCombinations below?\n\n  for (const auto\u0026 combination : mode.avaialbleCombinations)\n\n2) Even if there is something subtle going on, do we still need to copy the vector? Or would |const [type]\u0026 combinations| be sufficient?",
+      "range": {
+        "startLine": 231,
+        "startChar": 0,
+        "endLine": 232,
+        "endChar": 35
+      },
+      "revId": "75b8e705a64b4b81d1b64f91c2b7d88ff4bff19f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_9a884d45",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_test_utils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T02:11:20Z",
+      "side": 1,
+      "message": "Similar to line 231, can we just say the following?\n\n  for (const auto\u0026 iface_limit : combination.limits)",
+      "revId": "75b8e705a64b4b81d1b64f91c2b7d88ff4bff19f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_bd526380",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_test_utils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T02:11:20Z",
+      "side": 1,
+      "message": "Similar to line 236. But here, consider std::find() to further simplify:\n\n  if (std::find(iface_types.begin(), iface_types.end(), desired_type) !\u003d iface_types.end()) {\n    *mode_id \u003d mode.id;\n    return true;\n  }",
+      "revId": "75b8e705a64b4b81d1b64f91c2b7d88ff4bff19f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_5d998f06",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_test_utils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T02:11:20Z",
+      "side": 1,
+      "message": "Consider placing the assignment inside an |else| block. Alternatively, consider returning early,in the |if| block.\n\n(While the existing code is correct, given line 265, I think the proposed changes would make the code more obviously correct.)",
+      "revId": "75b8e705a64b4b81d1b64f91c2b7d88ff4bff19f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_dd111f74",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_test_utils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T02:11:20Z",
+      "side": 1,
+      "message": "Consider instead:\n\n  return !operation_failed;",
+      "range": {
+        "startLine": 278,
+        "startChar": 0,
+        "endLine": 281,
+        "endChar": 14
+      },
+      "revId": "75b8e705a64b4b81d1b64f91c2b7d88ff4bff19f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
