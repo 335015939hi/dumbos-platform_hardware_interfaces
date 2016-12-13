@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ba845725_6d8f710f",
+        "filename": "wifi/1.0/default/wifi_legacy_hal_stubs.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-13T21:54:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba845725_4a44531a",
+      "range": {
+        "startLine": 44,
+        "startChar": 16,
+        "endLine": 44,
+        "endChar": 20
+      },
+      "revId": "9042cbd7a7b18288525b95f0ae748e008b92e5fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ba845725_ca85a32b",
         "filename": "wifi/1.0/default/wifi_legacy_hal_stubs.cpp",
         "patchSetId": 8
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "ba845725_ada08977",
+        "filename": "wifi/1.0/default/wifi_legacy_hal_stubs.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-13T21:54:40Z",
+      "side": 1,
+      "message": "These changes have been merged to aosp master now. So, rebasing and fixing these now.",
+      "parentUuid": "ba845725_ca85a32b",
+      "revId": "9042cbd7a7b18288525b95f0ae748e008b92e5fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ba845725_8a164b0d",
         "filename": "wifi/1.0/default/wifi_legacy_hal_stubs.cpp",
         "patchSetId": 8
@@ -53,6 +95,24 @@
       "writtenOn": "2016-12-13T21:41:30Z",
       "side": 1,
       "message": "Please include a link to a bug to update this function with the missing members. (Actually more important than the request at line 99. For line 99, we\u0027ll get compiler errors. For the missing members, we won\u0027t.)",
+      "revId": "9042cbd7a7b18288525b95f0ae748e008b92e5fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba845725_0dbb55a8",
+        "filename": "wifi/1.0/default/wifi_legacy_hal_stubs.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-13T21:54:40Z",
+      "side": 1,
+      "message": "These changes have been merged to aosp master now. So, rebasing and fixing these now.",
+      "parentUuid": "ba845725_8a164b0d",
       "revId": "9042cbd7a7b18288525b95f0ae748e008b92e5fa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
