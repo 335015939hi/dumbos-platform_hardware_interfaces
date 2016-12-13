@@ -22,6 +22,30 @@
       "revId": "6a34af5a2139225429b32292ab1cc29ecf156cb6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba845725_8d64a5cd",
+        "filename": "wifi/1.0/IWifiChip.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-13T22:35:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba845725_6dfdb1f7",
+      "range": {
+        "startLine": 336,
+        "startChar": 12,
+        "endLine": 336,
+        "endChar": 16
+      },
+      "revId": "6a34af5a2139225429b32292ab1cc29ecf156cb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
