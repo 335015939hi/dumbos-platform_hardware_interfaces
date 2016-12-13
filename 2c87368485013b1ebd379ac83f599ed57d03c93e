@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba845725_0a197b92",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T21:25:53Z",
+      "side": 1,
+      "message": "Right. My argument isn\u0027t that detach() is unnecessary. (Sorry that was not clear.)\n\nMy argument is that the field itself is unnecessary. Put differently, why can\u0027t we simply do this:\n\n  std::thread(\u0026WifiLegacyHal::runEventLoop, this).detach();\n\nThen we can remove the |event_loop_thread_| member entirely.",
+      "revId": "2c87368485013b1ebd379ac83f599ed57d03c93e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
