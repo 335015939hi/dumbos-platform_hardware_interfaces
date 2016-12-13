@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "fa632f25_fe096e0e",
+        "filename": "wifi/1.0/default/wifi_legacy_hal_stubs.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-13T06:11:41Z",
+      "side": 1,
+      "message": "All of these were just copied as it is from from HalTool. Was lazy to go thru each of the function and comment out all the variables. Anyway, these have all been deprecated in favor of the templated stub function.",
+      "parentUuid": "fa632f25_fbb500ac",
+      "revId": "f3d4f5e036c558cbf6f86e9c99cd6523576d2e23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa632f25_fbcce04f",
         "filename": "wifi/1.0/default/wifi_legacy_hal_stubs.cpp",
         "patchSetId": 3
@@ -30,6 +48,30 @@
       "writtenOn": "2016-12-13T03:58:09Z",
       "side": 1,
       "message": "What\u0027s the rationale for UNINITIALIZED in some cases, and NOT_SUPPORTED in others?",
+      "range": {
+        "startLine": 42,
+        "startChar": 9,
+        "endLine": 42,
+        "endChar": 33
+      },
+      "revId": "f3d4f5e036c558cbf6f86e9c99cd6523576d2e23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_7ef55ece",
+        "filename": "wifi/1.0/default/wifi_legacy_hal_stubs.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-13T06:11:41Z",
+      "side": 1,
+      "message": "Not sure. This is what was in the existing stub functions here: https://cs.corp.google.com/android/frameworks/opt/net/wifi/libwifi_system/hal_tool.cpp?rcl\u003dae3c78445ae65f94147003120bed08b65b6d3793\u0026l\u003d37",
+      "parentUuid": "fa632f25_fbcce04f",
       "range": {
         "startLine": 42,
         "startChar": 9,
@@ -113,6 +155,30 @@
     },
     {
       "key": {
+        "uuid": "fa632f25_dee912fe",
+        "filename": "wifi/1.0/default/wifi_legacy_hal_stubs.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-13T06:11:41Z",
+      "side": 1,
+      "message": "Thanks. These templated functions help to get rid of all these clutter.\n\nCouple of changes to the template suggested:\na)  I\u0027ve modified the templated functions to accept a pointer to the corresponding function pointer in the table. This should help us avoid using the function pointer twice:\nhal_fn-\u003ewifi_cleanup \u003d MakeStubFor(hal_fn-\u003ewifi_cleanup);\nVs\npopulateStubFor(\u0026hal_fn-\u003ewifi_cleanup);\n\nb) Added a template specialization for functions which return void.",
+      "parentUuid": "fa632f25_5e17c26e",
+      "range": {
+        "startLine": 82,
+        "startChar": 11,
+        "endLine": 82,
+        "endChar": 44
+      },
+      "revId": "f3d4f5e036c558cbf6f86e9c99cd6523576d2e23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa632f25_1b2b9cf4",
         "filename": "wifi/1.0/default/wifi_legacy_hal_stubs.cpp",
         "patchSetId": 3
@@ -124,6 +190,30 @@
       "writtenOn": "2016-12-13T03:58:09Z",
       "side": 1,
       "message": "Seems to be missing:\n\n  wifi_set_iface_event_handler()",
+      "range": {
+        "startLine": 515,
+        "startChar": 10,
+        "endLine": 515,
+        "endChar": 40
+      },
+      "revId": "f3d4f5e036c558cbf6f86e9c99cd6523576d2e23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_bee6d629",
+        "filename": "wifi/1.0/default/wifi_legacy_hal_stubs.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-13T06:11:41Z",
+      "side": 1,
+      "message": "Fixed now. Some of these are missing in the current stub generation.",
+      "parentUuid": "fa632f25_1b2b9cf4",
       "range": {
         "startLine": 515,
         "startChar": 10,
@@ -153,6 +243,24 @@
     },
     {
       "key": {
+        "uuid": "fa632f25_1ee42a21",
+        "filename": "wifi/1.0/default/wifi_legacy_hal_stubs.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-13T06:11:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa632f25_bb042880",
+      "revId": "f3d4f5e036c558cbf6f86e9c99cd6523576d2e23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa632f25_1b027c72",
         "filename": "wifi/1.0/default/wifi_legacy_hal_stubs.cpp",
         "patchSetId": 3
@@ -164,6 +272,24 @@
       "writtenOn": "2016-12-13T03:58:09Z",
       "side": 1,
       "message": "Seems to be missing:\n  wifi_reset_epno_list()",
+      "revId": "f3d4f5e036c558cbf6f86e9c99cd6523576d2e23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_fee04e0e",
+        "filename": "wifi/1.0/default/wifi_legacy_hal_stubs.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-13T06:11:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa632f25_1b027c72",
       "revId": "f3d4f5e036c558cbf6f86e9c99cd6523576d2e23",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -187,6 +313,24 @@
     },
     {
       "key": {
+        "uuid": "fa632f25_5e5182f0",
+        "filename": "wifi/1.0/default/wifi_legacy_hal_stubs.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-13T06:11:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa632f25_3ba65860",
+      "revId": "f3d4f5e036c558cbf6f86e9c99cd6523576d2e23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa632f25_db52c481",
         "filename": "wifi/1.0/default/wifi_legacy_hal_stubs.cpp",
         "patchSetId": 3
@@ -198,6 +342,24 @@
       "writtenOn": "2016-12-13T03:58:09Z",
       "side": 1,
       "message": "Please move to immediately before set_epno_list, for consistent ordering with struct declaration.",
+      "revId": "f3d4f5e036c558cbf6f86e9c99cd6523576d2e23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_9e5b1a11",
+        "filename": "wifi/1.0/default/wifi_legacy_hal_stubs.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-13T06:11:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa632f25_db52c481",
       "revId": "f3d4f5e036c558cbf6f86e9c99cd6523576d2e23",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -221,6 +383,24 @@
     },
     {
       "key": {
+        "uuid": "fa632f25_5e78626a",
+        "filename": "wifi/1.0/default/wifi_legacy_hal_stubs.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-13T06:11:41Z",
+      "side": 1,
+      "message": "Yeah. So, these were recently removed as a part of QC\u0027s O release changes that were checked-in by zpan@ today. But, these changes are missing in AOSP. I think he has a bug open to cherry-pick them over to AOSP. Will remove these from here once that is done.",
+      "parentUuid": "fa632f25_9bc20ced",
+      "revId": "f3d4f5e036c558cbf6f86e9c99cd6523576d2e23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa632f25_db664444",
         "filename": "wifi/1.0/default/wifi_legacy_hal_stubs.cpp",
         "patchSetId": 3
@@ -232,6 +412,24 @@
       "writtenOn": "2016-12-13T03:58:09Z",
       "side": 1,
       "message": "Seem to be missing:\n  wifi_set_passpoint_list()\n  wifi_reset_passpoint_list()\n  wifi_set_lci()\n  wifi_set_lcr()",
+      "revId": "f3d4f5e036c558cbf6f86e9c99cd6523576d2e23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_3e7da65a",
+        "filename": "wifi/1.0/default/wifi_legacy_hal_stubs.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 553,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-13T06:11:41Z",
+      "side": 1,
+      "message": "Done. I\u0027m surprised none of these cause an issue currently.",
+      "parentUuid": "fa632f25_db664444",
       "revId": "f3d4f5e036c558cbf6f86e9c99cd6523576d2e23",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -255,6 +453,24 @@
     },
     {
       "key": {
+        "uuid": "fa632f25_3e5646ea",
+        "filename": "wifi/1.0/default/wifi_legacy_hal_stubs.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-13T06:11:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa632f25_bb638832",
+      "revId": "f3d4f5e036c558cbf6f86e9c99cd6523576d2e23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa632f25_9b94ccd1",
         "filename": "wifi/1.0/default/wifi_legacy_hal_stubs.cpp",
         "patchSetId": 3
@@ -266,6 +482,24 @@
       "writtenOn": "2016-12-13T03:58:09Z",
       "side": 1,
       "message": "Seem to be missing:\n\n  wifi_get_roaming_capabilities()\n  wifi_enable_firmware_roaming()\n  wifi_configure_romaing()",
+      "revId": "f3d4f5e036c558cbf6f86e9c99cd6523576d2e23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa632f25_7e771e78",
+        "filename": "wifi/1.0/default/wifi_legacy_hal_stubs.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-13T06:11:41Z",
+      "side": 1,
+      "message": "Same. This has been checked-in to internal master for O. Not yet cherry-picked over to AOSP.",
+      "parentUuid": "fa632f25_9b94ccd1",
       "revId": "f3d4f5e036c558cbf6f86e9c99cd6523576d2e23",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
