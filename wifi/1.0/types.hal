@@ -515,6 +515,34 @@ struct StaScanData {
 };
 
 /**
+ * Structure describing the roaming capabilities supported.
+ */
+struct StaRoamingCapabilities {
+  /**
+   * Maximum number of BSSID's that can be blacklisted.
+   */
+  uint32_t maxBlacklistSize;
+  /**
+   * Maximum number of SSID's that can be whitelisted.
+   */
+  uint32_t maxWhitelistSize;
+};
+
+/**
+ * Structure describing the roaming configuration.
+ */
+struct StaRoamingConfig {
+  /**
+   * List of BSSID's that are blacklisted for roaming.
+   */
+  vec<Bssid> bssidBlacklist;
+  /**
+   * List of SSID's that are whitelisted for roaming.
+   */
+  vec<Ssid> ssidWhitelist;
+};
+
+/**
  * NAN specific types.
  * TODO(b/32159498): Move to a separate nan_types.hal.
  */
