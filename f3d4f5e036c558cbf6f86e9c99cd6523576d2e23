@@ -89,6 +89,30 @@
     },
     {
       "key": {
+        "uuid": "fa632f25_5e17c26e",
+        "filename": "wifi/1.0/default/wifi_legacy_hal_stubs.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T05:02:22Z",
+      "side": 1,
+      "message": "On third thought, the idea in part b wasn\u0027t that far off. I think the following would work:\n\n  template \u003ctypename\u003e\n  struct ReturnErrorNotSupported;\n\n\n  template \u003ctypename R, typename... Args\u003e\n  struct ReturnErrorNotSupported\u003cR(*)(Args...)\u003e {\n    static constexpr R Invoke(Args...) { return WIFI_ERROR_NOT_SUPPORTED; }\n  };\n\n\n  template \u003ctypename T\u003e\n  T MakeStubFor(const T\u0026 val) {\n    return \u0026ReturnErrorNotSupported\u003cT\u003e::Invoke;\n  }\n\n\n  bool initHalFuncTableWithStubs(wifi_hal_fn* hal_fn) {\n    // ...\n    hal_fn-\u003ewifi_initialize \u003d MakeStubFor(hal_fn-\u003ewifi_initialize);\n    hal_fn-\u003ewifi_cleanup \u003d MakeStubFor(hal_fn-\u003ewifi_cleanup);\n    // ...\n  }",
+      "parentUuid": "fa632f25_5ee222bd",
+      "range": {
+        "startLine": 82,
+        "startChar": 11,
+        "endLine": 82,
+        "endChar": 44
+      },
+      "revId": "f3d4f5e036c558cbf6f86e9c99cd6523576d2e23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa632f25_1b2b9cf4",
         "filename": "wifi/1.0/default/wifi_legacy_hal_stubs.cpp",
         "patchSetId": 3
