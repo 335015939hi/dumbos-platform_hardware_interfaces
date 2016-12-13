@@ -65,6 +65,30 @@
     },
     {
       "key": {
+        "uuid": "fa632f25_5ee222bd",
+        "filename": "wifi/1.0/default/wifi_legacy_hal_stubs.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-13T04:02:24Z",
+      "side": 1,
+      "message": "Oops. Ignore part b. I got myself confused. The formulation in part b won\u0027t work.",
+      "parentUuid": "fa632f25_db8da4c6",
+      "range": {
+        "startLine": 82,
+        "startChar": 11,
+        "endLine": 82,
+        "endChar": 44
+      },
+      "revId": "f3d4f5e036c558cbf6f86e9c99cd6523576d2e23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa632f25_1b2b9cf4",
         "filename": "wifi/1.0/default/wifi_legacy_hal_stubs.cpp",
         "patchSetId": 3
