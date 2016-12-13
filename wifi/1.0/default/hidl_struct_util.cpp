@@ -669,6 +669,45 @@ bool convertLegacyLinkLayerStatsToHidl(
   return true;
 }
 
+bool convertLegacyRoamingCapabilitiesToHidl(
+    const legacy_hal::wifi_roaming_capabilities legacy_caps,
+    StaRoamingCapabilities* hidl_caps) {
+  if (!hidl_caps) {
+    return false;
+  }
+  hidl_caps->maxBlacklistSize = legacy_caps.max_blacklist_size;
+  hidl_caps->maxWhitelistSize = legacy_caps.max_whitelist_size;
+  return true;
+}
+
+bool convertHidlRoamingConfigToLegacy(
+    const StaRoamingConfig& hidl_config,
+    legacy_hal::wifi_roaming_config* legacy_config) {
+  if (!legacy_config) {
+    return false;
+  }
+  if (hidl_config.bssidBlacklist.size() > MAX_BLACKLIST_BSSID) {
+    return false;
+  }
+  legacy_config->num_blacklist_bssid = hidl_config.bssidBlacklist.size();
+  uint32_t i = 0;
+  for (const auto& bssid : hidl_config.bssidBlacklist) {
+    CHECK(bssid.size() == sizeof(legacy_hal::mac_addr));
+    memcpy(legacy_config->blacklist_bssid[i++], bssid.data(), bssid.size());
+  }
+  if (hidl_config.ssidWhitelist.size() > MAX_WHITELIST_SSID) {
+    return false;
+  }
+  legacy_config->num_whitelist_ssid = hidl_config.ssidWhitelist.size();
+  i = 0;
+  for (const auto& ssid : hidl_config.ssidWhitelist) {
+    CHECK(ssid.size() <= sizeof(legacy_hal::ssid_t::ssid_str));
+    legacy_config->whitelist_ssid[i].length = ssid.size();
+    memcpy(legacy_config->whitelist_ssid[i].ssid_str, ssid.data(), ssid.size());
+  }
+  return true;
+}
+
 legacy_hal::NanPublishType convertHidlNanPublishTypeToLegacy(
     NanPublishType type) {
   switch (type) {
