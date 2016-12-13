@@ -32,6 +32,7 @@ enum WifiStatusCode : uint32_t {
   ERROR_NOT_AVAILABLE,
   ERROR_NOT_STARTED,
   ERROR_INVALID_ARGS,
+  ERROR_BUSY,
   ERROR_UNKNOWN
 };
 
@@ -227,7 +228,7 @@ struct StaApfPacketFilterCapabilities {
 };
 
 /**
- * Parameters to specify the Background Scan capability of this iface.
+ * Parameters to specify the Background Scan capacities of this iface.
  */
 struct StaBackgroundScanCapabilities {
   /**
@@ -512,6 +513,43 @@ struct StaScanData {
    * List of scan results.
    */
   vec<StaScanResult> results;
+};
+
+/**
+ * Structure describing the roaming control capacities supported.
+ */
+struct StaRoamingCapabilities {
+  /**
+   * Maximum number of BSSID's that can be blacklisted.
+   */
+  uint32_t maxBlacklistSize;
+  /**
+   * Maximum number of SSID's that can be whitelisted.
+   */
+  uint32_t maxWhitelistSize;
+};
+
+/**
+ * Structure describing the roaming control configuration.
+ */
+struct StaRoamingConfig {
+  /**
+   * List of BSSID's that are blacklisted for roaming.
+   */
+  vec<Bssid> bssidBlacklist;
+  /**
+   * List of SSID's that are whitelisted for roaming.
+   */
+  vec<Ssid> ssidWhitelist;
+};
+
+/**
+ * Enum describing the various states to set the roaming
+ * control to.
+ */
+enum StaRoamingState : uint8_t {
+  ENABLED = 0,
+  DISABLED = 1
 };
 
 /**
