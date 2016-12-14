@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "ba845725_2a6b94d2",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1086611
+      },
+      "writtenOn": "2016-12-14T18:29:25Z",
+      "side": 1,
+      "message": "I guess by Offload you mean \"offload to firmware\". Since HAL is more an interface to driver/firmware, we assume \"roaming\" here is for driver/firmware by default. Maybe make the comments more explicit? Like \"Enable/Disable firmware roaming control...\".",
+      "parentUuid": "ba845725_2a5f1491",
+      "range": {
+        "startLine": 357,
+        "startChar": 23,
+        "endLine": 357,
+        "endChar": 34
+      },
+      "revId": "955ff8e3194c988df636010df428ba8d8fdc6391",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ba845725_e785352b",
         "filename": "wifi/1.0/default/hidl_struct_util.h",
         "patchSetId": 8
