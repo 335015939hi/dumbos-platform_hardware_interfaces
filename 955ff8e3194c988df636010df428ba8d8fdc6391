@@ -119,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "ba845725_00714ff7",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-14T19:56:04Z",
+      "side": 1,
+      "message": "What do pause and resume do? Is the idea that disabling roaming control clearer the cached config, but that pause does not? Or it something different?",
+      "parentUuid": "ba845725_2a6b94d2",
+      "range": {
+        "startLine": 357,
+        "startChar": 23,
+        "endLine": 357,
+        "endChar": 34
+      },
+      "revId": "955ff8e3194c988df636010df428ba8d8fdc6391",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ba845725_ea125c07",
         "filename": "wifi/1.0/default/hidl_struct_util.cpp",
         "patchSetId": 8
