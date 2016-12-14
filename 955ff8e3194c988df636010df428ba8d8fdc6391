@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ba845725_d679c132",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-14T21:15:01Z",
+      "side": 1,
+      "message": "Same.",
+      "parentUuid": "ba845725_aa5ea42d",
+      "range": {
+        "startLine": 316,
+        "startChar": 24,
+        "endLine": 316,
+        "endChar": 38
+      },
+      "revId": "955ff8e3194c988df636010df428ba8d8fdc6391",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ba845725_27f66ddf",
         "filename": "wifi/1.0/IWifiStaIface.hal",
         "patchSetId": 8
@@ -36,6 +60,30 @@
       "writtenOn": "2016-12-14T17:48:48Z",
       "side": 1,
       "message": "We would like to return more error code such as \"BUSY\" when HAL returns WIFI_ERROR_BUSY.",
+      "range": {
+        "startLine": 351,
+        "startChar": 13,
+        "endLine": 351,
+        "endChar": 35
+      },
+      "revId": "955ff8e3194c988df636010df428ba8d8fdc6391",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba845725_7b21e0c4",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-14T21:15:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba845725_27f66ddf",
       "range": {
         "startLine": 351,
         "startChar": 13,
@@ -131,6 +179,54 @@
       "side": 1,
       "message": "What do pause and resume do? Is the idea that disabling roaming control clearer the cached config, but that pause does not? Or it something different?",
       "parentUuid": "ba845725_2a6b94d2",
+      "range": {
+        "startLine": 357,
+        "startChar": 23,
+        "endLine": 357,
+        "endChar": 34
+      },
+      "revId": "955ff8e3194c988df636010df428ba8d8fdc6391",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba845725_9bfdb4fa",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-14T21:15:01Z",
+      "side": 1,
+      "message": "I would like to avoid explicitly calling out firmware controlling roaming. As long as they respect this interface, there is no limitation on the vendor that these needs to be implemented in firmware or driver.\n\nI still don\u0027t like the name we\u0027re using for this method. I\u0027ve renamed to |setRoamingState| because it accepts an enum now.",
+      "parentUuid": "ba845725_2a6b94d2",
+      "range": {
+        "startLine": 357,
+        "startChar": 23,
+        "endLine": 357,
+        "endChar": 34
+      },
+      "revId": "955ff8e3194c988df636010df428ba8d8fdc6391",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba845725_9b2694dc",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-14T21:15:01Z",
+      "side": 1,
+      "message": "Will convert this into an enum if we need to extend it later. It\u0027ll be hard to upgrade API\u0027s from bool to enum type.",
+      "parentUuid": "ba845725_8760f9b9",
       "range": {
         "startLine": 357,
         "startChar": 23,
@@ -272,6 +368,30 @@
       "writtenOn": "2016-12-14T18:49:25Z",
       "side": 1,
       "message": "Capacities, perhaps?\n\nI\u0027m just suggesting changing the comment.",
+      "range": {
+        "startLine": 518,
+        "startChar": 36,
+        "endLine": 518,
+        "endChar": 59
+      },
+      "revId": "955ff8e3194c988df636010df428ba8d8fdc6391",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba845725_1b3464ee",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 518,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-14T21:15:01Z",
+      "side": 1,
+      "message": "Yeah. Agree the data here is actually is more \"capacities\" than \"capabilities\". But, modifying the comment would be confusing. We would have to rename the structs as well to reflect the documentation.\nWe\u0027ve been using the term capabilities throughout this HIDL interface (and the legacy HAL) to represent such data.",
+      "parentUuid": "ba845725_678ce58b",
       "range": {
         "startLine": 518,
         "startChar": 36,
