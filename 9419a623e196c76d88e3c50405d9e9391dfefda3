@@ -1,0 +1,101 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba845725_b9ffebb5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-14T02:05:47Z",
+      "side": 1,
+      "message": "Is \"IE whitelist\" not a feature? (I\u0027m guessing that it\u0027s related to \"scan randomization\", in that they\u0027re both intended to increase privacy while scanning. But feature #2 below isn\u0027t \"scan privacy enhancements\". So the bucketing seems wrong.)",
+      "range": {
+        "startLine": 9,
+        "startChar": 17,
+        "endLine": 9,
+        "endChar": 31
+      },
+      "revId": "9419a623e196c76d88e3c50405d9e9391dfefda3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba845725_79a3b3e5",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-14T02:05:47Z",
+      "side": 1,
+      "message": "Any reason for the renumbering here? I mean, I guess it\u0027s safe since \"1.0\" hasn\u0027t finalized yet. But seems like a bad habit to establish.",
+      "revId": "9419a623e196c76d88e3c50405d9e9391dfefda3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba845725_f9116373",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-14T02:05:47Z",
+      "side": 1,
+      "message": "Something seems amiss here.\n\n- Given the comment at line 345, I\u0027d expect this function to be called |enableRoamingControl|, rather than |enableRoaming|.\n\n- But, examining wifi_hal.h in hardware_legacy, I don\u0027t see a function with either name. Instead, I see |wifi_enable_firmware_roaming|.\n\n- My expectations for functions with these names are quite different. enableRoamingControl() seems like it would toggle between default firmware behavior, and customized firmware behavior (per StaRomaingConfig). enableFirmwareRoaming() seems like it would toggle firmware roaming on or off entirely.\n\nSo I\u0027m not really sure what to expect of this function.",
+      "range": {
+        "startLine": 356,
+        "startChar": 2,
+        "endLine": 356,
+        "endChar": 15
+      },
+      "revId": "9419a623e196c76d88e3c50405d9e9391dfefda3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba845725_79d65309",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 709,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-14T02:05:47Z",
+      "side": 1,
+      "message": "Consider moving this to line 701. (Get all the error cases out of the way first.)",
+      "revId": "9419a623e196c76d88e3c50405d9e9391dfefda3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba845725_04840af4",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-14T02:05:47Z",
+      "side": 1,
+      "message": "Would it make sense to change the type of |wifi_configure_roaming|, so that we can pass in a const-ptr? If this is a new API for O, maybe we can still make that change.\n\n(Consider filing a bug to come back to this. I don\u0027t think it\u0027s worth blocking this CL on.)",
+      "revId": "9419a623e196c76d88e3c50405d9e9391dfefda3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
