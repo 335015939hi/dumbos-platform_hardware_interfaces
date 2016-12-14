@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba845725_009eaf3d",
+        "filename": "wifi/supplicant/1.0/ISupplicantP2pIface.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-14T19:48:11Z",
+      "side": 1,
+      "message": "\"Miracast\" (proper noun)",
+      "range": {
+        "startLine": 63,
+        "startChar": 34,
+        "endLine": 63,
+        "endChar": 42
+      },
+      "revId": "43aedbc232c35d91f7402b6672dda38003a235b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba845725_20b653b8",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-14T19:48:11Z",
+      "side": 1,
+      "message": "\"RX\" (for consistency with commands below)",
+      "range": {
+        "startLine": 52,
+        "startChar": 34,
+        "endLine": 52,
+        "endChar": 36
+      },
+      "revId": "43aedbc232c35d91f7402b6672dda38003a235b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba845725_e0ab5b52",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-14T19:48:11Z",
+      "side": 1,
+      "message": "\"BT\" (acronym), or \"Bluetooth\" (proper noun)",
+      "range": {
+        "startLine": 61,
+        "startChar": 34,
+        "endLine": 61,
+        "endChar": 36
+      },
+      "revId": "43aedbc232c35d91f7402b6672dda38003a235b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba845725_60e76bcc",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-14T19:48:11Z",
+      "side": 1,
+      "message": "\"MAC\" (acronym)",
+      "range": {
+        "startLine": 217,
+        "startChar": 32,
+        "endLine": 217,
+        "endChar": 35
+      },
+      "revId": "43aedbc232c35d91f7402b6672dda38003a235b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba845725_e0d27be8",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-14T19:48:11Z",
+      "side": 1,
+      "message": "\"MAC\"",
+      "range": {
+        "startLine": 223,
+        "startChar": 22,
+        "endLine": 223,
+        "endChar": 25
+      },
+      "revId": "43aedbc232c35d91f7402b6672dda38003a235b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba845725_8017ffbb",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-14T19:48:11Z",
+      "side": 1,
+      "message": "\"RX\"",
+      "range": {
+        "startLine": 249,
+        "startChar": 46,
+        "endLine": 249,
+        "endChar": 48
+      },
+      "revId": "43aedbc232c35d91f7402b6672dda38003a235b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba845725_a01c03e1",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-14T19:48:11Z",
+      "side": 1,
+      "message": "\"RX\"",
+      "range": {
+        "startLine": 261,
+        "startChar": 49,
+        "endLine": 261,
+        "endChar": 51
+      },
+      "revId": "43aedbc232c35d91f7402b6672dda38003a235b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba845725_c0201712",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-14T19:48:11Z",
+      "side": 1,
+      "message": "\"Bluetooth\"",
+      "range": {
+        "startLine": 273,
+        "startChar": 32,
+        "endLine": 273,
+        "endChar": 41
+      },
+      "revId": "43aedbc232c35d91f7402b6672dda38003a235b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba845725_e01d1bdb",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-14T19:48:11Z",
+      "side": 1,
+      "message": "\"Bluetooth\"",
+      "range": {
+        "startLine": 275,
+        "startChar": 25,
+        "endLine": 275,
+        "endChar": 34
+      },
+      "revId": "43aedbc232c35d91f7402b6672dda38003a235b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba845725_202813f5",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-14T19:48:11Z",
+      "side": 1,
+      "message": "\"Bluetooth\"",
+      "range": {
+        "startLine": 285,
+        "startChar": 32,
+        "endLine": 285,
+        "endChar": 41
+      },
+      "revId": "43aedbc232c35d91f7402b6672dda38003a235b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba845725_40a18746",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-14T19:48:11Z",
+      "side": 1,
+      "message": "Would |char| make sense here? (Not sure what the HIDL convention is for character types.)",
+      "range": {
+        "startLine": 320,
+        "startChar": 32,
+        "endLine": 320,
+        "endChar": 38
+      },
+      "revId": "43aedbc232c35d91f7402b6672dda38003a235b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
