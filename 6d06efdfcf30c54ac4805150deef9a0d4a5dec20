@@ -22,6 +22,30 @@
       "revId": "6d06efdfcf30c54ac4805150deef9a0d4a5dec20",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba845725_d92adfee",
+        "filename": "wifi/1.0/default/wifi_legacy_hal_stubs.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-14T01:07:54Z",
+      "side": 1,
+      "message": "Not yet. It seems to be work-in-progress. \n- https://root.cern.ch/blog/status-reflection-c\n- https://groups.google.com/a/isocpp.org/forum/?fromgroups#!forum/reflection",
+      "parentUuid": "ba845725_2d457967",
+      "range": {
+        "startLine": 47,
+        "startChar": 2,
+        "endLine": 47,
+        "endChar": 17
+      },
+      "revId": "6d06efdfcf30c54ac4805150deef9a0d4a5dec20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
