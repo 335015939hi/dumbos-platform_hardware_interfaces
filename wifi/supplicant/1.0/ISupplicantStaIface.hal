@@ -49,6 +49,25 @@ interface ISupplicantStaIface extends ISupplicantIface {
   };
 
   /**
+   * Enum describing the types of rx filter supported
+   * via driver commands.
+   */
+  enum DriverCmdRxFilterType : uint8_t {
+    V4_MULTICAST = 0,
+    V6_MULTICAST = 1
+  };
+
+  /**
+   * Enum describing the modes of bt coexistence supported
+   * via driver commands.
+   */
+  enum DriverCmdBtCoexistenceMode : uint8_t {
+    ENABLED = 0,
+    DISABLED = 1,
+    SENSE = 2
+  };
+
+  /**
    * Register for callbacks from this interface.
    *
    * These callbacks are invoked for events that are specific to this interface.
@@ -192,5 +211,112 @@ interface ISupplicantStaIface extends ISupplicantIface {
    *         |SupplicantStatusCode.FAILURE_IFACE_INVALID|
    */
   initiateHs20IconQuery(MacAddress macAddress, string fileName)
+      generates (SupplicantStatus status);
+
+  /**
+   * Send driver command to get mac address of the device.
+   *
+   * @return status Status of the operation.
+   *         Possible status codes:
+   *         |SupplicantStatusCode.SUCCESS|,
+   *         |SupplicantStatusCode.FAILURE_UNKNOWN|
+   * @return mac_addr Mac address of the device.
+   */
+  sendDriverCmdToGetMacAddress()
+      generates (SupplicantStatus status, MacAddress mac_addr);
+
+  /**
+   * Send driver command to start RX filter.
+   *
+   * @return status Status of the operation.
+   *         Possible status codes:
+   *         |SupplicantStatusCode.SUCCESS|,
+   *         |SupplicantStatusCode.FAILURE_UNKNOWN|
+   */
+  sendDriverCmdToStartRxFilter() generates (SupplicantStatus status);
+
+  /**
+   * Send driver command to stop RX filter.
+   *
+   * @return status Status of the operation.
+   *         Possible status codes:
+   *         |SupplicantStatusCode.SUCCESS|,
+   *         |SupplicantStatusCode.FAILURE_UNKNOWN|
+   */
+  sendDriverCmdToStopRxFilter() generates (SupplicantStatus status);
+
+  /**
+   * Send driver command to add the specified rx filter.
+   *
+   * @param type Type of filter.
+   * @return status Status of the operation.
+   *         Possible status codes:
+   *         |SupplicantStatusCode.SUCCESS|,
+   *         |SupplicantStatusCode.FAILURE_UNKNOWN|
+   */
+  sendDriverCmdToAddRxFilter(DriverCmdRxFilterType type)
+      generates (SupplicantStatus status);
+
+  /**
+   * Send driver command to remove the specified rx filter.
+   *
+   * @param type Type of filter.
+   * @return status Status of the operation.
+   *         Possible status codes:
+   *         |SupplicantStatusCode.SUCCESS|,
+   *         |SupplicantStatusCode.FAILURE_UNKNOWN|
+   */
+  sendDriverCmdToRemoveRxFilter(DriverCmdRxFilterType type)
+      generates (SupplicantStatus status);
+
+  /**
+   * Send driver command to set bluetooth coexistence mode.
+   *
+   * @param mode Mode of bluetooth coexistence.
+   * @return status Status of the operation.
+   *         Possible status codes:
+   *         |SupplicantStatusCode.SUCCESS|,
+   *         |SupplicantStatusCode.FAILURE_UNKNOWN|
+   */
+  sendDriverCmdToSetBtCoexistenceMode(DriverCmdBtCoexistenceMode mode)
+      generates (SupplicantStatus status);
+
+  /**
+   * Send driver command to set bluetooth coexistence scan mode.
+   * When this mode is on, some of the low-level scan parameters
+   * used by the driver are changed to reduce interference
+   * with A2DP streaming.
+   *
+   * @param mode true to enable, false to disable.
+   * @return status Status of the operation.
+   *         Possible status codes:
+   *         |SupplicantStatusCode.SUCCESS|,
+   *         |SupplicantStatusCode.FAILURE_UNKNOWN|
+   */
+  sendDriverCmdToSetBtCoexistenceScanMode(bool mode)
+      generates (SupplicantStatus status);
+
+  /**
+   * Send driver command to set suspend optimizations for power save.
+   *
+   * @param mode true to enable, false to disable.
+   * @return status Status of the operation.
+   *         Possible status codes:
+   *         |SupplicantStatusCode.SUCCESS|,
+   *         |SupplicantStatusCode.FAILURE_UNKNOWN|
+   */
+  sendDriverCmdToSetSuspendMode(bool mode)
+      generates (SupplicantStatus status);
+
+  /**
+   * Send driver command to set country code.
+   *
+   * @param code 2 byte country code to set.
+   * @return status Status of the operation.
+   *         Possible status codes:
+   *         |SupplicantStatusCode.SUCCESS|,
+   *         |SupplicantStatusCode.FAILURE_UNKNOWN|
+   */
+  sendDriverCmdToSetCountryCode(int8_t[2] code)
       generates (SupplicantStatus status);
 };
