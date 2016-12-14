@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "ba845725_aa5ea42d",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1126614
+      },
+      "writtenOn": "2016-12-14T18:49:25Z",
+      "side": 1,
+      "message": "My comment on types.hal applies here as well.",
+      "range": {
+        "startLine": 316,
+        "startChar": 24,
+        "endLine": 316,
+        "endChar": 38
+      },
+      "revId": "955ff8e3194c988df636010df428ba8d8fdc6391",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ba845725_27f66ddf",
         "filename": "wifi/1.0/IWifiStaIface.hal",
         "patchSetId": 8
@@ -183,6 +206,29 @@
         "startChar": 5,
         "endLine": 81,
         "endChar": 37
+      },
+      "revId": "955ff8e3194c988df636010df428ba8d8fdc6391",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba845725_678ce58b",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 518,
+      "author": {
+        "id": 1126614
+      },
+      "writtenOn": "2016-12-14T18:49:25Z",
+      "side": 1,
+      "message": "Capacities, perhaps?\n\nI\u0027m just suggesting changing the comment.",
+      "range": {
+        "startLine": 518,
+        "startChar": 36,
+        "endLine": 518,
+        "endChar": 59
       },
       "revId": "955ff8e3194c988df636010df428ba8d8fdc6391",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
