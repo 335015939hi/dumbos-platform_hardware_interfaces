@@ -96,6 +96,29 @@
     },
     {
       "key": {
+        "uuid": "ba845725_ea125c07",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 713,
+      "author": {
+        "id": 1086611
+      },
+      "writtenOn": "2016-12-14T18:44:10Z",
+      "side": 1,
+      "message": "I guess here we assume the double quote around the SSID string (if there) is already stripped off?",
+      "range": {
+        "startLine": 713,
+        "startChar": 54,
+        "endLine": 713,
+        "endChar": 63
+      },
+      "revId": "955ff8e3194c988df636010df428ba8d8fdc6391",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ba845725_e785352b",
         "filename": "wifi/1.0/default/hidl_struct_util.h",
         "patchSetId": 8
@@ -131,6 +154,30 @@
       "side": 1,
       "message": "The naming depends on the direction in which we\u0027re trying to convert the structure.\n\nIn |convertLegacyRoamingCapabilitiesToHidl|, we\u0027re taking an instance of |wifi_roaming_capabilities| from legacy HAL API and converting to it\u0027s HIDL equivalent struct.\n\nIn |convertHidlRoamingConfigToLegacy|, we\u0027re taking an instance of |StaRoamingConfig| from HIDL interface and converting to it\u0027s legacy HAL equivalent struct.",
       "parentUuid": "ba845725_e785352b",
+      "range": {
+        "startLine": 81,
+        "startChar": 5,
+        "endLine": 81,
+        "endChar": 37
+      },
+      "revId": "955ff8e3194c988df636010df428ba8d8fdc6391",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba845725_4a97e895",
+        "filename": "wifi/1.0/default/hidl_struct_util.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1086611
+      },
+      "writtenOn": "2016-12-14T18:44:10Z",
+      "side": 1,
+      "message": "Got it. Thanks!",
+      "parentUuid": "ba845725_4a1e087c",
       "range": {
         "startLine": 81,
         "startChar": 5,
