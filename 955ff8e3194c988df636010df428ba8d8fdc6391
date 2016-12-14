@@ -142,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "ba845725_a51c15e1",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 713,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-14T18:53:38Z",
+      "side": 1,
+      "message": "The HIDL interface does not accept the ssid as string. It\u0027s exposed a vector with max size of 32. So, the framework is expected to send it as a vector of bytes (as defined in ieee 80211 spec) and strip out the null terminators. \n\nSomething like this:  \n   String ssid \u003d \"test\";\n   public static byte[] encodeSSID(String ssid) {\n        int length \u003d ssid.length();\n        if ((length \u003e 1) \u0026\u0026 (ssid.charAt(0) \u003d\u003d \u0027\"\u0027)\n                \u0026\u0026 (ssid.charAt(length - 1) \u003d\u003d \u0027\"\u0027)) {\n            ssid \u003d ssid.substring(1, length - 1);\n        }\n        return ssid.getBytes(StandardCharsets.UTF_8);\n    }\n\nThis is a modified version of the method we already have (removed the conversion back to hex string):\nhttps://cs.corp.google.com/android/frameworks/opt/net/wifi/service/java/com/android/server/wifi/WifiNative.java?rcl\u003db7717222501caa963b21ff9d59f6a102013a4b58\u0026l\u003d302.",
+      "parentUuid": "ba845725_ea125c07",
+      "range": {
+        "startLine": 713,
+        "startChar": 54,
+        "endLine": 713,
+        "endChar": 63
+      },
+      "revId": "955ff8e3194c988df636010df428ba8d8fdc6391",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ba845725_e785352b",
         "filename": "wifi/1.0/default/hidl_struct_util.h",
         "patchSetId": 8
