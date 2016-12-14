@@ -22,6 +22,30 @@
       "revId": "710c275144326a38610b41bfe40151fefa0e3596",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba845725_0a1090fd",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-14T18:44:19Z",
+      "side": 1,
+      "message": "Added reference.",
+      "parentUuid": "ba845725_caee7844",
+      "range": {
+        "startLine": 314,
+        "startChar": 16,
+        "endLine": 314,
+        "endChar": 36
+      },
+      "revId": "710c275144326a38610b41bfe40151fefa0e3596",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
