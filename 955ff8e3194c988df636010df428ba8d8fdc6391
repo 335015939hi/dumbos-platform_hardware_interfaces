@@ -239,6 +239,30 @@
     },
     {
       "key": {
+        "uuid": "ba845725_769495d0",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1086611
+      },
+      "writtenOn": "2016-12-14T21:16:18Z",
+      "side": 1,
+      "message": "Something around that line. This was originally proposed by QCOM. The idea is, enable/disable completely turns on/off the FW roaming feature. Once FW roaming is enabled, we can use pause/resume to tell FW that framework is about to/done out-network roaming. The assumption is that pause/resume is lighter weight than disable/enable. For O, we decided to support enable/disable only.",
+      "parentUuid": "ba845725_00714ff7",
+      "range": {
+        "startLine": 357,
+        "startChar": 23,
+        "endLine": 357,
+        "endChar": 34
+      },
+      "revId": "955ff8e3194c988df636010df428ba8d8fdc6391",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ba845725_ea125c07",
         "filename": "wifi/1.0/default/hidl_struct_util.cpp",
         "patchSetId": 8
