@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ba845725_0de41f21",
+        "filename": "wifi/supplicant/1.0/ISupplicantP2pIface.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-15T01:43:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba845725_cd85a75d",
+      "range": {
+        "startLine": 532,
+        "startChar": 32,
+        "endLine": 532,
+        "endChar": 40
+      },
+      "revId": "6feec072e65a8837fb3c6ebf14cf0588e0fb31ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ba845725_6dc2fb98",
         "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
         "patchSetId": 9
@@ -36,6 +60,30 @@
       "writtenOn": "2016-12-15T01:36:38Z",
       "side": 1,
       "message": "\"Bluetooth\"",
+      "range": {
+        "startLine": 273,
+        "startChar": 32,
+        "endLine": 273,
+        "endChar": 41
+      },
+      "revId": "6feec072e65a8837fb3c6ebf14cf0588e0fb31ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba845725_6dfbdbc6",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-15T01:43:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba845725_6dc2fb98",
       "range": {
         "startLine": 273,
         "startChar": 32,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "ba845725_4df617e0",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-15T01:43:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba845725_8dc72fa6",
+      "range": {
+        "startLine": 275,
+        "startChar": 25,
+        "endLine": 275,
+        "endChar": 34
+      },
+      "revId": "6feec072e65a8837fb3c6ebf14cf0588e0fb31ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ba845725_adccf3ca",
         "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
         "patchSetId": 9
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "ba845725_8df00fe1",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-15T01:43:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba845725_adccf3ca",
+      "range": {
+        "startLine": 285,
+        "startChar": 32,
+        "endLine": 285,
+        "endChar": 41
+      },
+      "revId": "6feec072e65a8837fb3c6ebf14cf0588e0fb31ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ba845725_0ddb3f7e",
         "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
         "patchSetId": 9
@@ -105,6 +201,30 @@
       "writtenOn": "2016-12-15T01:36:38Z",
       "side": 1,
       "message": "Please see question on PS5.",
+      "range": {
+        "startLine": 320,
+        "startChar": 17,
+        "endLine": 320,
+        "endChar": 26
+      },
+      "revId": "6feec072e65a8837fb3c6ebf14cf0588e0fb31ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba845725_2daf23c8",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-15T01:43:04Z",
+      "side": 1,
+      "message": "There isn\u0027t a char type in HIDL.",
+      "parentUuid": "ba845725_0ddb3f7e",
       "range": {
         "startLine": 320,
         "startChar": 17,
