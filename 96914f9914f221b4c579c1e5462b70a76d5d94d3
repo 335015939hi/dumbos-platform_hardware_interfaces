@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba845725_b3c291ec",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-15T17:44:08Z",
+      "side": 1,
+      "message": "macAddr",
+      "range": {
+        "startLine": 226,
+        "startChar": 53,
+        "endLine": 226,
+        "endChar": 61
+      },
+      "revId": "96914f9914f221b4c579c1e5462b70a76d5d94d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba845725_f3db29d5",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-15T17:44:08Z",
+      "side": 1,
+      "message": "nit: setBtCoexistenceScanEnabled?",
+      "range": {
+        "startLine": 296,
+        "startChar": 22,
+        "endLine": 296,
+        "endChar": 26
+      },
+      "revId": "96914f9914f221b4c579c1e5462b70a76d5d94d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba845725_33d6a1ad",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-15T17:44:08Z",
+      "side": 1,
+      "message": "nit: setSuspended?",
+      "range": {
+        "startLine": 308,
+        "startChar": 2,
+        "endLine": 308,
+        "endChar": 16
+      },
+      "revId": "96914f9914f221b4c579c1e5462b70a76d5d94d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
