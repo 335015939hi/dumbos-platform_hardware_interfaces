@@ -220,10 +220,10 @@ interface ISupplicantStaIface extends ISupplicantIface {
    *         Possible status codes:
    *         |SupplicantStatusCode.SUCCESS|,
    *         |SupplicantStatusCode.FAILURE_UNKNOWN|
-   * @return mac_addr MAC address of the device.
+   * @return macAddr MAC address of the device.
    */
   getMacAddress()
-      generates (SupplicantStatus status, MacAddress mac_addr);
+      generates (SupplicantStatus status, MacAddress macAddr);
 
   /**
    * Send driver command to start RX filter.
@@ -287,25 +287,25 @@ interface ISupplicantStaIface extends ISupplicantIface {
    * used by the driver are changed to reduce interference
    * with A2DP streaming.
    *
-   * @param mode true to enable, false to disable.
+   * @param enable true to enable, false to disable.
    * @return status Status of the operation.
    *         Possible status codes:
    *         |SupplicantStatusCode.SUCCESS|,
    *         |SupplicantStatusCode.FAILURE_UNKNOWN|
    */
-  setBtCoexistenceScanMode(bool mode)
+  setBtCoexistenceScanModeEnabled(bool enable)
       generates (SupplicantStatus status);
 
   /**
    * Send driver command to set suspend optimizations for power save.
    *
-   * @param mode true to enable, false to disable.
+   * @param enable true to enable, false to disable.
    * @return status Status of the operation.
    *         Possible status codes:
    *         |SupplicantStatusCode.SUCCESS|,
    *         |SupplicantStatusCode.FAILURE_UNKNOWN|
    */
-  setSuspendMode(bool mode)
+  setSuspendModeEnabled(bool enable)
       generates (SupplicantStatus status);
 
   /**
