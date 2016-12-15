@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba845725_4c00cfe2",
+        "filename": "wifi/1.0/vts/functional/wifi_ap_iface_hidl_test.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2016-12-15T22:41:00Z",
+      "side": 1,
+      "message": "how about adding a docstring to each class?",
+      "range": {
+        "startLine": 28,
+        "startChar": 6,
+        "endLine": 28,
+        "endChar": 25
+      },
+      "revId": "247917c35bd7c0d4a4907da944cbfdf623e1ddd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba845725_ec198361",
+        "filename": "wifi/1.0/vts/functional/wifi_ap_iface_hidl_test.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2016-12-15T22:41:00Z",
+      "side": 1,
+      "message": "swap those two to keep them in the order of expected, actual?",
+      "range": {
+        "startLine": 43,
+        "startChar": 12,
+        "endLine": 43,
+        "endChar": 37
+      },
+      "revId": "247917c35bd7c0d4a4907da944cbfdf623e1ddd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba845725_8c0ac700",
+        "filename": "wifi/1.0/vts/functional/wifi_chip_hidl_test.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2016-12-15T22:41:00Z",
+      "side": 1,
+      "message": "ditto, swap args?",
+      "range": {
+        "startLine": 43,
+        "startChar": 12,
+        "endLine": 43,
+        "endChar": 23
+      },
+      "revId": "247917c35bd7c0d4a4907da944cbfdf623e1ddd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba845725_8c6c87b3",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_test_utils.h",
+        "patchSetId": 25
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2016-12-15T22:41:00Z",
+      "side": 1,
+      "message": "__HARDWARE_INTERFACES_WIFI_1_0_VTS_FUNCTIONAL_HIDL_TEST_UTILS_H__?",
+      "range": {
+        "startLine": 17,
+        "startChar": 8,
+        "endLine": 17,
+        "endChar": 30
+      },
+      "revId": "247917c35bd7c0d4a4907da944cbfdf623e1ddd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba845725_8ce1e712",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_test_utils.h",
+        "patchSetId": 25
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2016-12-15T22:41:00Z",
+      "side": 1,
+      "message": "indent 4 or 8 spaces?\n\nvts tests use g3 style, \n\nclang-format --style\u003dgoogle -i \u003cfile name\u003e",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 20
+      },
+      "revId": "247917c35bd7c0d4a4907da944cbfdf623e1ddd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
