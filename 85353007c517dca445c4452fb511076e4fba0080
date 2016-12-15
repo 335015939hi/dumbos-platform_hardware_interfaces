@@ -68,6 +68,40 @@
       "revId": "85353007c517dca445c4452fb511076e4fba0080",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba845725_ad82339b",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 752,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-15T01:30:35Z",
+      "side": 1,
+      "message": "I don\u0027t see any reference to this method, within this patch. If there should be a call, please add it. If not, please hold this part of the patch until there\u0027s a caller of this code.",
+      "revId": "85353007c517dca445c4452fb511076e4fba0080",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba845725_cd0a0745",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 800,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-15T01:30:35Z",
+      "side": 1,
+      "message": "Feel free to inline this at line 803, if you\u0027d like.",
+      "revId": "85353007c517dca445c4452fb511076e4fba0080",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
