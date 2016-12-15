@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba845725_1a40c953",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_test_utils.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-15T23:20:09Z",
+      "side": 1,
+      "message": "(Continued from PS3)\n\nI think we might have different ideas of what \"anonymous namespace\" names. I should have used the proper term: \"unnamed namespace\".\n\nAnyway, consider giving these two functions the treatment described here: https://google.github.io/styleguide/cppguide.html#Unnamed_Namespaces_and_Static_Variables",
+      "revId": "edd3f232c1876b6fcb39d1947540e4025fcca6ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
