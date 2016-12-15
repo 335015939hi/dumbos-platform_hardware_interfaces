@@ -1942,5 +1942,5 @@ interface IRadioResponse {
      *
      * @param serial Serial no. of the request whose acknowledgement is sent.
      */
-    oneway requestAcknowledgement(int32_t serial);
+    oneway acknowledgeRequest(int32_t serial);
 };
