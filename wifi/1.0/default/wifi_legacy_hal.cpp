@@ -121,6 +121,18 @@ void onRingBufferData(char* ring_name,
   }
 }
 
+// Callback to be invoked for error alert indication.
+std::function<void(wifi_request_id, char*, int, int)>
+    on_error_alert_internal_callback;
+void onErrorAlert(wifi_request_id id,
+                  char* buffer,
+                  int buffer_size,
+                  int err_code) {
+  if (on_error_alert_internal_callback) {
+    on_error_alert_internal_callback(id, buffer, buffer_size, err_code);
+  }
+}
+
 // Callback to be invoked for rtt results results.
 std::function<void(
     wifi_request_id, unsigned num_results, wifi_rtt_result* rtt_results[])>
@@ -762,6 +774,38 @@ wifi_error WifiLegacyHal::getRingBufferData(const std::string& ring_name) {
   std::vector<char> ring_name_internal(ring_name.begin(), ring_name.end());
   return global_func_table_.wifi_get_ring_data(wlan_interface_handle_,
                                                ring_name_internal.data());
+}
+
+wifi_error WifiLegacyHal::registerErrorAlertCallbackHandler(
+    const on_error_alert_callback& on_user_alert_callback) {
+  if (on_error_alert_internal_callback) {
+    return WIFI_ERROR_NOT_AVAILABLE;
+  }
+  on_error_alert_internal_callback = [on_user_alert_callback](
+      wifi_request_id id, char* buffer, int buffer_size, int err_code) {
+    if (buffer) {
+      CHECK(id == 0);
+      on_user_alert_callback(
+          err_code,
+          std::vector<uint8_t>(
+              reinterpret_cast<uint8_t*>(buffer),
+              reinterpret_cast<uint8_t*>(buffer) + buffer_size));
+    }
+  };
+  wifi_error status = global_func_table_.wifi_set_alert_handler(
+      0, wlan_interface_handle_, {onErrorAlert});
+  if (status != WIFI_SUCCESS) {
+    on_error_alert_internal_callback = nullptr;
+  }
+  return status;
+}
+
+wifi_error WifiLegacyHal::deregisterErrorAlertCallbackHandler() {
+  if (!on_error_alert_internal_callback) {
+    return WIFI_ERROR_NOT_AVAILABLE;
+  }
+  on_error_alert_internal_callback = nullptr;
+  return global_func_table_.wifi_reset_alert_handler(0, wlan_interface_handle_);
 }
 
 wifi_error WifiLegacyHal::startRttRangeRequest(
