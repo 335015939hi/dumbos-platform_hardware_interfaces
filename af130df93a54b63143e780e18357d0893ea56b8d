@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba845725_6d283b4c",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-15T01:44:43Z",
+      "side": 1,
+      "message": "I\u0027m alright with punting the details to StaRoamingState. But that does mean I\u0027ll have some comments over there. :-)",
+      "revId": "af130df93a54b63143e780e18357d0893ea56b8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba845725_6dfafb9b",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-15T01:44:43Z",
+      "side": 1,
+      "message": "I don\u0027t think this explains much. I can imagine these terms being taken to mean different things:\n\n- ENABLED:\n  - a) driver/firmware are free to do whatever they want\n  - b) driver/firmware are required to respect whatever StaRoamingConfig we\u0027ve provided\n- DISABLED:\n  - a) driver/firmware must not roam autonomously\n  - b) driver/firmware should ignore (and clear) the StaRoamingConfig we\u0027ve provided",
+      "revId": "af130df93a54b63143e780e18357d0893ea56b8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
