@@ -30,16 +30,16 @@ IWifiChip::ChipCapabilityMask convertLegacyLoggerFeatureToHidlChipCapability(
     uint32_t feature) {
   using HidlChipCaps = IWifiChip::ChipCapabilityMask;
   switch (feature) {
-    case legacy_hal::WIFI_LOGGER_MEMORY_DUMP_SUPPORTED:
-      return HidlChipCaps::DEBUG_MEMORY_FIRMWARE_DUMP_SUPPORTED;
-    case legacy_hal::WIFI_LOGGER_DRIVER_DUMP_SUPPORTED:
-      return HidlChipCaps::DEBUG_MEMORY_DRIVER_DUMP_SUPPORTED;
-    case legacy_hal::WIFI_LOGGER_CONNECT_EVENT_SUPPORTED:
-      return HidlChipCaps::DEBUG_RING_BUFFER_CONNECT_EVENT_SUPPORTED;
-    case legacy_hal::WIFI_LOGGER_POWER_EVENT_SUPPORTED:
-      return HidlChipCaps::DEBUG_RING_BUFFER_POWER_EVENT_SUPPORTED;
-    case legacy_hal::WIFI_LOGGER_WAKE_LOCK_SUPPORTED:
-      return HidlChipCaps::DEBUG_RING_BUFFER_WAKELOCK_EVENT_SUPPORTED;
+    case legacy_hal::WIFI_LOGGER_MEMORY_DUMP:
+      return HidlChipCaps::DEBUG_MEMORY_FIRMWARE_DUMP;
+    case legacy_hal::WIFI_LOGGER_DRIVER_DUMP:
+      return HidlChipCaps::DEBUG_MEMORY_DRIVER_DUMP;
+    case legacy_hal::WIFI_LOGGER_CONNECT_EVENT:
+      return HidlChipCaps::DEBUG_RING_BUFFER_CONNECT_EVENT;
+    case legacy_hal::WIFI_LOGGER_POWER_EVENT:
+      return HidlChipCaps::DEBUG_RING_BUFFER_POWER_EVENT;
+    case legacy_hal::WIFI_LOGGER_WAKE_LOCK:
+      return HidlChipCaps::DEBUG_RING_BUFFER_WAKELOCK_EVENT;
   };
   CHECK(false) << "Unknown legacy feature: " << feature;
   return {};
@@ -49,8 +49,8 @@ IWifiStaIface::StaIfaceCapabilityMask
 convertLegacyLoggerFeatureToHidlStaIfaceCapability(uint32_t feature) {
   using HidlStaIfaceCaps = IWifiStaIface::StaIfaceCapabilityMask;
   switch (feature) {
-    case legacy_hal::WIFI_LOGGER_PACKET_FATE_SUPPORTED:
-      return HidlStaIfaceCaps::DEBUG_PACKET_FATE_SUPPORTED;
+    case legacy_hal::WIFI_LOGGER_PACKET_FATE:
+      return HidlStaIfaceCaps::DEBUG_PACKET_FATE;
   };
   CHECK(false) << "Unknown legacy feature: " << feature;
   return {};
@@ -72,6 +72,16 @@ convertLegacyFeatureToHidlStaIfaceCapability(uint32_t feature) {
       return HidlStaIfaceCaps::PROBE_IE_WHITELIST;
     case WIFI_FEATURE_SCAN_RAND:
       return HidlStaIfaceCaps::SCAN_RAND;
+    case WIFI_FEATURE_INFRA_5G:
+      return HidlStaIfaceCaps::STA_5G;
+    case WIFI_FEATURE_HOTSPOT:
+      return HidlStaIfaceCaps::HOTSPOT;
+    case WIFI_FEATURE_PNO:
+      return HidlStaIfaceCaps::PNO;
+    case WIFI_FEATURE_TDLS:
+      return HidlStaIfaceCaps::TDLS;
+    case WIFI_FEATURE_TDLS_OFFCHANNEL:
+      return HidlStaIfaceCaps::TDLS_OFFCHANNEL;
   };
   CHECK(false) << "Unknown legacy feature: " << feature;
   return {};
@@ -84,18 +94,18 @@ bool convertLegacyFeaturesToHidlChipCapabilities(
   }
   *hidl_caps = 0;
   using HidlChipCaps = IWifiChip::ChipCapabilityMask;
-  for (const auto feature : {legacy_hal::WIFI_LOGGER_MEMORY_DUMP_SUPPORTED,
-                             legacy_hal::WIFI_LOGGER_DRIVER_DUMP_SUPPORTED,
-                             legacy_hal::WIFI_LOGGER_CONNECT_EVENT_SUPPORTED,
-                             legacy_hal::WIFI_LOGGER_POWER_EVENT_SUPPORTED,
-                             legacy_hal::WIFI_LOGGER_WAKE_LOCK_SUPPORTED}) {
+  for (const auto feature : {legacy_hal::WIFI_LOGGER_MEMORY_DUMP,
+                             legacy_hal::WIFI_LOGGER_DRIVER_DUMP,
+                             legacy_hal::WIFI_LOGGER_CONNECT_EVENT,
+                             legacy_hal::WIFI_LOGGER_POWER_EVENT,
+                             legacy_hal::WIFI_LOGGER_WAKE_LOCK}) {
     if (feature & legacy_logger_feature_set) {
       *hidl_caps |= convertLegacyLoggerFeatureToHidlChipCapability(feature);
     }
   }
   // There are no flags for these 3 in the legacy feature set. Adding them to
   // the set because all the current devices support it.
-  *hidl_caps |= HidlChipCaps::DEBUG_RING_BUFFER_VENDOR_DATA_SUPPORTED;
+  *hidl_caps |= HidlChipCaps::DEBUG_RING_BUFFER_VENDOR_DATA;
   *hidl_caps |= HidlChipCaps::DEBUG_HOST_WAKE_REASON_STATS;
   *hidl_caps |= HidlChipCaps::DEBUG_ERROR_ALERTS;
   return true;
@@ -214,7 +224,7 @@ bool convertLegacyFeaturesToHidlStaCapabilities(
   }
   *hidl_caps = 0;
   using HidlStaIfaceCaps = IWifiStaIface::StaIfaceCapabilityMask;
-  for (const auto feature : {legacy_hal::WIFI_LOGGER_PACKET_FATE_SUPPORTED}) {
+  for (const auto feature : {legacy_hal::WIFI_LOGGER_PACKET_FATE}) {
     if (feature & legacy_logger_feature_set) {
       *hidl_caps |= convertLegacyLoggerFeatureToHidlStaIfaceCapability(feature);
     }
@@ -224,7 +234,12 @@ bool convertLegacyFeaturesToHidlStaCapabilities(
                              WIFI_FEATURE_RSSI_MONITOR,
                              WIFI_FEATURE_CONTROL_ROAMING,
                              WIFI_FEATURE_IE_WHITELIST,
-                             WIFI_FEATURE_SCAN_RAND}) {
+                             WIFI_FEATURE_SCAN_RAND,
+                             WIFI_FEATURE_INFRA_5G,
+                             WIFI_FEATURE_HOTSPOT,
+                             WIFI_FEATURE_PNO,
+                             WIFI_FEATURE_TDLS,
+                             WIFI_FEATURE_TDLS_OFFCHANNEL}) {
     if (feature & legacy_feature_set) {
       *hidl_caps |= convertLegacyFeatureToHidlStaIfaceCapability(feature);
     }
