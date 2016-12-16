@@ -174,7 +174,7 @@ void startSupplicantAndWaitForHidlService() {
 }
 
 sp<ISupplicant> getSupplicant() {
-    return getService<ISupplicant>(kSupplicantServiceName);
+    return ::testing::VtsHalHidlTargetTestBase::getService<ISupplicant>();
 }
 
 sp<ISupplicantStaIface> getSupplicantStaIface() {
