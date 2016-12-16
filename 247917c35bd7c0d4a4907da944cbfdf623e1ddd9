@@ -94,6 +94,24 @@
     },
     {
       "key": {
+        "uuid": "1a772381_2adce3cd",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_test_utils.h",
+        "patchSetId": 25
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-16T18:29:03Z",
+      "side": 1,
+      "message": "I really wish we used \"#pragma once\" in Android.",
+      "parentUuid": "ba845725_8c6c87b3",
+      "revId": "247917c35bd7c0d4a4907da944cbfdf623e1ddd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ba845725_8ce1e712",
         "filename": "wifi/1.0/vts/functional/wifi_hidl_test_utils.h",
         "patchSetId": 25
