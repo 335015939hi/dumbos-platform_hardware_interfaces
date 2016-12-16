@@ -16,6 +16,24 @@
       "revId": "edd3f232c1876b6fcb39d1947540e4025fcca6ca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a772381_95db643b",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_test_utils.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-16T02:25:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba845725_1a40c953",
+      "revId": "edd3f232c1876b6fcb39d1947540e4025fcca6ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
