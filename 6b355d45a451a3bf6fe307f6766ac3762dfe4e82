@@ -1,0 +1,410 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba845725_60ed92d7",
+        "filename": "wifi/supplicant/1.0/vts/functional/main.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-16T02:49:13Z",
+      "side": 1,
+      "message": "Consider adding\n\n  // framework will start supplicant\n\nTo explain the asymmetry between SetUp and TearDown.",
+      "revId": "6b355d45a451a3bf6fe307f6766ac3762dfe4e82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba845725_a0e78af4",
+        "filename": "wifi/supplicant/1.0/vts/functional/main.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-16T02:49:13Z",
+      "side": 1,
+      "message": "Please nuke. (We can add it if/when needed.)",
+      "revId": "6b355d45a451a3bf6fe307f6766ac3762dfe4e82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba845725_bbe25fba",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-16T02:49:13Z",
+      "side": 1,
+      "message": "Please leave out the fixture, until it\u0027s actually needed.",
+      "revId": "6b355d45a451a3bf6fe307f6766ac3762dfe4e82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba845725_fb8a17fe",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-16T02:49:13Z",
+      "side": 1,
+      "message": "Consider removing this part. The TEST vs TEST_F distinction is pretty clear for anyone familiar with GoogleTest.",
+      "range": {
+        "startLine": 47,
+        "startChar": 23,
+        "endLine": 47,
+        "endChar": 32
+      },
+      "revId": "6b355d45a451a3bf6fe307f6766ac3762dfe4e82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba845725_fbd6970f",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test_utils.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-16T02:49:13Z",
+      "side": 1,
+      "message": "Ugh, this name is confusing. Alas, the base class name is outside the scope of this CL. But can we have our subclass named more sensibly? E.g. |ServiceNotificationListener|, or something to that effect?",
+      "range": {
+        "startLine": 52,
+        "startChar": 36,
+        "endLine": 52,
+        "endChar": 56
+      },
+      "revId": "6b355d45a451a3bf6fe307f6766ac3762dfe4e82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba845725_dba6335f",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test_utils.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-16T02:49:13Z",
+      "side": 1,
+      "message": "Unless this some weird HIDL-style thing, this really ought to be a |class|.\n\n\"Use a struct only for passive objects that carry data; everything else is a class.\"\n\nhttps://google.github.io/styleguide/cppguide.html#Structs_vs._Classes",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 6
+      },
+      "revId": "6b355d45a451a3bf6fe307f6766ac3762dfe4e82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba845725_bbc89f11",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test_utils.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-16T02:49:13Z",
+      "side": 1,
+      "message": "Can we give this parameters more descriptive names, please?",
+      "range": {
+        "startLine": 57,
+        "startChar": 49,
+        "endLine": 58,
+        "endChar": 53
+      },
+      "revId": "6b355d45a451a3bf6fe307f6766ac3762dfe4e82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba845725_ede17ab5",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test_utils.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-16T02:49:13Z",
+      "side": 1,
+      "message": "This interface seems error-prone. In particular, it makes the caller responsible for ensuring that no one is writing to |registered_|, at the time of access to the vector.\n\n\nSignificantly, that \"access to the vector\" could occur not just at the time that getRegistrations() is called, but anytime there-after.\n\n\nWhile the current calling code is correct, I think it\u0027ll be hard for us to maintain that correctness as we modify this file.\n\n\nCan we, instead, have the class itself ensure thread-safety? I imagine something like:\n- move the last block of code from startSupplicantAndWaitForHidlService to this method\n- change the name of this method to waitForHidlService()\n- move the synchronization objects to the private section\n\nIf we did that, then I believe the object would be thread-safe. (Famous last words, I\u0027m sure.)",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 33
+      },
+      "revId": "6b355d45a451a3bf6fe307f6766ac3762dfe4e82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba845725_5b56c346",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test_utils.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-16T02:49:13Z",
+      "side": 1,
+      "message": "Please file a bug to come back and make this less racy. (Maybe we could poll for the thread\u0027s exit, or link-to-death, or something.)",
+      "revId": "6b355d45a451a3bf6fe307f6766ac3762dfe4e82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba845725_bb17bf6d",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test_utils.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-16T02:49:13Z",
+      "side": 1,
+      "message": "Similarly to line 80. Or, maybe just add a comment that we deliberately don\u0027t wait, because the tests don\u0027t actually use framework?",
+      "revId": "6b355d45a451a3bf6fe307f6766ac3762dfe4e82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba845725_302a0991",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test_utils.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-16T02:49:13Z",
+      "side": 1,
+      "message": "Can you tell me more about what this does? My first guess would be \"no binder threads allowed\". But, if that were true, then I don\u0027t know how onRegistration() would ever be called.",
+      "range": {
+        "startLine": 110,
+        "startChar": 24,
+        "endLine": 110,
+        "endChar": 54
+      },
+      "revId": "6b355d45a451a3bf6fe307f6766ac3762dfe4e82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a772381_b56dc075",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test_utils.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-16T02:49:13Z",
+      "side": 1,
+      "message": "Is checking the size enough? Are we sure that we won\u0027t be notified about some other service starting up?",
+      "range": {
+        "startLine": 120,
+        "startChar": 48,
+        "endLine": 120,
+        "endChar": 59
+      },
+      "revId": "6b355d45a451a3bf6fe307f6766ac3762dfe4e82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a772381_f5f2d876",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test_utils.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-16T02:49:13Z",
+      "side": 1,
+      "message": "This is a puzzling. I would have expected getSupplicantStaNetwork() to call getNetwork(), rather than calling addNetwork().\n\nI\u0027m not sure if it\u0027s the function name that\u0027s wrong, or if we\u0027re calling the wrong HIDL API, or if there\u0027s something subtle I don\u0027t understand here.",
+      "range": {
+        "startLine": 188,
+        "startChar": 13,
+        "endLine": 188,
+        "endChar": 23
+      },
+      "revId": "6b355d45a451a3bf6fe307f6766ac3762dfe4e82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a772381_15dcb4cd",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test_utils.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-16T02:49:13Z",
+      "side": 1,
+      "message": "Suggest adding comments explaining the boolean params:\n\n  true,  // show timestamps\n  true,  // show keys",
+      "revId": "6b355d45a451a3bf6fe307f6766ac3762dfe4e82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a772381_38b28596",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_p2p_iface_hidl_test.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-16T02:49:13Z",
+      "side": 1,
+      "message": "Same as other file. (Let\u0027s add fixtures as needed.)",
+      "revId": "6b355d45a451a3bf6fe307f6766ac3762dfe4e82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a772381_58bf415d",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_p2p_iface_hidl_test.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-16T02:49:13Z",
+      "side": 1,
+      "message": "Consider omitting.",
+      "range": {
+        "startLine": 48,
+        "startChar": 31,
+        "endLine": 48,
+        "endChar": 40
+      },
+      "revId": "6b355d45a451a3bf6fe307f6766ac3762dfe4e82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a772381_b8ccd524",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_iface_hidl_test.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-16T02:49:13Z",
+      "side": 1,
+      "message": "Same as other files. (Wait until needed.)",
+      "revId": "6b355d45a451a3bf6fe307f6766ac3762dfe4e82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a772381_d8c191eb",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_iface_hidl_test.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-16T02:49:13Z",
+      "side": 1,
+      "message": "Consider omitting.",
+      "range": {
+        "startLine": 48,
+        "startChar": 31,
+        "endLine": 48,
+        "endChar": 40
+      },
+      "revId": "6b355d45a451a3bf6fe307f6766ac3762dfe4e82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a772381_18dce9cd",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_network_hidl_test.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-16T02:49:13Z",
+      "side": 1,
+      "message": "As in other files: wait until needed.",
+      "revId": "6b355d45a451a3bf6fe307f6766ac3762dfe4e82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a772381_38d9a5de",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_network_hidl_test.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-16T02:49:13Z",
+      "side": 1,
+      "message": "Consider omitting.",
+      "range": {
+        "startLine": 48,
+        "startChar": 33,
+        "endLine": 48,
+        "endChar": 42
+      },
+      "revId": "6b355d45a451a3bf6fe307f6766ac3762dfe4e82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
