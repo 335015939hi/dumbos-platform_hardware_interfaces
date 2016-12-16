@@ -68,6 +68,54 @@
       "revId": "a659814915f0f4365c87fbdf6a87bcdd345574fd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a772381_1eca0c3f",
+        "filename": "wifi/1.0/IWifiChipEventCallback.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-16T19:29:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a772381_aac6335a",
+      "range": {
+        "startLine": 77,
+        "startChar": 37,
+        "endLine": 77,
+        "endChar": 46
+      },
+      "revId": "a659814915f0f4365c87fbdf6a87bcdd345574fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a772381_fec47033",
+        "filename": "wifi/1.0/IWifiChipEventCallback.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-16T19:29:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a772381_6aea5bc1",
+      "range": {
+        "startLine": 77,
+        "startChar": 47,
+        "endLine": 77,
+        "endChar": 51
+      },
+      "revId": "a659814915f0f4365c87fbdf6a87bcdd345574fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
