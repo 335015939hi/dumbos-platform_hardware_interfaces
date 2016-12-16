@@ -492,8 +492,7 @@ interface ISupplicantP2pIface extends ISupplicantIface {
    *         |SupplicantStatusCode.FAILURE_UNKNOWN|,
    *         |SupplicantStatusCode.FAILURE_IFACE_INVALID|
    */
-  flushServices(uint32_t version, string serviceName)
-      generates (SupplicantStatus status);
+  flushServices() generates (SupplicantStatus status);
 
   /**
    * Schedule a P2P service discovery request. The parameters for this command
