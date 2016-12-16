@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1a772381_de133440",
+        "filename": "wifi/1.0/IWifiChipEventCallback.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-16T19:37:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a772381_3e7d081f",
+      "range": {
+        "startLine": 77,
+        "startChar": 61,
+        "endLine": 77,
+        "endChar": 65
+      },
+      "revId": "b241315adf7e0729c7b5f8696b4b6d85784b89d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a772381_bee118ba",
         "filename": "wifi/1.0/default/wifi_chip.cpp",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2016-12-16T19:13:08Z",
       "side": 1,
       "message": "ref: https://cs.corp.google.com/android/hardware/interfaces/wifi/1.0/default/hidl_struct_util.cpp?q\u003dconvertLegacyDebugRingBufferStatusToHidl\u0026l\u003d113\n\nthe only reason this fails is if \u0026hidl_status \u003d\u003d nullptr (which will never happen)\n\nWhy exactly doesn\u0027t the method just return a WifiDebugRingBufferStatus? I think this pattern is confusing when no real error can occur. Is this just to be consistent with other conversion methods where legitimate errors can occur?",
+      "range": {
+        "startLine": 803,
+        "startChar": 27,
+        "endLine": 803,
+        "endChar": 67
+      },
+      "revId": "b241315adf7e0729c7b5f8696b4b6d85784b89d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a772381_be0e781b",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-16T19:37:59Z",
+      "side": 1,
+      "message": "yep. It\u0027s just for consistency. Having these conversion methods all have the same patterns makes it easier to parse.",
+      "parentUuid": "1a772381_bee118ba",
       "range": {
         "startLine": 803,
         "startChar": 27,
