@@ -492,7 +492,7 @@ interface ISupplicantP2pIface extends ISupplicantIface {
    *         |SupplicantStatusCode.FAILURE_UNKNOWN|,
    *         |SupplicantStatusCode.FAILURE_IFACE_INVALID|
    */
-  flushServices(uint32_t version, string serviceName)
+  flushServices()
       generates (SupplicantStatus status);
 
   /**
