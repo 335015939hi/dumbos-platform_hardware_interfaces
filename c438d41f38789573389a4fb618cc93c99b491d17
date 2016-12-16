@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1a772381_b7c77bff",
+        "filename": "wifi/1.0/default/hidl_struct_util.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-16T22:08:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a772381_3467e941",
+      "range": {
+        "startLine": 43,
+        "startChar": 47,
+        "endLine": 43,
+        "endChar": 64
+      },
+      "revId": "c438d41f38789573389a4fb618cc93c99b491d17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a772381_946efd18",
         "filename": "wifi/1.0/default/hidl_struct_util.h",
         "patchSetId": 9
@@ -36,6 +60,30 @@
       "writtenOn": "2016-12-16T22:03:19Z",
       "side": 1,
       "message": "As at line 43.",
+      "range": {
+        "startLine": 44,
+        "startChar": 31,
+        "endLine": 44,
+        "endChar": 46
+      },
+      "revId": "c438d41f38789573389a4fb618cc93c99b491d17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a772381_f7c1f3ea",
+        "filename": "wifi/1.0/default/hidl_struct_util.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-16T22:08:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a772381_946efd18",
       "range": {
         "startLine": 44,
         "startChar": 31,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "1a772381_77d6c3ad",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 788,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-16T22:08:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a772381_d44955ad",
+      "revId": "c438d41f38789573389a4fb618cc93c99b491d17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a772381_5750e778",
         "filename": "wifi/1.0/default/wifi_chip.cpp",
         "patchSetId": 9
@@ -76,6 +142,24 @@
       "writtenOn": "2016-12-16T22:03:19Z",
       "side": 1,
       "message": "Should this be |const std::string\u0026|, to match the declaration of |on_ring_buffer_data_callback| in wifi_legacy_hal.h?",
+      "revId": "c438d41f38789573389a4fb618cc93c99b491d17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a772381_97d35fbb",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 794,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-16T22:08:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a772381_5750e778",
       "revId": "c438d41f38789573389a4fb618cc93c99b491d17",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -105,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "1a772381_17c74ffe",
+        "filename": "wifi/1.0/default/wifi_chip.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-16T22:08:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a772381_94851d9b",
+      "range": {
+        "startLine": 192,
+        "startChar": 5,
+        "endLine": 192,
+        "endChar": 13
+      },
+      "revId": "c438d41f38789573389a4fb618cc93c99b491d17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a772381_17458fb4",
         "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
         "patchSetId": 9
@@ -116,6 +224,24 @@
       "writtenOn": "2016-12-16T22:03:19Z",
       "side": 1,
       "message": "Please note this bug-fix in the commit message. :-)",
+      "revId": "c438d41f38789573389a4fb618cc93c99b491d17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a772381_1782ef9d",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 764,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-16T22:08:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a772381_17458fb4",
       "revId": "c438d41f38789573389a4fb618cc93c99b491d17",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
