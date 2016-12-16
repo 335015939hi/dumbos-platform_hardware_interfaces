@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a772381_610601d1",
+        "filename": "wifi/1.0/IWifiChipEventCallback.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-16T20:57:57Z",
+      "side": 1,
+      "message": "must",
+      "range": {
+        "startLine": 76,
+        "startChar": 12,
+        "endLine": 76,
+        "endChar": 16
+      },
+      "revId": "1f3f235e9e55c2912ae728f0d1ba34c5be6e5f4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
