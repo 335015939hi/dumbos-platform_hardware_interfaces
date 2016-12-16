@@ -506,6 +506,30 @@
     },
     {
       "key": {
+        "uuid": "1a772381_17602fb8",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test_utils.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-16T23:07:59Z",
+      "side": 1,
+      "message": "Thanks, I missed that detail. (But it\u0027s probably good to guard against spurious notifications anyway.)",
+      "parentUuid": "1a772381_c427e879",
+      "range": {
+        "startLine": 120,
+        "startChar": 48,
+        "endLine": 120,
+        "endChar": 59
+      },
+      "revId": "6b355d45a451a3bf6fe307f6766ac3762dfe4e82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a772381_f5f2d876",
         "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test_utils.cpp",
         "patchSetId": 8
