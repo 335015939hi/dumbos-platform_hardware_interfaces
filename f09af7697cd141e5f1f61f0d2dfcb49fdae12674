@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a772381_ca960f99",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1126614
+      },
+      "writtenOn": "2016-12-16T19:07:42Z",
+      "side": 1,
+      "message": "nit: caps for acronym (Preferred Network Offload)",
+      "range": {
+        "startLine": 72,
+        "startChar": 19,
+        "endLine": 72,
+        "endChar": 45
+      },
+      "revId": "f09af7697cd141e5f1f61f0d2dfcb49fdae12674",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a772381_ea390be6",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1126614
+      },
+      "writtenOn": "2016-12-16T19:07:42Z",
+      "side": 1,
+      "message": "Support for connection packet fate tracking.",
+      "range": {
+        "startLine": 84,
+        "startChar": 7,
+        "endLine": 84,
+        "endChar": 39
+      },
+      "revId": "f09af7697cd141e5f1f61f0d2dfcb49fdae12674",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a772381_8ae9773c",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1126614
+      },
+      "writtenOn": "2016-12-16T19:07:42Z",
+      "side": 1,
+      "message": "I suggest we drop the _SUPPORTED suffix here, be parallel to the others, and to make it easier to stay within line length limits.",
+      "range": {
+        "startLine": 86,
+        "startChar": 21,
+        "endLine": 86,
+        "endChar": 31
+      },
+      "revId": "f09af7697cd141e5f1f61f0d2dfcb49fdae12674",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
