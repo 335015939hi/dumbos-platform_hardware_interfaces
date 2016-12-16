@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1a772381_17266fdd",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-16T23:07:59Z",
+      "side": 1,
+      "message": "FWIW, upstream has changed its position on this.\n\n\"Historical note: Before February 2016 *_EQ had a convention of calling it as ASSERT_EQ(expected, actual), so lots of existing code uses this order. Now *_EQ treats both parameters in the same way.\"\n\nhttps://github.com/google/googletest/blob/master/googletest/docs/Primer.md#binary-comparison",
+      "parentUuid": "1a772381_01754da7",
+      "range": {
+        "startLine": 30,
+        "startChar": 12,
+        "endLine": 30,
+        "endChar": 42
+      },
+      "revId": "51812e6c861b8f4c49eb10f1fbaeec14b5021df8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a772381_217a4999",
         "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test_utils.cpp",
         "patchSetId": 11
@@ -42,6 +66,70 @@
         "endLine": 53,
         "endChar": 34
       },
+      "revId": "51812e6c861b8f4c49eb10f1fbaeec14b5021df8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a772381_17fd8ff7",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test_utils.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-16T23:07:59Z",
+      "side": 1,
+      "message": "Agreed, but shouldn\u0027t the docstring go in the header file?\n\nhttps://google.github.io/styleguide/cppguide.html#Function_Comments\n\n(Comments go with the declaration, not the definition. Exception being if the implementation is tricky. Then a definition comment would be appropriate as well.)",
+      "parentUuid": "1a772381_217a4999",
+      "range": {
+        "startLine": 53,
+        "startChar": 5,
+        "endLine": 53,
+        "endChar": 34
+      },
+      "revId": "51812e6c861b8f4c49eb10f1fbaeec14b5021df8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a772381_926feda6",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test_utils.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-16T23:07:59Z",
+      "side": 1,
+      "message": "Consider making this parameter std::chrono::duration. Then the calling code will be clearer.\n\n  notification_listener-\u003ewaitForHidlService(100, ...);\n\nvs\n\n  notification_listener-\u003ewaitForHidlService(std::chrono::milliseconds(100));",
+      "range": {
+        "startLine": 114,
+        "startChar": 26,
+        "endLine": 114,
+        "endChar": 34
+      },
+      "revId": "51812e6c861b8f4c49eb10f1fbaeec14b5021df8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a772381_d7279779",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test_utils.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2016-12-16T23:07:59Z",
+      "side": 1,
+      "message": "Consider EXPECT_EQ, just to have the output be in a consistent format.",
       "revId": "51812e6c861b8f4c49eb10f1fbaeec14b5021df8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
