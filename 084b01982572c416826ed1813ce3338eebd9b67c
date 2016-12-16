@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a772381_588741fa",
+        "filename": "wifi/1.0/vts/functional/wifi_chip_hidl_test.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2016-12-16T02:30:36Z",
+      "side": 1,
+      "message": "a docstring for every public method?",
+      "range": {
+        "startLine": 50,
+        "startChar": 5,
+        "endLine": 50,
+        "endChar": 33
+      },
+      "revId": "084b01982572c416826ed1813ce3338eebd9b67c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a772381_b894d521",
+        "filename": "wifi/1.0/vts/functional/wifi_chip_hidl_test.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2016-12-16T02:30:36Z",
+      "side": 1,
+      "message": "swap args so that they can be expected, actual?",
+      "range": {
+        "startLine": 66,
+        "startChar": 20,
+        "endLine": 66,
+        "endChar": 28
+      },
+      "revId": "084b01982572c416826ed1813ce3338eebd9b67c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
