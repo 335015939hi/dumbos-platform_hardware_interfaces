@@ -72,6 +72,16 @@ convertLegacyFeatureToHidlStaIfaceCapability(uint32_t feature) {
       return HidlStaIfaceCaps::PROBE_IE_WHITELIST;
     case WIFI_FEATURE_SCAN_RAND:
       return HidlStaIfaceCaps::SCAN_RAND;
+    case WIFI_FEATURE_INFRA_5G:
+      return HidlStaIfaceCaps::STA_5G;
+    case WIFI_FEATURE_HOTSPOT:
+      return HidlStaIfaceCaps::HOTSPOT;
+    case WIFI_FEATURE_PNO:
+      return HidlStaIfaceCaps::PNO;
+    case WIFI_FEATURE_TDLS:
+      return HidlStaIfaceCaps::TDLS;
+    case WIFI_FEATURE_TDLS_OFFCHANNEL:
+      return HidlStaIfaceCaps::TDLS_OFFCHANNEL;
   };
   CHECK(false) << "Unknown legacy feature: " << feature;
   return {};
@@ -224,7 +234,12 @@ bool convertLegacyFeaturesToHidlStaCapabilities(
                              WIFI_FEATURE_RSSI_MONITOR,
                              WIFI_FEATURE_CONTROL_ROAMING,
                              WIFI_FEATURE_IE_WHITELIST,
-                             WIFI_FEATURE_SCAN_RAND}) {
+                             WIFI_FEATURE_SCAN_RAND,
+                             WIFI_FEATURE_INFRA_5G,
+                             WIFI_FEATURE_HOTSPOT,
+                             WIFI_FEATURE_PNO,
+                             WIFI_FEATURE_TDLS,
+                             WIFI_FEATURE_TDLS_OFFCHANNEL}) {
     if (feature & legacy_feature_set) {
       *hidl_caps |= convertLegacyFeatureToHidlStaIfaceCapability(feature);
     }
