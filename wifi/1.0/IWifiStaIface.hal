@@ -61,9 +61,29 @@ interface IWifiStaIface extends IWifiIface {
      */
     SCAN_RAND = 1 << 6,
     /**
+     * Support for 5 GHz Band.
+     */
+    STA_5G = 1 << 7,
+    /**
+     * Support for GAS/ANQP queries.
+     */
+    HOTSPOT = 1 << 8,
+    /**
+     * Support for Preferred network offload.
+     */
+    PNO = 1 << 9,
+    /**
+     * Support for Tunneled Direct Link Setup.
+     */
+    TDLS = 1 << 10,
+    /**
+     * Support for Tunneled Direct Link Setup off channel.
+     */
+    TDLS_OFFCHANNEL = 1 << 11,
+    /**
      * Tracks connection packets' fate.
      */
-    DEBUG_PACKET_FATE_SUPPORTED = 1 << 7
+    DEBUG_PACKET_FATE = 1 << 12
   };
 
   /**
