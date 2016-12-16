@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a772381_01754da7",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2016-12-16T20:33:17Z",
+      "side": 1,
+      "message": "swap the args so that they can be expected, actual?",
+      "range": {
+        "startLine": 30,
+        "startChar": 12,
+        "endLine": 30,
+        "endChar": 42
+      },
+      "revId": "51812e6c861b8f4c49eb10f1fbaeec14b5021df8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a772381_217a4999",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test_utils.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2016-12-16T20:33:17Z",
+      "side": 1,
+      "message": "docstring for each public method?",
+      "range": {
+        "startLine": 53,
+        "startChar": 5,
+        "endLine": 53,
+        "endChar": 34
+      },
+      "revId": "51812e6c861b8f4c49eb10f1fbaeec14b5021df8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
