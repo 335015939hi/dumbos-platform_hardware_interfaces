@@ -30,7 +30,7 @@ interface IRadioResponse {
      *   RadioError:NONE
      *   RadioError:INVALID_ARGUMENTS
      */
-    oneway iccCardStatusResponse(RadioResponseInfo info, CardStatus cardStatus);
+    oneway getIccCardStatusResponse(RadioResponseInfo info, CardStatus cardStatus);
 
     /*
      * @param info Response info struct containing response type, serial no. & error
@@ -1942,5 +1942,5 @@ interface IRadioResponse {
      *
      * @param serial Serial no. of the request whose acknowledgement is sent.
      */
-    oneway requestAcknowledgement(int32_t serial);
+    oneway acknowledgeRequest(int32_t serial);
 };
