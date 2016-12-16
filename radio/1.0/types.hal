@@ -562,8 +562,6 @@ enum SmsAcknowledgeFailCause : int32_t {
 };
 
 enum CallForwardInfoStatus : int32_t {
-    ACTIVE,
-    INACTIVE,
     DISABLE,
     ENABLE,
     INTERROGATE,
@@ -1262,7 +1260,7 @@ struct SetupDataCallResult {
 
 struct IccIo {
     int32_t command;                      // one of the commands listed for TS 27.007 +CRSM
-    int32_t fileid;                       // EF id
+    int32_t fileId;                       // EF id
     string path;                          // "pathid" from TS 27.007 +CRSM command.
                                           // Path is in hex asciii format eg "7f205f70"
                                           // Path must always be provided.
@@ -1271,7 +1269,7 @@ struct IccIo {
     int32_t p3;
     string data;                          // information to be written to the SIM
     string pin2;
-    string aidPtr;                        // AID value, See ETSI 102.221 8.1 and 101.220 4, empty
+    string aid;                           // AID value, See ETSI 102.221 8.1 and 101.220 4, empty
                                           // string if no value.
 };
 
@@ -1405,7 +1403,7 @@ struct DataRegStateResult {
 // See also com.android.internal.telephony.gsm.CallForwardInfo
 struct CallForwardInfo {
     CallForwardInfoStatus status;         // For queryCallForwardStatus()
-                                          // status must be ACTIVE, INACTIVE
+                                          // status is unused
                                           // For setCallForward():
                                           // status must be
                                           // DISABLE, ENABLE, INTERROGATE, REGISTRATION, ERASURE
