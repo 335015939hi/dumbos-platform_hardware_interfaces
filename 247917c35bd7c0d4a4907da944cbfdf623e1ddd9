@@ -270,6 +270,30 @@
       "revId": "247917c35bd7c0d4a4907da944cbfdf623e1ddd9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a772381_a3c5784b",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_test_utils.h",
+        "patchSetId": 25
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2016-12-17T03:39:50Z",
+      "side": 1,
+      "message": "is PS28 reformatted by the clang-formater?",
+      "parentUuid": "1a772381_6364413b",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 20
+      },
+      "revId": "247917c35bd7c0d4a4907da944cbfdf623e1ddd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
