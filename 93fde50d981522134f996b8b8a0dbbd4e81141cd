@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a772381_26733656",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_network_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2016-12-17T03:42:41Z",
+      "side": 1,
+      "message": "docstring is the same as the test case name. is it possible to make it more informative or descriptive?",
+      "range": {
+        "startLine": 290,
+        "startChar": 3,
+        "endLine": 290,
+        "endChar": 35
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
