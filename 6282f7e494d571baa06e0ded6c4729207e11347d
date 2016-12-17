@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a772381_43ad8480",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_test_utils.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2016-12-17T03:40:58Z",
+      "side": 1,
+      "message": "add a docstring for each public method and test case?",
+      "range": {
+        "startLine": 40,
+        "startChar": 5,
+        "endLine": 40,
+        "endChar": 35
+      },
+      "revId": "6282f7e494d571baa06e0ded6c4729207e11347d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
