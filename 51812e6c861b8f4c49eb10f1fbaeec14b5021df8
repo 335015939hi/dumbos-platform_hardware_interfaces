@@ -49,6 +49,54 @@
     },
     {
       "key": {
+        "uuid": "1a772381_0372ad88",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-17T02:01:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a772381_01754da7",
+      "range": {
+        "startLine": 30,
+        "startChar": 12,
+        "endLine": 30,
+        "endChar": 42
+      },
+      "revId": "51812e6c861b8f4c49eb10f1fbaeec14b5021df8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a772381_438ca558",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-17T02:01:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a772381_17266fdd",
+      "range": {
+        "startLine": 30,
+        "startChar": 12,
+        "endLine": 30,
+        "endChar": 42
+      },
+      "revId": "51812e6c861b8f4c49eb10f1fbaeec14b5021df8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a772381_217a4999",
         "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test_utils.cpp",
         "patchSetId": 11
@@ -96,6 +144,54 @@
     },
     {
       "key": {
+        "uuid": "1a772381_a38738f9",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test_utils.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-17T02:01:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a772381_17fd8ff7",
+      "range": {
+        "startLine": 53,
+        "startChar": 5,
+        "endLine": 53,
+        "endChar": 34
+      },
+      "revId": "51812e6c861b8f4c49eb10f1fbaeec14b5021df8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a772381_c3ad1586",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test_utils.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-17T02:01:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a772381_217a4999",
+      "range": {
+        "startLine": 53,
+        "startChar": 5,
+        "endLine": 53,
+        "endChar": 34
+      },
+      "revId": "51812e6c861b8f4c49eb10f1fbaeec14b5021df8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a772381_926feda6",
         "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test_utils.cpp",
         "patchSetId": 11
@@ -119,6 +215,30 @@
     },
     {
       "key": {
+        "uuid": "1a772381_a399f965",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test_utils.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-17T02:01:40Z",
+      "side": 1,
+      "message": "This causes a compilation failure.",
+      "parentUuid": "1a772381_926feda6",
+      "range": {
+        "startLine": 114,
+        "startChar": 26,
+        "endLine": 114,
+        "endChar": 34
+      },
+      "revId": "51812e6c861b8f4c49eb10f1fbaeec14b5021df8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a772381_d7279779",
         "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test_utils.cpp",
         "patchSetId": 11
@@ -130,6 +250,24 @@
       "writtenOn": "2016-12-16T23:07:59Z",
       "side": 1,
       "message": "Consider EXPECT_EQ, just to have the output be in a consistent format.",
+      "revId": "51812e6c861b8f4c49eb10f1fbaeec14b5021df8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a772381_e3685067",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test_utils.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2016-12-17T02:01:40Z",
+      "side": 1,
+      "message": "This method returns a true/false. The assertion is in the caller.",
+      "parentUuid": "1a772381_d7279779",
       "revId": "51812e6c861b8f4c49eb10f1fbaeec14b5021df8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
