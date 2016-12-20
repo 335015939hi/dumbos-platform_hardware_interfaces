@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d7c9e645_63aedd7f",
+        "filename": "bluetooth/1.0/vts/functional/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1058798
+      },
+      "writtenOn": "2016-12-20T22:48:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7c9e645_ee287f98",
+      "range": {
+        "startLine": 34,
+        "startChar": 8,
+        "endLine": 34,
+        "endChar": 10
+      },
+      "revId": "5b9e801380333b3b367cd8ba7c59e87fce301ee6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d7c9e645_6e46cf76",
         "filename": "bluetooth/1.0/vts/functional/bluetooth_hidl_hal_test.cpp",
         "patchSetId": 8
