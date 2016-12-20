@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d7c9e645_3eaa2823",
+        "filename": "bluetooth/1.0/vts/functional/Android.bp",
+        "patchSetId": 21
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2016-12-20T22:57:52Z",
+      "side": 1,
+      "message": "use \"\"\n\nand add --gcoverage to ldflags too.",
+      "range": {
+        "startLine": 34,
+        "startChar": 13,
+        "endLine": 34,
+        "endChar": 26
+      },
+      "revId": "458a4c4780f3221f41906a7db4939e28fc944c7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7c9e645_be5b789b",
+        "filename": "bluetooth/1.0/vts/functional/bluetooth_hidl_hal_test.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2016-12-20T22:57:52Z",
+      "side": 1,
+      "message": "how about adding a docstring to each test case?",
+      "range": {
+        "startLine": 555,
+        "startChar": 0,
+        "endLine": 555,
+        "endChar": 6
+      },
+      "revId": "458a4c4780f3221f41906a7db4939e28fc944c7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
