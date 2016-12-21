@@ -93,6 +93,30 @@
       "revId": "458a4c4780f3221f41906a7db4939e28fc944c7f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7c9e645_9d0ec11b",
+        "filename": "bluetooth/1.0/vts/functional/bluetooth_hidl_hal_test.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2016-12-21T00:53:53Z",
+      "side": 1,
+      "message": "yes https://cs.corp.google.com/android/hardware/interfaces/nfc/1.0/vts/functional/nfc_hidl_hal_test.cpp?rcl\u003dff40e1f5e8b191aa3c7287fa5e5de2ba0ccbe9af\u0026l\u003d168",
+      "parentUuid": "d7c9e645_bd493dac",
+      "range": {
+        "startLine": 555,
+        "startChar": 0,
+        "endLine": 555,
+        "endChar": 6
+      },
+      "revId": "458a4c4780f3221f41906a7db4939e28fc944c7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
