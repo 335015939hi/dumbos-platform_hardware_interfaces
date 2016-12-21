@@ -1647,7 +1647,7 @@ struct ImsSmsMessage {
 };
 
 struct SimApdu {
-    int32_t sessionid;                   // "sessionid" from TS 27.007 +CGLA command. Must be
+    int32_t sessionId;                   // "sessionid" from TS 27.007 +CGLA command. Must be
                                          // ignored for +CSIM command.
     // Following fields are used to derive the APDU ("command" and "length"
     // values in TS 27.007 +CSIM and +CGLA commands).
@@ -1660,7 +1660,7 @@ struct SimApdu {
 };
 
 struct NvWriteItem {
-    NvItem itemID;
+    NvItem itemId;
     string value;
 };
 
