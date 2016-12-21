@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d7c9e645_7a22eebc",
+        "filename": "bluetooth/1.0/vts/functional/bluetooth_hidl_hal_test.cpp",
+        "patchSetId": 23
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2016-12-21T22:19:59Z",
+      "side": 1,
+      "message": "i believe all such public methods need docstring too.",
+      "range": {
+        "startLine": 299,
+        "startChar": 24,
+        "endLine": 299,
+        "endChar": 55
+      },
+      "revId": "19f6ca4b4aceb8a9f00f387cf037f3b936b08c6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7c9e645_9afebaf2",
+        "filename": "bluetooth/1.0/vts/functional/bluetooth_hidl_hal_test.cpp",
+        "patchSetId": 23
+      },
+      "lineNbr": 665,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2016-12-21T22:19:59Z",
+      "side": 1,
+      "message": "could you please add a docstring to each test case in a way that is similar to the NFC example?",
+      "range": {
+        "startLine": 665,
+        "startChar": 0,
+        "endLine": 665,
+        "endChar": 6
+      },
+      "revId": "19f6ca4b4aceb8a9f00f387cf037f3b936b08c6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
