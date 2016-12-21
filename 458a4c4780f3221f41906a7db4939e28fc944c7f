@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "d7c9e645_72f45c64",
+        "filename": "bluetooth/1.0/vts/functional/Android.bp",
+        "patchSetId": 21
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2016-12-21T17:36:43Z",
+      "side": 1,
+      "message": "I added --coverage, but now I\u0027m getting seg faults at exit.  --gcoverage gives this:\n\nclang++.real: error: unsupported option \u0027--gcoverage\u0027",
+      "parentUuid": "d7c9e645_bd329d20",
+      "range": {
+        "startLine": 34,
+        "startChar": 13,
+        "endLine": 34,
+        "endChar": 26
+      },
+      "revId": "458a4c4780f3221f41906a7db4939e28fc944c7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d7c9e645_be5b789b",
         "filename": "bluetooth/1.0/vts/functional/bluetooth_hidl_hal_test.cpp",
         "patchSetId": 21
