@@ -171,6 +171,11 @@ Return<void> Bar::haveAInterface(const sp<ISimple> &in,
     return Void();
 }
 
+Return<void> Bar::callMeImmediately(const sp<IFooCallback> &cb) {
+    cb->heyItsYou(cb);
+    return Void();
+}
+
 
 IBar* HIDL_FETCH_IBar(const char* /* name */) {
     return new Bar();

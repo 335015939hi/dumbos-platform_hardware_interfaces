@@ -17,6 +17,7 @@
 package android.hardware.tests.bar@1.0;
 
 import android.hardware.tests.foo@1.0::IFoo;
+import android.hardware.tests.foo@1.0::IFooCallback;
 import android.hardware.tests.foo@1.0::ISimple;
 import android.hardware.tests.foo@1.0::Abc;
 import android.hardware.tests.foo@1.0::Unrelated;
@@ -38,4 +39,6 @@ interface IBar extends android.hardware.tests.foo@1.0::IFoo {
             generates (BitField bf, uint8_t first, uint8_t second, uint8_t third);
 
     haveAInterface(ISimple i) generates (ISimple i);
+
+    oneway callMeImmediately(IFooCallback cb);
 };

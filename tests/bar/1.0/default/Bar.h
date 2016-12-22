@@ -74,6 +74,8 @@ struct Bar : public IBar {
     Return<void> haveAInterface(const sp<ISimple> &in,
             haveAInterface_cb _hidl_cb) override;
 
+    Return<void> callMeImmediately(const sp<IFooCallback> &cb) override;
+
 private:
     sp<IFoo> mFoo;
 };
