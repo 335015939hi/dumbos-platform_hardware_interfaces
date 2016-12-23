@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d7c9e645_3d09ae0c",
+        "filename": "update-makefiles.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-23T01:14:59Z",
+      "side": 1,
+      "message": "how about \u0027set -e\u0027 on the whole file?",
+      "revId": "51f94235b942db6afbb3674990628bb4bfa07063",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
