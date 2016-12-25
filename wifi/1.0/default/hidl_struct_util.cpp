@@ -868,6 +868,7 @@ bool convertHidlNanEnableRequestToLegacy(
   if (!legacy_request) {
     return false;
   }
+  /*
   legacy_request->master_pref = hidl_request.masterPref;
   legacy_request->cluster_low = hidl_request.clusterLow;
   legacy_request->cluster_high = hidl_request.clusterHigh;
@@ -942,6 +943,8 @@ bool convertHidlNanEnableRequestToLegacy(
   legacy_request->config_5g_channel = hidl_request.valid5gChannelVal;
   legacy_request->channel_5g_val = hidl_request.channel5gVal;
   return true;
+  */
+  return false;
 }
 
 bool convertHidlNanPublishRequestToLegacy(
@@ -950,6 +953,7 @@ bool convertHidlNanPublishRequestToLegacy(
   if (!legacy_request) {
     return false;
   }
+  /*
   legacy_request->publish_id = hidl_request.publishId;
   legacy_request->ttl = hidl_request.ttl;
   legacy_request->period = hidl_request.period;
@@ -995,13 +999,8 @@ bool convertHidlNanPublishRequestToLegacy(
   legacy_request->connmap = hidl_request.connmap;
   legacy_request->recv_indication_cfg = hidl_request.recvIndicationCfg;
   return true;
-}
-
-bool convertHidlNanPublishCancelRequestToLegacy(
-    const NanPublishCancelRequest& hidl_request,
-    legacy_hal::NanPublishCancelRequest* legacy_request) {
-  legacy_request->publish_id = hidl_request.publishId;
-  return true;
+  */
+  return false;
 }
 
 bool convertHidlNanSubscribeRequestToLegacy(
@@ -1010,6 +1009,7 @@ bool convertHidlNanSubscribeRequestToLegacy(
   if (!legacy_request) {
     return false;
   }
+  /*
   legacy_request->subscribe_id = hidl_request.subscribeId;
   legacy_request->ttl = hidl_request.ttl;
   legacy_request->period = hidl_request.period;
@@ -1077,11 +1077,7 @@ bool convertHidlNanSubscribeRequestToLegacy(
   }
   legacy_request->recv_indication_cfg = hidl_request.recvIndicationCfg;
   return true;
-}
-
-bool convertHidlNanSubscribeCancelRequestToLegacy(
-    const NanSubscribeCancelRequest& /* hidl_request */,
-    legacy_hal::NanSubscribeCancelRequest* /* legacy_request */) {
+  */
   return false;
 }
 
@@ -1104,20 +1100,14 @@ bool convertHidlNanBeaconSdfPayloadRequestToLegacy(
 }
 
 bool convertHidlNanDataPathInitiatorRequestToLegacy(
-    const NanDataPathInitiatorRequest& /* hidl_request */,
+    const NanInitiateDataPathRequest& /* hidl_request */,
     legacy_hal::NanDataPathInitiatorRequest* /* legacy_request */) {
   return false;
 }
 
 bool convertHidlNanDataPathIndicationResponseToLegacy(
-    const NanDataPathIndicationResponse& /* hidl_response */,
+    const NanRespondToDataPathIndicationRequest& /* hidl_response */,
     legacy_hal::NanDataPathIndicationResponse* /* legacy_response */) {
-  return false;
-}
-
-bool convertHidlNanDataPathEndRequestToLegacy(
-    const NanDataPathEndRequest& /* hidl_request */,
-    legacy_hal::NanDataPathEndRequest* /* legacy_request */) {
   return false;
 }
 

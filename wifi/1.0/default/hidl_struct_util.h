@@ -97,36 +97,29 @@ bool convertLegacyVectorOfDebugRxPacketFateToHidl(
 bool convertHidlNanEnableRequestToLegacy(
     const NanEnableRequest& hidl_request,
     legacy_hal::NanEnableRequest* legacy_request);
-bool convertHidlNanPublishRequestToLegacy(
-    const NanPublishRequest& hidl_request,
-    legacy_hal::NanPublishRequest* legacy_request);
-bool convertHidlNanPublishCancelRequestToLegacy(
-    const NanPublishCancelRequest& hidl_request,
-    legacy_hal::NanPublishCancelRequest* legacy_request);
-bool convertHidlNanSubscribeRequestToLegacy(
-    const NanSubscribeRequest& hidl_request,
-    legacy_hal::NanSubscribeRequest* legacy_request);
-bool convertHidlNanSubscribeCancelRequestToLegacy(
-    const NanSubscribeCancelRequest& hidl_request,
-    legacy_hal::NanSubscribeCancelRequest* legacy_request);
-bool convertHidlNanTransmitFollowupRequestToLegacy(
-    const NanTransmitFollowupRequest& hidl_request,
-    legacy_hal::NanTransmitFollowupRequest* legacy_request);
 bool convertHidlNanConfigRequestToLegacy(
     const NanConfigRequest& hidl_request,
     legacy_hal::NanConfigRequest* legacy_request);
+bool convertHidlNanPublishRequestToLegacy(
+    const NanPublishRequest& hidl_request,
+    legacy_hal::NanPublishRequest* legacy_request);
+bool convertHidlNanSubscribeRequestToLegacy(
+    const NanSubscribeRequest& hidl_request,
+    legacy_hal::NanSubscribeRequest* legacy_request);
+bool convertHidlNanTransmitFollowupRequestToLegacy(
+    const NanTransmitFollowupRequest& hidl_request,
+    legacy_hal::NanTransmitFollowupRequest* legacy_request);
 bool convertHidlNanBeaconSdfPayloadRequestToLegacy(
     const NanBeaconSdfPayloadRequest& hidl_request,
     legacy_hal::NanBeaconSdfPayloadRequest* legacy_request);
 bool convertHidlNanDataPathInitiatorRequestToLegacy(
-    const NanDataPathInitiatorRequest& hidl_request,
+    const NanInitiateDataPathRequest& hidl_request,
     legacy_hal::NanDataPathInitiatorRequest* legacy_request);
 bool convertHidlNanDataPathIndicationResponseToLegacy(
-    const NanDataPathIndicationResponse& hidl_response,
+    const NanRespondToDataPathIndicationRequest& hidl_response,
     legacy_hal::NanDataPathIndicationResponse* legacy_response);
-bool convertHidlNanDataPathEndRequestToLegacy(
-    const NanDataPathEndRequest& hidl_request,
-    legacy_hal::NanDataPathEndRequest* legacy_request);
+
+
 bool convertLegacyNanResponseHeaderToHidl(
     const legacy_hal::NanResponseMsg& legacy_response,
     NanResponseMsgHeader* hidl_response);
