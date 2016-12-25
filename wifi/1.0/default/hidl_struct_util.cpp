@@ -811,55 +811,9 @@ legacy_hal::NanSRFIncludeType convertHidlNanSrfIncludeTypeToLegacy(
 }
 
 NanStatusType convertLegacyNanStatusTypeToHidl(
-    legacy_hal::NanStatusType /* type */) {
-  // TODO: The |NanStatusType| has changed in legacy HAL and no longer in sync
-  // with the HIDL interface.
-  return NanStatusType::SUCCESS;
-}
-
-NanResponseType convertLegacyNanResponseTypeToHidl(
-    legacy_hal::NanResponseType type) {
-  switch (type) {
-    case legacy_hal::NAN_RESPONSE_ENABLED:
-      return NanResponseType::ENABLED;
-    case legacy_hal::NAN_RESPONSE_DISABLED:
-      return NanResponseType::DISABLED;
-    case legacy_hal::NAN_RESPONSE_PUBLISH:
-      return NanResponseType::PUBLISH;
-    case legacy_hal::NAN_RESPONSE_PUBLISH_CANCEL:
-      return NanResponseType::PUBLISH_CANCEL;
-    case legacy_hal::NAN_RESPONSE_TRANSMIT_FOLLOWUP:
-      return NanResponseType::TRANSMIT_FOLLOWUP;
-    case legacy_hal::NAN_RESPONSE_SUBSCRIBE:
-      return NanResponseType::SUBSCRIBE;
-    case legacy_hal::NAN_RESPONSE_SUBSCRIBE_CANCEL:
-      return NanResponseType::SUBSCRIBE_CANCEL;
-    case legacy_hal::NAN_RESPONSE_STATS:
-      // Not present in HIDL. Is going to be deprecated in legacy HAL as well.
-      CHECK(0);
-    case legacy_hal::NAN_RESPONSE_CONFIG:
-      return NanResponseType::CONFIG;
-    case legacy_hal::NAN_RESPONSE_TCA:
-      // Not present in HIDL. Is going to be deprecated in legacy HAL as well.
-      CHECK(0);
-    case legacy_hal::NAN_RESPONSE_ERROR:
-      return NanResponseType::ERROR;
-    case legacy_hal::NAN_RESPONSE_BEACON_SDF_PAYLOAD:
-      return NanResponseType::BEACON_SDF_PAYLOAD;
-    case legacy_hal::NAN_GET_CAPABILITIES:
-      return NanResponseType::GET_CAPABILITIES;
-    case legacy_hal::NAN_DP_INTERFACE_CREATE:
-      return NanResponseType::DP_INTERFACE_CREATE;
-    case legacy_hal::NAN_DP_INTERFACE_DELETE:
-      return NanResponseType::DP_INTERFACE_DELETE;
-    case legacy_hal::NAN_DP_INITIATOR_RESPONSE:
-      return NanResponseType::DP_INITIATOR_RESPONSE;
-    case legacy_hal::NAN_DP_RESPONDER_RESPONSE:
-      return NanResponseType::DP_RESPONDER_RESPONSE;
-    case legacy_hal::NAN_DP_END:
-      return NanResponseType::DP_END;
-  };
-  CHECK(false) << "Unknown legacy type: " << type;
+    legacy_hal::NanStatusType type) {
+  // values are identical - may need to do a mapping if they diverge in the future
+  return (NanStatusType) type;
 }
 
 bool convertHidlNanEnableRequestToLegacy(
@@ -868,6 +822,7 @@ bool convertHidlNanEnableRequestToLegacy(
   if (!legacy_request) {
     return false;
   }
+  /*
   legacy_request->master_pref = hidl_request.masterPref;
   legacy_request->cluster_low = hidl_request.clusterLow;
   legacy_request->cluster_high = hidl_request.clusterHigh;
@@ -942,6 +897,8 @@ bool convertHidlNanEnableRequestToLegacy(
   legacy_request->config_5g_channel = hidl_request.valid5gChannelVal;
   legacy_request->channel_5g_val = hidl_request.channel5gVal;
   return true;
+  */
+  return false;
 }
 
 bool convertHidlNanPublishRequestToLegacy(
@@ -950,6 +907,7 @@ bool convertHidlNanPublishRequestToLegacy(
   if (!legacy_request) {
     return false;
   }
+  /*
   legacy_request->publish_id = hidl_request.publishId;
   legacy_request->ttl = hidl_request.ttl;
   legacy_request->period = hidl_request.period;
@@ -995,13 +953,8 @@ bool convertHidlNanPublishRequestToLegacy(
   legacy_request->connmap = hidl_request.connmap;
   legacy_request->recv_indication_cfg = hidl_request.recvIndicationCfg;
   return true;
-}
-
-bool convertHidlNanPublishCancelRequestToLegacy(
-    const NanPublishCancelRequest& hidl_request,
-    legacy_hal::NanPublishCancelRequest* legacy_request) {
-  legacy_request->publish_id = hidl_request.publishId;
-  return true;
+  */
+  return false;
 }
 
 bool convertHidlNanSubscribeRequestToLegacy(
@@ -1010,6 +963,7 @@ bool convertHidlNanSubscribeRequestToLegacy(
   if (!legacy_request) {
     return false;
   }
+  /*
   legacy_request->subscribe_id = hidl_request.subscribeId;
   legacy_request->ttl = hidl_request.ttl;
   legacy_request->period = hidl_request.period;
@@ -1077,11 +1031,7 @@ bool convertHidlNanSubscribeRequestToLegacy(
   }
   legacy_request->recv_indication_cfg = hidl_request.recvIndicationCfg;
   return true;
-}
-
-bool convertHidlNanSubscribeCancelRequestToLegacy(
-    const NanSubscribeCancelRequest& /* hidl_request */,
-    legacy_hal::NanSubscribeCancelRequest* /* legacy_request */) {
+  */
   return false;
 }
 
@@ -1104,64 +1054,32 @@ bool convertHidlNanBeaconSdfPayloadRequestToLegacy(
 }
 
 bool convertHidlNanDataPathInitiatorRequestToLegacy(
-    const NanDataPathInitiatorRequest& /* hidl_request */,
+    const NanInitiateDataPathRequest& /* hidl_request */,
     legacy_hal::NanDataPathInitiatorRequest* /* legacy_request */) {
   return false;
 }
 
 bool convertHidlNanDataPathIndicationResponseToLegacy(
-    const NanDataPathIndicationResponse& /* hidl_response */,
+    const NanRespondToDataPathIndicationRequest& /* hidl_response */,
     legacy_hal::NanDataPathIndicationResponse* /* legacy_response */) {
-  return false;
-}
-
-bool convertHidlNanDataPathEndRequestToLegacy(
-    const NanDataPathEndRequest& /* hidl_request */,
-    legacy_hal::NanDataPathEndRequest* /* legacy_request */) {
   return false;
 }
 
 bool convertLegacyNanResponseHeaderToHidl(
     const legacy_hal::NanResponseMsg& legacy_response,
-    NanResponseMsgHeader* hidl_response) {
+    WifiNanStatus* wifiNanStatus) {
   if (!hidl_response) {
     return false;
   }
   hidl_response->status =
       convertLegacyNanStatusTypeToHidl(legacy_response.status);
-  hidl_response->value = legacy_response.value;
-  hidl_response->responseType =
-      convertLegacyNanResponseTypeToHidl(legacy_response.response_type);
+  hidl_response->description = legacy_response.description;
   return true;
-}
-
-bool convertLegacyNanPublishResponseToHidl(
-    const legacy_hal::NanPublishResponse& /* legacy_response */,
-    NanPublishResponse* /* hidl_response */) {
-  return false;
-}
-
-bool convertLegacyNanSubscribeResponseToHidl(
-    const legacy_hal::NanSubscribeResponse& /* legacy_response */,
-    NanSubscribeResponse* /* hidl_response */) {
-  return false;
-}
-
-bool convertLegacyNanDataPathResponseToHidl(
-    const legacy_hal::NanDataPathRequestResponse& /* legacy_response */,
-    NanDataPathResponse* /* hidl_response */) {
-  return false;
 }
 
 bool convertLegacyNanCapabilitiesResponseToHidl(
     const legacy_hal::NanCapabilities& /* legacy_response */,
-    NanCapabilitiesResponse* /* hidl_response */) {
-  return false;
-}
-
-bool convertLegacyNanPublishTerminatedIndToHidl(
-    const legacy_hal::NanPublishTerminatedInd& /* legacy_ind */,
-    NanPublishTerminatedInd* /* hidl_ind */) {
+    NanCapabilities* /* hidl_response */) {
   return false;
 }
 
@@ -1177,27 +1095,9 @@ bool convertLegacyNanMatchExpiredIndToHidl(
   return false;
 }
 
-bool convertLegacyNanSubscribeTerminatedIndToHidl(
-    const legacy_hal::NanSubscribeTerminatedInd& /* legacy_ind */,
-    NanSubscribeTerminatedInd* /* hidl_ind */) {
-  return false;
-}
-
 bool convertLegacyNanFollowupIndToHidl(
     const legacy_hal::NanFollowupInd& /* legacy_ind */,
-    NanFollowupInd* /* hidl_ind */) {
-  return false;
-}
-
-bool convertLegacyNanDiscEngEventIndToHidl(
-    const legacy_hal::NanDiscEngEventInd& /* legacy_ind */,
-    NanDiscEngEventInd* /* hidl_ind */) {
-  return false;
-}
-
-bool convertLegacyNanDisabledIndToHidl(
-    const legacy_hal::NanDisabledInd& /* legacy_ind */,
-    NanDisabledInd* /* hidl_ind */) {
+    NanFollowupReceivedInd* /* hidl_ind */) {
   return false;
 }
 
@@ -1216,18 +1116,6 @@ bool convertLegacyNanDataPathRequestIndToHidl(
 bool convertLegacyNanDataPathConfirmIndToHidl(
     const legacy_hal::NanDataPathConfirmInd& /* legacy_ind */,
     NanDataPathConfirmInd* /* hidl_ind */) {
-  return false;
-}
-
-bool convertLegacyNanDataPathEndIndToHidl(
-    const legacy_hal::NanDataPathEndInd& /* legacy_ind */,
-    NanDataPathEndInd* /* hidl_ind */) {
-  return false;
-}
-
-bool convertLegacyNanTransmitFollowupIndToHidl(
-    const legacy_hal::NanTransmitFollowupInd& /* legacy_ind */,
-    NanTransmitFollowupInd* /* hidl_ind */) {
   return false;
 }
 
