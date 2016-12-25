@@ -100,7 +100,7 @@ Return<void> WifiNanIface::registerEventCallback(
                          callback);
 }
 
-Return<void> WifiNanIface::enableRequest(uint32_t cmd_id,
+Return<void> WifiNanIface::enableRequest(uint16_t cmd_id,
                                          const NanEnableRequest& msg,
                                          enableRequest_cb hidl_status_cb) {
   return validateAndCall(this,
@@ -111,7 +111,7 @@ Return<void> WifiNanIface::enableRequest(uint32_t cmd_id,
                          msg);
 }
 
-Return<void> WifiNanIface::disableRequest(uint32_t cmd_id,
+Return<void> WifiNanIface::disableRequest(uint16_t cmd_id,
                                           disableRequest_cb hidl_status_cb) {
   return validateAndCall(this,
                          WifiStatusCode::ERROR_WIFI_IFACE_INVALID,
@@ -120,7 +120,7 @@ Return<void> WifiNanIface::disableRequest(uint32_t cmd_id,
                          cmd_id);
 }
 
-Return<void> WifiNanIface::publishRequest(uint32_t cmd_id,
+Return<void> WifiNanIface::publishRequest(uint16_t cmd_id,
                                           const NanPublishRequest& msg,
                                           publishRequest_cb hidl_status_cb) {
   return validateAndCall(this,
@@ -132,7 +132,7 @@ Return<void> WifiNanIface::publishRequest(uint32_t cmd_id,
 }
 
 Return<void> WifiNanIface::publishCancelRequest(
-    uint32_t cmd_id,
+    uint16_t cmd_id,
     const NanPublishCancelRequest& msg,
     publishCancelRequest_cb hidl_status_cb) {
   return validateAndCall(this,
@@ -144,7 +144,7 @@ Return<void> WifiNanIface::publishCancelRequest(
 }
 
 Return<void> WifiNanIface::subscribeRequest(
-    uint32_t cmd_id,
+    uint16_t cmd_id,
     const NanSubscribeRequest& msg,
     subscribeRequest_cb hidl_status_cb) {
   return validateAndCall(this,
@@ -156,7 +156,7 @@ Return<void> WifiNanIface::subscribeRequest(
 }
 
 Return<void> WifiNanIface::subscribeCancelRequest(
-    uint32_t cmd_id,
+    uint16_t cmd_id,
     const NanSubscribeCancelRequest& msg,
     subscribeCancelRequest_cb hidl_status_cb) {
   return validateAndCall(this,
@@ -168,7 +168,7 @@ Return<void> WifiNanIface::subscribeCancelRequest(
 }
 
 Return<void> WifiNanIface::transmitFollowupRequest(
-    uint32_t cmd_id,
+    uint16_t cmd_id,
     const NanTransmitFollowupRequest& msg,
     transmitFollowupRequest_cb hidl_status_cb) {
   return validateAndCall(this,
@@ -179,7 +179,7 @@ Return<void> WifiNanIface::transmitFollowupRequest(
                          msg);
 }
 
-Return<void> WifiNanIface::configRequest(uint32_t cmd_id,
+Return<void> WifiNanIface::configRequest(uint16_t cmd_id,
                                          const NanConfigRequest& msg,
                                          configRequest_cb hidl_status_cb) {
   return validateAndCall(this,
@@ -191,7 +191,7 @@ Return<void> WifiNanIface::configRequest(uint32_t cmd_id,
 }
 
 Return<void> WifiNanIface::beaconSdfPayloadRequest(
-    uint32_t cmd_id,
+    uint16_t cmd_id,
     const NanBeaconSdfPayloadRequest& msg,
     beaconSdfPayloadRequest_cb hidl_status_cb) {
   return validateAndCall(this,
@@ -209,7 +209,7 @@ Return<void> WifiNanIface::getVersion(getVersion_cb hidl_status_cb) {
                          hidl_status_cb);
 }
 
-Return<void> WifiNanIface::getCapabilities(uint32_t cmd_id,
+Return<void> WifiNanIface::getCapabilities(uint16_t cmd_id,
                                            getCapabilities_cb hidl_status_cb) {
   return validateAndCall(this,
                          WifiStatusCode::ERROR_WIFI_IFACE_INVALID,
@@ -219,7 +219,7 @@ Return<void> WifiNanIface::getCapabilities(uint32_t cmd_id,
 }
 
 Return<void> WifiNanIface::dataInterfaceCreate(
-    uint32_t cmd_id,
+    uint16_t cmd_id,
     const hidl_string& iface_name,
     dataInterfaceCreate_cb hidl_status_cb) {
   return validateAndCall(this,
@@ -231,7 +231,7 @@ Return<void> WifiNanIface::dataInterfaceCreate(
 }
 
 Return<void> WifiNanIface::dataInterfaceDelete(
-    uint32_t cmd_id,
+    uint16_t cmd_id,
     const hidl_string& iface_name,
     dataInterfaceDelete_cb hidl_status_cb) {
   return validateAndCall(this,
@@ -243,7 +243,7 @@ Return<void> WifiNanIface::dataInterfaceDelete(
 }
 
 Return<void> WifiNanIface::dataRequestInitiator(
-    uint32_t cmd_id,
+    uint16_t cmd_id,
     const NanDataPathInitiatorRequest& msg,
     dataRequestInitiator_cb hidl_status_cb) {
   return validateAndCall(this,
@@ -255,7 +255,7 @@ Return<void> WifiNanIface::dataRequestInitiator(
 }
 
 Return<void> WifiNanIface::dataIndicationResponse(
-    uint32_t cmd_id,
+    uint16_t cmd_id,
     const NanDataPathIndicationResponse& msg,
     dataIndicationResponse_cb hidl_status_cb) {
   return validateAndCall(this,
@@ -266,7 +266,7 @@ Return<void> WifiNanIface::dataIndicationResponse(
                          msg);
 }
 
-Return<void> WifiNanIface::dataEnd(uint32_t cmd_id,
+Return<void> WifiNanIface::dataEnd(uint16_t cmd_id,
                                    const NanDataPathEndRequest& msg,
                                    dataEnd_cb hidl_status_cb) {
   return validateAndCall(this,
@@ -294,12 +294,13 @@ std::pair<WifiStatus, IfaceType> WifiNanIface::getTypeInternal() {
 
 WifiStatus WifiNanIface::registerEventCallbackInternal(
     const sp<IWifiNanIfaceEventCallback>& callback) {
-  // TODO(b/31632518): remove the callback when the client is destroyed
+  // TODO(b/31632518): remove the callback when the client is destroyed and/or
+  // make sure that the same callback is only registered once (i.e. detect duplicates)
   event_callbacks_.emplace_back(callback);
   return createWifiStatus(WifiStatusCode::SUCCESS);
 }
 
-WifiStatus WifiNanIface::enableRequestInternal(uint32_t cmd_id,
+WifiStatus WifiNanIface::enableRequestInternal(uint16_t cmd_id,
                                                const NanEnableRequest& msg) {
   legacy_hal::NanEnableRequest legacy_msg;
   if (!hidl_struct_util::convertHidlNanEnableRequestToLegacy(msg,
@@ -311,13 +312,13 @@ WifiStatus WifiNanIface::enableRequestInternal(uint32_t cmd_id,
   return createWifiStatusFromLegacyError(legacy_status);
 }
 
-WifiStatus WifiNanIface::disableRequestInternal(uint32_t cmd_id) {
+WifiStatus WifiNanIface::disableRequestInternal(uint16_t cmd_id) {
   legacy_hal::wifi_error legacy_status =
       legacy_hal_.lock()->nanDisableRequest(cmd_id);
   return createWifiStatusFromLegacyError(legacy_status);
 }
 
-WifiStatus WifiNanIface::publishRequestInternal(uint32_t cmd_id,
+WifiStatus WifiNanIface::publishRequestInternal(uint16_t cmd_id,
                                                 const NanPublishRequest& msg) {
   legacy_hal::NanPublishRequest legacy_msg;
   if (!hidl_struct_util::convertHidlNanPublishRequestToLegacy(msg,
@@ -330,7 +331,7 @@ WifiStatus WifiNanIface::publishRequestInternal(uint32_t cmd_id,
 }
 
 WifiStatus WifiNanIface::publishCancelRequestInternal(
-    uint32_t cmd_id, const NanPublishCancelRequest& msg) {
+    uint16_t cmd_id, const NanPublishCancelRequest& msg) {
   legacy_hal::NanPublishCancelRequest legacy_msg;
   if (!hidl_struct_util::convertHidlNanPublishCancelRequestToLegacy(
           msg, &legacy_msg)) {
@@ -342,7 +343,7 @@ WifiStatus WifiNanIface::publishCancelRequestInternal(
 }
 
 WifiStatus WifiNanIface::subscribeRequestInternal(
-    uint32_t cmd_id, const NanSubscribeRequest& msg) {
+    uint16_t cmd_id, const NanSubscribeRequest& msg) {
   legacy_hal::NanSubscribeRequest legacy_msg;
   if (!hidl_struct_util::convertHidlNanSubscribeRequestToLegacy(msg,
                                                                 &legacy_msg)) {
@@ -354,22 +355,22 @@ WifiStatus WifiNanIface::subscribeRequestInternal(
 }
 
 WifiStatus WifiNanIface::subscribeCancelRequestInternal(
-    uint32_t /* cmd_id */, const NanSubscribeCancelRequest& /* msg */) {
+    uint16_t /* cmd_id */, const NanSubscribeCancelRequest& /* msg */) {
   // TODO implement
   return createWifiStatus(WifiStatusCode::SUCCESS);
 }
 WifiStatus WifiNanIface::transmitFollowupRequestInternal(
-    uint32_t /* cmd_id */, const NanTransmitFollowupRequest& /* msg */) {
+    uint16_t /* cmd_id */, const NanTransmitFollowupRequest& /* msg */) {
   // TODO implement
   return createWifiStatus(WifiStatusCode::SUCCESS);
 }
 WifiStatus WifiNanIface::configRequestInternal(
-    uint32_t /* cmd_id */, const NanConfigRequest& /* msg */) {
+    uint16_t /* cmd_id */, const NanConfigRequest& /* msg */) {
   // TODO implement
   return createWifiStatus(WifiStatusCode::SUCCESS);
 }
 WifiStatus WifiNanIface::beaconSdfPayloadRequestInternal(
-    uint32_t /* cmd_id */, const NanBeaconSdfPayloadRequest& /* msg */) {
+    uint16_t /* cmd_id */, const NanBeaconSdfPayloadRequest& /* msg */) {
   // TODO implement
   return createWifiStatus(WifiStatusCode::SUCCESS);
 }
@@ -377,32 +378,32 @@ std::pair<WifiStatus, NanVersion> WifiNanIface::getVersionInternal() {
   // TODO implement
   return {createWifiStatus(WifiStatusCode::SUCCESS), 0};
 }
-WifiStatus WifiNanIface::getCapabilitiesInternal(uint32_t /* cmd_id */) {
+WifiStatus WifiNanIface::getCapabilitiesInternal(uint16_t /* cmd_id */) {
   // TODO implement
   return createWifiStatus(WifiStatusCode::SUCCESS);
 }
 WifiStatus WifiNanIface::dataInterfaceCreateInternal(
-    uint32_t /* cmd_id */, const std::string& /* iface_name */) {
+    uint16_t /* cmd_id */, const std::string& /* iface_name */) {
   // TODO implement
   return createWifiStatus(WifiStatusCode::SUCCESS);
 }
 WifiStatus WifiNanIface::dataInterfaceDeleteInternal(
-    uint32_t /* cmd_id */, const std::string& /* iface_name */) {
+    uint16_t /* cmd_id */, const std::string& /* iface_name */) {
   // TODO implement
   return createWifiStatus(WifiStatusCode::SUCCESS);
 }
 WifiStatus WifiNanIface::dataRequestInitiatorInternal(
-    uint32_t /* cmd_id */, const NanDataPathInitiatorRequest& /* msg */) {
+    uint16_t /* cmd_id */, const NanDataPathInitiatorRequest& /* msg */) {
   // TODO implement
   return createWifiStatus(WifiStatusCode::SUCCESS);
 }
 WifiStatus WifiNanIface::dataIndicationResponseInternal(
-    uint32_t /* cmd_id */, const NanDataPathIndicationResponse& /* msg */) {
+    uint16_t /* cmd_id */, const NanDataPathIndicationResponse& /* msg */) {
   // TODO implement
   return createWifiStatus(WifiStatusCode::SUCCESS);
 }
 WifiStatus WifiNanIface::dataEndInternal(
-    uint32_t /* cmd_id */, const NanDataPathEndRequest& /* msg */) {
+    uint16_t /* cmd_id */, const NanDataPathEndRequest& /* msg */) {
   // TODO implement
   return createWifiStatus(WifiStatusCode::SUCCESS);
 }
