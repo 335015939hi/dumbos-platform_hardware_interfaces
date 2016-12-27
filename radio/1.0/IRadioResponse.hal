@@ -30,7 +30,7 @@ interface IRadioResponse {
      *   RadioError:NONE
      *   RadioError:INVALID_ARGUMENTS
      */
-    oneway iccCardStatusResponse(RadioResponseInfo info, CardStatus cardStatus);
+    oneway getIccCardStatusResponse(RadioResponseInfo info, CardStatus cardStatus);
 
     /*
      * @param info Response info struct containing response type, serial no. & error
@@ -280,7 +280,7 @@ interface IRadioResponse {
 
     /*
      * @param info Response info struct containing response type, serial no. & error
-     * @param failCause failCause is LastCallFailCause. GSM failure reasons are
+     * @param failCauseInfo Contains LastCallFailCause & vendor cause code. GSM failure reasons are
      *        mapped to cause codes defined in TS 24.008 Annex H where possible. CDMA
      *        failure reasons are derived from the possible call failure scenarios
      *        described in the "CDMA IS-2000 Release A (C.S0005-A v6.0)" standard.
@@ -300,7 +300,8 @@ interface IRadioResponse {
      *   RadioError:NO_MEMORY
      *   RadioError:GENERIC_FAILURE
      */
-    oneway getLastCallFailCauseResponse(RadioResponseInfo info, LastCallFailCause failCause);
+    oneway getLastCallFailCauseResponse(RadioResponseInfo info,
+            LastCallFailCauseInfo failCauseinfo);
 
     /*
      * @param info Response info struct containing response type, serial no. & error
@@ -461,7 +462,7 @@ interface IRadioResponse {
      *   RadioError:SIM_PUK2
      *   RadioError:GENERIC_FAILURE
      */
-    oneway iccIOForApp(RadioResponseInfo info, IccIoResult iccIo);
+    oneway iccIOForAppResponse(RadioResponseInfo info, IccIoResult iccIo);
 
     /*
      * @param info Response info struct containing response type, serial no. & error
@@ -1118,7 +1119,7 @@ interface IRadioResponse {
 
     /*
      * @param info Response info struct containing response type, serial no. & error
-     * @param cell RadioNeighboringCell defined in types.hal
+     * @param cells Vector of neighboring radio cell
      *
      * Valid errors returned:
      *   RadioError:NONE
@@ -1126,7 +1127,7 @@ interface IRadioResponse {
      *   RadioError:INVALID_ARGUMENTS
      *   RadioError:GENERIC_FAILURE
      */
-    oneway getNeighboringCidsResponse(RadioResponseInfo info, NeighboringCell cell);
+    oneway getNeighboringCidsResponse(RadioResponseInfo info, vec<NeighboringCell> cells);
 
     /*
      * @param info Response info struct containing response type, serial no. & error
@@ -1317,7 +1318,7 @@ interface IRadioResponse {
 
     /*
      * @param info Response info struct containing response type, serial no. & error
-     * @param configInfo Setting of GSM/WCDMA Cell broadcast config
+     * @param configs Vector of GSM/WCDMA Cell broadcast configs
      *
      * Valid errors returned:
      *   RadioError:NONE
@@ -1331,7 +1332,8 @@ interface IRadioResponse {
      *   RadioError:NO_RESOURCES
      *   RadioError:GENERIC_FAILURE
      */
-    oneway getGsmBroadcastConfigResponse(RadioResponseInfo info, GsmBroadcastSmsConfigInfo configInfo);
+    oneway getGsmBroadcastConfigResponse(RadioResponseInfo info,
+            vec<GsmBroadcastSmsConfigInfo> configs);
 
     /*
      * @param info Response info struct containing response type, serial no. & error
@@ -1367,7 +1369,7 @@ interface IRadioResponse {
 
     /*
      * @param info Response info struct containing response type, serial no. & error
-     * @param configInfo CDMA Broadcast SMS config.
+     * @param configs Vector of CDMA Broadcast SMS configs.
      *
      * Valid errors returned:
      *   RadioError:NONE
@@ -1381,7 +1383,8 @@ interface IRadioResponse {
      *   RadioError:NO_RESOURCES
      *   RadioError:GENERIC_FAILURE
      */
-    oneway getCdmaBroadcastConfigResponse(RadioResponseInfo info, CdmaBroadcastSmsConfigInfo configInfo);
+    oneway getCdmaBroadcastConfigResponse(RadioResponseInfo info,
+            vec<CdmaBroadcastSmsConfigInfo> configs);
 
     /*
      * @param info Response info struct containing response type, serial no. & error
@@ -1942,5 +1945,5 @@ interface IRadioResponse {
      *
      * @param serial Serial no. of the request whose acknowledgement is sent.
      */
-    oneway requestAcknowledgement(int32_t serial);
+    oneway acknowledgeRequest(int32_t serial);
 };
