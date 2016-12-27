@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d7c9e645_adb9e612",
+        "filename": "radio/1.0/IRadioResponse.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2016-12-27T19:11:53Z",
+      "side": 1,
+      "message": "Fix indentation",
+      "revId": "814493acc14b2a5373aeb0e33d0514595e08fe5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7c9e645_ed9fee9a",
+        "filename": "radio/1.0/IRadioResponse.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 1335,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2016-12-27T19:11:53Z",
+      "side": 1,
+      "message": "long line",
+      "revId": "814493acc14b2a5373aeb0e33d0514595e08fe5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7c9e645_8dd74a50",
+        "filename": "radio/1.0/IRadioResponse.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 1385,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2016-12-27T19:11:53Z",
+      "side": 1,
+      "message": "long line",
+      "revId": "814493acc14b2a5373aeb0e33d0514595e08fe5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
