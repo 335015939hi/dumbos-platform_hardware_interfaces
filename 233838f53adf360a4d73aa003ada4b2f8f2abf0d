@@ -22,6 +22,30 @@
       "revId": "233838f53adf360a4d73aa003ada4b2f8f2abf0d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7c9e645_ec8127e6",
+        "filename": "bluetooth/1.0/default/bluetooth_address.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2016-12-28T23:59:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7c9e645_a9a9d1c7",
+      "range": {
+        "startLine": 47,
+        "startChar": 38,
+        "endLine": 47,
+        "endChar": 40
+      },
+      "revId": "233838f53adf360a4d73aa003ada4b2f8f2abf0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
