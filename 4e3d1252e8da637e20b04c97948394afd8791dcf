@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d7c9e645_4fbe3262",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 1411,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-28T18:16:51Z",
+      "side": 1,
+      "message": "You should specify a value it should take on for consistency.",
+      "range": {
+        "startLine": 1411,
+        "startChar": 55,
+        "endLine": 1411,
+        "endChar": 61
+      },
+      "revId": "4e3d1252e8da637e20b04c97948394afd8791dcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
