@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d7c9e645_26aaf04f",
+        "filename": "bluetooth/1.0/default/bluetooth_address.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2016-12-28T20:42:26Z",
+      "side": 1,
+      "message": "Thanks!  I forgot to remove these lines once I got it to work in the namespace (line 49)",
+      "parentUuid": "3745e284_c154a419",
+      "range": {
+        "startLine": 26,
+        "startChar": 3,
+        "endLine": 28,
+        "endChar": 68
+      },
+      "revId": "69e717de3bda830aa4f42a8043d4dbc253d4fe93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3745e284_a1519827",
         "filename": "bluetooth/1.0/default/bluetooth_address.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2016-12-28T20:30:26Z",
       "side": 1,
       "message": "do you really need 5 levels of namespace ?",
+      "range": {
+        "startLine": 42,
+        "startChar": 1,
+        "endLine": 46,
+        "endChar": 24
+      },
+      "revId": "69e717de3bda830aa4f42a8043d4dbc253d4fe93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7c9e645_86e404ca",
+        "filename": "bluetooth/1.0/default/bluetooth_address.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2016-12-28T20:42:26Z",
+      "side": 1,
+      "message": "It\u0027s the way it\u0027s done in hardware/interfaces",
+      "parentUuid": "3745e284_a1519827",
       "range": {
         "startLine": 42,
         "startChar": 1,
