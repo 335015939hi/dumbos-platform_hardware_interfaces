@@ -22,6 +22,30 @@
       "revId": "1a739cf2fa7c684a89cc0579feb1fe2febd462be",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7c9e645_94166f0e",
+        "filename": "radio/1.0/IRadioResponse.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2016-12-28T17:30:27Z",
+      "side": 1,
+      "message": "Replaced \u0027\u0026\u0027 with \u0027and\u0027 everywhere in the file.",
+      "parentUuid": "d7c9e645_fe31d2b3",
+      "range": {
+        "startLine": 283,
+        "startChar": 55,
+        "endLine": 283,
+        "endChar": 56
+      },
+      "revId": "1a739cf2fa7c684a89cc0579feb1fe2febd462be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
