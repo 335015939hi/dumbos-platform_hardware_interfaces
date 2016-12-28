@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d7c9e645_af523628",
+        "filename": "bluetooth/1.0/default/Android.bp",
+        "patchSetId": 24
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-28T18:42:35Z",
+      "side": 1,
+      "message": "license",
+      "revId": "624619b3339dfa3a6fb90454f8dca48cc873b24b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7c9e645_4f4f1283",
+        "filename": "bluetooth/1.0/default/Android.mk",
+        "patchSetId": 24
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-28T18:42:35Z",
+      "side": 1,
+      "message": "license",
+      "revId": "624619b3339dfa3a6fb90454f8dca48cc873b24b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7c9e645_0f6b4ad1",
+        "filename": "bluetooth/1.0/default/bt_vendor_lib.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-28T18:42:35Z",
+      "side": 1,
+      "message": "is this still true?",
+      "range": {
+        "startLine": 3,
+        "startChar": 18,
+        "endLine": 3,
+        "endChar": 48
+      },
+      "revId": "624619b3339dfa3a6fb90454f8dca48cc873b24b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7c9e645_2f7086b8",
+        "filename": "bluetooth/1.0/default/vendor_interface.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2016-12-28T18:42:35Z",
+      "side": 1,
+      "message": "can we file a bug to track this?",
+      "range": {
+        "startLine": 66,
+        "startChar": 10,
+        "endLine": 66,
+        "endChar": 19
+      },
+      "revId": "624619b3339dfa3a6fb90454f8dca48cc873b24b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
