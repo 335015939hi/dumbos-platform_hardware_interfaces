@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d7c9e645_a9a9d1c7",
+        "filename": "bluetooth/1.0/default/bluetooth_address.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1071489
+      },
+      "writtenOn": "2016-12-28T23:39:29Z",
+      "side": 1,
+      "message": "Can you use instead so the relationship is clearer and there is less chance for an error. The sizeof() is compile-time evaluation.\n\nstatic const size_t kStringLength \u003d sizeof(\"XX:XX:XX:XX:XX:XX\");",
+      "range": {
+        "startLine": 47,
+        "startChar": 38,
+        "endLine": 47,
+        "endChar": 40
+      },
+      "revId": "233838f53adf360a4d73aa003ada4b2f8f2abf0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
