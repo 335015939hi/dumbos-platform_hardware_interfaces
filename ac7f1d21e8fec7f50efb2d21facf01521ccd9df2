@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d7c9e645_3d05177c",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-01-03T18:53:32Z",
+      "side": 0,
+      "message": "yeah, in the comment, you should call it the NAN protocol version, not the hal version. Do you know where these are described?",
+      "range": {
+        "startLine": 586,
+        "startChar": 3,
+        "endLine": 586,
+        "endChar": 15
+      },
+      "revId": "ac7f1d21e8fec7f50efb2d21facf01521ccd9df2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

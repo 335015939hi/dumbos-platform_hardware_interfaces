@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d7c9e645_bd95871f",
+        "filename": "wifi/1.0/IWifiNanIface.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-01-03T18:53:32Z",
+      "side": 1,
+      "message": "publishId\n\nFor clarity, these variables should share the same name that is returned from the corresponding asynchronous callbacks, or the comment should explicitly call out that this is publishId from notifyStartPublishResponse.",
+      "range": {
+        "startLine": 127,
+        "startChar": 52,
+        "endLine": 127,
+        "endChar": 61
+      },
+      "revId": "7060bf8e5b874f1f19b21009025310985ffad296",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7c9e645_dd8653ff",
+        "filename": "wifi/1.0/IWifiNanIface.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-01-03T18:53:32Z",
+      "side": 1,
+      "message": "same, subscribeId",
+      "range": {
+        "startLine": 157,
+        "startChar": 54,
+        "endLine": 157,
+        "endChar": 63
+      },
+      "revId": "7060bf8e5b874f1f19b21009025310985ffad296",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7c9e645_1da61b96",
+        "filename": "wifi/1.0/IWifiNanIface.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-01-03T18:53:32Z",
+      "side": 1,
+      "message": "so, typically you will cancel many of these? Why not batch other stop requests?",
+      "range": {
+        "startLine": 247,
+        "startChar": 49,
+        "endLine": 247,
+        "endChar": 62
+      },
+      "revId": "7060bf8e5b874f1f19b21009025310985ffad296",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7c9e645_3da1977b",
+        "filename": "wifi/1.0/IWifiNanIface.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-01-03T18:53:32Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be vec\u003cFoo\u003e for some struct Foo with a CommandIdShort and ndpInstanceId?",
+      "range": {
+        "startLine": 247,
+        "startChar": 27,
+        "endLine": 247,
+        "endChar": 40
+      },
+      "revId": "7060bf8e5b874f1f19b21009025310985ffad296",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7c9e645_1d7dbb1d",
+        "filename": "wifi/1.0/IWifiNanIface.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-01-03T18:53:32Z",
+      "side": 1,
+      "message": "The version of the hal is part of the hidl definition (version 1.0). What are possible values? What is the difference between then?",
+      "range": {
+        "startLine": 269,
+        "startChar": 21,
+        "endLine": 269,
+        "endChar": 38
+      },
+      "revId": "7060bf8e5b874f1f19b21009025310985ffad296",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7c9e645_1d213b14",
+        "filename": "wifi/1.0/default/wifi_nan_iface.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-01-03T18:53:32Z",
+      "side": 1,
+      "message": "Can you replace \u0027.getStatus().isOk()\u0027 with \u0027.isOk()\u0027 everywhere? (ref: b/31348667)",
+      "range": {
+        "startLine": 53,
+        "startChar": 64,
+        "endLine": 53,
+        "endChar": 81
+      },
+      "revId": "7060bf8e5b874f1f19b21009025310985ffad296",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7c9e645_9df68b6e",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 571,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-01-03T18:53:32Z",
+      "side": 1,
+      "message": "why do we need the things like CommandIdShort + sessionId to identify certain calls? Aren\u0027t we requiring additional state to be held onto?",
+      "range": {
+        "startLine": 571,
+        "startChar": 17,
+        "endLine": 571,
+        "endChar": 31
+      },
+      "revId": "7060bf8e5b874f1f19b21009025310985ffad296",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7c9e645_1d0a9b8c",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 571,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-01-03T18:53:32Z",
+      "side": 1,
+      "message": "2**16 \u003d 65536. Seems like we have a potential for duplicates here, that\u0027s not a very big number.",
+      "range": {
+        "startLine": 571,
+        "startChar": 8,
+        "endLine": 571,
+        "endChar": 16
+      },
+      "revId": "7060bf8e5b874f1f19b21009025310985ffad296",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
