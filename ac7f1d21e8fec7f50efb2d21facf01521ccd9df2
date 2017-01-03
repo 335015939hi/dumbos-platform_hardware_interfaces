@@ -22,6 +22,30 @@
       "revId": "ac7f1d21e8fec7f50efb2d21facf01521ccd9df2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7c9e645_a9d21fb6",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2017-01-03T19:41:50Z",
+      "side": 0,
+      "message": "Commented on first one. Unfortunately this isn\u0027t true either - it is really a vendor-specific number.\n\nThe protocol version is effectively defined by the API.",
+      "parentUuid": "d7c9e645_3d05177c",
+      "range": {
+        "startLine": 586,
+        "startChar": 3,
+        "endLine": 586,
+        "endChar": 15
+      },
+      "revId": "ac7f1d21e8fec7f50efb2d21facf01521ccd9df2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

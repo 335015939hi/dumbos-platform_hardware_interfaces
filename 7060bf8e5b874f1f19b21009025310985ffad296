@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d7c9e645_892ac3ec",
+        "filename": "wifi/1.0/IWifiNanIface.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2017-01-03T19:41:50Z",
+      "side": 1,
+      "message": "Done. Replaced all with sessionId.",
+      "parentUuid": "d7c9e645_bd95871f",
+      "range": {
+        "startLine": 127,
+        "startChar": 52,
+        "endLine": 127,
+        "endChar": 61
+      },
+      "revId": "7060bf8e5b874f1f19b21009025310985ffad296",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d7c9e645_dd8653ff",
         "filename": "wifi/1.0/IWifiNanIface.hal",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2017-01-03T18:53:32Z",
       "side": 1,
       "message": "same, subscribeId",
+      "range": {
+        "startLine": 157,
+        "startChar": 54,
+        "endLine": 157,
+        "endChar": 63
+      },
+      "revId": "7060bf8e5b874f1f19b21009025310985ffad296",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7c9e645_49f61b71",
+        "filename": "wifi/1.0/IWifiNanIface.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2017-01-03T19:41:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7c9e645_dd8653ff",
       "range": {
         "startLine": 157,
         "startChar": 54,
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "d7c9e645_e94d87e3",
+        "filename": "wifi/1.0/IWifiNanIface.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2017-01-03T19:41:50Z",
+      "side": 1,
+      "message": "Agreed. Replaced with simple terminate.",
+      "parentUuid": "d7c9e645_1da61b96",
+      "range": {
+        "startLine": 247,
+        "startChar": 49,
+        "endLine": 247,
+        "endChar": 62
+      },
+      "revId": "7060bf8e5b874f1f19b21009025310985ffad296",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d7c9e645_1d7dbb1d",
         "filename": "wifi/1.0/IWifiNanIface.hal",
         "patchSetId": 6
@@ -117,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "d7c9e645_69a43758",
+        "filename": "wifi/1.0/IWifiNanIface.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2017-01-03T19:41:50Z",
+      "side": 1,
+      "message": "Removed mention of HAL. This is really a vendor-specific number useful for debugging.\n\nOpen to removing - here because of legacy reasons. Not critical really.",
+      "parentUuid": "d7c9e645_1d7dbb1d",
+      "range": {
+        "startLine": 269,
+        "startChar": 21,
+        "endLine": 269,
+        "endChar": 38
+      },
+      "revId": "7060bf8e5b874f1f19b21009025310985ffad296",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d7c9e645_1d213b14",
         "filename": "wifi/1.0/default/wifi_nan_iface.cpp",
         "patchSetId": 6
@@ -128,6 +224,30 @@
       "writtenOn": "2017-01-03T18:53:32Z",
       "side": 1,
       "message": "Can you replace \u0027.getStatus().isOk()\u0027 with \u0027.isOk()\u0027 everywhere? (ref: b/31348667)",
+      "range": {
+        "startLine": 53,
+        "startChar": 64,
+        "endLine": 53,
+        "endChar": 81
+      },
+      "revId": "7060bf8e5b874f1f19b21009025310985ffad296",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7c9e645_092333c0",
+        "filename": "wifi/1.0/default/wifi_nan_iface.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2017-01-03T19:41:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7c9e645_1d213b14",
       "range": {
         "startLine": 53,
         "startChar": 64,
@@ -179,6 +299,54 @@
         "startChar": 8,
         "endLine": 571,
         "endChar": 16
+      },
+      "revId": "7060bf8e5b874f1f19b21009025310985ffad296",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7c9e645_29806f94",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 571,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2017-01-03T19:41:50Z",
+      "side": 1,
+      "message": "Not really. Command numbers increment and then time-out on non-response.\n\nBottom line: this is based on a legacy/existing implementation. Can\u0027t wire larger values through it.",
+      "parentUuid": "d7c9e645_1d0a9b8c",
+      "range": {
+        "startLine": 571,
+        "startChar": 8,
+        "endLine": 571,
+        "endChar": 16
+      },
+      "revId": "7060bf8e5b874f1f19b21009025310985ffad296",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7c9e645_e961072c",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 571,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2017-01-03T19:41:50Z",
+      "side": 1,
+      "message": "Yes. This is all asynchronous. The sessionId is one of a set of argument to the command. The command ID identifies the specific command executed.",
+      "parentUuid": "d7c9e645_9df68b6e",
+      "range": {
+        "startLine": 571,
+        "startChar": 17,
+        "endLine": 571,
+        "endChar": 31
       },
       "revId": "7060bf8e5b874f1f19b21009025310985ffad296",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
