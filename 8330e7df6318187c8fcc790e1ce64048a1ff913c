@@ -22,6 +22,30 @@
       "revId": "8330e7df6318187c8fcc790e1ce64048a1ff913c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17c7fe66_ef119d05",
+        "filename": "wifi/1.0/IWifiNanIface.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2017-01-04T18:30:02Z",
+      "side": 1,
+      "message": "Removed method completely.",
+      "parentUuid": "17c7fe66_0fbb3970",
+      "range": {
+        "startLine": 263,
+        "startChar": 50,
+        "endLine": 263,
+        "endChar": 53
+      },
+      "revId": "8330e7df6318187c8fcc790e1ce64048a1ff913c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
