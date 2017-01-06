@@ -30,6 +30,8 @@ enum RadioConst : int32_t {
     SS_INFO_MAX = 4,
     NUM_SERVICE_CLASSES = 7,
     NUM_TX_POWER_LEVELS = 5,
+    OEM_RADIO_ERROR_START = 500,
+    OEM_DCFAILCAUSE_START = 0X1001
 };
 
 enum RadioCdmaSmsConst : int32_t {
@@ -116,35 +118,6 @@ enum RadioError : int32_t {
                                           // is currently in use
     ABORTED = 65,                         // Operation aborted
     INVALID_RESPONSE = 66,                // Response from vendor had invalid data
-
-    // TODO(May be moved to vendor HAL extension)
-    // OEM specific error codes. To be used by OEM when they don't want to reveal
-    // specific error codes which would be replaced by Generic failure.
-    OEM_ERROR_1 = 501,
-    OEM_ERROR_2 = 502,
-    OEM_ERROR_3 = 503,
-    OEM_ERROR_4 = 504,
-    OEM_ERROR_5 = 505,
-    OEM_ERROR_6 = 506,
-    OEM_ERROR_7 = 507,
-    OEM_ERROR_8 = 508,
-    OEM_ERROR_9 = 509,
-    OEM_ERROR_10 = 510,
-    OEM_ERROR_11 = 511,
-    OEM_ERROR_12 = 512,
-    OEM_ERROR_13 = 513,
-    OEM_ERROR_14 = 514,
-    OEM_ERROR_15 = 515,
-    OEM_ERROR_16 = 516,
-    OEM_ERROR_17 = 517,
-    OEM_ERROR_18 = 518,
-    OEM_ERROR_19 = 519,
-    OEM_ERROR_20 = 520,
-    OEM_ERROR_21 = 521,
-    OEM_ERROR_22 = 522,
-    OEM_ERROR_23 = 523,
-    OEM_ERROR_24 = 524,
-    OEM_ERROR_25 = 525,
 };
 
 enum RadioResponseType : int32_t {
@@ -460,25 +433,6 @@ enum DataCallFailCause : int32_t {
     IFACE_AND_POL_FAMILY_MISMATCH = 0x78,
     EMM_ACCESS_BARRED_INFINITE_RETRY = 0x79,
     AUTH_FAILURE_ON_EMERGENCY_CALL = 0x7A,
-    OEM_DCFAILCAUSE_1 = 0x1001,
-
-    // OEM specific error codes. To be used by OEMs when they don't want to
-    // reveal error code which would be replaced by PDP_FAIL_ERROR_UNSPECIFIED
-    // TODO(May be moved to vendor HAL extension)
-    OEM_DCFAILCAUSE_2 = 0x1002,
-    OEM_DCFAILCAUSE_3 = 0x1003,
-    OEM_DCFAILCAUSE_4 = 0x1004,
-    OEM_DCFAILCAUSE_5 = 0x1005,
-    OEM_DCFAILCAUSE_6 = 0x1006,
-    OEM_DCFAILCAUSE_7 = 0x1007,
-    OEM_DCFAILCAUSE_8 = 0x1008,
-    OEM_DCFAILCAUSE_9 = 0x1009,
-    OEM_DCFAILCAUSE_10 = 0x100A,
-    OEM_DCFAILCAUSE_11 = 0x100B,
-    OEM_DCFAILCAUSE_12 = 0x100C,
-    OEM_DCFAILCAUSE_13 = 0x100D,
-    OEM_DCFAILCAUSE_14 = 0x100E,
-    OEM_DCFAILCAUSE_15 = 0x100F,
 
     // Not mentioned in the specification
     VOICE_REGISTRATION_FAIL = -1,
