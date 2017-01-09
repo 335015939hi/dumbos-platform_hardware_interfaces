@@ -14,27 +14,21 @@
  * limitations under the License.
  */
 
-package android.hardware.tests.foo@1.0;
+package android.hardware.tests.bar@1.0;
 
-struct Abc {
-    string x;
-    float y;
-    handle z;
-};
+import android.hardware.tests.foo@1.0;
 
-struct Def {
-    string g;
-};
-
-struct Outer {
-    struct Inner {
-        struct Deep {
-            int32_t data;
-        };
-        int32_t data;
+interface IImportRules {
+    // Note that there is a android.hardware.tests.foo@1.0::Outer in types.hal
+    struct Outer {
+        string data;
     };
-};
 
-struct Unrelated {
-    Outer.Inner great;
+    rule0a(Outer o); // should be resolved to Outer above
+    rule0b(android.hardware.tests.foo@1.0::Outer o);
+
+    rule1a(Def abc); // should be resolved to Def in types.hal in this package
+    rule1b(android.hardware.tests.foo@1.0::Def abc);
+
+    rule2(Unrelated related);
 };
