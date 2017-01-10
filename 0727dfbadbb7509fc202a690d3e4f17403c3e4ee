@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "97c76e81_f86d1b1d",
+        "filename": "tests/bar/1.0/IImportRules.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-01-10T03:38:37Z",
+      "side": 1,
+      "message": "can you also make sure that @1.0::Outer resolves to this type?\n\nAlso, can you add multiple levels of nesting? Try referencing Outer::Inner and ...@1.0::Outer::Inner?",
+      "range": {
+        "startLine": 28,
+        "startChar": 37,
+        "endLine": 28,
+        "endChar": 48
+      },
+      "revId": "0727dfbadbb7509fc202a690d3e4f17403c3e4ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
