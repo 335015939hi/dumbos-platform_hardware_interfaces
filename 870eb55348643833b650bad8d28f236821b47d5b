@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "97c76e81_ef6d4e1d",
+        "filename": "wifi/1.0/default/hidl_struct_util.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-10T14:47:00Z",
+      "side": 1,
+      "message": "Should use * for out parameters according to google style guide: https://engdoc.corp.google.com/eng/doc/devguide/cpp/styleguide.shtml?cl\u003dhead#Function_Parameter_Ordering.",
+      "revId": "870eb55348643833b650bad8d28f236821b47d5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
