@@ -46,6 +46,30 @@
       "revId": "0727dfbadbb7509fc202a690d3e4f17403c3e4ee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97c76e81_879eb24a",
+        "filename": "tests/bar/1.0/IImportRules.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-01-10T23:46:41Z",
+      "side": 1,
+      "message": "@1.0::Outer actually will resolve to foo@1.0::Outer.\n\nOnly @1.0::IImportRules::Outer will resolve to this type.",
+      "parentUuid": "97c76e81_e5332f07",
+      "range": {
+        "startLine": 28,
+        "startChar": 37,
+        "endLine": 28,
+        "endChar": 48
+      },
+      "revId": "0727dfbadbb7509fc202a690d3e4f17403c3e4ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
