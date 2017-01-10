@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "97c76e81_87b47219",
+        "filename": "wifi/supplicant/1.0/ISupplicantP2pIface.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-01-10T23:40:31Z",
+      "side": 1,
+      "message": "no cancelWps here?",
+      "revId": "2bf62fa3295f9a3f0085313f04ebcd1d8da5417a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97c76e81_a7e77627",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIfaceCallback.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-01-10T23:40:31Z",
+      "side": 1,
+      "message": "del prefix",
+      "range": {
+        "startLine": 145,
+        "startChar": 4,
+        "endLine": 145,
+        "endChar": 12
+      },
+      "revId": "2bf62fa3295f9a3f0085313f04ebcd1d8da5417a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97c76e81_4751baf1",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIfaceCallback.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-01-10T23:40:31Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 172,
+        "startChar": 4,
+        "endLine": 172,
+        "endChar": 11
+      },
+      "revId": "2bf62fa3295f9a3f0085313f04ebcd1d8da5417a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
