@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "97c76e81_c22dc1c4",
+        "filename": "wifi/1.0/default/wifi_nan_iface.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-10T17:40:56Z",
+      "side": 1,
+      "message": "Missing null/validity check after promoting to strong pointer.\n\nhttps://cs.corp.google.com/android/hardware/interfaces/wifi/1.0/default/wifi_chip.cpp?rcl\u003d06fe970b1934838189f006eb55a05ebc8767ff11\u0026l\u003d741",
+      "revId": "cdbf16b141a02886e71ac616fea573b5500ade10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
