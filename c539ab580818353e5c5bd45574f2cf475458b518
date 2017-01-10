@@ -22,6 +22,30 @@
       "revId": "c539ab580818353e5c5bd45574f2cf475458b518",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97c76e81_b2b464ce",
+        "filename": "boot/1.0/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-01-10T02:27:52Z",
+      "side": 1,
+      "message": "The corresponding CL # in master is 1768588",
+      "parentUuid": "97c76e81_320614d1",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 7
+      },
+      "revId": "c539ab580818353e5c5bd45574f2cf475458b518",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
