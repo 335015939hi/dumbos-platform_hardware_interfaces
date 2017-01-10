@@ -16,6 +16,24 @@
       "revId": "870eb55348643833b650bad8d28f236821b47d5b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97c76e81_2f8b4641",
+        "filename": "wifi/1.0/default/hidl_struct_util.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2017-01-10T16:44:27Z",
+      "side": 1,
+      "message": "I was wondering about that style (so got rid of it - oops). Fixed everywhere and added checks for null pointer.",
+      "parentUuid": "97c76e81_ef6d4e1d",
+      "revId": "870eb55348643833b650bad8d28f236821b47d5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
