@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "97c76e81_0a1747be",
+        "filename": "tests/bar/1.0/IImportRules.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-01-10T23:51:36Z",
+      "side": 1,
+      "message": "Shouldn\u0027t be a problem, but I will add it in as well",
+      "parentUuid": "97c76e81_caaf0f5f",
+      "range": {
+        "startLine": 31,
+        "startChar": 17,
+        "endLine": 31,
+        "endChar": 35
+      },
+      "revId": "9982b4d3bf572217070dbd80a86291f160a9bcd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97c76e81_6a8243ec",
         "filename": "tests/bar/1.0/IImportRules.hal",
         "patchSetId": 3
