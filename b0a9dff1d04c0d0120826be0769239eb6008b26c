@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "97c76e81_6faede7e",
+        "filename": "wifi/1.0/default/wifi_nan_iface.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-10T17:01:14Z",
+      "side": 1,
+      "message": "We should probably add a weak ptr reference here in the callbacks here like we do for callbacks in the other interfaces. For ex: https://cs.corp.google.com/android/hardware/interfaces/wifi/1.0/default/wifi_chip.cpp?rcl\u003d06fe970b1934838189f006eb55a05ebc8767ff11\u0026l\u003d737.\n\nquiche@ raised some concerns regarding the lifetime of these callbacks if this original object is destroyed/invalidated. So, I modified all the other callbacks to pass in the weak ptr.",
+      "revId": "b0a9dff1d04c0d0120826be0769239eb6008b26c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
