@@ -16,6 +16,24 @@
       "revId": "b0a9dff1d04c0d0120826be0769239eb6008b26c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97c76e81_22647d3a",
+        "filename": "wifi/1.0/default/wifi_nan_iface.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2017-01-10T17:32:43Z",
+      "side": 1,
+      "message": "Updated code per pattern you pointed to.",
+      "parentUuid": "97c76e81_6faede7e",
+      "revId": "b0a9dff1d04c0d0120826be0769239eb6008b26c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
