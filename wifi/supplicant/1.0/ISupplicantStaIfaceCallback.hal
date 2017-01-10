@@ -139,6 +139,44 @@ interface ISupplicantStaIfaceCallback {
   };
 
   /**
+   * WPS Configuration Error.
+   */
+  enum WpsConfigError : uint16_t {
+    WPS_CFG_NO_ERROR = 0,
+    WPS_CFG_OOB_IFACE_READ_ERROR = 1,
+    WPS_CFG_DECRYPTION_CRC_FAILURE = 2,
+    WPS_CFG_24_CHAN_NOT_SUPPORTED = 3,
+    WPS_CFG_50_CHAN_NOT_SUPPORTED = 4,
+    WPS_CFG_SIGNAL_TOO_WEAK = 5,
+    WPS_CFG_NETWORK_AUTH_FAILURE = 6,
+    WPS_CFG_NETWORK_ASSOC_FAILURE = 7,
+    WPS_CFG_NO_DHCP_RESPONSE = 8,
+    WPS_CFG_FAILED_DHCP_CONFIG = 9,
+    WPS_CFG_IP_ADDR_CONFLICT = 10,
+    WPS_CFG_NO_CONN_TO_REGISTRAR = 11,
+    WPS_CFG_MULTIPLE_PBC_DETECTED = 12,
+    WPS_CFG_ROGUE_SUSPECTED = 13,
+    WPS_CFG_DEVICE_BUSY = 14,
+    WPS_CFG_SETUP_LOCKED = 15,
+    WPS_CFG_MSG_TIMEOUT = 16,
+    WPS_CFG_REG_SESS_TIMEOUT = 17,
+    WPS_CFG_DEV_PASSWORD_AUTH_FAILURE = 18,
+    WPS_CFG_60G_CHAN_NOT_SUPPORTED = 19,
+    WPS_CFG_PUBLIC_KEY_HASH_MISMATCH = 20
+  };
+
+  /**
+   * Vendor specific Error Indication for WPS event messages.
+   */
+  enum WpsErrorIndication : uint16_t {
+    WPS_EI_NO_ERROR,
+    WPS_EI_SECURITY_TKIP_ONLY_PROHIBITED,
+    WPS_EI_SECURITY_WEP_PROHIBITED,
+    WPS_EI_AUTH_FAILURE,
+    NUM_WPS_EI_VALUES
+  };
+
+  /**
    * Used to indicate that a new network has been added.
    *
    * @param id Network ID allocated to the corresponding network.
@@ -242,4 +280,31 @@ interface ISupplicantStaIfaceCallback {
    *        Refer to section 8.4.1.9 of IEEE 802.11 spec.
    */
   oneway onAssociationRejected(Bssid bssid, uint32_t statusCode);
+
+  /**
+   * Used to indicate the success of a WPS connection attempt.
+   *
+   * @param bssid BSSID of the AP to which we initiated WPS
+   *        connection.
+   */
+  oneway onWpsSuccess(Bssid bssid);
+
+  /**
+   * Used to indicate the failure of a WPS connection attempt.
+   *
+   * @param bssid BSSID of the AP to which we initiated WPS
+   *        connection.
+   * @param configError Configuration error code.
+   * @param errorInd Error indication code.
+   */
+  oneway onWpsFail(
+      Bssid bssid, WpsConfigError configError, WpsErrorIndication errorInd);
+
+  /**
+   * Used to indicate the overlap of a WPS PBC connection attempt.
+   *
+   * @param bssid BSSID of the AP to which we initiated WPS
+   *        connection.
+   */
+  oneway onWpsPbcOverlap(Bssid bssid);
 };

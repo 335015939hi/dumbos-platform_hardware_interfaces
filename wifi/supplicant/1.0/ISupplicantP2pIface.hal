@@ -537,4 +537,48 @@ interface ISupplicantP2pIface extends ISupplicantIface {
    */
   setMiracastMode(MiracastMode mode)
       generates (SupplicantStatus status);
+
+  /**
+   * Operate in WPS Push Button  mode.
+   * The PBC operation requires that a button is also pressed at the
+   * AP/Registrar at about the same time (2 minute window).
+   *
+   * @param groupIfName Group interface name to use.
+   * @param bssid BSSID of the AP.
+   * @return status Status of the operation.
+   *         Possible status codes:
+   *         |SupplicantStatusCode.SUCCESS|,
+   *         |SupplicantStatusCode.FAILURE_UNKNOWN|
+   */
+  startWpsPbc(string groupIfName, Bssid bssid)
+      generates (SupplicantStatus status);
+
+  /**
+   * Operate in WPS Pin Keypad mode.
+   *
+   * @param groupIfName Group interface name to use.
+   * @param bssid BSSID of the AP.
+   * @param preSelectedPin Pin to be used.
+   * @return status Status of the operation.
+   *         Possible status codes:
+   *         |SupplicantStatusCode.SUCCESS|,
+   *         |SupplicantStatusCode.FAILURE_UNKNOWN|
+   * @return generatedPin Pin generated.
+   */
+  startWpsPinKeyPad(string groupIfName, Bssid bssid, string preSelectedPin)
+      generates (SupplicantStatus status);
+
+  /**
+   * Operate in WPS Pin Display mode.
+   *
+   * @param groupIfName Group interface name to use.
+   * @param bssid BSSID of the AP.
+   * @return status Status of the operation.
+   *         Possible status codes:
+   *         |SupplicantStatusCode.SUCCESS|,
+   *         |SupplicantStatusCode.FAILURE_UNKNOWN|
+   * @return generatedPin Pin generated.
+   */
+  startWpsPinDisplay(string groupIfName, Bssid bssid)
+      generates (SupplicantStatus status, string generatedPin);
 };
