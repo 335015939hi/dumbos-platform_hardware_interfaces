@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a364350b_75b3df4c",
+        "filename": "tests/bar/1.0/IImportRules.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-01-11T20:47:51Z",
+      "side": 1,
+      "message": "Iliyan? Can you verify that this is what we wanted?",
+      "range": {
+        "startLine": 34,
+        "startChar": 4,
+        "endLine": 34,
+        "endChar": 67
+      },
+      "revId": "74d342a37447cb9098148d4b0f3c9c6dafdd9fc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
