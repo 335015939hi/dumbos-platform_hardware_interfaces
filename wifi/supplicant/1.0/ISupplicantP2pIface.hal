@@ -40,16 +40,6 @@ interface ISupplicantP2pIface extends ISupplicantIface {
     KEYPAD
   };
 
-  enum GroupCapabilityMask : uint32_t {
-    GROUP_OWNER = 1 << 0,
-    PERSISTENT_GROUP = 1 << 1,
-    GROUP_LIMIT = 1 << 2,
-    INTRA_BSS_DIST = 1 << 3,
-    CROSS_CONN = 1 << 4,
-    PERSISTENT_RECONN = 1 << 5,
-    GROUP_FORMATION = 1 << 6
-  };
-
   /**
    * Use to specify a range of frequencies.
    * For example: 2412-2432,2462,5000-6000, etc.
