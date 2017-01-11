@@ -26,6 +26,70 @@ package android.hardware.wifi.supplicant@1.0;
  */
 interface ISupplicantP2pIfaceCallback {
   /**
+   * WPS config methods.
+   */
+  enum WpsConfigMethods : uint16_t {
+    USBA = 0x0001,
+    ETHERNET = 0x0002,
+    LABEL = 0x0004,
+    DISPLAY = 0x0008,
+    EXT_NFC_TOKEN = 0x0010,
+    INT_NFC_TOKEN = 0x0020,
+    NFC_INTERFACE = 0x0040,
+    PUSHBUTTON = 0x0080,
+    KEYPAD = 0x0100,
+    VIRT_PUSHBUTTON = 0x0280,
+    PHY_PUSHBUTTON = 0x0480,
+    P2PS = 0x1000,
+    VIRT_DISPLAY = 0x2008,
+    PHY_DISPLAY = 0x4008
+  };
+
+  /**
+   * WPS Device Password ID
+   */
+  enum WpsDevPasswordId : uint16_t{
+    DEFAULT = 0x0000,
+    USER_SPECIFIED = 0x0001,
+    MACHINE_SPECIFIED = 0x0002,
+    REKEY = 0x0003,
+    PUSHBUTTON = 0x0004,
+    REGISTRAR_SPECIFIED = 0x0005,
+    NFC_CONNECTION_HANDOVER = 0x0007,
+    P2PS_DEFAULT = 0x0008
+  };
+
+  /**
+   * Status codes for P2P operations.
+   */
+  enum P2pStatusCode : uint32_t {
+    SUCCESS = 0,
+    FAIL_INFO_CURRENTLY_UNAVAILABLE = 1,
+    FAIL_INCOMPATIBLE_PARAMS = 2,
+    FAIL_LIMIT_REACHED = 3,
+    FAIL_INVALID_PARAMS = 4,
+    FAIL_UNABLE_TO_ACCOMMODATE = 5,
+    FAIL_PREV_PROTOCOL_ERROR = 6,
+    FAIL_NO_COMMON_CHANNELS = 7,
+    FAIL_UNKNOWN_GROUP = 8,
+    FAIL_BOTH_GO_INTENT_15 = 9,
+    FAIL_INCOMPATIBLE_PROV_METHOD = 10,
+    FAIL_REJECTED_BY_USER = 11,
+    SUCCESS_DEFERRED = 12,
+  };
+
+  /**
+   * Status codes for P2P discovery.
+   */
+  enum P2pProvDiscStatusCode : uint8_t {
+    SUCCESS = 0,
+    TIMEOUT = 1,
+    REJECTED = 2,
+    TIMEOUT_JOIN = 3,
+    INFO_UNAVAILABLE = 4
+  };
+
+  /**
    * Used to indicate that a new network has been added.
    *
    * @param id Network ID allocated to the corresponding network.
@@ -38,4 +102,77 @@ interface ISupplicantP2pIfaceCallback {
    * @param id Network ID allocated to the corresponding network.
    */
   oneway onNetworkRemoved(SupplicantNetworkId id);
+
+  /**
+   * Used to indicate that a P2P device has been found.
+   */
+  oneway onDeviceFound(
+      MacAddress peerAddress, uint8_t[8] primaryDeviceType,
+      string deviceName, bitfield<WpsConfigMethods> configMethods,
+      uint8_t deviceCapabilities,
+      bitfield<P2pGroupCapabilityMask> groupCapabilities,
+      string wfdDeviceInfo);
+
+  /**
+   * Used to indicate that a P2P device has been lost.
+   */
+  oneway onDeviceLost(MacAddress peerAddress);
+
+  /**
+   * Used to indicate the termination of P2P find operation.
+   */
+  oneway onFindStopped();
+
+  /*
+   * Used to indicate the reception of a P2P GO request.
+   */
+  oneway onGoNegotiationRequest(
+      MacAddress peerAddress, WpsDevPasswordId passwordId);
+
+  /*
+   * Used to indicate the completion of a P2P GO request.
+   */
+  oneway onGoNegotiationCompleted(P2pStatusCode status);
+
+  /*
+   * Used to indicate a successful formation of a P2P group.
+   */
+  oneway onGroupFormationSuccess();
+
+  /**
+   * Used to indicate a failure to form a P2P group.
+   */
+  oneway onGroupFormationFailure(string failureReason);
+
+  /**
+   * Used to indicate the start of a P2P group.
+   */
+  oneway onGroupStarted(
+      string groupIfname, bool isGo, Ssid ssid, uint32_t frequency,
+      uint8_t[32] psk, string passphrase, MacAddress goDeviceAddress,
+      bool isPersistent);
+
+  /**
+   * Used to indicate the removal of a P2P group.
+   */
+  oneway onGroupRemoved(string groupIfname, bool isGo);
+
+  /**
+   * Used to indicate the reception of a P2P invitation.
+   */
+  oneway onInvitationReceived(MacAddress source_address,
+      MacAddress go_device_address, Bssid bssid,
+      SupplicantNetworkId persistentNetworkId, uint32_t operatingFrequency);
+
+  /**
+   * Used to indicate the result of the P2P invitation request.
+   */
+  oneway onInvitationResult(Bssid bssid, P2pStatusCode status);
+
+  /**
+   * Used to indicate the completion of a P2P discovery request.
+   */
+  oneway onProvisionDiscoveryCompleted(
+      MacAddress peerAddress, bool isRequest, P2pProvDiscStatusCode status,
+      bitfield<WpsConfigMethods> configMethods, string generatedPin);
 };
