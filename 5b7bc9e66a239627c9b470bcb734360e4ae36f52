@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a364350b_b33d0f32",
+        "filename": "wifi/supplicant/1.0/ISupplicantP2pIface.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-01-11T21:56:00Z",
+      "side": 1,
+      "message": "What do you pass in if you don\u0027t want to specify?",
+      "range": {
+        "startLine": 264,
+        "startChar": 18,
+        "endLine": 264,
+        "endChar": 26
+      },
+      "revId": "5b7bc9e66a239627c9b470bcb734360e4ae36f52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
