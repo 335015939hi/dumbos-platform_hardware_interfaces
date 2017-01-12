@@ -48,6 +48,54 @@
     },
     {
       "key": {
+        "uuid": "a364350b_c4ceb466",
+        "filename": "wifi/supplicant/1.0/ISupplicantP2pIface.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-12T16:23:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_6dbf93a0",
+      "range": {
+        "startLine": 542,
+        "startChar": 31,
+        "endLine": 542,
+        "endChar": 33
+      },
+      "revId": "1e07e891516faf1d6ec68fd0bac4c164c944ad59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_a4c94060",
+        "filename": "wifi/supplicant/1.0/ISupplicantP2pIface.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-12T16:23:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_cd56df6f",
+      "range": {
+        "startLine": 542,
+        "startChar": 5,
+        "endLine": 542,
+        "endChar": 12
+      },
+      "revId": "1e07e891516faf1d6ec68fd0bac4c164c944ad59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a364350b_addccbf9",
         "filename": "wifi/supplicant/1.0/ISupplicantP2pIface.hal",
         "patchSetId": 4
@@ -59,6 +107,30 @@
       "writtenOn": "2017-01-12T00:57:44Z",
       "side": 1,
       "message": "Maybe \"wildcard\", instead? (Alternatively \"any BSSID\". The sentence reads weridly with a dangling \"any\".)",
+      "range": {
+        "startLine": 547,
+        "startChar": 65,
+        "endLine": 547,
+        "endChar": 68
+      },
+      "revId": "1e07e891516faf1d6ec68fd0bac4c164c944ad59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_44baa4cd",
+        "filename": "wifi/supplicant/1.0/ISupplicantP2pIface.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-12T16:23:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_addccbf9",
       "range": {
         "startLine": 547,
         "startChar": 65,
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "a364350b_e4c65848",
+        "filename": "wifi/supplicant/1.0/ISupplicantP2pIface.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-12T16:23:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_6d5b1398",
+      "range": {
+        "startLine": 557,
+        "startChar": 5,
+        "endLine": 557,
+        "endChar": 12
+      },
+      "revId": "1e07e891516faf1d6ec68fd0bac4c164c944ad59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a364350b_8d37874d",
         "filename": "wifi/supplicant/1.0/ISupplicantP2pIface.hal",
         "patchSetId": 4
@@ -105,6 +201,30 @@
       "writtenOn": "2017-01-12T00:57:44Z",
       "side": 1,
       "message": "Is there anything we can/should say about the format of the generated PIN?",
+      "range": {
+        "startLine": 565,
+        "startChar": 13,
+        "endLine": 565,
+        "endChar": 25
+      },
+      "revId": "1e07e891516faf1d6ec68fd0bac4c164c944ad59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_a4b060e8",
+        "filename": "wifi/supplicant/1.0/ISupplicantP2pIface.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 565,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-12T16:23:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_8d37874d",
       "range": {
         "startLine": 565,
         "startChar": 13,
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "a364350b_c4b554d8",
+        "filename": "wifi/supplicant/1.0/ISupplicantP2pIface.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 571,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-12T16:23:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_8d60e743",
+      "range": {
+        "startLine": 571,
+        "startChar": 5,
+        "endLine": 571,
+        "endChar": 12
+      },
+      "revId": "1e07e891516faf1d6ec68fd0bac4c164c944ad59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a364350b_2dd0bbd6",
         "filename": "wifi/supplicant/1.0/ISupplicantP2pIface.hal",
         "patchSetId": 4
@@ -151,6 +295,30 @@
       "writtenOn": "2017-01-12T00:57:44Z",
       "side": 1,
       "message": "As at line 547.",
+      "range": {
+        "startLine": 574,
+        "startChar": 65,
+        "endLine": 574,
+        "endChar": 68
+      },
+      "revId": "1e07e891516faf1d6ec68fd0bac4c164c944ad59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_84af5c84",
+        "filename": "wifi/supplicant/1.0/ISupplicantP2pIface.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-12T16:23:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_2dd0bbd6",
       "range": {
         "startLine": 574,
         "startChar": 65,
@@ -186,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "a364350b_24a450a5",
+        "filename": "wifi/supplicant/1.0/ISupplicantP2pIface.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-12T16:23:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_4d296fec",
+      "range": {
+        "startLine": 579,
+        "startChar": 13,
+        "endLine": 579,
+        "endChar": 25
+      },
+      "revId": "1e07e891516faf1d6ec68fd0bac4c164c944ad59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a364350b_add60ba7",
         "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
         "patchSetId": 4
@@ -197,6 +389,30 @@
       "writtenOn": "2017-01-12T00:57:44Z",
       "side": 1,
       "message": "Same comment as in previous file.",
+      "range": {
+        "startLine": 324,
+        "startChar": 5,
+        "endLine": 324,
+        "endChar": 12
+      },
+      "revId": "1e07e891516faf1d6ec68fd0bac4c164c944ad59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_7f765143",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-12T16:23:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_add60ba7",
       "range": {
         "startLine": 324,
         "startChar": 5,
@@ -255,6 +471,54 @@
     },
     {
       "key": {
+        "uuid": "a364350b_3f78d92a",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-12T16:23:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_ede3a382",
+      "range": {
+        "startLine": 337,
+        "startChar": 5,
+        "endLine": 337,
+        "endChar": 12
+      },
+      "revId": "1e07e891516faf1d6ec68fd0bac4c164c944ad59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_df843dfa",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-12T16:23:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_cdb49f95",
+      "range": {
+        "startLine": 337,
+        "startChar": 31,
+        "endLine": 337,
+        "endChar": 33
+      },
+      "revId": "1e07e891516faf1d6ec68fd0bac4c164c944ad59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a364350b_2d98bb07",
         "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
         "patchSetId": 4
@@ -266,6 +530,30 @@
       "writtenOn": "2017-01-12T00:57:44Z",
       "side": 1,
       "message": "Consider \"wildcard\".",
+      "range": {
+        "startLine": 341,
+        "startChar": 65,
+        "endLine": 341,
+        "endChar": 68
+      },
+      "revId": "1e07e891516faf1d6ec68fd0bac4c164c944ad59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_ff8101e7",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-12T16:23:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_2d98bb07",
       "range": {
         "startLine": 341,
         "startChar": 65,
@@ -301,6 +589,30 @@
     },
     {
       "key": {
+        "uuid": "a364350b_9f8ec516",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-12T16:23:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_cd825fa1",
+      "range": {
+        "startLine": 350,
+        "startChar": 5,
+        "endLine": 350,
+        "endChar": 12
+      },
+      "revId": "1e07e891516faf1d6ec68fd0bac4c164c944ad59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a364350b_4d6e4f18",
         "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
         "patchSetId": 4
@@ -312,6 +624,30 @@
       "writtenOn": "2017-01-12T00:57:44Z",
       "side": 1,
       "message": "Same comments as in previous file.",
+      "range": {
+        "startLine": 357,
+        "startChar": 13,
+        "endLine": 357,
+        "endChar": 25
+      },
+      "revId": "1e07e891516faf1d6ec68fd0bac4c164c944ad59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_bf93893e",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-12T16:23:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_4d6e4f18",
       "range": {
         "startLine": 357,
         "startChar": 13,
@@ -347,6 +683,30 @@
     },
     {
       "key": {
+        "uuid": "a364350b_5f882d08",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-12T16:23:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_6d8793b1",
+      "range": {
+        "startLine": 362,
+        "startChar": 5,
+        "endLine": 362,
+        "endChar": 12
+      },
+      "revId": "1e07e891516faf1d6ec68fd0bac4c164c944ad59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a364350b_4d95efcd",
         "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
         "patchSetId": 4
@@ -370,6 +730,30 @@
     },
     {
       "key": {
+        "uuid": "a364350b_1fa2b58a",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-12T16:23:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_4d95efcd",
+      "range": {
+        "startLine": 364,
+        "startChar": 65,
+        "endLine": 364,
+        "endChar": 68
+      },
+      "revId": "1e07e891516faf1d6ec68fd0bac4c164c944ad59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a364350b_ed7ac3d2",
         "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
         "patchSetId": 4
@@ -381,6 +765,30 @@
       "writtenOn": "2017-01-12T00:57:44Z",
       "side": 1,
       "message": "As at line 362.",
+      "range": {
+        "startLine": 369,
+        "startChar": 13,
+        "endLine": 369,
+        "endChar": 25
+      },
+      "revId": "1e07e891516faf1d6ec68fd0bac4c164c944ad59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_3f9f7942",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-12T16:23:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_ed7ac3d2",
       "range": {
         "startLine": 369,
         "startChar": 13,
