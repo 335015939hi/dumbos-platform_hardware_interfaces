@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a364350b_ffc6e11e",
+        "filename": "wifi/supplicant/1.0/ISupplicantP2pIface.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-12T16:23:10Z",
+      "side": 1,
+      "message": "This enum has just been moved to types.hal. There is a corresponding (same topic) wpa_supplicant change here: go/aog/321769. It\u0027s still a WIP.",
+      "parentUuid": "a364350b_ed7c0361",
+      "revId": "f5017d6a02674dbefd7e0517ce050119dd95349b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a364350b_4d972f68",
         "filename": "wifi/supplicant/1.0/ISupplicantP2pIfaceCallback.hal",
         "patchSetId": 3
@@ -30,6 +48,30 @@
       "writtenOn": "2017-01-12T01:26:48Z",
       "side": 1,
       "message": "Missing space between \u0027t\u0027 and \u0027{\u0027.",
+      "range": {
+        "startLine": 51,
+        "startChar": 33,
+        "endLine": 51,
+        "endChar": 35
+      },
+      "revId": "f5017d6a02674dbefd7e0517ce050119dd95349b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_9f032586",
+        "filename": "wifi/supplicant/1.0/ISupplicantP2pIfaceCallback.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-12T16:23:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_4d972f68",
       "range": {
         "startLine": 51,
         "startChar": 33,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "a364350b_ff1d81de",
+        "filename": "wifi/supplicant/1.0/ISupplicantP2pIfaceCallback.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-12T16:23:10Z",
+      "side": 1,
+      "message": "This is remote. It could either be a P2P device or P2P interface address: https://cs.corp.google.com/android/external/wpa_supplicant_8/src/p2p/p2p.c?rcl\u003d1ba3d8815492d58d1f71a0c31de591820187415c\u0026l\u003d691.\n\nRenamed to srcAddress.",
+      "parentUuid": "a364350b_0d28574e",
+      "range": {
+        "startLine": 110,
+        "startChar": 17,
+        "endLine": 110,
+        "endChar": 27
+      },
+      "revId": "f5017d6a02674dbefd7e0517ce050119dd95349b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a364350b_0d3ff783",
         "filename": "wifi/supplicant/1.0/ISupplicantP2pIfaceCallback.hal",
         "patchSetId": 3
@@ -76,6 +142,30 @@
       "writtenOn": "2017-01-12T01:26:48Z",
       "side": 1,
       "message": "Is this local or remote?",
+      "range": {
+        "startLine": 129,
+        "startChar": 17,
+        "endLine": 129,
+        "endChar": 27
+      },
+      "revId": "f5017d6a02674dbefd7e0517ce050119dd95349b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_9fea457e",
+        "filename": "wifi/supplicant/1.0/ISupplicantP2pIfaceCallback.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-12T16:23:10Z",
+      "side": 1,
+      "message": "Remote. Mac address of the source of request.",
+      "parentUuid": "a364350b_0d3ff783",
       "range": {
         "startLine": 129,
         "startChar": 17,
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "a364350b_bf56296e",
+        "filename": "wifi/supplicant/1.0/ISupplicantP2pIfaceCallback.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-12T16:23:10Z",
+      "side": 1,
+      "message": "P2P creates virtual interfaces for each group. For ex: p2p0-1.",
+      "parentUuid": "a364350b_ed188330",
+      "range": {
+        "startLine": 150,
+        "startChar": 13,
+        "endLine": 150,
+        "endChar": 24
+      },
+      "revId": "f5017d6a02674dbefd7e0517ce050119dd95349b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a364350b_8d0a27d7",
         "filename": "wifi/supplicant/1.0/ISupplicantP2pIfaceCallback.hal",
         "patchSetId": 3
@@ -122,6 +236,30 @@
       "writtenOn": "2017-01-12T01:26:48Z",
       "side": 1,
       "message": "Is this local or remote? (Or perhaps something altogether different ... I\u0027m not sure what MAC addresses are involved with a P2P group. Feel free to point me to a webpage or wikipedia article, if you know one that explains the concept.)",
+      "range": {
+        "startLine": 151,
+        "startChar": 53,
+        "endLine": 151,
+        "endChar": 68
+      },
+      "revId": "f5017d6a02674dbefd7e0517ce050119dd95349b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_ff48216d",
+        "filename": "wifi/supplicant/1.0/ISupplicantP2pIfaceCallback.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-12T16:23:10Z",
+      "side": 1,
+      "message": "This is address of the owner of the group created. \n\nI\u0027ve been using wpa_supplicant\u0027s README to understand the P2P operations (wouldn\u0027t claim to fully understand it though).\nhttps://cs.corp.google.com/android/external/wpa_supplicant_8/wpa_supplicant/README-P2P",
+      "parentUuid": "a364350b_8d0a27d7",
       "range": {
         "startLine": 151,
         "startChar": 53,
@@ -157,6 +295,30 @@
     },
     {
       "key": {
+        "uuid": "a364350b_bf6aa9c4",
+        "filename": "wifi/supplicant/1.0/ISupplicantP2pIfaceCallback.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-12T16:23:10Z",
+      "side": 1,
+      "message": "Same.",
+      "parentUuid": "a364350b_ade28be4",
+      "range": {
+        "startLine": 157,
+        "startChar": 31,
+        "endLine": 157,
+        "endChar": 42
+      },
+      "revId": "f5017d6a02674dbefd7e0517ce050119dd95349b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a364350b_8de1c7e0",
         "filename": "wifi/supplicant/1.0/ISupplicantP2pIfaceCallback.hal",
         "patchSetId": 3
@@ -168,6 +330,30 @@
       "writtenOn": "2017-01-12T01:26:48Z",
       "side": 1,
       "message": "As at line 151.",
+      "range": {
+        "startLine": 163,
+        "startChar": 17,
+        "endLine": 163,
+        "endChar": 32
+      },
+      "revId": "f5017d6a02674dbefd7e0517ce050119dd95349b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_7f7411a9",
+        "filename": "wifi/supplicant/1.0/ISupplicantP2pIfaceCallback.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-12T16:23:10Z",
+      "side": 1,
+      "message": "Same.",
+      "parentUuid": "a364350b_8de1c7e0",
       "range": {
         "startLine": 163,
         "startChar": 17,
@@ -203,6 +389,30 @@
     },
     {
       "key": {
+        "uuid": "a364350b_1f59553c",
+        "filename": "wifi/supplicant/1.0/ISupplicantP2pIfaceCallback.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-12T16:23:10Z",
+      "side": 1,
+      "message": "srcAddress to be consistent with the params at line 109? This can again be either a P2P device or interface address.",
+      "parentUuid": "a364350b_edc64348",
+      "range": {
+        "startLine": 181,
+        "startChar": 36,
+        "endLine": 181,
+        "endChar": 46
+      },
+      "revId": "f5017d6a02674dbefd7e0517ce050119dd95349b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a364350b_adb04be8",
         "filename": "wifi/supplicant/1.0/ISupplicantP2pIfaceCallback.hal",
         "patchSetId": 3
@@ -214,6 +424,30 @@
       "writtenOn": "2017-01-12T01:26:48Z",
       "side": 1,
       "message": "As at line 181.",
+      "range": {
+        "startLine": 186,
+        "startChar": 38,
+        "endLine": 186,
+        "endChar": 48
+      },
+      "revId": "f5017d6a02674dbefd7e0517ce050119dd95349b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_3f56990c",
+        "filename": "wifi/supplicant/1.0/ISupplicantP2pIfaceCallback.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-12T16:23:10Z",
+      "side": 1,
+      "message": "Same.",
+      "parentUuid": "a364350b_adb04be8",
       "range": {
         "startLine": 186,
         "startChar": 38,
