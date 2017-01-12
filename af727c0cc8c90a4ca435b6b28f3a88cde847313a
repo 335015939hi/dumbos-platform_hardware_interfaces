@@ -22,6 +22,30 @@
       "revId": "af727c0cc8c90a4ca435b6b28f3a88cde847313a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_9f01e5ef",
+        "filename": "wifi/1.0/default/wifi_sta_iface.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-12T16:28:24Z",
+      "side": 1,
+      "message": "Hmm. The line become too long if inlined. The other methods are all using the same pattern.\nInlining may not be too bad for this function, but it looks ugly for the other functions which have a lot of parameters.",
+      "parentUuid": "a364350b_b003be85",
+      "range": {
+        "startLine": 513,
+        "startChar": 41,
+        "endLine": 513,
+        "endChar": 54
+      },
+      "revId": "af727c0cc8c90a4ca435b6b28f3a88cde847313a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
