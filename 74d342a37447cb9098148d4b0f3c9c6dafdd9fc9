@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "a364350b_d09192a7",
+        "filename": "tests/bar/1.0/IImportRules.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000866
+      },
+      "writtenOn": "2017-01-12T01:55:53Z",
+      "side": 1,
+      "message": "If hidl-gen currently rejects such usage, that\u0027s fine (and better as well, I agree.)  If that\u0027s the case, then make sure to reflect it in the versioning doc.",
+      "parentUuid": "a364350b_cdcedf66",
+      "range": {
+        "startLine": 33,
+        "startChar": 4,
+        "endLine": 33,
+        "endChar": 52
+      },
+      "revId": "74d342a37447cb9098148d4b0f3c9c6dafdd9fc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a364350b_75b3df4c",
         "filename": "tests/bar/1.0/IImportRules.hal",
         "patchSetId": 4
