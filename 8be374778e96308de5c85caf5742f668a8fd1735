@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a364350b_a0be0571",
+        "filename": "tests/bar/1.0/IImportRules.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-01-12T21:12:05Z",
+      "side": 1,
+      "message": "I put in another edge case here (and I\u0027ve noted this behavior in the documentation).\n\nNote that foo@1.0::IFooCallback is used even though bar@1.0::IFooCallback is present, only because the latter isn\u0027t imported. If it were imported, the latter will be favored.\n\nThoughts? Does this make sense to you?",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 37
+      },
+      "revId": "8be374778e96308de5c85caf5742f668a8fd1735",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
