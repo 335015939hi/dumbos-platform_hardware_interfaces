@@ -16,6 +16,7 @@
 cc_library_shared {
     name: "android.hardware.bluetooth@1.0-impl",
     relative_install_path: "hw",
+    proprietary: true,
     srcs: [
         "async_fd_watcher.cc",
         "bluetooth_hci.cc",
