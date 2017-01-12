@@ -2,6 +2,955 @@
   "comments": [
     {
       "key": {
+        "uuid": "a364350b_f87a8624",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-12T00:37:43Z",
+      "side": 1,
+      "message": "Consider ASSERT_NE here. (Better to fail gracefully, than to have the test body segfault.)",
+      "range": {
+        "startLine": 37,
+        "startChar": 8,
+        "endLine": 37,
+        "endChar": 17
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_d34e83d1",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-12T00:37:43Z",
+      "side": 1,
+      "message": "The HAL file also mentions getInterface(). Is that tested somewhere?",
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_f82b66e5",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-12T00:37:43Z",
+      "side": 1,
+      "message": "Might be shorter with find_if()?\n\n  EXPECT_NE(ifaces.end(),\n    std::find_if(ifaces.begin(), ifaces.end(),\n      [](const auto\u0026 iface){ return iface.type \u003d\u003d IfaceType::STA; }));\n\n(The |auto| here uses generic lambdas from C++14. I believe we\u0027re building with C++14, so that should be okay.)",
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_38b9de8a",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-12T00:37:43Z",
+      "side": 1,
+      "message": "Any reason for not using the symbols defined above? (|show_timestamp|, |show_keys|)",
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_180ada46",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-12T00:37:43Z",
+      "side": 1,
+      "message": "I think this could be |[]|, as we\u0027re not capturing anything.",
+      "range": {
+        "startLine": 93,
+        "startChar": 32,
+        "endLine": 93,
+        "endChar": 35
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_530d93af",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-12T00:37:43Z",
+      "side": 1,
+      "message": "Consider adding separate test cases for these, just to make the mapping from .hal to test simpler. (On first glance, it looked like we were missing tests for these methods.)",
+      "range": {
+        "startLine": 98,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 64
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_781996a7",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-12T00:37:43Z",
+      "side": 1,
+      "message": "As at line 93.",
+      "range": {
+        "startLine": 108,
+        "startChar": 24,
+        "endLine": 108,
+        "endChar": 27
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_981eea8f",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-12T00:37:43Z",
+      "side": 1,
+      "message": "As at line 93.",
+      "range": {
+        "startLine": 112,
+        "startChar": 24,
+        "endLine": 112,
+        "endChar": 27
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_090dae5e",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_p2p_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-12T00:37:43Z",
+      "side": 1,
+      "message": "Would it make sense to add some test cases that trigger FAILURE_IFACE_INVALID results?",
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_f8f36626",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_p2p_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-12T00:37:43Z",
+      "side": 1,
+      "message": "I would have thought that the WPS PIN is 8 decimal digits. Or is this intended to be syntactically invalid? (If the latter, prefer kInvalidWpsPin, or something of that nature.)",
+      "range": {
+        "startLine": 38,
+        "startChar": 36,
+        "endLine": 38,
+        "endChar": 46
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_d8ea2228",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_p2p_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-12T00:37:43Z",
+      "side": 1,
+      "message": "Consider ASSERT_NE, instead.",
+      "range": {
+        "startLine": 56,
+        "startChar": 8,
+        "endLine": 56,
+        "endChar": 17
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_93380b42",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_p2p_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-12T00:37:43Z",
+      "side": 1,
+      "message": "Do we want a test for registerCallback?",
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_d3252311",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_p2p_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-12T00:37:43Z",
+      "side": 1,
+      "message": "Do we want tests for setGroupIdle and setPowerSave?",
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_786516f5",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_p2p_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-12T00:37:43Z",
+      "side": 1,
+      "message": "Does SUCCESS simply mean that the Find operation was initiated, or does this actually require Find to locate some peers?\n\n(The meaning of SUCCESS is ambiguous. Could we clarify, in the HAL docstring?)",
+      "range": {
+        "startLine": 103,
+        "startChar": 40,
+        "endLine": 103,
+        "endChar": 47
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_98b82a29",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_p2p_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-12T00:37:43Z",
+      "side": 1,
+      "message": "Should we add a case where we call stopFind() without first calling find()?\n\n(I\u0027m not sure, myself. The HAL docstring is unclear on whether or not this is considered an error. I\u0027m perfectly fine with saying that this is implementation-defined.)",
+      "range": {
+        "startLine": 110,
+        "startChar": 35,
+        "endLine": 110,
+        "endChar": 43
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_d39be351",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_p2p_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-12T00:37:43Z",
+      "side": 1,
+      "message": "Should we test the FAILURE_NOT_STARTED case as well?",
+      "range": {
+        "startLine": 147,
+        "startChar": 35,
+        "endLine": 147,
+        "endChar": 48
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_092b6ea0",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_p2p_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-12T00:37:43Z",
+      "side": 1,
+      "message": "Consider hoisting |mac_addr| into the fixture (as a protected member variable), so that we don\u0027t need to repeat this initialization in (most of) the test cases.",
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_73dbf7fe",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_p2p_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-12T00:37:43Z",
+      "side": 1,
+      "message": "Do we want a test for removeGroup?",
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_09528e20",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_p2p_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-12T00:37:43Z",
+      "side": 1,
+      "message": "As at line 168 (consider hoisting |peer_addr| into the fixture as well).",
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_a99fe2a3",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_p2p_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-12T00:37:43Z",
+      "side": 1,
+      "message": "Are there any parameters that might trigger a failure? E.g., if the frequency range has too many items?",
+      "range": {
+        "startLine": 256,
+        "startChar": 35,
+        "endLine": 256,
+        "endChar": 59
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_d3cc431b",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_p2p_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-12T00:37:43Z",
+      "side": 1,
+      "message": "Do we want tests for the following?\n- addBonjourService\n- removeBonjourService\n- addUpnpService\n- removeUpnpService",
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_73d53798",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_p2p_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-12T00:37:43Z",
+      "side": 1,
+      "message": "Do we want tests for requestServiceDiscovery and cancelServiceDiscovery?",
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_49e2c615",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-12T00:37:43Z",
+      "side": 1,
+      "message": "As elsewhere: consider ASSERT_NE.",
+      "range": {
+        "startLine": 53,
+        "startChar": 8,
+        "endLine": 53,
+        "endChar": 17
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_73a3f73f",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-12T00:37:43Z",
+      "side": 1,
+      "message": "Codesearch seems to believe that listNetworks is part of ISupplicantIface, rather than ISupplicantStaIface. Is something out of sync, or would this test better fit in another file?",
+      "range": {
+        "startLine": 76,
+        "startChar": 35,
+        "endLine": 76,
+        "endChar": 47
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_f38e27c0",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-12T00:37:43Z",
+      "side": 1,
+      "message": "Do we want a test for registerCallback?",
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_4969669f",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-12T00:37:43Z",
+      "side": 1,
+      "message": "Maybe verify the FAILURE_IFACE_DISABLED case as well?",
+      "range": {
+        "startLine": 115,
+        "startChar": 35,
+        "endLine": 115,
+        "endChar": 45
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_2970b281",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-12T00:37:43Z",
+      "side": 1,
+      "message": "Consider hoisting into fixture.",
+      "range": {
+        "startLine": 137,
+        "startChar": 27,
+        "endLine": 137,
+        "endChar": 35
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_e9795a6e",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-12T00:37:43Z",
+      "side": 1,
+      "message": "Odd formatting (\"around\" should fit on previous line).",
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_c9933679",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-12T00:37:43Z",
+      "side": 1,
+      "message": "As at line 143.",
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_f33ce7ff",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-12T00:37:43Z",
+      "side": 1,
+      "message": "Prefer just |InitiateAnqpQuery|, to keep with the trivial mapping from the HAL function to the test name.",
+      "range": {
+        "startLine": 179,
+        "startChar": 35,
+        "endLine": 179,
+        "endChar": 56
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_a93282c5",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-12T00:37:43Z",
+      "side": 1,
+      "message": "\"BSSID\" (acronym)",
+      "range": {
+        "startLine": 188,
+        "startChar": 51,
+        "endLine": 188,
+        "endChar": 56
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_291e722d",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-12T00:37:43Z",
+      "side": 1,
+      "message": "\"BSSID\"",
+      "range": {
+        "startLine": 202,
+        "startChar": 51,
+        "endLine": 202,
+        "endChar": 56
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_89545ec1",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-12T00:37:43Z",
+      "side": 1,
+      "message": "I\u0027m not sure what this is about. Maybe a stray return, or a missing TODO?",
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_a46ce772",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-12T00:37:43Z",
+      "side": 1,
+      "message": "Maybe also check that the MAC addr is non-zero?",
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_e4817fe7",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-12T00:37:43Z",
+      "side": 1,
+      "message": "stray semicolon here",
+      "range": {
+        "startLine": 237,
+        "startChar": 2,
+        "endLine": 237,
+        "endChar": 3
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_a48b8745",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_network_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-12T00:37:43Z",
+      "side": 1,
+      "message": "As elsewhere: consider ASSERT_NE",
+      "range": {
+        "startLine": 65,
+        "startChar": 8,
+        "endLine": 65,
+        "endChar": 17
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_93000b23",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_network_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-12T00:37:43Z",
+      "side": 1,
+      "message": "Do we want a test for registerCallback?",
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_738bf774",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_network_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-12T00:37:43Z",
+      "side": 1,
+      "message": "I understand the logic behind grouping a given getter/setter pair into one test. But I think it would still make sense to have separate tests for each property.\n\nAs is:\n- it\u0027s harder to know which property failed (the test name doesn\u0027t tell us)\n- it\u0027s harder to check that we have test coverage for all the properties (can\u0027t just skim over test names)",
+      "range": {
+        "startLine": 89,
+        "startChar": 37,
+        "endLine": 89,
+        "endChar": 43
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_b3050f33",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_network_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-12T00:37:43Z",
+      "side": 1,
+      "message": "Do we want to test set/get ScanSsid?",
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_eacce91a",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_network_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-12T00:37:43Z",
+      "side": 1,
+      "message": "I\u0027m not sure if this bloated HIDL-style code is more painful to read or to write. :-(",
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_532113be",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_network_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-12T00:37:43Z",
+      "side": 1,
+      "message": "Do we want to test set/get WepTxKeyIdx, and RequirePmf?",
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_d3344300",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_network_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-12T00:37:43Z",
+      "side": 1,
+      "message": "Do we want to test set/get EapIdentity, EapAnonymousIdentity?",
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_d34be367",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_network_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-12T00:37:43Z",
+      "side": 1,
+      "message": "Do we want to test setting/getting this other EAP properties?\n- EapCACert\n- EapCAPath\n- EapClientCert\n- EapPrivateKey\n- EapSubjectMatch\n- EapAltsubjectMatch\n- EapEngine\n- EapEngineID\n- EapDomainSuffixMatch",
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_aa5fd1f4",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_network_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-12T00:37:43Z",
+      "side": 1,
+      "message": "Maybe test NETWORK_INVALID case as well?",
+      "range": {
+        "startLine": 229,
+        "startChar": 37,
+        "endLine": 229,
+        "endChar": 43
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_8a99adbf",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_network_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-12T00:37:43Z",
+      "side": 1,
+      "message": "Similarly to elsewhere: consider hoisting |set_ssid| into the fixture.",
+      "range": {
+        "startLine": 232,
+        "startChar": 25,
+        "endLine": 232,
+        "endChar": 33
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_ca6485cb",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_network_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-12T00:37:43Z",
+      "side": 1,
+      "message": "As at line 229.",
+      "range": {
+        "startLine": 252,
+        "startChar": 37,
+        "endLine": 252,
+        "endChar": 44
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_8a6e8da7",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_network_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-12T00:37:43Z",
+      "side": 1,
+      "message": "As at line 229.",
+      "range": {
+        "startLine": 272,
+        "startChar": 37,
+        "endLine": 272,
+        "endChar": 43
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a772381_26733656",
         "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_network_hidl_test.cpp",
         "patchSetId": 3
