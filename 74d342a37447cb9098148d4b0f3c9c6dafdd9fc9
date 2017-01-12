@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a364350b_cdcedf66",
+        "filename": "tests/bar/1.0/IImportRules.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-01-12T01:27:16Z",
+      "side": 1,
+      "message": "I thought it should, but after double checking, I don\u0027t think our code currently supports this (because FQName match uses an endsWith test: https://android-review.googlesource.com/#/c/320091/5/AST.cpp@492). I will add test to prove / disprove this.\n\nAlthough, I am not sure if specifying package without a version makes sense. The auto-filled 1.0 here is actually from bar, not from foo (because we are \"autofilling information based on the current package\"). Looks weird to me.\n\nMaybe we shouldn\u0027t auto-fill if the package is present but version is missing, and also allow the lookup to be successful by changing the line mentioned above.",
+      "parentUuid": "a364350b_ed93a378",
+      "range": {
+        "startLine": 33,
+        "startChar": 4,
+        "endLine": 33,
+        "endChar": 52
+      },
+      "revId": "74d342a37447cb9098148d4b0f3c9c6dafdd9fc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a364350b_75b3df4c",
         "filename": "tests/bar/1.0/IImportRules.hal",
         "patchSetId": 4
