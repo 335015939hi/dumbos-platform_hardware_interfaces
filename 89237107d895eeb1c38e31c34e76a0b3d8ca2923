@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a364350b_27ed2fd0",
+        "filename": "wifi/supplicant/1.0/ISupplicantP2pIfaceCallback.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-01-12T19:35:33Z",
+      "side": 1,
+      "message": "What possible values can this take?",
+      "range": {
+        "startLine": 112,
+        "startChar": 48,
+        "endLine": 112,
+        "endChar": 55
+      },
+      "revId": "89237107d895eeb1c38e31c34e76a0b3d8ca2923",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_67ba47ce",
+        "filename": "wifi/supplicant/1.0/ISupplicantP2pIfaceCallback.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-01-12T19:35:33Z",
+      "side": 1,
+      "message": "string for user?",
+      "range": {
+        "startLine": 144,
+        "startChar": 40,
+        "endLine": 144,
+        "endChar": 53
+      },
+      "revId": "89237107d895eeb1c38e31c34e76a0b3d8ca2923",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_67a1e793",
+        "filename": "wifi/supplicant/1.0/ISupplicantP2pIfaceCallback.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-01-12T19:35:33Z",
+      "side": 1,
+      "message": "Can you comment the more obscure variables? GO stands for something?",
+      "range": {
+        "startLine": 150,
+        "startChar": 26,
+        "endLine": 150,
+        "endChar": 34
+      },
+      "revId": "89237107d895eeb1c38e31c34e76a0b3d8ca2923",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_6a9f6e41",
+        "filename": "wifi/supplicant/1.0/ISupplicantP2pIfaceCallback.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-01-12T19:35:33Z",
+      "side": 1,
+      "message": "where is this defined?",
+      "range": {
+        "startLine": 182,
+        "startChar": 59,
+        "endLine": 182,
+        "endChar": 66
+      },
+      "revId": "89237107d895eeb1c38e31c34e76a0b3d8ca2923",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
