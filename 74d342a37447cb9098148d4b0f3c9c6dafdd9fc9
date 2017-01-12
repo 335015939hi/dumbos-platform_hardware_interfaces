@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "a364350b_54f56fd2",
+        "filename": "tests/bar/1.0/IImportRules.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-01-12T18:41:07Z",
+      "side": 1,
+      "message": "Will do.",
+      "parentUuid": "a364350b_d09192a7",
+      "range": {
+        "startLine": 33,
+        "startChar": 4,
+        "endLine": 33,
+        "endChar": 52
+      },
+      "revId": "74d342a37447cb9098148d4b0f3c9c6dafdd9fc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a364350b_75b3df4c",
         "filename": "tests/bar/1.0/IImportRules.hal",
         "patchSetId": 4
