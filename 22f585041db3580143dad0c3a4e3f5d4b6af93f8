@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a364350b_0d7857d8",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1126614
+      },
+      "writtenOn": "2017-01-12T16:26:05Z",
+      "side": 1,
+      "message": "This is Keepalive in other layers (treated as one word).",
+      "range": {
+        "startLine": 413,
+        "startChar": 14,
+        "endLine": 413,
+        "endChar": 23
+      },
+      "revId": "22f585041db3580143dad0c3a4e3f5d4b6af93f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
