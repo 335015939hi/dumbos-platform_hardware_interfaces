@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c3bbe9cf_ad7fb57c",
+        "filename": "ir/1.0/vts/functional/vts/testcases/hal/ir/hidl/target/AndroidTest.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2017-01-13T20:25:23Z",
+      "side": 1,
+      "message": "this will only run on treble device. does IR have an passthrough implementation? If so, this line can be removed for now.",
+      "range": {
+        "startLine": 29,
+        "startChar": 47,
+        "endLine": 29,
+        "endChar": 54
+      },
+      "revId": "50cf60d673e198264e5469b2cfad31c4f43d4714",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3bbe9cf_adc6d598",
+        "filename": "ir/1.0/vts/functional/vts/testcases/hal/ir/hidl/target/HalIrHidlTargetTest.config",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2017-01-13T20:25:23Z",
+      "side": 1,
+      "message": "is this file still needed?",
+      "range": {
+        "startLine": 6,
+        "startChar": 35,
+        "endLine": 6,
+        "endChar": 40
+      },
+      "revId": "50cf60d673e198264e5469b2cfad31c4f43d4714",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
