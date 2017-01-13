@@ -46,6 +46,30 @@
       "revId": "8be374778e96308de5c85caf5742f668a8fd1735",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a364350b_4885cbf2",
+        "filename": "tests/bar/1.0/IImportRules.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-01-13T01:19:29Z",
+      "side": 1,
+      "message": "Note: it looks bad because in line 40 it does get resolved to a type in the current package (because android.hardware.tests.bar@1.0::types is automatically imported)",
+      "parentUuid": "a364350b_7dae4fd9",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 37
+      },
+      "revId": "8be374778e96308de5c85caf5742f668a8fd1735",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
