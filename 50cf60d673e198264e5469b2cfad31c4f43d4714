@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "c3bbe9cf_2dc9e55e",
+        "filename": "ir/1.0/vts/functional/vts/testcases/hal/ir/hidl/target/AndroidTest.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2017-01-13T21:33:43Z",
+      "side": 1,
+      "message": "ok. let\u0027s keep this then. please let us know when there\u0027s a supported device.",
+      "parentUuid": "c3bbe9cf_2d5f25f7",
+      "range": {
+        "startLine": 29,
+        "startChar": 47,
+        "endLine": 29,
+        "endChar": 54
+      },
+      "revId": "50cf60d673e198264e5469b2cfad31c4f43d4714",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3bbe9cf_adc6d598",
         "filename": "ir/1.0/vts/functional/vts/testcases/hal/ir/hidl/target/HalIrHidlTargetTest.config",
         "patchSetId": 1
