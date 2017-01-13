@@ -93,6 +93,30 @@
       "revId": "50cf60d673e198264e5469b2cfad31c4f43d4714",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3bbe9cf_88749faa",
+        "filename": "ir/1.0/vts/functional/vts/testcases/hal/ir/hidl/target/HalIrHidlTargetTest.config",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1121516
+      },
+      "writtenOn": "2017-01-13T21:29:56Z",
+      "side": 1,
+      "message": "I have updated the coverage processing to be automatic so you may omit the .config file altogether. No more needing to specify coverage modules!",
+      "parentUuid": "c3bbe9cf_ed7c4d61",
+      "range": {
+        "startLine": 6,
+        "startChar": 35,
+        "endLine": 6,
+        "endChar": 40
+      },
+      "revId": "50cf60d673e198264e5469b2cfad31c4f43d4714",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
