@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c3bbe9cf_2d5f25f7",
+        "filename": "ir/1.0/vts/functional/vts/testcases/hal/ir/hidl/target/AndroidTest.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1115183
+      },
+      "writtenOn": "2017-01-13T20:40:02Z",
+      "side": 1,
+      "message": "This was your suggestion on the CL on internal master for how to make sure this only runs on devices with an IR implementation (which none of our device builds has). If there\u0027s a way to do that without excluding passthrough implementations, please let me know",
+      "parentUuid": "c3bbe9cf_ad7fb57c",
+      "range": {
+        "startLine": 29,
+        "startChar": 47,
+        "endLine": 29,
+        "endChar": 54
+      },
+      "revId": "50cf60d673e198264e5469b2cfad31c4f43d4714",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3bbe9cf_adc6d598",
         "filename": "ir/1.0/vts/functional/vts/testcases/hal/ir/hidl/target/HalIrHidlTargetTest.config",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-01-13T20:25:23Z",
       "side": 1,
       "message": "is this file still needed?",
+      "range": {
+        "startLine": 6,
+        "startChar": 35,
+        "endLine": 6,
+        "endChar": 40
+      },
+      "revId": "50cf60d673e198264e5469b2cfad31c4f43d4714",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3bbe9cf_ed7c4d61",
+        "filename": "ir/1.0/vts/functional/vts/testcases/hal/ir/hidl/target/HalIrHidlTargetTest.config",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1115183
+      },
+      "writtenOn": "2017-01-13T20:40:02Z",
+      "side": 1,
+      "message": "What do you mean? Why would it not be needed?",
+      "parentUuid": "c3bbe9cf_adc6d598",
       "range": {
         "startLine": 6,
         "startChar": 35,
