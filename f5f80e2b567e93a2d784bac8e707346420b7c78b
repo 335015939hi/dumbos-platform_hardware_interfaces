@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c3bbe9cf_6894ab86",
+        "filename": "ir/1.0/vts/functional/vts/testcases/hal/ir/hidl/target/AndroidTest.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1121516
+      },
+      "writtenOn": "2017-01-13T21:34:08Z",
+      "side": 1,
+      "message": "This can be removed",
+      "range": {
+        "startLine": 27,
+        "startChar": 9,
+        "endLine": 27,
+        "endChar": 110
+      },
+      "revId": "f5f80e2b567e93a2d784bac8e707346420b7c78b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
