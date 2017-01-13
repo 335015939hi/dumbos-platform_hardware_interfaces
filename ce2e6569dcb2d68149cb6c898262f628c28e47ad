@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c3bbe9cf_88601f44",
+        "filename": "nfc/1.0/default/Nfc.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1058798
+      },
+      "writtenOn": "2017-01-13T21:11:19Z",
+      "side": 1,
+      "message": "Why not remove the parameter?",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 46
+      },
+      "revId": "ce2e6569dcb2d68149cb6c898262f628c28e47ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
