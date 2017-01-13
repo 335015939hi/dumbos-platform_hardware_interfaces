@@ -51,7 +51,9 @@ interface ISupplicantStaNetwork extends ISupplicantNetwork {
     WPA_EAP = 1 << 0,
     WPA_PSK = 1 << 1,
     NONE = 1 << 2,
-    IEEE8021X = 1 << 3
+    IEEE8021X = 1 << 3,
+    FT_EAP = 1 << 5,
+    FT_PSK = 1 << 6
   };
 
   /** Possble mask of values for Proto param. */
@@ -504,6 +506,19 @@ interface ISupplicantStaNetwork extends ISupplicantNetwork {
    */
   setEapDomainSuffixMatch(string match)
       generates (SupplicantStatus status);
+  /**
+   * Get ID string set for this network.
+   * Network identifier string for external scripts.
+   *
+   * @return idStr ID string value to set.
+   * @return status Status of the operation.
+   *         Possible status codes:
+   *         |SupplicantStatusCode.SUCCESS|,
+   *         |SupplicantStatusCode.FAILURE_ARGS_INVALID|,
+   *         |SupplicantStatusCode.FAILURE_UNKNOWN|,
+   *         |SupplicantStatusCode.FAILURE_NETWORK_INVALID|
+   */
+  setIdStr(string idStr) generates (SupplicantStatus status);
 
   /**
    * Getters for the various network params.
@@ -825,6 +840,20 @@ interface ISupplicantStaNetwork extends ISupplicantNetwork {
    */
   getEapDomainSuffixMatch()
       generates (SupplicantStatus status, string match);
+
+  /**
+   * Get ID string set for this network.
+   * Network identifier string for external scripts.
+   *
+   * @return status Status of the operation.
+   *         Possible status codes:
+   *         |SupplicantStatusCode.SUCCESS|,
+   *         |SupplicantStatusCode.FAILURE_ARGS_INVALID|,
+   *         |SupplicantStatusCode.FAILURE_UNKNOWN|,
+   *         |SupplicantStatusCode.FAILURE_NETWORK_INVALID|
+   * @return idStr ID string set.
+   */
+  getIdStr() generates (SupplicantStatus status, string idStr);
 
   /**
    * Enable the network for connection purposes.
