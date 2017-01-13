@@ -379,4 +379,15 @@ interface ISupplicantStaIface extends ISupplicantIface {
    *         |SupplicantStatusCode.FAILURE_UNKNOWN|
    */
   cancelWps() generates (SupplicantStatus status);
+
+  /**
+   * Use external processing for SIM/USIM operations
+   *
+   * @param useExternalSim true to use external, false otherwise.
+   * @return status Status of the operation.
+   *         Possible status codes:
+   *         |SupplicantStatusCode.SUCCESS|,
+   *         |SupplicantStatusCode.FAILURE_UNKNOWN|
+   */
+  setExternalSim(bool useExternalSim) generates (SupplicantStatus status);
 };
