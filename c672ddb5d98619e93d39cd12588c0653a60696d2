@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c3bbe9cf_08cecfb0",
+        "filename": "wifi/supplicant/1.0/ISupplicantP2pIfaceCallback.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-13T21:39:31Z",
+      "side": 1,
+      "message": "Consider adding the example you mentioned (\"p2p0-1\"), to make the meaning of \"Interface\" more concrete. I think with the example, it\u0027s pretty clear that we\u0027re talking about a linux network device. (We could try to explain it with more words, but that itself gets tricky, due to things like aliased interfaces, and multiple netdevs on a single radio.)",
+      "revId": "c672ddb5d98619e93d39cd12588c0653a60696d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3bbe9cf_489fe7a4",
+        "filename": "wifi/supplicant/1.0/ISupplicantP2pIfaceCallback.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-13T21:39:31Z",
+      "side": 1,
+      "message": "As at line 174.",
+      "revId": "c672ddb5d98619e93d39cd12588c0653a60696d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3bbe9cf_e8d51b27",
+        "filename": "wifi/supplicant/1.0/ISupplicantP2pIfaceCallback.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-13T21:39:31Z",
+      "side": 1,
+      "message": "Consider \"push-button\", to make parsing this easier. (The hyphen makes it clear that push-button is one noun.)",
+      "range": {
+        "startLine": 218,
+        "startChar": 24,
+        "endLine": 218,
+        "endChar": 35
+      },
+      "revId": "c672ddb5d98619e93d39cd12588c0653a60696d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3bbe9cf_285f13f7",
+        "filename": "wifi/supplicant/1.0/ISupplicantP2pIfaceCallback.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-13T21:39:31Z",
+      "side": 1,
+      "message": "As at line 218.",
+      "range": {
+        "startLine": 226,
+        "startChar": 24,
+        "endLine": 226,
+        "endChar": 35
+      },
+      "revId": "c672ddb5d98619e93d39cd12588c0653a60696d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
