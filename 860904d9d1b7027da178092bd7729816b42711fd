@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c3bbe9cf_766c8972",
+        "filename": "wifi/supplicant/1.0/ISupplicantIface.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-01-14T02:04:43Z",
+      "side": 1,
+      "message": "Can you define this in a constant field somewhere?",
+      "range": {
+        "startLine": 117,
+        "startChar": 48,
+        "endLine": 117,
+        "endChar": 50
+      },
+      "revId": "860904d9d1b7027da178092bd7729816b42711fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3bbe9cf_96711d4c",
+        "filename": "wifi/supplicant/1.0/ISupplicantIface.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-01-14T02:04:43Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 130,
+        "startChar": 43,
+        "endLine": 130,
+        "endChar": 45
+      },
+      "revId": "860904d9d1b7027da178092bd7729816b42711fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3bbe9cf_b6762140",
+        "filename": "wifi/supplicant/1.0/ISupplicantIface.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-01-14T02:04:43Z",
+      "side": 1,
+      "message": "same for all",
+      "range": {
+        "startLine": 143,
+        "startChar": 32,
+        "endLine": 143,
+        "endChar": 34
+      },
+      "revId": "860904d9d1b7027da178092bd7729816b42711fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3bbe9cf_368211ec",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-01-14T02:04:43Z",
+      "side": 1,
+      "message": "why do you need to add this function (https://groups.google.com/a/google.com/forum/#!searchin/hidl-announce/frozen%7Csort:relevance/hidl-announce/acA95l5JmQg/6OqJziJeEwAJ) ?",
+      "range": {
+        "startLine": 398,
+        "startChar": 5,
+        "endLine": 398,
+        "endChar": 8
+      },
+      "revId": "860904d9d1b7027da178092bd7729816b42711fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
