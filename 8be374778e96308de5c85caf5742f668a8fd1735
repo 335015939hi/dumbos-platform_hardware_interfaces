@@ -70,6 +70,30 @@
       "revId": "8be374778e96308de5c85caf5742f668a8fd1735",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3bbe9cf_51014fec",
+        "filename": "tests/bar/1.0/IImportRules.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000866
+      },
+      "writtenOn": "2017-01-14T04:25:51Z",
+      "side": 1,
+      "message": "Does the documentation in the HIDL User Guide and the HIDL Versioning guide state explicitly that interfaces even in the same package are never implicitly imported?  It needs to be stated somewhere in both places.",
+      "parentUuid": "a364350b_4885cbf2",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 37
+      },
+      "revId": "8be374778e96308de5c85caf5742f668a8fd1735",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
