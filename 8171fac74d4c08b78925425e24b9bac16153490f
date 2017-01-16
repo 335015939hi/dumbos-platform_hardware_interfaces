@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c3bbe9cf_2df8f751",
+        "filename": "bluetooth/1.0/vts/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2017-01-16T21:33:13Z",
+      "side": 1,
+      "message": "Do you have build rules for vts driver and profiler? Without the driver, host-driven test won\u0027t work.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 0
+      },
+      "revId": "8171fac74d4c08b78925425e24b9bac16153490f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3bbe9cf_edfd1f46",
+        "filename": "bluetooth/1.0/vts/functional/vts/testcases/hal/bluetooth/hidl/target/HalBluetoothHidlTargetBasicTest.config",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2017-01-16T21:33:13Z",
+      "side": 1,
+      "message": "This config file is not needed for coverage anymore.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 1
+      },
+      "revId": "8171fac74d4c08b78925425e24b9bac16153490f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3bbe9cf_ade407b1",
+        "filename": "bluetooth/1.0/vts/functional/vts/testcases/hal/bluetooth/hidl/target_profiling/BluetoothHidlTargetProfilingTest.config",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2017-01-16T21:33:13Z",
+      "side": 1,
+      "message": "This file is not needed for profiling anymore.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 1
+      },
+      "revId": "8171fac74d4c08b78925425e24b9bac16153490f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
