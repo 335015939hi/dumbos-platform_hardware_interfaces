@@ -22,6 +22,30 @@
       "revId": "ce2e6569dcb2d68149cb6c898262f628c28e47ad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4328d982_1c37614f",
+        "filename": "nfc/1.0/default/Nfc.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2017-01-16T10:06:36Z",
+      "side": 1,
+      "message": "this function signature is used to lookup a passthrough implementation using dlopen()/dlsym() - removing this param here would cause dlsym to fail.",
+      "parentUuid": "c3bbe9cf_88601f44",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 46
+      },
+      "revId": "ce2e6569dcb2d68149cb6c898262f628c28e47ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
