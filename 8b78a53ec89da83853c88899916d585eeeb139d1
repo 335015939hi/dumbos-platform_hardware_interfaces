@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c3bbe9cf_30ba0bcd",
+        "filename": "wifi/supplicant/1.0/ISupplicantCallback.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-01-17T19:14:35Z",
+      "side": 1,
+      "message": "implementation specific",
+      "range": {
+        "startLine": 42,
+        "startChar": 27,
+        "endLine": 42,
+        "endChar": 41
+      },
+      "revId": "8b78a53ec89da83853c88899916d585eeeb139d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
