@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "43753906_d9e3c382",
+        "filename": "wifi/supplicant/1.0/ISupplicantP2pIfaceCallback.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-01-17T22:57:36Z",
+      "side": 1,
+      "message": "And then you remove and add this in another place in another active CL?\n\nhttps://android-review.googlesource.com/#/c/322290/9/wifi/supplicant/1.0/types.hal@89\n\nIt\u0027s much cleaner to group changes into their own CLs.",
+      "range": {
+        "startLine": 28,
+        "startChar": 1,
+        "endLine": 46,
+        "endChar": 4
+      },
+      "revId": "065fd9461eba9c93ae4cf738fe5951372c7e2e5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3bbe9cf_13fef141",
         "filename": "wifi/supplicant/1.0/ISupplicantP2pIfaceCallback.hal",
         "patchSetId": 12
