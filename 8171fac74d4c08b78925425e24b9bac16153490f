@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "23fa05cb_24405263",
+        "filename": "bluetooth/1.0/vts/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2017-01-17T20:12:40Z",
+      "side": 1,
+      "message": "I was following along with the NFC implementation.  Where should I add the build rules.  The nfc/1.0/vts/Android.mk is almost identical.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 0
+      },
+      "revId": "8171fac74d4c08b78925425e24b9bac16153490f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3bbe9cf_edfd1f46",
         "filename": "bluetooth/1.0/vts/functional/vts/testcases/hal/bluetooth/hidl/target/HalBluetoothHidlTargetBasicTest.config",
         "patchSetId": 1
