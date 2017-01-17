@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c3bbe9cf_33c4d590",
+        "filename": "wifi/supplicant/1.0/ISupplicantCallback.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-17T19:29:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3bbe9cf_30ba0bcd",
+      "range": {
+        "startLine": 42,
+        "startChar": 27,
+        "endLine": 42,
+        "endChar": 41
+      },
+      "revId": "8b78a53ec89da83853c88899916d585eeeb139d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3bbe9cf_d388f90a",
         "filename": "wifi/supplicant/1.0/ISupplicantStaIfaceCallback.hal",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2017-01-17T19:15:43Z",
       "side": 1,
       "message": "this doesn\u0027t need to pass any information about what the failure is related to? multiple can\u0027t fail at the same time?",
+      "range": {
+        "startLine": 307,
+        "startChar": 9,
+        "endLine": 307,
+        "endChar": 21
+      },
+      "revId": "8b78a53ec89da83853c88899916d585eeeb139d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3bbe9cf_337db584",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIfaceCallback.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-17T19:29:53Z",
+      "side": 1,
+      "message": "There isn\u0027t any info sent out today: https://cs.corp.google.com/android/external/wpa_supplicant_8/src/eap_peer/eap.c?rcl\u003d1ba3d8815492d58d1f71a0c31de591820187415c\u0026l\u003d869.",
+      "parentUuid": "c3bbe9cf_d388f90a",
       "range": {
         "startLine": 307,
         "startChar": 9,
