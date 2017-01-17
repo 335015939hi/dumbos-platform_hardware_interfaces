@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e3e70d23_e6b926bd",
+        "filename": "bluetooth/1.0/vts/functional/vts/testcases/hal/bluetooth/hidl/target/Android.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-01-17T23:20:08Z",
+      "side": 1,
+      "message": "delete?",
+      "range": {
+        "startLine": 19,
+        "startChar": 15,
+        "endLine": 19,
+        "endChar": 18
+      },
+      "revId": "6d2176da4ab48c5f6787284be4eb1ac5f76b600f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63adddb0_f28a1042",
+        "filename": "bluetooth/1.0/vts/functional/vts/testcases/hal/bluetooth/hidl/target_profiling/Android.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-01-17T23:20:08Z",
+      "side": 1,
+      "message": "delete?",
+      "range": {
+        "startLine": 19,
+        "startChar": 10,
+        "endLine": 19,
+        "endChar": 14
+      },
+      "revId": "6d2176da4ab48c5f6787284be4eb1ac5f76b600f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
