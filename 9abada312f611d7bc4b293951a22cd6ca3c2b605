@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c39e897c_55f88c52",
+        "filename": "wifi/supplicant/1.0/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-01-17T22:48:10Z",
+      "side": 1,
+      "message": "make sure usage of this is as bitfield\u003cP2pGroupCalabilityMask\u003e",
+      "range": {
+        "startLine": 80,
+        "startChar": 5,
+        "endLine": 80,
+        "endChar": 27
+      },
+      "revId": "9abada312f611d7bc4b293951a22cd6ca3c2b605",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3e70d23_fb50a375",
+        "filename": "wifi/supplicant/1.0/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-01-17T22:48:10Z",
+      "side": 1,
+      "message": "This is a useless comment. It should explain what all these things do. What do they mean? How is the behavior expected to change if these are used.",
+      "range": {
+        "startLine": 90,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 3
+      },
+      "revId": "9abada312f611d7bc4b293951a22cd6ca3c2b605",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
