@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e3662dd0_14dbccff",
+        "filename": "wifi/supplicant/1.0/vts/functional/Android.mk",
+        "patchSetId": 15
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-18T20:05:25Z",
+      "side": 1,
+      "message": "Not needed. Removed",
+      "parentUuid": "e3662dd0_0e8bbb75",
+      "range": {
+        "startLine": 20,
+        "startChar": 24,
+        "endLine": 20,
+        "endChar": 45
+      },
+      "revId": "80b0583ce77a0a876da3f09bc7ce4707451cfa75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3662dd0_6ea8b7c9",
         "filename": "wifi/supplicant/1.0/vts/functional/main.cpp",
         "patchSetId": 15
@@ -36,6 +60,30 @@
       "writtenOn": "2017-01-18T19:22:12Z",
       "side": 1,
       "message": "yim@, rather than doing this for all tests, we should abstract this behavior into a VTSTestEnvironment\n\nAlso, shouldn\u0027t the framework be stopped before all tests and started after all tests? If we restart the framework between every test, we will add a considerable amount of time to the test runtime.",
+      "range": {
+        "startLine": 26,
+        "startChar": 8,
+        "endLine": 26,
+        "endChar": 21
+      },
+      "revId": "80b0583ce77a0a876da3f09bc7ce4707451cfa75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3662dd0_ee7f674d",
+        "filename": "wifi/supplicant/1.0/vts/functional/main.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-18T20:05:25Z",
+      "side": 1,
+      "message": "This is added as a global test env (line 36 below). So, this will only be invoked at the begining/end of all the tests (not between tests).",
+      "parentUuid": "e3662dd0_6ea8b7c9",
       "range": {
         "startLine": 26,
         "startChar": 8,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e3662dd0_698511f3",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test_utils.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-18T20:05:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3662dd0_aee72f25",
+      "range": {
+        "startLine": 109,
+        "startChar": 8,
+        "endLine": 110,
+        "endChar": 29
+      },
+      "revId": "80b0583ce77a0a876da3f09bc7ce4707451cfa75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3662dd0_ee0a0709",
         "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test_utils.h",
         "patchSetId": 15
@@ -82,6 +154,30 @@
       "writtenOn": "2017-01-18T19:22:12Z",
       "side": 1,
       "message": "or rename these methods",
+      "range": {
+        "startLine": 25,
+        "startChar": 37,
+        "endLine": 25,
+        "endChar": 52
+      },
+      "revId": "80b0583ce77a0a876da3f09bc7ce4707451cfa75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3662dd0_aee1efe3",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test_utils.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-18T20:05:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3662dd0_ee0a0709",
       "range": {
         "startLine": 25,
         "startChar": 37,
