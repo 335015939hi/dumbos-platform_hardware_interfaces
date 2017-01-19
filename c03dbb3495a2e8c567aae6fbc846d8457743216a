@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "089c3e29_5bb4e3c4",
+        "filename": "nfc/1.0/vts/functional/nfc_hidl_hal_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1073593
+      },
+      "writtenOn": "2017-01-19T06:28:14Z",
+      "side": 1,
+      "message": "Consider updating the VERSION to 0x10 [NCI 1.0]\nFew NFCC can respond with NCI 1.0 version.",
+      "range": {
+        "startLine": 57,
+        "startChar": 8,
+        "endLine": 57,
+        "endChar": 20
+      },
+      "revId": "c03dbb3495a2e8c567aae6fbc846d8457743216a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
