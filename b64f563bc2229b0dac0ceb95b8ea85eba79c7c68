@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "082efe90_1c2aaa48",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-19T23:30:58Z",
+      "side": 1,
+      "message": "Do we need this? I thought we were using getService() without any args to fetch the default implementation.",
+      "range": {
+        "startLine": 52,
+        "startChar": 11,
+        "endLine": 52,
+        "endChar": 33
+      },
+      "revId": "b64f563bc2229b0dac0ceb95b8ea85eba79c7c68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
