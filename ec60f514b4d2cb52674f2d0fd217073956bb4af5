@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "082efe90_7c276ee5",
+        "filename": "ir/1.0/vts/functional/ir_hidl_hal_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-01-19T23:17:20Z",
+      "side": 1,
+      "message": "change",
+      "range": {
+        "startLine": 17,
+        "startChar": 17,
+        "endLine": 17,
+        "endChar": 35
+      },
+      "revId": "ec60f514b4d2cb52674f2d0fd217073956bb4af5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
