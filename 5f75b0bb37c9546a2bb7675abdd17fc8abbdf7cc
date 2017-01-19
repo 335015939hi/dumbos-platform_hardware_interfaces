@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "082efe90_4ad196ad",
+        "filename": "bluetooth/1.0/vts/Android.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2017-01-19T01:09:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "082efe90_b414e1fa",
+      "range": {
+        "startLine": 19,
+        "startChar": 1,
+        "endLine": 19,
+        "endChar": 36
+      },
+      "revId": "5f75b0bb37c9546a2bb7675abdd17fc8abbdf7cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "082efe90_d429ad54",
         "filename": "bluetooth/1.0/vts/functional/vts/testcases/hal/bluetooth/__init__.py",
         "patchSetId": 4
@@ -36,6 +60,24 @@
       "writtenOn": "2017-01-19T00:41:31Z",
       "side": 1,
       "message": "Remove __init__.py here and in other places",
+      "revId": "5f75b0bb37c9546a2bb7675abdd17fc8abbdf7cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "082efe90_eae72291",
+        "filename": "bluetooth/1.0/vts/functional/vts/testcases/hal/bluetooth/__init__.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2017-01-19T01:09:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "082efe90_d429ad54",
       "revId": "5f75b0bb37c9546a2bb7675abdd17fc8abbdf7cc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
