@@ -22,6 +22,30 @@
       "revId": "7b3ef4b9243b5962d759692d74e998aabc5e3a7a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "082efe90_e9e3a2e9",
+        "filename": "bluetooth/1.0/vts/functional/vts/testcases/hal/bluetooth/hidl/target/Android.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2017-01-19T22:59:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "082efe90_492756d3",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 36
+      },
+      "revId": "7b3ef4b9243b5962d759692d74e998aabc5e3a7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
