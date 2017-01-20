@@ -26,7 +26,6 @@ LOCAL_SRC_FILES := \
     wifi_legacy_hal.cpp \
     wifi_legacy_hal_stubs.cpp \
     wifi_mode_controller.cpp \
-    wifi_nan_iface.cpp \
     wifi_p2p_iface.cpp \
     wifi_rtt_controller.cpp \
     wifi_sta_iface.cpp \

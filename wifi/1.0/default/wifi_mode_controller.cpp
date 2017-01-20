@@ -33,11 +33,10 @@ int convertIfaceTypeToFirmwareMode(IfaceType type) {
     case IfaceType::P2P:
       mode = DriverTool::kFirmwareModeP2p;
       break;
-    case IfaceType::NAN:
-      // NAN is exposed in STA mode currently.
+    case IfaceType::STA:
       mode = DriverTool::kFirmwareModeSta;
       break;
-    case IfaceType::STA:
+    case IfaceType::NAN:
       mode = DriverTool::kFirmwareModeSta;
       break;
   }

@@ -19,7 +19,6 @@
 #include <android/hardware/wifi/1.0/IWifi.h>
 #include <android/hardware/wifi/1.0/IWifiApIface.h>
 #include <android/hardware/wifi/1.0/IWifiChip.h>
-#include <android/hardware/wifi/1.0/IWifiNanIface.h>
 #include <android/hardware/wifi/1.0/IWifiP2pIface.h>
 #include <android/hardware/wifi/1.0/IWifiRttController.h>
 #include <android/hardware/wifi/1.0/IWifiStaIface.h>
@@ -36,7 +35,6 @@ void startFramework();
 android::sp<android::hardware::wifi::V1_0::IWifi> getWifi();
 android::sp<android::hardware::wifi::V1_0::IWifiChip> getWifiChip();
 android::sp<android::hardware::wifi::V1_0::IWifiApIface> getWifiApIface();
-android::sp<android::hardware::wifi::V1_0::IWifiNanIface> getWifiNanIface();
 android::sp<android::hardware::wifi::V1_0::IWifiP2pIface> getWifiP2pIface();
 android::sp<android::hardware::wifi::V1_0::IWifiStaIface> getWifiStaIface();
 android::sp<android::hardware::wifi::V1_0::IWifiRttController>
