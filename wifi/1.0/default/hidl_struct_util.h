@@ -93,52 +93,6 @@ bool convertLegacyVectorOfDebugRxPacketFateToHidl(
     const std::vector<legacy_hal::wifi_rx_report>& legacy_fates,
     std::vector<WifiDebugRxPacketFateReport>* hidl_fates);
 
-// NAN iface conversion methods.
-NanStatusType convertLegacyNanStatusTypeToHidl(legacy_hal::NanStatusType type);
-bool convertHidlNanEnableRequestToLegacy(
-    const NanEnableRequest& hidl_request,
-    legacy_hal::NanEnableRequest* legacy_request);
-bool convertHidlNanConfigRequestToLegacy(
-    const NanConfigRequest& hidl_request,
-    legacy_hal::NanConfigRequest* legacy_request);
-bool convertHidlNanPublishRequestToLegacy(
-    const NanPublishRequest& hidl_request,
-    legacy_hal::NanPublishRequest* legacy_request);
-bool convertHidlNanSubscribeRequestToLegacy(
-    const NanSubscribeRequest& hidl_request,
-    legacy_hal::NanSubscribeRequest* legacy_request);
-bool convertHidlNanTransmitFollowupRequestToLegacy(
-    const NanTransmitFollowupRequest& hidl_request,
-    legacy_hal::NanTransmitFollowupRequest* legacy_request);
-bool convertHidlNanBeaconSdfPayloadRequestToLegacy(
-    const NanBeaconSdfPayloadRequest& hidl_request,
-    legacy_hal::NanBeaconSdfPayloadRequest* legacy_request);
-bool convertHidlNanDataPathInitiatorRequestToLegacy(
-    const NanInitiateDataPathRequest& hidl_request,
-    legacy_hal::NanDataPathInitiatorRequest* legacy_request);
-bool convertHidlNanDataPathIndicationResponseToLegacy(
-    const NanRespondToDataPathIndicationRequest& hidl_response,
-    legacy_hal::NanDataPathIndicationResponse* legacy_response);
-bool convertLegacyNanResponseHeaderToHidl(
-    const legacy_hal::NanResponseMsg& legacy_response,
-    WifiNanStatus* wifiNanStatus);
-bool convertLegacyNanCapabilitiesResponseToHidl(
-    const legacy_hal::NanCapabilities& legacy_response,
-    NanCapabilities* hidl_response);
-bool convertLegacyNanMatchIndToHidl(const legacy_hal::NanMatchInd& legacy_ind,
-                                    NanMatchInd* hidl_ind);
-bool convertLegacyNanFollowupIndToHidl(
-    const legacy_hal::NanFollowupInd& legacy_ind, NanFollowupReceivedInd* hidl_ind);
-bool convertLegacyNanDataPathRequestIndToHidl(
-    const legacy_hal::NanDataPathRequestInd& legacy_ind,
-    NanDataPathRequestInd* hidl_ind);
-bool convertLegacyNanDataPathConfirmIndToHidl(
-    const legacy_hal::NanDataPathConfirmInd& legacy_ind,
-    NanDataPathConfirmInd* hidl_ind);
-bool convertLegacyNanBeaconSdfPayloadIndToHidl(
-    const legacy_hal::NanBeaconSdfPayloadInd& legacy_ind,
-    NanBeaconSdfPayloadInd* hidl_ind);
-
 // RTT controller conversion methods.
 bool convertHidlVectorOfRttConfigToLegacy(
     const std::vector<RttConfig>& hidl_configs,
