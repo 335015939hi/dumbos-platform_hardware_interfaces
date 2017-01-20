@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "082efe90_0460fe41",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-20T23:10:07Z",
+      "side": 0,
+      "message": "We still need to add a check for the p2p iface creation.\n\nif (current_mode_id_ !\u003d kStaChipModeId || p2p_iface_.get()) {\n    return {createWifiStatus(WifiStatusCode::ERROR_NOT_AVAILABLE), {}};  \n}",
+      "range": {
+        "startLine": 580,
+        "startChar": 0,
+        "endLine": 583,
+        "endChar": 3
+      },
+      "revId": "5c959c69dc92fe1b2606b8531cb1690222e4f106",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
