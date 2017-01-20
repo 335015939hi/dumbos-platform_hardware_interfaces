@@ -508,8 +508,9 @@ interface ISupplicantStaNetwork extends ISupplicantNetwork {
    */
   setEapDomainSuffixMatch(string match)
       generates (SupplicantStatus status);
+
   /**
-   * Get ID string set for this network.
+   * Set ID string for this network.
    * Network identifier string for external scripts.
    *
    * @return idStr ID string value to set.
@@ -521,6 +522,20 @@ interface ISupplicantStaNetwork extends ISupplicantNetwork {
    *         |SupplicantStatusCode.FAILURE_NETWORK_INVALID|
    */
   setIdStr(string idStr) generates (SupplicantStatus status);
+
+  /**
+   * Set PPS MO ID for this network.
+   * (Hotspot 2.0 PerProviderSubscription/UpdateIdentifier)
+   *
+   * @return id ID value to set.
+   * @return status Status of the operation.
+   *         Possible status codes:
+   *         |SupplicantStatusCode.SUCCESS|,
+   *         |SupplicantStatusCode.FAILURE_ARGS_INVALID|,
+   *         |SupplicantStatusCode.FAILURE_UNKNOWN|,
+   *         |SupplicantStatusCode.FAILURE_NETWORK_INVALID|
+   */
+  setUpdateIdentifier(uint32_t id) generates (SupplicantStatus status);
 
   /**
    * Getters for the various network params.
