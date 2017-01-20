@@ -21,7 +21,6 @@
 using ::android::hardware::wifi::V1_0::IWifi;
 using ::android::hardware::wifi::V1_0::IWifiApIface;
 using ::android::hardware::wifi::V1_0::IWifiChip;
-using ::android::hardware::wifi::V1_0::IWifiNanIface;
 using ::android::hardware::wifi::V1_0::IWifiP2pIface;
 using ::android::hardware::wifi::V1_0::IWifiRttController;
 using ::android::hardware::wifi::V1_0::IWifiStaIface;
@@ -167,30 +166,6 @@ sp<IWifiApIface> getWifiApIface() {
         return nullptr;
     }
     return wifi_ap_iface;
-}
-
-sp<IWifiNanIface> getWifiNanIface() {
-    sp<IWifiChip> wifi_chip = getWifiChip();
-    if (!wifi_chip.get()) {
-        return nullptr;
-    }
-    if (!configureChipToSupportIfaceType(wifi_chip, IfaceType::NAN)) {
-        return nullptr;
-    }
-
-    bool operation_failed = false;
-    sp<IWifiNanIface> wifi_nan_iface;
-    wifi_chip->createNanIface(
-        [&](const WifiStatus& status, const sp<IWifiNanIface>& iface) {
-            if (status.code != WifiStatusCode::SUCCESS) {
-                operation_failed = true;
-            }
-            wifi_nan_iface = iface;
-        });
-    if (operation_failed) {
-        return nullptr;
-    }
-    return wifi_nan_iface;
 }
 
 sp<IWifiP2pIface> getWifiP2pIface() {

@@ -23,7 +23,6 @@ cc_test {
         "wifi_chip_hidl_test.cpp",
         "wifi_hidl_test.cpp",
         "wifi_hidl_test_utils.cpp",
-        "wifi_nan_iface_hidl_test.cpp",
         "wifi_p2p_iface_hidl_test.cpp",
         "wifi_rtt_controller_hidl_test.cpp",
         "wifi_sta_iface_hidl_test.cpp"],
