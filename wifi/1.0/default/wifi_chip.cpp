@@ -178,38 +178,6 @@ Return<void> WifiChip::removeApIface(const hidl_string& ifname,
                          ifname);
 }
 
-Return<void> WifiChip::createNanIface(createNanIface_cb hidl_status_cb) {
-  return validateAndCall(this,
-                         WifiStatusCode::ERROR_WIFI_CHIP_INVALID,
-                         &WifiChip::createNanIfaceInternal,
-                         hidl_status_cb);
-}
-
-Return<void> WifiChip::getNanIfaceNames(getNanIfaceNames_cb hidl_status_cb) {
-  return validateAndCall(this,
-                         WifiStatusCode::ERROR_WIFI_CHIP_INVALID,
-                         &WifiChip::getNanIfaceNamesInternal,
-                         hidl_status_cb);
-}
-
-Return<void> WifiChip::getNanIface(const hidl_string& ifname,
-                                   getNanIface_cb hidl_status_cb) {
-  return validateAndCall(this,
-                         WifiStatusCode::ERROR_WIFI_CHIP_INVALID,
-                         &WifiChip::getNanIfaceInternal,
-                         hidl_status_cb,
-                         ifname);
-}
-
-Return<void> WifiChip::removeNanIface(const hidl_string& ifname,
-                                      removeNanIface_cb hidl_status_cb) {
-  return validateAndCall(this,
-                         WifiStatusCode::ERROR_WIFI_CHIP_INVALID,
-                         &WifiChip::removeNanIfaceInternal,
-                         hidl_status_cb,
-                         ifname);
-}
-
 Return<void> WifiChip::createP2pIface(createP2pIface_cb hidl_status_cb) {
   return validateAndCall(this,
                          WifiStatusCode::ERROR_WIFI_CHIP_INVALID,
@@ -336,7 +304,6 @@ Return<void> WifiChip::enableDebugErrorAlerts(
 
 void WifiChip::invalidateAndRemoveAllIfaces() {
   invalidateAndClear(ap_iface_);
-  invalidateAndClear(nan_iface_);
   invalidateAndClear(p2p_iface_);
   invalidateAndClear(sta_iface_);
   // Since all the ifaces are invalid now, all RTT controller objects
@@ -378,7 +345,7 @@ std::pair<WifiStatus, std::vector<IWifiChip::ChipMode>>
 WifiChip::getAvailableModesInternal() {
   // The chip combination supported for current devices is fixed for now with
   // 2 separate modes of operation:
-  // Mode 1 (STA mode): Will support 1 STA and 1 P2P or NAN iface operations
+  // Mode 1 (STA mode): Will support 1 STA and 1 P2P iface operations
   // concurrently.
   // Mode 2 (AP mode): Will support 1 AP iface operations.
   // TODO (b/32997844): Read this from some device specific flags in the
@@ -387,8 +354,7 @@ WifiChip::getAvailableModesInternal() {
   const IWifiChip::ChipIfaceCombinationLimit
       sta_chip_iface_combination_limit_1 = {{IfaceType::STA}, 1};
   const IWifiChip::ChipIfaceCombinationLimit
-      sta_chip_iface_combination_limit_2 = {{IfaceType::P2P, IfaceType::NAN},
-                                            1};
+      sta_chip_iface_combination_limit_2 = {{IfaceType::P2P}, 1};
   const IWifiChip::ChipIfaceCombination sta_chip_iface_combination = {
       {sta_chip_iface_combination_limit_1, sta_chip_iface_combination_limit_2}};
   const IWifiChip::ChipMode sta_chip_mode = {kStaChipModeId,
@@ -533,54 +499,7 @@ WifiStatus WifiChip::removeApIfaceInternal(const std::string& ifname) {
   return createWifiStatus(WifiStatusCode::SUCCESS);
 }
 
-std::pair<WifiStatus, sp<IWifiNanIface>> WifiChip::createNanIfaceInternal() {
-  // Only 1 of NAN or P2P iface can be active at a time.
-  if (current_mode_id_ != kStaChipModeId || nan_iface_.get() ||
-      p2p_iface_.get()) {
-    return {createWifiStatus(WifiStatusCode::ERROR_NOT_AVAILABLE), {}};
-  }
-  std::string ifname = legacy_hal_.lock()->getNanIfaceName();
-  nan_iface_ = new WifiNanIface(ifname, legacy_hal_);
-  for (const auto& callback : event_callbacks_) {
-    callback->onIfaceAdded(IfaceType::NAN, ifname);
-  }
-  return {createWifiStatus(WifiStatusCode::SUCCESS), nan_iface_};
-}
-
-std::pair<WifiStatus, std::vector<hidl_string>>
-WifiChip::getNanIfaceNamesInternal() {
-  if (!nan_iface_.get()) {
-    return {createWifiStatus(WifiStatusCode::SUCCESS), {}};
-  }
-  return {createWifiStatus(WifiStatusCode::SUCCESS),
-          {legacy_hal_.lock()->getNanIfaceName()}};
-}
-
-std::pair<WifiStatus, sp<IWifiNanIface>> WifiChip::getNanIfaceInternal(
-    const std::string& ifname) {
-  if (!nan_iface_.get() || (ifname != legacy_hal_.lock()->getNanIfaceName())) {
-    return {createWifiStatus(WifiStatusCode::ERROR_INVALID_ARGS), nullptr};
-  }
-  return {createWifiStatus(WifiStatusCode::SUCCESS), nan_iface_};
-}
-
-WifiStatus WifiChip::removeNanIfaceInternal(const std::string& ifname) {
-  if (!nan_iface_.get() || (ifname != legacy_hal_.lock()->getNanIfaceName())) {
-    return createWifiStatus(WifiStatusCode::ERROR_INVALID_ARGS);
-  }
-  invalidateAndClear(nan_iface_);
-  for (const auto& callback : event_callbacks_) {
-    callback->onIfaceRemoved(IfaceType::NAN, ifname);
-  }
-  return createWifiStatus(WifiStatusCode::SUCCESS);
-}
-
 std::pair<WifiStatus, sp<IWifiP2pIface>> WifiChip::createP2pIfaceInternal() {
-  // Only 1 of NAN or P2P iface can be active at a time.
-  if (current_mode_id_ != kStaChipModeId || p2p_iface_.get() ||
-      nan_iface_.get()) {
-    return {createWifiStatus(WifiStatusCode::ERROR_NOT_AVAILABLE), {}};
-  }
   std::string ifname = legacy_hal_.lock()->getP2pIfaceName();
   p2p_iface_ = new WifiP2pIface(ifname, legacy_hal_);
   for (const auto& callback : event_callbacks_) {

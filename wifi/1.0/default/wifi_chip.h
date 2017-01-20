@@ -25,7 +25,6 @@
 #include "wifi_ap_iface.h"
 #include "wifi_legacy_hal.h"
 #include "wifi_mode_controller.h"
-#include "wifi_nan_iface.h"
 #include "wifi_p2p_iface.h"
 #include "wifi_rtt_controller.h"
 #include "wifi_sta_iface.h"
@@ -86,12 +85,6 @@ class WifiChip : public IWifiChip {
                           getApIface_cb hidl_status_cb) override;
   Return<void> removeApIface(const hidl_string& ifname,
                              removeApIface_cb hidl_status_cb) override;
-  Return<void> createNanIface(createNanIface_cb hidl_status_cb) override;
-  Return<void> getNanIfaceNames(getNanIfaceNames_cb hidl_status_cb) override;
-  Return<void> getNanIface(const hidl_string& ifname,
-                           getNanIface_cb hidl_status_cb) override;
-  Return<void> removeNanIface(const hidl_string& ifname,
-                              removeNanIface_cb hidl_status_cb) override;
   Return<void> createP2pIface(createP2pIface_cb hidl_status_cb) override;
   Return<void> getP2pIfaceNames(getP2pIfaceNames_cb hidl_status_cb) override;
   Return<void> getP2pIface(const hidl_string& ifname,
@@ -144,11 +137,6 @@ class WifiChip : public IWifiChip {
   std::pair<WifiStatus, sp<IWifiApIface>> getApIfaceInternal(
       const std::string& ifname);
   WifiStatus removeApIfaceInternal(const std::string& ifname);
-  std::pair<WifiStatus, sp<IWifiNanIface>> createNanIfaceInternal();
-  std::pair<WifiStatus, std::vector<hidl_string>> getNanIfaceNamesInternal();
-  std::pair<WifiStatus, sp<IWifiNanIface>> getNanIfaceInternal(
-      const std::string& ifname);
-  WifiStatus removeNanIfaceInternal(const std::string& ifname);
   std::pair<WifiStatus, sp<IWifiP2pIface>> createP2pIfaceInternal();
   std::pair<WifiStatus, std::vector<hidl_string>> getP2pIfaceNamesInternal();
   std::pair<WifiStatus, sp<IWifiP2pIface>> getP2pIfaceInternal(
@@ -181,7 +169,6 @@ class WifiChip : public IWifiChip {
   std::weak_ptr<mode_controller::WifiModeController> mode_controller_;
   std::vector<sp<IWifiChipEventCallback>> event_callbacks_;
   sp<WifiApIface> ap_iface_;
-  sp<WifiNanIface> nan_iface_;
   sp<WifiP2pIface> p2p_iface_;
   sp<WifiStaIface> sta_iface_;
   std::vector<sp<WifiRttController>> rtt_controllers_;
