@@ -42,6 +42,24 @@
     },
     {
       "key": {
+        "uuid": "082efe90_f1013727",
+        "filename": "wifi/supplicant/1.0/ISupplicant.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-20T20:19:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "082efe90_8e86523b",
+      "revId": "8b6bef854daaf0a7f16e12f3732cd898ea35e27b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "082efe90_eeb156ed",
         "filename": "wifi/supplicant/1.0/ISupplicant.hal",
         "patchSetId": 3
@@ -53,6 +71,30 @@
       "writtenOn": "2017-01-20T19:48:35Z",
       "side": 1,
       "message": "Is this something imposed on us by supplicant? (From a caller perspective, it seems like things would be simpler for addExtRadioWork() start to simply block until the radio is free. But I don\u0027t know if we have the freedom to go that way.)",
+      "range": {
+        "startLine": 174,
+        "startChar": 18,
+        "endLine": 174,
+        "endChar": 37
+      },
+      "revId": "8b6bef854daaf0a7f16e12f3732cd898ea35e27b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "082efe90_f13ff7d6",
+        "filename": "wifi/supplicant/1.0/ISupplicant.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-20T20:19:29Z",
+      "side": 1,
+      "message": "Yeah. This is how supplicant\u0027s radio handling is handled in ctrl_iface.c: https://cs.corp.google.com/android/external/wpa_supplicant_8/wpa_supplicant/ctrl_iface.c?rcl\u003d3529f418fa26d5c14af5cdfeb0111b7e35108c2a\u0026l\u003d7428.\n\nSince wpa_supplicant is single threaded, we cannot block the HIDL method call because that will prevent the radio work scheduled being processed (from the eloop).",
+      "parentUuid": "082efe90_eeb156ed",
       "range": {
         "startLine": 174,
         "startChar": 18,
@@ -88,6 +130,30 @@
     },
     {
       "key": {
+        "uuid": "082efe90_51da4b58",
+        "filename": "wifi/supplicant/1.0/ISupplicant.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-20T20:19:29Z",
+      "side": 1,
+      "message": "Done.\nI actually copied most of the documentation from the existing socket interface here: https://cs.corp.google.com/android/external/wpa_supplicant_8/wpa_supplicant/README?rcl\u003d3529f418fa26d5c14af5cdfeb0111b7e35108c2a\u0026l\u003d1032",
+      "parentUuid": "082efe90_8e5412bf",
+      "range": {
+        "startLine": 190,
+        "startChar": 0,
+        "endLine": 191,
+        "endChar": 37
+      },
+      "revId": "8b6bef854daaf0a7f16e12f3732cd898ea35e27b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "082efe90_4eb98ad5",
         "filename": "wifi/supplicant/1.0/ISupplicant.hal",
         "patchSetId": 3
@@ -99,6 +165,30 @@
       "writtenOn": "2017-01-20T19:48:35Z",
       "side": 1,
       "message": "I\u0027m not sure what this means. Is the point here that it\u0027s okay (and meaningful) to call removeExtRadioWork() in between the time that someone calls addExtRadioWork(), and the time when they receive the onExtRadioWorkStart() callback? Or is the point that we\u0027re allowed to remove radio work even before calling addExtRadioWork()?\n\nI don\u0027t think it\u0027s the latter, as I don\u0027t understand how that would work. But, at present, the meaning of this sentence is unclear. Assuming the first theory is correct, I\u0027d recommend revising this sentence to explicitly talk about onExtRadioWorkStart().",
+      "range": {
+        "startLine": 195,
+        "startChar": 29,
+        "endLine": 196,
+        "endChar": 31
+      },
+      "revId": "8b6bef854daaf0a7f16e12f3732cd898ea35e27b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "082efe90_516feba1",
+        "filename": "wifi/supplicant/1.0/ISupplicant.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-20T20:19:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "082efe90_4eb98ad5",
       "range": {
         "startLine": 195,
         "startChar": 29,
