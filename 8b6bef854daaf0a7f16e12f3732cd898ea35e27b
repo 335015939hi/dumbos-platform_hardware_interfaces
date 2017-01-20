@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "082efe90_6e72068f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-20T19:48:35Z",
+      "side": 1,
+      "message": "\"These\"",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 4
+      },
+      "revId": "8b6bef854daaf0a7f16e12f3732cd898ea35e27b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "082efe90_8e86523b",
+        "filename": "wifi/supplicant/1.0/ISupplicant.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-20T19:48:35Z",
+      "side": 1,
+      "message": "Blank line between paragraphs, please.",
+      "revId": "8b6bef854daaf0a7f16e12f3732cd898ea35e27b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "082efe90_eeb156ed",
+        "filename": "wifi/supplicant/1.0/ISupplicant.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-20T19:48:35Z",
+      "side": 1,
+      "message": "Is this something imposed on us by supplicant? (From a caller perspective, it seems like things would be simpler for addExtRadioWork() start to simply block until the radio is free. But I don\u0027t know if we have the freedom to go that way.)",
+      "range": {
+        "startLine": 174,
+        "startChar": 18,
+        "endLine": 174,
+        "endChar": 37
+      },
+      "revId": "8b6bef854daaf0a7f16e12f3732cd898ea35e27b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "082efe90_8e5412bf",
+        "filename": "wifi/supplicant/1.0/ISupplicant.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-20T19:48:35Z",
+      "side": 1,
+      "message": "Might be easier to read if we reverse the ordering of the clauses. E.g.\n\n  \"Indicates to wpa_supplicant that external radio work has completed.\"",
+      "range": {
+        "startLine": 190,
+        "startChar": 0,
+        "endLine": 191,
+        "endChar": 37
+      },
+      "revId": "8b6bef854daaf0a7f16e12f3732cd898ea35e27b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "082efe90_4eb98ad5",
+        "filename": "wifi/supplicant/1.0/ISupplicant.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-20T19:48:35Z",
+      "side": 1,
+      "message": "I\u0027m not sure what this means. Is the point here that it\u0027s okay (and meaningful) to call removeExtRadioWork() in between the time that someone calls addExtRadioWork(), and the time when they receive the onExtRadioWorkStart() callback? Or is the point that we\u0027re allowed to remove radio work even before calling addExtRadioWork()?\n\nI don\u0027t think it\u0027s the latter, as I don\u0027t understand how that would work. But, at present, the meaning of this sentence is unclear. Assuming the first theory is correct, I\u0027d recommend revising this sentence to explicitly talk about onExtRadioWorkStart().",
+      "range": {
+        "startLine": 195,
+        "startChar": 29,
+        "endLine": 196,
+        "endChar": 31
+      },
+      "revId": "8b6bef854daaf0a7f16e12f3732cd898ea35e27b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
