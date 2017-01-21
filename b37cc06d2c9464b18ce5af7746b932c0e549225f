@@ -22,6 +22,30 @@
       "revId": "b37cc06d2c9464b18ce5af7746b932c0e549225f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "082efe90_aad7b12e",
+        "filename": "wifi/1.1/IWifi.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-01-21T00:37:53Z",
+      "side": 1,
+      "message": "(I see your question in the email now. Sorry, you don\u0027t need to add it in again)",
+      "parentUuid": "082efe90_8acd15b5",
+      "range": {
+        "startLine": 27,
+        "startChar": 4,
+        "endLine": 27,
+        "endChar": 52
+      },
+      "revId": "b37cc06d2c9464b18ce5af7746b932c0e549225f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
