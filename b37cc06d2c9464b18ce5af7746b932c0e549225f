@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "082efe90_8acd15b5",
+        "filename": "wifi/1.1/IWifi.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-01-21T00:36:02Z",
+      "side": 1,
+      "message": "then why create a new one?",
+      "range": {
+        "startLine": 27,
+        "startChar": 4,
+        "endLine": 27,
+        "endChar": 52
+      },
+      "revId": "b37cc06d2c9464b18ce5af7746b932c0e549225f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
