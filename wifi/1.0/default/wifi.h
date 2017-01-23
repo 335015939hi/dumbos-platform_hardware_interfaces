@@ -24,8 +24,8 @@
 #include <utils/Looper.h>
 
 #include "wifi_chip.h"
-#include "wifi_legacy_hal.h"
-#include "wifi_mode_controller.h"
+#include "common/wifi_legacy_hal.h"
+#include "common/wifi_mode_controller.h"
 
 namespace android {
 namespace hardware {

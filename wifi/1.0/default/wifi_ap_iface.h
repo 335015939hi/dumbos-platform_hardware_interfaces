@@ -20,7 +20,7 @@
 #include <android-base/macros.h>
 #include <android/hardware/wifi/1.0/IWifiApIface.h>
 
-#include "wifi_legacy_hal.h"
+#include "common/wifi_legacy_hal.h"
 
 namespace android {
 namespace hardware {

@@ -11,24 +11,19 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := android.hardware.wifi@1.0-service
-LOCAL_MODULE_RELATIVE_PATH := hw
+LOCAL_MODULE := android.hardware.wifi@1.0-common
 LOCAL_CPPFLAGS := -Wall -Wno-unused-parameter -Werror -Wextra
 LOCAL_SRC_FILES := \
-    service.cpp \
-    wifi.cpp \
-    wifi_ap_iface.cpp \
-    wifi_chip.cpp \
-    wifi_p2p_iface.cpp \
-    wifi_rtt_controller.cpp \
-    wifi_sta_iface.cpp
+    hidl_struct_util.cpp \
+    wifi_legacy_hal.cpp \
+    wifi_legacy_hal_stubs.cpp \
+    wifi_mode_controller.cpp \
+    wifi_status_util.cpp
 LOCAL_SHARED_LIBRARIES := \
     android.hardware.wifi@1.0 \
-    android.hardware.wifi@1.0-common \
     libbase \
     libcutils \
     libhidlbase \
@@ -40,7 +35,4 @@ LOCAL_SHARED_LIBRARIES := \
     libwifi-hal \
     libwifi-system
 LOCAL_WHOLE_STATIC_LIBRARIES := $(LIB_WIFI_HAL)
-LOCAL_INIT_RC := android.hardware.wifi@1.0-service.rc
-include $(BUILD_EXECUTABLE)
-
-include $(call all-makefiles-under,$(LOCAL_PATH))
+include $(BUILD_SHARED_LIBRARY)

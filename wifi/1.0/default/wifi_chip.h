@@ -23,8 +23,8 @@
 #include <android/hardware/wifi/1.0/IWifiChip.h>
 
 #include "wifi_ap_iface.h"
-#include "wifi_legacy_hal.h"
-#include "wifi_mode_controller.h"
+#include "common/wifi_legacy_hal.h"
+#include "common/wifi_mode_controller.h"
 #include "wifi_p2p_iface.h"
 #include "wifi_rtt_controller.h"
 #include "wifi_sta_iface.h"

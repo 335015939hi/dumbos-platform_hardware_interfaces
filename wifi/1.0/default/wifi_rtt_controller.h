@@ -22,7 +22,7 @@
 #include <android/hardware/wifi/1.0/IWifiRttController.h>
 #include <android/hardware/wifi/1.0/IWifiRttControllerEventCallback.h>
 
-#include "wifi_legacy_hal.h"
+#include "common/wifi_legacy_hal.h"
 
 namespace android {
 namespace hardware {

@@ -16,9 +16,9 @@
 
 #include <android-base/logging.h>
 
-#include "hidl_return_util.h"
+#include "common/hidl_return_util.h"
 #include "wifi.h"
-#include "wifi_status_util.h"
+#include "common/wifi_status_util.h"
 
 namespace {
 // Chip ID to use for the only supported chip.
