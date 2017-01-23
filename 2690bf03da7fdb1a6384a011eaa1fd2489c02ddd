@@ -34,6 +34,24 @@
       "revId": "2690bf03da7fdb1a6384a011eaa1fd2489c02ddd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "082efe90_29de214d",
+        "filename": "wifi/1.1/IWifiChip.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2017-01-23T20:49:50Z",
+      "side": 1,
+      "message": "If you see the parent CL - that\u0027s where we remove that method from the parent. The idea is to move the NAN functionality from 1.0 to the new 1.1.",
+      "parentUuid": "082efe90_49c04d7f",
+      "revId": "2690bf03da7fdb1a6384a011eaa1fd2489c02ddd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
