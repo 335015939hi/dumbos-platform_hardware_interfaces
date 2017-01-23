@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "082efe90_49c04d7f",
+        "filename": "wifi/1.1/IWifiChip.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-01-23T20:47:19Z",
+      "side": 1,
+      "message": "Note: we don\u0027t yet support method overloading, so this createNanIface method here will conflict with @1.0::IWifiChip\u0027s createNanIface method. b/31758541",
+      "revId": "2690bf03da7fdb1a6384a011eaa1fd2489c02ddd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
