@@ -52,6 +52,13 @@ class Wifi : public IWifi {
   Return<void> getChipIds(getChipIds_cb hidl_status_cb) override;
   Return<void> getChip(ChipId chip_id, getChip_cb hidl_status_cb) override;
 
+ protected:
+   std::shared_ptr<legacy_hal::WifiLegacyHal> legacy_hal_;
+   std::shared_ptr<mode_controller::WifiModeController> mode_controller_;
+
+   virtual WifiChip allocateWifiChip(ChipId chipId,
+         std::shared_ptr<legacy_hal::WifiLegacyHal> legacy_hal,
+         std::shared_ptr<mode_controller::WifiModeController> mode_controller);
  private:
   enum class RunState { STOPPED, STARTED, STOPPING };
 
@@ -63,13 +70,12 @@ class Wifi : public IWifi {
   std::pair<WifiStatus, std::vector<ChipId>> getChipIdsInternal();
   std::pair<WifiStatus, sp<IWifiChip>> getChipInternal(ChipId chip_id);
 
+
   WifiStatus initializeLegacyHal();
   WifiStatus stopLegacyHalAndDeinitializeModeController();
 
   // Instance is created in this root level |IWifi| HIDL interface object
   // and shared with all the child HIDL interface objects.
-  std::shared_ptr<legacy_hal::WifiLegacyHal> legacy_hal_;
-  std::shared_ptr<mode_controller::WifiModeController> mode_controller_;
   RunState run_state_;
   std::vector<sp<IWifiEventCallback>> event_callbacks_;
   sp<WifiChip> chip_;

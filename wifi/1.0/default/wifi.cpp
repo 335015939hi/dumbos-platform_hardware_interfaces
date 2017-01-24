@@ -90,6 +90,12 @@ WifiStatus Wifi::registerEventCallbackInternal(
   return createWifiStatus(WifiStatusCode::SUCCESS);
 }
 
+WifiChip Wifi::allocateWifiChip(ChipId chipId,
+        std::shared_ptr<legacy_hal::WifiLegacyHal> legacy_hal,
+        std::shared_ptr<mode_controller::WifiModeController> mode_controller) {
+  return new WifiChip(chipId, legacy_hal, mode_controller);
+}
+
 WifiStatus Wifi::startInternal() {
   if (run_state_ == RunState::STARTED) {
     return createWifiStatus(WifiStatusCode::SUCCESS);
@@ -100,7 +106,7 @@ WifiStatus Wifi::startInternal() {
   WifiStatus wifi_status = initializeLegacyHal();
   if (wifi_status.code == WifiStatusCode::SUCCESS) {
     // Create the chip instance once the HAL is started.
-    chip_ = new WifiChip(kChipId, legacy_hal_, mode_controller_);
+    chip_ = allocateWifiChip(kChipId, legacy_hal_, mode_controller_);
     run_state_ = RunState::STARTED;
     for (const auto& callback : event_callbacks_) {
       if (!callback->onStart().isOk()) {
