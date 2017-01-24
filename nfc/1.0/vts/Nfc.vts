@@ -8,6 +8,72 @@ import: "android.hardware.nfc@1.0::INfcClientCallback"
 import: "android.hardware.nfc@1.0::types"
 
 interface: {
+    attribute: {
+        name: "::android::hardware::nfc::V1_0::NfcEvent"
+        type: TYPE_ENUM
+        enum_value: {
+            scalar_type: "uint32_t"
+
+            enumerator: "OPEN_CPLT"
+            scalar_value: {
+                uint32_t: 0
+            }
+            enumerator: "CLOSE_CPLT"
+            scalar_value: {
+                uint32_t: 1
+            }
+            enumerator: "POST_INIT_CPLT"
+            scalar_value: {
+                uint32_t: 2
+            }
+            enumerator: "PRE_DISCOVER_CPLT"
+            scalar_value: {
+                uint32_t: 3
+            }
+            enumerator: "REQUEST_CONTROL"
+            scalar_value: {
+                uint32_t: 4
+            }
+            enumerator: "RELEASE_CONTROL"
+            scalar_value: {
+                uint32_t: 5
+            }
+            enumerator: "ERROR"
+            scalar_value: {
+                uint32_t: 6
+            }
+        }
+    }
+
+    attribute: {
+        name: "::android::hardware::nfc::V1_0::NfcStatus"
+        type: TYPE_ENUM
+        enum_value: {
+            scalar_type: "uint32_t"
+
+            enumerator: "OK"
+            scalar_value: {
+                uint32_t: 0
+            }
+            enumerator: "FAILED"
+            scalar_value: {
+                uint32_t: 1
+            }
+            enumerator: "ERR_TRANSPORT"
+            scalar_value: {
+                uint32_t: 2
+            }
+            enumerator: "ERR_CMD_TIMEOUT"
+            scalar_value: {
+                uint32_t: 3
+            }
+            enumerator: "REFUSED"
+            scalar_value: {
+                uint32_t: 4
+            }
+        }
+    }
+
     api: {
         name: "open"
         return_type_hidl: {
@@ -87,13 +153,6 @@ interface: {
             next: "powerCycle"
             next: "controlGranted"
         }
-        callflow: {
-            next: "write"
-            next: "close"
-            next: "coreInitialized"
-            next: "powerCycle"
-            next: "controlGranted"
-        }
     }
 
     api: {
@@ -101,9 +160,6 @@ interface: {
         return_type_hidl: {
             type: TYPE_ENUM
             predefined_type: "::android::hardware::nfc::V1_0::NfcStatus"
-        }
-        callflow: {
-            exit: true
         }
         callflow: {
             exit: true
@@ -123,13 +179,6 @@ interface: {
             next: "coreInitialized"
             next: "powerCycle"
         }
-        callflow: {
-            next: "write"
-            next: "close"
-            next: "prediscover"
-            next: "coreInitialized"
-            next: "powerCycle"
-        }
     }
 
     api: {
@@ -137,13 +186,6 @@ interface: {
         return_type_hidl: {
             type: TYPE_ENUM
             predefined_type: "::android::hardware::nfc::V1_0::NfcStatus"
-        }
-        callflow: {
-            next: "write"
-            next: "coreInitialized"
-            next: "prediscover"
-            next: "controlGranted"
-            next: "close"
         }
         callflow: {
             next: "write"

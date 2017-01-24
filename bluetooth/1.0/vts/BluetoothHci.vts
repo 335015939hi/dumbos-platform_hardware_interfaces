@@ -8,16 +8,46 @@ import: "android.hardware.bluetooth@1.0::IBluetoothHciCallbacks"
 import: "android.hardware.bluetooth@1.0::types"
 
 interface: {
+    attribute: {
+        name: "::android::hardware::bluetooth::V1_0::Status"
+        type: TYPE_ENUM
+        enum_value: {
+            scalar_type: "int32_t"
+
+            enumerator: "SUCCESS"
+            scalar_value: {
+                int32_t: 0
+            }
+            enumerator: "TRANSPORT_ERROR"
+            scalar_value: {
+                int32_t: 1
+            }
+            enumerator: "INITIALIZATION_ERROR"
+            scalar_value: {
+                int32_t: 2
+            }
+            enumerator: "UNKNOWN"
+            scalar_value: {
+                int32_t: 3
+            }
+        }
+    }
+
     api: {
         name: "initialize"
-        return_type_hidl: {
-            type: TYPE_ENUM
-            predefined_type: "::android::hardware::bluetooth::V1_0::Status"
-        }
         arg: {
             type: TYPE_HIDL_INTERFACE
-            predefined_type: "IBluetoothHciCallbacks"
+            predefined_type: "::android::hardware::bluetooth::V1_0::IBluetoothHciCallbacks"
             is_callback: false
+        }
+        callflow: {
+            entry: true
+        }
+        callflow: {
+            next: "sendHciCommand"
+            next: "sendAclData"
+            next: "sendScoData"
+            next: "close"
         }
     }
 
@@ -30,6 +60,12 @@ interface: {
                 scalar_type: "uint8_t"
             }
         }
+        callflow: {
+            next: "sendHciCommand"
+            next: "sendAclData"
+            next: "sendScoData"
+            next: "close"
+        }
     }
 
     api: {
@@ -40,6 +76,12 @@ interface: {
                 type: TYPE_SCALAR
                 scalar_type: "uint8_t"
             }
+        }
+        callflow: {
+            next: "sendHciCommand"
+            next: "sendAclData"
+            next: "sendScoData"
+            next: "close"
         }
     }
 
@@ -52,10 +94,19 @@ interface: {
                 scalar_type: "uint8_t"
             }
         }
+        callflow: {
+            next: "sendHciCommand"
+            next: "sendAclData"
+            next: "sendScoData"
+            next: "close"
+        }
     }
 
     api: {
         name: "close"
+        callflow: {
+            exit: true
+        }
     }
 
 }
