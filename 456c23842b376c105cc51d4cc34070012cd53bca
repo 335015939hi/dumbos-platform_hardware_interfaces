@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0434979b_82daf8c9",
+        "filename": "nfc/1.0/vts/functional/nfc_hidl_hal_test.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2017-01-24T18:56:15Z",
+      "side": 1,
+      "message": "oops",
+      "range": {
+        "startLine": 269,
+        "startChar": 19,
+        "endLine": 269,
+        "endChar": 20
+      },
+      "revId": "456c23842b376c105cc51d4cc34070012cd53bca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
