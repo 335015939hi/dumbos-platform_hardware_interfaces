@@ -8,6 +8,14 @@ import: "android.hardware.bluetooth@1.0::types"
 
 interface: {
     api: {
+        name: "initializationComplete"
+        arg: {
+            type: TYPE_ENUM
+            predefined_type: "::android::hardware::bluetooth::V1_0::Status"
+        }
+    }
+
+    api: {
         name: "hciEventReceived"
         arg: {
             type: TYPE_VECTOR

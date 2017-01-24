@@ -567,8 +567,8 @@ attribute: {
     struct_value: {
         name: "bssid"
         type: TYPE_ARRAY
+        vector_size: 6
         vector_value: {
-            vector_size: 6
             type: TYPE_SCALAR
             scalar_type: "uint8_t"
         }
@@ -662,8 +662,8 @@ attribute: {
         type: TYPE_VECTOR
         vector_value: {
             type: TYPE_ARRAY
+            vector_size: 6
             vector_value: {
-                vector_size: 6
                 type: TYPE_SCALAR
                 scalar_type: "uint8_t"
             }
@@ -674,8 +674,8 @@ attribute: {
         type: TYPE_VECTOR
         vector_value: {
             type: TYPE_ARRAY
+            vector_size: 32
             vector_value: {
-                vector_size: 32
                 type: TYPE_SCALAR
                 scalar_type: "uint8_t"
             }
@@ -972,8 +972,8 @@ attribute: {
     struct_value: {
         name: "intfAddrVal"
         type: TYPE_ARRAY
+        vector_size: 6
         vector_value: {
-            vector_size: 6
             type: TYPE_SCALAR
             scalar_type: "uint8_t"
         }
@@ -1352,8 +1352,8 @@ attribute: {
         type: TYPE_VECTOR
         vector_value: {
             type: TYPE_ARRAY
+            vector_size: 6
             vector_value: {
-                vector_size: 6
                 type: TYPE_SCALAR
                 scalar_type: "uint8_t"
             }
@@ -1377,8 +1377,8 @@ attribute: {
     struct_value: {
         name: "addr"
         type: TYPE_ARRAY
+        vector_size: 6
         vector_value: {
-            vector_size: 6
             type: TYPE_SCALAR
             scalar_type: "uint8_t"
         }
@@ -1419,8 +1419,8 @@ attribute: {
     struct_value: {
         name: "peerDiscMacAddr"
         type: TYPE_ARRAY
+        vector_size: 6
         vector_value: {
-            vector_size: 6
             type: TYPE_SCALAR
             scalar_type: "uint8_t"
         }
@@ -1641,8 +1641,8 @@ attribute: {
     struct_value: {
         name: "addr"
         type: TYPE_ARRAY
+        vector_size: 6
         vector_value: {
-            vector_size: 6
             type: TYPE_SCALAR
             scalar_type: "uint8_t"
         }
@@ -1721,8 +1721,8 @@ attribute: {
     struct_value: {
         name: "addr"
         type: TYPE_ARRAY
+        vector_size: 6
         vector_value: {
-            vector_size: 6
             type: TYPE_SCALAR
             scalar_type: "uint8_t"
         }
@@ -1774,8 +1774,8 @@ attribute: {
     struct_value: {
         name: "addr"
         type: TYPE_ARRAY
+        vector_size: 6
         vector_value: {
-            vector_size: 6
             type: TYPE_SCALAR
             scalar_type: "uint8_t"
         }
@@ -1809,8 +1809,8 @@ attribute: {
     struct_value: {
         name: "addr"
         type: TYPE_ARRAY
+        vector_size: 6
         vector_value: {
-            vector_size: 6
             type: TYPE_SCALAR
             scalar_type: "uint8_t"
         }
@@ -1864,8 +1864,8 @@ attribute: {
     struct_value: {
         name: "peerDiscMacAddr"
         type: TYPE_ARRAY
+        vector_size: 6
         vector_value: {
-            vector_size: 6
             type: TYPE_SCALAR
             scalar_type: "uint8_t"
         }
@@ -1906,8 +1906,8 @@ attribute: {
     struct_value: {
         name: "peerNdiMacAddr"
         type: TYPE_ARRAY
+        vector_size: 6
         vector_value: {
-            vector_size: 6
             type: TYPE_SCALAR
             scalar_type: "uint8_t"
         }
@@ -2106,8 +2106,8 @@ attribute: {
     struct_value: {
         name: "addr"
         type: TYPE_ARRAY
+        vector_size: 6
         vector_value: {
-            vector_size: 6
             type: TYPE_SCALAR
             scalar_type: "uint8_t"
         }
@@ -2185,8 +2185,8 @@ attribute: {
     struct_value: {
         name: "addr"
         type: TYPE_ARRAY
+        vector_size: 6
         vector_value: {
-            vector_size: 6
             type: TYPE_SCALAR
             scalar_type: "uint8_t"
         }
@@ -2430,8 +2430,8 @@ attribute: {
     struct_value: {
         name: "countryCode"
         type: TYPE_ARRAY
+        vector_size: 2
         vector_value: {
-            vector_size: 2
             type: TYPE_SCALAR
             scalar_type: "int8_t"
         }

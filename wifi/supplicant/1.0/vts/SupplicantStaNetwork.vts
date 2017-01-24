@@ -247,8 +247,8 @@ interface: {
         struct_value: {
             name: "kc"
             type: TYPE_ARRAY
+            vector_size: 8
             vector_value: {
-                vector_size: 8
                 type: TYPE_SCALAR
                 scalar_type: "uint8_t"
             }
@@ -256,8 +256,8 @@ interface: {
         struct_value: {
             name: "sres"
             type: TYPE_ARRAY
+            vector_size: 4
             vector_value: {
-                vector_size: 4
                 type: TYPE_SCALAR
                 scalar_type: "uint8_t"
             }
@@ -278,8 +278,8 @@ interface: {
         struct_value: {
             name: "ik"
             type: TYPE_ARRAY
+            vector_size: 16
             vector_value: {
-                vector_size: 16
                 type: TYPE_SCALAR
                 scalar_type: "uint8_t"
             }
@@ -287,8 +287,8 @@ interface: {
         struct_value: {
             name: "ck"
             type: TYPE_ARRAY
+            vector_size: 16
             vector_value: {
-                vector_size: 16
                 type: TYPE_SCALAR
                 scalar_type: "uint8_t"
             }
@@ -366,8 +366,8 @@ interface: {
         }
         arg: {
             type: TYPE_ARRAY
+            vector_size: 6
             vector_value: {
-                vector_size: 6
                 type: TYPE_SCALAR
                 scalar_type: "uint8_t"
             }
@@ -703,8 +703,8 @@ interface: {
         }
         return_type_hidl: {
             type: TYPE_ARRAY
+            vector_size: 6
             vector_value: {
-                vector_size: 6
                 type: TYPE_SCALAR
                 scalar_type: "uint8_t"
             }

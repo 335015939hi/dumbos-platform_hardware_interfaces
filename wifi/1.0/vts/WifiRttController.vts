@@ -68,8 +68,8 @@ interface: {
             type: TYPE_VECTOR
             vector_value: {
                 type: TYPE_ARRAY
+                vector_size: 6
                 vector_value: {
-                    vector_size: 6
                     type: TYPE_SCALAR
                     scalar_type: "uint8_t"
                 }
