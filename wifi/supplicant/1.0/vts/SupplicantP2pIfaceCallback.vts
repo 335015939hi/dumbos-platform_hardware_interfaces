@@ -5,8 +5,201 @@ component_name: "ISupplicantP2pIfaceCallback"
 package: "android.hardware.wifi.supplicant"
 
 import: "android.hardware.wifi.supplicant@1.0::types"
+import: "android.hidl.base@1.0::types"
 
 interface: {
+    attribute: {
+        name: "::android::hardware::wifi::supplicant::V1_0::SupplicantStatusCode"
+        type: TYPE_ENUM
+        enum_value: {
+            scalar_type: "uint32_t"
+
+            enumerator: "SUCCESS"
+            scalar_value: {
+                uint32_t: 0
+            }
+            enumerator: "FAILURE_UNKNOWN"
+            scalar_value: {
+                uint32_t: 1
+            }
+            enumerator: "FAILURE_ARGS_INVALID"
+            scalar_value: {
+                uint32_t: 2
+            }
+            enumerator: "FAILURE_IFACE_INVALID"
+            scalar_value: {
+                uint32_t: 3
+            }
+            enumerator: "FAILURE_IFACE_UNKNOWN"
+            scalar_value: {
+                uint32_t: 4
+            }
+            enumerator: "FAILURE_IFACE_EXISTS"
+            scalar_value: {
+                uint32_t: 5
+            }
+            enumerator: "FAILURE_IFACE_DISABLED"
+            scalar_value: {
+                uint32_t: 6
+            }
+            enumerator: "FAILURE_IFACE_NOT_DISCONNECTED"
+            scalar_value: {
+                uint32_t: 7
+            }
+            enumerator: "FAILURE_NETWORK_INVALID"
+            scalar_value: {
+                uint32_t: 8
+            }
+            enumerator: "FAILURE_NETWORK_UNKNOWN"
+            scalar_value: {
+                uint32_t: 9
+            }
+        }
+    }
+
+    attribute: {
+        name: "::android::hardware::wifi::supplicant::V1_0::SupplicantStatus"
+        type: TYPE_STRUCT
+        struct_value: {
+            name: "code"
+            type: TYPE_ENUM
+            predefined_type: "::android::hardware::wifi::supplicant::V1_0::SupplicantStatusCode"
+        }
+        struct_value: {
+            name: "debugMessage"
+            type: TYPE_STRING
+        }
+    }
+
+    attribute: {
+        name: "::android::hardware::wifi::supplicant::V1_0::IfaceType"
+        type: TYPE_ENUM
+        enum_value: {
+            scalar_type: "uint32_t"
+
+            enumerator: "STA"
+            scalar_value: {
+                uint32_t: 0
+            }
+            enumerator: "P2P"
+            scalar_value: {
+                uint32_t: 1
+            }
+        }
+    }
+
+    attribute: {
+        name: "::android::hardware::wifi::supplicant::V1_0::P2pGroupCapabilityMask"
+        type: TYPE_ENUM
+        enum_value: {
+            scalar_type: "uint32_t"
+
+            enumerator: "GROUP_OWNER"
+            scalar_value: {
+                uint32_t: 1
+            }
+            enumerator: "PERSISTENT_GROUP"
+            scalar_value: {
+                uint32_t: 2
+            }
+            enumerator: "GROUP_LIMIT"
+            scalar_value: {
+                uint32_t: 4
+            }
+            enumerator: "INTRA_BSS_DIST"
+            scalar_value: {
+                uint32_t: 8
+            }
+            enumerator: "CROSS_CONN"
+            scalar_value: {
+                uint32_t: 16
+            }
+            enumerator: "PERSISTENT_RECONN"
+            scalar_value: {
+                uint32_t: 32
+            }
+            enumerator: "GROUP_FORMATION"
+            scalar_value: {
+                uint32_t: 64
+            }
+        }
+    }
+
+    attribute: {
+        name: "::android::hardware::wifi::supplicant::V1_0::WpsConfigMethods"
+        type: TYPE_ENUM
+        enum_value: {
+            scalar_type: "uint16_t"
+
+            enumerator: "USBA"
+            scalar_value: {
+                uint16_t: 1
+            }
+            enumerator: "ETHERNET"
+            scalar_value: {
+                uint16_t: 2
+            }
+            enumerator: "LABEL"
+            scalar_value: {
+                uint16_t: 4
+            }
+            enumerator: "DISPLAY"
+            scalar_value: {
+                uint16_t: 8
+            }
+            enumerator: "EXT_NFC_TOKEN"
+            scalar_value: {
+                uint16_t: 16
+            }
+            enumerator: "INT_NFC_TOKEN"
+            scalar_value: {
+                uint16_t: 32
+            }
+            enumerator: "NFC_INTERFACE"
+            scalar_value: {
+                uint16_t: 64
+            }
+            enumerator: "PUSHBUTTON"
+            scalar_value: {
+                uint16_t: 128
+            }
+            enumerator: "KEYPAD"
+            scalar_value: {
+                uint16_t: 256
+            }
+            enumerator: "VIRT_PUSHBUTTON"
+            scalar_value: {
+                uint16_t: 640
+            }
+            enumerator: "PHY_PUSHBUTTON"
+            scalar_value: {
+                uint16_t: 1152
+            }
+            enumerator: "P2PS"
+            scalar_value: {
+                uint16_t: 4096
+            }
+            enumerator: "VIRT_DISPLAY"
+            scalar_value: {
+                uint16_t: 8200
+            }
+            enumerator: "PHY_DISPLAY"
+            scalar_value: {
+                uint16_t: 16392
+            }
+        }
+    }
+
+    attribute: {
+        name: "::android::hidl::base::V1_0::ReferenceInfo"
+        type: TYPE_STRUCT
+        struct_value: {
+            name: "refCount"
+            type: TYPE_SCALAR
+            scalar_type: "int64_t"
+        }
+    }
+
     attribute: {
         name: "::android::hardware::wifi::supplicant::V1_0::ISupplicantP2pIfaceCallback::WpsDevPasswordId"
         type: TYPE_ENUM
@@ -158,24 +351,24 @@ interface: {
         name: "onDeviceFound"
         arg: {
             type: TYPE_ARRAY
+            vector_size: 6
             vector_value: {
-                vector_size: 6
                 type: TYPE_SCALAR
                 scalar_type: "uint8_t"
             }
         }
         arg: {
             type: TYPE_ARRAY
+            vector_size: 6
             vector_value: {
-                vector_size: 6
                 type: TYPE_SCALAR
                 scalar_type: "uint8_t"
             }
         }
         arg: {
             type: TYPE_ARRAY
+            vector_size: 8
             vector_value: {
-                vector_size: 8
                 type: TYPE_SCALAR
                 scalar_type: "uint8_t"
             }
@@ -185,6 +378,7 @@ interface: {
         }
         arg: {
             type: TYPE_MASK
+            scalar_type: "uint16_t"
             predefined_type: "::android::hardware::wifi::supplicant::V1_0::WpsConfigMethods"
         }
         arg: {
@@ -193,12 +387,13 @@ interface: {
         }
         arg: {
             type: TYPE_MASK
+            scalar_type: "uint32_t"
             predefined_type: "::android::hardware::wifi::supplicant::V1_0::P2pGroupCapabilityMask"
         }
         arg: {
             type: TYPE_ARRAY
+            vector_size: 8
             vector_value: {
-                vector_size: 8
                 type: TYPE_SCALAR
                 scalar_type: "uint8_t"
             }
@@ -209,8 +404,8 @@ interface: {
         name: "onDeviceLost"
         arg: {
             type: TYPE_ARRAY
+            vector_size: 6
             vector_value: {
-                vector_size: 6
                 type: TYPE_SCALAR
                 scalar_type: "uint8_t"
             }
@@ -225,8 +420,8 @@ interface: {
         name: "onGoNegotiationRequest"
         arg: {
             type: TYPE_ARRAY
+            vector_size: 6
             vector_value: {
-                vector_size: 6
                 type: TYPE_SCALAR
                 scalar_type: "uint8_t"
             }
@@ -278,8 +473,8 @@ interface: {
         }
         arg: {
             type: TYPE_ARRAY
+            vector_size: 32
             vector_value: {
-                vector_size: 32
                 type: TYPE_SCALAR
                 scalar_type: "uint8_t"
             }
@@ -289,8 +484,8 @@ interface: {
         }
         arg: {
             type: TYPE_ARRAY
+            vector_size: 6
             vector_value: {
-                vector_size: 6
                 type: TYPE_SCALAR
                 scalar_type: "uint8_t"
             }
@@ -316,24 +511,24 @@ interface: {
         name: "onInvitationReceived"
         arg: {
             type: TYPE_ARRAY
+            vector_size: 6
             vector_value: {
-                vector_size: 6
                 type: TYPE_SCALAR
                 scalar_type: "uint8_t"
             }
         }
         arg: {
             type: TYPE_ARRAY
+            vector_size: 6
             vector_value: {
-                vector_size: 6
                 type: TYPE_SCALAR
                 scalar_type: "uint8_t"
             }
         }
         arg: {
             type: TYPE_ARRAY
+            vector_size: 6
             vector_value: {
-                vector_size: 6
                 type: TYPE_SCALAR
                 scalar_type: "uint8_t"
             }
@@ -352,8 +547,8 @@ interface: {
         name: "onInvitationResult"
         arg: {
             type: TYPE_ARRAY
+            vector_size: 6
             vector_value: {
-                vector_size: 6
                 type: TYPE_SCALAR
                 scalar_type: "uint8_t"
             }
@@ -368,8 +563,8 @@ interface: {
         name: "onProvisionDiscoveryPbcRequest"
         arg: {
             type: TYPE_ARRAY
+            vector_size: 6
             vector_value: {
-                vector_size: 6
                 type: TYPE_SCALAR
                 scalar_type: "uint8_t"
             }
@@ -380,8 +575,8 @@ interface: {
         name: "onProvisionDiscoveryPbcResponse"
         arg: {
             type: TYPE_ARRAY
+            vector_size: 6
             vector_value: {
-                vector_size: 6
                 type: TYPE_SCALAR
                 scalar_type: "uint8_t"
             }
@@ -392,8 +587,8 @@ interface: {
         name: "onProvisionDiscoveryShowPin"
         arg: {
             type: TYPE_ARRAY
+            vector_size: 6
             vector_value: {
-                vector_size: 6
                 type: TYPE_SCALAR
                 scalar_type: "uint8_t"
             }
@@ -407,8 +602,8 @@ interface: {
         name: "onProvisionDiscoveryEnterPin"
         arg: {
             type: TYPE_ARRAY
+            vector_size: 6
             vector_value: {
-                vector_size: 6
                 type: TYPE_SCALAR
                 scalar_type: "uint8_t"
             }
@@ -419,8 +614,8 @@ interface: {
         name: "onProvisionDiscoveryFailure"
         arg: {
             type: TYPE_ARRAY
+            vector_size: 6
             vector_value: {
-                vector_size: 6
                 type: TYPE_SCALAR
                 scalar_type: "uint8_t"
             }
@@ -431,8 +626,8 @@ interface: {
         name: "onProvisionDiscoveryCompleted"
         arg: {
             type: TYPE_ARRAY
+            vector_size: 6
             vector_value: {
-                vector_size: 6
                 type: TYPE_SCALAR
                 scalar_type: "uint8_t"
             }
@@ -447,6 +642,7 @@ interface: {
         }
         arg: {
             type: TYPE_MASK
+            scalar_type: "uint16_t"
             predefined_type: "::android::hardware::wifi::supplicant::V1_0::WpsConfigMethods"
         }
         arg: {
@@ -458,8 +654,8 @@ interface: {
         name: "onServiceDiscoveryResponse"
         arg: {
             type: TYPE_ARRAY
+            vector_size: 6
             vector_value: {
-                vector_size: 6
                 type: TYPE_SCALAR
                 scalar_type: "uint8_t"
             }
@@ -481,16 +677,16 @@ interface: {
         name: "onStaAuthorized"
         arg: {
             type: TYPE_ARRAY
+            vector_size: 6
             vector_value: {
-                vector_size: 6
                 type: TYPE_SCALAR
                 scalar_type: "uint8_t"
             }
         }
         arg: {
             type: TYPE_ARRAY
+            vector_size: 6
             vector_value: {
-                vector_size: 6
                 type: TYPE_SCALAR
                 scalar_type: "uint8_t"
             }
@@ -501,16 +697,16 @@ interface: {
         name: "onStaDeauthorized"
         arg: {
             type: TYPE_ARRAY
+            vector_size: 6
             vector_value: {
-                vector_size: 6
                 type: TYPE_SCALAR
                 scalar_type: "uint8_t"
             }
         }
         arg: {
             type: TYPE_ARRAY
+            vector_size: 6
             vector_value: {
-                vector_size: 6
                 type: TYPE_SCALAR
                 scalar_type: "uint8_t"
             }

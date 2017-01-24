@@ -1859,7 +1859,7 @@ attribute: {
     enum_value: {
         scalar_type: "int32_t"
 
-        enumerator: "MEMORY_CAPAPCITY_EXCEEDED"
+        enumerator: "MEMORY_CAPACITY_EXCEEDED"
         scalar_value: {
             int32_t: 211
         }
@@ -1913,7 +1913,7 @@ attribute: {
         scalar_value: {
             int32_t: 1
         }
-        enumerator: "UNKOWN"
+        enumerator: "UNKNOWN"
         scalar_value: {
             int32_t: 2
         }
@@ -2406,7 +2406,7 @@ attribute: {
         scalar_value: {
             int32_t: 1
         }
-        enumerator: "FACORY_RESET"
+        enumerator: "FACTORY_RESET"
         scalar_value: {
             int32_t: 2
         }
@@ -2730,23 +2730,23 @@ attribute: {
 
         enumerator: "GSM"
         scalar_value: {
-            int32_t: 0
+            int32_t: 1
         }
         enumerator: "CDMA"
         scalar_value: {
-            int32_t: 1
+            int32_t: 2
         }
         enumerator: "LTE"
         scalar_value: {
-            int32_t: 2
+            int32_t: 3
         }
         enumerator: "WCDMA"
         scalar_value: {
-            int32_t: 3
+            int32_t: 4
         }
         enumerator: "TD_SCDMA"
         scalar_value: {
-            int32_t: 4
+            int32_t: 5
         }
     }
 }
@@ -4528,7 +4528,7 @@ attribute: {
         scalar_type: "int32_t"
     }
     struct_value: {
-        name: "basestationId"
+        name: "baseStationId"
         type: TYPE_SCALAR
         scalar_type: "int32_t"
     }
@@ -5022,7 +5022,8 @@ attribute: {
     }
     struct_value: {
         name: "raf"
-        type: TYPE_ENUM
+        type: TYPE_MASK
+        scalar_type: "int32_t"
         predefined_type: "::android::hardware::radio::V1_0::RadioAccessFamily"
     }
     struct_value: {
@@ -5087,8 +5088,8 @@ attribute: {
     struct_value: {
         name: "txmModetimeMs"
         type: TYPE_ARRAY
+        vector_size: 5
         vector_value: {
-            vector_size: 5
             type: TYPE_SCALAR
             scalar_type: "uint32_t"
         }
@@ -5238,7 +5239,7 @@ attribute: {
         predefined_type: "::android::hardware::radio::V1_0::CdmaSignalInfoRecord"
     }
     struct_value: {
-        name: "numbertype"
+        name: "numberType"
         type: TYPE_ENUM
         predefined_type: "::android::hardware::radio::V1_0::CdmaCallWaitingNumberType"
     }
@@ -5477,7 +5478,8 @@ attribute: {
     }
     struct_value: {
         name: "serviceClass"
-        type: TYPE_ENUM
+        type: TYPE_MASK
+        scalar_type: "int32_t"
         predefined_type: "::android::hardware::radio::V1_0::SuppServiceClass"
     }
     struct_value: {
