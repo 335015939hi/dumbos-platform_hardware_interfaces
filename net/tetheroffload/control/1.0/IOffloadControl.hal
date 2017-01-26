@@ -1,0 +1,226 @@
+/*
+ * Copyright (C) 2017 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package android.hardware.net.tetheroffload.control@1.0;
+
+import ITetheringOffloadCallback;
+
+
+/**
+ * Interface used to control the lifecycle of tethering offload
+ */
+interface IOffloadControl {
+  /**
+   * Serves only as a static hardware configuration query.
+   *
+   * This may be called at any time, even outside of initOffload/stopOffload.  Returning that
+   * offload is supported on this tether pair does not automatically guarantee that calls to
+   * offload this pair will be successful, only that they <i>may</i> be successful in the
+   * correct sequence.  For instance, this API may return that offload is supported on a
+   * mobile upstream and both WiFi and USB as downstreams; however, it does not stipulate that
+   * concurrent offload is supported.
+   *
+   * @param upstream   Upstream interface name
+   * @param downstream Tether interface name
+   *
+   * @return Capabilities that the hardware could possibly support
+   */
+  getCapabilities(string upstream, string downstream) generates (CapabilitiesResult capabilities);
+
+  /**
+   * Indicates intent to start offload for tethering in immediate future.
+   *
+   * This API <b>must</b> be called <b>exactly once<b> every time that Tethering is requested by
+   * the user.
+   *
+   * If this API is called multiple times without first calling stopOffload, then the subsequent
+   * calls will fail.
+   *
+   * If for some reason, the hardware is currently unable to support offload, this call will fail.
+   *
+   * @param cb Assuming success, this callback will provide unsolicited updates of offload status.
+   *           It is assumed to be valid until stopOffload is called.
+   *
+   * @return true if initialization is successful, false otherwise
+   *
+   * Remarks: Initializing offload does not imply that any upstreams or downstreams have yet been,
+   * or even will be, chosen.  This API is symmetrical with stopOffload.
+   */
+  initOffload(ITetheringOffloadCallback cb) generates (BoolResult success);
+
+  /**
+   * Indicate desire to tear down all tethering offload.
+   *
+   * Called after tethering is no longer requested by the user.  Any remaining offload <b>must</b>
+   * be subsequently torn down by the management process.  Upon success, the callback registered
+   * in initOffload will be released.
+   *
+   * In a normal case, the controlling client will have already torn down offload by removing all
+   * upstreams and downstreams.
+   *
+   * @return true if success, false otherwise
+   *
+   * Remarks: Statistics will be reset by this API.
+   */
+  stopOffload() generates (BoolResult success);
+
+  /**
+   * Instruct management process not to forward traffic destined to or from the specified prefixes.
+   *
+   * This API may only be called after initOffload and before stopOffload.
+   *
+   * @param prefixes List containing fully specified prefixes. For example, /32 IPv4 addresses and
+   *                 /128 IPv6 addresses.
+   *
+   * @return true if accepted, false otherwise
+   *
+   * Remarks: This list overrides any previously specified list
+   */
+  setLocalPrefixes(vec<string> prefixes) generates (BoolResult success);
+
+  /**
+   * Query offloaded traffic statistics forwarded to an upstream address.
+   *
+   * Return statistics that have transpired <b>since the last query</b>.  This would include
+   * statistics from all offloaded downstream tether interfaces that have been forwarded to this
+   * upstream interface.  After returning the statistics, the counters are reset to zero.
+   *
+   * Only offloaded statistics will be returned by this API, software stats <b>must</b> not be
+   * returned.
+   *
+   * @param upstream Upstream interface on which traffic exited/entered
+   *
+   * @return Pair of values depicting the received and transmitted bytes
+   */
+  getForwardedStats(string upstream) generates (OffloadStatistics stats);
+
+  /**
+   * Instruct hardware to stop forwarding traffic and send a callback after limit bytes have been
+   * transferred in either direction on this upstream interface.
+   *
+   * The limit <b>must be</b> applied to all traffic on the given upstream interface.  This
+   * includes hardware forwarded traffic, software forwarded traffic, and AP-originated traffic.
+   * IPv4 and IPv6 traffic both count towards the same limit.  IP headers are included in the
+   * byte count limit, but, link-layer headers are not.
+   *
+   * This API may only be called while offload is occurring on this upstream.  The hardware
+   * management process is not expected to cache the value and apply the quota once offload is
+   * started.  This cache is not expected, because the limit value would likely become stale over
+   * time and would not reflect any new traffic that has occurred.
+   *
+   * This limit <b>must</b> replace any previous limit.  It should be interpreted as "tell me when
+   * <limit> additional bytes have been transferred (in either direction) on <upstream>, starting
+   * now."
+   *
+   * Once the limit is reached, the callback registered in initOffload will be called to indicate
+   * this event and all offload will be stopped.  If offload is desired again, the hardware
+   * management process <b>must</b> be completely reprogrammed by calling setUpstreamParameters and
+   * addDownstream again.  Note that it is not necessary to call initOffload again to resume offload
+   * if stopOffload was not called by the client.
+   *
+   * @param upstream Upstream interface name that limit should apply to
+   * @param limit    Bytes limit that can occur before action should be taken
+   *
+   * @return true if limit succesfully applied, false otherwise
+   */
+  setDataLimit(string upstream, uint64_t limit) generates (BoolResult success);
+
+  /**
+   * Instruct hardware to start forwarding traffic to the specified upstream.
+   *
+   * When iface, v4Addr, and v4Gw are all non-null, the management process should begin forwarding
+   * any currently configured or future configured IPv4 downstreams to this upstream interface.
+   *
+   * Before offload can occur, the management process may need to observe NAT bindings from
+   * addresses in the downstream prefixes to the specified IPv4 address that packets are NATed to.
+   * After this observation, offload will start.
+   *
+   * If any of the previously three mentioned parameters are null, then any current IPv4 offload
+   * must be stopped.
+   *
+   * When iface and v6Gws are both non-null, and in the case of v6Gws, are not empty, the
+   * management process should begin forwarding any currently configured or future configured IPv6
+   * downstreams to this upstream interface.
+   *
+   * If either of the two above parameters are null, or no V6 Gateways are provided, then IPv6
+   * offload must be stopped.
+   *
+   * This API may only be called after initOffload and before stopOffload.
+   *
+   * @param iface  Upstream interface name.  Note that only one is needed because IPv4 and IPv6
+   *               interfaces cannot be different (only known that this can occur during software
+   *               xlat, which cannot be offloaded through hardware anyways).  If the iface is
+   *               null, offload must be stopped.
+   * @param v4Addr The local IPv4 address assigned to the provided upstream interface, i.e. the
+   *               IPv4 address the packets are NATed to.
+   * @param v4Gw   The address of the IPv4 gateway on the upstream interface.
+   * @param v6Gws  A list of addresses for possible IPv6 gateways on the upstream interface.
+   *
+   * @return true if successful, false otherwise
+   *
+   * Remarks: This overrides any previously configured parameters.
+   */
+  setUpstreamParameters(string iface, string v4Addr, string v4Gw, vec<string> v6Gws) generates (BoolResult success);
+
+  /**
+   * Configure a downstream prefix in the hardware management process that may be forwarded.
+   *
+   * The prefix may be an IPv4 or an IPv6 address to signify which family can be offloaded from the
+   * specified tether interface.  The list of IPv4 and IPv6 downstreams that are configured may
+   * differ.
+   *
+   * If the given protocol, as determined by the prefix, has an upstream set, the hardware should
+   * begin forwarding traffic between the upstream and any devices on the downstream interface that
+   * have IP addresses within the specified prefix.  Traffic from the same downstream interfaces is
+   * unaffected and will be forwarded if and only if it was already being forwarded.
+   *
+   * If no upstream is currently configured, then these downstream interface and prefixes must be
+   * added to a cache so that offload may begin in the future when an upstream is set.
+   *
+   * This API does not replace any previously configured downstreams and must be explictly removed
+   * by calling removeDownstream.
+   *
+   * This API may only be called after initOffload and before stopOffload.
+   *
+   * @param iface  Tether interface
+   * @param prefix Downstream prefix depicting addresses that should be offloaded
+   *
+   * @return true if success, false otherwise
+   *
+   * Remarks: The hardware management process may fail this call in a normal situation.  This can
+   *          happen because the hardware cannot support the current number of prefixes, the
+   *          hardware cannot support concurrent offload on multiple interfaces, the hardware
+   *          cannot currently support offload on the tether interface for some reason, or any
+   *          other dynamic configuration issues which may occur.  In this case, traffic will remain
+   *          unaffected and will be forwarded if and only if it was already being forwarded.
+   */
+  addDownstream(string iface, string prefix) generates (BoolResult success);
+
+  /**
+   * Remove a downstream prefix that may be forwarded from the hardware management process.
+   *
+   * The prefix may be an IPv4 or an IPv6 address.  If it was not previously configured using
+   * addDownstream, then this will be a no-op.
+   *
+   * This API may only be called after initOffload and before stopOffload.
+   *
+   * @param iface  Tether interface
+   * @param prefix Downstream prefix depicting address that should no longer be offloaded
+   *
+   * @return true if success, false otherwise
+   */
+  removeDownstream(string iface, string prefix) generates (BoolResult success);
+};
