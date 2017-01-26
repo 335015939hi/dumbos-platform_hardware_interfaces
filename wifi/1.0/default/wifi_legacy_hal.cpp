@@ -1124,6 +1124,12 @@ wifi_error WifiLegacyHal::nanDataEnd(transaction_id id,
       id, wlan_interface_handle_, &msg_internal);
 }
 
+wifi_error WifiLegacyHal::setCountryCode(std::array<int8_t, 2> code) {
+  std::string code_str(code.data(), code.data() + code.size());
+  return global_func_table_.wifi_set_country_code(wlan_interface_handle_,
+                                                  code_str.c_str());
+}
+
 wifi_error WifiLegacyHal::retrieveWlanInterfaceHandle() {
   const std::string& ifname_to_find = getStaIfaceName();
   wifi_interface_handle* iface_handles = nullptr;
