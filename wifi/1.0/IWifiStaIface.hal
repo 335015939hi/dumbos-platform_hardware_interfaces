@@ -439,7 +439,8 @@ interface IWifiStaIface extends IWifiIface {
 
   /**
    * API to start packet fate monitoring.
-   * - Once stared, monitoring must remain active until HAL is unloaded.
+   * - Once stared, monitoring must remain active until HAL is unloaded or
+   *   |stopDebugPacketFateMonitoring| is invoked.
    * - When HAL is unloaded, all packet fate buffers must be cleared.
    * - The packet fates are used to monitor the state of packets transmitted/
    *   received during association.

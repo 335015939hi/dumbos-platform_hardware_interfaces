@@ -805,6 +805,7 @@ wifi_error WifiLegacyHal::startRingBufferLogging(const std::string& ring_name,
                                                  uint32_t max_interval_sec,
                                                  uint32_t min_data_size) {
   std::vector<char> ring_name_internal(ring_name.begin(), ring_name.end());
+  ring_name_internal.push_back('\0');
   return global_func_table_.wifi_start_logging(wlan_interface_handle_,
                                                verbose_level,
                                                0,
@@ -815,6 +816,7 @@ wifi_error WifiLegacyHal::startRingBufferLogging(const std::string& ring_name,
 
 wifi_error WifiLegacyHal::getRingBufferData(const std::string& ring_name) {
   std::vector<char> ring_name_internal(ring_name.begin(), ring_name.end());
+  ring_name_internal.push_back('\0');
   return global_func_table_.wifi_get_ring_data(wlan_interface_handle_,
                                                ring_name_internal.data());
 }
@@ -1092,6 +1094,7 @@ wifi_error WifiLegacyHal::nanGetCapabilities(transaction_id id) {
 wifi_error WifiLegacyHal::nanDataInterfaceCreate(
     transaction_id id, const std::string& iface_name) {
   std::vector<char> iface_name_internal(iface_name.begin(), iface_name.end());
+  iface_name_internal.push_back('\0');
   return global_func_table_.wifi_nan_data_interface_create(
       id, wlan_interface_handle_, iface_name_internal.data());
 }
@@ -1099,6 +1102,7 @@ wifi_error WifiLegacyHal::nanDataInterfaceCreate(
 wifi_error WifiLegacyHal::nanDataInterfaceDelete(
     transaction_id id, const std::string& iface_name) {
   std::vector<char> iface_name_internal(iface_name.begin(), iface_name.end());
+  iface_name_internal.push_back('\0');
   return global_func_table_.wifi_nan_data_interface_delete(
       id, wlan_interface_handle_, iface_name_internal.data());
 }
@@ -1122,6 +1126,12 @@ wifi_error WifiLegacyHal::nanDataEnd(transaction_id id,
   NanDataPathEndRequest msg_internal(msg);
   return global_func_table_.wifi_nan_data_end(
       id, wlan_interface_handle_, &msg_internal);
+}
+
+wifi_error WifiLegacyHal::setCountryCode(std::array<int8_t, 2> code) {
+  std::string code_str(code.data(), code.data() + code.size());
+  return global_func_table_.wifi_set_country_code(wlan_interface_handle_,
+                                                  code_str.c_str());
 }
 
 wifi_error WifiLegacyHal::retrieveWlanInterfaceHandle() {
