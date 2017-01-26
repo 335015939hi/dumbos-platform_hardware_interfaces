@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "84630f5c_9d8c1273",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-26T21:43:02Z",
+      "side": 1,
+      "message": "While you\u0027re here: \"started\"",
+      "range": {
+        "startLine": 442,
+        "startChar": 12,
+        "endLine": 442,
+        "endChar": 18
+      },
+      "revId": "5d09b8931a75b3106fae26e0960e4e267cc8d9fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4958f1ba_450d4a98",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-26T21:43:02Z",
+      "side": 1,
+      "message": "Is this a thing? I don\u0027t see any corresponding method in hardware_legacy/wifi_logger.h.",
+      "range": {
+        "startLine": 443,
+        "startChar": 8,
+        "endLine": 443,
+        "endChar": 37
+      },
+      "revId": "5d09b8931a75b3106fae26e0960e4e267cc8d9fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3e7cb96f_77f4227a",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 808,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-26T21:43:02Z",
+      "side": 1,
+      "message": "This pattern occurs often enough that I think it\u0027s worth abstracting away. E.g.\n\n  return global_func_table_.wifi_start_logging(\n    /* ... */, make_char_vec(ring_name).data());",
+      "range": {
+        "startLine": 807,
+        "startChar": 0,
+        "endLine": 808,
+        "endChar": 37
+      },
+      "revId": "5d09b8931a75b3106fae26e0960e4e267cc8d9fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c99c7f8f_1ba31ef1",
+        "filename": "wifi/1.0/default/wifi_status_util.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-26T21:43:02Z",
+      "side": 1,
+      "message": "Would it make sense to remove |default|, so that the compiler can warn us about missing cases?",
+      "range": {
+        "startLine": 48,
+        "startChar": 4,
+        "endLine": 48,
+        "endChar": 11
+      },
+      "revId": "5d09b8931a75b3106fae26e0960e4e267cc8d9fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
