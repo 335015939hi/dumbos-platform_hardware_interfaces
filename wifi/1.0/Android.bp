@@ -150,3 +150,694 @@ cc_library_shared {
         "android.hidl.base@1.0",
     ],
 }
+
+genrule {
+    name: "android.hardware.wifi.vts.driver@1.0_genc++",
+    tools: ["hidl-gen", "vtsc"],
+    cmd: "$(location hidl-gen) -o $(genDir) -Lvts -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.wifi@1.0 && $(location vtsc) -mDRIVER -tSOURCE -b$(genDir) android/hardware/wifi/1.0/ $(genDir)/android/hardware/wifi/1.0/",
+    srcs: [
+        "types.hal",
+        "IWifi.hal",
+        "IWifiApIface.hal",
+        "IWifiChip.hal",
+        "IWifiChipEventCallback.hal",
+        "IWifiEventCallback.hal",
+        "IWifiIface.hal",
+        "IWifiNanIface.hal",
+        "IWifiNanIfaceEventCallback.hal",
+        "IWifiP2pIface.hal",
+        "IWifiRttController.hal",
+        "IWifiRttControllerEventCallback.hal",
+        "IWifiStaIface.hal",
+        "IWifiStaIfaceEventCallback.hal",
+    ],
+    out: [
+        "android/hardware/wifi/1.0/types.vts.cpp",
+        "android/hardware/wifi/1.0/Wifi.vts.cpp",
+        "android/hardware/wifi/1.0/WifiApIface.vts.cpp",
+        "android/hardware/wifi/1.0/WifiChip.vts.cpp",
+        "android/hardware/wifi/1.0/WifiChipEventCallback.vts.cpp",
+        "android/hardware/wifi/1.0/WifiEventCallback.vts.cpp",
+        "android/hardware/wifi/1.0/WifiIface.vts.cpp",
+        "android/hardware/wifi/1.0/WifiNanIface.vts.cpp",
+        "android/hardware/wifi/1.0/WifiNanIfaceEventCallback.vts.cpp",
+        "android/hardware/wifi/1.0/WifiP2pIface.vts.cpp",
+        "android/hardware/wifi/1.0/WifiRttController.vts.cpp",
+        "android/hardware/wifi/1.0/WifiRttControllerEventCallback.vts.cpp",
+        "android/hardware/wifi/1.0/WifiStaIface.vts.cpp",
+        "android/hardware/wifi/1.0/WifiStaIfaceEventCallback.vts.cpp",
+    ],
+}
+
+genrule {
+    name: "android.hardware.wifi.vts.driver@1.0_genc++_headers",
+    tools: ["hidl-gen", "vtsc"],
+    cmd: "$(location hidl-gen) -o $(genDir) -Lvts -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.wifi@1.0 && $(location vtsc) -mDRIVER -tHEADER -b$(genDir) android/hardware/wifi/1.0/ $(genDir)/android/hardware/wifi/1.0/",
+    srcs: [
+        "types.hal",
+        "IWifi.hal",
+        "IWifiApIface.hal",
+        "IWifiChip.hal",
+        "IWifiChipEventCallback.hal",
+        "IWifiEventCallback.hal",
+        "IWifiIface.hal",
+        "IWifiNanIface.hal",
+        "IWifiNanIfaceEventCallback.hal",
+        "IWifiP2pIface.hal",
+        "IWifiRttController.hal",
+        "IWifiRttControllerEventCallback.hal",
+        "IWifiStaIface.hal",
+        "IWifiStaIfaceEventCallback.hal",
+    ],
+    out: [
+        "android/hardware/wifi/1.0/types.vts.h",
+        "android/hardware/wifi/1.0/Wifi.vts.h",
+        "android/hardware/wifi/1.0/WifiApIface.vts.h",
+        "android/hardware/wifi/1.0/WifiChip.vts.h",
+        "android/hardware/wifi/1.0/WifiChipEventCallback.vts.h",
+        "android/hardware/wifi/1.0/WifiEventCallback.vts.h",
+        "android/hardware/wifi/1.0/WifiIface.vts.h",
+        "android/hardware/wifi/1.0/WifiNanIface.vts.h",
+        "android/hardware/wifi/1.0/WifiNanIfaceEventCallback.vts.h",
+        "android/hardware/wifi/1.0/WifiP2pIface.vts.h",
+        "android/hardware/wifi/1.0/WifiRttController.vts.h",
+        "android/hardware/wifi/1.0/WifiRttControllerEventCallback.vts.h",
+        "android/hardware/wifi/1.0/WifiStaIface.vts.h",
+        "android/hardware/wifi/1.0/WifiStaIfaceEventCallback.vts.h",
+    ],
+}
+
+cc_library_shared {
+    name: "android.hardware.wifi.vts.driver@1.0",
+    generated_sources: ["android.hardware.wifi.vts.driver@1.0_genc++"],
+    generated_headers: ["android.hardware.wifi.vts.driver@1.0_genc++_headers"],
+    export_generated_headers: ["android.hardware.wifi.vts.driver@1.0_genc++_headers"],
+    shared_libs: [
+        "libhidlbase",
+        "libhidltransport",
+        "libhwbinder",
+        "liblog",
+        "libutils",
+        "libcutils",
+        "libvts_common",
+        "libvts_datatype",
+        "libvts_measurement",
+        "libvts_multidevice_proto",
+        "libcamera_metadata",
+        "libprotobuf-cpp-full",
+        "android.hidl.base@1.0",
+        "android.hardware.wifi@1.0",
+    ],
+    export_shared_lib_headers: [
+        "libhidlbase",
+        "libhidltransport",
+        "libhwbinder",
+        "libutils",
+        "android.hidl.base@1.0",
+    ],
+}
+
+genrule {
+    name: "android.hardware.wifi@1.0-IWifi-vts.profiler_genc++",
+    tools: ["hidl-gen", "vtsc"],
+    cmd: "$(location hidl-gen) -o $(genDir) -Lvts -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.wifi@1.0 && $(location vtsc) -mPROFILER -tSOURCE -b$(genDir) android/hardware/wifi/1.0/ $(genDir)/android/hardware/wifi/1.0/",
+    srcs: [
+        "IWifi.hal",
+        "types.hal",
+    ],
+    out: [
+        "android/hardware/wifi/1.0/Wifi.vts.cpp",
+        "android/hardware/wifi/1.0/types.vts.cpp",
+    ],
+}
+
+genrule {
+    name: "android.hardware.wifi@1.0-IWifi-vts.profiler_genc++_headers",
+    tools: ["hidl-gen", "vtsc"],
+    cmd: "$(location hidl-gen) -o $(genDir) -Lvts -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.wifi@1.0 && $(location vtsc) -mPROFILER -tHEADER -b$(genDir) android/hardware/wifi/1.0/ $(genDir)/android/hardware/wifi/1.0/",
+    srcs: [
+        "IWifi.hal",
+        "types.hal",
+    ],
+    out: [
+        "android/hardware/wifi/1.0/Wifi.vts.h",
+        "android/hardware/wifi/1.0/types.vts.h",
+    ],
+}
+
+cc_library_shared {
+    name: "android.hardware.wifi@1.0-IWifi-vts.profiler",
+    generated_sources: ["android.hardware.wifi@1.0-IWifi-vts.profiler_genc++"],
+    generated_headers: ["android.hardware.wifi@1.0-IWifi-vts.profiler_genc++_headers"],
+    export_generated_headers: ["android.hardware.wifi@1.0-IWifi-vts.profiler_genc++_headers"],
+    shared_libs: [
+        "libbase",
+        "libhidlbase",
+        "libhidltransport",
+        "libvts_profiling",
+        "libvts_multidevice_proto",
+        "libprotobuf-cpp-full",
+        "android.hidl.base@1.0",
+        "android.hardware.wifi@1.0",
+    ],
+}
+
+genrule {
+    name: "android.hardware.wifi@1.0-IWifiApIface-vts.profiler_genc++",
+    tools: ["hidl-gen", "vtsc"],
+    cmd: "$(location hidl-gen) -o $(genDir) -Lvts -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.wifi@1.0 && $(location vtsc) -mPROFILER -tSOURCE -b$(genDir) android/hardware/wifi/1.0/ $(genDir)/android/hardware/wifi/1.0/",
+    srcs: [
+        "IWifiApIface.hal",
+        "types.hal",
+    ],
+    out: [
+        "android/hardware/wifi/1.0/WifiApIface.vts.cpp",
+        "android/hardware/wifi/1.0/types.vts.cpp",
+    ],
+}
+
+genrule {
+    name: "android.hardware.wifi@1.0-IWifiApIface-vts.profiler_genc++_headers",
+    tools: ["hidl-gen", "vtsc"],
+    cmd: "$(location hidl-gen) -o $(genDir) -Lvts -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.wifi@1.0 && $(location vtsc) -mPROFILER -tHEADER -b$(genDir) android/hardware/wifi/1.0/ $(genDir)/android/hardware/wifi/1.0/",
+    srcs: [
+        "IWifiApIface.hal",
+        "types.hal",
+    ],
+    out: [
+        "android/hardware/wifi/1.0/WifiApIface.vts.h",
+        "android/hardware/wifi/1.0/types.vts.h",
+    ],
+}
+
+cc_library_shared {
+    name: "android.hardware.wifi@1.0-IWifiApIface-vts.profiler",
+    generated_sources: ["android.hardware.wifi@1.0-IWifiApIface-vts.profiler_genc++"],
+    generated_headers: ["android.hardware.wifi@1.0-IWifiApIface-vts.profiler_genc++_headers"],
+    export_generated_headers: ["android.hardware.wifi@1.0-IWifiApIface-vts.profiler_genc++_headers"],
+    shared_libs: [
+        "libbase",
+        "libhidlbase",
+        "libhidltransport",
+        "libvts_profiling",
+        "libvts_multidevice_proto",
+        "libprotobuf-cpp-full",
+        "android.hidl.base@1.0",
+        "android.hardware.wifi@1.0",
+    ],
+}
+
+genrule {
+    name: "android.hardware.wifi@1.0-IWifiChip-vts.profiler_genc++",
+    tools: ["hidl-gen", "vtsc"],
+    cmd: "$(location hidl-gen) -o $(genDir) -Lvts -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.wifi@1.0 && $(location vtsc) -mPROFILER -tSOURCE -b$(genDir) android/hardware/wifi/1.0/ $(genDir)/android/hardware/wifi/1.0/",
+    srcs: [
+        "IWifiChip.hal",
+        "types.hal",
+    ],
+    out: [
+        "android/hardware/wifi/1.0/WifiChip.vts.cpp",
+        "android/hardware/wifi/1.0/types.vts.cpp",
+    ],
+}
+
+genrule {
+    name: "android.hardware.wifi@1.0-IWifiChip-vts.profiler_genc++_headers",
+    tools: ["hidl-gen", "vtsc"],
+    cmd: "$(location hidl-gen) -o $(genDir) -Lvts -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.wifi@1.0 && $(location vtsc) -mPROFILER -tHEADER -b$(genDir) android/hardware/wifi/1.0/ $(genDir)/android/hardware/wifi/1.0/",
+    srcs: [
+        "IWifiChip.hal",
+        "types.hal",
+    ],
+    out: [
+        "android/hardware/wifi/1.0/WifiChip.vts.h",
+        "android/hardware/wifi/1.0/types.vts.h",
+    ],
+}
+
+cc_library_shared {
+    name: "android.hardware.wifi@1.0-IWifiChip-vts.profiler",
+    generated_sources: ["android.hardware.wifi@1.0-IWifiChip-vts.profiler_genc++"],
+    generated_headers: ["android.hardware.wifi@1.0-IWifiChip-vts.profiler_genc++_headers"],
+    export_generated_headers: ["android.hardware.wifi@1.0-IWifiChip-vts.profiler_genc++_headers"],
+    shared_libs: [
+        "libbase",
+        "libhidlbase",
+        "libhidltransport",
+        "libvts_profiling",
+        "libvts_multidevice_proto",
+        "libprotobuf-cpp-full",
+        "android.hidl.base@1.0",
+        "android.hardware.wifi@1.0",
+    ],
+}
+
+genrule {
+    name: "android.hardware.wifi@1.0-IWifiChipEventCallback-vts.profiler_genc++",
+    tools: ["hidl-gen", "vtsc"],
+    cmd: "$(location hidl-gen) -o $(genDir) -Lvts -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.wifi@1.0 && $(location vtsc) -mPROFILER -tSOURCE -b$(genDir) android/hardware/wifi/1.0/ $(genDir)/android/hardware/wifi/1.0/",
+    srcs: [
+        "IWifiChipEventCallback.hal",
+        "types.hal",
+    ],
+    out: [
+        "android/hardware/wifi/1.0/WifiChipEventCallback.vts.cpp",
+        "android/hardware/wifi/1.0/types.vts.cpp",
+    ],
+}
+
+genrule {
+    name: "android.hardware.wifi@1.0-IWifiChipEventCallback-vts.profiler_genc++_headers",
+    tools: ["hidl-gen", "vtsc"],
+    cmd: "$(location hidl-gen) -o $(genDir) -Lvts -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.wifi@1.0 && $(location vtsc) -mPROFILER -tHEADER -b$(genDir) android/hardware/wifi/1.0/ $(genDir)/android/hardware/wifi/1.0/",
+    srcs: [
+        "IWifiChipEventCallback.hal",
+        "types.hal",
+    ],
+    out: [
+        "android/hardware/wifi/1.0/WifiChipEventCallback.vts.h",
+        "android/hardware/wifi/1.0/types.vts.h",
+    ],
+}
+
+cc_library_shared {
+    name: "android.hardware.wifi@1.0-IWifiChipEventCallback-vts.profiler",
+    generated_sources: ["android.hardware.wifi@1.0-IWifiChipEventCallback-vts.profiler_genc++"],
+    generated_headers: ["android.hardware.wifi@1.0-IWifiChipEventCallback-vts.profiler_genc++_headers"],
+    export_generated_headers: ["android.hardware.wifi@1.0-IWifiChipEventCallback-vts.profiler_genc++_headers"],
+    shared_libs: [
+        "libbase",
+        "libhidlbase",
+        "libhidltransport",
+        "libvts_profiling",
+        "libvts_multidevice_proto",
+        "libprotobuf-cpp-full",
+        "android.hidl.base@1.0",
+        "android.hardware.wifi@1.0",
+    ],
+}
+
+genrule {
+    name: "android.hardware.wifi@1.0-IWifiEventCallback-vts.profiler_genc++",
+    tools: ["hidl-gen", "vtsc"],
+    cmd: "$(location hidl-gen) -o $(genDir) -Lvts -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.wifi@1.0 && $(location vtsc) -mPROFILER -tSOURCE -b$(genDir) android/hardware/wifi/1.0/ $(genDir)/android/hardware/wifi/1.0/",
+    srcs: [
+        "IWifiEventCallback.hal",
+        "types.hal",
+    ],
+    out: [
+        "android/hardware/wifi/1.0/WifiEventCallback.vts.cpp",
+        "android/hardware/wifi/1.0/types.vts.cpp",
+    ],
+}
+
+genrule {
+    name: "android.hardware.wifi@1.0-IWifiEventCallback-vts.profiler_genc++_headers",
+    tools: ["hidl-gen", "vtsc"],
+    cmd: "$(location hidl-gen) -o $(genDir) -Lvts -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.wifi@1.0 && $(location vtsc) -mPROFILER -tHEADER -b$(genDir) android/hardware/wifi/1.0/ $(genDir)/android/hardware/wifi/1.0/",
+    srcs: [
+        "IWifiEventCallback.hal",
+        "types.hal",
+    ],
+    out: [
+        "android/hardware/wifi/1.0/WifiEventCallback.vts.h",
+        "android/hardware/wifi/1.0/types.vts.h",
+    ],
+}
+
+cc_library_shared {
+    name: "android.hardware.wifi@1.0-IWifiEventCallback-vts.profiler",
+    generated_sources: ["android.hardware.wifi@1.0-IWifiEventCallback-vts.profiler_genc++"],
+    generated_headers: ["android.hardware.wifi@1.0-IWifiEventCallback-vts.profiler_genc++_headers"],
+    export_generated_headers: ["android.hardware.wifi@1.0-IWifiEventCallback-vts.profiler_genc++_headers"],
+    shared_libs: [
+        "libbase",
+        "libhidlbase",
+        "libhidltransport",
+        "libvts_profiling",
+        "libvts_multidevice_proto",
+        "libprotobuf-cpp-full",
+        "android.hidl.base@1.0",
+        "android.hardware.wifi@1.0",
+    ],
+}
+
+genrule {
+    name: "android.hardware.wifi@1.0-IWifiIface-vts.profiler_genc++",
+    tools: ["hidl-gen", "vtsc"],
+    cmd: "$(location hidl-gen) -o $(genDir) -Lvts -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.wifi@1.0 && $(location vtsc) -mPROFILER -tSOURCE -b$(genDir) android/hardware/wifi/1.0/ $(genDir)/android/hardware/wifi/1.0/",
+    srcs: [
+        "IWifiIface.hal",
+        "types.hal",
+    ],
+    out: [
+        "android/hardware/wifi/1.0/WifiIface.vts.cpp",
+        "android/hardware/wifi/1.0/types.vts.cpp",
+    ],
+}
+
+genrule {
+    name: "android.hardware.wifi@1.0-IWifiIface-vts.profiler_genc++_headers",
+    tools: ["hidl-gen", "vtsc"],
+    cmd: "$(location hidl-gen) -o $(genDir) -Lvts -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.wifi@1.0 && $(location vtsc) -mPROFILER -tHEADER -b$(genDir) android/hardware/wifi/1.0/ $(genDir)/android/hardware/wifi/1.0/",
+    srcs: [
+        "IWifiIface.hal",
+        "types.hal",
+    ],
+    out: [
+        "android/hardware/wifi/1.0/WifiIface.vts.h",
+        "android/hardware/wifi/1.0/types.vts.h",
+    ],
+}
+
+cc_library_shared {
+    name: "android.hardware.wifi@1.0-IWifiIface-vts.profiler",
+    generated_sources: ["android.hardware.wifi@1.0-IWifiIface-vts.profiler_genc++"],
+    generated_headers: ["android.hardware.wifi@1.0-IWifiIface-vts.profiler_genc++_headers"],
+    export_generated_headers: ["android.hardware.wifi@1.0-IWifiIface-vts.profiler_genc++_headers"],
+    shared_libs: [
+        "libbase",
+        "libhidlbase",
+        "libhidltransport",
+        "libvts_profiling",
+        "libvts_multidevice_proto",
+        "libprotobuf-cpp-full",
+        "android.hidl.base@1.0",
+        "android.hardware.wifi@1.0",
+    ],
+}
+
+genrule {
+    name: "android.hardware.wifi@1.0-IWifiNanIface-vts.profiler_genc++",
+    tools: ["hidl-gen", "vtsc"],
+    cmd: "$(location hidl-gen) -o $(genDir) -Lvts -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.wifi@1.0 && $(location vtsc) -mPROFILER -tSOURCE -b$(genDir) android/hardware/wifi/1.0/ $(genDir)/android/hardware/wifi/1.0/",
+    srcs: [
+        "IWifiNanIface.hal",
+        "types.hal",
+    ],
+    out: [
+        "android/hardware/wifi/1.0/WifiNanIface.vts.cpp",
+        "android/hardware/wifi/1.0/types.vts.cpp",
+    ],
+}
+
+genrule {
+    name: "android.hardware.wifi@1.0-IWifiNanIface-vts.profiler_genc++_headers",
+    tools: ["hidl-gen", "vtsc"],
+    cmd: "$(location hidl-gen) -o $(genDir) -Lvts -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.wifi@1.0 && $(location vtsc) -mPROFILER -tHEADER -b$(genDir) android/hardware/wifi/1.0/ $(genDir)/android/hardware/wifi/1.0/",
+    srcs: [
+        "IWifiNanIface.hal",
+        "types.hal",
+    ],
+    out: [
+        "android/hardware/wifi/1.0/WifiNanIface.vts.h",
+        "android/hardware/wifi/1.0/types.vts.h",
+    ],
+}
+
+cc_library_shared {
+    name: "android.hardware.wifi@1.0-IWifiNanIface-vts.profiler",
+    generated_sources: ["android.hardware.wifi@1.0-IWifiNanIface-vts.profiler_genc++"],
+    generated_headers: ["android.hardware.wifi@1.0-IWifiNanIface-vts.profiler_genc++_headers"],
+    export_generated_headers: ["android.hardware.wifi@1.0-IWifiNanIface-vts.profiler_genc++_headers"],
+    shared_libs: [
+        "libbase",
+        "libhidlbase",
+        "libhidltransport",
+        "libvts_profiling",
+        "libvts_multidevice_proto",
+        "libprotobuf-cpp-full",
+        "android.hidl.base@1.0",
+        "android.hardware.wifi@1.0",
+    ],
+}
+
+genrule {
+    name: "android.hardware.wifi@1.0-IWifiNanIfaceEventCallback-vts.profiler_genc++",
+    tools: ["hidl-gen", "vtsc"],
+    cmd: "$(location hidl-gen) -o $(genDir) -Lvts -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.wifi@1.0 && $(location vtsc) -mPROFILER -tSOURCE -b$(genDir) android/hardware/wifi/1.0/ $(genDir)/android/hardware/wifi/1.0/",
+    srcs: [
+        "IWifiNanIfaceEventCallback.hal",
+        "types.hal",
+    ],
+    out: [
+        "android/hardware/wifi/1.0/WifiNanIfaceEventCallback.vts.cpp",
+        "android/hardware/wifi/1.0/types.vts.cpp",
+    ],
+}
+
+genrule {
+    name: "android.hardware.wifi@1.0-IWifiNanIfaceEventCallback-vts.profiler_genc++_headers",
+    tools: ["hidl-gen", "vtsc"],
+    cmd: "$(location hidl-gen) -o $(genDir) -Lvts -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.wifi@1.0 && $(location vtsc) -mPROFILER -tHEADER -b$(genDir) android/hardware/wifi/1.0/ $(genDir)/android/hardware/wifi/1.0/",
+    srcs: [
+        "IWifiNanIfaceEventCallback.hal",
+        "types.hal",
+    ],
+    out: [
+        "android/hardware/wifi/1.0/WifiNanIfaceEventCallback.vts.h",
+        "android/hardware/wifi/1.0/types.vts.h",
+    ],
+}
+
+cc_library_shared {
+    name: "android.hardware.wifi@1.0-IWifiNanIfaceEventCallback-vts.profiler",
+    generated_sources: ["android.hardware.wifi@1.0-IWifiNanIfaceEventCallback-vts.profiler_genc++"],
+    generated_headers: ["android.hardware.wifi@1.0-IWifiNanIfaceEventCallback-vts.profiler_genc++_headers"],
+    export_generated_headers: ["android.hardware.wifi@1.0-IWifiNanIfaceEventCallback-vts.profiler_genc++_headers"],
+    shared_libs: [
+        "libbase",
+        "libhidlbase",
+        "libhidltransport",
+        "libvts_profiling",
+        "libvts_multidevice_proto",
+        "libprotobuf-cpp-full",
+        "android.hidl.base@1.0",
+        "android.hardware.wifi@1.0",
+    ],
+}
+
+genrule {
+    name: "android.hardware.wifi@1.0-IWifiP2pIface-vts.profiler_genc++",
+    tools: ["hidl-gen", "vtsc"],
+    cmd: "$(location hidl-gen) -o $(genDir) -Lvts -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.wifi@1.0 && $(location vtsc) -mPROFILER -tSOURCE -b$(genDir) android/hardware/wifi/1.0/ $(genDir)/android/hardware/wifi/1.0/",
+    srcs: [
+        "IWifiP2pIface.hal",
+        "types.hal",
+    ],
+    out: [
+        "android/hardware/wifi/1.0/WifiP2pIface.vts.cpp",
+        "android/hardware/wifi/1.0/types.vts.cpp",
+    ],
+}
+
+genrule {
+    name: "android.hardware.wifi@1.0-IWifiP2pIface-vts.profiler_genc++_headers",
+    tools: ["hidl-gen", "vtsc"],
+    cmd: "$(location hidl-gen) -o $(genDir) -Lvts -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.wifi@1.0 && $(location vtsc) -mPROFILER -tHEADER -b$(genDir) android/hardware/wifi/1.0/ $(genDir)/android/hardware/wifi/1.0/",
+    srcs: [
+        "IWifiP2pIface.hal",
+        "types.hal",
+    ],
+    out: [
+        "android/hardware/wifi/1.0/WifiP2pIface.vts.h",
+        "android/hardware/wifi/1.0/types.vts.h",
+    ],
+}
+
+cc_library_shared {
+    name: "android.hardware.wifi@1.0-IWifiP2pIface-vts.profiler",
+    generated_sources: ["android.hardware.wifi@1.0-IWifiP2pIface-vts.profiler_genc++"],
+    generated_headers: ["android.hardware.wifi@1.0-IWifiP2pIface-vts.profiler_genc++_headers"],
+    export_generated_headers: ["android.hardware.wifi@1.0-IWifiP2pIface-vts.profiler_genc++_headers"],
+    shared_libs: [
+        "libbase",
+        "libhidlbase",
+        "libhidltransport",
+        "libvts_profiling",
+        "libvts_multidevice_proto",
+        "libprotobuf-cpp-full",
+        "android.hidl.base@1.0",
+        "android.hardware.wifi@1.0",
+    ],
+}
+
+genrule {
+    name: "android.hardware.wifi@1.0-IWifiRttController-vts.profiler_genc++",
+    tools: ["hidl-gen", "vtsc"],
+    cmd: "$(location hidl-gen) -o $(genDir) -Lvts -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.wifi@1.0 && $(location vtsc) -mPROFILER -tSOURCE -b$(genDir) android/hardware/wifi/1.0/ $(genDir)/android/hardware/wifi/1.0/",
+    srcs: [
+        "IWifiRttController.hal",
+        "types.hal",
+    ],
+    out: [
+        "android/hardware/wifi/1.0/WifiRttController.vts.cpp",
+        "android/hardware/wifi/1.0/types.vts.cpp",
+    ],
+}
+
+genrule {
+    name: "android.hardware.wifi@1.0-IWifiRttController-vts.profiler_genc++_headers",
+    tools: ["hidl-gen", "vtsc"],
+    cmd: "$(location hidl-gen) -o $(genDir) -Lvts -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.wifi@1.0 && $(location vtsc) -mPROFILER -tHEADER -b$(genDir) android/hardware/wifi/1.0/ $(genDir)/android/hardware/wifi/1.0/",
+    srcs: [
+        "IWifiRttController.hal",
+        "types.hal",
+    ],
+    out: [
+        "android/hardware/wifi/1.0/WifiRttController.vts.h",
+        "android/hardware/wifi/1.0/types.vts.h",
+    ],
+}
+
+cc_library_shared {
+    name: "android.hardware.wifi@1.0-IWifiRttController-vts.profiler",
+    generated_sources: ["android.hardware.wifi@1.0-IWifiRttController-vts.profiler_genc++"],
+    generated_headers: ["android.hardware.wifi@1.0-IWifiRttController-vts.profiler_genc++_headers"],
+    export_generated_headers: ["android.hardware.wifi@1.0-IWifiRttController-vts.profiler_genc++_headers"],
+    shared_libs: [
+        "libbase",
+        "libhidlbase",
+        "libhidltransport",
+        "libvts_profiling",
+        "libvts_multidevice_proto",
+        "libprotobuf-cpp-full",
+        "android.hidl.base@1.0",
+        "android.hardware.wifi@1.0",
+    ],
+}
+
+genrule {
+    name: "android.hardware.wifi@1.0-IWifiRttControllerEventCallback-vts.profiler_genc++",
+    tools: ["hidl-gen", "vtsc"],
+    cmd: "$(location hidl-gen) -o $(genDir) -Lvts -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.wifi@1.0 && $(location vtsc) -mPROFILER -tSOURCE -b$(genDir) android/hardware/wifi/1.0/ $(genDir)/android/hardware/wifi/1.0/",
+    srcs: [
+        "IWifiRttControllerEventCallback.hal",
+        "types.hal",
+    ],
+    out: [
+        "android/hardware/wifi/1.0/WifiRttControllerEventCallback.vts.cpp",
+        "android/hardware/wifi/1.0/types.vts.cpp",
+    ],
+}
+
+genrule {
+    name: "android.hardware.wifi@1.0-IWifiRttControllerEventCallback-vts.profiler_genc++_headers",
+    tools: ["hidl-gen", "vtsc"],
+    cmd: "$(location hidl-gen) -o $(genDir) -Lvts -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.wifi@1.0 && $(location vtsc) -mPROFILER -tHEADER -b$(genDir) android/hardware/wifi/1.0/ $(genDir)/android/hardware/wifi/1.0/",
+    srcs: [
+        "IWifiRttControllerEventCallback.hal",
+        "types.hal",
+    ],
+    out: [
+        "android/hardware/wifi/1.0/WifiRttControllerEventCallback.vts.h",
+        "android/hardware/wifi/1.0/types.vts.h",
+    ],
+}
+
+cc_library_shared {
+    name: "android.hardware.wifi@1.0-IWifiRttControllerEventCallback-vts.profiler",
+    generated_sources: ["android.hardware.wifi@1.0-IWifiRttControllerEventCallback-vts.profiler_genc++"],
+    generated_headers: ["android.hardware.wifi@1.0-IWifiRttControllerEventCallback-vts.profiler_genc++_headers"],
+    export_generated_headers: ["android.hardware.wifi@1.0-IWifiRttControllerEventCallback-vts.profiler_genc++_headers"],
+    shared_libs: [
+        "libbase",
+        "libhidlbase",
+        "libhidltransport",
+        "libvts_profiling",
+        "libvts_multidevice_proto",
+        "libprotobuf-cpp-full",
+        "android.hidl.base@1.0",
+        "android.hardware.wifi@1.0",
+    ],
+}
+
+genrule {
+    name: "android.hardware.wifi@1.0-IWifiStaIface-vts.profiler_genc++",
+    tools: ["hidl-gen", "vtsc"],
+    cmd: "$(location hidl-gen) -o $(genDir) -Lvts -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.wifi@1.0 && $(location vtsc) -mPROFILER -tSOURCE -b$(genDir) android/hardware/wifi/1.0/ $(genDir)/android/hardware/wifi/1.0/",
+    srcs: [
+        "IWifiStaIface.hal",
+        "types.hal",
+    ],
+    out: [
+        "android/hardware/wifi/1.0/WifiStaIface.vts.cpp",
+        "android/hardware/wifi/1.0/types.vts.cpp",
+    ],
+}
+
+genrule {
+    name: "android.hardware.wifi@1.0-IWifiStaIface-vts.profiler_genc++_headers",
+    tools: ["hidl-gen", "vtsc"],
+    cmd: "$(location hidl-gen) -o $(genDir) -Lvts -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.wifi@1.0 && $(location vtsc) -mPROFILER -tHEADER -b$(genDir) android/hardware/wifi/1.0/ $(genDir)/android/hardware/wifi/1.0/",
+    srcs: [
+        "IWifiStaIface.hal",
+        "types.hal",
+    ],
+    out: [
+        "android/hardware/wifi/1.0/WifiStaIface.vts.h",
+        "android/hardware/wifi/1.0/types.vts.h",
+    ],
+}
+
+cc_library_shared {
+    name: "android.hardware.wifi@1.0-IWifiStaIface-vts.profiler",
+    generated_sources: ["android.hardware.wifi@1.0-IWifiStaIface-vts.profiler_genc++"],
+    generated_headers: ["android.hardware.wifi@1.0-IWifiStaIface-vts.profiler_genc++_headers"],
+    export_generated_headers: ["android.hardware.wifi@1.0-IWifiStaIface-vts.profiler_genc++_headers"],
+    shared_libs: [
+        "libbase",
+        "libhidlbase",
+        "libhidltransport",
+        "libvts_profiling",
+        "libvts_multidevice_proto",
+        "libprotobuf-cpp-full",
+        "android.hidl.base@1.0",
+        "android.hardware.wifi@1.0",
+    ],
+}
+
+genrule {
+    name: "android.hardware.wifi@1.0-IWifiStaIfaceEventCallback-vts.profiler_genc++",
+    tools: ["hidl-gen", "vtsc"],
+    cmd: "$(location hidl-gen) -o $(genDir) -Lvts -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.wifi@1.0 && $(location vtsc) -mPROFILER -tSOURCE -b$(genDir) android/hardware/wifi/1.0/ $(genDir)/android/hardware/wifi/1.0/",
+    srcs: [
+        "IWifiStaIfaceEventCallback.hal",
+        "types.hal",
+    ],
+    out: [
+        "android/hardware/wifi/1.0/WifiStaIfaceEventCallback.vts.cpp",
+        "android/hardware/wifi/1.0/types.vts.cpp",
+    ],
+}
+
+genrule {
+    name: "android.hardware.wifi@1.0-IWifiStaIfaceEventCallback-vts.profiler_genc++_headers",
+    tools: ["hidl-gen", "vtsc"],
+    cmd: "$(location hidl-gen) -o $(genDir) -Lvts -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.wifi@1.0 && $(location vtsc) -mPROFILER -tHEADER -b$(genDir) android/hardware/wifi/1.0/ $(genDir)/android/hardware/wifi/1.0/",
+    srcs: [
+        "IWifiStaIfaceEventCallback.hal",
+        "types.hal",
+    ],
+    out: [
+        "android/hardware/wifi/1.0/WifiStaIfaceEventCallback.vts.h",
+        "android/hardware/wifi/1.0/types.vts.h",
+    ],
+}
+
+cc_library_shared {
+    name: "android.hardware.wifi@1.0-IWifiStaIfaceEventCallback-vts.profiler",
+    generated_sources: ["android.hardware.wifi@1.0-IWifiStaIfaceEventCallback-vts.profiler_genc++"],
+    generated_headers: ["android.hardware.wifi@1.0-IWifiStaIfaceEventCallback-vts.profiler_genc++_headers"],
+    export_generated_headers: ["android.hardware.wifi@1.0-IWifiStaIfaceEventCallback-vts.profiler_genc++_headers"],
+    shared_libs: [
+        "libbase",
+        "libhidlbase",
+        "libhidltransport",
+        "libvts_profiling",
+        "libvts_multidevice_proto",
+        "libprotobuf-cpp-full",
+        "android.hidl.base@1.0",
+        "android.hardware.wifi@1.0",
+    ],
+}
