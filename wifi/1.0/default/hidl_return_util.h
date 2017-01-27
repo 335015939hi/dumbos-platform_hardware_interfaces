@@ -47,7 +47,7 @@ Return<void> validateAndCall(
   if (obj->isValid()) {
     hidl_cb((obj->*work)(std::forward<Args>(args)...));
   } else {
-    hidl_cb(createWifiStatus(status_code_if_invalid));
+    hidl_cb(CREATE_WIFI_STATUS(status_code_if_invalid));
   }
   return Void();
 }
@@ -67,7 +67,7 @@ Return<void> validateAndCall(
     const auto& ret_value = std::get<1>(ret_pair);
     hidl_cb(status, ret_value);
   } else {
-    hidl_cb(createWifiStatus(status_code_if_invalid),
+    hidl_cb(CREATE_WIFI_STATUS(status_code_if_invalid),
             typename std::remove_reference<ReturnT>::type());
   }
   return Void();
@@ -93,7 +93,7 @@ Return<void> validateAndCall(
     const auto& ret_value2 = std::get<2>(ret_tuple);
     hidl_cb(status, ret_value1, ret_value2);
   } else {
-    hidl_cb(createWifiStatus(status_code_if_invalid),
+    hidl_cb(CREATE_WIFI_STATUS(status_code_if_invalid),
             typename std::remove_reference<ReturnT1>::type(),
             typename std::remove_reference<ReturnT2>::type());
   }
