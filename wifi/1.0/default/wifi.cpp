@@ -87,15 +87,15 @@ WifiStatus Wifi::registerEventCallbackInternal(
     const sp<IWifiEventCallback>& event_callback) {
   // TODO(b/31632518): remove the callback when the client is destroyed
   event_callbacks_.emplace_back(event_callback);
-  return createWifiStatus(WifiStatusCode::SUCCESS);
+  return CREATE_WIFI_STATUS(WifiStatusCode::SUCCESS);
 }
 
 WifiStatus Wifi::startInternal() {
   if (run_state_ == RunState::STARTED) {
-    return createWifiStatus(WifiStatusCode::SUCCESS);
+    return CREATE_WIFI_STATUS(WifiStatusCode::SUCCESS);
   } else if (run_state_ == RunState::STOPPING) {
-    return createWifiStatus(WifiStatusCode::ERROR_NOT_AVAILABLE,
-                            "HAL is stopping");
+    return CREATE_WIFI_STATUS(WifiStatusCode::ERROR_NOT_AVAILABLE,
+                              "HAL is stopping");
   }
   WifiStatus wifi_status = initializeLegacyHal();
   if (wifi_status.code == WifiStatusCode::SUCCESS) {
@@ -119,10 +119,10 @@ WifiStatus Wifi::startInternal() {
 
 WifiStatus Wifi::stopInternal() {
   if (run_state_ == RunState::STOPPED) {
-    return createWifiStatus(WifiStatusCode::SUCCESS);
+    return CREATE_WIFI_STATUS(WifiStatusCode::SUCCESS);
   } else if (run_state_ == RunState::STOPPING) {
-    return createWifiStatus(WifiStatusCode::ERROR_NOT_AVAILABLE,
-                            "HAL is stopping");
+    return CREATE_WIFI_STATUS(WifiStatusCode::ERROR_NOT_AVAILABLE,
+                              "HAL is stopping");
   }
   WifiStatus wifi_status = stopLegacyHalAndDeinitializeModeController();
   if (wifi_status.code == WifiStatusCode::SUCCESS) {
@@ -146,17 +146,17 @@ std::pair<WifiStatus, std::vector<ChipId>> Wifi::getChipIdsInternal() {
   if (chip_.get()) {
     chip_ids.emplace_back(kChipId);
   }
-  return {createWifiStatus(WifiStatusCode::SUCCESS), std::move(chip_ids)};
+  return {CREATE_WIFI_STATUS(WifiStatusCode::SUCCESS), std::move(chip_ids)};
 }
 
 std::pair<WifiStatus, sp<IWifiChip>> Wifi::getChipInternal(ChipId chip_id) {
   if (!chip_.get()) {
-    return {createWifiStatus(WifiStatusCode::ERROR_NOT_STARTED), nullptr};
+    return {CREATE_WIFI_STATUS(WifiStatusCode::ERROR_NOT_STARTED), nullptr};
   }
   if (chip_id != kChipId) {
-    return {createWifiStatus(WifiStatusCode::ERROR_INVALID_ARGS), nullptr};
+    return {CREATE_WIFI_STATUS(WifiStatusCode::ERROR_INVALID_ARGS), nullptr};
   }
-  return {createWifiStatus(WifiStatusCode::SUCCESS), chip_};
+  return {CREATE_WIFI_STATUS(WifiStatusCode::SUCCESS), chip_};
 }
 
 WifiStatus Wifi::initializeLegacyHal() {
@@ -164,9 +164,9 @@ WifiStatus Wifi::initializeLegacyHal() {
   if (legacy_status != legacy_hal::WIFI_SUCCESS) {
     LOG(ERROR) << "Failed to initialize legacy HAL: "
                << legacyErrorToString(legacy_status);
-    return createWifiStatusFromLegacyError(legacy_status);
+    return CREATE_WIFI_STATUS_FROM_LEGACY_ERROR(legacy_status);
   }
-  return createWifiStatus(WifiStatusCode::SUCCESS);
+  return CREATE_WIFI_STATUS(WifiStatusCode::SUCCESS);
 }
 
 WifiStatus Wifi::stopLegacyHalAndDeinitializeModeController() {
@@ -183,13 +183,13 @@ WifiStatus Wifi::stopLegacyHalAndDeinitializeModeController() {
   if (legacy_status != legacy_hal::WIFI_SUCCESS) {
     LOG(ERROR) << "Failed to stop legacy HAL: "
                << legacyErrorToString(legacy_status);
-    return createWifiStatusFromLegacyError(legacy_status);
+    return CREATE_WIFI_STATUS_FROM_LEGACY_ERROR(legacy_status);
   }
   if (!mode_controller_->deinitialize()) {
     LOG(ERROR) << "Failed to deinitialize firmware mode controller";
-    return createWifiStatus(WifiStatusCode::ERROR_UNKNOWN);
+    return CREATE_WIFI_STATUS(WifiStatusCode::ERROR_UNKNOWN);
   }
-  return createWifiStatus(WifiStatusCode::SUCCESS);
+  return CREATE_WIFI_STATUS(WifiStatusCode::SUCCESS);
 }
 }  // namespace implementation
 }  // namespace V1_0
