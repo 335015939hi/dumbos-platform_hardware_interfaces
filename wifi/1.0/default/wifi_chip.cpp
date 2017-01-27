@@ -348,14 +348,14 @@ void WifiChip::invalidateAndRemoveAllIfaces() {
 }
 
 std::pair<WifiStatus, ChipId> WifiChip::getIdInternal() {
-  return {createWifiStatus(WifiStatusCode::SUCCESS), chip_id_};
+  return {CREATE_WIFI_STATUS(WifiStatusCode::SUCCESS), chip_id_};
 }
 
 WifiStatus WifiChip::registerEventCallbackInternal(
     const sp<IWifiChipEventCallback>& event_callback) {
   // TODO(b/31632518): remove the callback when the client is destroyed
   event_callbacks_.emplace_back(event_callback);
-  return createWifiStatus(WifiStatusCode::SUCCESS);
+  return CREATE_WIFI_STATUS(WifiStatusCode::SUCCESS);
 }
 
 std::pair<WifiStatus, uint32_t> WifiChip::getCapabilitiesInternal() {
@@ -364,14 +364,14 @@ std::pair<WifiStatus, uint32_t> WifiChip::getCapabilitiesInternal() {
   std::tie(legacy_status, legacy_logger_feature_set) =
       legacy_hal_.lock()->getLoggerSupportedFeatureSet();
   if (legacy_status != legacy_hal::WIFI_SUCCESS) {
-    return {createWifiStatusFromLegacyError(legacy_status), 0};
+    return {CREATE_WIFI_STATUS_FROM_LEGACY_ERROR(legacy_status), 0};
   }
   uint32_t hidl_caps;
   if (!hidl_struct_util::convertLegacyFeaturesToHidlChipCapabilities(
           legacy_logger_feature_set, &hidl_caps)) {
-    return {createWifiStatus(WifiStatusCode::ERROR_UNKNOWN), 0};
+    return {CREATE_WIFI_STATUS(WifiStatusCode::ERROR_UNKNOWN), 0};
   }
-  return {createWifiStatus(WifiStatusCode::SUCCESS), hidl_caps};
+  return {CREATE_WIFI_STATUS(WifiStatusCode::SUCCESS), hidl_caps};
 }
 
 std::pair<WifiStatus, std::vector<IWifiChip::ChipMode>>
@@ -400,17 +400,17 @@ WifiChip::getAvailableModesInternal() {
       {ap_chip_iface_combination_limit}};
   const IWifiChip::ChipMode ap_chip_mode = {kApChipModeId,
                                             {ap_chip_iface_combination}};
-  return {createWifiStatus(WifiStatusCode::SUCCESS),
+  return {CREATE_WIFI_STATUS(WifiStatusCode::SUCCESS),
           {sta_chip_mode, ap_chip_mode}};
 }
 
 WifiStatus WifiChip::configureChipInternal(ChipModeId mode_id) {
   if (mode_id != kStaChipModeId && mode_id != kApChipModeId) {
-    return createWifiStatus(WifiStatusCode::ERROR_INVALID_ARGS);
+    return CREATE_WIFI_STATUS(WifiStatusCode::ERROR_INVALID_ARGS);
   }
   if (mode_id == current_mode_id_) {
     LOG(DEBUG) << "Already in the specified mode " << mode_id;
-    return createWifiStatus(WifiStatusCode::SUCCESS);
+    return CREATE_WIFI_STATUS(WifiStatusCode::SUCCESS);
   }
   WifiStatus status = handleChipConfiguration(mode_id);
   if (status.code != WifiStatusCode::SUCCESS) {
@@ -432,10 +432,10 @@ WifiStatus WifiChip::configureChipInternal(ChipModeId mode_id) {
 
 std::pair<WifiStatus, uint32_t> WifiChip::getModeInternal() {
   if (current_mode_id_ == kInvalidModeId) {
-    return {createWifiStatus(WifiStatusCode::ERROR_NOT_AVAILABLE),
+    return {CREATE_WIFI_STATUS(WifiStatusCode::ERROR_NOT_AVAILABLE),
             current_mode_id_};
   }
-  return {createWifiStatus(WifiStatusCode::SUCCESS), current_mode_id_};
+  return {CREATE_WIFI_STATUS(WifiStatusCode::SUCCESS), current_mode_id_};
 }
 
 std::pair<WifiStatus, IWifiChip::ChipDebugInfo>
@@ -447,7 +447,7 @@ WifiChip::requestChipDebugInfoInternal() {
   if (legacy_status != legacy_hal::WIFI_SUCCESS) {
     LOG(ERROR) << "Failed to get driver version: "
                << legacyErrorToString(legacy_status);
-    WifiStatus status = createWifiStatusFromLegacyError(
+    WifiStatus status = CREATE_WIFI_STATUS_FROM_LEGACY_ERROR(
         legacy_status, "failed to get driver version");
     return {status, result};
   }
@@ -459,13 +459,13 @@ WifiChip::requestChipDebugInfoInternal() {
   if (legacy_status != legacy_hal::WIFI_SUCCESS) {
     LOG(ERROR) << "Failed to get firmware version: "
                << legacyErrorToString(legacy_status);
-    WifiStatus status = createWifiStatusFromLegacyError(
+    WifiStatus status = CREATE_WIFI_STATUS_FROM_LEGACY_ERROR(
         legacy_status, "failed to get firmware version");
     return {status, result};
   }
   result.firmwareDescription = firmware_desc.c_str();
 
-  return {createWifiStatus(WifiStatusCode::SUCCESS), result};
+  return {CREATE_WIFI_STATUS(WifiStatusCode::SUCCESS), result};
 }
 
 std::pair<WifiStatus, std::vector<uint8_t>>
@@ -477,10 +477,10 @@ WifiChip::requestDriverDebugDumpInternal() {
   if (legacy_status != legacy_hal::WIFI_SUCCESS) {
     LOG(ERROR) << "Failed to get driver debug dump: "
                << legacyErrorToString(legacy_status);
-    return {createWifiStatusFromLegacyError(legacy_status),
+    return {CREATE_WIFI_STATUS_FROM_LEGACY_ERROR(legacy_status),
             std::vector<uint8_t>()};
   }
-  return {createWifiStatus(WifiStatusCode::SUCCESS), driver_dump};
+  return {CREATE_WIFI_STATUS(WifiStatusCode::SUCCESS), driver_dump};
 }
 
 std::pair<WifiStatus, std::vector<uint8_t>>
@@ -492,14 +492,14 @@ WifiChip::requestFirmwareDebugDumpInternal() {
   if (legacy_status != legacy_hal::WIFI_SUCCESS) {
     LOG(ERROR) << "Failed to get firmware debug dump: "
                << legacyErrorToString(legacy_status);
-    return {createWifiStatusFromLegacyError(legacy_status), {}};
+    return {CREATE_WIFI_STATUS_FROM_LEGACY_ERROR(legacy_status), {}};
   }
-  return {createWifiStatus(WifiStatusCode::SUCCESS), firmware_dump};
+  return {CREATE_WIFI_STATUS(WifiStatusCode::SUCCESS), firmware_dump};
 }
 
 std::pair<WifiStatus, sp<IWifiApIface>> WifiChip::createApIfaceInternal() {
   if (current_mode_id_ != kApChipModeId || ap_iface_.get()) {
-    return {createWifiStatus(WifiStatusCode::ERROR_NOT_AVAILABLE), {}};
+    return {CREATE_WIFI_STATUS(WifiStatusCode::ERROR_NOT_AVAILABLE), {}};
   }
   std::string ifname = legacy_hal_.lock()->getApIfaceName();
   ap_iface_ = new WifiApIface(ifname, legacy_hal_);
@@ -508,29 +508,29 @@ std::pair<WifiStatus, sp<IWifiApIface>> WifiChip::createApIfaceInternal() {
       LOG(ERROR) << "Failed to invoke onIfaceAdded callback";
     }
   }
-  return {createWifiStatus(WifiStatusCode::SUCCESS), ap_iface_};
+  return {CREATE_WIFI_STATUS(WifiStatusCode::SUCCESS), ap_iface_};
 }
 
 std::pair<WifiStatus, std::vector<hidl_string>>
 WifiChip::getApIfaceNamesInternal() {
   if (!ap_iface_.get()) {
-    return {createWifiStatus(WifiStatusCode::SUCCESS), {}};
+    return {CREATE_WIFI_STATUS(WifiStatusCode::SUCCESS), {}};
   }
-  return {createWifiStatus(WifiStatusCode::SUCCESS),
+  return {CREATE_WIFI_STATUS(WifiStatusCode::SUCCESS),
           {legacy_hal_.lock()->getApIfaceName()}};
 }
 
 std::pair<WifiStatus, sp<IWifiApIface>> WifiChip::getApIfaceInternal(
     const std::string& ifname) {
   if (!ap_iface_.get() || (ifname != legacy_hal_.lock()->getApIfaceName())) {
-    return {createWifiStatus(WifiStatusCode::ERROR_INVALID_ARGS), nullptr};
+    return {CREATE_WIFI_STATUS(WifiStatusCode::ERROR_INVALID_ARGS), nullptr};
   }
-  return {createWifiStatus(WifiStatusCode::SUCCESS), ap_iface_};
+  return {CREATE_WIFI_STATUS(WifiStatusCode::SUCCESS), ap_iface_};
 }
 
 WifiStatus WifiChip::removeApIfaceInternal(const std::string& ifname) {
   if (!ap_iface_.get() || (ifname != legacy_hal_.lock()->getApIfaceName())) {
-    return createWifiStatus(WifiStatusCode::ERROR_INVALID_ARGS);
+    return CREATE_WIFI_STATUS(WifiStatusCode::ERROR_INVALID_ARGS);
   }
   invalidateAndClear(ap_iface_);
   for (const auto& callback : event_callbacks_) {
@@ -538,14 +538,14 @@ WifiStatus WifiChip::removeApIfaceInternal(const std::string& ifname) {
       LOG(ERROR) << "Failed to invoke onIfaceRemoved callback";
     }
   }
-  return createWifiStatus(WifiStatusCode::SUCCESS);
+  return CREATE_WIFI_STATUS(WifiStatusCode::SUCCESS);
 }
 
 std::pair<WifiStatus, sp<IWifiNanIface>> WifiChip::createNanIfaceInternal() {
   // Only 1 of NAN or P2P iface can be active at a time.
   if (current_mode_id_ != kStaChipModeId || nan_iface_.get() ||
       p2p_iface_.get()) {
-    return {createWifiStatus(WifiStatusCode::ERROR_NOT_AVAILABLE), {}};
+    return {CREATE_WIFI_STATUS(WifiStatusCode::ERROR_NOT_AVAILABLE), {}};
   }
   std::string ifname = legacy_hal_.lock()->getNanIfaceName();
   nan_iface_ = new WifiNanIface(ifname, legacy_hal_);
@@ -554,29 +554,29 @@ std::pair<WifiStatus, sp<IWifiNanIface>> WifiChip::createNanIfaceInternal() {
       LOG(ERROR) << "Failed to invoke onIfaceAdded callback";
     }
   }
-  return {createWifiStatus(WifiStatusCode::SUCCESS), nan_iface_};
+  return {CREATE_WIFI_STATUS(WifiStatusCode::SUCCESS), nan_iface_};
 }
 
 std::pair<WifiStatus, std::vector<hidl_string>>
 WifiChip::getNanIfaceNamesInternal() {
   if (!nan_iface_.get()) {
-    return {createWifiStatus(WifiStatusCode::SUCCESS), {}};
+    return {CREATE_WIFI_STATUS(WifiStatusCode::SUCCESS), {}};
   }
-  return {createWifiStatus(WifiStatusCode::SUCCESS),
+  return {CREATE_WIFI_STATUS(WifiStatusCode::SUCCESS),
           {legacy_hal_.lock()->getNanIfaceName()}};
 }
 
 std::pair<WifiStatus, sp<IWifiNanIface>> WifiChip::getNanIfaceInternal(
     const std::string& ifname) {
   if (!nan_iface_.get() || (ifname != legacy_hal_.lock()->getNanIfaceName())) {
-    return {createWifiStatus(WifiStatusCode::ERROR_INVALID_ARGS), nullptr};
+    return {CREATE_WIFI_STATUS(WifiStatusCode::ERROR_INVALID_ARGS), nullptr};
   }
-  return {createWifiStatus(WifiStatusCode::SUCCESS), nan_iface_};
+  return {CREATE_WIFI_STATUS(WifiStatusCode::SUCCESS), nan_iface_};
 }
 
 WifiStatus WifiChip::removeNanIfaceInternal(const std::string& ifname) {
   if (!nan_iface_.get() || (ifname != legacy_hal_.lock()->getNanIfaceName())) {
-    return createWifiStatus(WifiStatusCode::ERROR_INVALID_ARGS);
+    return CREATE_WIFI_STATUS(WifiStatusCode::ERROR_INVALID_ARGS);
   }
   invalidateAndClear(nan_iface_);
   for (const auto& callback : event_callbacks_) {
@@ -584,14 +584,14 @@ WifiStatus WifiChip::removeNanIfaceInternal(const std::string& ifname) {
       LOG(ERROR) << "Failed to invoke onIfaceAdded callback";
     }
   }
-  return createWifiStatus(WifiStatusCode::SUCCESS);
+  return CREATE_WIFI_STATUS(WifiStatusCode::SUCCESS);
 }
 
 std::pair<WifiStatus, sp<IWifiP2pIface>> WifiChip::createP2pIfaceInternal() {
   // Only 1 of NAN or P2P iface can be active at a time.
   if (current_mode_id_ != kStaChipModeId || p2p_iface_.get() ||
       nan_iface_.get()) {
-    return {createWifiStatus(WifiStatusCode::ERROR_NOT_AVAILABLE), {}};
+    return {CREATE_WIFI_STATUS(WifiStatusCode::ERROR_NOT_AVAILABLE), {}};
   }
   std::string ifname = legacy_hal_.lock()->getP2pIfaceName();
   p2p_iface_ = new WifiP2pIface(ifname, legacy_hal_);
@@ -600,29 +600,29 @@ std::pair<WifiStatus, sp<IWifiP2pIface>> WifiChip::createP2pIfaceInternal() {
       LOG(ERROR) << "Failed to invoke onIfaceAdded callback";
     }
   }
-  return {createWifiStatus(WifiStatusCode::SUCCESS), p2p_iface_};
+  return {CREATE_WIFI_STATUS(WifiStatusCode::SUCCESS), p2p_iface_};
 }
 
 std::pair<WifiStatus, std::vector<hidl_string>>
 WifiChip::getP2pIfaceNamesInternal() {
   if (!p2p_iface_.get()) {
-    return {createWifiStatus(WifiStatusCode::SUCCESS), {}};
+    return {CREATE_WIFI_STATUS(WifiStatusCode::SUCCESS), {}};
   }
-  return {createWifiStatus(WifiStatusCode::SUCCESS),
+  return {CREATE_WIFI_STATUS(WifiStatusCode::SUCCESS),
           {legacy_hal_.lock()->getP2pIfaceName()}};
 }
 
 std::pair<WifiStatus, sp<IWifiP2pIface>> WifiChip::getP2pIfaceInternal(
     const std::string& ifname) {
   if (!p2p_iface_.get() || (ifname != legacy_hal_.lock()->getP2pIfaceName())) {
-    return {createWifiStatus(WifiStatusCode::ERROR_INVALID_ARGS), nullptr};
+    return {CREATE_WIFI_STATUS(WifiStatusCode::ERROR_INVALID_ARGS), nullptr};
   }
-  return {createWifiStatus(WifiStatusCode::SUCCESS), p2p_iface_};
+  return {CREATE_WIFI_STATUS(WifiStatusCode::SUCCESS), p2p_iface_};
 }
 
 WifiStatus WifiChip::removeP2pIfaceInternal(const std::string& ifname) {
   if (!p2p_iface_.get() || (ifname != legacy_hal_.lock()->getP2pIfaceName())) {
-    return createWifiStatus(WifiStatusCode::ERROR_INVALID_ARGS);
+    return CREATE_WIFI_STATUS(WifiStatusCode::ERROR_INVALID_ARGS);
   }
   invalidateAndClear(p2p_iface_);
   for (const auto& callback : event_callbacks_) {
@@ -630,12 +630,12 @@ WifiStatus WifiChip::removeP2pIfaceInternal(const std::string& ifname) {
       LOG(ERROR) << "Failed to invoke onIfaceRemoved callback";
     }
   }
-  return createWifiStatus(WifiStatusCode::SUCCESS);
+  return CREATE_WIFI_STATUS(WifiStatusCode::SUCCESS);
 }
 
 std::pair<WifiStatus, sp<IWifiStaIface>> WifiChip::createStaIfaceInternal() {
   if (current_mode_id_ != kStaChipModeId || sta_iface_.get()) {
-    return {createWifiStatus(WifiStatusCode::ERROR_NOT_AVAILABLE), {}};
+    return {CREATE_WIFI_STATUS(WifiStatusCode::ERROR_NOT_AVAILABLE), {}};
   }
   std::string ifname = legacy_hal_.lock()->getStaIfaceName();
   sta_iface_ = new WifiStaIface(ifname, legacy_hal_);
@@ -644,29 +644,29 @@ std::pair<WifiStatus, sp<IWifiStaIface>> WifiChip::createStaIfaceInternal() {
       LOG(ERROR) << "Failed to invoke onIfaceAdded callback";
     }
   }
-  return {createWifiStatus(WifiStatusCode::SUCCESS), sta_iface_};
+  return {CREATE_WIFI_STATUS(WifiStatusCode::SUCCESS), sta_iface_};
 }
 
 std::pair<WifiStatus, std::vector<hidl_string>>
 WifiChip::getStaIfaceNamesInternal() {
   if (!sta_iface_.get()) {
-    return {createWifiStatus(WifiStatusCode::SUCCESS), {}};
+    return {CREATE_WIFI_STATUS(WifiStatusCode::SUCCESS), {}};
   }
-  return {createWifiStatus(WifiStatusCode::SUCCESS),
+  return {CREATE_WIFI_STATUS(WifiStatusCode::SUCCESS),
           {legacy_hal_.lock()->getStaIfaceName()}};
 }
 
 std::pair<WifiStatus, sp<IWifiStaIface>> WifiChip::getStaIfaceInternal(
     const std::string& ifname) {
   if (!sta_iface_.get() || (ifname != legacy_hal_.lock()->getStaIfaceName())) {
-    return {createWifiStatus(WifiStatusCode::ERROR_INVALID_ARGS), nullptr};
+    return {CREATE_WIFI_STATUS(WifiStatusCode::ERROR_INVALID_ARGS), nullptr};
   }
-  return {createWifiStatus(WifiStatusCode::SUCCESS), sta_iface_};
+  return {CREATE_WIFI_STATUS(WifiStatusCode::SUCCESS), sta_iface_};
 }
 
 WifiStatus WifiChip::removeStaIfaceInternal(const std::string& ifname) {
   if (!sta_iface_.get() || (ifname != legacy_hal_.lock()->getStaIfaceName())) {
-    return createWifiStatus(WifiStatusCode::ERROR_INVALID_ARGS);
+    return CREATE_WIFI_STATUS(WifiStatusCode::ERROR_INVALID_ARGS);
   }
   invalidateAndClear(sta_iface_);
   for (const auto& callback : event_callbacks_) {
@@ -674,14 +674,14 @@ WifiStatus WifiChip::removeStaIfaceInternal(const std::string& ifname) {
       LOG(ERROR) << "Failed to invoke onIfaceRemoved callback";
     }
   }
-  return createWifiStatus(WifiStatusCode::SUCCESS);
+  return CREATE_WIFI_STATUS(WifiStatusCode::SUCCESS);
 }
 
 std::pair<WifiStatus, sp<IWifiRttController>>
 WifiChip::createRttControllerInternal(const sp<IWifiIface>& bound_iface) {
   sp<WifiRttController> rtt = new WifiRttController(bound_iface, legacy_hal_);
   rtt_controllers_.emplace_back(rtt);
-  return {createWifiStatus(WifiStatusCode::SUCCESS), rtt};
+  return {CREATE_WIFI_STATUS(WifiStatusCode::SUCCESS), rtt};
 }
 
 std::pair<WifiStatus, std::vector<WifiDebugRingBufferStatus>>
@@ -692,14 +692,14 @@ WifiChip::getDebugRingBuffersStatusInternal() {
   std::tie(legacy_status, legacy_ring_buffer_status_vec) =
       legacy_hal_.lock()->getRingBuffersStatus();
   if (legacy_status != legacy_hal::WIFI_SUCCESS) {
-    return {createWifiStatusFromLegacyError(legacy_status), {}};
+    return {CREATE_WIFI_STATUS_FROM_LEGACY_ERROR(legacy_status), {}};
   }
   std::vector<WifiDebugRingBufferStatus> hidl_ring_buffer_status_vec;
   if (!hidl_struct_util::convertLegacyVectorOfDebugRingBufferStatusToHidl(
           legacy_ring_buffer_status_vec, &hidl_ring_buffer_status_vec)) {
-    return {createWifiStatus(WifiStatusCode::ERROR_UNKNOWN), {}};
+    return {CREATE_WIFI_STATUS(WifiStatusCode::ERROR_UNKNOWN), {}};
   }
-  return {createWifiStatus(WifiStatusCode::SUCCESS),
+  return {CREATE_WIFI_STATUS(WifiStatusCode::SUCCESS),
           hidl_ring_buffer_status_vec};
 }
 
@@ -720,7 +720,7 @@ WifiStatus WifiChip::startLoggingToDebugRingBufferInternal(
               verbose_level),
           max_interval_in_sec,
           min_data_size_in_bytes);
-  return createWifiStatusFromLegacyError(legacy_status);
+  return CREATE_WIFI_STATUS_FROM_LEGACY_ERROR(legacy_status);
 }
 
 WifiStatus WifiChip::forceDumpToDebugRingBufferInternal(
@@ -731,7 +731,7 @@ WifiStatus WifiChip::forceDumpToDebugRingBufferInternal(
   }
   legacy_hal::wifi_error legacy_status =
       legacy_hal_.lock()->getRingBufferData(ring_name);
-  return createWifiStatusFromLegacyError(legacy_status);
+  return CREATE_WIFI_STATUS_FROM_LEGACY_ERROR(legacy_status);
 }
 
 std::pair<WifiStatus, WifiDebugHostWakeReasonStats>
@@ -741,14 +741,14 @@ WifiChip::getDebugHostWakeReasonStatsInternal() {
   std::tie(legacy_status, legacy_stats) =
       legacy_hal_.lock()->getWakeReasonStats();
   if (legacy_status != legacy_hal::WIFI_SUCCESS) {
-    return {createWifiStatusFromLegacyError(legacy_status), {}};
+    return {CREATE_WIFI_STATUS_FROM_LEGACY_ERROR(legacy_status), {}};
   }
   WifiDebugHostWakeReasonStats hidl_stats;
   if (!hidl_struct_util::convertLegacyWakeReasonStatsToHidl(legacy_stats,
                                                             &hidl_stats)) {
-    return {createWifiStatus(WifiStatusCode::ERROR_UNKNOWN), {}};
+    return {CREATE_WIFI_STATUS(WifiStatusCode::ERROR_UNKNOWN), {}};
   }
-  return {createWifiStatus(WifiStatusCode::SUCCESS), hidl_stats};
+  return {CREATE_WIFI_STATUS(WifiStatusCode::SUCCESS), hidl_stats};
 }
 
 WifiStatus WifiChip::enableDebugErrorAlertsInternal(bool enable) {
@@ -773,7 +773,7 @@ WifiStatus WifiChip::enableDebugErrorAlertsInternal(bool enable) {
   } else {
     legacy_status = legacy_hal_.lock()->deregisterErrorAlertCallbackHandler();
   }
-  return createWifiStatusFromLegacyError(legacy_status);
+  return CREATE_WIFI_STATUS_FROM_LEGACY_ERROR(legacy_status);
 }
 
 WifiStatus WifiChip::handleChipConfiguration(ChipModeId mode_id) {
@@ -785,7 +785,7 @@ WifiStatus WifiChip::handleChipConfiguration(ChipModeId mode_id) {
     if (legacy_status != legacy_hal::WIFI_SUCCESS) {
       LOG(ERROR) << "Failed to stop legacy HAL: "
                  << legacyErrorToString(legacy_status);
-      return createWifiStatusFromLegacyError(legacy_status);
+      return CREATE_WIFI_STATUS_FROM_LEGACY_ERROR(legacy_status);
     }
   }
   bool success;
@@ -795,20 +795,20 @@ WifiStatus WifiChip::handleChipConfiguration(ChipModeId mode_id) {
     success = mode_controller_.lock()->changeFirmwareMode(IfaceType::AP);
   }
   if (!success) {
-    return createWifiStatus(WifiStatusCode::ERROR_UNKNOWN);
+    return CREATE_WIFI_STATUS(WifiStatusCode::ERROR_UNKNOWN);
   }
   legacy_hal::wifi_error legacy_status = legacy_hal_.lock()->start();
   if (legacy_status != legacy_hal::WIFI_SUCCESS) {
     LOG(ERROR) << "Failed to start legacy HAL: "
                << legacyErrorToString(legacy_status);
-    return createWifiStatusFromLegacyError(legacy_status);
+    return CREATE_WIFI_STATUS_FROM_LEGACY_ERROR(legacy_status);
   }
-  return createWifiStatus(WifiStatusCode::SUCCESS);
+  return CREATE_WIFI_STATUS(WifiStatusCode::SUCCESS);
 }
 
 WifiStatus WifiChip::registerDebugRingBufferCallback() {
   if (debug_ring_buffer_cb_registered_) {
-    return createWifiStatus(WifiStatusCode::SUCCESS);
+    return CREATE_WIFI_STATUS(WifiStatusCode::SUCCESS);
   }
 
   android::wp<WifiChip> weak_ptr_this(this);
@@ -840,7 +840,7 @@ WifiStatus WifiChip::registerDebugRingBufferCallback() {
   if (legacy_status == legacy_hal::WIFI_SUCCESS) {
     debug_ring_buffer_cb_registered_ = true;
   }
-  return createWifiStatusFromLegacyError(legacy_status);
+  return CREATE_WIFI_STATUS_FROM_LEGACY_ERROR(legacy_status);
 }
 
 }  // namespace implementation
