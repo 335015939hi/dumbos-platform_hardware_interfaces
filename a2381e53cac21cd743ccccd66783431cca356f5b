@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "31b17407_7e1145c2",
+        "filename": "bluetooth/1.0/default/test/async_fd_watcher_unittest.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1071489
+      },
+      "writtenOn": "2017-01-27T01:39:16Z",
+      "side": 1,
+      "message": "2017",
+      "range": {
+        "startLine": 2,
+        "startChar": 13,
+        "endLine": 2,
+        "endChar": 17
+      },
+      "revId": "a2381e53cac21cd743ccccd66783431cca356f5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bd7237b9_b73fe8d0",
+        "filename": "bluetooth/1.0/default/test/async_fd_watcher_unittest.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1071489
+      },
+      "writtenOn": "2017-01-27T01:39:16Z",
+      "side": 1,
+      "message": "There is no guarantee the first address is IPv4.\nIf you are OK with using the loopback IPv4 address, you can just\nuse the INADDR_LOOPBACK constant (see netinet/in.h).",
+      "range": {
+        "startLine": 159,
+        "startChar": 4,
+        "endLine": 161,
+        "endChar": 38
+      },
+      "revId": "a2381e53cac21cd743ccccd66783431cca356f5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
