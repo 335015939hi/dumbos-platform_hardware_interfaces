@@ -56,11 +56,11 @@ Return<void> WifiP2pIface::getType(getType_cb hidl_status_cb) {
 }
 
 std::pair<WifiStatus, std::string> WifiP2pIface::getNameInternal() {
-  return {createWifiStatus(WifiStatusCode::SUCCESS), ifname_};
+  return {CREATE_WIFI_STATUS(WifiStatusCode::SUCCESS), ifname_};
 }
 
 std::pair<WifiStatus, IfaceType> WifiP2pIface::getTypeInternal() {
-  return {createWifiStatus(WifiStatusCode::SUCCESS), IfaceType::P2P};
+  return {CREATE_WIFI_STATUS(WifiStatusCode::SUCCESS), IfaceType::P2P};
 }
 
 }  // namespace implementation
