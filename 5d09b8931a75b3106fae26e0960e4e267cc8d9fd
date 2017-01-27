@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "b5c68ef8_e0d4f8c5",
+        "filename": "wifi/1.0/IWifiApIface.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2017-01-27T17:43:18Z",
+      "side": 1,
+      "message": "seems like an overkill to use an array for 2 bytes. Why can\u0027t this be a short or an integer?\n\nWill simplify the backend code significantly.",
+      "range": {
+        "startLine": 35,
+        "startChar": 17,
+        "endLine": 35,
+        "endChar": 26
+      },
+      "revId": "5d09b8931a75b3106fae26e0960e4e267cc8d9fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84630f5c_9d8c1273",
         "filename": "wifi/1.0/IWifiStaIface.hal",
         "patchSetId": 5
@@ -48,6 +71,29 @@
     },
     {
       "key": {
+        "uuid": "39e30827_98324682",
+        "filename": "wifi/1.0/default/wifi_ap_iface.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2017-01-27T17:43:18Z",
+      "side": 1,
+      "message": "Do you usually do error checking here or in the legacy wrapper?\n\nE.g. what if code.size() !\u003d 2.",
+      "range": {
+        "startLine": 78,
+        "startChar": 41,
+        "endLine": 78,
+        "endChar": 45
+      },
+      "revId": "5d09b8931a75b3106fae26e0960e4e267cc8d9fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3e7cb96f_77f4227a",
         "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
         "patchSetId": 5
@@ -64,6 +110,29 @@
         "startChar": 0,
         "endLine": 808,
         "endChar": 37
+      },
+      "revId": "5d09b8931a75b3106fae26e0960e4e267cc8d9fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "217e203f_38c8fb71",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1132,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2017-01-27T17:43:18Z",
+      "side": 1,
+      "message": "no error checking",
+      "range": {
+        "startLine": 1132,
+        "startChar": 17,
+        "endLine": 1132,
+        "endChar": 62
       },
       "revId": "5d09b8931a75b3106fae26e0960e4e267cc8d9fd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
