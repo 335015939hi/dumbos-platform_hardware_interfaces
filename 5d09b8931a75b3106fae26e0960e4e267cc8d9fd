@@ -163,6 +163,29 @@
     },
     {
       "key": {
+        "uuid": "0fc38dbe_ecace9a6",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-30T20:16:47Z",
+      "side": 1,
+      "message": "Done",
+      "range": {
+        "startLine": 443,
+        "startChar": 8,
+        "endLine": 443,
+        "endChar": 37
+      },
+      "revId": "5d09b8931a75b3106fae26e0960e4e267cc8d9fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39e30827_98324682",
         "filename": "wifi/1.0/default/wifi_ap_iface.cpp",
         "patchSetId": 5
