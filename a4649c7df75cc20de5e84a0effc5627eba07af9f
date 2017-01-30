@@ -22,6 +22,29 @@
       "revId": "a4649c7df75cc20de5e84a0effc5627eba07af9f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5d7aef94_5f12112f",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-30T23:12:53Z",
+      "side": 1,
+      "message": "I don\u0027t want to deal with the dynamically allocated memory. Would let std::vector deal with the memory.",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 1
+      },
+      "revId": "a4649c7df75cc20de5e84a0effc5627eba07af9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
