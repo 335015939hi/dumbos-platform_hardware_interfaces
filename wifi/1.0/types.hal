@@ -888,7 +888,7 @@ struct NanDiscoveryCommonConfig {
    * UTF-8 encoded string identifying the service.
    * Max length: |NanCapabilities.maxServiceNameLen|.
    */
-  string serviceName;
+  vec<uint8_t> serviceName;
   /**
    * Specifies the matching indication to host: once, continuous, or never.
    */
