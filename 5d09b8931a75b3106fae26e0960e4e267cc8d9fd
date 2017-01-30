@@ -140,6 +140,29 @@
     },
     {
       "key": {
+        "uuid": "a6237e3a_3414e83c",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-01-30T19:48:03Z",
+      "side": 1,
+      "message": "I don\u0027t understand the point of this. It creates a point of confusion for HAL implementors (what should they do on this call), and doesn\u0027t provide any benefit to framework (since we don\u0027t call it).\n\nIf or when we do need it, we can add it safely, taking advantage of HIDL\u0027s versioning scheme.\n\nSo why should we add |stop| now, rather than later?",
+      "range": {
+        "startLine": 443,
+        "startChar": 8,
+        "endLine": 443,
+        "endChar": 37
+      },
+      "revId": "5d09b8931a75b3106fae26e0960e4e267cc8d9fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "39e30827_98324682",
         "filename": "wifi/1.0/default/wifi_ap_iface.cpp",
         "patchSetId": 5
