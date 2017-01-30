@@ -91,6 +91,29 @@
       "revId": "a2381e53cac21cd743ccccd66783431cca356f5b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6a8ccb9_2bc411b9",
+        "filename": "bluetooth/1.0/default/test/async_fd_watcher_unittest.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1071489
+      },
+      "writtenOn": "2017-01-30T20:20:07Z",
+      "side": 1,
+      "message": "The INADDR_LOOPBACK change on line 54 tells the server to listen\n(only) on the loopback address for connections.\n\nHere, you need to assign the server address to connect to.\nIn other words, line 160 should be:\n\nserv_addr.sin_addr.s_addr \u003d htonl(INADDR_LOOPBACK);\n\nThen you don\u0027t need gethostbyname() and similar.",
+      "range": {
+        "startLine": 159,
+        "startChar": 4,
+        "endLine": 161,
+        "endChar": 38
+      },
+      "revId": "a2381e53cac21cd743ccccd66783431cca356f5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
