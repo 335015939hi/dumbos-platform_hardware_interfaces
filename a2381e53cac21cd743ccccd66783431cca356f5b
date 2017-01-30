@@ -114,6 +114,29 @@
       "revId": "a2381e53cac21cd743ccccd66783431cca356f5b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b67c2c7c_9357402f",
+        "filename": "bluetooth/1.0/default/test/async_fd_watcher_unittest.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2017-01-30T22:09:19Z",
+      "side": 1,
+      "message": "Thanks for the explanation!",
+      "range": {
+        "startLine": 159,
+        "startChar": 4,
+        "endLine": 161,
+        "endChar": 38
+      },
+      "revId": "a2381e53cac21cd743ccccd66783431cca356f5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
