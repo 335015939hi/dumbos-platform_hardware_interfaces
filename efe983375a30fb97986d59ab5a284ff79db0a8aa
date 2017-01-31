@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "f342b583_a189dda1",
+        "filename": "wifi/1.0/default/hidl_sync_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-31T22:04:46Z",
+      "side": 1,
+      "message": "Done",
+      "revId": "efe983375a30fb97986d59ab5a284ff79db0a8aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ac1abfb6_07e59f52",
         "filename": "wifi/1.0/default/hidl_sync_util.cpp",
         "patchSetId": 1
@@ -76,6 +93,23 @@
     },
     {
       "key": {
+        "uuid": "4568ca9b_56fc55cc",
+        "filename": "wifi/1.0/default/hidl_sync_util.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-31T22:04:46Z",
+      "side": 1,
+      "message": "Done",
+      "revId": "efe983375a30fb97986d59ab5a284ff79db0a8aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b9ca786_202e4385",
         "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
         "patchSetId": 1
@@ -87,6 +121,23 @@
       "writtenOn": "2017-01-31T19:44:33Z",
       "side": 1,
       "message": "Are any of the callback invoked synchronously? If so, adding acquireGlobalLock() calls to them would cause deadlock.",
+      "revId": "efe983375a30fb97986d59ab5a284ff79db0a8aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "abc78ed7_d7db42ba",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-31T22:04:46Z",
+      "side": 1,
+      "message": "They acquire a recursive mutex. So, it should work even in the synchronous case?",
       "revId": "efe983375a30fb97986d59ab5a284ff79db0a8aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
