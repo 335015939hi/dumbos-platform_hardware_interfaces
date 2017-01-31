@@ -56,6 +56,8 @@ WifiChip::WifiChip(
     : chip_id_(chip_id),
       legacy_hal_(legacy_hal),
       mode_controller_(mode_controller),
+      event_cb_handler_(new hidl_callback_util::HidlCallbackHandler<
+                        IWifiChipEventCallback>()),
       is_valid_(true),
       current_mode_id_(kInvalidModeId),
       debug_ring_buffer_cb_registered_(false) {}
@@ -63,7 +65,7 @@ WifiChip::WifiChip(
 void WifiChip::invalidate() {
   invalidateAndRemoveAllIfaces();
   legacy_hal_.reset();
-  event_callbacks_.clear();
+  event_cb_handler_->invalidate();
   is_valid_ = false;
 }
 
@@ -72,7 +74,7 @@ bool WifiChip::isValid() {
 }
 
 std::vector<sp<IWifiChipEventCallback>> WifiChip::getEventCallbacks() {
-  return event_callbacks_;
+  return event_cb_handler_->getCallbacks();
 }
 
 Return<void> WifiChip::getId(getId_cb hidl_status_cb) {
@@ -353,8 +355,9 @@ std::pair<WifiStatus, ChipId> WifiChip::getIdInternal() {
 
 WifiStatus WifiChip::registerEventCallbackInternal(
     const sp<IWifiChipEventCallback>& event_callback) {
-  // TODO(b/31632518): remove the callback when the client is destroyed
-  event_callbacks_.emplace_back(event_callback);
+  if (!event_cb_handler_->addCallback(event_callback)) {
+    return createWifiStatus(WifiStatusCode::ERROR_UNKNOWN);
+  }
   return createWifiStatus(WifiStatusCode::SUCCESS);
 }
 
@@ -414,14 +417,14 @@ WifiStatus WifiChip::configureChipInternal(ChipModeId mode_id) {
   }
   WifiStatus status = handleChipConfiguration(mode_id);
   if (status.code != WifiStatusCode::SUCCESS) {
-    for (const auto& callback : event_callbacks_) {
+    for (const auto& callback : event_cb_handler_->getCallbacks()) {
       if (!callback->onChipReconfigureFailure(status).isOk()) {
         LOG(ERROR) << "Failed to invoke onChipReconfigureFailure callback";
       }
     }
     return status;
   }
-  for (const auto& callback : event_callbacks_) {
+  for (const auto& callback : event_cb_handler_->getCallbacks()) {
     if (!callback->onChipReconfigured(mode_id).isOk()) {
       LOG(ERROR) << "Failed to invoke onChipReconfigured callback";
     }
@@ -503,7 +506,7 @@ std::pair<WifiStatus, sp<IWifiApIface>> WifiChip::createApIfaceInternal() {
   }
   std::string ifname = legacy_hal_.lock()->getApIfaceName();
   ap_iface_ = new WifiApIface(ifname, legacy_hal_);
-  for (const auto& callback : event_callbacks_) {
+  for (const auto& callback : event_cb_handler_->getCallbacks()) {
     if (!callback->onIfaceAdded(IfaceType::AP, ifname).isOk()) {
       LOG(ERROR) << "Failed to invoke onIfaceAdded callback";
     }
@@ -533,7 +536,7 @@ WifiStatus WifiChip::removeApIfaceInternal(const std::string& ifname) {
     return createWifiStatus(WifiStatusCode::ERROR_INVALID_ARGS);
   }
   invalidateAndClear(ap_iface_);
-  for (const auto& callback : event_callbacks_) {
+  for (const auto& callback : event_cb_handler_->getCallbacks()) {
     if (!callback->onIfaceRemoved(IfaceType::AP, ifname).isOk()) {
       LOG(ERROR) << "Failed to invoke onIfaceRemoved callback";
     }
@@ -549,7 +552,7 @@ std::pair<WifiStatus, sp<IWifiNanIface>> WifiChip::createNanIfaceInternal() {
   }
   std::string ifname = legacy_hal_.lock()->getNanIfaceName();
   nan_iface_ = new WifiNanIface(ifname, legacy_hal_);
-  for (const auto& callback : event_callbacks_) {
+  for (const auto& callback : event_cb_handler_->getCallbacks()) {
     if (!callback->onIfaceAdded(IfaceType::NAN, ifname).isOk()) {
       LOG(ERROR) << "Failed to invoke onIfaceAdded callback";
     }
@@ -579,7 +582,7 @@ WifiStatus WifiChip::removeNanIfaceInternal(const std::string& ifname) {
     return createWifiStatus(WifiStatusCode::ERROR_INVALID_ARGS);
   }
   invalidateAndClear(nan_iface_);
-  for (const auto& callback : event_callbacks_) {
+  for (const auto& callback : event_cb_handler_->getCallbacks()) {
     if (!callback->onIfaceRemoved(IfaceType::NAN, ifname).isOk()) {
       LOG(ERROR) << "Failed to invoke onIfaceAdded callback";
     }
@@ -595,7 +598,7 @@ std::pair<WifiStatus, sp<IWifiP2pIface>> WifiChip::createP2pIfaceInternal() {
   }
   std::string ifname = legacy_hal_.lock()->getP2pIfaceName();
   p2p_iface_ = new WifiP2pIface(ifname, legacy_hal_);
-  for (const auto& callback : event_callbacks_) {
+  for (const auto& callback : event_cb_handler_->getCallbacks()) {
     if (!callback->onIfaceAdded(IfaceType::P2P, ifname).isOk()) {
       LOG(ERROR) << "Failed to invoke onIfaceAdded callback";
     }
@@ -625,7 +628,7 @@ WifiStatus WifiChip::removeP2pIfaceInternal(const std::string& ifname) {
     return createWifiStatus(WifiStatusCode::ERROR_INVALID_ARGS);
   }
   invalidateAndClear(p2p_iface_);
-  for (const auto& callback : event_callbacks_) {
+  for (const auto& callback : event_cb_handler_->getCallbacks()) {
     if (!callback->onIfaceRemoved(IfaceType::P2P, ifname).isOk()) {
       LOG(ERROR) << "Failed to invoke onIfaceRemoved callback";
     }
@@ -639,7 +642,7 @@ std::pair<WifiStatus, sp<IWifiStaIface>> WifiChip::createStaIfaceInternal() {
   }
   std::string ifname = legacy_hal_.lock()->getStaIfaceName();
   sta_iface_ = new WifiStaIface(ifname, legacy_hal_);
-  for (const auto& callback : event_callbacks_) {
+  for (const auto& callback : event_cb_handler_->getCallbacks()) {
     if (!callback->onIfaceAdded(IfaceType::STA, ifname).isOk()) {
       LOG(ERROR) << "Failed to invoke onIfaceAdded callback";
     }
@@ -669,7 +672,7 @@ WifiStatus WifiChip::removeStaIfaceInternal(const std::string& ifname) {
     return createWifiStatus(WifiStatusCode::ERROR_INVALID_ARGS);
   }
   invalidateAndClear(sta_iface_);
-  for (const auto& callback : event_callbacks_) {
+  for (const auto& callback : event_cb_handler_->getCallbacks()) {
     if (!callback->onIfaceRemoved(IfaceType::STA, ifname).isOk()) {
       LOG(ERROR) << "Failed to invoke onIfaceRemoved callback";
     }

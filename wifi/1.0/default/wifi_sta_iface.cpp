@@ -31,11 +31,15 @@ using hidl_return_util::validateAndCall;
 WifiStaIface::WifiStaIface(
     const std::string& ifname,
     const std::weak_ptr<legacy_hal::WifiLegacyHal> legacy_hal)
-    : ifname_(ifname), legacy_hal_(legacy_hal), is_valid_(true) {}
+    : ifname_(ifname),
+      legacy_hal_(legacy_hal),
+      event_cb_handler_(new hidl_callback_util::HidlCallbackHandler<
+                        IWifiStaIfaceEventCallback>()),
+      is_valid_(true) {}
 
 void WifiStaIface::invalidate() {
   legacy_hal_.reset();
-  event_callbacks_.clear();
+  event_cb_handler_->invalidate();
   is_valid_ = false;
 }
 
@@ -44,7 +48,7 @@ bool WifiStaIface::isValid() {
 }
 
 std::vector<sp<IWifiStaIfaceEventCallback>> WifiStaIface::getEventCallbacks() {
-  return event_callbacks_;
+  return event_cb_handler_->getCallbacks();
 }
 
 Return<void> WifiStaIface::getName(getName_cb hidl_status_cb) {
@@ -293,8 +297,9 @@ std::pair<WifiStatus, IfaceType> WifiStaIface::getTypeInternal() {
 
 WifiStatus WifiStaIface::registerEventCallbackInternal(
     const sp<IWifiStaIfaceEventCallback>& callback) {
-  // TODO(b/31632518): remove the callback when the client is destroyed
-  event_callbacks_.emplace_back(callback);
+  if (!event_cb_handler_->addCallback(callback)) {
+    return createWifiStatus(WifiStatusCode::ERROR_UNKNOWN);
+  }
   return createWifiStatus(WifiStatusCode::SUCCESS);
 }
 
