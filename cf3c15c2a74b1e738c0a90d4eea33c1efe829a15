@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "66d7a654_cb9a1d95",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_call_util.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-31T01:54:33Z",
+      "side": 1,
+      "message": "We might need to add an ASSERT_EQ(\u003cmethod\u003e.isOk()) here to check for transport errors. These tests will crash abruptly if there is some transport failure because of a recent change here: https://cs.corp.google.com/android/system/libhidl/base/Status.cpp?rcl\u003d0dd2edd3b10f0af5b589d660cc0c3538aa34737c\u0026l\u003d109",
+      "revId": "cf3c15c2a74b1e738c0a90d4eea33c1efe829a15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
