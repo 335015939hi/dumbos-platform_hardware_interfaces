@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffcece13_b3712d6b",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 768,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-01-31T21:53:35Z",
+      "side": 1,
+      "message": "We should have these max\u0027es defined in the HIDL interface (.hal) somewhere unless of course they\u0027re specified in the standard.",
+      "range": {
+        "startLine": 768,
+        "startChar": 43,
+        "endLine": 768,
+        "endChar": 44
+      },
+      "revId": "3172bd5d6090cc88fb321d31806013c318e937d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
