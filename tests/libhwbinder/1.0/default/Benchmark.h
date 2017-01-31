@@ -17,6 +17,9 @@ using ::android::hardware::hidl_vec;
 
 struct Benchmark : public IBenchmark {
   virtual Return<void> sendVec(const hidl_vec<uint8_t>& data, sendVec_cb _hidl_cb)  override;
+  virtual Return<void> sendVecOneWay(const ::android::hardware::hidl_vec<uint8_t>& data) override;
+  virtual Return<void> setCallback(const ::android::sp<IBenchmarkCallback>& cb) override;
+  sp<IBenchmarkCallback> benchmarkCbIface;
 };
 
 extern "C" IBenchmark* HIDL_FETCH_IBenchmark(const char* name);

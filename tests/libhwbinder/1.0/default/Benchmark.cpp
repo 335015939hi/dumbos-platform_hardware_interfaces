@@ -16,6 +16,15 @@ Return<void> Benchmark::sendVec(
     return Void();
 }
 
+Return<void> Benchmark::sendVecOneWay(const ::android::hardware::hidl_vec<uint8_t>& data) {
+    return Void();
+}
+
+Return<void> Benchmark::setCallback(const ::android::sp<IBenchmarkCallback>& cb) {
+    benchmarkCbIface = cb;
+    return Void();
+}
+
 IBenchmark* HIDL_FETCH_IBenchmark(const char* /* name */) {
     return new Benchmark();
 }

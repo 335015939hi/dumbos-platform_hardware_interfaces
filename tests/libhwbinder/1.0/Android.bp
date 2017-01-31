@@ -6,9 +6,11 @@ genrule {
     cmd: "$(location hidl-gen) -o $(genDir) -Lc++ -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.tests.libhwbinder@1.0",
     srcs: [
         "IBenchmark.hal",
+        "IBenchmarkCallback.hal",
     ],
     out: [
         "android/hardware/tests/libhwbinder/1.0/BenchmarkAll.cpp",
+        "android/hardware/tests/libhwbinder/1.0/BenchmarkCallbackAll.cpp",
     ],
 }
 
@@ -18,6 +20,7 @@ genrule {
     cmd: "$(location hidl-gen) -o $(genDir) -Lc++ -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.tests.libhwbinder@1.0",
     srcs: [
         "IBenchmark.hal",
+        "IBenchmarkCallback.hal",
     ],
     out: [
         "android/hardware/tests/libhwbinder/1.0/IBenchmark.h",
@@ -25,6 +28,11 @@ genrule {
         "android/hardware/tests/libhwbinder/1.0/BnHwBenchmark.h",
         "android/hardware/tests/libhwbinder/1.0/BpHwBenchmark.h",
         "android/hardware/tests/libhwbinder/1.0/BsBenchmark.h",
+        "android/hardware/tests/libhwbinder/1.0/IBenchmarkCallback.h",
+        "android/hardware/tests/libhwbinder/1.0/IHwBenchmarkCallback.h",
+        "android/hardware/tests/libhwbinder/1.0/BnBenchmarkCallback.h",
+        "android/hardware/tests/libhwbinder/1.0/BpBenchmarkCallback.h",
+        "android/hardware/tests/libhwbinder/1.0/BsBenchmarkCallback.h",
     ],
 }
 
