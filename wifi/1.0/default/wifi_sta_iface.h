@@ -21,6 +21,7 @@
 #include <android/hardware/wifi/1.0/IWifiStaIface.h>
 #include <android/hardware/wifi/1.0/IWifiStaIfaceEventCallback.h>
 
+#include "hidl_callback_util.h"
 #include "wifi_legacy_hal.h"
 
 namespace android {
@@ -151,7 +152,8 @@ class WifiStaIface : public IWifiStaIface {
 
   std::string ifname_;
   std::weak_ptr<legacy_hal::WifiLegacyHal> legacy_hal_;
-  std::vector<sp<IWifiStaIfaceEventCallback>> event_callbacks_;
+  sp<hidl_callback_util::HidlCallbackHandler<IWifiStaIfaceEventCallback>>
+      event_cb_handler_;
   bool is_valid_;
 
   DISALLOW_COPY_AND_ASSIGN(WifiStaIface);
