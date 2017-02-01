@@ -22,6 +22,29 @@
       "revId": "4bbc2092828c206a0d69e0090d8b534033fe8ace",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8c26343_7f789343",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 891,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2017-02-01T05:33:11Z",
+      "side": 1,
+      "message": "whether now or later it would have been switch to vec\u003cuint8_t\u003e.\n\nWill be moving the whole HAL to reflect more closely the on-the-air data. I.e. direct mapping to the actual hardware/firmware - as opposed to the abstractions which are presented by the SDK to 3rd party apps. I.e. at that level it would be a string but at the HAL it should be a byte array.\n\nStill not sure why I had the string length problem. If have time I\u0027ll dig further into that.",
+      "range": {
+        "startLine": 891,
+        "startChar": 2,
+        "endLine": 891,
+        "endChar": 14
+      },
+      "revId": "4bbc2092828c206a0d69e0090d8b534033fe8ace",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
