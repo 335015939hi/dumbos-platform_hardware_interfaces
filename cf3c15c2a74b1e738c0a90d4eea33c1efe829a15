@@ -16,6 +16,23 @@
       "revId": "cf3c15c2a74b1e738c0a90d4eea33c1efe829a15",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df124c32_faf96b6b",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_call_util.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-02-01T01:08:29Z",
+      "side": 1,
+      "message": "Thanks for the tip. Done.\n\nNote that ASSERT_EQ won\u0027t work, so I used EXPECT_EQ instead. (The expansion of ASSERT_EQ includes \"return;\". That fails, since this function must return an actual value, not just void.)",
+      "revId": "cf3c15c2a74b1e738c0a90d4eea33c1efe829a15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
