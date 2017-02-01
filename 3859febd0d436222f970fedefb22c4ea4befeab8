@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "728cdc37_0ec4206a",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_call_util_selftest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-02-01T01:08:29Z",
+      "side": 1,
+      "message": "I added a couple of tests here, to make sure that HIDL_INVOKE works regardless of whether HIDL uses const-ref, or by-value, for the result callback parameter.\n\n(HIDL currently uses by-value. But, since the callback is invoked synchronously, I could imagine const-ref as a reasonable change.)",
+      "revId": "3859febd0d436222f970fedefb22c4ea4befeab8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
