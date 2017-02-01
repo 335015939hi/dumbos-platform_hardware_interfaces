@@ -39,8 +39,11 @@ namespace {
 using android::hardware::bluetooth::V1_0::implementation::VendorInterface;
 using android::hardware::hidl_vec;
 
-tINT_CMD_CBACK internal_command_cb;
-uint16_t internal_command_opcode;
+struct {
+  tINT_CMD_CBACK cb;
+  uint16_t opcode;
+  uint8_t* allocation;
+} internal_command;
 
 VendorInterface* g_vendor_interface = nullptr;
 
@@ -105,16 +108,17 @@ bool internal_command_event_match(const hidl_vec<uint8_t>& packet) {
 
   uint16_t opcode = packet[opcode_offset] | (packet[opcode_offset + 1] << 8);
 
-  ALOGV("%s internal_command_opcode = %04X opcode = %04x", __func__,
-        internal_command_opcode, opcode);
-  return opcode == internal_command_opcode;
+  ALOGV("%s internal_command.opcode = %04X opcode = %04x", __func__,
+        internal_command.opcode, opcode);
+  return opcode == internal_command.opcode;
 }
 
 uint8_t transmit_cb(uint16_t opcode, void* buffer, tINT_CMD_CBACK callback) {
   ALOGV("%s opcode: 0x%04x, ptr: %p, cb: %p", __func__, opcode, buffer,
         callback);
-  internal_command_cb = callback;
-  internal_command_opcode = opcode;
+  internal_command.cb = callback;
+  internal_command.opcode = opcode;
+  internal_command.allocation = reinterpret_cast<uint8_t*>(buffer);
   uint8_t type = HCI_PACKET_TYPE_COMMAND;
   HC_BT_HDR* bt_hdr = reinterpret_cast<HC_BT_HDR*>(buffer);
   VendorInterface::get()->Send(type, bt_hdr->data, bt_hdr->len);
@@ -367,15 +371,17 @@ void VendorInterface::OnDataReady(int fd) {
       hci_packet_bytes_remaining_ -= bytes_read;
       hci_packet_bytes_read_ += bytes_read;
       if (hci_packet_bytes_remaining_ == 0) {
-        if (internal_command_cb != nullptr &&
+        if (internal_command.cb != nullptr &&
             hci_packet_type_ == HCI_PACKET_TYPE_EVENT &&
             internal_command_event_match(hci_packet_)) {
           HC_BT_HDR* bt_hdr =
               WrapPacketAndCopy(HCI_PACKET_TYPE_EVENT, hci_packet_);
 
           // The callbacks can send new commands, so don't zero after calling.
-          tINT_CMD_CBACK saved_cb = internal_command_cb;
-          internal_command_cb = nullptr;
+          tINT_CMD_CBACK saved_cb = internal_command.cb;
+          internal_command.cb = nullptr;
+          delete[] internal_command.allocation;
+          internal_command.allocation = nullptr;
           saved_cb(bt_hdr);
         } else {
           packet_read_cb_(hci_packet_type_, hci_packet_);
