@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "68c12ff7_0ab855e0",
+        "filename": "radio/1.0/vts/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2017-02-02T00:10:30Z",
+      "side": 1,
+      "message": "noted that this would be unnecessary at the moment but will soon be needed so lgtm.",
+      "range": {
+        "startLine": 19,
+        "startChar": 9,
+        "endLine": 19,
+        "endChar": 36
+      },
+      "revId": "faad7891fb9c0ec45371ff54f1eb0007441523df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
