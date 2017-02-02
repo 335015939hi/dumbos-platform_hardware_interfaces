@@ -158,6 +158,23 @@
       "revId": "efe983375a30fb97986d59ab5a284ff79db0a8aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "819da613_aa7429a1",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-02-02T02:36:06Z",
+      "side": 1,
+      "message": "I did look at qcom\u0027s implementation and they seem to be invoking on the same thread. But, i can\u0027t say for sure about broadcom\u0027s implementation.\n\nAnyway, removed it from the synchrnous callbacks since they don\u0027t buy us anything and may potentially deadlock if the vendor does the wrong thing.",
+      "revId": "efe983375a30fb97986d59ab5a284ff79db0a8aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
