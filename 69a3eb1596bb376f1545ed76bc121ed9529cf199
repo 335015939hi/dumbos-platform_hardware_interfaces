@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "790dd775_a59ec5bd",
+        "filename": "bluetooth/1.0/default/vendor_interface.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1058798
+      },
+      "writtenOn": "2017-02-02T21:47:42Z",
+      "side": 1,
+      "message": "Just free here, don\u0027t use temporary structure",
+      "range": {
+        "startLine": 125,
+        "startChar": 1,
+        "endLine": 125,
+        "endChar": 14
+      },
+      "revId": "69a3eb1596bb376f1545ed76bc121ed9529cf199",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
