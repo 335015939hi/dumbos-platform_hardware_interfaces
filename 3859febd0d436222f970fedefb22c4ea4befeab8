@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "d013c5db_7d91a15f",
+        "filename": "wifi/1.0/vts/functional/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-02-02T02:04:04Z",
+      "side": 1,
+      "message": "spaces please",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 1
+      },
+      "revId": "3859febd0d436222f970fedefb22c4ea4befeab8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "728cdc37_0ec4206a",
         "filename": "wifi/1.0/vts/functional/wifi_hidl_call_util_selftest.cpp",
         "patchSetId": 6
