@@ -141,6 +141,23 @@
       "revId": "efe983375a30fb97986d59ab5a284ff79db0a8aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b273ed5_16f0aec3",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-02-02T02:05:47Z",
+      "side": 1,
+      "message": "I failed to update the bug, but I believe we had an OOB conversation where we were reconsidering the use use of a recursive mutex.\n\nReason being: if a vendor implementation invokes a synchronous callback on the event loop thread, rather than the caller thread, then a recursive mutex isn\u0027t sufficient to avoid deadlock.\n\nAm I mis-remembering? Or did we conclude that vendor HALs don\u0027t actually do this? (i.e., did we conclude that vendor HALs always invoke the synchronous callback on the calling thread.)",
+      "revId": "efe983375a30fb97986d59ab5a284ff79db0a8aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
