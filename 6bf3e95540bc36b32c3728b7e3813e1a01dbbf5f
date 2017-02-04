@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a346501b_e581630d",
+        "filename": "bluetooth/1.0/default/bluetooth_address.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1071489
+      },
+      "writtenOn": "2017-02-04T04:04:07Z",
+      "side": 1,
+      "message": "Please enclose in {} for better readability.\nAlso, if property_set() fails, do you still want to return true?",
+      "range": {
+        "startLine": 106,
+        "startChar": 6,
+        "endLine": 107,
+        "endChar": 37
+      },
+      "revId": "6bf3e95540bc36b32c3728b7e3813e1a01dbbf5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35e06637_4251df93",
+        "filename": "bluetooth/1.0/default/bluetooth_address.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1071489
+      },
+      "writtenOn": "2017-02-04T04:04:07Z",
+      "side": 1,
+      "message": "It seems you always return true.",
+      "range": {
+        "startLine": 108,
+        "startChar": 4,
+        "endLine": 108,
+        "endChar": 21
+      },
+      "revId": "6bf3e95540bc36b32c3728b7e3813e1a01dbbf5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
