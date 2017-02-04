@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1b081d4e_c4150473",
+        "filename": "tests/versioning/2.2/IFoo.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-02-04T09:33:15Z",
+      "side": 1,
+      "message": "This is technically illegal/frowned upon. I\u0027d prefer if we test this behavior, not to have a 2.0 at all.\n\nWhat if you just delete 2.0 from this package?",
+      "range": {
+        "startLine": 19,
+        "startChar": 3,
+        "endLine": 19,
+        "endChar": 32
+      },
+      "revId": "5a55e9beec61c58253c445fe215b52d868f4099c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
