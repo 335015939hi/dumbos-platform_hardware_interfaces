@@ -52,6 +52,13 @@ Return<void> Wifi::registerEventCallback(
                          event_callback);
 }
 
+Return<void> Wifi::tryStringPassing(const StringWrapper& w, tryStringPassing_cb hidl_status_cb) {
+    LOG(ERROR) << "tryStringPassing (in C): s = '" << w.s << "'";
+    LOG(ERROR) << "tryStringPassing (in C): s.size() = " << w.s.size();
+    hidl_status_cb(w.s, w.s.size());
+    return Void();
+}
+
 Return<bool> Wifi::isStarted() {
   return run_state_ != RunState::STOPPED;
 }

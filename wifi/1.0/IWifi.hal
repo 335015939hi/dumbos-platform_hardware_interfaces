@@ -44,6 +44,12 @@ interface IWifi {
   registerEventCallback(IWifiEventCallback callback)
       generates (WifiStatus status);
 
+  struct StringWrapper {
+    string s;
+  };
+
+  tryStringPassing(StringWrapper s) generates (string s, uint32_t l);
+
   /**
    * Get the current state of the HAL.
    *

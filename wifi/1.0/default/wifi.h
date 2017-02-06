@@ -46,6 +46,7 @@ class Wifi : public IWifi {
   Return<void> registerEventCallback(
       const sp<IWifiEventCallback>& event_callback,
       registerEventCallback_cb hidl_status_cb) override;
+  Return<void> tryStringPassing(const StringWrapper& s, tryStringPassing_cb hidl_status_cb) override;
   Return<bool> isStarted() override;
   Return<void> start(start_cb hidl_status_cb) override;
   Return<void> stop(stop_cb hidl_status_cb) override;
