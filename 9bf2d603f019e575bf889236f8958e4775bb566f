@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "fcb8aacc_d905d162",
+        "filename": "wifi/1.0/default/THREADING.README",
+        "patchSetId": 9
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-02-07T22:46:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "97773e6a_1ba22caf",
+      "range": {
+        "startLine": 7,
+        "startChar": 24,
+        "endLine": 7,
+        "endChar": 27
+      },
+      "revId": "9bf2d603f019e575bf889236f8958e4775bb566f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16496c02_09b4b965",
         "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
         "patchSetId": 9
@@ -53,6 +77,30 @@
       "writtenOn": "2017-02-07T22:11:42Z",
       "side": 1,
       "message": "I think we can push just a little further, to make it easier to maintain this code.\n\nConsider what happens when we add a new HAL function... Assuming that function has some sort of callback, we\u0027ll copy and paste an existing callback, and tweak it to fit the signature of the new callback.\n\nThe risk (with the code as currently proposed) is that we might copy the wrong kind of callback. E.g., we might make copy a synchronous callback for a new HAL function that has an asynchronous callback. Or vice versa.\n\nI think we can substantially reduce that risk, with a very small change. If, e.g., we include Sync or Async in the name of these callbacks, then the author (and reviewer) of new code will be aware that there\u0027s some distinction that they should heed.\n\nWhat do you think?",
+      "range": {
+        "startLine": 67,
+        "startChar": 5,
+        "endLine": 67,
+        "endChar": 23
+      },
+      "revId": "9bf2d603f019e575bf889236f8958e4775bb566f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a05569cd_5a074ada",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-02-07T22:46:08Z",
+      "side": 1,
+      "message": "I liked the idea. Renamed all of the callbacks to add the prefix.",
+      "parentUuid": "16496c02_09b4b965",
       "range": {
         "startLine": 67,
         "startChar": 5,
