@@ -22,6 +22,30 @@
       "revId": "ac9f1c02f30472f69bbac7b8cd2be08b680d09a1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "67320fec_2d68017f",
+        "filename": "bluetooth/1.0/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2017-02-07T22:24:56Z",
+      "side": 1,
+      "message": "This change is to migrate driver/profiler build rules out of hw/if. I\u0027ll clean these up in a follow-up.",
+      "parentUuid": "adeaa169_1bc6e1ec",
+      "range": {
+        "startLine": 16,
+        "startChar": 4,
+        "endLine": 20,
+        "endChar": 6
+      },
+      "revId": "ac9f1c02f30472f69bbac7b8cd2be08b680d09a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
