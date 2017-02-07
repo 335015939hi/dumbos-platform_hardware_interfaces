@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff7e8c5d_49acf0e9",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-02-07T03:04:59Z",
+      "side": 1,
+      "message": "Per the commit message, our concern is that |on_stop_complete_user_callback| might go out of scope before this lambda executes.\n\nPresumably, then, wifi_cleanup() returns asynchronously. (If wifi_cleanup() were synchronous, then on_stop_complete_user_callback would be guaranteed to be in scope when the lambda executes.)\n\nBut, if wifi_cleanup() is asynchronous, how do we know that |this| is still valid, at the time that the lambda executes?\n\nIf there is such a guarantee, we should document that here. (The code is subtle without it, as the safety depends on information that isn\u0027t obvious in this method itself.) \n\nIf there is no such guarantee, maybe we need to use a weak_ptr, as we do in the next layer up?",
+      "range": {
+        "startLine": 352,
+        "startChar": 40,
+        "endLine": 352,
+        "endChar": 44
+      },
+      "revId": "c7bc14a1f9992059f0c542cdd3487a15d1f9a8fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c0d98dc4_cf39f6e2",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-02-07T03:04:59Z",
+      "side": 1,
+      "message": "Same concern as at line 352. (Sorry I didn\u0027t notice this the first time around.)",
+      "range": {
+        "startLine": 482,
+        "startChar": 59,
+        "endLine": 482,
+        "endChar": 63
+      },
+      "revId": "c7bc14a1f9992059f0c542cdd3487a15d1f9a8fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
