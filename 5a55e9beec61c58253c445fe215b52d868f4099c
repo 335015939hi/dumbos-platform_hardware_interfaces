@@ -22,6 +22,30 @@
       "revId": "5a55e9beec61c58253c445fe215b52d868f4099c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1747ed6b_20e01885",
+        "filename": "tests/versioning/2.2/IFoo.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-02-07T00:15:08Z",
+      "side": 1,
+      "message": "This is indeed illegal. \n\nDeleting 2.0 doesn\u0027t have any effect.\n\nDo you mean if we see 2.1000, we should check not only 2.999, but 2.0-2.998 and make sure they don\u0027t exist if 2.999 does not exist?",
+      "parentUuid": "1b081d4e_c4150473",
+      "range": {
+        "startLine": 19,
+        "startChar": 3,
+        "endLine": 19,
+        "endChar": 32
+      },
+      "revId": "5a55e9beec61c58253c445fe215b52d868f4099c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
