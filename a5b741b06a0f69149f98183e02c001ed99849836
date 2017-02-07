@@ -22,6 +22,30 @@
       "revId": "a5b741b06a0f69149f98183e02c001ed99849836",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63dbf7c8_80b64269",
+        "filename": "wifi/1.0/default/wifi_chip.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 832,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-02-07T18:57:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6dfaa241_a25cb788",
+      "range": {
+        "startLine": 832,
+        "startChar": 40,
+        "endLine": 832,
+        "endChar": 57
+      },
+      "revId": "a5b741b06a0f69149f98183e02c001ed99849836",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
