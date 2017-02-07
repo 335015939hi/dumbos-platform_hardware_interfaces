@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f52ca90e_13f961af",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-02-07T18:57:18Z",
+      "side": 1,
+      "message": "Unlike the HIDL interface objects (except the top level IWifi object), once we instantiate a WifiLegacyHal instance in wifi.cpp, we\u0027ll never delete and recreate a new instance of this class.\nSo, both the top level Wifi instance \u0026 the WifiLegacyHal instance  will never deleted and reinstantiated and hence we don\u0027t pass weak pointers into the callbacks.\n\nWifi holds a sp to WifiLegacyHal: https://cs.corp.google.com/android/hardware/interfaces/wifi/1.0/default/wifi.h?rcl\u003d0f5f5ce26bb344dd50dcafb43893a56c0588040f\u0026l\u003d71.\n\nThe other objects only hold a wp to WifiLegacyHal: \nhttps://cs.corp.google.com/android/hardware/interfaces/wifi/1.0/default/wifi_chip.h?rcl\u003d0f5f5ce26bb344dd50dcafb43893a56c0588040f\u0026l\u003d180.\n\n\nI have added a line in the .h file explaining this.",
+      "parentUuid": "ff7e8c5d_49acf0e9",
+      "range": {
+        "startLine": 352,
+        "startChar": 40,
+        "endLine": 352,
+        "endChar": 44
+      },
+      "revId": "c7bc14a1f9992059f0c542cdd3487a15d1f9a8fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c0d98dc4_cf39f6e2",
         "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2017-02-07T03:04:59Z",
       "side": 1,
       "message": "Same concern as at line 352. (Sorry I didn\u0027t notice this the first time around.)",
+      "range": {
+        "startLine": 482,
+        "startChar": 59,
+        "endLine": 482,
+        "endChar": 63
+      },
+      "revId": "c7bc14a1f9992059f0c542cdd3487a15d1f9a8fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0c5fa47_feddea26",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-02-07T18:57:18Z",
+      "side": 1,
+      "message": "Same.",
+      "parentUuid": "c0d98dc4_cf39f6e2",
       "range": {
         "startLine": 482,
         "startChar": 59,
