@@ -290,6 +290,9 @@ void VendorInterface::Close() {
   fd_watcher_.StopWatchingFileDescriptor();
 
   if (lib_interface_ != nullptr) {
+    bt_vendor_lpm_mode_t mode = BT_VND_LPM_DISABLE;
+    lib_interface_->op(BT_VND_OP_LPM_SET_MODE, &mode);
+
     lib_interface_->op(BT_VND_OP_USERIAL_CLOSE, nullptr);
     uart_fd_ = INVALID_FD;
     int power_state = BT_VND_PWR_OFF;
@@ -349,12 +352,11 @@ void VendorInterface::OnFirmwareConfigured(uint8_t result) {
   bt_vendor_lpm_mode_t mode = BT_VND_LPM_ENABLE;
   lib_interface_->op(BT_VND_OP_LPM_SET_MODE, &mode);
 
+  lpm_wake_deasserted = true;
+
   ALOGD("%s Calling StartLowPowerWatchdog()", __func__);
   fd_watcher_.ConfigureTimeout(std::chrono::milliseconds(lpm_timeout_ms),
                                [this]() { OnTimeout(); });
-
-  bt_vendor_lpm_wake_state_t wakeState = BT_VND_LPM_WAKE_ASSERT;
-  lib_interface_->op(BT_VND_OP_LPM_WAKE_SET_STATE, &wakeState);
 }
 
 void VendorInterface::OnTimeout() {
