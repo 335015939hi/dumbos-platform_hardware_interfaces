@@ -22,6 +22,30 @@
       "revId": "475b032ea31d56df8a13c61ea19173ebfe87bbb6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "138a2d2f_541def2c",
+        "filename": "bluetooth/1.0/default/vendor_interface.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1058798
+      },
+      "writtenOn": "2017-02-08T04:48:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d8193b16_c267ef6a",
+      "range": {
+        "startLine": 280,
+        "startChar": 2,
+        "endLine": 280,
+        "endChar": 30
+      },
+      "revId": "475b032ea31d56df8a13c61ea19173ebfe87bbb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
