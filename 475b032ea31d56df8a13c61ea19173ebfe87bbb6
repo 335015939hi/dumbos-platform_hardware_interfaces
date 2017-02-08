@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d8193b16_c267ef6a",
+        "filename": "bluetooth/1.0/default/vendor_interface.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2017-02-08T04:45:22Z",
+      "side": 1,
+      "message": "Ouch.  I had this one backward.  We could remove it.",
+      "range": {
+        "startLine": 280,
+        "startChar": 2,
+        "endLine": 280,
+        "endChar": 30
+      },
+      "revId": "475b032ea31d56df8a13c61ea19173ebfe87bbb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
