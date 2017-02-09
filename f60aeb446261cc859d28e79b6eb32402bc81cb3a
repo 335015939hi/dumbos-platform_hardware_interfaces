@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a3855ef_25969801",
+        "filename": "wifi/1.0/default/wifi_nan_iface.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-02-09T17:59:24Z",
+      "side": 0,
+      "message": "Move \"case legacy_hal::NAN_RESPONSE_BEACON_SDF_PAYLOAD:\" here?",
+      "revId": "f60aeb446261cc859d28e79b6eb32402bc81cb3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
