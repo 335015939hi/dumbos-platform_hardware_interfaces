@@ -16,7 +16,7 @@
 
 package android.hardware.tests.baz@1.0;
 
-interface IBase {
+interface IBazBase {
     enum SomeBaseEnum : int32_t {
         grrr = 1,
     };

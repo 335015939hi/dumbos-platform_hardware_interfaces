@@ -16,10 +16,10 @@
 
 package android.hardware.tests.baz@1.0;
 
-import IBase;
+import IBazBase;
 import IBazCallback;
 
-interface IBaz extends IBase {
+interface IBaz extends IBazBase {
 
     enum SomeOtherEnum : uint8_t {
         bar = 66
@@ -45,7 +45,9 @@ interface IBaz extends IBase {
         vec<T> matrices;
     };
 
-    @Fragile @NoReally(very="yes", array={"a","b","c"})
+    /* Semantically invalid but syntactically correct annotation sample:
+     *   @Fragile @NoReally(very="yes", array={"a","b","c"})
+     */
     oneway doThis(float param);
 
     doThatAndReturnSomething(int64_t param) generates (int32_t result);
