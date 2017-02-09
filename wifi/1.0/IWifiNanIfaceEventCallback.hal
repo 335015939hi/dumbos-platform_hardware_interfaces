@@ -303,11 +303,4 @@ interface IWifiNanIfaceEventCallback {
    * @param ndpInstanceId: data-path ID of the terminated data-path.
    */
   oneway eventDataPathTerminated(uint32_t ndpInstanceId);
-
-  /**
-   * Asynchronous callback indicating vendor-specific payload received in NAN beacon or SDF frame.
-   *
-   * @param event: NanBeaconSdfPayloadInd containing event details.
-   */
-  oneway eventBeaconSdfPayload(NanBeaconSdfPayloadInd event);
 };
