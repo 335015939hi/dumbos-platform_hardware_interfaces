@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c03739e7_487318a8",
+        "filename": "wifi/1.0/default/hidl_callback_util.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-02-09T17:47:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ca31526_0363efd5",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "606831693522173ab1bc472e4f12e80b28f28646",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "29508e31_b1140f82",
         "filename": "wifi/1.0/default/hidl_callback_util.h",
         "patchSetId": 11
@@ -71,6 +95,54 @@
     },
     {
       "key": {
+        "uuid": "3af273eb_81bbaea6",
+        "filename": "wifi/1.0/default/hidl_callback_util.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-02-09T17:47:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "29508e31_b1140f82",
+      "range": {
+        "startLine": 22,
+        "startChar": 69,
+        "endLine": 22,
+        "endChar": 73
+      },
+      "revId": "606831693522173ab1bc472e4f12e80b28f28646",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84c3ef6a_932d3dba",
+        "filename": "wifi/1.0/default/hidl_callback_util.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-02-09T17:47:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f54467a4_c1a73bd6",
+      "range": {
+        "startLine": 22,
+        "startChar": 3,
+        "endLine": 22,
+        "endChar": 24
+      },
+      "revId": "606831693522173ab1bc472e4f12e80b28f28646",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f0db68b_d8e4cf73",
         "filename": "wifi/1.0/default/hidl_callback_util.h",
         "patchSetId": 11
@@ -82,6 +154,30 @@
       "writtenOn": "2017-02-09T01:41:58Z",
       "side": 1,
       "message": "The word \"client\" is ambiguous. And the ambiguity makes it hard to understand if this approach is a good solution.\n\nMy first interpretation of \"client\" was \"client process\". And, in that model, it seems silly to have a separate death notification for each callback that was requested by a given client.\n\nAfter reading this code, and the documentation for Binder\u0027s linkToDeath() [1], I guess \"client process\" is the wrong interpretation.\n\nPlease rephrase, to avoid the ambiguity.\n\n[1] https://developer.android.com/reference/android/os/IBinder.html#linkToDeath(android.os.IBinder.DeathRecipient, int)",
+      "range": {
+        "startLine": 23,
+        "startChar": 38,
+        "endLine": 23,
+        "endChar": 45
+      },
+      "revId": "606831693522173ab1bc472e4f12e80b28f28646",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "883b9834_a010248e",
+        "filename": "wifi/1.0/default/hidl_callback_util.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-02-09T17:47:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f0db68b_d8e4cf73",
       "range": {
         "startLine": 23,
         "startChar": 38,
@@ -111,6 +207,24 @@
     },
     {
       "key": {
+        "uuid": "25fb03e3_38a05ec4",
+        "filename": "wifi/1.0/default/hidl_callback_util.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-02-09T17:47:05Z",
+      "side": 1,
+      "message": "I need it because of the usage of |DISALLOW_COPY_AND_ASSIGN|. The default constructor expects 1 argument.\n\n\nThis is the compilation error when I take these off:\nhardware/interfaces/wifi/1.0/default/wifi_nan_iface.cpp:36:29: error: no matching constructor for initialization of \u0027hidl_callback_util::HidlCallbackHandler\u003cIWifiNanIfaceEventCallback\u003e\u0027\n      event_cb_handler_(new hidl_callback_util::HidlCallbackHandler\u003c\n                            ^\nhardware/interfaces/wifi/1.0/default/hidl_callback_util.h:81:28: note: candidate constructor not viable: requires 1 argument, but 0 were provided\n  DISALLOW_COPY_AND_ASSIGN(HidlCallbackHandler);",
+      "parentUuid": "e491a431_bd69b157",
+      "revId": "606831693522173ab1bc472e4f12e80b28f28646",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "060aff56_423b99d6",
         "filename": "wifi/1.0/default/hidl_callback_util.h",
         "patchSetId": 11
@@ -122,6 +236,30 @@
       "writtenOn": "2017-02-09T01:41:58Z",
       "side": 1,
       "message": "Do we ever need to remove a callback? E.g., can a client unregister interest in events?",
+      "range": {
+        "startLine": 37,
+        "startChar": 7,
+        "endLine": 37,
+        "endChar": 10
+      },
+      "revId": "606831693522173ab1bc472e4f12e80b28f28646",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "40f10b88_3fb34b5c",
+        "filename": "wifi/1.0/default/hidl_callback_util.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-02-09T17:47:05Z",
+      "side": 1,
+      "message": "We currently don\u0027t have a deregister for notification support in the HIDL interface. The only case where we need to get rid of all these callbacks is when the corresponding HIDL interface object is invalid (a mode reconfiguration for example). We used the invalidate() method below to handle that.",
+      "parentUuid": "060aff56_423b99d6",
       "range": {
         "startLine": 37,
         "startChar": 7,
@@ -203,6 +341,78 @@
     },
     {
       "key": {
+        "uuid": "089d2414_510b8ebe",
+        "filename": "wifi/1.0/default/hidl_callback_util.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-02-09T17:47:05Z",
+      "side": 1,
+      "message": "All callback objects are proxies for remote objects hosted by framework in our case.",
+      "parentUuid": "7415b2f8_cdd8c8a5",
+      "range": {
+        "startLine": 40,
+        "startChar": 49,
+        "endLine": 40,
+        "endChar": 57
+      },
+      "revId": "606831693522173ab1bc472e4f12e80b28f28646",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb4dbe51_20672443",
+        "filename": "wifi/1.0/default/hidl_callback_util.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-02-09T17:47:05Z",
+      "side": 1,
+      "message": "|linkToDeath| and the |serviceDied| uses a 64 bit cookie. So, using uint64_t to avoid unnecessary type conversions.",
+      "parentUuid": "7c823067_f7acf60a",
+      "range": {
+        "startLine": 40,
+        "startChar": 4,
+        "endLine": 40,
+        "endChar": 12
+      },
+      "revId": "606831693522173ab1bc472e4f12e80b28f28646",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "58617380_0ec6cd75",
+        "filename": "wifi/1.0/default/hidl_callback_util.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-02-09T17:47:05Z",
+      "side": 1,
+      "message": "We need something uniquely identifiable for each callback, we can |alternatively| use a free running counter instead as cookie. \n\nSince the |cb| is a strong pointer stored in the |cb_map_|, the underlying memory will not be destroyed unless we remove it from the above map (when either the cb is dead or |invaldate()| is invoked).\nSo, even if the strong pointer instance may go out of scope, the underlying memory (pointed to cb.get()) should remain valid and we\u0027ll not end up having duplicate cookie\u0027s.",
+      "parentUuid": "6a15dc1c_43235885",
+      "range": {
+        "startLine": 40,
+        "startChar": 13,
+        "endLine": 40,
+        "endChar": 19
+      },
+      "revId": "606831693522173ab1bc472e4f12e80b28f28646",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e63a311b_12e1758e",
         "filename": "wifi/1.0/default/hidl_callback_util.h",
         "patchSetId": 11
@@ -220,6 +430,24 @@
     },
     {
       "key": {
+        "uuid": "abe99160_13afd8a0",
+        "filename": "wifi/1.0/default/hidl_callback_util.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-02-09T17:47:05Z",
+      "side": 1,
+      "message": "This should never happen. So, will return error instead in such cases.",
+      "parentUuid": "e63a311b_12e1758e",
+      "revId": "606831693522173ab1bc472e4f12e80b28f28646",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "654b8a95_15df6ae5",
         "filename": "wifi/1.0/default/hidl_callback_util.h",
         "patchSetId": 11
@@ -231,6 +459,30 @@
       "writtenOn": "2017-02-09T01:41:58Z",
       "side": 1,
       "message": "Maybe |const auto\u0026|, for consistency? (Compare: |const android::sp\u003cCallbackType\u003e\u0026| above.)",
+      "range": {
+        "startLine": 51,
+        "startChar": 9,
+        "endLine": 51,
+        "endChar": 20
+      },
+      "revId": "606831693522173ab1bc472e4f12e80b28f28646",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "27ce4e61_1757068d",
+        "filename": "wifi/1.0/default/hidl_callback_util.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-02-09T17:47:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "654b8a95_15df6ae5",
       "range": {
         "startLine": 51,
         "startChar": 9,
@@ -266,6 +518,30 @@
     },
     {
       "key": {
+        "uuid": "b8c8b85b_5c972aeb",
+        "filename": "wifi/1.0/default/hidl_callback_util.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-02-09T17:47:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "383c5b32_c10b43b3",
+      "range": {
+        "startLine": 58,
+        "startChar": 9,
+        "endLine": 58,
+        "endChar": 20
+      },
+      "revId": "606831693522173ab1bc472e4f12e80b28f28646",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7043724a_e0c017da",
         "filename": "wifi/1.0/default/hidl_callback_util.h",
         "patchSetId": 11
@@ -277,6 +553,30 @@
       "writtenOn": "2017-02-09T01:41:58Z",
       "side": 1,
       "message": "|const| feels out of place here, given that unlinkToDeath() modifies externally observable state of the CallbackType object. (And, in fact, unlinkToDeath() is not a const method.)\n\nThis might be a case where |auto| makes the code more obscure, rather than more clear. Consider spelling out the type, to make it clear that it\u0027s the android::sp that\u0027s const, and not the callback.",
+      "range": {
+        "startLine": 59,
+        "startChar": 6,
+        "endLine": 59,
+        "endChar": 11
+      },
+      "revId": "606831693522173ab1bc472e4f12e80b28f28646",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d5f10eda_1e87ad9c",
+        "filename": "wifi/1.0/default/hidl_callback_util.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-02-09T17:47:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7043724a_e0c017da",
       "range": {
         "startLine": 59,
         "startChar": 6,
@@ -312,6 +612,30 @@
     },
     {
       "key": {
+        "uuid": "3112763c_03349749",
+        "filename": "wifi/1.0/default/hidl_callback_util.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-02-09T17:47:05Z",
+      "side": 1,
+      "message": "It\u0027s not clear to me whether the callback contains the exact same proxy object or not. We cannot compare 2 proxy objects pointing to the same remote object yet, b/33818800 for this  was marked \"Wont Fix\".\n\nI had some done digging around the death notification handling (go/aog/332126) and I do think they\u0027re the same, but I was told to use the cookie to lookup the dead client: https://buganizer.corp.google.com/issues/33818800#comment9.\n\nSo, in summary, this might be redundant, but I don\u0027t think there is any harm in using the cookie.",
+      "parentUuid": "b3845dc1_39f9c6f3",
+      "range": {
+        "startLine": 70,
+        "startChar": 62,
+        "endLine": 70,
+        "endChar": 65
+      },
+      "revId": "606831693522173ab1bc472e4f12e80b28f28646",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8ba6ea44_7ba0b3eb",
         "filename": "wifi/1.0/default/hidl_callback_util.h",
         "patchSetId": 11
@@ -323,6 +647,24 @@
       "writtenOn": "2017-02-09T01:41:58Z",
       "side": 1,
       "message": "Consider removing this comment. (I think the code at line 72 is clear on its own.)",
+      "revId": "606831693522173ab1bc472e4f12e80b28f28646",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b77c983f_152f6fed",
+        "filename": "wifi/1.0/default/hidl_callback_util.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-02-09T17:47:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ba6ea44_7ba0b3eb",
       "revId": "606831693522173ab1bc472e4f12e80b28f28646",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -346,6 +688,24 @@
     },
     {
       "key": {
+        "uuid": "a1a6301d_97ca3800",
+        "filename": "wifi/1.0/default/hidl_callback_util.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-02-09T17:47:05Z",
+      "side": 1,
+      "message": "I added a return in the error case. We should not be logging this debug message if there is an error.",
+      "parentUuid": "0e617f64_3f272a08",
+      "revId": "606831693522173ab1bc472e4f12e80b28f28646",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f2adda91_92755f5e",
         "filename": "wifi/1.0/default/wifi.h",
         "patchSetId": 11
@@ -357,6 +717,24 @@
       "writtenOn": "2017-02-09T01:41:58Z",
       "side": 1,
       "message": "Maybe use an inline member instead? (Not sure why we need to allocate this dynamically.)",
+      "revId": "606831693522173ab1bc472e4f12e80b28f28646",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "40079e29_50c261a2",
+        "filename": "wifi/1.0/default/wifi.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-02-09T17:47:05Z",
+      "side": 1,
+      "message": "This needs be dynamically allocated since |hidl_death_recipient| is a RefBase derived object and hence needs to held in a smart pointer (android::sp or android::wp). \n\nPS: I initially had this as an inline member and the daemon kept crashing (with SIGSEGV) when I registered a callback. Had to dig a little to figure out the problem.",
+      "parentUuid": "f2adda91_92755f5e",
       "revId": "606831693522173ab1bc472e4f12e80b28f28646",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -386,6 +764,30 @@
     },
     {
       "key": {
+        "uuid": "aadc225b_4bd466a0",
+        "filename": "wifi/1.0/default/wifi_chip.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-02-09T17:47:05Z",
+      "side": 1,
+      "message": "Same. Needs to be held in a android::sp.",
+      "parentUuid": "e2f12fde_2ebcfb87",
+      "range": {
+        "startLine": 183,
+        "startChar": 2,
+        "endLine": 183,
+        "endChar": 4
+      },
+      "revId": "606831693522173ab1bc472e4f12e80b28f28646",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6d76306_16632419",
         "filename": "wifi/1.0/default/wifi_nan_iface.h",
         "patchSetId": 11
@@ -397,6 +799,24 @@
       "writtenOn": "2017-02-09T01:41:58Z",
       "side": 1,
       "message": "Should this be private, instead? (In this CL, I believe getEventCallbacks() is only called from WifiNanIface.)",
+      "revId": "606831693522173ab1bc472e4f12e80b28f28646",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "19272458_9173ff9f",
+        "filename": "wifi/1.0/default/wifi_nan_iface.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-02-09T17:47:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6d76306_16632419",
       "revId": "606831693522173ab1bc472e4f12e80b28f28646",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -426,6 +846,30 @@
     },
     {
       "key": {
+        "uuid": "dc0f8259_821cd75a",
+        "filename": "wifi/1.0/default/wifi_nan_iface.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-02-09T17:47:05Z",
+      "side": 1,
+      "message": "Same. Needs to be held in a android::sp.",
+      "parentUuid": "adb8c937_53f29e41",
+      "range": {
+        "startLine": 131,
+        "startChar": 2,
+        "endLine": 131,
+        "endChar": 4
+      },
+      "revId": "606831693522173ab1bc472e4f12e80b28f28646",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0a7eb90_0200790e",
         "filename": "wifi/1.0/default/wifi_sta_iface.h",
         "patchSetId": 11
@@ -437,6 +881,30 @@
       "writtenOn": "2017-02-09T01:41:58Z",
       "side": 1,
       "message": "Maybe use an inline member instead?",
+      "range": {
+        "startLine": 155,
+        "startChar": 2,
+        "endLine": 155,
+        "endChar": 4
+      },
+      "revId": "606831693522173ab1bc472e4f12e80b28f28646",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "578df497_89186de4",
+        "filename": "wifi/1.0/default/wifi_sta_iface.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-02-09T17:47:05Z",
+      "side": 1,
+      "message": "Same.",
+      "parentUuid": "f0a7eb90_0200790e",
       "range": {
         "startLine": 155,
         "startChar": 2,
