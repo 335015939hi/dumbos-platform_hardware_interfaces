@@ -46,6 +46,53 @@
       "revId": "af0a883c20c5bcd2890d13d9b1f2b098fa93a51f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6889c7c8_ac546147",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 632,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-02-10T19:03:13Z",
+      "side": 1,
+      "message": "Well, really /**/ comments on the lines preceding fields and \u0027//\u0027 lines for fields on the same line.\n\nSee go/android-treble-style-guide",
+      "parentUuid": "e53f7522_fb57025c",
+      "range": {
+        "startLine": 632,
+        "startChar": 20,
+        "endLine": 632,
+        "endChar": 23
+      },
+      "revId": "af0a883c20c5bcd2890d13d9b1f2b098fa93a51f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbf1a30f_5554430e",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-02-10T19:03:13Z",
+      "side": 1,
+      "message": "I don\u0027t see where it says what spec.",
+      "range": {
+        "startLine": 696,
+        "startChar": 5,
+        "endLine": 696,
+        "endChar": 9
+      },
+      "revId": "af0a883c20c5bcd2890d13d9b1f2b098fa93a51f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
