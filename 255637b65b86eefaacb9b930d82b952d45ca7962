@@ -22,6 +22,30 @@
       "revId": "255637b65b86eefaacb9b930d82b952d45ca7962",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ab0c41c_4c8ffae2",
+        "filename": "wifi/1.0/default/wifi.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-02-10T22:47:23Z",
+      "side": 1,
+      "message": "As discussed offline, we need to wrap this in a separate class (which holds the hidl_death_recipient instance) to make this a member.",
+      "parentUuid": "cb43a5e3_a2e9a0dd",
+      "range": {
+        "startLine": 75,
+        "startChar": 2,
+        "endLine": 75,
+        "endChar": 4
+      },
+      "revId": "255637b65b86eefaacb9b930d82b952d45ca7962",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
