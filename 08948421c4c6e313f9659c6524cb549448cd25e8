@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "33babb1b_149eaac4",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1086,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-02-10T00:42:48Z",
+      "side": 1,
+      "message": "it *really* scares me if these aren\u0027t causing a compiler warning. Can you make them cause a compiler warning?",
+      "range": {
+        "startLine": 1086,
+        "startChar": 2,
+        "endLine": 1086,
+        "endChar": 21
+      },
+      "revId": "08948421c4c6e313f9659c6524cb549448cd25e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
