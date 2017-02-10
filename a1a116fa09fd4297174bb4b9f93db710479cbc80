@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5d6ee7e2_7f8a3c43",
+        "filename": "wifi/1.0/default/hidl_callback_util.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-02-10T01:14:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ebdd2241_92b98b87",
+      "range": {
+        "startLine": 39,
+        "startChar": 13,
+        "endLine": 39,
+        "endChar": 19
+      },
+      "revId": "a1a116fa09fd4297174bb4b9f93db710479cbc80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cbbdf2c9_edbdfd86",
         "filename": "wifi/1.0/default/hidl_callback_util.h",
         "patchSetId": 12
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "cfaf4f37_a90e8fbc",
+        "filename": "wifi/1.0/default/hidl_callback_util.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-02-10T01:14:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cbbdf2c9_edbdfd86",
+      "range": {
+        "startLine": 41,
+        "startChar": 50,
+        "endLine": 41,
+        "endChar": 63
+      },
+      "revId": "a1a116fa09fd4297174bb4b9f93db710479cbc80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "639fe7fc_2db858de",
         "filename": "wifi/1.0/default/hidl_callback_util.h",
         "patchSetId": 12
@@ -59,6 +107,30 @@
       "writtenOn": "2017-02-10T01:04:00Z",
       "side": 1,
       "message": "Maybe |true|? The caller wanted the callback to be tracked, and it is.",
+      "range": {
+        "startLine": 42,
+        "startChar": 13,
+        "endLine": 42,
+        "endChar": 18
+      },
+      "revId": "a1a116fa09fd4297174bb4b9f93db710479cbc80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "687e1671_000b971a",
+        "filename": "wifi/1.0/default/hidl_callback_util.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-02-10T01:14:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "639fe7fc_2db858de",
       "range": {
         "startLine": 42,
         "startChar": 13,
