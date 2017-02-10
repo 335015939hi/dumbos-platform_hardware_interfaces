@@ -46,6 +46,30 @@
       "revId": "5a55e9beec61c58253c445fe215b52d868f4099c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b2d10a4_e1bf6b85",
+        "filename": "tests/versioning/2.2/IFoo.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-02-10T02:06:52Z",
+      "side": 1,
+      "message": "Yes.",
+      "parentUuid": "1747ed6b_20e01885",
+      "range": {
+        "startLine": 19,
+        "startChar": 3,
+        "endLine": 19,
+        "endChar": 32
+      },
+      "revId": "5a55e9beec61c58253c445fe215b52d868f4099c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
