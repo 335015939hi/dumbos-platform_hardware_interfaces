@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb43a5e3_a2e9a0dd",
+        "filename": "wifi/1.0/default/wifi.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-02-10T21:45:54Z",
+      "side": 1,
+      "message": "why is this a strong pointer? Would make more sense just as a member?\n\n(same in other files)",
+      "range": {
+        "startLine": 75,
+        "startChar": 2,
+        "endLine": 75,
+        "endChar": 4
+      },
+      "revId": "255637b65b86eefaacb9b930d82b952d45ca7962",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
