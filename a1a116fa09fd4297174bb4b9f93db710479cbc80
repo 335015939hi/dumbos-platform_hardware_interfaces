@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ebdd2241_92b98b87",
+        "filename": "wifi/1.0/default/hidl_callback_util.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-02-10T01:04:00Z",
+      "side": 1,
+      "message": "(continued from PS11)\n\nI think a free-running counter wouldn\u0027t handle the duplicate-addition case, so using the callback pointer (as you\u0027ve done) is the way to go.\n\nBut I think we can be a bit clearer about what we\u0027re doing.\n\n1. The notion of \"underlying proxy pointer\" is not obvious. And I\u0027m not sure it\u0027s particularly relevant either. Maybe just \"use the callback\u0027s raw pointer as cookie, to track...\"?\n\n2. Please add a comment about why using the raw pointer is safe. (Your argument about the android::sp makes sense. But I think it\u0027s subtle enough to be worth calling out.)",
+      "range": {
+        "startLine": 39,
+        "startChar": 13,
+        "endLine": 39,
+        "endChar": 19
+      },
+      "revId": "a1a116fa09fd4297174bb4b9f93db710479cbc80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbbdf2c9_edbdfd86",
+        "filename": "wifi/1.0/default/hidl_callback_util.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-02-10T01:04:00Z",
+      "side": 1,
+      "message": "\"registration\" (typo)",
+      "range": {
+        "startLine": 41,
+        "startChar": 50,
+        "endLine": 41,
+        "endChar": 63
+      },
+      "revId": "a1a116fa09fd4297174bb4b9f93db710479cbc80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "639fe7fc_2db858de",
+        "filename": "wifi/1.0/default/hidl_callback_util.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-02-10T01:04:00Z",
+      "side": 1,
+      "message": "Maybe |true|? The caller wanted the callback to be tracked, and it is.",
+      "range": {
+        "startLine": 42,
+        "startChar": 13,
+        "endLine": 42,
+        "endChar": 18
+      },
+      "revId": "a1a116fa09fd4297174bb4b9f93db710479cbc80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b51d62e_497e7ba8",
+        "filename": "wifi/1.0/default/hidl_callback_util.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-02-10T01:04:00Z",
+      "side": 1,
+      "message": "(Continued from PS11)\n\nThanks for the explanation. It\u0027s unfortunate that the meaning of |who| is not well defined. But given the ambiguity, I agree with the idea of using the cookie.",
+      "range": {
+        "startLine": 73,
+        "startChar": 59,
+        "endLine": 73,
+        "endChar": 68
+      },
+      "revId": "a1a116fa09fd4297174bb4b9f93db710479cbc80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
