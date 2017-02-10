@@ -741,6 +741,24 @@
     },
     {
       "key": {
+        "uuid": "1b403ed6_3a8c87ec",
+        "filename": "wifi/1.0/default/wifi.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-02-10T01:04:00Z",
+      "side": 1,
+      "message": "Please add a comment about this, in hidl_callback_util.h.",
+      "parentUuid": "40079e29_50c261a2",
+      "revId": "606831693522173ab1bc472e4f12e80b28f28646",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e2f12fde_2ebcfb87",
         "filename": "wifi/1.0/default/wifi_chip.h",
         "patchSetId": 11
