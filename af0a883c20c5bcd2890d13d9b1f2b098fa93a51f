@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "a99a51fa_cb651e88",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 632,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2017-02-10T20:46:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d141bf6b_a971c1e9",
+      "range": {
+        "startLine": 632,
+        "startChar": 20,
+        "endLine": 632,
+        "endChar": 23
+      },
+      "revId": "af0a883c20c5bcd2890d13d9b1f2b098fa93a51f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cbf1a30f_5554430e",
         "filename": "wifi/1.0/types.hal",
         "patchSetId": 2
@@ -108,6 +132,30 @@
       "writtenOn": "2017-02-10T19:03:13Z",
       "side": 1,
       "message": "I don\u0027t see where it says what spec.",
+      "range": {
+        "startLine": 696,
+        "startChar": 5,
+        "endLine": 696,
+        "endChar": 9
+      },
+      "revId": "af0a883c20c5bcd2890d13d9b1f2b098fa93a51f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99d3c8e5_33f8d1fe",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2017-02-10T20:46:37Z",
+      "side": 1,
+      "message": "Added more explicit reference.",
+      "parentUuid": "cbf1a30f_5554430e",
       "range": {
         "startLine": 696,
         "startChar": 5,
