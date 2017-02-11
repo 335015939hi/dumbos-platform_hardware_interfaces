@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "da4f11b6_7366c9de",
+        "filename": "wifi/1.0/default/hidl_callback_util.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-02-11T03:43:11Z",
+      "side": 1,
+      "message": "Yeah. I know this doesn\u0027t work. But, there is nothing I can do to fix this from wifi implemetation\u0027s side. That\u0027s why there is a todo mentioned above to fix this when b/33818800 is fixed.",
+      "parentUuid": "7cb163c1_442f41ab",
+      "range": {
+        "startLine": 73,
+        "startChar": 4,
+        "endLine": 76,
+        "endChar": 5
+      },
+      "revId": "948f5314c20b86c1ec7e7d1e28f70c86a6212b98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4752bcde_23d13d67",
         "filename": "wifi/1.0/default/hidl_callback_util.h",
         "patchSetId": 16
@@ -59,6 +83,30 @@
       "writtenOn": "2017-02-11T03:07:07Z",
       "side": 1,
       "message": "also, this is effectively a set",
+      "range": {
+        "startLine": 81,
+        "startChar": 4,
+        "endLine": 81,
+        "endChar": 25
+      },
+      "revId": "948f5314c20b86c1ec7e7d1e28f70c86a6212b98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0baaa134_827d1859",
+        "filename": "wifi/1.0/default/hidl_callback_util.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-02-11T03:43:11Z",
+      "side": 1,
+      "message": "Converted to set.",
+      "parentUuid": "4752bcde_23d13d67",
       "range": {
         "startLine": 81,
         "startChar": 4,
