@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a22b9dc2_6237ef35",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_call_util_selftest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2017-02-11T00:35:29Z",
+      "side": 1,
+      "message": "how about adding a docstring to every class, its every public method, and attribute?",
+      "range": {
+        "startLine": 29,
+        "startChar": 6,
+        "endLine": 29,
+        "endChar": 14
+      },
+      "revId": "dc1225a81ab1564097f07d3669db7a352b156ad9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "73ca8f94_01e7733a",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_call_util_selftest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2017-02-11T00:35:29Z",
+      "side": 1,
+      "message": "how about adding a docstring to every test?",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 4
+      },
+      "revId": "dc1225a81ab1564097f07d3669db7a352b156ad9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
