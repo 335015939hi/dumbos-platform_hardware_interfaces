@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "348fe4eb_e2d9299b",
+        "filename": "wifi/1.0/vts/functional/wifi_nan_iface_hidl_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2017-02-13T23:53:46Z",
+      "side": 1,
+      "message": "What\u0027s the purpose? These are callbacks which we need to wait for. We need to override ALL methods - they need to access private members of the parent.",
+      "parentUuid": "59157446_348c432a",
+      "range": {
+        "startLine": 113,
+        "startChar": 6,
+        "endLine": 124,
+        "endChar": 11
+      },
+      "revId": "f65616224c0beda6d2dc35d68a6cbb1e826a7f4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "87a3b11f_94c4d787",
         "filename": "wifi/1.0/vts/functional/wifi_nan_iface_hidl_test.cpp",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-02-13T23:46:52Z",
       "side": 1,
       "message": "how about adding a docstring to every attribute?",
+      "range": {
+        "startLine": 427,
+        "startChar": 6,
+        "endLine": 427,
+        "endChar": 14
+      },
+      "revId": "f65616224c0beda6d2dc35d68a6cbb1e826a7f4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c9b887b5_dfd76b67",
+        "filename": "wifi/1.0/vts/functional/wifi_nan_iface_hidl_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2017-02-13T23:53:46Z",
+      "side": 1,
+      "message": "There is no stand-alone function to these variables. They are a mechanism to store data from the callbacks. They correspond 1-to-1 to the callback arguments (many callbacks).",
+      "parentUuid": "87a3b11f_94c4d787",
       "range": {
         "startLine": 427,
         "startChar": 6,
