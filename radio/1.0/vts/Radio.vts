@@ -648,35 +648,6 @@ interface: {
     }
 
     api: {
-        name: "sendOemRadioRequestRaw"
-        arg: {
-            type: TYPE_SCALAR
-            scalar_type: "int32_t"
-        }
-        arg: {
-            type: TYPE_VECTOR
-            vector_value: {
-                type: TYPE_SCALAR
-                scalar_type: "uint8_t"
-            }
-        }
-    }
-
-    api: {
-        name: "sendOemRadioRequestStrings"
-        arg: {
-            type: TYPE_SCALAR
-            scalar_type: "int32_t"
-        }
-        arg: {
-            type: TYPE_VECTOR
-            vector_value: {
-                type: TYPE_STRING
-            }
-        }
-    }
-
-    api: {
         name: "sendScreenState"
         arg: {
             type: TYPE_SCALAR
