@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "59157446_348c432a",
+        "filename": "wifi/1.0/vts/functional/wifi_nan_iface_hidl_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2017-02-13T23:46:52Z",
+      "side": 1,
+      "message": "is it possible to move this to a separate file?\n\nthen a class at here can extend that externally defined default one and overrides methods that it needs to customize.",
+      "range": {
+        "startLine": 113,
+        "startChar": 6,
+        "endLine": 124,
+        "endChar": 11
+      },
+      "revId": "f65616224c0beda6d2dc35d68a6cbb1e826a7f4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "87a3b11f_94c4d787",
+        "filename": "wifi/1.0/vts/functional/wifi_nan_iface_hidl_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2017-02-13T23:46:52Z",
+      "side": 1,
+      "message": "how about adding a docstring to every attribute?",
+      "range": {
+        "startLine": 427,
+        "startChar": 6,
+        "endLine": 427,
+        "endChar": 14
+      },
+      "revId": "f65616224c0beda6d2dc35d68a6cbb1e826a7f4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
