@@ -45,6 +45,17 @@ interface ITestMsgQ {
         generates(bool ret, fmq_unsync<uint16_t> mqDesc);
 
     /*
+     * This method requests the service to return an MQDescriptor to
+     * an unsynchronized FMQ already set up by the server if one exists. This
+     * method is to be used to test multiple reader processes.
+     *
+     * @return ret True if successful.
+     * @return mqDesc This structure describes the unsynchronized FMQ that was
+     * set up by the service. Client can use it to set up the FMQ at its end.
+     */
+    getFmqUnsyncWrite() generates(bool ret, fmq_unsync<uint16_t> mqDesc);
+
+    /*
      * This method request the service to write into the synchronized read/write
      * flavor of the FMQ.
      *
