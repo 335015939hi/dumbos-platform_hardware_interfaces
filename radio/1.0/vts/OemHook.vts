@@ -1,0 +1,54 @@
+component_class: HAL_HIDL
+component_type_version: 1.0
+component_name: "IOemHook"
+
+package: "android.hardware.radio"
+
+import: "android.hardware.radio@1.0::IOemHookIndication"
+import: "android.hardware.radio@1.0::IOemHookResponse"
+import: "android.hardware.radio@1.0::types"
+import: "android.hidl.base@1.0::types"
+
+interface: {
+    api: {
+        name: "setResponseFunctions"
+        arg: {
+            type: TYPE_HIDL_INTERFACE
+            predefined_type: "::android::hardware::radio::V1_0::IOemHookResponse"
+        }
+        arg: {
+            type: TYPE_HIDL_INTERFACE
+            predefined_type: "::android::hardware::radio::V1_0::IOemHookIndication"
+        }
+    }
+
+    api: {
+        name: "sendRequestRaw"
+        arg: {
+            type: TYPE_SCALAR
+            scalar_type: "int32_t"
+        }
+        arg: {
+            type: TYPE_VECTOR
+            vector_value: {
+                type: TYPE_SCALAR
+                scalar_type: "uint8_t"
+            }
+        }
+    }
+
+    api: {
+        name: "sendRequestStrings"
+        arg: {
+            type: TYPE_SCALAR
+            scalar_type: "int32_t"
+        }
+        arg: {
+            type: TYPE_VECTOR
+            vector_value: {
+                type: TYPE_STRING
+            }
+        }
+    }
+
+}
