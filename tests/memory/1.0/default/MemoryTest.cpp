@@ -49,7 +49,7 @@ Return<void> Memory::fillMemory(const hidl_memory& memory_in, uint8_t filler) {
 
     uint8_t* data = static_cast<uint8_t*>(static_cast<void*>(memory->getPointer()));
 
-    memory->update();
+    memory->updateAll();
 
     for (size_t i = 0; i < memory->getSize(); i++) {
         data[i] = filler;
