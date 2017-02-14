@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "ac75bae2_2e5bfdfc",
+        "filename": "wifi/1.0/vts/functional/wifi_nan_iface_hidl_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2017-02-14T01:10:54Z",
+      "side": 1,
+      "message": "The callback are an intrinsic part of the fixture. I still don\u0027t see any advantage to separating them.",
+      "parentUuid": "d3c7944a_4fc3036a",
+      "range": {
+        "startLine": 113,
+        "startChar": 6,
+        "endLine": 124,
+        "endChar": 11
+      },
+      "revId": "f65616224c0beda6d2dc35d68a6cbb1e826a7f4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "87a3b11f_94c4d787",
         "filename": "wifi/1.0/vts/functional/wifi_nan_iface_hidl_test.cpp",
         "patchSetId": 2
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "are they documented in some .hal files? if so, how about mentioning where to find such (just for readability).",
       "parentUuid": "c9b887b5_dfd76b67",
+      "range": {
+        "startLine": 427,
+        "startChar": 6,
+        "endLine": 427,
+        "endChar": 14
+      },
+      "revId": "f65616224c0beda6d2dc35d68a6cbb1e826a7f4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a17a2857_2ef72f35",
+        "filename": "wifi/1.0/vts/functional/wifi_nan_iface_hidl_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2017-02-14T01:10:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "374162bc_4ff36535",
       "range": {
         "startLine": 427,
         "startChar": 6,
