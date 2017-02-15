@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "23dad8a0_219dca16",
+        "filename": "wifi/supplicant/1.0/ISupplicantP2pIface.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-02-15T01:35:59Z",
+      "side": 1,
+      "message": "Maybe \"handover request\"? (From the existence of the next method, I\u0027m inferring that \"request\" and \"select\" are distinct operations. Hence, \"select\" would be incorrect here.)",
+      "range": {
+        "startLine": 624,
+        "startChar": 44,
+        "endLine": 624,
+        "endChar": 59
+      },
+      "revId": "440782d86ab1b1189e791c236a997b8109147af1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25617978_d72cda75",
+        "filename": "wifi/supplicant/1.0/ISupplicantP2pIface.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 632,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-02-15T01:35:59Z",
+      "side": 1,
+      "message": "\"message\" (typo)",
+      "range": {
+        "startLine": 632,
+        "startChar": 35,
+        "endLine": 632,
+        "endChar": 42
+      },
+      "revId": "440782d86ab1b1189e791c236a997b8109147af1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4c01a1c1_08e2af82",
+        "filename": "wifi/supplicant/1.0/ISupplicantP2pIface.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 649,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-02-15T01:35:59Z",
+      "side": 1,
+      "message": "Should this be |request|? (Similarly to line 624.)",
+      "range": {
+        "startLine": 649,
+        "startChar": 53,
+        "endLine": 649,
+        "endChar": 59
+      },
+      "revId": "440782d86ab1b1189e791c236a997b8109147af1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0c92e9f_b5a533de",
+        "filename": "wifi/supplicant/1.0/ISupplicantP2pIface.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 649,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-02-15T01:35:59Z",
+      "side": 1,
+      "message": "Should this be \"@param\"? (|request| is an input, not an output.)",
+      "range": {
+        "startLine": 649,
+        "startChar": 5,
+        "endLine": 649,
+        "endChar": 12
+      },
+      "revId": "440782d86ab1b1189e791c236a997b8109147af1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da7178cf_fef047b2",
+        "filename": "wifi/supplicant/1.0/ISupplicantP2pIface.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 662,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-02-15T01:35:59Z",
+      "side": 1,
+      "message": "Should this be |select|? (To match lines 664 and 673.)",
+      "range": {
+        "startLine": 662,
+        "startChar": 47,
+        "endLine": 662,
+        "endChar": 54
+      },
+      "revId": "440782d86ab1b1189e791c236a997b8109147af1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4fa1432d_01095ce4",
+        "filename": "wifi/supplicant/1.0/ISupplicantP2pIface.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-02-15T01:35:59Z",
+      "side": 1,
+      "message": "Should this be \"@param\"? (|select| is an input, not an output.)",
+      "range": {
+        "startLine": 664,
+        "startChar": 5,
+        "endLine": 664,
+        "endChar": 12
+      },
+      "revId": "440782d86ab1b1189e791c236a997b8109147af1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10001d95_1c62ae17",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaNetwork.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 912,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-02-15T01:35:59Z",
+      "side": 1,
+      "message": "Maybe \"WpsNfc\"? (For consistency with the documentation above.)",
+      "range": {
+        "startLine": 912,
+        "startChar": 5,
+        "endLine": 912,
+        "endChar": 11
+      },
+      "revId": "440782d86ab1b1189e791c236a997b8109147af1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
