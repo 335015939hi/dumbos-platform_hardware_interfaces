@@ -1,0 +1,981 @@
+============================================
+PLATFORM_VERSION_CODENAME=REL
+PLATFORM_VERSION=7.1.1
+TARGET_PRODUCT=aosp_angler
+TARGET_BUILD_VARIANT=userdebug
+TARGET_BUILD_TYPE=release
+TARGET_BUILD_APPS=
+TARGET_ARCH=arm64
+TARGET_ARCH_VARIANT=armv8-a
+TARGET_CPU_VARIANT=cortex-a53
+TARGET_2ND_ARCH=arm
+TARGET_2ND_ARCH_VARIANT=armv7-a-neon
+TARGET_2ND_CPU_VARIANT=cortex-a53.a57
+HOST_ARCH=x86_64
+HOST_2ND_ARCH=x86
+HOST_OS=linux
+HOST_OS_EXTRA=Linux-3.13.0-105-generic-x86_64-with-Ubuntu-14.04-trusty
+HOST_CROSS_OS=windows
+HOST_CROSS_ARCH=x86
+HOST_CROSS_2ND_ARCH=x86_64
+HOST_BUILD_TYPE=release
+BUILD_ID=NYC
+OUT_DIR=out
+AUX_OS_VARIANT_LIST=
+============================================
+make: Entering directory `/usr/local/google/home/zhuoyao/android/aosp'
+ninja: no work to do.
+[1/3] glob hardware/interfaces/*/Android.bp
+[2/3] glob hardware/*/Android.bp
+ninja: no work to do.
+Running kati to generate build-aosp_angler.ninja...
+Starting build with ninja
+ninja: Entering directory `.'
+[ 33% 1/3] glob hardware/*/Android.bp
+[ 66% 2/3] glob hardware/interfaces/*/Android.bp
+[  0% 1/830] target Pack Relocations: android.hardware.bluetooth@1.0-vts.profiler (out/target/product/angler/obj/SHARED_LIBRARIES/android.hardware.bluetooth@1.0-vts.profiler_intermediates/PACKED/android.hardware.bluetooth@1.0-vts.profiler.so)
+[  0% 2/830] target Pack Relocations: android.hardware.benchmarks.msgq.vts.driver@1.0 (out/target/product/angler/obj/SHARED_LIBRARIES/android.hardware.benchmarks.msgq.vts.driver@1.0_intermediates/PACKED/android.hardware.benchmarks.msgq.vts.driver@1.0.so)
+[  0% 3/830] target Pack Relocations: android.hardware.benchmarks.msgq.vts.driver@1.0_32 (out/target/product/angler/obj_arm/SHARED_LIBRARIES/android.hardware.benchmarks.msgq.vts.driver@1.0_intermediates/PACKED/android.hardware.benchmarks.msgq.vts.driver@1.0.so)
+[  0% 4/830] build 'out/target/product/angler/obj_arm/lib/android.hardware.benchmarks.msgq@1.0-vts.profiler.so.toc'
+[  0% 5/830] Install: out/target/product/angler/system/lib/android.hardware.benchmarks.msgq@1.0-vts.profiler.so
+[  0% 6/830] target Pack Relocations: android.hardware.bluetooth.vts.driver@1.0 (out/target/product/angler/obj/SHARED_LIBRARIES/android.hardware.bluetooth.vts.driver@1.0_intermediates/PACKED/android.hardware.bluetooth.vts.driver@1.0.so)
+[  0% 7/830] target Pack Relocations: android.hardware.bluetooth.vts.driver@1.0_32 (out/target/product/angler/obj_arm/SHARED_LIBRARIES/android.hardware.bluetooth.vts.driver@1.0_intermediates/PACKED/android.hardware.bluetooth.vts.driver@1.0.so)
+[  0% 8/830] target Pack Relocations: android.hardware.bluetooth@1.0-vts.profiler_32 (out/target/product/angler/obj_arm/SHARED_LIBRARIES/android.hardware.bluetooth@1.0-vts.profiler_intermediates/PACKED/android.hardware.bluetooth@1.0-vts.profiler.so)
+[  1% 9/830] target Pack Relocations: android.hardware.boot.vts.driver@1.0 (out/target/product/angler/obj/SHARED_LIBRARIES/android.hardware.boot.vts.driver@1.0_intermediates/PACKED/android.hardware.boot.vts.driver@1.0.so)
+[  1% 10/830] target Pack Relocations: android.hardware.boot.vts.driver@1.0_32 (out/target/product/angler/obj_arm/SHARED_LIBRARIES/android.hardware.boot.vts.driver@1.0_intermediates/PACKED/android.hardware.boot.vts.driver@1.0.so)
+[  1% 11/830] target Pack Relocations: android.hardware.boot@1.0-vts.profiler (out/target/product/angler/obj/SHARED_LIBRARIES/android.hardware.boot@1.0-vts.profiler_intermediates/PACKED/android.hardware.boot@1.0-vts.profiler.so)
+[  1% 12/830] target Pack Relocations: android.hardware.boot@1.0-vts.profiler_32 (out/target/product/angler/obj_arm/SHARED_LIBRARIES/android.hardware.boot@1.0-vts.profiler_intermediates/PACKED/android.hardware.boot@1.0-vts.profiler.so)
+[  1% 13/830] target Pack Relocations: android.hardware.ir.vts.driver@1.0 (out/target/product/angler/obj/SHARED_LIBRARIES/android.hardware.ir.vts.driver@1.0_intermediates/PACKED/android.hardware.ir.vts.driver@1.0.so)
+[  1% 14/830] target Pack Relocations: android.hardware.ir.vts.driver@1.0_32 (out/target/product/angler/obj_arm/SHARED_LIBRARIES/android.hardware.ir.vts.driver@1.0_intermediates/PACKED/android.hardware.ir.vts.driver@1.0.so)
+[  1% 15/830] target Pack Relocations: android.hardware.ir@1.0-vts.profiler (out/target/product/angler/obj/SHARED_LIBRARIES/android.hardware.ir@1.0-vts.profiler_intermediates/PACKED/android.hardware.ir@1.0-vts.profiler.so)
+[  1% 16/830] target Symbolic: android.hardware.ir@1.0-vts.profiler_32 (out/target/product/angler/symbols/system/lib/android.hardware.ir@1.0-vts.profiler.so)
+[  2% 17/830] target Pack Relocations: android.hardware.nfc.vts.driver@1.0 (out/target/product/angler/obj/SHARED_LIBRARIES/android.hardware.nfc.vts.driver@1.0_intermediates/PACKED/android.hardware.nfc.vts.driver@1.0.so)
+[  2% 18/830] target Pack Relocations: android.hardware.nfc.vts.driver@1.0_32 (out/target/product/angler/obj_arm/SHARED_LIBRARIES/android.hardware.nfc.vts.driver@1.0_intermediates/PACKED/android.hardware.nfc.vts.driver@1.0.so)
+[  2% 19/830] target Pack Relocations: android.hardware.nfc@1.0-vts.profiler (out/target/product/angler/obj/SHARED_LIBRARIES/android.hardware.nfc@1.0-vts.profiler_intermediates/PACKED/android.hardware.nfc@1.0-vts.profiler.so)
+[  2% 20/830] target Pack Relocations: android.hardware.nfc@1.0-vts.profiler_32 (out/target/product/angler/obj_arm/SHARED_LIBRARIES/android.hardware.nfc@1.0-vts.profiler_intermediates/PACKED/android.hardware.nfc@1.0-vts.profiler.so)
+[  2% 21/830] target Prebuilt: android.hardware.radio.vts.driver@1.0 (out/target/product/angler/obj/SHARED_LIBRARIES/android.hardware.radio.vts.driver@1.0_intermediates/LINKED/android.hardware.radio.vts.driver@1.0.so)
+[  2% 22/830] target Prebuilt: android.hardware.radio.vts.driver@1.0_32 (out/target/product/angler/obj_arm/SHARED_LIBRARIES/android.hardware.radio.vts.driver@1.0_intermediates/LINKED/android.hardware.radio.vts.driver@1.0.so)
+[  2% 23/830] target Prebuilt: android.hardware.radio@1.0-vts.profiler (out/target/product/angler/obj/SHARED_LIBRARIES/android.hardware.radio@1.0-vts.profiler_intermediates/LINKED/android.hardware.radio@1.0-vts.profiler.so)
+[  2% 24/830] target Prebuilt: android.hardware.radio@1.0-vts.profiler_32 (out/target/product/angler/obj_arm/SHARED_LIBRARIES/android.hardware.radio@1.0-vts.profiler_intermediates/LINKED/android.hardware.radio@1.0-vts.profiler.so)
+[  3% 25/830] Export includes file: out/soong/.intermediates/hardware/interfaces/tests/libhwbinder/1.0/android.hardware.tests.libhwbinder@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/libhwbinder/1.0/Benchmark.vts.h -- out/target/product/angler/obj/SHARED_LIBRARIES/android.hardware.tests.libhwbinder@1.0-vts.profiler_intermediates/export_includes
+[  3% 26/830] Export includes file: out/soong/.intermediates/hardware/interfaces/tests/libhwbinder/1.0/android.hardware.tests.libhwbinder@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/libhwbinder/1.0/Benchmark.vts.h -- out/target/product/angler/obj_arm/SHARED_LIBRARIES/android.hardware.tests.libhwbinder@1.0-vts.profiler_intermediates/export_includes
+[  3% 27/830] Export includes file: out/soong/.intermediates/system/libhidl/transport/manager/1.0/android.hidl.manager@1.0_genc++_headers/gen/android/hidl/manager/1.0/IServiceManager.h -- out/target/product/angler/obj/SHARED_LIBRARIES/android.hardware.tests.memory.vts.driver@1.0_intermediates/export_includes
+[  3% 28/830] Export includes file: out/soong/.intermediates/system/libhidl/transport/manager/1.0/android.hidl.manager@1.0_genc++_headers/gen/android/hidl/manager/1.0/IServiceManager.h -- out/target/product/angler/obj_arm/SHARED_LIBRARIES/android.hardware.tests.memory.vts.driver@1.0_intermediates/export_includes
+[  3% 29/830] Export includes file: out/soong/.intermediates/hardware/interfaces/tests/memory/1.0/android.hardware.tests.memory@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/memory/1.0/MemoryTest.vts.h -- out/target/product/angler/obj/SHARED_LIBRARIES/android.hardware.tests.memory@1.0-vts.profiler_intermediates/export_includes
+[  3% 30/830] Export includes file: out/soong/.intermediates/hardware/interfaces/tests/memory/1.0/android.hardware.tests.memory@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/memory/1.0/MemoryTest.vts.h -- out/target/product/angler/obj_arm/SHARED_LIBRARIES/android.hardware.tests.memory@1.0-vts.profiler_intermediates/export_includes
+[  3% 31/830] Export includes file: out/soong/.intermediates/system/libhidl/transport/manager/1.0/android.hidl.manager@1.0_genc++_headers/gen/android/hidl/manager/1.0/IServiceManager.h -- out/target/product/angler/obj/SHARED_LIBRARIES/android.hardware.tests.msgq.vts.driver@1.0_intermediates/export_includes
+[  3% 32/830] Export includes file: out/soong/.intermediates/system/libhidl/transport/manager/1.0/android.hidl.manager@1.0_genc++_headers/gen/android/hidl/manager/1.0/IServiceManager.h -- out/target/product/angler/obj_arm/SHARED_LIBRARIES/android.hardware.tests.msgq.vts.driver@1.0_intermediates/export_includes
+[  3% 33/830] Export includes file: out/soong/.intermediates/hardware/interfaces/tests/msgq/1.0/android.hardware.tests.msgq@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/msgq/1.0/TestMsgQ.vts.h -- out/target/product/angler/obj/SHARED_LIBRARIES/android.hardware.tests.msgq@1.0-vts.profiler_intermediates/export_includes
+[  4% 34/830] Export includes file: out/soong/.intermediates/hardware/interfaces/tests/msgq/1.0/android.hardware.tests.msgq@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/msgq/1.0/TestMsgQ.vts.h -- out/target/product/angler/obj_arm/SHARED_LIBRARIES/android.hardware.tests.msgq@1.0-vts.profiler_intermediates/export_includes
+[  4% 35/830] Export includes file: out/soong/.intermediates/hardware/interfaces/tests/pointer/1.0/android.hardware.tests.pointer@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/pointer/1.0/Graph.vts.h -- out/target/product/angler/obj/SHARED_LIBRARIES/android.hardware.tests.pointer@1.0-vts.profiler_intermediates/export_includes
+[  4% 36/830] Export includes file: out/soong/.intermediates/hardware/interfaces/tests/pointer/1.0/android.hardware.tests.pointer@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/pointer/1.0/Graph.vts.h -- out/target/product/angler/obj_arm/SHARED_LIBRARIES/android.hardware.tests.pointer@1.0-vts.profiler_intermediates/export_includes
+[  4% 37/830] Export includes file: out/soong/.intermediates/system/libhidl/transport/manager/1.0/android.hidl.manager@1.0_genc++_headers/gen/android/hidl/manager/1.0/IServiceManager.h -- out/target/product/angler/obj/SHARED_LIBRARIES/android.hardware.wifi.supplicant.vts.driver@1.0_intermediates/export_includes
+[  4% 38/830] Export includes file: out/soong/.intermediates/system/libhidl/transport/manager/1.0/android.hidl.manager@1.0_genc++_headers/gen/android/hidl/manager/1.0/IServiceManager.h -- out/target/product/angler/obj_arm/SHARED_LIBRARIES/android.hardware.wifi.supplicant.vts.driver@1.0_intermediates/export_includes
+[  4% 39/830] target Unpacked: android.hardware.bluetooth@1.0-service (out/target/product/angler/obj/EXECUTABLES/android.hardware.bluetooth@1.0-service_intermediates/PACKED/android.hardware.bluetooth@1.0-service)
+[  4% 40/830] target Unpacked: android.hardware.nfc@1.0-service (out/target/product/angler/obj/EXECUTABLES/android.hardware.nfc@1.0-service_intermediates/PACKED/android.hardware.nfc@1.0-service)
+[  4% 41/830] ld 'out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance.vts.driver@1.0/android_arm64_armv8-a_cortex-a53_shared/android.hardware.tests.inheritance.vts.driver@1.0.so'
+[  5% 42/830] ld 'out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance.vts.driver@1.0/android_arm_armv7-a-neon_cortex-a53.a57_shared/android.hardware.tests.inheritance.vts.driver@1.0.so'
+[  5% 43/830] ld 'out/soong/.intermediates/hardware/interfaces/tests/libhwbinder/1.0/android.hardware.tests.libhwbinder.vts.driver@1.0/android_arm64_armv8-a_cortex-a53_shared/android.hardware.tests.libhwbinder.vts.driver@1.0.so'
+[  5% 44/830] ld 'out/soong/.intermediates/hardware/interfaces/tests/libhwbinder/1.0/android.hardware.tests.libhwbinder.vts.driver@1.0/android_arm_armv7-a-neon_cortex-a53.a57_shared/android.hardware.tests.libhwbinder.vts.driver@1.0.so'
+[  5% 45/830] target Symbolic: android.hardware.bluetooth@1.0-vts.profiler (out/target/product/angler/symbols/system/lib64/android.hardware.bluetooth@1.0-vts.profiler.so)
+[  5% 46/830] target Symbolic: android.hardware.benchmarks.msgq.vts.driver@1.0 (out/target/product/angler/symbols/system/lib64/android.hardware.benchmarks.msgq.vts.driver@1.0.so)
+[  5% 47/830] target Symbolic: android.hardware.benchmarks.msgq.vts.driver@1.0_32 (out/target/product/angler/symbols/system/lib/android.hardware.benchmarks.msgq.vts.driver@1.0.so)
+[  5% 48/830] target Symbolic: android.hardware.bluetooth.vts.driver@1.0 (out/target/product/angler/symbols/system/lib64/android.hardware.bluetooth.vts.driver@1.0.so)
+[  5% 49/830] target Symbolic: android.hardware.bluetooth.vts.driver@1.0_32 (out/target/product/angler/symbols/system/lib/android.hardware.bluetooth.vts.driver@1.0.so)
+[  6% 50/830] target Symbolic: android.hardware.bluetooth@1.0-vts.profiler_32 (out/target/product/angler/symbols/system/lib/android.hardware.bluetooth@1.0-vts.profiler.so)
+[  6% 51/830] target Symbolic: android.hardware.boot.vts.driver@1.0 (out/target/product/angler/symbols/system/lib64/android.hardware.boot.vts.driver@1.0.so)
+[  6% 52/830] target Symbolic: android.hardware.boot.vts.driver@1.0_32 (out/target/product/angler/symbols/system/lib/android.hardware.boot.vts.driver@1.0.so)
+[  6% 53/830] target Symbolic: android.hardware.boot@1.0-vts.profiler (out/target/product/angler/symbols/system/lib64/android.hardware.boot@1.0-vts.profiler.so)
+[  6% 54/830] target Symbolic: android.hardware.boot@1.0-vts.profiler_32 (out/target/product/angler/symbols/system/lib/android.hardware.boot@1.0-vts.profiler.so)
+[  6% 55/830] target Symbolic: android.hardware.ir.vts.driver@1.0 (out/target/product/angler/symbols/system/lib64/android.hardware.ir.vts.driver@1.0.so)
+[  6% 56/830] target Symbolic: android.hardware.ir.vts.driver@1.0_32 (out/target/product/angler/symbols/system/lib/android.hardware.ir.vts.driver@1.0.so)
+[  6% 57/830] target Symbolic: android.hardware.ir@1.0-vts.profiler (out/target/product/angler/symbols/system/lib64/android.hardware.ir@1.0-vts.profiler.so)
+[  6% 58/830] target Symbolic: android.hardware.nfc.vts.driver@1.0 (out/target/product/angler/symbols/system/lib64/android.hardware.nfc.vts.driver@1.0.so)
+[  7% 59/830] target Symbolic: android.hardware.nfc.vts.driver@1.0_32 (out/target/product/angler/symbols/system/lib/android.hardware.nfc.vts.driver@1.0.so)
+[  7% 60/830] target Symbolic: android.hardware.nfc@1.0-vts.profiler (out/target/product/angler/symbols/system/lib64/android.hardware.nfc@1.0-vts.profiler.so)
+[  7% 61/830] target Symbolic: android.hardware.nfc@1.0-vts.profiler_32 (out/target/product/angler/symbols/system/lib/android.hardware.nfc@1.0-vts.profiler.so)
+[  7% 62/830] target Pack Relocations: android.hardware.radio.vts.driver@1.0 (out/target/product/angler/obj/SHARED_LIBRARIES/android.hardware.radio.vts.driver@1.0_intermediates/PACKED/android.hardware.radio.vts.driver@1.0.so)
+[  7% 63/830] target Pack Relocations: android.hardware.radio.vts.driver@1.0_32 (out/target/product/angler/obj_arm/SHARED_LIBRARIES/android.hardware.radio.vts.driver@1.0_intermediates/PACKED/android.hardware.radio.vts.driver@1.0.so)
+[  7% 64/830] target Pack Relocations: android.hardware.radio@1.0-vts.profiler (out/target/product/angler/obj/SHARED_LIBRARIES/android.hardware.radio@1.0-vts.profiler_intermediates/PACKED/android.hardware.radio@1.0-vts.profiler.so)
+[  7% 65/830] target Pack Relocations: android.hardware.radio@1.0-vts.profiler_32 (out/target/product/angler/obj_arm/SHARED_LIBRARIES/android.hardware.radio@1.0-vts.profiler_intermediates/PACKED/android.hardware.radio@1.0-vts.profiler.so)
+[  7% 66/830] out/soong/host/linux-x86/bin/hidl-gen -o out/soong/.intermediates/hardware/interfaces/tests/baz/1.0/android.hardware.tests.baz.vts.driver@1.0_genc++_headers/gen -Lvts -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.tests.baz@1.0 && out/soong/host/linux-x86/bin/vtsc -mDRIVER -tHEADER -bout/soong/.intermediates/hardware/interfaces/tests/baz/1.0/android.hardware.tests.baz.vts.driver@1.0_genc++_headers/gen android/hardware/tests/baz/1.0/ out/soong/.intermediates/hardware/interfaces/tests/baz/1.0/android.hardware.tests.baz.vts.driver@1.0_genc++_headers/gen/android/hardware/tests/baz/1.0/
+FAILED: out/soong/.intermediates/hardware/interfaces/tests/baz/1.0/android.hardware.tests.baz.vts.driver@1.0_genc++_headers/gen/android/hardware/tests/baz/1.0/types.vts.h out/soong/.intermediates/hardware/interfaces/tests/baz/1.0/android.hardware.tests.baz.vts.driver@1.0_genc++_headers/gen/android/hardware/tests/baz/1.0/Base.vts.h out/soong/.intermediates/hardware/interfaces/tests/baz/1.0/android.hardware.tests.baz.vts.driver@1.0_genc++_headers/gen/android/hardware/tests/baz/1.0/Baz.vts.h out/soong/.intermediates/hardware/interfaces/tests/baz/1.0/android.hardware.tests.baz.vts.driver@1.0_genc++_headers/gen/android/hardware/tests/baz/1.0/BazCallback.vts.h 
+out/soong/host/linux-x86/bin/hidl-gen -o out/soong/.intermediates/hardware/interfaces/tests/baz/1.0/android.hardware.tests.baz.vts.driver@1.0_genc++_headers/gen -Lvts -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.tests.baz@1.0 && out/soong/host/linux-x86/bin/vtsc -mDRIVER -tHEADER -bout/soong/.intermediates/hardware/interfaces/tests/baz/1.0/android.hardware.tests.baz.vts.driver@1.0_genc++_headers/gen android/hardware/tests/baz/1.0/ out/soong/.intermediates/hardware/interfaces/tests/baz/1.0/android.hardware.tests.baz.vts.driver@1.0_genc++_headers/gen/android/hardware/tests/baz/1.0/
+Invalid annotation 'Fragile' for method: doThis. Should be one of: entry, exit, callflow. 
+[  8% 67/830] out/soong/host/linux-x86/bin/hidl-gen -o out/soong/.intermediates/hardware/interfaces/tests/bar/1.0/android.hardware.tests.bar@1.0-vts.profiler_genc++/gen -Lvts -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.tests.bar@1.0 && out/soong/host/linux-x86/bin/vtsc -mPROFILER -tSOURCE -bout/soong/.intermediates/hardware/interfaces/tests/bar/1.0/android.hardware.tests.bar@1.0-vts.profiler_genc++/gen android/hardware/tests/bar/1.0/ out/soong/.intermediates/hardware/interfaces/tests/bar/1.0/android.hardware.tests.bar@1.0-vts.profiler_genc++/gen/android/hardware/tests/bar/1.0/
+FAILED: out/soong/.intermediates/hardware/interfaces/tests/bar/1.0/android.hardware.tests.bar@1.0-vts.profiler_genc++/gen/android/hardware/tests/bar/1.0/types.vts.cpp out/soong/.intermediates/hardware/interfaces/tests/bar/1.0/android.hardware.tests.bar@1.0-vts.profiler_genc++/gen/android/hardware/tests/bar/1.0/Bar.vts.cpp out/soong/.intermediates/hardware/interfaces/tests/bar/1.0/android.hardware.tests.bar@1.0-vts.profiler_genc++/gen/android/hardware/tests/bar/1.0/Complicated.vts.cpp out/soong/.intermediates/hardware/interfaces/tests/bar/1.0/android.hardware.tests.bar@1.0-vts.profiler_genc++/gen/android/hardware/tests/bar/1.0/FooCallback.vts.cpp out/soong/.intermediates/hardware/interfaces/tests/bar/1.0/android.hardware.tests.bar@1.0-vts.profiler_genc++/gen/android/hardware/tests/bar/1.0/ImportRules.vts.cpp out/soong/.intermediates/hardware/interfaces/tests/bar/1.0/android.hardware.tests.bar@1.0-vts.profiler_genc++/gen/android/hardware/tests/bar/1.0/ImportTypes.vts.cpp 
+out/soong/host/linux-x86/bin/hidl-gen -o out/soong/.intermediates/hardware/interfaces/tests/bar/1.0/android.hardware.tests.bar@1.0-vts.profiler_genc++/gen -Lvts -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.tests.bar@1.0 && out/soong/host/linux-x86/bin/vtsc -mPROFILER -tSOURCE -bout/soong/.intermediates/hardware/interfaces/tests/bar/1.0/android.hardware.tests.bar@1.0-vts.profiler_genc++/gen android/hardware/tests/bar/1.0/ out/soong/.intermediates/hardware/interfaces/tests/bar/1.0/android.hardware.tests.bar@1.0-vts.profiler_genc++/gen/android/hardware/tests/bar/1.0/
+is_dir: 1
+vts_name: Bar.vts
+parse android/hardware/tests/bar/1.0/Bar.vts
+4not supported.
+not supported.
+not supported.
+GetCppVariableType:197 ERROR no predefined_type or struct_type set for struct variable
+[  8% 68/830] out/soong/host/linux-x86/bin/hidl-gen -o out/soong/.intermediates/hardware/interfaces/tests/bar/1.0/android.hardware.tests.bar.vts.driver@1.0_genc++/gen -Lvts -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.tests.bar@1.0 && out/soong/host/linux-x86/bin/vtsc -mDRIVER -tSOURCE -bout/soong/.intermediates/hardware/interfaces/tests/bar/1.0/android.hardware.tests.bar.vts.driver@1.0_genc++/gen android/hardware/tests/bar/1.0/ out/soong/.intermediates/hardware/interfaces/tests/bar/1.0/android.hardware.tests.bar.vts.driver@1.0_genc++/gen/android/hardware/tests/bar/1.0/
+FAILED: out/soong/.intermediates/hardware/interfaces/tests/bar/1.0/android.hardware.tests.bar.vts.driver@1.0_genc++/gen/android/hardware/tests/bar/1.0/types.vts.cpp out/soong/.intermediates/hardware/interfaces/tests/bar/1.0/android.hardware.tests.bar.vts.driver@1.0_genc++/gen/android/hardware/tests/bar/1.0/Bar.vts.cpp out/soong/.intermediates/hardware/interfaces/tests/bar/1.0/android.hardware.tests.bar.vts.driver@1.0_genc++/gen/android/hardware/tests/bar/1.0/Complicated.vts.cpp out/soong/.intermediates/hardware/interfaces/tests/bar/1.0/android.hardware.tests.bar.vts.driver@1.0_genc++/gen/android/hardware/tests/bar/1.0/FooCallback.vts.cpp out/soong/.intermediates/hardware/interfaces/tests/bar/1.0/android.hardware.tests.bar.vts.driver@1.0_genc++/gen/android/hardware/tests/bar/1.0/ImportRules.vts.cpp out/soong/.intermediates/hardware/interfaces/tests/bar/1.0/android.hardware.tests.bar.vts.driver@1.0_genc++/gen/android/hardware/tests/bar/1.0/ImportTypes.vts.cpp 
+out/soong/host/linux-x86/bin/hidl-gen -o out/soong/.intermediates/hardware/interfaces/tests/bar/1.0/android.hardware.tests.bar.vts.driver@1.0_genc++/gen -Lvts -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.tests.bar@1.0 && out/soong/host/linux-x86/bin/vtsc -mDRIVER -tSOURCE -bout/soong/.intermediates/hardware/interfaces/tests/bar/1.0/android.hardware.tests.bar.vts.driver@1.0_genc++/gen android/hardware/tests/bar/1.0/ out/soong/.intermediates/hardware/interfaces/tests/bar/1.0/android.hardware.tests.bar.vts.driver@1.0_genc++/gen/android/hardware/tests/bar/1.0/
+is_dir: 1
+vts_name: Bar.vts
+parse android/hardware/tests/bar/1.0/Bar.vts
+4GenerateCppBodyGetAttributeFunction:301 not supported for HIDL HAL yet
+GetCppVariableType:197 ERROR no predefined_type or struct_type set for struct variable
+[  8% 69/830] out/soong/host/linux-x86/bin/hidl-gen -o out/soong/.intermediates/hardware/interfaces/tests/baz/1.0/android.hardware.tests.baz.vts.driver@1.0_genc++/gen -Lvts -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.tests.baz@1.0 && out/soong/host/linux-x86/bin/vtsc -mDRIVER -tSOURCE -bout/soong/.intermediates/hardware/interfaces/tests/baz/1.0/android.hardware.tests.baz.vts.driver@1.0_genc++/gen android/hardware/tests/baz/1.0/ out/soong/.intermediates/hardware/interfaces/tests/baz/1.0/android.hardware.tests.baz.vts.driver@1.0_genc++/gen/android/hardware/tests/baz/1.0/
+FAILED: out/soong/.intermediates/hardware/interfaces/tests/baz/1.0/android.hardware.tests.baz.vts.driver@1.0_genc++/gen/android/hardware/tests/baz/1.0/types.vts.cpp out/soong/.intermediates/hardware/interfaces/tests/baz/1.0/android.hardware.tests.baz.vts.driver@1.0_genc++/gen/android/hardware/tests/baz/1.0/Base.vts.cpp out/soong/.intermediates/hardware/interfaces/tests/baz/1.0/android.hardware.tests.baz.vts.driver@1.0_genc++/gen/android/hardware/tests/baz/1.0/Baz.vts.cpp out/soong/.intermediates/hardware/interfaces/tests/baz/1.0/android.hardware.tests.baz.vts.driver@1.0_genc++/gen/android/hardware/tests/baz/1.0/BazCallback.vts.cpp 
+out/soong/host/linux-x86/bin/hidl-gen -o out/soong/.intermediates/hardware/interfaces/tests/baz/1.0/android.hardware.tests.baz.vts.driver@1.0_genc++/gen -Lvts -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.tests.baz@1.0 && out/soong/host/linux-x86/bin/vtsc -mDRIVER -tSOURCE -bout/soong/.intermediates/hardware/interfaces/tests/baz/1.0/android.hardware.tests.baz.vts.driver@1.0_genc++/gen android/hardware/tests/baz/1.0/ out/soong/.intermediates/hardware/interfaces/tests/baz/1.0/android.hardware.tests.baz.vts.driver@1.0_genc++/gen/android/hardware/tests/baz/1.0/
+Invalid annotation 'Fragile' for method: doThis. Should be one of: entry, exit, callflow. 
+[  8% 70/830] out/soong/host/linux-x86/bin/hidl-gen -o out/soong/.intermediates/hardware/interfaces/tests/baz/1.0/android.hardware.tests.baz@1.0-vts.profiler_genc++/gen -Lvts -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.tests.baz@1.0 && out/soong/host/linux-x86/bin/vtsc -mPROFILER -tSOURCE -bout/soong/.intermediates/hardware/interfaces/tests/baz/1.0/android.hardware.tests.baz@1.0-vts.profiler_genc++/gen android/hardware/tests/baz/1.0/ out/soong/.intermediates/hardware/interfaces/tests/baz/1.0/android.hardware.tests.baz@1.0-vts.profiler_genc++/gen/android/hardware/tests/baz/1.0/
+FAILED: out/soong/.intermediates/hardware/interfaces/tests/baz/1.0/android.hardware.tests.baz@1.0-vts.profiler_genc++/gen/android/hardware/tests/baz/1.0/types.vts.cpp out/soong/.intermediates/hardware/interfaces/tests/baz/1.0/android.hardware.tests.baz@1.0-vts.profiler_genc++/gen/android/hardware/tests/baz/1.0/Base.vts.cpp out/soong/.intermediates/hardware/interfaces/tests/baz/1.0/android.hardware.tests.baz@1.0-vts.profiler_genc++/gen/android/hardware/tests/baz/1.0/Baz.vts.cpp out/soong/.intermediates/hardware/interfaces/tests/baz/1.0/android.hardware.tests.baz@1.0-vts.profiler_genc++/gen/android/hardware/tests/baz/1.0/BazCallback.vts.cpp 
+out/soong/host/linux-x86/bin/hidl-gen -o out/soong/.intermediates/hardware/interfaces/tests/baz/1.0/android.hardware.tests.baz@1.0-vts.profiler_genc++/gen -Lvts -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.tests.baz@1.0 && out/soong/host/linux-x86/bin/vtsc -mPROFILER -tSOURCE -bout/soong/.intermediates/hardware/interfaces/tests/baz/1.0/android.hardware.tests.baz@1.0-vts.profiler_genc++/gen android/hardware/tests/baz/1.0/ out/soong/.intermediates/hardware/interfaces/tests/baz/1.0/android.hardware.tests.baz@1.0-vts.profiler_genc++/gen/android/hardware/tests/baz/1.0/
+Invalid annotation 'Fragile' for method: doThis. Should be one of: entry, exit, callflow. 
+[  8% 71/830] out/soong/host/linux-x86/bin/hidl-gen -o out/soong/.intermediates/hardware/interfaces/tests/baz/1.0/android.hardware.tests.baz@1.0-vts.profiler_genc++_headers/gen -Lvts -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.tests.baz@1.0 && out/soong/host/linux-x86/bin/vtsc -mPROFILER -tHEADER -bout/soong/.intermediates/hardware/interfaces/tests/baz/1.0/android.hardware.tests.baz@1.0-vts.profiler_genc++_headers/gen android/hardware/tests/baz/1.0/ out/soong/.intermediates/hardware/interfaces/tests/baz/1.0/android.hardware.tests.baz@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/baz/1.0/
+FAILED: out/soong/.intermediates/hardware/interfaces/tests/baz/1.0/android.hardware.tests.baz@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/baz/1.0/types.vts.h out/soong/.intermediates/hardware/interfaces/tests/baz/1.0/android.hardware.tests.baz@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/baz/1.0/Base.vts.h out/soong/.intermediates/hardware/interfaces/tests/baz/1.0/android.hardware.tests.baz@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/baz/1.0/Baz.vts.h out/soong/.intermediates/hardware/interfaces/tests/baz/1.0/android.hardware.tests.baz@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/baz/1.0/BazCallback.vts.h 
+out/soong/host/linux-x86/bin/hidl-gen -o out/soong/.intermediates/hardware/interfaces/tests/baz/1.0/android.hardware.tests.baz@1.0-vts.profiler_genc++_headers/gen -Lvts -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.tests.baz@1.0 && out/soong/host/linux-x86/bin/vtsc -mPROFILER -tHEADER -bout/soong/.intermediates/hardware/interfaces/tests/baz/1.0/android.hardware.tests.baz@1.0-vts.profiler_genc++_headers/gen android/hardware/tests/baz/1.0/ out/soong/.intermediates/hardware/interfaces/tests/baz/1.0/android.hardware.tests.baz@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/baz/1.0/
+Invalid annotation 'Fragile' for method: doThis. Should be one of: entry, exit, callflow. 
+[  8% 72/830] out/soong/host/linux-x86/bin/hidl-gen -o out/soong/.intermediates/hardware/interfaces/tests/foo/1.0/android.hardware.tests.foo.vts.driver@1.0_genc++/gen -Lvts -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.tests.foo@1.0 && out/soong/host/linux-x86/bin/vtsc -mDRIVER -tSOURCE -bout/soong/.intermediates/hardware/interfaces/tests/foo/1.0/android.hardware.tests.foo.vts.driver@1.0_genc++/gen android/hardware/tests/foo/1.0/ out/soong/.intermediates/hardware/interfaces/tests/foo/1.0/android.hardware.tests.foo.vts.driver@1.0_genc++/gen/android/hardware/tests/foo/1.0/
+FAILED: out/soong/.intermediates/hardware/interfaces/tests/foo/1.0/android.hardware.tests.foo.vts.driver@1.0_genc++/gen/android/hardware/tests/foo/1.0/types.vts.cpp out/soong/.intermediates/hardware/interfaces/tests/foo/1.0/android.hardware.tests.foo.vts.driver@1.0_genc++/gen/android/hardware/tests/foo/1.0/Foo.vts.cpp out/soong/.intermediates/hardware/interfaces/tests/foo/1.0/android.hardware.tests.foo.vts.driver@1.0_genc++/gen/android/hardware/tests/foo/1.0/FooCallback.vts.cpp out/soong/.intermediates/hardware/interfaces/tests/foo/1.0/android.hardware.tests.foo.vts.driver@1.0_genc++/gen/android/hardware/tests/foo/1.0/MyTypes.vts.cpp out/soong/.intermediates/hardware/interfaces/tests/foo/1.0/android.hardware.tests.foo.vts.driver@1.0_genc++/gen/android/hardware/tests/foo/1.0/Simple.vts.cpp out/soong/.intermediates/hardware/interfaces/tests/foo/1.0/android.hardware.tests.foo.vts.driver@1.0_genc++/gen/android/hardware/tests/foo/1.0/TheirTypes.vts.cpp 
+out/soong/host/linux-x86/bin/hidl-gen -o out/soong/.intermediates/hardware/interfaces/tests/foo/1.0/android.hardware.tests.foo.vts.driver@1.0_genc++/gen -Lvts -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.tests.foo@1.0 && out/soong/host/linux-x86/bin/vtsc -mDRIVER -tSOURCE -bout/soong/.intermediates/hardware/interfaces/tests/foo/1.0/android.hardware.tests.foo.vts.driver@1.0_genc++/gen android/hardware/tests/foo/1.0/ out/soong/.intermediates/hardware/interfaces/tests/foo/1.0/android.hardware.tests.foo.vts.driver@1.0_genc++/gen/android/hardware/tests/foo/1.0/
+is_dir: 1
+vts_name: MyTypes.vts
+parse android/hardware/tests/foo/1.0/MyTypes.vts
+4GenerateCppBodyGetAttributeFunction:301 not supported for HIDL HAL yet
+vts_name: FooCallback.vts
+parse android/hardware/tests/foo/1.0/FooCallback.vts
+4GetCppVariableType:197 ERROR no predefined_type or struct_type set for struct variable
+[  8% 73/830] out/soong/host/linux-x86/bin/hidl-gen -o out/soong/.intermediates/hardware/interfaces/tests/foo/1.0/android.hardware.tests.foo.vts.driver@1.0_genc++_headers/gen -Lvts -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.tests.foo@1.0 && out/soong/host/linux-x86/bin/vtsc -mDRIVER -tHEADER -bout/soong/.intermediates/hardware/interfaces/tests/foo/1.0/android.hardware.tests.foo.vts.driver@1.0_genc++_headers/gen android/hardware/tests/foo/1.0/ out/soong/.intermediates/hardware/interfaces/tests/foo/1.0/android.hardware.tests.foo.vts.driver@1.0_genc++_headers/gen/android/hardware/tests/foo/1.0/
+FAILED: out/soong/.intermediates/hardware/interfaces/tests/foo/1.0/android.hardware.tests.foo.vts.driver@1.0_genc++_headers/gen/android/hardware/tests/foo/1.0/types.vts.h out/soong/.intermediates/hardware/interfaces/tests/foo/1.0/android.hardware.tests.foo.vts.driver@1.0_genc++_headers/gen/android/hardware/tests/foo/1.0/Foo.vts.h out/soong/.intermediates/hardware/interfaces/tests/foo/1.0/android.hardware.tests.foo.vts.driver@1.0_genc++_headers/gen/android/hardware/tests/foo/1.0/FooCallback.vts.h out/soong/.intermediates/hardware/interfaces/tests/foo/1.0/android.hardware.tests.foo.vts.driver@1.0_genc++_headers/gen/android/hardware/tests/foo/1.0/MyTypes.vts.h out/soong/.intermediates/hardware/interfaces/tests/foo/1.0/android.hardware.tests.foo.vts.driver@1.0_genc++_headers/gen/android/hardware/tests/foo/1.0/Simple.vts.h out/soong/.intermediates/hardware/interfaces/tests/foo/1.0/android.hardware.tests.foo.vts.driver@1.0_genc++_headers/gen/android/hardware/tests/foo/1.0/TheirTypes.vts.h 
+out/soong/host/linux-x86/bin/hidl-gen -o out/soong/.intermediates/hardware/interfaces/tests/foo/1.0/android.hardware.tests.foo.vts.driver@1.0_genc++_headers/gen -Lvts -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.tests.foo@1.0 && out/soong/host/linux-x86/bin/vtsc -mDRIVER -tHEADER -bout/soong/.intermediates/hardware/interfaces/tests/foo/1.0/android.hardware.tests.foo.vts.driver@1.0_genc++_headers/gen android/hardware/tests/foo/1.0/ out/soong/.intermediates/hardware/interfaces/tests/foo/1.0/android.hardware.tests.foo.vts.driver@1.0_genc++_headers/gen/android/hardware/tests/foo/1.0/
+is_dir: 1
+vts_name: MyTypes.v
+parse android/hardware/tests/foo/1.0/MyTypes.vts
+4vts_name: FooCallback.v
+parse android/hardware/tests/foo/1.0/FooCallback.vts
+4GetCppVariableType:197 ERROR no predefined_type or struct_type set for struct variable
+[  8% 74/830] out/soong/host/linux-x86/bin/hidl-gen -o out/soong/.intermediates/hardware/interfaces/tests/foo/1.0/android.hardware.tests.foo@1.0-vts.profiler_genc++/gen -Lvts -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.tests.foo@1.0 && out/soong/host/linux-x86/bin/vtsc -mPROFILER -tSOURCE -bout/soong/.intermediates/hardware/interfaces/tests/foo/1.0/android.hardware.tests.foo@1.0-vts.profiler_genc++/gen android/hardware/tests/foo/1.0/ out/soong/.intermediates/hardware/interfaces/tests/foo/1.0/android.hardware.tests.foo@1.0-vts.profiler_genc++/gen/android/hardware/tests/foo/1.0/
+FAILED: out/soong/.intermediates/hardware/interfaces/tests/foo/1.0/android.hardware.tests.foo@1.0-vts.profiler_genc++/gen/android/hardware/tests/foo/1.0/types.vts.cpp out/soong/.intermediates/hardware/interfaces/tests/foo/1.0/android.hardware.tests.foo@1.0-vts.profiler_genc++/gen/android/hardware/tests/foo/1.0/Foo.vts.cpp out/soong/.intermediates/hardware/interfaces/tests/foo/1.0/android.hardware.tests.foo@1.0-vts.profiler_genc++/gen/android/hardware/tests/foo/1.0/FooCallback.vts.cpp out/soong/.intermediates/hardware/interfaces/tests/foo/1.0/android.hardware.tests.foo@1.0-vts.profiler_genc++/gen/android/hardware/tests/foo/1.0/MyTypes.vts.cpp out/soong/.intermediates/hardware/interfaces/tests/foo/1.0/android.hardware.tests.foo@1.0-vts.profiler_genc++/gen/android/hardware/tests/foo/1.0/Simple.vts.cpp out/soong/.intermediates/hardware/interfaces/tests/foo/1.0/android.hardware.tests.foo@1.0-vts.profiler_genc++/gen/android/hardware/tests/foo/1.0/TheirTypes.vts.cpp 
+out/soong/host/linux-x86/bin/hidl-gen -o out/soong/.intermediates/hardware/interfaces/tests/foo/1.0/android.hardware.tests.foo@1.0-vts.profiler_genc++/gen -Lvts -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.tests.foo@1.0 && out/soong/host/linux-x86/bin/vtsc -mPROFILER -tSOURCE -bout/soong/.intermediates/hardware/interfaces/tests/foo/1.0/android.hardware.tests.foo@1.0-vts.profiler_genc++/gen android/hardware/tests/foo/1.0/ out/soong/.intermediates/hardware/interfaces/tests/foo/1.0/android.hardware.tests.foo@1.0-vts.profiler_genc++/gen/android/hardware/tests/foo/1.0/
+is_dir: 1
+vts_name: MyTypes.vts
+parse android/hardware/tests/foo/1.0/MyTypes.vts
+4vts_name: FooCallback.vts
+parse android/hardware/tests/foo/1.0/FooCallback.vts
+4GetCppVariableType:197 ERROR no predefined_type or struct_type set for struct variable
+[  9% 75/830] target Strip (mini debug info): android.hardware.ir@1.0-vts.profiler_32 (out/target/product/angler/obj_arm/lib/android.hardware.ir@1.0-vts.profiler.so)
+[  9% 76/830] target Symbolic: android.hardware.bluetooth@1.0-service (out/target/product/angler/symbols/system/bin/hw/android.hardware.bluetooth@1.0-service)
+[  9% 77/830] target Symbolic: android.hardware.nfc@1.0-service (out/target/product/angler/symbols/system/bin/hw/android.hardware.nfc@1.0-service)
+[  9% 78/830] target Prebuilt: android.hardware.tests.inheritance.vts.driver@1.0 (out/target/product/angler/obj/SHARED_LIBRARIES/android.hardware.tests.inheritance.vts.driver@1.0_intermediates/LINKED/android.hardware.tests.inheritance.vts.driver@1.0.so)
+[  9% 79/830] target Prebuilt: android.hardware.tests.inheritance.vts.driver@1.0_32 (out/target/product/angler/obj_arm/SHARED_LIBRARIES/android.hardware.tests.inheritance.vts.driver@1.0_intermediates/LINKED/android.hardware.tests.inheritance.vts.driver@1.0.so)
+[  9% 80/830] target Prebuilt: android.hardware.tests.libhwbinder.vts.driver@1.0 (out/target/product/angler/obj/SHARED_LIBRARIES/android.hardware.tests.libhwbinder.vts.driver@1.0_intermediates/LINKED/android.hardware.tests.libhwbinder.vts.driver@1.0.so)
+[  9% 81/830] target Prebuilt: android.hardware.tests.libhwbinder.vts.driver@1.0_32 (out/target/product/angler/obj_arm/SHARED_LIBRARIES/android.hardware.tests.libhwbinder.vts.driver@1.0_intermediates/LINKED/android.hardware.tests.libhwbinder.vts.driver@1.0.so)
+[  9% 82/830] target Strip (mini debug info): android.hardware.bluetooth.vts.driver@1.0 (out/target/product/angler/obj/lib/android.hardware.bluetooth.vts.driver@1.0.so)
+[ 10% 83/830] out/soong/host/linux-x86/bin/hidl-gen -o out/soong/.intermediates/hardware/interfaces/tests/pointer/1.0/android.hardware.tests.pointer.vts.driver@1.0_genc++/gen -Lvts -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.tests.pointer@1.0 && out/soong/host/linux-x86/bin/vtsc -mDRIVER -tSOURCE -bout/soong/.intermediates/hardware/interfaces/tests/pointer/1.0/android.hardware.tests.pointer.vts.driver@1.0_genc++/gen android/hardware/tests/pointer/1.0/ out/soong/.intermediates/hardware/interfaces/tests/pointer/1.0/android.hardware.tests.pointer.vts.driver@1.0_genc++/gen/android/hardware/tests/pointer/1.0/
+FAILED: out/soong/.intermediates/hardware/interfaces/tests/pointer/1.0/android.hardware.tests.pointer.vts.driver@1.0_genc++/gen/android/hardware/tests/pointer/1.0/Graph.vts.cpp out/soong/.intermediates/hardware/interfaces/tests/pointer/1.0/android.hardware.tests.pointer.vts.driver@1.0_genc++/gen/android/hardware/tests/pointer/1.0/Pointer.vts.cpp 
+out/soong/host/linux-x86/bin/hidl-gen -o out/soong/.intermediates/hardware/interfaces/tests/pointer/1.0/android.hardware.tests.pointer.vts.driver@1.0_genc++/gen -Lvts -randroid.hardware:hardware/interfaces -randroid.hidl:system/libhidl/transport android.hardware.tests.pointer@1.0 && out/soong/host/linux-x86/bin/vtsc -mDRIVER -tSOURCE -bout/soong/.intermediates/hardware/interfaces/tests/pointer/1.0/android.hardware.tests.pointer.vts.driver@1.0_genc++/gen android/hardware/tests/pointer/1.0/ out/soong/.intermediates/hardware/interfaces/tests/pointer/1.0/android.hardware.tests.pointer.vts.driver@1.0_genc++/gen/android/hardware/tests/pointer/1.0/
+is_dir: 1
+vts_name: Graph.vts
+parse android/hardware/tests/pointer/1.0/Graph.vts
+[libprotobuf ERROR external/protobuf/src/google/protobuf/text_format.cc:274] Error parsing text-format android.vts.ComponentSpecificationMessage: 36:13: Unknown enumeration value of "TYPE_REF" for field "type".
+parse: Can't parse a given proto file android/hardware/tests/pointer/1.0/Graph.vts.
+component_class: HAL_HIDL
+component_type_version: 1.0
+component_name: "IGraph"
+
+package: "android.hardware.tests.pointer"
+
+import: "android.hidl.base@1.0::types"
+
+interface: {
+    attribute: {
+        name: "::android::hidl::base::V1_0::ReferenceInfo"
+        type: TYPE_STRUCT
+        struct_value: {
+            name: "refCount"
+            type: TYPE_SCALAR
+            scalar_type: "int64_t"
+        }
+    }
+
+    attribute: {
+        name: "::android::hardware::tests::pointer::V1_0::IGraph::Node"
+        type: TYPE_STRUCT
+        struct_value: {
+            name: "data"
+            type: TYPE_SCALAR
+            scalar_type: "int32_t"
+        }
+    }
+
+    attribute: {
+        name: "::android::hardware::tests::pointer::V1_0::IGraph::Edge"
+        type: TYPE_STRUCT
+        struct_value: {
+            name: "left"
+            type: TYPE_REF
+            ref_value: {
+                type: TYPE_STRUCT
+                predefined_type: "::android::hardware::tests::pointer::V1_0::IGraph::Node"
+            }
+        }
+        struct_value: {
+            name: "right"
+            type: TYPE_REF
+            ref_value: {
+                type: TYPE_STRUCT
+                predefined_type: "::android::hardware::tests::pointer::V1_0::IGraph::Node"
+            }
+        }
+    }
+
+    attribute: {
+        name: "::android::hardware::tests::pointer::V1_0::IGraph::Graph"
+        type: TYPE_STRUCT
+        struct_value: {
+            name: "nodes"
+            type: TYPE_VECTOR
+            vector_value: {
+                type: TYPE_STRUCT
+                predefined_type: "::android::hardware::tests::pointer::V1_0::IGraph::Node"
+            }
+        }
+        struct_value: {
+            name: "edges"
+            type: TYPE_VECTOR
+            vector_value: {
+                type: TYPE_STRUCT
+                predefined_type: "::android::hardware::tests::pointer::V1_0::IGraph::Edge"
+            }
+        }
+    }
+
+    attribute: {
+        name: "::android::hardware::tests::pointer::V1_0::IGraph::Theta"
+        type: TYPE_STRUCT
+        struct_value: {
+            name: "data"
+            type: TYPE_SCALAR
+            scalar_type: "int32_t"
+        }
+    }
+
+    attribute: {
+        name: "::android::hardware::tests::pointer::V1_0::IGraph::Alpha"
+        type: TYPE_STRUCT
+        struct_value: {
+            name: "s_ptr"
+            type: TYPE_REF
+            ref_value: {
+                type: TYPE_STRUCT
+                predefined_type: "::android::hardware::tests::pointer::V1_0::IGraph::Theta"
+            }
+        }
+    }
+
+    attribute: {
+        name: "::android::hardware::tests::pointer::V1_0::IGraph::Beta"
+        type: TYPE_STRUCT
+        struct_value: {
+            name: "s_ptr"
+            type: TYPE_REF
+            ref_value: {
+                type: TYPE_STRUCT
+                predefined_type: "::android::hardware::tests::pointer::V1_0::IGraph::Theta"
+            }
+        }
+    }
+
+    attribute: {
+        name: "::android::hardware::tests::pointer::V1_0::IGraph::Gamma"
+        type: TYPE_STRUCT
+        struct_value: {
+            name: "a_ptr"
+            type: TYPE_REF
+            ref_value: {
+                type: TYPE_STRUCT
+                predefined_type: "::android::hardware::tests::pointer::V1_0::IGraph::Alpha"
+            }
+        }
+        struct_value: {
+            name: "b_ptr"
+            type: TYPE_REF
+            ref_value: {
+                type: TYPE_STRUCT
+                predefined_type: "::android::hardware::tests::pointer::V1_0::IGraph::Beta"
+            }
+        }
+    }
+
+    api: {
+        name: "passANode"
+        arg: {
+            type: TYPE_STRUCT
+            predefined_type: "::android::hardware::tests::pointer::V1_0::IGraph::Node"
+        }
+    }
+
+    api: {
+        name: "passAGraph"
+        arg: {
+            type: TYPE_STRUCT
+            predefined_type: "::android::hardware::tests::pointer::V1_0::IGraph::Graph"
+        }
+    }
+
+    api: {
+        name: "passTwoGraphs"
+        arg: {
+            type: TYPE_REF
+            ref_value: {
+                type: TYPE_STRUCT
+                predefined_type: "::android::hardware::tests::pointer::V1_0::IGraph::Graph"
+            }
+        }
+        arg: {
+            type: TYPE_REF
+            ref_value: {
+                type: TYPE_STRUCT
+                predefined_type: "::android::hardware::tests::pointer::V1_0::IGraph::Graph"
+            }
+        }
+    }
+
+    api: {
+        name: "giveAGraph"
+        return_type_hidl: {
+            type: TYPE_STRUCT
+            predefined_type: "::android::hardware::tests::pointer::V1_0::IGraph::Graph"
+        }
+    }
+
+    api: {
+        name: "passAGamma"
+        arg: {
+            type: TYPE_STRUCT
+            predefined_type: "::android::hardware::tests::pointer::V1_0::IGraph::Gamma"
+        }
+    }
+
+    api: {
+        name: "passASimpleRef"
+        arg: {
+            type: TYPE_REF
+            ref_value: {
+                type: TYPE_STRUCT
+                predefined_type: "::android::hardware::tests::pointer::V1_0::IGraph::Alpha"
+            }
+        }
+    }
+
+    api: {
+        name: "passASimpleRefS"
+        arg: {
+            type: TYPE_REF
+            ref_value: {
+                type: TYPE_STRUCT
+                predefined_type: "::android::hardware::tests::pointer::V1_0::IGraph::Theta"
+            }
+        }
+    }
+
+    api: {
+        name: "giveASimpleRef"
+        return_type_hidl: {
+            type: TYPE_REF
+            ref_value: {
+                type: TYPE_STRUCT
+                predefined_type: "::android::hardware::tests::pointer::V1_0::IGraph::Alpha"
+            }
+        }
+    }
+
+    api: {
+        name: "getErrors"
+        return_type_hidl: {
+            type: TYPE_SCALAR
+            scalar_type: "int32_t"
+        }
+    }
+
+}
+
+TranslateToFile can't parse android/hardware/tests/pointer/1.0/Graph.vts
+ ERROR: unsupported type.
+[ 10% 84/830] target Symbolic: android.hardware.radio.vts.driver@1.0 (out/target/product/angler/symbols/system/lib64/android.hardware.radio.vts.driver@1.0.so)
+[ 10% 85/830] target Symbolic: android.hardware.radio.vts.driver@1.0_32 (out/target/product/angler/symbols/system/lib/android.hardware.radio.vts.driver@1.0.so)
+[ 10% 86/830] target Symbolic: android.hardware.radio@1.0-vts.profiler (out/target/product/angler/symbols/system/lib64/android.hardware.radio@1.0-vts.profiler.so)
+[ 10% 87/830] target Strip (mini debug info): android.hardware.bluetooth@1.0-vts.profiler (out/target/product/angler/obj/lib/android.hardware.bluetooth@1.0-vts.profiler.so)
+[ 10% 88/830] target Symbolic: android.hardware.radio@1.0-vts.profiler_32 (out/target/product/angler/symbols/system/lib/android.hardware.radio@1.0-vts.profiler.so)
+[ 10% 89/830] target Strip (mini debug info): android.hardware.nfc.vts.driver@1.0 (out/target/product/angler/obj/lib/android.hardware.nfc.vts.driver@1.0.so)
+[ 10% 90/830] target Strip (mini debug info): android.hardware.boot@1.0-vts.profiler_32 (out/target/product/angler/obj_arm/lib/android.hardware.boot@1.0-vts.profiler.so)
+[ 10% 91/830] Ensuring Jack server is installed and started
+[Wed Feb  1 17:47:58 2017] running "/bin/bash -c prebuilts/sdk/tools/jack-admin install-server prebuilts/sdk/tools/jack-launcher.jar prebuilts/sdk/tools/jack-server-4.11.ALPHA.jar  2>&1 || (exit 0)"
+Jack server already installed in "/usr/local/google/home/zhuoyao/.jack-server"
+[Wed Feb  1 17:47:58 2017] finished "/bin/bash -c prebuilts/sdk/tools/jack-admin install-server prebuilts/sdk/tools/jack-launcher.jar prebuilts/sdk/tools/jack-server-4.11.ALPHA.jar  2>&1 || (exit 0)" in 0.024 seconds, exit status = 0
+[Wed Feb  1 17:47:58 2017] running "prebuilts/sdk/tools/jack-admin start-server"
+Server is already running
+[Wed Feb  1 17:47:58 2017] finished "prebuilts/sdk/tools/jack-admin start-server" in 0.132 seconds, exit status = 0
+[Wed Feb  1 17:47:58 2017] running "/bin/bash -c prebuilts/sdk/tools/jack-admin update server prebuilts/sdk/tools/jack-server-4.11.ALPHA.jar 4.11.ALPHA 2>&1 || exit 0"
+[Wed Feb  1 17:47:58 2017] finished "/bin/bash -c prebuilts/sdk/tools/jack-admin update server prebuilts/sdk/tools/jack-server-4.11.ALPHA.jar 4.11.ALPHA 2>&1 || exit 0" in 0.086 seconds, exit status = 0
+[Wed Feb  1 17:47:58 2017] running "prebuilts/sdk/tools/jack-admin update jack prebuilts/sdk/tools/jacks/jack-2.28.RELEASE.jar 2.28.RELEASE"
+[Wed Feb  1 17:47:58 2017] finished "prebuilts/sdk/tools/jack-admin update jack prebuilts/sdk/tools/jacks/jack-2.28.RELEASE.jar 2.28.RELEASE" in 0.079 seconds, exit status = 0
+[Wed Feb  1 17:47:58 2017] running "prebuilts/sdk/tools/jack-admin update jack prebuilts/sdk/tools/jacks/jack-4.24.BETA.jar 4.24.BETA"
+[Wed Feb  1 17:47:58 2017] finished "prebuilts/sdk/tools/jack-admin update jack prebuilts/sdk/tools/jacks/jack-4.24.BETA.jar 4.24.BETA" in 0.066 seconds, exit status = 0
+[ 11% 92/830] target Strip (mini debug info): android.hardware.ir.vts.driver@1.0 (out/target/product/angler/obj/lib/android.hardware.ir.vts.driver@1.0.so)
+[ 11% 93/830] target Strip (mini debug info): android.hardware.ir.vts.driver@1.0_32 (out/target/product/angler/obj_arm/lib/android.hardware.ir.vts.driver@1.0.so)
+[ 11% 94/830] target Strip (mini debug info): android.hardware.nfc@1.0-vts.profiler (out/target/product/angler/obj/lib/android.hardware.nfc@1.0-vts.profiler.so)
+[ 11% 95/830] target Strip (mini debug info): android.hardware.nfc.vts.driver@1.0_32 (out/target/product/angler/obj_arm/lib/android.hardware.nfc.vts.driver@1.0.so)
+[ 11% 96/830] target Strip (mini debug info): android.hardware.ir@1.0-vts.profiler (out/target/product/angler/obj/lib/android.hardware.ir@1.0-vts.profiler.so)
+[ 11% 97/830] target Strip (mini debug info): android.hardware.benchmarks.msgq.vts.driver@1.0 (out/target/product/angler/obj/lib/android.hardware.benchmarks.msgq.vts.driver@1.0.so)
+[ 11% 98/830] target Strip (mini debug info): android.hardware.boot.vts.driver@1.0 (out/target/product/angler/obj/lib/android.hardware.boot.vts.driver@1.0.so)
+[ 11% 99/830] target Strip (mini debug info): android.hardware.boot@1.0-vts.profiler (out/target/product/angler/obj/lib/android.hardware.boot@1.0-vts.profiler.so)
+[ 12% 100/830] target Strip (mini debug info): android.hardware.bluetooth@1.0-vts.profiler_32 (out/target/product/angler/obj_arm/lib/android.hardware.bluetooth@1.0-vts.profiler.so)
+[ 12% 101/830] target Strip (mini debug info): android.hardware.boot.vts.driver@1.0_32 (out/target/product/angler/obj_arm/lib/android.hardware.boot.vts.driver@1.0.so)
+[ 12% 102/830] target Strip (mini debug info): android.hardware.nfc@1.0-vts.profiler_32 (out/target/product/angler/obj_arm/lib/android.hardware.nfc@1.0-vts.profiler.so)
+[ 12% 103/830] target Strip (mini debug info): android.hardware.bluetooth.vts.driver@1.0_32 (out/target/product/angler/obj_arm/lib/android.hardware.bluetooth.vts.driver@1.0.so)
+[ 12% 104/830] target Strip (mini debug info): android.hardware.benchmarks.msgq.vts.driver@1.0_32 (out/target/product/angler/obj_arm/lib/android.hardware.benchmarks.msgq.vts.driver@1.0.so)
+[ 12% 105/830] cc 'out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler/android_arm_armv7-a-neon_cortex-a53.a57_shared/obj/android/hardware/tests/inheritance/1.0/Fetcher.vts.o'
+In file included from out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++/gen/android/hardware/tests/inheritance/1.0/Fetcher.vts.cpp:1:
+out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/inheritance/1.0/Fetcher.vts.h:1:31: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
+#ifndef __VTS_PROFILER_Fetcher.v__
+                              ^
+                              //
+out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/inheritance/1.0/Fetcher.vts.h:2:31: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define __VTS_PROFILER_Fetcher.v__
+                              ^
+In file included from out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++/gen/android/hardware/tests/inheritance/1.0/Fetcher.vts.cpp:2:
+out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/inheritance/1.0/Child.vts.h:1:29: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
+#ifndef __VTS_PROFILER_Child.v__
+                            ^
+                            //
+out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/inheritance/1.0/Child.vts.h:2:29: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define __VTS_PROFILER_Child.v__
+                            ^
+In file included from out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++/gen/android/hardware/tests/inheritance/1.0/Fetcher.vts.cpp:3:
+out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/inheritance/1.0/Grandparent.vts.h:1:35: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
+#ifndef __VTS_PROFILER_Grandparent.v__
+                                  ^
+                                  //
+out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/inheritance/1.0/Grandparent.vts.h:2:35: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define __VTS_PROFILER_Grandparent.v__
+                                  ^
+In file included from out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++/gen/android/hardware/tests/inheritance/1.0/Fetcher.vts.cpp:4:
+out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/inheritance/1.0/Parent.vts.h:1:30: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
+#ifndef __VTS_PROFILER_Parent.v__
+                             ^
+                             //
+out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/inheritance/1.0/Parent.vts.h:2:30: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define __VTS_PROFILER_Parent.v__
+                             ^
+8 warnings generated.
+[ 12% 106/830] cc 'out/soong/.intermediates/hardware/interfaces/tests/memory/1.0/android.hardware.tests.memory@1.0-vts.profiler/android_arm64_armv8-a_cortex-a53_shared/obj/android/hardware/tests/memory/1.0/MemoryTest.vts.o'
+In file included from out/soong/.intermediates/hardware/interfaces/tests/memory/1.0/android.hardware.tests.memory@1.0-vts.profiler_genc++/gen/android/hardware/tests/memory/1.0/MemoryTest.vts.cpp:1:
+out/soong/.intermediates/hardware/interfaces/tests/memory/1.0/android.hardware.tests.memory@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/memory/1.0/MemoryTest.vts.h:1:34: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
+#ifndef __VTS_PROFILER_MemoryTest.v__
+                                 ^
+                                 //
+out/soong/.intermediates/hardware/interfaces/tests/memory/1.0/android.hardware.tests.memory@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/memory/1.0/MemoryTest.vts.h:2:34: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define __VTS_PROFILER_MemoryTest.v__
+                                 ^
+2 warnings generated.
+[ 12% 107/830] cc 'out/soong/.intermediates/hardware/interfaces/tests/pointer/1.0/android.hardware.tests.pointer@1.0-vts.profiler/android_arm64_armv8-a_cortex-a53_shared/obj/android/hardware/tests/pointer/1.0/Graph.vts.o'
+In file included from out/soong/.intermediates/hardware/interfaces/tests/pointer/1.0/android.hardware.tests.pointer@1.0-vts.profiler_genc++/gen/android/hardware/tests/pointer/1.0/Graph.vts.cpp:1:
+out/soong/.intermediates/hardware/interfaces/tests/pointer/1.0/android.hardware.tests.pointer@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/pointer/1.0/Graph.vts.h:1:29: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
+#ifndef __VTS_PROFILER_Graph.v__
+                            ^
+                            //
+out/soong/.intermediates/hardware/interfaces/tests/pointer/1.0/android.hardware.tests.pointer@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/pointer/1.0/Graph.vts.h:2:29: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define __VTS_PROFILER_Graph.v__
+                            ^
+out/soong/.intermediates/hardware/interfaces/tests/pointer/1.0/android.hardware.tests.pointer@1.0-vts.profiler_genc++/gen/android/hardware/tests/pointer/1.0/Graph.vts.cpp:29:57: warning: unused parameter 'arg_val_name' [-Wunused-parameter]
+::android::hardware::tests::pointer::V1_0::IGraph::Edge arg_val_name) {
+                                                        ^
+out/soong/.intermediates/hardware/interfaces/tests/pointer/1.0/android.hardware.tests.pointer@1.0-vts.profiler_genc++/gen/android/hardware/tests/pointer/1.0/Graph.vts.cpp:36:48: warning: unused parameter 'event' [-Wunused-parameter]
+        HidlInstrumentor::InstrumentationEvent event,
+                                               ^
+out/soong/.intermediates/hardware/interfaces/tests/pointer/1.0/android.hardware.tests.pointer@1.0-vts.profiler_genc++/gen/android/hardware/tests/pointer/1.0/Graph.vts.cpp:40:21: warning: unused parameter 'method' [-Wunused-parameter]
+        const char* method,
+                    ^
+out/soong/.intermediates/hardware/interfaces/tests/pointer/1.0/android.hardware.tests.pointer@1.0-vts.profiler_genc++/gen/android/hardware/tests/pointer/1.0/Graph.vts.cpp:41:30: warning: unused parameter 'args' [-Wunused-parameter]
+        std::vector<void *> *args) {
+                             ^
+6 warnings generated.
+[ 13% 108/830] cc 'out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler/android_arm_armv7-a-neon_cortex-a53.a57_shared/obj/android/hardware/tests/inheritance/1.0/Grandparent.vts.o'
+In file included from out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++/gen/android/hardware/tests/inheritance/1.0/Grandparent.vts.cpp:1:
+out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/inheritance/1.0/Grandparent.vts.h:1:35: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
+#ifndef __VTS_PROFILER_Grandparent.v__
+                                  ^
+                                  //
+out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/inheritance/1.0/Grandparent.vts.h:2:35: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define __VTS_PROFILER_Grandparent.v__
+                                  ^
+2 warnings generated.
+[ 13% 109/830] cc 'out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler/android_arm_armv7-a-neon_cortex-a53.a57_shared/obj/android/hardware/tests/inheritance/1.0/Parent.vts.o'
+In file included from out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++/gen/android/hardware/tests/inheritance/1.0/Parent.vts.cpp:1:
+out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/inheritance/1.0/Parent.vts.h:1:30: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
+#ifndef __VTS_PROFILER_Parent.v__
+                             ^
+                             //
+out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/inheritance/1.0/Parent.vts.h:2:30: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define __VTS_PROFILER_Parent.v__
+                             ^
+In file included from out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++/gen/android/hardware/tests/inheritance/1.0/Parent.vts.cpp:2:
+out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/inheritance/1.0/Grandparent.vts.h:1:35: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
+#ifndef __VTS_PROFILER_Grandparent.v__
+                                  ^
+                                  //
+out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/inheritance/1.0/Grandparent.vts.h:2:35: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define __VTS_PROFILER_Grandparent.v__
+                                  ^
+4 warnings generated.
+[ 13% 110/830] cc 'out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler/android_arm64_armv8-a_cortex-a53_shared/obj/android/hardware/tests/inheritance/1.0/Parent.vts.o'
+In file included from out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++/gen/android/hardware/tests/inheritance/1.0/Parent.vts.cpp:1:
+out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/inheritance/1.0/Parent.vts.h:1:30: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
+#ifndef __VTS_PROFILER_Parent.v__
+                             ^
+                             //
+out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/inheritance/1.0/Parent.vts.h:2:30: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define __VTS_PROFILER_Parent.v__
+                             ^
+In file included from out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++/gen/android/hardware/tests/inheritance/1.0/Parent.vts.cpp:2:
+out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/inheritance/1.0/Grandparent.vts.h:1:35: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
+#ifndef __VTS_PROFILER_Grandparent.v__
+                                  ^
+                                  //
+out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/inheritance/1.0/Grandparent.vts.h:2:35: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define __VTS_PROFILER_Grandparent.v__
+                                  ^
+4 warnings generated.
+[ 13% 111/830] cc 'out/soong/.intermediates/hardware/interfaces/tests/memory/1.0/android.hardware.tests.memory@1.0-vts.profiler/android_arm_armv7-a-neon_cortex-a53.a57_shared/obj/android/hardware/tests/memory/1.0/MemoryTest.vts.o'
+In file included from out/soong/.intermediates/hardware/interfaces/tests/memory/1.0/android.hardware.tests.memory@1.0-vts.profiler_genc++/gen/android/hardware/tests/memory/1.0/MemoryTest.vts.cpp:1:
+out/soong/.intermediates/hardware/interfaces/tests/memory/1.0/android.hardware.tests.memory@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/memory/1.0/MemoryTest.vts.h:1:34: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
+#ifndef __VTS_PROFILER_MemoryTest.v__
+                                 ^
+                                 //
+out/soong/.intermediates/hardware/interfaces/tests/memory/1.0/android.hardware.tests.memory@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/memory/1.0/MemoryTest.vts.h:2:34: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define __VTS_PROFILER_MemoryTest.v__
+                                 ^
+2 warnings generated.
+[ 13% 112/830] cc 'out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler/android_arm64_armv8-a_cortex-a53_shared/obj/android/hardware/wifi/supplicant/1.0/Supplicant.vts.o'
+In file included from out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler_genc++/gen/android/hardware/wifi/supplicant/1.0/Supplicant.vts.cpp:1:
+out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler_genc++_headers/gen/android/hardware/wifi/supplicant/1.0/Supplicant.vts.h:1:34: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
+#ifndef __VTS_PROFILER_Supplicant.v__
+                                 ^
+                                 //
+out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler_genc++_headers/gen/android/hardware/wifi/supplicant/1.0/Supplicant.vts.h:2:34: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define __VTS_PROFILER_Supplicant.v__
+                                 ^
+In file included from out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler_genc++/gen/android/hardware/wifi/supplicant/1.0/Supplicant.vts.cpp:2:
+out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler_genc++_headers/gen/android/hardware/wifi/supplicant/1.0/SupplicantCallback.vts.h:1:42: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
+#ifndef __VTS_PROFILER_SupplicantCallback.v__
+                                         ^
+                                         //
+out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler_genc++_headers/gen/android/hardware/wifi/supplicant/1.0/SupplicantCallback.vts.h:2:42: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define __VTS_PROFILER_SupplicantCallback.v__
+                                         ^
+In file included from out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler_genc++/gen/android/hardware/wifi/supplicant/1.0/Supplicant.vts.cpp:3:
+out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler_genc++_headers/gen/android/hardware/wifi/supplicant/1.0/SupplicantIface.vts.h:1:39: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
+#ifndef __VTS_PROFILER_SupplicantIface.v__
+                                      ^
+                                      //
+out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler_genc++_headers/gen/android/hardware/wifi/supplicant/1.0/SupplicantIface.vts.h:2:39: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define __VTS_PROFILER_SupplicantIface.v__
+                                      ^
+In file included from out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler_genc++/gen/android/hardware/wifi/supplicant/1.0/Supplicant.vts.cpp:4:
+out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler_genc++_headers/gen/android/hardware/wifi/supplicant/1.0/SupplicantNetwork.vts.h:1:41: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
+#ifndef __VTS_PROFILER_SupplicantNetwork.v__
+                                        ^
+                                        //
+out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler_genc++_headers/gen/android/hardware/wifi/supplicant/1.0/SupplicantNetwork.vts.h:2:41: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define __VTS_PROFILER_SupplicantNetwork.v__
+                                        ^
+In file included from out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler_genc++/gen/android/hardware/wifi/supplicant/1.0/Supplicant.vts.cpp:5:
+out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler_genc++_headers/gen/android/hardware/wifi/supplicant/1.0/types.vts.h:1:29: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
+#ifndef __VTS_PROFILER_types.v__
+                            ^
+                            //
+out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler_genc++_headers/gen/android/hardware/wifi/supplicant/1.0/types.vts.h:2:29: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define __VTS_PROFILER_types.v__
+                            ^
+10 warnings generated.
+[ 13% 113/830] cc 'out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler/android_arm_armv7-a-neon_cortex-a53.a57_shared/obj/android/hardware/wifi/supplicant/1.0/types.vts.o'
+In file included from out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler_genc++/gen/android/hardware/wifi/supplicant/1.0/types.vts.cpp:1:
+out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler_genc++_headers/gen/android/hardware/wifi/supplicant/1.0/types.vts.h:1:29: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
+#ifndef __VTS_PROFILER_types.v__
+                            ^
+                            //
+out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler_genc++_headers/gen/android/hardware/wifi/supplicant/1.0/types.vts.h:2:29: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define __VTS_PROFILER_types.v__
+                            ^
+2 warnings generated.
+[ 13% 114/830] cc 'out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler/android_arm64_armv8-a_cortex-a53_shared/obj/android/hardware/tests/inheritance/1.0/Child.vts.o'
+In file included from out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++/gen/android/hardware/tests/inheritance/1.0/Child.vts.cpp:1:
+out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/inheritance/1.0/Child.vts.h:1:29: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
+#ifndef __VTS_PROFILER_Child.v__
+                            ^
+                            //
+out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/inheritance/1.0/Child.vts.h:2:29: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define __VTS_PROFILER_Child.v__
+                            ^
+In file included from out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++/gen/android/hardware/tests/inheritance/1.0/Child.vts.cpp:2:
+out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/inheritance/1.0/Grandparent.vts.h:1:35: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
+#ifndef __VTS_PROFILER_Grandparent.v__
+                                  ^
+                                  //
+out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/inheritance/1.0/Grandparent.vts.h:2:35: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define __VTS_PROFILER_Grandparent.v__
+                                  ^
+In file included from out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++/gen/android/hardware/tests/inheritance/1.0/Child.vts.cpp:3:
+out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/inheritance/1.0/Parent.vts.h:1:30: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
+#ifndef __VTS_PROFILER_Parent.v__
+                             ^
+                             //
+out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/inheritance/1.0/Parent.vts.h:2:30: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define __VTS_PROFILER_Parent.v__
+                             ^
+6 warnings generated.
+[ 13% 115/830] cc 'out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler/android_arm_armv7-a-neon_cortex-a53.a57_shared/obj/android/hardware/wifi/supplicant/1.0/SupplicantCallback.vts.o'
+In file included from out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler_genc++/gen/android/hardware/wifi/supplicant/1.0/SupplicantCallback.vts.cpp:1:
+out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler_genc++_headers/gen/android/hardware/wifi/supplicant/1.0/SupplicantCallback.vts.h:1:42: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
+#ifndef __VTS_PROFILER_SupplicantCallback.v__
+                                         ^
+                                         //
+out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler_genc++_headers/gen/android/hardware/wifi/supplicant/1.0/SupplicantCallback.vts.h:2:42: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define __VTS_PROFILER_SupplicantCallback.v__
+                                         ^
+2 warnings generated.
+[ 13% 116/830] cc 'out/soong/.intermediates/hardware/interfaces/tests/libhwbinder/1.0/android.hardware.tests.libhwbinder@1.0-vts.profiler/android_arm64_armv8-a_cortex-a53_shared/obj/android/hardware/tests/libhwbinder/1.0/Benchmark.vts.o'
+In file included from out/soong/.intermediates/hardware/interfaces/tests/libhwbinder/1.0/android.hardware.tests.libhwbinder@1.0-vts.profiler_genc++/gen/android/hardware/tests/libhwbinder/1.0/Benchmark.vts.cpp:1:
+out/soong/.intermediates/hardware/interfaces/tests/libhwbinder/1.0/android.hardware.tests.libhwbinder@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/libhwbinder/1.0/Benchmark.vts.h:1:33: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
+#ifndef __VTS_PROFILER_Benchmark.v__
+                                ^
+                                //
+out/soong/.intermediates/hardware/interfaces/tests/libhwbinder/1.0/android.hardware.tests.libhwbinder@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/libhwbinder/1.0/Benchmark.vts.h:2:33: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define __VTS_PROFILER_Benchmark.v__
+                                ^
+2 warnings generated.
+[ 14% 117/830] cc 'out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler/android_arm_armv7-a-neon_cortex-a53.a57_shared/obj/android/hardware/tests/inheritance/1.0/Child.vts.o'
+In file included from out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++/gen/android/hardware/tests/inheritance/1.0/Child.vts.cpp:1:
+out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/inheritance/1.0/Child.vts.h:1:29: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
+#ifndef __VTS_PROFILER_Child.v__
+                            ^
+                            //
+out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/inheritance/1.0/Child.vts.h:2:29: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define __VTS_PROFILER_Child.v__
+                            ^
+In file included from out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++/gen/android/hardware/tests/inheritance/1.0/Child.vts.cpp:2:
+out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/inheritance/1.0/Grandparent.vts.h:1:35: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
+#ifndef __VTS_PROFILER_Grandparent.v__
+                                  ^
+                                  //
+out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/inheritance/1.0/Grandparent.vts.h:2:35: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define __VTS_PROFILER_Grandparent.v__
+                                  ^
+In file included from out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++/gen/android/hardware/tests/inheritance/1.0/Child.vts.cpp:3:
+out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/inheritance/1.0/Parent.vts.h:1:30: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
+#ifndef __VTS_PROFILER_Parent.v__
+                             ^
+                             //
+out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/inheritance/1.0/Parent.vts.h:2:30: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define __VTS_PROFILER_Parent.v__
+                             ^
+6 warnings generated.
+[ 14% 118/830] cc 'out/soong/.intermediates/hardware/interfaces/tests/memory/1.0/android.hardware.tests.memory.vts.driver@1.0/android_arm_armv7-a-neon_cortex-a53.a57_shared/obj/android/hardware/tests/memory/1.0/MemoryTest.vts.o'
+In file included from out/soong/.intermediates/hardware/interfaces/tests/memory/1.0/android.hardware.tests.memory.vts.driver@1.0_genc++/gen/android/hardware/tests/memory/1.0/MemoryTest.vts.cpp:1:
+out/soong/.intermediates/hardware/interfaces/tests/memory/1.0/android.hardware.tests.memory.vts.driver@1.0_genc++_headers/gen/android/hardware/tests/memory/1.0/MemoryTest.vts.h:1:60: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
+#ifndef __VTS_SPEC_android_hardware_tests_memory_MemoryTest.v__
+                                                           ^
+                                                           //
+out/soong/.intermediates/hardware/interfaces/tests/memory/1.0/android.hardware.tests.memory.vts.driver@1.0_genc++_headers/gen/android/hardware/tests/memory/1.0/MemoryTest.vts.h:2:60: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define __VTS_SPEC_android_hardware_tests_memory_MemoryTest.v__
+                                                           ^
+out/soong/.intermediates/hardware/interfaces/tests/memory/1.0/android.hardware.tests.memory.vts.driver@1.0_genc++/gen/android/hardware/tests/memory/1.0/MemoryTest.vts.cpp:47:35: warning: unused parameter 'func_msg' [-Wunused-parameter]
+    FunctionSpecificationMessage* func_msg,
+                                  ^
+out/soong/.intermediates/hardware/interfaces/tests/memory/1.0/android.hardware.tests.memory.vts.driver@1.0_genc++/gen/android/hardware/tests/memory/1.0/MemoryTest.vts.cpp:48:12: warning: unused parameter 'result' [-Wunused-parameter]
+    void** result, const string& callback_socket_name) {
+           ^
+out/soong/.intermediates/hardware/interfaces/tests/memory/1.0/android.hardware.tests.memory.vts.driver@1.0_genc++/gen/android/hardware/tests/memory/1.0/MemoryTest.vts.cpp:48:34: warning: unused parameter 'callback_socket_name' [-Wunused-parameter]
+    void** result, const string& callback_socket_name) {
+                                 ^
+out/soong/.intermediates/hardware/interfaces/tests/memory/1.0/android.hardware.tests.memory.vts.driver@1.0_genc++/gen/android/hardware/tests/memory/1.0/MemoryTest.vts.cpp:52:35: warning: unused parameter 'func_msg' [-Wunused-parameter]
+    FunctionSpecificationMessage* func_msg,
+                                  ^
+out/soong/.intermediates/hardware/interfaces/tests/memory/1.0/android.hardware.tests.memory.vts.driver@1.0_genc++/gen/android/hardware/tests/memory/1.0/MemoryTest.vts.cpp:53:12: warning: unused parameter 'result' [-Wunused-parameter]
+    void** result) {
+           ^
+out/soong/.intermediates/hardware/interfaces/tests/memory/1.0/android.hardware.tests.memory.vts.driver@1.0_genc++/gen/android/hardware/tests/memory/1.0/MemoryTest.vts.cpp:57:107: warning: unused parameter 'callback_socket_name' [-Wunused-parameter]
+bool FuzzerExtended_IMemoryTest::CallFunction(const FunctionSpecificationMessage& func_msg, const string& callback_socket_name, FunctionSpecificationMessage* result_msg) {
+                                                                                                          ^
+8 warnings generated.
+[ 14% 119/830] cc 'out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler/android_arm64_armv8-a_cortex-a53_shared/obj/android/hardware/tests/inheritance/1.0/Grandparent.vts.o'
+In file included from out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++/gen/android/hardware/tests/inheritance/1.0/Grandparent.vts.cpp:1:
+out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/inheritance/1.0/Grandparent.vts.h:1:35: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
+#ifndef __VTS_PROFILER_Grandparent.v__
+                                  ^
+                                  //
+out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/inheritance/1.0/Grandparent.vts.h:2:35: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define __VTS_PROFILER_Grandparent.v__
+                                  ^
+2 warnings generated.
+[ 14% 120/830] cc 'out/soong/.intermediates/hardware/interfaces/tests/libhwbinder/1.0/android.hardware.tests.libhwbinder@1.0-vts.profiler/android_arm_armv7-a-neon_cortex-a53.a57_shared/obj/android/hardware/tests/libhwbinder/1.0/Benchmark.vts.o'
+In file included from out/soong/.intermediates/hardware/interfaces/tests/libhwbinder/1.0/android.hardware.tests.libhwbinder@1.0-vts.profiler_genc++/gen/android/hardware/tests/libhwbinder/1.0/Benchmark.vts.cpp:1:
+out/soong/.intermediates/hardware/interfaces/tests/libhwbinder/1.0/android.hardware.tests.libhwbinder@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/libhwbinder/1.0/Benchmark.vts.h:1:33: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
+#ifndef __VTS_PROFILER_Benchmark.v__
+                                ^
+                                //
+out/soong/.intermediates/hardware/interfaces/tests/libhwbinder/1.0/android.hardware.tests.libhwbinder@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/libhwbinder/1.0/Benchmark.vts.h:2:33: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define __VTS_PROFILER_Benchmark.v__
+                                ^
+2 warnings generated.
+[ 14% 121/830] cc 'out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler/android_arm64_armv8-a_cortex-a53_shared/obj/android/hardware/tests/inheritance/1.0/Fetcher.vts.o'
+In file included from out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++/gen/android/hardware/tests/inheritance/1.0/Fetcher.vts.cpp:1:
+out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/inheritance/1.0/Fetcher.vts.h:1:31: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
+#ifndef __VTS_PROFILER_Fetcher.v__
+                              ^
+                              //
+out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/inheritance/1.0/Fetcher.vts.h:2:31: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define __VTS_PROFILER_Fetcher.v__
+                              ^
+In file included from out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++/gen/android/hardware/tests/inheritance/1.0/Fetcher.vts.cpp:2:
+out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/inheritance/1.0/Child.vts.h:1:29: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
+#ifndef __VTS_PROFILER_Child.v__
+                            ^
+                            //
+out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/inheritance/1.0/Child.vts.h:2:29: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define __VTS_PROFILER_Child.v__
+                            ^
+In file included from out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++/gen/android/hardware/tests/inheritance/1.0/Fetcher.vts.cpp:3:
+out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/inheritance/1.0/Grandparent.vts.h:1:35: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
+#ifndef __VTS_PROFILER_Grandparent.v__
+                                  ^
+                                  //
+out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/inheritance/1.0/Grandparent.vts.h:2:35: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define __VTS_PROFILER_Grandparent.v__
+                                  ^
+In file included from out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++/gen/android/hardware/tests/inheritance/1.0/Fetcher.vts.cpp:4:
+out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/inheritance/1.0/Parent.vts.h:1:30: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
+#ifndef __VTS_PROFILER_Parent.v__
+                             ^
+                             //
+out/soong/.intermediates/hardware/interfaces/tests/inheritance/1.0/android.hardware.tests.inheritance@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/inheritance/1.0/Parent.vts.h:2:30: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define __VTS_PROFILER_Parent.v__
+                             ^
+8 warnings generated.
+[ 14% 122/830] cc 'out/soong/.intermediates/hardware/interfaces/tests/msgq/1.0/android.hardware.tests.msgq@1.0-vts.profiler/android_arm64_armv8-a_cortex-a53_shared/obj/android/hardware/tests/msgq/1.0/TestMsgQ.vts.o'
+In file included from out/soong/.intermediates/hardware/interfaces/tests/msgq/1.0/android.hardware.tests.msgq@1.0-vts.profiler_genc++/gen/android/hardware/tests/msgq/1.0/TestMsgQ.vts.cpp:1:
+out/soong/.intermediates/hardware/interfaces/tests/msgq/1.0/android.hardware.tests.msgq@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/msgq/1.0/TestMsgQ.vts.h:1:32: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
+#ifndef __VTS_PROFILER_TestMsgQ.v__
+                               ^
+                               //
+out/soong/.intermediates/hardware/interfaces/tests/msgq/1.0/android.hardware.tests.msgq@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/msgq/1.0/TestMsgQ.vts.h:2:32: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define __VTS_PROFILER_TestMsgQ.v__
+                               ^
+2 warnings generated.
+[ 14% 123/830] cc 'out/soong/.intermediates/hardware/interfaces/tests/msgq/1.0/android.hardware.tests.msgq@1.0-vts.profiler/android_arm_armv7-a-neon_cortex-a53.a57_shared/obj/android/hardware/tests/msgq/1.0/TestMsgQ.vts.o'
+In file included from out/soong/.intermediates/hardware/interfaces/tests/msgq/1.0/android.hardware.tests.msgq@1.0-vts.profiler_genc++/gen/android/hardware/tests/msgq/1.0/TestMsgQ.vts.cpp:1:
+out/soong/.intermediates/hardware/interfaces/tests/msgq/1.0/android.hardware.tests.msgq@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/msgq/1.0/TestMsgQ.vts.h:1:32: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
+#ifndef __VTS_PROFILER_TestMsgQ.v__
+                               ^
+                               //
+out/soong/.intermediates/hardware/interfaces/tests/msgq/1.0/android.hardware.tests.msgq@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/msgq/1.0/TestMsgQ.vts.h:2:32: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define __VTS_PROFILER_TestMsgQ.v__
+                               ^
+2 warnings generated.
+[ 14% 124/830] cc 'out/soong/.intermediates/hardware/interfaces/tests/pointer/1.0/android.hardware.tests.pointer@1.0-vts.profiler/android_arm64_armv8-a_cortex-a53_shared/obj/android/hardware/tests/pointer/1.0/Pointer.vts.o'
+In file included from out/soong/.intermediates/hardware/interfaces/tests/pointer/1.0/android.hardware.tests.pointer@1.0-vts.profiler_genc++/gen/android/hardware/tests/pointer/1.0/Pointer.vts.cpp:1:
+out/soong/.intermediates/hardware/interfaces/tests/pointer/1.0/android.hardware.tests.pointer@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/pointer/1.0/Pointer.vts.h:1:31: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
+#ifndef __VTS_PROFILER_Pointer.v__
+                              ^
+                              //
+out/soong/.intermediates/hardware/interfaces/tests/pointer/1.0/android.hardware.tests.pointer@1.0-vts.profiler_genc++_headers/gen/android/hardware/tests/pointer/1.0/Pointer.vts.h:2:31: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define __VTS_PROFILER_Pointer.v__
+                              ^
+out/soong/.intermediates/hardware/interfaces/tests/pointer/1.0/android.hardware.tests.pointer@1.0-vts.profiler_genc++/gen/android/hardware/tests/pointer/1.0/Pointer.vts.cpp:45:58: warning: unused parameter 'arg_val_name' [-Wunused-parameter]
+::android::hardware::tests::pointer::V1_0::IPointer::Ada arg_val_name) {
+                                                         ^
+out/soong/.intermediates/hardware/interfaces/tests/pointer/1.0/android.hardware.tests.pointer@1.0-vts.profiler_genc++/gen/android/hardware/tests/pointer/1.0/Pointer.vts.cpp:52:48: warning: unused parameter 'event' [-Wunused-parameter]
+        HidlInstrumentor::InstrumentationEvent event,
+                                               ^
+out/soong/.intermediates/hardware/interfaces/tests/pointer/1.0/android.hardware.tests.pointer@1.0-vts.profiler_genc++/gen/android/hardware/tests/pointer/1.0/Pointer.vts.cpp:56:21: warning: unused parameter 'method' [-Wunused-parameter]
+        const char* method,
+                    ^
+out/soong/.intermediates/hardware/interfaces/tests/pointer/1.0/android.hardware.tests.pointer@1.0-vts.profiler_genc++/gen/android/hardware/tests/pointer/1.0/Pointer.vts.cpp:57:30: warning: unused parameter 'args' [-Wunused-parameter]
+        std::vector<void *> *args) {
+                             ^
+6 warnings generated.
+[ 15% 125/830] cc 'out/soong/.intermediates/hardware/interfaces/tests/msgq/1.0/android.hardware.tests.msgq.vts.driver@1.0/android_arm64_armv8-a_cortex-a53_shared/obj/android/hardware/tests/msgq/1.0/TestMsgQ.vts.o'
+In file included from out/soong/.intermediates/hardware/interfaces/tests/msgq/1.0/android.hardware.tests.msgq.vts.driver@1.0_genc++/gen/android/hardware/tests/msgq/1.0/TestMsgQ.vts.cpp:1:
+out/soong/.intermediates/hardware/interfaces/tests/msgq/1.0/android.hardware.tests.msgq.vts.driver@1.0_genc++_headers/gen/android/hardware/tests/msgq/1.0/TestMsgQ.vts.h:1:56: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
+#ifndef __VTS_SPEC_android_hardware_tests_msgq_TestMsgQ.v__
+                                                       ^
+                                                       //
+out/soong/.intermediates/hardware/interfaces/tests/msgq/1.0/android.hardware.tests.msgq.vts.driver@1.0_genc++_headers/gen/android/hardware/tests/msgq/1.0/TestMsgQ.vts.h:2:56: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define __VTS_SPEC_android_hardware_tests_msgq_TestMsgQ.v__
+                                                       ^
+out/soong/.intermediates/hardware/interfaces/tests/msgq/1.0/android.hardware.tests.msgq.vts.driver@1.0_genc++/gen/android/hardware/tests/msgq/1.0/TestMsgQ.vts.cpp:67:35: warning: unused parameter 'func_msg' [-Wunused-parameter]
+    FunctionSpecificationMessage* func_msg,
+                                  ^
+out/soong/.intermediates/hardware/interfaces/tests/msgq/1.0/android.hardware.tests.msgq.vts.driver@1.0_genc++/gen/android/hardware/tests/msgq/1.0/TestMsgQ.vts.cpp:68:12: warning: unused parameter 'result' [-Wunused-parameter]
+    void** result, const string& callback_socket_name) {
+           ^
+out/soong/.intermediates/hardware/interfaces/tests/msgq/1.0/android.hardware.tests.msgq.vts.driver@1.0_genc++/gen/android/hardware/tests/msgq/1.0/TestMsgQ.vts.cpp:68:34: warning: unused parameter 'callback_socket_name' [-Wunused-parameter]
+    void** result, const string& callback_socket_name) {
+                                 ^
+out/soong/.intermediates/hardware/interfaces/tests/msgq/1.0/android.hardware.tests.msgq.vts.driver@1.0_genc++/gen/android/hardware/tests/msgq/1.0/TestMsgQ.vts.cpp:72:35: warning: unused parameter 'func_msg' [-Wunused-parameter]
+    FunctionSpecificationMessage* func_msg,
+                                  ^
+out/soong/.intermediates/hardware/interfaces/tests/msgq/1.0/android.hardware.tests.msgq.vts.driver@1.0_genc++/gen/android/hardware/tests/msgq/1.0/TestMsgQ.vts.cpp:73:12: warning: unused parameter 'result' [-Wunused-parameter]
+    void** result) {
+           ^
+out/soong/.intermediates/hardware/interfaces/tests/msgq/1.0/android.hardware.tests.msgq.vts.driver@1.0_genc++/gen/android/hardware/tests/msgq/1.0/TestMsgQ.vts.cpp:87:122: warning: unused parameter 'arg1' [-Wunused-parameter]
+        hw_binder_proxy_->configureFmqSyncReadWrite([&](bool arg0,const ::android::hardware::MQDescriptorSync<uint16_t>& arg1){
+                                                                                                                         ^
+out/soong/.intermediates/hardware/interfaces/tests/msgq/1.0/android.hardware.tests.msgq.vts.driver@1.0_genc++/gen/android/hardware/tests/msgq/1.0/TestMsgQ.vts.cpp:111:122: warning: unused parameter 'arg1' [-Wunused-parameter]
+        hw_binder_proxy_->configureFmqUnsyncWrite([&](bool arg0,const ::android::hardware::MQDescriptorUnsync<uint16_t>& arg1){
+                                                                                                                         ^
+out/soong/.intermediates/hardware/interfaces/tests/msgq/1.0/android.hardware.tests.msgq.vts.driver@1.0_genc++/gen/android/hardware/tests/msgq/1.0/TestMsgQ.vts.cpp:77:105: warning: unused parameter 'callback_socket_name' [-Wunused-parameter]
+bool FuzzerExtended_ITestMsgQ::CallFunction(const FunctionSpecificationMessage& func_msg, const string& callback_socket_name, FunctionSpecificationMessage* result_msg) {
+                                                                                                        ^
+10 warnings generated.
+[ 15% 126/830] cc 'out/soong/.intermediates/hardware/interfaces/tests/memory/1.0/android.hardware.tests.memory.vts.driver@1.0/android_arm64_armv8-a_cortex-a53_shared/obj/android/hardware/tests/memory/1.0/MemoryTest.vts.o'
+In file included from out/soong/.intermediates/hardware/interfaces/tests/memory/1.0/android.hardware.tests.memory.vts.driver@1.0_genc++/gen/android/hardware/tests/memory/1.0/MemoryTest.vts.cpp:1:
+out/soong/.intermediates/hardware/interfaces/tests/memory/1.0/android.hardware.tests.memory.vts.driver@1.0_genc++_headers/gen/android/hardware/tests/memory/1.0/MemoryTest.vts.h:1:60: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
+#ifndef __VTS_SPEC_android_hardware_tests_memory_MemoryTest.v__
+                                                           ^
+                                                           //
+out/soong/.intermediates/hardware/interfaces/tests/memory/1.0/android.hardware.tests.memory.vts.driver@1.0_genc++_headers/gen/android/hardware/tests/memory/1.0/MemoryTest.vts.h:2:60: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define __VTS_SPEC_android_hardware_tests_memory_MemoryTest.v__
+                                                           ^
+out/soong/.intermediates/hardware/interfaces/tests/memory/1.0/android.hardware.tests.memory.vts.driver@1.0_genc++/gen/android/hardware/tests/memory/1.0/MemoryTest.vts.cpp:47:35: warning: unused parameter 'func_msg' [-Wunused-parameter]
+    FunctionSpecificationMessage* func_msg,
+                                  ^
+out/soong/.intermediates/hardware/interfaces/tests/memory/1.0/android.hardware.tests.memory.vts.driver@1.0_genc++/gen/android/hardware/tests/memory/1.0/MemoryTest.vts.cpp:48:12: warning: unused parameter 'result' [-Wunused-parameter]
+    void** result, const string& callback_socket_name) {
+           ^
+out/soong/.intermediates/hardware/interfaces/tests/memory/1.0/android.hardware.tests.memory.vts.driver@1.0_genc++/gen/android/hardware/tests/memory/1.0/MemoryTest.vts.cpp:48:34: warning: unused parameter 'callback_socket_name' [-Wunused-parameter]
+    void** result, const string& callback_socket_name) {
+                                 ^
+out/soong/.intermediates/hardware/interfaces/tests/memory/1.0/android.hardware.tests.memory.vts.driver@1.0_genc++/gen/android/hardware/tests/memory/1.0/MemoryTest.vts.cpp:52:35: warning: unused parameter 'func_msg' [-Wunused-parameter]
+    FunctionSpecificationMessage* func_msg,
+                                  ^
+out/soong/.intermediates/hardware/interfaces/tests/memory/1.0/android.hardware.tests.memory.vts.driver@1.0_genc++/gen/android/hardware/tests/memory/1.0/MemoryTest.vts.cpp:53:12: warning: unused parameter 'result' [-Wunused-parameter]
+    void** result) {
+           ^
+out/soong/.intermediates/hardware/interfaces/tests/memory/1.0/android.hardware.tests.memory.vts.driver@1.0_genc++/gen/android/hardware/tests/memory/1.0/MemoryTest.vts.cpp:57:107: warning: unused parameter 'callback_socket_name' [-Wunused-parameter]
+bool FuzzerExtended_IMemoryTest::CallFunction(const FunctionSpecificationMessage& func_msg, const string& callback_socket_name, FunctionSpecificationMessage* result_msg) {
+                                                                                                          ^
+8 warnings generated.
+[ 15% 127/830] cc 'out/soong/.intermediates/hardware/interfaces/tests/msgq/1.0/android.hardware.tests.msgq.vts.driver@1.0/android_arm_armv7-a-neon_cortex-a53.a57_shared/obj/android/hardware/tests/msgq/1.0/TestMsgQ.vts.o'
+In file included from out/soong/.intermediates/hardware/interfaces/tests/msgq/1.0/android.hardware.tests.msgq.vts.driver@1.0_genc++/gen/android/hardware/tests/msgq/1.0/TestMsgQ.vts.cpp:1:
+out/soong/.intermediates/hardware/interfaces/tests/msgq/1.0/android.hardware.tests.msgq.vts.driver@1.0_genc++_headers/gen/android/hardware/tests/msgq/1.0/TestMsgQ.vts.h:1:56: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
+#ifndef __VTS_SPEC_android_hardware_tests_msgq_TestMsgQ.v__
+                                                       ^
+                                                       //
+out/soong/.intermediates/hardware/interfaces/tests/msgq/1.0/android.hardware.tests.msgq.vts.driver@1.0_genc++_headers/gen/android/hardware/tests/msgq/1.0/TestMsgQ.vts.h:2:56: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define __VTS_SPEC_android_hardware_tests_msgq_TestMsgQ.v__
+                                                       ^
+out/soong/.intermediates/hardware/interfaces/tests/msgq/1.0/android.hardware.tests.msgq.vts.driver@1.0_genc++/gen/android/hardware/tests/msgq/1.0/TestMsgQ.vts.cpp:67:35: warning: unused parameter 'func_msg' [-Wunused-parameter]
+    FunctionSpecificationMessage* func_msg,
+                                  ^
+out/soong/.intermediates/hardware/interfaces/tests/msgq/1.0/android.hardware.tests.msgq.vts.driver@1.0_genc++/gen/android/hardware/tests/msgq/1.0/TestMsgQ.vts.cpp:68:12: warning: unused parameter 'result' [-Wunused-parameter]
+    void** result, const string& callback_socket_name) {
+           ^
+out/soong/.intermediates/hardware/interfaces/tests/msgq/1.0/android.hardware.tests.msgq.vts.driver@1.0_genc++/gen/android/hardware/tests/msgq/1.0/TestMsgQ.vts.cpp:68:34: warning: unused parameter 'callback_socket_name' [-Wunused-parameter]
+    void** result, const string& callback_socket_name) {
+                                 ^
+out/soong/.intermediates/hardware/interfaces/tests/msgq/1.0/android.hardware.tests.msgq.vts.driver@1.0_genc++/gen/android/hardware/tests/msgq/1.0/TestMsgQ.vts.cpp:72:35: warning: unused parameter 'func_msg' [-Wunused-parameter]
+    FunctionSpecificationMessage* func_msg,
+                                  ^
+out/soong/.intermediates/hardware/interfaces/tests/msgq/1.0/android.hardware.tests.msgq.vts.driver@1.0_genc++/gen/android/hardware/tests/msgq/1.0/TestMsgQ.vts.cpp:73:12: warning: unused parameter 'result' [-Wunused-parameter]
+    void** result) {
+           ^
+out/soong/.intermediates/hardware/interfaces/tests/msgq/1.0/android.hardware.tests.msgq.vts.driver@1.0_genc++/gen/android/hardware/tests/msgq/1.0/TestMsgQ.vts.cpp:87:122: warning: unused parameter 'arg1' [-Wunused-parameter]
+        hw_binder_proxy_->configureFmqSyncReadWrite([&](bool arg0,const ::android::hardware::MQDescriptorSync<uint16_t>& arg1){
+                                                                                                                         ^
+out/soong/.intermediates/hardware/interfaces/tests/msgq/1.0/android.hardware.tests.msgq.vts.driver@1.0_genc++/gen/android/hardware/tests/msgq/1.0/TestMsgQ.vts.cpp:111:122: warning: unused parameter 'arg1' [-Wunused-parameter]
+        hw_binder_proxy_->configureFmqUnsyncWrite([&](bool arg0,const ::android::hardware::MQDescriptorUnsync<uint16_t>& arg1){
+                                                                                                                         ^
+out/soong/.intermediates/hardware/interfaces/tests/msgq/1.0/android.hardware.tests.msgq.vts.driver@1.0_genc++/gen/android/hardware/tests/msgq/1.0/TestMsgQ.vts.cpp:77:105: warning: unused parameter 'callback_socket_name' [-Wunused-parameter]
+bool FuzzerExtended_ITestMsgQ::CallFunction(const FunctionSpecificationMessage& func_msg, const string& callback_socket_name, FunctionSpecificationMessage* result_msg) {
+                                                                                                        ^
+10 warnings generated.
+[ 15% 128/830] cc 'out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler/android_arm64_armv8-a_cortex-a53_shared/obj/android/hardware/wifi/supplicant/1.0/SupplicantP2pIface.vts.o'
+In file included from out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler_genc++/gen/android/hardware/wifi/supplicant/1.0/SupplicantP2pIface.vts.cpp:1:
+out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler_genc++_headers/gen/android/hardware/wifi/supplicant/1.0/SupplicantP2pIface.vts.h:1:42: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
+#ifndef __VTS_PROFILER_SupplicantP2pIface.v__
+                                         ^
+                                         //
+out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler_genc++_headers/gen/android/hardware/wifi/supplicant/1.0/SupplicantP2pIface.vts.h:2:42: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define __VTS_PROFILER_SupplicantP2pIface.v__
+                                         ^
+In file included from out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler_genc++/gen/android/hardware/wifi/supplicant/1.0/SupplicantP2pIface.vts.cpp:2:
+out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler_genc++_headers/gen/android/hardware/wifi/supplicant/1.0/SupplicantIface.vts.h:1:39: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
+#ifndef __VTS_PROFILER_SupplicantIface.v__
+                                      ^
+                                      //
+out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler_genc++_headers/gen/android/hardware/wifi/supplicant/1.0/SupplicantIface.vts.h:2:39: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define __VTS_PROFILER_SupplicantIface.v__
+                                      ^
+In file included from out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler_genc++/gen/android/hardware/wifi/supplicant/1.0/SupplicantP2pIface.vts.cpp:3:
+out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler_genc++_headers/gen/android/hardware/wifi/supplicant/1.0/SupplicantNetwork.vts.h:1:41: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
+#ifndef __VTS_PROFILER_SupplicantNetwork.v__
+                                        ^
+                                        //
+out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler_genc++_headers/gen/android/hardware/wifi/supplicant/1.0/SupplicantNetwork.vts.h:2:41: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define __VTS_PROFILER_SupplicantNetwork.v__
+                                        ^
+In file included from out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler_genc++/gen/android/hardware/wifi/supplicant/1.0/SupplicantP2pIface.vts.cpp:4:
+out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler_genc++_headers/gen/android/hardware/wifi/supplicant/1.0/SupplicantP2pIfaceCallback.vts.h:1:50: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
+#ifndef __VTS_PROFILER_SupplicantP2pIfaceCallback.v__
+                                                 ^
+                                                 //
+out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler_genc++_headers/gen/android/hardware/wifi/supplicant/1.0/SupplicantP2pIfaceCallback.vts.h:2:50: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define __VTS_PROFILER_SupplicantP2pIfaceCallback.v__
+                                                 ^
+In file included from out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler_genc++/gen/android/hardware/wifi/supplicant/1.0/SupplicantP2pIface.vts.cpp:5:
+out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler_genc++_headers/gen/android/hardware/wifi/supplicant/1.0/types.vts.h:1:29: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
+#ifndef __VTS_PROFILER_types.v__
+                            ^
+                            //
+out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler_genc++_headers/gen/android/hardware/wifi/supplicant/1.0/types.vts.h:2:29: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define __VTS_PROFILER_types.v__
+                            ^
+10 warnings generated.
+[ 15% 129/830] cc 'out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler/android_arm64_armv8-a_cortex-a53_shared/obj/android/hardware/wifi/supplicant/1.0/SupplicantStaNetwork.vts.o'
+In file included from out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler_genc++/gen/android/hardware/wifi/supplicant/1.0/SupplicantStaNetwork.vts.cpp:1:
+out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler_genc++_headers/gen/android/hardware/wifi/supplicant/1.0/SupplicantStaNetwork.vts.h:1:44: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
+#ifndef __VTS_PROFILER_SupplicantStaNetwork.v__
+                                           ^
+                                           //
+out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler_genc++_headers/gen/android/hardware/wifi/supplicant/1.0/SupplicantStaNetwork.vts.h:2:44: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define __VTS_PROFILER_SupplicantStaNetwork.v__
+                                           ^
+In file included from out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler_genc++/gen/android/hardware/wifi/supplicant/1.0/SupplicantStaNetwork.vts.cpp:2:
+out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler_genc++_headers/gen/android/hardware/wifi/supplicant/1.0/SupplicantNetwork.vts.h:1:41: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
+#ifndef __VTS_PROFILER_SupplicantNetwork.v__
+                                        ^
+                                        //
+out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler_genc++_headers/gen/android/hardware/wifi/supplicant/1.0/SupplicantNetwork.vts.h:2:41: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define __VTS_PROFILER_SupplicantNetwork.v__
+                                        ^
+In file included from out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler_genc++/gen/android/hardware/wifi/supplicant/1.0/SupplicantStaNetwork.vts.cpp:3:
+out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler_genc++_headers/gen/android/hardware/wifi/supplicant/1.0/SupplicantStaNetworkCallback.vts.h:1:52: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
+#ifndef __VTS_PROFILER_SupplicantStaNetworkCallback.v__
+                                                   ^
+                                                   //
+out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler_genc++_headers/gen/android/hardware/wifi/supplicant/1.0/SupplicantStaNetworkCallback.vts.h:2:52: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define __VTS_PROFILER_SupplicantStaNetworkCallback.v__
+                                                   ^
+In file included from out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler_genc++/gen/android/hardware/wifi/supplicant/1.0/SupplicantStaNetwork.vts.cpp:4:
+out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler_genc++_headers/gen/android/hardware/wifi/supplicant/1.0/types.vts.h:1:29: warning: extra tokens at end of #ifndef directive [-Wextra-tokens]
+#ifndef __VTS_PROFILER_types.v__
+                            ^
+                            //
+out/soong/.intermediates/hardware/interfaces/wifi/supplicant/1.0/android.hardware.wifi.supplicant@1.0-vts.profiler_genc++_headers/gen/android/hardware/wifi/supplicant/1.0/types.vts.h:2:29: warning: ISO C99 requires whitespace after the macro name [-Wc99-extensions]
+#define __VTS_PROFILER_types.v__
+                            ^
+8 warnings generated.
+ninja: build stopped: subcommand failed.
+make: Leaving directory `/usr/local/google/home/zhuoyao/android/aosp'
+
+[0;31m#### make failed to build some targets (17 seconds) ####[00m
+
