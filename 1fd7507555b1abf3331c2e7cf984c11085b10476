@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1ad113eb_04233697",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 1020,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-02-17T21:46:40Z",
+      "side": 1,
+      "message": "Nite: Add \".\" at end of each of the below line to be consistent with the lines above.",
+      "revId": "1fd7507555b1abf3331c2e7cf984c11085b10476",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
