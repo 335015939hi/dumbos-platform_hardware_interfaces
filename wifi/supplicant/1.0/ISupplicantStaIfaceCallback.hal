@@ -239,20 +239,25 @@ interface ISupplicantStaIfaceCallback {
   /**
    * Used to indicate a Hotspot 2.0 subscription remediation event.
    *
+   * @param macAddress MAC address of the access point.
    * @param osuMethod OSU method.
    * @param url URL of the server.
    */
-  oneway onHs20SubscriptionRemediation(OsuMethod osuMethod, string url);
+  oneway onHs20SubscriptionRemediation(MacAddress macAddress,
+                                       OsuMethod osuMethod,
+                                       string url);
 
   /**
    * Used to indicate a Hotspot 2.0 imminent deauth notice.
    *
+   * @param macAddress MAC address of the access point.
    * @param reasonCode Code to indicate the deauth reason.
    *        Refer to section 3.2.1.2 of the Hotspot 2.0 spec.
    * @param reAuthDelayInSec Delay before reauthenticating.
    * @param url URL of the server.
    */
-  oneway onHs20DeauthImminentNotice(uint32_t reasonCode,
+  oneway onHs20DeauthImminentNotice(MacAddress macAddress,
+                                    uint32_t reasonCode,
                                     uint32_t reAuthDelayInSec,
                                     string url);
 
