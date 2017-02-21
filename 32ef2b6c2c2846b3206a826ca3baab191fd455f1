@@ -22,6 +22,30 @@
       "revId": "32ef2b6c2c2846b3206a826ca3baab191fd455f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "221ffec8_448f0aea",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1012,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2017-02-21T16:30:24Z",
+      "side": 1,
+      "message": "It is expose through the capability structure.",
+      "parentUuid": "178ad286_11b94540",
+      "range": {
+        "startLine": 1012,
+        "startChar": 55,
+        "endLine": 1012,
+        "endChar": 93
+      },
+      "revId": "32ef2b6c2c2846b3206a826ca3baab191fd455f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
