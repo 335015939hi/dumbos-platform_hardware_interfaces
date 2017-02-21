@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7b7a3262_f132a673",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 1013,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-02-21T05:42:09Z",
+      "side": 1,
+      "message": "must",
+      "range": {
+        "startLine": 1013,
+        "startChar": 77,
+        "endLine": 1013,
+        "endChar": 81
+      },
+      "revId": "53182dec8a07e135e949ee1b97c75ee7e325470c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
