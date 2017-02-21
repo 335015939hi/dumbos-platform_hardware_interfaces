@@ -22,6 +22,16 @@ struct Offload : public IOffload {
 
     // Methods from ::android::hidl::base::V1_0::IBase follow.
 
+  private:
+    // Private variables
+    bool mScanEventSubscription;
+    uint64_t mSubscriptionTimeMs;
+    uint32_t mSubscriptionDelayMs;
+    ScanParam mScanParam;
+    ScanFilter mScanFilter;
+    sp<IOffloadCallback> mScanEventCallback;
+
+    DISALLOW_COPY_AND_ASSIGN(Offload);
 };
 
 extern "C" IOffload* HIDL_FETCH_IOffload(const char* name);
