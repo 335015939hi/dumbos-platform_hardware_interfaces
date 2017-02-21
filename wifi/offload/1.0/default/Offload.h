@@ -12,21 +12,6 @@ namespace offload {
 namespace V1_0 {
 namespace implementation {
 
-using ::android::hardware::wifi::offload::V1_0::IOffload;
-using ::android::hardware::wifi::offload::V1_0::IOffloadCallback;
-using ::android::hardware::wifi::offload::V1_0::ScanFilter;
-using ::android::hardware::wifi::offload::V1_0::ScanParam;
-using ::android::hardware::wifi::offload::V1_0::ScanStats;
-using ::android::hidl::base::V1_0::DebugInfo;
-using ::android::hidl::base::V1_0::IBase;
-using ::android::hardware::hidl_array;
-using ::android::hardware::hidl_memory;
-using ::android::hardware::hidl_string;
-using ::android::hardware::hidl_vec;
-using ::android::hardware::Return;
-using ::android::hardware::Void;
-using ::android::sp;
-
 struct Offload : public IOffload {
     // Methods from ::android::hardware::wifi::offload::V1_0::IOffload follow.
     Return<void> configureScans(const ScanParam& param, const ScanFilter& filter) override;
