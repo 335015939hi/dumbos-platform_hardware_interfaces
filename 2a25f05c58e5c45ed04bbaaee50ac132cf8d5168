@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "51def919_edb86509",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-02-23T00:58:57Z",
+      "side": 1,
+      "message": "Maybe update this comment? (This can also be used for some AP stuff.)",
+      "range": {
+        "startLine": 213,
+        "startChar": 14,
+        "endLine": 213,
+        "endChar": 58
+      },
+      "revId": "2a25f05c58e5c45ed04bbaaee50ac132cf8d5168",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
