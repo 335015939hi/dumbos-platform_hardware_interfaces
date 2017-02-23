@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "84952b5a_511d0b5a",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-02-23T21:53:09Z",
+      "side": 1,
+      "message": "or",
+      "range": {
+        "startLine": 383,
+        "startChar": 57,
+        "endLine": 383,
+        "endChar": 59
+      },
+      "revId": "e633dea665c7c8ebb94875ada1044c78c59acdd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ee045f0_febd53ef",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-02-23T21:53:09Z",
+      "side": 1,
+      "message": "Shouldn\u0027t you mention the exact use of the field and how it relates to protocol?",
+      "revId": "e633dea665c7c8ebb94875ada1044c78c59acdd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
