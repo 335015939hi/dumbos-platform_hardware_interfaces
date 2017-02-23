@@ -16,8 +16,6 @@
 
 #include "vendor_interface.h"
 
-#include <assert.h>
-
 #define LOG_TAG "android.hardware.bluetooth@1.0-impl"
 #include <android-base/logging.h>
 #include <cutils/properties.h>
@@ -186,7 +184,7 @@ class FirmwareStartupTimer {
 bool VendorInterface::Initialize(
     InitializeCompleteCallback initialize_complete_cb,
     PacketReadCallback packet_read_cb) {
-  assert(!g_vendor_interface);
+  CHECK(!g_vendor_interface);
   g_vendor_interface = new VendorInterface();
   return g_vendor_interface->Open(initialize_complete_cb, packet_read_cb);
 }
