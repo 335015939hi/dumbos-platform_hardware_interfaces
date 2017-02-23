@@ -33,73 +33,310 @@ TEST_F(RadioHidlTest, getIccCardStatus) {
 }
 
 /*
- * Test IRadio.supplyIccPinForApp() for the response returned.
+ * Test IRadio.supplyIccPinForApp() for the response returned
  */
 TEST_F(RadioHidlTest, supplyIccPinForApp) {
-    radio->supplyIccPinForApp(2, hidl_string("test1"), hidl_string());
+    int serial = 1;
+    radio->getIccCardStatus(++serial);
     EXPECT_EQ(std::cv_status::no_timeout, wait());
-    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-    EXPECT_EQ(2, radioRsp->rspInfo.serial);
+    EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+    EXPECT_EQ(radioRsp->rspInfo.error, RadioError::NONE);
 
-    EXPECT_EQ(radioRsp->rspInfo.error, RadioError::PASSWORD_INCORRECT);
+    // Pass wrong password and check PASSWORD_INCORRECT returned for 3GPP and 3GPP2 apps only
+    for (int i = 0; i < (int) radioRsp->cardStatus.applications.size(); i++) {
+        if (radioRsp->cardStatus.applications[i].appType == AppType::SIM
+                || radioRsp->cardStatus.applications[i].appType == AppType::USIM
+                || radioRsp->cardStatus.applications[i].appType == AppType::RUIM
+                || radioRsp->cardStatus.applications[i].appType == AppType::CSIM) {
+            radio->supplyIccPinForApp(++serial, hidl_string("test1"),
+                    radioRsp->cardStatus.applications[i].aidPtr);
+            EXPECT_EQ(std::cv_status::no_timeout, wait());
+            EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+            EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
+            EXPECT_EQ(radioRsp->rspInfo.error, RadioError::PASSWORD_INCORRECT);
+        }
+    }
 }
 
 /*
  * Test IRadio.supplyIccPukForApp() for the response returned.
  */
 TEST_F(RadioHidlTest, supplyIccPukForApp) {
-    radio->supplyIccPukForApp(3, hidl_string("test1"), hidl_string("test2"), hidl_string());
+    int serial = 1;
+    radio->getIccCardStatus(++serial);
     EXPECT_EQ(std::cv_status::no_timeout, wait());
-    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-    EXPECT_EQ(3, radioRsp->rspInfo.serial);
+    EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+    EXPECT_EQ(radioRsp->rspInfo.error, RadioError::NONE);
 
-    EXPECT_EQ(radioRsp->rspInfo.error, RadioError::PASSWORD_INCORRECT);
+    // Pass wrong password and check PASSWORD_INCORRECT returned for 3GPP and 3GPP2 apps only
+    for (int i = 0; i < (int) radioRsp->cardStatus.applications.size(); i++) {
+        if (radioRsp->cardStatus.applications[i].appType == AppType::SIM
+                || radioRsp->cardStatus.applications[i].appType == AppType::USIM
+                || radioRsp->cardStatus.applications[i].appType == AppType::RUIM
+                || radioRsp->cardStatus.applications[i].appType == AppType::CSIM) {
+            radio->supplyIccPukForApp(++serial, hidl_string("test1"), hidl_string("test2"),
+                    radioRsp->cardStatus.applications[i].aidPtr);
+            EXPECT_EQ(std::cv_status::no_timeout, wait());
+            EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+            EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
+            EXPECT_EQ(radioRsp->rspInfo.error, RadioError::PASSWORD_INCORRECT);
+        }
+    }
 }
 
 /*
  * Test IRadio.supplyIccPin2ForApp() for the response returned.
  */
 TEST_F(RadioHidlTest, supplyIccPin2ForApp) {
-    radio->supplyIccPin2ForApp(4, hidl_string("test1"), hidl_string());
+    int serial = 1;
+    radio->getIccCardStatus(++serial);
     EXPECT_EQ(std::cv_status::no_timeout, wait());
-    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-    EXPECT_EQ(4, radioRsp->rspInfo.serial);
+    EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+    EXPECT_EQ(radioRsp->rspInfo.error, RadioError::NONE);
 
-    EXPECT_EQ(radioRsp->rspInfo.error, RadioError::PASSWORD_INCORRECT);
+    // Pass wrong password and check PASSWORD_INCORRECT returned for 3GPP and 3GPP2 apps only
+    for (int i = 0; i < (int) radioRsp->cardStatus.applications.size(); i++) {
+        if (radioRsp->cardStatus.applications[i].appType == AppType::SIM
+                || radioRsp->cardStatus.applications[i].appType == AppType::USIM
+                || radioRsp->cardStatus.applications[i].appType == AppType::RUIM
+                || radioRsp->cardStatus.applications[i].appType == AppType::CSIM) {
+            radio->supplyIccPin2ForApp(++serial, hidl_string("test1"),
+                    radioRsp->cardStatus.applications[i].aidPtr);
+            EXPECT_EQ(std::cv_status::no_timeout, wait());
+            EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+            EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
+            EXPECT_EQ(radioRsp->rspInfo.error, RadioError::PASSWORD_INCORRECT);
+        }
+    }
 }
 
 /*
  * Test IRadio.supplyIccPuk2ForApp() for the response returned.
  */
 TEST_F(RadioHidlTest, supplyIccPuk2ForApp) {
-    radio->supplyIccPuk2ForApp(5, hidl_string("test1"), hidl_string("test2"), hidl_string());
+    int serial = 1;
+    radio->getIccCardStatus(++serial);
     EXPECT_EQ(std::cv_status::no_timeout, wait());
-    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-    EXPECT_EQ(5, radioRsp->rspInfo.serial);
+    EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+    EXPECT_EQ(radioRsp->rspInfo.error, RadioError::NONE);
 
-    EXPECT_EQ(radioRsp->rspInfo.error, RadioError::PASSWORD_INCORRECT);
+    // Pass wrong password and check PASSWORD_INCORRECT returned for 3GPP and 3GPP2 apps only
+    for (int i = 0; i < (int) radioRsp->cardStatus.applications.size(); i++) {
+        if (radioRsp->cardStatus.applications[i].appType == AppType::SIM
+                || radioRsp->cardStatus.applications[i].appType == AppType::USIM
+                || radioRsp->cardStatus.applications[i].appType == AppType::RUIM
+                || radioRsp->cardStatus.applications[i].appType == AppType::CSIM) {
+            radio->supplyIccPuk2ForApp(++serial, hidl_string("test1"), hidl_string("test2"),
+                    radioRsp->cardStatus.applications[i].aidPtr);
+            EXPECT_EQ(std::cv_status::no_timeout, wait());
+            EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+            EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
+            EXPECT_EQ(radioRsp->rspInfo.error, RadioError::PASSWORD_INCORRECT);
+        }
+    }
 }
 
 /*
  * Test IRadio.changeIccPinForApp() for the response returned.
  */
 TEST_F(RadioHidlTest, changeIccPinForApp) {
-    radio->changeIccPinForApp(6, hidl_string("test1"), hidl_string("test2"), hidl_string());
+    int serial = 1;
+    radio->getIccCardStatus(++serial);
     EXPECT_EQ(std::cv_status::no_timeout, wait());
-    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-    EXPECT_EQ(6, radioRsp->rspInfo.serial);
+    EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+    EXPECT_EQ(radioRsp->rspInfo.error, RadioError::NONE);
 
-    EXPECT_EQ(radioRsp->rspInfo.error, RadioError::PASSWORD_INCORRECT);
+    // Pass wrong password and check PASSWORD_INCORRECT returned for 3GPP and 3GPP2 apps only
+    for (int i = 0; i < (int) radioRsp->cardStatus.applications.size(); i++) {
+        if (radioRsp->cardStatus.applications[i].appType == AppType::SIM
+                || radioRsp->cardStatus.applications[i].appType == AppType::USIM
+                || radioRsp->cardStatus.applications[i].appType == AppType::RUIM
+                || radioRsp->cardStatus.applications[i].appType == AppType::CSIM) {
+            radio->changeIccPinForApp(++serial, hidl_string("test1"), hidl_string("test2"),
+                    radioRsp->cardStatus.applications[i].aidPtr);
+            EXPECT_EQ(std::cv_status::no_timeout, wait());
+            EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+            EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
+            EXPECT_EQ(radioRsp->rspInfo.error, RadioError::PASSWORD_INCORRECT);
+        }
+    }
 }
 
 /*
  * Test IRadio.changeIccPin2ForApp() for the response returned.
  */
 TEST_F(RadioHidlTest, changeIccPin2ForApp) {
-    radio->changeIccPin2ForApp(7, hidl_string("test1"), hidl_string("test2"), hidl_string());
+    int serial = 1;
+    radio->getIccCardStatus(++serial);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+    EXPECT_EQ(radioRsp->rspInfo.error, RadioError::NONE);
+
+    // Pass wrong password and check PASSWORD_INCORRECT returned for 3GPP and 3GPP2 apps only
+    for (int i = 0; i < (int) radioRsp->cardStatus.applications.size(); i++) {
+        if (radioRsp->cardStatus.applications[i].appType == AppType::SIM
+                || radioRsp->cardStatus.applications[i].appType == AppType::USIM
+                || radioRsp->cardStatus.applications[i].appType == AppType::RUIM
+                || radioRsp->cardStatus.applications[i].appType == AppType::CSIM) {
+            radio->changeIccPin2ForApp(++serial, hidl_string("test1"), hidl_string("test2"),
+                    radioRsp->cardStatus.applications[i].aidPtr);
+            EXPECT_EQ(std::cv_status::no_timeout, wait());
+            EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+            EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
+            EXPECT_EQ(radioRsp->rspInfo.error, RadioError::PASSWORD_INCORRECT);
+        }
+    }
+}
+
+/*
+ * Test IRadio.getImsiForApp() for the response returned.
+ */
+TEST_F(RadioHidlTest, getImsiForApp) {
+    int serial = 1;
+    radio->getIccCardStatus(++serial);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+    EXPECT_EQ(radioRsp->rspInfo.error, RadioError::NONE);
+
+    // Check success returned while getting imsi for 3GPP and 3GPP2 apps only
+    for (int i = 0; i < (int) radioRsp->cardStatus.applications.size(); i++) {
+        if (radioRsp->cardStatus.applications[i].appType == AppType::SIM
+                || radioRsp->cardStatus.applications[i].appType == AppType::USIM
+                || radioRsp->cardStatus.applications[i].appType == AppType::RUIM
+                || radioRsp->cardStatus.applications[i].appType == AppType::CSIM) {
+            radio->getImsiForApp(++serial, radioRsp->cardStatus.applications[i].aidPtr);
+            EXPECT_EQ(std::cv_status::no_timeout, wait());
+            EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
+            EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+            EXPECT_EQ(radioRsp->rspInfo.error, RadioError::NONE);
+
+            // IMSI (MCC+MNC+MSIN) is at least 6 digits, but not more than 15
+            if (radioRsp->rspInfo.error == RadioError::NONE) {
+                EXPECT_NE(radioRsp->imsi, hidl_string());
+                EXPECT_GE((int) (radioRsp->imsi).size(), 6);
+                EXPECT_LE((int) (radioRsp->imsi).size(), 15);
+            }
+        }
+    }
+}
+
+/*
+ * Test IRadio.iccIOForApp() for the response returned.
+ */
+TEST_F(RadioHidlTest, iccIOForApp) {
+    int serial = 1;
+    IccIo iccIo;
+    iccIo.command = 0xc0;
+    iccIo.fileId = 0x6f11;
+    iccIo.path = hidl_string("3F007FFF");
+    iccIo.p1 = 0;
+    iccIo.p2 = 0;
+    iccIo.p3 = 0;
+    iccIo.data = hidl_string();
+    iccIo.pin2 = hidl_string();
+    iccIo.aid = hidl_string();
+
+    radio->iccIOForApp(serial, iccIo);
     EXPECT_EQ(std::cv_status::no_timeout, wait());
     EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-    EXPECT_EQ(7, radioRsp->rspInfo.serial);
+    EXPECT_EQ(serial, radioRsp->rspInfo.serial);
 
-    EXPECT_EQ(radioRsp->rspInfo.error, RadioError::PASSWORD_INCORRECT);
+    // TODO : Add tests related to error code returned
+}
+
+/*
+ * Test IRadio.iccTransmitApduBasicChannel() for the response returned.
+ */
+TEST_F(RadioHidlTest, iccTransmitApduBasicChannel) {
+    int serial = 1;
+    SimApdu msg;
+    msg.sessionId = 0;
+    msg.cla = 0;
+    msg.instruction = 0;
+    msg.p1 = 0;
+    msg.p2 = 0;
+    msg.p3 = 0;
+    msg.data = hidl_string();
+
+    radio->iccTransmitApduBasicChannel(serial, msg);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
+    EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+
+    // TODO : Add tests related to error code returned
+}
+
+/*
+ * Test IRadio.iccOpenLogicalChannel() for the response returned.
+ */
+TEST_F(RadioHidlTest, iccOpenLogicalChannel) {
+    int serial = 1;
+    radio->getIccCardStatus(++serial);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+    EXPECT_EQ(radioRsp->rspInfo.error, RadioError::NONE);
+
+    for (int i = 0; i < (int) radioRsp->cardStatus.applications.size(); i++) {
+        radio->iccOpenLogicalChannel(++serial, radioRsp->cardStatus.applications[i].aidPtr);
+        EXPECT_EQ(std::cv_status::no_timeout, wait());
+        EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+        EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
+        // TODO: Add tests related to error code returned
+    }
+}
+
+/*
+ * Test IRadio.iccCloseLogicalChannel() for the response returned.
+ */
+TEST_F(RadioHidlTest, iccCloseLogicalChannel) {
+    int serial = 1;
+    // Try closing invalid channel and check INVALID_ARGUMENTS returned as error
+    radio->iccCloseLogicalChannel(serial, 0);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
+    EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+
+    EXPECT_EQ(radioRsp->rspInfo.error, RadioError::INVALID_ARGUMENTS);
+}
+
+/*
+ * Test IRadio.iccTransmitApduLogicalChannel() for the response returned.
+ */
+TEST_F(RadioHidlTest, iccTransmitApduLogicalChannel) {
+    SimApdu msg;
+    msg.sessionId = 0;
+    msg.cla = 0;
+    msg.instruction = 0;
+    msg.p1 = 0;
+    msg.p2 = 0;
+    msg.p3 = 0;
+    msg.data = hidl_string();
+
+    radio->iccTransmitApduLogicalChannel(1, msg);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
+    EXPECT_EQ(1, radioRsp->rspInfo.serial);
+
+    // TODO : Add tests related to error code returned
+}
+
+/*
+ * Test IRadio.requestIccSimAuthentication() for the response returned.
+ */
+TEST_F(RadioHidlTest, requestIccSimAuthentication) {
+    int serial = 1;
+    radio->getIccCardStatus(++serial);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+    EXPECT_EQ(radioRsp->rspInfo.error, RadioError::NONE);
+
+    // Pass wrong challenge string and check RadioError::INVALID_ARGUMENTS returned as error.
+    for (int i = 0; i < (int) radioRsp->cardStatus.applications.size(); i++) {
+        radio->requestIccSimAuthentication(++serial, 0, hidl_string("test"),
+                radioRsp->cardStatus.applications[i].aidPtr);
+        EXPECT_EQ(std::cv_status::no_timeout, wait());
+        EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+        EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
+        EXPECT_EQ(radioRsp->rspInfo.error, RadioError::INVALID_ARGUMENTS);
+    }
 }
