@@ -30,12 +30,23 @@ TEST_F(RadioHidlTest, getIccCardStatus) {
     EXPECT_LT(radioRsp->cardStatus.gsmUmtsSubscriptionAppIndex, (int) RadioConst::CARD_MAX_APPS);
     EXPECT_LT(radioRsp->cardStatus.cdmaSubscriptionAppIndex, (int) RadioConst::CARD_MAX_APPS);
     EXPECT_LT(radioRsp->cardStatus.imsSubscriptionAppIndex, (int) RadioConst::CARD_MAX_APPS);
+
+    for (int i = 0; i < radioRsp->cardStatus.applications.size(); i++) {
+        ALOGW("sanket app %d aid = %s", i, (const char *) radioRsp->cardStatus.applications[i].aidPtr);
+    }
 }
 
 /*
  * Test IRadio.supplyIccPinForApp() for the response returned.
  */
 TEST_F(RadioHidlTest, supplyIccPinForApp) {
+    /*radio->getIccCardStatus(11);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+
+    ALOGW("sanket before");
+    radio->supplyIccPinForApp(12, hidl_string("test1"), radioRsp->cardStatus.applications[1].aidPtr);
+    ALOGW("sanket after");*/
+
     radio->supplyIccPinForApp(2, hidl_string("test1"), hidl_string());
     EXPECT_EQ(std::cv_status::no_timeout, wait());
     EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
@@ -102,4 +113,127 @@ TEST_F(RadioHidlTest, changeIccPin2ForApp) {
     EXPECT_EQ(7, radioRsp->rspInfo.serial);
 
     EXPECT_EQ(radioRsp->rspInfo.error, RadioError::PASSWORD_INCORRECT);
+}
+
+/*
+ * Test IRadio.getImsiForApp() for the response returned.
+ */
+TEST_F(RadioHidlTest, getImsiForApp) {
+    radio->getImsiForApp(8, hidl_string());
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
+    EXPECT_EQ(8, radioRsp->rspInfo.serial);
+
+    // TODO : Add tests related to error code returned
+
+    // IMSI (MCC+MNC+MSIN) is at least 6 digits, but not more than 15
+    if (radioRsp->rspInfo.error == RadioError::NONE) {
+        EXPECT_NE(radioRsp->imsi, hidl_string());
+        EXPECT_GE((radioRsp->imsi).size(), 6);
+        EXPECT_LE((radioRsp->imsi).size(), 15);
+    }
+}
+
+/*
+ * Test IRadio.iccIOForApp() for the response returned.
+ */
+TEST_F(RadioHidlTest, iccIOForApp) {
+    IccIo iccIo;
+    iccIo.command = 0xc0;
+    iccIo.fileId = 0x6f11;
+    iccIo.path = hidl_string("3F007FFF");
+    iccIo.p1 = 0;
+    iccIo.p2 = 0;
+    iccIo.p3 = 0;
+    iccIo.data = hidl_string();
+    iccIo.pin2 = hidl_string();
+    iccIo.aid = hidl_string();
+
+    radio->iccIOForApp(9, iccIo);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
+    EXPECT_EQ(9, radioRsp->rspInfo.serial);
+
+    // TODO : Add tests related to error code returned
+}
+
+/*
+ * Test IRadio.iccTransmitApduBasicChannel() for the response returned.
+ */
+TEST_F(RadioHidlTest, iccTransmitApduBasicChannel) {
+    SimApdu msg;
+    msg.sessionId = 0;
+    msg.cla = 0;
+    msg.instruction = 0;
+    msg.p1 = 0;
+    msg.p2 = 0;
+    msg.p3 = 0;
+    msg.data = hidl_string();
+
+    radio->iccTransmitApduBasicChannel(10, msg);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
+    EXPECT_EQ(10, radioRsp->rspInfo.serial);
+
+    // TODO : Add tests related to error code returned
+}
+
+/*
+ * Test IRadio.iccOpenLogicalChannel() for the response returned.
+ */
+TEST_F(RadioHidlTest, iccOpenLogicalChannel) {
+    radio->iccOpenLogicalChannel(11, hidl_string());
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
+    EXPECT_EQ(11, radioRsp->rspInfo.serial);
+
+    // TODO : Add tests related to error code returned
+    EXPECT_EQ(radioRsp->rspInfo.error, RadioError::MISSING_RESOURCE);
+}
+
+/*
+ * Test IRadio.iccCloseLogicalChannel() for the response returned.
+ */
+TEST_F(RadioHidlTest, iccCloseLogicalChannel) {
+    radio->iccCloseLogicalChannel(12, 0);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
+    EXPECT_EQ(12, radioRsp->rspInfo.serial);
+
+    // TODO : Add tests related to error code returned
+    EXPECT_EQ(radioRsp->rspInfo.error, RadioError::INVALID_ARGUMENTS);
+}
+
+/*
+ * Test IRadio.iccTransmitApduLogicalChannel() for the response returned.
+ */
+TEST_F(RadioHidlTest, iccTransmitApduLogicalChannel) {
+    SimApdu msg;
+    msg.sessionId = 0;
+    msg.cla = 0;
+    msg.instruction = 0;
+    msg.p1 = 0;
+    msg.p2 = 0;
+    msg.p3 = 0;
+    msg.data = hidl_string();
+
+    radio->iccTransmitApduLogicalChannel(13, msg);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
+    EXPECT_EQ(13, radioRsp->rspInfo.serial);
+
+    // TODO : Add tests related to error code returned
+}
+
+/*
+ * Test IRadio.requestIccSimAuthentication() for the response returned.
+ */
+TEST_F(RadioHidlTest, requestIccSimAuthentication) {
+    radio->requestIccSimAuthentication(14, 0, hidl_string(), hidl_string());
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
+    EXPECT_EQ(14, radioRsp->rspInfo.serial);
+
+    // TODO : Add tests related to error code returned
+    EXPECT_EQ(radioRsp->rspInfo.error, RadioError::INVALID_ARGUMENTS);
 }
