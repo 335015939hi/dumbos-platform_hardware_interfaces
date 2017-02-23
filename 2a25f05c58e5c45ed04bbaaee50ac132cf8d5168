@@ -22,6 +22,30 @@
       "revId": "2a25f05c58e5c45ed04bbaaee50ac132cf8d5168",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9cef89b3_b6e3b24b",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-02-23T01:07:37Z",
+      "side": 1,
+      "message": "Made the comment generic.",
+      "parentUuid": "51def919_edb86509",
+      "range": {
+        "startLine": 213,
+        "startChar": 14,
+        "endLine": 213,
+        "endChar": 58
+      },
+      "revId": "2a25f05c58e5c45ed04bbaaee50ac132cf8d5168",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
