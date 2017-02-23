@@ -8,6 +8,4 @@
 using android::hardware::nfc::V1_0::INfc;
 using android::hardware::defaultPassthroughServiceImplementation;
 
-int main() {
-    return defaultPassthroughServiceImplementation<INfc>();
-}
+int main() { return defaultPassthroughServiceImplementation<INfc>(); }
