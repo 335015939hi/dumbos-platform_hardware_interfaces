@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "811e6319_9ee31f75",
+        "filename": "bluetooth/1.0/default/bluetooth_hci.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1058798
+      },
+      "writtenOn": "2017-02-23T17:37:17Z",
+      "side": 1,
+      "message": "Plz run clang-format",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 2
+      },
+      "revId": "b4c806670c4d1a246bf7b911c6388c3463903b1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
