@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "01bf730f_5edbcc06",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaNetwork.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-02-23T00:41:31Z",
+      "side": 1,
+      "message": "Can we be more specific here? i.e., does supplicant have a particular format for these IDs? Or is supplicant agnostic to the contents of the string?",
+      "range": {
+        "startLine": 441,
+        "startChar": 12,
+        "endLine": 441,
+        "endChar": 14
+      },
+      "revId": "e54bcaee0b32b1fde10ee3c48ec3add20a03ac6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d028ea43_cb7c8f9d",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaNetwork.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 822,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-02-23T00:41:31Z",
+      "side": 1,
+      "message": "As at line 441.",
+      "range": {
+        "startLine": 822,
+        "startChar": 13,
+        "endLine": 822,
+        "endChar": 15
+      },
+      "revId": "e54bcaee0b32b1fde10ee3c48ec3add20a03ac6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
