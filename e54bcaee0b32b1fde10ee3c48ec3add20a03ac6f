@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "5a4564d6_e6529550",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaNetwork.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-02-23T02:36:59Z",
+      "side": 1,
+      "message": "Got it. Thanks for checking.",
+      "parentUuid": "f0fe1c18_8eddb397",
+      "range": {
+        "startLine": 441,
+        "startChar": 12,
+        "endLine": 441,
+        "endChar": 14
+      },
+      "revId": "e54bcaee0b32b1fde10ee3c48ec3add20a03ac6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d028ea43_cb7c8f9d",
         "filename": "wifi/supplicant/1.0/ISupplicantStaNetwork.hal",
         "patchSetId": 1
