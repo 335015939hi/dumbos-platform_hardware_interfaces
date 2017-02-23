@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f0fe1c18_8eddb397",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaNetwork.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-02-23T00:56:59Z",
+      "side": 1,
+      "message": "There isn\u0027t much documentation or checks to verify the contents of this string.\n\nThe only documentation for this in wpa_supplicant which is replicated here is this: https://cs.corp.google.com/piper///depot/google3/third_party/hostapd/src/src/eap_peer/eap_config.h?rcl\u003d116894254\u0026l\u003d530",
+      "parentUuid": "01bf730f_5edbcc06",
+      "range": {
+        "startLine": 441,
+        "startChar": 12,
+        "endLine": 441,
+        "endChar": 14
+      },
+      "revId": "e54bcaee0b32b1fde10ee3c48ec3add20a03ac6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d028ea43_cb7c8f9d",
         "filename": "wifi/supplicant/1.0/ISupplicantStaNetwork.hal",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-02-23T00:41:31Z",
       "side": 1,
       "message": "As at line 441.",
+      "range": {
+        "startLine": 822,
+        "startChar": 13,
+        "endLine": 822,
+        "endChar": 15
+      },
+      "revId": "e54bcaee0b32b1fde10ee3c48ec3add20a03ac6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "21ec92aa_aaf5a040",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaNetwork.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 822,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-02-23T00:56:59Z",
+      "side": 1,
+      "message": "Same.",
+      "parentUuid": "d028ea43_cb7c8f9d",
       "range": {
         "startLine": 822,
         "startChar": 13,
