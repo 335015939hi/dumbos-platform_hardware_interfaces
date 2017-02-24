@@ -28,7 +28,7 @@ cc_test {
         "libutils",
         "android.hardware.ir@1.0",
     ],
-    static_libs: ["libgtest"],
+    static_libs: ["VtsHalHidlTargetBaseTest"],
     cflags: [
         "-O0",
         "-g",
