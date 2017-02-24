@@ -104,6 +104,24 @@
       "revId": "50c1f66802f32bc1a3c4a4d1334a578799ab4e30",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28705a90_86499b8a",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-02-24T20:51:14Z",
+      "side": 1,
+      "message": "You can export them there though.\n\nThis is exactly what @export is for.",
+      "parentUuid": "6434c180_d9e08928",
+      "revId": "50c1f66802f32bc1a3c4a4d1334a578799ab4e30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
