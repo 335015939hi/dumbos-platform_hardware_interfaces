@@ -22,6 +22,76 @@
       "revId": "e36d0a0e00aa1e2e3f078131e8cb6021c9f89c3e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20b13d6d_df2a7282",
+        "filename": "bluetooth/1.0/vts/functional/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2017-02-24T21:39:32Z",
+      "side": 1,
+      "message": "It\u0027s true by default, so can be removed.",
+      "parentUuid": "3cb4143c_4cbab208",
+      "range": {
+        "startLine": 19,
+        "startChar": 4,
+        "endLine": 19,
+        "endChar": 16
+      },
+      "revId": "e36d0a0e00aa1e2e3f078131e8cb6021c9f89c3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "57e2450b_7579ee3c",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2017-02-24T21:39:32Z",
+      "side": 1,
+      "message": "namespace",
+      "range": {
+        "startLine": 31,
+        "startChar": 28,
+        "endLine": 31,
+        "endChar": 31
+      },
+      "revId": "e36d0a0e00aa1e2e3f078131e8cb6021c9f89c3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c03a9c6_3231ad4b",
+        "filename": "wifi/1.0/vts/functional/wifi_nan_iface_hidl_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2017-02-24T21:39:32Z",
+      "side": 1,
+      "message": "namespace",
+      "range": {
+        "startLine": 31,
+        "startChar": 36,
+        "endLine": 31,
+        "endChar": 38
+      },
+      "revId": "e36d0a0e00aa1e2e3f078131e8cb6021c9f89c3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
