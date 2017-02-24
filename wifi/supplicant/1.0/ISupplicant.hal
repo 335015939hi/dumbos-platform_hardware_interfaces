@@ -156,4 +156,14 @@ interface ISupplicant {
    *         |SupplicantStatusCode.FAILURE_UNKNOWN|
    */
   setConcurrencyPriority(IfaceType type) generates (SupplicantStatus status);
+
+  /**
+   * Terminate the supplicant daemon gracefully.
+   *
+   * @return status Status of the operation.
+   *         Possible status codes:
+   *         |SupplicantStatusCode.SUCCESS|,
+   *         |SupplicantStatusCode.FAILURE_UNKNOWN|
+   */
+  terminate() generates (SupplicantStatus status);
 };
