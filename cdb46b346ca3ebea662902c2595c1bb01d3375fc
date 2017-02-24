@@ -22,6 +22,29 @@
       "revId": "cdb46b346ca3ebea662902c2595c1bb01d3375fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9c6bbc1_6174e97e",
+        "filename": "wifi/1.0/IWifiStaIfaceEventCallback.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-02-24T18:11:42Z",
+      "side": 1,
+      "message": "Discussed offline, but so I don\u0027t look like I just commented on the commit message:\nWe need to add a maximum number of buckets and enforce it elsewhere if we are going to limit it at 32 here.",
+      "range": {
+        "startLine": 39,
+        "startChar": 23,
+        "endLine": 39,
+        "endChar": 31
+      },
+      "revId": "cdb46b346ca3ebea662902c2595c1bb01d3375fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
