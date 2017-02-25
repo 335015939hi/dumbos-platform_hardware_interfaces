@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "718230a8_5f845746",
+        "filename": "tests/baz/1.0/default/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2017-02-25T00:11:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9553ff48_13b80bb4",
+      "range": {
+        "startLine": 3,
+        "startChar": 4,
+        "endLine": 3,
+        "endChar": 25
+      },
+      "revId": "9a5edead2fe6de6d93c590f43b76646082a4bbb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8c307ad7_a106abdb",
         "filename": "tests/baz/1.0/default/Android.bp",
         "patchSetId": 3
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "+1",
       "parentUuid": "8c307ad7_a106abdb",
+      "range": {
+        "startLine": 11,
+        "startChar": 9,
+        "endLine": 11,
+        "endChar": 20
+      },
+      "revId": "9a5edead2fe6de6d93c590f43b76646082a4bbb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67301c7a_cdaad329",
+        "filename": "tests/baz/1.0/default/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2017-02-25T00:11:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a517efef_654e2f7e",
       "range": {
         "startLine": 11,
         "startChar": 9,
