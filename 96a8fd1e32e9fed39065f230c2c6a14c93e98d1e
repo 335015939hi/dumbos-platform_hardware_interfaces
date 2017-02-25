@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "942945a1_85208280",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-02-25T00:09:14Z",
+      "side": 1,
+      "message": "I would recommend to provide a label comment to group the variables for the same category, to manage them easier\n\ne.g. \n// icc\niccVar1\niccVar2",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 18
+      },
+      "revId": "96a8fd1e32e9fed39065f230c2c6a14c93e98d1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
