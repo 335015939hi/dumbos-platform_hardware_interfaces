@@ -198,6 +198,24 @@
     },
     {
       "key": {
+        "uuid": "771c1079_9c0bb707",
+        "filename": "wifi/1.0/IWifiStaIfaceEventCallback.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-02-27T23:59:41Z",
+      "side": 1,
+      "message": "By using uint16_t, you\u0027re no longer passing around 16 bits of always-useless information. This isn\u0027t a performance gain, but it\u0027s a sanity gain. If you pass those extra 16 bits, you need a protocol to handle the extra bits. It\u0027s for sanity",
+      "parentUuid": "371dcfe4_3215207a",
+      "revId": "50c1f66802f32bc1a3c4a4d1334a578799ab4e30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cbf4b8a9_16dc23ac",
         "filename": "wifi/1.0/default/hidl_struct_util.cpp",
         "patchSetId": 2
