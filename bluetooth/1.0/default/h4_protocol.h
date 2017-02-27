@@ -1,5 +1,5 @@
 //
-// Copyright 2017 The Android Open Source Project
+// Copyright 2016 The Android Open Source Project
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -16,39 +16,40 @@
 
 #pragma once
 
-#include <functional>
-
 #include <hidl/HidlSupport.h>
 
+#include "async_fd_watcher.h"
+#include "bt_vendor_lib.h"
 #include "hci_internals.h"
+#include "hci_protocol.h"
 
 namespace android {
 namespace hardware {
 namespace bluetooth {
-namespace hci {
+namespace V1_0 {
+namespace implementation {
 
-using ::android::hardware::hidl_vec;
-using HciPacketReadyCallback = std::function<void(void)>;
-
-class HciPacketizer {
+class H4Protocol : public HciProtocol {
  public:
-  HciPacketizer(HciPacketReadyCallback packet_cb) : hci_packet_ready_cb_(packet_cb) {};
-  void OnDataReady(int fd);
-  const hidl_vec<uint8_t>& GetPacket() const;
-  HciPacketType GetPacketType() const;
+  H4Protocol(
+      int fd,
+      PacketReadCallback packet_read_cb,
+      async::AsyncFdWatcher *fd_watcher);
 
- protected:
-  enum HciParserState { HCI_IDLE, HCI_TYPE_READY, HCI_PAYLOAD };
-  HciParserState hci_parser_state_{HCI_IDLE};
+  size_t Send(uint8_t type, const uint8_t *data, size_t length);
+
+  bool Start();
+
+ private:
+  void OnDataReady(int fd);
+
+  int uart_fd_;
   HciPacketType hci_packet_type_{HCI_PACKET_TYPE_UNKNOWN};
-  uint8_t hci_packet_preamble_[HCI_PREAMBLE_SIZE_MAX];
-  hidl_vec<uint8_t> hci_packet_;
-  size_t hci_packet_bytes_remaining_;
-  size_t hci_packet_bytes_read_;
-  HciPacketReadyCallback hci_packet_ready_cb_;
+  bool stream_has_interpretation_;
 };
 
-}  // namespace hci
+}  // namespace implementation
+}  // namespace V1_0
 }  // namespace bluetooth
 }  // namespace hardware
 }  // namespace android
