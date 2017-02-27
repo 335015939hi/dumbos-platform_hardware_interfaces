@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "38c021b6_a050323b",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_icc.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-02-27T17:24:25Z",
+      "side": 1,
+      "message": "use ++serial to avoid -1 below?",
+      "range": {
+        "startLine": 40,
+        "startChar": 28,
+        "endLine": 40,
+        "endChar": 36
+      },
+      "revId": "96a8fd1e32e9fed39065f230c2c6a14c93e98d1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f533e7dd_2ac98af8",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_icc.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-02-27T17:24:25Z",
+      "side": 1,
+      "message": "would it be possible to add tests for correct password by setting password first, then call this API and then unset? maybe a test for later.",
+      "range": {
+        "startLine": 55,
+        "startChar": 59,
+        "endLine": 55,
+        "endChar": 77
+      },
+      "revId": "96a8fd1e32e9fed39065f230c2c6a14c93e98d1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "942945a1_85208280",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_utils.h",
         "patchSetId": 2
