@@ -22,6 +22,30 @@
       "revId": "5e1da2bd2f9391744b8900da78d176c785a57495",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f9fd060_55750d83",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_icc.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2017-02-27T20:01:54Z",
+      "side": 1,
+      "message": "so would it be 3gpp \u0026 3gpp2 ? This comment is based on the email thread with QC where they referred all 4 apps as 3GPP.",
+      "parentUuid": "74d71c60_cce07134",
+      "range": {
+        "startLine": 45,
+        "startChar": 69,
+        "endLine": 45,
+        "endChar": 87
+      },
+      "revId": "5e1da2bd2f9391744b8900da78d176c785a57495",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

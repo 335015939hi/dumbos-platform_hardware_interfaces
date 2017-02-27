@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "d8a30006_89e3bc3b",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_icc.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2017-02-27T20:01:54Z",
+      "side": 1,
+      "message": "ok, either works. Done",
+      "parentUuid": "487f13ca_8f09305d",
+      "range": {
+        "startLine": 42,
+        "startChar": 20,
+        "endLine": 42,
+        "endChar": 24
+      },
+      "revId": "96a8fd1e32e9fed39065f230c2c6a14c93e98d1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f533e7dd_2ac98af8",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_icc.cpp",
         "patchSetId": 2
@@ -131,6 +155,30 @@
       "side": 1,
       "message": "we can assume that no password is set. Basically how it works on an actual device with no sim. if that passes, we can run the test, if that fails, we can assume a pin is already set and then skip rest of the test.",
       "parentUuid": "8f498b94_2ea7664b",
+      "range": {
+        "startLine": 55,
+        "startChar": 59,
+        "endLine": 55,
+        "endChar": 77
+      },
+      "revId": "96a8fd1e32e9fed39065f230c2c6a14c93e98d1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee6ae3f3_5e7b4a18",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_icc.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2017-02-27T20:01:54Z",
+      "side": 1,
+      "message": "ok, will add more extensive tests like this in second phase. We can do same thing for pin2 as well. Will try to cover basic tests for all APIs now so that we have some coverage for all APIs.",
+      "parentUuid": "1810bbc2_98a53d36",
       "range": {
         "startLine": 55,
         "startChar": 59,
