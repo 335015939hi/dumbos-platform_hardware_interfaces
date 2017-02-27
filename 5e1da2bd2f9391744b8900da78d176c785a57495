@@ -70,6 +70,30 @@
       "revId": "5e1da2bd2f9391744b8900da78d176c785a57495",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6adc1b08_9109e46b",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_icc.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-02-27T20:08:46Z",
+      "side": 1,
+      "message": "3gpp and 3gpp2 works too.",
+      "parentUuid": "de864f12_38149e3f",
+      "range": {
+        "startLine": 45,
+        "startChar": 69,
+        "endLine": 45,
+        "endChar": 87
+      },
+      "revId": "5e1da2bd2f9391744b8900da78d176c785a57495",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
