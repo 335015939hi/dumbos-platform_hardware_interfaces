@@ -49,6 +49,29 @@
     },
     {
       "key": {
+        "uuid": "487f13ca_8f09305d",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_icc.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-02-27T19:23:58Z",
+      "side": 1,
+      "message": "I meant this can be avoided and you can directly use serial here if you used ++serial above.",
+      "range": {
+        "startLine": 42,
+        "startChar": 20,
+        "endLine": 42,
+        "endChar": 24
+      },
+      "revId": "96a8fd1e32e9fed39065f230c2c6a14c93e98d1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f533e7dd_2ac98af8",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_icc.cpp",
         "patchSetId": 2
@@ -84,6 +107,30 @@
       "side": 1,
       "message": "setting password requires old password along with new password. We would not know old password of the device where test would run.",
       "parentUuid": "f533e7dd_2ac98af8",
+      "range": {
+        "startLine": 55,
+        "startChar": 59,
+        "endLine": 55,
+        "endChar": 77
+      },
+      "revId": "96a8fd1e32e9fed39065f230c2c6a14c93e98d1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1810bbc2_98a53d36",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_icc.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-02-27T19:23:58Z",
+      "side": 1,
+      "message": "we can assume that no password is set. Basically how it works on an actual device with no sim. if that passes, we can run the test, if that fails, we can assume a pin is already set and then skip rest of the test.",
+      "parentUuid": "8f498b94_2ea7664b",
       "range": {
         "startLine": 55,
         "startChar": 59,
