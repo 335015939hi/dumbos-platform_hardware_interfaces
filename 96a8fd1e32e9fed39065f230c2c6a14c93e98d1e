@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7d6219c0_769a107c",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_icc.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2017-02-27T19:20:42Z",
+      "side": 1,
+      "message": "Would it ever become -1 ? Its initialized to 1. serial++ will make it 2. serial - 1 will be 1.",
+      "parentUuid": "38c021b6_a050323b",
+      "range": {
+        "startLine": 40,
+        "startChar": 28,
+        "endLine": 40,
+        "endChar": 36
+      },
+      "revId": "96a8fd1e32e9fed39065f230c2c6a14c93e98d1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f533e7dd_2ac98af8",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_icc.cpp",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "8f498b94_2ea7664b",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_icc.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2017-02-27T19:20:42Z",
+      "side": 1,
+      "message": "setting password requires old password along with new password. We would not know old password of the device where test would run.",
+      "parentUuid": "f533e7dd_2ac98af8",
+      "range": {
+        "startLine": 55,
+        "startChar": 59,
+        "endLine": 55,
+        "endChar": 77
+      },
+      "revId": "96a8fd1e32e9fed39065f230c2c6a14c93e98d1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "942945a1_85208280",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_utils.h",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2017-02-25T00:09:14Z",
       "side": 1,
       "message": "I would recommend to provide a label comment to group the variables for the same category, to manage them easier\n\ne.g. \n// icc\niccVar1\niccVar2",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 18
+      },
+      "revId": "96a8fd1e32e9fed39065f230c2c6a14c93e98d1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90522ab9_c1853e6f",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2017-02-27T19:20:42Z",
+      "side": 1,
+      "message": "Name of the var as present in response function seems more user readable.",
+      "parentUuid": "942945a1_85208280",
       "range": {
         "startLine": 85,
         "startChar": 0,
