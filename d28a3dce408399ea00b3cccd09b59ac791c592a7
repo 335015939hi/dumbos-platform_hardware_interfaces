@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "13c1b297_6e59e29a",
+        "filename": "bluetooth/1.0/default/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2017-02-27T12:19:16Z",
+      "side": 0,
+      "message": "The device-specific HAL for hikey (device/linaro/hikey/bluetooth/) depends on this library.",
+      "range": {
+        "startLine": 36,
+        "startChar": 8,
+        "endLine": 36,
+        "endChar": 41
+      },
+      "revId": "d28a3dce408399ea00b3cccd09b59ac791c592a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

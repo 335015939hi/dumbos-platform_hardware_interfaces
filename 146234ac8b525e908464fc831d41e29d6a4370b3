@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3704e6f7_8e55ac9e",
+        "filename": "bluetooth/1.0/default/async_fd_watcher.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2017-02-27T12:19:16Z",
+      "side": 1,
+      "message": "I\u0027d like to protect this part against watched_fds_.clear().\n\nMaybe something like:\nhttps://cs.corp.google.com/android/system/bt/vendor_libs/test_vendor_lib/src/async_manager.cc?dr\u0026q\u003dpackage:android+async_manager.cc+runAppropriateCallbacks\u0026l\u003d220",
+      "range": {
+        "startLine": 162,
+        "startChar": 0,
+        "endLine": 162,
+        "endChar": 74
+      },
+      "revId": "146234ac8b525e908464fc831d41e29d6a4370b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79ea4f88_9050457f",
+        "filename": "bluetooth/1.0/default/hci_protocol.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2017-02-27T12:19:16Z",
+      "side": 1,
+      "message": "This is specific to the old vendor commands, not HCI.  I\u0027d like to keep them separate.",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 63
+      },
+      "revId": "146234ac8b525e908464fc831d41e29d6a4370b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ea790fd_d4336431",
+        "filename": "bluetooth/1.0/default/hci_protocol.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2017-02-27T12:19:16Z",
+      "side": 1,
+      "message": "Same thing here.",
+      "range": {
+        "startLine": 79,
+        "startChar": 2,
+        "endLine": 79,
+        "endChar": 5
+      },
+      "revId": "146234ac8b525e908464fc831d41e29d6a4370b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
