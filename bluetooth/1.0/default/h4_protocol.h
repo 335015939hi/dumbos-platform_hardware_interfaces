@@ -16,34 +16,43 @@
 
 #pragma once
 
-#include <functional>
-
 #include <hidl/HidlSupport.h>
 
+#include "async_fd_watcher.h"
+#include "bt_vendor_lib.h"
 #include "hci_internals.h"
+#include "hci_protocol.h"
 
 namespace android {
 namespace hardware {
 namespace bluetooth {
 namespace hci {
 
-using ::android::hardware::hidl_vec;
-using HciPacketReadyCallback = std::function<void(void)>;
-
-class HciPacketizer {
+class H4Protocol : public HciProtocol {
  public:
-  HciPacketizer(HciPacketReadyCallback packet_cb) : hci_packet_ready_cb_(packet_cb) {};
-  void OnDataReady(int fd, HciPacketType hci_packet_type);
-  const hidl_vec<uint8_t>& GetPacket() const;
+  H4Protocol(int fd, PacketReadCallback event_cb, PacketReadCallback acl_cb,
+             PacketReadCallback sco_cb)
+      : uart_fd_(fd),
+        event_cb_(event_cb),
+        acl_cb_(acl_cb),
+        sco_cb_(sco_cb),
+        hci_packetizer_([this]() { OnPacketReady(); }) {}
 
- protected:
-  enum HciParserState { HCI_PREAMBLE, HCI_PAYLOAD };
-  HciParserState hci_parser_state_{HCI_PREAMBLE};
-  uint8_t hci_packet_preamble_[HCI_PREAMBLE_SIZE_MAX];
-  hidl_vec<uint8_t> hci_packet_;
-  size_t hci_packet_bytes_remaining_{0};
-  size_t hci_packet_bytes_read_{0};
-  HciPacketReadyCallback hci_packet_ready_cb_;
+  size_t Send(uint8_t type, const uint8_t* data, size_t length);
+
+  void OnPacketReady();
+
+  void OnDataReady(int fd);
+
+ private:
+  int uart_fd_;
+
+  PacketReadCallback event_cb_;
+  PacketReadCallback acl_cb_;
+  PacketReadCallback sco_cb_;
+
+  HciPacketType hci_packet_type_{HCI_PACKET_TYPE_UNKNOWN};
+  hci::HciPacketizer hci_packetizer_;
 };
 
 }  // namespace hci
