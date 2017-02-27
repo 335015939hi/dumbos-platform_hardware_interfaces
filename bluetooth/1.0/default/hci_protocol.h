@@ -1,5 +1,5 @@
 //
-// Copyright 2017 The Android Open Source Project
+// Copyright 2016 The Android Open Source Project
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -16,11 +16,11 @@
 
 #pragma once
 
-#include <functional>
-
 #include <hidl/HidlSupport.h>
 
+#include "bt_vendor_lib.h"
 #include "hci_internals.h"
+#include "hci_packetizer.h"
 
 namespace android {
 namespace hardware {
@@ -28,22 +28,19 @@ namespace bluetooth {
 namespace hci {
 
 using ::android::hardware::hidl_vec;
-using HciPacketReadyCallback = std::function<void(void)>;
+using PacketReadCallback = std::function<void(const hidl_vec<uint8_t>&)>;
 
-class HciPacketizer {
+// Implementation of HCI protocol bits common to different transports
+class HciProtocol {
  public:
-  HciPacketizer(HciPacketReadyCallback packet_cb) : hci_packet_ready_cb_(packet_cb) {};
-  void OnDataReady(int fd, HciPacketType hci_packet_type);
-  const hidl_vec<uint8_t>& GetPacket() const;
+  HciProtocol() = default;
+  virtual ~HciProtocol(){};
+
+  // Protocol-specific implementation of sending packets.
+  virtual size_t Send(uint8_t type, const uint8_t* data, size_t length) = 0;
 
  protected:
-  enum HciParserState { HCI_PREAMBLE, HCI_PAYLOAD };
-  HciParserState hci_parser_state_{HCI_PREAMBLE};
-  uint8_t hci_packet_preamble_[HCI_PREAMBLE_SIZE_MAX];
-  hidl_vec<uint8_t> hci_packet_;
-  size_t hci_packet_bytes_remaining_{0};
-  size_t hci_packet_bytes_read_{0};
-  HciPacketReadyCallback hci_packet_ready_cb_;
+  static size_t WriteSafely(int fd, const uint8_t* data, size_t length);
 };
 
 }  // namespace hci
