@@ -29,44 +29,22 @@ namespace bluetooth {
 namespace V1_0 {
 namespace implementation {
 
-using ::android::hardware::hidl_vec;
-using InitializeCompleteCallback = std::function<void(bool success)>;
-using PacketReadCallback =
-    std::function<void(HciPacketType, const hidl_vec<uint8_t> &)>;
-
-class FirmwareStartupTimer;
-
-class VendorInterface {
+class MctProtocol : public HciProtocol {
  public:
-  static bool Initialize(InitializeCompleteCallback initialize_complete_cb,
-                         PacketReadCallback packet_read_cb);
-  static void Shutdown();
-  static VendorInterface *get();
+  MctProtocol(
+      int *fds,
+      PacketReadCallback packet_read_cb,
+      async::AsyncFdWatcher *fd_watcher);
 
   size_t Send(uint8_t type, const uint8_t *data, size_t length);
 
-  void OnFirmwareConfigured(uint8_t result);
+  bool Start();
 
  private:
-  virtual ~VendorInterface() = default;
+  void OnAclDataReady(int fd);
+  void OnEventReady(int fd);
 
-  bool Open(InitializeCompleteCallback initialize_complete_cb,
-            PacketReadCallback packet_read_cb);
-  void Close();
-
-  void OnTimeout();
-
-  void OnReadHciPacket(HciPacketType type, const hidl_vec<uint8_t> packet);
-
-  void *lib_handle_;
-  bt_vendor_interface_t *lib_interface_;
-  async::AsyncFdWatcher fd_watcher_;
-  PacketReadCallback packet_read_cb_;
-  InitializeCompleteCallback initialize_complete_cb_;
-
-  HciProtocol *hci_;
-
-  FirmwareStartupTimer *firmware_startup_timer_;
+  int uart_fds_[CH_MAX];
 };
 
 }  // namespace implementation
