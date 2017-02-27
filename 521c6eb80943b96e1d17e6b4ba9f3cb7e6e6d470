@@ -22,6 +22,30 @@
       "revId": "521c6eb80943b96e1d17e6b4ba9f3cb7e6e6d470",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36497444_e380e883",
+        "filename": "CleanSpec.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-02-27T19:05:36Z",
+      "side": 1,
+      "message": "Clean step rules are only run when they are added. Those other rules are from previous changes.",
+      "parentUuid": "85c389bd_39908eff",
+      "range": {
+        "startLine": 51,
+        "startChar": 59,
+        "endLine": 51,
+        "endChar": 86
+      },
+      "revId": "521c6eb80943b96e1d17e6b4ba9f3cb7e6e6d470",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
