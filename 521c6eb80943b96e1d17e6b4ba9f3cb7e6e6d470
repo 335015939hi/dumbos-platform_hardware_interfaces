@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "85c389bd_39908eff",
+        "filename": "CleanSpec.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2017-02-27T19:04:03Z",
+      "side": 1,
+      "message": "I\u0027m surprised that these aren\u0027t covered by the android.hardware* rules",
+      "range": {
+        "startLine": 51,
+        "startChar": 59,
+        "endLine": 51,
+        "endChar": 86
+      },
+      "revId": "521c6eb80943b96e1d17e6b4ba9f3cb7e6e6d470",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
