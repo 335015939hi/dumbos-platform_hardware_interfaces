@@ -180,6 +180,24 @@
     },
     {
       "key": {
+        "uuid": "371dcfe4_3215207a",
+        "filename": "wifi/1.0/IWifiStaIfaceEventCallback.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-02-27T22:18:19Z",
+      "side": 1,
+      "message": "There\u0027s a rationale for sticking to machine words, in that moving beyond that adds complexity.\n\nI don\u0027t see the rationale for choosing a smaller-than-native machine word. The CPU on any Android device supports at-least 32-bits natively. What do we gain by going with something smaller?",
+      "parentUuid": "9153df47_05417c34",
+      "revId": "50c1f66802f32bc1a3c4a4d1334a578799ab4e30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cbf4b8a9_16dc23ac",
         "filename": "wifi/1.0/default/hidl_struct_util.cpp",
         "patchSetId": 2
