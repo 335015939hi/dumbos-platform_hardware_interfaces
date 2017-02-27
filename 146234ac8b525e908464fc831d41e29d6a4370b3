@@ -68,6 +68,29 @@
       "revId": "146234ac8b525e908464fc831d41e29d6a4370b3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "60261b93_c95918dd",
+        "filename": "bluetooth/1.0/default/vendor_interface.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1058798
+      },
+      "writtenOn": "2017-02-27T18:24:32Z",
+      "side": 1,
+      "message": "We\u0027ve discussed both assumptions before and I think it\u0027s a reasonable trade-off. The vendor library generally will issue vendor specific commands and the stack should basically never do that :)",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 36
+      },
+      "revId": "146234ac8b525e908464fc831d41e29d6a4370b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
