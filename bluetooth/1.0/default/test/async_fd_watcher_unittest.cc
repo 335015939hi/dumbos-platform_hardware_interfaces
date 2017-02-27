@@ -122,8 +122,8 @@ class AsyncFdWatcherSocketTest : public ::testing::Test {
   }
 
   void CleanUpServer() {
-    async_fd_watcher_.StopWatchingFileDescriptor();
-    conn_watcher_.StopWatchingFileDescriptor();
+    async_fd_watcher_.StopWatchingFileDescriptors();
+    conn_watcher_.StopWatchingFileDescriptors();
     close(socket_fd_);
   }
 
@@ -211,7 +211,7 @@ TEST_F(AsyncFdWatcherSocketTest, Connect) {
   });
 
   ConnectClient();
-  conn_watcher.StopWatchingFileDescriptor();
+  conn_watcher.StopWatchingFileDescriptors();
   close(socket_fd);
 }
 
@@ -233,7 +233,7 @@ TEST_F(AsyncFdWatcherSocketTest, TimedOutConnect) {
   EXPECT_FALSE(timed_out);
   sleep(1);
   EXPECT_TRUE(timed_out);
-  conn_watcher.StopWatchingFileDescriptor();
+  conn_watcher.StopWatchingFileDescriptors();
   close(socket_fd);
 }
 
@@ -265,7 +265,7 @@ TEST_F(AsyncFdWatcherSocketTest, TimedOutSchedulesTimeout) {
   sleep(1);
   EXPECT_TRUE(timed_out);
   EXPECT_TRUE(timed_out2);
-  conn_watcher.StopWatchingFileDescriptor();
+  conn_watcher.StopWatchingFileDescriptors();
   close(socket_fd);
 }
 

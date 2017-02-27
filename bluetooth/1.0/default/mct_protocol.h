@@ -1,5 +1,5 @@
 //
-// Copyright 2017 The Android Open Source Project
+// Copyright 2016 The Android Open Source Project
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -16,34 +16,38 @@
 
 #pragma once
 
-#include <functional>
-
 #include <hidl/HidlSupport.h>
 
+#include "async_fd_watcher.h"
+#include "bt_vendor_lib.h"
 #include "hci_internals.h"
+#include "hci_protocol.h"
 
 namespace android {
 namespace hardware {
 namespace bluetooth {
 namespace hci {
 
-using ::android::hardware::hidl_vec;
-using HciPacketReadyCallback = std::function<void(void)>;
-
-class HciPacketizer {
+class MctProtocol : public HciProtocol {
  public:
-  HciPacketizer(HciPacketReadyCallback packet_cb) : hci_packet_ready_cb_(packet_cb) {};
-  void OnDataReady(int fd, HciPacketType hci_packet_type);
-  const hidl_vec<uint8_t>& GetPacket() const;
+  MctProtocol(int* fds, PacketReadCallback event_cb, PacketReadCallback acl_cb);
 
- protected:
-  enum HciParserState { HCI_PREAMBLE, HCI_PAYLOAD };
-  HciParserState hci_parser_state_{HCI_PREAMBLE};
-  uint8_t hci_packet_preamble_[HCI_PREAMBLE_SIZE_MAX];
-  hidl_vec<uint8_t> hci_packet_;
-  size_t hci_packet_bytes_remaining_{0};
-  size_t hci_packet_bytes_read_{0};
-  HciPacketReadyCallback hci_packet_ready_cb_;
+  size_t Send(uint8_t type, const uint8_t* data, size_t length);
+
+  void OnEventPacketReady();
+  void OnAclDataPacketReady();
+
+  void OnEventDataReady(int fd);
+  void OnAclDataReady(int fd);
+
+ private:
+  int uart_fds_[CH_MAX];
+
+  PacketReadCallback event_cb_;
+  PacketReadCallback acl_cb_;
+
+  hci::HciPacketizer event_packetizer_;
+  hci::HciPacketizer acl_packetizer_;
 };
 
 }  // namespace hci
