@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0adbc300_12aca359",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 1574,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-02-28T00:46:06Z",
+      "side": 1,
+      "message": "all should be size 0 for cellInfoType none.",
+      "range": {
+        "startLine": 1573,
+        "startChar": 4,
+        "endLine": 1574,
+        "endChar": 16
+      },
+      "revId": "8864874d6f95e5546b92a37cb9c9bfad474cb94b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee7c7c0b_45353646",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 1640,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-02-28T00:46:06Z",
+      "side": 1,
+      "message": "delete extra line",
+      "revId": "8864874d6f95e5546b92a37cb9c9bfad474cb94b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
