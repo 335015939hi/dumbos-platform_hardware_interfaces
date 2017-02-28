@@ -155,11 +155,17 @@ Return<void> RadioResponse::sendDtmfResponse(const RadioResponseInfo& info) {
 
 Return<void> RadioResponse::sendSmsResponse(const RadioResponseInfo& info,
         const SendSmsResult& sms) {
+    rspInfo = info;
+    sendSmsResult = sms;
+    parent.notify();
     return Void();
 }
 
 Return<void> RadioResponse::sendSMSExpectMoreResponse(
         const RadioResponseInfo& info, const SendSmsResult& sms) {
+    rspInfo = info;
+    sendSmsResult = sms;
+    parent.notify();
     return Void();
 }
 
@@ -209,6 +215,8 @@ Return<void> RadioResponse::setCallWaitingResponse(const RadioResponseInfo& info
 }
 
 Return<void> RadioResponse::acknowledgeLastIncomingGsmSmsResponse(const RadioResponseInfo& info) {
+    rspInfo = info;
+    parent.notify();
     return Void();
 }
 
@@ -315,11 +323,16 @@ Return<void> RadioResponse::setSuppServiceNotificationsResponse(
 
 Return<void> RadioResponse::writeSmsToSimResponse(
         const RadioResponseInfo& info, int32_t index) {
+    rspInfo = info;
+    writeSmsToSimIndex = index;
+    parent.notify();
     return Void();
 }
 
 Return<void> RadioResponse::deleteSmsOnSimResponse(
         const RadioResponseInfo& info) {
+    rspInfo = info;
+    parent.notify();
     return Void();
 }
 
@@ -411,11 +424,16 @@ Return<void> RadioResponse::sendBurstDtmfResponse(const RadioResponseInfo& info)
 
 Return<void> RadioResponse::sendCdmaSmsResponse(
         const RadioResponseInfo& info, const SendSmsResult& sms) {
+    rspInfo = info;
+    sendSmsResult = sms;
+    parent.notify();
     return Void();
 }
 
 Return<void> RadioResponse::acknowledgeLastIncomingCdmaSmsResponse(
         const RadioResponseInfo& info) {
+    rspInfo = info;
+    parent.notify();
     return Void();
 }
 
@@ -457,11 +475,16 @@ Return<void> RadioResponse::getCDMASubscriptionResponse(
 
 Return<void> RadioResponse::writeSmsToRuimResponse(
         const RadioResponseInfo& info, uint32_t index) {
+    rspInfo = info;
+    writeSmsToRuimIndex = index;
+    parent.notify();
     return Void();
 }
 
 Return<void> RadioResponse::deleteSmsOnRuimResponse(
         const RadioResponseInfo& info) {
+    rspInfo = info;
+    parent.notify();
     return Void();
 }
 
@@ -478,14 +501,21 @@ Return<void> RadioResponse::exitEmergencyCallbackModeResponse(const RadioRespons
 
 Return<void> RadioResponse::getSmscAddressResponse(
         const RadioResponseInfo& info, const ::android::hardware::hidl_string& smsc) {
+    rspInfo = info;
+    smscAddress = smsc;
+    parent.notify();
     return Void();
 }
 
 Return<void> RadioResponse::setSmscAddressResponse(const RadioResponseInfo& info) {
+    rspInfo = info;
+    parent.notify();
     return Void();
 }
 
 Return<void> RadioResponse::reportSmsMemoryStatusResponse(const RadioResponseInfo& info) {
+    rspInfo = info;
+    parent.notify();
     return Void();
 }
 
@@ -505,6 +535,8 @@ Return<void> RadioResponse::requestIsimAuthenticationResponse(
 
 Return<void> RadioResponse::acknowledgeIncomingGsmSmsWithPduResponse(
         const RadioResponseInfo& info) {
+    rspInfo = info;
+    parent.notify();
     return Void();
 }
 
@@ -538,6 +570,9 @@ Return<void> RadioResponse::getImsRegistrationStateResponse(
 
 Return<void> RadioResponse::sendImsSmsResponse(
         const RadioResponseInfo& info, const SendSmsResult& sms) {
+    rspInfo = info;
+    sendSmsResult = sms;
+    parent.notify();
     return Void();
 }
 
