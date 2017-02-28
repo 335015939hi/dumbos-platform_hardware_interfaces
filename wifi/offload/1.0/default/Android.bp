@@ -1,0 +1,16 @@
+cc_library_shared {
+    name: "android.hardware.wifi.offload@1.0-impl",
+    relative_install_path: "hw",
+    proprietary: true,
+    srcs: [
+        "Offload.cpp",
+    ],
+    shared_libs: [
+        "libhidlbase",
+        "libhidltransport",
+        "libhwbinder",
+        "libutils",
+        "android.hardware.wifi.offload@1.0",
+        "android.hidl.base@1.0",
+    ],
+}
