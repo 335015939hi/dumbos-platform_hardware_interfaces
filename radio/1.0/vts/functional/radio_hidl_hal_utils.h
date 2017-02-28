@@ -81,6 +81,12 @@ public:
     RadioResponseInfo rspInfo;
     CardStatus cardStatus;
 
+    // Sms
+    SendSmsResult sendSmsResult;
+    hidl_string smscAddress;
+    uint32_t writeSmsToSimIndex;
+    uint32_t writeSmsToRuimIndex;
+
     RadioResponse(RadioHidlTest& parent);
 
     virtual ~RadioResponse() = default;
