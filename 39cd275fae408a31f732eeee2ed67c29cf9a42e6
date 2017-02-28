@@ -48,6 +48,29 @@
     },
     {
       "key": {
+        "uuid": "43fd3d70_4ddb3b7b",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_sms.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2017-02-28T17:58:26Z",
+      "side": 1,
+      "message": "This is used when more sms are expected ? can we do here something different than sendSms() ? May be send  sms more than once ?",
+      "range": {
+        "startLine": 49,
+        "startChar": 11,
+        "endLine": 49,
+        "endChar": 28
+      },
+      "revId": "39cd275fae408a31f732eeee2ed67c29cf9a42e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bd24f55e_9f89beaf",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_sms.cpp",
         "patchSetId": 6
@@ -87,6 +110,29 @@
         "startChar": 0,
         "endLine": 69,
         "endChar": 1
+      },
+      "revId": "39cd275fae408a31f732eeee2ed67c29cf9a42e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e9b628f6_ed1852e0",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_sms.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2017-02-28T17:58:26Z",
+      "side": 1,
+      "message": "can we add test for deleting actual sms ? may be first writeSmsToSim and than call this ?",
+      "range": {
+        "startLine": 115,
+        "startChar": 4,
+        "endLine": 115,
+        "endChar": 54
       },
       "revId": "39cd275fae408a31f732eeee2ed67c29cf9a42e6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
