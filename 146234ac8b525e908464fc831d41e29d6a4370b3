@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "83bad5b3_c3d638e5",
+        "filename": "bluetooth/1.0/default/async_fd_watcher.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1051483
+      },
+      "writtenOn": "2017-03-01T15:26:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3704e6f7_8e55ac9e",
+      "range": {
+        "startLine": 162,
+        "startChar": 0,
+        "endLine": 162,
+        "endChar": 74
+      },
+      "revId": "146234ac8b525e908464fc831d41e29d6a4370b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79ea4f88_9050457f",
         "filename": "bluetooth/1.0/default/hci_protocol.h",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-02-27T12:19:16Z",
       "side": 1,
       "message": "This is specific to the old vendor commands, not HCI.  I\u0027d like to keep them separate.",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 63
+      },
+      "revId": "146234ac8b525e908464fc831d41e29d6a4370b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "724a0f25_c99a78b1",
+        "filename": "bluetooth/1.0/default/hci_protocol.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1051483
+      },
+      "writtenOn": "2017-03-01T15:26:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79ea4f88_9050457f",
       "range": {
         "startLine": 42,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "1784d0c0_17cbb89d",
+        "filename": "bluetooth/1.0/default/hci_protocol.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1051483
+      },
+      "writtenOn": "2017-03-01T15:26:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ea790fd_d4336431",
+      "range": {
+        "startLine": 79,
+        "startChar": 2,
+        "endLine": 79,
+        "endChar": 5
+      },
+      "revId": "146234ac8b525e908464fc831d41e29d6a4370b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "60261b93_c95918dd",
         "filename": "bluetooth/1.0/default/vendor_interface.cc",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2017-02-27T18:24:32Z",
       "side": 1,
       "message": "We\u0027ve discussed both assumptions before and I think it\u0027s a reasonable trade-off. The vendor library generally will issue vendor specific commands and the stack should basically never do that :)",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 36
+      },
+      "revId": "146234ac8b525e908464fc831d41e29d6a4370b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "10d9dbe2_7d94ab4d",
+        "filename": "bluetooth/1.0/default/vendor_interface.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1051483
+      },
+      "writtenOn": "2017-03-01T15:26:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60261b93_c95918dd",
       "range": {
         "startLine": 54,
         "startChar": 0,
