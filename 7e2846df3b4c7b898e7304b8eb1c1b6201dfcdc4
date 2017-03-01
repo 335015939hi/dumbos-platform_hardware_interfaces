@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5bf2c84a_b27ad8a4",
+        "filename": "wifi/1.0/default/Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1077073
+      },
+      "writtenOn": "2017-03-01T15:40:11Z",
+      "side": 1,
+      "message": "Will anything in this directory use library functions from here?",
+      "range": {
+        "startLine": 47,
+        "startChar": 4,
+        "endLine": 47,
+        "endChar": 15
+      },
+      "revId": "7e2846df3b4c7b898e7304b8eb1c1b6201dfcdc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
