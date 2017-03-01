@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9d0f0289_d47dcab8",
+        "filename": "radio/1.0/vts/functional/radio_response.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-03-01T18:55:04Z",
+      "side": 1,
+      "message": "for the ones for which we already have some tests, shouldn\u0027t we just store the parameters even if not currently used?",
+      "revId": "77c3822d6d1ba6068d56d90e3f040735c29b2afb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
