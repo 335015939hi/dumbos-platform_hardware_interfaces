@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "b0977171_616bd6be",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-03-02T20:49:09Z",
+      "side": 1,
+      "message": "Maybe \"clear\"? (we\u0027re not using memset in most cases)",
+      "range": {
+        "startLine": 7,
+        "startChar": 22,
+        "endLine": 7,
+        "endChar": 28
+      },
+      "revId": "e603b2dd31afba528936d9c59a6ec01ea30a285b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2ac6f326_d642cc75",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-03-02T20:49:09Z",
+      "side": 1,
+      "message": "\"structs\" (typo)",
+      "range": {
+        "startLine": 7,
+        "startChar": 33,
+        "endLine": 7,
+        "endChar": 39
+      },
+      "revId": "e603b2dd31afba528936d9c59a6ec01ea30a285b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "861e61f1_4321b7e0",
         "filename": "wifi/1.0/default/hidl_struct_util.cpp",
         "patchSetId": 1
