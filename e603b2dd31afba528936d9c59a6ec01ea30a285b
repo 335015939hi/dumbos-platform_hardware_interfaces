@@ -48,6 +48,54 @@
     },
     {
       "key": {
+        "uuid": "da54a90a_5b4c68a8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-02T22:20:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ac6f326_d642cc75",
+      "range": {
+        "startLine": 7,
+        "startChar": 33,
+        "endLine": 7,
+        "endChar": 39
+      },
+      "revId": "e603b2dd31afba528936d9c59a6ec01ea30a285b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af87230a_a6b2a07c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-02T22:20:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0977171_616bd6be",
+      "range": {
+        "startLine": 7,
+        "startChar": 22,
+        "endLine": 7,
+        "endChar": 28
+      },
+      "revId": "e603b2dd31afba528936d9c59a6ec01ea30a285b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "861e61f1_4321b7e0",
         "filename": "wifi/1.0/default/hidl_struct_util.cpp",
         "patchSetId": 1
@@ -59,6 +107,24 @@
       "writtenOn": "2017-03-02T19:34:07Z",
       "side": 1,
       "message": "I believe this is unnecessary, as all of the buckets in |*legacy_scan_params| will have been zeroed by line 340. \n\n  1. |*legacy_scan_params| is an aggregate.\n  \"If the ... initializer list is completely empty, the remaining members ... are initialized ... by empty lists, in accordance with the usual list-initialization rules (...value-initialization for non-class types ... and aggregate initialization for aggregates).\" [a]\n\n  2. |legacy_scan_params-\u003ebuckets| is an aggregate [a]\n\n  3. given 1 and 2, the buckets array will be aggregate-initialized\n\n  4. given 3 and 1, the elements of the buckets array will be value-initialized\n\n  5. for non-class types, value-initialization means \"the object is zero-initialized\" [b]\n\n[a] http://en.cppreference.com/w/cpp/language/aggregate_initialization\n[b] http://en.cppreference.com/w/cpp/language/value_initialization",
+      "revId": "e603b2dd31afba528936d9c59a6ec01ea30a285b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a73f44cc_ba50066f",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-02T22:20:29Z",
+      "side": 1,
+      "message": "Thanks. Didn\u0027t realize that.",
+      "parentUuid": "861e61f1_4321b7e0",
       "revId": "e603b2dd31afba528936d9c59a6ec01ea30a285b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -82,6 +148,24 @@
     },
     {
       "key": {
+        "uuid": "42c07f95_b70053fa",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 782,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-02T22:20:29Z",
+      "side": 1,
+      "message": "Hmm. I was staying away from changing NAN :). Done now.",
+      "parentUuid": "ba9a5b08_56ddb6ed",
+      "revId": "e603b2dd31afba528936d9c59a6ec01ea30a285b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d46fe3a2_1d85b1ed",
         "filename": "wifi/1.0/default/hidl_struct_util.cpp",
         "patchSetId": 1
@@ -93,6 +177,24 @@
       "writtenOn": "2017-03-02T19:34:07Z",
       "side": 1,
       "message": "As at line 782.",
+      "revId": "e603b2dd31afba528936d9c59a6ec01ea30a285b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e7a9f001_ae0a9300",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 912,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-02T22:20:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d46fe3a2_1d85b1ed",
       "revId": "e603b2dd31afba528936d9c59a6ec01ea30a285b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -116,6 +218,24 @@
     },
     {
       "key": {
+        "uuid": "94b8865a_35527a5f",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1004,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-02T22:20:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15122d4b_f734e4db",
+      "revId": "e603b2dd31afba528936d9c59a6ec01ea30a285b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dbf05913_56051cc7",
         "filename": "wifi/1.0/default/hidl_struct_util.cpp",
         "patchSetId": 1
@@ -127,6 +247,24 @@
       "writtenOn": "2017-03-02T19:34:07Z",
       "side": 1,
       "message": "As at line 782.",
+      "revId": "e603b2dd31afba528936d9c59a6ec01ea30a285b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c32f8516_b0bbf3a2",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1109,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-02T22:20:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dbf05913_56051cc7",
       "revId": "e603b2dd31afba528936d9c59a6ec01ea30a285b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -150,6 +288,24 @@
     },
     {
       "key": {
+        "uuid": "2220077a_66b8b45a",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1148,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-02T22:20:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b432616e_2a54b62c",
+      "revId": "e603b2dd31afba528936d9c59a6ec01ea30a285b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0784542f_0936f175",
         "filename": "wifi/1.0/default/hidl_struct_util.cpp",
         "patchSetId": 1
@@ -161,6 +317,24 @@
       "writtenOn": "2017-03-02T19:34:07Z",
       "side": 1,
       "message": "As at line 782.",
+      "revId": "e603b2dd31afba528936d9c59a6ec01ea30a285b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da4b99c7_6c992b97",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1238,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-02T22:20:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0784542f_0936f175",
       "revId": "e603b2dd31afba528936d9c59a6ec01ea30a285b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -184,6 +358,24 @@
     },
     {
       "key": {
+        "uuid": "199a4ee0_84e3bbaa",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1273,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-02T22:20:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc865632_089d8907",
+      "revId": "e603b2dd31afba528936d9c59a6ec01ea30a285b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a45819fc_63960cdf",
         "filename": "wifi/1.0/default/hidl_struct_util.cpp",
         "patchSetId": 1
@@ -195,6 +387,24 @@
       "writtenOn": "2017-03-02T19:34:07Z",
       "side": 1,
       "message": "Is the lack of list initialization here deliberate or accidental?",
+      "revId": "e603b2dd31afba528936d9c59a6ec01ea30a285b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "231a3d79_4475baa7",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1306,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-02T22:20:29Z",
+      "side": 1,
+      "message": "Hmm. Don\u0027t think so. etan@?",
+      "parentUuid": "a45819fc_63960cdf",
       "revId": "e603b2dd31afba528936d9c59a6ec01ea30a285b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -218,6 +428,24 @@
     },
     {
       "key": {
+        "uuid": "05e2c8d2_b774b7de",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1319,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-02T22:20:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75048a15_35b77e39",
+      "revId": "e603b2dd31afba528936d9c59a6ec01ea30a285b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f8bc243_8f7c9d04",
         "filename": "wifi/1.0/default/hidl_struct_util.cpp",
         "patchSetId": 1
@@ -229,6 +457,24 @@
       "writtenOn": "2017-03-02T19:34:07Z",
       "side": 1,
       "message": "As at line 1306.",
+      "revId": "e603b2dd31afba528936d9c59a6ec01ea30a285b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "69c27913_b7d37809",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1345,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-02T22:20:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f8bc243_8f7c9d04",
       "revId": "e603b2dd31afba528936d9c59a6ec01ea30a285b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -252,6 +498,24 @@
     },
     {
       "key": {
+        "uuid": "4e106c0e_5a3b522a",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1376,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-02T22:20:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5d78f89_c7fd9491",
+      "revId": "e603b2dd31afba528936d9c59a6ec01ea30a285b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "beb7b606_02dc8c99",
         "filename": "wifi/1.0/default/hidl_struct_util.cpp",
         "patchSetId": 1
@@ -269,6 +533,24 @@
     },
     {
       "key": {
+        "uuid": "7fec1d6a_1b601c91",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1396,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-02T22:20:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "beb7b606_02dc8c99",
+      "revId": "e603b2dd31afba528936d9c59a6ec01ea30a285b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fe073d83_08989c7f",
         "filename": "wifi/1.0/default/hidl_struct_util.cpp",
         "patchSetId": 1
@@ -280,6 +562,24 @@
       "writtenOn": "2017-03-02T19:34:07Z",
       "side": 1,
       "message": "As at line 1306.",
+      "revId": "e603b2dd31afba528936d9c59a6ec01ea30a285b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b0ce896_368ad5f2",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1414,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-02T22:20:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fe073d83_08989c7f",
       "revId": "e603b2dd31afba528936d9c59a6ec01ea30a285b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
