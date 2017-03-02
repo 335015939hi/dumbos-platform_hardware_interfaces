@@ -429,7 +429,7 @@ bool convertLegacyGscanResultToHidl(
   hidl_scan_result->timeStampInUs = legacy_scan_result.ts;
   hidl_scan_result->ssid = std::vector<uint8_t>(
       legacy_scan_result.ssid,
-      legacy_scan_result.ssid + sizeof(legacy_scan_result.ssid));
+      legacy_scan_result.ssid + strlen(legacy_scan_result.ssid));
   memcpy(hidl_scan_result->bssid.data(),
          legacy_scan_result.bssid,
          hidl_scan_result->bssid.size());
