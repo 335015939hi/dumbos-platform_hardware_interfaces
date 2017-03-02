@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "d9406de0_b77511e1",
+        "filename": "radio/1.0/vts/functional/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-03-02T23:10:45Z",
+      "side": 1,
+      "message": "use spaces instead of tab",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 4
+      },
+      "revId": "0adf4203f8c5d359f7aad1abaee3cce5ea16d6ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "01d09112_7ac22846",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_sms.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-03-02T23:10:45Z",
+      "side": 1,
+      "message": "is this needed? Can\u0027t you just do \"using namespace ::android::hardware::radio::V1_0\"",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 59
+      },
+      "revId": "0adf4203f8c5d359f7aad1abaee3cce5ea16d6ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b79645c0_cecce084",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_sms.cpp",
         "patchSetId": 7
@@ -64,6 +110,29 @@
         "startChar": 4,
         "endLine": 152,
         "endChar": 11
+      },
+      "revId": "0adf4203f8c5d359f7aad1abaee3cce5ea16d6ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0bf91d93_b46f3b17",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_sms.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-03-02T23:10:45Z",
+      "side": 1,
+      "message": "use spaces",
+      "range": {
+        "startLine": 183,
+        "startChar": 0,
+        "endLine": 183,
+        "endChar": 1
       },
       "revId": "0adf4203f8c5d359f7aad1abaee3cce5ea16d6ec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
