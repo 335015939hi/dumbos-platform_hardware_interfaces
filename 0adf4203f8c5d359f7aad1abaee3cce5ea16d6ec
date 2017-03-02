@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b79645c0_cecce084",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_sms.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2017-03-02T19:22:02Z",
+      "side": 1,
+      "message": "we need to talk about this error code with QC. This doesn\u0027t seem to be consistent for all APIs below.",
+      "range": {
+        "startLine": 55,
+        "startChar": 43,
+        "endLine": 55,
+        "endChar": 68
+      },
+      "revId": "0adf4203f8c5d359f7aad1abaee3cce5ea16d6ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "74a536f6_ece244ac",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_sms.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2017-03-02T19:22:02Z",
+      "side": 1,
+      "message": "comments should not be merged.",
+      "range": {
+        "startLine": 145,
+        "startChar": 4,
+        "endLine": 148,
+        "endChar": 68
+      },
+      "revId": "0adf4203f8c5d359f7aad1abaee3cce5ea16d6ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b7aa803_c9fb82c8",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_sms.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2017-03-02T19:22:02Z",
+      "side": 1,
+      "message": "add your ldap Todo(shuoq):",
+      "range": {
+        "startLine": 152,
+        "startChar": 4,
+        "endLine": 152,
+        "endChar": 11
+      },
+      "revId": "0adf4203f8c5d359f7aad1abaee3cce5ea16d6ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
