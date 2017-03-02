@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "09ff51f5_19297af7",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-03-02T20:58:21Z",
+      "side": 1,
+      "message": "This is somewhat unfortunate, as it means that we\u0027ll truncate any SSID that has an embedded null.\n\nOn the other hand:\n- There\u0027s not really much else we can do, given the definition of |wifi_scan_result|. (There\u0027s no ssid_len field in the struct.)\n- At least the HIDL API is defined in terms of a vector. So future HAL implementations _will_ be able to support SSIDs with nulls.",
+      "range": {
+        "startLine": 432,
+        "startChar": 32,
+        "endLine": 432,
+        "endChar": 38
+      },
+      "revId": "208e46bbc2ab0c824dad366eaee318df09e6ca12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
