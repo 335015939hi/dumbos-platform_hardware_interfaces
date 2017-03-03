@@ -1136,6 +1136,7 @@ struct AppStatus {
     PersoSubstate persoSubstate;          // applicable only if app_state == SUBSCRIPTION_PERSO
     string aidPtr;                        // e.g., from 0xA0, 0x00 -> 0x41,
                                           // 0x30, 0x30, 0x30
+    uint8_t p2;                           // e.g., 0x00, 0x04, 0x08, 0x0C
     string appLabelPtr;
     int32_t pin1Replaced;                 // applicable to USIM, CSIM and ISIM
     PinState pin1;
