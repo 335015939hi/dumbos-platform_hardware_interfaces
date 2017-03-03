@@ -1982,3 +1982,8 @@ struct PcoDataInfo {
     vec<uint8_t> contents;                // Carrier-defined content. It is binary, opaque and
                                           // loosely defined in LTE Layer 3 spec 24.008
 };
+
+struct OpenChannelInfo {
+    string aidPtr;                        // AID value, See ETSI 102.221 and 101.220
+    uint8_t p2;                           // P2 parameter (described in ISO 7816-4)
+};
