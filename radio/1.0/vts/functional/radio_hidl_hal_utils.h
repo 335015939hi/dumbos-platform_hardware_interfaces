@@ -53,6 +53,7 @@ using ::android::hardware::radio::V1_0::LceDataInfo;
 using ::android::hardware::radio::V1_0::LceStatusInfo;
 using ::android::hardware::radio::V1_0::NeighboringCell;
 using ::android::hardware::radio::V1_0::OperatorInfo;
+using ::android::hardware::radio::V1_0::OpenChannelInfo;
 using ::android::hardware::radio::V1_0::PreferredNetworkType;
 using ::android::hardware::radio::V1_0::RadioBandMode;
 using ::android::hardware::radio::V1_0::RadioCapability;
