@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "04cb1ef6_4ab87252",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-03-03T20:44:10Z",
+      "side": 1,
+      "message": "nice! this is clearer than a static_cast",
+      "range": {
+        "startLine": 353,
+        "startChar": 8,
+        "endLine": 353,
+        "endChar": 35
+      },
+      "revId": "208e46bbc2ab0c824dad366eaee318df09e6ca12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "09ff51f5_19297af7",
         "filename": "wifi/1.0/default/hidl_struct_util.cpp",
         "patchSetId": 3
