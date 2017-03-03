@@ -1303,7 +1303,7 @@ interface IRadio {
      *
      * Response callback is IRadioResponse.iccOpenLogicalChannelResponse()
      */
-    oneway iccOpenLogicalChannel(int32_t serial, string aid);
+    oneway iccOpenLogicalChannel(int32_t serial, string aid, uint8_t p2);
 
     /*
      * Close a previously opened logical channel. This command reflects TS 27.007
