@@ -22,6 +22,30 @@
       "revId": "7e2846df3b4c7b898e7304b8eb1c1b6201dfcdc4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bfdb0bcc_bd72099e",
+        "filename": "wifi/1.0/default/Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1124533
+      },
+      "writtenOn": "2017-03-03T18:13:45Z",
+      "side": 1,
+      "message": "No we don\u0027t use the functions from this directory, however libwifi-hal is being dynamically linked here, libwifi-hal depends on libcld80211 library and hence the inclusion.",
+      "parentUuid": "5bf2c84a_b27ad8a4",
+      "range": {
+        "startLine": 47,
+        "startChar": 4,
+        "endLine": 47,
+        "endChar": 15
+      },
+      "revId": "7e2846df3b4c7b898e7304b8eb1c1b6201dfcdc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
