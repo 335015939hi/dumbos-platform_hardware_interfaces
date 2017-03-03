@@ -2018,3 +2018,7 @@ struct PcoDataInfo {
     vec<uint8_t> contents;                // Carrier-defined content. It is binary, opaque and
                                           // loosely defined in LTE Layer 3 spec 24.008
 };
+
+enum P2Constant : int32_t {
+    NO_P2 = -1,                           // No P2 value is provided
+};
