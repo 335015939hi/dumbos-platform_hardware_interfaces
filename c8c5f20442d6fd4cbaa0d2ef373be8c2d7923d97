@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e2dada2a_8dd28cc5",
+        "filename": "bluetooth/1.0/default/hci_packetizer.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1051483
+      },
+      "writtenOn": "2017-03-03T00:43:02Z",
+      "side": 1,
+      "message": "given these variables are inside the hci parser (packetizer) does it make sense to omit the prefixes?\n\ni.e.\n\nstate_\npreamble_\npacket_\nbytes_remaining_\nbytes_read_\npacket_read_cb_",
+      "range": {
+        "startLine": 41,
+        "startChar": 17,
+        "endLine": 41,
+        "endChar": 34
+      },
+      "revId": "c8c5f20442d6fd4cbaa0d2ef373be8c2d7923d97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9180d916_ba23eb38",
+        "filename": "bluetooth/1.0/default/test/mct_protocol_unittest.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1051483
+      },
+      "writtenOn": "2017-03-03T00:43:02Z",
+      "side": 1,
+      "message": "won\u0027t these fit inside the line limit? (i.e. the red line here in gerrit?)",
+      "range": {
+        "startLine": 185,
+        "startChar": 25,
+        "endLine": 185,
+        "endChar": 46
+      },
+      "revId": "c8c5f20442d6fd4cbaa0d2ef373be8c2d7923d97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "118f7ac2_a3a12b92",
+        "filename": "bluetooth/1.0/default/vendor_interface.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1051483
+      },
+      "writtenOn": "2017-03-03T00:43:02Z",
+      "side": 1,
+      "message": "this isn\u0027t used, right?",
+      "range": {
+        "startLine": 64,
+        "startChar": 2,
+        "endLine": 64,
+        "endChar": 15
+      },
+      "revId": "c8c5f20442d6fd4cbaa0d2ef373be8c2d7923d97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
