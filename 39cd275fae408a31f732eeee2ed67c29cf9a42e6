@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d2860e98_fff79137",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_sms.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-03-04T00:19:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76b2a5ad_68cb8a1c",
+      "range": {
+        "startLine": 24,
+        "startChar": 4,
+        "endLine": 24,
+        "endChar": 34
+      },
+      "revId": "39cd275fae408a31f732eeee2ed67c29cf9a42e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a7599dba_7fecd7e8",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_sms.cpp",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2017-02-28T01:25:37Z",
       "side": 1,
       "message": "does this have phone number encoded in it? Does it actually end up sending an sms?",
+      "range": {
+        "startLine": 26,
+        "startChar": 15,
+        "endLine": 26,
+        "endChar": 53
+      },
+      "revId": "39cd275fae408a31f732eeee2ed67c29cf9a42e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c31442c6_b16f809c",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_sms.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-03-04T00:19:05Z",
+      "side": 1,
+      "message": "Discussed with you, and we concluded that it may not matter because we are only testing the situations without sim cards at this stage.",
+      "parentUuid": "a7599dba_7fecd7e8",
       "range": {
         "startLine": 26,
         "startChar": 15,
@@ -117,6 +165,54 @@
     },
     {
       "key": {
+        "uuid": "cac8ddd2_4e98268e",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_sms.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-03-04T00:19:05Z",
+      "side": 1,
+      "message": "according to types.hal, there are two types here: \n\nenum SmsAcknowledgeFailCause : int32_t {\n    MEMORY_CAPACITY_EXCEEDED \u003d 0xD3,\n    UNSPECIFIED_ERROR \u003d 0XFF,\n};\n\nboth returned same thing when sim card is not inserted (it seems to return the same thing as well, when an Att card is inserted)",
+      "parentUuid": "bd24f55e_9f89beaf",
+      "range": {
+        "startLine": 69,
+        "startChar": 58,
+        "endLine": 69,
+        "endChar": 82
+      },
+      "revId": "39cd275fae408a31f732eeee2ed67c29cf9a42e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30f5f335_5dc22c32",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_sms.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-03-04T00:19:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e79c6f87_8cd8c300",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 1
+      },
+      "revId": "39cd275fae408a31f732eeee2ed67c29cf9a42e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e9b628f6_ed1852e0",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_sms.cpp",
         "patchSetId": 6
@@ -140,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "371fabf4_d3b8fdcb",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_sms.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-03-04T00:19:05Z",
+      "side": 1,
+      "message": "Will consider it when we are on a stage of considering sim card inserted",
+      "parentUuid": "e9b628f6_ed1852e0",
+      "range": {
+        "startLine": 115,
+        "startChar": 4,
+        "endLine": 115,
+        "endChar": 54
+      },
+      "revId": "39cd275fae408a31f732eeee2ed67c29cf9a42e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "727cbb68_9f1894cc",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_sms.cpp",
         "patchSetId": 6
@@ -151,6 +271,30 @@
       "writtenOn": "2017-02-28T01:25:37Z",
       "side": 1,
       "message": "we should try to verify that the errors actually make sense. For eg. we should call gsm or cdma depending on the SIM type (it seems you tested with T-Mobile. If you test with VZW the result will be different)",
+      "range": {
+        "startLine": 153,
+        "startChar": 51,
+        "endLine": 153,
+        "endChar": 64
+      },
+      "revId": "39cd275fae408a31f732eeee2ed67c29cf9a42e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b1f83659_1cc6bd38",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_sms.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-03-04T00:19:05Z",
+      "side": 1,
+      "message": "Will consider it when we are on a stage of considering sim card inserted",
+      "parentUuid": "727cbb68_9f1894cc",
       "range": {
         "startLine": 153,
         "startChar": 51,

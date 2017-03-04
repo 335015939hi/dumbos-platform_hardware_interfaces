@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "ceba21f4_da5f3e02",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_sms.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-03-04T00:19:05Z",
+      "side": 1,
+      "message": "Done with using namespace. I was thinking \u0027using namespace ::android::hardware::radio::V1_0\" is a general import that may not be suitable.",
+      "parentUuid": "01d09112_7ac22846",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 59
+      },
+      "revId": "0adf4203f8c5d359f7aad1abaee3cce5ea16d6ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b79645c0_cecce084",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_sms.cpp",
         "patchSetId": 7
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "cbfd906d_183d43a2",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_sms.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-03-04T00:19:05Z",
+      "side": 1,
+      "message": "May record it in the doc",
+      "parentUuid": "b79645c0_cecce084",
+      "range": {
+        "startLine": 55,
+        "startChar": 43,
+        "endLine": 55,
+        "endChar": 68
+      },
+      "revId": "0adf4203f8c5d359f7aad1abaee3cce5ea16d6ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "74a536f6_ece244ac",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_sms.cpp",
         "patchSetId": 7
@@ -82,6 +130,30 @@
       "writtenOn": "2017-03-02T19:22:02Z",
       "side": 1,
       "message": "comments should not be merged.",
+      "range": {
+        "startLine": 145,
+        "startChar": 4,
+        "endLine": 148,
+        "endChar": 68
+      },
+      "revId": "0adf4203f8c5d359f7aad1abaee3cce5ea16d6ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a84eacb_ca310011",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_sms.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-03-04T00:19:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74a536f6_ece244ac",
       "range": {
         "startLine": 145,
         "startChar": 4,
@@ -128,6 +200,30 @@
       "writtenOn": "2017-03-02T23:10:45Z",
       "side": 1,
       "message": "use spaces",
+      "range": {
+        "startLine": 183,
+        "startChar": 0,
+        "endLine": 183,
+        "endChar": 1
+      },
+      "revId": "0adf4203f8c5d359f7aad1abaee3cce5ea16d6ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1031db77_dd8d5c1a",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_sms.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-03-04T00:19:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0bf91d93_b46f3b17",
       "range": {
         "startLine": 183,
         "startChar": 0,
