@@ -1524,6 +1524,13 @@ interface IRadio {
     oneway getAllowedCarriers(int32_t serial);
 
     /**
+     * @param serial Serial number of request.
+     *
+     * Response callback is IRadioResponse.getAtrResponse()
+     */
+     oneway getAtr(int32_t serial);
+
+    /**
      * Send the updated device state.
      * This is providing the device state information for the modem to perform power saving
      * strategies.
