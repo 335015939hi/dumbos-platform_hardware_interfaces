@@ -34,4 +34,16 @@ interface IRadioResponse extends @1.0::IRadioResponse {
      *   RadioError:MODEM_INTERNAL_FAILURE
      */
     oneway setCarrierInfoForImsiEncryptionResponse(RadioResponseInfo info);
+
+    /**
+     * @param info Response info struct containing response type, serial no. and error
+     * @param atr String containing the ATR
+     *
+     * Valid errors returned:
+     *   RadioError:NONE
+     *   RadioError:RADIO_NOT_AVAILABLE
+     *   RadioError:RIL_E_REQUEST_NOT_SUPPORTED
+     *   RadioError:GENERIC_FAILURE
+     */
+    oneway getAtrResponse(RadioResponseInfo info, string atr);
 };

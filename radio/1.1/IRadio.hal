@@ -51,4 +51,11 @@ interface IRadio extends @1.0::IRadio {
      */
      oneway setCarrierInfoForImsiEncryption(int32_t serial, vec<uint8_t> carrierKey,
              string keyIdentifier);
+
+    /**
+     * @param serial Serial number of request.
+     *
+     * Response callback is IRadioResponse.getAtrResponse()
+     */
+     oneway getAtr(int32_t serial);
 };
