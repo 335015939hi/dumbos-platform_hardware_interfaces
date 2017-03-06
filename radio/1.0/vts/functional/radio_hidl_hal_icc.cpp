@@ -318,3 +318,15 @@ TEST_F(RadioHidlTest, supplyNetworkDepersonalization) {
     ASSERT_TRUE(radioRsp->rspInfo.error == RadioError::PASSWORD_INCORRECT);
   }
 }
+
+/*
+ * Test IRadio.getAtr() for the response returned.
+ */
+TEST_F(RadioHidlTest, getAtr) {
+  int serial = 1;
+
+  radio->getAtr(serial);
+  EXPECT_EQ(std::cv_status::no_timeout, wait());
+  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
+}
