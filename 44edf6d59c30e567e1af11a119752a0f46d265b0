@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a7b085e_3b016e55",
+        "filename": "bluetooth/1.0/default/hci_packetizer.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1051483
+      },
+      "writtenOn": "2017-03-06T23:42:28Z",
+      "side": 1,
+      "message": "nit: keep similar to instance below on line 70? (each param on separate line)\n\nTEMP_FAILURE_RETRY(read(\n    fd,\n    where,\n    size));",
+      "range": {
+        "startLine": 53,
+        "startChar": 26,
+        "endLine": 55,
+        "endChar": 67
+      },
+      "revId": "44edf6d59c30e567e1af11a119752a0f46d265b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
