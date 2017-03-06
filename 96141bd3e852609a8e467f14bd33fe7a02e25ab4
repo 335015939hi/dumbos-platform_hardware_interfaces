@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "65167a2f_d31a211b",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_sms.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-03-06T21:21:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4588aad6_0a3c184f",
+      "range": {
+        "startLine": 55,
+        "startChar": 4,
+        "endLine": 55,
+        "endChar": 44
+      },
+      "revId": "96141bd3e852609a8e467f14bd33fe7a02e25ab4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c2206ab_260c1465",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_sms.cpp",
         "patchSetId": 10
@@ -36,6 +60,30 @@
       "writtenOn": "2017-03-06T19:45:40Z",
       "side": 1,
       "message": "This shouldn\u0027t be expected, right ?  If you want you can add a TODO to test right behavior with sim later.",
+      "range": {
+        "startLine": 87,
+        "startChar": 17,
+        "endLine": 87,
+        "endChar": 39
+      },
+      "revId": "96141bd3e852609a8e467f14bd33fe7a02e25ab4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "67312dd1_309cf421",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_sms.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-03-06T21:21:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c2206ab_260c1465",
       "range": {
         "startLine": 87,
         "startChar": 17,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "0c862cb7_87b4bd62",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_sms.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-03-06T21:21:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c671935f_5029fbc5",
+      "range": {
+        "startLine": 106,
+        "startChar": 30,
+        "endLine": 106,
+        "endChar": 45
+      },
+      "revId": "96141bd3e852609a8e467f14bd33fe7a02e25ab4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b1783c0d_6d907435",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_sms.cpp",
         "patchSetId": 10
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "416ab4af_fd1d9e25",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_sms.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-03-06T21:21:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b1783c0d_6d907435",
+      "range": {
+        "startLine": 108,
+        "startChar": 18,
+        "endLine": 108,
+        "endChar": 45
+      },
+      "revId": "96141bd3e852609a8e467f14bd33fe7a02e25ab4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "82776553_602d489d",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_sms.cpp",
         "patchSetId": 10
@@ -105,6 +201,30 @@
       "writtenOn": "2017-03-06T19:45:40Z",
       "side": 1,
       "message": "This comment should be inside else condition.",
+      "range": {
+        "startLine": 253,
+        "startChar": 4,
+        "endLine": 253,
+        "endChar": 87
+      },
+      "revId": "96141bd3e852609a8e467f14bd33fe7a02e25ab4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eecee887_b94992e4",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_sms.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-03-06T21:21:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "82776553_602d489d",
       "range": {
         "startLine": 253,
         "startChar": 4,
