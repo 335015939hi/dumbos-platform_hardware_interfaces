@@ -135,3 +135,15 @@ TEST_F(RadioHidlTest_v1_1, setCarrierInfoForImsiEncryption) {
                     radioRsp_v1_1->rspInfo.error == RadioError::REQUEST_NOT_SUPPORTED);
     }
 }
+
+/*
+ * Test IRadio.getAtr() for the response returned.
+ */
+TEST_F(RadioHidlTest_v1_1, getAtr) {
+    int serial = GetRandomSerialNumber();
+
+    radio_v1_1->getAtr(serial);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_v1_1->rspInfo.type);
+    EXPECT_EQ(serial, radioRsp_v1_1->rspInfo.serial);
+}
