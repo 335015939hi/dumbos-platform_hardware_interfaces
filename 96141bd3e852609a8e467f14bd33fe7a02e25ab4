@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4588aad6_0a3c184f",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_sms.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2017-03-06T19:45:40Z",
+      "side": 1,
+      "message": "Please add a TODO here for a new test which would test this API after calling sendsms or the actual way this is supposed to be called. Currently this looks exactly similar to sendSms(). It would probably be difficult to test it now without sim but we can add that test later when we write test for a device with sim.",
+      "range": {
+        "startLine": 55,
+        "startChar": 4,
+        "endLine": 55,
+        "endChar": 44
+      },
+      "revId": "96141bd3e852609a8e467f14bd33fe7a02e25ab4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c2206ab_260c1465",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_sms.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2017-03-06T19:45:40Z",
+      "side": 1,
+      "message": "This shouldn\u0027t be expected, right ?  If you want you can add a TODO to test right behavior with sim later.",
+      "range": {
+        "startLine": 87,
+        "startChar": 17,
+        "endLine": 87,
+        "endChar": 39
+      },
+      "revId": "96141bd3e852609a8e467f14bd33fe7a02e25ab4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c671935f_5029fbc5",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_sms.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2017-03-06T19:45:40Z",
+      "side": 1,
+      "message": "This is definitely a bug from QC. Generic error should not be returned at all. Please open a separate bug for this and assign it to QC (anambi@google.com)",
+      "range": {
+        "startLine": 106,
+        "startChar": 30,
+        "endLine": 106,
+        "endChar": 45
+      },
+      "revId": "96141bd3e852609a8e467f14bd33fe7a02e25ab4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b1783c0d_6d907435",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_sms.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2017-03-06T19:45:40Z",
+      "side": 1,
+      "message": "same comment as line 87.\nIdeally it should return error similar to line 177",
+      "range": {
+        "startLine": 108,
+        "startChar": 18,
+        "endLine": 108,
+        "endChar": 45
+      },
+      "revId": "96141bd3e852609a8e467f14bd33fe7a02e25ab4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82776553_602d489d",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_sms.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2017-03-06T19:45:40Z",
+      "side": 1,
+      "message": "This comment should be inside else condition.",
+      "range": {
+        "startLine": 253,
+        "startChar": 4,
+        "endLine": 253,
+        "endChar": 87
+      },
+      "revId": "96141bd3e852609a8e467f14bd33fe7a02e25ab4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
