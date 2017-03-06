@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0ba3259f_75a24d38",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_sms.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-03-06T23:46:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9088e321_158c6939",
+      "range": {
+        "startLine": 109,
+        "startChar": 8,
+        "endLine": 109,
+        "endChar": 72
+      },
+      "revId": "b299b0e8987860783cb2d2e9edf0cc6a28be4130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4327078_201a3508",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_sms.cpp",
         "patchSetId": 11
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "98365a06_fbb5e6af",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_sms.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-03-06T23:46:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4327078_201a3508",
+      "range": {
+        "startLine": 111,
+        "startChar": 8,
+        "endLine": 111,
+        "endChar": 72
+      },
+      "revId": "b299b0e8987860783cb2d2e9edf0cc6a28be4130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "27ed6bf8_ec39acd7",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_sms.cpp",
         "patchSetId": 11
@@ -59,6 +107,30 @@
       "writtenOn": "2017-03-06T22:08:28Z",
       "side": 1,
       "message": "wherever you have todo in else condition, delete the error check as that is not consistent and we can add those checks after your investigation is done and you know the expected behavior",
+      "range": {
+        "startLine": 253,
+        "startChar": 8,
+        "endLine": 253,
+        "endChar": 46
+      },
+      "revId": "b299b0e8987860783cb2d2e9edf0cc6a28be4130",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11063502_8dcd3bf9",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_sms.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-03-06T23:46:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27ed6bf8_ec39acd7",
       "range": {
         "startLine": 253,
         "startChar": 8,
