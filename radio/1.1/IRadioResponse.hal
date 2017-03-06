@@ -93,4 +93,17 @@ interface IRadioResponse extends @1.0::IRadioResponse {
      *   RadioError:INVALID_ARGUMENTS
      */
     oneway stopKeepaliveResponse(RadioResponseInfo info);
+
+    /**
+     * @param info Response info struct containing response type, serial no. and error
+     * @param atr String containing the ATR
+     *
+     * Valid errors returned:
+     *   RadioError:NONE
+     *   RadioError:NO_MEMORY
+     *   RadioError:INTERNAL_ERR
+     *   RadioError:INVALID_ARGUMENTS
+     *   RadioError:MODEM_ERR
+     */
+    oneway getAtrResponse(RadioResponseInfo info, string atr);
 };

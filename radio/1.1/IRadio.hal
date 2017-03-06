@@ -109,4 +109,11 @@ interface IRadio extends @1.0::IRadio {
      * Response function is IRadioResponse.stopKeepaliveResponse()
      */
     oneway stopKeepalive(int32_t serial, int32_t sessionHandle);
+
+    /**
+     * @param serial Serial number of request.
+     *
+     * Response callback is IRadioResponse.getAtrResponse()
+     */
+     oneway getAtr(int32_t serial);
 };
