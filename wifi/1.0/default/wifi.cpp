@@ -115,6 +115,7 @@ WifiStatus Wifi::startInternal() {
       }
     }
   }
+  LOG(INFIO) << "Wifi HAL started";
   return wifi_status;
 }
 
@@ -172,13 +173,7 @@ WifiStatus Wifi::initializeLegacyHal() {
 
 WifiStatus Wifi::stopLegacyHalAndDeinitializeModeController() {
   run_state_ = RunState::STOPPING;
-  const auto on_complete_callback_ = [&]() {
-    if (chip_.get()) {
-      chip_->invalidate();
-    }
-    chip_.clear();
-    run_state_ = RunState::STOPPED;
-  };
+  const auto on_complete_callback_ = [&]() { run_state_ = RunState::STOPPED; };
   legacy_hal::wifi_error legacy_status =
       legacy_hal_->stop(on_complete_callback_);
   if (legacy_status != legacy_hal::WIFI_SUCCESS) {
@@ -190,6 +185,12 @@ WifiStatus Wifi::stopLegacyHalAndDeinitializeModeController() {
     LOG(ERROR) << "Failed to deinitialize firmware mode controller";
     return createWifiStatus(WifiStatusCode::ERROR_UNKNOWN);
   }
+  // Clear the chip object and it's child objects since the HAL is now stopped.
+  if (chip_.get()) {
+    chip_->invalidate();
+    chip_.clear();
+  }
+  LOG(INFIO) << "Wifi HAL stopped";
   return createWifiStatus(WifiStatusCode::SUCCESS);
 }
 }  // namespace implementation
