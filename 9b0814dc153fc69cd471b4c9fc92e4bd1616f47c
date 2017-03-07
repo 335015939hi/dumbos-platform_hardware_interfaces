@@ -22,6 +22,30 @@
       "revId": "9b0814dc153fc69cd471b4c9fc92e4bd1616f47c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "15e6c9fc_584104d4",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-07T23:20:48Z",
+      "side": 1,
+      "message": "The lower layers should check for it. But, we should probably add a check here as well.",
+      "parentUuid": "924bb854_9b698752",
+      "range": {
+        "startLine": 357,
+        "startChar": 0,
+        "endLine": 357,
+        "endChar": 59
+      },
+      "revId": "9b0814dc153fc69cd471b4c9fc92e4bd1616f47c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
