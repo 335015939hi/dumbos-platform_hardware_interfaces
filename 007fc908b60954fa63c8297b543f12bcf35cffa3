@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6a7702b6_02590467",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIfaceCallback.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1086611
+      },
+      "writtenOn": "2017-03-07T21:57:03Z",
+      "side": 1,
+      "message": "Remove the \"etc\"?  I feel it can be confusing.",
+      "range": {
+        "startLine": 281,
+        "startChar": 56,
+        "endLine": 281,
+        "endChar": 60
+      },
+      "revId": "007fc908b60954fa63c8297b543f12bcf35cffa3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
