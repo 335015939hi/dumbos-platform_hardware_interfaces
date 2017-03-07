@@ -22,6 +22,30 @@
       "revId": "08c0ea57be73004534a8ab4256f351f4763807b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "55b5da7f_1281ea50",
+        "filename": "wifi/1.0/default/wifi.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-07T21:23:48Z",
+      "side": 1,
+      "message": "Hmm. That is true. I\u0027ll move it out of the if case.",
+      "parentUuid": "02dc4246_ac00a0b5",
+      "range": {
+        "startLine": 130,
+        "startChar": 23,
+        "endLine": 130,
+        "endChar": 49
+      },
+      "revId": "08c0ea57be73004534a8ab4256f351f4763807b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
