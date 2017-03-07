@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fff0a03d_1681e96d",
+        "filename": "wifi/1.0/default/wifi.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-03-07T21:47:26Z",
+      "side": 1,
+      "message": "Nit: \"its\". (Possessive has no apostrophe. Contraction of \"it is\" does.)",
+      "range": {
+        "startLine": 143,
+        "startChar": 31,
+        "endLine": 143,
+        "endChar": 35
+      },
+      "revId": "a199c0e4aa7cfd60936999ac2af92dc1f51d1c29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
