@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "02dc4246_ac00a0b5",
+        "filename": "wifi/1.0/default/wifi.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-03-07T21:21:44Z",
+      "side": 1,
+      "message": "What about the case where legacy_hal_-\u003estop() succeeds, but mode_controller_-\u003edeinitialize() fails? Is |chip_| supposed to be valid in that case?\n\n(I think this code would leave |chip_| valid. But I\u0027m not sure that\u0027s the desired behavior.)",
+      "range": {
+        "startLine": 130,
+        "startChar": 23,
+        "endLine": 130,
+        "endChar": 49
+      },
+      "revId": "08c0ea57be73004534a8ab4256f351f4763807b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
