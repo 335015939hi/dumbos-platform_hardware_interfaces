@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "924bb854_9b698752",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1126614
+      },
+      "writtenOn": "2017-03-07T23:13:49Z",
+      "side": 1,
+      "message": "Should we check against MAX_BUCKETS here, or are we sure that lower levels check?",
+      "range": {
+        "startLine": 357,
+        "startChar": 0,
+        "endLine": 357,
+        "endChar": 59
+      },
+      "revId": "9b0814dc153fc69cd471b4c9fc92e4bd1616f47c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
