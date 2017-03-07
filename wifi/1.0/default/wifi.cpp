@@ -115,6 +115,7 @@ WifiStatus Wifi::startInternal() {
       }
     }
   }
+  LOG(INFO) << "Wifi HAL started";
   return wifi_status;
 }
 
@@ -127,6 +128,12 @@ WifiStatus Wifi::stopInternal() {
   }
   WifiStatus wifi_status = stopLegacyHalAndDeinitializeModeController();
   if (wifi_status.code == WifiStatusCode::SUCCESS) {
+    // Clear the chip object and it's child objects since the HAL is now
+    // stopped.
+    if (chip_.get()) {
+      chip_->invalidate();
+      chip_.clear();
+    }
     for (const auto& callback : event_cb_handler_.getCallbacks()) {
       if (!callback->onStop().isOk()) {
         LOG(ERROR) << "Failed to invoke onStop callback";
@@ -139,6 +146,7 @@ WifiStatus Wifi::stopInternal() {
       }
     }
   }
+  LOG(INFO) << "Wifi HAL stopped";
   return wifi_status;
 }
 
@@ -172,13 +180,7 @@ WifiStatus Wifi::initializeLegacyHal() {
 
 WifiStatus Wifi::stopLegacyHalAndDeinitializeModeController() {
   run_state_ = RunState::STOPPING;
-  const auto on_complete_callback_ = [&]() {
-    if (chip_.get()) {
-      chip_->invalidate();
-    }
-    chip_.clear();
-    run_state_ = RunState::STOPPED;
-  };
+  const auto on_complete_callback_ = [&]() { run_state_ = RunState::STOPPED; };
   legacy_hal::wifi_error legacy_status =
       legacy_hal_->stop(on_complete_callback_);
   if (legacy_status != legacy_hal::WIFI_SUCCESS) {
