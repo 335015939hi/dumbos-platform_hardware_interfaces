@@ -22,6 +22,30 @@
       "revId": "e8ff7cdc54ccb9c60252052f6db4cc8add9c9e9b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0bf48b9a_62a151d1",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIfaceCallback.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-08T00:31:37Z",
+      "side": 1,
+      "message": "Nope. This only contains explicit reject status code received from AP. The timeout indicates that the AP did not even respond.",
+      "parentUuid": "9979d5ca_75b75060",
+      "range": {
+        "startLine": 284,
+        "startChar": 53,
+        "endLine": 284,
+        "endChar": 63
+      },
+      "revId": "e8ff7cdc54ccb9c60252052f6db4cc8add9c9e9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
