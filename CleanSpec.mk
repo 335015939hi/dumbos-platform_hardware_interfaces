@@ -52,3 +52,7 @@ $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/bin/hw/android.hardware.blue
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib/hw/android.hardware.bluetooth*)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/lib64/hw/android.hardware.bluetooth*)
 $(call add-clean-step, rm -rf $(PRODUCT_OUT)/system/etc/init/android.hardware.bluetooth*)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/bin/hw/android.hardware*)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/lib/hw/android.hardware*)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/lib64/hw/android.hardware*)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/vendor/etc/init/android.hardware*)

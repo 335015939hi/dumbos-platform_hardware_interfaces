@@ -1,4 +1,4 @@
-#define LOG_TAG "android.hardware.nfc@1.0-service"
+#define LOG_TAG "nfc@1.0-service"
 
 #include <android/hardware/nfc/1.0/INfc.h>
 

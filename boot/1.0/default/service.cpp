@@ -1,4 +1,4 @@
-#define LOG_TAG "android.hardware.boot@1.0-service"
+#define LOG_TAG "boot@1.0-service"
 
 #include <android/hardware/boot/1.0/IBootControl.h>
 #include <hidl/LegacySupport.h>

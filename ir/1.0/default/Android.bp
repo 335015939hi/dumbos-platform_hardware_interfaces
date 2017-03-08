@@ -29,9 +29,9 @@ cc_library_shared {
 
 cc_binary {
     relative_install_path: "hw",
-    name: "android.hardware.ir@1.0-service",
+    name: "ir@1.0-service",
     proprietary: true,
-    init_rc: ["android.hardware.ir@1.0-service.rc"],
+    init_rc: ["ir@1.0-service.rc"],
     srcs: ["service.cpp"],
 
     shared_libs: [

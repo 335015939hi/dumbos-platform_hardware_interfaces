@@ -14,7 +14,7 @@
 LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := android.hardware.wifi@1.0-service
+LOCAL_MODULE := wifi@1.0-service
 LOCAL_MODULE_RELATIVE_PATH := hw
 LOCAL_PROPRIETARY_MODULE := true
 LOCAL_CPPFLAGS := -Wall -Werror -Wextra
@@ -45,5 +45,5 @@ LOCAL_SHARED_LIBRARIES := \
     libwifi-hal \
     libwifi-system
 LOCAL_WHOLE_STATIC_LIBRARIES := $(LIB_WIFI_HAL)
-LOCAL_INIT_RC := android.hardware.wifi@1.0-service.rc
+LOCAL_INIT_RC := wifi@1.0-service.rc
 include $(BUILD_EXECUTABLE)
