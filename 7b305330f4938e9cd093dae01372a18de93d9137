@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4ba4b8be_386a692c",
+        "filename": "data/offload/config/1.0/IOffloadConfig.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-03-08T01:21:07Z",
+      "side": 1,
+      "message": "do we really need this? We can simply destroy all handles when stop offload is invoked, which makes this API redundant.",
+      "range": {
+        "startLine": 54,
+        "startChar": 3,
+        "endLine": 54,
+        "endChar": 16
+      },
+      "revId": "7b305330f4938e9cd093dae01372a18de93d9137",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
