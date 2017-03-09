@@ -52,6 +52,24 @@
       "revId": "78f88356e304f85f1fa4293bf83d18273816ed41",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "27077430_39dbb914",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 1139,
+      "author": {
+        "id": 1134734
+      },
+      "writtenOn": "2017-03-09T19:54:40Z",
+      "side": 1,
+      "message": "I see. No, I didn\u0027t add it there. I\u0027ve updated a new patchset and added a new struct for the open channel.",
+      "parentUuid": "fa5cb5fa_a6ec4a25",
+      "revId": "78f88356e304f85f1fa4293bf83d18273816ed41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
