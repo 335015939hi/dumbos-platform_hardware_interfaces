@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "210f4285_397918c7",
+        "filename": "wifi/offload/1.0/IOffload.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1081508
+      },
+      "writtenOn": "2017-03-09T22:38:47Z",
+      "side": 1,
+      "message": "From another CL it implis that there can only be one subscriber. I am OK with that but you might add some comments explicitly saying only one subscriber is supported, and any incoming subscribing will overwrite the existing one.",
+      "range": {
+        "startLine": 44,
+        "startChar": 54,
+        "endLine": 45,
+        "endChar": 74
+      },
+      "revId": "369fdaf84a83ab7f51c3a4e6cc2600fa61243679",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
