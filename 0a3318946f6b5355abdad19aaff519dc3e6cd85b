@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "667bee92_f656c270",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_icc.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1134734
+      },
+      "writtenOn": "2017-03-09T20:23:11Z",
+      "side": 1,
+      "message": "change to hidl_string(\"A000000063504B43532D3135\");\nreferenced in UiccPkcs15.java",
+      "revId": "0a3318946f6b5355abdad19aaff519dc3e6cd85b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
