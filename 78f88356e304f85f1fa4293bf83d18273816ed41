@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e4ab005a_129da604",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 1139,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-03-09T04:01:04Z",
+      "side": 1,
+      "message": "why? ril.h doesn\u0027t have this.",
+      "revId": "78f88356e304f85f1fa4293bf83d18273816ed41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
