@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e111ca2c_1ece44b0",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_voice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-03-09T19:17:08Z",
+      "side": 1,
+      "message": "why tmp? why not directly use (radioRsp-\u003erspInfo.error \u003d\u003d RadioError::NONE || radioRsp-\u003erspInfo.error \u003d\u003d RadioError::INVALID_ARGUMENTS) here ?",
+      "range": {
+        "startLine": 36,
+        "startChar": 24,
+        "endLine": 36,
+        "endChar": 27
+      },
+      "revId": "be2113cb3bca9d4b606daa1fa54383543814520d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
