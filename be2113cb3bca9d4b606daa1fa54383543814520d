@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "b21db214_2c1c51d8",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_voice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-03-09T19:30:34Z",
+      "side": 1,
+      "message": "tmp is only used for error check. If it is needed to use, I prefer to insert \u0027bool tmp \u003d false;\u0027 on line 31, because I think the first few lines of the TEST_F are used for initialize parameters for request api.",
+      "range": {
+        "startLine": 24,
+        "startChar": 4,
+        "endLine": 24,
+        "endChar": 21
+      },
+      "revId": "be2113cb3bca9d4b606daa1fa54383543814520d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e111ca2c_1ece44b0",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_voice.cpp",
         "patchSetId": 2
