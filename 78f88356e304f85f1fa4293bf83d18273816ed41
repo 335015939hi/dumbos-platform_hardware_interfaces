@@ -34,6 +34,24 @@
       "revId": "78f88356e304f85f1fa4293bf83d18273816ed41",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa5cb5fa_a6ec4a25",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 1139,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-03-09T18:58:28Z",
+      "side": 1,
+      "message": "No. Did you add this new parameter to the AppStatus in ril.h? I didn\u0027t see it there. So why add it here then?",
+      "parentUuid": "d9919f31_a0dfc685",
+      "revId": "78f88356e304f85f1fa4293bf83d18273816ed41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
