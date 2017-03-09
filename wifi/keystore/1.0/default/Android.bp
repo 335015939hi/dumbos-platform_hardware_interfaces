@@ -1,0 +1,16 @@
+cc_library_shared {
+    name: "android.hardware.wifi.keystore@1.0-impl",
+    relative_install_path: "hw",
+    proprietary: true,
+    srcs: [
+        "service.cpp",
+        "keystore.cpp",
+    ],
+    shared_libs: [
+        "libhidlbase",
+        "libhidltransport",
+        "libutils",
+        "android.hardware.wifi.keystore@1.0",
+        "android.hidl.base@1.0",
+    ],
+}
