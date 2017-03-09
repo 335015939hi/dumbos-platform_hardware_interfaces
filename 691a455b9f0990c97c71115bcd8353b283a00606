@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d1264d9c_75df822e",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_icc.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-03-09T20:26:36Z",
+      "side": 0,
+      "message": "why get rid of the loop and the aidPtr from cardStatus? Why not just add 0x04 as an additional parameter here?",
+      "revId": "691a455b9f0990c97c71115bcd8353b283a00606",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
