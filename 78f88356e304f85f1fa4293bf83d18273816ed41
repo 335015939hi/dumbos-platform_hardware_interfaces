@@ -16,6 +16,24 @@
       "revId": "78f88356e304f85f1fa4293bf83d18273816ed41",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d9919f31_a0dfc685",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 1139,
+      "author": {
+        "id": 1134734
+      },
+      "writtenOn": "2017-03-09T18:39:18Z",
+      "side": 1,
+      "message": "are you referring to the examples?",
+      "parentUuid": "e4ab005a_129da604",
+      "revId": "78f88356e304f85f1fa4293bf83d18273816ed41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
