@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2778b8f9_d7c22903",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_voice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2017-03-09T20:02:15Z",
+      "side": 1,
+      "message": "removed",
+      "parentUuid": "b21db214_2c1c51d8",
+      "range": {
+        "startLine": 24,
+        "startChar": 4,
+        "endLine": 24,
+        "endChar": 21
+      },
+      "revId": "be2113cb3bca9d4b606daa1fa54383543814520d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e111ca2c_1ece44b0",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_voice.cpp",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-03-09T19:17:08Z",
       "side": 1,
       "message": "why tmp? why not directly use (radioRsp-\u003erspInfo.error \u003d\u003d RadioError::NONE || radioRsp-\u003erspInfo.error \u003d\u003d RadioError::INVALID_ARGUMENTS) here ?",
+      "range": {
+        "startLine": 36,
+        "startChar": 24,
+        "endLine": 36,
+        "endChar": 27
+      },
+      "revId": "be2113cb3bca9d4b606daa1fa54383543814520d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6386e5af_c65a19eb",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_voice.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2017-03-09T20:02:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e111ca2c_1ece44b0",
       "range": {
         "startLine": 36,
         "startChar": 24,
