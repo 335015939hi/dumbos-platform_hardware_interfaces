@@ -388,16 +388,22 @@ WifiChip::getAvailableModesInternal() {
   // The chip combination supported for current devices is fixed for now with
   // 2 separate modes of operation:
   // Mode 1 (STA mode): Will support 1 STA and 1 P2P or NAN iface operations
-  // concurrently.
+  // concurrently [NAN conditional on WIFI_HIDL_FEATURE_AWARE]
   // Mode 2 (AP mode): Will support 1 AP iface operations.
   // TODO (b/32997844): Read this from some device specific flags in the
   // makefile.
   // STA mode iface combinations.
   const IWifiChip::ChipIfaceCombinationLimit
       sta_chip_iface_combination_limit_1 = {{IfaceType::STA}, 1};
+#ifdef WIFI_HIDL_FEATURE_AWARE
   const IWifiChip::ChipIfaceCombinationLimit
       sta_chip_iface_combination_limit_2 = {{IfaceType::P2P, IfaceType::NAN},
                                             1};
+#else
+  const IWifiChip::ChipIfaceCombinationLimit
+      sta_chip_iface_combination_limit_2 = {{IfaceType::P2P},
+                                            1};
+#endif // WIFI_HIDL_FEATURE_AWARE
   const IWifiChip::ChipIfaceCombination sta_chip_iface_combination = {
       {sta_chip_iface_combination_limit_1, sta_chip_iface_combination_limit_2}};
   const IWifiChip::ChipMode sta_chip_mode = {kStaChipModeId,
@@ -552,6 +558,7 @@ WifiStatus WifiChip::removeApIfaceInternal(const std::string& ifname) {
 
 std::pair<WifiStatus, sp<IWifiNanIface>> WifiChip::createNanIfaceInternal() {
   // Only 1 of NAN or P2P iface can be active at a time.
+#ifdef WIFI_HIDL_FEATURE_AWARE
   if (current_mode_id_ != kStaChipModeId || nan_iface_.get() ||
       p2p_iface_.get()) {
     return {createWifiStatus(WifiStatusCode::ERROR_NOT_AVAILABLE), {}};
@@ -564,6 +571,9 @@ std::pair<WifiStatus, sp<IWifiNanIface>> WifiChip::createNanIfaceInternal() {
     }
   }
   return {createWifiStatus(WifiStatusCode::SUCCESS), nan_iface_};
+#else
+  return {createWifiStatus(WifiStatusCode::ERROR_NOT_AVAILABLE), {}};
+#endif // WIFI_HIDL_FEATURE_AWARE
 }
 
 std::pair<WifiStatus, std::vector<hidl_string>>
