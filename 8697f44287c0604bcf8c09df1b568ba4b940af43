@@ -1,0 +1,349 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "824b2fce_1caf9bd3",
+        "filename": "wifi/offload/1.0/default/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1081508
+      },
+      "writtenOn": "2017-03-09T22:39:31Z",
+      "side": 1,
+      "message": "lower case too.",
+      "range": {
+        "startLine": 6,
+        "startChar": 9,
+        "endLine": 6,
+        "endChar": 21
+      },
+      "revId": "8697f44287c0604bcf8c09df1b568ba4b940af43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d626d86_52947881",
+        "filename": "wifi/offload/1.0/default/Android.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1081508
+      },
+      "writtenOn": "2017-03-09T22:39:31Z",
+      "side": 1,
+      "message": "cpp file names use lower case.",
+      "range": {
+        "startLine": 22,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 15
+      },
+      "revId": "8697f44287c0604bcf8c09df1b568ba4b940af43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ebbe6882_c6a003b6",
+        "filename": "wifi/offload/1.0/default/Offload.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1081508
+      },
+      "writtenOn": "2017-03-09T22:39:31Z",
+      "side": 1,
+      "message": "is this a TODO ?",
+      "range": {
+        "startLine": 15,
+        "startChar": 4,
+        "endLine": 15,
+        "endChar": 20
+      },
+      "revId": "8697f44287c0604bcf8c09df1b568ba4b940af43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9aed65c2_1c59edad",
+        "filename": "wifi/offload/1.0/default/Offload.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1081508
+      },
+      "writtenOn": "2017-03-09T22:39:31Z",
+      "side": 1,
+      "message": "I always use INFO directly, although android::base::INFO looks more correct.\nI am OK with either way.",
+      "range": {
+        "startLine": 16,
+        "startChar": 8,
+        "endLine": 16,
+        "endChar": 27
+      },
+      "revId": "8697f44287c0604bcf8c09df1b568ba4b940af43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f3c501fa_6b5f042f",
+        "filename": "wifi/offload/1.0/default/Offload.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1081508
+      },
+      "writtenOn": "2017-03-09T22:39:31Z",
+      "side": 1,
+      "message": "You can remove \"Offload::\", just leaving mScanParam",
+      "range": {
+        "startLine": 21,
+        "startChar": 4,
+        "endLine": 21,
+        "endChar": 24
+      },
+      "revId": "8697f44287c0604bcf8c09df1b568ba4b940af43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "239cfa8d_c93c8d4b",
+        "filename": "wifi/offload/1.0/default/Offload.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1081508
+      },
+      "writtenOn": "2017-03-09T22:39:31Z",
+      "side": 1,
+      "message": "same here.",
+      "range": {
+        "startLine": 22,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 24
+      },
+      "revId": "8697f44287c0604bcf8c09df1b568ba4b940af43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e86a29ee_c6ef18f5",
+        "filename": "wifi/offload/1.0/default/Offload.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1081508
+      },
+      "writtenOn": "2017-03-09T22:39:31Z",
+      "side": 1,
+      "message": "Not sure about HIDL code convention.\nBut for wificond and other Android native codes,\nwe use \"type* val\", instead of \"type *val\"",
+      "range": {
+        "startLine": 28,
+        "startChar": 4,
+        "endLine": 28,
+        "endChar": 35
+      },
+      "revId": "8697f44287c0604bcf8c09df1b568ba4b940af43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16695c25_998cb247",
+        "filename": "wifi/offload/1.0/default/Offload.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1081508
+      },
+      "writtenOn": "2017-03-09T22:39:31Z",
+      "side": 1,
+      "message": "You might also need to set mScanEventCallback to null, otherwise this class will hold the pointer before next subscription happens. This delays object destruction and might cause unexpected error in complex situations.   \nAlso, I would prefer to remove \u0027mScanEventSubscription\u0027 and only use \u0027mScanEventCallback\u0027 to tell if there is subscription or not.",
+      "range": {
+        "startLine": 46,
+        "startChar": 3,
+        "endLine": 46,
+        "endChar": 35
+      },
+      "revId": "8697f44287c0604bcf8c09df1b568ba4b940af43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f2d2f342_aac8b57d",
+        "filename": "wifi/offload/1.0/default/Offload.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1081508
+      },
+      "writtenOn": "2017-03-09T22:39:31Z",
+      "side": 1,
+      "message": "Group the includes.\nBetter to insert an empty line after this.",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 55
+      },
+      "revId": "8697f44287c0604bcf8c09df1b568ba4b940af43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "788961b6_7888ec82",
+        "filename": "wifi/offload/1.0/default/Offload.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1081508
+      },
+      "writtenOn": "2017-03-09T22:39:31Z",
+      "side": 1,
+      "message": "I think for Android C++ development we use 2/4 spaces for indents, instead of 4/8 for Java.",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 4
+      },
+      "revId": "8697f44287c0604bcf8c09df1b568ba4b940af43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "552f6736_f32d83b5",
+        "filename": "wifi/offload/1.0/default/Offload.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1081508
+      },
+      "writtenOn": "2017-03-09T22:39:31Z",
+      "side": 1,
+      "message": "This can be removed :-)",
+      "range": {
+        "startLine": 32,
+        "startChar": 4,
+        "endLine": 32,
+        "endChar": 24
+      },
+      "revId": "8697f44287c0604bcf8c09df1b568ba4b940af43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a69ceb82_3f2deda3",
+        "filename": "wifi/offload/1.0/default/service.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1081508
+      },
+      "writtenOn": "2017-03-09T22:39:31Z",
+      "side": 1,
+      "message": "Please group the includes:\nIIRC, The order is like:\nC headers\nC++ headers\nandroid headers\nlocal headers",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 20
+      },
+      "revId": "8697f44287c0604bcf8c09df1b568ba4b940af43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12d28ff7_6a7ba3b2",
+        "filename": "wifi/offload/1.0/default/service.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1081508
+      },
+      "writtenOn": "2017-03-09T22:39:31Z",
+      "side": 1,
+      "message": "generated HIDL files ?\nalso you need a space after \"//\"",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 21
+      },
+      "revId": "8697f44287c0604bcf8c09df1b568ba4b940af43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d82c7091_f5e6c80c",
+        "filename": "wifi/offload/1.0/default/service.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1081508
+      },
+      "writtenOn": "2017-03-09T22:39:31Z",
+      "side": 1,
+      "message": "Let\u0027s keep consistent with supplicant HAL and wificond.\nUse 2 spaces indent here.",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 4
+      },
+      "revId": "8697f44287c0604bcf8c09df1b568ba4b940af43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5cd74a3_11832b1b",
+        "filename": "wifi/offload/1.0/default/service.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1081508
+      },
+      "writtenOn": "2017-03-09T22:39:31Z",
+      "side": 1,
+      "message": "I think it\u0027s better to use a const here.\nYou can name it char kServiceName[] and put it either in anonymous namespace or a new file like ipc_constants.h/cpp for wificond.",
+      "range": {
+        "startLine": 31,
+        "startChar": 15,
+        "endLine": 31,
+        "endChar": 42
+      },
+      "revId": "8697f44287c0604bcf8c09df1b568ba4b940af43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
