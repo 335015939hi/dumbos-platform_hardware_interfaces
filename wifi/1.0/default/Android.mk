@@ -20,9 +20,9 @@ LOCAL_PROPRIETARY_MODULE := true
 LOCAL_CPPFLAGS := -Wall -Werror -Wextra
 
 # Configure WIFI_FEATURE_<> flags per device
-#ifeq ($(TARGET_DEVICE),some_device_name)
-#LOCAL_CPPFLAGS += -DWIFI_FEATURE_AWARE
-#endif
+ifeq ($(TARGET_DEVICE),sailfish)
+LOCAL_CPPFLAGS += -DWIFI_FEATURE_AWARE
+endif
 
 LOCAL_SRC_FILES := \
     hidl_struct_util.cpp \
