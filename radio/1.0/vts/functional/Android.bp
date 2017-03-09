@@ -21,6 +21,7 @@ cc_test {
            "radio_response.cpp",
            "radio_hidl_hal_icc.cpp",
            "radio_hidl_hal_sms.cpp",
+           "radio_hidl_hal_dial.cpp",
            "VtsHalRadioV1_0TargetTest.cpp"],
     shared_libs: [
         "libbase",
