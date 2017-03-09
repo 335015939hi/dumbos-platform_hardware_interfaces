@@ -46,6 +46,30 @@
       "revId": "f7a42c82fbfe8afc5e97e79f54504c9c25b39e73",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "53e37d41_add4970f",
+        "filename": "bluetooth/1.0/default/hci_protocol.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-03-09T00:13:22Z",
+      "side": 1,
+      "message": "I\u0027m following up with Myles offline right now",
+      "parentUuid": "19e74b2b_c0af61fa",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 4
+      },
+      "revId": "f7a42c82fbfe8afc5e97e79f54504c9c25b39e73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
