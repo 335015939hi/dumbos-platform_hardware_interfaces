@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cddc24a5_e0e1cffb",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 1986,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-03-09T19:53:35Z",
+      "side": 1,
+      "message": "why add this if it is not even used? Either change the modify to use this struct or get rid of it from here.",
+      "revId": "8416083b0786a7ffade89c4b4ee562271373f3aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
