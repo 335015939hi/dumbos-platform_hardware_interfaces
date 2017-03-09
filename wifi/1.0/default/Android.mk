@@ -18,6 +18,12 @@ LOCAL_MODULE := android.hardware.wifi@1.0-service
 LOCAL_MODULE_RELATIVE_PATH := hw
 LOCAL_PROPRIETARY_MODULE := true
 LOCAL_CPPFLAGS := -Wall -Werror -Wextra
+
+# Configure WIFI_FEATURE_<> flags per device
+#ifeq ($(TARGET_DEVICE),some_device_name)
+#LOCAL_CPPFLAGS += -DWIFI_FEATURE_AWARE
+#endif
+
 LOCAL_SRC_FILES := \
     hidl_struct_util.cpp \
     hidl_sync_util.cpp \
