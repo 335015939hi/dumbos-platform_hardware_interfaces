@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e08ecf73_169e00b5",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_cell_broadcast.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-03-10T21:44:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f7cadf3_860c2a97",
+      "range": {
+        "startLine": 54,
+        "startChar": 30,
+        "endLine": 54,
+        "endChar": 47
+      },
+      "revId": "d19bcbe80f50b00a910186ab361f3f1f6877ccb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f807b6e2_1899b79a",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_cell_broadcast.cpp",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-03-10T19:26:52Z",
       "side": 1,
       "message": "same as above",
+      "range": {
+        "startLine": 111,
+        "startChar": 30,
+        "endLine": 111,
+        "endChar": 47
+      },
+      "revId": "d19bcbe80f50b00a910186ab361f3f1f6877ccb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cca407c2_b13dd49c",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_cell_broadcast.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-03-10T21:44:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f807b6e2_1899b79a",
       "range": {
         "startLine": 111,
         "startChar": 30,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "d6875f02_1394a6aa",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-03-10T21:44:10Z",
+      "side": 1,
+      "message": "RadioError::NONE is the shown result. I don\u0027t know why it is success. When a Sim card is not inserted, it is not possible to trigger setupDataCall.",
+      "parentUuid": "79ed1032_fceed87d",
+      "range": {
+        "startLine": 57,
+        "startChar": 8,
+        "endLine": 57,
+        "endChar": 61
+      },
+      "revId": "d19bcbe80f50b00a910186ab361f3f1f6877ccb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ec0b6aac_ad3d62de",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2017-03-10T19:26:52Z",
       "side": 1,
       "message": "This error is not present in doc. Please make sure errors which you are mentioning here are present in doc.",
+      "range": {
+        "startLine": 76,
+        "startChar": 30,
+        "endLine": 76,
+        "endChar": 45
+      },
+      "revId": "d19bcbe80f50b00a910186ab361f3f1f6877ccb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6c7fd44a_0a81dccb",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-03-10T21:44:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ec0b6aac_ad3d62de",
       "range": {
         "startLine": 76,
         "startChar": 30,
