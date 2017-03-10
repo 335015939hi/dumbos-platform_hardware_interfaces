@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f7cadf3_860c2a97",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_cell_broadcast.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2017-03-10T19:26:52Z",
+      "side": 1,
+      "message": "you can add more errors here like modem_err, system_err, inavlid_state",
+      "range": {
+        "startLine": 54,
+        "startChar": 30,
+        "endLine": 54,
+        "endChar": 47
+      },
+      "revId": "d19bcbe80f50b00a910186ab361f3f1f6877ccb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f807b6e2_1899b79a",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_cell_broadcast.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2017-03-10T19:26:52Z",
+      "side": 1,
+      "message": "same as above",
+      "range": {
+        "startLine": 111,
+        "startChar": 30,
+        "endLine": 111,
+        "endChar": 47
+      },
+      "revId": "d19bcbe80f50b00a910186ab361f3f1f6877ccb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79ed1032_fceed87d",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2017-03-10T19:26:52Z",
+      "side": 1,
+      "message": "This doesn\u0027t look right. How can it be success when there is no sim ?",
+      "range": {
+        "startLine": 57,
+        "startChar": 8,
+        "endLine": 57,
+        "endChar": 61
+      },
+      "revId": "d19bcbe80f50b00a910186ab361f3f1f6877ccb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ec0b6aac_ad3d62de",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2017-03-10T19:26:52Z",
+      "side": 1,
+      "message": "This error is not present in doc. Please make sure errors which you are mentioning here are present in doc.",
+      "range": {
+        "startLine": 76,
+        "startChar": 30,
+        "endLine": 76,
+        "endChar": 45
+      },
+      "revId": "d19bcbe80f50b00a910186ab361f3f1f6877ccb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
