@@ -157,7 +157,9 @@ Return<void> RadioResponse::getVoiceRegistrationStateResponse(
 }
 
 Return<void> RadioResponse::getDataRegistrationStateResponse(
-        const RadioResponseInfo& /*info*/, const DataRegStateResult& /*dataRegResponse*/) {
+        const RadioResponseInfo& info, const DataRegStateResult& /*dataRegResponse*/) {
+    rspInfo = info;
+    parent.notify();
     return Void();
 }
 
@@ -195,7 +197,9 @@ Return<void> RadioResponse::sendSMSExpectMoreResponse(
 }
 
 Return<void> RadioResponse::setupDataCallResponse(
-        const RadioResponseInfo& /*info*/, const SetupDataCallResult& /*dcResponse*/) {
+        const RadioResponseInfo& info, const SetupDataCallResult& /*dcResponse*/) {
+    rspInfo = info;
+    parent.notify();
     return Void();
 }
 
@@ -267,7 +271,9 @@ Return<void> RadioResponse::acceptCallResponse(const RadioResponseInfo& info) {
     return Void();
 }
 
-Return<void> RadioResponse::deactivateDataCallResponse(const RadioResponseInfo& /*info*/) {
+Return<void> RadioResponse::deactivateDataCallResponse(const RadioResponseInfo& info) {
+    rspInfo = info;
+    parent.notify();
     return Void();
 }
 
@@ -349,8 +355,10 @@ Return<void> RadioResponse::getClipResponse(const RadioResponseInfo& /*info*/,
 }
 
 Return<void> RadioResponse::getDataCallListResponse(
-        const RadioResponseInfo& /*info*/,
+        const RadioResponseInfo& info,
         const ::android::hardware::hidl_vec<SetupDataCallResult>& /*dcResponse*/) {
+    rspInfo = info;
+    parent.notify();
     return Void();
 }
 
@@ -493,30 +501,42 @@ Return<void> RadioResponse::acknowledgeLastIncomingCdmaSmsResponse(
 }
 
 Return<void> RadioResponse::getGsmBroadcastConfigResponse(
-        const RadioResponseInfo& /*info*/,
+        const RadioResponseInfo& info,
         const ::android::hardware::hidl_vec<GsmBroadcastSmsConfigInfo>& /*configs*/) {
+    rspInfo = info;
+    parent.notify();
     return Void();
 }
 
-Return<void> RadioResponse::setGsmBroadcastConfigResponse(const RadioResponseInfo& /*info*/) {
+Return<void> RadioResponse::setGsmBroadcastConfigResponse(const RadioResponseInfo& info) {
+    rspInfo = info;
+    parent.notify();
     return Void();
 }
 
-Return<void> RadioResponse::setGsmBroadcastActivationResponse(const RadioResponseInfo& /*info*/) {
+Return<void> RadioResponse::setGsmBroadcastActivationResponse(const RadioResponseInfo& info) {
+    rspInfo = info;
+    parent.notify();
     return Void();
 }
 
 Return<void> RadioResponse::getCdmaBroadcastConfigResponse(
-        const RadioResponseInfo& /*info*/,
+        const RadioResponseInfo& info,
         const ::android::hardware::hidl_vec<CdmaBroadcastSmsConfigInfo>& /*configs*/) {
+    rspInfo = info;
+    parent.notify();
     return Void();
 }
 
-Return<void> RadioResponse::setCdmaBroadcastConfigResponse(const RadioResponseInfo& /*info*/) {
+Return<void> RadioResponse::setCdmaBroadcastConfigResponse(const RadioResponseInfo& info) {
+    rspInfo = info;
+    parent.notify();
     return Void();
 }
 
-Return<void> RadioResponse::setCdmaBroadcastActivationResponse(const RadioResponseInfo& /*info*/) {
+Return<void> RadioResponse::setCdmaBroadcastActivationResponse(const RadioResponseInfo& info) {
+    rspInfo = info;
+    parent.notify();
     return Void();
 }
 
@@ -617,7 +637,9 @@ Return<void> RadioResponse::setCellInfoListRateResponse(const RadioResponseInfo&
     return Void();
 }
 
-Return<void> RadioResponse::setInitialAttachApnResponse(const RadioResponseInfo& /*info*/) {
+Return<void> RadioResponse::setInitialAttachApnResponse(const RadioResponseInfo& info) {
+    rspInfo = info;
+    parent.notify();
     return Void();
 }
 
@@ -687,7 +709,9 @@ Return<void> RadioResponse::setUiccSubscriptionResponse(const RadioResponseInfo&
     return Void();
 }
 
-Return<void> RadioResponse::setDataAllowedResponse(const RadioResponseInfo& /*info*/) {
+Return<void> RadioResponse::setDataAllowedResponse(const RadioResponseInfo& info) {
+    rspInfo = info;
+    parent.notify();
     return Void();
 }
 
@@ -705,7 +729,9 @@ Return<void> RadioResponse::requestIccSimAuthenticationResponse(
     return Void();
 }
 
-Return<void> RadioResponse::setDataProfileResponse(const RadioResponseInfo& /*info*/) {
+Return<void> RadioResponse::setDataProfileResponse(const RadioResponseInfo& info) {
+    rspInfo = info;
+    parent.notify();
     return Void();
 }
 
