@@ -18,7 +18,7 @@
 
 #include <android/hardware/wifi/1.0/IWifiStaIface.h>
 
-#include <VtsHalHidlTargetBaseTest.h>
+#include <VtsHalHidlTargetTestBase.h>
 
 #include "wifi_hidl_test_utils.h"
 
@@ -28,7 +28,7 @@ using ::android::sp;
 /**
  * Fixture to use for all STA Iface HIDL interface tests.
  */
-class WifiStaIfaceHidlTest : public ::testing::VtsHalHidlTargetBaseTest {
+class WifiStaIfaceHidlTest : public ::testing::VtsHalHidlTargetTestBase {
    public:
     virtual void SetUp() override {}
 
