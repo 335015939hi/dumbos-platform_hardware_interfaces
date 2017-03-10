@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "a35af177_17c51c39",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2017-03-10T22:24:46Z",
+      "side": 1,
+      "message": "You can add invalid argument and let the test fail. QC will get back to us as they will work on fixing the failed test case.",
+      "parentUuid": "dfd7f78e_a4839da0",
+      "range": {
+        "startLine": 78,
+        "startChar": 8,
+        "endLine": 78,
+        "endChar": 84
+      },
+      "revId": "a069c8f90e70a531cc85036369ca1d623a2e0c5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "196e79f4_a9905a06",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
         "patchSetId": 5
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "There are four errors in the .hal files ( which is the doc you mentioned)\n\n    /*\n     *\n     * Valid errors returned:\n     *   RadioError:NONE\n     *   RadioError:RADIO_NOT_AVAILABLE\n     *   RadioError:SUBSCRIPTION_NOT_AVAILABLE\n     *   RadioError:GENERIC_FAILURE\n     */\n\nExcept NONE, the rest three errors are not accepted by QC (please confirm). I am not sure which error code I could use to make the test fail.",
       "parentUuid": "196e79f4_a9905a06",
+      "range": {
+        "startLine": 137,
+        "startChar": 8,
+        "endLine": 137,
+        "endChar": 61
+      },
+      "revId": "a069c8f90e70a531cc85036369ca1d623a2e0c5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1dcde7c8_9e3f651a",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2017-03-10T22:24:46Z",
+      "side": 1,
+      "message": "Ok, lets keep it NONE and make a note of this API as well in the doc which we are sharing with QC. You can add TODO here to check back later.",
+      "parentUuid": "866aa63e_bd03e917",
       "range": {
         "startLine": 137,
         "startChar": 8,
