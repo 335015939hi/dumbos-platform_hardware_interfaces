@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "284423a3_6b9d84b3",
+        "filename": "wifi/keystore/1.0/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-10T17:19:22Z",
+      "side": 1,
+      "message": "This is not a proprietary HAL. This will live in /system instead of /vendor. So, no need for this flag.",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 22
+      },
+      "revId": "636b29e66769fd178f933cb5a577dde0f100f1c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b71029c2_16cc3d34",
+        "filename": "wifi/keystore/1.0/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-10T17:19:22Z",
+      "side": 1,
+      "message": "This file is not needed.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 1
+      },
+      "revId": "636b29e66769fd178f933cb5a577dde0f100f1c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
