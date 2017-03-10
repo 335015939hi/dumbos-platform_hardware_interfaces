@@ -24,10 +24,34 @@ cc_test {
         "wifi_hidl_call_util_selftest.cpp",
         "wifi_hidl_test.cpp",
         "wifi_hidl_test_utils.cpp",
-        "wifi_nan_iface_hidl_test.cpp",
         "wifi_p2p_iface_hidl_test.cpp",
         "wifi_rtt_controller_hidl_test.cpp",
         "wifi_sta_iface_hidl_test.cpp"],
+    shared_libs: [
+        "libbase",
+        "liblog",
+        "libcutils",
+        "libhidlbase",
+        "libhidltransport",
+        "libnativehelper",
+        "libutils",
+        "android.hardware.wifi@1.0",
+    ],
+    static_libs: ["VtsHalHidlTargetBaseTest"],
+    cflags: [
+        "-O0",
+        "-g",
+    ],
+}
+
+cc_test {
+    name: "VtsHalWifiNanV1_0TargetTest",
+    srcs: [
+        "VtsHalWifiV1_0TargetTest.cpp",
+        "wifi_hidl_call_util_selftest.cpp",
+        "wifi_hidl_test.cpp",
+        "wifi_hidl_test_utils.cpp",
+        "wifi_nan_iface_hidl_test.cpp"],
     shared_libs: [
         "libbase",
         "liblog",
