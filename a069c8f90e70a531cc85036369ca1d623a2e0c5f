@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dfd7f78e_a4839da0",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-03-10T22:18:00Z",
+      "side": 1,
+      "message": "There are four errors in the .hal files ( which is the doc you mentioned)\n\n     * Valid errors returned:\n     *   RadioError:NONE\n     *   RadioError:INVALID_ARGUMENTS\n     *   RadioError:RADIO_NOT_AVAILABLE\n     *   RadioError:GENERIC_FAILURE\n\nNONE is for success, and RADIO_NOT_AVAILABLE and GENERIC_FAILURE are not accepted by QC (please confirm). The only error I could use is INVALID_ARGUMENTS to make the test fail, but this error code may not be used for this situation: I am not sure if the argument I assigned is invalid or not.",
+      "parentUuid": "ef3df749_43d0cca3",
+      "range": {
+        "startLine": 78,
+        "startChar": 8,
+        "endLine": 78,
+        "endChar": 84
+      },
+      "revId": "a069c8f90e70a531cc85036369ca1d623a2e0c5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "196e79f4_a9905a06",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2017-03-10T21:48:12Z",
       "side": 1,
       "message": "again this is similar to setupdatacall, shouldn\u0027t be success.",
+      "range": {
+        "startLine": 137,
+        "startChar": 8,
+        "endLine": 137,
+        "endChar": 61
+      },
+      "revId": "a069c8f90e70a531cc85036369ca1d623a2e0c5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "866aa63e_bd03e917",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-03-10T22:18:00Z",
+      "side": 1,
+      "message": "There are four errors in the .hal files ( which is the doc you mentioned)\n\n    /*\n     *\n     * Valid errors returned:\n     *   RadioError:NONE\n     *   RadioError:RADIO_NOT_AVAILABLE\n     *   RadioError:SUBSCRIPTION_NOT_AVAILABLE\n     *   RadioError:GENERIC_FAILURE\n     */\n\nExcept NONE, the rest three errors are not accepted by QC (please confirm). I am not sure which error code I could use to make the test fail.",
+      "parentUuid": "196e79f4_a9905a06",
       "range": {
         "startLine": 137,
         "startChar": 8,
