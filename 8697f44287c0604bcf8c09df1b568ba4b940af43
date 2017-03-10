@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "8d2fb466_e8fb3460",
+        "filename": "wifi/offload/1.0/default/Android.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1118893
+      },
+      "writtenOn": "2017-03-10T23:58:08Z",
+      "side": 1,
+      "message": "Not true for Android C++ standard:\nFile naming\nMixedCase.ext file name\n.cpp extension for C++ implementation files\n.h extension for C++ header files\nSource files should have non-executable permissions (in git)",
+      "parentUuid": "2d626d86_52947881",
+      "range": {
+        "startLine": 22,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 15
+      },
+      "revId": "8697f44287c0604bcf8c09df1b568ba4b940af43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ebbe6882_c6a003b6",
         "filename": "wifi/offload/1.0/default/Offload.cpp",
         "patchSetId": 3
@@ -59,6 +83,30 @@
       "writtenOn": "2017-03-09T22:39:31Z",
       "side": 1,
       "message": "is this a TODO ?",
+      "range": {
+        "startLine": 15,
+        "startChar": 4,
+        "endLine": 15,
+        "endChar": 20
+      },
+      "revId": "8697f44287c0604bcf8c09df1b568ba4b940af43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5be050ea_fa5e6773",
+        "filename": "wifi/offload/1.0/default/Offload.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1118893
+      },
+      "writtenOn": "2017-03-10T23:58:08Z",
+      "side": 1,
+      "message": "yes",
+      "parentUuid": "ebbe6882_c6a003b6",
       "range": {
         "startLine": 15,
         "startChar": 4,
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "e6596d35_17a84856",
+        "filename": "wifi/offload/1.0/default/Offload.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1118893
+      },
+      "writtenOn": "2017-03-10T23:58:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9aed65c2_1c59edad",
+      "range": {
+        "startLine": 16,
+        "startChar": 8,
+        "endLine": 16,
+        "endChar": 27
+      },
+      "revId": "8697f44287c0604bcf8c09df1b568ba4b940af43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f3c501fa_6b5f042f",
         "filename": "wifi/offload/1.0/default/Offload.cpp",
         "patchSetId": 3
@@ -105,6 +177,30 @@
       "writtenOn": "2017-03-09T22:39:31Z",
       "side": 1,
       "message": "You can remove \"Offload::\", just leaving mScanParam",
+      "range": {
+        "startLine": 21,
+        "startChar": 4,
+        "endLine": 21,
+        "endChar": 24
+      },
+      "revId": "8697f44287c0604bcf8c09df1b568ba4b940af43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "74c728b9_55caba4e",
+        "filename": "wifi/offload/1.0/default/Offload.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1118893
+      },
+      "writtenOn": "2017-03-10T23:58:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f3c501fa_6b5f042f",
       "range": {
         "startLine": 21,
         "startChar": 4,
@@ -140,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "5f700698_e3173514",
+        "filename": "wifi/offload/1.0/default/Offload.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1118893
+      },
+      "writtenOn": "2017-03-10T23:58:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "239cfa8d_c93c8d4b",
+      "range": {
+        "startLine": 22,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 24
+      },
+      "revId": "8697f44287c0604bcf8c09df1b568ba4b940af43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e86a29ee_c6ef18f5",
         "filename": "wifi/offload/1.0/default/Offload.cpp",
         "patchSetId": 3
@@ -151,6 +271,30 @@
       "writtenOn": "2017-03-09T22:39:31Z",
       "side": 1,
       "message": "Not sure about HIDL code convention.\nBut for wificond and other Android native codes,\nwe use \"type* val\", instead of \"type *val\"",
+      "range": {
+        "startLine": 28,
+        "startChar": 4,
+        "endLine": 28,
+        "endChar": 35
+      },
+      "revId": "8697f44287c0604bcf8c09df1b568ba4b940af43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1d9b7e92_8f2984d9",
+        "filename": "wifi/offload/1.0/default/Offload.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1118893
+      },
+      "writtenOn": "2017-03-10T23:58:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e86a29ee_c6ef18f5",
       "range": {
         "startLine": 28,
         "startChar": 4,
@@ -186,6 +330,30 @@
     },
     {
       "key": {
+        "uuid": "6aff3eac_e6e25a71",
+        "filename": "wifi/offload/1.0/default/Offload.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1118893
+      },
+      "writtenOn": "2017-03-10T23:58:08Z",
+      "side": 1,
+      "message": "So we must expect client to setEventCallback() everytime before subscription?\nThe API is designed to have a single interface callback object across screen on/off. Otherwise, everytime screen goes on and off we have to create new interface object. \nIt makes sense to destroy this object when we no longer have the service running.",
+      "parentUuid": "16695c25_998cb247",
+      "range": {
+        "startLine": 46,
+        "startChar": 3,
+        "endLine": 46,
+        "endChar": 35
+      },
+      "revId": "8697f44287c0604bcf8c09df1b568ba4b940af43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f2d2f342_aac8b57d",
         "filename": "wifi/offload/1.0/default/Offload.h",
         "patchSetId": 3
@@ -197,6 +365,30 @@
       "writtenOn": "2017-03-09T22:39:31Z",
       "side": 1,
       "message": "Group the includes.\nBetter to insert an empty line after this.",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 55
+      },
+      "revId": "8697f44287c0604bcf8c09df1b568ba4b940af43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39a68b5c_fd8730a6",
+        "filename": "wifi/offload/1.0/default/Offload.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1118893
+      },
+      "writtenOn": "2017-03-10T23:58:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f2d2f342_aac8b57d",
       "range": {
         "startLine": 4,
         "startChar": 0,
@@ -232,6 +424,30 @@
     },
     {
       "key": {
+        "uuid": "c00e71c1_1f1368f6",
+        "filename": "wifi/offload/1.0/default/Offload.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1118893
+      },
+      "writtenOn": "2017-03-10T23:58:08Z",
+      "side": 1,
+      "message": "No infact,this is the guideline for Android C++\nIndent size\n4 spaces for blocks\n8 spaces for line wraps",
+      "parentUuid": "788961b6_7888ec82",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 4
+      },
+      "revId": "8697f44287c0604bcf8c09df1b568ba4b940af43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "552f6736_f32d83b5",
         "filename": "wifi/offload/1.0/default/Offload.h",
         "patchSetId": 3
@@ -243,6 +459,30 @@
       "writtenOn": "2017-03-09T22:39:31Z",
       "side": 1,
       "message": "This can be removed :-)",
+      "range": {
+        "startLine": 32,
+        "startChar": 4,
+        "endLine": 32,
+        "endChar": 24
+      },
+      "revId": "8697f44287c0604bcf8c09df1b568ba4b940af43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e41b2a70_1c27ea02",
+        "filename": "wifi/offload/1.0/default/Offload.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1118893
+      },
+      "writtenOn": "2017-03-10T23:58:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "552f6736_f32d83b5",
       "range": {
         "startLine": 32,
         "startChar": 4,
@@ -278,6 +518,30 @@
     },
     {
       "key": {
+        "uuid": "def5ce1f_4762c510",
+        "filename": "wifi/offload/1.0/default/service.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1118893
+      },
+      "writtenOn": "2017-03-10T23:58:08Z",
+      "side": 1,
+      "message": "ok",
+      "parentUuid": "a69ceb82_3f2deda3",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 20
+      },
+      "revId": "8697f44287c0604bcf8c09df1b568ba4b940af43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "12d28ff7_6a7ba3b2",
         "filename": "wifi/offload/1.0/default/service.cpp",
         "patchSetId": 3
@@ -289,6 +553,30 @@
       "writtenOn": "2017-03-09T22:39:31Z",
       "side": 1,
       "message": "generated HIDL files ?\nalso you need a space after \"//\"",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 21
+      },
+      "revId": "8697f44287c0604bcf8c09df1b568ba4b940af43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7275cfca_592bacb8",
+        "filename": "wifi/offload/1.0/default/service.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1118893
+      },
+      "writtenOn": "2017-03-10T23:58:08Z",
+      "side": 1,
+      "message": "unnecessary comment. will remove",
+      "parentUuid": "12d28ff7_6a7ba3b2",
       "range": {
         "startLine": 27,
         "startChar": 0,
@@ -335,6 +623,54 @@
       "writtenOn": "2017-03-09T22:39:31Z",
       "side": 1,
       "message": "I think it\u0027s better to use a const here.\nYou can name it char kServiceName[] and put it either in anonymous namespace or a new file like ipc_constants.h/cpp for wificond.",
+      "range": {
+        "startLine": 31,
+        "startChar": 15,
+        "endLine": 31,
+        "endChar": 42
+      },
+      "revId": "8697f44287c0604bcf8c09df1b568ba4b940af43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "929fa021_1dceda43",
+        "filename": "wifi/offload/1.0/default/service.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1118893
+      },
+      "writtenOn": "2017-03-10T23:58:08Z",
+      "side": 1,
+      "message": "shouldn\u0027t all files in this workspace follow Android c/c++ style?",
+      "parentUuid": "d82c7091_f5e6c80c",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 4
+      },
+      "revId": "8697f44287c0604bcf8c09df1b568ba4b940af43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "595b7df6_225a6877",
+        "filename": "wifi/offload/1.0/default/service.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1118893
+      },
+      "writtenOn": "2017-03-10T23:58:08Z",
+      "side": 1,
+      "message": "I\u0027ll remove the string altogether. Turns out its not necessary anymore",
+      "parentUuid": "b5cd74a3_11832b1b",
       "range": {
         "startLine": 31,
         "startChar": 15,
