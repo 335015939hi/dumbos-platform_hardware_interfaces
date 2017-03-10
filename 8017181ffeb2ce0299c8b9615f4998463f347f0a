@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a202f8ee_3959a199",
+        "filename": "wifi/1.0/vts/functional/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-10T18:49:28Z",
+      "side": 1,
+      "message": "You can create a static or shared library for these common files which can be used by both the targets in the makefile.",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 35
+      },
+      "revId": "8017181ffeb2ce0299c8b9615f4998463f347f0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
