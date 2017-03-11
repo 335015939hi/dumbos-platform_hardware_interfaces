@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "30bb13c7_8868b6e8",
+        "filename": "tests/msgq/1.0/default/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-03-11T06:56:44Z",
+      "side": 1,
+      "message": "actually, now that I think about it, cc_test is probably better, and we may want to change hardware/interfaces/test/* targets to cc_test so that they aren\u0027t accidentally included on a release phone. Double check with Dan.",
+      "parentUuid": "a898cc4a_5368e9b7",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 7
+      },
+      "revId": "a569b8c98731455fdd523f9bc94fdb3af3bd59cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8a5c05fb_73a06f17",
         "filename": "tests/msgq/1.0/default/BenchmarkMsgQ.cpp",
         "patchSetId": 3
