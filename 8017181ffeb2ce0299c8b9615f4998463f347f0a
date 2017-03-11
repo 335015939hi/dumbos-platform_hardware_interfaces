@@ -46,6 +46,53 @@
       "revId": "8017181ffeb2ce0299c8b9615f4998463f347f0a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "14590a16_f699e29c",
+        "filename": "wifi/1.0/vts/functional/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2017-03-11T02:10:49Z",
+      "side": 1,
+      "message": "https://cs.corp.google.com/android/test/vts/drivers/hal/common/Android.bp?sq\u0026dr\n\nhttps://cs.corp.google.com/android/test/vts/testcases/template/target/vts_hal_hidl_target_test_base/Android.bp?rcl\u003d63eb6d8896552a68c5ca370226b04f0ad7e4de9e\u0026l\u003d31\n\nthere are many other examples.",
+      "parentUuid": "a935881e_c75ca64e",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 35
+      },
+      "revId": "8017181ffeb2ce0299c8b9615f4998463f347f0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3adaf417_3e387ed7",
+        "filename": "wifi/1.0/vts/functional/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2017-03-11T02:10:49Z",
+      "side": 1,
+      "message": "-Werror?",
+      "range": {
+        "startLine": 67,
+        "startChar": 8,
+        "endLine": 67,
+        "endChar": 14
+      },
+      "revId": "8017181ffeb2ce0299c8b9615f4998463f347f0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
