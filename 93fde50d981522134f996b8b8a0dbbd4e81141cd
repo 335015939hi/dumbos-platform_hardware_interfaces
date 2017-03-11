@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3d50474e_4d9c6dd5",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-11T00:11:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_f87a8624",
+      "range": {
+        "startLine": 37,
+        "startChar": 8,
+        "endLine": 37,
+        "endChar": 17
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a364350b_d34e83d1",
         "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test.cpp",
         "patchSetId": 3
@@ -36,6 +60,24 @@
       "writtenOn": "2017-01-12T00:37:43Z",
       "side": 1,
       "message": "The HAL file also mentions getInterface(). Is that tested somewhere?",
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f67a2f2c_64165705",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-11T00:11:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_d34e83d1",
       "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "47eb02b5_adf02e32",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-11T00:11:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_f82b66e5",
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a364350b_38b9de8a",
         "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test.cpp",
         "patchSetId": 3
@@ -76,6 +136,24 @@
     },
     {
       "key": {
+        "uuid": "1963c8bc_4e927031",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-11T00:11:51Z",
+      "side": 1,
+      "message": "No reason other than sleep coding :)",
+      "parentUuid": "a364350b_38b9de8a",
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a364350b_180ada46",
         "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test.cpp",
         "patchSetId": 3
@@ -87,6 +165,30 @@
       "writtenOn": "2017-01-12T00:37:43Z",
       "side": 1,
       "message": "I think this could be |[]|, as we\u0027re not capturing anything.",
+      "range": {
+        "startLine": 93,
+        "startChar": 32,
+        "endLine": 93,
+        "endChar": 35
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f11c3ea8_f25e0cf4",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-11T00:11:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_180ada46",
       "range": {
         "startLine": 93,
         "startChar": 32,
@@ -122,6 +224,30 @@
     },
     {
       "key": {
+        "uuid": "aa7b78a1_42f97765",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-11T00:11:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_530d93af",
+      "range": {
+        "startLine": 98,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 64
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a364350b_781996a7",
         "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test.cpp",
         "patchSetId": 3
@@ -133,6 +259,30 @@
       "writtenOn": "2017-01-12T00:37:43Z",
       "side": 1,
       "message": "As at line 93.",
+      "range": {
+        "startLine": 108,
+        "startChar": 24,
+        "endLine": 108,
+        "endChar": 27
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44b42a62_7dbc8109",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-11T00:11:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_781996a7",
       "range": {
         "startLine": 108,
         "startChar": 24,
@@ -168,6 +318,30 @@
     },
     {
       "key": {
+        "uuid": "7398aa76_27bc6209",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-11T00:11:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_981eea8f",
+      "range": {
+        "startLine": 112,
+        "startChar": 24,
+        "endLine": 112,
+        "endChar": 27
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a364350b_090dae5e",
         "filename": "wifi/supplicant/1.0/vts/functional/supplicant_p2p_iface_hidl_test.cpp",
         "patchSetId": 3
@@ -185,6 +359,24 @@
     },
     {
       "key": {
+        "uuid": "c2c0947d_68fc27a4",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_p2p_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-11T00:11:51Z",
+      "side": 1,
+      "message": "Hmm. As of today, wpa_supplicant doesn\u0027t expose a remove iface method thru HIDL. So, we can\u0027t simulate this unless we hack into wpa_supplicant\u0027s core somehow.\n\nThis is because of how we start wpa_supplicant. Eventually, I want to add the support for wpa_supplicant to start without any ifaces enabled. Then we should be able to add create/remove Iface methods to the HIDL interface. See b/31755813 for details.",
+      "parentUuid": "a364350b_090dae5e",
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a364350b_f8f36626",
         "filename": "wifi/supplicant/1.0/vts/functional/supplicant_p2p_iface_hidl_test.cpp",
         "patchSetId": 3
@@ -196,6 +388,30 @@
       "writtenOn": "2017-01-12T00:37:43Z",
       "side": 1,
       "message": "I would have thought that the WPS PIN is 8 decimal digits. Or is this intended to be syntactically invalid? (If the latter, prefer kInvalidWpsPin, or something of that nature.)",
+      "range": {
+        "startLine": 38,
+        "startChar": 36,
+        "endLine": 38,
+        "endChar": 46
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a27e12cd_0fedc2da",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_p2p_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-11T00:11:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_f8f36626",
       "range": {
         "startLine": 38,
         "startChar": 36,
@@ -231,6 +447,30 @@
     },
     {
       "key": {
+        "uuid": "8b43337a_fb6826c9",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_p2p_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-11T00:11:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_d8ea2228",
+      "range": {
+        "startLine": 56,
+        "startChar": 8,
+        "endLine": 56,
+        "endChar": 17
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a364350b_93380b42",
         "filename": "wifi/supplicant/1.0/vts/functional/supplicant_p2p_iface_hidl_test.cpp",
         "patchSetId": 3
@@ -242,6 +482,24 @@
       "writtenOn": "2017-01-12T00:37:43Z",
       "side": 1,
       "message": "Do we want a test for registerCallback?",
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "61e5cf2a_4c6d7262",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_p2p_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-11T00:11:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_93380b42",
       "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -265,6 +523,24 @@
     },
     {
       "key": {
+        "uuid": "21c8f7f7_1974e573",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_p2p_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-11T00:11:51Z",
+      "side": 1,
+      "message": "Hmm. I\u0027m not sure if there is a value add with fuzz testing these API\u0027s.",
+      "parentUuid": "a364350b_d3252311",
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a364350b_786516f5",
         "filename": "wifi/supplicant/1.0/vts/functional/supplicant_p2p_iface_hidl_test.cpp",
         "patchSetId": 3
@@ -276,6 +552,30 @@
       "writtenOn": "2017-01-12T00:37:43Z",
       "side": 1,
       "message": "Does SUCCESS simply mean that the Find operation was initiated, or does this actually require Find to locate some peers?\n\n(The meaning of SUCCESS is ambiguous. Could we clarify, in the HAL docstring?)",
+      "range": {
+        "startLine": 103,
+        "startChar": 40,
+        "endLine": 103,
+        "endChar": 47
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fe4447f_dc7f3266",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_p2p_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-11T00:11:51Z",
+      "side": 1,
+      "message": "It just means that we initiated a find successfully. The hal doc does say: \"Initiate a P2P service discovery with an optional timeout.\"",
+      "parentUuid": "a364350b_786516f5",
       "range": {
         "startLine": 103,
         "startChar": 40,
@@ -311,6 +611,30 @@
     },
     {
       "key": {
+        "uuid": "db56dfd9_155fef07",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_p2p_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-11T00:11:51Z",
+      "side": 1,
+      "message": "Added one more call to check that it doesn\u0027t return success.",
+      "parentUuid": "a364350b_98b82a29",
+      "range": {
+        "startLine": 110,
+        "startChar": 35,
+        "endLine": 110,
+        "endChar": 43
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a364350b_d39be351",
         "filename": "wifi/supplicant/1.0/vts/functional/supplicant_p2p_iface_hidl_test.cpp",
         "patchSetId": 3
@@ -322,6 +646,30 @@
       "writtenOn": "2017-01-12T00:37:43Z",
       "side": 1,
       "message": "Should we test the FAILURE_NOT_STARTED case as well?",
+      "range": {
+        "startLine": 147,
+        "startChar": 35,
+        "endLine": 147,
+        "endChar": 48
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bba75328_c879156f",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_p2p_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-11T00:11:51Z",
+      "side": 1,
+      "message": "I can\u0027t get the connect to work unless there is a real peer. So can\u0027t really test for the NO_STARTED case without multi device tests.",
+      "parentUuid": "a364350b_d39be351",
       "range": {
         "startLine": 147,
         "startChar": 35,
@@ -351,6 +699,24 @@
     },
     {
       "key": {
+        "uuid": "53ecb3e5_70daa63d",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_p2p_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-11T00:11:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_092b6ea0",
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a364350b_73dbf7fe",
         "filename": "wifi/supplicant/1.0/vts/functional/supplicant_p2p_iface_hidl_test.cpp",
         "patchSetId": 3
@@ -368,6 +734,24 @@
     },
     {
       "key": {
+        "uuid": "61cc4a08_465233ff",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_p2p_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-11T00:11:51Z",
+      "side": 1,
+      "message": "Hmm. I can\u0027t get the addGroup to work without real devices. So, the removeGroup API will fail for sure as well. Not sure if there is any benefit in testing that.",
+      "parentUuid": "a364350b_73dbf7fe",
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a364350b_09528e20",
         "filename": "wifi/supplicant/1.0/vts/functional/supplicant_p2p_iface_hidl_test.cpp",
         "patchSetId": 3
@@ -379,6 +763,24 @@
       "writtenOn": "2017-01-12T00:37:43Z",
       "side": 1,
       "message": "As at line 168 (consider hoisting |peer_addr| into the fixture as well).",
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bd39f655_59012faf",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_p2p_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-11T00:11:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_09528e20",
       "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -408,6 +810,30 @@
     },
     {
       "key": {
+        "uuid": "ef64c038_42ba252e",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_p2p_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-11T00:11:51Z",
+      "side": 1,
+      "message": "Tried. But, looks like wpa_supplicant has no validation for this: https://cs.corp.google.com/android/external/wpa_supplicant_8/wpa_supplicant/hidl/p2p_iface.cpp?rcl\u003d0997913e38461abb20898cccd4e03b1bba0a4476\u0026l\u003d874.\n\n\nI doesn\u0027t in the old interface as well: https://cs.corp.google.com/android/external/wpa_supplicant_8/wpa_supplicant/ctrl_iface.c?rcl\u003d0997913e38461abb20898cccd4e03b1bba0a4476\u0026l\u003d6254",
+      "parentUuid": "a364350b_a99fe2a3",
+      "range": {
+        "startLine": 256,
+        "startChar": 35,
+        "endLine": 256,
+        "endChar": 59
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a364350b_d3cc431b",
         "filename": "wifi/supplicant/1.0/vts/functional/supplicant_p2p_iface_hidl_test.cpp",
         "patchSetId": 3
@@ -419,6 +845,24 @@
       "writtenOn": "2017-01-12T00:37:43Z",
       "side": 1,
       "message": "Do we want tests for the following?\n- addBonjourService\n- removeBonjourService\n- addUpnpService\n- removeUpnpService",
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7208f2c8_e9940b96",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_p2p_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-11T00:11:51Z",
+      "side": 1,
+      "message": "I need to figure out the correct query params required for these to work. I\u0027ll maybe follow up in a separate CL.",
+      "parentUuid": "a364350b_d3cc431b",
       "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -442,6 +886,24 @@
     },
     {
       "key": {
+        "uuid": "0d401a8f_e2a7e803",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_p2p_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-11T00:11:51Z",
+      "side": 1,
+      "message": "Similar to above. I\u0027ll need to dig into details of the query params required for these services. Will take up the remaining in a separate CL.",
+      "parentUuid": "a364350b_73d53798",
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a364350b_49e2c615",
         "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_iface_hidl_test.cpp",
         "patchSetId": 3
@@ -453,6 +915,30 @@
       "writtenOn": "2017-01-12T00:37:43Z",
       "side": 1,
       "message": "As elsewhere: consider ASSERT_NE.",
+      "range": {
+        "startLine": 53,
+        "startChar": 8,
+        "endLine": 53,
+        "endChar": 17
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1db326aa_cd93e52b",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-11T00:11:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_49e2c615",
       "range": {
         "startLine": 53,
         "startChar": 8,
@@ -488,6 +974,30 @@
     },
     {
       "key": {
+        "uuid": "8acc423d_024d6f29",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-11T00:11:51Z",
+      "side": 1,
+      "message": "It\u0027s inherited from ISupplicantIface. But, there cannot be an instance of ISupplicantIface on it\u0027s own. It\u0027s just a base class which is used to group common methods between ISupplicantStaIface \u0026 ISupplicantP2pIface.",
+      "parentUuid": "a364350b_73a3f73f",
+      "range": {
+        "startLine": 76,
+        "startChar": 35,
+        "endLine": 76,
+        "endChar": 47
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a364350b_f38e27c0",
         "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_iface_hidl_test.cpp",
         "patchSetId": 3
@@ -505,6 +1015,24 @@
     },
     {
       "key": {
+        "uuid": "29fb2aea_5f3b609e",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-11T00:11:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_f38e27c0",
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a364350b_4969669f",
         "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_iface_hidl_test.cpp",
         "patchSetId": 3
@@ -516,6 +1044,30 @@
       "writtenOn": "2017-01-12T00:37:43Z",
       "side": 1,
       "message": "Maybe verify the FAILURE_IFACE_DISABLED case as well?",
+      "range": {
+        "startLine": 115,
+        "startChar": 35,
+        "endLine": 115,
+        "endChar": 45
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da70b702_06b4dddb",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-11T00:11:51Z",
+      "side": 1,
+      "message": "There is no way for us to disable the IFACE thru the HIDL interface.",
+      "parentUuid": "a364350b_4969669f",
       "range": {
         "startLine": 115,
         "startChar": 35,
@@ -551,6 +1103,30 @@
     },
     {
       "key": {
+        "uuid": "4bc3d21d_204c27ec",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-11T00:11:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_2970b281",
+      "range": {
+        "startLine": 137,
+        "startChar": 27,
+        "endLine": 137,
+        "endChar": 35
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a364350b_e9795a6e",
         "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_iface_hidl_test.cpp",
         "patchSetId": 3
@@ -568,6 +1144,24 @@
     },
     {
       "key": {
+        "uuid": "cbf662a0_0c1c8c68",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-11T00:11:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_e9795a6e",
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a364350b_c9933679",
         "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_iface_hidl_test.cpp",
         "patchSetId": 3
@@ -579,6 +1173,24 @@
       "writtenOn": "2017-01-12T00:37:43Z",
       "side": 1,
       "message": "As at line 143.",
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c1e0bbd2_b9636028",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-11T00:11:51Z",
+      "side": 1,
+      "message": "Done. it\u0027s the work of the clang formatter.",
+      "parentUuid": "a364350b_c9933679",
       "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -631,6 +1243,30 @@
     },
     {
       "key": {
+        "uuid": "a3832552_8be76f56",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-11T00:11:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_a93282c5",
+      "range": {
+        "startLine": 188,
+        "startChar": 51,
+        "endLine": 188,
+        "endChar": 56
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a364350b_291e722d",
         "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_iface_hidl_test.cpp",
         "patchSetId": 3
@@ -642,6 +1278,30 @@
       "writtenOn": "2017-01-12T00:37:43Z",
       "side": 1,
       "message": "\"BSSID\"",
+      "range": {
+        "startLine": 202,
+        "startChar": 51,
+        "endLine": 202,
+        "endChar": 56
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24bd3f82_d3d3a71a",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-11T00:11:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_291e722d",
       "range": {
         "startLine": 202,
         "startChar": 51,
@@ -671,6 +1331,24 @@
     },
     {
       "key": {
+        "uuid": "445349d8_dd7d4e93",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-11T00:11:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_89545ec1",
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a364350b_a46ce772",
         "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_iface_hidl_test.cpp",
         "patchSetId": 3
@@ -688,6 +1366,24 @@
     },
     {
       "key": {
+        "uuid": "7bd581de_69683fb8",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-11T00:11:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_a46ce772",
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a364350b_e4817fe7",
         "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_iface_hidl_test.cpp",
         "patchSetId": 3
@@ -699,6 +1395,30 @@
       "writtenOn": "2017-01-12T00:37:43Z",
       "side": 1,
       "message": "stray semicolon here",
+      "range": {
+        "startLine": 237,
+        "startChar": 2,
+        "endLine": 237,
+        "endChar": 3
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2060e6ee_1d3d9043",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-11T00:11:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_e4817fe7",
       "range": {
         "startLine": 237,
         "startChar": 2,
@@ -734,6 +1454,30 @@
     },
     {
       "key": {
+        "uuid": "27fd6234_1e689d9a",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_network_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-11T00:11:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_a48b8745",
+      "range": {
+        "startLine": 65,
+        "startChar": 8,
+        "endLine": 65,
+        "endChar": 17
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a364350b_93000b23",
         "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_network_hidl_test.cpp",
         "patchSetId": 3
@@ -745,6 +1489,24 @@
       "writtenOn": "2017-01-12T00:37:43Z",
       "side": 1,
       "message": "Do we want a test for registerCallback?",
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bd93a18_c51c579d",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_network_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-11T00:11:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_93000b23",
       "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -774,6 +1536,30 @@
     },
     {
       "key": {
+        "uuid": "4f22a4ee_aa5db627",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_network_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-11T00:11:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_738bf774",
+      "range": {
+        "startLine": 89,
+        "startChar": 37,
+        "endLine": 89,
+        "endChar": 43
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a364350b_b3050f33",
         "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_network_hidl_test.cpp",
         "patchSetId": 3
@@ -785,6 +1571,24 @@
       "writtenOn": "2017-01-12T00:37:43Z",
       "side": 1,
       "message": "Do we want to test set/get ScanSsid?",
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a145a8a_263316a0",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_network_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-11T00:11:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_b3050f33",
       "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -808,6 +1612,24 @@
     },
     {
       "key": {
+        "uuid": "76090b5b_3777e85b",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_network_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-11T00:11:51Z",
+      "side": 1,
+      "message": "I will migrate all of this codebase to use your helper template in a future CL.",
+      "parentUuid": "a364350b_eacce91a",
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a364350b_532113be",
         "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_network_hidl_test.cpp",
         "patchSetId": 3
@@ -819,6 +1641,24 @@
       "writtenOn": "2017-01-12T00:37:43Z",
       "side": 1,
       "message": "Do we want to test set/get WepTxKeyIdx, and RequirePmf?",
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad6feb23_c623feda",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_network_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-11T00:11:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_532113be",
       "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -842,6 +1682,24 @@
     },
     {
       "key": {
+        "uuid": "b3e5fade_1c4ceb6a",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_network_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-11T00:11:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_d3344300",
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a364350b_d34be367",
         "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_network_hidl_test.cpp",
         "patchSetId": 3
@@ -859,6 +1717,24 @@
     },
     {
       "key": {
+        "uuid": "0fb82564_0f29ca1c",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_network_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-11T00:11:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_d34be367",
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a364350b_aa5fd1f4",
         "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_network_hidl_test.cpp",
         "patchSetId": 3
@@ -870,6 +1746,30 @@
       "writtenOn": "2017-01-12T00:37:43Z",
       "side": 1,
       "message": "Maybe test NETWORK_INVALID case as well?",
+      "range": {
+        "startLine": 229,
+        "startChar": 37,
+        "endLine": 229,
+        "endChar": 43
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35589230_998d154b",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_network_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-11T00:11:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_aa5fd1f4",
       "range": {
         "startLine": 229,
         "startChar": 37,
@@ -905,6 +1805,30 @@
     },
     {
       "key": {
+        "uuid": "d8e3ab6b_3bb39e2c",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_network_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-11T00:11:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_8a99adbf",
+      "range": {
+        "startLine": 232,
+        "startChar": 25,
+        "endLine": 232,
+        "endChar": 33
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a364350b_ca6485cb",
         "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_network_hidl_test.cpp",
         "patchSetId": 3
@@ -928,6 +1852,30 @@
     },
     {
       "key": {
+        "uuid": "d59d218e_969d19f7",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_network_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-11T00:11:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_ca6485cb",
+      "range": {
+        "startLine": 252,
+        "startChar": 37,
+        "endLine": 252,
+        "endChar": 44
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a364350b_8a6e8da7",
         "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_network_hidl_test.cpp",
         "patchSetId": 3
@@ -939,6 +1887,30 @@
       "writtenOn": "2017-01-12T00:37:43Z",
       "side": 1,
       "message": "As at line 229.",
+      "range": {
+        "startLine": 272,
+        "startChar": 37,
+        "endLine": 272,
+        "endChar": 43
+      },
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e696d455_130b05d1",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_network_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-11T00:11:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a364350b_8a6e8da7",
       "range": {
         "startLine": 272,
         "startChar": 37,
