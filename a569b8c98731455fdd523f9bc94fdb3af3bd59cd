@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a898cc4a_5368e9b7",
+        "filename": "tests/msgq/1.0/default/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-03-11T05:33:37Z",
+      "side": 1,
+      "message": "should probably be cc_binary now\n\nAlso, can we call it the hidl-ey name like android.hardware.tests.msgq@1.0-service-benchmark?",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 7
+      },
+      "revId": "a569b8c98731455fdd523f9bc94fdb3af3bd59cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a5c05fb_73a06f17",
+        "filename": "tests/msgq/1.0/default/BenchmarkMsgQ.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-03-11T05:33:37Z",
+      "side": 1,
+      "message": "might as well add the license header while we\u0027re at it",
+      "revId": "a569b8c98731455fdd523f9bc94fdb3af3bd59cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
