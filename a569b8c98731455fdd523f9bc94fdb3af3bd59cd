@@ -49,6 +49,54 @@
     },
     {
       "key": {
+        "uuid": "fb7490ba_8bd8bda3",
+        "filename": "tests/msgq/1.0/default/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2017-03-13T18:12:24Z",
+      "side": 1,
+      "message": "Checked with Dan about cc_test being Ok. We use cc_test for all hidl_test services. I think hidl_test_java_native is the only other binary using cc_binary instead of cc_test now. I will change it in the next round of hidl-gen cleanup I do!",
+      "parentUuid": "30bb13c7_8868b6e8",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 7
+      },
+      "revId": "a569b8c98731455fdd523f9bc94fdb3af3bd59cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5c6945e_b9384e2f",
+        "filename": "tests/msgq/1.0/default/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2017-03-13T18:12:24Z",
+      "side": 1,
+      "message": "Renamed both the binaries!",
+      "parentUuid": "a898cc4a_5368e9b7",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 7
+      },
+      "revId": "a569b8c98731455fdd523f9bc94fdb3af3bd59cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8a5c05fb_73a06f17",
         "filename": "tests/msgq/1.0/default/BenchmarkMsgQ.cpp",
         "patchSetId": 3
@@ -60,6 +108,24 @@
       "writtenOn": "2017-03-11T05:33:37Z",
       "side": 1,
       "message": "might as well add the license header while we\u0027re at it",
+      "revId": "a569b8c98731455fdd523f9bc94fdb3af3bd59cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a23b105_27cae358",
+        "filename": "tests/msgq/1.0/default/BenchmarkMsgQ.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2017-03-13T18:12:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a5c05fb_73a06f17",
       "revId": "a569b8c98731455fdd523f9bc94fdb3af3bd59cd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
