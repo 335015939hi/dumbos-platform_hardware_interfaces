@@ -189,6 +189,30 @@
       "revId": "a069c8f90e70a531cc85036369ca1d623a2e0c5f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a9fe68f7_d512450a",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-03-13T22:07:08Z",
+      "side": 1,
+      "message": "Actually this is just setting some values to be used later. NONE is likely the correct response.",
+      "parentUuid": "6ee66dc5_6850cb40",
+      "range": {
+        "startLine": 137,
+        "startChar": 8,
+        "endLine": 137,
+        "endChar": 61
+      },
+      "revId": "a069c8f90e70a531cc85036369ca1d623a2e0c5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

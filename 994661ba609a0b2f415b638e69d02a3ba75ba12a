@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cc0b9727_abae874a",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-03-13T22:07:08Z",
+      "side": 1,
+      "message": "fix indentation",
+      "revId": "994661ba609a0b2f415b638e69d02a3ba75ba12a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
