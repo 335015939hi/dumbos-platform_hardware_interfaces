@@ -237,6 +237,30 @@
       "revId": "a069c8f90e70a531cc85036369ca1d623a2e0c5f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c1a098b2_26ab075b",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-03-13T23:38:21Z",
+      "side": 1,
+      "message": "Not for setupDataCall I think, but maybe for the other 2. Jack can confirm.\n\nActually it can be the case for setupDataCall as well, but if you read the description it is expected to send a dataCallListChanged indication in case of success, which I believe will not be sent if SIM is absent. I will let Jack comment on this too.",
+      "parentUuid": "f23fd615_a2f7091b",
+      "range": {
+        "startLine": 137,
+        "startChar": 8,
+        "endLine": 137,
+        "endChar": 61
+      },
+      "revId": "a069c8f90e70a531cc85036369ca1d623a2e0c5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
