@@ -478,7 +478,7 @@ struct StaLinkLayerRadioStats {
  */
 struct StaLinkLayerStats {
   StaLinkLayerIfaceStats iface;
-  StaLinkLayerRadioStats radio;
+  vec<StaLinkLayerRadioStats> radios;
   /**
    * TimeStamp for each stats sample.
    * This is the absolute milliseconds from boot when these stats were
