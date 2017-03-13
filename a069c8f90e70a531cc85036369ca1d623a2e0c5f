@@ -213,6 +213,30 @@
       "revId": "a069c8f90e70a531cc85036369ca1d623a2e0c5f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f23fd615_a2f7091b",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-03-13T23:30:12Z",
+      "side": 1,
+      "message": "Should NONE also be the result of setupDataCall, setDataAllowed, and setInitialAttachApn. That\u0027s the result shown in the VTS.",
+      "parentUuid": "a9fe68f7_d512450a",
+      "range": {
+        "startLine": 137,
+        "startChar": 8,
+        "endLine": 137,
+        "endChar": 61
+      },
+      "revId": "a069c8f90e70a531cc85036369ca1d623a2e0c5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
