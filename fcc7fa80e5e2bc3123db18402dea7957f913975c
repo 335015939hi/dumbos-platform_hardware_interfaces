@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b61ec011_e9ce5e15",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-03-13T23:37:03Z",
+      "side": 1,
+      "message": "Consider returning early in the error cases, to reduce the nesting level. (That should save two levels of nesting.)",
+      "revId": "fcc7fa80e5e2bc3123db18402dea7957f913975c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
