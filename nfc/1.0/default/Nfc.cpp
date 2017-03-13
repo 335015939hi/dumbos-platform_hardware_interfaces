@@ -22,34 +22,57 @@ Nfc::Nfc(nfc_nci_device_t* device) : mDevice(device),
 ::android::hardware::Return<NfcStatus> Nfc::open(const sp<INfcClientCallback>& clientCallback)  {
     mCallback = clientCallback;
     mCallback->linkToDeath(mDeathRecipient, 0 /*cookie*/);
+
+    if (mDevice == NULL) {
+        return NfcStatus::FAILED;
+    }
     int ret = mDevice->open(mDevice, eventCallback, dataCallback);
     return ret == 0 ? NfcStatus::OK : NfcStatus::FAILED;
 }
 
 ::android::hardware::Return<uint32_t> Nfc::write(const hidl_vec<uint8_t>& data)  {
+    if (mDevice == NULL) {
+        return NfcStatus::FAILED;
+    }
     return mDevice->write(mDevice, data.size(), &data[0]);
 }
 
 ::android::hardware::Return<NfcStatus> Nfc::coreInitialized(const hidl_vec<uint8_t>& data)  {
     hidl_vec<uint8_t> copy = data;
+
+    if (mDevice == NULL) {
+        return NfcStatus::FAILED;
+    }
     int ret = mDevice->core_initialized(mDevice, &copy[0]);
     return ret == 0 ? NfcStatus::OK : NfcStatus::FAILED;
 }
 
 ::android::hardware::Return<NfcStatus> Nfc::prediscover()  {
+    if (mDevice == NULL) {
+        return NfcStatus::FAILED;
+    }
     return mDevice->pre_discover(mDevice) ? NfcStatus::FAILED : NfcStatus::OK;
 }
 
 ::android::hardware::Return<NfcStatus> Nfc::close()  {
+    if (mDevice == NULL || mCallback == NULL) {
+        return NfcStatus::FAILED;
+    }
     mCallback->unlinkToDeath(mDeathRecipient);
     return mDevice->close(mDevice) ? NfcStatus::FAILED : NfcStatus::OK;
 }
 
 ::android::hardware::Return<NfcStatus> Nfc::controlGranted()  {
+    if (mDevice == NULL) {
+        return NfcStatus::FAILED;
+    }
     return mDevice->control_granted(mDevice) ? NfcStatus::FAILED : NfcStatus::OK;
 }
 
 ::android::hardware::Return<NfcStatus> Nfc::powerCycle()  {
+    if (mDevice == NULL) {
+        return NfcStatus::FAILED;
+    }
     return mDevice->power_cycle(mDevice) ? NfcStatus::FAILED : NfcStatus::OK;
 }
 
