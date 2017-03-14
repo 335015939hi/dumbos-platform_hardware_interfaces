@@ -192,6 +192,30 @@
     },
     {
       "key": {
+        "uuid": "0cdd79b0_ef512b03",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2017-03-14T18:54:55Z",
+      "side": 1,
+      "message": "It actually doesn\u0027t matter but i will do it once i am done with all basic vts. I will do it along with change for not calling getIccStatus() every time but call it after checking global flag.",
+      "parentUuid": "f00cc8c2_1f4dbcc8",
+      "range": {
+        "startLine": 27,
+        "startChar": 36,
+        "endLine": 27,
+        "endChar": 44
+      },
+      "revId": "994661ba609a0b2f415b638e69d02a3ba75ba12a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "60264364_d17a1c07",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
         "patchSetId": 7
