@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "03ce10f3_d5f5f782",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_cell_broadcast.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-03-14T18:30:15Z",
+      "side": 1,
+      "message": "Sanket/Shuo, let\u0027s add that to the doc. Jack, if you\u0027re sure we can change this to error \u003d\u003d NONE and let the test fail for now.",
+      "parentUuid": "4f10a28a_ef21a70e",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 69
+      },
+      "revId": "994661ba609a0b2f415b638e69d02a3ba75ba12a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ec17afe_3cd3e9ee",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
         "patchSetId": 7
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "f00cc8c2_1f4dbcc8",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-03-14T18:30:15Z",
+      "side": 1,
+      "message": "It doesn\u0027t matter but we shouldn\u0027t always test for 1. We can make serial a global and increment it for each test. Sanket/Shuo, can one of you please take care of it in a separate CL?",
+      "parentUuid": "5ec17afe_3cd3e9ee",
+      "range": {
+        "startLine": 27,
+        "startChar": 36,
+        "endLine": 27,
+        "endChar": 44
+      },
+      "revId": "994661ba609a0b2f415b638e69d02a3ba75ba12a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "60264364_d17a1c07",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
         "patchSetId": 7
@@ -59,6 +107,30 @@
       "writtenOn": "2017-03-14T16:29:19Z",
       "side": 1,
       "message": "shouldn\u0027t we fill something here so we don\u0027t get an invalid argument error below?",
+      "range": {
+        "startLine": 45,
+        "startChar": 4,
+        "endLine": 45,
+        "endChar": 36
+      },
+      "revId": "994661ba609a0b2f415b638e69d02a3ba75ba12a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4aaef008_6296bb52",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-03-14T18:30:15Z",
+      "side": 1,
+      "message": "I agree.",
+      "parentUuid": "60264364_d17a1c07",
       "range": {
         "startLine": 45,
         "startChar": 4,
