@@ -22,6 +22,98 @@
       "revId": "369fdaf84a83ab7f51c3a4e6cc2600fa61243679",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baae17c7_b3504c11",
+        "filename": "wifi/offload/1.0/IOffload.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1081508
+      },
+      "writtenOn": "2017-03-14T04:03:05Z",
+      "side": 1,
+      "message": "MS or Ms",
+      "range": {
+        "startLine": 47,
+        "startChar": 65,
+        "endLine": 47,
+        "endChar": 67
+      },
+      "revId": "369fdaf84a83ab7f51c3a4e6cc2600fa61243679",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "693608bf_01667d16",
+        "filename": "wifi/offload/1.0/IOffload.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1081508
+      },
+      "writtenOn": "2017-03-14T04:03:05Z",
+      "side": 1,
+      "message": "I think it might be better to have:\noneway subscribeScanEvents(IOffloadCallback cb);\noneway unsubscribeScanResults()\nI am not sure if delayMs is necessary in this scenario.\nIf you really need that you still can use:\noneway subscribeScanEvents(IOffloadCallback cb, uint32_t delayMs);",
+      "range": {
+        "startLine": 66,
+        "startChar": 4,
+        "endLine": 66,
+        "endChar": 49
+      },
+      "revId": "369fdaf84a83ab7f51c3a4e6cc2600fa61243679",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9650750d_daeae86f",
+        "filename": "wifi/offload/1.0/IOffload.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1081508
+      },
+      "writtenOn": "2017-03-14T04:03:05Z",
+      "side": 1,
+      "message": "Can we unregister this callback ?",
+      "range": {
+        "startLine": 66,
+        "startChar": 4,
+        "endLine": 66,
+        "endChar": 49
+      },
+      "revId": "369fdaf84a83ab7f51c3a4e6cc2600fa61243679",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fd448abc_716b0f6d",
+        "filename": "wifi/offload/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1081508
+      },
+      "writtenOn": "2017-03-14T04:03:05Z",
+      "side": 1,
+      "message": "Can we only add these constant when they are actually being used ?\nI guess most of them will be used but not for now. I think adding them in an incremental way helps us understand our actual need.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 1
+      },
+      "revId": "369fdaf84a83ab7f51c3a4e6cc2600fa61243679",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
