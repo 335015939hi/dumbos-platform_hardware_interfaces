@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "e71612e3_2c3a728b",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_cell_broadcast.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2017-03-14T18:36:56Z",
+      "side": 1,
+      "message": "Okay. Now another problem comes. I think \u0027Get\u0027 failed probably because of \u0027Set\u0027 failed. Or \u0027Get\u0027 even run before \u0027Set\u0027.\n\n1. For \u0027Set\u0027 we should pass meaningful params down first.\n2. Do we know if \u0027Set\u0027 test will run before \u0027Get\u0027 test?\n\nI just had a chat with QC few days ago and they confirmed that for NO sim case we should still call the \u0027Set\u0027 function. So ideally we should not see errors.",
+      "parentUuid": "03ce10f3_d5f5f782",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 69
+      },
+      "revId": "994661ba609a0b2f415b638e69d02a3ba75ba12a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ec17afe_3cd3e9ee",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
         "patchSetId": 7
