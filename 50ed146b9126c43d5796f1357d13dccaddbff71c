@@ -16,6 +16,24 @@
       "revId": "50ed146b9126c43d5796f1357d13dccaddbff71c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a9972e3_fd7f49f0",
+        "filename": "radio/1.0/IRadioResponse.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2017-03-14T18:39:30Z",
+      "side": 1,
+      "message": "Those two sounds like the new \u0027generic errors\" to me.",
+      "parentUuid": "12ed8273_ab3b2468",
+      "revId": "50ed146b9126c43d5796f1357d13dccaddbff71c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
