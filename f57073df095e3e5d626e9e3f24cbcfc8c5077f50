@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f9ef1d96_3deda219",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2017-03-14T19:46:03Z",
+      "side": 1,
+      "message": "Should we remove this now as we do have lot of new valid error codes added ?",
+      "range": {
+        "startLine": 429,
+        "startChar": 4,
+        "endLine": 429,
+        "endChar": 21
+      },
+      "revId": "f57073df095e3e5d626e9e3f24cbcfc8c5077f50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
