@@ -22,6 +22,30 @@
       "revId": "9a5abe9d6098995ce4db2e1265a5dcd47d02c51d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8816af1f_91b630c6",
+        "filename": "radio/1.0/IRadioResponse.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 797,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2017-03-14T17:24:39Z",
+      "side": 1,
+      "message": "Ok, I will remove GENERIC_FAILURE",
+      "parentUuid": "c781ea2e_67af21e3",
+      "range": {
+        "startLine": 797,
+        "startChar": 9,
+        "endLine": 797,
+        "endChar": 35
+      },
+      "revId": "9a5abe9d6098995ce4db2e1265a5dcd47d02c51d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
