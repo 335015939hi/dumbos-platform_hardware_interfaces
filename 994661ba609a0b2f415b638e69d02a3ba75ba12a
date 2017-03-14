@@ -217,6 +217,30 @@
     },
     {
       "key": {
+        "uuid": "b8734d5f_9f7db538",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_cell_broadcast.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-03-14T22:54:38Z",
+      "side": 1,
+      "message": "Service doesn\u0027t preserve state. I am not sure if the modem does, but for now we can assume it doesn\u0027t. As long as service is instantiated every time, we should be good for now.",
+      "parentUuid": "ecf46a59_fcd4adfa",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 69
+      },
+      "revId": "994661ba609a0b2f415b638e69d02a3ba75ba12a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ec17afe_3cd3e9ee",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
         "patchSetId": 7
