@@ -145,6 +145,30 @@
     },
     {
       "key": {
+        "uuid": "5eeafb0a_8b028cea",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_cell_broadcast.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-03-14T21:53:16Z",
+      "side": 1,
+      "message": "When \u0027get\u0027 and \u0027set\u0027 are put into different TEST_F block, they should be executed independently;if so, the result of \u0027set\u0027 should not impact the result of \u0027get\u0027\n\nSo as you discussed, I may need to put the two api into one TEST_F test block (do \u0027set\u0027 first, the do \u0027get\u0027), and pass with meaningful params down for the \u0027set\u0027.",
+      "parentUuid": "55f524e0_d2cd3f97",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 69
+      },
+      "revId": "994661ba609a0b2f415b638e69d02a3ba75ba12a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ec17afe_3cd3e9ee",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
         "patchSetId": 7
