@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7240093b_d2125939",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-14T17:10:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ccea276_392e8ce2",
+      "range": {
+        "startLine": 33,
+        "startChar": 45,
+        "endLine": 33,
+        "endChar": 49
+      },
+      "revId": "2ad581f04b48b69e98bb65d8a23ec52c5ecec4d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d21d1ef_cd7737d4",
         "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_iface_hidl_test.cpp",
         "patchSetId": 9
@@ -36,6 +60,30 @@
       "writtenOn": "2017-03-14T02:55:03Z",
       "side": 1,
       "message": "can those be more descriptive?",
+      "range": {
+        "startLine": 269,
+        "startChar": 3,
+        "endLine": 269,
+        "endChar": 24
+      },
+      "revId": "2ad581f04b48b69e98bb65d8a23ec52c5ecec4d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1baf7434_4fb2b9b1",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_iface_hidl_test.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-14T17:10:38Z",
+      "side": 1,
+      "message": "I\u0027m not sure what to write for these. These are just fuzz tests with some random inputs. I don\u0027t think the docstrings will explain anything more than that.",
+      "parentUuid": "0d21d1ef_cd7737d4",
       "range": {
         "startLine": 269,
         "startChar": 3,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e263fec0_b8d4183c",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_network_hidl_test.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-14T17:10:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40d88868_b552b18c",
+      "range": {
+        "startLine": 72,
+        "startChar": 44,
+        "endLine": 72,
+        "endChar": 59
+      },
+      "revId": "2ad581f04b48b69e98bb65d8a23ec52c5ecec4d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d1aed19c_bbf1e388",
         "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_network_hidl_test.cpp",
         "patchSetId": 9
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "acb41f31_77376a6e",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_network_hidl_test.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-14T17:10:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d1aed19c_bbf1e388",
+      "range": {
+        "startLine": 99,
+        "startChar": 28,
+        "endLine": 100,
+        "endChar": 29
+      },
+      "revId": "2ad581f04b48b69e98bb65d8a23ec52c5ecec4d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4289493a_240c539b",
         "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_network_hidl_test.cpp",
         "patchSetId": 9
@@ -105,6 +201,30 @@
       "writtenOn": "2017-03-14T02:55:03Z",
       "side": 1,
       "message": "are they checked explicitly (using notify and wait - to see whether they are actually called in case if some of them are called during the test). nfc test has some example.",
+      "range": {
+        "startLine": 111,
+        "startChar": 23,
+        "endLine": 112,
+        "endChar": 22
+      },
+      "revId": "2ad581f04b48b69e98bb65d8a23ec52c5ecec4d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "875531ee_a13c299a",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_network_hidl_test.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-14T17:10:38Z",
+      "side": 1,
+      "message": "I don\u0027t have any callback tests yet. That will have to come in a separate CL.",
+      "parentUuid": "4289493a_240c539b",
       "range": {
         "startLine": 111,
         "startChar": 23,
