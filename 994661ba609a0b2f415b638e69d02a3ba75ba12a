@@ -241,6 +241,30 @@
     },
     {
       "key": {
+        "uuid": "1ef87911_b663ad99",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_cell_broadcast.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2017-03-14T22:58:18Z",
+      "side": 1,
+      "message": "my understanding is modem does. When you call \u0027set\u0027, modem stores those settings. Then you call \u0027get\u0027 to retrieve what was \u0027set\u0027 earlier.",
+      "parentUuid": "b8734d5f_9f7db538",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 69
+      },
+      "revId": "994661ba609a0b2f415b638e69d02a3ba75ba12a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ec17afe_3cd3e9ee",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
         "patchSetId": 7
