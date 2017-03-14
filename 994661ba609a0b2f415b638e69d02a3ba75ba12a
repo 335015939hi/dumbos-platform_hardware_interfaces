@@ -193,6 +193,30 @@
     },
     {
       "key": {
+        "uuid": "ecf46a59_fcd4adfa",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_cell_broadcast.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1132849
+      },
+      "writtenOn": "2017-03-14T22:52:31Z",
+      "side": 1,
+      "message": "each test case gets a independent instance of service so they should not affect each other if set and get are in two test cases. Unless the service it self preserve shared states? in that case, when we do \u0027get, set, get\u0027 in one test case, if we run the test module twice the second run will fail?",
+      "parentUuid": "b77b625c_a9ecb94f",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 69
+      },
+      "revId": "994661ba609a0b2f415b638e69d02a3ba75ba12a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ec17afe_3cd3e9ee",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
         "patchSetId": 7
