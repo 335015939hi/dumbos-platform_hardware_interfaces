@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "55f524e0_d2cd3f97",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_cell_broadcast.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2017-03-14T18:52:30Z",
+      "side": 1,
+      "message": "I think generally it looks good. But for this particular \u0027get\u0027, maybe returning a zero-sized vector (or responselen \u003d 0 defined by legacy RIL.h) sounds better?",
+      "parentUuid": "be70d50e_8c8e0878",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 69
+      },
+      "revId": "994661ba609a0b2f415b638e69d02a3ba75ba12a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ec17afe_3cd3e9ee",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
         "patchSetId": 7
