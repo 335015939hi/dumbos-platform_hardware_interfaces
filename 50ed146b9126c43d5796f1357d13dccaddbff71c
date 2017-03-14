@@ -106,6 +106,24 @@
       "revId": "50ed146b9126c43d5796f1357d13dccaddbff71c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79e0cde2_324701d2",
+        "filename": "radio/1.0/IRadioResponse.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2017-03-14T19:19:43Z",
+      "side": 1,
+      "message": "Just talked with Jack, we should keep both errors. Vendor code includes modem code + other code. Error in modem code should lead to MODEM_ERROR and error in other code should lead to INTERNAL_ERROR. If we combine them to one we would be  mapping two sets of error into one making that one error generic.",
+      "parentUuid": "5d6d9a98_11faf7fa",
+      "revId": "50ed146b9126c43d5796f1357d13dccaddbff71c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
