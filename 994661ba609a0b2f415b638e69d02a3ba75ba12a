@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "be70d50e_8c8e0878",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_cell_broadcast.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-03-14T18:42:59Z",
+      "side": 1,
+      "message": "That almost sounds like QC specific behavior. Should we require all vendor implementations to fail if get is called before set? If yes, we can test get and set in the same test. First call get and make sure it fails. Then call set which succeeds, and get again and that should succeed too. Does that sound reasonable? What about for other vendors\u0027 implementations?",
+      "parentUuid": "e71612e3_2c3a728b",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 69
+      },
+      "revId": "994661ba609a0b2f415b638e69d02a3ba75ba12a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ec17afe_3cd3e9ee",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
         "patchSetId": 7
