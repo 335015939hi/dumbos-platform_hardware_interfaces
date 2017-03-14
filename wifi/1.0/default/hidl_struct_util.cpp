@@ -974,14 +974,39 @@ bool convertHidlNanPublishRequestToLegacy(
   legacy_request->recv_indication_cfg |=
         hidl_request.baseConfigs.disableFollowupReceivedIndication ? 0x4 : 0x0;
   legacy_request->cipher_type = (unsigned int) hidl_request.baseConfigs.cipherType;
-  legacy_request->pmk_len = hidl_request.baseConfigs.pmk.size();
-  if (legacy_request->pmk_len > NAN_PMK_INFO_LEN) {
-    LOG(ERROR) << "convertHidlNanPublishRequestToLegacy: pmk_len too large";
+  if (hidl_request.baseConfigs.pmk.size() && hidl_request.baseConfigs.passphrase.size()) {
+    LOG(ERROR) << "convertHidlNanPublishRequestToLegacy: both pmk and passphrase provided";
     return false;
   }
-  memcpy(legacy_request->pmk,
-        hidl_request.baseConfigs.pmk.data(),
-        legacy_request->pmk_len);
+  if (hidl_request.baseConfigs.pmk.size()) {
+    legacy_request->key_info.key_type = legacy_hal::NAN_SECURITY_KEY_INPUT_PMK;
+    legacy_request->key_info.body.pmk_info.pmk_len = hidl_request.baseConfigs.pmk.size();
+    if (legacy_request->key_info.body.pmk_info.pmk_len > NAN_PMK_INFO_LEN) {
+      LOG(ERROR) << "convertHidlNanPublishRequestToLegacy: pmk_len too large";
+      return false;
+    }
+    memcpy(legacy_request->key_info.body.pmk_info.pmk,
+          hidl_request.baseConfigs.pmk.data(),
+          legacy_request->key_info.body.pmk_info.pmk_len);
+  }
+  if (hidl_request.baseConfigs.passphrase.size()) {
+    legacy_request->key_info.key_type = legacy_hal::NAN_SECURITY_KEY_INPUT_PASSPHRASE;
+    legacy_request->key_info.body.passphrase_info.passphrase_len =
+        hidl_request.baseConfigs.passphrase.size();
+    if (legacy_request->key_info.body.passphrase_info.passphrase_len
+            < NAN_SECURITY_MIN_PASSPHRASE_LEN) {
+      LOG(ERROR) << "convertHidlNanPublishRequestToLegacy: passphrase_len too small";
+      return false;
+    }
+    if (legacy_request->key_info.body.passphrase_info.passphrase_len
+            > NAN_SECURITY_MIN_PASSPHRASE_LEN) {
+      LOG(ERROR) << "convertHidlNanPublishRequestToLegacy: passphrase_len too large";
+      return false;
+    }
+    memcpy(legacy_request->key_info.body.passphrase_info.passphrase,
+          hidl_request.baseConfigs.passphrase.data(),
+          legacy_request->key_info.body.passphrase_info.passphrase_len);
+  }
   legacy_request->sdea_params.security_cfg = hidl_request.baseConfigs.securityEnabledInNdp ?
         legacy_hal::NAN_DP_CONFIG_SECURITY : legacy_hal::NAN_DP_CONFIG_NO_SECURITY;
   legacy_request->sdea_params.ranging_state = hidl_request.baseConfigs.rangingRequired ?
@@ -1067,14 +1092,39 @@ bool convertHidlNanSubscribeRequestToLegacy(
   legacy_request->recv_indication_cfg |=
         hidl_request.baseConfigs.disableFollowupReceivedIndication ? 0x4 : 0x0;
   legacy_request->cipher_type = (unsigned int) hidl_request.baseConfigs.cipherType;
-  legacy_request->pmk_len = hidl_request.baseConfigs.pmk.size();
-  if (legacy_request->pmk_len > NAN_PMK_INFO_LEN) {
-    LOG(ERROR) << "convertHidlNanSubscribeRequestToLegacy: pmk_len too large";
+  if (hidl_request.baseConfigs.pmk.size() && hidl_request.baseConfigs.passphrase.size()) {
+    LOG(ERROR) << "convertHidlNanSubscribeRequestToLegacy: both pmk and passphrase provided";
     return false;
   }
-  memcpy(legacy_request->pmk,
-        hidl_request.baseConfigs.pmk.data(),
-        legacy_request->pmk_len);
+  if (hidl_request.baseConfigs.pmk.size()) {
+    legacy_request->key_info.key_type = legacy_hal::NAN_SECURITY_KEY_INPUT_PMK;
+    legacy_request->key_info.body.pmk_info.pmk_len = hidl_request.baseConfigs.pmk.size();
+    if (legacy_request->key_info.body.pmk_info.pmk_len > NAN_PMK_INFO_LEN) {
+      LOG(ERROR) << "convertHidlNanSubscribeRequestToLegacy: pmk_len too large";
+      return false;
+    }
+    memcpy(legacy_request->key_info.body.pmk_info.pmk,
+          hidl_request.baseConfigs.pmk.data(),
+          legacy_request->key_info.body.pmk_info.pmk_len);
+  }
+  if (hidl_request.baseConfigs.passphrase.size()) {
+    legacy_request->key_info.key_type = legacy_hal::NAN_SECURITY_KEY_INPUT_PASSPHRASE;
+    legacy_request->key_info.body.passphrase_info.passphrase_len =
+        hidl_request.baseConfigs.passphrase.size();
+    if (legacy_request->key_info.body.passphrase_info.passphrase_len
+            < NAN_SECURITY_MIN_PASSPHRASE_LEN) {
+      LOG(ERROR) << "convertHidlNanSubscribeRequestToLegacy: passphrase_len too small";
+      return false;
+    }
+    if (legacy_request->key_info.body.passphrase_info.passphrase_len
+            > NAN_SECURITY_MIN_PASSPHRASE_LEN) {
+      LOG(ERROR) << "convertHidlNanSubscribeRequestToLegacy: passphrase_len too large";
+      return false;
+    }
+    memcpy(legacy_request->key_info.body.passphrase_info.passphrase,
+          hidl_request.baseConfigs.passphrase.data(),
+          legacy_request->key_info.body.passphrase_info.passphrase_len);
+  }
   legacy_request->sdea_params.security_cfg = hidl_request.baseConfigs.securityEnabledInNdp ?
         legacy_hal::NAN_DP_CONFIG_SECURITY : legacy_hal::NAN_DP_CONFIG_NO_SECURITY;
   legacy_request->sdea_params.ranging_state = hidl_request.baseConfigs.rangingRequired ?
@@ -1261,12 +1311,47 @@ bool convertHidlNanDataPathInitiatorRequestToLegacy(
   memcpy(legacy_request->app_info.ndp_app_info, hidl_request.appInfo.data(),
         legacy_request->app_info.ndp_app_info_len);
   legacy_request->cipher_type = (unsigned int) hidl_request.cipherType;
-  legacy_request->pmk_len = hidl_request.pmk.size();
-  if (legacy_request->pmk_len > NAN_PMK_INFO_LEN) {
-    LOG(ERROR) << "convertHidlNanDataPathInitiatorRequestToLegacy: pmk_len too large";
+  if (hidl_request.pmk.size() && hidl_request.passphrase.size()) {
+    LOG(ERROR)
+        << "convertHidlNanDataPathInitiatorRequestToLegacy: both pmk and passphrase provided";
     return false;
   }
-  memcpy(legacy_request->pmk, hidl_request.pmk.data(), legacy_request->pmk_len);
+  if (hidl_request.pmk.size()) {
+    legacy_request->key_info.key_type = legacy_hal::NAN_SECURITY_KEY_INPUT_PMK;
+    legacy_request->key_info.body.pmk_info.pmk_len = hidl_request.pmk.size();
+    if (legacy_request->key_info.body.pmk_info.pmk_len > NAN_PMK_INFO_LEN) {
+      LOG(ERROR) << "convertHidlNanDataPathInitiatorRequestToLegacy: pmk_len too large";
+      return false;
+    }
+    memcpy(legacy_request->key_info.body.pmk_info.pmk,
+          hidl_request.pmk.data(),
+          legacy_request->key_info.body.pmk_info.pmk_len);
+  }
+  if (hidl_request.passphrase.size()) {
+    legacy_request->key_info.key_type = legacy_hal::NAN_SECURITY_KEY_INPUT_PASSPHRASE;
+    legacy_request->key_info.body.passphrase_info.passphrase_len =
+        hidl_request.passphrase.size();
+    if (legacy_request->key_info.body.passphrase_info.passphrase_len
+            < NAN_SECURITY_MIN_PASSPHRASE_LEN) {
+      LOG(ERROR) << "convertHidlNanDataPathInitiatorRequestToLegacy: passphrase_len too small";
+      return false;
+    }
+    if (legacy_request->key_info.body.passphrase_info.passphrase_len
+            > NAN_SECURITY_MIN_PASSPHRASE_LEN) {
+      LOG(ERROR) << "convertHidlNanDataPathInitiatorRequestToLegacy: passphrase_len too large";
+      return false;
+    }
+    memcpy(legacy_request->key_info.body.passphrase_info.passphrase,
+          hidl_request.passphrase.data(),
+          legacy_request->key_info.body.passphrase_info.passphrase_len);
+  }
+  legacy_request->service_name_len = hidl_request.serviceNameOutOfBand.size();
+  if (legacy_request->service_name_len > NAN_MAX_SERVICE_NAME_LEN) {
+    LOG(ERROR) << "convertHidlNanDataPathInitiatorRequestToLegacy: service_name_len too large";
+    return false;
+  }
+  memcpy(legacy_request->service_name, hidl_request.serviceNameOutOfBand.data(),
+        legacy_request->service_name_len);
 
   return true;
 }
@@ -1294,12 +1379,47 @@ bool convertHidlNanDataPathIndicationResponseToLegacy(
   memcpy(legacy_request->app_info.ndp_app_info, hidl_request.appInfo.data(),
         legacy_request->app_info.ndp_app_info_len);
   legacy_request->cipher_type = (unsigned int) hidl_request.cipherType;
-  legacy_request->pmk_len = hidl_request.pmk.size();
-  if (legacy_request->pmk_len > NAN_PMK_INFO_LEN) {
-    LOG(ERROR) << "convertHidlNanDataPathIndicationResponseToLegacy: pmk_len too large";
+  if (hidl_request.pmk.size() && hidl_request.passphrase.size()) {
+    LOG(ERROR)
+        << "convertHidlNanDataPathIndicationResponseToLegacy: both pmk and passphrase provided";
     return false;
   }
-  memcpy(legacy_request->pmk, hidl_request.pmk.data(), legacy_request->pmk_len);
+  if (hidl_request.pmk.size()) {
+    legacy_request->key_info.key_type = legacy_hal::NAN_SECURITY_KEY_INPUT_PMK;
+    legacy_request->key_info.body.pmk_info.pmk_len = hidl_request.pmk.size();
+    if (legacy_request->key_info.body.pmk_info.pmk_len > NAN_PMK_INFO_LEN) {
+      LOG(ERROR) << "convertHidlNanDataPathIndicationResponseToLegacy: pmk_len too large";
+      return false;
+    }
+    memcpy(legacy_request->key_info.body.pmk_info.pmk,
+          hidl_request.pmk.data(),
+          legacy_request->key_info.body.pmk_info.pmk_len);
+  }
+  if (hidl_request.passphrase.size()) {
+    legacy_request->key_info.key_type = legacy_hal::NAN_SECURITY_KEY_INPUT_PASSPHRASE;
+    legacy_request->key_info.body.passphrase_info.passphrase_len =
+        hidl_request.passphrase.size();
+    if (legacy_request->key_info.body.passphrase_info.passphrase_len
+            < NAN_SECURITY_MIN_PASSPHRASE_LEN) {
+      LOG(ERROR) << "convertHidlNanDataPathIndicationResponseToLegacy: passphrase_len too small";
+      return false;
+    }
+    if (legacy_request->key_info.body.passphrase_info.passphrase_len
+            > NAN_SECURITY_MIN_PASSPHRASE_LEN) {
+      LOG(ERROR) << "convertHidlNanDataPathIndicationResponseToLegacy: passphrase_len too large";
+      return false;
+    }
+    memcpy(legacy_request->key_info.body.passphrase_info.passphrase,
+          hidl_request.passphrase.data(),
+          legacy_request->key_info.body.passphrase_info.passphrase_len);
+  }
+  legacy_request->service_name_len = hidl_request.serviceNameOutOfBand.size();
+  if (legacy_request->service_name_len > NAN_MAX_SERVICE_NAME_LEN) {
+    LOG(ERROR) << "convertHidlNanDataPathIndicationResponseToLegacy: service_name_len too large";
+    return false;
+  }
+  memcpy(legacy_request->service_name, hidl_request.serviceNameOutOfBand.data(),
+        legacy_request->service_name_len);
 
   return true;
 }

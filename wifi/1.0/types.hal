@@ -1018,10 +1018,22 @@ struct NanDiscoveryCommonConfig {
    * session. A PMK can also be provided during the actual construction of the data-path (which
    * allows for unique PMKs for each data-path). The |cipherType| must be specified if a PMK is
    * provided.
+   * Note: either a |passphrase| or a |pmk| (or neither) can be specified - not both.
    * Max length: 32
    * Ref: IEEE 802.11i
    */
   vec<uint8_t> pmk;
+  /**
+   * Optional Passphrase for data-paths constructed in the context of this discovery session. A
+   * Passphrase can also be provided during the actual construction of the data-path (which
+   * allows for unique Passphrases for each data-path). The |cipherType| must be specified if a
+   * Passphrase is provided.
+   * Note: either a |passphrase| or a |pmk| (or neither) can be specified - not both.
+   * Min length: 8 (if provided, i.e. if != 0)
+   * Max length: 63
+   * NAN Spec: Appendix: Mapping pass-phrase to PMK for NCS-SK Cipher Suites
+   */
+  vec<uint8_t> passphrase;
   /**
    * Specifies whether or not security is enabled in any data-path (NDP) constructed in the context
    * of this discovery session.
@@ -1233,10 +1245,28 @@ struct NanInitiateDataPathRequest {
   /**
    * Pairwise Master Key (PMK) for the data-path being requested (if |securityRequired| is true).
    * The |cipherType| must be specified if a PMK is provided.
+   * Note: either a |passphrase| or a |pmk| (or neither) can be specified - not both.
    * Max length: 32
    * Ref: IEEE 802.11i
    */
   vec<uint8_t> pmk;
+  /**
+   * Passphrase for the data-path being requested (if |securityRequired| is true). The |cipherType|
+   * must be specified if a Passphrase is provided.
+   * Note: either a |passphrase| or a |pmk| (or neither) can be specified - not both.
+   * Min length: 8 (if provided, i.e. if != 0)
+   * Max length: 63
+   * NAN Spec: Appendix: Mapping pass-phrase to PMK for NCS-SK Cipher Suites
+   */
+  vec<uint8_t> passphrase;
+  /**
+   * A service name to be used with |passphrase| to construct a Pairwise Master Key (PMK) for the
+   * data-path. Only relevant when a data-path is requested which is not associated with a NAN
+   * discovery session - e.g. using out-of-band discovery.
+   * Constraints: same as |NanDiscoveryCommonConfig.serviceName|
+   * NAN Spec: Appendix: Mapping pass-phrase to PMK for NCS-SK Cipher Suites
+   */
+  vec<uint8_t> serviceNameOutOfBand;
 };
 
 /**
@@ -1279,9 +1309,27 @@ struct NanRespondToDataPathIndicationRequest {
   /**
    * Pairwise Master Key (PMK) for the data-path being negotiated (if |securityRequired| is true).
    * The |cipherType| must be specified if a PMK is provided.
+   * Note: either a |passphrase| or a |pmk| (or neither) can be specified - not both.
    * Max length: 32
    */
   vec<uint8_t> pmk;
+  /**
+   * Passphrase for the data-path being requested (if |securityRequired| is true). The |cipherType|
+   * must be specified if a Passphrase is provided.
+   * Note: either a |passphrase| or a |pmk| (or neither) can be specified - not both.
+   * Min length: 8 (if provided, i.e. if != 0)
+   * Max length: 63
+   * NAN Spec: Appendix: Mapping pass-phrase to PMK for NCS-SK Cipher Suites
+   */
+  vec<uint8_t> passphrase;
+  /**
+   * A service name to be used with |passphrase| to construct a Pairwise Master Key (PMK) for the
+   * data-path. Only relevant when a data-path is requested which is not associated with a NAN
+   * discovery session - e.g. using out-of-band discovery.
+   * Constraints: same as |NanDiscoveryCommonConfig.serviceName|
+   * NAN Spec: Appendix: Mapping pass-phrase to PMK for NCS-SK Cipher Suites
+   */
+  vec<uint8_t> serviceNameOutOfBand;
 };
 
 /**
