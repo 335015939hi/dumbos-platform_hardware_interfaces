@@ -34,6 +34,24 @@
       "revId": "50ed146b9126c43d5796f1357d13dccaddbff71c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcff6b8b_803eafa6",
+        "filename": "radio/1.0/IRadioResponse.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2017-03-14T18:57:48Z",
+      "side": 1,
+      "message": "INTERNAL_ERROR \u003d\u003d\u003e Unexpected vendor internal error scenario while processing the request. Ex. SIM failure when trying read the SPN of the SIM card to form the response.\nMODEM_ERROR \u003d\u003d\u003e Invalid payload response (sanity correlation of items like length / validity )\nRADIO_NOT_AVAILABLE \u003d\u003d\u003e When modem didn\u0027t start\nOPERATION_NOT_ALLOWED \u003d\u003d\u003e Returned when device is in CDMA mode / Global mode\nABORTED \u003d\u003d\u003e When the manual scan is aborted due to high priority activity like voice call\nDEVICE_IN_USE \u003d\u003d\u003e Radio is already busy in high priority activity like voice call\nNO_MEMORY \u003d\u003d\u003e Not sufficient memory to process the request",
+      "parentUuid": "12ed8273_ab3b2468",
+      "revId": "50ed146b9126c43d5796f1357d13dccaddbff71c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
