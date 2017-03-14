@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c890bc37_d97a3495",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-03-14T00:26:01Z",
+      "side": 1,
+      "message": "nit update docs for LinkLayerStats",
+      "revId": "e42ace24045ec47bf1396a0ecefb729f02825a21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
