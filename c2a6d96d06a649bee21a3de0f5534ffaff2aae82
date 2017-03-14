@@ -22,6 +22,30 @@
       "revId": "c2a6d96d06a649bee21a3de0f5534ffaff2aae82",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae924275_15c618e8",
+        "filename": "wifi/offload/1.0/vts/functional/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2017-03-14T23:55:12Z",
+      "side": 1,
+      "message": "nvm hidl_defaults covers that.",
+      "parentUuid": "6f6a1261_8e9762ad",
+      "range": {
+        "startLine": 33,
+        "startChar": 10,
+        "endLine": 33,
+        "endChar": 12
+      },
+      "revId": "c2a6d96d06a649bee21a3de0f5534ffaff2aae82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
