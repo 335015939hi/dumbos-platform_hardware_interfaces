@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "12ed8273_ab3b2468",
+        "filename": "radio/1.0/IRadioResponse.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 1125174
+      },
+      "writtenOn": "2017-03-14T18:31:25Z",
+      "side": 1,
+      "message": "Whats the difference between INTERNAL_ERR and MODEM_ERR",
+      "revId": "50ed146b9126c43d5796f1357d13dccaddbff71c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
