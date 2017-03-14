@@ -377,6 +377,24 @@
     },
     {
       "key": {
+        "uuid": "654dc0ca_4dd1d782",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_p2p_iface_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-03-14T00:53:41Z",
+      "side": 1,
+      "message": "SGTM. Thanks for the explanation.",
+      "parentUuid": "c2c0947d_68fc27a4",
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a364350b_f8f36626",
         "filename": "wifi/supplicant/1.0/vts/functional/supplicant_p2p_iface_hidl_test.cpp",
         "patchSetId": 3
@@ -1624,6 +1642,24 @@
       "side": 1,
       "message": "I will migrate all of this codebase to use your helper template in a future CL.",
       "parentUuid": "a364350b_eacce91a",
+      "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "32724397_89c5b0b5",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_network_hidl_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-03-14T00:53:41Z",
+      "side": 1,
+      "message": "SGTM. (I realize we\u0027re in a time crunch ATM.)",
+      "parentUuid": "76090b5b_3777e85b",
       "revId": "93fde50d981522134f996b8b8a0dbbd4e81141cd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false

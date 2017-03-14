@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1bc6912c_d7c0032d",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-03-14T00:53:41Z",
+      "side": 1,
+      "message": "This should be |show_keys|, no?",
+      "range": {
+        "startLine": 169,
+        "startChar": 14,
+        "endLine": 169,
+        "endChar": 28
+      },
+      "revId": "9c61c5a6b8e73e5be72f39a355e98f2c3a273d3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bbdbd813_80f7ef8f",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_iface_hidl_test.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-03-14T00:53:41Z",
+      "side": 1,
+      "message": "This works, but it\u0027s a bit subtle. Consider std::all_of(), or std::count(), instead.\n\n(I\u0027d lean towards std::count(), since it doesn\u0027t require a lambda.)",
+      "revId": "9c61c5a6b8e73e5be72f39a355e98f2c3a273d3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f1e57ab8_897e1537",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_network_hidl_test.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-03-14T00:53:41Z",
+      "side": 1,
+      "message": "Maybe double-check formatting here.",
+      "range": {
+        "startLine": 479,
+        "startChar": 39,
+        "endLine": 479,
+        "endChar": 44
+      },
+      "revId": "9c61c5a6b8e73e5be72f39a355e98f2c3a273d3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5811e1c_c0dd71c1",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_sta_network_hidl_test.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-03-14T00:53:41Z",
+      "side": 1,
+      "message": "As at line 479.",
+      "range": {
+        "startLine": 494,
+        "startChar": 41,
+        "endLine": 494,
+        "endChar": 46
+      },
+      "revId": "9c61c5a6b8e73e5be72f39a355e98f2c3a273d3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
