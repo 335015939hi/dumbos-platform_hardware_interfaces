@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "74998ab9_3181944c",
+        "filename": "data/ipa/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2017-03-14T09:24:13Z",
+      "side": 1,
+      "message": "I think these 3 data/ipa files can be deleted, since the functionality is now moved to the data/offload files?",
+      "range": {
+        "startLine": 30,
+        "startChar": 30,
+        "endLine": 30,
+        "endChar": 33
+      },
+      "revId": "7b305330f4938e9cd093dae01372a18de93d9137",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c5aedd50_be40db13",
+        "filename": "data/offload/config/1.0/IOffloadConfig.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2017-03-14T09:24:13Z",
+      "side": 1,
+      "message": "I think net.tetheroffload may be a better way to structure the namespace.",
+      "range": {
+        "startLine": 30,
+        "startChar": 25,
+        "endLine": 30,
+        "endChar": 37
+      },
+      "revId": "7b305330f4938e9cd093dae01372a18de93d9137",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ba4b8be_386a692c",
         "filename": "data/offload/config/1.0/IOffloadConfig.hal",
         "patchSetId": 2
@@ -18,6 +64,99 @@
         "startChar": 3,
         "endLine": 54,
         "endChar": 16
+      },
+      "revId": "7b305330f4938e9cd093dae01372a18de93d9137",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0269db56_e92d6df7",
+        "filename": "data/offload/config/1.0/IOffloadConfig.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2017-03-14T09:24:13Z",
+      "side": 1,
+      "message": "Agreed.",
+      "parentUuid": "4ba4b8be_386a692c",
+      "range": {
+        "startLine": 54,
+        "startChar": 3,
+        "endLine": 54,
+        "endChar": 16
+      },
+      "revId": "7b305330f4938e9cd093dae01372a18de93d9137",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aebdce29_c0a13491",
+        "filename": "data/offload/control/1.0/IOffloadControl.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2017-03-14T09:24:13Z",
+      "side": 1,
+      "message": "[nit] stray trailing whitespace",
+      "range": {
+        "startLine": 66,
+        "startChar": 4,
+        "endLine": 66,
+        "endChar": 5
+      },
+      "revId": "7b305330f4938e9cd093dae01372a18de93d9137",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96893c39_bdc172ca",
+        "filename": "data/offload/control/1.0/IOffloadControl.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2017-03-14T09:24:13Z",
+      "side": 1,
+      "message": "(but would not need to re-initOffload, I assume?)",
+      "range": {
+        "startLine": 144,
+        "startChar": 24,
+        "endLine": 144,
+        "endChar": 25
+      },
+      "revId": "7b305330f4938e9cd093dae01372a18de93d9137",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca9d7257_4c993b1b",
+        "filename": "data/offload/control/1.0/ITetheringOffloadCallback.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2017-03-14T09:24:13Z",
+      "side": 1,
+      "message": "I think we need some list of event values, yes?\n\nAmong other things, I think we need an OFFLOAD_STOPPED event, which I can use to finally release the this callback (until then, the hardware might still be generating statics updates).",
+      "range": {
+        "startLine": 40,
+        "startChar": 25,
+        "endLine": 40,
+        "endChar": 30
       },
       "revId": "7b305330f4938e9cd093dae01372a18de93d9137",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
