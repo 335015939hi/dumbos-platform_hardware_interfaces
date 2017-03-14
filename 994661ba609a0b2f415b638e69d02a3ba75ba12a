@@ -169,6 +169,30 @@
     },
     {
       "key": {
+        "uuid": "b77b625c_a9ecb94f",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_cell_broadcast.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-03-14T22:09:36Z",
+      "side": 1,
+      "message": "I think result of one will impact the other. From test perspective they are separate, but there\u0027s a single instance of modem that\u0027s constantly running AFAIK (unless the vendor service is stopped and started for each test; we can check on this with Yuexi).",
+      "parentUuid": "5eeafb0a_8b028cea",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 69
+      },
+      "revId": "994661ba609a0b2f415b638e69d02a3ba75ba12a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ec17afe_3cd3e9ee",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
         "patchSetId": 7
