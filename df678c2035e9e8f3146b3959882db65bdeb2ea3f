@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "78eba1a6_1a941c57",
+        "filename": "renderscript/1.0/vts/functional/VtsHalRenderscriptV1_0TargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1114063
+      },
+      "writtenOn": "2017-03-14T17:53:21Z",
+      "side": 1,
+      "message": "Use the getService template provided by VtsHalHidlTargetBaseTest: e.g.https://cs.corp.google.com/android/hardware/interfaces/nfc/1.0/vts/functional/VtsHalNfcV1_0TargetTest.cpp?rcl\u003dcd7bc8ff9465537486ca4a111f2b8f3f5bfcbf4d\u0026l\u003d62",
+      "range": {
+        "startLine": 57,
+        "startChar": 8,
+        "endLine": 57,
+        "endChar": 38
+      },
+      "revId": "df678c2035e9e8f3146b3959882db65bdeb2ea3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
