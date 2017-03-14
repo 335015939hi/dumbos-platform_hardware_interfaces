@@ -261,6 +261,30 @@
       "revId": "a069c8f90e70a531cc85036369ca1d623a2e0c5f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25c09099_44798317",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-03-14T00:15:17Z",
+      "side": 1,
+      "message": "Yes. A radio_indication is not implemented at this stage (it is initialized as null in the setup of the VTS test). I don\u0027t know if there is any interaction between the radio_response and radio_indication: whether the radio_response may get success (RadioError::NONE) depends on whether the corresponding radio_indication may be sent correctly.",
+      "parentUuid": "c1a098b2_26ab075b",
+      "range": {
+        "startLine": 137,
+        "startChar": 8,
+        "endLine": 137,
+        "endChar": 61
+      },
+      "revId": "a069c8f90e70a531cc85036369ca1d623a2e0c5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
