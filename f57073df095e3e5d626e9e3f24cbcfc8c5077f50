@@ -22,6 +22,30 @@
       "revId": "f57073df095e3e5d626e9e3f24cbcfc8c5077f50",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d444852c_f48e6776",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2017-03-14T21:45:40Z",
+      "side": 1,
+      "message": "Sanket, still there are many causes (specific to QC implementation) which are currently mapped to ERROR_UNSPECIFIED in the default case. I guess same will apply to other chipset manufactures.  As part of this feature i wanted to add new set of causes to help telephony monitor (Pixel debug app) efficiently filter network issues. Basically this list of call fail causes are not comprehensive yet and it needs separate effort to come up complete set of fail causes and remove ERROR_SPECIFIED. In any case we need to have one GENERIC error code to handle the default case which we are not aware of in case of different vendors (other than QC). We can do as a separate feature.",
+      "parentUuid": "f9ef1d96_3deda219",
+      "range": {
+        "startLine": 429,
+        "startChar": 4,
+        "endLine": 429,
+        "endChar": 21
+      },
+      "revId": "f57073df095e3e5d626e9e3f24cbcfc8c5077f50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
