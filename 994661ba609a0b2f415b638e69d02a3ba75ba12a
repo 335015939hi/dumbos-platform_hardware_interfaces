@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "4f10a28a_ef21a70e",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_cell_broadcast.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2017-03-14T16:29:19Z",
+      "side": 1,
+      "message": "This doesn\u0027t seem right to me. Qualcomm confirmed that CB should work even in no SIM case. If that\u0027s what they return today, probably need to file a bug for them to fix that.",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 69
+      },
+      "revId": "994661ba609a0b2f415b638e69d02a3ba75ba12a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ec17afe_3cd3e9ee",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2017-03-14T16:29:19Z",
+      "side": 1,
+      "message": "For all the tests here and below, we pass serial number 1 down. Shouldn\u0027t we have a central place to dispatch this serial number or not? Or it even doesn\u0027t matter...",
+      "range": {
+        "startLine": 27,
+        "startChar": 36,
+        "endLine": 27,
+        "endChar": 44
+      },
+      "revId": "994661ba609a0b2f415b638e69d02a3ba75ba12a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "60264364_d17a1c07",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2017-03-14T16:29:19Z",
+      "side": 1,
+      "message": "shouldn\u0027t we fill something here so we don\u0027t get an invalid argument error below?",
+      "range": {
+        "startLine": 45,
+        "startChar": 4,
+        "endLine": 45,
+        "endChar": 36
+      },
+      "revId": "994661ba609a0b2f415b638e69d02a3ba75ba12a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cc0b9727_abae874a",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
         "patchSetId": 7
