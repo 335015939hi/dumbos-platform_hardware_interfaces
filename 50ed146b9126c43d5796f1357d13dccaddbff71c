@@ -52,6 +52,24 @@
       "revId": "50ed146b9126c43d5796f1357d13dccaddbff71c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42ecd144_d42b253d",
+        "filename": "radio/1.0/IRadioResponse.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2017-03-14T19:01:31Z",
+      "side": 1,
+      "message": "\u003e Those two sounds like the new \u0027generic errors\" to me.\nJack, To me it looks better that GENERIC_FAILURE, I think we still need to have these for cases that could not be mapped to the remaining 5. I just gave some examples in the last comment.",
+      "parentUuid": "dcff6b8b_803eafa6",
+      "revId": "50ed146b9126c43d5796f1357d13dccaddbff71c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
