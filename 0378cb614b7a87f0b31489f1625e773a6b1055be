@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "baa11142_1ed3e50b",
+        "filename": "wifi/keystore/1.0/IKeystore.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2017-03-14T16:15:06Z",
+      "side": 1,
+      "message": "ERROR_UNKNOWN. Same below.",
+      "range": {
+        "startLine": 41,
+        "startChar": 33,
+        "endLine": 41,
+        "endChar": 40
+      },
+      "revId": "0378cb614b7a87f0b31489f1625e773a6b1055be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e91a197_48d7d42f",
+        "filename": "wifi/keystore/1.0/IKeystore.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2017-03-14T16:15:06Z",
+      "side": 1,
+      "message": "It would be good to document what sort of signature this is. I believe it\u0027s a raw RSA private key operation, that assumes that dataToSign is already appropriately digested and padded. Or I suppose it could be an ECDSA operation, again assuming that dataToSign is already appropriately digested (ECDSA doesn\u0027t need padding).",
+      "range": {
+        "startLine": 62,
+        "startChar": 5,
+        "endLine": 62,
+        "endChar": 10
+      },
+      "revId": "0378cb614b7a87f0b31489f1625e773a6b1055be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1870794c_ac0d776e",
+        "filename": "wifi/keystore/1.0/IKeystore.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2017-03-14T16:15:06Z",
+      "side": 1,
+      "message": "associated",
+      "range": {
+        "startLine": 62,
+        "startChar": 45,
+        "endLine": 62,
+        "endChar": 56
+      },
+      "revId": "0378cb614b7a87f0b31489f1625e773a6b1055be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5254492_3701645d",
+        "filename": "wifi/keystore/1.0/default/hidl_return_util.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2017-03-14T16:15:06Z",
+      "side": 1,
+      "message": "Nit: If functions is plural, should be \"check\", same below on \"invokes\"",
+      "range": {
+        "startLine": 34,
+        "startChar": 19,
+        "endLine": 34,
+        "endChar": 25
+      },
+      "revId": "0378cb614b7a87f0b31489f1625e773a6b1055be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9534415c_ebb39490",
+        "filename": "wifi/keystore/1.0/default/keystore.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2017-03-14T16:15:06Z",
+      "side": 1,
+      "message": "What kinds of blobs are you getting?",
+      "range": {
+        "startLine": 34,
+        "startChar": 17,
+        "endLine": 34,
+        "endChar": 24
+      },
+      "revId": "0378cb614b7a87f0b31489f1625e773a6b1055be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dee4dd2d_11d82028",
+        "filename": "wifi/keystore/1.0/default/service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2017-03-14T16:15:06Z",
+      "side": 1,
+      "message": "WiFi",
+      "range": {
+        "startLine": 38,
+        "startChar": 29,
+        "endLine": 38,
+        "endChar": 33
+      },
+      "revId": "0378cb614b7a87f0b31489f1625e773a6b1055be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
