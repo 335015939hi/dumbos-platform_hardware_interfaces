@@ -680,6 +680,30 @@
       "revId": "8697f44287c0604bcf8c09df1b568ba4b940af43",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ff932fc_1f79b224",
+        "filename": "wifi/offload/1.0/default/service.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1081508
+      },
+      "writtenOn": "2017-03-14T16:23:37Z",
+      "side": 1,
+      "message": "Um.. So where do we get the (HIDL) service name then ?",
+      "parentUuid": "595b7df6_225a6877",
+      "range": {
+        "startLine": 31,
+        "startChar": 15,
+        "endLine": 31,
+        "endChar": 42
+      },
+      "revId": "8697f44287c0604bcf8c09df1b568ba4b940af43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2b35afaa_dff8228b",
+        "filename": "wifi/offload/1.0/default/Offload.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1081508
+      },
+      "writtenOn": "2017-03-14T16:23:37Z",
+      "side": 1,
+      "message": "you might want to log error when scanStat \u003d\u003d nullptr",
+      "range": {
+        "startLine": 32,
+        "startChar": 1,
+        "endLine": 32,
+        "endChar": 5
+      },
+      "revId": "f177212221feb243ea272c6f27613a42413a7cd0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f65b5441_23c77b12",
+        "filename": "wifi/offload/1.0/default/Offload.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1081508
+      },
+      "writtenOn": "2017-03-14T16:23:37Z",
+      "side": 1,
+      "message": "remove \"Offload::\"",
+      "range": {
+        "startLine": 52,
+        "startChar": 4,
+        "endLine": 52,
+        "endChar": 13
+      },
+      "revId": "f177212221feb243ea272c6f27613a42413a7cd0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "660a76a2_2219182e",
+        "filename": "wifi/offload/1.0/default/Offload.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1081508
+      },
+      "writtenOn": "2017-03-14T16:23:37Z",
+      "side": 1,
+      "message": "Could you add comments/document for this?",
+      "range": {
+        "startLine": 32,
+        "startChar": 4,
+        "endLine": 32,
+        "endChar": 25
+      },
+      "revId": "f177212221feb243ea272c6f27613a42413a7cd0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
