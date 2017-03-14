@@ -285,6 +285,30 @@
       "revId": "a069c8f90e70a531cc85036369ca1d623a2e0c5f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "47d24523_952161b3",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-03-14T16:12:58Z",
+      "side": 1,
+      "message": "You can submit this CL for now, but we should add a radio_indication object. In this case we should wait and assert that there\u0027s a timeout and no indication is received.",
+      "parentUuid": "25c09099_44798317",
+      "range": {
+        "startLine": 137,
+        "startChar": 8,
+        "endLine": 137,
+        "endChar": 61
+      },
+      "revId": "a069c8f90e70a531cc85036369ca1d623a2e0c5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
