@@ -70,6 +70,24 @@
       "revId": "50ed146b9126c43d5796f1357d13dccaddbff71c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4f901150_5bdc0ddc",
+        "filename": "radio/1.0/IRadioResponse.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2017-03-14T19:04:36Z",
+      "side": 1,
+      "message": "For the rest I am okay. But why do we want to name \u0027Invalid payload response (sanity correlation of items like length / validity )\u0027 as \u0027modem error\u0027? This sounds misleading. Why not internal error? In my opinion, we should only have one \u0027internal error\u0027 or \u0027modem error\u0027 (although I still feel that\u0027s another type of meaningless \u0027generic failure\u0027) for OEM to use. If there are something that OEM particular wants to debug but do not want to reveal, we should define OEM_SPECIFIC_xx.",
+      "parentUuid": "dcff6b8b_803eafa6",
+      "revId": "50ed146b9126c43d5796f1357d13dccaddbff71c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
