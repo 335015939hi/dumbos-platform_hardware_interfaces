@@ -16,6 +16,24 @@
       "revId": "e42ace24045ec47bf1396a0ecefb729f02825a21",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b12a4bc1_019af2d6",
+        "filename": "wifi/1.0/default/wifi_legacy_hal.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-14T00:27:30Z",
+      "side": 1,
+      "message": "This comment only applies to the |LinkLayerRadioStats| stats now. All the pointers were in the old |wifi_radio_stat| and since it has now been separated out, the comment should be here.",
+      "parentUuid": "c890bc37_d97a3495",
+      "revId": "e42ace24045ec47bf1396a0ecefb729f02825a21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
