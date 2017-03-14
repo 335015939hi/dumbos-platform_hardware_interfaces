@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "71b1e21c_59b10d3d",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_cell_broadcast.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-03-14T18:32:50Z",
+      "side": 1,
+      "message": "What returned as I observed is INVALID_MODEM_STATE, which is not defined in the .hal files. I marked this bug in the doc shared with QC ( https://docs.google.com/document/d/1xa_2zRYbeJQchPiI1hRpm-GMgukCiPIiMaIYqQ6VDiQ/edit )",
+      "parentUuid": "4f10a28a_ef21a70e",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 69
+      },
+      "revId": "994661ba609a0b2f415b638e69d02a3ba75ba12a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ec17afe_3cd3e9ee",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
         "patchSetId": 7
