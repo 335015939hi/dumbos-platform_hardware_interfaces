@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "00bca985_81b6c8b1",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_cell_broadcast.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-03-15T20:22:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d4fb0a2_af5961ae",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 69
+      },
+      "revId": "3053491876cfa2a3b7543d9eadb53961f1494143",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9cb37d4e_d36fcffc",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_cell_broadcast.cpp",
         "patchSetId": 13
@@ -36,6 +60,30 @@
       "writtenOn": "2017-03-15T20:13:53Z",
       "side": 1,
       "message": "I think we should expect no error even in no sim case.",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 69
+      },
+      "revId": "3053491876cfa2a3b7543d9eadb53961f1494143",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1611b28b_3e7eca4d",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_cell_broadcast.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-03-15T20:22:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9cb37d4e_d36fcffc",
       "range": {
         "startLine": 97,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e8674df4_c4d479e7",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_cell_broadcast.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-03-15T20:22:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a347250d_c2da6d3c",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 69
+      },
+      "revId": "3053491876cfa2a3b7543d9eadb53961f1494143",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "42a07c44_31edb912",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_cell_broadcast.cpp",
         "patchSetId": 13
@@ -82,6 +154,30 @@
       "writtenOn": "2017-03-15T20:13:53Z",
       "side": 1,
       "message": "Probably no error as well. same for the rest.",
+      "range": {
+        "startLine": 144,
+        "startChar": 0,
+        "endLine": 146,
+        "endChar": 69
+      },
+      "revId": "3053491876cfa2a3b7543d9eadb53961f1494143",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f435c0dc_cc1e7a47",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_cell_broadcast.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-03-15T20:22:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42a07c44_31edb912",
       "range": {
         "startLine": 144,
         "startChar": 0,
