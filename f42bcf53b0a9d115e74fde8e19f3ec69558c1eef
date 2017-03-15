@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "e1f4e42a_e6a0a89b",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_ims.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-03-15T19:49:55Z",
+      "side": 1,
+      "message": "Ok. Removed the INVALID_ARGUEMENTS error.",
+      "parentUuid": "22aaec0a_43e565e9",
+      "range": {
+        "startLine": 34,
+        "startChar": 47,
+        "endLine": 34,
+        "endChar": 76
+      },
+      "revId": "f42bcf53b0a9d115e74fde8e19f3ec69558c1eef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "408ec292_83eb71cf",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_ims.cpp",
         "patchSetId": 11
@@ -60,6 +84,30 @@
       "writtenOn": "2017-03-15T18:58:57Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 144,
+        "startChar": 47,
+        "endLine": 144,
+        "endChar": 76
+      },
+      "revId": "f42bcf53b0a9d115e74fde8e19f3ec69558c1eef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44a1a64a_cf20ad74",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_ims.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-03-15T19:49:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "408ec292_83eb71cf",
       "range": {
         "startLine": 144,
         "startChar": 47,
