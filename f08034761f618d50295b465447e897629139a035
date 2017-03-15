@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7acb9e21_cebd1061",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2017-03-15T21:26:51Z",
+      "side": 1,
+      "message": "ok",
+      "parentUuid": "c4c692c9_e8778630",
+      "range": {
+        "startLine": 384,
+        "startChar": 4,
+        "endLine": 384,
+        "endChar": 13
+      },
+      "revId": "f08034761f618d50295b465447e897629139a035",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "93072894_a8df81a1",
         "filename": "radio/1.0/types.hal",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2017-03-15T21:21:28Z",
       "side": 1,
       "message": "how does the framework interact with these?",
+      "range": {
+        "startLine": 413,
+        "startChar": 4,
+        "endLine": 413,
+        "endChar": 15
+      },
+      "revId": "f08034761f618d50295b465447e897629139a035",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "102f283e_29c7dccf",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2017-03-15T21:26:51Z",
+      "side": 1,
+      "message": "These causes are meant to be used for OEM apps. Telephony FWK will map them to PreciseDisconnectCause#OEM_CAUSE_X. Telephony FWK is just a pipe b/w OEM radio and OEM apps.",
+      "parentUuid": "93072894_a8df81a1",
       "range": {
         "startLine": 413,
         "startChar": 4,
