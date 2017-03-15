@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "22aaec0a_43e565e9",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_ims.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2017-03-15T19:03:58Z",
+      "side": 1,
+      "message": "Yes it should not return invalid arg. I will also clean this up from the documentation when i remove generic error. We had added invalid_argument as a possible error for all hidl apis because earlier while defining the interface, we had phoneId as one of the parameter. Invalid argument was supposed to be returned when phoneId was invalid.",
+      "parentUuid": "a7ad6325_c9bc0530",
+      "range": {
+        "startLine": 34,
+        "startChar": 47,
+        "endLine": 34,
+        "endChar": 76
+      },
+      "revId": "f42bcf53b0a9d115e74fde8e19f3ec69558c1eef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "408ec292_83eb71cf",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_ims.cpp",
         "patchSetId": 11
