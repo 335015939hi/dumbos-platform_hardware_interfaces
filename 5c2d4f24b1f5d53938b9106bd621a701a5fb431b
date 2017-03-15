@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9af2b46f_984f4216",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_stk.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2017-03-15T20:54:47Z",
+      "side": 1,
+      "message": "Can we have this and test below present in same TEST_F ? Same for other similar functions below.\nAlso, naming should be always Camel case.",
+      "range": {
+        "startLine": 24,
+        "startChar": 22,
+        "endLine": 24,
+        "endChar": 50
+      },
+      "revId": "5c2d4f24b1f5d53938b9106bd621a701a5fb431b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
