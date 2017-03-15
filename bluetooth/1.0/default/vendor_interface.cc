@@ -265,11 +265,10 @@ bool VendorInterface::Open(InitializeCompleteCallback initialize_complete_cb,
 }
 
 void VendorInterface::Close() {
-  // These callbacks may send HCI events (vendor-dependent), so make sure to
-  // StopWatching the file descriptor after this.
-  if (lib_interface_ != nullptr) {
-    bt_vendor_lpm_mode_t mode = BT_VND_LPM_DISABLE;
-    lib_interface_->op(BT_VND_OP_LPM_SET_MODE, &mode);
+  if (lib_interface_ != nullptr && lpm_wake_deasserted == false) {
+    lpm_wake_deasserted = true;
+    bt_vendor_lpm_wake_state_t wakeState = BT_VND_LPM_WAKE_DEASSERT;
+    lib_interface_->op(BT_VND_OP_LPM_WAKE_SET_STATE, &wakeState);
   }
 
   fd_watcher_.StopWatchingFileDescriptors();
