@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e14c7bb8_3eb7ee1e",
+        "filename": "wifi/1.0/vts/functional/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2017-03-15T00:54:53Z",
+      "side": 1,
+      "message": "how about adding defaults: [\"hidl_defaults\"], here too?",
+      "range": {
+        "startLine": 65,
+        "startChar": 4,
+        "endLine": 65,
+        "endChar": 5
+      },
+      "revId": "9a56bddc5c9e5a6326513759419eabc578b3533a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
