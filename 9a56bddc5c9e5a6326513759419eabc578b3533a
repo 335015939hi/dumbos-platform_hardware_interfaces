@@ -46,6 +46,30 @@
       "revId": "9a56bddc5c9e5a6326513759419eabc578b3533a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7b6482d6_a0813f7b",
+        "filename": "wifi/1.0/vts/functional/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2017-03-15T01:22:22Z",
+      "side": 1,
+      "message": "https://cs.corp.google.com/android/hardware/interfaces/Android.bp?type\u003dcs\u0026q\u003dhidl_defaults\u0026sq\u0026l\u003d6\n\nit just makes sure there\u0027s no compiler warning. so that means wifi test code is very clean from that PoV.",
+      "parentUuid": "5c77cfa8_b23d6a47",
+      "range": {
+        "startLine": 65,
+        "startChar": 4,
+        "endLine": 65,
+        "endChar": 5
+      },
+      "revId": "9a56bddc5c9e5a6326513759419eabc578b3533a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
