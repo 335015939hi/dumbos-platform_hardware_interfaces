@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0f092d80_3adb68a7",
+        "filename": "wifi/1.0/vts/functional/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2017-03-15T00:37:01Z",
+      "side": 1,
+      "message": "since  defaults: [\"hidl_defaults\"], is used -Werror can be skipped.\n\nthe next cc_test target can have  defaults: [\"hidl_defaults\"], but not -Werror.",
+      "range": {
+        "startLine": 59,
+        "startChar": 10,
+        "endLine": 59,
+        "endChar": 16
+      },
+      "revId": "70a5fa945f10e1fa2a6a97ebbb013e6e796c1ae5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fea5b6e8_84f218be",
+        "filename": "wifi/1.0/vts/functional/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2017-03-15T00:37:01Z",
+      "side": 1,
+      "message": "usually the order matters in gcc (not sure how that\u0027s handled in soong - perhaps no change) so would swapping will make more sense since the 2nd one is the base for the 1st one?",
+      "range": {
+        "startLine": 77,
+        "startChar": 18,
+        "endLine": 77,
+        "endChar": 76
+      },
+      "revId": "70a5fa945f10e1fa2a6a97ebbb013e6e796c1ae5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
