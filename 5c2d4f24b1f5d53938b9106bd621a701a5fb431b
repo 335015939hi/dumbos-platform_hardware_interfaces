@@ -22,6 +22,30 @@
       "revId": "5c2d4f24b1f5d53938b9106bd621a701a5fb431b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c524aa6_d5e39d89",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_stk.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-03-15T21:27:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9af2b46f_984f4216",
+      "range": {
+        "startLine": 24,
+        "startChar": 22,
+        "endLine": 24,
+        "endChar": 50
+      },
+      "revId": "5c2d4f24b1f5d53938b9106bd621a701a5fb431b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
