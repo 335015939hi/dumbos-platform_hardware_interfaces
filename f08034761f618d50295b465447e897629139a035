@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c4c692c9_e8778630",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-03-15T21:21:28Z",
+      "side": 1,
+      "message": "also update function comments which return these?",
+      "range": {
+        "startLine": 384,
+        "startChar": 4,
+        "endLine": 384,
+        "endChar": 13
+      },
+      "revId": "f08034761f618d50295b465447e897629139a035",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93072894_a8df81a1",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-03-15T21:21:28Z",
+      "side": 1,
+      "message": "how does the framework interact with these?",
+      "range": {
+        "startLine": 413,
+        "startChar": 4,
+        "endLine": 413,
+        "endChar": 15
+      },
+      "revId": "f08034761f618d50295b465447e897629139a035",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
