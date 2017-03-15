@@ -141,6 +141,30 @@
     },
     {
       "key": {
+        "uuid": "15cd7d4c_c5c3d80a",
+        "filename": "wifi/keystore/1.0/default/keystore.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2017-03-15T16:31:06Z",
+      "side": 1,
+      "message": "Interesting. If keystore\u0027s ability to store arbitrary blobs were to go away, is there an obvious alternative place to store them?",
+      "parentUuid": "6d64007d_b3097c2b",
+      "range": {
+        "startLine": 34,
+        "startChar": 17,
+        "endLine": 34,
+        "endChar": 24
+      },
+      "revId": "0378cb614b7a87f0b31489f1625e773a6b1055be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dee4dd2d_11d82028",
         "filename": "wifi/keystore/1.0/default/service.cpp",
         "patchSetId": 2
