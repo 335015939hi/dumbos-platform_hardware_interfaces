@@ -281,6 +281,30 @@
       "revId": "7b305330f4938e9cd093dae01372a18de93d9137",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "796c7cb1_fbae5943",
+        "filename": "data/offload/control/1.0/ITetheringOffloadCallback.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1146009
+      },
+      "writtenOn": "2017-03-15T23:43:36Z",
+      "side": 1,
+      "message": "OFFLOAD_STOPPED can be added if needed, but, isn\u0027t the callback being released once you make the call to stopOffload?\n\n\"...Upon success, the callback registered in initOffload will be released...\"",
+      "parentUuid": "ca9d7257_4c993b1b",
+      "range": {
+        "startLine": 40,
+        "startChar": 25,
+        "endLine": 40,
+        "endChar": 30
+      },
+      "revId": "7b305330f4938e9cd093dae01372a18de93d9137",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
