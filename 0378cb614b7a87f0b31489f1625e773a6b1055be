@@ -117,6 +117,30 @@
     },
     {
       "key": {
+        "uuid": "6d64007d_b3097c2b",
+        "filename": "wifi/keystore/1.0/default/keystore.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1077073
+      },
+      "writtenOn": "2017-03-15T16:03:25Z",
+      "side": 1,
+      "message": "These are exclusively used by wpa_supplicant as a method to retrieve certificates.  I could call it \"getCertificate\", but in truth the implementation is generic to any data.  Since we\u0027re planning to underlie a variant of the keystore_get API surface, making this specific to certificates doesn\u0027t quite make sense.",
+      "parentUuid": "9534415c_ebb39490",
+      "range": {
+        "startLine": 34,
+        "startChar": 17,
+        "endLine": 34,
+        "endChar": 24
+      },
+      "revId": "0378cb614b7a87f0b31489f1625e773a6b1055be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dee4dd2d_11d82028",
         "filename": "wifi/keystore/1.0/default/service.cpp",
         "patchSetId": 2
