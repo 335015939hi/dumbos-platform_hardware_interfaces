@@ -45,6 +45,30 @@
       "revId": "70a5fa945f10e1fa2a6a97ebbb013e6e796c1ae5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a0f13ff3_6eed0ed3",
+        "filename": "wifi/1.0/vts/functional/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2017-03-15T00:47:17Z",
+      "side": 1,
+      "message": "it does matter and this is the order that works",
+      "parentUuid": "fea5b6e8_84f218be",
+      "range": {
+        "startLine": 77,
+        "startChar": 18,
+        "endLine": 77,
+        "endChar": 76
+      },
+      "revId": "70a5fa945f10e1fa2a6a97ebbb013e6e796c1ae5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
