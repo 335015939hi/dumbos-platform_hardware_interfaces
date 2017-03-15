@@ -268,6 +268,12 @@ bool VendorInterface::Open(InitializeCompleteCallback initialize_complete_cb,
 }
 
 void VendorInterface::Close() {
+  if (lib_interface_ != nullptr && lpm_wake_deasserted == false) {
+    lpm_wake_deasserted = true;
+    bt_vendor_lpm_wake_state_t wakeState = BT_VND_LPM_WAKE_DEASSERT;
+    lib_interface_->op(BT_VND_OP_LPM_WAKE_SET_STATE, &wakeState);
+  }
+
   fd_watcher_.StopWatchingFileDescriptors();
 
   if (hci_ != nullptr) {
