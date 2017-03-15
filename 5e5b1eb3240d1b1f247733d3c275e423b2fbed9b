@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f8b03bfd_ef78321d",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_stk.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2017-03-15T22:02:52Z",
+      "side": 1,
+      "message": "Does this test pass ? What happens when accept is \u0027true\u0027 ? Somehow invalid argument here doesn\u0027t look right as \u0027accept\u0027 is a bool and can take true or false.",
+      "range": {
+        "startLine": 101,
+        "startChar": 30,
+        "endLine": 101,
+        "endChar": 47
+      },
+      "revId": "5e5b1eb3240d1b1f247733d3c275e423b2fbed9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
