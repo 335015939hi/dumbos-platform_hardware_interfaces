@@ -605,6 +605,24 @@
     },
     {
       "key": {
+        "uuid": "dc78174b_9188433c",
+        "filename": "renderscript/1.0/vts/functional/VtsMiscellaneousTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2017-03-16T01:14:44Z",
+      "side": 1,
+      "message": "Why not\n\n EXPECT_NE(1, typeMetadata[3])",
+      "parentUuid": "1ea6b42b_3a931f5f",
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "365b61ec_8748c2ca",
         "filename": "renderscript/1.0/vts/functional/VtsMiscellaneousTests.cpp",
         "patchSetId": 8
@@ -673,6 +691,30 @@
       "writtenOn": "2017-03-16T00:23:35Z",
       "side": 1,
       "message": "what\u0027s the reason for not using EXPECT_EQ(\"element_test_name\", nameOut) ? The way this is written seems redundant.",
+      "range": {
+        "startLine": 201,
+        "startChar": 4,
+        "endLine": 201,
+        "endChar": 51
+      },
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "93e91662_0a634980",
+        "filename": "renderscript/1.0/vts/functional/VtsMiscellaneousTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2017-03-16T01:14:44Z",
+      "side": 1,
+      "message": "Agreed.",
+      "parentUuid": "0b283c93_cb7b0a60",
       "range": {
         "startLine": 201,
         "startChar": 4,
