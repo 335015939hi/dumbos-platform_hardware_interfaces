@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1f7b1215_1b6a9347",
+        "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2017-03-16T02:14:14Z",
+      "side": 1,
+      "message": "It should return nullptr.",
+      "parentUuid": "08ee422c_fe6ba0a7",
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "81758a0e_3a497f96",
         "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
         "patchSetId": 8
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "43f68280_b5d7b71e",
+        "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2017-03-16T02:14:14Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "81758a0e_3a497f96",
+      "range": {
+        "startLine": 17,
+        "startChar": 29,
+        "endLine": 17,
+        "endChar": 45
+      },
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f1e765c9_5c6a066a",
         "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
         "patchSetId": 8
@@ -53,6 +95,30 @@
       "writtenOn": "2017-03-16T01:10:44Z",
       "side": 1,
       "message": "This constant is used in multiple places -- type creation, input/output vector sizing.  I suggest giving it a name instead of repeatedly using a \"magic number\" -- for example\n\n static const int allocSize \u003d 128;",
+      "range": {
+        "startLine": 21,
+        "startChar": 45,
+        "endLine": 21,
+        "endChar": 48
+      },
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e7fc38d_02dae564",
+        "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2017-03-16T02:14:14Z",
+      "side": 1,
+      "message": "I\u0027ll address this by 3/17.",
+      "parentUuid": "f1e765c9_5c6a066a",
       "range": {
         "startLine": 21,
         "startChar": 45,
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "33eb49f0_39769b74",
+        "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2017-03-16T02:14:14Z",
+      "side": 1,
+      "message": "For whatever reason, clang was throwing an error message, so I forced it to be int.",
+      "parentUuid": "f596c835_081f42bf",
+      "range": {
+        "startLine": 24,
+        "startChar": 59,
+        "endLine": 24,
+        "endChar": 64
+      },
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "20f9127b_61a441ba",
         "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
         "patchSetId": 8
@@ -99,6 +189,30 @@
       "writtenOn": "2017-03-16T01:10:44Z",
       "side": 1,
       "message": "This is an ugly idiom.  Maybe we should define a constant -- such as\n\n static const Ptr NullPtr \u003d (Ptr)nullptr;\n\neither in types.hal or here.",
+      "range": {
+        "startLine": 25,
+        "startChar": 59,
+        "endLine": 25,
+        "endChar": 71
+      },
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c16b3bb_393b0d23",
+        "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2017-03-16T02:14:14Z",
+      "side": 1,
+      "message": "I\u0027ll do aesthetic cleanup by 3/17.",
+      "parentUuid": "20f9127b_61a441ba",
       "range": {
         "startLine": 25,
         "startChar": 59,
@@ -157,6 +271,54 @@
     },
     {
       "key": {
+        "uuid": "5b8ea830_c875684a",
+        "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2017-03-16T02:14:14Z",
+      "side": 1,
+      "message": "Each test is only called once, and each lambda has its own static variable, so I think it\u0027s fine for now.",
+      "parentUuid": "e2a6babe_8ec6b3f7",
+      "range": {
+        "startLine": 27,
+        "startChar": 54,
+        "endLine": 27,
+        "endChar": 73
+      },
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7fc06d15_179b43cd",
+        "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2017-03-16T02:14:14Z",
+      "side": 1,
+      "message": "I\u0027ll look into this more for the Friday update.",
+      "parentUuid": "1accd49c_e6968558",
+      "range": {
+        "startLine": 27,
+        "startChar": 9,
+        "endLine": 27,
+        "endChar": 17
+      },
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "22694e42_1ab169ba",
         "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
         "patchSetId": 8
@@ -168,6 +330,30 @@
       "writtenOn": "2017-03-16T01:10:44Z",
       "side": 1,
       "message": "IMO, the leading underscore is visually easy to miss, and hence makes the identifier hard to read.",
+      "range": {
+        "startLine": 28,
+        "startChar": 22,
+        "endLine": 28,
+        "endChar": 23
+      },
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2ef7dbc_f6c1ff48",
+        "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2017-03-16T02:14:14Z",
+      "side": 1,
+      "message": "I agree. I\u0027ll be doing an aesthetic cleanup as well as fixing the remaining (commented out) test cases by Friday 3/17.",
+      "parentUuid": "22694e42_1ab169ba",
       "range": {
         "startLine": 28,
         "startChar": 22,
@@ -203,6 +389,30 @@
     },
     {
       "key": {
+        "uuid": "91ec09dc_bcb029dd",
+        "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2017-03-16T02:14:14Z",
+      "side": 1,
+      "message": "Yes, a failed assertion will list the variable name, expected value, and actual value. In this case, there are 128 numbers, so I just wanted a binary pass/fail so the user isn\u0027t flooded with failing messages.",
+      "parentUuid": "08a9e8f9_2f593118",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 35,
+        "endChar": 13
+      },
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "63c8cbee_ed4a2479",
         "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
         "patchSetId": 8
@@ -214,6 +424,30 @@
       "writtenOn": "2017-03-16T01:10:44Z",
       "side": 1,
       "message": "For all the multidimensional Allocation cases, I suggest making all the dimensions different.  This makes it more likely we\u0027d detect an improper implementation that inconsistently reverses the dimensions.  Similarly for offsets and region sizes in other tests.",
+      "range": {
+        "startLine": 41,
+        "startChar": 7,
+        "endLine": 41,
+        "endChar": 16
+      },
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9d13f9f_84943337",
+        "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2017-03-16T02:14:14Z",
+      "side": 1,
+      "message": "We\u0027ll try different combinations in later VTS tests.",
+      "parentUuid": "63c8cbee_ed4a2479",
       "range": {
         "startLine": 41,
         "startChar": 7,
@@ -249,6 +483,30 @@
     },
     {
       "key": {
+        "uuid": "de65ef16_819d25e1",
+        "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2017-03-16T02:14:14Z",
+      "side": 1,
+      "message": "Yes, POSITIVE_X is the default value for CubemapFace. I plan on extensively documenting the HAL once I have a good chunk of free time.",
+      "parentUuid": "9b43f647_8fa7eaa4",
+      "range": {
+        "startLine": 51,
+        "startChar": 52,
+        "endLine": 51,
+        "endChar": 85
+      },
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c801c6bb_cd97100c",
         "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
         "patchSetId": 8
@@ -260,6 +518,30 @@
       "writtenOn": "2017-03-16T01:10:44Z",
       "side": 1,
       "message": "Looks wrong -- the API specification says \"For 2D and 3D Allocations, the stride must be the stride in X dimension measuring in bytes\".  Similarly for the Read call below.  Similarly for 3D test.",
+      "range": {
+        "startLine": 52,
+        "startChar": 38,
+        "endLine": 52,
+        "endChar": 39
+      },
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "178626c7_c782e599",
+        "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2017-03-16T02:14:14Z",
+      "side": 1,
+      "message": "That\u0027s what our original documentation for renderscript says. I looked into the source code and, for this case, it automatically fills in a value if you provide a 0.",
+      "parentUuid": "c801c6bb_cd97100c",
       "range": {
         "startLine": 52,
         "startChar": 38,
@@ -295,6 +577,30 @@
     },
     {
       "key": {
+        "uuid": "7edd17dc_73ddf45f",
+        "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2017-03-16T02:14:14Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "49c957b8_fe5b7290",
+      "range": {
+        "startLine": 81,
+        "startChar": 29,
+        "endLine": 81,
+        "endChar": 45
+      },
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "660d4123_742c5c55",
         "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
         "patchSetId": 8
@@ -306,6 +612,30 @@
       "writtenOn": "2017-03-16T01:10:44Z",
       "side": 1,
       "message": "Why FromBitmap in the 2D case, but Typed in the 3D case below?",
+      "range": {
+        "startLine": 121,
+        "startChar": 51,
+        "endLine": 121,
+        "endChar": 61
+      },
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9d41328_191a9407",
+        "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2017-03-16T02:14:14Z",
+      "side": 1,
+      "message": "From what I\u0027ve seen, FromBitmap can only be created from a 2D buffer. For a 3D buffer, I had to create an allocation from scratch and copy the data over. I\u0027ll be testing this more later and updating the HAL documentation accordingly.",
+      "parentUuid": "660d4123_742c5c55",
       "range": {
         "startLine": 121,
         "startChar": 51,
@@ -341,6 +671,30 @@
     },
     {
       "key": {
+        "uuid": "9c417069_4f2511a4",
+        "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2017-03-16T02:14:14Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4eadb6aa_38b332ba",
+      "range": {
+        "startLine": 209,
+        "startChar": 29,
+        "endLine": 209,
+        "endChar": 45
+      },
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c7a5b724_b44ca726",
         "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
         "patchSetId": 8
@@ -361,6 +715,30 @@
       "revId": "539eab0625c162992f379dc7755617cc87c33012",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15822e10_a49f58c0",
+        "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2017-03-16T02:14:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7a5b724_b44ca726",
+      "range": {
+        "startLine": 219,
+        "startChar": 7,
+        "endLine": 219,
+        "endChar": 25
+      },
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -387,6 +765,30 @@
     },
     {
       "key": {
+        "uuid": "70566440_3df47481",
+        "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2017-03-16T02:14:14Z",
+      "side": 1,
+      "message": "Done; it was *0.25 in frameworks/rs/cpu_ref",
+      "parentUuid": "1b33d1c5_e52c72ba",
+      "range": {
+        "startLine": 233,
+        "startChar": 91,
+        "endLine": 233,
+        "endChar": 98
+      },
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "215121e4_8cab1329",
         "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
         "patchSetId": 8
@@ -407,6 +809,30 @@
       "revId": "539eab0625c162992f379dc7755617cc87c33012",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce11c79f_1fd6292c",
+        "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2017-03-16T02:14:14Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "215121e4_8cab1329",
+      "range": {
+        "startLine": 239,
+        "startChar": 29,
+        "endLine": 239,
+        "endChar": 46
+      },
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -433,6 +859,30 @@
     },
     {
       "key": {
+        "uuid": "48603705_48c299ae",
+        "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2017-03-16T02:14:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e0f8388e_612c4058",
+      "range": {
+        "startLine": 252,
+        "startChar": 63,
+        "endLine": 252,
+        "endChar": 97
+      },
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e8de46df_0bb9aa94",
         "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
         "patchSetId": 8
@@ -444,6 +894,30 @@
       "writtenOn": "2017-03-16T01:10:44Z",
       "side": 1,
       "message": "I don\u0027t understand this formula (because I don\u0027t understand the way a cubemap allocation is flattened out from 6 2D faces to a linear representation).",
+      "range": {
+        "startLine": 260,
+        "startChar": 34,
+        "endLine": 260,
+        "endChar": 53
+      },
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55cd0cff_3fdf80c5",
+        "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2017-03-16T02:14:14Z",
+      "side": 1,
+      "message": "I\u0027ll be updating the HAL documentation when I have free time.",
+      "parentUuid": "e8de46df_0bb9aa94",
       "range": {
         "startLine": 260,
         "startChar": 34,
@@ -502,6 +976,30 @@
     },
     {
       "key": {
+        "uuid": "867f28d9_774ade24",
+        "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2017-03-16T02:14:14Z",
+      "side": 1,
+      "message": "I was having some compiler problems with it last night, so I just used this method.",
+      "parentUuid": "da6704c3_2b6bf8c4",
+      "range": {
+        "startLine": 283,
+        "startChar": 0,
+        "endLine": 283,
+        "endChar": 86
+      },
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2710a5a1_a363da75",
         "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
         "patchSetId": 8
@@ -513,6 +1011,30 @@
       "writtenOn": "2017-03-16T01:10:44Z",
       "side": 1,
       "message": "Could we / should we\n\n EXPECT_EQ(element1, ids[0])",
+      "range": {
+        "startLine": 287,
+        "startChar": 0,
+        "endLine": 287,
+        "endChar": 34
+      },
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26d10cbf_f5b46203",
+        "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2017-03-16T02:14:14Z",
+      "side": 1,
+      "message": "I\u0027m leaving it as-is for now, but I\u0027ll look into it more for Friday.",
+      "parentUuid": "2710a5a1_a363da75",
       "range": {
         "startLine": 287,
         "startChar": 0,
@@ -548,6 +1070,30 @@
     },
     {
       "key": {
+        "uuid": "9b3a85cb_fe8fd051",
+        "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2017-03-16T02:14:14Z",
+      "side": 1,
+      "message": "What exactly do you mean by this?",
+      "parentUuid": "ceb9b28c_5d9d44c6",
+      "range": {
+        "startLine": 304,
+        "startChar": 0,
+        "endLine": 304,
+        "endChar": 70
+      },
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3843a9c0_a06aba74",
         "filename": "renderscript/1.0/vts/functional/VtsHalRenderscriptV1_0TargetTest.cpp",
         "patchSetId": 8
@@ -571,6 +1117,30 @@
     },
     {
       "key": {
+        "uuid": "8521137a_30ebfd3f",
+        "filename": "renderscript/1.0/vts/functional/VtsHalRenderscriptV1_0TargetTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2017-03-16T02:14:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3843a9c0_a06aba74",
+      "range": {
+        "startLine": 88,
+        "startChar": 6,
+        "endLine": 88,
+        "endChar": 21
+      },
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "baf74f33_90be2518",
         "filename": "renderscript/1.0/vts/functional/VtsMiscellaneousTests.cpp",
         "patchSetId": 8
@@ -582,6 +1152,24 @@
       "writtenOn": "2017-03-16T00:23:35Z",
       "side": 1,
       "message": "Do we want to comment something here? if not, remove it.",
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f8bea79_0e67b26c",
+        "filename": "renderscript/1.0/vts/functional/VtsMiscellaneousTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2017-03-16T02:14:14Z",
+      "side": 1,
+      "message": "Added comments to all functions in next patch set.",
+      "parentUuid": "baf74f33_90be2518",
       "revId": "539eab0625c162992f379dc7755617cc87c33012",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -623,6 +1211,24 @@
     },
     {
       "key": {
+        "uuid": "be431444_65636161",
+        "filename": "renderscript/1.0/vts/functional/VtsMiscellaneousTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2017-03-16T02:14:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc78174b_9188433c",
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "365b61ec_8748c2ca",
         "filename": "renderscript/1.0/vts/functional/VtsMiscellaneousTests.cpp",
         "patchSetId": 8
@@ -634,6 +1240,30 @@
       "writtenOn": "2017-03-16T00:23:35Z",
       "side": 1,
       "message": "We should have a slightly more informative comment here (no pun intended)",
+      "range": {
+        "startLine": 128,
+        "startChar": 73,
+        "endLine": 128,
+        "endChar": 77
+      },
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "825fe270_cf7ebc0f",
+        "filename": "renderscript/1.0/vts/functional/VtsMiscellaneousTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2017-03-16T02:14:14Z",
+      "side": 1,
+      "message": "\"HERE\" was a personal note on where the test failed. I\u0027ve removed it in the next patch set, and added a description for the function at the top.",
+      "parentUuid": "365b61ec_8748c2ca",
       "range": {
         "startLine": 128,
         "startChar": 73,
@@ -663,6 +1293,24 @@
     },
     {
       "key": {
+        "uuid": "887db833_35cc26f3",
+        "filename": "renderscript/1.0/vts/functional/VtsMiscellaneousTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2017-03-16T02:14:14Z",
+      "side": 1,
+      "message": "No, setToExternal makes it so hidl_vec just holds the pointer and length of the data. Neither messageOut nor _data are changed, so this should be okay.",
+      "parentUuid": "09a08b12_bbdb7c3c",
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "655e8428_468c7e5b",
         "filename": "renderscript/1.0/vts/functional/VtsMiscellaneousTests.cpp",
         "patchSetId": 8
@@ -674,6 +1322,24 @@
       "writtenOn": "2017-03-16T00:23:35Z",
       "side": 1,
       "message": "See line 201.",
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7b82c81b_4f2d280f",
+        "filename": "renderscript/1.0/vts/functional/VtsMiscellaneousTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2017-03-16T02:14:14Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "655e8428_468c7e5b",
       "revId": "539eab0625c162992f379dc7755617cc87c33012",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -727,6 +1393,30 @@
     },
     {
       "key": {
+        "uuid": "50027002_0a07b141",
+        "filename": "renderscript/1.0/vts/functional/VtsMiscellaneousTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2017-03-16T02:14:14Z",
+      "side": 1,
+      "message": "I was originally worried about errors or weird messages from the macro, but I\u0027ve gone ahead and made the change.",
+      "parentUuid": "93e91662_0a634980",
+      "range": {
+        "startLine": 201,
+        "startChar": 4,
+        "endLine": 201,
+        "endChar": 51
+      },
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f24fd348_24ff44bd",
         "filename": "renderscript/1.0/vts/functional/VtsScriptTests.cpp",
         "patchSetId": 8
@@ -738,6 +1428,30 @@
       "writtenOn": "2017-03-16T00:07:49Z",
       "side": 1,
       "message": "1. any assert or check for this?\n2. this test is called intrinsic test but does not test anything specific for intrinsics.",
+      "range": {
+        "startLine": 23,
+        "startChar": 4,
+        "endLine": 23,
+        "endChar": 48
+      },
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8d0d4e5_2c550c41",
+        "filename": "renderscript/1.0/vts/functional/VtsScriptTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2017-03-16T02:14:14Z",
+      "side": 1,
+      "message": "This is one of those tests cases where it\u0027s not clear how to verify if it worked or not, so I included it with the first instance of a valid script type.",
+      "parentUuid": "f24fd348_24ff44bd",
       "range": {
         "startLine": 23,
         "startChar": 4,
@@ -773,6 +1487,30 @@
     },
     {
       "key": {
+        "uuid": "e80c000c_1d7fae73",
+        "filename": "renderscript/1.0/vts/functional/VtsScriptTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2017-03-16T02:14:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e7bf50f_72619fde",
+      "range": {
+        "startLine": 39,
+        "startChar": 38,
+        "endLine": 39,
+        "endChar": 41
+      },
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "95095344_2e3456a1",
         "filename": "renderscript/1.0/vts/functional/VtsScriptTests.cpp",
         "patchSetId": 8
@@ -796,6 +1534,30 @@
     },
     {
       "key": {
+        "uuid": "ef31ed1e_a4f5cbdd",
+        "filename": "renderscript/1.0/vts/functional/VtsScriptTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2017-03-16T02:14:14Z",
+      "side": 1,
+      "message": "For the 3/15 deadline, we were trying to test each API call once. We\u0027ll open up a new bug to add more tests later.",
+      "parentUuid": "95095344_2e3456a1",
+      "range": {
+        "startLine": 150,
+        "startChar": 13,
+        "endLine": 150,
+        "endChar": 26
+      },
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f7859879_166f1a46",
         "filename": "renderscript/1.0/vts/functional/VtsScriptTests.cpp",
         "patchSetId": 8
@@ -807,6 +1569,24 @@
       "writtenOn": "2017-03-16T00:07:49Z",
       "side": 1,
       "message": "Remove. Uncomment?\n\nOtherwise, please comment why this is left here.",
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b2301438_8ed93512",
+        "filename": "renderscript/1.0/vts/functional/VtsScriptTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2017-03-16T02:14:14Z",
+      "side": 1,
+      "message": "We\u0027re leaving these calls in here for now because they\u0027ll be fixed by Friday 3/17. Next patch set will have a comment addressing this.",
+      "parentUuid": "f7859879_166f1a46",
       "revId": "539eab0625c162992f379dc7755617cc87c33012",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
