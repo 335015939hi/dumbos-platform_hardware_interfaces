@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "16d1737c_64c3f9f7",
+        "filename": "wifi/supplicant/1.0/ISupplicantStaIface.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-03-16T23:45:26Z",
+      "side": 1,
+      "message": "Nit: \"its\" (possessive). \"It\u0027s\" \u003d\u003d \"It is\".",
+      "range": {
+        "startLine": 467,
+        "startChar": 8,
+        "endLine": 467,
+        "endChar": 12
+      },
+      "revId": "e3ff951b24a55cc70945f7716bf98453e25e7de3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
