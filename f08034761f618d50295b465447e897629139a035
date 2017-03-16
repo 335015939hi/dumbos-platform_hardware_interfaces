@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "d5cc9df4_9fc3b42c",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2017-03-16T16:52:28Z",
+      "side": 1,
+      "message": "Sorry, i didn\u0027t get what is needed here. I updated the comments on what is the meaning of each error code in the new patch set. Could you pls help elaborate?",
+      "parentUuid": "6d08a477_b532948f",
+      "range": {
+        "startLine": 384,
+        "startChar": 4,
+        "endLine": 384,
+        "endChar": 13
+      },
+      "revId": "f08034761f618d50295b465447e897629139a035",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "93072894_a8df81a1",
         "filename": "radio/1.0/types.hal",
         "patchSetId": 3
