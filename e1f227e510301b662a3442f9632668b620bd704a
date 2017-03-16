@@ -233,6 +233,30 @@
       "revId": "e1f227e510301b662a3442f9632668b620bd704a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d84e503e_b0839109",
+        "filename": "radio/1.0/vts/functional/radio_response.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2017-03-16T22:08:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7117434_512a01ea",
+      "range": {
+        "startLine": 307,
+        "startChar": 0,
+        "endLine": 307,
+        "endChar": 61
+      },
+      "revId": "e1f227e510301b662a3442f9632668b620bd704a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
