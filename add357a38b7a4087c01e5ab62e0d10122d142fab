@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "496172be_8852b6d9",
+        "filename": "renderscript/1.0/vts/functional/Android.bp",
+        "patchSetId": 9
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2017-03-16T03:05:39Z",
+      "side": 1,
+      "message": "defaults: [\"hidl_defaults\"],",
+      "revId": "add357a38b7a4087c01e5ab62e0d10122d142fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "41a2fd7e_35adb6f0",
+        "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2017-03-16T03:05:39Z",
+      "side": 1,
+      "message": "i\u0027d remove this comment and enable this test so we can use the test from now.",
+      "range": {
+        "startLine": 249,
+        "startChar": 0,
+        "endLine": 252,
+        "endChar": 3
+      },
+      "revId": "add357a38b7a4087c01e5ab62e0d10122d142fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23d13ba0_35a2d839",
+        "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2017-03-16T03:05:39Z",
+      "side": 1,
+      "message": "TODO(ldap): b/... ?",
+      "range": {
+        "startLine": 379,
+        "startChar": 3,
+        "endLine": 380,
+        "endChar": 22
+      },
+      "revId": "add357a38b7a4087c01e5ab62e0d10122d142fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "279a39e1_fad00e02",
+        "filename": "renderscript/1.0/vts/functional/VtsHalRenderscriptV1_0TargetTest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2017-03-16T03:05:39Z",
+      "side": 1,
+      "message": "delete?",
+      "range": {
+        "startLine": 67,
+        "startChar": 26,
+        "endLine": 67,
+        "endChar": 28
+      },
+      "revId": "add357a38b7a4087c01e5ab62e0d10122d142fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9d851bf2_5db280d6",
+        "filename": "renderscript/1.0/vts/functional/VtsHalRenderscriptV1_0TargetTest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2017-03-16T03:05:39Z",
+      "side": 1,
+      "message": "is this needed? can that be handled at link time?",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 36
+      },
+      "revId": "add357a38b7a4087c01e5ab62e0d10122d142fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef0084ff_cdf78db1",
+        "filename": "renderscript/1.0/vts/functional/bitcode.rs",
+        "patchSetId": 9
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2017-03-16T03:05:39Z",
+      "side": 1,
+      "message": "how about adding aosp license?\n\ncan this be a .h file?",
+      "range": {
+        "startLine": 1,
+        "startChar": 1,
+        "endLine": 2,
+        "endChar": 1
+      },
+      "revId": "add357a38b7a4087c01e5ab62e0d10122d142fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
