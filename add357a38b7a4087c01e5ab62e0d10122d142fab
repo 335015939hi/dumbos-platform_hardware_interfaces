@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "2621ab5b_c5c7eba7",
+        "filename": "renderscript/1.0/vts/functional/Android.bp",
+        "patchSetId": 9
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2017-03-16T21:12:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "496172be_8852b6d9",
+      "revId": "add357a38b7a4087c01e5ab62e0d10122d142fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3d49921f_b5f0194a",
         "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
         "patchSetId": 9
@@ -39,6 +57,30 @@
       "revId": "add357a38b7a4087c01e5ab62e0d10122d142fab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7439d569_75ce88e7",
+        "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2017-03-16T21:12:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3d49921f_b5f0194a",
+      "range": {
+        "startLine": 21,
+        "startChar": 64,
+        "endLine": 21,
+        "endChar": 75
+      },
+      "revId": "add357a38b7a4087c01e5ab62e0d10122d142fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "937462a6_6610dd73",
+        "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2017-03-16T21:12:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "644e6bd5_9d53f886",
+      "range": {
+        "startLine": 249,
+        "startChar": 3,
+        "endLine": 249,
+        "endChar": 10
+      },
+      "revId": "add357a38b7a4087c01e5ab62e0d10122d142fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "41a2fd7e_35adb6f0",
         "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
         "patchSetId": 9
@@ -76,6 +142,30 @@
       "writtenOn": "2017-03-16T03:05:39Z",
       "side": 1,
       "message": "i\u0027d remove this comment and enable this test so we can use the test from now.",
+      "range": {
+        "startLine": 249,
+        "startChar": 0,
+        "endLine": 252,
+        "endChar": 3
+      },
+      "revId": "add357a38b7a4087c01e5ab62e0d10122d142fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1e01f9e0_95246a46",
+        "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2017-03-16T21:12:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41a2fd7e_35adb6f0",
       "range": {
         "startLine": 249,
         "startChar": 0,
@@ -108,6 +198,30 @@
       "revId": "add357a38b7a4087c01e5ab62e0d10122d142fab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67a447a9_602cb7c7",
+        "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2017-03-16T21:12:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b73d234_deff99b6",
+      "range": {
+        "startLine": 355,
+        "startChar": 68,
+        "endLine": 355,
+        "endChar": 73
+      },
+      "revId": "add357a38b7a4087c01e5ab62e0d10122d142fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -157,6 +271,30 @@
     },
     {
       "key": {
+        "uuid": "301744de_618be54f",
+        "filename": "renderscript/1.0/vts/functional/VtsHalRenderscriptV1_0TargetTest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2017-03-16T21:12:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "279a39e1_fad00e02",
+      "range": {
+        "startLine": 67,
+        "startChar": 26,
+        "endLine": 67,
+        "endChar": 28
+      },
+      "revId": "add357a38b7a4087c01e5ab62e0d10122d142fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9d851bf2_5db280d6",
         "filename": "renderscript/1.0/vts/functional/VtsHalRenderscriptV1_0TargetTest.cpp",
         "patchSetId": 9
@@ -168,6 +306,30 @@
       "writtenOn": "2017-03-16T03:05:39Z",
       "side": 1,
       "message": "is this needed? can that be handled at link time?",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 36
+      },
+      "revId": "add357a38b7a4087c01e5ab62e0d10122d142fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5d7e683d_0e17c702",
+        "filename": "renderscript/1.0/vts/functional/VtsHalRenderscriptV1_0TargetTest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2017-03-16T21:12:46Z",
+      "side": 1,
+      "message": "Originally, I thought all tests needed to be a part of the same source file because I thought gtest didn\u0027t work with different translation units. I went ahead and made the change, and everything still seems to work.",
+      "parentUuid": "9d851bf2_5db280d6",
       "range": {
         "startLine": 95,
         "startChar": 0,
@@ -203,6 +365,30 @@
     },
     {
       "key": {
+        "uuid": "db1a6738_0d5b538f",
+        "filename": "renderscript/1.0/vts/functional/VtsMiscellaneousTests.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2017-03-16T21:12:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24315cb0_0ec6b723",
+      "range": {
+        "startLine": 28,
+        "startChar": 10,
+        "endLine": 28,
+        "endChar": 11
+      },
+      "revId": "add357a38b7a4087c01e5ab62e0d10122d142fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d40a133a_fdf79b87",
         "filename": "renderscript/1.0/vts/functional/VtsMiscellaneousTests.cpp",
         "patchSetId": 9
@@ -214,6 +400,30 @@
       "writtenOn": "2017-03-16T18:20:50Z",
       "side": 1,
       "message": "nit: an",
+      "range": {
+        "startLine": 38,
+        "startChar": 10,
+        "endLine": 38,
+        "endChar": 11
+      },
+      "revId": "add357a38b7a4087c01e5ab62e0d10122d142fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e4aef4a_65c48969",
+        "filename": "renderscript/1.0/vts/functional/VtsMiscellaneousTests.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2017-03-16T21:12:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d40a133a_fdf79b87",
       "range": {
         "startLine": 38,
         "startChar": 10,
@@ -249,6 +459,30 @@
     },
     {
       "key": {
+        "uuid": "045d5089_2cffdd2e",
+        "filename": "renderscript/1.0/vts/functional/VtsMiscellaneousTests.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2017-03-16T21:12:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "72c3baa6_12e9950b",
+      "range": {
+        "startLine": 65,
+        "startChar": 10,
+        "endLine": 65,
+        "endChar": 11
+      },
+      "revId": "add357a38b7a4087c01e5ab62e0d10122d142fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ef0084ff_cdf78db1",
         "filename": "renderscript/1.0/vts/functional/bitcode.rs",
         "patchSetId": 9
@@ -260,6 +494,30 @@
       "writtenOn": "2017-03-16T03:05:39Z",
       "side": 1,
       "message": "how about adding aosp license?\n\ncan this be a .h file?",
+      "range": {
+        "startLine": 1,
+        "startChar": 1,
+        "endLine": 2,
+        "endChar": 1
+      },
+      "revId": "add357a38b7a4087c01e5ab62e0d10122d142fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8eaed365_6479ff1d",
+        "filename": "renderscript/1.0/vts/functional/bitcode.rs",
+        "patchSetId": 9
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2017-03-16T21:12:46Z",
+      "side": 1,
+      "message": "Done. I\u0027ve also made it a .cpp file that defines the bitcode varaibles.",
+      "parentUuid": "ef0084ff_cdf78db1",
       "range": {
         "startLine": 1,
         "startChar": 1,

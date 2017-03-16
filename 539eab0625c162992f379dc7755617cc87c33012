@@ -220,6 +220,30 @@
     },
     {
       "key": {
+        "uuid": "94f8d3cb_7757f985",
+        "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2017-03-16T21:12:46Z",
+      "side": 1,
+      "message": "\"error: cannot initialize a parameter of type \u0027int32_t\u0027 (aka \u0027int\u0027) with an rvalue of type \u0027android::hardware::renderscript::V1_0::AllocationUsageType\u0027\"\nWhich is strange because AllocationUsageType is an int32_t enumeration type.",
+      "parentUuid": "d5b608d5_c97e83a0",
+      "range": {
+        "startLine": 24,
+        "startChar": 59,
+        "endLine": 24,
+        "endChar": 64
+      },
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "20f9127b_61a441ba",
         "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
         "patchSetId": 8
@@ -1862,6 +1886,24 @@
       "writtenOn": "2017-03-16T03:19:10Z",
       "side": 1,
       "message": "Is this a .rs file or a regular C++ file?  I think it\u0027s the latter with the commented code the input to the RS compiler. \n I would comment it and change the extension. Also need the license text.",
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "106c8297_60b01539",
+        "filename": "renderscript/1.0/vts/functional/bitcode.rs",
+        "patchSetId": 8
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2017-03-16T21:12:46Z",
+      "side": 1,
+      "message": "It\u0027s the bitcode generated from the .rs file. I\u0027ve since changed it to a .cpp file.",
+      "parentUuid": "75b1212d_a8d63fd2",
       "revId": "539eab0625c162992f379dc7755617cc87c33012",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
