@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "7233cb8c_3f221372",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_misc.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2017-03-16T22:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4681a734_9ffbf0dc",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 76
+      },
+      "revId": "e1f227e510301b662a3442f9632668b620bd704a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a2d9ace3_845d1c86",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_misc.cpp",
         "patchSetId": 1
@@ -59,6 +83,30 @@
       "writtenOn": "2017-03-16T20:00:44Z",
       "side": 1,
       "message": "Should not be merged?",
+      "range": {
+        "startLine": 128,
+        "startChar": 4,
+        "endLine": 128,
+        "endChar": 50
+      },
+      "revId": "e1f227e510301b662a3442f9632668b620bd704a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fea49aee_08b7a55e",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_misc.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2017-03-16T22:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2d9ace3_845d1c86",
       "range": {
         "startLine": 128,
         "startChar": 4,
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "756040ad_bed1472d",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_misc.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2017-03-16T22:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8adb4ad_a4264a82",
+      "range": {
+        "startLine": 542,
+        "startChar": 4,
+        "endLine": 542,
+        "endChar": 24
+      },
+      "revId": "e1f227e510301b662a3442f9632668b620bd704a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "00a76783_aacb03a0",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_misc.cpp",
         "patchSetId": 1
@@ -105,6 +177,30 @@
       "writtenOn": "2017-03-16T20:00:44Z",
       "side": 1,
       "message": "I think if it is expected to success, it returns Error::NONE; if it is expected to fail, it should return some error(s). It might not be meaningful if return both errors in one assertion. Same for other api tests.",
+      "range": {
+        "startLine": 584,
+        "startChar": 0,
+        "endLine": 585,
+        "endChar": 86
+      },
+      "revId": "e1f227e510301b662a3442f9632668b620bd704a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44ac0f46_f863c77d",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_misc.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2017-03-16T22:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "00a76783_aacb03a0",
       "range": {
         "startLine": 584,
         "startChar": 0,
