@@ -36,9 +36,15 @@ struct BluetoothDeathRecipient : hidl_death_recipient {
   virtual void serviceDied(
       uint64_t /*cookie*/,
       const wp<::android::hidl::base::V1_0::IBase>& /*who*/) {
+    untimely_death = true;
     mHci->close();
   }
+
   sp<IBluetoothHci> mHci;
+  bool getUntimelyDeath() { return untimely_death; }
+
+ private:
+  bool untimely_death{false};
 };
 
 class BluetoothHci : public IBluetoothHci {

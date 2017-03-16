@@ -15,9 +15,11 @@
 //
 
 #define LOG_TAG "android.hardware.bluetooth@1.0-impl"
+#include "bluetooth_hci.h"
+
+#include <android-base/logging.h>
 #include <utils/Log.h>
 
-#include "bluetooth_hci.h"
 #include "vendor_interface.h"
 
 namespace android {
@@ -35,31 +37,33 @@ BluetoothHci::BluetoothHci()
 
 Return<void> BluetoothHci::initialize(
     const ::android::sp<IBluetoothHciCallbacks>& cb) {
-  ALOGW("BluetoothHci::initialize()");
+  ALOGI("BluetoothHci::initialize()");
+  CHECK(cb != nullptr);
+
   cb->linkToDeath(deathRecipient, 0);
-  event_cb_ = cb;
 
   bool rc = VendorInterface::Initialize(
-      [this](bool status) {
-        event_cb_->initializationComplete(
-            status ? Status::SUCCESS : Status::INITIALIZATION_ERROR);
+      [cb](bool status) {
+        cb->initializationComplete(status ? Status::SUCCESS
+                                          : Status::INITIALIZATION_ERROR);
       },
-      [this](const hidl_vec<uint8_t>& packet) {
-        event_cb_->hciEventReceived(packet);
-      },
-      [this](const hidl_vec<uint8_t>& packet) {
-        event_cb_->aclDataReceived(packet);
-      },
-      [this](const hidl_vec<uint8_t>& packet) {
-        event_cb_->scoDataReceived(packet);
-      });
-  if (!rc) event_cb_->initializationComplete(Status::INITIALIZATION_ERROR);
+      [cb](const hidl_vec<uint8_t>& packet) { cb->hciEventReceived(packet); },
+      [cb](const hidl_vec<uint8_t>& packet) { cb->aclDataReceived(packet); },
+      [cb](const hidl_vec<uint8_t>& packet) { cb->scoDataReceived(packet); });
+
+  if (!rc) cb->initializationComplete(Status::INITIALIZATION_ERROR);
+
+  event_cb_ = cb;
+
   return Void();
 }
 
 Return<void> BluetoothHci::close() {
-  ALOGW("BluetoothHci::close()");
-  event_cb_->unlinkToDeath(deathRecipient);
+  ALOGI("BluetoothHci::close()");
+  if (deathRecipient->getUntimelyDeath())
+    ALOGI("Skipping unlink call, service died.");
+  else
+    event_cb_->unlinkToDeath(deathRecipient);
   VendorInterface::Shutdown();
   return Void();
 }
