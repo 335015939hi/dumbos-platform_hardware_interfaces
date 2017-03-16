@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f24fd348_24ff44bd",
+        "filename": "renderscript/1.0/vts/functional/VtsScriptTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1050418
+      },
+      "writtenOn": "2017-03-16T00:07:49Z",
+      "side": 1,
+      "message": "1. any assert or check for this?\n2. this test is called intrinsic test but does not test anything specific for intrinsics.",
+      "range": {
+        "startLine": 23,
+        "startChar": 4,
+        "endLine": 23,
+        "endChar": 48
+      },
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e7bf50f_72619fde",
+        "filename": "renderscript/1.0/vts/functional/VtsScriptTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1050418
+      },
+      "writtenOn": "2017-03-16T00:07:49Z",
+      "side": 1,
+      "message": "use a value that is actaully a long, but not an int?",
+      "range": {
+        "startLine": 39,
+        "startChar": 38,
+        "endLine": 39,
+        "endChar": 41
+      },
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "95095344_2e3456a1",
+        "filename": "renderscript/1.0/vts/functional/VtsScriptTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1050418
+      },
+      "writtenOn": "2017-03-16T00:07:49Z",
+      "side": 1,
+      "message": "how about more than one input? No input? No output? Neither input or output?",
+      "range": {
+        "startLine": 150,
+        "startChar": 13,
+        "endLine": 150,
+        "endChar": 26
+      },
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f7859879_166f1a46",
+        "filename": "renderscript/1.0/vts/functional/VtsScriptTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1050418
+      },
+      "writtenOn": "2017-03-16T00:07:49Z",
+      "side": 1,
+      "message": "Remove. Uncomment?\n\nOtherwise, please comment why this is left here.",
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
