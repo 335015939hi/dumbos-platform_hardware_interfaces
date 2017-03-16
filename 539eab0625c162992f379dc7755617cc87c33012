@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "8255a753_f278dd33",
+        "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2017-03-16T03:49:37Z",
+      "side": 1,
+      "message": "Ok, perhaps we should be checking them all.",
+      "parentUuid": "1f7b1215_1b6a9347",
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "81758a0e_3a497f96",
         "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
         "patchSetId": 8
@@ -166,6 +184,30 @@
       "side": 1,
       "message": "For whatever reason, clang was throwing an error message, so I forced it to be int.",
       "parentUuid": "f596c835_081f42bf",
+      "range": {
+        "startLine": 24,
+        "startChar": 59,
+        "endLine": 24,
+        "endChar": 64
+      },
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5b608d5_c97e83a0",
+        "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2017-03-16T03:49:37Z",
+      "side": 1,
+      "message": "What\u0027s the message?",
+      "parentUuid": "33eb49f0_39769b74",
       "range": {
         "startLine": 24,
         "startChar": 59,
@@ -319,6 +361,30 @@
     },
     {
       "key": {
+        "uuid": "3c163b7b_39dda79a",
+        "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2017-03-16T03:49:37Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5b8ea830_c875684a",
+      "range": {
+        "startLine": 27,
+        "startChar": 54,
+        "endLine": 27,
+        "endChar": 73
+      },
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "22694e42_1ab169ba",
         "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
         "patchSetId": 8
@@ -401,6 +467,30 @@
       "side": 1,
       "message": "Yes, a failed assertion will list the variable name, expected value, and actual value. In this case, there are 128 numbers, so I just wanted a binary pass/fail so the user isn\u0027t flooded with failing messages.",
       "parentUuid": "08a9e8f9_2f593118",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 35,
+        "endChar": 13
+      },
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "508b61d3_1037e442",
+        "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2017-03-16T03:49:37Z",
+      "side": 1,
+      "message": "I was thinking of the case where only a proper subset of the values is wrong -- then it\u0027d be useful to know where the failure is.",
+      "parentUuid": "91ec09dc_bcb029dd",
       "range": {
         "startLine": 35,
         "startChar": 4,
@@ -507,6 +597,30 @@
     },
     {
       "key": {
+        "uuid": "40db8a72_cf89f76d",
+        "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2017-03-16T03:49:37Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "de65ef16_819d25e1",
+      "range": {
+        "startLine": 51,
+        "startChar": 52,
+        "endLine": 51,
+        "endChar": 85
+      },
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c801c6bb_cd97100c",
         "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
         "patchSetId": 8
@@ -542,6 +656,30 @@
       "side": 1,
       "message": "That\u0027s what our original documentation for renderscript says. I looked into the source code and, for this case, it automatically fills in a value if you provide a 0.",
       "parentUuid": "c801c6bb_cd97100c",
+      "range": {
+        "startLine": 52,
+        "startChar": 38,
+        "endLine": 52,
+        "endChar": 39
+      },
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0063887a_61fa8869",
+        "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2017-03-16T03:49:37Z",
+      "side": 1,
+      "message": "Does that mean we need to change our documentation?  Or is our implementation too tolerant (vendors might not do this)?\n\nWe have some tests in this file that provide a stride, and some that provide zero.  Is this deliberate?",
+      "parentUuid": "178626c7_c782e599",
       "range": {
         "startLine": 52,
         "startChar": 38,
@@ -648,6 +786,30 @@
     },
     {
       "key": {
+        "uuid": "76a09f29_9ac615a6",
+        "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2017-03-16T03:49:37Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b9d41328_191a9407",
+      "range": {
+        "startLine": 121,
+        "startChar": 51,
+        "endLine": 121,
+        "endChar": 61
+      },
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4eadb6aa_38b332ba",
         "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
         "patchSetId": 8
@@ -742,6 +904,30 @@
     },
     {
       "key": {
+        "uuid": "88367195_f0cab7d5",
+        "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2017-03-16T03:49:37Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "15822e10_a49f58c0",
+      "range": {
+        "startLine": 219,
+        "startChar": 7,
+        "endLine": 219,
+        "endChar": 25
+      },
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1b33d1c5_e52c72ba",
         "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
         "patchSetId": 8
@@ -777,6 +963,30 @@
       "side": 1,
       "message": "Done; it was *0.25 in frameworks/rs/cpu_ref",
       "parentUuid": "1b33d1c5_e52c72ba",
+      "range": {
+        "startLine": 233,
+        "startChar": 91,
+        "endLine": 233,
+        "endChar": 98
+      },
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d027f62e_5dd177cf",
+        "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2017-03-16T03:49:37Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "70566440_3df47481",
       "range": {
         "startLine": 233,
         "startChar": 91,
@@ -1000,6 +1210,30 @@
     },
     {
       "key": {
+        "uuid": "f3722408_8788bbff",
+        "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2017-03-16T03:49:37Z",
+      "side": 1,
+      "message": "What were the problems?",
+      "parentUuid": "867f28d9_774ade24",
+      "range": {
+        "startLine": 283,
+        "startChar": 0,
+        "endLine": 283,
+        "endChar": 86
+      },
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2710a5a1_a363da75",
         "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
         "patchSetId": 8
@@ -1082,6 +1316,30 @@
       "side": 1,
       "message": "What exactly do you mean by this?",
       "parentUuid": "ceb9b28c_5d9d44c6",
+      "range": {
+        "startLine": 304,
+        "startChar": 0,
+        "endLine": 304,
+        "endChar": 70
+      },
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a488499d_2c3517da",
+        "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2017-03-16T03:49:37Z",
+      "side": 1,
+      "message": "We have a two-field complex element.  We\u0027re only writing and reading one of the two fields.  Should we write and read both?",
+      "parentUuid": "9b3a85cb_fe8fd051",
       "range": {
         "startLine": 304,
         "startChar": 0,

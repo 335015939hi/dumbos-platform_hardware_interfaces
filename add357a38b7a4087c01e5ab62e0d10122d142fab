@@ -19,6 +19,52 @@
     },
     {
       "key": {
+        "uuid": "3d49921f_b5f0194a",
+        "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2017-03-16T03:49:37Z",
+      "side": 1,
+      "message": "overwritten?  Or:  Then the Allocation is copied into dataOut.  (Same remark applies elsewhere.)",
+      "range": {
+        "startLine": 21,
+        "startChar": 64,
+        "endLine": 21,
+        "endChar": 75
+      },
+      "revId": "add357a38b7a4087c01e5ab62e0d10122d142fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "644e6bd5_9d53f886",
+        "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2017-03-16T03:49:37Z",
+      "side": 1,
+      "message": "typo?",
+      "range": {
+        "startLine": 249,
+        "startChar": 3,
+        "endLine": 249,
+        "endChar": 10
+      },
+      "revId": "add357a38b7a4087c01e5ab62e0d10122d142fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "41a2fd7e_35adb6f0",
         "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
         "patchSetId": 9
@@ -39,6 +85,29 @@
       "revId": "add357a38b7a4087c01e5ab62e0d10122d142fab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b73d234_deff99b6",
+        "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2017-03-16T03:49:37Z",
+      "side": 1,
+      "message": "Nit: Could drop this to the following line (all arguments on same line)",
+      "range": {
+        "startLine": 355,
+        "startChar": 68,
+        "endLine": 355,
+        "endChar": 73
+      },
+      "revId": "add357a38b7a4087c01e5ab62e0d10122d142fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
