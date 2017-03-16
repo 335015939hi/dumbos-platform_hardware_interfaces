@@ -180,6 +180,75 @@
     },
     {
       "key": {
+        "uuid": "24315cb0_0ec6b723",
+        "filename": "renderscript/1.0/vts/functional/VtsMiscellaneousTests.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1121064
+      },
+      "writtenOn": "2017-03-16T18:20:50Z",
+      "side": 1,
+      "message": "nit: an",
+      "range": {
+        "startLine": 28,
+        "startChar": 10,
+        "endLine": 28,
+        "endChar": 11
+      },
+      "revId": "add357a38b7a4087c01e5ab62e0d10122d142fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d40a133a_fdf79b87",
+        "filename": "renderscript/1.0/vts/functional/VtsMiscellaneousTests.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1121064
+      },
+      "writtenOn": "2017-03-16T18:20:50Z",
+      "side": 1,
+      "message": "nit: an",
+      "range": {
+        "startLine": 38,
+        "startChar": 10,
+        "endLine": 38,
+        "endChar": 11
+      },
+      "revId": "add357a38b7a4087c01e5ab62e0d10122d142fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "72c3baa6_12e9950b",
+        "filename": "renderscript/1.0/vts/functional/VtsMiscellaneousTests.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1121064
+      },
+      "writtenOn": "2017-03-16T18:20:50Z",
+      "side": 1,
+      "message": "nit: an",
+      "range": {
+        "startLine": 65,
+        "startChar": 10,
+        "endLine": 65,
+        "endChar": 11
+      },
+      "revId": "add357a38b7a4087c01e5ab62e0d10122d142fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ef0084ff_cdf78db1",
         "filename": "renderscript/1.0/vts/functional/bitcode.rs",
         "patchSetId": 9
