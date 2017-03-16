@@ -1590,6 +1590,23 @@
       "revId": "539eab0625c162992f379dc7755617cc87c33012",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75b1212d_a8d63fd2",
+        "filename": "renderscript/1.0/vts/functional/bitcode.rs",
+        "patchSetId": 8
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1038790
+      },
+      "writtenOn": "2017-03-16T03:19:10Z",
+      "side": 1,
+      "message": "Is this a .rs file or a regular C++ file?  I think it\u0027s the latter with the commented code the input to the RS compiler. \n I would comment it and change the extension. Also need the license text.",
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
