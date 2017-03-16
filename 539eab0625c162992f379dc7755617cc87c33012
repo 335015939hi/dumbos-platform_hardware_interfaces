@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "3843a9c0_a06aba74",
+        "filename": "renderscript/1.0/vts/functional/VtsHalRenderscriptV1_0TargetTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1114063
+      },
+      "writtenOn": "2017-03-16T00:25:36Z",
+      "side": 1,
+      "message": "RenderscriptHidlEnvironment?",
+      "range": {
+        "startLine": 88,
+        "startChar": 6,
+        "endLine": 88,
+        "endChar": 21
+      },
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "baf74f33_90be2518",
         "filename": "renderscript/1.0/vts/functional/VtsMiscellaneousTests.cpp",
         "patchSetId": 8
