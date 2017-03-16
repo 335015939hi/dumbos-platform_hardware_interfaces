@@ -244,6 +244,30 @@
     },
     {
       "key": {
+        "uuid": "95f6b5f5_6b8301ce",
+        "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2017-03-16T21:32:08Z",
+      "side": 1,
+      "message": "Per out/soong/.intermediates/hardware/interfaces/renderscript/1.0/android.hardware.renderscript@1.0_genc++_headers/gen/android/hardware/renderscript/1.0/types.h looks like this is an enum class, so there is no implicit conversion to the underlying type, hence the compiler error.\n\nCan you check with your Treble contact(s) to make sure we\u0027re using enums and bitfields correctly in our HIDL?  This seems like the wrong behavior for an enum used to build a bitmask -- so either we\u0027re doing something wrong, or HIDL is unfriendly in this scenario.",
+      "parentUuid": "94f8d3cb_7757f985",
+      "range": {
+        "startLine": 24,
+        "startChar": 59,
+        "endLine": 24,
+        "endChar": 64
+      },
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "20f9127b_61a441ba",
         "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
         "patchSetId": 8
@@ -1105,6 +1129,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "e0f8388e_612c4058",
+      "range": {
+        "startLine": 252,
+        "startChar": 63,
+        "endLine": 252,
+        "endChar": 97
+      },
+      "revId": "539eab0625c162992f379dc7755617cc87c33012",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4f29e779_eff0c1f9",
+        "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2017-03-16T21:32:08Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "48603705_48c299ae",
       "range": {
         "startLine": 252,
         "startChar": 63,

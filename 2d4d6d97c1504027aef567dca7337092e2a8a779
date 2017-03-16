@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "effc96ed_b2361dfc",
+        "filename": "renderscript/1.0/vts/functional/VtsMiscellaneousTests.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2017-03-16T21:32:08Z",
+      "side": 1,
+      "message": "Nit (also line 126): Maybe \"Size(0)\" is better than \"0ul\" -- Size is a typedef, so we shouldn\u0027t assume we know that it\u0027s ulong.",
+      "range": {
+        "startLine": 120,
+        "startChar": 14,
+        "endLine": 120,
+        "endChar": 17
+      },
+      "revId": "2d4d6d97c1504027aef567dca7337092e2a8a779",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

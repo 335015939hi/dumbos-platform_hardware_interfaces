@@ -84,6 +84,30 @@
     },
     {
       "key": {
+        "uuid": "a3de8af3_e26c0e21",
+        "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2017-03-16T21:32:08Z",
+      "side": 1,
+      "message": "Some instances of \"overridden\" remain.",
+      "parentUuid": "7439d569_75ce88e7",
+      "range": {
+        "startLine": 21,
+        "startChar": 64,
+        "endLine": 21,
+        "endChar": 75
+      },
+      "revId": "add357a38b7a4087c01e5ab62e0d10122d142fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "644e6bd5_9d53f886",
         "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
         "patchSetId": 9
@@ -213,6 +237,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "1b73d234_deff99b6",
+      "range": {
+        "startLine": 355,
+        "startChar": 68,
+        "endLine": 355,
+        "endChar": 73
+      },
+      "revId": "add357a38b7a4087c01e5ab62e0d10122d142fab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9300a42f_308065ed",
+        "filename": "renderscript/1.0/vts/functional/VtsCopyTests.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2017-03-16T21:32:08Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "67a447a9_602cb7c7",
       "range": {
         "startLine": 355,
         "startChar": 68,
