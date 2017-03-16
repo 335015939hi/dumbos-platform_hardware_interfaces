@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30679880_72c7ea8f",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1094,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-16T17:27:45Z",
+      "side": 1,
+      "message": "Missing check for both psk \u0026 pmk here.",
+      "revId": "e8797e98d86b23f26b247c1e4d07dc9babefccc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2107bcfc_84d97621",
+        "filename": "wifi/1.0/default/hidl_struct_util.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1350,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-16T17:27:45Z",
+      "side": 1,
+      "message": "Maybe use a helper function for these conversions instead of repeating it.",
+      "range": {
+        "startLine": 1315,
+        "startChar": 0,
+        "endLine": 1350,
+        "endChar": 42
+      },
+      "revId": "e8797e98d86b23f26b247c1e4d07dc9babefccc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
