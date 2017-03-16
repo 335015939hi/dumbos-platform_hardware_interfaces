@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dd42e604_0c65ff96",
+        "filename": "radio/1.0/vts/functional/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-03-16T20:00:44Z",
+      "side": 1,
+      "message": "sort by name?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 44
+      },
+      "revId": "e1f227e510301b662a3442f9632668b620bd704a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4681a734_9ffbf0dc",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_misc.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-03-16T20:00:44Z",
+      "side": 1,
+      "message": "According to ril.h, there is no INVALID_ARGUMENTS error for this Api. Should not put it here? Also, the argument here is not invalid I think.\n\nSame for the rest apis.",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 76
+      },
+      "revId": "e1f227e510301b662a3442f9632668b620bd704a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a2d9ace3_845d1c86",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_misc.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-03-16T20:00:44Z",
+      "side": 1,
+      "message": "Should not be merged?",
+      "range": {
+        "startLine": 128,
+        "startChar": 4,
+        "endLine": 128,
+        "endChar": 50
+      },
+      "revId": "e1f227e510301b662a3442f9632668b620bd704a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c8adb4ad_a4264a82",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_misc.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-03-16T20:00:44Z",
+      "side": 1,
+      "message": "According to the IRadio.h, the type of \u0027prl\u0027 is const ::android::hardware::hidl_vec\u003cuint8_t\u003e\u0026 . If you assign prl as type std:vector\u003cunit8_t\u003e, it may be cast into the one in IRadio.h? I think it is better to use the one in IRadio.h",
+      "range": {
+        "startLine": 542,
+        "startChar": 4,
+        "endLine": 542,
+        "endChar": 24
+      },
+      "revId": "e1f227e510301b662a3442f9632668b620bd704a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "00a76783_aacb03a0",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_misc.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-03-16T20:00:44Z",
+      "side": 1,
+      "message": "I think if it is expected to success, it returns Error::NONE; if it is expected to fail, it should return some error(s). It might not be meaningful if return both errors in one assertion. Same for other api tests.",
+      "range": {
+        "startLine": 584,
+        "startChar": 0,
+        "endLine": 585,
+        "endChar": 86
+      },
+      "revId": "e1f227e510301b662a3442f9632668b620bd704a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c7117434_512a01ea",
+        "filename": "radio/1.0/vts/functional/radio_response.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-03-16T20:00:44Z",
+      "side": 1,
+      "message": "should not be merged?",
+      "range": {
+        "startLine": 307,
+        "startChar": 0,
+        "endLine": 307,
+        "endChar": 61
+      },
+      "revId": "e1f227e510301b662a3442f9632668b620bd704a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
