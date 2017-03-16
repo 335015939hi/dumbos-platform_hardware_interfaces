@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "acc20e12_f77d8fb7",
+        "filename": "wifi/keystore/1.0/IKeystore.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1077073
+      },
+      "writtenOn": "2017-03-16T00:12:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "baa11142_1ed3e50b",
+      "range": {
+        "startLine": 41,
+        "startChar": 33,
+        "endLine": 41,
+        "endChar": 40
+      },
+      "revId": "0378cb614b7a87f0b31489f1625e773a6b1055be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4e91a197_48d7d42f",
         "filename": "wifi/keystore/1.0/IKeystore.hal",
         "patchSetId": 2
@@ -71,6 +95,54 @@
     },
     {
       "key": {
+        "uuid": "b1d5fd31_593bd990",
+        "filename": "wifi/keystore/1.0/IKeystore.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1077073
+      },
+      "writtenOn": "2017-03-16T00:12:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1870794c_ac0d776e",
+      "range": {
+        "startLine": 62,
+        "startChar": 45,
+        "endLine": 62,
+        "endChar": 56
+      },
+      "revId": "0378cb614b7a87f0b31489f1625e773a6b1055be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "627c61c3_5a86e276",
+        "filename": "wifi/keystore/1.0/IKeystore.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1077073
+      },
+      "writtenOn": "2017-03-16T00:12:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e91a197_48d7d42f",
+      "range": {
+        "startLine": 62,
+        "startChar": 5,
+        "endLine": 62,
+        "endChar": 10
+      },
+      "revId": "0378cb614b7a87f0b31489f1625e773a6b1055be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c5254492_3701645d",
         "filename": "wifi/keystore/1.0/default/hidl_return_util.h",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2017-03-14T16:15:06Z",
       "side": 1,
       "message": "Nit: If functions is plural, should be \"check\", same below on \"invokes\"",
+      "range": {
+        "startLine": 34,
+        "startChar": 19,
+        "endLine": 34,
+        "endChar": 25
+      },
+      "revId": "0378cb614b7a87f0b31489f1625e773a6b1055be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc0a89ce_139e641f",
+        "filename": "wifi/keystore/1.0/default/hidl_return_util.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1077073
+      },
+      "writtenOn": "2017-03-16T00:12:02Z",
+      "side": 1,
+      "message": "Since there\u0027s only one method below, I\u0027ve regularized to the singular.",
+      "parentUuid": "c5254492_3701645d",
       "range": {
         "startLine": 34,
         "startChar": 19,
@@ -200,6 +296,30 @@
       "writtenOn": "2017-03-14T16:15:06Z",
       "side": 1,
       "message": "WiFi",
+      "range": {
+        "startLine": 38,
+        "startChar": 29,
+        "endLine": 38,
+        "endChar": 33
+      },
+      "revId": "0378cb614b7a87f0b31489f1625e773a6b1055be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82bf3eb5_f67aa65f",
+        "filename": "wifi/keystore/1.0/default/service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1077073
+      },
+      "writtenOn": "2017-03-16T00:12:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dee4dd2d_11d82028",
       "range": {
         "startLine": 38,
         "startChar": 29,
