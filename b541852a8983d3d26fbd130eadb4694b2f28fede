@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e5b356ae_e6e19a7f",
+        "filename": "renderscript/1.0/vts/functional/Android.bp",
+        "patchSetId": 10
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2017-03-16T21:15:51Z",
+      "side": 1,
+      "message": "s/\\t/spaces/g",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 1
+      },
+      "revId": "b541852a8983d3d26fbd130eadb4694b2f28fede",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
