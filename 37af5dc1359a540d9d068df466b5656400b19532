@@ -46,6 +46,30 @@
       "revId": "37af5dc1359a540d9d068df466b5656400b19532",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9765829_11ea248f",
+        "filename": "bluetooth/1.0/default/bluetooth_hci.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-03-17T00:59:13Z",
+      "side": 1,
+      "message": "(and plus we removed service specific error in Status)",
+      "parentUuid": "da0c65d2_4bad08e7",
+      "range": {
+        "startLine": 41,
+        "startChar": 2,
+        "endLine": 41,
+        "endChar": 23
+      },
+      "revId": "37af5dc1359a540d9d068df466b5656400b19532",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
