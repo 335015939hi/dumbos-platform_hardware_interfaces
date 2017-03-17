@@ -97,6 +97,29 @@
     },
     {
       "key": {
+        "uuid": "e631d5b6_c2a15c44",
+        "filename": "bluetooth/1.0/default/bluetooth_hci.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2017-03-17T15:33:15Z",
+      "side": 1,
+      "message": "BTW as discussed, this shouldn\u0027t be necessary. But if you do add it, you should also reset the flag. Otherwise you can get sequences like:\n\nopen()\ncom.android.bluetooth crashes\n  Death Recipient: untimely_death \u003d true\n  Death Recipient: calls close(), unlink skipped\ncom.android.bluetooth restarts\nopen()\nclose() \u003c-- legitimate call to close(), forex if you turn BT off\n\nthe last close should call unlinkToDeath().",
+      "range": {
+        "startLine": 63,
+        "startChar": 3,
+        "endLine": 63,
+        "endChar": 41
+      },
+      "revId": "37af5dc1359a540d9d068df466b5656400b19532",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a8bac3f_df6c15ac",
         "filename": "bluetooth/1.0/default/bluetooth_hci.h",
         "patchSetId": 2
