@@ -273,6 +273,9 @@ void VendorInterface::Close() {
   }
 
   if (lib_interface_ != nullptr) {
+    uint8_t wake_deassert = BT_VND_LPM_WAKE_DEASSERT;
+    lib_interface_->op(BT_VND_OP_LPM_WAKE_SET_STATE, &wake_deassert);
+
     lib_interface_->op(BT_VND_OP_USERIAL_CLOSE, nullptr);
 
     int power_state = BT_VND_PWR_OFF;
