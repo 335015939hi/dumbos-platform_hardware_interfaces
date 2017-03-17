@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "175f23f9_647bdfcb",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 1288,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-03-17T17:02:28Z",
+      "side": 1,
+      "message": "Add a comment that value must be ignored if -1",
+      "revId": "6177fa225bd77759921e9f6a88a57f0e245088f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
