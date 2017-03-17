@@ -46,27 +46,30 @@ TEST_F(RenderscriptHidlTest, ScriptVarTest) {
     EXPECT_NE(Script(0), script);
 
     // arg tests
-    context->scriptSetVarI(script, 0, 100);
+    context->scriptSetVarI(script, mExportVarIdx_var_int, 100);
     int resultI = 0;
-    context->scriptGetVarV(script, 0, sizeof(int), [&](const hidl_vec<uint8_t>& _data){
-                               resultI = *((int*)_data.data()); });
+    context->scriptGetVarV(script, mExportVarIdx_var_int, sizeof(int),
+                           [&](const hidl_vec<uint8_t>& _data){ resultI = *((int*)_data.data()); });
     EXPECT_EQ(100, resultI);
 
-    context->scriptSetVarJ(script, 1, 101l);
+    context->scriptSetVarJ(script, mExportVarIdx_var_long, 101l);
     int resultJ = 0;
-    context->scriptGetVarV(script, 1, sizeof(long), [&](const hidl_vec<uint8_t>& _data){
+    context->scriptGetVarV(script, mExportVarIdx_var_long, sizeof(long),
+                           [&](const hidl_vec<uint8_t>& _data){
                                resultJ = *((long*)_data.data()); });
-    EXPECT_EQ(101, resultJ);
+    EXPECT_EQ(101l, resultJ);
 
-    context->scriptSetVarF(script, 2, 102.0f);
+    context->scriptSetVarF(script, mExportVarIdx_var_float, 102.0f);
     int resultF = 0.0f;
-    context->scriptGetVarV(script, 2, sizeof(float), [&](const hidl_vec<uint8_t>& _data){
+    context->scriptGetVarV(script, mExportVarIdx_var_float, sizeof(float),
+                           [&](const hidl_vec<uint8_t>& _data){
                                resultF = *((float*)_data.data()); });
     EXPECT_EQ(102.0f, resultF);
 
-    context->scriptSetVarD(script, 3, 103.0);
+    context->scriptSetVarD(script, mExportVarIdx_var_double, 103.0);
     int resultD = 0.0;
-    context->scriptGetVarV(script, 3, sizeof(double), [&](const hidl_vec<uint8_t>& _data){
+    context->scriptGetVarV(script, mExportVarIdx_var_double, sizeof(double),
+                           [&](const hidl_vec<uint8_t>& _data){
                                resultD = *((double*)_data.data()); });
     EXPECT_EQ(103.0, resultD);
 
@@ -79,37 +82,36 @@ TEST_F(RenderscriptHidlTest, ScriptVarTest) {
                                                              (int)AllocationUsageType::SCRIPT,
                                                              (Ptr)nullptr);
     Allocation allocationOut = Allocation(0);
-    context->scriptSetVarObj(script, 4, (ObjectBase)allocationIn);
-    context->scriptGetVarV(script, 4, sizeof(ObjectBase), [&](const hidl_vec<uint8_t>& _data){
+    context->scriptSetVarObj(script, mExportVarIdx_var_allocation, (ObjectBase)allocationIn);
+    context->scriptGetVarV(script, mExportVarIdx_var_allocation, sizeof(ObjectBase),
+                           [&](const hidl_vec<uint8_t>& _data){
                                allocationOut = (Allocation) *((ObjectBase*)_data.data()); });
     EXPECT_EQ(allocationOut, allocationIn);
 
-    std::vector<int> arrayIn = {500, 501, 502, 503};
-    std::vector<int> arrayOut(4);
-    hidl_vec<uint8_t> arrayData;
-    arrayData.setToExternal((uint8_t*)arrayIn.data(), arrayIn.size()*sizeof(int));
-    context->scriptSetVarV(script, 5, arrayData);
-    context->scriptGetVarV(script, 5, 4*sizeof(int), [&](const hidl_vec<uint8_t>& _data){
-                               arrayOut = std::vector<int>((int*)_data.data(),
-                                                           (int*)_data.data() + 4); });
-    EXPECT_EQ(500, arrayOut[0]);
-    EXPECT_EQ(501, arrayOut[1]);
-    EXPECT_EQ(502, arrayOut[2]);
-    EXPECT_EQ(503, arrayOut[3]);
+    uint32_t valueV = 104u;
+    hidl_vec<uint8_t> _dataV;
+    _dataV.setToExternal((uint8_t*)&valueV, sizeof(uint32_t));
+    context->scriptSetVarV(script, mExportVarIdx_var_uint32_t, _dataV);
+    uint32_t resultV = 0u;
+    context->scriptGetVarV(script, mExportVarIdx_var_uint32_t, sizeof(uint32_t),
+                           [&](const hidl_vec<uint8_t>& _data){
+                               resultV = *((uint32_t*)_data.data()); });
+    EXPECT_EQ(104u, resultV);
 
     std::vector<int> dataVE = {1000, 1001};
     std::vector<uint32_t> dimsVE = {1};
     std::vector<int> outVE(2);
     hidl_vec<uint8_t> _dataVE;
     hidl_vec<uint32_t> _dimsVE;
-    _dataVE.setToExternal((uint8_t*)dataVE.data(), dataVE.size()*sizeof(int));
-    _dimsVE.setToExternal((uint32_t*)dimsVE.data(), dimsVE.size());
-    // intx2
+    _dataVE.setToExternal((uint8_t*)dataVE.data(), dataVE.size()*sizeof(int)); // TODO: temporary fix
+    _dimsVE.setToExternal((uint32_t*)dimsVE.data(), dimsVE.size()*sizeof(int)); // TODO: temporary fix
+    // intx2 to represent point2 which is {int, int}
     Element elementVE = context->elementCreate(DataType::SIGNED_32, DataKind::USER, false, 2);
-    context->scriptSetVarVE(script, 6, _dataVE, elementVE, _dimsVE);
-    context->scriptGetVarV(script, 6, 2*sizeof(int), [&](const hidl_vec<uint8_t>& _data){
-                               outVE = std::vector<int>((int*)_data.data(),
-                                                        (int*)_data.data() + 2); });
+    context->scriptSetVarVE(script, mExportVarIdx_var_point2, _dataVE, elementVE, _dimsVE);
+    context->scriptGetVarV(script, mExportVarIdx_var_point2, 2*sizeof(int),
+                           [&](const hidl_vec<uint8_t>& _data){
+                               outVE = std::vector<int>(
+                                   (int*)_data.data(), (int*)_data.data() + 2); });
     EXPECT_EQ(1000, outVE[0]);
     EXPECT_EQ(1001, outVE[1]);
 }
@@ -127,19 +129,47 @@ TEST_F(RenderscriptHidlTest, ScriptInvokeTest) {
     EXPECT_NE(Script(0), script);
 
     // invoke test
-    int function_res = 0;
-    context->scriptInvoke(script, 0);
-    context->scriptGetVarV(script, 0, sizeof(int), [&](const hidl_vec<uint8_t>& _data){
-                               function_res = *((int*)_data.data()); });
-    EXPECT_NE(100, function_res);
+    int resultI = 0;
+    long resultJ = 0l;
+    float resultF = 0.0f;
+    double resultD = 0.0;
+    uint32_t resultV = 0u;
+    std::vector<int> resultVE(2);
+    context->scriptInvoke(script, mExportFuncIdx_function);
+    context->scriptGetVarV(script, mExportVarIdx_var_int, sizeof(int),
+                           [&](const hidl_vec<uint8_t>& _data){ resultI = *((int*)_data.data()); });
+    context->scriptGetVarV(script, mExportVarIdx_var_long, sizeof(long),
+                           [&](const hidl_vec<uint8_t>& _data){
+                               resultJ = *((long*)_data.data()); });
+    context->scriptGetVarV(script, mExportVarIdx_var_float, sizeof(float),
+                           [&](const hidl_vec<uint8_t>& _data){
+                               resultF = *((float*)_data.data()); });
+    context->scriptGetVarV(script, mExportVarIdx_var_double, sizeof(double),
+                           [&](const hidl_vec<uint8_t>& _data){
+                               resultD = *((double*)_data.data()); });
+    context->scriptGetVarV(script, mExportVarIdx_var_uint32_t, sizeof(uint32_t),
+                           [&](const hidl_vec<uint8_t>& _data){
+                               resultV = *((uint32_t*)_data.data()); });
+    context->scriptGetVarV(script, mExportVarIdx_var_point2, 2*sizeof(int),
+                           [&](const hidl_vec<uint8_t>& _data){
+                               resultVE = std::vector<int>(
+                                   (int*)_data.data(), (int*)_data.data() + 2); });
+    EXPECT_EQ(1, resultI);
+    EXPECT_EQ(2l, resultJ);
+    EXPECT_EQ(3.0f, resultF);
+    EXPECT_EQ(4.0, resultD);
+    EXPECT_EQ(5u, resultV);
+    EXPECT_EQ(6, resultVE[0]);
+    EXPECT_EQ(7, resultVE[1]);
 
     // invokeV test
     int functionV_arg = 5;
     int functionV_res = 0;
     hidl_vec<uint8_t> functionV_data;
     functionV_data.setToExternal((uint8_t*)&functionV_arg, sizeof(int));
-    context->scriptInvokeV(script, 1, functionV_data);
-    context->scriptGetVarV(script, 0, sizeof(int), [&](const hidl_vec<uint8_t>& _data){
+    context->scriptInvokeV(script, mExportFuncIdx_functionV, functionV_data);
+    context->scriptGetVarV(script, mExportVarIdx_var_int, sizeof(int),
+                           [&](const hidl_vec<uint8_t>& _data){
                                functionV_res = *((int*)_data.data()); });
     EXPECT_EQ(5, functionV_res);
 }
@@ -161,8 +191,9 @@ TEST_F(RenderscriptHidlTest, ScriptForEachTest) {
     Element element = context->elementCreate(DataType::UNSIGNED_8, DataKind::USER, false, 1);
     // 64 x uint8_t
     Type type = context->typeCreate(element, 64, 0, 0, false, false, YuvFormat::YUV_NONE);
-    std::vector<uint8_t> dataIn(64), dataOut(64);
+    std::vector<uint8_t> dataIn(64), dataOut(64), expected(64);
     std::generate(dataIn.begin(), dataIn.end(), [](){ static uint8_t val = 0; return val++; });
+    std::generate(expected.begin(), expected.end(), [](){ static uint8_t val = 1; return val++; });
     hidl_vec<uint8_t> _data;
     _data.setToExternal((uint8_t*)dataIn.data(), dataIn.size());
     // 64 x float1
@@ -176,11 +207,9 @@ TEST_F(RenderscriptHidlTest, ScriptForEachTest) {
     hidl_vec<Allocation> vains;
     vains.setToExternal(&allocation, 1);
     hidl_vec<uint8_t> params;
-    context->scriptForEach(script, 1, vains, vout, params, nullptr);
+    context->scriptForEach(script, mExportForEachIdx_increment, vains, vout, params, nullptr);
     context->allocationRead(vout, (Ptr)dataOut.data(), (Size)dataOut.size()*sizeof(uint8_t));
-    bool same = std::all_of(dataOut.begin(), dataOut.end(),
-                            [](uint8_t x){ static uint8_t val = 1; return x == val++; });
-    EXPECT_EQ(true, same);
+    EXPECT_EQ(expected, dataOut);
 }
 
 /*
@@ -215,7 +244,7 @@ TEST_F(RenderscriptHidlTest, ScriptReduceTest) {
     context->allocation1DWrite(allocation, 0, 0, (Size)dataIn.size(), _data);
     hidl_vec<Allocation> vains;
     vains.setToExternal(&allocation, 1);
-    context->scriptReduce(script, 0, vains, vaout, nullptr);
+    context->scriptReduce(script, mExportReduceIdx_summation, vains, vaout, nullptr);
     context->contextFinish();
     context->allocationRead(vaout, (Ptr)dataOut.data(), (Size)dataOut.size()*sizeof(int));
     // sum of 0, 1, 2, ..., 62, 63
@@ -228,38 +257,34 @@ TEST_F(RenderscriptHidlTest, ScriptReduceTest) {
  * RenderScript script, represented in the bitcode.
  *
  * Calls: scriptCCreate, elementCreate, typeCreate, allocationCreateTyped,
- * allocationGetPointer, scriptBindAllocation
- *
- * This test currently has a bug, and should be fixed by 3/17.
- * TODO(butlermichael)
+ * scriptSetVarV, scriptBindAllocation, allocationRead
  */
-/*
 TEST_F(RenderscriptHidlTest, ScriptBindTest) {
     hidl_vec<uint8_t> bitcode;
     bitcode.setToExternal((uint8_t*)bitCode, bitCodeLength);
     Script script = context->scriptCCreate("struct_test", "/data/local/tmp/", bitcode);
     EXPECT_NE(Script(0), script);
 
-    // uint8_t
+    // in32
     Element element = context->elementCreate(DataType::SIGNED_32, DataKind::USER, false, 1);
-    // 64 x uint8_t
+    // 64 x int32
     Type type = context->typeCreate(element, 64, 0, 0, false, false, YuvFormat::YUV_NONE);
-    // 64 x float1
+    // 64 x int32
     Allocation allocation = context->allocationCreateTyped(type, AllocationMipmapControl::NONE,
                                                            (int)AllocationUsageType::SCRIPT,
                                                            (Ptr)nullptr);
-    Ptr dataPtr1, dataPtr2;
-    Size stride;
-    context->allocationGetPointer(allocation, 0, AllocationCubemapFace::POSITIVE_X, 0,
-                                  [&](Ptr _dataPtr, Size _stride){ dataPtr1 = _dataPtr;
-                                      stride = _stride; });
-    context->scriptBindAllocation(script, allocation, 7);
-    context->allocationGetPointer(allocation, 0, AllocationCubemapFace::POSITIVE_X, 0,
-                                  [&](Ptr _dataPtr, Size _stride){ dataPtr2 = _dataPtr;
-                                      stride = _stride; });
-    EXPECT_NE(dataPtr1, dataPtr2);
+    std::vector<int> dataIn(64), dataOut(64), expected(64, 5);
+    hidl_vec<uint8_t> _data;
+    _data.setToExternal((uint8_t*)dataIn.data(), dataIn.size()*sizeof(int));
+    context->allocation1DWrite(allocation, 0, 0, (Size)dataIn.size(), _data);
+    context->scriptBindAllocation(script, allocation, mExportVarIdx_var_int_ptr);
+    int dim = 64;
+    hidl_vec<uint8_t> _dim;
+    _dim.setToExternal((uint8_t*)&dim, sizeof(int));
+    context->scriptInvokeV(script, mExportFuncIdx_setBuffer, _dim);
+    context->allocationRead(allocation, (Ptr)dataOut.data(), (Size)dataOut.size()*sizeof(int));
+    EXPECT_EQ(expected, dataOut);
 }
-*/
 
 /*
  * This test groups together two RenderScript intrinsic kernels to run one after
@@ -269,37 +294,27 @@ TEST_F(RenderscriptHidlTest, ScriptBindTest) {
  * ScriptGroup.
  *
  * Calls: elementCreate, typeCreate, allocationCreateTyped, allocation2DWrite,
- * scriptIntrinsicCreate, scriptKernelIDCreate, scriptGroupCreate,
- * scriptGroupSetInput, scriptGroupSetOutput, scriptGroupExecute,
- * allocation2DRead
- *
- * This test currently has a bug, and should be fixed by 3/17.
- * TODO(butlermichael)
+ * scriptIntrinsicCreate, scriptKernelIDCreate, scriptFieldIDCreate,
+ * scriptGroupCreate, scriptGroupSetOutput, scriptGroupExecute, allocation2DRead
  */
-/*
 TEST_F(RenderscriptHidlTest, ScriptGroupTest) {
-    //std::vector<uint8_t> dataIn(256*256*1, 128), dataOut(256*256*3, 0);
-    std::vector<uint8_t> dataIn(256*256*1, 128), dataOut(256*256*4, 0);
+    //std::vector<uint8_t> dataIn(256*256*1, 128), dataOut(256*256*3, 0), zeros(256*256*3, 0);
+    std::vector<uint8_t> dataIn(256*256*1, 128), dataOut(256*256*4, 0), zeros(256*256*4, 0);
     hidl_vec<uint8_t> _dataIn, _dataOut;
     _dataIn.setToExternal(dataIn.data(), dataIn.size());
-    _dataOut.setToExternal(dataOut.data(), dataIn.size());
+    _dataOut.setToExternal(dataOut.data(), dataOut.size());
 
     // 256 x 256 YUV pixels
     Element element1 = context->elementCreate(DataType::UNSIGNED_8, DataKind::PIXEL_YUV, true, 1);
-    //Type type1 = context->typeCreate(element1, 256, 256, 0, false, false, YuvFormat::YUV_420_888);
-    Type type1 = context->typeCreate(element1, 256, 256, 0, false, false, YuvFormat::YUV_NV21);
+    Type type1 = context->typeCreate(element1, 256, 256, 0, false, false, YuvFormat::YUV_420_888);
+    //Type type1 = context->typeCreate(element1, 256, 256, 0, false, false, YuvFormat::YUV_NV21);
     Allocation allocation1 = context->allocationCreateTyped(type1, AllocationMipmapControl::NONE,
                                                            (int)AllocationUsageType::SCRIPT,
                                                            (Ptr)nullptr);
     context->allocation2DWrite(allocation1, 0, 0, 0, AllocationCubemapFace::POSITIVE_X, 256, 256,
                                _dataIn, 0);
-    Script yuv2rgb = context->scriptIntrinsicCreate(ScriptIntrinsicID::ID_YUV_TO_RGB, element1);
-    EXPECT_NE(Script(0), yuv2rgb);
 
-    ScriptKernelID yuv2rgbKID = context->scriptKernelIDCreate(yuv2rgb, 0, 2);
-    EXPECT_NE(ScriptKernelID(0), yuv2rgbKID);
-
-    // 256 x 256 RGB pixels
+    // 256 x 256 RGB(A) pixels
     //Element element2 = context->elementCreate(DataType::UNSIGNED_8, DataKind::PIXEL_RGB, true, 3);
     Element element2 = context->elementCreate(DataType::UNSIGNED_8, DataKind::PIXEL_RGBA, true, 4);
     Type type2 = context->typeCreate(element2, 256, 256, 0, false, false, YuvFormat::YUV_NONE);
@@ -308,32 +323,41 @@ TEST_F(RenderscriptHidlTest, ScriptGroupTest) {
                                                            (Ptr)nullptr);
     context->allocation2DWrite(allocation2, 0, 0, 0, AllocationCubemapFace::POSITIVE_X, 256, 256,
                                _dataOut, 0);
+
+    // create scripts
+    Script yuv2rgb = context->scriptIntrinsicCreate(ScriptIntrinsicID::ID_YUV_TO_RGB, element1);
+    EXPECT_NE(Script(0), yuv2rgb);
+
+    ScriptKernelID yuv2rgbKID = context->scriptKernelIDCreate(yuv2rgb, 0, 2);
+    EXPECT_NE(ScriptKernelID(0), yuv2rgbKID);
+
     Script blur = context->scriptIntrinsicCreate(ScriptIntrinsicID::ID_BLUR, element2);
     EXPECT_NE(Script(0), blur);
 
     ScriptKernelID blurKID = context->scriptKernelIDCreate(blur, 0, 2);
     EXPECT_NE(ScriptKernelID(0), blurKID);
+    ScriptFieldID blurFID = context->scriptFieldIDCreate(blur, 1);
+    EXPECT_NE(ScriptFieldID(0), blurFID);
 
     // ScriptGroup
-    hidl_vec<ScriptKernelID> kernels = {yuv2rgbKID, blurKID};
-    hidl_vec<ScriptKernelID> srcK = {yuv2rgbKID};
-    hidl_vec<ScriptKernelID> dstK = {blurKID};
-    hidl_vec<ScriptFieldID> dstF = {};
-    hidl_vec<Type> types = {type2};
+    hidl_vec<ScriptKernelID> kernels = {yuv2rgbKID, blurKID, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    hidl_vec<ScriptKernelID> srcK = {yuv2rgbKID, 0, 0, 0, 0, 0, 0, 0};
+    hidl_vec<ScriptKernelID> dstK = {ScriptKernelID(0), 0, 0, 0, 0, 0, 0, 0};
+    hidl_vec<ScriptFieldID> dstF = {blurFID, 0, 0, 0, 0, 0, 0, 0};
+    hidl_vec<Type> types = {type2, 0, 0, 0, 0, 0, 0, 0};
     ScriptGroup scriptGroup = context->scriptGroupCreate(kernels, srcK, dstK, dstF, types);
     EXPECT_NE(ScriptGroup(0), scriptGroup);
 
-    context->scriptGroupSetInput(scriptGroup, yuv2rgbKID, allocation1);
+    context->scriptSetVarObj(yuv2rgb, 0, (ObjectBase)allocation1);
     context->scriptGroupSetOutput(scriptGroup, blurKID, allocation2);
     context->scriptGroupExecute(scriptGroup);
+    context->contextFinish();
 
     // verify contents were changed
     context->allocation2DRead(allocation2, 0, 0, 0, AllocationCubemapFace::POSITIVE_X, 256, 256,
                               (Ptr)dataOut.data(), (Size)dataOut.size(), 0);
-    bool same = std::all_of(dataOut.begin(), dataOut.end(), [](uint8_t x){ return x != 0; });
-    EXPECT_EQ(true, same);
+    EXPECT_NE(zeros, dataOut);
 }
-*/
 
 /*
  * Similar to the ScriptGroup test, this test verifies the execution flow of
