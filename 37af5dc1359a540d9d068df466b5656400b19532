@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "c9b53e10_17da106c",
+        "filename": "bluetooth/1.0/default/bluetooth_hci.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2017-03-17T17:54:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "081e24f7_dcc5c09e",
+      "range": {
+        "startLine": 41,
+        "startChar": 2,
+        "endLine": 41,
+        "endChar": 23
+      },
+      "revId": "37af5dc1359a540d9d068df466b5656400b19532",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e631d5b6_c2a15c44",
         "filename": "bluetooth/1.0/default/bluetooth_hci.cc",
         "patchSetId": 2
@@ -168,6 +192,30 @@
     },
     {
       "key": {
+        "uuid": "676a4a67_41cc8cfd",
+        "filename": "bluetooth/1.0/default/bluetooth_hci.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2017-03-17T17:54:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e631d5b6_c2a15c44",
+      "range": {
+        "startLine": 63,
+        "startChar": 3,
+        "endLine": 63,
+        "endChar": 41
+      },
+      "revId": "37af5dc1359a540d9d068df466b5656400b19532",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a8bac3f_df6c15ac",
         "filename": "bluetooth/1.0/default/bluetooth_hci.h",
         "patchSetId": 2
@@ -179,6 +227,30 @@
       "writtenOn": "2017-03-17T01:01:06Z",
       "side": 1,
       "message": "nit: more descriptive name, like \u0027hasDied\u0027",
+      "range": {
+        "startLine": 39,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 18
+      },
+      "revId": "37af5dc1359a540d9d068df466b5656400b19532",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7bb85811_99861667",
+        "filename": "bluetooth/1.0/default/bluetooth_hci.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2017-03-17T17:54:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a8bac3f_df6c15ac",
       "range": {
         "startLine": 39,
         "startChar": 4,
@@ -214,6 +286,30 @@
     },
     {
       "key": {
+        "uuid": "664f42bc_d2409468",
+        "filename": "bluetooth/1.0/default/bluetooth_hci.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2017-03-17T17:54:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4e04603_9fc056df",
+      "range": {
+        "startLine": 47,
+        "startChar": 7,
+        "endLine": 47,
+        "endChar": 21
+      },
+      "revId": "37af5dc1359a540d9d068df466b5656400b19532",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "77099809_b00412b1",
         "filename": "bluetooth/1.0/default/bluetooth_hci.h",
         "patchSetId": 2
@@ -225,6 +321,30 @@
       "writtenOn": "2017-03-17T01:01:06Z",
       "side": 1,
       "message": "the naming scheme is inconsistent here",
+      "range": {
+        "startLine": 63,
+        "startChar": 41,
+        "endLine": 63,
+        "endChar": 55
+      },
+      "revId": "37af5dc1359a540d9d068df466b5656400b19532",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ffdc6e13_55554b70",
+        "filename": "bluetooth/1.0/default/bluetooth_hci.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2017-03-17T17:54:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "77099809_b00412b1",
       "range": {
         "startLine": 63,
         "startChar": 41,
