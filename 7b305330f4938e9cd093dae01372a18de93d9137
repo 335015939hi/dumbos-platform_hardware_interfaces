@@ -305,6 +305,30 @@
       "revId": "7b305330f4938e9cd093dae01372a18de93d9137",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a6b4ad0_6b633110",
+        "filename": "data/offload/control/1.0/ITetheringOffloadCallback.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2017-03-17T09:04:55Z",
+      "side": 1,
+      "message": "That\u0027s true, and we tried to discuss this in the last meeting.  I think before I call stopOffload I just need to grab stats one last time.  Any traffic that leaks through between getting the stats and the official \"stopping\" of the traffic...we\u0027ll just hope it\u0027s fairly minuscule.\n\n\u003d)",
+      "parentUuid": "796c7cb1_fbae5943",
+      "range": {
+        "startLine": 40,
+        "startChar": 25,
+        "endLine": 40,
+        "endChar": 30
+      },
+      "revId": "7b305330f4938e9cd093dae01372a18de93d9137",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
