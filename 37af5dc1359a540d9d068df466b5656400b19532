@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "081e24f7_dcc5c09e",
+        "filename": "bluetooth/1.0/default/bluetooth_hci.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2017-03-17T15:37:39Z",
+      "side": 1,
+      "message": "We avoided that because it\u0027s confusing to say success if all that means is \"Congratulations, you didn\u0027t pass us a null pointer.\"  After the real initialization is done, we call the callback with the success status.",
+      "parentUuid": "348b965d_1c67bb66",
+      "range": {
+        "startLine": 41,
+        "startChar": 2,
+        "endLine": 41,
+        "endChar": 23
+      },
+      "revId": "37af5dc1359a540d9d068df466b5656400b19532",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e631d5b6_c2a15c44",
         "filename": "bluetooth/1.0/default/bluetooth_hci.cc",
         "patchSetId": 2
@@ -108,6 +132,30 @@
       "writtenOn": "2017-03-17T15:33:15Z",
       "side": 1,
       "message": "BTW as discussed, this shouldn\u0027t be necessary. But if you do add it, you should also reset the flag. Otherwise you can get sequences like:\n\nopen()\ncom.android.bluetooth crashes\n  Death Recipient: untimely_death \u003d true\n  Death Recipient: calls close(), unlink skipped\ncom.android.bluetooth restarts\nopen()\nclose() \u003c-- legitimate call to close(), forex if you turn BT off\n\nthe last close should call unlinkToDeath().",
+      "range": {
+        "startLine": 63,
+        "startChar": 3,
+        "endLine": 63,
+        "endChar": 41
+      },
+      "revId": "37af5dc1359a540d9d068df466b5656400b19532",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9351b4e_5e215c17",
+        "filename": "bluetooth/1.0/default/bluetooth_hci.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2017-03-17T15:37:39Z",
+      "side": 1,
+      "message": "Sounds good.",
+      "parentUuid": "e631d5b6_c2a15c44",
       "range": {
         "startLine": 63,
         "startChar": 3,
