@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "161d71cd_cff91edf",
+        "filename": "radio/1.0/vts/functional/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-03-17T18:11:48Z",
+      "side": 1,
+      "message": "I agree. let\u0027s sort by name.",
+      "parentUuid": "dd42e604_0c65ff96",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 44
+      },
+      "revId": "e1f227e510301b662a3442f9632668b620bd704a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4681a734_9ffbf0dc",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_misc.cpp",
         "patchSetId": 1
