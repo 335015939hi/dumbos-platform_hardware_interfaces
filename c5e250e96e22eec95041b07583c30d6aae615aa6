@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2b90134a_7e683dc6",
+        "filename": "bluetooth/1.0/default/bluetooth_hci.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2017-03-17T15:32:08Z",
+      "side": 1,
+      "message": "I\u0027d like to remove this dependency in the callbacks.  Can we incorporate (parts of) https://android-review.googlesource.com/#/c/354409 here?",
+      "range": {
+        "startLine": 56,
+        "startChar": 7,
+        "endLine": 56,
+        "endChar": 11
+      },
+      "revId": "c5e250e96e22eec95041b07583c30d6aae615aa6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
