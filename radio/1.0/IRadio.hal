@@ -1570,4 +1570,29 @@ interface IRadio {
      *
      */
     oneway responseAcknowledgement();
+
+    /*
+     * Provide Carrier specific information to the modem that will be used to
+     * encrypt the IMSI and IMPI. Sent by the framework during boot, carrier
+     * switch and everytime the framework receives a new certificate.
+     *
+     * @param serial Serial number of request.
+     * @param carrierKey Carrier specific key to be used for encryption. This is
+     *        the byte-stream representation of the key. This is an external
+     *        encoded form for the key used when a standard representation of
+     *        the key is needed outside the Java Virtual Machine, as when
+     *        transmitting the key to some other party. The key is encoded
+     *        according to a standard format (such as X.509 SubjectPublicKeyInfo
+     *        or PKCS#8), and is returned using the getEncoded method.
+     * @param keyIdentifier Attribute value pair that helps a server locate
+     *        the private key to decrypt the permanent identity. This field is
+     *        optional and if it is present then it’s always separated from encrypted
+     *        permanent identity with “,”. Key identifier AVP is presented in ASCII string
+     *        with “name=value” format.
+     *
+     * Response callback is
+     * IRadioResponse.setCarrierInfoForImsiEncryptionResponse()
+     */
+     oneway setCarrierInfoForImsiEncryption(int32_t serial, vec<uint8_t> carrierKey,
+             string keyIdentifier);
 };

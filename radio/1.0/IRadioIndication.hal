@@ -461,4 +461,13 @@ interface IRadioIndication {
     *        restart" that explains the cause of the modem restart
     */
    oneway modemReset(RadioIndicationType type, string reason);
+
+   /*
+    * Indicates that the modem requires the Carrier info for IMSI/IMPI encryption.
+    * This might happen when the modem restarts, or for some reason it's cache
+    * has been invalidated.
+    *
+    * @param type Type of radio indication
+    */
+   oneway carrierInfoForImsiEncryption(RadioIndicationType type);
 };

@@ -479,6 +479,9 @@ class RadioResponse : public IRadioResponse {
   Return<void> setSimCardPowerResponse(const RadioResponseInfo& info);
 
   Return<void> acknowledgeRequest(int32_t serial);
+
+  Return<void> setCarrierInfoForImsiEncryptionResponse(
+      const RadioResponseInfo& info);
 };
 
 // The main test class for Radio HIDL.

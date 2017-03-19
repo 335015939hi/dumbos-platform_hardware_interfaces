@@ -970,3 +970,10 @@ Return<void> RadioResponse::setSimCardPowerResponse(
 Return<void> RadioResponse::acknowledgeRequest(int32_t /*serial*/) {
   return Void();
 }
+
+Return<void> RadioResponse::setCarrierInfoForImsiEncryptionResponse(
+    const RadioResponseInfo& info) {
+    rspInfo = info;
+    parent.notify();
+    return Void();
+}
