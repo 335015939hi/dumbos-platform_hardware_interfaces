@@ -328,7 +328,7 @@ wifi_error WifiLegacyHal::initialize() {
   wifi_error status = init_wifi_vendor_hal_func_table(&global_func_table_);
   if (status != WIFI_SUCCESS) {
     LOG(ERROR) << "Failed to initialize legacy hal function table";
-    return WIFI_ERROR_UNKNOWN;
+    return status;
   }
   return WIFI_SUCCESS;
 }
