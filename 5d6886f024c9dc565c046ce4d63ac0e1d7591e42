@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0ac3d707_9de32d9d",
+        "filename": "bluetooth/1.0/default/bluetooth_hci.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2017-03-20T23:13:32Z",
+      "side": 1,
+      "message": "I don\u0027t think the BluetoothHci object is ever destructed, and the lifetime of BluetoothDeathRecipient is tied to the lifetime of the BLuetoothHci object. So there\u0027s not really a need to set this to nullptr. In fact if you would, I don\u0027t think it would ever get set correctly again.",
+      "parentUuid": "212c52cf_956a9f0d",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 18
+      },
+      "revId": "5d6886f024c9dc565c046ce4d63ac0e1d7591e42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "21afed89_d1160261",
         "filename": "bluetooth/1.0/default/bluetooth_hci.cc",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2017-03-20T23:01:29Z",
       "side": 1,
       "message": "Should we do this after VendorInterface::Shutdown?\n\nIs there a downside to calling unlinkToDeath very last?",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 31
+      },
+      "revId": "5d6886f024c9dc565c046ce4d63ac0e1d7591e42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "504e22f5_e3e648e6",
+        "filename": "bluetooth/1.0/default/bluetooth_hci.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2017-03-20T23:13:32Z",
+      "side": 1,
+      "message": "It depends if VendorInterface::Shutdown() is resilient against being called multiple times (without an open() in-between). What could happen if you move it down is:\n1) com.android.bluetooth calls close()\n2) VendorInterface::Shutdown() is running (let\u0027s say it takes a while)\n3) meanwhile, com.android.bluetooth dies\n4) death recipient runs on another hwbinder thread, and calls close() again.\n\nIt looks like you have only one hwbinder thread though, and then this can\u0027t really happen, as death recipients are run on the same hwbinder thread close() would have come in on. So in this case, I don\u0027t think it matters.",
+      "parentUuid": "21afed89_d1160261",
       "range": {
         "startLine": 112,
         "startChar": 0,
