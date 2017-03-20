@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "424f88bb_470f7cd6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-03-20T21:22:13Z",
+      "side": 1,
+      "message": "Maybe the following, instead?\n\n  The fallback HAL will return\n\nAs compared to the current phrasing, I believe the alternative makes it clear why a failure would occur.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 36
+      },
+      "revId": "37bf9d60dd3a42f06a1c56909e94cdbaaa7eb2b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
