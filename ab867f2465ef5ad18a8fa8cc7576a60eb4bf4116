@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4c8a9fd4_5843eee7",
+        "filename": "wifi/offload/1.0/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1140244
+      },
+      "writtenOn": "2017-03-20T22:50:10Z",
+      "side": 1,
+      "message": "\u0027By\u0027 instead of \u0027by\u0027, to match other members",
+      "range": {
+        "startLine": 167,
+        "startChar": 29,
+        "endLine": 167,
+        "endChar": 31
+      },
+      "revId": "ab867f2465ef5ad18a8fa8cc7576a60eb4bf4116",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
