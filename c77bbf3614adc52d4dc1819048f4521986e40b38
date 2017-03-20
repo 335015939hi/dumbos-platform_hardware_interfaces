@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "25f0d1ed_8b96e9cb",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 1288,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-03-20T18:21:09Z",
+      "side": 1,
+      "message": "would be better in an enum so that HALs can reference it",
+      "range": {
+        "startLine": 1288,
+        "startChar": 84,
+        "endLine": 1288,
+        "endChar": 86
+      },
+      "revId": "c77bbf3614adc52d4dc1819048f4521986e40b38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4f8679f_2bdb071d",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_icc.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-03-20T18:21:09Z",
+      "side": 1,
+      "message": "why not size_t and no \u0027(int)\u0027 cast?",
+      "range": {
+        "startLine": 237,
+        "startChar": 9,
+        "endLine": 237,
+        "endChar": 12
+      },
+      "revId": "c77bbf3614adc52d4dc1819048f4521986e40b38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b9e6e59_d5556270",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_icc.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-03-20T18:21:09Z",
+      "side": 1,
+      "message": "maybe pull out into a constant?",
+      "range": {
+        "startLine": 239,
+        "startChar": 82,
+        "endLine": 239,
+        "endChar": 86
+      },
+      "revId": "c77bbf3614adc52d4dc1819048f4521986e40b38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
