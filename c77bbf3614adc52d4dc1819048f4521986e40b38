@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "c78d6d32_fbe47de3",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_icc.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-03-20T18:26:43Z",
+      "side": 1,
+      "message": "Sanket (who\u0027s working on VTS) can address this in a separate CL.",
+      "parentUuid": "a4f8679f_2bdb071d",
+      "range": {
+        "startLine": 237,
+        "startChar": 9,
+        "endLine": 237,
+        "endChar": 12
+      },
+      "revId": "c77bbf3614adc52d4dc1819048f4521986e40b38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0b9e6e59_d5556270",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_icc.cpp",
         "patchSetId": 12
