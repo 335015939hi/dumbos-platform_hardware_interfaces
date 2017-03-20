@@ -466,6 +466,15 @@ interface ISupplicantStaIfaceCallback {
   oneway onEapFailure();
 
   /**
+   * Used to indicate the change of active bssid.
+   * This is useful to figure out when the driver/firmware roams to a bssid
+   * on it's own.
+   *
+   * @param bssid BSSID of the corresponding AP.
+   */
+  oneway onBssidChanged(Bssid bssid);
+
+  /**
    * Used to indicate the success of a WPS connection attempt.
    */
   oneway onWpsEventSuccess();
