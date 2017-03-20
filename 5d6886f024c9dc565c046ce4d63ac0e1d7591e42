@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "212c52cf_956a9f0d",
+        "filename": "bluetooth/1.0/default/bluetooth_hci.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2017-03-20T23:01:29Z",
+      "side": 1,
+      "message": "Martijn,\n\nShould we be setting this pointer to nullptr here?",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 18
+      },
+      "revId": "5d6886f024c9dc565c046ce4d63ac0e1d7591e42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "21afed89_d1160261",
+        "filename": "bluetooth/1.0/default/bluetooth_hci.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2017-03-20T23:01:29Z",
+      "side": 1,
+      "message": "Should we do this after VendorInterface::Shutdown?\n\nIs there a downside to calling unlinkToDeath very last?",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 31
+      },
+      "revId": "5d6886f024c9dc565c046ce4d63ac0e1d7591e42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
