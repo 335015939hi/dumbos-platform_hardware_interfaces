@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8d4038b1_ac52c376",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 1288,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-03-20T18:25:55Z",
+      "side": 1,
+      "message": "This is only for backward compatibility of a deprecated API. I think it\u0027s ok to leave it this way. Let me know what you think.",
+      "parentUuid": "25f0d1ed_8b96e9cb",
+      "range": {
+        "startLine": 1288,
+        "startChar": 84,
+        "endLine": 1288,
+        "endChar": 86
+      },
+      "revId": "c77bbf3614adc52d4dc1819048f4521986e40b38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a4f8679f_2bdb071d",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_icc.cpp",
         "patchSetId": 12
