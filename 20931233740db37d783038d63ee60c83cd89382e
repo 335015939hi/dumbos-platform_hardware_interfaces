@@ -22,6 +22,30 @@
       "revId": "20931233740db37d783038d63ee60c83cd89382e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7560d14d_a286356b",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 1061,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2017-03-21T23:53:40Z",
+      "side": 1,
+      "message": "Done. Didn\u0027t help on the cpp side since converting to/from different structs.",
+      "parentUuid": "65631689_9ee5f5ba",
+      "range": {
+        "startLine": 1031,
+        "startChar": 0,
+        "endLine": 1061,
+        "endChar": 48
+      },
+      "revId": "20931233740db37d783038d63ee60c83cd89382e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
