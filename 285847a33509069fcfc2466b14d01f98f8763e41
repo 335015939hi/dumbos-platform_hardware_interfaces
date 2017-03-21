@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c60fc27_78f36a3a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1081399
+      },
+      "writtenOn": "2017-03-21T02:10:12Z",
+      "side": 1,
+      "message": "It seems like PS4 undoes the changes from PS3. Maybe the PS3 version got lost in a rebase?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 36
+      },
+      "revId": "285847a33509069fcfc2466b14d01f98f8763e41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
