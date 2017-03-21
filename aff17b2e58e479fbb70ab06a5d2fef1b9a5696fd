@@ -1,0 +1,101 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "35338da9_c614fab0",
+        "filename": "wifi/keystore/1.0/default/Android.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-03-21T01:10:09Z",
+      "side": 1,
+      "message": "why not soong?",
+      "revId": "aff17b2e58e479fbb70ab06a5d2fef1b9a5696fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85922ece_473d6247",
+        "filename": "wifi/keystore/1.0/default/Android.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-03-21T01:10:09Z",
+      "side": 1,
+      "message": "delete",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 33
+      },
+      "revId": "aff17b2e58e479fbb70ab06a5d2fef1b9a5696fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c83fe92_1823a672",
+        "filename": "wifi/keystore/1.0/default/android.hardware.wifi.keystore@1.0-service.rc",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-03-21T01:10:09Z",
+      "side": 1,
+      "message": "system",
+      "revId": "aff17b2e58e479fbb70ab06a5d2fef1b9a5696fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f10c9ca_79b5ba2e",
+        "filename": "wifi/keystore/1.0/default/keystore.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-03-21T01:10:09Z",
+      "side": 1,
+      "message": "why have this method then?",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 1
+      },
+      "revId": "aff17b2e58e479fbb70ab06a5d2fef1b9a5696fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8583fa6_09190e8d",
+        "filename": "wifi/keystore/1.0/default/keystore.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-03-21T01:10:09Z",
+      "side": 1,
+      "message": "delete, this should have no passthrough mode",
+      "revId": "aff17b2e58e479fbb70ab06a5d2fef1b9a5696fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
