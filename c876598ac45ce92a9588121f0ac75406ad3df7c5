@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5c550500_ea9ef254",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 1032,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2017-03-21T23:07:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13148d44_eaab0bae",
+      "range": {
+        "startLine": 1032,
+        "startChar": 17,
+        "endLine": 1032,
+        "endChar": 18
+      },
+      "revId": "c876598ac45ce92a9588121f0ac75406ad3df7c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "38c94ebe_8799e5bc",
         "filename": "wifi/1.0/types.hal",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2017-03-21T20:12:52Z",
       "side": 1,
       "message": "why isn\u0027t this a string?",
+      "range": {
+        "startLine": 1036,
+        "startChar": 2,
+        "endLine": 1036,
+        "endChar": 14
+      },
+      "revId": "c876598ac45ce92a9588121f0ac75406ad3df7c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "75d60116_c18139c0",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 1036,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2017-03-21T23:07:06Z",
+      "side": 1,
+      "message": "Here and elsewhere in this API. The mapping from a String to a byte array should be done by the caller. This is not necessarily an ASCII byte array.",
+      "parentUuid": "38c94ebe_8799e5bc",
       "range": {
         "startLine": 1036,
         "startChar": 2,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "07473c30_7d7bded3",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 1263,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2017-03-21T23:07:06Z",
+      "side": 1,
+      "message": "same",
+      "parentUuid": "cd38e1ed_591b52e7",
+      "range": {
+        "startLine": 1263,
+        "startChar": 7,
+        "endLine": 1263,
+        "endChar": 19
+      },
+      "revId": "c876598ac45ce92a9588121f0ac75406ad3df7c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a0c1bad_3d8356e4",
         "filename": "wifi/1.0/types.hal",
         "patchSetId": 4
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "5b31e2c9_872b8347",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 1313,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2017-03-21T23:07:06Z",
+      "side": 1,
+      "message": "Eliminated since a constant",
+      "parentUuid": "9a0c1bad_3d8356e4",
+      "range": {
+        "startLine": 1313,
+        "startChar": 17,
+        "endLine": 1313,
+        "endChar": 19
+      },
+      "revId": "c876598ac45ce92a9588121f0ac75406ad3df7c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "49b1f693_06315238",
         "filename": "wifi/1.0/types.hal",
         "patchSetId": 4
@@ -105,6 +201,30 @@
       "writtenOn": "2017-03-21T20:12:52Z",
       "side": 1,
       "message": "same as above",
+      "range": {
+        "startLine": 1320,
+        "startChar": 17,
+        "endLine": 1320,
+        "endChar": 18
+      },
+      "revId": "c876598ac45ce92a9588121f0ac75406ad3df7c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "accb9dca_30431f85",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 1320,
+      "author": {
+        "id": 1039103
+      },
+      "writtenOn": "2017-03-21T23:07:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "49b1f693_06315238",
       "range": {
         "startLine": 1320,
         "startChar": 17,
