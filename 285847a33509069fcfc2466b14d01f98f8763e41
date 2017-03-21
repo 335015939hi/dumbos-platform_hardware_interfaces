@@ -22,6 +22,30 @@
       "revId": "285847a33509069fcfc2466b14d01f98f8763e41",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f736766_f302e154",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-21T02:22:10Z",
+      "side": 1,
+      "message": "Aargh. Sorry. Fixed now.",
+      "parentUuid": "3c60fc27_78f36a3a",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 36
+      },
+      "revId": "285847a33509069fcfc2466b14d01f98f8763e41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
