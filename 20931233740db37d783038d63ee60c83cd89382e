@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "65631689_9ee5f5ba",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 1061,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-21T23:11:04Z",
+      "side": 1,
+      "message": "These 4 params seem to be used together in a few structs, can we group this into a separate struct which can be reused.",
+      "range": {
+        "startLine": 1031,
+        "startChar": 0,
+        "endLine": 1061,
+        "endChar": 48
+      },
+      "revId": "20931233740db37d783038d63ee60c83cd89382e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
