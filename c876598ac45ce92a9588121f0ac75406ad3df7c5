@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "13148d44_eaab0bae",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 1032,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-03-21T20:12:52Z",
+      "side": 1,
+      "message": "can you define this in a HIDL enumeration instead?",
+      "range": {
+        "startLine": 1032,
+        "startChar": 17,
+        "endLine": 1032,
+        "endChar": 18
+      },
+      "revId": "c876598ac45ce92a9588121f0ac75406ad3df7c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "38c94ebe_8799e5bc",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 1036,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-03-21T20:12:52Z",
+      "side": 1,
+      "message": "why isn\u0027t this a string?",
+      "range": {
+        "startLine": 1036,
+        "startChar": 2,
+        "endLine": 1036,
+        "endChar": 14
+      },
+      "revId": "c876598ac45ce92a9588121f0ac75406ad3df7c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd38e1ed_591b52e7",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 1263,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-03-21T20:12:52Z",
+      "side": 1,
+      "message": "why not use a string?",
+      "range": {
+        "startLine": 1263,
+        "startChar": 7,
+        "endLine": 1263,
+        "endChar": 19
+      },
+      "revId": "c876598ac45ce92a9588121f0ac75406ad3df7c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a0c1bad_3d8356e4",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 1313,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-03-21T20:12:52Z",
+      "side": 1,
+      "message": "yeah, really, most of these should be specified in hidl constants, might do in a followup CL for old ones",
+      "range": {
+        "startLine": 1313,
+        "startChar": 17,
+        "endLine": 1313,
+        "endChar": 19
+      },
+      "revId": "c876598ac45ce92a9588121f0ac75406ad3df7c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "49b1f693_06315238",
+        "filename": "wifi/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 1320,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-03-21T20:12:52Z",
+      "side": 1,
+      "message": "same as above",
+      "range": {
+        "startLine": 1320,
+        "startChar": 17,
+        "endLine": 1320,
+        "endChar": 18
+      },
+      "revId": "c876598ac45ce92a9588121f0ac75406ad3df7c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
