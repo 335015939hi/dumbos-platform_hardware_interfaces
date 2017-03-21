@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9e7e58e5_042e5105",
+        "filename": "nfc/1.0/default/Nfc.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1041663
+      },
+      "writtenOn": "2017-03-21T20:47:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a52c7801_79e58dd6",
+      "range": {
+        "startLine": 25,
+        "startChar": 19,
+        "endLine": 25,
+        "endChar": 23
+      },
+      "revId": "50d63747103c61c5050bf346781fce014e450907",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6c5cf735_cd0bf586",
         "filename": "nfc/1.0/default/Nfc.cpp",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "3264baf0_075f0158",
+        "filename": "nfc/1.0/default/Nfc.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1041663
+      },
+      "writtenOn": "2017-03-21T20:47:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c5cf735_cd0bf586",
+      "range": {
+        "startLine": 86,
+        "startChar": 17,
+        "endLine": 87,
+        "endChar": 5
+      },
+      "revId": "50d63747103c61c5050bf346781fce014e450907",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e0de87a0_f620ad13",
         "filename": "nfc/1.0/default/Nfc.cpp",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2017-03-14T06:11:42Z",
       "side": 1,
       "message": "will this ever be nullptr when ret is zero?",
+      "range": {
+        "startLine": 97,
+        "startChar": 23,
+        "endLine": 97,
+        "endChar": 33
+      },
+      "revId": "50d63747103c61c5050bf346781fce014e450907",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "31a211c3_3af11b3e",
+        "filename": "nfc/1.0/default/Nfc.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1041663
+      },
+      "writtenOn": "2017-03-21T20:47:08Z",
+      "side": 1,
+      "message": "no there wouldn\u0027t be that case.",
+      "parentUuid": "e0de87a0_f620ad13",
       "range": {
         "startLine": 97,
         "startChar": 23,
