@@ -116,6 +116,30 @@
       "revId": "c77bbf3614adc52d4dc1819048f4521986e40b38",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60db11ad_74fd5d07",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_icc.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1134734
+      },
+      "writtenOn": "2017-03-21T23:10:38Z",
+      "side": 1,
+      "message": "if the IRadio.hal change is fine as is then I\u0027ll upload a new patchset and put the value 0x04 in a constant.",
+      "parentUuid": "0b9e6e59_d5556270",
+      "range": {
+        "startLine": 239,
+        "startChar": 82,
+        "endLine": 239,
+        "endChar": 86
+      },
+      "revId": "c77bbf3614adc52d4dc1819048f4521986e40b38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
