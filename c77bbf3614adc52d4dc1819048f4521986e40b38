@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "e0325d5d_3921a2f6",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 1288,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-03-22T23:11:02Z",
+      "side": 1,
+      "message": "Might as well add it. See an example set of CLs here:\n\nhttps://android-review.googlesource.com/c/355735/",
+      "parentUuid": "8d4038b1_ac52c376",
+      "range": {
+        "startLine": 1288,
+        "startChar": 84,
+        "endLine": 1288,
+        "endChar": 86
+      },
+      "revId": "c77bbf3614adc52d4dc1819048f4521986e40b38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a4f8679f_2bdb071d",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_icc.cpp",
         "patchSetId": 12
