@@ -1,0 +1,10 @@
+package android.hardware.bug36140237@1.0;
+
+import IListener;
+
+interface IAppService {
+    registerToService(IListener listener) generates (bool status);
+
+    sendData(myData data) generates (bool status);
+};
+

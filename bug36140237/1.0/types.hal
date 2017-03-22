@@ -1,0 +1,8 @@
+package android.hardware.bug36140237@1.0;
+
+struct myData
+{
+    bool abc;
+    int32_t xyz;
+    vec<string> listofStrings;
+};
