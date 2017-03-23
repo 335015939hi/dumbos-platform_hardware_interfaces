@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "92a53167_cb774f2c",
+        "filename": "wifi/offload/1.0/IOffload.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1118893
+      },
+      "writtenOn": "2017-03-23T18:49:13Z",
+      "side": 1,
+      "message": "Yes I can understand why this can be confusing. HIDL design pattern requires registering a callback interface in a different API. subscribe() unsubscribe() are merely ways of enabling/disabling offload module from doing scans and/or informing the client over whatever callback interface is registered. Since this API does not change the callback interface, the meaning of calling subscribe() twice without calling unsubscribe() in between implies no op.",
+      "parentUuid": "210f4285_397918c7",
+      "range": {
+        "startLine": 44,
+        "startChar": 54,
+        "endLine": 45,
+        "endChar": 74
+      },
+      "revId": "369fdaf84a83ab7f51c3a4e6cc2600fa61243679",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "baae17c7_b3504c11",
         "filename": "wifi/offload/1.0/IOffload.hal",
         "patchSetId": 6
