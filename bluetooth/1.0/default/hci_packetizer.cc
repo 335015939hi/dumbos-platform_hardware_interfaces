@@ -47,6 +47,20 @@ namespace hci {
 
 const hidl_vec<uint8_t>& HciPacketizer::GetPacket() const { return packet_; }
 
+#ifdef BT_USB
+void HciPacketizer::CbHciPacket(uint8_t *data, size_t len) {
+#ifdef BT_DUMP_PKT
+    size_t i = 0;
+    while (i < length) {
+        ALOGE("response[%zx]:%x", i, data[i]);
+        i++;
+      }
+#endif //BT_DUMP_PKT
+    packet_.setToExternal(data, len);
+    packet_ready_cb_();
+}
+#endif //BT_USB
+
 void HciPacketizer::OnDataReady(int fd, HciPacketType packet_type) {
   switch (state_) {
     case HCI_PREAMBLE: {

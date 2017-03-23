@@ -41,6 +41,7 @@ class HciProtocol {
 
  protected:
   static size_t WriteSafely(int fd, const uint8_t* data, size_t length);
+  static size_t WritevSafely(int fd, uint8_t type, const uint8_t* data, size_t length);
 };
 
 }  // namespace hci

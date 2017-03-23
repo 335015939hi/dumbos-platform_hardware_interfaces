@@ -42,9 +42,9 @@ MctProtocol::MctProtocol(int* fds, PacketReadCallback event_cb,
 
 size_t MctProtocol::Send(uint8_t type, const uint8_t* data, size_t length) {
   if (type == HCI_PACKET_TYPE_COMMAND)
-    return WriteSafely(uart_fds_[CH_CMD], data, length);
+    return WritevSafely(uart_fds_[CH_CMD], type, data, length);
   if (type == HCI_PACKET_TYPE_ACL_DATA)
-    return WriteSafely(uart_fds_[CH_ACL_OUT], data, length);
+    return WritevSafely(uart_fds_[CH_ACL_OUT], type, data, length);
   CHECK(type == HCI_PACKET_TYPE_COMMAND || type == HCI_PACKET_TYPE_ACL_DATA);
   return 0;
 }

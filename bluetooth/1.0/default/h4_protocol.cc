@@ -20,6 +20,7 @@
 #include <android-base/logging.h>
 #include <assert.h>
 #include <fcntl.h>
+#include <utils/Log.h>
 
 namespace android {
 namespace hardware {
@@ -27,11 +28,11 @@ namespace bluetooth {
 namespace hci {
 
 size_t H4Protocol::Send(uint8_t type, const uint8_t* data, size_t length) {
-  int rv = WriteSafely(uart_fd_, &type, sizeof(type));
-  if (rv == sizeof(type)) {
-    rv = WriteSafely(uart_fd_, data, length);
-  }
-  return rv;
+    /* For HCI communication over USB dongle, multiple write results in
+     * response timeout as driver expect type + data at once to process
+     * the command, so using "writev"(for atomicity) here.
+     */
+    return WritevSafely(uart_fd_, type, data, length);
 }
 
 void H4Protocol::OnPacketReady() {
@@ -55,14 +56,27 @@ void H4Protocol::OnPacketReady() {
 }
 
 void H4Protocol::OnDataReady(int fd) {
-  if (hci_packet_type_ == HCI_PACKET_TYPE_UNKNOWN) {
-    uint8_t buffer[1] = {0};
-    size_t bytes_read = TEMP_FAILURE_RETRY(read(fd, buffer, 1));
-    CHECK(bytes_read == 1);
-    hci_packet_type_ = static_cast<HciPacketType>(buffer[0]);
-  } else {
-    hci_packetizer_.OnDataReady(fd, hci_packet_type_);
-  }
+    if (hci_packet_type_ == HCI_PACKET_TYPE_UNKNOWN) {
+        /**
+         * read full buffer. ACL max length is 2 bytes, and SCO max length is 2
+         * byte. so taking 64K as buffer length.
+         * Question : Why to read in single chunk rather than multiple reads,
+         * which can give parameter length arriving in response ?
+         * Answer: The multiple reads does not work with BT USB dongle. At least
+         * with Bluetooth 2.0 supported USB dongle. After first read, either
+         * firmware/kernel (do not know who is responsible - inputs ??) driver
+         * discard the whole message and successive read results in forever
+         * blocking loop. - Is there any other way to make it work with multiple
+         * reads, do not know yet (it can eliminate need of this function) ?
+         * Reading in single shot gives expected response.
+         */
+        const size_t max_plen = 64*1024;
+        hidl_vec<uint8_t> tpkt;
+        tpkt.resize(max_plen);
+        size_t bytes_read = TEMP_FAILURE_RETRY(read(fd, tpkt.data(), max_plen));
+        hci_packet_type_ = static_cast<HciPacketType>(tpkt.data()[0]);
+        hci_packetizer_.CbHciPacket(tpkt.data()+1, bytes_read-1);
+    }
 }
 
 }  // namespace hci
