@@ -49,3 +49,9 @@ bool configureChipToSupportIfaceType(
     android::hardware::wifi::V1_0::ChipModeId* configured_mode_id);
 // Used to trigger IWifi.stop() at the end of every test.
 void stopWifi();
+
+class WifiHidlEnvironment : public ::testing::Environment {
+ public:
+  virtual void SetUp() override { stopFramework(); }
+  virtual void TearDown() override { startFramework(); }
+};
