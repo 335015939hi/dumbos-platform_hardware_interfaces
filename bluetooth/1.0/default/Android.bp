@@ -63,6 +63,9 @@ cc_library_static {
         "h4_protocol.cc",
         "mct_protocol.cc",
     ],
+	cflags: [
+		"-DBT_USB",
+	],
     export_include_dirs: ["."],
     shared_libs: [
         "libbase",
