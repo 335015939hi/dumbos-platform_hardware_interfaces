@@ -29,6 +29,14 @@
 void stopFramework();
 void startFramework();
 
+class WifiHidlEnvironment : public ::testing::Environment {
+ public:
+  virtual void SetUp() override { stopFramework(); }
+  virtual void TearDown() override { startFramework(); }
+
+ private:
+};
+
 // Helper functions to obtain references to the various HIDL interface objects.
 // Note: We only have a single instance of each of these objects currently.
 // These helper functions should be modified to return vectors if we support
