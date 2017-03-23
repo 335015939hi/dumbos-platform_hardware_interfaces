@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1f221353_b69af80c",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_test_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-03-23T15:17:18Z",
+      "side": 1,
+      "message": "Put this class below all the other functions in this file?",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 2
+      },
+      "revId": "cef15d2f9ab18ee6c6db161ab0e072dbd538ae13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
