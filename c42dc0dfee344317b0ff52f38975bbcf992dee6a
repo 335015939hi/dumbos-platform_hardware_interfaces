@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f77c1b17_9f56917d",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_test_utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2017-03-23T15:50:34Z",
+      "side": 1,
+      "message": "framework start and stop is done by the host-side template already so this can be deleted from the target-side.\n\ndo we need to turn off any native servers?",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 2
+      },
+      "revId": "c42dc0dfee344317b0ff52f38975bbcf992dee6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
