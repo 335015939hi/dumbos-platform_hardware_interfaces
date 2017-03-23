@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e6c58d69_002c4d24",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 1288,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-03-23T00:10:02Z",
+      "side": 1,
+      "message": "should be :",
+      "range": {
+        "startLine": 1288,
+        "startChar": 81,
+        "endLine": 1288,
+        "endChar": 82
+      },
+      "revId": "c54d88b28a18a0dc1f137f9ba8dd7d0e6df2303d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b97796ce_4621e7df",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 2022,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-03-23T00:10:02Z",
+      "side": 1,
+      "message": "all enums are together above. Please move this right after DeviceStateType",
+      "revId": "c54d88b28a18a0dc1f137f9ba8dd7d0e6df2303d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
