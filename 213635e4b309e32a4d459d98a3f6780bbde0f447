@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "11450cac_52b05012",
+        "filename": "radio/1.0/vts/functional/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-03-24T00:48:36Z",
+      "side": 1,
+      "message": "move this to the top (alphabetical order)",
+      "range": {
+        "startLine": 53,
+        "startChar": 12,
+        "endLine": 53,
+        "endChar": 24
+      },
+      "revId": "213635e4b309e32a4d459d98a3f6780bbde0f447",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
