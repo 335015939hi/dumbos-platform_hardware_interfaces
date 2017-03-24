@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "352d355b_0c788376",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_test_utils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2017-03-24T00:35:07Z",
+      "side": 1,
+      "message": "this can be moved to host side as well in the future...",
+      "range": {
+        "startLine": 86,
+        "startChar": 4,
+        "endLine": 86,
+        "endChar": 12
+      },
+      "revId": "bcb0427ea3005334713862489fb236f628e9d8e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
