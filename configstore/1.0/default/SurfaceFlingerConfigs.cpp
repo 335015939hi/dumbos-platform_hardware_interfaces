@@ -12,7 +12,6 @@ namespace implementation {
 Return<void> SurfaceFlingerConfigs::vsyncEventPhaseOffsetNs(vsyncEventPhaseOffsetNs_cb _hidl_cb) {
 #ifdef VSYNC_EVENT_PHASE_OFFSET_NS
     _hidl_cb({true, VSYNC_EVENT_PHASE_OFFSET_NS});
-    LOG(INFO) << "vsync event phase offset ns =  " << VSYNC_EVENT_PHASE_OFFSET_NS;
 #else
     _hidl_cb({false, 0});
 #endif
@@ -25,7 +24,6 @@ Return<void> SurfaceFlingerConfigs::useTripleFramebuffer(useTripleFramebuffer_cb
     value = true;
 #endif
     _hidl_cb({true, value});
-    LOG(INFO) << "SurfaceFlinger FrameBuffer: " << (value ? "triple" : "double");
     return Void();
 }
 
