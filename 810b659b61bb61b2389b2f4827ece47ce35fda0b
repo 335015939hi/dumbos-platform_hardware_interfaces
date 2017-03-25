@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "87209219_70d5894a",
+        "filename": "radio/1.0/vts/functional/sap_callback.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2017-03-25T02:01:22Z",
+      "side": 1,
+      "message": "Either delete this or uncomment it.",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 6
+      },
+      "revId": "810b659b61bb61b2389b2f4827ece47ce35fda0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
