@@ -65,10 +65,10 @@ HC_BT_HDR* WrapPacketAndCopy(uint16_t event, const hidl_vec<uint8_t>& data) {
   memcpy(packet->data, data.data(), data.size());
   return packet;
 }
-
+#if 0
 bool internal_command_event_match(const hidl_vec<uint8_t>& packet) {
   uint8_t event_code = packet[0];
-  if (event_code != HCI_COMMAND_COMPLETE_EVENT) {
+  if ((event_code != HCI_COMMAND_COMPLETE_EVENT) || (event_code != HCI_VENDOR_SPECIFIC_EVENT)) {
     ALOGE("%s: Unhandled event type %02X", __func__, event_code);
     return false;
   }
@@ -81,6 +81,7 @@ bool internal_command_event_match(const hidl_vec<uint8_t>& packet) {
         internal_command.opcode, opcode);
   return opcode == internal_command.opcode;
 }
+#endif
 
 uint8_t transmit_cb(uint16_t opcode, void* buffer, tINT_CMD_CBACK callback) {
   ALOGV("%s opcode: 0x%04x, ptr: %p, cb: %p", __func__, opcode, buffer,
@@ -131,11 +132,19 @@ void a2dp_offload_cb(bt_vendor_op_result_t result, bt_vendor_opcode_t op,
   ALOGD("%s result: %d, op: %d, handle: %d", __func__, result, op, av_handle);
 }
 
+uint8_t int_evt_callback_reg_cb(tINT_CMD_CBACK p_cb)
+{
+	ALOGD( "%s registration DONE", __func__);
+	internal_command.cb=p_cb;
+
+	return BT_VND_OP_RESULT_SUCCESS;
+}
+
 const bt_vendor_callbacks_t lib_callbacks = {
     sizeof(lib_callbacks), firmware_config_cb, sco_config_cb,
     low_power_mode_cb,     sco_audiostate_cb,  buffer_alloc_cb,
     buffer_free_cb,        transmit_cb,        epilog_cb,
-    a2dp_offload_cb};
+    a2dp_offload_cb,       int_evt_callback_reg_cb};
 
 }  // namespace
 
@@ -352,13 +361,11 @@ void VendorInterface::OnTimeout() {
 }
 
 void VendorInterface::HandleIncomingEvent(const hidl_vec<uint8_t>& hci_packet) {
-  if (internal_command.cb != nullptr &&
-      internal_command_event_match(hci_packet)) {
+  if (internal_command.cb != nullptr) {
     HC_BT_HDR* bt_hdr = WrapPacketAndCopy(HCI_PACKET_TYPE_EVENT, hci_packet);
 
     // The callbacks can send new commands, so don't zero after calling.
     tINT_CMD_CBACK saved_cb = internal_command.cb;
-    internal_command.cb = nullptr;
     saved_cb(bt_hdr);
   } else {
     event_cb_(hci_packet);
