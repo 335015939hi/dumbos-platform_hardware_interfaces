@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "1c71c42d_221470d2",
+        "filename": "renderscript/1.0/vts/functional/VtsScriptTests.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2017-03-27T20:50:35Z",
+      "side": 1,
+      "message": "perhaps remove?",
+      "range": {
+        "startLine": 301,
+        "startChar": 6,
+        "endLine": 301,
+        "endChar": 9
+      },
+      "revId": "d44c670796c5f8b1883781728e205a1746ec260a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a1361b01_75c390dd",
+        "filename": "renderscript/1.0/vts/functional/VtsScriptTests.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2017-03-27T20:50:35Z",
+      "side": 1,
+      "message": "perhaps remove?",
+      "range": {
+        "startLine": 310,
+        "startChar": 10,
+        "endLine": 310,
+        "endChar": 11
+      },
+      "revId": "d44c670796c5f8b1883781728e205a1746ec260a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "73297b9e_01eefc51",
         "filename": "renderscript/1.0/vts/functional/bitcode.cpp",
         "patchSetId": 6
