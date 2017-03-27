@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "109f3f3c_d4f47f54",
+        "filename": "nfc/1.0/vts/functional/VtsHalNfcV1_0TargetTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1132849
+      },
+      "writtenOn": "2017-03-27T23:00:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13e9947f_855791fe",
+      "range": {
+        "startLine": 75,
+        "startChar": 6,
+        "endLine": 75,
+        "endChar": 33
+      },
+      "revId": "97ea207a29d609cdaa8196e312e7c32b007708a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1b0c70f4_523e0ed9",
         "filename": "nfc/1.0/vts/functional/VtsHalNfcV1_0TargetTest.cpp",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2017-03-27T20:47:31Z",
       "side": 1,
       "message": "does it make sense to remove parent_ complete by adding some more apis to the callback lib?",
+      "range": {
+        "startLine": 102,
+        "startChar": 6,
+        "endLine": 103,
+        "endChar": 42
+      },
+      "revId": "97ea207a29d609cdaa8196e312e7c32b007708a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "262d94c4_8f6278bc",
+        "filename": "nfc/1.0/vts/functional/VtsHalNfcV1_0TargetTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1132849
+      },
+      "writtenOn": "2017-03-27T23:00:23Z",
+      "side": 1,
+      "message": "Yes. That will be the api\u0027s I\u0027m gonna push in next cl. Let\u0027s keep this patch as an example for the simplified api. will update soon",
+      "parentUuid": "1b0c70f4_523e0ed9",
       "range": {
         "startLine": 102,
         "startChar": 6,
