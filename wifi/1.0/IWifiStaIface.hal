@@ -145,6 +145,24 @@ interface IWifiStaIface extends IWifiIface {
    * program if present.
    * Must fail if |StaIfaceCapabilityMask.APF| is not set.
    *
+   * APF docs
+   * ==========================================================================
+   * APF functionality, instructions and bytecode/binary format is described in:
+   * http://androidxref.com/7.0.0_r1/xref/hardware/google/apf/apf.h.
+   * The interpreter API is described here:
+   * http://androidxref.com/7.0.0_r1/xref/hardware/google/apf/
+   * apf_interpreter.h#32.
+   * The assembler/generator API is described in javadocs here:
+   * http://androidxref.com/7.0.0_r1/xref/frameworks/base/services/net/java/
+   * android/net/apf/ApfGenerator.java.
+   * Disassembler usage is described here:
+   * http://androidxref.com/7.0.0_r1/xref/hardware/google/apf/
+   * apf_disassembler.c#65.
+   * The BPF to APF translator usage is described here:
+   * http://androidxref.com/7.0.0_r1/xref/frameworks/base/services/tests/
+   * servicestests/src/android/net/apf/Bpf2Apf.java
+   * ==========================================================================
+   *
    * @param cmdId command Id to use for this invocation.
    * @param APF Program to be set.
    * @return status WifiStatus of the operation.
