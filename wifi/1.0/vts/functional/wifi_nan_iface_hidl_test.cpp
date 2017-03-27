@@ -20,6 +20,7 @@
 #include <android/hardware/wifi/1.0/IWifiNanIfaceEventCallback.h>
 
 #include <VtsHalHidlTargetTestBase.h>
+#include <set>
 
 #include "wifi_hidl_call_util.h"
 #include "wifi_hidl_test_utils.h"
@@ -243,3 +244,53 @@ INSTANTIATE_TEST_CASE_P(enableRequestSuccessTestCases, EnableRequestFixture,
     EnableRequestParameters(10, true, true, false, 0xFFFF, 0x0000),
     EnableRequestParameters(10, true, true, true, 0xFFFF, 0x0000)
 ));
+
+TEST_F(EnableRequestFixture, addressChangeOnEnable) {
+  std::set<std::string> addresses;
+  for (int i = 0; i < 10; ++i) {
+    uint16_t inputCmdId = commandId++;
+    std::shared_ptr<NanEnableRequest> msg = getInitializedNanEnableRequest();
+
+    ASSERT_EQ(WifiStatusCode::SUCCESS,
+         HIDL_INVOKE(iwifiNanIface, enableRequest, inputCmdId, *msg).code);
+    // wait for a notification
+    auto cbd = callback->wait(CallbackType::NOTIFY_ENABLE_RESPONSE);
+    ASSERT_NE(cbd->callbackType, CallbackType::TIMEOUT);
+    ASSERT_EQ(cbd->callbackType, CallbackType::NOTIFY_ENABLE_RESPONSE);
+    ASSERT_EQ(cbd->id, inputCmdId);
+    ASSERT_EQ(cbd->status.status, NanStatusType::SUCCESS);
+
+    // wait for event
+    do {
+      cbd = callback->wait(CallbackType::EVENT_CLUSTER_EVENT);
+      ASSERT_NE(cbd->callbackType, CallbackType::TIMEOUT);
+      ASSERT_EQ(cbd->callbackType, CallbackType::EVENT_CLUSTER_EVENT);
+    } while (cbd->nanClusterEventInd.eventType
+          != NanClusterEventType::DISCOVERY_MAC_ADDRESS_CHANGED);
+
+    ASSERT_EQ(cbd->nanClusterEventInd.addr.size(), (unsigned long) 6);
+    char macStr[18];
+    snprintf(macStr, sizeof(macStr), "%02x:%02x:%02x:%02x:%02x:%02x",
+        cbd->nanClusterEventInd.addr[0],
+        cbd->nanClusterEventInd.addr[1],
+        cbd->nanClusterEventInd.addr[2],
+        cbd->nanClusterEventInd.addr[3],
+        cbd->nanClusterEventInd.addr[4],
+        cbd->nanClusterEventInd.addr[5]);
+
+    addresses.insert(macStr);
+
+    // disable
+    inputCmdId = commandId++;
+    ASSERT_EQ(WifiStatusCode::SUCCESS,
+          HIDL_INVOKE(iwifiNanIface, disableRequest, inputCmdId).code);
+    // wait for a notification
+    cbd = callback->wait(CallbackType::NOTIFY_DISABLE_RESPONSE);
+    ASSERT_NE(cbd->callbackType, CallbackType::TIMEOUT);
+    ASSERT_EQ(cbd->callbackType, CallbackType::NOTIFY_DISABLE_RESPONSE);
+    ASSERT_EQ(cbd->id, inputCmdId);
+    ASSERT_EQ(cbd->status.status, NanStatusType::SUCCESS);
+  }
+
+  ASSERT_EQ(addresses.size(), (unsigned int) 10);
+}
