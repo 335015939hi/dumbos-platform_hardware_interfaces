@@ -47,3 +47,6 @@ const size_t HCI_PREAMBLE_SIZE_MAX = HCI_ACL_PREAMBLE_SIZE;
 
 // Event codes (Volume 2, Part E, 7.7.14)
 const uint8_t HCI_COMMAND_COMPLETE_EVENT = 0x0E;
+
+/* Event code 0xFF is for vendor-specific even */
+const uint8_t HCI_VENDOR_SPECIFIC_EVENT = 0x0E;

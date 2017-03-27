@@ -325,6 +325,8 @@ typedef uint8_t (*cmd_xmit_cb)(uint16_t opcode, void* p_buf,
 typedef void (*cfg_a2dp_cb)(bt_vendor_op_result_t result, bt_vendor_opcode_t op,
                             uint8_t bta_av_handle);
 
+typedef uint8_t (*cfg_int_evt_cb) (tINT_CMD_CBACK p_cback);
+
 typedef struct {
   /** set to sizeof(bt_vendor_callbacks_t) */
   size_t size;
@@ -360,6 +362,9 @@ typedef struct {
 
   /* notifies status of a2dp offload cmd's */
   cfg_a2dp_cb a2dp_offload_cb;
+
+  /* dynamic callback registration and de-registration for event handling */
+  cfg_int_evt_cb int_evt_callback_reg_cb;
 } bt_vendor_callbacks_t;
 
 /** A2DP offload request */
