@@ -31,6 +31,8 @@ using ::android::sp;
 using ::nan::CallbackType;
 using ::nan::WifiNanIfaceEventCallback;
 
+static uint16_t commandId = 0;
+
 /**
  * Fixture to use for all NAN Iface HIDL interface tests.
  */
@@ -83,7 +85,7 @@ TEST(WifiNanIfaceHidlTestNoFixture, FailOnIfaceInvalid) {
  * getCapabilitiesRequest: validate that returns capabilities.
  */
 TEST_F(WifiNanIfaceHidlTest, getCapabilitiesRequest) {
-  uint16_t inputCmdId = 10;
+  uint16_t inputCmdId = commandId++;
   ASSERT_EQ(WifiStatusCode::SUCCESS,
         HIDL_INVOKE(iwifiNanIface, getCapabilitiesRequest, inputCmdId).code);
   // wait for a callback
@@ -148,26 +150,25 @@ class EnableRequestFixture: public WifiNanIfaceHidlTest,
      * Returns a NanEnableRequest initialized to the baseline/default values
      * used by the framework.
      */
-    NanEnableRequest getInitializedNanEnableRequest() {
-      NanEnableRequest msg;
+    std::shared_ptr<NanEnableRequest> getInitializedNanEnableRequest() {
+      NanEnableRequest* msg = new NanEnableRequest;
 
       // fill-in NanEnableRequest with typical values used by the framework
-      msg.operateInBand[(size_t) NanBandIndex::NAN_BAND_24GHZ] = true;
-      msg.operateInBand[(size_t) NanBandIndex::NAN_BAND_5GHZ] = true;
-      msg.hopCountMax = 2;
-      msg.configParams.masterPref = 10;
-      msg.configParams.disableDiscoveryAddressChangeIndication = false;
-      msg.configParams.disableStartedClusterIndication = false;
-      msg.configParams.disableJoinedClusterIndication = false;
-      msg.configParams.includePublishServiceIdsInBeacon = true;
-      msg.configParams.numberOfPublishServiceIdsInBeacon = 0;
-      msg.configParams.includeSubscribeServiceIdsInBeacon = true;
-      msg.configParams.numberOfSubscribeServiceIdsInBeacon = 0;
-      msg.configParams.rssiWindowSize = 8;
-      msg.configParams.macAddressRandomizationIntervalSec = 1800;
-      msg.configParams.acceptRangingRequests = true;
+      msg->operateInBand[(size_t) NanBandIndex::NAN_BAND_24GHZ] = true;
+      msg->operateInBand[(size_t) NanBandIndex::NAN_BAND_5GHZ] = true;
+      msg->hopCountMax = 2;
+      msg->configParams.masterPref = 10;
+      msg->configParams.disableDiscoveryAddressChangeIndication = false;
+      msg->configParams.disableStartedClusterIndication = false;
+      msg->configParams.disableJoinedClusterIndication = false;
+      msg->configParams.includePublishServiceIdsInBeacon = true;
+      msg->configParams.numberOfPublishServiceIdsInBeacon = 0;
+      msg->configParams.includeSubscribeServiceIdsInBeacon = true;
+      msg->configParams.numberOfSubscribeServiceIdsInBeacon = 0;
+      msg->configParams.rssiWindowSize = 8;
+      msg->configParams.macAddressRandomizationIntervalSec = 1800;
 
-      NanBandSpecificConfig& config24 = msg.configParams.bandSpecificConfig[
+      NanBandSpecificConfig& config24 = msg->configParams.bandSpecificConfig[
             (size_t) NanBandIndex::NAN_BAND_24GHZ];
       config24.rssiClose = 60;
       config24.rssiMiddle = 70;
@@ -176,7 +177,7 @@ class EnableRequestFixture: public WifiNanIfaceHidlTest,
       config24.scanPeriodSec = 20;
       config24.validDiscoveryWindowIntervalVal = false;
 
-      NanBandSpecificConfig& config5 = msg.configParams.bandSpecificConfig[
+      NanBandSpecificConfig& config5 = msg->configParams.bandSpecificConfig[
             (size_t) NanBandIndex::NAN_BAND_5GHZ];
       config5.rssiClose = 60;
       config5.rssiMiddle = 75;
@@ -185,50 +186,51 @@ class EnableRequestFixture: public WifiNanIfaceHidlTest,
       config5.scanPeriodSec = 20;
       config5.validDiscoveryWindowIntervalVal = false;
 
-      msg.debugConfigs.validClusterIdVals = true;
-      msg.debugConfigs.clusterIdTopRangeVal = 0xFFFF;
-      msg.debugConfigs.clusterIdBottomRangeVal = 0x0000;
-      msg.debugConfigs.validIntfAddrVal = false;
-      msg.debugConfigs.validOuiVal = false;
-      msg.debugConfigs.ouiVal = 0;
-      msg.debugConfigs.validRandomFactorForceVal = false;
-      msg.debugConfigs.randomFactorForceVal = 0;
-      msg.debugConfigs.validHopCountForceVal = false;
-      msg.debugConfigs.hopCountForceVal = 0;
-      msg.debugConfigs.validDiscoveryChannelVal = false;
-      msg.debugConfigs.discoveryChannelMhzVal[(size_t) NanBandIndex::NAN_BAND_24GHZ] = 0;
-      msg.debugConfigs.discoveryChannelMhzVal[(size_t) NanBandIndex::NAN_BAND_5GHZ] = 0;
-      msg.debugConfigs.validUseBeaconsInBandVal = false;
-      msg.debugConfigs.useBeaconsInBandVal[(size_t) NanBandIndex::NAN_BAND_24GHZ] = true;
-      msg.debugConfigs.useBeaconsInBandVal[(size_t) NanBandIndex::NAN_BAND_5GHZ] = true;
-      msg.debugConfigs.validUseSdfInBandVal = false;
-      msg.debugConfigs.useSdfInBandVal[(size_t) NanBandIndex::NAN_BAND_24GHZ] = true;
-      msg.debugConfigs.useSdfInBandVal[(size_t) NanBandIndex::NAN_BAND_5GHZ] = true;
+      msg->debugConfigs.validClusterIdVals = true;
+      msg->debugConfigs.clusterIdTopRangeVal = 0xFFFF;
+      msg->debugConfigs.clusterIdBottomRangeVal = 0x0000;
+      msg->debugConfigs.validIntfAddrVal = false;
+      msg->debugConfigs.validOuiVal = false;
+      msg->debugConfigs.ouiVal = 0;
+      msg->debugConfigs.validRandomFactorForceVal = false;
+      msg->debugConfigs.randomFactorForceVal = 0;
+      msg->debugConfigs.validHopCountForceVal = false;
+      msg->debugConfigs.hopCountForceVal = 0;
+      msg->debugConfigs.validDiscoveryChannelVal = false;
+      msg->debugConfigs.discoveryChannelMhzVal[(size_t) NanBandIndex::NAN_BAND_24GHZ] = 0;
+      msg->debugConfigs.discoveryChannelMhzVal[(size_t) NanBandIndex::NAN_BAND_5GHZ] = 0;
+      msg->debugConfigs.validUseBeaconsInBandVal = false;
+      msg->debugConfigs.useBeaconsInBandVal[(size_t) NanBandIndex::NAN_BAND_24GHZ] = true;
+      msg->debugConfigs.useBeaconsInBandVal[(size_t) NanBandIndex::NAN_BAND_5GHZ] = true;
+      msg->debugConfigs.validUseSdfInBandVal = false;
+      msg->debugConfigs.useSdfInBandVal[(size_t) NanBandIndex::NAN_BAND_24GHZ] = true;
+      msg->debugConfigs.useSdfInBandVal[(size_t) NanBandIndex::NAN_BAND_5GHZ] = true;
 
-      return msg;
+      return std::shared_ptr<NanEnableRequest>(msg);
     }
 };
 
 TEST_P(EnableRequestFixture, enableRequestSuccess) {
-  uint16_t cmdId;
-  NanEnableRequest msg = getInitializedNanEnableRequest();
+  uint16_t inputCmdId = commandId++;
+  std::shared_ptr<NanEnableRequest> msg = getInitializedNanEnableRequest();
 
   const EnableRequestParameters& overrides = GetParam();
-  msg.configParams.masterPref = overrides.masterPref;
-  msg.configParams.disableDiscoveryAddressChangeIndication =
+  msg->configParams.masterPref = overrides.masterPref;
+  msg->configParams.disableDiscoveryAddressChangeIndication =
         overrides.disableDiscoveryAddressChangeIndication;
-  msg.configParams.disableStartedClusterIndication = overrides.disableStartedClusterIndication;
-  msg.configParams.disableJoinedClusterIndication = overrides.disableJoinedClusterIndication;
-  msg.debugConfigs.clusterIdTopRangeVal = overrides.clusterIdTopRangeVal;
-  msg.debugConfigs.clusterIdBottomRangeVal = overrides.clusterIdBottomRangeVal;
+  msg->configParams.disableStartedClusterIndication = overrides.disableStartedClusterIndication;
+  msg->configParams.disableJoinedClusterIndication = overrides.disableJoinedClusterIndication;
+  msg->debugConfigs.clusterIdTopRangeVal = overrides.clusterIdTopRangeVal;
+  msg->debugConfigs.clusterIdBottomRangeVal = overrides.clusterIdBottomRangeVal;
 
   ASSERT_EQ(WifiStatusCode::SUCCESS,
-        HIDL_INVOKE(iwifiNanIface, enableRequest, cmdId, msg).code);
+        HIDL_INVOKE(iwifiNanIface, enableRequest, inputCmdId, *msg).code);
   // wait for a callback
-  ASSERT_EQ(std::cv_status::no_timeout, wait(NOTIFY_ENABLE_RESPONSE));
-  ASSERT_EQ(NOTIFY_ENABLE_RESPONSE, callbackType);
-  ASSERT_EQ(id, cmdId);
-  ASSERT_EQ(status.status, NanStatusType::SUCCESS);
+  auto cbd = callback->wait(CallbackType::NOTIFY_ENABLE_RESPONSE);
+  ASSERT_NE(cbd->callbackType, CallbackType::TIMEOUT);
+  ASSERT_EQ(cbd->callbackType, CallbackType::NOTIFY_ENABLE_RESPONSE);
+  ASSERT_EQ(cbd->id, inputCmdId);
+  ASSERT_EQ(cbd->status.status, NanStatusType::SUCCESS);
 }
 
 INSTANTIATE_TEST_CASE_P(enableRequestSuccessTestCases, EnableRequestFixture,
