@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "73297b9e_01eefc51",
+        "filename": "renderscript/1.0/vts/functional/bitcode.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1114063
+      },
+      "writtenOn": "2017-03-27T20:48:23Z",
+      "side": 1,
+      "message": "Remove?",
+      "range": {
+        "startLine": 18,
+        "startChar": 3,
+        "endLine": 18,
+        "endChar": 5
+      },
+      "revId": "d44c670796c5f8b1883781728e205a1746ec260a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
