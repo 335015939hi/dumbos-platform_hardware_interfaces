@@ -125,6 +125,30 @@
     },
     {
       "key": {
+        "uuid": "9ca2f0d2_d54edce7",
+        "filename": "wifi/keystore/1.0/default/Android.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1018773
+      },
+      "writtenOn": "2017-03-27T18:20:01Z",
+      "side": 1,
+      "message": "This HAL implementation is part of the system image. Thus, I don\u0027t see why Binder (for communication with other system/framework components) wouldn\u0027t be permitted.",
+      "parentUuid": "15eb8460_ec74daa6",
+      "range": {
+        "startLine": 30,
+        "startChar": 4,
+        "endLine": 30,
+        "endChar": 22
+      },
+      "revId": "aff17b2e58e479fbb70ab06a5d2fef1b9a5696fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0c83fe92_1823a672",
         "filename": "wifi/keystore/1.0/default/android.hardware.wifi.keystore@1.0-service.rc",
         "patchSetId": 5
