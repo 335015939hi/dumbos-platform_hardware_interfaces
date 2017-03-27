@@ -22,6 +22,30 @@
       "revId": "729d27e87987f3051f0a8aefe525be3a0d3731ca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "facb2454_8dadfac2",
+        "filename": "renderscript/1.0/vts/functional/bitcode.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2017-03-27T18:04:11Z",
+      "side": 1,
+      "message": "It\u0027s not necessary, but this is the .rs code used to generate the bitcode, which are the \"random\" numbers shown below. I think it\u0027s helpful to have as reference, but we can remove it if necessary.",
+      "parentUuid": "8047bc8b_774a0f68",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 1
+      },
+      "revId": "729d27e87987f3051f0a8aefe525be3a0d3731ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
