@@ -46,6 +46,30 @@
       "revId": "729d27e87987f3051f0a8aefe525be3a0d3731ca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "de5e7aaa_ea227fdb",
+        "filename": "renderscript/1.0/vts/functional/bitcode.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1114063
+      },
+      "writtenOn": "2017-03-27T18:12:43Z",
+      "side": 1,
+      "message": "In that case, restruct this as a description comment?",
+      "parentUuid": "facb2454_8dadfac2",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 1
+      },
+      "revId": "729d27e87987f3051f0a8aefe525be3a0d3731ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
