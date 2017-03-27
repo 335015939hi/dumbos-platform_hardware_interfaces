@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cdc71f66_af2d34f9",
+        "filename": "wifi/1.0/vts/functional/wifi_nan_iface_hidl_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2017-03-27T19:51:32Z",
+      "side": 1,
+      "message": "every test case needs a docstring as usual.",
+      "range": {
+        "startLine": 213,
+        "startChar": 0,
+        "endLine": 213,
+        "endChar": 6
+      },
+      "revId": "67c3f1901ac17758368c04f6cf43cee77eff6ed4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
