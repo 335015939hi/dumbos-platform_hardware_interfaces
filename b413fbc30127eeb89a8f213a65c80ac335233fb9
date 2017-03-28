@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "79eaff05_07bc61b1",
+        "filename": "wifi/offload/1.0/IOffload.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1118893
+      },
+      "writtenOn": "2017-03-28T21:53:06Z",
+      "side": 1,
+      "message": "will remove.",
+      "parentUuid": "c780cab7_8befc31d",
+      "range": {
+        "startLine": 33,
+        "startChar": 4,
+        "endLine": 33,
+        "endChar": 10
+      },
+      "revId": "b413fbc30127eeb89a8f213a65c80ac335233fb9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "36282ec9_a7b2a19a",
         "filename": "wifi/offload/1.0/IOffload.hal",
         "patchSetId": 11
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "941fc4e9_cf3a5ebe",
+        "filename": "wifi/offload/1.0/IOffload.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1118893
+      },
+      "writtenOn": "2017-03-28T21:53:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36282ec9_a7b2a19a",
+      "range": {
+        "startLine": 48,
+        "startChar": 37,
+        "endLine": 48,
+        "endChar": 42
+      },
+      "revId": "b413fbc30127eeb89a8f213a65c80ac335233fb9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "55ecc219_b12b6dcb",
         "filename": "wifi/offload/1.0/IOffload.hal",
         "patchSetId": 11
@@ -59,6 +107,30 @@
       "writtenOn": "2017-03-28T19:53:21Z",
       "side": 1,
       "message": "must",
+      "range": {
+        "startLine": 49,
+        "startChar": 58,
+        "endLine": 49,
+        "endChar": 62
+      },
+      "revId": "b413fbc30127eeb89a8f213a65c80ac335233fb9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c4d9335_84902d05",
+        "filename": "wifi/offload/1.0/IOffload.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1118893
+      },
+      "writtenOn": "2017-03-28T21:53:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55ecc219_b12b6dcb",
       "range": {
         "startLine": 49,
         "startChar": 58,
@@ -105,6 +177,54 @@
       "writtenOn": "2017-03-28T19:53:21Z",
       "side": 1,
       "message": "must",
+      "range": {
+        "startLine": 52,
+        "startChar": 44,
+        "endLine": 52,
+        "endChar": 47
+      },
+      "revId": "b413fbc30127eeb89a8f213a65c80ac335233fb9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "042dfdca_e31e01f2",
+        "filename": "wifi/offload/1.0/IOffload.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1118893
+      },
+      "writtenOn": "2017-03-28T21:53:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdfe6777_d72794ed",
+      "range": {
+        "startLine": 52,
+        "startChar": 68,
+        "endLine": 52,
+        "endChar": 77
+      },
+      "revId": "b413fbc30127eeb89a8f213a65c80ac335233fb9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd2febe5_9da4d4d6",
+        "filename": "wifi/offload/1.0/IOffload.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1118893
+      },
+      "writtenOn": "2017-03-28T21:53:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38932567_02f81992",
       "range": {
         "startLine": 52,
         "startChar": 44,
