@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e6046ed3_37ad2dbd",
+        "filename": "radio/1.0/vts/functional/sap_hidl_hal_test.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2017-03-28T21:24:30Z",
+      "side": 1,
+      "message": "i think can be sap_cb_ to be truly following the chosen c/c++ style.",
+      "range": {
+        "startLine": 23,
+        "startChar": 4,
+        "endLine": 23,
+        "endChar": 10
+      },
+      "revId": "ffe793313c9e427c7738cc251289e8a68176eb2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
