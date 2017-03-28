@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "72d01d8a_a28896fa",
+        "filename": "radio/1.0/vts/functional/VtsHalSapV1_0TargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2017-03-28T16:55:44Z",
+      "side": 1,
+      "message": "how about adding a comment about sap (sim-access profile)?",
+      "range": {
+        "startLine": 20,
+        "startChar": 44,
+        "endLine": 20,
+        "endChar": 47
+      },
+      "revId": "84d60b961899faea5ecea0ce6241bb06245a1ffc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbcda3af_ad24b639",
+        "filename": "radio/1.0/vts/functional/sap_hidl_hal_api.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2017-03-28T16:55:44Z",
+      "side": 1,
+      "message": "noted a space here?",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 1
+      },
+      "revId": "84d60b961899faea5ecea0ce6241bb06245a1ffc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "68d855a3_c3a3c159",
+        "filename": "radio/1.0/vts/functional/sap_hidl_hal_utils.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2017-03-28T16:55:44Z",
+      "side": 1,
+      "message": "mtx_; since it\u0027s using g3 c++ style?",
+      "range": {
+        "startLine": 82,
+        "startChar": 15,
+        "endLine": 82,
+        "endChar": 18
+      },
+      "revId": "84d60b961899faea5ecea0ce6241bb06245a1ffc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1293e25c_ca48fb02",
+        "filename": "radio/1.0/vts/functional/sap_hidl_hal_utils.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2017-03-28T16:55:44Z",
+      "side": 1,
+      "message": "how about adding a docstring to each attribute?",
+      "range": {
+        "startLine": 97,
+        "startChar": 12,
+        "endLine": 97,
+        "endChar": 17
+      },
+      "revId": "84d60b961899faea5ecea0ce6241bb06245a1ffc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
