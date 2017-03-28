@@ -142,9 +142,9 @@ enum DataKind : int32_t {
 @export(name="RsYuvFormat", value_prefix="RS_")
 enum YuvFormat : int32_t {
     YUV_NONE    = 0,
-    YUV_YV12    = 0x32315659, // HAL_PIXEL_FORMAT_YV12 in system/graphics.h
-    YUV_NV21    = 0x11,       // HAL_PIXEL_FORMAT_YCrCb_420_SP
-    YUV_420_888 = 0x23,       // HAL_PIXEL_FORMAT_YCbCr_420_888
+    YUV_YV12    = 0x32315659,/** HAL_PIXEL_FORMAT_YV12 in system/graphics.h */
+    YUV_NV21    = 0x11,      /** HAL_PIXEL_FORMAT_YCrCb_420_SP */
+    YUV_420_888 = 0x23,      /** HAL_PIXEL_FORMAT_YCbCr_420_888 */
 };
 
 @export(name="RsSamplerValue", value_prefix="RS_SAMPLER_")
@@ -221,7 +221,7 @@ enum ScriptIntrinsicID : int32_t {
     ID_BLEND        = 7,
     ID_3DLUT        = 8,
     ID_HISTOGRAM    = 9,
-    // unused 10, 11
+   /** unused 10, 11 */
     ID_RESIZE       = 12,
     ID_BLAS         = 13,
     ID_EXTBLAS      = 14,

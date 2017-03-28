@@ -19,7 +19,7 @@ package android.hardware.tests.pointer@1.0;
 interface IPointer {
   struct S { int32_t data; };
   struct A { S s; };
-  // type declarations
+ /** type declarations */
   struct Sam { int32_t data; };
   struct Ada { ref<Sam> s_ptr; };
   struct Bob { ref<Ada> a_ptr; ref<Sam> s_ptr; };
@@ -40,7 +40,7 @@ interface IPointer {
     ref<vec<Ada>> a_vec_ptr;
   };
 
-  // test cases
+ /** test cases */
   foo1(Sam s, SamPtr s_ptr);
   foo2(Sam s, Ada a);
   foo3(Sam s, Ada a, Bob b);

@@ -25,5 +25,5 @@ package android.hardware.wifi.supplicant@1.0;
  * corresponding |ISupplicantP2pNetwork.registerCallback| method.
  */
 interface ISupplicantP2pNetworkCallback {
-    // TODO(rpius): Add the reqd callbacks.
+   /** TODO(rpius): Add the reqd callbacks. */
 };

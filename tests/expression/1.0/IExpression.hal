@@ -38,36 +38,36 @@ interface IExpression {
   };
 
   enum SuffixedLiteralTypeGuessing : int32_t {
-    // Should be all true / ones.
-    // dec literals are either int32_t or int64_t
+   /** Should be all true / ones. */
+   /** dec literals are either int32_t or int64_t */
     decInt32_1 = (~(-1)) == 0,
     decInt32_2 = -(1 << 31) == (1 << 31),
     decInt64_1 = (~(-1l)) == 0,
     decInt64_2 = (~4294967295) != 0,
     decInt64_3 = (~4294967295l) != 0,
     decInt64_4 = -(1l << 63) == (1l << 63),
-    // hex literals could be (u)int32_t or (u)int64_t
-    // 0x7fffffff is int32_t, hence can be negated
+   /** hex literals could be (u)int32_t or (u)int64_t */
+   /** 0x7fffffff is int32_t, hence can be negated */
     hexInt32_1 = -0x7fffffff < 0,
-    // 0x80000000 is uint32_t; if it were int32_t then -(int32_t)0x80000000 == (int32_t)0x80000000 > 0
+   /** 0x80000000 is uint32_t; if it were int32_t then -(int32_t)0x80000000 == (int32_t)0x80000000 > 0 */
     hexUInt32_1 = -0x80000000 > 0,
-    // 0xFFFFFFFF is uint32_t, not int64_t; if it were int64_t then ~(int64_t)0xFFFFFFFF != 0
+   /** 0xFFFFFFFF is uint32_t, not int64_t; if it were int64_t then ~(int64_t)0xFFFFFFFF != 0 */
     hexUInt32_2 = ~0xFFFFFFFF == 0,
-    // 0x7FFFFFFFFFFFFFFF is int64_t, hence can be negated
+   /** 0x7FFFFFFFFFFFFFFF is int64_t, hence can be negated */
     hexInt64_1 = -0x7FFFFFFFFFFFFFFF < 0,
-    // 0x8000000000000000 is uint64_t
+   /** 0x8000000000000000 is uint64_t */
     hexUInt64_1 = -0x8000000000000000 > 0,
   };
 
   enum Int64LiteralTypeGuessing : int64_t {
-    // both treated int32_t, sum = (int64_t)(int32_t)0x80000000 = (int64_t)(-2147483648)
+   /** both treated int32_t, sum = (int64_t)(int32_t)0x80000000 = (int64_t)(-2147483648) */
     noSuffixDec11 = 1 + 0x7fffffff,
-    // 0x80000000 is uint32_t, sum = (int64_t)(uint32_t)0x7fffffff = (int64_t)(2147483647)
+   /** 0x80000000 is uint32_t, sum = (int64_t)(uint32_t)0x7fffffff = (int64_t)(2147483647) */
     noSuffixDec12 = 0x80000000 - 1,
   };
 
   enum Int32BitShifting : int32_t {
-    // Shifting for more than 31 bits are undefined. Not tested.
+   /** Shifting for more than 31 bits are undefined. Not tested. */
     int32BitShift1 = 1 << 31,
   };
 
@@ -112,7 +112,7 @@ interface IExpression {
   };
 
   enum OperatorSanityCheck : int32_t {
-    // Should be all true / ones.
+   /** Should be all true / ones. */
     plus = (1 + 2) == 3,
     minus = (8 - 9) == -1,
     product = (9 * 9) == 81,
@@ -146,36 +146,36 @@ interface IExpression {
 
   enum Grayscale : int8_t {
     WHITE = 126,
-    GRAY, // 127
-    DARK_GRAY, // -128
-    BLACK // -127
+    GRAY,/** 127 */
+    DARK_GRAY,/** -128 */
+    BLACK/** -127 */
   };
 
   enum Color : Grayscale {
-    RED, // -126
+    RED,/** -126 */
     RUBY = 0,
-    GREEN, // 1
+    GREEN,/** 1 */
     BLUE = 5,
-    CYAN, // 6
-    ORANGE, // 7
+    CYAN,/** 6 */
+    ORANGE,/** 7 */
     ROSE = WHITE,
   };
 
   enum Foo1 : int8_t {};
   enum Foo2 : Foo1 {};
   enum Foo3 : Foo2 {
-    BAR1, // 0
+    BAR1,/** 0 */
     BAR2 = 10,
   };
   enum Foo4 : Foo3 {
-    BAR3, // 11
-    BAR4 = BAR2 + BAR3 // 21
+    BAR3,/** 11 */
+    BAR4 = BAR2 + BAR3/** 21 */
   };
 
   enum Number : uint8_t {
     MAX = 255,
-    MAX_PLUS_1, // 0
-    MAX_PLUS_2 // 1
+    MAX_PLUS_1,/** 0 */
+    MAX_PLUS_2/** 1 */
   };
 
   enum Constants : int32_t {
@@ -185,9 +185,9 @@ interface IExpression {
     MAX_ARRAY_SIZE2,
     MAX_ARRAY_SIZE3 = MAX_ARRAY_SIZE + MAX_ARRAY_SIZE,
     MY_INT32_MAX_MINUS_1 = 0x7FFFFFFE,
-    MY_INT32_MAX, // 0x7FFFFFFF
-    MY_INT32_MIN, // 0x80000000
-    MY_INT32_MIN_PLUS_1, // 0x80000001
+    MY_INT32_MAX,/** 0x7FFFFFFF */
+    MY_INT32_MIN,/** 0x80000000 */
+    MY_INT32_MIN_PLUS_1,/** 0x80000001 */
   };
 
   @callflow(key=Constants:CONST_FOO + 1)

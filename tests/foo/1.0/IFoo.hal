@@ -54,8 +54,8 @@ interface IFoo {
         double[10] numbers;
         Fumble fumble;
         Gumble gumble;
-        // vec<double> lotsOfFumbles;
-        // handle loveHandle;
+       /** vec<double> lotsOfFumbles; */
+       /** handle loveHandle; */
     };
 
     typedef float[3] ThreeFloats;

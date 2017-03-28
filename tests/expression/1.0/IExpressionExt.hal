@@ -28,7 +28,7 @@ interface IExpressionExt {
 
     typedef Color[((Constants:MAX_ARRAY_SIZE << 1) - (Constants:CONST_FOO + 1)*8) >> 1] SixteenColors;
     struct ArrayOfColors {
-        Color[(Constants:MAX_ARRAY_SIZE << 1) - (Constants:CONST_FOO + 1)*8] my32Colors; // 32
+        Color[(Constants:MAX_ARRAY_SIZE << 1) - (Constants:CONST_FOO + 1)*8] my32Colors;/** 32 */
     };
     struct AnotherArrayOfColors {
         SixteenColors my16Colors;

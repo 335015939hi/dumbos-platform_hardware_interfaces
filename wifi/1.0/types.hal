@@ -589,10 +589,10 @@ enum StaRoamingState : uint8_t {
  * Size limits for parameters used in the NAN interface.
  */
 enum NanParamSizeLimits : uint32_t {
-  /* Minimum length of Passphrase argument for data-path configuration */
+  /** Minimum length of Passphrase argument for data-path configuration */
   MIN_PASSPHRASE_LENGTH = 8,
 
-  /* Maximum length of Passphrase argument for data-path configuration */
+  /** Maximum length of Passphrase argument for data-path configuration */
   MAX_PASSPHRASE_LENGTH = 63,
 };
 
@@ -607,29 +607,29 @@ typedef uint16_t CommandIdShort;
  */
 enum NanStatusType : uint32_t {
   SUCCESS = 0,
-  /* NAN Discovery Engine/Host driver failures */
+  /** NAN Discovery Engine/Host driver failures */
   INTERNAL_FAILURE = 1,
-  /* NAN OTA failures */
+  /** NAN OTA failures */
   PROTOCOL_FAILURE = 2,
-  /* The publish/subscribe discovery session id is invalid */
+  /** The publish/subscribe discovery session id is invalid */
   INVALID_SESSION_ID = 3,
-  /* Out of resources to fufill request */
+  /** Out of resources to fufill request */
   NO_RESOURCES_AVAILABLE = 4,
-  /* Invalid arguments passed */
+  /** Invalid arguments passed */
   INVALID_ARGS = 5,
-  /* Invalid peer id */
+  /** Invalid peer id */
   INVALID_PEER_ID = 6,
-  /* Invalid NAN data-path (ndp) id */
+  /** Invalid NAN data-path (ndp) id */
   INVALID_NDP_ID = 7,
-  /* Attempting to enable NAN when not available, e.g. wifi is disabled */
+  /** Attempting to enable NAN when not available, e.g. wifi is disabled */
   NAN_NOT_ALLOWED = 8,
-  /* Over the air ACK not received */
+  /** Over the air ACK not received */
   NO_OTA_ACK = 9,
-  /* Attempting to enable NAN when already enabled */
+  /** Attempting to enable NAN when already enabled */
   ALREADY_ENABLED = 10,
-  /* Can't queue tx followup message foor transmission */
+  /** Can't queue tx followup message foor transmission */
   FOLLOWUP_TX_QUEUE_FULL = 11,
-  /* Unsupported concurrency of NAN and another feature - NAN disabled */
+  /** Unsupported concurrency of NAN and another feature - NAN disabled */
   UNSUPPORTED_CONCURRENCY_NAN_DISABLED = 12
 };
 
@@ -661,18 +661,18 @@ struct WifiNanStatus {
  * data.
  */
 enum NanMatchAlg : uint32_t {
-  MATCH_ONCE = 0,   // Only trigger |IWifiNanIfaceEventCallback.eventMatch| once
-  MATCH_CONTINUOUS, // Trigger |IWifiNanIfaceEventCallback.eventMatch| every time
-  MATCH_NEVER,      // Never trigger |IWifiNanIfaceEventCallback.eventMatch|
+  MATCH_ONCE = 0,  /** Only trigger |IWifiNanIfaceEventCallback.eventMatch| once */
+  MATCH_CONTINUOUS,/** Trigger |IWifiNanIfaceEventCallback.eventMatch| every time */
+  MATCH_NEVER,     /** Never trigger |IWifiNanIfaceEventCallback.eventMatch| */
 };
 
 /**
  * NAN publish discovery session types.
  */
 enum NanPublishType : uint32_t {
-  UNSOLICITED = 0,       // Publish session broadcasts discovery packets
-  SOLICITED,             // Publish session silent, responds to active subscribes queries
-  UNSOLICITED_SOLICITED, // Both
+  UNSOLICITED = 0,      /** Publish session broadcasts discovery packets */
+  SOLICITED,            /** Publish session silent, responds to active subscribes queries */
+  UNSOLICITED_SOLICITED,/** Both */
 };
 
 /**
@@ -681,43 +681,43 @@ enum NanPublishType : uint32_t {
  * subscribe query.
  */
 enum NanTxType : uint32_t {
-  BROADCAST = 0, // Respond with a broadcast packet
-  UNICAST,       // Respond with a unicast packet
+  BROADCAST = 0,/** Respond with a broadcast packet */
+  UNICAST,      /** Respond with a unicast packet */
 };
 
 /**
  * NAN subscribe discovery session types.
  */
 enum NanSubscribeType : uint32_t {
-  PASSIVE = 0, // Subscribe session scans for |NanPublishType.UNSOLICITED| publish sessions.
-  ACTIVE,      // Subscribe session probes for |NanPublishType.SOLICITED| publish sessions.
+  PASSIVE = 0,/** Subscribe session scans for |NanPublishType.UNSOLICITED| publish sessions. */
+  ACTIVE,     /** Subscribe session probes for |NanPublishType.SOLICITED| publish sessions. */
 };
 
 /**
  * NAN Service Response Filter Attribute Bit.
  */
 enum NanSrfType : uint32_t {
-  BLOOM_FILTER = 0, // Use a Bloom filter.
-  PARTIAL_MAC_ADDR, // Use a list of MAC addresses.
+  BLOOM_FILTER = 0,/** Use a Bloom filter. */
+  PARTIAL_MAC_ADDR,/** Use a list of MAC addresses. */
 };
 
 /**
  * NAN DP (data-path) channel config options.
  */
 enum NanDataPathChannelCfg : uint32_t {
-  CHANNEL_NOT_REQUESTED = 0, // No channel request is specified.
-  REQUEST_CHANNEL_SETUP,     // Channel request is specified - but may be overridden by firmware.
-  FORCE_CHANNEL_SETUP,       // Channel request is specified and must be respected. If the firmware
-                             // cannot honor the request then the data-path request is rejected.
+  CHANNEL_NOT_REQUESTED = 0,/** No channel request is specified. */
+  REQUEST_CHANNEL_SETUP,    /** Channel request is specified - but may be overridden by firmware. */
+  FORCE_CHANNEL_SETUP,      /** Channel request is specified and must be respected. If the firmware */
+                            /** cannot honor the request then the data-path request is rejected. */
 };
 
 /**
  * NAN DP (data-path) security configuration options.
  */
 enum NanDataPathSecurityType : uint32_t {
-  OPEN,       // no security
-  PMK,        // security: PMK
-  PASSPHRASE, // security: passphrase
+  OPEN,      /** no security */
+  PMK,       /** security: PMK */
+  PASSPHRASE,/** security: passphrase */
 };
 
 /**
@@ -728,8 +728,8 @@ struct NanBandSpecificConfig {
    * RSSI values controlling clustering behavior per spec. RSSI values are specified without a sign,
    * e.g. a value of -65dBm would be specified as 65.
    */
-  uint8_t rssiClose;  // NAN Spec: RSSI_close
-  uint8_t rssiMiddle; // NAN Spec: RSSI_middle
+  uint8_t rssiClose; /** NAN Spec: RSSI_close */
+  uint8_t rssiMiddle;/** NAN Spec: RSSI_middle */
   /**
    * RSSI value determining whether discovery is near (used if enabled in discovery by
    * |NanDiscoveryCommonConfig.useRssiThreshold|).
@@ -914,9 +914,9 @@ struct NanEnableRequest {
  * Cipher suite flags.
  */
 enum NanCipherSuiteType : uint32_t {
-  NONE = 0, // No (open) security
-  SHARED_KEY_128_MASK = 1 << 0, // NCS-SK-128
-  SHARED_KEY_256_MASK = 1 << 1  // NCS-SK-256
+  NONE = 0,/** No (open) security */
+  SHARED_KEY_128_MASK = 1 << 0,/** NCS-SK-128 */
+  SHARED_KEY_256_MASK = 1 << 1 /** NCS-SK-256 */
 };
 
 /**
@@ -924,9 +924,9 @@ enum NanCipherSuiteType : uint32_t {
  * ranging-driven |IWifiNanIfaceEventCallback.eventMatch|.
  */
 enum NanRangingIndication : uint32_t {
-  CONTINUOUS_INDICATION_MASK = 1 << 0, // trigger event on every RTT measurement
-  INGRESS_MET_MASK = 1 << 1,           // trigger event only when ingress conditions met
-  EGRESS_MET_MASK = 1 << 2             // trigger event only when egress conditions met
+  CONTINUOUS_INDICATION_MASK = 1 << 0,/** trigger event on every RTT measurement */
+  INGRESS_MET_MASK = 1 << 1,          /** trigger event only when ingress conditions met */
+  EGRESS_MET_MASK = 1 << 2            /** trigger event only when egress conditions met */
 };
 
 /**

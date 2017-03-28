@@ -36,7 +36,7 @@ interface IWifiChip {
    * ChipIfaceCombination for examples.
    */
   struct ChipIfaceCombinationLimit {
-    vec<IfaceType> types; // Each IfaceType must occur at most once.
+    vec<IfaceType> types;/** Each IfaceType must occur at most once. */
     uint32_t maxIfaces;
   };
 
