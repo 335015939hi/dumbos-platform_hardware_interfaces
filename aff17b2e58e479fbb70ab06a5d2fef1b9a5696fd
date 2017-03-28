@@ -149,6 +149,30 @@
     },
     {
       "key": {
+        "uuid": "39bd7cef_7b175dc8",
+        "filename": "wifi/keystore/1.0/default/Android.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-03-28T04:23:42Z",
+      "side": 1,
+      "message": "You\u0027re correct. It just hadn\u0027t been moved to the appropriate directory yet.",
+      "parentUuid": "9ca2f0d2_d54edce7",
+      "range": {
+        "startLine": 30,
+        "startChar": 4,
+        "endLine": 30,
+        "endChar": 22
+      },
+      "revId": "aff17b2e58e479fbb70ab06a5d2fef1b9a5696fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0c83fe92_1823a672",
         "filename": "wifi/keystore/1.0/default/android.hardware.wifi.keystore@1.0-service.rc",
         "patchSetId": 5
