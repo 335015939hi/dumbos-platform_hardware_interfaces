@@ -22,6 +22,30 @@
       "revId": "34e4bc4dd27507b358e53c0660c86f591b1c4780",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "feea08d2_13c2e147",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1014088
+      },
+      "writtenOn": "2017-03-28T21:41:32Z",
+      "side": 0,
+      "message": "let\u0027s leave them the way they are then.",
+      "parentUuid": "3cfdf1c5_bb814c27",
+      "range": {
+        "startLine": 54,
+        "startChar": 41,
+        "endLine": 54,
+        "endChar": 44
+      },
+      "revId": "34e4bc4dd27507b358e53c0660c86f591b1c4780",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
