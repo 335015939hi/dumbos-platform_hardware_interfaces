@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "443bd868_d253cf91",
+        "filename": "wifi/1.0/IWifiStaIface.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-03-28T04:43:41Z",
+      "side": 1,
+      "message": "Let\u0027s use google owned docs",
+      "range": {
+        "startLine": 151,
+        "startChar": 12,
+        "endLine": 151,
+        "endChar": 28
+      },
+      "revId": "b0e456f56152a50a2649d267cd246f610a7ad6bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
