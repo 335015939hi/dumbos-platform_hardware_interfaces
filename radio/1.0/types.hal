@@ -410,7 +410,8 @@ enum LastCallFailCause : int32_t {
                                           // callback mode
     CDMA_ACCESS_BLOCKED = 1009,
 
-    /* OEM specific error codes. Used to distinguish error from
+    /**
+     * OEM specific error codes. Used to distinguish error from
      * CALL_FAIL_ERROR_UNSPECIFIED and help assist debugging */
     OEM_CAUSE_1 = 0xf001,
     OEM_CAUSE_2 = 0xf002,
@@ -1018,7 +1019,7 @@ enum CdmaOtaProvisionStatus : int32_t {
     OTAPA_ABORTED
 };
 
-/* Names of the CDMA info records (C.S0005 section 3.7.5) */
+/** Names of the CDMA info records (C.S0005 section 3.7.5) */
 enum CdmaInfoRecName : int32_t {
     DISPLAY,
     CALLED_PARTY_NUMBER,
@@ -1033,7 +1034,7 @@ enum CdmaInfoRecName : int32_t {
     T53_AUDIO_CONTROL
 };
 
-/* Redirecting Number Information Record as defined in C.S0005 section 3.7.5.11 */
+/** Redirecting Number Information Record as defined in C.S0005 section 3.7.5.11 */
 enum CdmaRedirectingReason : int32_t {
     UNKNOWN = 0,
     CALL_FORWARDING_BUSY = 1,
@@ -1893,7 +1894,7 @@ struct SimRefreshResult {
                                           // For SIM_RESET result it is empty string.
 };
 
-/* CDMA Signal Information Record as defined in C.S0005 section 3.7.5.5 */
+/** CDMA Signal Information Record as defined in C.S0005 section 3.7.5.5 */
 struct CdmaSignalInfoRecord {
     bool isPresent;                       // true if signal information record is present
     int8_t signalType;                    // as defined 3.7.5.5-1
@@ -1942,7 +1943,7 @@ struct  CdmaRedirectingNumberInfoRecord{
     CdmaRedirectingReason redirectingReason; // redirectingReason is set to UNKNOWN if not included
 };
 
-/* Line Control Information Record as defined in C.S0005 section 3.7.5.15 */
+/** Line Control Information Record as defined in C.S0005 section 3.7.5.15 */
 struct CdmaLineControlInfoRecord {
     uint8_t lineCtrlPolarityIncluded;
     uint8_t lineCtrlToggle;
@@ -1950,12 +1951,12 @@ struct CdmaLineControlInfoRecord {
     uint8_t lineCtrlPowerDenial;
 };
 
-/* T53 CLIR Information Record */
+/** T53 CLIR Information Record */
 struct CdmaT53ClirInfoRecord {
     uint8_t cause;
 };
 
-/* T53 Audio Control Information Record */
+/** T53 Audio Control Information Record */
 struct CdmaT53AudioControlInfoRecord {
     uint8_t upLink;
     uint8_t downLink;
