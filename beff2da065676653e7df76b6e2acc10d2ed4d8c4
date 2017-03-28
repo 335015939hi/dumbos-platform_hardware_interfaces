@@ -22,6 +22,30 @@
       "revId": "beff2da065676653e7df76b6e2acc10d2ed4d8c4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b1acc18f_c82accff",
+        "filename": "oemlock/1.0/default/service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2017-03-28T16:19:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "29fb6a33_905449ee",
+      "range": {
+        "startLine": 33,
+        "startChar": 13,
+        "endLine": 33,
+        "endChar": 30
+      },
+      "revId": "beff2da065676653e7df76b6e2acc10d2ed4d8c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
