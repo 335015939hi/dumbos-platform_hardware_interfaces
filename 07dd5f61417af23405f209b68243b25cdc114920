@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f78f2929_fa9a1f01",
+        "filename": "weaver/1.0/IWeaver.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2017-03-28T16:18:59Z",
+      "side": 1,
+      "message": "Removed should, no good reason not to have it.",
+      "parentUuid": "3e1198f5_2451c477",
+      "range": {
+        "startLine": 61,
+        "startChar": 26,
+        "endLine": 61,
+        "endChar": 32
+      },
+      "revId": "07dd5f61417af23405f209b68243b25cdc114920",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f2b1039_3301c5e7",
         "filename": "weaver/1.0/default/service.cpp",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-03-28T15:33:38Z",
       "side": 1,
       "message": "please check return value of this",
+      "range": {
+        "startLine": 33,
+        "startChar": 12,
+        "endLine": 33,
+        "endChar": 29
+      },
+      "revId": "07dd5f61417af23405f209b68243b25cdc114920",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c6ea83de_52b3459b",
+        "filename": "weaver/1.0/default/service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2017-03-28T16:18:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f2b1039_3301c5e7",
       "range": {
         "startLine": 33,
         "startChar": 12,
