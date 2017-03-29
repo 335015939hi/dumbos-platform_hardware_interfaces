@@ -22,6 +22,29 @@
       "revId": "becb2c9d66666f456e47b638fa20b9a07edecc2f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5568b94a_6ed78d4a",
+        "filename": "nfc/1.0/vts/functional/VtsHalNfcV1_0TargetTest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1041663
+      },
+      "writtenOn": "2017-03-29T21:24:26Z",
+      "side": 1,
+      "message": "What\u0027s the default timeout period?",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 41
+      },
+      "revId": "becb2c9d66666f456e47b638fa20b9a07edecc2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
