@@ -29,6 +29,7 @@ using ::android::hardware::wifi::offload::V1_0::ScanResult;
 using ::android::hardware::wifi::offload::V1_0::ScanParam;
 using ::android::hardware::wifi::offload::V1_0::ScanFilter;
 using ::android::hardware::wifi::offload::V1_0::ScanStats;
+using ::android::hardware::wifi::offload::V1_0::OffloadStatus;
 using ::android::hardware::Return;
 using ::android::hardware::Void;
 using ::android::hardware::hidl_vec;
@@ -72,8 +73,14 @@ class WifiOffloadHidlTest : public ::testing::VtsHalHidlTargetTestBase {
       return Void();
     };
 
+    Return<void> onError(OffloadStatus status) {
+        status_ = status;
+	return Void();
+    }
+
    private:
     OnOffloadScanResultsReadyHandler handler_;
+    OffloadStatus status_;
   };
 
   sp<IOffload> wifi_offload_;

@@ -8,7 +8,6 @@ cc_library_shared {
     shared_libs: [
         "libhidlbase",
         "libhidltransport",
-        "libhwbinder",
         "libutils",
         "android.hardware.wifi.offload@1.0",
         "android.hidl.base@1.0",
