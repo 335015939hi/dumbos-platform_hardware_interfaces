@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9f7629e3_d90dd280",
+        "filename": "bluetooth/1.0/vts/functional/VtsHalBluetoothV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1132849
+      },
+      "writtenOn": "2017-03-29T23:55:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb59eb48_b1554bf9",
+      "range": {
+        "startLine": 145,
+        "startChar": 34,
+        "endLine": 145,
+        "endChar": 56
+      },
+      "revId": "30791e2411c9323f94e08cbd8289f3eb7696a2ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "926f2969_d55fe620",
         "filename": "bluetooth/1.0/vts/functional/VtsHalBluetoothV1_0TargetTest.cpp",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-03-29T21:29:59Z",
       "side": 1,
       "message": "are those needed even parent_ attribute?",
+      "range": {
+        "startLine": 214,
+        "startChar": 19,
+        "endLine": 215,
+        "endChar": 31
+      },
+      "revId": "30791e2411c9323f94e08cbd8289f3eb7696a2ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b029efb9_ed8be9ad",
+        "filename": "bluetooth/1.0/vts/functional/VtsHalBluetoothV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1132849
+      },
+      "writtenOn": "2017-03-29T23:55:42Z",
+      "side": 1,
+      "message": "Since there are some shared data processing logic here, using parent reference looks cleaner?",
+      "parentUuid": "926f2969_d55fe620",
       "range": {
         "startLine": 214,
         "startChar": 19,
