@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "445513a7_ce4bd96f",
+        "filename": "net/tetheroffload/control/1.0/IOffloadControl.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2017-03-29T23:50:03Z",
+      "side": 1,
+      "message": "To be clear, I think it *includes* fully specified prefixes, but may not be limited to same.",
+      "range": {
+        "startLine": 98,
+        "startChar": 26,
+        "endLine": 98,
+        "endChar": 52
+      },
+      "revId": "8304b42077e87e30c4046e6fc4054b39bfb4eb3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "60a2a986_dbd674e8",
+        "filename": "net/tetheroffload/control/1.0/ITetheringOffloadCallback.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2017-03-29T23:50:03Z",
+      "side": 1,
+      "message": "I\u0027m fine with one update per 5-tuple, but I wonder whether this shouldn\u0027t be a vec\u003cNatTimeoutUpdate\u003e (assuming that\u0027s even possible with HIDL, which I don\u0027t actually know).",
+      "range": {
+        "startLine": 48,
+        "startChar": 24,
+        "endLine": 48,
+        "endChar": 40
+      },
+      "revId": "8304b42077e87e30c4046e6fc4054b39bfb4eb3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "130698fa_dc796a7d",
+        "filename": "net/tetheroffload/control/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2017-03-29T23:50:03Z",
+      "side": 1,
+      "message": "\"however\"",
+      "range": {
+        "startLine": 71,
+        "startChar": 63,
+        "endLine": 71,
+        "endChar": 70
+      },
+      "revId": "8304b42077e87e30c4046e6fc4054b39bfb4eb3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3533cbaf_be6ed398",
+        "filename": "net/tetheroffload/control/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2017-03-29T23:50:03Z",
+      "side": 1,
+      "message": "I\u0027m fine if these are the actual protocol values, 6 and 17.  Not a big deal.",
+      "range": {
+        "startLine": 105,
+        "startChar": 10,
+        "endLine": 105,
+        "endChar": 11
+      },
+      "revId": "8304b42077e87e30c4046e6fc4054b39bfb4eb3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
