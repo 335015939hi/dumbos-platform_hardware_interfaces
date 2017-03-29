@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e16a1628_0efbd99e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2017-03-29T23:43:19Z",
+      "side": 1,
+      "message": "delete \"the\"",
+      "range": {
+        "startLine": 24,
+        "startChar": 10,
+        "endLine": 24,
+        "endChar": 13
+      },
+      "revId": "5f232ac85fa6bed47345aa90d7f7461a99dae4ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa207a77_26cf057f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2017-03-29T23:43:19Z",
+      "side": 1,
+      "message": "References to inCount and outCount are slightly confusing.",
+      "range": {
+        "startLine": 25,
+        "startChar": 52,
+        "endLine": 25,
+        "endChar": 59
+      },
+      "revId": "5f232ac85fa6bed47345aa90d7f7461a99dae4ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6aad938f_3c52d74e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2017-03-29T23:43:19Z",
+      "side": 1,
+      "message": "\"outCount\"?",
+      "range": {
+        "startLine": 26,
+        "startChar": 5,
+        "endLine": 26,
+        "endChar": 12
+      },
+      "revId": "5f232ac85fa6bed47345aa90d7f7461a99dae4ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "de51250c_e053a279",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2017-03-29T23:43:19Z",
+      "side": 1,
+      "message": "\"HAL\"?",
+      "range": {
+        "startLine": 28,
+        "startChar": 25,
+        "endLine": 28,
+        "endChar": 28
+      },
+      "revId": "5f232ac85fa6bed47345aa90d7f7461a99dae4ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c33b44f4_cc204478",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2017-03-29T23:43:19Z",
+      "side": 1,
+      "message": "May be helpful to mention that another CL fixes the other translator.",
+      "range": {
+        "startLine": 28,
+        "startChar": 10,
+        "endLine": 28,
+        "endChar": 20
+      },
+      "revId": "5f232ac85fa6bed47345aa90d7f7461a99dae4ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d72aceb2_6ca4a24b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2017-03-29T23:43:19Z",
+      "side": 1,
+      "message": "\"HAL\"?",
+      "range": {
+        "startLine": 29,
+        "startChar": 2,
+        "endLine": 29,
+        "endChar": 5
+      },
+      "revId": "5f232ac85fa6bed47345aa90d7f7461a99dae4ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
