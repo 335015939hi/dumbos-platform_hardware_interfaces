@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6ab737d8_5806c3bb",
+        "filename": "bluetooth/1.0/vts/functional/VtsHalBluetoothV1_0TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2017-03-29T23:59:11Z",
+      "side": 1,
+      "message": "kCallbackNameaclEventReceived or similar?\n\nconsts would save the memory than a macro here since each var is used at least twice?",
+      "range": {
+        "startLine": 94,
+        "startChar": 8,
+        "endLine": 94,
+        "endChar": 35
+      },
+      "revId": "b9661bce51cf556da670a98b9fe316af4227fcca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
