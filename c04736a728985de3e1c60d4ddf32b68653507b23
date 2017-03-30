@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c75f6c52_481a8197",
+        "filename": ".clang-format",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-03-30T20:23:19Z",
+      "side": 1,
+      "message": "nit",
+      "range": {
+        "startLine": 2,
+        "startChar": 19,
+        "endLine": 2,
+        "endChar": 20
+      },
+      "revId": "c04736a728985de3e1c60d4ddf32b68653507b23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
