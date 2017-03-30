@@ -29,12 +29,14 @@ TEST_F(RadioHidlTest, sendEnvelope) {
 
   radio->sendEnvelope(++serial, content);
 
-  EXPECT_EQ(std::cv_status::no_timeout, wait());
-  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+  auto res = radioRsp->WaitForCallback();
+  EXPECT_TRUE(res.first);
+  auto rspInfo = res.second;
+  EXPECT_EQ(RadioResponseType::SOLICITED, rspInfo->type);
+  EXPECT_EQ(serial, rspInfo->serial);
 
   if (cardStatus.cardState == CardState::ABSENT) {
-    EXPECT_EQ(RadioError::NONE, radioRsp->rspInfo.error);
+    EXPECT_EQ(RadioError::NONE, rspInfo->error);
   }
 
   // Test with sending random string
@@ -42,12 +44,14 @@ TEST_F(RadioHidlTest, sendEnvelope) {
 
   radio->sendEnvelope(++serial, content);
 
-  EXPECT_EQ(std::cv_status::no_timeout, wait());
-  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+  res = radioRsp->WaitForCallback();
+  EXPECT_TRUE(res.first);
+  rspInfo = res.second;
+  EXPECT_EQ(RadioResponseType::SOLICITED, rspInfo->type);
+  EXPECT_EQ(serial, rspInfo->serial);
 
   if (cardStatus.cardState == CardState::ABSENT) {
-    EXPECT_EQ(RadioError::NONE, radioRsp->rspInfo.error);
+    EXPECT_EQ(RadioError::NONE, rspInfo->error);
   }
 }
 
@@ -62,12 +66,14 @@ TEST_F(RadioHidlTest, sendTerminalResponseToSim) {
 
   radio->sendTerminalResponseToSim(++serial, commandResponse);
 
-  EXPECT_EQ(std::cv_status::no_timeout, wait());
-  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+  auto res = radioRsp->WaitForCallback();
+  EXPECT_TRUE(res.first);
+  auto rspInfo = res.second;
+  EXPECT_EQ(RadioResponseType::SOLICITED, rspInfo->type);
+  EXPECT_EQ(serial, rspInfo->serial);
 
   if (cardStatus.cardState == CardState::ABSENT) {
-    EXPECT_EQ(RadioError::NONE, radioRsp->rspInfo.error);
+    EXPECT_EQ(RadioError::NONE, rspInfo->error);
   }
 
   // Test with sending random string
@@ -75,12 +81,14 @@ TEST_F(RadioHidlTest, sendTerminalResponseToSim) {
 
   radio->sendTerminalResponseToSim(++serial, commandResponse);
 
-  EXPECT_EQ(std::cv_status::no_timeout, wait());
-  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+  res = radioRsp->WaitForCallback();
+  EXPECT_TRUE(res.first);
+  rspInfo = res.second;
+  EXPECT_EQ(RadioResponseType::SOLICITED, rspInfo->type);
+  EXPECT_EQ(serial, rspInfo->serial);
 
   if (cardStatus.cardState == CardState::ABSENT) {
-    EXPECT_EQ(RadioError::NONE, radioRsp->rspInfo.error);
+    EXPECT_EQ(RadioError::NONE, rspInfo->error);
   }
 }
 
@@ -93,12 +101,14 @@ TEST_F(RadioHidlTest, handleStkCallSetupRequestFromSim) {
 
   radio->handleStkCallSetupRequestFromSim(++serial, accept);
 
-  EXPECT_EQ(std::cv_status::no_timeout, wait());
-  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+  auto res = radioRsp->WaitForCallback();
+  EXPECT_TRUE(res.first);
+  auto rspInfo = res.second;
+  EXPECT_EQ(RadioResponseType::SOLICITED, rspInfo->type);
+  EXPECT_EQ(serial, rspInfo->serial);
 
   if (cardStatus.cardState == CardState::ABSENT) {
-    EXPECT_EQ(RadioError::NONE, radioRsp->rspInfo.error);
+    EXPECT_EQ(RadioError::NONE, rspInfo->error);
   }
 }
 
@@ -110,12 +120,14 @@ TEST_F(RadioHidlTest, reportStkServiceIsRunning) {
 
   radio->reportStkServiceIsRunning(++serial);
 
-  EXPECT_EQ(std::cv_status::no_timeout, wait());
-  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+  auto res = radioRsp->WaitForCallback();
+  EXPECT_TRUE(res.first);
+  auto rspInfo = res.second;
+  EXPECT_EQ(RadioResponseType::SOLICITED, rspInfo->type);
+  EXPECT_EQ(serial, rspInfo->serial);
 
   if (cardStatus.cardState == CardState::ABSENT) {
-    EXPECT_EQ(RadioError::NONE, radioRsp->rspInfo.error);
+    EXPECT_EQ(RadioError::NONE, rspInfo->error);
   }
 }
 
@@ -131,12 +143,14 @@ TEST_F(RadioHidlTest, sendEnvelopeWithStatus) {
 
   radio->sendEnvelopeWithStatus(++serial, contents);
 
-  EXPECT_EQ(std::cv_status::no_timeout, wait());
-  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+  auto res = radioRsp->WaitForCallback();
+  EXPECT_TRUE(res.first);
+  auto rspInfo = res.second;
+  EXPECT_EQ(RadioResponseType::SOLICITED, rspInfo->type);
+  EXPECT_EQ(serial, rspInfo->serial);
 
   if (cardStatus.cardState == CardState::ABSENT) {
-    EXPECT_EQ(RadioError::NONE, radioRsp->rspInfo.error);
+    EXPECT_EQ(RadioError::NONE, rspInfo->error);
   }
 
   // Test with sending random string
@@ -144,11 +158,13 @@ TEST_F(RadioHidlTest, sendEnvelopeWithStatus) {
 
   radio->sendEnvelopeWithStatus(++serial, contents);
 
-  EXPECT_EQ(std::cv_status::no_timeout, wait());
-  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+  res = radioRsp->WaitForCallback();
+  EXPECT_TRUE(res.first);
+  rspInfo = res.second;
+  EXPECT_EQ(RadioResponseType::SOLICITED, rspInfo->type);
+  EXPECT_EQ(serial, rspInfo->serial);
 
   if (cardStatus.cardState == CardState::ABSENT) {
-    ASSERT_FALSE(RadioError::NONE == radioRsp->rspInfo.error);
+    ASSERT_FALSE(RadioError::NONE == rspInfo->error);
   }
 }

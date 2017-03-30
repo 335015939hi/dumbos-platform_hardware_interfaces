@@ -16,10 +16,8 @@
 
 #include <android-base/logging.h>
 
+#include <VtsHalHidlTargetCallbackBase.h>
 #include <VtsHalHidlTargetTestBase.h>
-#include <chrono>
-#include <condition_variable>
-#include <mutex>
 
 #include <android/hardware/radio/1.0/IRadio.h>
 #include <android/hardware/radio/1.0/IRadioIndication.h>
@@ -86,12 +84,10 @@ class RadioHidlTest;
 extern CardStatus cardStatus;
 
 /* Callback class for radio response */
-class RadioResponse : public IRadioResponse {
- private:
-  RadioHidlTest& parent;
-
+class RadioResponse
+    : public ::testing::VtsHalHidlTargetCallbackBase<RadioResponseInfo>,
+      public IRadioResponse {
  public:
-  RadioResponseInfo rspInfo;
   hidl_string imsi;
   IccIoResult iccIoResult;
   int channelId;
@@ -101,8 +97,6 @@ class RadioResponse : public IRadioResponse {
   hidl_string smscAddress;
   uint32_t writeSmsToSimIndex;
   uint32_t writeSmsToRuimIndex;
-
-  RadioResponse(RadioHidlTest& parent);
 
   virtual ~RadioResponse() = default;
 
@@ -483,21 +477,10 @@ class RadioResponse : public IRadioResponse {
 
 // The main test class for Radio HIDL.
 class RadioHidlTest : public ::testing::VtsHalHidlTargetTestBase {
- private:
-  std::mutex mtx;
-  std::condition_variable cv;
-  int count;
-
  public:
   virtual void SetUp() override;
 
   virtual void TearDown() override;
-
-  /* Used as a mechanism to inform the test about data/event callback */
-  void notify();
-
-  /* Test code calls this function to wait for response */
-  std::cv_status wait();
 
   sp<IRadio> radio;
   sp<RadioResponse> radioRsp;

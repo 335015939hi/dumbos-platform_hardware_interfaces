@@ -44,10 +44,12 @@ TEST_F(RadioHidlTest, supplyIccPinForApp) {
         cardStatus.applications[i].appType == AppType::CSIM) {
       radio->supplyIccPinForApp(++serial, hidl_string("test1"),
                                 cardStatus.applications[i].aidPtr);
-      EXPECT_EQ(std::cv_status::no_timeout, wait());
-      EXPECT_EQ(serial, radioRsp->rspInfo.serial);
-      EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-      EXPECT_EQ(RadioError::PASSWORD_INCORRECT, radioRsp->rspInfo.error);
+      auto res = radioRsp->WaitForCallback();
+      EXPECT_TRUE(res.first);
+      auto rspInfo = res.second;
+      EXPECT_EQ(serial, rspInfo->serial);
+      EXPECT_EQ(RadioResponseType::SOLICITED, rspInfo->type);
+      EXPECT_EQ(RadioError::PASSWORD_INCORRECT, rspInfo->error);
     }
   }
 }
@@ -68,10 +70,12 @@ TEST_F(RadioHidlTest, supplyIccPukForApp) {
       radio->supplyIccPukForApp(++serial, hidl_string("test1"),
                                 hidl_string("test2"),
                                 cardStatus.applications[i].aidPtr);
-      EXPECT_EQ(std::cv_status::no_timeout, wait());
-      EXPECT_EQ(serial, radioRsp->rspInfo.serial);
-      EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-      EXPECT_EQ(RadioError::PASSWORD_INCORRECT, radioRsp->rspInfo.error);
+      auto res = radioRsp->WaitForCallback();
+      EXPECT_TRUE(res.first);
+      auto rspInfo = res.second;
+      EXPECT_EQ(serial, rspInfo->serial);
+      EXPECT_EQ(RadioResponseType::SOLICITED, rspInfo->type);
+      EXPECT_EQ(RadioError::PASSWORD_INCORRECT, rspInfo->error);
     }
   }
 }
@@ -91,10 +95,12 @@ TEST_F(RadioHidlTest, supplyIccPin2ForApp) {
         cardStatus.applications[i].appType == AppType::CSIM) {
       radio->supplyIccPin2ForApp(++serial, hidl_string("test1"),
                                  cardStatus.applications[i].aidPtr);
-      EXPECT_EQ(std::cv_status::no_timeout, wait());
-      EXPECT_EQ(serial, radioRsp->rspInfo.serial);
-      EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-      EXPECT_EQ(RadioError::PASSWORD_INCORRECT, radioRsp->rspInfo.error);
+      auto res = radioRsp->WaitForCallback();
+      EXPECT_TRUE(res.first);
+      auto rspInfo = res.second;
+      EXPECT_EQ(serial, rspInfo->serial);
+      EXPECT_EQ(RadioResponseType::SOLICITED, rspInfo->type);
+      EXPECT_EQ(RadioError::PASSWORD_INCORRECT, rspInfo->error);
     }
   }
 }
@@ -115,10 +121,12 @@ TEST_F(RadioHidlTest, supplyIccPuk2ForApp) {
       radio->supplyIccPuk2ForApp(++serial, hidl_string("test1"),
                                  hidl_string("test2"),
                                  cardStatus.applications[i].aidPtr);
-      EXPECT_EQ(std::cv_status::no_timeout, wait());
-      EXPECT_EQ(serial, radioRsp->rspInfo.serial);
-      EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-      EXPECT_EQ(RadioError::PASSWORD_INCORRECT, radioRsp->rspInfo.error);
+      auto res = radioRsp->WaitForCallback();
+      EXPECT_TRUE(res.first);
+      auto rspInfo = res.second;
+      EXPECT_EQ(serial, rspInfo->serial);
+      EXPECT_EQ(RadioResponseType::SOLICITED, rspInfo->type);
+      EXPECT_EQ(RadioError::PASSWORD_INCORRECT, rspInfo->error);
     }
   }
 }
@@ -139,10 +147,12 @@ TEST_F(RadioHidlTest, changeIccPinForApp) {
       radio->changeIccPinForApp(++serial, hidl_string("test1"),
                                 hidl_string("test2"),
                                 cardStatus.applications[i].aidPtr);
-      EXPECT_EQ(std::cv_status::no_timeout, wait());
-      EXPECT_EQ(serial, radioRsp->rspInfo.serial);
-      EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-      EXPECT_EQ(RadioError::PASSWORD_INCORRECT, radioRsp->rspInfo.error);
+      auto res = radioRsp->WaitForCallback();
+      EXPECT_TRUE(res.first);
+      auto rspInfo = res.second;
+      EXPECT_EQ(serial, rspInfo->serial);
+      EXPECT_EQ(RadioResponseType::SOLICITED, rspInfo->type);
+      EXPECT_EQ(RadioError::PASSWORD_INCORRECT, rspInfo->error);
     }
   }
 }
@@ -163,10 +173,12 @@ TEST_F(RadioHidlTest, changeIccPin2ForApp) {
       radio->changeIccPin2ForApp(++serial, hidl_string("test1"),
                                  hidl_string("test2"),
                                  cardStatus.applications[i].aidPtr);
-      EXPECT_EQ(std::cv_status::no_timeout, wait());
-      EXPECT_EQ(serial, radioRsp->rspInfo.serial);
-      EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-      EXPECT_EQ(RadioError::PASSWORD_INCORRECT, radioRsp->rspInfo.error);
+      auto res = radioRsp->WaitForCallback();
+      EXPECT_TRUE(res.first);
+      auto rspInfo = res.second;
+      EXPECT_EQ(serial, rspInfo->serial);
+      EXPECT_EQ(RadioResponseType::SOLICITED, rspInfo->type);
+      EXPECT_EQ(RadioError::PASSWORD_INCORRECT, rspInfo->error);
     }
   }
 }
@@ -184,13 +196,15 @@ TEST_F(RadioHidlTest, getImsiForApp) {
         cardStatus.applications[i].appType == AppType::RUIM ||
         cardStatus.applications[i].appType == AppType::CSIM) {
       radio->getImsiForApp(++serial, cardStatus.applications[i].aidPtr);
-      EXPECT_EQ(std::cv_status::no_timeout, wait());
-      EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-      EXPECT_EQ(serial, radioRsp->rspInfo.serial);
-      EXPECT_EQ(RadioError::NONE, radioRsp->rspInfo.error);
+      auto res = radioRsp->WaitForCallback();
+      EXPECT_TRUE(res.first);
+      auto rspInfo = res.second;
+      EXPECT_EQ(RadioResponseType::SOLICITED, rspInfo->type);
+      EXPECT_EQ(serial, rspInfo->serial);
+      EXPECT_EQ(RadioError::NONE, rspInfo->error);
 
       // IMSI (MCC+MNC+MSIN) is at least 6 digits, but not more than 15
-      if (radioRsp->rspInfo.error == RadioError::NONE) {
+      if (rspInfo->error == RadioError::NONE) {
         EXPECT_NE(radioRsp->imsi, hidl_string());
         EXPECT_GE((int)(radioRsp->imsi).size(), 6);
         EXPECT_LE((int)(radioRsp->imsi).size(), 15);
@@ -218,9 +232,11 @@ TEST_F(RadioHidlTest, iccIOForApp) {
     iccIo.aid = cardStatus.applications[i].aidPtr;
 
     radio->iccIOForApp(++serial, iccIo);
-    EXPECT_EQ(std::cv_status::no_timeout, wait());
-    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-    EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+    auto res = radioRsp->WaitForCallback();
+    EXPECT_TRUE(res.first);
+    auto rspInfo = res.second;
+    EXPECT_EQ(RadioResponseType::SOLICITED, rspInfo->type);
+    EXPECT_EQ(serial, rspInfo->serial);
   }
 }
 
@@ -234,9 +250,11 @@ TEST_F(RadioHidlTest, iccTransmitApduBasicChannel) {
   msg.data = hidl_string();
 
   radio->iccTransmitApduBasicChannel(serial, msg);
-  EXPECT_EQ(std::cv_status::no_timeout, wait());
-  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+  auto res = radioRsp->WaitForCallback();
+  EXPECT_TRUE(res.first);
+  auto rspInfo = res.second;
+  EXPECT_EQ(RadioResponseType::SOLICITED, rspInfo->type);
+  EXPECT_EQ(serial, rspInfo->serial);
 
   // TODO(sanketpadawe): Add test for error code
 }
@@ -249,9 +267,11 @@ TEST_F(RadioHidlTest, iccOpenLogicalChannel) {
 
   for (int i = 0; i < (int)cardStatus.applications.size(); i++) {
     radio->iccOpenLogicalChannel(++serial, cardStatus.applications[i].aidPtr);
-    EXPECT_EQ(std::cv_status::no_timeout, wait());
-    EXPECT_EQ(serial, radioRsp->rspInfo.serial);
-    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
+    auto res = radioRsp->WaitForCallback();
+    EXPECT_TRUE(res.first);
+    auto rspInfo = res.second;
+    EXPECT_EQ(serial, rspInfo->serial);
+    EXPECT_EQ(RadioResponseType::SOLICITED, rspInfo->type);
   }
 }
 
@@ -262,11 +282,13 @@ TEST_F(RadioHidlTest, iccCloseLogicalChannel) {
   int serial = 1;
   // Try closing invalid channel and check INVALID_ARGUMENTS returned as error
   radio->iccCloseLogicalChannel(serial, 0);
-  EXPECT_EQ(std::cv_status::no_timeout, wait());
-  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+  auto res = radioRsp->WaitForCallback();
+  EXPECT_TRUE(res.first);
+  auto rspInfo = res.second;
+  EXPECT_EQ(RadioResponseType::SOLICITED, rspInfo->type);
+  EXPECT_EQ(serial, rspInfo->serial);
 
-  EXPECT_EQ(RadioError::INVALID_ARGUMENTS, radioRsp->rspInfo.error);
+  EXPECT_EQ(RadioError::INVALID_ARGUMENTS, rspInfo->error);
 }
 
 /*
@@ -278,9 +300,11 @@ TEST_F(RadioHidlTest, iccTransmitApduLogicalChannel) {
   msg.data = hidl_string();
 
   radio->iccTransmitApduLogicalChannel(1, msg);
-  EXPECT_EQ(std::cv_status::no_timeout, wait());
-  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(1, radioRsp->rspInfo.serial);
+  auto res = radioRsp->WaitForCallback();
+  EXPECT_TRUE(res.first);
+  auto rspInfo = res.second;
+  EXPECT_EQ(RadioResponseType::SOLICITED, rspInfo->type);
+  EXPECT_EQ(1, rspInfo->serial);
 
   // TODO(sanketpadawe): Add test for error code
 }
@@ -296,10 +320,12 @@ TEST_F(RadioHidlTest, requestIccSimAuthentication) {
   for (int i = 0; i < (int)cardStatus.applications.size(); i++) {
     radio->requestIccSimAuthentication(++serial, 0, hidl_string("test"),
                                        cardStatus.applications[i].aidPtr);
-    EXPECT_EQ(std::cv_status::no_timeout, wait());
-    EXPECT_EQ(serial, radioRsp->rspInfo.serial);
-    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-    EXPECT_EQ(RadioError::INVALID_ARGUMENTS, radioRsp->rspInfo.error);
+    auto res = radioRsp->WaitForCallback();
+    EXPECT_TRUE(res.first);
+    auto rspInfo = res.second;
+    EXPECT_EQ(serial, rspInfo->serial);
+    EXPECT_EQ(RadioResponseType::SOLICITED, rspInfo->type);
+    EXPECT_EQ(RadioError::INVALID_ARGUMENTS, rspInfo->error);
   }
 }
 
@@ -310,11 +336,13 @@ TEST_F(RadioHidlTest, supplyNetworkDepersonalization) {
   int serial = 1;
 
   radio->supplyNetworkDepersonalization(serial, hidl_string("test"));
-  EXPECT_EQ(std::cv_status::no_timeout, wait());
-  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+  auto res = radioRsp->WaitForCallback();
+  EXPECT_TRUE(res.first);
+  auto rspInfo = res.second;
+  EXPECT_EQ(RadioResponseType::SOLICITED, rspInfo->type);
+  EXPECT_EQ(serial, rspInfo->serial);
 
   if (cardStatus.cardState == CardState::ABSENT) {
-    ASSERT_TRUE(radioRsp->rspInfo.error == RadioError::PASSWORD_INCORRECT);
+    ASSERT_TRUE(rspInfo->error == RadioError::PASSWORD_INCORRECT);
   }
 }

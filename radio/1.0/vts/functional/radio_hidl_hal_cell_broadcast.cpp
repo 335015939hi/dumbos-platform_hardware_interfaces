@@ -70,12 +70,14 @@ TEST_F(RadioHidlTest, setGsmBroadcastConfig) {
 
   radio->setGsmBroadcastConfig(++serial, gsmBroadcastSmsConfigsInfoList);
 
-  EXPECT_EQ(std::cv_status::no_timeout, wait());
-  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+  auto res = radioRsp->WaitForCallback();
+  EXPECT_TRUE(res.first);
+  auto rspInfo = res.second;
+  EXPECT_EQ(RadioResponseType::SOLICITED, rspInfo->type);
+  EXPECT_EQ(serial, rspInfo->serial);
 
   if (cardStatus.cardState == CardState::ABSENT) {
-    EXPECT_EQ(RadioError::NONE, radioRsp->rspInfo.error);
+    EXPECT_EQ(RadioError::NONE, rspInfo->error);
   }
 }
 
@@ -87,12 +89,14 @@ TEST_F(RadioHidlTest, getGsmBroadcastConfig) {
 
   radio->getGsmBroadcastConfig(++serial);
 
-  EXPECT_EQ(std::cv_status::no_timeout, wait());
-  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+  auto res = radioRsp->WaitForCallback();
+  EXPECT_TRUE(res.first);
+  auto rspInfo = res.second;
+  EXPECT_EQ(RadioResponseType::SOLICITED, rspInfo->type);
+  EXPECT_EQ(serial, rspInfo->serial);
 
   if (cardStatus.cardState == CardState::ABSENT) {
-    EXPECT_EQ(RadioError::NONE, radioRsp->rspInfo.error);
+    EXPECT_EQ(RadioError::NONE, rspInfo->error);
   }
 }
 
@@ -112,12 +116,14 @@ TEST_F(RadioHidlTest, setCdmaBroadcastConfig) {
 
   radio->setCdmaBroadcastConfig(++serial, cdmaBroadcastSmsConfigInfoList);
 
-  EXPECT_EQ(std::cv_status::no_timeout, wait());
-  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+  auto res = radioRsp->WaitForCallback();
+  EXPECT_TRUE(res.first);
+  auto rspInfo = res.second;
+  EXPECT_EQ(RadioResponseType::SOLICITED, rspInfo->type);
+  EXPECT_EQ(serial, rspInfo->serial);
 
   if (cardStatus.cardState == CardState::ABSENT) {
-    EXPECT_EQ(RadioError::NONE, radioRsp->rspInfo.error);
+    EXPECT_EQ(RadioError::NONE, rspInfo->error);
   }
 }
 
@@ -129,12 +135,14 @@ TEST_F(RadioHidlTest, getCdmaBroadcastConfig) {
 
   radio->getCdmaBroadcastConfig(++serial);
 
-  EXPECT_EQ(std::cv_status::no_timeout, wait());
-  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+  auto res = radioRsp->WaitForCallback();
+  EXPECT_TRUE(res.first);
+  auto rspInfo = res.second;
+  EXPECT_EQ(RadioResponseType::SOLICITED, rspInfo->type);
+  EXPECT_EQ(serial, rspInfo->serial);
 
   if (cardStatus.cardState == CardState::ABSENT) {
-    EXPECT_EQ(RadioError::NONE, radioRsp->rspInfo.error);
+    EXPECT_EQ(RadioError::NONE, rspInfo->error);
   }
 }
 
@@ -147,12 +155,14 @@ TEST_F(RadioHidlTest, setCdmaBroadcastActivation) {
 
   radio->setCdmaBroadcastActivation(++serial, activate);
 
-  EXPECT_EQ(std::cv_status::no_timeout, wait());
-  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+  auto res = radioRsp->WaitForCallback();
+  EXPECT_TRUE(res.first);
+  auto rspInfo = res.second;
+  EXPECT_EQ(RadioResponseType::SOLICITED, rspInfo->type);
+  EXPECT_EQ(serial, rspInfo->serial);
 
   if (cardStatus.cardState == CardState::ABSENT) {
-    EXPECT_EQ(RadioError::NONE, radioRsp->rspInfo.error);
+    EXPECT_EQ(RadioError::NONE, rspInfo->error);
   }
 }
 
@@ -165,11 +175,13 @@ TEST_F(RadioHidlTest, setGsmBroadcastActivation) {
 
   radio->setGsmBroadcastActivation(++serial, activate);
 
-  EXPECT_EQ(std::cv_status::no_timeout, wait());
-  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+  auto res = radioRsp->WaitForCallback();
+  EXPECT_TRUE(res.first);
+  auto rspInfo = res.second;
+  EXPECT_EQ(RadioResponseType::SOLICITED, rspInfo->type);
+  EXPECT_EQ(serial, rspInfo->serial);
 
   if (cardStatus.cardState == CardState::ABSENT) {
-    EXPECT_EQ(RadioError::NONE, radioRsp->rspInfo.error);
+    EXPECT_EQ(RadioError::NONE, rspInfo->error);
   }
 }

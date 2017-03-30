@@ -29,15 +29,17 @@ TEST_F(RadioHidlTest, sendSms) {
 
   radio->sendSms(++serial, msg);
 
-  EXPECT_EQ(std::cv_status::no_timeout, wait());
-  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+  auto res = radioRsp->WaitForCallback();
+  EXPECT_TRUE(res.first);
+  auto rspInfo = res.second;
+  EXPECT_EQ(RadioResponseType::SOLICITED, rspInfo->type);
+  EXPECT_EQ(serial, rspInfo->serial);
 
   if (cardStatus.cardState == CardState::ABSENT) {
-    ASSERT_TRUE(radioRsp->rspInfo.error == RadioError::INVALID_ARGUMENTS ||
-                radioRsp->rspInfo.error == RadioError::MODEM_ERR ||
-                radioRsp->rspInfo.error == RadioError::SYSTEM_ERR ||
-                radioRsp->rspInfo.error == RadioError::INVALID_STATE);
+    ASSERT_TRUE(rspInfo->error == RadioError::INVALID_ARGUMENTS ||
+                rspInfo->error == RadioError::MODEM_ERR ||
+                rspInfo->error == RadioError::SYSTEM_ERR ||
+                rspInfo->error == RadioError::INVALID_STATE);
     EXPECT_EQ(0, radioRsp->sendSmsResult.errorCode);
   }
 }
@@ -56,15 +58,17 @@ TEST_F(RadioHidlTest, sendSMSExpectMore) {
   // TODO(shuoq): add more test for this API when inserted sim card is
   // considered
 
-  EXPECT_EQ(std::cv_status::no_timeout, wait());
-  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+  auto res = radioRsp->WaitForCallback();
+  EXPECT_TRUE(res.first);
+  auto rspInfo = res.second;
+  EXPECT_EQ(RadioResponseType::SOLICITED, rspInfo->type);
+  EXPECT_EQ(serial, rspInfo->serial);
 
   if (cardStatus.cardState == CardState::ABSENT) {
-    ASSERT_TRUE(radioRsp->rspInfo.error == RadioError::INVALID_ARGUMENTS ||
-                radioRsp->rspInfo.error == RadioError::MODEM_ERR ||
-                radioRsp->rspInfo.error == RadioError::SYSTEM_ERR ||
-                radioRsp->rspInfo.error == RadioError::INVALID_STATE);
+    ASSERT_TRUE(rspInfo->error == RadioError::INVALID_ARGUMENTS ||
+                rspInfo->error == RadioError::MODEM_ERR ||
+                rspInfo->error == RadioError::SYSTEM_ERR ||
+                rspInfo->error == RadioError::INVALID_STATE);
   }
 }
 
@@ -78,12 +82,14 @@ TEST_F(RadioHidlTest, acknowledgeLastIncomingGsmSms) {
   radio->acknowledgeLastIncomingGsmSms(
       ++serial, success, SmsAcknowledgeFailCause::MEMORY_CAPACITY_EXCEEDED);
 
-  EXPECT_EQ(std::cv_status::no_timeout, wait());
-  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+  auto res = radioRsp->WaitForCallback();
+  EXPECT_TRUE(res.first);
+  auto rspInfo = res.second;
+  EXPECT_EQ(RadioResponseType::SOLICITED, rspInfo->type);
+  EXPECT_EQ(serial, rspInfo->serial);
 
   if (cardStatus.cardState == CardState::ABSENT) {
-    EXPECT_EQ(RadioError::INVALID_ARGUMENTS, radioRsp->rspInfo.error);
+    EXPECT_EQ(RadioError::INVALID_ARGUMENTS, rspInfo->error);
   }
 }
 
@@ -97,9 +103,11 @@ TEST_F(RadioHidlTest, acknowledgeIncomingGsmSmsWithPdu) {
 
   radio->acknowledgeIncomingGsmSmsWithPdu(++serial, success, ackPdu);
 
-  EXPECT_EQ(std::cv_status::no_timeout, wait());
-  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+  auto res = radioRsp->WaitForCallback();
+  EXPECT_TRUE(res.first);
+  auto rspInfo = res.second;
+  EXPECT_EQ(RadioResponseType::SOLICITED, rspInfo->type);
+  EXPECT_EQ(serial, rspInfo->serial);
 
   if (cardStatus.cardState == CardState::ABSENT) {
     // TODO(shuoq): Will add error check when we know the expected error from QC
@@ -139,15 +147,17 @@ TEST_F(RadioHidlTest, sendCdmaSms) {
 
   radio->sendCdmaSms(++serial, cdmaSmsMessage);
 
-  EXPECT_EQ(std::cv_status::no_timeout, wait());
-  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+  auto res = radioRsp->WaitForCallback();
+  EXPECT_TRUE(res.first);
+  auto rspInfo = res.second;
+  EXPECT_EQ(RadioResponseType::SOLICITED, rspInfo->type);
+  EXPECT_EQ(serial, rspInfo->serial);
 
   if (cardStatus.cardState == CardState::ABSENT) {
-    ASSERT_TRUE(radioRsp->rspInfo.error == RadioError::INVALID_ARGUMENTS ||
-                radioRsp->rspInfo.error == RadioError::MODEM_ERR ||
-                radioRsp->rspInfo.error == RadioError::SYSTEM_ERR ||
-                radioRsp->rspInfo.error == RadioError::INVALID_STATE);
+    ASSERT_TRUE(rspInfo->error == RadioError::INVALID_ARGUMENTS ||
+                rspInfo->error == RadioError::MODEM_ERR ||
+                rspInfo->error == RadioError::SYSTEM_ERR ||
+                rspInfo->error == RadioError::INVALID_STATE);
   }
 }
 
@@ -164,12 +174,14 @@ TEST_F(RadioHidlTest, acknowledgeLastIncomingCdmaSms) {
 
   radio->acknowledgeLastIncomingCdmaSms(++serial, cdmaSmsAck);
 
-  EXPECT_EQ(std::cv_status::no_timeout, wait());
-  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+  auto res = radioRsp->WaitForCallback();
+  EXPECT_TRUE(res.first);
+  auto rspInfo = res.second;
+  EXPECT_EQ(RadioResponseType::SOLICITED, rspInfo->type);
+  EXPECT_EQ(serial, rspInfo->serial);
 
   if (cardStatus.cardState == CardState::ABSENT) {
-    EXPECT_EQ(RadioError::NO_SMS_TO_ACK, radioRsp->rspInfo.error);
+    EXPECT_EQ(RadioError::NO_SMS_TO_ACK, rspInfo->error);
   }
 }
 
@@ -214,12 +226,14 @@ TEST_F(RadioHidlTest, sendImsSms) {
 
   radio->sendImsSms(serial, msg);
 
-  EXPECT_EQ(std::cv_status::no_timeout, wait());
-  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+  auto res = radioRsp->WaitForCallback();
+  EXPECT_TRUE(res.first);
+  auto rspInfo = res.second;
+  EXPECT_EQ(RadioResponseType::SOLICITED, rspInfo->type);
+  EXPECT_EQ(serial, rspInfo->serial);
 
   if (cardStatus.cardState == CardState::ABSENT) {
-    EXPECT_EQ(RadioError::INVALID_ARGUMENTS, radioRsp->rspInfo.error);
+    EXPECT_EQ(RadioError::INVALID_ARGUMENTS, rspInfo->error);
   }
 }
 
@@ -231,16 +245,18 @@ TEST_F(RadioHidlTest, getSmscAddress) {
 
   radio->getSmscAddress(++serial);
 
-  EXPECT_EQ(std::cv_status::no_timeout, wait());
-  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+  auto res = radioRsp->WaitForCallback();
+  EXPECT_TRUE(res.first);
+  auto rspInfo = res.second;
+  EXPECT_EQ(RadioResponseType::SOLICITED, rspInfo->type);
+  EXPECT_EQ(serial, rspInfo->serial);
 
   if (cardStatus.cardState == CardState::ABSENT) {
-    ASSERT_TRUE(radioRsp->rspInfo.error == RadioError::INVALID_ARGUMENTS ||
-                radioRsp->rspInfo.error == RadioError::MODEM_ERR ||
-                radioRsp->rspInfo.error == RadioError::SYSTEM_ERR ||
-                radioRsp->rspInfo.error == RadioError::INVALID_STATE ||
-                radioRsp->rspInfo.error == RadioError::INVALID_MODEM_STATE);
+    ASSERT_TRUE(rspInfo->error == RadioError::INVALID_ARGUMENTS ||
+                rspInfo->error == RadioError::MODEM_ERR ||
+                rspInfo->error == RadioError::SYSTEM_ERR ||
+                rspInfo->error == RadioError::INVALID_STATE ||
+                rspInfo->error == RadioError::INVALID_MODEM_STATE);
   }
 }
 
@@ -253,12 +269,14 @@ TEST_F(RadioHidlTest, setSmscAddress) {
 
   radio->setSmscAddress(++serial, address);
 
-  EXPECT_EQ(std::cv_status::no_timeout, wait());
-  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+  auto res = radioRsp->WaitForCallback();
+  EXPECT_TRUE(res.first);
+  auto rspInfo = res.second;
+  EXPECT_EQ(RadioResponseType::SOLICITED, rspInfo->type);
+  EXPECT_EQ(serial, rspInfo->serial);
 
   if (cardStatus.cardState == CardState::ABSENT) {
-    EXPECT_EQ(RadioError::INVALID_SMS_FORMAT, radioRsp->rspInfo.error);
+    EXPECT_EQ(RadioError::INVALID_SMS_FORMAT, rspInfo->error);
   }
 }
 
@@ -274,15 +292,17 @@ TEST_F(RadioHidlTest, writeSmsToSim) {
 
   radio->writeSmsToSim(++serial, smsWriteArgs);
 
-  EXPECT_EQ(std::cv_status::no_timeout, wait());
-  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+  auto res = radioRsp->WaitForCallback();
+  EXPECT_TRUE(res.first);
+  auto rspInfo = res.second;
+  EXPECT_EQ(RadioResponseType::SOLICITED, rspInfo->type);
+  EXPECT_EQ(serial, rspInfo->serial);
 
   if (cardStatus.cardState == CardState::ABSENT) {
-    ASSERT_TRUE(radioRsp->rspInfo.error == RadioError::INVALID_ARGUMENTS ||
-                radioRsp->rspInfo.error == RadioError::MODEM_ERR ||
-                radioRsp->rspInfo.error == RadioError::INVALID_MODEM_STATE ||
-                radioRsp->rspInfo.error == RadioError::INTERNAL_ERR);
+    ASSERT_TRUE(rspInfo->error == RadioError::INVALID_ARGUMENTS ||
+                rspInfo->error == RadioError::MODEM_ERR ||
+                rspInfo->error == RadioError::INVALID_MODEM_STATE ||
+                rspInfo->error == RadioError::INTERNAL_ERR);
   }
 }
 
@@ -295,15 +315,17 @@ TEST_F(RadioHidlTest, deleteSmsOnSim) {
 
   radio->deleteSmsOnSim(++serial, index);
 
-  EXPECT_EQ(std::cv_status::no_timeout, wait());
-  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+  auto res = radioRsp->WaitForCallback();
+  EXPECT_TRUE(res.first);
+  auto rspInfo = res.second;
+  EXPECT_EQ(RadioResponseType::SOLICITED, rspInfo->type);
+  EXPECT_EQ(serial, rspInfo->serial);
 
   if (cardStatus.cardState == CardState::ABSENT) {
-    EXPECT_EQ(RadioError::INVALID_SMS_FORMAT, radioRsp->rspInfo.error);
-    ASSERT_TRUE(radioRsp->rspInfo.error == RadioError::INVALID_ARGUMENTS ||
-                radioRsp->rspInfo.error == RadioError::MODEM_ERR ||
-                radioRsp->rspInfo.error == RadioError::SYSTEM_ERR);
+    EXPECT_EQ(RadioError::INVALID_SMS_FORMAT, rspInfo->error);
+    ASSERT_TRUE(rspInfo->error == RadioError::INVALID_ARGUMENTS ||
+                rspInfo->error == RadioError::MODEM_ERR ||
+                rspInfo->error == RadioError::SYSTEM_ERR);
   }
 }
 
@@ -345,15 +367,17 @@ TEST_F(RadioHidlTest, writeSmsToRuim) {
 
   radio->writeSmsToRuim(++serial, cdmaSmsWriteArgs);
 
-  EXPECT_EQ(std::cv_status::no_timeout, wait());
-  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+  auto res = radioRsp->WaitForCallback();
+  EXPECT_TRUE(res.first);
+  auto rspInfo = res.second;
+  EXPECT_EQ(RadioResponseType::SOLICITED, rspInfo->type);
+  EXPECT_EQ(serial, rspInfo->serial);
 
   if (cardStatus.cardState == CardState::ABSENT) {
-    ASSERT_TRUE(radioRsp->rspInfo.error == RadioError::INVALID_ARGUMENTS ||
-                radioRsp->rspInfo.error == RadioError::MODEM_ERR ||
-                radioRsp->rspInfo.error == RadioError::INVALID_MODEM_STATE ||
-                radioRsp->rspInfo.error == RadioError::INTERNAL_ERR);
+    ASSERT_TRUE(rspInfo->error == RadioError::INVALID_ARGUMENTS ||
+                rspInfo->error == RadioError::MODEM_ERR ||
+                rspInfo->error == RadioError::INVALID_MODEM_STATE ||
+                rspInfo->error == RadioError::INTERNAL_ERR);
   }
 }
 
@@ -396,14 +420,16 @@ TEST_F(RadioHidlTest, deleteSmsOnRuim) {
 
   radio->deleteSmsOnRuim(++serial, index);
 
-  EXPECT_EQ(std::cv_status::no_timeout, wait());
-  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+  auto res = radioRsp->WaitForCallback();
+  EXPECT_TRUE(res.first);
+  auto rspInfo = res.second;
+  EXPECT_EQ(RadioResponseType::SOLICITED, rspInfo->type);
+  EXPECT_EQ(serial, rspInfo->serial);
 
   if (cardStatus.cardState == CardState::ABSENT) {
-    ASSERT_TRUE(radioRsp->rspInfo.error == RadioError::INVALID_ARGUMENTS ||
-                radioRsp->rspInfo.error == RadioError::MODEM_ERR ||
-                radioRsp->rspInfo.error == RadioError::SYSTEM_ERR);
+    ASSERT_TRUE(rspInfo->error == RadioError::INVALID_ARGUMENTS ||
+                rspInfo->error == RadioError::MODEM_ERR ||
+                rspInfo->error == RadioError::SYSTEM_ERR);
   }
 }
 
@@ -416,14 +442,16 @@ TEST_F(RadioHidlTest, reportSmsMemoryStatus) {
 
   radio->reportSmsMemoryStatus(++serial, available);
 
-  EXPECT_EQ(std::cv_status::no_timeout, wait());
-  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+  auto res = radioRsp->WaitForCallback();
+  EXPECT_TRUE(res.first);
+  auto rspInfo = res.second;
+  EXPECT_EQ(RadioResponseType::SOLICITED, rspInfo->type);
+  EXPECT_EQ(serial, rspInfo->serial);
 
   if (cardStatus.cardState == CardState::ABSENT) {
-    ASSERT_TRUE(radioRsp->rspInfo.error == RadioError::INVALID_ARGUMENTS ||
-                radioRsp->rspInfo.error == RadioError::MODEM_ERR ||
-                radioRsp->rspInfo.error == RadioError::SYSTEM_ERR ||
-                radioRsp->rspInfo.error == RadioError::INVALID_STATE);
+    ASSERT_TRUE(rspInfo->error == RadioError::INVALID_ARGUMENTS ||
+                rspInfo->error == RadioError::MODEM_ERR ||
+                rspInfo->error == RadioError::SYSTEM_ERR ||
+                rspInfo->error == RadioError::INVALID_STATE);
   }
 }
