@@ -353,7 +353,7 @@ TEST_F(NfcHidlTest, PowerCycleAfterClose) {
 TEST_F(NfcHidlTest, CoreInitialized) {
   NfcData data;
   data.resize(1);
-  for (int i = 0; i <= 6; i++)
+  for (int i = 10; i <= 16; i++)
   {
     data[0] = i;
     EXPECT_EQ(NfcStatus::OK, nfc_->coreInitialized(data));
