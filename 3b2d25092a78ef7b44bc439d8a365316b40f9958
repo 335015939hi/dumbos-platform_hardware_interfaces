@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e4d14e9_f627cdfc",
+        "filename": "wifi/offload/1.0/default/Android.bp",
+        "patchSetId": 11
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2017-03-31T15:32:38Z",
+      "side": 1,
+      "message": "aosp copyright notice?",
+      "range": {
+        "startLine": 1,
+        "startChar": 17,
+        "endLine": 1,
+        "endChar": 18
+      },
+      "revId": "3b2d25092a78ef7b44bc439d8a365316b40f9958",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
