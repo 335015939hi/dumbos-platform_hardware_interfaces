@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "093f2e81_01900512",
+        "filename": "wifi/offload/1.0/vts/functional/Android.bp",
+        "patchSetId": 10
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1118893
+      },
+      "writtenOn": "2017-03-31T18:58:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef70ce6a_5642c4cc",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "4e0626d13923bddf79315c469d8e4786ed7b5d6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "403973f1_d4d526bb",
         "filename": "wifi/offload/1.0/vts/functional/VtsHalWifiOffloadV1_0TargetTest.cpp",
         "patchSetId": 10
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "3334c6b6_103800d2",
+        "filename": "wifi/offload/1.0/vts/functional/VtsHalWifiOffloadV1_0TargetTest.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1118893
+      },
+      "writtenOn": "2017-03-31T18:58:27Z",
+      "side": 1,
+      "message": "will upload in the next patch",
+      "parentUuid": "403973f1_d4d526bb",
+      "range": {
+        "startLine": 87,
+        "startChar": 54,
+        "endLine": 87,
+        "endChar": 70
+      },
+      "revId": "4e0626d13923bddf79315c469d8e4786ed7b5d6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b99e866c_a472d362",
         "filename": "wifi/offload/1.0/vts/functional/VtsHalWifiOffloadV1_0TargetTest.cpp",
         "patchSetId": 10
@@ -59,6 +107,30 @@
       "writtenOn": "2017-03-31T15:32:01Z",
       "side": 1,
       "message": "how about adding a docstring to every test case?",
+      "range": {
+        "startLine": 109,
+        "startChar": 7,
+        "endLine": 109,
+        "endChar": 26
+      },
+      "revId": "4e0626d13923bddf79315c469d8e4786ed7b5d6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c656de2a_130fde4f",
+        "filename": "wifi/offload/1.0/vts/functional/VtsHalWifiOffloadV1_0TargetTest.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1118893
+      },
+      "writtenOn": "2017-03-31T18:58:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b99e866c_a472d362",
       "range": {
         "startLine": 109,
         "startChar": 7,
