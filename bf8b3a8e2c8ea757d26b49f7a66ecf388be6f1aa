@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "26d9f020_2f8cf46b",
+        "filename": "nfc/1.0/vts/functional/VtsHalNfcV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2017-03-31T21:27:27Z",
+      "side": 1,
+      "message": "can you put a comment as to why these values are used?",
+      "range": {
+        "startLine": 356,
+        "startChar": 0,
+        "endLine": 356,
+        "endChar": 32
+      },
+      "revId": "bf8b3a8e2c8ea757d26b49f7a66ecf388be6f1aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
