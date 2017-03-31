@@ -22,6 +22,30 @@
       "revId": "3b2d25092a78ef7b44bc439d8a365316b40f9958",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb89530a_5e3119b4",
+        "filename": "wifi/offload/1.0/default/Android.bp",
+        "patchSetId": 11
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1118893
+      },
+      "writtenOn": "2017-03-31T18:59:26Z",
+      "side": 1,
+      "message": "I do not see any other default/Android.bp having a header with copy right.",
+      "parentUuid": "0e4d14e9_f627cdfc",
+      "range": {
+        "startLine": 1,
+        "startChar": 17,
+        "endLine": 1,
+        "endChar": 18
+      },
+      "revId": "3b2d25092a78ef7b44bc439d8a365316b40f9958",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
