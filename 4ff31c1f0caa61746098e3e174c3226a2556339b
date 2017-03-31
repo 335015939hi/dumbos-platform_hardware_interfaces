@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2914b329_734b79a1",
+        "filename": "weaver/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000866
+      },
+      "writtenOn": "2017-03-31T17:58:37Z",
+      "side": 1,
+      "message": "Do you need to describe the key format any further?  Is it something backed by external standards, or something we cook up?  How can we catch key-format changes without corresponding HIDL-interface changes?",
+      "range": {
+        "startLine": 27,
+        "startChar": 13,
+        "endLine": 27,
+        "endChar": 20
+      },
+      "revId": "4ff31c1f0caa61746098e3e174c3226a2556339b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
