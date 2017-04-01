@@ -38,7 +38,7 @@ dispatchTable loadHAL() {
     static_assert(sizeof(void*) <= sizeof(uint64_t), "RenderScript HIDL Error: sizeof(void*) > sizeof(uint64_t)");
     static_assert(sizeof(size_t) <= sizeof(uint64_t), "RenderScript HIDL Error: sizeof(size_t) > sizeof(uint64_t)");
 
-    const char* filename = "libRS_internal.so";
+    const char* filename = "libRS_internal_vendor.so";
     void* handle = dlopen(filename, RTLD_LAZY | RTLD_LOCAL);
 
     dispatchTable dispatchHal = {
