@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "77a7df12_e2033c3e",
+        "filename": "wifi/offload/1.0/types.hal",
+        "patchSetId": 14
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2017-04-03T17:43:19Z",
+      "side": 1,
+      "message": "can this be empty, and if so what does it mean?",
+      "range": {
+        "startLine": 91,
+        "startChar": 4,
+        "endLine": 91,
+        "endChar": 41
+      },
+      "revId": "6b98922be477631c5a99f12dbe27c25b9a6aa5a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f984c1f_43c5da70",
+        "filename": "wifi/offload/1.0/types.hal",
+        "patchSetId": 14
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2017-04-03T17:43:19Z",
+      "side": 1,
+      "message": "same Q here",
+      "range": {
+        "startLine": 94,
+        "startChar": 18,
+        "endLine": 94,
+        "endChar": 31
+      },
+      "revId": "6b98922be477631c5a99f12dbe27c25b9a6aa5a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eaedf6de_86201255",
+        "filename": "wifi/offload/1.0/types.hal",
+        "patchSetId": 14
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2017-04-03T17:43:19Z",
+      "side": 1,
+      "message": "\u0027Nano\u0027 seems like the only reference to something device-specific. Do we need this record, or can you make it generic?",
+      "range": {
+        "startLine": 131,
+        "startChar": 7,
+        "endLine": 131,
+        "endChar": 45
+      },
+      "revId": "6b98922be477631c5a99f12dbe27c25b9a6aa5a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
