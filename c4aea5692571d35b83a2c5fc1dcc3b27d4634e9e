@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "312218ea_a611f78f",
+        "filename": "oemlock/1.0/IOemLock.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2017-04-03T23:22:32Z",
+      "side": 1,
+      "message": "Ok, as long as the framework doesn\u0027t have to interpret it that is fine. I do wonder if it wouldn\u0027t be nicer to provide some guidance or even a requirement here on how to sign; as it is, the remote backend not only needs to know a shared secret, but it also needs to know how to compute the signature, which can be different on every Android device, depending on the HAL implementation they use.",
+      "parentUuid": "78dc1b11_a2429de0",
+      "range": {
+        "startLine": 33,
+        "startChar": 8,
+        "endLine": 33,
+        "endChar": 13
+      },
+      "revId": "c4aea5692571d35b83a2c5fc1dcc3b27d4634e9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8045dc71_1e372c7f",
         "filename": "oemlock/1.0/types.hal",
         "patchSetId": 3
