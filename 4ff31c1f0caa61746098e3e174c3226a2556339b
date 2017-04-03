@@ -22,6 +22,30 @@
       "revId": "4ff31c1f0caa61746098e3e174c3226a2556339b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d4d18bb0_597ca59e",
+        "filename": "weaver/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2017-04-03T14:07:41Z",
+      "side": 1,
+      "message": "The key is just a number in the key-value pair sense rather than the encryption key sense. As it is just a blob there is not format to worry about.\n\nLet me know if I didn\u0027t understand your concerns properly.",
+      "parentUuid": "2914b329_734b79a1",
+      "range": {
+        "startLine": 27,
+        "startChar": 13,
+        "endLine": 27,
+        "endChar": 20
+      },
+      "revId": "4ff31c1f0caa61746098e3e174c3226a2556339b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
