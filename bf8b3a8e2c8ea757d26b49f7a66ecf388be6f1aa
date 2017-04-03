@@ -22,6 +22,30 @@
       "revId": "bf8b3a8e2c8ea757d26b49f7a66ecf388be6f1aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59161d7e_ceed6cf3",
+        "filename": "nfc/1.0/vts/functional/VtsHalNfcV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2017-04-03T22:42:26Z",
+      "side": 1,
+      "message": "what\u0027s the answer?",
+      "parentUuid": "26d9f020_2f8cf46b",
+      "range": {
+        "startLine": 356,
+        "startChar": 0,
+        "endLine": 356,
+        "endChar": 32
+      },
+      "revId": "bf8b3a8e2c8ea757d26b49f7a66ecf388be6f1aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
