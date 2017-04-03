@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "78dc1b11_a2429de0",
+        "filename": "oemlock/1.0/IOemLock.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2017-04-03T16:35:49Z",
+      "side": 1,
+      "message": "The flow would be something like this:\n\n- Carrier decides to allow OEM unlock\n- App on device sends proof of ID to server\n- Server signs a request to allow unlock of phone\n- App passes signature to HAL (system server just forwards the bytes and does nothing to it)\n- HAL implementation checks the signature\n\nSigning is on the server (i.e. not on the phone) and verification is in the HAL implementation. They must share a secret and both are controlled by the vendor.",
+      "parentUuid": "77283823_d24377ea",
+      "range": {
+        "startLine": 33,
+        "startChar": 8,
+        "endLine": 33,
+        "endChar": 13
+      },
+      "revId": "c4aea5692571d35b83a2c5fc1dcc3b27d4634e9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8045dc71_1e372c7f",
         "filename": "oemlock/1.0/types.hal",
         "patchSetId": 3

@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d4cb2db1_81c4ff1d",
+        "filename": "oemlock/1.0/IOemLock.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2017-04-03T16:35:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43cf0710_5704a33c",
+      "range": {
+        "startLine": 33,
+        "startChar": 33,
+        "endLine": 33,
+        "endChar": 40
+      },
+      "revId": "ad1478cb0a3aaeda605f4f158ec780b2cdca7975",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4cfa2160_dc2ee79a",
         "filename": "oemlock/1.0/default/OemLock.cpp",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2017-04-03T16:17:46Z",
       "side": 1,
       "message": "it doesn\u0027t really matter if the caller checks the error return properly, but I would rather default to \u0027false\u0027.",
+      "range": {
+        "startLine": 33,
+        "startChar": 36,
+        "endLine": 33,
+        "endChar": 40
+      },
+      "revId": "ad1478cb0a3aaeda605f4f158ec780b2cdca7975",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb634dab_f0abe694",
+        "filename": "oemlock/1.0/default/OemLock.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2017-04-03T16:35:49Z",
+      "side": 1,
+      "message": "False would mean that OEM unlock is not allowed and if this stub default is being used rather than implementing it in a meaningful way it shouldn\u0027t be preventing people from unlocking their phones.\n\nIt is ok to not have an implementation of this HAL, the system server will work around that.",
+      "parentUuid": "4cfa2160_dc2ee79a",
       "range": {
         "startLine": 33,
         "startChar": 36,
