@@ -93,6 +93,30 @@
       "revId": "4ff31c1f0caa61746098e3e174c3226a2556339b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6dc36aa9_a9b94e4b",
+        "filename": "weaver/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000866
+      },
+      "writtenOn": "2017-04-03T16:11:57Z",
+      "side": 1,
+      "message": "So, the question is, does the implementation of IWeaver interpret the data in anyway?  Or is the only operation that it performs on two keys that of comparing them for equality via e.g. memcmp?",
+      "parentUuid": "d4d18bb0_597ca59e",
+      "range": {
+        "startLine": 27,
+        "startChar": 13,
+        "endLine": 27,
+        "endChar": 20
+      },
+      "revId": "4ff31c1f0caa61746098e3e174c3226a2556339b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
