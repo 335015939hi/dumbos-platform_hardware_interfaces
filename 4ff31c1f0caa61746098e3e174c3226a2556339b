@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c2218eec_e4a13fc3",
+        "filename": "weaver/1.0/IWeaver.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2017-04-03T16:09:50Z",
+      "side": 1,
+      "message": "No, it doesn\u0027t change. See the comment on the getConfig() function.\n\nIs there a better way to do this in HIDL?",
+      "parentUuid": "6f14acea_9181593e",
+      "range": {
+        "startLine": 27,
+        "startChar": 59,
+        "endLine": 27,
+        "endChar": 78
+      },
+      "revId": "4ff31c1f0caa61746098e3e174c3226a2556339b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2914b329_734b79a1",
         "filename": "weaver/1.0/types.hal",
         "patchSetId": 4
