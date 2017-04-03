@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "77283823_d24377ea",
+        "filename": "oemlock/1.0/IOemLock.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2017-04-03T16:17:46Z",
+      "side": 1,
+      "message": "What does \u0027vendor\u0027 mean here though - is it the OEM? Given that this affects carrier interests, wouldn\u0027t the carriers really want to be able to set this?\n\nThe way you write it now, it sounds like every OEM needs to modify system_server to implement a signing algorithm, but it\u0027s unclear over what data or using which key.",
+      "parentUuid": "2ab532c1_40b86b7c",
+      "range": {
+        "startLine": 33,
+        "startChar": 8,
+        "endLine": 33,
+        "endChar": 13
+      },
+      "revId": "c4aea5692571d35b83a2c5fc1dcc3b27d4634e9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8045dc71_1e372c7f",
         "filename": "oemlock/1.0/types.hal",
         "patchSetId": 3
