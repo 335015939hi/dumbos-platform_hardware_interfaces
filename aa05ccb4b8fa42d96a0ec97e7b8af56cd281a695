@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "87ccd6a8_d0033ccb",
+        "filename": "nfc/1.0/vts/functional/VtsHalNfcV1_0TargetTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2017-04-03T22:43:59Z",
+      "side": 1,
+      "message": "what was the failure behavior? if certain values can harm the stability of a hal, isn\u0027t that a bug in implementation?\n\nat least fuzzing will see this well.",
+      "range": {
+        "startLine": 340,
+        "startChar": 5,
+        "endLine": 340,
+        "endChar": 72
+      },
+      "revId": "aa05ccb4b8fa42d96a0ec97e7b8af56cd281a695",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
