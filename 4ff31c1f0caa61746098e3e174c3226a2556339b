@@ -117,6 +117,30 @@
       "revId": "4ff31c1f0caa61746098e3e174c3226a2556339b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a8fd955_ac2b7fed",
+        "filename": "weaver/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2017-04-03T16:14:50Z",
+      "side": 1,
+      "message": "There is no interpretation, it is a straight byte by byte comparison like memcmp.",
+      "parentUuid": "6dc36aa9_a9b94e4b",
+      "range": {
+        "startLine": 27,
+        "startChar": 13,
+        "endLine": 27,
+        "endChar": 20
+      },
+      "revId": "4ff31c1f0caa61746098e3e174c3226a2556339b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
