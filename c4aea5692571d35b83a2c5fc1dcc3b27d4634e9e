@@ -145,6 +145,30 @@
     },
     {
       "key": {
+        "uuid": "e55c28a2_e3bd9fd1",
+        "filename": "oemlock/1.0/IOemLock.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2017-04-04T10:29:36Z",
+      "side": 1,
+      "message": "The details of this are deliberately left to the carrier-vendor partnership. This is required if they are going to share a secret as that must be kept secret and not well documented. It is also fine to not have any crypto protection and so not requires a signature. The docs say the signature might not be needed but the non-Android parties involved will have to agree on what the process involved will be. Android itself is not involved in the business related aspect of this.",
+      "parentUuid": "312218ea_a611f78f",
+      "range": {
+        "startLine": 33,
+        "startChar": 8,
+        "endLine": 33,
+        "endChar": 13
+      },
+      "revId": "c4aea5692571d35b83a2c5fc1dcc3b27d4634e9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8045dc71_1e372c7f",
         "filename": "oemlock/1.0/types.hal",
         "patchSetId": 3

@@ -117,6 +117,30 @@
       "revId": "ad1478cb0a3aaeda605f4f158ec780b2cdca7975",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d3fe7ebf_d95031d5",
+        "filename": "oemlock/1.0/default/OemLock.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2017-04-04T10:29:36Z",
+      "side": 1,
+      "message": "True, which makes this value arbitrary and I feel that, if this worthless default implementation is used and the framework has a bug, we should not prevent the user from unlocking their device by returning true.\n\nI think a bigger problem is that this default implementation should never be used and is only here because the HIDL docs say there has to be a default. If this HAL is not implemented properly, it should not be on the device so the framework can fall back to the current (pre-HAL) implementation. By using this code, it looks to the framework like it should be using the HAL and it is just failing so there will be no functioning OEM lock available. Is it still needed to have a default given in this case its only purpose seems to be to show the code structure to implement it properly?",
+      "parentUuid": "04577bab_a36c2bdf",
+      "range": {
+        "startLine": 33,
+        "startChar": 36,
+        "endLine": 33,
+        "endChar": 40
+      },
+      "revId": "ad1478cb0a3aaeda605f4f158ec780b2cdca7975",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
