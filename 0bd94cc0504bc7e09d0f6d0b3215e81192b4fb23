@@ -22,6 +22,30 @@
       "revId": "0bd94cc0504bc7e09d0f6d0b3215e81192b4fb23",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6cd1bbb0_4333e171",
+        "filename": "oemlock/1.0/IOemLock.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2017-04-05T15:28:19Z",
+      "side": 1,
+      "message": "Reworded to spin this in.",
+      "parentUuid": "3d8f395a_cee9cb1c",
+      "range": {
+        "startLine": 31,
+        "startChar": 15,
+        "endLine": 31,
+        "endChar": 19
+      },
+      "revId": "0bd94cc0504bc7e09d0f6d0b3215e81192b4fb23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
