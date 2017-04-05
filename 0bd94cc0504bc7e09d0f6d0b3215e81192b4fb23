@@ -69,6 +69,30 @@
       "revId": "0bd94cc0504bc7e09d0f6d0b3215e81192b4fb23",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa8b2c96_3c37d81b",
+        "filename": "oemlock/1.0/IOemLock.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2017-04-05T16:33:40Z",
+      "side": 1,
+      "message": "This was added to allow for possible changes in the security protocol (e.g. signing algo). Without this, the server would have to guess the state of the device or store a mapping based on device id or the latest OTA. With this, the server can be told the process it has to follow.",
+      "parentUuid": "9bd1cb6e_b6806cbd",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 35,
+        "endChar": 29
+      },
+      "revId": "0bd94cc0504bc7e09d0f6d0b3215e81192b4fb23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

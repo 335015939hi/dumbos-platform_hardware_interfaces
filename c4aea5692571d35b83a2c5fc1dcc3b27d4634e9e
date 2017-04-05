@@ -193,6 +193,30 @@
     },
     {
       "key": {
+        "uuid": "60ff6c59_c047e183",
+        "filename": "oemlock/1.0/IOemLock.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2017-04-05T16:33:40Z",
+      "side": 1,
+      "message": "The main problems I see with mandating an algorithm here are:\n - if a specialised chip is used as the backed of this HAL, it might not support the algorithm\n - if the algorithm needs to change, e.g. for security reasons, we would have to wait until a new HAL version is released\n\nYes, a mapping of device, algo and message is needed. The version query was added to allow for version -\u003e algo rather than device -\u003e algo. device -\u003e message is needed eitherway.",
+      "parentUuid": "b66e5640_082e1c39",
+      "range": {
+        "startLine": 33,
+        "startChar": 8,
+        "endLine": 33,
+        "endChar": 13
+      },
+      "revId": "c4aea5692571d35b83a2c5fc1dcc3b27d4634e9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8045dc71_1e372c7f",
         "filename": "oemlock/1.0/types.hal",
         "patchSetId": 3
