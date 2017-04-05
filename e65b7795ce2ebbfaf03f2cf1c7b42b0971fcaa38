@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "d0784815_094d3085",
+        "filename": "bluetooth/1.0/default/h4_protocol.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2017-04-05T16:58:59Z",
+      "side": 1,
+      "message": "I just meant that all implementations that use H4 could use writev.  It doesn\u0027t hurt anything in the non-USB case.",
+      "parentUuid": "78f776cf_810dc26a",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 52
+      },
+      "revId": "e65b7795ce2ebbfaf03f2cf1c7b42b0971fcaa38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5bd92e45_bd726af9",
         "filename": "bluetooth/1.0/default/h4_protocol.cc",
         "patchSetId": 1
