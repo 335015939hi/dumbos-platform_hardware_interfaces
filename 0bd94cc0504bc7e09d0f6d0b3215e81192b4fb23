@@ -46,6 +46,29 @@
       "revId": "0bd94cc0504bc7e09d0f6d0b3215e81192b4fb23",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9bd1cb6e_b6806cbd",
+        "filename": "oemlock/1.0/IOemLock.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2017-04-05T16:06:19Z",
+      "side": 1,
+      "message": "why did you add this?",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 35,
+        "endChar": 29
+      },
+      "revId": "0bd94cc0504bc7e09d0f6d0b3215e81192b4fb23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

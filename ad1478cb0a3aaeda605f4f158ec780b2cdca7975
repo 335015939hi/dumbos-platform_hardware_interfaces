@@ -141,6 +141,30 @@
       "revId": "ad1478cb0a3aaeda605f4f158ec780b2cdca7975",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "847e15d1_70f86d83",
+        "filename": "oemlock/1.0/default/OemLock.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2017-04-05T16:06:19Z",
+      "side": 1,
+      "message": "Yeah in this case there\u0027s actually not a good reason to have a default implementation at all, since the framework can live without this perfectly fine. Feel free to remove.",
+      "parentUuid": "d3fe7ebf_d95031d5",
+      "range": {
+        "startLine": 33,
+        "startChar": 36,
+        "endLine": 33,
+        "endChar": 40
+      },
+      "revId": "ad1478cb0a3aaeda605f4f158ec780b2cdca7975",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

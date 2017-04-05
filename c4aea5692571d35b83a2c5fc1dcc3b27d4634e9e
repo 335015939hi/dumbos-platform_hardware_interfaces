@@ -169,6 +169,30 @@
     },
     {
       "key": {
+        "uuid": "b66e5640_082e1c39",
+        "filename": "oemlock/1.0/IOemLock.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2017-04-05T16:06:19Z",
+      "side": 1,
+      "message": "But the secret is not the signing algorithm used, right? If you specify which signing algo + what to sign, our partners would only need to exchange keys - that is the secret.\n\nThe current implementation seems to imply that somebody must keep a map of \"device -\u003e IOemLock signing algo + message to sign\".\n\nTo be clear, I\u0027m fine with this going in as-is since it doesn\u0027t really matter for us. I was just curious if there\u0027s any benefit to *not* specifying the algo+message here.",
+      "parentUuid": "e55c28a2_e3bd9fd1",
+      "range": {
+        "startLine": 33,
+        "startChar": 8,
+        "endLine": 33,
+        "endChar": 13
+      },
+      "revId": "c4aea5692571d35b83a2c5fc1dcc3b27d4634e9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8045dc71_1e372c7f",
         "filename": "oemlock/1.0/types.hal",
         "patchSetId": 3
