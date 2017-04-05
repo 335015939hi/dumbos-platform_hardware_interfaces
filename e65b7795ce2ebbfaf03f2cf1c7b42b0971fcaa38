@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "78f776cf_810dc26a",
+        "filename": "bluetooth/1.0/default/h4_protocol.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1117033
+      },
+      "writtenOn": "2017-04-05T16:52:08Z",
+      "side": 1,
+      "message": "sorry I do not follow you.. could you elaborate little more ?",
+      "parentUuid": "076d59de_0b652258",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 52
+      },
+      "revId": "e65b7795ce2ebbfaf03f2cf1c7b42b0971fcaa38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5bd92e45_bd726af9",
         "filename": "bluetooth/1.0/default/h4_protocol.cc",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-04-05T16:25:20Z",
       "side": 1,
       "message": "ACL packets can be 64K (In practice they\u0027re shorter, but it\u0027s system-dependent).  Events are max 256 + the header.",
+      "range": {
+        "startLine": 70,
+        "startChar": 26,
+        "endLine": 70,
+        "endChar": 29
+      },
+      "revId": "e65b7795ce2ebbfaf03f2cf1c7b42b0971fcaa38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eccf16ba_4b08c35b",
+        "filename": "bluetooth/1.0/default/h4_protocol.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1117033
+      },
+      "writtenOn": "2017-04-05T16:52:08Z",
+      "side": 1,
+      "message": "could be reason, large file transfer fails. Haven\u0027t check the log yet but thank you for pointing out this",
+      "parentUuid": "5bd92e45_bd726af9",
       "range": {
         "startLine": 70,
         "startChar": 26,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "dbd82879_f17e3c9b",
+        "filename": "bluetooth/1.0/default/hci_protocol.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1117033
+      },
+      "writtenOn": "2017-04-05T16:52:08Z",
+      "side": 1,
+      "message": "yes.. will fix this. This was fix bit of code I have started with ;)",
+      "parentUuid": "807a6284_9f7d2e5e",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 10
+      },
+      "revId": "e65b7795ce2ebbfaf03f2cf1c7b42b0971fcaa38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "96ef5065_020c981e",
         "filename": "bluetooth/1.0/default/hci_protocol.cc",
         "patchSetId": 1
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "989906ce_caed738f",
+        "filename": "bluetooth/1.0/default/hci_protocol.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1117033
+      },
+      "writtenOn": "2017-04-05T16:52:08Z",
+      "side": 1,
+      "message": "ack",
+      "parentUuid": "96ef5065_020c981e",
+      "range": {
+        "startLine": 67,
+        "startChar": 2,
+        "endLine": 67,
+        "endChar": 3
+      },
+      "revId": "e65b7795ce2ebbfaf03f2cf1c7b42b0971fcaa38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a3128f3_b4895485",
         "filename": "bluetooth/1.0/default/hci_protocol.cc",
         "patchSetId": 1
@@ -105,6 +201,30 @@
       "writtenOn": "2017-04-05T16:25:20Z",
       "side": 1,
       "message": "I\u0027m surprised we need a cast here.",
+      "range": {
+        "startLine": 69,
+        "startChar": 24,
+        "endLine": 69,
+        "endChar": 32
+      },
+      "revId": "e65b7795ce2ebbfaf03f2cf1c7b42b0971fcaa38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7aa715b4_56be23d5",
+        "filename": "bluetooth/1.0/default/hci_protocol.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1117033
+      },
+      "writtenOn": "2017-04-05T16:52:08Z",
+      "side": 1,
+      "message": "yup.. it raise a build error otherwise",
+      "parentUuid": "5a3128f3_b4895485",
       "range": {
         "startLine": 69,
         "startChar": 24,
