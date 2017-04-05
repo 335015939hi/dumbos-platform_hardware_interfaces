@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3d8f395a_cee9cb1c",
+        "filename": "oemlock/1.0/IOemLock.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1022354
+      },
+      "writtenOn": "2017-04-05T14:58:26Z",
+      "side": 1,
+      "message": "Not sure if it\u0027s worth adding but --\n\nFor instance, this version may indicate what format is required by hardware for {@link  #setOemUnlockAllowedByCarrier}\u0027s.",
+      "range": {
+        "startLine": 31,
+        "startChar": 15,
+        "endLine": 31,
+        "endChar": 19
+      },
+      "revId": "0bd94cc0504bc7e09d0f6d0b3215e81192b4fb23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
