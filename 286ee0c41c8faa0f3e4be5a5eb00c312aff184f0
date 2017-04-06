@@ -22,6 +22,30 @@
       "revId": "286ee0c41c8faa0f3e4be5a5eb00c312aff184f0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "61064247_66449ef8",
+        "filename": "oemlock/1.0/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2017-04-06T17:55:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30f847aa_6ca3fb55",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 3
+      },
+      "revId": "286ee0c41c8faa0f3e4be5a5eb00c312aff184f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
