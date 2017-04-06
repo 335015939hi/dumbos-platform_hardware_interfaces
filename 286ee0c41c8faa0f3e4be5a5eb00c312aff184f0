@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30f847aa_6ca3fb55",
+        "filename": "oemlock/1.0/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-06T17:43:12Z",
+      "side": 1,
+      "message": "nit: Commenting the values is what is actually preferred, but lgtm",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 3
+      },
+      "revId": "286ee0c41c8faa0f3e4be5a5eb00c312aff184f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
