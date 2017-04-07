@@ -1165,6 +1165,12 @@ enum P2Constant : int32_t {
     NO_P2 = -1,                           // No P2 value is provided
 };
 
+enum CardPowerState : int32_t {
+    CARD_POWER_DOWN,
+    CARD_POWER_UP,
+    CARD_POWER_UP_PASS_THRU,
+};
+
 struct RadioResponseInfo {
     RadioResponseType type;               // Response type
     int32_t serial;                       // Serial number of the request
