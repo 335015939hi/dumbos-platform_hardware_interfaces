@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "117adbb3_40240371",
+        "filename": "net/tetheroffload/config/1.0/IOffloadConfig.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2017-04-07T12:25:15Z",
+      "side": 1,
+      "message": "We need to craft some file descriptors and pass them down.  These are input parameters to making of those file descriptors.",
+      "parentUuid": "b99b476e_9d44ee02",
+      "range": {
+        "startLine": 46,
+        "startChar": 12,
+        "endLine": 46,
+        "endChar": 17
+      },
+      "revId": "8304b42077e87e30c4046e6fc4054b39bfb4eb3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c5f6c1a4_8a39dcd9",
         "filename": "net/tetheroffload/config/1.0/types.hal",
         "patchSetId": 6
@@ -143,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "ef007fbb_cd2d4ef0",
+        "filename": "net/tetheroffload/config/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2017-04-07T12:25:15Z",
+      "side": 1,
+      "message": "Yes, this will be iterated over and IOffloadConfig.addHandle(...) will be called for each one along with the fd we make.\n\nThis is really a list of groups.",
+      "parentUuid": "1a835172_88c4dd3c",
+      "range": {
+        "startLine": 39,
+        "startChar": 8,
+        "endLine": 39,
+        "endChar": 16
+      },
+      "revId": "8304b42077e87e30c4046e6fc4054b39bfb4eb3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c5288c82_cec0f04a",
         "filename": "net/tetheroffload/config/1.0/types.hal",
         "patchSetId": 6
@@ -213,6 +261,30 @@
     },
     {
       "key": {
+        "uuid": "02d86cdd_4490d55b",
+        "filename": "net/tetheroffload/control/1.0/IOffloadControl.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2017-04-07T12:25:15Z",
+      "side": 1,
+      "message": "I do not understand the terms client and server in this context.\n\nTethering.java will be making these calls (does that make it the client?), and the hardware offload side will be answering (does that make it the server?).",
+      "parentUuid": "5c23e6fd_a8e82f3e",
+      "range": {
+        "startLine": 42,
+        "startChar": 5,
+        "endLine": 42,
+        "endChar": 77
+      },
+      "revId": "8304b42077e87e30c4046e6fc4054b39bfb4eb3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c09d9b93_276539bd",
         "filename": "net/tetheroffload/control/1.0/IOffloadControl.hal",
         "patchSetId": 6
@@ -247,6 +319,30 @@
       "writtenOn": "2017-03-31T17:52:51Z",
       "side": 1,
       "message": "You need to enter VTS annotations to describe this requirement.  +yim for help.",
+      "range": {
+        "startLine": 59,
+        "startChar": 14,
+        "endLine": 59,
+        "endChar": 54
+      },
+      "revId": "8304b42077e87e30c4046e6fc4054b39bfb4eb3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "561a7b2d_f568d486",
+        "filename": "net/tetheroffload/control/1.0/IOffloadControl.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2017-04-07T12:25:15Z",
+      "side": 1,
+      "message": "All I see in documentation is:\n\n    @entry\n    @exit\n    @callflow\n\nHow does one express \"exactly once\"?",
+      "parentUuid": "abf7ae53_6c6cb5d2",
       "range": {
         "startLine": 59,
         "startChar": 14,
