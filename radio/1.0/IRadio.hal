@@ -1557,11 +1557,22 @@ interface IRadio {
      * inserted or removed.
      *
      * @param serial Serial number of request
-     * @param powerUp True if powering up the sim card
+     * @param powerUp 0 if powering down the SIM card,
+     *                1 if powering up the SIM card,
+     *                2 if powering up the SIM card in PASS THRU mode.
+     * When SIM card is powered up in PASS THRU MODE, the modem does not send any command to it
+     * (for example SELECT of MF, or TERMINAL CAPABILITY), and the SIM card is controlled
+     * completely by Telephony sending APDUs directly. The SIM card state will be
+     * RIL_CARDSTATE_PRESENT and the number of card apps will be 0.
+     * No new error code is generated. Emergency calls are supported in the same way as if the
+     * SIM card is absent.
+     * The PASS THRU mode is valid only for the specific card session where it is activated, and
+     * normal behavior occurs at the next SIM initialization, unless PASS THRU mode is requested
+     * again.
      *
      * Response callback is IRadioResponse.setSimCardPowerResponse()
      */
-    oneway setSimCardPower(int32_t serial, bool powerUp);
+    oneway setSimCardPower(int32_t serial, CardPowerState powerUp);
 
     /**
      * When response type received from a radio indication or radio response is
