@@ -1161,6 +1161,12 @@ enum DeviceStateType : int32_t {
                                           // this doesn't mean no data is expected.
 };
 
+enum CardPowerState : int32_t {
+    CARD_POWER_DOWN,
+    CARD_POWER_UP,
+    CARD_POWER_UP_PASS_THRU,
+};
+
 struct RadioResponseInfo {
     RadioResponseType type;               // Response type
     int32_t serial;                       // Serial number of the request
