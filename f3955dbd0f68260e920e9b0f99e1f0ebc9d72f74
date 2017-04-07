@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "194c19aa_320e34d6",
+        "filename": "wifi/1.0/vts/functional/wifi_nan_test_utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2017-04-07T01:13:04Z",
+      "side": 1,
+      "message": "how about using the callback api of vts template? (today\u0027s council meeting slide has a manual).",
+      "range": {
+        "startLine": 70,
+        "startChar": 40,
+        "endLine": 70,
+        "endChar": 66
+      },
+      "revId": "f3955dbd0f68260e920e9b0f99e1f0ebc9d72f74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
