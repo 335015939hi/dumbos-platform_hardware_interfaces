@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e7580ec_298cea3b",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 1575,
+      "author": {
+        "id": 1138138
+      },
+      "writtenOn": "2017-04-08T00:27:50Z",
+      "side": 1,
+      "message": "Add in types.hal:\n\nenum CardPowerState : int32_t {\n  CARD_POWER_DOWN,\n  CARD_POWER_UP,\n  CARD_PASS_THRU,\n};",
+      "range": {
+        "startLine": 1575,
+        "startChar": 43,
+        "endLine": 1575,
+        "endChar": 58
+      },
+      "revId": "82195a2d5ab1c57e3575d267bd5a5889b162ee32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
