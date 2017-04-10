@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1c1236e6_f62bcbce",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 1575,
+      "author": {
+        "id": 1138138
+      },
+      "writtenOn": "2017-04-10T16:40:22Z",
+      "side": 1,
+      "message": "CardPowerState",
+      "range": {
+        "startLine": 1575,
+        "startChar": 43,
+        "endLine": 1575,
+        "endChar": 50
+      },
+      "revId": "33b4176b11a90f34c45ad8d1f8ae710242e6f5b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
