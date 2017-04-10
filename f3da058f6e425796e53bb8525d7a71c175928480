@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e91e1254_52a85e5a",
+        "filename": "oemlock/1.0/IOemLock.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-10T15:13:14Z",
+      "side": 1,
+      "message": "For clarification, the framework doesn\u0027t even call this to pass it to the vendor? If it doesn\u0027t, let\u0027s just remove the function. Vendor extensions are possible if someone makes the decision to support multiple different algorithms within an ecosystem.",
+      "range": {
+        "startLine": 29,
+        "startChar": 7,
+        "endLine": 29,
+        "endChar": 71
+      },
+      "revId": "f3da058f6e425796e53bb8525d7a71c175928480",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee0239fc_c662411b",
+        "filename": "oemlock/1.0/IOemLock.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-10T15:13:14Z",
+      "side": 1,
+      "message": "may #21 go/android-hal-design-guidelines",
+      "range": {
+        "startLine": 30,
+        "startChar": 12,
+        "endLine": 30,
+        "endChar": 15
+      },
+      "revId": "f3da058f6e425796e53bb8525d7a71c175928480",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a91a991_88d08222",
+        "filename": "oemlock/1.0/IOemLock.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-10T15:13:14Z",
+      "side": 1,
+      "message": "Shouldn\u0027t emphasize this. This isn\u0027t allowing \"changes without requiring a version bump,\" rather it\u0027s allowing a hardware manufacturer to maintain one client side codebase that works with a variety of different algorithms.",
+      "range": {
+        "startLine": 31,
+        "startChar": 37,
+        "endLine": 32,
+        "endChar": 24
+      },
+      "revId": "f3da058f6e425796e53bb8525d7a71c175928480",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
