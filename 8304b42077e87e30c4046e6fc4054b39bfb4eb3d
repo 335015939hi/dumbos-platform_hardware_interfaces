@@ -2,6 +2,92 @@
   "comments": [
     {
       "key": {
+        "uuid": "412789d6_e89b8132",
+        "filename": "net/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-11T00:12:30Z",
+      "side": 1,
+      "message": "why do we need a \"hardware/interfaces/net\" directory?",
+      "revId": "8304b42077e87e30c4046e6fc4054b39bfb4eb3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b86a3b04_3bb93462",
+        "filename": "net/tetheroffload/config/1.0/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-11T00:12:30Z",
+      "side": 1,
+      "message": "yeah, let\u0027s not do something this long",
+      "range": {
+        "startLine": 4,
+        "startChar": 11,
+        "endLine": 4,
+        "endChar": 52
+      },
+      "revId": "8304b42077e87e30c4046e6fc4054b39bfb4eb3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8ded91a_4bf6907c",
+        "filename": "net/tetheroffload/config/1.0/IOffloadConfig.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-11T00:12:30Z",
+      "side": 1,
+      "message": "space after star",
+      "range": {
+        "startLine": 2,
+        "startChar": 1,
+        "endLine": 2,
+        "endChar": 2
+      },
+      "revId": "8304b42077e87e30c4046e6fc4054b39bfb4eb3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8bc89687_fb47c003",
+        "filename": "net/tetheroffload/config/1.0/IOffloadConfig.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-11T00:12:30Z",
+      "side": 1,
+      "message": "why this license?",
+      "range": {
+        "startLine": 2,
+        "startChar": 26,
+        "endLine": 2,
+        "endChar": 31
+      },
+      "revId": "8304b42077e87e30c4046e6fc4054b39bfb4eb3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "455eed0c_06bf5f41",
         "filename": "net/tetheroffload/config/1.0/IOffloadConfig.hal",
         "patchSetId": 6
