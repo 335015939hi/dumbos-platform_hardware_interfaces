@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0b7ae222_4151de2e",
+        "filename": "net/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2017-04-11T05:24:12Z",
+      "side": 1,
+      "message": "That\u0027s almost certainly my fault.  I wasn\u0027t sure how flat the directory structure should be, and I was attempting to keep (future) connectivity-related HALs under net/.\n\nNo objection to removing the \"net\" part.  It\u0027s not my namespace to manage.  \u003d)",
+      "parentUuid": "412789d6_e89b8132",
+      "revId": "8304b42077e87e30c4046e6fc4054b39bfb4eb3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b86a3b04_3bb93462",
         "filename": "net/tetheroffload/config/1.0/Android.bp",
         "patchSetId": 6
