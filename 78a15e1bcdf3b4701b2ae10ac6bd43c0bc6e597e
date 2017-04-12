@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "35855dfe_5799a739",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_sms.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2017-04-12T22:57:39Z",
+      "side": 1,
+      "message": "I looked at the doc which QC shared and it seems that almost all APIs can return \"general errors\" (all highlighted errors are part of general errors) defined in their doc. We can probably have a separate function for that and call that from all APIs.",
+      "range": {
+        "startLine": 282,
+        "startChar": 16,
+        "endLine": 287,
+        "endChar": 3
+      },
+      "revId": "78a15e1bcdf3b4701b2ae10ac6bd43c0bc6e597e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
