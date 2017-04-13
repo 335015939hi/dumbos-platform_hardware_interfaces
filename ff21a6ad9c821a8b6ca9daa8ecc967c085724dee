@@ -48,6 +48,54 @@
     },
     {
       "key": {
+        "uuid": "77ed4f49_837055c2",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 1562,
+      "author": {
+        "id": 1152149
+      },
+      "writtenOn": "2017-04-13T09:20:00Z",
+      "side": 1,
+      "message": "Switching between CARD_POWER_UP and CARD_POWER_UP_PASS_THRU modes requires the device to power down the card. This has now been documented (Line 1573 in patch set 5).",
+      "parentUuid": "7ced995f_71d1c3ae",
+      "range": {
+        "startLine": 1562,
+        "startChar": 52,
+        "endLine": 1562,
+        "endChar": 70
+      },
+      "revId": "ff21a6ad9c821a8b6ca9daa8ecc967c085724dee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ccc20d88_c6d624ad",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 1562,
+      "author": {
+        "id": 1152149
+      },
+      "writtenOn": "2017-04-13T09:20:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26580181_d58ee0e4",
+      "range": {
+        "startLine": 1560,
+        "startChar": 22,
+        "endLine": 1562,
+        "endChar": 51
+      },
+      "revId": "ff21a6ad9c821a8b6ca9daa8ecc967c085724dee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e752abc_db91c0ba",
         "filename": "radio/1.0/IRadio.hal",
         "patchSetId": 4
@@ -59,6 +107,30 @@
       "writtenOn": "2017-04-11T15:47:26Z",
       "side": 1,
       "message": "makes me wonder - what\u0027s the default behavior when we power on the hardware?  Should the framework assume the modem will act as if 1 had been requested, or should it stay in 0 until we request 1?  I think for boot-performance we need to assume 1. \n\nAlso, what happens if we call this while the SIM is in the process of transitioning (ie is powering up to 1 or powering down to 0 and we call)?\n\nLastly, is the last powerup mode persisted?",
+      "range": {
+        "startLine": 1569,
+        "startChar": 7,
+        "endLine": 1571,
+        "endChar": 13
+      },
+      "revId": "ff21a6ad9c821a8b6ca9daa8ecc967c085724dee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b003ee2a_4e3371f4",
+        "filename": "radio/1.0/IRadio.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 1571,
+      "author": {
+        "id": 1152149
+      },
+      "writtenOn": "2017-04-13T09:20:00Z",
+      "side": 1,
+      "message": "When the hardware is powered on, the SIM card will be powered up as a part of the boot process. \n\nEach request to this method is handled after the previous request has completed.\n\nI\u0027ve added these to the documentation.\n\nAdditionally, the powerup mode is not persisted. The device will boot up with SIM card powered up. This is valid even if the SIM card was powered down in the last boot. The session details for pass thru mode have already been documented (Line 1570 in patch set 5).",
+      "parentUuid": "8e752abc_db91c0ba",
       "range": {
         "startLine": 1569,
         "startChar": 7,
