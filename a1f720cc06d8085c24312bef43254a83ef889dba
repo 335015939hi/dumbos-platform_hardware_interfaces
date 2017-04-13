@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bbb3fc6b_98847a9b",
+        "filename": "radio/1.1/IRadio.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-04-13T20:33:43Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 25
+      },
+      "revId": "a1f720cc06d8085c24312bef43254a83ef889dba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9492d2dd_ee55f9e7",
+        "filename": "radio/1.1/IRadio.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-04-13T20:33:43Z",
+      "side": 1,
+      "message": "There\u0027s a setResponseFunctions() API in 1.0::IRadio. It takes in IRadioResponse and IRadioIndication as parameters. With 1.1, we\u0027ll still use the same API but pass in 1.1 versions of the 2. Steven, that should be fine right?",
+      "revId": "a1f720cc06d8085c24312bef43254a83ef889dba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23ec7bd8_7fd6017a",
+        "filename": "radio/1.1/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-04-13T20:33:43Z",
+      "side": 1,
+      "message": "Is this really needed?\nAnd is this file even needed? Steven?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 50
+      },
+      "revId": "a1f720cc06d8085c24312bef43254a83ef889dba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
