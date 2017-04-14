@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "61089b1c_db3903f0",
+        "filename": "bluetooth/1.0/default/hci_packetizer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1087673
+      },
+      "writtenOn": "2017-04-14T14:41:48Z",
+      "side": 1,
+      "message": "Why does this need to be an ifdef? Also, this is needed for any kernel BT driver not just USB. Kernel support includes UART based devices now with serdev.",
+      "revId": "7d3c5300738a93d7632668f81ec8f6e6902ec2a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df9e2f68_120050fb",
+        "filename": "bluetooth/1.0/default/hci_protocol.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1087673
+      },
+      "writtenOn": "2017-04-14T14:41:48Z",
+      "side": 1,
+      "message": "Perhaps just use ALOGV?",
+      "revId": "7d3c5300738a93d7632668f81ec8f6e6902ec2a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
