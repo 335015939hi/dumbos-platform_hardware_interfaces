@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e05980f8_9f0967d1",
+        "filename": "bluetooth/1.0/default/hci_packetizer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1101148
+      },
+      "writtenOn": "2017-04-14T17:53:30Z",
+      "side": 1,
+      "message": "ideally yes, I have just validated for USB dongle. Yet to integrate your serdev patches and validate with TI\u0027s BT.\n\nAlso, thought of untouching existing stuff to start with. later can remove the flag.",
+      "parentUuid": "61089b1c_db3903f0",
+      "revId": "7d3c5300738a93d7632668f81ec8f6e6902ec2a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "df9e2f68_120050fb",
         "filename": "bluetooth/1.0/default/hci_protocol.cc",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2017-04-14T14:41:48Z",
       "side": 1,
       "message": "Perhaps just use ALOGV?",
+      "revId": "7d3c5300738a93d7632668f81ec8f6e6902ec2a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c0ade2e6_70a61acc",
+        "filename": "bluetooth/1.0/default/hci_protocol.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1101148
+      },
+      "writtenOn": "2017-04-14T17:53:30Z",
+      "side": 1,
+      "message": "yes.. As it prints all the packet info and flood the serial console even for small debugging with ALOGV.\n\nAnyways, I have thought of removing this.",
+      "parentUuid": "df9e2f68_120050fb",
       "revId": "7d3c5300738a93d7632668f81ec8f6e6902ec2a0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
