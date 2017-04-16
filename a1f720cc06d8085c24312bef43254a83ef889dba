@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0e6d7261_c6f11c4e",
+        "filename": "radio/1.1/IRadio.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1072138
+      },
+      "writtenOn": "2017-04-16T17:10:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bbb3fc6b_98847a9b",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 25
+      },
+      "revId": "a1f720cc06d8085c24312bef43254a83ef889dba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9492d2dd_ee55f9e7",
         "filename": "radio/1.1/IRadio.hal",
         "patchSetId": 3
@@ -95,6 +119,54 @@
       "side": 1,
       "message": "I would prefer no types.hal file here and the other files use @1.0::RadioIndicationType explicitly. It\u0027s much cleaner",
       "parentUuid": "23ec7bd8_7fd6017a",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 50
+      },
+      "revId": "a1f720cc06d8085c24312bef43254a83ef889dba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "afa8b422_da34f058",
+        "filename": "radio/1.1/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1072138
+      },
+      "writtenOn": "2017-04-16T17:10:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23ec7bd8_7fd6017a",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 50
+      },
+      "revId": "a1f720cc06d8085c24312bef43254a83ef889dba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fbc557b0_e22ac728",
+        "filename": "radio/1.1/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1072138
+      },
+      "writtenOn": "2017-04-16T17:10:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5df7122_e018164e",
       "range": {
         "startLine": 21,
         "startChar": 0,
