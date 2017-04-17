@@ -228,6 +228,13 @@ enum PersoSubstate : int32_t {
     RUIM_CORPORATE_PUK,
     RUIM_SERVICE_PROVIDER_PUK,
     RUIM_RUIM_PUK,
+    // Below are OEM specific perso lock types
+    SIM_SP_EHPLMN,
+    SIM_ICCID,
+    SIM_SPN,
+    OEM_PERSO_STATE_1,
+    OEM_PERSO_STATE_2,
+    OEM_PERSO_STATE_3,
 };
 
 enum RadioState : int32_t {
