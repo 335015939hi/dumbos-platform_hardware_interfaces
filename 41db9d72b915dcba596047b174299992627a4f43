@@ -22,6 +22,30 @@
       "revId": "41db9d72b915dcba596047b174299992627a4f43",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8fc5263_c8b00440",
+        "filename": "radio/1.1/IRadio.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1072138
+      },
+      "writtenOn": "2017-04-17T21:30:19Z",
+      "side": 1,
+      "message": "removing this results in compile errors.\n\nERROR: Failed to lookup type \u0027RadioResponseInfo\u0027 at hardware/interfaces/radio/1.1/IRadioResponse.hal:38.52-68\nhidl-gen W 04-16 18:46:34 134577 134577 Coordinator.cpp:444] Warning: Skipping android.hardware.radio@1.1::IRadioResponse because it could not be found or parsed or android.hardware.radio@1.1 doesn\u0027t pass all requirements.\nhidl-gen W 04-16 18:46:34 134577 134577 Coordinator.cpp:444] Warning: Skipping android.hardware.radio@1.1::IRadioResponse because it could not be found or parsed or android.hardware.radio@1.1 doesn\u0027t pass all requirements.\nERROR: Could not parse android.hardware.radio@1.1::IRadioResponse. Aborting.",
+      "parentUuid": "96e15c2b_1cb4ce8d",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 23
+      },
+      "revId": "41db9d72b915dcba596047b174299992627a4f43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
