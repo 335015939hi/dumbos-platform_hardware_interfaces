@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "951f8687_73ca0c5b",
+        "filename": "bluetooth/1.0/default/h4_protocol.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2017-04-17T23:49:56Z",
+      "side": 1,
+      "message": "undefined when BT_USB is undefined.",
+      "range": {
+        "startLine": 78,
+        "startChar": 24,
+        "endLine": 78,
+        "endChar": 35
+      },
+      "revId": "7d3c5300738a93d7632668f81ec8f6e6902ec2a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "61089b1c_db3903f0",
         "filename": "bluetooth/1.0/default/hci_packetizer.h",
         "patchSetId": 2
@@ -31,6 +54,24 @@
       "side": 1,
       "message": "ideally yes, I have just validated for USB dongle. Yet to integrate your serdev patches and validate with TI\u0027s BT.\n\nAlso, thought of untouching existing stuff to start with. later can remove the flag.",
       "parentUuid": "61089b1c_db3903f0",
+      "revId": "7d3c5300738a93d7632668f81ec8f6e6902ec2a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d6b1046_30a913d4",
+        "filename": "bluetooth/1.0/default/hci_packetizer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2017-04-17T23:49:56Z",
+      "side": 1,
+      "message": "Compiling with BT_USB undefined fails:\n\nerror: no member named \u0027CbHciPacket\u0027 ...\n\nThere\u0027s no matching ifdef in h4_protocol.cc",
+      "parentUuid": "e05980f8_9f0967d1",
       "revId": "7d3c5300738a93d7632668f81ec8f6e6902ec2a0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
