@@ -60,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "e4fec06a_896d4ed8",
+        "filename": "net/tetheroffload/config/1.0/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2017-04-18T08:01:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b86a3b04_3bb93462",
+      "range": {
+        "startLine": 4,
+        "startChar": 11,
+        "endLine": 4,
+        "endChar": 52
+      },
+      "revId": "8304b42077e87e30c4046e6fc4054b39bfb4eb3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e8ded91a_4bf6907c",
         "filename": "net/tetheroffload/config/1.0/IOffloadConfig.hal",
         "patchSetId": 6
@@ -99,6 +123,78 @@
         "startChar": 26,
         "endLine": 2,
         "endChar": 31
+      },
+      "revId": "8304b42077e87e30c4046e6fc4054b39bfb4eb3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "74e76b47_df8b1974",
+        "filename": "net/tetheroffload/config/1.0/IOffloadConfig.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2017-04-18T08:01:24Z",
+      "side": 1,
+      "message": "Looks like Niraj fixed this.",
+      "parentUuid": "8bc89687_fb47c003",
+      "range": {
+        "startLine": 2,
+        "startChar": 26,
+        "endLine": 2,
+        "endChar": 31
+      },
+      "revId": "8304b42077e87e30c4046e6fc4054b39bfb4eb3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fbe0d3d5_18fb7db8",
+        "filename": "net/tetheroffload/config/1.0/IOffloadConfig.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2017-04-18T08:01:24Z",
+      "side": 1,
+      "message": "Looks like Niraj fixed this.",
+      "parentUuid": "8bc89687_fb47c003",
+      "range": {
+        "startLine": 2,
+        "startChar": 26,
+        "endLine": 2,
+        "endChar": 31
+      },
+      "revId": "8304b42077e87e30c4046e6fc4054b39bfb4eb3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0608434_2d7cb844",
+        "filename": "net/tetheroffload/config/1.0/IOffloadConfig.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2017-04-18T08:01:24Z",
+      "side": 1,
+      "message": "Looks like Niraj fixed this.",
+      "parentUuid": "e8ded91a_4bf6907c",
+      "range": {
+        "startLine": 2,
+        "startChar": 1,
+        "endLine": 2,
+        "endChar": 2
       },
       "revId": "8304b42077e87e30c4046e6fc4054b39bfb4eb3d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -400,6 +496,30 @@
       "writtenOn": "2017-03-31T17:52:51Z",
       "side": 1,
       "message": "I don\u0027t think we support markup in HIDL comments :)",
+      "range": {
+        "startLine": 44,
+        "startChar": 58,
+        "endLine": 44,
+        "endChar": 61
+      },
+      "revId": "8304b42077e87e30c4046e6fc4054b39bfb4eb3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "500b0e87_a6c4ff9c",
+        "filename": "net/tetheroffload/control/1.0/IOffloadControl.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2017-04-18T08:01:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c09d9b93_276539bd",
       "range": {
         "startLine": 44,
         "startChar": 58,
