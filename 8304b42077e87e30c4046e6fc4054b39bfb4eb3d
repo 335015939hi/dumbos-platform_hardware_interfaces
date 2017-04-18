@@ -696,6 +696,30 @@
     },
     {
       "key": {
+        "uuid": "22b4d8ac_b60c1a84",
+        "filename": "net/tetheroffload/control/1.0/IOffloadControl.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2017-04-18T08:33:32Z",
+      "side": 1,
+      "message": "I\u0027ve added entry, exit, and a callflow attribute to try to describe the arrangement here.",
+      "parentUuid": "26c4f10b_a6d8fa42",
+      "range": {
+        "startLine": 96,
+        "startChar": 5,
+        "endLine": 96,
+        "endChar": 74
+      },
+      "revId": "8304b42077e87e30c4046e6fc4054b39bfb4eb3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "445513a7_ce4bd96f",
         "filename": "net/tetheroffload/control/1.0/IOffloadControl.hal",
         "patchSetId": 6
@@ -918,6 +942,30 @@
       "writtenOn": "2017-03-31T17:52:51Z",
       "side": 1,
       "message": "Need VTS annotations.",
+      "range": {
+        "startLine": 174,
+        "startChar": 6,
+        "endLine": 174,
+        "endChar": 74
+      },
+      "revId": "8304b42077e87e30c4046e6fc4054b39bfb4eb3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3ab955d4_ad4b3950",
+        "filename": "net/tetheroffload/control/1.0/IOffloadControl.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2017-04-18T08:33:32Z",
+      "side": 1,
+      "message": "@entry, @exit, and a callflow have been added.",
+      "parentUuid": "29deced3_44b28b60",
       "range": {
         "startLine": 174,
         "startChar": 6,
