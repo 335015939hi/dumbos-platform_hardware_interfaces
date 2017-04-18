@@ -78,6 +78,24 @@
     },
     {
       "key": {
+        "uuid": "d6a3273c_3e446057",
+        "filename": "bluetooth/1.0/default/hci_packetizer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1101148
+      },
+      "writtenOn": "2017-04-18T03:56:40Z",
+      "side": 1,
+      "message": "Ah!! you caught me :(.. Anyways I am planning to remove BT_USB in patch next patchset",
+      "parentUuid": "6d6b1046_30a913d4",
+      "revId": "7d3c5300738a93d7632668f81ec8f6e6902ec2a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "df9e2f68_120050fb",
         "filename": "bluetooth/1.0/default/hci_protocol.cc",
         "patchSetId": 2
