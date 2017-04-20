@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "bce95604_aaf83777",
+        "filename": "radio/1.1/IRadio.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-20T23:09:53Z",
+      "side": 1,
+      "message": "Something like:\n\nsetResponseFunctions must work wth @1.1::IRadioResponse and @1.1::IRadioIndication",
+      "parentUuid": "c43b516d_ab262d73",
+      "range": {
+        "startLine": 29,
+        "startChar": 10,
+        "endLine": 29,
+        "endChar": 16
+      },
+      "revId": "694e3550021a4bacf3693a7b84d31a957b514412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5215b9d7_35eb2620",
         "filename": "radio/1.1/IRadio.hal",
         "patchSetId": 6
@@ -190,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "b09b1074_96d59892",
+        "filename": "radio/1.1/IRadio.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-20T23:09:53Z",
+      "side": 1,
+      "message": "Yes, but you can\u0027t have a null hidl_string",
+      "parentUuid": "2ece0eba_55192812",
+      "range": {
+        "startLine": 44,
+        "startChar": 65,
+        "endLine": 45,
+        "endChar": 22
+      },
+      "revId": "694e3550021a4bacf3693a7b84d31a957b514412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e5bb734_83f570cf",
         "filename": "radio/1.1/IRadio.hal",
         "patchSetId": 6
@@ -225,6 +273,30 @@
       "side": 1,
       "message": "This is a new standard that is being defined with Carriers (Verizon etc) and with Apple. This allows Carriers to pass in specific pieces of information, that we\u0027ll pass back to them.",
       "parentUuid": "4e5bb734_83f570cf",
+      "range": {
+        "startLine": 46,
+        "startChar": 43,
+        "endLine": 47,
+        "endChar": 39
+      },
+      "revId": "694e3550021a4bacf3693a7b84d31a957b514412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "869fbc51_798a10dc",
+        "filename": "radio/1.1/IRadio.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-20T23:09:53Z",
+      "side": 1,
+      "message": "this will need to identify the standard",
+      "parentUuid": "555a3cd6_efc2396a",
       "range": {
         "startLine": 46,
         "startChar": 43,
@@ -319,6 +391,30 @@
       "side": 1,
       "message": "I believe this is copied over from 1.0\nit means getSomethingResponse is response to IRadio.getSomething",
       "parentUuid": "5658a411_37f69de9",
+      "range": {
+        "startLine": 24,
+        "startChar": 3,
+        "endLine": 24,
+        "endChar": 44
+      },
+      "revId": "694e3550021a4bacf3693a7b84d31a957b514412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0fafcd79_c52b0199",
+        "filename": "radio/1.1/IRadioResponse.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-20T23:09:53Z",
+      "side": 1,
+      "message": "It needs to be more clear. \"\u003cxyz\u003e\"?",
+      "parentUuid": "649d6833_82dbe324",
       "range": {
         "startLine": 24,
         "startChar": 3,
