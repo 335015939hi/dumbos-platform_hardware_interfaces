@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "c43b516d_ab262d73",
+        "filename": "radio/1.1/IRadio.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-04-20T22:09:46Z",
+      "side": 1,
+      "message": "commands-\u003ecomments?\nWhat do you mean by various other methods?",
+      "parentUuid": "2a8046d7_e3b2fae0",
+      "range": {
+        "startLine": 29,
+        "startChar": 10,
+        "endLine": 29,
+        "endChar": 16
+      },
+      "revId": "694e3550021a4bacf3693a7b84d31a957b514412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5215b9d7_35eb2620",
         "filename": "radio/1.1/IRadio.hal",
         "patchSetId": 6
@@ -271,6 +295,30 @@
       "writtenOn": "2017-04-20T20:23:31Z",
       "side": 1,
       "message": "I don\u0027t understand what this means",
+      "range": {
+        "startLine": 24,
+        "startChar": 3,
+        "endLine": 24,
+        "endChar": 44
+      },
+      "revId": "694e3550021a4bacf3693a7b84d31a957b514412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "649d6833_82dbe324",
+        "filename": "radio/1.1/IRadioResponse.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-04-20T22:09:46Z",
+      "side": 1,
+      "message": "I believe this is copied over from 1.0\nit means getSomethingResponse is response to IRadio.getSomething",
+      "parentUuid": "5658a411_37f69de9",
       "range": {
         "startLine": 24,
         "startChar": 3,
