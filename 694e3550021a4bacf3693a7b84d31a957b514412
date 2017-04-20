@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "396435a5_ebc25e97",
+        "filename": "radio/1.1/IRadio.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-20T20:23:31Z",
+      "side": 1,
+      "message": "nit: and",
+      "range": {
+        "startLine": 23,
+        "startChar": 39,
+        "endLine": 23,
+        "endChar": 40
+      },
+      "revId": "694e3550021a4bacf3693a7b84d31a957b514412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a8046d7_e3b2fae0",
+        "filename": "radio/1.1/IRadio.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-20T20:23:31Z",
+      "side": 1,
+      "message": "need to specify in commands that various other methods must accept 1.1 interface objects in addition to the 1.0 interface objects",
+      "range": {
+        "startLine": 29,
+        "startChar": 10,
+        "endLine": 29,
+        "endChar": 16
+      },
+      "revId": "694e3550021a4bacf3693a7b84d31a957b514412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5215b9d7_35eb2620",
+        "filename": "radio/1.1/IRadio.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-20T20:23:31Z",
+      "side": 1,
+      "message": "must? #21 go/android-hal-design-guidelines",
+      "range": {
+        "startLine": 31,
+        "startChar": 62,
+        "endLine": 31,
+        "endChar": 66
+      },
+      "revId": "694e3550021a4bacf3693a7b84d31a957b514412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90a3978b_5834965e",
+        "filename": "radio/1.1/IRadio.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-20T20:23:31Z",
+      "side": 1,
+      "message": "What is its value if it isn\u0027t present? \"\". Best not to say optional.",
+      "range": {
+        "startLine": 44,
+        "startChar": 65,
+        "endLine": 45,
+        "endChar": 22
+      },
+      "revId": "694e3550021a4bacf3693a7b84d31a957b514412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e5bb734_83f570cf",
+        "filename": "radio/1.1/IRadio.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-20T20:23:31Z",
+      "side": 1,
+      "message": "- what is an example of this?\n- how does Android framework interpret this?\n- why do we need to enforce this format?",
+      "range": {
+        "startLine": 46,
+        "startChar": 43,
+        "endLine": 47,
+        "endChar": 39
+      },
+      "revId": "694e3550021a4bacf3693a7b84d31a957b514412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "030a7e92_6b0db635",
+        "filename": "radio/1.1/IRadioIndication.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-20T20:23:31Z",
+      "side": 1,
+      "message": "no comma",
+      "range": {
+        "startLine": 28,
+        "startChar": 47,
+        "endLine": 28,
+        "endChar": 48
+      },
+      "revId": "694e3550021a4bacf3693a7b84d31a957b514412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5658a411_37f69de9",
+        "filename": "radio/1.1/IRadioResponse.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-20T20:23:31Z",
+      "side": 1,
+      "message": "I don\u0027t understand what this means",
+      "range": {
+        "startLine": 24,
+        "startChar": 3,
+        "endLine": 24,
+        "endChar": 44
+      },
+      "revId": "694e3550021a4bacf3693a7b84d31a957b514412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
