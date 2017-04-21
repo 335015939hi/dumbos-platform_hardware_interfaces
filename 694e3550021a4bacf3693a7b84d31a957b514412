@@ -424,6 +424,30 @@
       "revId": "694e3550021a4bacf3693a7b84d31a957b514412",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4de1b679_e9107336",
+        "filename": "radio/1.1/IRadioResponse.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-04-21T00:19:59Z",
+      "side": 1,
+      "message": "ok, but it is exactly same in 1.0. I don\u0027t see a reason for this to be any different, and in fact I\u0027d guess its better to keep the comment same.",
+      "parentUuid": "0fafcd79_c52b0199",
+      "range": {
+        "startLine": 24,
+        "startChar": 3,
+        "endLine": 24,
+        "endChar": 44
+      },
+      "revId": "694e3550021a4bacf3693a7b84d31a957b514412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
