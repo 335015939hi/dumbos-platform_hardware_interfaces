@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f4720050_8507bd6e",
+        "filename": "radio/1.1/IRadio.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-04-21T16:38:53Z",
+      "side": 1,
+      "message": "with",
+      "range": {
+        "startLine": 50,
+        "startChar": 38,
+        "endLine": 50,
+        "endChar": 41
+      },
+      "revId": "59d8c3d5fe61674e3ea894a67da3e84ae1b60021",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1e7cc471_2d29cde0",
+        "filename": "radio/1.1/IRadio.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-04-21T16:38:53Z",
+      "side": 1,
+      "message": "This is a comment for the interface, not this API.",
+      "range": {
+        "startLine": 50,
+        "startChar": 7,
+        "endLine": 51,
+        "endChar": 30
+      },
+      "revId": "59d8c3d5fe61674e3ea894a67da3e84ae1b60021",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
