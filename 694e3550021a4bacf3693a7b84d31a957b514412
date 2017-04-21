@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "e393ad96_b3da8017",
+        "filename": "radio/1.1/IRadio.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1072138
+      },
+      "writtenOn": "2017-04-21T19:49:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bce95604_aaf83777",
+      "range": {
+        "startLine": 29,
+        "startChar": 10,
+        "endLine": 29,
+        "endChar": 16
+      },
+      "revId": "694e3550021a4bacf3693a7b84d31a957b514412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5215b9d7_35eb2620",
         "filename": "radio/1.1/IRadio.hal",
         "patchSetId": 6
@@ -226,6 +250,30 @@
       "side": 1,
       "message": "Yes, but you can\u0027t have a null hidl_string",
       "parentUuid": "2ece0eba_55192812",
+      "range": {
+        "startLine": 44,
+        "startChar": 65,
+        "endLine": 45,
+        "endChar": 22
+      },
+      "revId": "694e3550021a4bacf3693a7b84d31a957b514412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fbef65d9_6306ca62",
+        "filename": "radio/1.1/IRadio.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1072138
+      },
+      "writtenOn": "2017-04-21T19:49:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b09b1074_96d59892",
       "range": {
         "startLine": 44,
         "startChar": 65,
