@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d4febde7_ea750bc4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-21T23:40:20Z",
+      "side": 1,
+      "message": "should probably be more specific since you are adding a new interface entirely",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 3
+      },
+      "revId": "60edab106a9a91585b581d1741d93ba00859c7db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dcf12c06_66b55f51",
+        "filename": "radio/1.1/IRadio.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-21T23:40:20Z",
+      "side": 1,
+      "message": "s/\\.  /\\. /g to be consistent please",
+      "range": {
+        "startLine": 45,
+        "startChar": 45,
+        "endLine": 45,
+        "endChar": 46
+      },
+      "revId": "60edab106a9a91585b581d1741d93ba00859c7db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a69e7f6_3fc52bb4",
+        "filename": "radio/1.1/IRadioResponse.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-21T23:40:20Z",
+      "side": 1,
+      "message": "what convention?",
+      "range": {
+        "startLine": 23,
+        "startChar": 59,
+        "endLine": 23,
+        "endChar": 80
+      },
+      "revId": "60edab106a9a91585b581d1741d93ba00859c7db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
