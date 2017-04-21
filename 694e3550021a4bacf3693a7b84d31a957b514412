@@ -448,6 +448,30 @@
       "revId": "694e3550021a4bacf3693a7b84d31a957b514412",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "521c4b71_3969c5c6",
+        "filename": "radio/1.1/IRadioResponse.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-21T17:17:52Z",
+      "side": 1,
+      "message": "I still have no clue what this means.",
+      "parentUuid": "4de1b679_e9107336",
+      "range": {
+        "startLine": 24,
+        "startChar": 3,
+        "endLine": 24,
+        "endChar": 44
+      },
+      "revId": "694e3550021a4bacf3693a7b84d31a957b514412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
