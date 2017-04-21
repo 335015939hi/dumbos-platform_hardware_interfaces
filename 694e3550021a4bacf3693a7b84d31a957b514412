@@ -309,6 +309,30 @@
     },
     {
       "key": {
+        "uuid": "5ac02c14_6cc08134",
+        "filename": "radio/1.1/IRadio.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1002609
+      },
+      "writtenOn": "2017-04-21T19:37:04Z",
+      "side": 1,
+      "message": "This is an opaque value we\u0027re given by the carrier and we return to the carrier.  The framework doesn\u0027t ever interpret this.",
+      "parentUuid": "869fbc51_798a10dc",
+      "range": {
+        "startLine": 46,
+        "startChar": 43,
+        "endLine": 47,
+        "endChar": 39
+      },
+      "revId": "694e3550021a4bacf3693a7b84d31a957b514412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "030a7e92_6b0db635",
         "filename": "radio/1.1/IRadioIndication.hal",
         "patchSetId": 6
