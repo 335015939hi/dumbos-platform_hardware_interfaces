@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e51895d_36ee8fe5",
+        "filename": "bluetooth/1.0/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2017-04-25T13:14:48Z",
+      "side": 1,
+      "message": "nit: tab",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 1
+      },
+      "revId": "91d40f4d5ac8972ba95fc7589eeb5582d0dabbec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
