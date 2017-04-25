@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c6baae9c_a6caaca7",
+        "filename": "radio/1.1/IRadio.hal",
+        "patchSetId": 16
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-25T22:25:03Z",
+      "side": 1,
+      "message": "nit: it must be",
+      "range": {
+        "startLine": 37,
+        "startChar": 73,
+        "endLine": 37,
+        "endChar": 75
+      },
+      "revId": "910ae2d1fe62c908fe1b0f6b37d22b3c81b1017c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
