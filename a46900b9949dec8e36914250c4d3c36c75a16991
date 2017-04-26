@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "871bc7de_90b1c137",
+        "filename": "tetheroffload/config/1.0/IOffloadConfig.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-04-26T01:57:17Z",
+      "side": 1,
+      "message": "this netlink file descriptor is consumed by libnetfilter_conntrack library implementation that the HAL service links to. It is used to monitor connection information by HAL service.",
+      "parentUuid": "c08826f8_9bc53998",
+      "range": {
+        "startLine": 37,
+        "startChar": 19,
+        "endLine": 37,
+        "endChar": 21
+      },
+      "revId": "a46900b9949dec8e36914250c4d3c36c75a16991",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "889aae3a_9c003f70",
         "filename": "tetheroffload/config/1.0/types.hal",
         "patchSetId": 11
@@ -36,6 +60,30 @@
       "writtenOn": "2017-04-26T01:42:18Z",
       "side": 1,
       "message": "where are these defined?",
+      "range": {
+        "startLine": 21,
+        "startChar": 61,
+        "endLine": 21,
+        "endChar": 68
+      },
+      "revId": "a46900b9949dec8e36914250c4d3c36c75a16991",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d60b1410_961148b6",
+        "filename": "tetheroffload/config/1.0/types.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-04-26T01:57:17Z",
+      "side": 1,
+      "message": "These are standard netlink groups defined in netlink.h",
+      "parentUuid": "889aae3a_9c003f70",
       "range": {
         "startLine": 21,
         "startChar": 61,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "9c3fab91_83e938d1",
+        "filename": "tetheroffload/control/1.0/IOffloadControl.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-04-26T01:57:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c62cfe90_c733ea4b",
+      "range": {
+        "startLine": 50,
+        "startChar": 11,
+        "endLine": 50,
+        "endChar": 15
+      },
+      "revId": "a46900b9949dec8e36914250c4d3c36c75a16991",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "af3f6f7e_7a5f0f95",
         "filename": "tetheroffload/control/1.0/IOffloadControl.hal",
         "patchSetId": 11
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "caeb20af_99425046",
+        "filename": "tetheroffload/control/1.0/IOffloadControl.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-04-26T01:57:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af3f6f7e_7a5f0f95",
+      "range": {
+        "startLine": 52,
+        "startChar": 88,
+        "endLine": 52,
+        "endChar": 92
+      },
+      "revId": "a46900b9949dec8e36914250c4d3c36c75a16991",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "97ab293a_81e08e32",
         "filename": "tetheroffload/control/1.0/IOffloadControl.hal",
         "patchSetId": 11
@@ -105,6 +201,30 @@
       "writtenOn": "2017-04-26T01:42:18Z",
       "side": 1,
       "message": "nit: why not use bytes for the ip addresses? uint8[4]? Much less room for bad values here",
+      "range": {
+        "startLine": 166,
+        "startChar": 12,
+        "endLine": 166,
+        "endChar": 18
+      },
+      "revId": "a46900b9949dec8e36914250c4d3c36c75a16991",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05e2ec65_123b68ce",
+        "filename": "tetheroffload/control/1.0/IOffloadControl.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-04-26T01:57:17Z",
+      "side": 1,
+      "message": "reduces ambiguity about host byte order/network byte order. But more as a preference. If this is unacceptable, I\u0027ll change it.",
+      "parentUuid": "97ab293a_81e08e32",
       "range": {
         "startLine": 166,
         "startChar": 12,
