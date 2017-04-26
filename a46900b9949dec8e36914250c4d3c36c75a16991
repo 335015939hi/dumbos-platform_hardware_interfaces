@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c08826f8_9bc53998",
+        "filename": "tetheroffload/config/1.0/IOffloadConfig.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-26T01:42:18Z",
+      "side": 1,
+      "message": "how should one use these fds?",
+      "range": {
+        "startLine": 37,
+        "startChar": 19,
+        "endLine": 37,
+        "endChar": 21
+      },
+      "revId": "a46900b9949dec8e36914250c4d3c36c75a16991",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "889aae3a_9c003f70",
+        "filename": "tetheroffload/config/1.0/types.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-26T01:42:18Z",
+      "side": 1,
+      "message": "where are these defined?",
+      "range": {
+        "startLine": 21,
+        "startChar": 61,
+        "endLine": 21,
+        "endChar": 68
+      },
+      "revId": "a46900b9949dec8e36914250c4d3c36c75a16991",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c62cfe90_c733ea4b",
+        "filename": "tetheroffload/control/1.0/IOffloadControl.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-26T01:42:18Z",
+      "side": 1,
+      "message": "must",
+      "range": {
+        "startLine": 50,
+        "startChar": 11,
+        "endLine": 50,
+        "endChar": 15
+      },
+      "revId": "a46900b9949dec8e36914250c4d3c36c75a16991",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af3f6f7e_7a5f0f95",
+        "filename": "tetheroffload/control/1.0/IOffloadControl.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-26T01:42:18Z",
+      "side": 1,
+      "message": "must (almost everywhere)",
+      "range": {
+        "startLine": 52,
+        "startChar": 88,
+        "endLine": 52,
+        "endChar": 92
+      },
+      "revId": "a46900b9949dec8e36914250c4d3c36c75a16991",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97ab293a_81e08e32",
+        "filename": "tetheroffload/control/1.0/IOffloadControl.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-26T01:42:18Z",
+      "side": 1,
+      "message": "nit: why not use bytes for the ip addresses? uint8[4]? Much less room for bad values here",
+      "range": {
+        "startLine": 166,
+        "startChar": 12,
+        "endLine": 166,
+        "endChar": 18
+      },
+      "revId": "a46900b9949dec8e36914250c4d3c36c75a16991",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f440d88_09540e33",
+        "filename": "tetheroffload/control/1.0/types.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-26T01:42:18Z",
+      "side": 1,
+      "message": "I\u0027d rather not see this defined twice. You could create an android.hardware.tetheroffload@1.0::types.hal file",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 2
+      },
+      "revId": "a46900b9949dec8e36914250c4d3c36c75a16991",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
