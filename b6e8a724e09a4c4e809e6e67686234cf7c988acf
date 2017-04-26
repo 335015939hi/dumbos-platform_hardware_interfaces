@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "210021e8_1121dd0f",
+        "filename": "tetheroffload/config/1.0/IOffloadConfig.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-04-26T18:08:23Z",
+      "side": 1,
+      "message": "Allows a bit more flexibility in terms of modifying the group and/or num of fds needed by the HAL service.",
+      "parentUuid": "d1b34b76_212ba35e",
+      "revId": "b6e8a724e09a4c4e809e6e67686234cf7c988acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ac002868_e7c55bc6",
         "filename": "tetheroffload/config/1.0/IOffloadConfig.hal",
         "patchSetId": 12
@@ -30,6 +48,30 @@
       "writtenOn": "2017-04-26T16:28:11Z",
       "side": 1,
       "message": "This should also have vts callflow annotations, right?",
+      "range": {
+        "startLine": 37,
+        "startChar": 2,
+        "endLine": 37,
+        "endChar": 11
+      },
+      "revId": "b6e8a724e09a4c4e809e6e67686234cf7c988acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77476554_5cf4d709",
+        "filename": "tetheroffload/config/1.0/IOffloadConfig.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-04-26T18:08:23Z",
+      "side": 1,
+      "message": "@Erik?",
+      "parentUuid": "ac002868_e7c55bc6",
       "range": {
         "startLine": 37,
         "startChar": 2,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "fa838b75_2a743e46",
+        "filename": "tetheroffload/config/1.0/types.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-04-26T18:08:23Z",
+      "side": 1,
+      "message": "yes, each uint32_t is a bitmask of nl_groups needed for a fd.",
+      "parentUuid": "0a51708f_96240d01",
+      "range": {
+        "startLine": 24,
+        "startChar": 18,
+        "endLine": 24,
+        "endChar": 30
+      },
+      "revId": "b6e8a724e09a4c4e809e6e67686234cf7c988acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7dbf913b_9b319e5d",
         "filename": "tetheroffload/control/1.0/IOffloadControl.hal",
         "patchSetId": 12
@@ -76,6 +142,30 @@
       "writtenOn": "2017-04-26T16:28:11Z",
       "side": 1,
       "message": "is there a way to figure out if concurrent offload is supported?",
+      "range": {
+        "startLine": 33,
+        "startChar": 80,
+        "endLine": 33,
+        "endChar": 89
+      },
+      "revId": "b6e8a724e09a4c4e809e6e67686234cf7c988acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8000cfcb_eccd23ce",
+        "filename": "tetheroffload/control/1.0/IOffloadControl.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-04-26T18:08:23Z",
+      "side": 1,
+      "message": "In the subsequent call to addDownstream() which tries to set concurrent offload on two downstreams, appropriate error will be returned.",
+      "parentUuid": "7dbf913b_9b319e5d",
       "range": {
         "startLine": 33,
         "startChar": 80,
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "e74cf6ce_8d3dde2c",
+        "filename": "tetheroffload/control/1.0/IOffloadControl.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-04-26T18:08:23Z",
+      "side": 1,
+      "message": "Otherwise HAL service must remove all downstreams and upstreams, and perform the clean up by itself. this is just highlighting normal sequence of operation.",
+      "parentUuid": "ac8b8c19_68a7ed53",
+      "range": {
+        "startLine": 73,
+        "startChar": 5,
+        "endLine": 73,
+        "endChar": 21
+      },
+      "revId": "b6e8a724e09a4c4e809e6e67686234cf7c988acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9744b16d_738c063f",
         "filename": "tetheroffload/control/1.0/IOffloadControl.hal",
         "patchSetId": 12
@@ -131,6 +245,30 @@
       "revId": "b6e8a724e09a4c4e809e6e67686234cf7c988acf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15048fec_ec410f2c",
+        "filename": "tetheroffload/control/1.0/IOffloadControl.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-04-26T18:08:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9744b16d_738c063f",
+      "range": {
+        "startLine": 78,
+        "startChar": 25,
+        "endLine": 78,
+        "endChar": 29
+      },
+      "revId": "b6e8a724e09a4c4e809e6e67686234cf7c988acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -157,6 +295,30 @@
     },
     {
       "key": {
+        "uuid": "da80cccb_1f8bdd51",
+        "filename": "tetheroffload/control/1.0/IOffloadControl.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-04-26T18:08:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "65fff066_8d8099cf",
+      "range": {
+        "startLine": 88,
+        "startChar": 12,
+        "endLine": 88,
+        "endChar": 20
+      },
+      "revId": "b6e8a724e09a4c4e809e6e67686234cf7c988acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e893b1bb_b2fb0548",
         "filename": "tetheroffload/control/1.0/IOffloadControl.hal",
         "patchSetId": 12
@@ -177,6 +339,30 @@
       "revId": "b6e8a724e09a4c4e809e6e67686234cf7c988acf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e51afb3_84b0db01",
+        "filename": "tetheroffload/control/1.0/IOffloadControl.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-04-26T18:08:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e893b1bb_b2fb0548",
+      "range": {
+        "startLine": 166,
+        "startChar": 12,
+        "endLine": 166,
+        "endChar": 18
+      },
+      "revId": "b6e8a724e09a4c4e809e6e67686234cf7c988acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -203,6 +389,30 @@
     },
     {
       "key": {
+        "uuid": "23a1932d_8e709938",
+        "filename": "tetheroffload/control/1.0/types.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-04-26T18:08:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "84692be5_5131b01d",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 2
+      },
+      "revId": "b6e8a724e09a4c4e809e6e67686234cf7c988acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a84e23be_6994662e",
         "filename": "tetheroffload/control/1.0/types.hal",
         "patchSetId": 12
@@ -214,6 +424,30 @@
       "writtenOn": "2017-04-26T16:28:11Z",
       "side": 1,
       "message": "can you comment here \u0027number received bytes\u0027 and \u0027number transmitted bytes\u0027.\n\nnit: just have the method return two uint64_t\u0027s rather than creating this struct",
+      "range": {
+        "startLine": 39,
+        "startChar": 13,
+        "endLine": 39,
+        "endChar": 15
+      },
+      "revId": "b6e8a724e09a4c4e809e6e67686234cf7c988acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7da28ef4_48e80e4d",
+        "filename": "tetheroffload/control/1.0/types.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-04-26T18:08:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a84e23be_6994662e",
       "range": {
         "startLine": 39,
         "startChar": 13,
@@ -249,6 +483,30 @@
     },
     {
       "key": {
+        "uuid": "a1210e3d_a3bb62c6",
+        "filename": "tetheroffload/control/1.0/types.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-04-26T18:08:23Z",
+      "side": 1,
+      "message": "correct. other protocols are not used.",
+      "parentUuid": "ed9c6d53_57da55a9",
+      "range": {
+        "startLine": 82,
+        "startChar": 10,
+        "endLine": 82,
+        "endChar": 11
+      },
+      "revId": "b6e8a724e09a4c4e809e6e67686234cf7c988acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c892b3a0_1e865c22",
         "filename": "tetheroffload/control/1.0/types.hal",
         "patchSetId": 12
@@ -260,6 +518,30 @@
       "writtenOn": "2017-04-26T16:28:11Z",
       "side": 1,
       "message": "why uint8_t[4] here but string elsewhere?",
+      "range": {
+        "startLine": 88,
+        "startChar": 4,
+        "endLine": 88,
+        "endChar": 20
+      },
+      "revId": "b6e8a724e09a4c4e809e6e67686234cf7c988acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea1480f4_e7da1ea5",
+        "filename": "tetheroffload/control/1.0/types.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-04-26T18:08:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c892b3a0_1e865c22",
       "range": {
         "startLine": 88,
         "startChar": 4,
