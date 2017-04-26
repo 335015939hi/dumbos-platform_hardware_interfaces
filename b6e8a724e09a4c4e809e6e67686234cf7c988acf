@@ -1,0 +1,274 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d1b34b76_212ba35e",
+        "filename": "tetheroffload/config/1.0/IOffloadConfig.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-26T16:28:11Z",
+      "side": 1,
+      "message": "why not just have vec\u003cuint32_t\u003e here and describe it in the comments here rather than split the information between two files?",
+      "revId": "b6e8a724e09a4c4e809e6e67686234cf7c988acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac002868_e7c55bc6",
+        "filename": "tetheroffload/config/1.0/IOffloadConfig.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-26T16:28:11Z",
+      "side": 1,
+      "message": "This should also have vts callflow annotations, right?",
+      "range": {
+        "startLine": 37,
+        "startChar": 2,
+        "endLine": 37,
+        "endChar": 11
+      },
+      "revId": "b6e8a724e09a4c4e809e6e67686234cf7c988acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a51708f_96240d01",
+        "filename": "tetheroffload/config/1.0/types.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-26T16:28:11Z",
+      "side": 1,
+      "message": "shouldn\u0027t this be a bitmask?\n\n\u003e nl_groups is a bit mask with every bit representing a netlink number.",
+      "range": {
+        "startLine": 24,
+        "startChar": 18,
+        "endLine": 24,
+        "endChar": 30
+      },
+      "revId": "b6e8a724e09a4c4e809e6e67686234cf7c988acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7dbf913b_9b319e5d",
+        "filename": "tetheroffload/control/1.0/IOffloadControl.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-26T16:28:11Z",
+      "side": 1,
+      "message": "is there a way to figure out if concurrent offload is supported?",
+      "range": {
+        "startLine": 33,
+        "startChar": 80,
+        "endLine": 33,
+        "endChar": 89
+      },
+      "revId": "b6e8a724e09a4c4e809e6e67686234cf7c988acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac8b8c19_68a7ed53",
+        "filename": "tetheroffload/control/1.0/IOffloadControl.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-26T16:28:11Z",
+      "side": 1,
+      "message": "what will happen otherwise?",
+      "range": {
+        "startLine": 73,
+        "startChar": 5,
+        "endLine": 73,
+        "endChar": 21
+      },
+      "revId": "b6e8a724e09a4c4e809e6e67686234cf7c988acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9744b16d_738c063f",
+        "filename": "tetheroffload/control/1.0/IOffloadControl.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-26T16:28:11Z",
+      "side": 1,
+      "message": "must",
+      "range": {
+        "startLine": 78,
+        "startChar": 25,
+        "endLine": 78,
+        "endChar": 29
+      },
+      "revId": "b6e8a724e09a4c4e809e6e67686234cf7c988acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65fff066_8d8099cf",
+        "filename": "tetheroffload/control/1.0/IOffloadControl.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-26T16:28:11Z",
+      "side": 1,
+      "message": "can you add an example to this comment? Like \"127.0.*\" or \"abcd:dcba:*\" to be clear about the format that is expected",
+      "range": {
+        "startLine": 88,
+        "startChar": 12,
+        "endLine": 88,
+        "endChar": 20
+      },
+      "revId": "b6e8a724e09a4c4e809e6e67686234cf7c988acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e893b1bb_b2fb0548",
+        "filename": "tetheroffload/control/1.0/IOffloadControl.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-26T16:28:11Z",
+      "side": 1,
+      "message": "everywhere we have a string like this, can you put an example of what is expected? something like \"127.0.0.1\"",
+      "range": {
+        "startLine": 166,
+        "startChar": 12,
+        "endLine": 166,
+        "endChar": 18
+      },
+      "revId": "b6e8a724e09a4c4e809e6e67686234cf7c988acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "84692be5_5131b01d",
+        "filename": "tetheroffload/control/1.0/types.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-26T16:28:11Z",
+      "side": 1,
+      "message": "preferred: just use \u0027vec\u003cOffloadCapability\u003e\u0027 in the method.\n\nEven better, why not make OffloadCapability values 1, 2, 4, 8 and then have the method return \u0027bitfield\u003cOffloadCapability\u003e\u0027",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 2
+      },
+      "revId": "b6e8a724e09a4c4e809e6e67686234cf7c988acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a84e23be_6994662e",
+        "filename": "tetheroffload/control/1.0/types.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-26T16:28:11Z",
+      "side": 1,
+      "message": "can you comment here \u0027number received bytes\u0027 and \u0027number transmitted bytes\u0027.\n\nnit: just have the method return two uint64_t\u0027s rather than creating this struct",
+      "range": {
+        "startLine": 39,
+        "startChar": 13,
+        "endLine": 39,
+        "endChar": 15
+      },
+      "revId": "b6e8a724e09a4c4e809e6e67686234cf7c988acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed9c6d53_57da55a9",
+        "filename": "tetheroffload/control/1.0/types.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-26T16:28:11Z",
+      "side": 1,
+      "message": "So all other protocols are disallowed, right?",
+      "range": {
+        "startLine": 82,
+        "startChar": 10,
+        "endLine": 82,
+        "endChar": 11
+      },
+      "revId": "b6e8a724e09a4c4e809e6e67686234cf7c988acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c892b3a0_1e865c22",
+        "filename": "tetheroffload/control/1.0/types.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-26T16:28:11Z",
+      "side": 1,
+      "message": "why uint8_t[4] here but string elsewhere?",
+      "range": {
+        "startLine": 88,
+        "startChar": 4,
+        "endLine": 88,
+        "endChar": 20
+      },
+      "revId": "b6e8a724e09a4c4e809e6e67686234cf7c988acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

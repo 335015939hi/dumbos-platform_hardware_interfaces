@@ -485,6 +485,30 @@
     },
     {
       "key": {
+        "uuid": "3221347b_d59dc682",
+        "filename": "net/tetheroffload/control/1.0/IOffloadControl.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-26T16:28:11Z",
+      "side": 1,
+      "message": "\u003e  Saying that it can be called even outside of initOffload/stopOffload is an implementation detail of the server.\nYeah, but I think it is one they want to enforce.\n\nclient \u003d android framework\nserver \u003d hal process",
+      "parentUuid": "02d86cdd_4490d55b",
+      "range": {
+        "startLine": 42,
+        "startChar": 5,
+        "endLine": 42,
+        "endChar": 77
+      },
+      "revId": "8304b42077e87e30c4046e6fc4054b39bfb4eb3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c09d9b93_276539bd",
         "filename": "net/tetheroffload/control/1.0/IOffloadControl.hal",
         "patchSetId": 6
