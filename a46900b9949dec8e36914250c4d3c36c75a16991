@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "7f921b63_0339143c",
+        "filename": "tetheroffload/config/1.0/IOffloadConfig.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2017-04-26T02:24:48Z",
+      "side": 1,
+      "message": "These are netlink sockets that are opened by the system and are plugged directly into the kernel. The purpose is to allow the HAL implementation to listen to netlink updates about new NAT table entries that are created so it can properly configure hardware to accelerate those flows. The updates come directly from the kernel and as such the format of the data in this socket is part of the kernel ABI. This method exists because binding these sockets requires CAP_NET_ADMIN, which the HAL should not have.",
+      "parentUuid": "93ccd023_ae2fc2bd",
+      "range": {
+        "startLine": 37,
+        "startChar": 19,
+        "endLine": 37,
+        "endChar": 21
+      },
+      "revId": "a46900b9949dec8e36914250c4d3c36c75a16991",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "889aae3a_9c003f70",
         "filename": "tetheroffload/config/1.0/types.hal",
         "patchSetId": 11
