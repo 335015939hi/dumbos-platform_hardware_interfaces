@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "00d3df2d_59b8b30d",
+        "filename": "tetheroffload/control/1.0/IOffloadControl.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-26T22:25:51Z",
+      "side": 1,
+      "message": "@return rxBytes ..\n@return txBytes..",
+      "range": {
+        "startLine": 110,
+        "startChar": 13,
+        "endLine": 110,
+        "endChar": 17
+      },
+      "revId": "16297b682a2a4a19f260ecb71ac63085ef483a3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af1c5369_669c40a1",
+        "filename": "tetheroffload/control/1.0/IOffloadControl.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-26T22:25:51Z",
+      "side": 1,
+      "message": "rxBytes, txBytes",
+      "range": {
+        "startLine": 112,
+        "startChar": 57,
+        "endLine": 112,
+        "endChar": 65
+      },
+      "revId": "16297b682a2a4a19f260ecb71ac63085ef483a3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78d0b2a5_cbf3aa07",
+        "filename": "tetheroffload/control/1.0/IOffloadControl.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-26T22:25:51Z",
+      "side": 1,
+      "message": "yeah, actually all of these returns need to be updated:\n\n@return success ...\n@return errMsg ..",
+      "range": {
+        "startLine": 174,
+        "startChar": 6,
+        "endLine": 174,
+        "endChar": 12
+      },
+      "revId": "16297b682a2a4a19f260ecb71ac63085ef483a3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "3216091e_36573175",
+        "filename": "tetheroffload/config/1.0/IOffloadConfig.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-26T22:25:51Z",
+      "side": 1,
+      "message": "Yes, but 1.0 of this interface can\u0027t change once it is released. I\u0027d rather see the information combined since it reduces the need for an entire file",
+      "parentUuid": "210021e8_1121dd0f",
+      "revId": "b6e8a724e09a4c4e809e6e67686234cf7c988acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ac002868_e7c55bc6",
         "filename": "tetheroffload/config/1.0/IOffloadConfig.hal",
         "patchSetId": 12
@@ -72,6 +90,30 @@
       "side": 1,
       "message": "@Erik?",
       "parentUuid": "ac002868_e7c55bc6",
+      "range": {
+        "startLine": 37,
+        "startChar": 2,
+        "endLine": 37,
+        "endChar": 11
+      },
+      "revId": "b6e8a724e09a4c4e809e6e67686234cf7c988acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bff421ea_05152576",
+        "filename": "tetheroffload/config/1.0/IOffloadConfig.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-26T22:25:51Z",
+      "side": 1,
+      "message": "@yim as well",
+      "parentUuid": "77476554_5cf4d709",
       "range": {
         "startLine": 37,
         "startChar": 2,
@@ -131,6 +173,30 @@
     },
     {
       "key": {
+        "uuid": "65ce98ed_d408bffc",
+        "filename": "tetheroffload/config/1.0/types.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-26T22:25:51Z",
+      "side": 1,
+      "message": "ah, I see.",
+      "parentUuid": "fa838b75_2a743e46",
+      "range": {
+        "startLine": 24,
+        "startChar": 18,
+        "endLine": 24,
+        "endChar": 30
+      },
+      "revId": "b6e8a724e09a4c4e809e6e67686234cf7c988acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7dbf913b_9b319e5d",
         "filename": "tetheroffload/control/1.0/IOffloadControl.hal",
         "patchSetId": 12
@@ -178,6 +244,30 @@
     },
     {
       "key": {
+        "uuid": "341a7629_972deb23",
+        "filename": "tetheroffload/control/1.0/IOffloadControl.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-26T22:25:51Z",
+      "side": 1,
+      "message": "As a rule of thumb,\n\nif (canDo) {do}\n\nis better than\n\ndo, if (error) {recover}\n\nI understand the confusion as in real life, it is often \"it\u0027s easier to ask for forgiveness than for permission.\" However, this mantra is more often said by shifty people.\n\nSince we\u0027re aware of this being an issue now, why not make it explicit in the interface?",
+      "parentUuid": "8000cfcb_eccd23ce",
+      "range": {
+        "startLine": 33,
+        "startChar": 80,
+        "endLine": 33,
+        "endChar": 89
+      },
+      "revId": "b6e8a724e09a4c4e809e6e67686234cf7c988acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ac8b8c19_68a7ed53",
         "filename": "tetheroffload/control/1.0/IOffloadControl.hal",
         "patchSetId": 12
@@ -213,6 +303,30 @@
       "side": 1,
       "message": "Otherwise HAL service must remove all downstreams and upstreams, and perform the clean up by itself. this is just highlighting normal sequence of operation.",
       "parentUuid": "ac8b8c19_68a7ed53",
+      "range": {
+        "startLine": 73,
+        "startChar": 5,
+        "endLine": 73,
+        "endChar": 21
+      },
+      "revId": "b6e8a724e09a4c4e809e6e67686234cf7c988acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4bc5ab2_4d4dd521",
+        "filename": "tetheroffload/control/1.0/IOffloadControl.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-26T22:25:51Z",
+      "side": 1,
+      "message": "Why not make it the default to require the hal server to clean up everything when this call is made?, seems less error prone",
+      "parentUuid": "e74cf6ce_8d3dde2c",
       "range": {
         "startLine": 73,
         "startChar": 5,
