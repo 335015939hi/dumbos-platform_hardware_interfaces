@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "e5702fa0_82c39a82",
+        "filename": "tetheroffload/config/1.0/IOffloadConfig.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2017-04-26T02:25:42Z",
+      "side": 1,
+      "message": "The framework gets a list of netlink groups from the getDesiredConfig().\n\nIt uses the fact that it has root-level permissions to iterate over the list of netlink groups, creates 1 fd for each (binding them to the kernel), and passes them back to the HAL.\n\nThis was done for privilege separation.",
+      "parentUuid": "93ccd023_ae2fc2bd",
+      "range": {
+        "startLine": 37,
+        "startChar": 19,
+        "endLine": 37,
+        "endChar": 21
+      },
+      "revId": "a46900b9949dec8e36914250c4d3c36c75a16991",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "889aae3a_9c003f70",
         "filename": "tetheroffload/config/1.0/types.hal",
         "patchSetId": 11
