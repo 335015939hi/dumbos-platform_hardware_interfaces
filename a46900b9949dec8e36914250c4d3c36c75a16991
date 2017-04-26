@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "93ccd023_ae2fc2bd",
+        "filename": "tetheroffload/config/1.0/IOffloadConfig.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-26T02:16:13Z",
+      "side": 1,
+      "message": "If both the server and the client are talking to this fd, I think I\u0027d need someone with more experience with this hal exactly to comment on the ABI/how this library uses the fd.",
+      "parentUuid": "871bc7de_90b1c137",
+      "range": {
+        "startLine": 37,
+        "startChar": 19,
+        "endLine": 37,
+        "endChar": 21
+      },
+      "revId": "a46900b9949dec8e36914250c4d3c36c75a16991",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "889aae3a_9c003f70",
         "filename": "tetheroffload/config/1.0/types.hal",
         "patchSetId": 11
@@ -225,6 +249,30 @@
       "side": 1,
       "message": "reduces ambiguity about host byte order/network byte order. But more as a preference. If this is unacceptable, I\u0027ll change it.",
       "parentUuid": "97ab293a_81e08e32",
+      "range": {
+        "startLine": 166,
+        "startChar": 12,
+        "endLine": 166,
+        "endChar": 18
+      },
+      "revId": "a46900b9949dec8e36914250c4d3c36c75a16991",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a8a1248_a4e15c0e",
+        "filename": "tetheroffload/control/1.0/IOffloadControl.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-26T02:16:13Z",
+      "side": 1,
+      "message": "nah, I think it\u0027s fine then.",
+      "parentUuid": "05e2ec65_123b68ce",
       "range": {
         "startLine": 166,
         "startChar": 12,
