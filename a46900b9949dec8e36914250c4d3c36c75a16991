@@ -353,6 +353,30 @@
       "revId": "a46900b9949dec8e36914250c4d3c36c75a16991",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa6243dc_3e9a108e",
+        "filename": "tetheroffload/control/1.0/types.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-04-26T02:42:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f440d88_09540e33",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 2
+      },
+      "revId": "a46900b9949dec8e36914250c4d3c36c75a16991",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
