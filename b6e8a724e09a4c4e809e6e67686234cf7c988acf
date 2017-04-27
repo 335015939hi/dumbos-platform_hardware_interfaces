@@ -310,6 +310,30 @@
     },
     {
       "key": {
+        "uuid": "fed80758_2abec812",
+        "filename": "tetheroffload/control/1.0/IOffloadControl.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-27T00:37:27Z",
+      "side": 1,
+      "message": "Why not just add an API like supportsSimultaneousCapabilities(Capability cap1, Capability cap2) or return a data structure from this method that contains that information or just specify that simultaneous offload is not allowed?",
+      "parentUuid": "299efca4_48b1f5cf",
+      "range": {
+        "startLine": 33,
+        "startChar": 80,
+        "endLine": 33,
+        "endChar": 89
+      },
+      "revId": "b6e8a724e09a4c4e809e6e67686234cf7c988acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ac8b8c19_68a7ed53",
         "filename": "tetheroffload/control/1.0/IOffloadControl.hal",
         "patchSetId": 12
