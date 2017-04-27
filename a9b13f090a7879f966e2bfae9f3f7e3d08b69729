@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e9e9d8d_7ccf224f",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 747,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2017-04-27T23:34:27Z",
+      "side": 1,
+      "message": "Amit, this interface is broken with 1.0 version.\nHow do you want this to be fixed for oc-dev?\nCan we update it in 1.1 and enable telephony and RIL to use 1.1?",
+      "range": {
+        "startLine": 747,
+        "startChar": 4,
+        "endLine": 747,
+        "endChar": 19
+      },
+      "revId": "a9b13f090a7879f966e2bfae9f3f7e3d08b69729",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
