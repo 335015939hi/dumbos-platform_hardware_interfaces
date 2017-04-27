@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "6a3a37ca_4066ce86",
+        "filename": "tetheroffload/config/1.0/IOffloadConfig.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-04-27T00:07:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3216091e_36573175",
+      "revId": "b6e8a724e09a4c4e809e6e67686234cf7c988acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ac002868_e7c55bc6",
         "filename": "tetheroffload/config/1.0/IOffloadConfig.hal",
         "patchSetId": 12
@@ -268,6 +286,30 @@
     },
     {
       "key": {
+        "uuid": "299efca4_48b1f5cf",
+        "filename": "tetheroffload/control/1.0/IOffloadControl.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-04-27T00:07:38Z",
+      "side": 1,
+      "message": "At the very top we define that this API will return a static configuration. Depending on the vendor /hardware implementation, these capabilities can change. For e.g. one device can have wifi from vendor A, and offload HAL from vendor B. whereas another device can have Wifi chipset from vendor B and offload HAL from vendor B. In this case the offload capabilities may be different.\nEven with limited capabilities, framework /client may want to take advantage of hardware offloading for a limited set. Therefore the API is designed to get most juice out of the hardware given there can be variations from soc to soc implementation.",
+      "parentUuid": "341a7629_972deb23",
+      "range": {
+        "startLine": 33,
+        "startChar": 80,
+        "endLine": 33,
+        "endChar": 89
+      },
+      "revId": "b6e8a724e09a4c4e809e6e67686234cf7c988acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ac8b8c19_68a7ed53",
         "filename": "tetheroffload/control/1.0/IOffloadControl.hal",
         "patchSetId": 12
@@ -327,6 +369,30 @@
       "side": 1,
       "message": "Why not make it the default to require the hal server to clean up everything when this call is made?, seems less error prone",
       "parentUuid": "e74cf6ce_8d3dde2c",
+      "range": {
+        "startLine": 73,
+        "startChar": 5,
+        "endLine": 73,
+        "endChar": 21
+      },
+      "revId": "b6e8a724e09a4c4e809e6e67686234cf7c988acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b5be752_675870f7",
+        "filename": "tetheroffload/control/1.0/IOffloadControl.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-04-27T00:07:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4bc5ab2_4d4dd521",
       "range": {
         "startLine": 73,
         "startChar": 5,
