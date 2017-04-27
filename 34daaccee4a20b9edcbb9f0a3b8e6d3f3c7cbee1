@@ -70,6 +70,30 @@
       "revId": "34daaccee4a20b9edcbb9f0a3b8e6d3f3c7cbee1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "325c166e_47adf960",
+        "filename": "tetheroffload/config/1.0/IOffloadConfig.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2017-04-27T06:21:02Z",
+      "side": 1,
+      "message": "You\u0027re exactly right.  I forgot that Java HIDL doesn\u0027t do file descriptors.  ;-(\n\nThanks for the reminder.",
+      "parentUuid": "0f059cc0_c660cfad",
+      "range": {
+        "startLine": 30,
+        "startChar": 12,
+        "endLine": 30,
+        "endChar": 15
+      },
+      "revId": "34daaccee4a20b9edcbb9f0a3b8e6d3f3c7cbee1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
