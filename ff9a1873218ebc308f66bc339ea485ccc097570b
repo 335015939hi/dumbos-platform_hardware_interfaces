@@ -22,6 +22,30 @@
       "revId": "ff9a1873218ebc308f66bc339ea485ccc097570b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4dbd30d_8f111fa8",
+        "filename": "tetheroffload/config/1.0/IOffloadConfig.hal",
+        "patchSetId": 16
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-04-27T17:27:28Z",
+      "side": 1,
+      "message": "Correct. No need to ask. The NL groups are documented and client should simply bind and pass the fds to the service.\n\nWill rename the method to setHandles",
+      "parentUuid": "7fa8d08f_d79b70d4",
+      "range": {
+        "startLine": 28,
+        "startChar": 19,
+        "endLine": 28,
+        "endChar": 74
+      },
+      "revId": "ff9a1873218ebc308f66bc339ea485ccc097570b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
