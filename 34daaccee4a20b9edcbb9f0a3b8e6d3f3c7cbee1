@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b3017b81_bcefe525",
+        "filename": "tetheroffload/config/1.0/IOffloadConfig.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2017-04-27T04:28:12Z",
+      "side": 1,
+      "message": "I\u0027m fine if you want to go this route of fully specifying these two.  But it leads to two more questions:\n\n  [1] do we need the ConfigResult type anymore?  I don\u0027t think so (so we can clean up the config/types.hal).\n\n  [2] If this is an interface with only 1 method that is called only once, should we just move these two fds to be arguments of control/initOffload()?\n\nSo initOffload would just become something like:\n\n    initOffload(fd1, fd2, callback) -\u003e (success thingy)\n\nThoughts?",
+      "range": {
+        "startLine": 30,
+        "startChar": 12,
+        "endLine": 30,
+        "endChar": 15
+      },
+      "revId": "34daaccee4a20b9edcbb9f0a3b8e6d3f3c7cbee1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
