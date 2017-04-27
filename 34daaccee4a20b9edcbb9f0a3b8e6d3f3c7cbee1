@@ -22,6 +22,30 @@
       "revId": "34daaccee4a20b9edcbb9f0a3b8e6d3f3c7cbee1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "087687c6_1a4f221f",
+        "filename": "tetheroffload/config/1.0/IOffloadConfig.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-04-27T05:09:47Z",
+      "side": 1,
+      "message": "dont we need this because handles are only supported in native? or has that changed?\nAgree with config result, will remove it.",
+      "parentUuid": "b3017b81_bcefe525",
+      "range": {
+        "startLine": 30,
+        "startChar": 12,
+        "endLine": 30,
+        "endChar": 15
+      },
+      "revId": "34daaccee4a20b9edcbb9f0a3b8e6d3f3c7cbee1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
