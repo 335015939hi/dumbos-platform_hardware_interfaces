@@ -744,9 +744,9 @@ enum NvItem : int32_t {
 };
 
 enum ResetNvType : int32_t {
-    RELOAD,                               // reload all NV items
-    ERASE,                                // erase NV reset (SCRTN)
-    FACTORY_RESET,                        // factory reset (RTN)
+    RELOAD = 1,                           // reload all NV items
+    ERASE = 2,                            // erase NV reset (SCRTN)
+    FACTORY_RESET = 3,                    // factory reset (RTN)
 };
 
 enum HardwareConfigType : int32_t {
