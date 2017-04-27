@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7fa8d08f_d79b70d4",
+        "filename": "tetheroffload/config/1.0/IOffloadConfig.hal",
+        "patchSetId": 16
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-27T16:22:06Z",
+      "side": 1,
+      "message": "wait, we lose the ability to ask for these now?\n\nAlso, why not just rename the method to something like \"init\" or \"setHandles\"?",
+      "range": {
+        "startLine": 28,
+        "startChar": 19,
+        "endLine": 28,
+        "endChar": 74
+      },
+      "revId": "ff9a1873218ebc308f66bc339ea485ccc097570b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
