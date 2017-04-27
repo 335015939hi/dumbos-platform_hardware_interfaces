@@ -46,6 +46,30 @@
       "revId": "34daaccee4a20b9edcbb9f0a3b8e6d3f3c7cbee1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f059cc0_c660cfad",
+        "filename": "tetheroffload/config/1.0/IOffloadConfig.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-04-27T05:17:31Z",
+      "side": 1,
+      "message": "This was the entire reason for existence of config hal. Our intial proposal was to have these params as part of initOffload itself. Subsequently we split this in to multiple HALs to allow framework JNI to send this info one time before doing rest of offload operation from JAVA.",
+      "parentUuid": "087687c6_1a4f221f",
+      "range": {
+        "startLine": 30,
+        "startChar": 12,
+        "endLine": 30,
+        "endChar": 15
+      },
+      "revId": "34daaccee4a20b9edcbb9f0a3b8e6d3f3c7cbee1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
