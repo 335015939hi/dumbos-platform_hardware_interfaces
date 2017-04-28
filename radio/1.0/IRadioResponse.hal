@@ -1625,6 +1625,7 @@ interface IRadioResponse {
      *
      * Valid errors returned:
      *   RadioError:NONE
+     *   RadioError:INVALID_ARGUMENTS
      *   RadioError:RADIO_NOT_AVAILABLE
      */
     oneway nvResetConfigResponse(RadioResponseInfo info);
