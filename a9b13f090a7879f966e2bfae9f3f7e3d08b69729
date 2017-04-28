@@ -46,6 +46,30 @@
       "revId": "a9b13f090a7879f966e2bfae9f3f7e3d08b69729",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbc50b3b_9fc1fa5c",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 747,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2017-04-28T20:46:21Z",
+      "side": 1,
+      "message": "Hi Amit,\n\nTo fix the enum values misalignment b/w RIL.h and types.hal, for now i agree we can remap it in ril_service.cpp\n\nCan i also update RIL.h to match types.hal enum values so that vendors will not be confused in case we continue releasing RIL.h. If so i need to make the ril_service.cpp mapping under RIL version is \u003c 15 check.\n\nPls suggest",
+      "parentUuid": "16f9fd8b_bc70a6c8",
+      "range": {
+        "startLine": 747,
+        "startChar": 4,
+        "endLine": 747,
+        "endChar": 19
+      },
+      "revId": "a9b13f090a7879f966e2bfae9f3f7e3d08b69729",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
