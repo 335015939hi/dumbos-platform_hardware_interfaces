@@ -70,6 +70,30 @@
       "revId": "a9b13f090a7879f966e2bfae9f3f7e3d08b69729",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed482101_5ac30b48",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 747,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2017-04-28T21:04:51Z",
+      "side": 1,
+      "message": "I don\u0027t think you need to update ril.h here. In RIL.java when we convert to ResetNvType do the mapping as its is expected by hal. Then in ril_service.cpp map it back to format expected by ril.h.",
+      "parentUuid": "cbc50b3b_9fc1fa5c",
+      "range": {
+        "startLine": 747,
+        "startChar": 4,
+        "endLine": 747,
+        "endChar": 19
+      },
+      "revId": "a9b13f090a7879f966e2bfae9f3f7e3d08b69729",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
