@@ -1,0 +1,10 @@
+cc_library_shared {
+    name: "android.hardware.tests.libbinder",
+
+    srcs: ["android/tests/binder/IBenchmark.aidl"],
+
+    shared_libs: [
+        "libbinder",
+        "libutils",
+    ],
+}
