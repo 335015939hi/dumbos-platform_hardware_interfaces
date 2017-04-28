@@ -94,6 +94,30 @@
       "revId": "a9b13f090a7879f966e2bfae9f3f7e3d08b69729",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3232bd73_6bc1c4ca",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 747,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2017-04-28T23:39:10Z",
+      "side": 1,
+      "message": "Ok, i will make only ril_service.cpp change to do the conversion. Thanks",
+      "parentUuid": "ed482101_5ac30b48",
+      "range": {
+        "startLine": 747,
+        "startChar": 4,
+        "endLine": 747,
+        "endChar": 19
+      },
+      "revId": "a9b13f090a7879f966e2bfae9f3f7e3d08b69729",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
