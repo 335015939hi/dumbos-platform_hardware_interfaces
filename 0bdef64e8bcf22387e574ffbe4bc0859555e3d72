@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "09563f90_6feb2912",
+        "filename": "boot/1.0/default/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2017-04-28T17:53:42Z",
+      "side": 1,
+      "message": "Name at the top",
+      "revId": "0bdef64e8bcf22387e574ffbe4bc0859555e3d72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd0a0e69_88adfab2",
+        "filename": "boot/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2017-04-28T17:53:42Z",
+      "side": 1,
+      "message": "I normally avoid skipping directories like this, if there is an Android.bp in 1.0 it should be the one to include 1.0/default",
+      "revId": "0bdef64e8bcf22387e574ffbe4bc0859555e3d72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
