@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "07766847_67748078",
+        "filename": "tetheroffload/control/1.0/IOffloadControl.hal",
+        "patchSetId": 18
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-04-28T02:20:41Z",
+      "side": 1,
+      "message": "ah, this is causing a problem. Will have to upload hidl-gen fix. You might just change this to callback in the meantime",
+      "range": {
+        "startLine": 48,
+        "startChar": 40,
+        "endLine": 48,
+        "endChar": 42
+      },
+      "revId": "257430b7839535341e76fecad62bf96c1b0026be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
