@@ -16,3 +16,24 @@ cc_library_shared {
         "android.hardware.nfc@1.0",
     ],
 }
+
+cc_binary {
+    relative_install_path: "hw",
+    proprietary: true,
+    name: "android.hardware.nfc@1.0-service",
+    init_rc: ["android.hardware.nfc@1.0-service.rc"],
+    srcs: ["service.cpp"],
+
+    shared_libs: [
+        "liblog",
+        "libcutils",
+        "libdl",
+        "libbase",
+        "libutils",
+        "libhardware",
+        "libhidlbase",
+        "libhidltransport",
+        "android.hardware.nfc@1.0",
+    ],
+
+}
