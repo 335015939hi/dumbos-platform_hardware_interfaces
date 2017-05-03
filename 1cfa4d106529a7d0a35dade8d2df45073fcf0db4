@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "93f210e0_282e3947",
+        "filename": "tests/libhwbinder/1.0/IScheduleTest.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-05-03T17:46:55Z",
+      "side": 1,
+      "message": "Most of these tests were written before there were strong requirements on hidl interfaces, I would prefer some comments.",
+      "range": {
+        "startLine": 20,
+        "startChar": 2,
+        "endLine": 20,
+        "endChar": 6
+      },
+      "revId": "1cfa4d106529a7d0a35dade8d2df45073fcf0db4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
