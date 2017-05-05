@@ -139,6 +139,23 @@ class NfcHidlEnvironment : public ::testing::Environment {
  */
 TEST_F(NfcHidlTest, OpenAndClose) {}
 
+TEST_F(NfcHidlTest, FuzzyTest) {
+    for (int i = 0; i < 5; i++) {
+        std::vector<uint8_t> cmd = {32, 0, 1, 1};
+        NfcData data = cmd;
+        EXPECT_EQ(data.size(), nfc_->write(data));
+
+        std::vector<uint8_t> cmd1 = {32, 1, 0};
+        data = cmd1;
+        EXPECT_EQ(data.size(), nfc_->write(data));
+
+        std::vector<uint8_t> cmd2 = {64, 1, 25, 0, 3,   30,  3,   0,   8,
+                                     0,  1, 2,  3, 128, 129, 130, 131, 2};
+        data = cmd2;
+        EXPECT_EQ(NfcStatus::OK, nfc_->coreInitialized(data));
+    }
+}
+
 /*
  * WriteCoreReset:
  * Sends CORE_RESET_CMD
