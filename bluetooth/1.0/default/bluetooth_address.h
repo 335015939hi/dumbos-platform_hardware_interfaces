@@ -40,6 +40,11 @@ static constexpr char PERSIST_BDADDR_PROPERTY[] =
 // use a factory set address.
 static constexpr char FACTORY_BDADDR_PROPERTY[] = "ro.boot.btmacaddr";
 
+// Use the WiFi MAC with bit 0 cleared for AzureWave modules
+static constexpr char AZW_WIFI_MAC_PATH[] =
+    "/sys/devices/700b0200.sdhci/mmc_host/mmc0/"
+    "mmc0:0001/mmc0:0001:2/net/wlan0/address";
+
 // Encapsulate handling for Bluetooth Addresses:
 class BluetoothAddress {
  public:
