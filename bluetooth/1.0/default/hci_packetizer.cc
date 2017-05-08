@@ -25,17 +25,15 @@
 
 namespace {
 
-const size_t preamble_size_for_type[] = {
-    0, HCI_COMMAND_PREAMBLE_SIZE, HCI_ACL_PREAMBLE_SIZE, HCI_SCO_PREAMBLE_SIZE,
-    HCI_EVENT_PREAMBLE_SIZE};
-const size_t packet_length_offset_for_type[] = {
-    0, HCI_LENGTH_OFFSET_CMD, HCI_LENGTH_OFFSET_ACL, HCI_LENGTH_OFFSET_SCO,
-    HCI_LENGTH_OFFSET_EVT};
+const size_t preamble_size_for_type[] = {0, HCI_COMMAND_PREAMBLE_SIZE, HCI_ACL_PREAMBLE_SIZE,
+                                         HCI_SCO_PREAMBLE_SIZE, HCI_EVENT_PREAMBLE_SIZE};
+const size_t packet_length_offset_for_type[] = {0, HCI_LENGTH_OFFSET_CMD, HCI_LENGTH_OFFSET_ACL,
+                                                HCI_LENGTH_OFFSET_SCO, HCI_LENGTH_OFFSET_EVT};
 
 size_t HciGetPacketLengthForType(HciPacketType type, const uint8_t* preamble) {
-  size_t offset = packet_length_offset_for_type[type];
-  if (type != HCI_PACKET_TYPE_ACL_DATA) return preamble[offset];
-  return (((preamble[offset + 1]) << 8) | preamble[offset]);
+    size_t offset = packet_length_offset_for_type[type];
+    if (type != HCI_PACKET_TYPE_ACL_DATA) return preamble[offset];
+    return (((preamble[offset + 1]) << 8) | preamble[offset]);
 }
 
 }  // namespace
@@ -45,44 +43,43 @@ namespace hardware {
 namespace bluetooth {
 namespace hci {
 
-const hidl_vec<uint8_t>& HciPacketizer::GetPacket() const { return packet_; }
+const hidl_vec<uint8_t>& HciPacketizer::GetPacket() const {
+    return packet_;
+}
 
 void HciPacketizer::OnDataReady(int fd, HciPacketType packet_type) {
-  switch (state_) {
-    case HCI_PREAMBLE: {
-      size_t bytes_read = TEMP_FAILURE_RETRY(
-          read(fd, preamble_ + bytes_read_,
-               preamble_size_for_type[packet_type] - bytes_read_));
-      CHECK(bytes_read > 0);
-      bytes_read_ += bytes_read;
-      if (bytes_read_ == preamble_size_for_type[packet_type]) {
-        size_t packet_length =
-            HciGetPacketLengthForType(packet_type, preamble_);
-        packet_.resize(preamble_size_for_type[packet_type] + packet_length);
-        memcpy(packet_.data(), preamble_, preamble_size_for_type[packet_type]);
-        bytes_remaining_ = packet_length;
-        state_ = HCI_PAYLOAD;
-        bytes_read_ = 0;
-      }
-      break;
-    }
+    switch (state_) {
+        case HCI_PREAMBLE: {
+            size_t bytes_read = TEMP_FAILURE_RETRY(read(
+                fd, preamble_ + bytes_read_, preamble_size_for_type[packet_type] - bytes_read_));
+            CHECK(bytes_read > 0);
+            bytes_read_ += bytes_read;
+            if (bytes_read_ == preamble_size_for_type[packet_type]) {
+                size_t packet_length = HciGetPacketLengthForType(packet_type, preamble_);
+                packet_.resize(preamble_size_for_type[packet_type] + packet_length);
+                memcpy(packet_.data(), preamble_, preamble_size_for_type[packet_type]);
+                bytes_remaining_ = packet_length;
+                state_ = HCI_PAYLOAD;
+                bytes_read_ = 0;
+            }
+            break;
+        }
 
-    case HCI_PAYLOAD: {
-      size_t bytes_read = TEMP_FAILURE_RETRY(read(
-          fd,
-          packet_.data() + preamble_size_for_type[packet_type] + bytes_read_,
-          bytes_remaining_));
-      CHECK(bytes_read > 0);
-      bytes_remaining_ -= bytes_read;
-      bytes_read_ += bytes_read;
-      if (bytes_remaining_ == 0) {
-        packet_ready_cb_();
-        state_ = HCI_PREAMBLE;
-        bytes_read_ = 0;
-      }
-      break;
+        case HCI_PAYLOAD: {
+            size_t bytes_read = TEMP_FAILURE_RETRY(
+                read(fd, packet_.data() + preamble_size_for_type[packet_type] + bytes_read_,
+                     bytes_remaining_));
+            CHECK(bytes_read > 0);
+            bytes_remaining_ -= bytes_read;
+            bytes_read_ += bytes_read;
+            if (bytes_remaining_ == 0) {
+                packet_ready_cb_();
+                state_ = HCI_PREAMBLE;
+                bytes_read_ = 0;
+            }
+            break;
+        }
     }
-  }
 }
 
 }  // namespace hci

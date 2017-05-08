@@ -27,42 +27,42 @@ namespace bluetooth {
 namespace hci {
 
 size_t H4Protocol::Send(uint8_t type, const uint8_t* data, size_t length) {
-  int rv = WriteSafely(uart_fd_, &type, sizeof(type));
-  if (rv == sizeof(type)) {
-    rv = WriteSafely(uart_fd_, data, length);
-  }
-  return rv;
+    int rv = WriteSafely(uart_fd_, &type, sizeof(type));
+    if (rv == sizeof(type)) {
+        rv = WriteSafely(uart_fd_, data, length);
+    }
+    return rv;
 }
 
 void H4Protocol::OnPacketReady() {
-  switch (hci_packet_type_) {
-    case HCI_PACKET_TYPE_EVENT:
-      event_cb_(hci_packetizer_.GetPacket());
-      break;
-    case HCI_PACKET_TYPE_ACL_DATA:
-      acl_cb_(hci_packetizer_.GetPacket());
-      break;
-    case HCI_PACKET_TYPE_SCO_DATA:
-      sco_cb_(hci_packetizer_.GetPacket());
-      break;
-    default: {
-      bool bad_packet_type = true;
-      CHECK(!bad_packet_type);
+    switch (hci_packet_type_) {
+        case HCI_PACKET_TYPE_EVENT:
+            event_cb_(hci_packetizer_.GetPacket());
+            break;
+        case HCI_PACKET_TYPE_ACL_DATA:
+            acl_cb_(hci_packetizer_.GetPacket());
+            break;
+        case HCI_PACKET_TYPE_SCO_DATA:
+            sco_cb_(hci_packetizer_.GetPacket());
+            break;
+        default: {
+            bool bad_packet_type = true;
+            CHECK(!bad_packet_type);
+        }
     }
-  }
-  // Get ready for the next type byte.
-  hci_packet_type_ = HCI_PACKET_TYPE_UNKNOWN;
+    // Get ready for the next type byte.
+    hci_packet_type_ = HCI_PACKET_TYPE_UNKNOWN;
 }
 
 void H4Protocol::OnDataReady(int fd) {
-  if (hci_packet_type_ == HCI_PACKET_TYPE_UNKNOWN) {
-    uint8_t buffer[1] = {0};
-    size_t bytes_read = TEMP_FAILURE_RETRY(read(fd, buffer, 1));
-    CHECK(bytes_read == 1);
-    hci_packet_type_ = static_cast<HciPacketType>(buffer[0]);
-  } else {
-    hci_packetizer_.OnDataReady(fd, hci_packet_type_);
-  }
+    if (hci_packet_type_ == HCI_PACKET_TYPE_UNKNOWN) {
+        uint8_t buffer[1] = {0};
+        size_t bytes_read = TEMP_FAILURE_RETRY(read(fd, buffer, 1));
+        CHECK(bytes_read == 1);
+        hci_packet_type_ = static_cast<HciPacketType>(buffer[0]);
+    } else {
+        hci_packetizer_.OnDataReady(fd, hci_packet_type_);
+    }
 }
 
 }  // namespace hci
