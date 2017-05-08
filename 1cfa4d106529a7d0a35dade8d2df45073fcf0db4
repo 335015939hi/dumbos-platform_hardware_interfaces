@@ -22,6 +22,23 @@
       "revId": "1cfa4d106529a7d0a35dade8d2df45073fcf0db4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fe050de9_3b931c12",
+        "filename": "tests/libhwbinder/1.0/default/ScheduleTest.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1135739
+      },
+      "writtenOn": "2017-05-08T08:54:56Z",
+      "side": 1,
+      "message": "It needs a declaration \n\nextern \"C\" IScheduleTest* HIDL_FETCH_IScheduleTest(const char* name);\n\nsee also b/38099333",
+      "revId": "1cfa4d106529a7d0a35dade8d2df45073fcf0db4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
