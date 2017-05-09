@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "00335c99_ed50cd8c",
+        "filename": "nfc/1.0/vts/functional/VtsHalNfcV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1073593
+      },
+      "writtenOn": "2017-05-09T13:03:02Z",
+      "side": 1,
+      "message": "This is may or may not return NfcStatus::OK with random data.\nPlease refer the following:\n\n /**\n     * coreInitialized() is called after the CORE_INIT_RSP is received from the\n     * NFCC. At this time, the HAL can do any chip-specific configuration.\n     *\n     * If coreInitialized() returns NfcStatus::OK, the NCI stack will wait for a\n     * NfcEvent.POST_INIT_CPLT before continuing.\n     *\n     * If coreInitialized() returns NfcStatus::FAILED, the NCI stack will\n     * continue immediately.\n     */\n    @callflow(next\u003d{\"write\", \"prediscover\", \"close\"})\n    coreInitialized(NfcData data) generates (NfcStatus status);",
+      "range": {
+        "startLine": 155,
+        "startChar": 8,
+        "endLine": 155,
+        "endChar": 32
+      },
+      "revId": "efb4805bd065d14196f903add356509e49d8a87e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
