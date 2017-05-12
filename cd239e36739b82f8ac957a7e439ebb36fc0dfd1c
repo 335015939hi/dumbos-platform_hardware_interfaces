@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "07b96ed9_49f4a4de",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2017-05-12T22:26:36Z",
+      "side": 1,
+      "message": "how about adding the exact command used? go/vtsrun",
+      "range": {
+        "startLine": 20,
+        "startChar": 6,
+        "endLine": 20,
+        "endChar": 13
+      },
+      "revId": "cd239e36739b82f8ac957a7e439ebb36fc0dfd1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
