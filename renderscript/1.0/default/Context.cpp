@@ -3,6 +3,8 @@
 #include "Context.h"
 #include "Device.h"
 
+#include "rsContext.h"
+
 namespace android {
 namespace hardware {
 namespace renderscript {
@@ -16,7 +18,16 @@ Context::Context(uint32_t sdkVersion, ContextType ct, int32_t flags) {
     uint32_t _sdkVersion = sdkVersion;
     RsContextType _ct = static_cast<RsContextType>(ct);
     int32_t _flags = flags;
-    mContext = Device::getHal().ContextCreate(_dev, _version, _sdkVersion, _ct, _flags);
+
+#ifdef OVERRIDE_RS_DRIVER
+#define XSTR(S) #S
+#define STR(S) XSTR(S)
+#define OVERRIDE_RS_DRIVER_STRING STR(OVERRIDE_RS_DRIVER)
+    mContext = Device::getHal().ContextCreateVendor(_dev, _version, _sdkVersion, _ct, _flags,
+                                                    OVERRIDE_RS_DRIVER_STRING);
+#undef XSTR
+#undef STR
+#endif  // OVERRIDE_RS_DRIVER
 }
 
 
