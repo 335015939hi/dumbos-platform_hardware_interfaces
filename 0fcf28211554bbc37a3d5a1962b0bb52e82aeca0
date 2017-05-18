@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "a6960465_e0d0c136",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_icc.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-05-18T21:57:43Z",
+      "side": 1,
+      "message": "OK I will take it, after this CL I think.",
+      "parentUuid": "78bceeb8_36794644",
+      "revId": "0fcf28211554bbc37a3d5a1962b0bb52e82aeca0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "abb4e1e3_a03b0cec",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_icc.cpp",
         "patchSetId": 5
