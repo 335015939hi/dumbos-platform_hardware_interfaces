@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "78bceeb8_36794644",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_icc.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-05-18T04:46:41Z",
+      "side": 1,
+      "message": "Yes, that has been a todo for us to increment the value for each test, or alternatively use something like 0xdeadbeef.\n\n+ Shuo, can you take that as an action item since Sanket is out.",
+      "parentUuid": "c04e858b_4bec6f6f",
+      "revId": "0fcf28211554bbc37a3d5a1962b0bb52e82aeca0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "abb4e1e3_a03b0cec",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_icc.cpp",
         "patchSetId": 5
