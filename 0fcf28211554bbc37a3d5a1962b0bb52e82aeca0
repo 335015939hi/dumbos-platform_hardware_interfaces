@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c04e858b_4bec6f6f",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_icc.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-05-18T00:37:32Z",
+      "side": 1,
+      "message": "also, @Amit. We should also use some other serial value. 1 as a test value isn\u0027t always the best because it might be returned accidentally. Also, can we get rid of this repeated value. Something like \"const int kSerial \u003d 0xdeadbeef\".",
+      "revId": "0fcf28211554bbc37a3d5a1962b0bb52e82aeca0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "abb4e1e3_a03b0cec",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_icc.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-05-18T00:37:32Z",
+      "side": 1,
+      "message": "probably should also check/validate ATR value?",
+      "range": {
+        "startLine": 334,
+        "startChar": 2,
+        "endLine": 334,
+        "endChar": 11
+      },
+      "revId": "0fcf28211554bbc37a3d5a1962b0bb52e82aeca0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d36a7146_7e008665",
+        "filename": "radio/1.1/IRadioResponse.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-05-18T00:37:32Z",
+      "side": 1,
+      "message": "can you also point to standard what this is or where it is defined?",
+      "range": {
+        "startLine": 51,
+        "startChar": 40,
+        "endLine": 51,
+        "endChar": 43
+      },
+      "revId": "0fcf28211554bbc37a3d5a1962b0bb52e82aeca0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
