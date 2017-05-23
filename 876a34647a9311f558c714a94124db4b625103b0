@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a7c62bc_bb995f6f",
+        "filename": "configstore/utils/include/configstore/Utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-05-23T17:52:09Z",
+      "side": 1,
+      "message": "details::getService?",
+      "range": {
+        "startLine": 48,
+        "startChar": 6,
+        "endLine": 48,
+        "endChar": 16
+      },
+      "revId": "876a34647a9311f558c714a94124db4b625103b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a37fd058_f976efbf",
+        "filename": "configstore/utils/include/configstore/Utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-05-23T17:52:09Z",
+      "side": 1,
+      "message": "nit; why not just \"return configs\"?\n\nOtherwise, you are unwrapping and rewrapping configs in this line. Seems like the copy constructor should be just as good.",
+      "range": {
+        "startLine": 51,
+        "startChar": 11,
+        "endLine": 51,
+        "endChar": 25
+      },
+      "revId": "876a34647a9311f558c714a94124db4b625103b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
