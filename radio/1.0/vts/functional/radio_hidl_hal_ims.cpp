@@ -22,17 +22,16 @@ using namespace ::android::hardware::radio::V1_0;
  * Test IRadio.getClir() for the response returned.
  */
 TEST_F(RadioHidlTest, getClir) {
-  int serial = 0;
+    int serial = GetRandomSerialNumber();
 
-  radio->getClir(++serial);
+    radio->getClir(serial);
 
-  EXPECT_EQ(std::cv_status::no_timeout, wait());
-  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
+    EXPECT_EQ(serial, radioRsp->rspInfo.serial);
 
-  if (cardStatus.cardState == CardState::ABSENT) {
-      ASSERT_TRUE(CheckGeneralError() ||
-                  radioRsp->rspInfo.error == RadioError::MODEM_ERR);
+    if (cardStatus.cardState == CardState::ABSENT) {
+        ASSERT_TRUE(CheckGeneralError() || radioRsp->rspInfo.error == RadioError::MODEM_ERR);
   }
 }
 
@@ -40,17 +39,17 @@ TEST_F(RadioHidlTest, getClir) {
  * Test IRadio.setClir() for the response returned.
  */
 TEST_F(RadioHidlTest, setClir) {
-  int serial = 0;
-  int32_t status = 1;
+    int serial = GetRandomSerialNumber();
+    int32_t status = 1;
 
-  radio->setClir(++serial, status);
+    radio->setClir(serial, status);
 
-  EXPECT_EQ(std::cv_status::no_timeout, wait());
-  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
+    EXPECT_EQ(serial, radioRsp->rspInfo.serial);
 
-  if (cardStatus.cardState == CardState::ABSENT) {
-    EXPECT_EQ(RadioError::NONE, radioRsp->rspInfo.error);
+    if (cardStatus.cardState == CardState::ABSENT) {
+        EXPECT_EQ(RadioError::NONE, radioRsp->rspInfo.error);
   }
 }
 
@@ -58,23 +57,22 @@ TEST_F(RadioHidlTest, setClir) {
  * Test IRadio.getFacilityLockForApp() for the response returned.
  */
 TEST_F(RadioHidlTest, getFacilityLockForApp) {
-  int serial = 0;
-  std::string facility = "";
-  std::string password = "";
-  int32_t serviceClass = 1;
-  std::string appId = "";
+    int serial = GetRandomSerialNumber();
+    std::string facility = "";
+    std::string password = "";
+    int32_t serviceClass = 1;
+    std::string appId = "";
 
-  radio->getFacilityLockForApp(++serial, facility, password, serviceClass,
-                               appId);
+    radio->getFacilityLockForApp(serial, facility, password, serviceClass, appId);
 
-  EXPECT_EQ(std::cv_status::no_timeout, wait());
-  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
+    EXPECT_EQ(serial, radioRsp->rspInfo.serial);
 
-  if (cardStatus.cardState == CardState::ABSENT) {
-      ASSERT_TRUE(CheckGeneralError() ||
-                  radioRsp->rspInfo.error == RadioError::INVALID_ARGUMENTS ||
-                  radioRsp->rspInfo.error == RadioError::MODEM_ERR);
+    if (cardStatus.cardState == CardState::ABSENT) {
+        ASSERT_TRUE(CheckGeneralError() ||
+                    radioRsp->rspInfo.error == RadioError::INVALID_ARGUMENTS ||
+                    radioRsp->rspInfo.error == RadioError::MODEM_ERR);
   }
 }
 
@@ -82,24 +80,23 @@ TEST_F(RadioHidlTest, getFacilityLockForApp) {
  * Test IRadio.setFacilityLockForApp() for the response returned.
  */
 TEST_F(RadioHidlTest, setFacilityLockForApp) {
-  int serial = 0;
-  std::string facility = "";
-  bool lockState = false;
-  std::string password = "";
-  int32_t serviceClass = 1;
-  std::string appId = "";
+    int serial = GetRandomSerialNumber();
+    std::string facility = "";
+    bool lockState = false;
+    std::string password = "";
+    int32_t serviceClass = 1;
+    std::string appId = "";
 
-  radio->setFacilityLockForApp(++serial, facility, lockState, password,
-                               serviceClass, appId);
+    radio->setFacilityLockForApp(serial, facility, lockState, password, serviceClass, appId);
 
-  EXPECT_EQ(std::cv_status::no_timeout, wait());
-  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
+    EXPECT_EQ(serial, radioRsp->rspInfo.serial);
 
-  if (cardStatus.cardState == CardState::ABSENT) {
-      ASSERT_TRUE(CheckGeneralError() ||
-                  radioRsp->rspInfo.error == RadioError::INVALID_ARGUMENTS ||
-                  radioRsp->rspInfo.error == RadioError::MODEM_ERR);
+    if (cardStatus.cardState == CardState::ABSENT) {
+        ASSERT_TRUE(CheckGeneralError() ||
+                    radioRsp->rspInfo.error == RadioError::INVALID_ARGUMENTS ||
+                    radioRsp->rspInfo.error == RadioError::MODEM_ERR);
   }
 }
 
@@ -107,23 +104,23 @@ TEST_F(RadioHidlTest, setFacilityLockForApp) {
  * Test IRadio.setBarringPassword() for the response returned.
  */
 TEST_F(RadioHidlTest, setBarringPassword) {
-  int serial = 0;
-  std::string facility = "";
-  std::string oldPassword = "";
-  std::string newPassword = "";
+    int serial = GetRandomSerialNumber();
+    std::string facility = "";
+    std::string oldPassword = "";
+    std::string newPassword = "";
 
-  radio->setBarringPassword(++serial, facility, oldPassword, newPassword);
+    radio->setBarringPassword(serial, facility, oldPassword, newPassword);
 
-  EXPECT_EQ(std::cv_status::no_timeout, wait());
-  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
+    EXPECT_EQ(serial, radioRsp->rspInfo.serial);
 
-  if (cardStatus.cardState == CardState::ABSENT) {
-      ASSERT_TRUE(CheckGeneralError() ||
-                  radioRsp->rspInfo.error == RadioError::INVALID_ARGUMENTS ||
-                  radioRsp->rspInfo.error == RadioError::NONE ||
-                  radioRsp->rspInfo.error == RadioError::MODEM_ERR ||
-                  radioRsp->rspInfo.error == RadioError::FDN_CHECK_FAILURE);
+    if (cardStatus.cardState == CardState::ABSENT) {
+        ASSERT_TRUE(CheckGeneralError() ||
+                    radioRsp->rspInfo.error == RadioError::INVALID_ARGUMENTS ||
+                    radioRsp->rspInfo.error == RadioError::NONE ||
+                    radioRsp->rspInfo.error == RadioError::MODEM_ERR ||
+                    radioRsp->rspInfo.error == RadioError::FDN_CHECK_FAILURE);
   }
 }
 
@@ -131,17 +128,16 @@ TEST_F(RadioHidlTest, setBarringPassword) {
  * Test IRadio.getClip() for the response returned.
  */
 TEST_F(RadioHidlTest, getClip) {
-  int serial = 0;
+    int serial = GetRandomSerialNumber();
 
-  radio->getClip(++serial);
+    radio->getClip(serial);
 
-  EXPECT_EQ(std::cv_status::no_timeout, wait());
-  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
+    EXPECT_EQ(serial, radioRsp->rspInfo.serial);
 
-  if (cardStatus.cardState == CardState::ABSENT) {
-      ASSERT_TRUE(CheckGeneralError() ||
-                  radioRsp->rspInfo.error == RadioError::MODEM_ERR);
+    if (cardStatus.cardState == CardState::ABSENT) {
+        ASSERT_TRUE(CheckGeneralError() || radioRsp->rspInfo.error == RadioError::MODEM_ERR);
   }
 }
 
@@ -149,17 +145,17 @@ TEST_F(RadioHidlTest, getClip) {
  * Test IRadio.setSuppServiceNotifications() for the response returned.
  */
 TEST_F(RadioHidlTest, setSuppServiceNotifications) {
-  int serial = 0;
-  bool enable = false;
+    int serial = GetRandomSerialNumber();
+    bool enable = false;
 
-  radio->setSuppServiceNotifications(++serial, enable);
+    radio->setSuppServiceNotifications(serial, enable);
 
-  EXPECT_EQ(std::cv_status::no_timeout, wait());
-  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
+    EXPECT_EQ(serial, radioRsp->rspInfo.serial);
 
-  if (cardStatus.cardState == CardState::ABSENT) {
-    EXPECT_EQ(RadioError::NONE, radioRsp->rspInfo.error);
+    if (cardStatus.cardState == CardState::ABSENT) {
+        EXPECT_EQ(RadioError::NONE, radioRsp->rspInfo.error);
   }
 }
 
@@ -167,17 +163,17 @@ TEST_F(RadioHidlTest, setSuppServiceNotifications) {
  * Test IRadio.requestIsimAuthentication() for the response returned.
  */
 TEST_F(RadioHidlTest, requestIsimAuthentication) {
-  int serial = 0;
-  std::string challenge = "";
+    int serial = GetRandomSerialNumber();
+    std::string challenge = "";
 
-  radio->requestIsimAuthentication(++serial, challenge);
+    radio->requestIsimAuthentication(serial, challenge);
 
-  EXPECT_EQ(std::cv_status::no_timeout, wait());
-  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
+    EXPECT_EQ(serial, radioRsp->rspInfo.serial);
 
-  if (cardStatus.cardState == CardState::ABSENT) {
-      ASSERT_TRUE(CheckGeneralError());
+    if (cardStatus.cardState == CardState::ABSENT) {
+        ASSERT_TRUE(CheckGeneralError());
   }
 }
 
@@ -185,15 +181,15 @@ TEST_F(RadioHidlTest, requestIsimAuthentication) {
  * Test IRadio.getImsRegistrationState() for the response returned.
  */
 TEST_F(RadioHidlTest, getImsRegistrationState) {
-  int serial = 0;
+    int serial = GetRandomSerialNumber();
 
-  radio->getImsRegistrationState(++serial);
+    radio->getImsRegistrationState(serial);
 
-  EXPECT_EQ(std::cv_status::no_timeout, wait());
-  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
+    EXPECT_EQ(serial, radioRsp->rspInfo.serial);
 
-  if (cardStatus.cardState == CardState::ABSENT) {
-    EXPECT_EQ(RadioError::NONE, radioRsp->rspInfo.error);
+    if (cardStatus.cardState == CardState::ABSENT) {
+        EXPECT_EQ(RadioError::NONE, radioRsp->rspInfo.error);
   }
 }
