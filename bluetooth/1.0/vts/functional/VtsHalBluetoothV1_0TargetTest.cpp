@@ -649,7 +649,16 @@ TEST_F(BluetoothHidlTest, LoopbackModeBandwidth) {
 int main(int argc, char** argv) {
   ::testing::AddGlobalTestEnvironment(new BluetoothHidlEnvironment);
   ::testing::InitGoogleTest(&argc, argv);
+
+  // Disable Bluetooth.
+  std::system("service call bluetooth_manager 8");
+  sleep(5);
+
   int status = RUN_ALL_TESTS();
   ALOGI("Test result = %d", status);
+
+  // Enable Bluetooth.
+  std::system("service call bluetooth_manager 6");
+
   return status;
 }
