@@ -101,6 +101,9 @@ class SapHidlTest : public ::testing::VtsHalHidlTargetTestBase {
   /* Test code calls this function to wait for response */
   std::cv_status wait();
 
+  /* Used for getting a random serial number */
+  bool GetRandomSerialNumber();
+
   /* Sap service */
   sp<ISap> sap;
 

@@ -27,6 +27,11 @@ void SapHidlTest::SetUp() {
   count = 0;
 
   sap->setCallback(sapCb);
+
+  // setup seed for rand function
+  int seedSrand = time(NULL);
+  srand(seedSrand);
+  std::cout << "Seed set for rand():" + std::to_string(seedSrand) << std::endl;
 }
 
 void SapHidlTest::TearDown() {}
@@ -50,4 +55,8 @@ std::cv_status SapHidlTest::wait() {
   }
   count--;
   return status;
+}
+
+bool SapHidlTest::GetRandomSerialNumber() {
+    return rand();
 }

@@ -22,58 +22,61 @@ using namespace ::android::hardware::radio::V1_0;
  * Test IRadio.sendEnvelope() for the response returned.
  */
 TEST_F(RadioHidlTest, sendEnvelope) {
-  int serial = 0;
+    int serial = GetRandomSerialNumber();
 
-  // Test with sending empty string
-  std::string content = "";
+    // Test with sending empty string
+    std::string content = "";
 
-  radio->sendEnvelope(++serial, content);
+    radio->sendEnvelope(serial, content);
 
-  EXPECT_EQ(std::cv_status::no_timeout, wait());
-  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
+    EXPECT_EQ(serial, radioRsp->rspInfo.serial);
 
-  if (cardStatus.cardState == CardState::ABSENT) {
-    EXPECT_EQ(RadioError::NONE, radioRsp->rspInfo.error);
-  }
+    if (cardStatus.cardState == CardState::ABSENT) {
+        EXPECT_EQ(RadioError::NONE, radioRsp->rspInfo.error);
+    }
 
-  // Test with sending random string
-  content = "0";
+    // Test with sending random string
+    serial = GetRandomSerialNumber();
+    content = "0";
 
-  radio->sendEnvelope(++serial, content);
+    radio->sendEnvelope(serial, content);
 
-  EXPECT_EQ(std::cv_status::no_timeout, wait());
-  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
+    EXPECT_EQ(serial, radioRsp->rspInfo.serial);
 
-  if (cardStatus.cardState == CardState::ABSENT) {
-    EXPECT_EQ(RadioError::NONE, radioRsp->rspInfo.error);
-  }
+    if (cardStatus.cardState == CardState::ABSENT) {
+        EXPECT_EQ(RadioError::NONE, radioRsp->rspInfo.error);
+    }
 }
 
 /*
  * Test IRadio.sendTerminalResponseToSim() for the response returned.
  */
 TEST_F(RadioHidlTest, sendTerminalResponseToSim) {
-  int serial = 0;
+    int serial = GetRandomSerialNumber();
 
-  // Test with sending empty string
-  std::string commandResponse = "";
+    // Test with sending empty string
+    std::string commandResponse = "";
 
-  radio->sendTerminalResponseToSim(++serial, commandResponse);
+    radio->sendTerminalResponseToSim(serial, commandResponse);
 
-  EXPECT_EQ(std::cv_status::no_timeout, wait());
-  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
+    EXPECT_EQ(serial, radioRsp->rspInfo.serial);
 
-  if (cardStatus.cardState == CardState::ABSENT) {
-    EXPECT_EQ(RadioError::NONE, radioRsp->rspInfo.error);
+    if (cardStatus.cardState == CardState::ABSENT) {
+        EXPECT_EQ(RadioError::NONE, radioRsp->rspInfo.error);
   }
+
+  serial = GetRandomSerialNumber();
 
   // Test with sending random string
   commandResponse = "0";
 
-  radio->sendTerminalResponseToSim(++serial, commandResponse);
+  radio->sendTerminalResponseToSim(serial, commandResponse);
 
   EXPECT_EQ(std::cv_status::no_timeout, wait());
   EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
@@ -88,35 +91,35 @@ TEST_F(RadioHidlTest, sendTerminalResponseToSim) {
  * Test IRadio.handleStkCallSetupRequestFromSim() for the response returned.
  */
 TEST_F(RadioHidlTest, handleStkCallSetupRequestFromSim) {
-  int serial = 0;
-  bool accept = false;
+    int serial = GetRandomSerialNumber();
+    bool accept = false;
 
-  radio->handleStkCallSetupRequestFromSim(++serial, accept);
+    radio->handleStkCallSetupRequestFromSim(serial, accept);
 
-  EXPECT_EQ(std::cv_status::no_timeout, wait());
-  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
+    EXPECT_EQ(serial, radioRsp->rspInfo.serial);
 
-  if (cardStatus.cardState == CardState::ABSENT) {
-    EXPECT_EQ(RadioError::NONE, radioRsp->rspInfo.error);
-  }
+    if (cardStatus.cardState == CardState::ABSENT) {
+        EXPECT_EQ(RadioError::NONE, radioRsp->rspInfo.error);
+    }
 }
 
 /*
  * Test IRadio.reportStkServiceIsRunning() for the response returned.
  */
 TEST_F(RadioHidlTest, reportStkServiceIsRunning) {
-  int serial = 0;
+    int serial = GetRandomSerialNumber();
 
-  radio->reportStkServiceIsRunning(++serial);
+    radio->reportStkServiceIsRunning(serial);
 
-  EXPECT_EQ(std::cv_status::no_timeout, wait());
-  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
+    EXPECT_EQ(serial, radioRsp->rspInfo.serial);
 
-  if (cardStatus.cardState == CardState::ABSENT) {
-    EXPECT_EQ(RadioError::NONE, radioRsp->rspInfo.error);
-  }
+    if (cardStatus.cardState == CardState::ABSENT) {
+        EXPECT_EQ(RadioError::NONE, radioRsp->rspInfo.error);
+    }
 }
 
 /*
@@ -124,31 +127,32 @@ TEST_F(RadioHidlTest, reportStkServiceIsRunning) {
  * string.
  */
 TEST_F(RadioHidlTest, sendEnvelopeWithStatus) {
-  int serial = 0;
+    int serial = GetRandomSerialNumber();
 
-  // Test with sending empty string
-  std::string contents = "";
+    // Test with sending empty string
+    std::string contents = "";
 
-  radio->sendEnvelopeWithStatus(++serial, contents);
+    radio->sendEnvelopeWithStatus(serial, contents);
 
-  EXPECT_EQ(std::cv_status::no_timeout, wait());
-  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
+    EXPECT_EQ(serial, radioRsp->rspInfo.serial);
 
-  if (cardStatus.cardState == CardState::ABSENT) {
-    EXPECT_EQ(RadioError::NONE, radioRsp->rspInfo.error);
-  }
+    if (cardStatus.cardState == CardState::ABSENT) {
+        EXPECT_EQ(RadioError::NONE, radioRsp->rspInfo.error);
+    }
 
-  // Test with sending random string
-  contents = "0";
+    // Test with sending random string
+    serial = GetRandomSerialNumber();
+    contents = "0";
 
-  radio->sendEnvelopeWithStatus(++serial, contents);
+    radio->sendEnvelopeWithStatus(serial, contents);
 
-  EXPECT_EQ(std::cv_status::no_timeout, wait());
-  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
+    EXPECT_EQ(serial, radioRsp->rspInfo.serial);
 
-  if (cardStatus.cardState == CardState::ABSENT) {
-    ASSERT_FALSE(RadioError::NONE == radioRsp->rspInfo.error);
-  }
+    if (cardStatus.cardState == CardState::ABSENT) {
+        ASSERT_FALSE(RadioError::NONE == radioRsp->rspInfo.error);
+    }
 }
