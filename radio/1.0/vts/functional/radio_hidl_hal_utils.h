@@ -26,6 +26,8 @@
 #include <android/hardware/radio/1.0/IRadioResponse.h>
 #include <android/hardware/radio/1.0/types.h>
 
+#include <vts_test_util.h>
+
 using ::android::hardware::radio::V1_0::ActivityStatsInfo;
 using ::android::hardware::radio::V1_0::AppType;
 using ::android::hardware::radio::V1_0::CardStatus;
