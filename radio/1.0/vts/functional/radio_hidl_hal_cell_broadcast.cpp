@@ -22,63 +22,62 @@ using namespace ::android::hardware::radio::V1_0;
  * Test IRadio.setGsmBroadcastConfig() for the response returned.
  */
 TEST_F(RadioHidlTest, setGsmBroadcastConfig) {
-  int serial = 0;
+    int serial = GetRandomSerialNumber();
 
-  // Create GsmBroadcastSmsConfigInfo #1
-  GsmBroadcastSmsConfigInfo gbSmsConfig1;
-  gbSmsConfig1.fromServiceId = 4352;
-  gbSmsConfig1.toServiceId = 4354;
-  gbSmsConfig1.fromCodeScheme = 0;
-  gbSmsConfig1.toCodeScheme = 255;
-  gbSmsConfig1.selected = true;
+    // Create GsmBroadcastSmsConfigInfo #1
+    GsmBroadcastSmsConfigInfo gbSmsConfig1;
+    gbSmsConfig1.fromServiceId = 4352;
+    gbSmsConfig1.toServiceId = 4354;
+    gbSmsConfig1.fromCodeScheme = 0;
+    gbSmsConfig1.toCodeScheme = 255;
+    gbSmsConfig1.selected = true;
 
-  // Create GsmBroadcastSmsConfigInfo #2
-  GsmBroadcastSmsConfigInfo gbSmsConfig2;
-  gbSmsConfig2.fromServiceId = 4356;
-  gbSmsConfig2.toServiceId = 4356;
-  gbSmsConfig2.fromCodeScheme = 0;
-  gbSmsConfig2.toCodeScheme = 255;
-  gbSmsConfig2.selected = true;
+    // Create GsmBroadcastSmsConfigInfo #2
+    GsmBroadcastSmsConfigInfo gbSmsConfig2;
+    gbSmsConfig2.fromServiceId = 4356;
+    gbSmsConfig2.toServiceId = 4356;
+    gbSmsConfig2.fromCodeScheme = 0;
+    gbSmsConfig2.toCodeScheme = 255;
+    gbSmsConfig2.selected = true;
 
-  // Create GsmBroadcastSmsConfigInfo #3
-  GsmBroadcastSmsConfigInfo gbSmsConfig3;
-  gbSmsConfig3.fromServiceId = 4370;
-  gbSmsConfig3.toServiceId = 4379;
-  gbSmsConfig3.fromCodeScheme = 0;
-  gbSmsConfig3.toCodeScheme = 255;
-  gbSmsConfig3.selected = true;
+    // Create GsmBroadcastSmsConfigInfo #3
+    GsmBroadcastSmsConfigInfo gbSmsConfig3;
+    gbSmsConfig3.fromServiceId = 4370;
+    gbSmsConfig3.toServiceId = 4379;
+    gbSmsConfig3.fromCodeScheme = 0;
+    gbSmsConfig3.toCodeScheme = 255;
+    gbSmsConfig3.selected = true;
 
-  // Create GsmBroadcastSmsConfigInfo #4
-  GsmBroadcastSmsConfigInfo gbSmsConfig4;
-  gbSmsConfig4.fromServiceId = 4383;
-  gbSmsConfig4.toServiceId = 4391;
-  gbSmsConfig4.fromCodeScheme = 0;
-  gbSmsConfig4.toCodeScheme = 255;
-  gbSmsConfig4.selected = true;
+    // Create GsmBroadcastSmsConfigInfo #4
+    GsmBroadcastSmsConfigInfo gbSmsConfig4;
+    gbSmsConfig4.fromServiceId = 4383;
+    gbSmsConfig4.toServiceId = 4391;
+    gbSmsConfig4.fromCodeScheme = 0;
+    gbSmsConfig4.toCodeScheme = 255;
+    gbSmsConfig4.selected = true;
 
-  // Create GsmBroadcastSmsConfigInfo #5
-  GsmBroadcastSmsConfigInfo gbSmsConfig5;
-  gbSmsConfig5.fromServiceId = 4392;
-  gbSmsConfig5.toServiceId = 4392;
-  gbSmsConfig5.fromCodeScheme = 0;
-  gbSmsConfig5.toCodeScheme = 255;
-  gbSmsConfig5.selected = true;
+    // Create GsmBroadcastSmsConfigInfo #5
+    GsmBroadcastSmsConfigInfo gbSmsConfig5;
+    gbSmsConfig5.fromServiceId = 4392;
+    gbSmsConfig5.toServiceId = 4392;
+    gbSmsConfig5.fromCodeScheme = 0;
+    gbSmsConfig5.toCodeScheme = 255;
+    gbSmsConfig5.selected = true;
 
-  android::hardware::hidl_vec<GsmBroadcastSmsConfigInfo>
-      gsmBroadcastSmsConfigsInfoList = {
-          gbSmsConfig1, gbSmsConfig2, gbSmsConfig3, gbSmsConfig4, gbSmsConfig5};
+    android::hardware::hidl_vec<GsmBroadcastSmsConfigInfo> gsmBroadcastSmsConfigsInfoList = {
+        gbSmsConfig1, gbSmsConfig2, gbSmsConfig3, gbSmsConfig4, gbSmsConfig5};
 
-  radio->setGsmBroadcastConfig(++serial, gsmBroadcastSmsConfigsInfoList);
+    radio->setGsmBroadcastConfig(++serial, gsmBroadcastSmsConfigsInfoList);
 
-  EXPECT_EQ(std::cv_status::no_timeout, wait());
-  EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
+    EXPECT_EQ(serial, radioRsp->rspInfo.serial);
 
-  if (cardStatus.cardState == CardState::ABSENT) {
-      ASSERT_TRUE(CheckGeneralError() ||
-                  radioRsp->rspInfo.error == RadioError::INVALID_ARGUMENTS ||
-                  radioRsp->rspInfo.error == RadioError::INVALID_STATE ||
-                  radioRsp->rspInfo.error == RadioError::NONE);
+    if (cardStatus.cardState == CardState::ABSENT) {
+        ASSERT_TRUE(CheckGeneralError() ||
+                    radioRsp->rspInfo.error == RadioError::INVALID_ARGUMENTS ||
+                    radioRsp->rspInfo.error == RadioError::INVALID_STATE ||
+                    radioRsp->rspInfo.error == RadioError::NONE);
   }
 }
 

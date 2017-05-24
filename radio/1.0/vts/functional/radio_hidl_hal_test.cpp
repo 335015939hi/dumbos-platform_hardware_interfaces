@@ -29,10 +29,14 @@ void RadioHidlTest::SetUp() {
   radioInd = NULL;
   radio->setResponseFunctions(radioRsp, radioInd);
 
-  radio->getIccCardStatus(1);
+  // setup seed for rand function
+  srand(time(NULL));
+
+  int serial = GetRandomSerialNumber();
+  radio->getIccCardStatus(serial);
   EXPECT_EQ(std::cv_status::no_timeout, wait());
   EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
-  EXPECT_EQ(1, radioRsp->rspInfo.serial);
+  EXPECT_EQ(serial, radioRsp->rspInfo.serial);
   EXPECT_EQ(RadioError::NONE, radioRsp->rspInfo.error);
 }
 
@@ -70,4 +74,8 @@ bool RadioHidlTest::CheckGeneralError() {
 bool RadioHidlTest::CheckOEMError() {
     return (radioRsp->rspInfo.error >= RadioError::OEM_ERROR_1 &&
             radioRsp->rspInfo.error <= RadioError::OEM_ERROR_25);
+}
+
+bool RadioHidlTest::GetRandomSerialNumber() {
+    return rand() % 500 + 5;
 }

@@ -506,6 +506,9 @@ class RadioHidlTest : public ::testing::VtsHalHidlTargetTestBase {
   /* Used for checking OEM Errors */
   bool CheckOEMError();
 
+  /* Used for getting a random serial number */
+  bool GetRandomSerialNumber();
+
   sp<IRadio> radio;
   sp<RadioResponse> radioRsp;
   sp<IRadioIndication> radioInd;

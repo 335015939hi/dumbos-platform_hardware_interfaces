@@ -51,3 +51,7 @@ std::cv_status SapHidlTest::wait() {
   count--;
   return status;
 }
+
+bool SapHidlTest::GetRandomSerialNumber() {
+    return rand() % 500 + 5;
+}
