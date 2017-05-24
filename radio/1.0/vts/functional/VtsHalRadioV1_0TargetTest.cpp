@@ -17,11 +17,15 @@
 #include <radio_hidl_hal_utils.h>
 
 int main(int argc, char** argv) {
-  ::testing::AddGlobalTestEnvironment(new RadioHidlEnvironment);
-  ::testing::InitGoogleTest(&argc, argv);
+    ::testing::AddGlobalTestEnvironment(new RadioHidlEnvironment);
+    ::testing::InitGoogleTest(&argc, argv);
 
-  int status = RUN_ALL_TESTS();
-  LOG(INFO) << "Test result = " << status;
+    // setup seed for rand function
+    int seedSrand = time(NULL);
+    srand(seedSrand);
 
-  return status;
+    int status = RUN_ALL_TESTS();
+    LOG(INFO) << "Test result = " << status;
+
+    return status;
 }
