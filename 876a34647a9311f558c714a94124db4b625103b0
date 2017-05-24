@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a92377be_beccb048",
+        "filename": "configstore/utils/include/configstore/Utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1143592
+      },
+      "writtenOn": "2017-05-24T01:11:41Z",
+      "side": 1,
+      "message": "Hmm, I think this is just good here because getService() is specific to configstore; this is only meaningful if a client needs to retrieve the service handle more than once while that is not the case for clients of other hardware interfaces. Please let me know if you still prefer to move this to ..::details.",
+      "parentUuid": "9a7c62bc_bb995f6f",
+      "range": {
+        "startLine": 48,
+        "startChar": 6,
+        "endLine": 48,
+        "endChar": 16
+      },
+      "revId": "876a34647a9311f558c714a94124db4b625103b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a37fd058_f976efbf",
         "filename": "configstore/utils/include/configstore/Utils.h",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-05-23T17:52:09Z",
       "side": 1,
       "message": "nit; why not just \"return configs\"?\n\nOtherwise, you are unwrapping and rewrapping configs in this line. Seems like the copy constructor should be just as good.",
+      "range": {
+        "startLine": 51,
+        "startChar": 11,
+        "endLine": 51,
+        "endChar": 25
+      },
+      "revId": "876a34647a9311f558c714a94124db4b625103b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8615928c_3a3fd904",
+        "filename": "configstore/utils/include/configstore/Utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1143592
+      },
+      "writtenOn": "2017-05-24T01:11:41Z",
+      "side": 1,
+      "message": "Yes, much clear.",
+      "parentUuid": "a37fd058_f976efbf",
       "range": {
         "startLine": 51,
         "startChar": 11,
