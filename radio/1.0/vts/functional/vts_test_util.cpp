@@ -13,16 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+#include <vts_test_util.h>
+#include <iostream>
+using namespace std;
 
-#include <sap_hidl_hal_utils.h>
-
-int main(int argc, char** argv) {
-    // Add Sim-access Profile Hidl Environment
-    ::testing::AddGlobalTestEnvironment(new SapHidlEnvironment);
-    ::testing::InitGoogleTest(&argc, argv);
-
-    int status = RUN_ALL_TESTS();
-    LOG(INFO) << "Test result = " << status;
-
-    return status;
+int GetRandomSerialNumber() {
+    // setup seed for rand function
+    int seedSrand = time(NULL);
+    srand(seedSrand);
+    cout << "Seed set for rand():" + to_string(seedSrand) << endl;
+    return rand();
 }
