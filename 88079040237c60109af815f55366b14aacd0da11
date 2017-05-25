@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "16f9263b_ad046743",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-05-25T02:24:28Z",
+      "side": 1,
+      "message": "Actually I don\u0027t think from VTS perspective that is a requirement, and in fact we should not do that. Increasing serial numbers should not be an assumption by the vendor implementation. I think each test should use GetRandomSerialNumber() as the serial number.",
+      "parentUuid": "62de907a_2debe17b",
+      "range": {
+        "startLine": 32,
+        "startChar": 2,
+        "endLine": 32,
+        "endChar": 39
+      },
+      "revId": "88079040237c60109af815f55366b14aacd0da11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f18e897_c63bb87e",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_test.cpp",
         "patchSetId": 1
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "set a seed in the setup function.",
       "parentUuid": "7f18e897_c63bb87e",
+      "range": {
+        "startLine": 77,
+        "startChar": 11,
+        "endLine": 77,
+        "endChar": 15
+      },
+      "revId": "88079040237c60109af815f55366b14aacd0da11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e4ab99d_9b8a56ab",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-05-25T02:24:28Z",
+      "side": 1,
+      "message": "Why 500 and why 5? I\u0027d get rid of the 5 (so that someone reading the code later does not wonder where this magic number came from). Also either get rid of 500 or change it to a much larger value like 10000 with a comment that actual serial numbers can be \u003e 10000 but limiting it for tests. Although I dont see any reason to limit it really.",
+      "parentUuid": "d9ea84f4_d6e1c6e8",
       "range": {
         "startLine": 77,
         "startChar": 11,

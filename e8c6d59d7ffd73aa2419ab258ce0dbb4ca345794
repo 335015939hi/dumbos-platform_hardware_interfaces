@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c39f2e7_a52e04f2",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-05-25T02:24:28Z",
+      "side": 1,
+      "message": "Should do this in sap as well in case only sap tests are run.",
+      "revId": "e8c6d59d7ffd73aa2419ab258ce0dbb4ca345794",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
