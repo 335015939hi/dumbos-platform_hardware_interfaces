@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2909f4d4_9fd2a82d",
+        "filename": "radio/1.1/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2017-05-25T18:08:05Z",
+      "side": 1,
+      "message": "can we instead add actual test for newly added api doing basic stuff like checking response and error as we have already done ?\nAlso, we should probably think of different name for the file since we don\u0027t have any such name present in 1.0/vts.\nWe can either keep naming convention similar to 1.0 where we added tests per component or we can have single file like this but with name indicating that the file has only APIs which were newly added.",
+      "range": {
+        "startLine": 20,
+        "startChar": 8,
+        "endLine": 20,
+        "endChar": 26
+      },
+      "revId": "6d5d948c7d3bb61528bf8c248bec0af661dc4247",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

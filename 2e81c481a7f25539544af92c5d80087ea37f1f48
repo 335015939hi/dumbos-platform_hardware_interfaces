@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1889ce6a_c51e1562",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2017-05-25T18:08:05Z",
+      "side": 1,
+      "message": "No need of this comment as we are doing it here for the first time.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 13
+      },
+      "revId": "2e81c481a7f25539544af92c5d80087ea37f1f48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
