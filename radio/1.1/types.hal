@@ -162,3 +162,29 @@ struct NetworkScanResult {
     RadioError error;                       // The error code of the incremental result
     vec<CellInfo> networkInfos;             // List of network information as CellInfo
 };
+
+enum KeepaliveType : int32_t {
+    NATT_IPV4 = 0,                          // Keepalive specified by RFC 3948 Sec. 2.3 using IPv4
+    NATT_IPV6 = 1,                          // Keepalive specified by RFC 3948 Sec. 2.3 using IPv6
+};
+
+struct KeepaliveRequest {
+    KeepaliveType type;                     // The format of the keepalive packet
+    vec<uint8_t> sourceAddress;             // source address with type = family
+    int32_t sourcePort;                     // source port if relevant for the given format
+    vec<uint8_t> destinationAddress;        // destination address with type = family
+    int32_t destinationPort;                // destination if relevant for the given format
+    int32_t maxKeepaliveIntervalMillis;     // the max interval between packets, in milliseconds
+    string apn;                             // the APN from which to originate the packets
+};
+
+enum KeepaliveStatusCode : int32_t {
+    ACTIVE,
+    INACTIVE,
+    PENDING,
+};
+
+struct KeepaliveStatus {
+    int32_t sessionHandle;                  // the sessionHandle provided by the api
+    KeepaliveStatusCode code;               // status for the given keepalive
+};

@@ -71,4 +71,20 @@ interface IRadioResponse extends @1.0::IRadioResponse {
      *   RadioError:MODEM_ERR
      */
     oneway stopNetworkScanResponse(RadioResponseInfo info);
+
+    /**
+     * @param info Response info struct containing response type, serial no. and error
+     * @param sessionHandle A unique identifier for this keepalive session, valid if no error
+     *
+     * Valid errors returned:
+     *   RadioError:NO_MEMORY
+     *   RadioError:INVALID_ARGUMENTS
+     *   RadioError:REQUEST_NOT_SUPPORTED
+     */
+    oneway startKeepaliveResponse(RadioResponseInfo info, KeepaliveStatus status);
+
+    /**
+     * @param info Response info struct containing response type, serial no. and error
+     */
+    oneway stopKeepaliveResponse(RadioResponseInfo info);
 };
