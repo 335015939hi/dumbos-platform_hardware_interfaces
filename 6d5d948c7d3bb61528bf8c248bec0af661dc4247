@@ -22,6 +22,30 @@
       "revId": "6d5d948c7d3bb61528bf8c248bec0af661dc4247",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d2a2cba1_9f96c137",
+        "filename": "radio/1.1/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-05-25T18:35:10Z",
+      "side": 1,
+      "message": "do we need to move the 1.0 unit tests to 1.1? \n\nif not, now I can see there are only a few in 1.1 hal files, and other people may add tests under here such as https://android-review.googlesource.com/#/c/365054/ .\n\nwhat is the plan for the categories of 1.1 apis? is it the same as 1.0 ( voice, sms, data ... )",
+      "parentUuid": "2909f4d4_9fd2a82d",
+      "range": {
+        "startLine": 20,
+        "startChar": 8,
+        "endLine": 20,
+        "endChar": 26
+      },
+      "revId": "6d5d948c7d3bb61528bf8c248bec0af661dc4247",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
