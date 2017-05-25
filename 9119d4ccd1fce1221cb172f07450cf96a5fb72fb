@@ -22,6 +22,30 @@
       "revId": "9119d4ccd1fce1221cb172f07450cf96a5fb72fb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20eb04b0_e5585430",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_stk.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-05-25T21:41:01Z",
+      "side": 0,
+      "message": "VTS tests of different scenarios should be added into another unit test? or in the same TEST_F block? We had similar discussion on this before.",
+      "parentUuid": "9e5996cd_ebcb16fb",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 50
+      },
+      "revId": "9119d4ccd1fce1221cb172f07450cf96a5fb72fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
