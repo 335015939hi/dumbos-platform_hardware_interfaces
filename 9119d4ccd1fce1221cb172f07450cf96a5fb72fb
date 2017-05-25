@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9e5996cd_ebcb16fb",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_stk.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2017-05-25T21:33:05Z",
+      "side": 0,
+      "message": "Is this not required anymore ?",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 50
+      },
+      "revId": "9119d4ccd1fce1221cb172f07450cf96a5fb72fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
