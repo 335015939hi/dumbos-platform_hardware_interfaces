@@ -46,6 +46,30 @@
       "revId": "6d5d948c7d3bb61528bf8c248bec0af661dc4247",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1aaecbf9_506cda6a",
+        "filename": "radio/1.1/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2017-05-25T18:40:56Z",
+      "side": 1,
+      "message": "I think we should keep it similar to 1.0 with categories. Either way, we should not have tests for 1.0 apis in 1.1. Amit, do you have any opinion here about adding categories vs keeping new api in single file ?",
+      "parentUuid": "d2a2cba1_9f96c137",
+      "range": {
+        "startLine": 20,
+        "startChar": 8,
+        "endLine": 20,
+        "endChar": 26
+      },
+      "revId": "6d5d948c7d3bb61528bf8c248bec0af661dc4247",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
