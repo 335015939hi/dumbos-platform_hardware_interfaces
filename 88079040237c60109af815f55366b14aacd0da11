@@ -141,6 +141,30 @@
       "revId": "88079040237c60109af815f55366b14aacd0da11",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "092ccd51_e51d9a4f",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-05-25T21:02:22Z",
+      "side": 1,
+      "message": "Getting rid of the bound of random number",
+      "parentUuid": "6e4ab99d_9b8a56ab",
+      "range": {
+        "startLine": 77,
+        "startChar": 11,
+        "endLine": 77,
+        "endChar": 15
+      },
+      "revId": "88079040237c60109af815f55366b14aacd0da11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
