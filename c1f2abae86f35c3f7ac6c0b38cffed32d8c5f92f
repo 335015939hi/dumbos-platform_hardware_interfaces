@@ -260,6 +260,30 @@
       "revId": "c1f2abae86f35c3f7ac6c0b38cffed32d8c5f92f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99a1ce38_ffed92fe",
+        "filename": "radio/1.0/vts/functional/vts_test_util.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-05-26T21:48:33Z",
+      "side": 1,
+      "message": "yes. not necessary. how about putting it in the main() of VtsHalRadioV1_0TargetTest? RadioHidlTest::SetUp() will also be triggered every time a TEST_F block runs",
+      "parentUuid": "516f2d48_899613c8",
+      "range": {
+        "startLine": 24,
+        "startChar": 4,
+        "endLine": 24,
+        "endChar": 66
+      },
+      "revId": "c1f2abae86f35c3f7ac6c0b38cffed32d8c5f92f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
