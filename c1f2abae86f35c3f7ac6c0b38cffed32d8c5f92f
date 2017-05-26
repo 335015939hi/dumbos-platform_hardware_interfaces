@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d95de0ea_ca916763",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_test.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-05-26T18:14:56Z",
+      "side": 1,
+      "message": "indentation doesn\u0027t look right",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 5
+      },
+      "revId": "c1f2abae86f35c3f7ac6c0b38cffed32d8c5f92f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df3575f7_57bd5c62",
+        "filename": "radio/1.0/vts/functional/sap_hidl_hal_test.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-05-26T18:14:56Z",
+      "side": 1,
+      "message": "again, indentation doesn\u0027t look right",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 5
+      },
+      "revId": "c1f2abae86f35c3f7ac6c0b38cffed32d8c5f92f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
