@@ -116,6 +116,30 @@
       "revId": "c1f2abae86f35c3f7ac6c0b38cffed32d8c5f92f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb4d9295_7df5ad0a",
+        "filename": "radio/1.0/vts/functional/vts_test_util.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1132849
+      },
+      "writtenOn": "2017-05-26T18:48:17Z",
+      "side": 1,
+      "message": "This sets rand seed and print a line at every function call of GetRand.\n\nAnother option would be directly print out the request ID in test or during test failure assertion message. That can help reducing log",
+      "parentUuid": "eef1c320_54b4c8e0",
+      "range": {
+        "startLine": 24,
+        "startChar": 4,
+        "endLine": 24,
+        "endChar": 66
+      },
+      "revId": "c1f2abae86f35c3f7ac6c0b38cffed32d8c5f92f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
