@@ -188,6 +188,30 @@
       "revId": "c1f2abae86f35c3f7ac6c0b38cffed32d8c5f92f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59c07e1b_5561bd96",
+        "filename": "radio/1.0/vts/functional/vts_test_util.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1132849
+      },
+      "writtenOn": "2017-05-26T21:38:23Z",
+      "side": 1,
+      "message": "I see. This checks whether serial is consistent across callback. I was thinking there might be a specific serial value that can trigger an unexpected test failure on other properties. Is it possible?",
+      "parentUuid": "6712ce76_395cc90c",
+      "range": {
+        "startLine": 24,
+        "startChar": 4,
+        "endLine": 24,
+        "endChar": 66
+      },
+      "revId": "c1f2abae86f35c3f7ac6c0b38cffed32d8c5f92f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
