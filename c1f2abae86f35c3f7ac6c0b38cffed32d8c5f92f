@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a883c4ac_11a577b2",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_test.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1132849
+      },
+      "writtenOn": "2017-05-26T18:21:36Z",
+      "side": 1,
+      "message": "This looks like the correct indention suggested by hidl pre-upload hook?\n\nhttps://cs.corp.google.com/android/hardware/interfaces/.clang-format",
+      "parentUuid": "d95de0ea_ca916763",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 5
+      },
+      "revId": "c1f2abae86f35c3f7ac6c0b38cffed32d8c5f92f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "df3575f7_57bd5c62",
         "filename": "radio/1.0/vts/functional/sap_hidl_hal_test.cpp",
         "patchSetId": 10
