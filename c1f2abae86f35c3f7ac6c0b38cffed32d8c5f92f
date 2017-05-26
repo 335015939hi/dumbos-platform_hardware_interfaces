@@ -308,6 +308,30 @@
       "revId": "c1f2abae86f35c3f7ac6c0b38cffed32d8c5f92f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42aa2856_8bf15a7b",
+        "filename": "radio/1.0/vts/functional/vts_test_util.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2017-05-26T23:06:13Z",
+      "side": 1,
+      "message": "Have you verified that main() gets called only once while setup() gets called every time for each test run ?",
+      "parentUuid": "8e0fe230_00a39ce0",
+      "range": {
+        "startLine": 24,
+        "startChar": 4,
+        "endLine": 24,
+        "endChar": 66
+      },
+      "revId": "c1f2abae86f35c3f7ac6c0b38cffed32d8c5f92f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
