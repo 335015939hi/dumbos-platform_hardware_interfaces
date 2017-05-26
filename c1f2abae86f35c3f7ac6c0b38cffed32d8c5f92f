@@ -164,6 +164,30 @@
       "revId": "c1f2abae86f35c3f7ac6c0b38cffed32d8c5f92f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6712ce76_395cc90c",
+        "filename": "radio/1.0/vts/functional/vts_test_util.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-05-26T20:01:22Z",
+      "side": 1,
+      "message": "The original code includes the serial number error check. Therefore when the test fails, we got to know from log something like:\n\nValue of: radioRsp-\u003erspInfo.serial\n  Actual: 1\nExpected: serial\nWhich is: 2\n\nSo it seems we don\u0027t need to print it out anywhere for the reproduce.",
+      "parentUuid": "cb4d9295_7df5ad0a",
+      "range": {
+        "startLine": 24,
+        "startChar": 4,
+        "endLine": 24,
+        "endChar": 66
+      },
+      "revId": "c1f2abae86f35c3f7ac6c0b38cffed32d8c5f92f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
