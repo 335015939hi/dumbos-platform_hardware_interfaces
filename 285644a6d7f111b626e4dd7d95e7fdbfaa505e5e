@@ -2,6 +2,103 @@
   "comments": [
     {
       "key": {
+        "uuid": "56de1324_a351a516",
+        "filename": "radio/1.1/IRadio.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-05-29T18:12:44Z",
+      "side": 1,
+      "message": "Why do we have the indication one then?",
+      "range": {
+        "startLine": 117,
+        "startChar": 68,
+        "endLine": 117,
+        "endChar": 82
+      },
+      "revId": "285644a6d7f111b626e4dd7d95e7fdbfaa505e5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ffec2e95_20c8841f",
+        "filename": "radio/1.1/IRadioResponse.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-05-29T18:12:44Z",
+      "side": 1,
+      "message": "NONE is always valid",
+      "revId": "285644a6d7f111b626e4dd7d95e7fdbfaa505e5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2456e480_0a76adbe",
+        "filename": "radio/1.1/IRadioResponse.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-05-29T18:12:44Z",
+      "side": 1,
+      "message": "No errors (other than NONE)?",
+      "revId": "285644a6d7f111b626e4dd7d95e7fdbfaa505e5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "21c5bad3_7b6f95f6",
+        "filename": "radio/1.1/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-05-29T18:12:44Z",
+      "side": 1,
+      "message": "The way this file is organized for 1.0 is all enums first, and then all structs; let\u0027s keep it the same here.",
+      "revId": "285644a6d7f111b626e4dd7d95e7fdbfaa505e5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6edab384_00544fa7",
+        "filename": "radio/1.1/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-05-29T18:12:44Z",
+      "side": 1,
+      "message": "What specifies the format?\nAnd if not relevant? is there an invalid value?",
+      "range": {
+        "startLine": 174,
+        "startChar": 59,
+        "endLine": 174,
+        "endChar": 61
+      },
+      "revId": "285644a6d7f111b626e4dd7d95e7fdbfaa505e5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3abeac21_b97b7ff7",
         "filename": "radio/1.1/types.hal",
         "patchSetId": 4
@@ -13,6 +110,30 @@
       "writtenOn": "2017-05-27T21:19:41Z",
       "side": 1,
       "message": "does this imply that a data call should be established for that APN if it isn\u0027t already?",
+      "range": {
+        "startLine": 178,
+        "startChar": 47,
+        "endLine": 178,
+        "endChar": 90
+      },
+      "revId": "285644a6d7f111b626e4dd7d95e7fdbfaa505e5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "498db995_dcdefbcb",
+        "filename": "radio/1.1/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-05-29T18:12:44Z",
+      "side": 1,
+      "message": "The doc said it should be the default apn for the bearer. Does this need to be part of the request?\nAlso, does bearer need to be specified here?",
+      "parentUuid": "3abeac21_b97b7ff7",
       "range": {
         "startLine": 178,
         "startChar": 47,
