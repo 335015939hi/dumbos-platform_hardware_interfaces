@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "09f38e4b_2e093a2a",
+        "filename": "radio/1.1/IRadio.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1174770
+      },
+      "writtenOn": "2017-05-30T21:21:26Z",
+      "side": 1,
+      "message": "what is the purpose of this parameter `serial`?",
+      "revId": "285644a6d7f111b626e4dd7d95e7fdbfaa505e5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "56de1324_a351a516",
         "filename": "radio/1.1/IRadio.hal",
         "patchSetId": 4
@@ -18,6 +35,29 @@
         "startChar": 68,
         "endLine": 117,
         "endChar": 82
+      },
+      "revId": "285644a6d7f111b626e4dd7d95e7fdbfaa505e5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc3d2f69_528c5a1a",
+        "filename": "radio/1.1/IRadio.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1174770
+      },
+      "writtenOn": "2017-05-30T21:21:26Z",
+      "side": 1,
+      "message": "May be related to Amit\u0027s question, but why do we have a serial number here? Is it supposed to correspond to the serial number in the start api? Is it unique?",
+      "range": {
+        "startLine": 121,
+        "startChar": 33,
+        "endLine": 121,
+        "endChar": 39
       },
       "revId": "285644a6d7f111b626e4dd7d95e7fdbfaa505e5e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
