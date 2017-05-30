@@ -94,6 +94,23 @@
       "revId": "6d5d948c7d3bb61528bf8c248bec0af661dc4247",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "149bd6df_50051b5b",
+        "filename": "radio/1.1/vts/functional/radio_response.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-05-30T17:36:22Z",
+      "side": 1,
+      "message": "Can we inherit from 1.0 to avoid implementing all methods again here?",
+      "revId": "6d5d948c7d3bb61528bf8c248bec0af661dc4247",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
