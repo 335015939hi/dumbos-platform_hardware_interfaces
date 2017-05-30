@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e05f528a_87361bff",
+        "filename": "radio/1.1/IRadio.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1174770
+      },
+      "writtenOn": "2017-05-30T21:40:46Z",
+      "side": 1,
+      "message": "Please disregard. I see that each request/response is coded with serial numbers. I guess that answers my other question too.",
+      "parentUuid": "09f38e4b_2e093a2a",
+      "revId": "285644a6d7f111b626e4dd7d95e7fdbfaa505e5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "56de1324_a351a516",
         "filename": "radio/1.1/IRadio.hal",
         "patchSetId": 4
