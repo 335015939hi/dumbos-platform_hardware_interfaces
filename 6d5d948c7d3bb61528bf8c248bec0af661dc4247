@@ -70,6 +70,30 @@
       "revId": "6d5d948c7d3bb61528bf8c248bec0af661dc4247",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "732c89d5_f3cc80fa",
+        "filename": "radio/1.1/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-05-30T17:34:26Z",
+      "side": 1,
+      "message": "I dont think we will have enough APIs in 1.1 that separate files will be worth it. It probably makes sense to have a single file.",
+      "parentUuid": "1aaecbf9_506cda6a",
+      "range": {
+        "startLine": 20,
+        "startChar": 8,
+        "endLine": 20,
+        "endChar": 26
+      },
+      "revId": "6d5d948c7d3bb61528bf8c248bec0af661dc4247",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
