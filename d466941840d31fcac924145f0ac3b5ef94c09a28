@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "699c083f_f2dd506f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 15
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2017-05-31T19:45:05Z",
+      "side": 1,
+      "message": "how about using Merged-In: tag here or\n\nuse -x flag when cherrypicking the change?",
+      "range": {
+        "startLine": 15,
+        "startChar": 2,
+        "endLine": 15,
+        "endChar": 18
+      },
+      "revId": "d466941840d31fcac924145f0ac3b5ef94c09a28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
