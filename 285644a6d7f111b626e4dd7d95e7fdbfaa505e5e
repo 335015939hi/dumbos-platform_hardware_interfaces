@@ -37,6 +37,42 @@
     },
     {
       "key": {
+        "uuid": "f5366b8a_4e853e7b",
+        "filename": "radio/1.1/IRadio.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2017-05-31T18:00:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09f38e4b_2e093a2a",
+      "revId": "285644a6d7f111b626e4dd7d95e7fdbfaa505e5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3d9c83f_c05c96e1",
+        "filename": "radio/1.1/IRadio.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2017-05-31T18:00:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e05f528a_87361bff",
+      "revId": "285644a6d7f111b626e4dd7d95e7fdbfaa505e5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "56de1324_a351a516",
         "filename": "radio/1.1/IRadio.hal",
         "patchSetId": 4
@@ -48,6 +84,30 @@
       "writtenOn": "2017-05-29T18:12:44Z",
       "side": 1,
       "message": "Why do we have the indication one then?",
+      "range": {
+        "startLine": 117,
+        "startChar": 68,
+        "endLine": 117,
+        "endChar": 82
+      },
+      "revId": "285644a6d7f111b626e4dd7d95e7fdbfaa505e5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "29d0a569_0bf2b76a",
+        "filename": "radio/1.1/IRadio.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2017-05-31T18:00:15Z",
+      "side": 1,
+      "message": "Well, there are two uses for the indication.\n\n1) For *reasons* we can\u0027t rely on waiting for the session to be ACTIVE before the response is sent (it could take too long depending on the architecture... I\u0027ve heard worst-case of a few seconds), so the Indication can tell us that it has become active or simply give us a handle to identify the request and say \"pending\". In the wifi case there is also an UNSOL just in case the request is slow.\n\n2) If the data call ends, then the keepalive session should also end, and AP should be notified. There is also a STOP, but that\u0027s inherently racy, so we\u0027ll call it if the session is still active, and we\u0027ll just have to swallow some errors on STOP (which is OK/WAI).",
+      "parentUuid": "56de1324_a351a516",
       "range": {
         "startLine": 117,
         "startChar": 68,
@@ -83,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "e1e1204c_e7dd2f30",
+        "filename": "radio/1.1/IRadio.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2017-05-31T18:00:15Z",
+      "side": 1,
+      "message": "It\u0027s part of the standard boilerplate of the interface.",
+      "parentUuid": "fc3d2f69_528c5a1a",
+      "range": {
+        "startLine": 121,
+        "startChar": 33,
+        "endLine": 121,
+        "endChar": 39
+      },
+      "revId": "285644a6d7f111b626e4dd7d95e7fdbfaa505e5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ffec2e95_20c8841f",
         "filename": "radio/1.1/IRadioResponse.hal",
         "patchSetId": 4
@@ -94,6 +178,24 @@
       "writtenOn": "2017-05-29T18:12:44Z",
       "side": 1,
       "message": "NONE is always valid",
+      "revId": "285644a6d7f111b626e4dd7d95e7fdbfaa505e5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf25eb28_d936cd9f",
+        "filename": "radio/1.1/IRadioResponse.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2017-05-31T18:00:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ffec2e95_20c8841f",
       "revId": "285644a6d7f111b626e4dd7d95e7fdbfaa505e5e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -117,6 +219,24 @@
     },
     {
       "key": {
+        "uuid": "8c75a5d1_cbe25020",
+        "filename": "radio/1.1/IRadioResponse.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2017-05-31T18:00:15Z",
+      "side": 1,
+      "message": "I suppose it could be INVALID_ARG or REQUEST_NOT_SUPPORTED. I\u0027ll update.",
+      "parentUuid": "2456e480_0a76adbe",
+      "revId": "285644a6d7f111b626e4dd7d95e7fdbfaa505e5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "21c5bad3_7b6f95f6",
         "filename": "radio/1.1/types.hal",
         "patchSetId": 4
@@ -134,6 +254,24 @@
     },
     {
       "key": {
+        "uuid": "15051dd4_546523e1",
+        "filename": "radio/1.1/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2017-05-31T18:00:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21c5bad3_7b6f95f6",
+      "revId": "285644a6d7f111b626e4dd7d95e7fdbfaa505e5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6edab384_00544fa7",
         "filename": "radio/1.1/types.hal",
         "patchSetId": 4
@@ -145,6 +283,30 @@
       "writtenOn": "2017-05-29T18:12:44Z",
       "side": 1,
       "message": "What specifies the format?\nAnd if not relevant? is there an invalid value?",
+      "range": {
+        "startLine": 174,
+        "startChar": 59,
+        "endLine": 174,
+        "endChar": 61
+      },
+      "revId": "285644a6d7f111b626e4dd7d95e7fdbfaa505e5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a341c9aa_9d8b03f4",
+        "filename": "radio/1.1/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2017-05-31T18:00:15Z",
+      "side": 1,
+      "message": "The field *must* be ignored, but shall we require it to be 0x7FFFFFFF? That would be consistent. It looks like I already added a comment to that effect in ril.h, so I\u0027ll add the same here. Done.",
+      "parentUuid": "6edab384_00544fa7",
       "range": {
         "startLine": 174,
         "startChar": 59,
@@ -192,6 +354,54 @@
       "side": 1,
       "message": "The doc said it should be the default apn for the bearer. Does this need to be part of the request?\nAlso, does bearer need to be specified here?",
       "parentUuid": "3abeac21_b97b7ff7",
+      "range": {
+        "startLine": 178,
+        "startChar": 47,
+        "endLine": 178,
+        "endChar": 90
+      },
+      "revId": "285644a6d7f111b626e4dd7d95e7fdbfaa505e5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b95673d5_1c7bb399",
+        "filename": "radio/1.1/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2017-05-31T18:00:15Z",
+      "side": 1,
+      "message": "If there\u0027s no data call to that APN, then it\u0027s an error. Likewise, if the data call ends, then we should get an UNSOL indicating that this Keepalive has gone to INACTIVE.\n\nNiraj, is there a better way to specify the data call here than just passing down the APN?",
+      "parentUuid": "3abeac21_b97b7ff7",
+      "range": {
+        "startLine": 178,
+        "startChar": 47,
+        "endLine": 178,
+        "endChar": 90
+      },
+      "revId": "285644a6d7f111b626e4dd7d95e7fdbfaa505e5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7086e51a_82e25807",
+        "filename": "radio/1.1/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2017-05-31T18:00:15Z",
+      "side": 1,
+      "message": "Well, I\u0027d expect it to go on whatever bearer other traffic from this address/port goes on for the given PDN connection. I\u0027d expect that to be mapped automatically by the TFT (if any). But, if it goes on the default bearer for the APN we probably won\u0027t notice unless that causes the traffic to drop.",
+      "parentUuid": "498db995_dcdefbcb",
       "range": {
         "startLine": 178,
         "startChar": 47,
