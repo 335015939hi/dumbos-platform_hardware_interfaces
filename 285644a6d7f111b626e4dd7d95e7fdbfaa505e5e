@@ -435,6 +435,30 @@
       "revId": "285644a6d7f111b626e4dd7d95e7fdbfaa505e5e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "452195a2_e67bee68",
+        "filename": "radio/1.1/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2017-05-31T18:25:22Z",
+      "side": 1,
+      "message": "Context ID? (at least as defined in RIL.h)? That makes good sense to me. Can you ensure that such a change is OK from QC\u0027s side?",
+      "parentUuid": "97ce48c6_24fa85ef",
+      "range": {
+        "startLine": 178,
+        "startChar": 47,
+        "endLine": 178,
+        "endChar": 90
+      },
+      "revId": "285644a6d7f111b626e4dd7d95e7fdbfaa505e5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
