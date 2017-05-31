@@ -411,6 +411,30 @@
       "revId": "285644a6d7f111b626e4dd7d95e7fdbfaa505e5e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97ce48c6_24fa85ef",
+        "filename": "radio/1.1/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-05-31T18:14:30Z",
+      "side": 1,
+      "message": "how about using existing call id from telephony? ensures no race between this request and telephony\u0027s understanding of whether data call is up or not and on which bearer it should go on.",
+      "parentUuid": "b95673d5_1c7bb399",
+      "range": {
+        "startLine": 178,
+        "startChar": 47,
+        "endLine": 178,
+        "endChar": 90
+      },
+      "revId": "285644a6d7f111b626e4dd7d95e7fdbfaa505e5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
