@@ -144,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "f2cd44ee_8e728d12",
+        "filename": "radio/1.1/IRadio.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2017-06-01T17:42:56Z",
+      "side": 1,
+      "message": "Sadly, we can\u0027t. I tried. If you go back to an earlier patch set you\u0027ll see that\u0027s exactly what I proposed initially. But, our vendor partners plan to block on the response and return everything there, at least in this release. What I *could* remove for this release is the PENDING state (since it won\u0027t be used), but that doesn\u0027t save any complexity. Would you like me to remove PENDING?",
+      "parentUuid": "db7c7d5f_592cef35",
+      "range": {
+        "startLine": 117,
+        "startChar": 68,
+        "endLine": 117,
+        "endChar": 82
+      },
+      "revId": "285644a6d7f111b626e4dd7d95e7fdbfaa505e5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc3d2f69_528c5a1a",
         "filename": "radio/1.1/IRadio.hal",
         "patchSetId": 4
@@ -473,6 +497,30 @@
       "writtenOn": "2017-05-31T18:25:22Z",
       "side": 1,
       "message": "Context ID? (at least as defined in RIL.h)? That makes good sense to me. Can you ensure that such a change is OK from QC\u0027s side?",
+      "parentUuid": "97ce48c6_24fa85ef",
+      "range": {
+        "startLine": 178,
+        "startChar": 47,
+        "endLine": 178,
+        "endChar": 90
+      },
+      "revId": "285644a6d7f111b626e4dd7d95e7fdbfaa505e5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85100ac5_bf708159",
+        "filename": "radio/1.1/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2017-06-01T17:42:56Z",
+      "side": 1,
+      "message": "I think that works.",
       "parentUuid": "97ce48c6_24fa85ef",
       "range": {
         "startLine": 178,
