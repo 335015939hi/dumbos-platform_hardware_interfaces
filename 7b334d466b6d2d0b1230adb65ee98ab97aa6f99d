@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5df9c2bb_59059f29",
+        "filename": "radio/1.1/IRadioResponse.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-06-01T05:09:20Z",
+      "side": 1,
+      "message": "List of errors for both responses still dont match ril.h",
+      "revId": "7b334d466b6d2d0b1230adb65ee98ab97aa6f99d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

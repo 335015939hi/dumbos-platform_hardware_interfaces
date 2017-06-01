@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "db7c7d5f_592cef35",
+        "filename": "radio/1.1/IRadio.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-06-01T05:09:20Z",
+      "side": 1,
+      "message": "Can we always use the indication then, as in have sessionHandle only there? And keep the response only as an ack without any parameter? Having the same parameter in both seems a little odd.",
+      "parentUuid": "29d0a569_0bf2b76a",
+      "range": {
+        "startLine": 117,
+        "startChar": 68,
+        "endLine": 117,
+        "endChar": 82
+      },
+      "revId": "285644a6d7f111b626e4dd7d95e7fdbfaa505e5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc3d2f69_528c5a1a",
         "filename": "radio/1.1/IRadio.hal",
         "patchSetId": 4
