@@ -22,6 +22,30 @@
       "revId": "fdd834565cb5a506a842309b8e7cae71cdd41b5b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ada5a584_906753cd",
+        "filename": "renderscript/1.0/default/Device.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1057232
+      },
+      "writtenOn": "2017-06-02T20:48:13Z",
+      "side": 1,
+      "message": "We are not, but the default implementation is not using it.",
+      "parentUuid": "d7b0365f_80b1e506",
+      "range": {
+        "startLine": 95,
+        "startChar": 9,
+        "endLine": 95,
+        "endChar": 28
+      },
+      "revId": "fdd834565cb5a506a842309b8e7cae71cdd41b5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
