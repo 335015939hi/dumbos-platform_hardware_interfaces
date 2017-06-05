@@ -34,6 +34,24 @@
       "revId": "7b334d466b6d2d0b1230adb65ee98ab97aa6f99d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0890a2b4_9f6c7af8",
+        "filename": "radio/1.1/IRadioResponse.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-06-05T13:27:54Z",
+      "side": 1,
+      "message": "Adding Sanket to comment on that.\n\nSanket, are these valid for each response:\n     *   RadioError:NONE\n     *   RadioError:INTERNAL_ERR\n     *   RadioError:MODEM_ERR\n\nIf yes, we should just mention it at the top of the file so that we dont have to repeat it for each function.",
+      "parentUuid": "fa319b02_63917861",
+      "revId": "7b334d466b6d2d0b1230adb65ee98ab97aa6f99d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

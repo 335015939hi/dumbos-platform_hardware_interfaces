@@ -168,6 +168,30 @@
     },
     {
       "key": {
+        "uuid": "f7618a1a_2a05a031",
+        "filename": "radio/1.1/IRadio.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-06-05T13:27:54Z",
+      "side": 1,
+      "message": "What\u0027s the PENDING state? Is it guaranteed that the session handle received in response and indication will be the same? That should be explicitly mentioned here and/or in response/indication comments.",
+      "parentUuid": "f2cd44ee_8e728d12",
+      "range": {
+        "startLine": 117,
+        "startChar": 68,
+        "endLine": 117,
+        "endChar": 82
+      },
+      "revId": "285644a6d7f111b626e4dd7d95e7fdbfaa505e5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc3d2f69_528c5a1a",
         "filename": "radio/1.1/IRadio.hal",
         "patchSetId": 4
