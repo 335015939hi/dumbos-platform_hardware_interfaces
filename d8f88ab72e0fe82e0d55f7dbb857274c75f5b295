@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1b991ec0_ab20c583",
+        "filename": "radio/1.1/IRadio.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2017-06-05T20:46:43Z",
+      "side": 1,
+      "message": "The handle in iRadioIndication will be the same that was provided as the response to start(). Start provides one value. All future requests/inds will use that value. I updated the comment so maybe it\u0027s clearer.",
+      "parentUuid": "839f801a_ef006ac4",
+      "range": {
+        "startLine": 117,
+        "startChar": 68,
+        "endLine": 117,
+        "endChar": 82
+      },
+      "revId": "d8f88ab72e0fe82e0d55f7dbb857274c75f5b295",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4857d312_563911c8",
         "filename": "radio/1.1/IRadioResponse.hal",
         "patchSetId": 8
@@ -36,6 +60,30 @@
       "writtenOn": "2017-06-05T13:27:54Z",
       "side": 1,
       "message": "update comment",
+      "range": {
+        "startLine": 77,
+        "startChar": 14,
+        "endLine": 77,
+        "endChar": 27
+      },
+      "revId": "d8f88ab72e0fe82e0d55f7dbb857274c75f5b295",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e91b5ae_5a7e85a9",
+        "filename": "radio/1.1/IRadioResponse.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2017-06-05T20:46:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4857d312_563911c8",
       "range": {
         "startLine": 77,
         "startChar": 14,
