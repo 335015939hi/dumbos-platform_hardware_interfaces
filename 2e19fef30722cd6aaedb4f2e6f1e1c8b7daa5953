@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a4a74185_ba9c5bd8",
+        "filename": "radio/1.1/IRadioIndication.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-06-06T05:59:27Z",
+      "side": 1,
+      "message": "Can you add a comment somewhere about the relation between this ind and response, and also about PENDING status?",
+      "revId": "2e19fef30722cd6aaedb4f2e6f1e1c8b7daa5953",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
