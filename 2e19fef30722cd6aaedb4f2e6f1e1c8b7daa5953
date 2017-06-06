@@ -16,6 +16,52 @@
       "revId": "2e19fef30722cd6aaedb4f2e6f1e1c8b7daa5953",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7363d010_c0ebfb1b",
+        "filename": "radio/1.1/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-06-06T18:55:47Z",
+      "side": 1,
+      "message": "these are ip addresses?",
+      "range": {
+        "startLine": 179,
+        "startChar": 17,
+        "endLine": 179,
+        "endChar": 30
+      },
+      "revId": "2e19fef30722cd6aaedb4f2e6f1e1c8b7daa5953",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "feb03b7e_85ea0c9b",
+        "filename": "radio/1.1/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-06-06T18:55:47Z",
+      "side": 1,
+      "message": "how is this different than serial? Where is this used? Is this the same as sessionHandle?",
+      "range": {
+        "startLine": 186,
+        "startChar": 12,
+        "endLine": 186,
+        "endChar": 15
+      },
+      "revId": "2e19fef30722cd6aaedb4f2e6f1e1c8b7daa5953",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
