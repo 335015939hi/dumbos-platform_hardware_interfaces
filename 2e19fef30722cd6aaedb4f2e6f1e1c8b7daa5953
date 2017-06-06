@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "85a0e541_bcceeb4d",
+        "filename": "radio/1.1/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2017-06-06T19:30:51Z",
+      "side": 1,
+      "message": "yes, either v4 or v6. in network-byte order.",
+      "parentUuid": "7363d010_c0ebfb1b",
+      "range": {
+        "startLine": 179,
+        "startChar": 17,
+        "endLine": 179,
+        "endChar": 30
+      },
+      "revId": "2e19fef30722cd6aaedb4f2e6f1e1c8b7daa5953",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "feb03b7e_85ea0c9b",
         "filename": "radio/1.1/types.hal",
         "patchSetId": 9
@@ -53,6 +77,30 @@
       "writtenOn": "2017-06-06T18:55:47Z",
       "side": 1,
       "message": "how is this different than serial? Where is this used? Is this the same as sessionHandle?",
+      "range": {
+        "startLine": 186,
+        "startChar": 12,
+        "endLine": 186,
+        "endChar": 15
+      },
+      "revId": "2e19fef30722cd6aaedb4f2e6f1e1c8b7daa5953",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e81c6a1_fe79afb8",
+        "filename": "radio/1.1/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2017-06-06T19:30:51Z",
+      "side": 1,
+      "message": "This CID is returned by the modem in SETUP_DATA_CALL. It\u0027s basically a \"handle\" for a data session. I didn\u0027t pick the name... it\u0027s legacy, so I\u0027m just matching what\u0027s there.\n\nWhen we make the initial request for a keepalive, we need to tell the modem over which of the data sessions we want these keepalive packets sent (there can be multiple sessions active). Once we make that request, the modem will assign the keepalive session a sessionHandle and all further communication regarding the keepalive in either direction will be identified by that handle.",
+      "parentUuid": "feb03b7e_85ea0c9b",
       "range": {
         "startLine": 186,
         "startChar": 12,
