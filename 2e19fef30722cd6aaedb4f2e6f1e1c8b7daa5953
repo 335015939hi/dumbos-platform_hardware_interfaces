@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "90ed4766_e18e44c4",
+        "filename": "radio/1.1/IRadioIndication.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2017-06-07T17:37:29Z",
+      "side": 1,
+      "message": "Sorry! Will do. I wanted to see what else needs to be done to avoid spamming patch sets.",
+      "parentUuid": "ab905b3d_6d0d8edc",
+      "revId": "2e19fef30722cd6aaedb4f2e6f1e1c8b7daa5953",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7363d010_c0ebfb1b",
         "filename": "radio/1.1/types.hal",
         "patchSetId": 9
@@ -96,6 +114,30 @@
       "side": 1,
       "message": "Please specify that. Seems counter-intuitive since most (if not all) Android devices will be in little endian.",
       "parentUuid": "85a0e541_bcceeb4d",
+      "range": {
+        "startLine": 179,
+        "startChar": 17,
+        "endLine": 179,
+        "endChar": 30
+      },
+      "revId": "2e19fef30722cd6aaedb4f2e6f1e1c8b7daa5953",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04b3435b_3288bf84",
+        "filename": "radio/1.1/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2017-06-07T17:37:29Z",
+      "side": 1,
+      "message": "When IP addresses are specified as arrays of bytes (as in this case) they are traditionally done in NW order...\nhttps://linux.die.net/man/7/ip\n\nI actually considered using a sockaddr_storage for this structure, but figured we should keep POSIX from leaking into our API.\nhttp://pubs.opengroup.org/onlinepubs/009696699/basedefs/sys/socket.h.html\n\nBut... I will absolutely expand the comment here.",
+      "parentUuid": "785e2104_759a664a",
       "range": {
         "startLine": 179,
         "startChar": 17,
