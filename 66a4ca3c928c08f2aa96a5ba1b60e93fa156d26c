@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7b59911f_70c8e158",
+        "filename": "bluetooth/1.0/default/vendor_interface.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1150808
+      },
+      "writtenOn": "2017-06-08T08:52:55Z",
+      "side": 1,
+      "message": "@Myles, \nIt seems BT HAL service interface miss to invoke lib_interface_-\u003ecleanup() which did in Android N before dlclose().\n\n//Android N\nstatic void vendor_close(void) {\n  if (lib_interface)\n    lib_interface-\u003ecleanup();\n\n  if (lib_handle)\n    dlclose(lib_handle);\n\n  lib_interface \u003d NULL;\n  lib_handle \u003d NULL;\n}\nDo you able to fix it when you touch this file next time ?\n\nAn issue case sharing:\n1. BT HAL service dlopen BT vendor driver lib, and do initialization\n2. Unfortunately HIDL Binder service died during this time, and BT HAL service captured this by notification\n3. BT HAL service to do shutdown with vendor_interface\u0027s API\n4. driver lib is closed, but function resource of vendor driver without being properly cleared up which may cause invalid function access\n\nRegards,\nPeng QI",
+      "range": {
+        "startLine": 293,
+        "startChar": 4,
+        "endLine": 293,
+        "endChar": 11
+      },
+      "revId": "66a4ca3c928c08f2aa96a5ba1b60e93fa156d26c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
