@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee0545f6_c38c44a4",
+        "filename": "radio/1.1/IRadio.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1002609
+      },
+      "writtenOn": "2017-06-09T22:21:03Z",
+      "side": 1,
+      "message": "startKeepaliveResponse",
+      "range": {
+        "startLine": 117,
+        "startChar": 75,
+        "endLine": 117,
+        "endChar": 98
+      },
+      "revId": "cfff579b54be1e482ed30ad20e80972f10409f3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef211e60_9a1a6f8d",
+        "filename": "radio/1.1/types.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1002609
+      },
+      "writtenOn": "2017-06-09T22:21:03Z",
+      "side": 1,
+      "message": "why would you want to pass an invalid value?  Do you mean not-specified or unused?\n\nShould we have a const for this?",
+      "range": {
+        "startLine": 184,
+        "startChar": 67,
+        "endLine": 184,
+        "endChar": 91
+      },
+      "revId": "cfff579b54be1e482ed30ad20e80972f10409f3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72486816_61dace31",
+        "filename": "radio/1.1/types.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1002609
+      },
+      "writtenOn": "2017-06-09T22:21:03Z",
+      "side": 1,
+      "message": "comment that this is identifying the data call - same as we get back from setupdata",
+      "range": {
+        "startLine": 190,
+        "startChar": 47,
+        "endLine": 190,
+        "endChar": 87
+      },
+      "revId": "cfff579b54be1e482ed30ad20e80972f10409f3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
