@@ -34,7 +34,10 @@ TEST_F(RadioHidlTest, sendEnvelope) {
     EXPECT_EQ(serial, radioRsp->rspInfo.serial);
 
     if (cardStatus.cardState == CardState::ABSENT) {
-        EXPECT_EQ(RadioError::NONE, radioRsp->rspInfo.error);
+        std::cout << static_cast<int>(radioRsp->rspInfo.error) << std::endl;
+        ASSERT_TRUE(CheckGeneralError() ||
+                    radioRsp->rspInfo.error == RadioError::INVALID_ARGUMENTS ||
+                    radioRsp->rspInfo.error == RadioError::NONE);
     }
 
     // Test with sending random string
@@ -48,7 +51,10 @@ TEST_F(RadioHidlTest, sendEnvelope) {
     EXPECT_EQ(serial, radioRsp->rspInfo.serial);
 
     if (cardStatus.cardState == CardState::ABSENT) {
-        EXPECT_EQ(RadioError::NONE, radioRsp->rspInfo.error);
+        std::cout << static_cast<int>(radioRsp->rspInfo.error) << std::endl;
+        ASSERT_TRUE(CheckGeneralError() ||
+                    radioRsp->rspInfo.error == RadioError::INVALID_ARGUMENTS ||
+                    radioRsp->rspInfo.error == RadioError::NONE);
     }
 }
 
@@ -68,7 +74,10 @@ TEST_F(RadioHidlTest, sendTerminalResponseToSim) {
     EXPECT_EQ(serial, radioRsp->rspInfo.serial);
 
     if (cardStatus.cardState == CardState::ABSENT) {
-        EXPECT_EQ(RadioError::NONE, radioRsp->rspInfo.error);
+        std::cout << static_cast<int>(radioRsp->rspInfo.error) << std::endl;
+        ASSERT_TRUE(CheckGeneralError() ||
+                    radioRsp->rspInfo.error == RadioError::INVALID_ARGUMENTS ||
+                    radioRsp->rspInfo.error == RadioError::NONE);
     }
 
     serial = GetRandomSerialNumber();
@@ -83,7 +92,9 @@ TEST_F(RadioHidlTest, sendTerminalResponseToSim) {
     EXPECT_EQ(serial, radioRsp->rspInfo.serial);
 
     if (cardStatus.cardState == CardState::ABSENT) {
-        EXPECT_EQ(RadioError::NONE, radioRsp->rspInfo.error);
+        std::cout << static_cast<int>(radioRsp->rspInfo.error) << std::endl;
+        ASSERT_TRUE(CheckGeneralError() ||
+                    radioRsp->rspInfo.error == RadioError::INVALID_ARGUMENTS);
     }
 }
 
