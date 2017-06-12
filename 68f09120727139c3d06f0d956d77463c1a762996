@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6cfcd9c1_e7be665c",
+        "filename": "nfc/1.0/vts/functional/VtsHalNfcV1_0TargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1041663
+      },
+      "writtenOn": "2017-06-12T23:10:08Z",
+      "side": 1,
+      "message": "there isn\u0027t any specific name for it, it\u0027s pretty hard coded.",
+      "parentUuid": "4762669c_18ac0b76",
+      "range": {
+        "startLine": 123,
+        "startChar": 43,
+        "endLine": 123,
+        "endChar": 44
+      },
+      "revId": "68f09120727139c3d06f0d956d77463c1a762996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "11b185ea_c4ddc028",
         "filename": "nfc/1.0/vts/functional/VtsHalNfcV1_0TargetTest.cpp",
         "patchSetId": 4
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "31c7dac9_60ee7321",
+        "filename": "nfc/1.0/vts/functional/VtsHalNfcV1_0TargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1041663
+      },
+      "writtenOn": "2017-06-12T23:10:08Z",
+      "side": 1,
+      "message": "there are only 2 conditions. Tweaked the code for only if/else.",
+      "parentUuid": "11b185ea_c4ddc028",
+      "range": {
+        "startLine": 128,
+        "startChar": 4,
+        "endLine": 128,
+        "endChar": 5
+      },
+      "revId": "68f09120727139c3d06f0d956d77463c1a762996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "00160ba7_8f451373",
         "filename": "nfc/1.0/vts/functional/VtsHalNfcV1_0TargetTest.cpp",
         "patchSetId": 4
@@ -59,6 +107,30 @@
       "writtenOn": "2017-06-12T22:21:17Z",
       "side": 1,
       "message": "else ?",
+      "range": {
+        "startLine": 213,
+        "startChar": 2,
+        "endLine": 213,
+        "endChar": 3
+      },
+      "revId": "68f09120727139c3d06f0d956d77463c1a762996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e0cb8aa_94f577b7",
+        "filename": "nfc/1.0/vts/functional/VtsHalNfcV1_0TargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1041663
+      },
+      "writtenOn": "2017-06-12T23:10:08Z",
+      "side": 1,
+      "message": "There are only 2 cases.",
+      "parentUuid": "00160ba7_8f451373",
       "range": {
         "startLine": 213,
         "startChar": 2,
