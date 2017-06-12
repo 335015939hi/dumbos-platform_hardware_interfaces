@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4762669c_18ac0b76",
+        "filename": "nfc/1.0/vts/functional/VtsHalNfcV1_0TargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2017-06-12T22:21:17Z",
+      "side": 1,
+      "message": "i believe this\u0027s part of the protocol standard. is there any name defined for this field (or byte)? if so, we can use a const for this? (same for some other places)",
+      "range": {
+        "startLine": 123,
+        "startChar": 43,
+        "endLine": 123,
+        "endChar": 44
+      },
+      "revId": "68f09120727139c3d06f0d956d77463c1a762996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "11b185ea_c4ddc028",
+        "filename": "nfc/1.0/vts/functional/VtsHalNfcV1_0TargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2017-06-12T22:21:17Z",
+      "side": 1,
+      "message": "else ?",
+      "range": {
+        "startLine": 128,
+        "startChar": 4,
+        "endLine": 128,
+        "endChar": 5
+      },
+      "revId": "68f09120727139c3d06f0d956d77463c1a762996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "00160ba7_8f451373",
+        "filename": "nfc/1.0/vts/functional/VtsHalNfcV1_0TargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2017-06-12T22:21:17Z",
+      "side": 1,
+      "message": "else ?",
+      "range": {
+        "startLine": 213,
+        "startChar": 2,
+        "endLine": 213,
+        "endChar": 3
+      },
+      "revId": "68f09120727139c3d06f0d956d77463c1a762996",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
