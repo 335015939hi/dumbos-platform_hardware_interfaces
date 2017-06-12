@@ -22,6 +22,30 @@
       "revId": "7b6c3bfc35e7732bdb72d328d08e3f5b03bba975",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12f05ffb_5e5c6699",
+        "filename": "OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2017-06-12T19:36:30Z",
+      "side": 1,
+      "message": "also malchev@google.com\n\nperhaps more",
+      "parentUuid": "42e7b7f8_58560975",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 9
+      },
+      "revId": "7b6c3bfc35e7732bdb72d328d08e3f5b03bba975",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
