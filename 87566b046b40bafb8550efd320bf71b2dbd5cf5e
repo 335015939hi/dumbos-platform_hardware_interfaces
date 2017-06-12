@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "16a67830_dab08cd5",
+        "filename": "nfc/1.0/vts/functional/VtsHalNfcV1_0TargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2017-06-12T23:14:21Z",
+      "side": 1,
+      "message": "will this be forward compatible (e.g., if NCI v3 returns 5 bytes?) or NCI v3 will backward compatible with NCI v2 and there\u0027s a guarantee that NCI v \u003e 2 will never return 6 bytes?\n\nlooks fine since vts tests don\u0027t have to be forward compatible.",
+      "range": {
+        "startLine": 126,
+        "startChar": 22,
+        "endLine": 126,
+        "endChar": 35
+      },
+      "revId": "87566b046b40bafb8550efd320bf71b2dbd5cf5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c7d31814_339b2564",
+        "filename": "nfc/1.0/vts/functional/VtsHalNfcV1_0TargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2017-06-12T23:14:21Z",
+      "side": 1,
+      "message": "how about adding a docstring about the value format?",
+      "range": {
+        "startLine": 159,
+        "startChar": 10,
+        "endLine": 159,
+        "endChar": 21
+      },
+      "revId": "87566b046b40bafb8550efd320bf71b2dbd5cf5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
