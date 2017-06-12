@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "73c7efd4_5b00202b",
+        "filename": "nfc/1.0/vts/functional/VtsHalNfcV1_0TargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1041663
+      },
+      "writtenOn": "2017-06-12T23:22:38Z",
+      "side": 1,
+      "message": "Version 3 hasn\u0027t been released, so not sure what they will change in that. :)",
+      "parentUuid": "16a67830_dab08cd5",
+      "range": {
+        "startLine": 126,
+        "startChar": 22,
+        "endLine": 126,
+        "endChar": 35
+      },
+      "revId": "87566b046b40bafb8550efd320bf71b2dbd5cf5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c7d31814_339b2564",
         "filename": "nfc/1.0/vts/functional/VtsHalNfcV1_0TargetTest.cpp",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2017-06-12T23:14:21Z",
       "side": 1,
       "message": "how about adding a docstring about the value format?",
+      "range": {
+        "startLine": 159,
+        "startChar": 10,
+        "endLine": 159,
+        "endChar": 21
+      },
+      "revId": "87566b046b40bafb8550efd320bf71b2dbd5cf5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "361b271a_dd90e2fc",
+        "filename": "nfc/1.0/vts/functional/VtsHalNfcV1_0TargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1041663
+      },
+      "writtenOn": "2017-06-12T23:22:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7d31814_339b2564",
       "range": {
         "startLine": 159,
         "startChar": 10,
