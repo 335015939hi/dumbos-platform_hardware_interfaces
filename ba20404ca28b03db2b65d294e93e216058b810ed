@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b544e770_2178f7d2",
+        "filename": "bluetooth/1.0/default/bluetooth_hci.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-06-15T19:19:37Z",
+      "side": 1,
+      "message": "note, they are for this",
+      "range": {
+        "startLine": 50,
+        "startChar": 7,
+        "endLine": 50,
+        "endChar": 15
+      },
+      "revId": "ba20404ca28b03db2b65d294e93e216058b810ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "446a73db_98892b2a",
+        "filename": "bluetooth/1.0/default/hci_protocol.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-06-15T19:19:37Z",
+      "side": 1,
+      "message": "and this",
+      "range": {
+        "startLine": 37,
+        "startChar": 19,
+        "endLine": 37,
+        "endChar": 25
+      },
+      "revId": "ba20404ca28b03db2b65d294e93e216058b810ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
