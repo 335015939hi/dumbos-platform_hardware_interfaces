@@ -18,7 +18,6 @@
 
 #define LOG_TAG "android.hardware.bluetooth-hci-h4"
 #include <android-base/logging.h>
-#include <assert.h>
 #include <fcntl.h>
 
 namespace android {
@@ -27,11 +26,9 @@ namespace bluetooth {
 namespace hci {
 
 size_t H4Protocol::Send(uint8_t type, const uint8_t* data, size_t length) {
-  int rv = WriteSafely(uart_fd_, &type, sizeof(type));
-  if (rv == sizeof(type)) {
-    rv = WriteSafely(uart_fd_, data, length);
-  }
-  return rv;
+  struct iovec iov[] = {{&type, sizeof(type)},
+                        {const_cast<uint8_t*>(data), length}};
+  return WritevSafely(uart_fd_, iov, sizeof(iov) / sizeof(iov[0]));
 }
 
 void H4Protocol::OnPacketReady() {

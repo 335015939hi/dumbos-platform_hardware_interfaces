@@ -17,7 +17,7 @@
 #include "hci_protocol.h"
 
 #define LOG_TAG "android.hardware.bluetooth-hci-hci_protocol"
-#include <assert.h>
+#include <android-base/logging.h>
 #include <errno.h>
 #include <fcntl.h>
 #include <log/log.h>
@@ -46,6 +46,44 @@ size_t HciProtocol::WriteSafely(int fd, const uint8_t* data, size_t length) {
 
     transmitted_length += ret;
     length -= ret;
+  }
+
+  return transmitted_length;
+}
+
+size_t HciProtocol::WritevSafely(int fd, struct iovec* iov, int iovcnt) {
+  CHECK(fd != -1);
+  CHECK(iov != NULL);
+
+  size_t transmitted_length = 0;
+  while (iovcnt > 0) {
+    ssize_t ret =
+        TEMP_FAILURE_RETRY(writev(fd, iov, iovcnt));
+
+    if (ret == -1) {
+      if (errno == EAGAIN) continue;
+      ALOGE("%s error writing to UART (%s)", __func__, strerror(errno));
+      break;
+    } else if (ret == 0) {
+      // Nothing written :(
+      ALOGE("%s zero bytes written - something went wrong...", __func__);
+      break;
+    }
+
+    transmitted_length += ret;
+
+    while (static_cast<size_t>(ret) >= iov->iov_len) {
+      // consume entire iovec
+      ret -= iov->iov_len;
+      --iovcnt;
+      ++iov;
+    }
+
+    if (ret > 0) {
+      // consume partial iovec
+      iov->iov_len -= ret;
+      iov->iov_base = static_cast<uint8_t*>(iov->iov_base) + ret;
+    }
   }
 
   return transmitted_length;
