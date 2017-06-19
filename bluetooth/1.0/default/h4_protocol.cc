@@ -20,6 +20,7 @@
 #include <android-base/logging.h>
 #include <assert.h>
 #include <fcntl.h>
+#include <utils/Log.h>
 
 namespace android {
 namespace hardware {
@@ -27,11 +28,9 @@ namespace bluetooth {
 namespace hci {
 
 size_t H4Protocol::Send(uint8_t type, const uint8_t* data, size_t length) {
-  int rv = WriteSafely(uart_fd_, &type, sizeof(type));
-  if (rv == sizeof(type)) {
-    rv = WriteSafely(uart_fd_, data, length);
-  }
-  return rv;
+  struct iovec iov[] = {{&type, sizeof(type)},
+                        {reinterpret_cast<void*>(const_cast<uint8_t*>(data)), length}};
+  return WriteH4Safely(iov, sizeof(iov)/sizeof(struct iovec));
 }
 
 void H4Protocol::OnPacketReady() {
@@ -63,6 +62,28 @@ void H4Protocol::OnDataReady(int fd) {
   } else {
     hci_packetizer_.OnDataReady(fd, hci_packet_type_);
   }
+}
+
+size_t H4Protocol::WriteH4Safely(const iovec *iov, int iovcnt) {
+  CHECK(iov != NULL);
+  CHECK(iovcnt > 0);
+  ssize_t ret = 0;
+  do {
+    ret = TEMP_FAILURE_RETRY(writev(uart_fd_, iov, iovcnt));
+
+    if (ret == -1) {
+      if (errno != EAGAIN) {
+        ALOGE("%s error writing to UART (%s)", __func__, strerror(errno));
+        break;
+      }
+    } else if (ret == 0) {
+      // Nothing written :(
+      ALOGE("%s zero bytes written - something went wrong...", __func__);
+      break;
+    }
+  } while (-1 == ret && EAGAIN == errno);
+
+  return static_cast<size_t>(ret);
 }
 
 }  // namespace hci
