@@ -18,6 +18,8 @@
 
 #include <hidl/HidlSupport.h>
 
+#include <sys/uio.h>
+
 #include "async_fd_watcher.h"
 #include "bt_vendor_lib.h"
 #include "hci_internals.h"
@@ -45,6 +47,8 @@ class H4Protocol : public HciProtocol {
   void OnDataReady(int fd);
 
  private:
+  size_t WriteH4Safely(const iovec *iov, int iovcnt);
+
   int uart_fd_;
 
   PacketReadCallback event_cb_;
