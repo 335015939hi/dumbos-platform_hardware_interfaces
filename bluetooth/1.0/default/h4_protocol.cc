@@ -18,8 +18,52 @@
 
 #define LOG_TAG "android.hardware.bluetooth-hci-h4"
 #include <android-base/logging.h>
-#include <assert.h>
+#include <errno.h>
 #include <fcntl.h>
+#include <log/log.h>
+#include <sys/uio.h>
+
+namespace {
+
+size_t WritevSafely(int fd, struct iovec* iov, int iovcnt) {
+  CHECK(fd != -1);
+  CHECK(iov != NULL);
+
+  size_t transmitted_length = 0;
+  while (iovcnt > 0) {
+    ssize_t ret =
+        TEMP_FAILURE_RETRY(writev(fd, iov, iovcnt));
+
+    if (ret == -1) {
+      if (errno == EAGAIN) continue;
+      ALOGE("%s error writing to UART (%s)", __func__, strerror(errno));
+      break;
+    } else if (ret == 0) {
+      // Nothing written :(
+      ALOGE("%s zero bytes written - something went wrong...", __func__);
+      break;
+    }
+
+    transmitted_length += ret;
+
+    while (static_cast<size_t>(ret) >= iov->iov_len) {
+      // consume entire iovec
+      ret -= iov->iov_len;
+      --iovcnt;
+      ++iov;
+    }
+
+    if (ret > 0) {
+      // consume partial iovec
+      iov->iov_len -= ret;
+      iov->iov_base = static_cast<uint8_t*>(iov->iov_base) + ret;
+    }
+  }
+
+  return transmitted_length;
+}
+
+} // namespace
 
 namespace android {
 namespace hardware {
@@ -27,11 +71,9 @@ namespace bluetooth {
 namespace hci {
 
 size_t H4Protocol::Send(uint8_t type, const uint8_t* data, size_t length) {
-  int rv = WriteSafely(uart_fd_, &type, sizeof(type));
-  if (rv == sizeof(type)) {
-    rv = WriteSafely(uart_fd_, data, length);
-  }
-  return rv;
+  struct iovec iov[] = {{&type, sizeof(type)},
+                        {const_cast<uint8_t*>(data), length}};
+  return WritevSafely(uart_fd_, iov, sizeof(iov) / sizeof(iov[0]));
 }
 
 void H4Protocol::OnPacketReady() {
