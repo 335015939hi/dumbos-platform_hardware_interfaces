@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ef2b4f0_b91055a8",
+        "filename": "bluetooth/1.0/default/h4_protocol.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1058798
+      },
+      "writtenOn": "2017-06-22T00:31:58Z",
+      "side": 1,
+      "message": "Is this really necessary (double cast)?",
+      "range": {
+        "startLine": 32,
+        "startChar": 25,
+        "endLine": 32,
+        "endChar": 76
+      },
+      "revId": "ba3350cc4ea6c758b273e941a15154975a980ce3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e15b9a0f_ee9fc4c7",
+        "filename": "bluetooth/1.0/default/h4_protocol.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1058798
+      },
+      "writtenOn": "2017-06-22T00:31:58Z",
+      "side": 1,
+      "message": "Either implement the write here directly, or use a static namespace function.",
+      "range": {
+        "startLine": 33,
+        "startChar": 2,
+        "endLine": 33,
+        "endChar": 62
+      },
+      "revId": "ba3350cc4ea6c758b273e941a15154975a980ce3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88725ce3_b5bfcdd6",
+        "filename": "bluetooth/1.0/default/h4_protocol.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1058798
+      },
+      "writtenOn": "2017-06-22T00:31:58Z",
+      "side": 1,
+      "message": "This is not correct and should not be done this way. The function should not return \"-1\" if it did not send data.",
+      "range": {
+        "startLine": 86,
+        "startChar": 2,
+        "endLine": 86,
+        "endChar": 34
+      },
+      "revId": "ba3350cc4ea6c758b273e941a15154975a980ce3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b8a1871_0ed0df3f",
+        "filename": "bluetooth/1.0/default/h4_protocol.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1058798
+      },
+      "writtenOn": "2017-06-22T00:31:58Z",
+      "side": 1,
+      "message": "I would not make this a member function at all, but a anonymous namespace function.",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 53
+      },
+      "revId": "ba3350cc4ea6c758b273e941a15154975a980ce3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
