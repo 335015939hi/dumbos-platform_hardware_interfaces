@@ -1,0 +1,73 @@
+/*
+ * Copyright (C) 2017 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package android.hardware.health@2.0;
+
+import IHealthInfoCallback;
+import @1.0::Result;
+import @1.0::BatteryStatus;
+
+/**
+ * IHealthInfoBus manages health info and posts events on registered callbacks.
+ */
+interface IHealthInfoBus {
+
+    /**
+     * Register a callback for any health info events.
+     *
+     * Clients may explicitly call {@link unregisterCallback} to unregister it.
+     * A callback is also automatically unregistered if all strong pointers
+     * to it is removed.
+     *
+     * @param callback the callback to register.
+     * @return result whether registration is successful.
+     */
+    registerCallback(IHealthInfoCallback callback)
+          generates (@1.0::Result result);
+
+    /**
+     * Explicitly unregister a callback that is previously registered through
+     * {@link registerCallback}.
+     *
+     * @param callback the callback to unregister
+     * @return result whether unregistration is successful. If callback is
+     *           not registered previously, UNKNWON is returned.
+     */
+    unregisterCallback(IHealthInfoCallback callback)
+            generates (@1.0::Result result);
+
+    /**
+     * Get a property.
+     *
+     * @param id the property to get
+     * @return result SUCCESS if successful or UNKNOWN otherwise.
+     * @return value value of the property, or INT64_MIN if not successful.
+     */
+    getProperty(PropertyId id) generates (@1.0::Result result, int64_t value);
+
+    /**
+     * Schedule update.
+     *
+     * @return result SUCCESS if successful or UNKNOWN otherwise.
+     */
+    update() generates (@1.0::Result result);
+
+    /**
+     * Get charging status. See {@link BatteryStatus}.
+     *
+     * @return status charging status, or UNKNOWN if any error.
+     */
+    getChargeStatus() generates (@1.0::BatteryStatus status);
+};
