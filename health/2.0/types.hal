@@ -1,0 +1,194 @@
+/*
+ * Copyright (C) 2017 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package android.hardware.health@2.0;
+
+/**
+ * Possible values for IHealth.getProperty(BATTERY_STATUS).
+ *
+ * Quoted text are possible values for
+ * IHealth.getRawProperty("battery", "status").
+ * These values are in sync with those in standard Linux kernel. Note that these
+ * values are off-by-one from @1.0::BatteryStatus.
+ */
+@export(name="", value_prefix="STATUS_")
+enum BatteryStatus : int32_t {
+    /** "Unknown" */
+    UNKNOWN = 0,
+    /** "Charging" */
+    CHARGING,
+    /** "Discharging" */
+    DISCHARGING,
+    /**
+     * "Not charging".
+     * Battery is *not* charging - special case when charger is present
+     * but battery isn't charging
+     */
+    NOT_CHARGING,
+    /** "Full" */
+    FULL,
+};
+
+/**
+ * Possible values for IHealth.getProperty(BATTERY_HEALTH).
+ *
+ * Quoted text are possible values for
+ * IHealth.getRawProperty("battery", "health").
+ * These values are in sync with those in standard Linux kernel.
+ */
+@export(name="", value_prefix="HEALTH_")
+enum BatteryHealth : int32_t {
+    /** "Unknown" */
+    UNKNOWN = 0,
+    /** "Good" */
+    GOOD,
+    /** "Overheat" */
+    OVERHEAT,
+    /** "Dead" */
+    DEAD,
+    /** "Over voltage" */
+    OVERVOLTAGE,
+    /** "Unspecified failure" */
+    UNSPEC_FAILURE,
+    /** "Cold" */
+    COLD,
+    /** "Watchdog timer expire */
+    WATCHDOG_TIMER_EXPIRE,
+    /** "Safety timer expire" */
+    SAFETY_TIMER_EXPIRE,
+};
+
+/**
+ * Possible values for IHealth.getProperty(TECHNOLOGY).
+ *
+ * Quoted text are possible values for
+ * IHealth.getRawProperty("battery", "technology").
+ * These values are in sync with those in standard Linux kernel.
+ */
+@export(name="", value_prefix="TECHNOLOGY_")
+enum Technology : int32_t {
+    /** "Unknown" */
+    UNKNOWN = 0,
+    /** "NiMH" */
+    NIMH,
+    /** "Li-ion" */
+    LION,
+    /** "Li-poly" */
+    LIPO,
+    /** "LiFe" */
+    LIFE,
+    /** "NiCd" */
+    NICD,
+    /** "LiMn" */
+    LIMN,
+};
+
+/**
+ * Battery property identifiers.
+ */
+@export(name="", value_prefix="PROPERTY_")
+enum PropertyId : int32_t {
+    /**
+     * Battery capacity in microampere-hours(µAh), as an integer.
+     */
+    CHARGE_COUNTER = 1,
+
+    /**
+     * Instantaneous battery current in microamperes(µA), as an integer.
+     *
+     * Positive values indicate net current entering the battery from a charge
+     * source, negative values indicate net current discharging from the
+     * battery.
+     */
+    CURRENT_NOW,
+
+    /**
+     * Average battery current in microamperes(µA), as an integer.
+
+     * Positive values indicate net current entering the battery from a charge
+     * source, negative values indicate net current discharging from the
+     * battery. The time period over which the average is computed may depend on
+     * the fuel gauge hardware and its configuration.
+     */
+    CURRENT_AVG,
+
+    /**
+     * Remaining battery capacity as an integer percentage of total capacity
+     * (with no fractional part).
+     */
+    CAPACITY,
+
+    /**
+     * Battery remaining energy in nanowatt-hours, as an integer.
+     */
+    ENERGY_COUNTER,
+
+    /**
+     * Battery charge status.
+     *
+     * See BatteryStatus for possible values returned by IHealth::getProperty
+     * and IHealth::getRawProperty.
+     */
+    BATTERY_STATUS,
+
+    /**
+     * Health of the battery.
+     *
+     * See BatteryHealth for possible values returned by IHealth::getProperty
+     * and IHealth::getRawProperty.
+     */
+    BATTERY_HEALTH,
+
+    /**
+     * Whether battery is present, as a boolean.
+     *
+     * IHealth::getProperty returns {0, 1} for this property.
+     */
+    BATTERY_PRESENT,
+
+    /**
+     * Current voltage in microvolts(µV), as an integer.
+     */
+    VOLTAGE,
+
+    /**
+     * Temperature in tenths of degree Celsius, as an integer.
+     */
+    TEMPERATURE,
+
+    /**
+     * Battery technology.
+     *
+     * See Technology for possible values returned by IHealth::getProperty
+     * and IHealth::getRawProperty.
+     */
+    TECHNOLOGY,
+
+    /**
+     * Last remembered value of charge when battery became full, in
+     * microampere-hours (µAh), as an integer.
+     *
+     * Value of charge when battery considered full at given conditions
+     * (temperature, age). These attributes represents real thresholds, not
+     * design values.
+     */
+    FULL_CHARGE,
+
+    /**
+     * Number of fully-charged-fully-discharged cycles, as an integer.
+     */
+    CYCLE_COUNT,
+};
