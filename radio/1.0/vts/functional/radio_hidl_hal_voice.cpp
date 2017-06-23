@@ -372,7 +372,8 @@ TEST_F(RadioHidlTest, sendCDMAFeatureCode) {
                     radioRsp->rspInfo.error == RadioError::NONE ||
                     radioRsp->rspInfo.error == RadioError::INVALID_CALL_ID ||
                     radioRsp->rspInfo.error == RadioError::INVALID_MODEM_STATE ||
-                    radioRsp->rspInfo.error == RadioError::MODEM_ERR);
+                    radioRsp->rspInfo.error == RadioError::MODEM_ERR ||
+                    radioRsp->rspInfo.error == RadioError::MODE_NOT_SUPPORTED);
     }
 }
 
