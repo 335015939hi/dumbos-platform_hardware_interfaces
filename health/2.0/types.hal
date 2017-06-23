@@ -1,0 +1,133 @@
+/*
+ * Copyright (C) 2017 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package android.hardware.health@2.0;
+
+/**
+ * Battery property identifiers.
+ */
+enum PropertyId : int32_t {
+    /**
+     * Battery capacity in microampere-hours, as an integer.
+     */
+    CHARGE_COUNTER = 1,
+
+    /**
+     * Instantaneous battery current in microamperes, as an integer.  Positive
+     * values indicate net current entering the battery from a charge source,
+     * negative values indicate net current discharging from the battery.
+     */
+    CURRENT_NOW = 2,
+
+    /**
+     * Average battery current in microamperes, as an integer.  Positive
+     * values indicate net current entering the battery from a charge source,
+     * negative values indicate net current discharging from the battery.
+     * The time period over which the average is computed may depend on the
+     * fuel gauge hardware and its configuration.
+     */
+    CURRENT_AVG = 3,
+
+    /**
+     * Remaining battery capacity as an integer percentage of total capacity
+     * (with no fractional part).
+     */
+    CAPACITY = 4,
+
+    /**
+     * Battery remaining energy in nanowatt-hours, as an integer.
+     */
+    ENERGY_COUNTER = 5,
+
+    /**
+     * Battery charge status.
+     *
+     * The following mapping exist between string values and integer values:
+     *      "Unknown"       <=> 1
+     *      "Charging"      <=> 2
+     *      "Discharging"   <=> 3
+     *      "Not charging"  <=> 4
+     *      "Full"          <=> 5
+     */
+    BATTERY_STATUS = 6,
+
+    /**
+     * POWER_SUPPLY_PROP_HEALTH
+     *
+     * The following mapping exist between string values and integer values:
+     *      "Unknown"               <=> 1
+     *      "Good"                  <=> 2
+     *      "Overheat"              <=> 3
+     *      "Dead"                  <=> 4
+     *      "Over voltage"          <=> 5
+     *      "Unspecified failure"   <=> 6
+     *      "Cold"                  <=> 7
+     *      (battery health values from JEITA spec:)
+     *      "Warm"                  <=> 2
+     *      "Cool"                  <=> 2
+     *      "Hot"                   <=> 3
+     *
+     * FIXME: map these values as well
+     * POWER_SUPPLY_HEALTH_WATCHDOG_TIMER_EXPIRE,
+     * POWER_SUPPLY_HEALTH_SAFETY_TIMER_EXPIRE,
+     */
+    BATTERY_HEALTH,
+
+    /**
+     * POWER_SUPPLY_PROP_PRESENT
+     * Whether power supply is present, as a boolean.
+     *
+     * The following mapping exist between string values and integer values:
+     *      "0"           <=> 0
+     *      anything else <=> 1
+     */
+    PRESENT,
+
+    /**
+     * POWER_SUPPLY_PROP_VOLTAGE_NOW
+     * Current voltage in microvolts, as an integer.
+     */
+    VOLTAGE,
+
+    /**
+     * POWER_SUPPLY_PROP_TEMP
+     * Temperature in tenths of degree Celsius, as an integer.
+     */
+    TEMPERATURE,
+
+    /**
+     * POWER_SUPPLY_PROP_TECHNOLOGY
+     *
+     * FIXME: map these values to strings
+     * POWER_SUPPLY_TECHNOLOGY_UNKNOWN = 0,
+     * POWER_SUPPLY_TECHNOLOGY_NiMH,
+     * POWER_SUPPLY_TECHNOLOGY_LION,
+     * POWER_SUPPLY_TECHNOLOGY_LIPO,
+     * POWER_SUPPLY_TECHNOLOGY_LiFe,
+     * POWER_SUPPLY_TECHNOLOGY_NiCd,
+     * POWER_SUPPLY_TECHNOLOGY_LiMn,
+     */
+    TECHNOLOGY,
+
+    /**
+     *
+     */
+    FULL_CHARGE,
+    /**
+     *
+     */
+    CYCLE_COUNT,
+};
