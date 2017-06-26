@@ -17,9 +17,9 @@
 #include "h4_protocol.h"
 
 #define LOG_TAG "android.hardware.bluetooth-hci-h4"
-#include <android-base/logging.h>
-#include <assert.h>
+
 #include <fcntl.h>
+#include <utils/Log.h>
 
 namespace android {
 namespace hardware {
@@ -45,10 +45,9 @@ void H4Protocol::OnPacketReady() {
     case HCI_PACKET_TYPE_SCO_DATA:
       sco_cb_(hci_packetizer_.GetPacket());
       break;
-    default: {
-      bool bad_packet_type = true;
-      CHECK(!bad_packet_type);
-    }
+    default:
+      LOG_ALWAYS_FATAL("%s: Unimplemented packet type %d", __func__,
+                       static_cast<int>(hci_packet_type_));
   }
   // Get ready for the next type byte.
   hci_packet_type_ = HCI_PACKET_TYPE_UNKNOWN;
@@ -57,8 +56,19 @@ void H4Protocol::OnPacketReady() {
 void H4Protocol::OnDataReady(int fd) {
   if (hci_packet_type_ == HCI_PACKET_TYPE_UNKNOWN) {
     uint8_t buffer[1] = {0};
-    size_t bytes_read = TEMP_FAILURE_RETRY(read(fd, buffer, 1));
-    CHECK(bytes_read == 1);
+    ssize_t bytes_read = TEMP_FAILURE_RETRY(read(fd, buffer, 1));
+    if (bytes_read != 1) {
+      if (bytes_read == 0) {
+        LOG_ALWAYS_FATAL("%s: Unexpected EOF reading the packet type!",
+                         __func__);
+      } else if (bytes_read < 0) {
+        LOG_ALWAYS_FATAL("%s: Read packet type error: %s", __func__,
+                         strerror(errno));
+      } else {
+        LOG_ALWAYS_FATAL("%s: More bytes read than expected (%u)!", __func__,
+                         static_cast<unsigned int>(bytes_read));
+      }
+    }
     hci_packet_type_ = static_cast<HciPacketType>(buffer[0]);
   } else {
     hci_packetizer_.OnDataReady(fd, hci_packet_type_);
