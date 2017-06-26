@@ -37,5 +37,6 @@ interface IBar extends android.hardware.tests.foo@1.0::IFoo {
     takeAMask(BitField bf, bitfield<BitField> first, MyMask second, Mask third)
             generates (BitField bf, uint8_t first, uint8_t second, uint8_t third);
 
+    @do_not_fuzz
     haveAInterface(ISimple i) generates (ISimple i);
 };
