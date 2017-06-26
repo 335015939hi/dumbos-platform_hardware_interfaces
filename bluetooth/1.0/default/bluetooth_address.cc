@@ -16,7 +16,6 @@
 
 #include "bluetooth_address.h"
 
-#include <android-base/logging.h>
 #include <cutils/properties.h>
 #include <fcntl.h>
 #include <utils/Log.h>
@@ -55,7 +54,6 @@ bool BluetoothAddress::get_local_address(uint8_t* local_addr) {
     addr_fd = open(property, O_RDONLY);
     if (addr_fd != -1) {
       int bytes_read = read(addr_fd, property, kStringLength);
-      CHECK(bytes_read == kStringLength);
       close(addr_fd);
 
       // Null terminate the string.
@@ -63,10 +61,13 @@ bool BluetoothAddress::get_local_address(uint8_t* local_addr) {
 
       // If the address is not all zeros, then use it.
       const uint8_t zero_bdaddr[kBytes] = {0, 0, 0, 0, 0, 0};
-      if ((string_to_bytes(property, local_addr)) &&
+      if ((bytes_read == kStringLength) &&
+          (string_to_bytes(property, local_addr)) &&
           (memcmp(local_addr, zero_bdaddr, kBytes) != 0)) {
         valid_bda = true;
         ALOGD("%s: Got Factory BDA %s", __func__, property);
+      } else {
+        ALOGE("%s: Got Invalid Factory BDA %s", __func__, property);
       }
     }
   }
