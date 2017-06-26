@@ -17,7 +17,6 @@
 #include "hci_packetizer.h"
 
 #define LOG_TAG "android.hardware.bluetooth.hci_packetizer"
-#include <android-base/logging.h>
 #include <utils/Log.h>
 
 #include <dlfcn.h>
@@ -45,15 +44,23 @@ namespace hardware {
 namespace bluetooth {
 namespace hci {
 
-const hidl_vec<uint8_t>& HciPacketizer::GetPacket() const { return packet_; }
+const hidl_vec<uint8_t>& HciPacketizer::GetPacket() const {
+  return packet_;
+}
 
 void HciPacketizer::OnDataReady(int fd, HciPacketType packet_type) {
   switch (state_) {
     case HCI_PREAMBLE: {
-      size_t bytes_read = TEMP_FAILURE_RETRY(
+      ssize_t bytes_read = TEMP_FAILURE_RETRY(
           read(fd, preamble_ + bytes_read_,
                preamble_size_for_type[packet_type] - bytes_read_));
-      CHECK(bytes_read > 0);
+      if (bytes_read <= 0) {
+        if (bytes_read == 0)
+          LOG_ALWAYS_FATAL("%s: Unexpected EOF reading the header!", __func__);
+        else
+          LOG_ALWAYS_FATAL("%s: Read header error: %s", __func__,
+                           strerror(errno));
+      }
       bytes_read_ += bytes_read;
       if (bytes_read_ == preamble_size_for_type[packet_type]) {
         size_t packet_length =
@@ -68,11 +75,18 @@ void HciPacketizer::OnDataReady(int fd, HciPacketType packet_type) {
     }
 
     case HCI_PAYLOAD: {
-      size_t bytes_read = TEMP_FAILURE_RETRY(read(
+      ssize_t bytes_read = TEMP_FAILURE_RETRY(read(
           fd,
           packet_.data() + preamble_size_for_type[packet_type] + bytes_read_,
           bytes_remaining_));
-      CHECK(bytes_read > 0);
+      if (bytes_read <= 0) {
+        if (UNLIKELY(bytes_read == 0)) {
+          LOG_ALWAYS_FATAL("%s: Unexpected EOF reading the payload!", __func__);
+        } else {
+          LOG_ALWAYS_FATAL("%s: Read payload error: %s", __func__,
+                           strerror(errno));
+        }
+      }
       bytes_remaining_ -= bytes_read;
       bytes_read_ += bytes_read;
       if (bytes_remaining_ == 0) {
