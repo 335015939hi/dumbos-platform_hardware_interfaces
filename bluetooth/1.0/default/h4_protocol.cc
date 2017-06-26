@@ -47,7 +47,7 @@ void H4Protocol::OnPacketReady() {
       break;
     default: {
       bool bad_packet_type = true;
-      CHECK(!bad_packet_type);
+      CHECK(!bad_packet_type) << static_cast<int>(hci_packet_type_);
     }
   }
   // Get ready for the next type byte.
@@ -57,8 +57,15 @@ void H4Protocol::OnPacketReady() {
 void H4Protocol::OnDataReady(int fd) {
   if (hci_packet_type_ == HCI_PACKET_TYPE_UNKNOWN) {
     uint8_t buffer[1] = {0};
-    size_t bytes_read = TEMP_FAILURE_RETRY(read(fd, buffer, 1));
-    CHECK(bytes_read == 1);
+    int bytes_read = TEMP_FAILURE_RETRY(read(fd, buffer, 1));
+    if (bytes_read != 1) {
+      if (bytes_read == 0)
+        CHECK(bytes_read == 1) << "Unexpected EOF reading packet type!";
+      if (bytes_read < 0)
+        CHECK(bytes_read == 1) << "Read packet type error: " << strerror(errno);
+      if (bytes_read > 1)
+        CHECK(bytes_read == 1) << "More bytes read than expected!";
+    }
     hci_packet_type_ = static_cast<HciPacketType>(buffer[0]);
   } else {
     hci_packetizer_.OnDataReady(fd, hci_packet_type_);

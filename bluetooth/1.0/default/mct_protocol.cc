@@ -45,7 +45,8 @@ size_t MctProtocol::Send(uint8_t type, const uint8_t* data, size_t length) {
     return WriteSafely(uart_fds_[CH_CMD], data, length);
   if (type == HCI_PACKET_TYPE_ACL_DATA)
     return WriteSafely(uart_fds_[CH_ACL_OUT], data, length);
-  CHECK(type == HCI_PACKET_TYPE_COMMAND || type == HCI_PACKET_TYPE_ACL_DATA);
+  CHECK(type == HCI_PACKET_TYPE_COMMAND || type == HCI_PACKET_TYPE_ACL_DATA)
+      << "type = " << type;
   return 0;
 }
 
