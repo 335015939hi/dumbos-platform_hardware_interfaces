@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "11a38a73_d9a48c68",
+        "filename": "bluetooth/1.0/default/hci_packetizer.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-06-27T22:29:52Z",
+      "side": 1,
+      "message": "btw, these would be good uses of CHECK\n\nCHECK(...) \u003c\u003c ...",
+      "range": {
+        "startLine": 59,
+        "startChar": 10,
+        "endLine": 59,
+        "endChar": 26
+      },
+      "revId": "a402ab8dc35589726e914368dab8feb13780353d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d84b8c8_994d9bee",
+        "filename": "bluetooth/1.0/default/mct_protocol.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-06-27T22:29:52Z",
+      "side": 1,
+      "message": "nice! I didn\u0027t even notice the lhs was redundant before.",
+      "revId": "a402ab8dc35589726e914368dab8feb13780353d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6d4a8c5_7a988543",
+        "filename": "bluetooth/1.0/default/vendor_interface.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-06-27T22:29:52Z",
+      "side": 1,
+      "message": "nit: braces or LOG_ALWAYS_FATAL_IF :/ meh",
+      "range": {
+        "startLine": 209,
+        "startChar": 4,
+        "endLine": 209,
+        "endChar": 20
+      },
+      "revId": "a402ab8dc35589726e914368dab8feb13780353d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
