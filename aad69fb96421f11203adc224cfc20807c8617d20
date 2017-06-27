@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "eeda4d2d_2638ddc5",
+        "filename": "bluetooth/1.0/default/h4_protocol.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2017-06-27T18:03:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ddccb883_015a7fac",
+      "range": {
+        "startLine": 49,
+        "startChar": 6,
+        "endLine": 49,
+        "endChar": 34
+      },
+      "revId": "aad69fb96421f11203adc224cfc20807c8617d20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fabb60b5_d959bd69",
         "filename": "bluetooth/1.0/default/h4_protocol.cc",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "3893b841_e389b148",
+        "filename": "bluetooth/1.0/default/h4_protocol.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2017-06-27T18:03:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fabb60b5_d959bd69",
+      "range": {
+        "startLine": 61,
+        "startChar": 8,
+        "endLine": 61,
+        "endChar": 18
+      },
+      "revId": "aad69fb96421f11203adc224cfc20807c8617d20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "76b1a3a5_f9612825",
         "filename": "bluetooth/1.0/default/h4_protocol.cc",
         "patchSetId": 3
@@ -59,6 +107,30 @@
       "writtenOn": "2017-06-26T22:29:20Z",
       "side": 1,
       "message": "\u003c\u003c bytes_read?",
+      "range": {
+        "startLine": 67,
+        "startChar": 56,
+        "endLine": 67,
+        "endChar": 64
+      },
+      "revId": "aad69fb96421f11203adc224cfc20807c8617d20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a56973f6_5b1720c7",
+        "filename": "bluetooth/1.0/default/h4_protocol.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2017-06-27T18:03:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76b1a3a5_f9612825",
       "range": {
         "startLine": 67,
         "startChar": 56,
