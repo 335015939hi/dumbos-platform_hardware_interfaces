@@ -45,6 +45,30 @@
       "revId": "4d08b4c5a2dac24b5ba94ded54d77303e453139a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e00c04c_f7bba95d",
+        "filename": "tests/bar/1.0/IFooCallback.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2017-06-27T00:13:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad79af7d_ba2d5585",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 14
+      },
+      "revId": "4d08b4c5a2dac24b5ba94ded54d77303e453139a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
