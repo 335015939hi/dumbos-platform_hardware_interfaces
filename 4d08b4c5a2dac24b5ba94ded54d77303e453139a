@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad79af7d_ba2d5585",
+        "filename": "tests/bar/1.0/IFooCallback.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-06-27T00:08:58Z",
+      "side": 1,
+      "message": "I don\u0027t seem to see parsing this in hidl-gen. Where is it?\n\nalso, can we name it @callback_interface, @callback, or something else? I think it is a bit awkward to put \"hidl_\" here. (since we have vec \u003d\u003e hidl_vec, pointer \u003d\u003e hidl_pointer, etc. from HAL to C++)",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 14
+      },
+      "revId": "4d08b4c5a2dac24b5ba94ded54d77303e453139a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
