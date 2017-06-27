@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "4f011ad0_b4f76f33",
+        "filename": "tests/bar/1.0/IBar.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-06-27T00:10:39Z",
+      "side": 1,
+      "message": "nit: no_fuzz / not_fuzz?",
+      "range": {
+        "startLine": 40,
+        "startChar": 5,
+        "endLine": 40,
+        "endChar": 16
+      },
+      "revId": "4d08b4c5a2dac24b5ba94ded54d77303e453139a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad79af7d_ba2d5585",
         "filename": "tests/bar/1.0/IFooCallback.hal",
         "patchSetId": 1
