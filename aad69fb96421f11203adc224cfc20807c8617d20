@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "a357344c_dcd3dc20",
+        "filename": "bluetooth/1.0/default/h4_protocol.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2017-06-27T22:20:30Z",
+      "side": 1,
+      "message": "I took it back out.",
+      "parentUuid": "3893b841_e389b148",
+      "range": {
+        "startLine": 61,
+        "startChar": 8,
+        "endLine": 61,
+        "endChar": 18
+      },
+      "revId": "aad69fb96421f11203adc224cfc20807c8617d20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "76b1a3a5_f9612825",
         "filename": "bluetooth/1.0/default/h4_protocol.cc",
         "patchSetId": 3
