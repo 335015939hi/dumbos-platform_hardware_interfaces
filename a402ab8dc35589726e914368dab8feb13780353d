@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "33710bb0_02df6725",
+        "filename": "bluetooth/1.0/default/bluetooth_address.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1071489
+      },
+      "writtenOn": "2017-06-28T01:36:23Z",
+      "side": 1,
+      "message": "If we get this error, we don\u0027t know what failed and why; e.g., whether the read() command above failed and why, or whether some of the other checks in the \"if\" statement at line 64 failed.",
+      "range": {
+        "startLine": 70,
+        "startChar": 8,
+        "endLine": 70,
+        "endChar": 68
+      },
+      "revId": "a402ab8dc35589726e914368dab8feb13780353d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "11a38a73_d9a48c68",
         "filename": "bluetooth/1.0/default/hci_packetizer.cc",
         "patchSetId": 8
@@ -22,6 +45,29 @@
       "revId": "a402ab8dc35589726e914368dab8feb13780353d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e25747cb_d4b0508e",
+        "filename": "bluetooth/1.0/default/hci_packetizer.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1071489
+      },
+      "writtenOn": "2017-06-28T01:36:23Z",
+      "side": 1,
+      "message": "This is a multi-line statement, so please use {} around this block (and the previous block for consistency).",
+      "range": {
+        "startLine": 61,
+        "startChar": 10,
+        "endLine": 62,
+        "endChar": 44
+      },
+      "revId": "a402ab8dc35589726e914368dab8feb13780353d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +99,30 @@
       "writtenOn": "2017-06-27T22:29:52Z",
       "side": 1,
       "message": "nit: braces or LOG_ALWAYS_FATAL_IF :/ meh",
+      "range": {
+        "startLine": 209,
+        "startChar": 4,
+        "endLine": 209,
+        "endChar": 20
+      },
+      "revId": "a402ab8dc35589726e914368dab8feb13780353d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a62f71e_93b579ef",
+        "filename": "bluetooth/1.0/default/vendor_interface.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1071489
+      },
+      "writtenOn": "2017-06-28T01:36:23Z",
+      "side": 1,
+      "message": "For readability, I\u0027d prefer not to put the\n\"if (!BluetoothAddress::get_local_address(...)\"\noperation inside the LOG_ALWAYS_FATAL statement.",
+      "parentUuid": "d6d4a8c5_7a988543",
       "range": {
         "startLine": 209,
         "startChar": 4,
