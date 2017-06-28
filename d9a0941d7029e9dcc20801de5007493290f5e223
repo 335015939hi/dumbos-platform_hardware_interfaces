@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "57c60045_f6c56b2a",
+        "filename": "bluetooth/1.0/default/h4_protocol.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2017-06-28T16:26:24Z",
+      "side": 1,
+      "message": "Now that I\u0027m looking at this in one place, I think it can be further simplified.  The point of this CL is that the write has to be atomic or it fails, right?\n\nCan we just make that explicit?  Something like:\n\nsize_t H4Protocol::Send(uint8_t type, const uint8_t* data, size_t length) {\n  struct iovec iov[] \u003d {{\u0026type, sizeof(type)},\n                        {const_cast\u003cuint8_t*\u003e(data), length}};\n\n  ssize_t ret \u003d TEMP_FAILURE_RETRY(writev(fd, iov, iovcnt));\n\n  if (ret \u003d\u003d -1) {\n    LOG_ALWAYS_FATAL(\"%s error writing to UART (%s)\", __func__, strerror(errno));\n  } else if (ret \u003c length + 1) {\n    LOG_ALWAYS_FATAL(\"%s: %d / %d bytes written - something went wrong...\", __func__, static_cast\u003cint\u003e(ret), static_cast\u003cint\u003e(length+1));\n  }\n  return ret;\n}",
+      "range": {
+        "startLine": 76,
+        "startChar": 2,
+        "endLine": 76,
+        "endChar": 21
+      },
+      "revId": "d9a0941d7029e9dcc20801de5007493290f5e223",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
