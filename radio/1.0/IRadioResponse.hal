@@ -104,6 +104,7 @@ interface IRadioResponse {
      *   RadioError:NONE
      *   RadioError:RADIO_NOT_AVAILABLE (radio resetting)
      *   RadioError:PASSWORD_INCORRECT (code is invalid)
+     *   RadioError:SIM_ABSENT
      */
     oneway supplyNetworkDepersonalizationResponse(RadioResponseInfo info, int32_t remainingRetries);
 
@@ -420,6 +421,7 @@ interface IRadioResponse {
      *   RadioError:INVALID_MODEM_STATE
      *   RadioError:NETWORK_NOT_READY
      *   RadioError:OPERATION_NOT_ALLOWED
+     *   RadioError:SIM_ABSENT
      */
     oneway sendSmsResponse(RadioResponseInfo info, SendSmsResult sms);
 
@@ -449,6 +451,7 @@ interface IRadioResponse {
      *   RadioError:INVALID_MODEM_STATE
      *   RadioError:NETWORK_NOT_READY
      *   RadioError:OPERATION_NOT_ALLOWED
+     *   RadioError:SIM_ABSENT
      */
     oneway sendSMSExpectMoreResponse(RadioResponseInfo info, SendSmsResult sms);
 
@@ -464,6 +467,7 @@ interface IRadioResponse {
      *   RadioError:OP_NOT_ALLOWED_BEFORE_REG_TO_NW
      *   RadioError:OP_NOT_ALLOWED_DURING_VOICE_CALL
      *   RadioError:REQUEST_NOT_SUPPORTED
+     *   RadioError:SIM_ABSENT
      */
     oneway setupDataCallResponse(RadioResponseInfo info, SetupDataCallResult dcResponse);
 
@@ -692,6 +696,7 @@ interface IRadioResponse {
      * Valid errors returned:
      *   RadioError:NONE
      *   RadioError:RADIO_NOT_AVAILABLE
+     *   RadioError:SIM_ABSENT
      */
     oneway deactivateDataCallResponse(RadioResponseInfo info);
 
@@ -939,6 +944,7 @@ interface IRadioResponse {
      * Valid errors returned:
      *   RadioError:NONE
      *   RadioError:RADIO_NOT_AVAILABLE
+     *   RadioError:SIM_ABSENT
      */
     oneway getDataCallListResponse(RadioResponseInfo info, vec<SetupDataCallResult> dcResponse);
 
@@ -978,6 +984,7 @@ interface IRadioResponse {
      *   RadioError:RADIO_NOT_AVAILABLE
      *   RadioError:SYSTEM_ERR
      *   RadioError:REQUEST_NOT_SUPPORTED
+     *   RadioError:SIM_ABSENT
      */
     oneway writeSmsToSimResponse(RadioResponseInfo info, int32_t index);
 
@@ -996,6 +1003,7 @@ interface IRadioResponse {
      *   RadioError:INTERNAL_ERR
      *   RadioError:RADIO_NOT_AVAILABLE
      *   RadioError:REQUEST_NOT_SUPPORTED
+     *   RadioError:SIM_ABSENT
      */
     oneway deleteSmsOnSimResponse(RadioResponseInfo info);
 
@@ -1275,6 +1283,7 @@ interface IRadioResponse {
      *   RadioError:REQUEST_NOT_SUPPORTED
      *   RadioError:OPERATION_NOT_ALLOWED
      *   RadioError:ENCODING_ERR
+     *   RadioError:SIM_ABSENT
      */
     oneway sendCdmaSmsResponse(RadioResponseInfo info, SendSmsResult sms);
 
@@ -1449,6 +1458,7 @@ interface IRadioResponse {
      *   RadioError:SYSTEM_ERR
      *   RadioError:REQUEST_NOT_SUPPORTED
      *   RadioError:OPERATION_NOT_ALLOWED
+     *   RadioError:SIM_ABSENT
      */
     oneway writeSmsToRuimResponse(RadioResponseInfo info, uint32_t index);
 
@@ -1467,6 +1477,7 @@ interface IRadioResponse {
      *   RadioError:INTERNAL_ERR
      *   RadioError:REQUEST_NOT_SUPPORTED
      *   RadioError:OPERATION_NOT_ALLOWED
+     *   RadioError:SIM_ABSENT
      */
     oneway deleteSmsOnRuimResponse(RadioResponseInfo info);
 
@@ -1515,6 +1526,7 @@ interface IRadioResponse {
      *   RadioError:NOT_PROVISIONED
      *   RadioError:REQUEST_NOT_SUPPORTED
      *   RadioError:OPERATION_NOT_ALLOWED
+     *   RadioError:SIM_ABSENT
      */
     oneway getSmscAddressResponse(RadioResponseInfo info, string smsc);
 
@@ -1534,6 +1546,7 @@ interface IRadioResponse {
      *   RadioError:INTERNAL_ERR
      *   RadioError:REQUEST_NOT_SUPPORTED
      *   RadioError:OPERATION_NOT_ALLOWED
+     *   RadioError:SIM_ABSENT
      */
     oneway setSmscAddressResponse(RadioResponseInfo info);
 
@@ -1551,6 +1564,7 @@ interface IRadioResponse {
      *   RadioError:INVALID_STATE
      *   RadioError:INTERNAL_ERR
      *   RadioError:REQUEST_NOT_SUPPORTED
+     *   RadioError:SIM_ABSENT
      */
     oneway reportSmsMemoryStatusResponse(RadioResponseInfo info);
 
@@ -1602,6 +1616,7 @@ interface IRadioResponse {
      *   RadioError:RADIO_NOT_AVAILABLE
      *   RadioError:SIM_BUSY
      *   RadioError:OPERATION_NOT_ALLOWED
+     *   RadioError:SIM_ABSENT
      */
     oneway sendEnvelopeWithStatusResponse(RadioResponseInfo info, IccIoResult iccIo);
 
@@ -1810,6 +1825,7 @@ interface IRadioResponse {
      *   RadioError:NONE
      *   RadioError:RADIO_NOT_AVAILABLE
      *   RadioError:SUBSCRIPTION_NOT_AVAILABLE
+     *   RadioError:SIM_ABSENT
      */
     oneway setDataProfileResponse(RadioResponseInfo info);
 
@@ -1865,6 +1881,7 @@ interface IRadioResponse {
      *   RadioError:NONE
      *   RadioError:RADIO_NOT_AVAILABLE
      *   RadioError:LCE_NOT_SUPPORTED
+     *   RadioError:SIM_ABSENT
      */
     oneway stopLceServiceResponse(RadioResponseInfo info, LceStatusInfo statusInfo);
 
@@ -1876,6 +1893,7 @@ interface IRadioResponse {
      *   RadioError:NONE
      *   RadioError:RADIO_NOT_AVAILABLE
      *   RadioError:LCE_NOT_SUPPORTED
+     *   RadioError:SIM_ABSENT
      */
     oneway pullLceDataResponse(RadioResponseInfo info, LceDataInfo lceInfo);
 
