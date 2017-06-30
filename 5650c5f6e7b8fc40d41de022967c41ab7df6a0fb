@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "039784a6_bdb8612b",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_misc.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 749,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2017-06-30T18:04:17Z",
+      "side": 1,
+      "message": "we are in process of merging a CL soon which would add checkGeneralError() to all tests. Request_not_supported is part of checkGeneralError().",
+      "range": {
+        "startLine": 749,
+        "startChar": 59,
+        "endLine": 749,
+        "endChar": 80
+      },
+      "revId": "5650c5f6e7b8fc40d41de022967c41ab7df6a0fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
