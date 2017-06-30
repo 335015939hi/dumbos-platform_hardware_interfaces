@@ -144,7 +144,8 @@ TEST_F(RadioHidlTest, sendEnvelopeWithStatus) {
     EXPECT_EQ(serial, radioRsp->rspInfo.serial);
 
     if (cardStatus.cardState == CardState::ABSENT) {
-        EXPECT_EQ(RadioError::NONE, radioRsp->rspInfo.error);
+        ASSERT_FALSE(RadioError::NONE == radioRsp->rspInfo.error  ||
+                     radioRsp->rspInfo.error == RadioError::SIM_ABSENT);
     }
 
     // Test with sending random string
@@ -158,6 +159,7 @@ TEST_F(RadioHidlTest, sendEnvelopeWithStatus) {
     EXPECT_EQ(serial, radioRsp->rspInfo.serial);
 
     if (cardStatus.cardState == CardState::ABSENT) {
-        ASSERT_FALSE(RadioError::NONE == radioRsp->rspInfo.error);
+        ASSERT_FALSE(RadioError::NONE == radioRsp->rspInfo.error  ||
+                     radioRsp->rspInfo.error == RadioError::SIM_ABSENT);
     }
 }
