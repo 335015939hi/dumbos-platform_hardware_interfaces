@@ -70,6 +70,30 @@
       "revId": "d9a0941d7029e9dcc20801de5007493290f5e223",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d289024_ce4966e3",
+        "filename": "bluetooth/1.0/default/h4_protocol.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1150808
+      },
+      "writtenOn": "2017-06-30T03:51:27Z",
+      "side": 1,
+      "message": "Thanks for the suggestion. \nOne more thing needs to clarify is that, as WriteSafely, we need to cover EAGAIN error if driver is busy somewhile to need the HAl to resend.\nTherefore, the code function will be revised as following. If you okay with it, we will upload a new patch for review soon. Thanks :)\n\nRegards,\nPeng QI\n\nsize_t H4Protocol::Send(uint8_t type, const uint8_t* data, size_t length) {\n  struct iovec iov[] \u003d {{\u0026type, sizeof(type)},\n                        {reinterpret_cast\u003cvoid*\u003e(const_cast\u003cuint8_t*\u003e(data)), length}};\n  ssize_t ret \u003d 0;\n  do {\n    ret \u003d TEMP_FAILURE_RETRY(writev(uart_fd_, iov, iovcnt));\n\n    if (ret \u003d\u003d -1) {\n      if (errno !\u003d EAGAIN) {\n        ALOGE(\"%s error writing to UART (%s)\", __func__, strerror(errno));\n        break;\n      }\n    } else if (ret \u003d\u003d 0) {\n      // Nothing written :(\n      ALOGE(\"%s zero bytes written - something went wrong...\", __func__);\n      break;\n    }\n  } while (-1 \u003d\u003d ret \u0026\u0026 EAGAIN \u003d\u003d errno);\n  return ret;\n}",
+      "parentUuid": "763f95d9_701dd97b",
+      "range": {
+        "startLine": 76,
+        "startChar": 2,
+        "endLine": 76,
+        "endChar": 21
+      },
+      "revId": "d9a0941d7029e9dcc20801de5007493290f5e223",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
