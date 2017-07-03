@@ -22,6 +22,30 @@
       "revId": "5650c5f6e7b8fc40d41de022967c41ab7df6a0fb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "61adb455_86d395b0",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_misc.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 749,
+      "author": {
+        "id": 1151058
+      },
+      "writtenOn": "2017-07-03T05:28:28Z",
+      "side": 1,
+      "message": "Hi, Sanket,\nDoes google change to use checkGernalError() in this test case, or want mtk to upstream\nThanks",
+      "parentUuid": "039784a6_bdb8612b",
+      "range": {
+        "startLine": 749,
+        "startChar": 59,
+        "endLine": 749,
+        "endChar": 80
+      },
+      "revId": "5650c5f6e7b8fc40d41de022967c41ab7df6a0fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
