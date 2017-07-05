@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0089076d_08aaf4a7",
+        "filename": "bluetooth/1.0/default/bluetooth_address.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1071489
+      },
+      "writtenOn": "2017-07-05T21:10:40Z",
+      "side": 1,
+      "message": "Probably not part of this CL:\nwhy here we don\u0027t use the TEMP_FAILURE_RETRY() wrapper around read() ?",
+      "range": {
+        "startLine": 58,
+        "startChar": 23,
+        "endLine": 58,
+        "endChar": 27
+      },
+      "revId": "82951239de67f9916edf7ee5dfe9a6071d08b46a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b2349baa_21d2d530",
+        "filename": "bluetooth/1.0/default/bluetooth_address.cc",
+        "patchSetId": 13
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1071489
+      },
+      "writtenOn": "2017-07-05T21:10:40Z",
+      "side": 1,
+      "message": "Nit: prefer \u0027:\u0027 instead of \u0027,\u0027 here:\n... Error ...: \u003cthe actual error\u003e",
+      "range": {
+        "startLine": 60,
+        "startChar": 48,
+        "endLine": 60,
+        "endChar": 49
+      },
+      "revId": "82951239de67f9916edf7ee5dfe9a6071d08b46a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
