@@ -32,6 +32,8 @@ import @1.0::GsmSignalStrength;
 import @1.0::LteSignalStrength;
 import @1.0::RadioConst;
 import @1.0::RadioError;
+import @1.0::RadioTechnology;
+import @1.0::RadioAccessFamily;
 import @1.0::SignalStrength;
 import @1.0::TdScdmaSignalStrength;
 import @1.0::TimeStampType;
@@ -461,4 +463,12 @@ struct SignalStrength {
     LteSignalStrength lte;
     TdScdmaSignalStrength tdScdma;
     WcdmaSignalStrength wcdma;
+};
+
+enum RadioTechnology : @1.0::RadioTechnology {
+    FIVE_G = 20,
+};
+
+enum RadioAccessFamily : @1.0::RadioAccessFamily {
+    FIVE_G = 1 << RadioTechnology:FIVE_G,
 };
