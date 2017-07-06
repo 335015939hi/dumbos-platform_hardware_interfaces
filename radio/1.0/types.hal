@@ -575,6 +575,7 @@ enum RadioTechnology : int32_t {
     TD_SCDMA = 17,
     IWLAN = 18,
     LTE_CA = 19,
+    5G = 20,
 };
 
 enum DataProfileId : int32_t {
@@ -926,7 +927,8 @@ enum RadioAccessFamily : int32_t {
     HSPAP = 1 << RadioTechnology:HSPAP,
     GSM = 1 << RadioTechnology:GSM,
     TD_SCDMA = 1 << RadioTechnology:TD_SCDMA,
-    LTE_CA = 1 << RadioTechnology:LTE_CA
+    LTE_CA = 1 << RadioTechnology:LTE_CA,
+    5G = 1 << RadioTechnology:5G,
 };
 
 enum UssdModeType : int32_t {
