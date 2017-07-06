@@ -30,6 +30,7 @@ import @1.0::CellInfoType;
 import @1.0::EvdoSignalStrength;
 import @1.0::GsmSignalStrength;
 import @1.0::LteSignalStrength;
+import @1.0::PreferredNetworkType;
 import @1.0::RadioConst;
 import @1.0::RadioError;
 import @1.0::SignalStrength;
@@ -461,4 +462,9 @@ struct SignalStrength {
     LteSignalStrength lte;
     TdScdmaSignalStrength tdScdma;
     WcdmaSignalStrength wcdma;
+};
+
+enum PreferredNetworkType : @1.0::PreferredNetworkType {
+    FIVEG_ONLY,
+    LTE_FIVEG,
 };
