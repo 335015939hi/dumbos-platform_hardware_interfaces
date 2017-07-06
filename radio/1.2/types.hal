@@ -32,6 +32,8 @@ import @1.0::GsmSignalStrength;
 import @1.0::LteSignalStrength;
 import @1.0::RadioConst;
 import @1.0::RadioError;
+import @1.0::RadioTechnology;
+import @1.0::RadioAccessFamily;
 import @1.0::SignalStrength;
 import @1.0::TdScdmaSignalStrength;
 import @1.0::TimeStampType;
@@ -461,4 +463,55 @@ struct SignalStrength {
     LteSignalStrength lte;
     TdScdmaSignalStrength tdScdma;
     WcdmaSignalStrength wcdma;
+};
+
+enum RadioTechnology : @1.0::RadioTechnology {
+    FIVE_G = 20,
+};
+
+enum RadioAccessFamily : @1.0::RadioAccessFamily {
+    FIVE_G = 1 << RadioTechnology:FIVE_G,
+};
+
+struct DataProfileInfo {
+    DataProfileId profileId;              // id of the data profile
+    string apn;                           // The APN to connect to
+    string protocol;                      // One of the PDP_type values in TS 27.007 section 10.1.1.
+                                          // For example, "IP", "IPV6", "IPV4V6", or "PPP".
+    string roamingProtocol;               // one of the PDP_type values in TS 27.007 section 10.1.1
+                                          // used on roaming network. For example, "IP", "IPV6",
+                                          // "IPV4V6", or "PPP".
+    ApnAuthType authType;                 // APN authentication type
+    string user;                          // The username for APN, or empty string
+    string password;                      // The password for APN, or empty string
+    DataProfileInfoType type;             // Data profile technology type
+    int32_t maxConnsTime;                 // The period in seconds to limit the maximum connections
+    int32_t maxConns;                     // The maximum connections during maxConnsTime
+    int32_t waitTime;                     // The required wait time in seconds after a successful UE
+                                          // initiated disconnect of a given PDN connection before
+                                          // the device can send a new PDN connection request for
+                                          // that given PDN
+    bool enabled;                         // True to enable the profile, false to disable
+    bitfield<ApnTypes> supportedApnTypesBitmap; // Supported APN types bitmap. See ApnTypes for the
+                                          // value of each bit.
+    bitfield<RadioAccessFamily> bearerBitmap; // The bearer bitmap. See RadioAccessFamily for the
+                                          // value of each bit.
+    int32_t mtu;                          // Maximum transmission unit (MTU) size in bytes
+    MvnoType mvnoType;                    // The MVNO matching data type
+    string mvnoMatchData;                 // MVNO matching data. This is defined by the carrier.
+                                          // For example,
+                                          //      SPN like: "A MOBILE", "BEN NL", etc...
+                                          //      IMSI like: "302720x94", "2060188", etc...
+                                          //      GID like: "4E", "33", etc...
+};
+
+struct RadioCapability {
+    int32_t session;                      // Unique session value defined by framework returned in
+                                          // all "responses/unsol"
+    RadioCapabilityPhase phase;
+    bitfield<RadioAccessFamily> raf;      // 32-bit bitmap of RadioAccessFamily
+    string logicalModemUuid;              // A UUID typically "com.xxxx.lmX where X is the logical
+                                          // modem. RadioConst:MAX_UUID_LENGTH is the max
+                                          // length
+    RadioCapabilityStatus status;
 };
