@@ -18,14 +18,14 @@ package android.hardware.media@1.0;
 
 import android.hardware.graphics.common@1.0::PixelFormat;
 
-/**
+/*
  * Aliases
  */
 typedef handle FileDescriptor; // This must have no more than one fd.
 typedef FileDescriptor Fence;
 typedef vec<uint8_t> Bytes;
 
-/**
+/*
  * Ref: frameworks/native/include/ui/GraphicBuffer.h
  * Ref: system/core/include/system/window.h: ANativeWindowBuffer
  */

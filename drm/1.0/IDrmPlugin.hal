@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (C) 2016 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -215,7 +215,7 @@ interface IDrmPlugin {
     provideProvisionResponse(vec<uint8_t> response) generates (Status status,
             vec<uint8_t> certificate, vec<uint8_t> wrappedKey);
 
-    /**
+    /*
      * SecureStop is a way of enforcing the concurrent stream limit per
      * subscriber. It can securely monitor the lifetime of sessions across
      * device reboots by periodically persisting the session lifetime
@@ -285,7 +285,7 @@ interface IDrmPlugin {
      */
     releaseSecureStop(vec<uint8_t> secureStopId) generates (Status status);
 
-    /**
+    /*
      * A drm scheme can have properties that are settable and readable
      * by an app. There are a few forms of property access methods,
      * depending on the data type of the property.
@@ -359,7 +359,7 @@ interface IDrmPlugin {
     setPropertyByteArray(string propertyName, vec<uint8_t> value )
         generates (Status status);
 
-    /**
+    /*
      * The following methods implement operations on a CryptoSession to support
      * encrypt, decrypt, sign verify operations on operator-provided
      * session keys.
@@ -491,7 +491,7 @@ interface IDrmPlugin {
         vec<uint8_t> wrappedkey)
         generates (Status status, vec<uint8_t> signature);
 
-    /**
+    /*
      * Plugins call the following methods to deliver events to the
      * java app.
      */

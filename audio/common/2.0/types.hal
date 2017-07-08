@@ -16,7 +16,7 @@
 
 package android.hardware.audio.common@2.0;
 
-/**
+/*
  *
  *  IDs and Handles
  *
@@ -76,7 +76,7 @@ struct Uuid {
 };
 
 
-/**
+/*
  *
  *  Audio streams
  *
@@ -260,7 +260,8 @@ enum AudioFormat : uint32_t {
 
     VORBIS_SUB_NONE       = 0x0,
 
-    /** Aliases */
+    /* Aliases */
+
     /** note != AudioFormat.ENCODING_PCM_16BIT */
     PCM_16_BIT          = (PCM | PCM_SUB_16_BIT),
     /** note != AudioFormat.ENCODING_PCM_8BIT */
@@ -335,21 +336,22 @@ enum FixedChannelCount : int32_t {
  */
 @export(name="", value_prefix="AUDIO_CHANNEL_")
 enum AudioChannelMask : uint32_t {
-    REPRESENTATION_POSITION = 0, /** must be 0 for compatibility */
+		/** must be 0 for compatibility */
+    REPRESENTATION_POSITION = 0,
     /** 1 is reserved for future use */
     REPRESENTATION_INDEX    = 2,
-    /** 3 is reserved for future use */
+    /* 3 is reserved for future use */
 
-    /** These can be a complete value of AudioChannelMask */
+    /* These can be a complete value of AudioChannelMask */
     NONE                      = 0x0,
     INVALID                   = 0xC0000000,
 
-   /**
+   /*
     * These can be the bits portion of an AudioChannelMask
     * with representation REPRESENTATION_POSITION.
     */
 
-    /** output channels */
+    /* output channels */
     OUT_FRONT_LEFT            = 0x1,
     OUT_FRONT_RIGHT           = 0x2,
     OUT_FRONT_CENTER          = 0x4,
@@ -408,7 +410,7 @@ enum AudioChannelMask : uint32_t {
             OUT_TOP_FRONT_LEFT | OUT_TOP_FRONT_CENTER | OUT_TOP_FRONT_RIGHT |
             OUT_TOP_BACK_LEFT | OUT_TOP_BACK_CENTER | OUT_TOP_BACK_RIGHT),
 
-    /** These are bits only, not complete values */
+    /* These are bits only, not complete values */
 
     /** input channels */
     IN_LEFT            = 0x4,
@@ -746,7 +748,7 @@ struct AudioConfig {
 };
 
 
-/**
+/*
  *
  *  Volume control
  *
@@ -797,13 +799,13 @@ struct AudioGainConfig {
 };
 
 
-/**
+/*
  *
  *  Routing control
  *
  */
 
-/**
+/*
  * Types defined here are used to describe an audio source or sink at internal
  * framework interfaces (audio policy, patch panel) or at the audio HAL.
  * Sink and sources are grouped in a concept of “audio port” representing an

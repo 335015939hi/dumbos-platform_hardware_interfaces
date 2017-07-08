@@ -70,7 +70,7 @@ interface IGnssConfiguration {
         LPP_UPLANE                  = 0x04
     };
 
-    /**
+    /*
      * IMPORTANT: GNSS HAL must expect the below methods to be called multiple
      * times. They can be called even when GnssLocationProvider is already
      * constructed and enabled. GNSS HAL must maintain the existing requests

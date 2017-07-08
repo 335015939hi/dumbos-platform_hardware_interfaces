@@ -186,6 +186,7 @@ interface IWifiNanIface extends IWifiIface {
    * Asynchronous response is with |IWifiNanIfaceEventCallback.notifyCreateDataInterfaceResponse|.
    *
    * @param cmdId command Id to use for this invocation.
+   * @param ifaceName
    * @return status WifiStatus of the operation.
    *         Possible status codes:
    *         |WifiStatusCode.SUCCESS|,
@@ -200,6 +201,7 @@ interface IWifiNanIface extends IWifiIface {
    * Asynchronous response is with |IWifiNanIfaceEventCallback.notifyDeleteDataInterfaceResponse|.
    *
    * @param cmdId command Id to use for this invocation.
+   * @param ifaceName
    * @return status WifiStatus of the operation.
    *         Possible status codes:
    *         |WifiStatusCode.SUCCESS|,

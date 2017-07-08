@@ -189,7 +189,7 @@ interface ISupplicantStaIface extends ISupplicantIface {
    *
    * @param macAddress MAC address of the access point.
    * @param infoElements List of information elements to query for.
-   * @param subtypes List of HS20 subtypes to query for.
+   * @param subTypes List of HS20 subtypes to query for.
    * @return status Status of the operation.
    *         Possible status codes:
    *         |SupplicantStatusCode.SUCCESS|,
@@ -452,7 +452,7 @@ interface ISupplicantStaIface extends ISupplicantIface {
    * via |addExtRadioWork|, but have not yet been started (notified via
    * |ISupplicantCallback.onExtRadioWorkStart|).
    *
-   * @return id Identifier generated for the radio work addition
+   * @param id Identifier generated for the radio work addition
    *         (using |addExtRadioWork|).
    * @return status Status of the operation.
    *         Possible status codes:

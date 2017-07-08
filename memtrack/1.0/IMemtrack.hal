@@ -43,14 +43,14 @@ interface IMemtrack {
      * structures breaking down the statistics of that memory type as much as
      * possible. For example,
      * getMemory(<pid>, GL) might return:
-     * { { 4096,  ACCOUNTED | PRIVATE | SYSTEM },
+     * {&nbsp;{ 4096,  ACCOUNTED | PRIVATE | SYSTEM },
      *   { 40960, UNACCOUNTED | PRIVATE | SYSTEM },
      *   { 8192,  ACCOUNTED | PRIVATE | DEDICATED },
-     *   { 8192,  UNACCOUNTED | PRIVATE | DEDICATED } }
+     *   { 8192,  UNACCOUNTED | PRIVATE | DEDICATED }&nbsp;}
      * If the HAL cannot differentiate between SYSTEM and DEDICATED memory, it
      * could return:
-     * { { 12288,  ACCOUNTED | PRIVATE },
-     *   { 49152,  UNACCOUNTED | PRIVATE } }
+     * {&nbsp;{ 12288,  ACCOUNTED | PRIVATE },
+     *   { 49152,  UNACCOUNTED | PRIVATE }&nbsp;}
      *
      * Memory must not overlap between types. For example, a graphics buffer
      * that has been mapped into the GPU as a surface must show up when

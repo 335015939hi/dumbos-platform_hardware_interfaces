@@ -46,7 +46,7 @@ interface ISupplicantNetwork {
    *         Possible status codes:
    *         |SupplicantStatusCode.SUCCESS|,
    *         |SupplicantStatusCode.FAILURE_NETWORK_INVALID|
-   * @return Name of the network interface, e.g., wlan0
+   * @return name of the network interface, e.g., wlan0
    */
   getInterfaceName() generates (SupplicantStatus status, string name);
 

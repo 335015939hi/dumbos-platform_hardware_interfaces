@@ -34,7 +34,7 @@ interface IRadio extends @1.0::IRadio {
      * switch and everytime the framework receives a new certificate.
      *
      * @param serial Serial number of request.
-     * @param message ImsiEncryptionInfo as defined in types.hal.
+     * @param imsiEncryptionInfo message as defined in types.hal.
      *
      *
      * Response callback is
