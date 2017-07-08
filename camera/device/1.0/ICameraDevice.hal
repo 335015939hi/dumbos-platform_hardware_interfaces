@@ -179,7 +179,7 @@ interface ICameraDevice {
     open(ICameraDeviceCallback callback) generates (Status status);
 
 
-    /*****
+    /*
      * All methods below this point must only be called between a successful
      * open() call and a close() call.
      */
