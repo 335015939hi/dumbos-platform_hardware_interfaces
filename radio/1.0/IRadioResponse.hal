@@ -279,7 +279,7 @@ interface IRadioResponse {
 
     /**
      * @param info Response info struct containing response type, serial no. and error
-     * @param failCauseInfo Contains LastCallFailCause and vendor cause code.
+     * @param failCauseinfo Contains LastCallFailCause and vendor cause code.
      *
      *   The vendor cause code must be used for debugging purpose only.
      *   The implementation must return one of the values of LastCallFailCause
@@ -798,7 +798,7 @@ interface IRadioResponse {
 
     /**
      * @param info Response info struct containing response type, serial no. and error
-     * @param selection false for automatic selection, true for manual selection
+     * @param manual false for automatic selection, true for manual selection
      *
      * Valid errors returned:
      *   RadioError:NONE

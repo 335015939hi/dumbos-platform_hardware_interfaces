@@ -108,7 +108,7 @@ interface ISupplicant {
    *
    * @param level Debug logging level for the supplicant.
    *        (one of |DebugLevel| values).
-   * @param timestamp Determines whether to show timestamps in logs or
+   * @param showTimestamp Determines whether to show timestamps in logs or
    *        not.
    * @param showKeys Determines whether to show keys in debug logs or
    *        not.

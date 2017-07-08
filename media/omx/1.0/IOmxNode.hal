@@ -20,7 +20,7 @@ import IOmxBufferSource;
 
 import android.hardware.media@1.0::types;
 
-/**
+/*
  * Ref: frameworks/av/include/media/IOMX.h: IOMXNode
  * Ref: https://www.khronos.org/registry/omxil/specs/OpenMAX_IL_1_1_2_Specification.pdf
  */

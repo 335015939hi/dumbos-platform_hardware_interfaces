@@ -128,7 +128,7 @@ interface ISupplicantIface {
    * User-friendly description of device (up to |WPS_DEVICE_NAME_MAX_LEN|
    * octets encoded in UTF-8).
    *
-   * @parm name Name to be set.
+   * @param name Name to be set.
    * @return status Status of the operation.
    *         Possible status codes:
    *         |SupplicantStatusCode.SUCCESS|,
@@ -140,8 +140,8 @@ interface ISupplicantIface {
   /**
    * Set the device type for WPS operations.
    *
-   * @parm type Type of device. Refer to section B.1 of Wifi P2P
-   *       Technical specification v1.2.
+   * @param type Type of device. Refer to section B.1 of Wifi P2P
+   *        Technical specification v1.2.
    * @return status Status of the operation.
    *         Possible status codes:
    *         |SupplicantStatusCode.SUCCESS|,
@@ -155,7 +155,7 @@ interface ISupplicantIface {
    * The manufacturer of the device (up to |WPS_MANUFACTURER_MAX_LEN| ASCII
    * characters).
    *
-   * @parm manufacturer Manufacture to be set.
+   * @param manufacturer Manufacture to be set.
    * @return status Status of the operation.
    *         Possible status codes:
    *         |SupplicantStatusCode.SUCCESS|,
@@ -168,7 +168,7 @@ interface ISupplicantIface {
    * Set the model name for WPS operations.
    * Model of the device (up to |WPS_MODEL_NAME_MAX_LEN| ASCII characters).
    *
-   * @parm modelName Model name to be set.
+   * @param modelName Model name to be set.
    * @return status Status of the operation.
    *         Possible status codes:
    *         |SupplicantStatusCode.SUCCESS|,
@@ -182,7 +182,7 @@ interface ISupplicantIface {
    * Additional device description (up to |WPS_MODEL_NUMBER_MAX_LEN| ASCII
    * characters).
    *
-   * @parm modelNumber Model number to be set.
+   * @param modelNumber Model number to be set.
    * @return status Status of the operation.
    *         Possible status codes:
    *         |SupplicantStatusCode.SUCCESS|,
@@ -195,7 +195,7 @@ interface ISupplicantIface {
    * Set the serial number for WPS operations.
    * Serial number of the device (up to |WPS_SERIAL_NUMBER_MAX_LEN| characters)
    *
-   * @parm serialNumber Serial number to be set.
+   * @param serialNumber Serial number to be set.
    * @return status Status of the operation.
    *         Possible status codes:
    *         |SupplicantStatusCode.SUCCESS|,

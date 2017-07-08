@@ -16,7 +16,7 @@
 
 package android.hardware.media.omx@1.0;
 
-/**
+/*
  * Ref: frameworks/av/include/media/IOMX.h: IOMXObserver
  */
 
@@ -32,4 +32,3 @@ interface IOmxObserver {
      */
     oneway onMessages(vec<Message> messages);
 };
-

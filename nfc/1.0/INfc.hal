@@ -32,6 +32,8 @@ interface INfc {
      *
      * If open() returns NfcStatus::FAILED, the NCI stack will stop.
      *
+     * @param clientCallback
+     * @return status
      */
     @entry
     @callflow(next={"write", "coreInitialized", "prediscover", "powerCycle", "controlGranted"})
@@ -43,7 +45,8 @@ interface INfc {
      * This method may queue writes and return immediately. The only
      * requirement is that the writes are executed in order.
      *
-     * @return number of bytes written to the NFCC
+     * @param data
+     * @return retval number of bytes written to the NFCC
      */
     @callflow(next={"write", "prediscover", "coreInitialized", "close", "powerCycle",
                     "controlGranted"})
@@ -58,6 +61,9 @@ interface INfc {
      *
      * If coreInitialized() returns NfcStatus::FAILED, the NCI stack will
      * continue immediately.
+     *
+     * @param data
+     * @return status
      */
     @callflow(next={"write", "prediscover", "close"})
     coreInitialized(NfcData data) generates (NfcStatus status);
@@ -72,6 +78,7 @@ interface INfc {
      *
      * If prediscover() returns NfcStatus::FAILED, the NCI stack will start
      * RF discovery immediately.
+     * @return status
      */
     @callflow(next={"write", "close", "coreInitialized", "powerCycle", "controlGranted"})
     prediscover() generates (NfcStatus status);
@@ -79,7 +86,7 @@ interface INfc {
     /**
      * Close the NFC controller. Should free all resources.
      *
-     * @return NfcStatus::OK on success and NfcStatus::FAILED on error.
+     * @return status NfcStatus::OK on success and NfcStatus::FAILED on error.
      */
     @exit
     close() generates (NfcStatus status);
@@ -90,7 +97,7 @@ interface INfc {
      * Must only be called when there are no NCI commands pending.
      * NfcEvent.RELEASE_CONTROL will notify when HAL no longer needs exclusive control.
      *
-     * @return NfcStatus::OK on success and NfcStatus::FAILED on error.
+     * @return status NfcStatus::OK on success and NfcStatus::FAILED on error.
      */
     @callflow(next={"write", "close", "prediscover", "coreInitialized", "powerCycle"})
     controlGranted() generates (NfcStatus status);
@@ -99,7 +106,7 @@ interface INfc {
      * Restart controller by power cyle;
      * NfcEvent.OPEN_CPLT will notify when operation is complete.
      *
-     * @return NfcStatus::OK on success and NfcStatus::FAILED on error.
+     * @return status NfcStatus::OK on success and NfcStatus::FAILED on error.
      */
     @callflow(next={"write", "coreInitialized", "prediscover", "controlGranted", "close"})
     powerCycle() generates (NfcStatus status);

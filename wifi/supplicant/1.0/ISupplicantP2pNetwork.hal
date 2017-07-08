@@ -43,9 +43,10 @@ interface ISupplicantP2pNetwork extends ISupplicantNetwork {
   registerCallback(ISupplicantP2pNetworkCallback callback)
       generates (SupplicantStatus status);
 
-  /**
+  /*
    * Getters for the various network params.
    */
+
   /**
    * Get SSID for this network.
    *

@@ -33,7 +33,7 @@ interface IWifiStaIfaceEventCallback {
    * @param cmdId command ID corresponding to the request.
    * @param bucketsScanned Bitset where each bit indicates if the bucket with
    *        that index (starting at 0) was scanned.
-   * @parm result Full scan result for an AP.
+   * @param result Full scan result for an AP.
    */
   oneway onBackgroundFullScanResult(
       CommandId cmdId, uint32_t bucketsScanned, StaScanResult result);
@@ -45,7 +45,7 @@ interface IWifiStaIfaceEventCallback {
    * breached.
    *
    * @param cmdId command ID corresponding to the request.
-   * @parm scanDatas List of scan result for all AP's seen since last callback.
+   * @param scanDatas List of scan result for all AP's seen since last callback.
    */
   oneway onBackgroundScanResults(CommandId cmdId, vec<StaScanData> scanDatas);
 

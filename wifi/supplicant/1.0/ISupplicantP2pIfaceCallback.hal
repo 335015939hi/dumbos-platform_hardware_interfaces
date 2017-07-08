@@ -96,7 +96,7 @@ interface ISupplicantP2pIfaceCallback {
    *        device.
    * @param deviceCapabilities Refer to section 4.1.4 of Wifi P2P Technical
    *        specification v1.2.
-   * @param groupCapabilites Refer to section 4.1.4 of Wifi P2P Technical
+   * @param groupCapabilities Refer to section 4.1.4 of Wifi P2P Technical
    *        specification v1.2.
    * @param wfdDeviceInfo WFD device info as described in section 5.1.2 of WFD
    *        technical specification v1.0.0.
@@ -151,7 +151,7 @@ interface ISupplicantP2pIfaceCallback {
   /**
    * Used to indicate the start of a P2P group.
    *
-   * @param groupIfName Interface name of the group. (For ex: p2p-p2p0-1)
+   * @param groupIfname Interface name of the group. (For ex: p2p-p2p0-1)
    * @param isGo Whether this device is owner of the group.
    * @param ssid SSID of the group.
    * @param frequency Frequency on which this group is created.
@@ -168,7 +168,7 @@ interface ISupplicantP2pIfaceCallback {
   /**
    * Used to indicate the removal of a P2P group.
    *
-   * @param groupIfName Interface name of the group. (For ex: p2p-p2p0-1)
+   * @param groupIfname Interface name of the group. (For ex: p2p-p2p0-1)
    * @param isGo Whether this device is owner of the group.
    */
   oneway onGroupRemoved(string groupIfname, bool isGo);
@@ -178,7 +178,7 @@ interface ISupplicantP2pIfaceCallback {
    *
    * @param srcAddress MAC address of the device that sent the invitation.
    * @param goDeviceAddress MAC Address of the owner of this group.
-   * @param Bssid Bssid of the group.
+   * @param bssid Bssid of the group.
    * @param persistentNetworkId Persistent network Id of the group.
    * @param operatingFrequency Frequency on which the invitation was received.
    */
@@ -189,7 +189,7 @@ interface ISupplicantP2pIfaceCallback {
   /**
    * Used to indicate the result of the P2P invitation request.
    *
-   * @param Bssid Bssid of the group.
+   * @param bssid Bssid of the group.
    * @param status Status of the invitation.
    */
   oneway onInvitationResult(Bssid bssid, P2pStatusCode status);
@@ -213,7 +213,7 @@ interface ISupplicantP2pIfaceCallback {
    * @param srcAddress MAC address of the device that sent the service discovery.
    * @param updateIndicator Service update indicator. Refer to section 3.1.3 of
    *        Wifi P2P Technical specification v1.2.
-   * @parm tlvs Refer to section 3.1.3.1 of Wifi P2P Technical specification v1.2.
+   * @param tlvs Refer to section 3.1.3.1 of Wifi P2P Technical specification v1.2
    */
   oneway onServiceDiscoveryResponse(
       MacAddress srcAddress, uint16_t updateIndicator, vec<uint8_t> tlvs);

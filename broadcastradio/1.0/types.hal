@@ -58,7 +58,8 @@ enum Rds : uint32_t {
 };
 
 
-/* FM deemphasis variant implemented.
+/**
+ * FM deemphasis variant implemented.
  * A struct FmBandConfig can list one or more. */
 enum Deemphasis : uint32_t {
     D50   = (1<<0),
@@ -136,7 +137,8 @@ struct Properties {
     uint32_t        numAudioSources;
     /** the hardware supports capture of audio source from audio HAL */
     bool            supportsCapture;
-    vec<BandConfig> bands; /** band descriptors */
+    /** band descriptors */
+    vec<BandConfig> bands;
 };
 
 enum MetadataType : int32_t {
@@ -202,16 +204,23 @@ struct MetaData {
 };
 
 
-/* Radio program information. Returned by the HAL with event RADIO_EVENT_TUNED.
+/**
+ * Radio program information. Returned by the HAL with event RADIO_EVENT_TUNED.
  * Contains information on currently tuned channel.
  */
 struct ProgramInfo {
-    uint32_t     channel;   /** current channel. (e.g kHz for band type AM_FM) */
-    uint32_t     subChannel; /** current sub channel. (FM_HD) */
-    bool         tuned;     /** tuned to a program or not */
-    bool         stereo;    /** program is stereo or not */
-    bool         digital;   /** digital program or not (e.g HD Radio program) */
-    uint32_t     signalStrength; /** signal strength from 0 to 100 */
-    vec<MetaData> metadata; /** non empty if meta data are present (e.g PTY, song title ...) */
+    /** current channel. (e.g kHz for band type AM_FM) */
+    uint32_t     channel;
+    /** current sub channel. (FM_HD) */
+    uint32_t     subChannel;
+    /** tuned to a program or not */
+    bool         tuned;
+    /** program is stereo or not */
+    bool         stereo;
+    /** digital program or not (e.g HD Radio program) */
+    bool         digital;
+    /** signal strength from 0 to 100 */
+    uint32_t     signalStrength;
+    /** non empty if meta data are present (e.g PTY, song title ...) */
+    vec<MetaData> metadata;
 };
-
