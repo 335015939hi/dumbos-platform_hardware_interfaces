@@ -19,7 +19,7 @@ package android.hardware.radio@1.2;
 import @1.1::ISap;
 
 interface ISap extends @1.1::ISap {
-    /**
+    /*
      * Empty top level interface.
      */
 };

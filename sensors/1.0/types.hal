@@ -16,7 +16,7 @@
 
 package android.hardware.sensors@1.0;
 
-/**
+/*
  * Please see the Sensors section of source.android.com for an
  * introduction to and detailed descriptions of Android sensor types:
  * http://source.android.com/devices/sensors/index.html
@@ -40,7 +40,7 @@ enum OperationMode : int32_t {
     DATA_INJECTION                  = 1,
 };
 
-/**
+/*
  * Sensor type
  *
  * Each sensor has a type which defines what this sensor measures and how
@@ -1069,7 +1069,7 @@ enum AdditionalInfoType : uint32_t {
      */
     AINFO_CHANNEL_RESAMPLER,
 
-    /**
+    /*
      * Operation environment parameters section
      * Types in the following section is sent down (instead of reported from)
      * device as additional information to aid sensor operation. Data is sent

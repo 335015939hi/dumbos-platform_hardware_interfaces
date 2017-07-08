@@ -39,14 +39,12 @@ interface ISoundTriggerHwCallback {
         SoundModelType    type;
         /** Handle of loaded sound model which triggered the event */
         SoundModelHandle  model;
-        /** It is possible to capture audio from this */
-        /** utterance buffered by the implementation */
+        /** It is possible to capture audio from this utterance buffered by the implementation */
         bool              captureAvailable;
         /** Audio session ID. framework use */
         int32_t           captureSession;
         /**
          * Delay in ms between end of model detection and start of audio
-        /**
          * available for capture. A negative value is possible
          * (e.g. if key phrase is also available for capture */
         int32_t           captureDelayMs;
