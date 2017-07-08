@@ -144,11 +144,12 @@ interface ISupplicantStaNetwork extends ISupplicantNetwork {
   registerCallback(ISupplicantStaNetworkCallback callback)
       generates (SupplicantStatus status);
 
-  /**
+  /*
    * Setters for the various network params.
    * These correspond to elements of |wpa_sssid| struct used internally by
    * the supplicant to represent each network.
    */
+
   /**
    * Set SSID for this network.
    *
@@ -312,7 +313,7 @@ interface ISupplicantStaNetwork extends ISupplicantNetwork {
   /**
    * Set default Tx key index for WEP network.
    *
-   * @param KeyIdx value to set.
+   * @param keyIdx value to set.
    *        Max of |ParamSizeLimits.WEP_KEYS_MAX_NUM|.
    * @return status Status of the operation.
    *         Possible status codes:
@@ -555,7 +556,7 @@ interface ISupplicantStaNetwork extends ISupplicantNetwork {
    * Set ID string for this network.
    * Network identifier string for external scripts.
    *
-   * @return idStr ID string value to set.
+   * @param idStr ID string value to set.
    * @return status Status of the operation.
    *         Possible status codes:
    *         |SupplicantStatusCode.SUCCESS|,
@@ -569,7 +570,7 @@ interface ISupplicantStaNetwork extends ISupplicantNetwork {
    * Set PPS MO ID for this network.
    * (Hotspot 2.0 PerProviderSubscription/UpdateIdentifier)
    *
-   * @return id ID value to set.
+   * @param id ID value to set.
    * @return status Status of the operation.
    *         Possible status codes:
    *         |SupplicantStatusCode.SUCCESS|,
@@ -579,9 +580,10 @@ interface ISupplicantStaNetwork extends ISupplicantNetwork {
    */
   setUpdateIdentifier(uint32_t id) generates (SupplicantStatus status);
 
-  /**
+  /*
    * Getters for the various network params.
    */
+
   /**
    * Get SSID for this network.
    *
@@ -698,7 +700,7 @@ interface ISupplicantStaNetwork extends ISupplicantNetwork {
    *         |SupplicantStatusCode.SUCCESS|,
    *         |SupplicantStatusCode.FAILURE_UNKNOWN|,
    *         |SupplicantStatusCode.FAILURE_NETWORK_INVALID|
-   * @param psk value set.
+   * @return psk value set.
    */
   getPsk() generates (SupplicantStatus status, uint8_t[32] psk);
 

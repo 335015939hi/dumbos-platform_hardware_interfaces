@@ -171,7 +171,7 @@ interface IWifiStaIface extends IWifiIface {
    * ==========================================================================
    *
    * @param cmdId command Id to use for this invocation.
-   * @param APF Program to be set.
+   * @param program APF Program to be set.
    * @return status WifiStatus of the operation.
    *         Possible status codes:
    *         |WifiStatusCode.SUCCESS|,
@@ -247,7 +247,7 @@ interface IWifiStaIface extends IWifiIface {
    * WIFI_SCAN_FLAG_INTERRUPTED flag set.
    *
    * @param cmdId command Id to use for this invocation.
-   * @params Background scan parameters.
+   * @param params StaBackgroundScanParameters Background scan parameters.
    * @return status WifiStatus of the operation.
    *         Possible status codes:
    *         |WifiStatusCode.ERROR_WIFI_IFACE_INVALID|,
@@ -466,6 +466,7 @@ interface IWifiStaIface extends IWifiIface {
    * An OUI {Organizationally Unique Identifier} is a 24-bit number that
    * uniquely identifies a vendor or manufacturer.
    *
+   * @param oui
    * @return status WifiStatus of the operation.
    *         Possible status codes:
    *         |WifiStatusCode.SUCCESS|,

@@ -106,6 +106,7 @@ interface IWifi {
    * Gets a HIDL interface object for the chip corresponding to the
    * provided chipId.
    *
+   * @param chipId
    * @return status WifiStatus of the operation.
    *         Possible status codes:
    *         |WifiStatusCode.SUCCESS|,

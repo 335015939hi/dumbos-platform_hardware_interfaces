@@ -32,7 +32,7 @@ interface IWeaver {
      *
      * The config is static i.e. every invocation returns the same information.
      *
-     * @return status is OK if the config was successfuly obtained.
+     * @return status is OK if the config was successfully obtained.
      * @return config data for this implementation of Weaver if status is OK,
      *         otherwise undefined.
      */

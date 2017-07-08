@@ -154,7 +154,7 @@ interface IContext {
      * for Allocations with USAGE_IO_INPUT.
      *
      * @param allocation Allocation to be modified
-     * @pram nativeWindow NativeWindow to associate with allocation
+     * @param nativewindow NativeWindow to associate with allocation
      */
     @callflow(next={"*"})
     allocationSetNativeWindow(Allocation allocation, NativeWindow nativewindow);
@@ -548,7 +548,7 @@ interface IContext {
      * @param lod Mipmap level of detail
      * @param face AllocationCubemapFace
      * @param z Z position
-     * @return pointer Pointer to the server-side data; if this points to an
+     * @return dataPtr Pointer to the server-side data; if this points to an
      *                 invalid location in memory (because the buffer was
      *                 freed), this may result in undefined behavior
      * @return stride For 1D Allocation, the stride must be the number of bytes
@@ -606,7 +606,7 @@ interface IContext {
      * Creates a complex Element.
      *
      * @param einsPtr Container of input Elements
-     * @param namesPtr Container of input names
+     * @param names Container of input names
      * @param arraySizesPtr Container of array sizes
      * @return element Created Element
      */
@@ -962,7 +962,7 @@ interface IContext {
      * is to force immediate cleanup of resources when it is believed the GC
      * may not respond quickly enough.
      *
-     * @param handle Opaque handle to the server-side object to be destroyed
+     * @param obj Opaque handle to the server-side object to be destroyed
      */
     @callflow(next={"*"})
     objDestroy(ObjectBase obj);

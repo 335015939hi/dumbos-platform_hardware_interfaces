@@ -143,9 +143,9 @@ interface IWifiRttController {
    * Enable RTT responder mode.
    *
    * @param cmdId command Id to use for this invocation.
-   * @parm channelHint Hint of the channel information where RTT responder must
-   *       be enabled on.
-   * @param maxDurationInSeconds Timeout of responder mode.
+   * @param channelHint Hint of the channel information where RTT responder must
+   *        be enabled on.
+   * @param maxDurationSeconds Timeout of responder mode.
    * @param info Instance of |RttResponderInfo|.
    * @return status WifiStatus of the operation.
    *         Possible status codes:
