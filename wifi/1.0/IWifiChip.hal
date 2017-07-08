@@ -272,7 +272,7 @@ interface IWifiChip {
    *         |WifiStatusCode.ERROR_WIFI_CHIP_INVALID|,
    *         |WifiStatusCode.ERROR_NOT_AVAILABLE|,
    *         |WifiStatusCode.ERROR_UNKNOWN|
-   * @param blob Vector of bytes retrieved from the driver.
+   * @return blob Vector of bytes retrieved from the driver.
    */
   requestDriverDebugDump() generates (WifiStatus status, vec<uint8_t> blob);
 
@@ -285,7 +285,7 @@ interface IWifiChip {
    *         |WifiStatusCode.ERROR_WIFI_CHIP_INVALID|,
    *         |WifiStatusCode.ERROR_NOT_AVAILABLE|,
    *         |WifiStatusCode.ERROR_UNKNOWN|
-   * @param blob Vector of bytes retrieved from the driver.
+   * @return blob Vector of bytes retrieved from the driver.
    */
   requestFirmwareDebugDump() generates (WifiStatus status, vec<uint8_t> blob);
 
@@ -544,11 +544,12 @@ interface IWifiChip {
    *         Possible status codes:
    *         |WifiStatusCode.SUCCESS|,
    *         |WifiStatusCode.ERROR_WIFI_CHIP_INVALID|
+   * @return rtt
    */
   createRttController(IWifiIface boundIface)
       generates (WifiStatus status, IWifiRttController rtt);
 
-  /**
+  /*
    * WiFi debug ring buffer life cycle is as follow:
    * - At initialization time, framework must call |getDebugRingBuffersStatus|.
    *   to obtain the names and list of supported ring buffers.
@@ -570,6 +571,7 @@ interface IWifiChip {
    * TODO: Since we're not longer dumping out the raw data, storing in separate
    * pcapng files for parsing later must not work anymore.
    */
+
   /**
    * API to get the status of all ring buffers supported by driver.
    *
@@ -592,10 +594,11 @@ interface IWifiChip {
    * @param ringName represent the name of the ring for which data collection
    *        shall start. This can be retrieved via the corresponding
    *        |WifiDebugRingBufferStatus|.
-   * @parm maxIntervalInSec Maximum interval in seconds for driver to invoke
-   *       |onDebugRingBufferData|, ignore if zero.
-   * @parm minDataSizeInBytes: Minimum data size in buffer for driver to invoke
-   *       |onDebugRingBufferData|, ignore if zero.
+   * @param verboseLevel
+   * @param maxIntervalInSec Maximum interval in seconds for driver to invoke
+   *        |onDebugRingBufferData|, ignore if zero.
+   * @param minDataSizeInBytes: Minimum data size in buffer for driver to invoke
+   *        |onDebugRingBufferData|, ignore if zero.
    * @return status WifiStatus of the operation.
    *         Possible status codes:
    *         |WifiStatusCode.SUCCESS|,

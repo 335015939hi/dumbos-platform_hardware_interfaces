@@ -48,7 +48,8 @@ interface IBenchmarkMsgQ {
     /**
      * This method request the service to read from the FMQ.
      * @param count Number to messages to read.
-     * @ret Will be true if the read operation was successful, false otherwise.
+     * @return ret Will be true if the read operation was successful, false
+     * otherwise.
      */
     requestRead(int32_t count) generates (bool ret);
 

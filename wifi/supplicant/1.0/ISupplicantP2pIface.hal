@@ -185,7 +185,7 @@ interface ISupplicantP2pIface extends ISupplicantIface {
    * and establishing data connection.
    *
    * @param peerAddress MAC address of the device to connect to.
-   * @method provisionMethod Provisioning method to use.
+   * @param provisionMethod Provisioning method to use.
    * @param preSelectedPin Pin to be used, if |provisionMethod| uses one of the
    *        preselected |PIN*| methods.
    * @param joinExistingGroup Indicates that this is a command to join an
@@ -237,7 +237,7 @@ interface ISupplicantP2pIface extends ISupplicantIface {
    * desired configuration method.
    *
    * @param peerAddress MAC address of the device to send discovery.
-   * @method provisionMethod Provisioning method to use.
+   * @param provisionMethod Provisioning method to use.
    * @return status Status of the operation.
    *         Possible status codes:
    *         |SupplicantStatusCode.SUCCESS|,
@@ -410,7 +410,7 @@ interface ISupplicantP2pIface extends ISupplicantIface {
    *         |SupplicantStatusCode.SUCCESS|,
    *         |SupplicantStatusCode.FAILURE_UNKNOWN|,
    *         |SupplicantStatusCode.FAILURE_IFACE_INVALID|
-   * @return capabilityMask Combination of |P2pGroupCapabilityMask| values.
+   * @return capabilities Mask combination of |P2pGroupCapabilityMask| values.
    */
   getGroupCapability(MacAddress peerAddress)
       generates (SupplicantStatus status,
@@ -420,7 +420,7 @@ interface ISupplicantP2pIface extends ISupplicantIface {
    * This command can be used to add a bonjour service.
    *
    * @param query Hex dump of the query data.
-   * @param return Hex dump of the response data.
+   * @param response Hex dump of the response data.
    * @return status Status of the operation.
    *         Possible status codes:
    *         |SupplicantStatusCode.SUCCESS|,
@@ -447,7 +447,7 @@ interface ISupplicantP2pIface extends ISupplicantIface {
    * This command can be used to add a UPNP service.
    *
    * @param version Version to be used.
-   * @package serviceName Service name to be used.
+   * @param serviceName Service name to be used.
    * @return status Status of the operation.
    *         Possible status codes:
    *         |SupplicantStatusCode.SUCCESS|,
@@ -461,7 +461,7 @@ interface ISupplicantP2pIface extends ISupplicantIface {
    * This command can be used to remove a UPNP service.
    *
    * @param version Version to be used.
-   * @package serviceName Service name to be used.
+   * @param serviceName Service name to be used.
    * @return status Status of the operation.
    *         Possible status codes:
    *         |SupplicantStatusCode.SUCCESS|,
@@ -506,7 +506,7 @@ interface ISupplicantP2pIface extends ISupplicantIface {
   /**
    * Cancel a previous service discovery request.
    *
-   * @return identifier Identifier for the request to cancel.
+   * @param identifier Identifier for the request to cancel.
    * @return status Status of the operation.
    *         Possible status codes:
    *         |SupplicantStatusCode.SUCCESS|,

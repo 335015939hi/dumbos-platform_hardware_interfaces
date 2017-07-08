@@ -240,10 +240,11 @@ enum WifiBand : uint32_t {
   BAND_24GHZ_5GHZ_WITH_DFS = 7
 };
 
-/**
+/*
  * STA specific types.
  * TODO(b/32159498): Move to a separate sta_types.hal.
  */
+
 /**
  * Parameters to specify the APF capabilities of this iface.
  */
@@ -577,7 +578,7 @@ enum StaRoamingState : uint8_t {
   ENABLED = 1
 };
 
-/**
+/*
  * NAN specific types.
  * TODO(b/32159498): Move to a separate nan_types.hal.
  *
@@ -1618,10 +1619,11 @@ struct NanDataPathConfirmInd {
   WifiNanStatus status;
 };
 
-/**
+/*
  * RTT specific types.
  * TODO(b/32159498): Move to a separate rtt_types.hal.
  */
+
 /**
  * Ranging status.
  */

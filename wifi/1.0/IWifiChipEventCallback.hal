@@ -71,11 +71,11 @@ interface IWifiChipEventCallback {
    *   will start sending all available data in the indicated ring by repeatedly
    *   invoking this callback.
    *
-   * @return status Status of the corresponding ring buffer. This should
-   *         contain the name of the ring buffer on which the data is
-   *         available.
-   * @return data Raw bytes of data sent by the driver. Must be dumped
-   *         out to a bugreport and post processed.
+   * @param status Status of the corresponding ring buffer. This should
+   *        contain the name of the ring buffer on which the data is
+   *        available.
+   * @param data Raw bytes of data sent by the driver. Must be dumped
+   *        out to a bugreport and post processed.
    */
   oneway onDebugRingBufferDataAvailable(
       WifiDebugRingBufferStatus status, vec<uint8_t> data);
