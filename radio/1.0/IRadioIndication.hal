@@ -407,10 +407,11 @@ interface IRadioIndication {
    oneway radioCapabilityIndication(RadioIndicationType type, RadioCapability rc);
 
    /**
-    * Indicates when Supplementary service(SS) response is received when DIAL/USSD/SS is changed to
-    * SS by call control.
+    * Indicates when Supplementary service(SS) response is received when
+    * DIAL/USSD/SS is changed to SS by call control.
     *
     * @param type Type of radio indication
+    * @param ss
     */
    oneway onSupplementaryServiceIndication(RadioIndicationType type, StkCcUnsolSsResult ss);
 
