@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "74b6ed73_87931451",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-07-10T17:51:03Z",
+      "side": 1,
+      "message": "oh wait, I guess this tool is just checking. It didn\u0027t actually generate this change",
+      "revId": "7b04fae6707105eecf3d1ec08957a1166d7f43aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d087f2ee_307b6e66",
         "filename": "wifi/1.0/IWifiStaIfaceEventCallback.hal",
         "patchSetId": 1
