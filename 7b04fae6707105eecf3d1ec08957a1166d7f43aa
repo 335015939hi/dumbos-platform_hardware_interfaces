@@ -19,6 +19,29 @@
     },
     {
       "key": {
+        "uuid": "8dff3cd2_27acb725",
+        "filename": "boot/1.0/IBootControl.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-07-10T21:17:35Z",
+      "side": 1,
+      "message": "talked offline.\n\nPlan is:\n- get hidl-doc checked into android source tree with everything as warnings\n- run hidl-doc when compiling all hidl files\n- change it to error for most of these things (like @parm when there\u0027s no corresponding parameter), but not for things like \"missing @return numSlots\".",
+      "range": {
+        "startLine": 38,
+        "startChar": 13,
+        "endLine": 38,
+        "endChar": 21
+      },
+      "revId": "7b04fae6707105eecf3d1ec08957a1166d7f43aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d087f2ee_307b6e66",
         "filename": "wifi/1.0/IWifiStaIfaceEventCallback.hal",
         "patchSetId": 1
