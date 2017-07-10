@@ -33,6 +33,24 @@
       "revId": "7b04fae6707105eecf3d1ec08957a1166d7f43aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "730a2f48_9198aa25",
+        "filename": "wifi/supplicant/1.0/ISupplicantIface.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1125758
+      },
+      "writtenOn": "2017-07-10T17:23:17Z",
+      "side": 1,
+      "message": "Thanks. I\u0027ll fix em while we\u0027re looking. Feel free to note anything you see in the comments",
+      "parentUuid": "1fa971e8_c4bb889f",
+      "revId": "7b04fae6707105eecf3d1ec08957a1166d7f43aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
