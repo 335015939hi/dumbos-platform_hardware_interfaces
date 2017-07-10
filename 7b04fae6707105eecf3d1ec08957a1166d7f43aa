@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d087f2ee_307b6e66",
+        "filename": "wifi/1.0/IWifiStaIfaceEventCallback.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1014088
+      },
+      "writtenOn": "2017-07-10T17:18:26Z",
+      "side": 1,
+      "message": "APs",
+      "revId": "7b04fae6707105eecf3d1ec08957a1166d7f43aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fa971e8_c4bb889f",
+        "filename": "wifi/supplicant/1.0/ISupplicantIface.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1014088
+      },
+      "writtenOn": "2017-07-10T17:18:26Z",
+      "side": 1,
+      "message": "Manufacturer, I realize these are not your typos, I\u0027m just pointing out where the original author made them :)",
+      "revId": "7b04fae6707105eecf3d1ec08957a1166d7f43aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
