@@ -1111,7 +1111,8 @@ enum ApnTypes : int32_t {
     EMERGENCY = 1 << 9,                   // APN type for Emergency PDN. This is not an IA apn,
                                           // but is used for access to carrier services in an
                                           // emergency call situation.
-    ALL = DEFAULT | MMS | SUPL | DUN | HIPRI | FOTA | IMS | CBS | IA | EMERGENCY,
+    XCAP = 1 << 10,                       // APN type for XCAP
+    ALL = DEFAULT | MMS | SUPL | DUN | HIPRI | FOTA | IMS | CBS | IA | EMERGENCY | XCAP,
 };
 
 enum IndicationFilter : int32_t {
