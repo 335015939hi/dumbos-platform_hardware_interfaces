@@ -95,6 +95,8 @@ $(GEN): PRIVATE_CUSTOM_TOOL = \
 $(GEN): $(LOCAL_PATH)/IQuux.hal
 	$(transform-generated-source)
 LOCAL_GENERATED_SOURCES += $(GEN)
+LOCAL_NO_STANDARD_LIBRARIES := true
+LOCAL_JAVA_LIBRARIES += core-oj hwbinder
 include $(BUILD_JAVA_LIBRARY)
 
 
@@ -191,6 +193,8 @@ $(GEN): PRIVATE_CUSTOM_TOOL = \
 $(GEN): $(LOCAL_PATH)/IQuux.hal
 	$(transform-generated-source)
 LOCAL_GENERATED_SOURCES += $(GEN)
+LOCAL_NO_STANDARD_LIBRARIES := true
+LOCAL_JAVA_LIBRARIES := core-oj hwbinder
 include $(BUILD_STATIC_JAVA_LIBRARY)
 
 
