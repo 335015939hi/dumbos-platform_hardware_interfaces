@@ -17,6 +17,7 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := VtsHalWifiSupplicantV1_0TargetTest
+LOCAL_VENDOR_MODULE := true
 LOCAL_CPPFLAGS := -Wall -Werror -Wextra
 LOCAL_SRC_FILES := \
     VtsHalWifiSupplicantV1_0TargetTest.cpp \
