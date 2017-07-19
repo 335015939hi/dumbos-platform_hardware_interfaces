@@ -1,0 +1,517 @@
+/*
+ * Copyright (C) 2017 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+#define LOG_TAG "VtsOffloadControlV1_0TargetTest"
+
+#include <VtsHalHidlTargetCallbackBase.h>
+#include <VtsHalHidlTargetTestBase.h>
+#include <android-base/unique_fd.h>
+#include <android/hardware/tetheroffload/config/1.0/IOffloadConfig.h>
+#include <android/hardware/tetheroffload/control/1.0/IOffloadControl.h>
+#include <android/hardware/tetheroffload/control/1.0/types.h>
+#include <linux/netfilter/nfnetlink.h>
+#include <linux/netlink.h>
+#include <log/log.h>
+#include <sys/socket.h>
+#include <unistd.h>
+#include <set>
+
+using android::hardware::hidl_handle;
+using android::hardware::hidl_string;
+using android::hardware::hidl_vec;
+using android::hardware::Return;
+using android::hardware::tetheroffload::config::V1_0::IOffloadConfig;
+using android::hardware::tetheroffload::control::V1_0::IOffloadControl;
+using android::hardware::tetheroffload::control::V1_0::IPv4AddrPortPair;
+using android::hardware::tetheroffload::control::V1_0::ITetheringOffloadCallback;
+using android::hardware::tetheroffload::control::V1_0::OffloadCallbackEvent;
+using android::hardware::tetheroffload::control::V1_0::NatTimeoutUpdate;
+using android::hardware::tetheroffload::control::V1_0::NetworkProtocol;
+using android::hardware::Void;
+using android::sp;
+
+// We use #defines here so as to get local lamba captures and error message line numbers
+#define CALLBACK_ASSERTS_TRUE                           \
+    [&](bool success, std::string errMsg) {             \
+        if (!success) {                                 \
+            ALOGI("Error message: %s", errMsg.c_str()); \
+        }                                               \
+        ASSERT_TRUE(success);                           \
+    }
+
+#define CALLBACK_ASSERTS_FALSE                          \
+    [&](bool success, std::string errMsg) {             \
+        if (!success) {                                 \
+            ALOGI("Error message: %s", errMsg.c_str()); \
+        }                                               \
+        ASSERT_FALSE(success);                          \
+    }
+
+#define CALLBACK_ASSERTS_ZERO_BYTES           \
+    [&](uint64_t rxBytes, uint64_t txBytes) { \
+        EXPECT_EQ(0ULL, rxBytes);             \
+        EXPECT_EQ(0ULL, txBytes);             \
+    }
+
+inline const sockaddr* asSockaddr(const sockaddr_nl* nladdr) {
+    return reinterpret_cast<const sockaddr*>(nladdr);
+}
+
+int conntrackSocket(unsigned groups) {
+    android::base::unique_fd s(socket(AF_NETLINK, SOCK_DGRAM, NETLINK_NETFILTER));
+    if (s.get() < 0) {
+        return -errno;
+    }
+
+    const struct sockaddr_nl bind_addr = {
+        .nl_family = AF_NETLINK, .nl_pad = 0, .nl_pid = 0, .nl_groups = groups,
+    };
+    if (::bind(s.get(), asSockaddr(&bind_addr), sizeof(bind_addr)) < 0) {
+        return -errno;
+    }
+
+    const struct sockaddr_nl kernel_addr = {
+        .nl_family = AF_NETLINK, .nl_pad = 0, .nl_pid = 0, .nl_groups = groups,
+    };
+    if (connect(s.get(), asSockaddr(&kernel_addr), sizeof(kernel_addr)) != 0) {
+        return -errno;
+    }
+
+    return s.release();
+}
+
+constexpr char kCallbackOnEvent[] = "onEvent";
+constexpr char kCallbackUpdateTimeout[] = "updateTimeout";
+
+class TetheringOffloadCallbackArgs {
+   public:
+    OffloadCallbackEvent last_event;
+    NatTimeoutUpdate last_params;
+};
+
+class OffloadControlHidlTestBase : public testing::VtsHalHidlTargetTestBase {
+   public:
+    virtual void SetUp() override {
+        setupConfigHal();
+        prepareControlHal();
+    }
+
+    virtual void TearDown() override { stopOffload(false); }
+
+    // The IOffloadConfig HAL is tested more thoroughly elsewhere. He we just
+    // setup everything correctly and verify basic readiness.
+    void setupConfigHal() {
+        config = testing::VtsHalHidlTargetTestBase::getService<IOffloadConfig>();
+        ASSERT_NE(nullptr, config.get()) << "Could not get HIDL instance";
+
+        const android::base::unique_fd
+            fd1(conntrackSocket(NFNLGRP_CONNTRACK_NEW | NFNLGRP_CONNTRACK_DESTROY)),
+            fd2(conntrackSocket(NFNLGRP_CONNTRACK_UPDATE | NFNLGRP_CONNTRACK_DESTROY));
+
+        native_handle_t* const nativeHandle1 = native_handle_create(1, 0);
+        nativeHandle1->data[0] = fd1;
+        hidl_handle h1 = hidl_handle(nativeHandle1);
+
+        native_handle_t* const nativeHandle2 = native_handle_create(1, 0);
+        nativeHandle2->data[0] = fd2;
+        hidl_handle h2 = hidl_handle(nativeHandle2);
+
+        const Return<void> ret = config->setHandles(h1, h2, CALLBACK_ASSERTS_TRUE);
+        ASSERT_TRUE(ret.isOk());
+    }
+
+    void prepareControlHal() {
+        control = testing::VtsHalHidlTargetTestBase::getService<IOffloadControl>();
+        ASSERT_NE(nullptr, control.get()) << "Could not get HIDL instance";
+
+        control_cb = new TetheringOffloadCallback();
+        ASSERT_NE(nullptr, control_cb.get()) << "Could not get get offload callback";
+    }
+
+    void initOffload(const bool expected_result) {
+        auto init_cb = [&](bool success, std::string errMsg) {
+            if (!success) {
+                ALOGI("Error message: %s", errMsg.c_str());
+            }
+            ASSERT_EQ(expected_result, success);
+        };
+        const Return<void> ret = control->initOffload(control_cb, init_cb);
+        ASSERT_TRUE(ret.isOk());
+    }
+
+    void setupControlHal() {
+        prepareControlHal();
+        initOffload(true);
+    }
+
+    void stopOffload(const bool expected_result) {
+        auto cb = [&](bool success, const hidl_string& errMsg) {
+            if (!success) {
+                ALOGI("Error message: %s", errMsg.c_str());
+            }
+            ASSERT_EQ(expected_result, success);
+        };
+        const Return<void> ret = control->stopOffload(cb);
+        ASSERT_TRUE(ret.isOk());
+    }
+
+    // Callback class for both events and NAT timeout updates.
+    class TetheringOffloadCallback
+        : public testing::VtsHalHidlTargetCallbackBase<TetheringOffloadCallbackArgs>,
+          public ITetheringOffloadCallback {
+       public:
+        TetheringOffloadCallback() = default;
+        virtual ~TetheringOffloadCallback() = default;
+
+        Return<void> onEvent(OffloadCallbackEvent event) override {
+            const TetheringOffloadCallbackArgs args{.last_event = event};
+            NotifyFromCallback(kCallbackOnEvent, args);
+            return Void();
+        };
+
+        Return<void> updateTimeout(const NatTimeoutUpdate& params) override {
+            const TetheringOffloadCallbackArgs args{.last_params = params};
+            NotifyFromCallback(kCallbackUpdateTimeout, args);
+            return Void();
+        };
+    };
+
+    sp<IOffloadConfig> config;
+    sp<IOffloadControl> control;
+    sp<TetheringOffloadCallback> control_cb;
+};
+
+// Call initOffload() multiple times. Check that non-first initOffload() calls return false.
+TEST_F(OffloadControlHidlTestBase, AdditionalInitsWithoutStopReturnFalse) {
+    initOffload(true);
+    initOffload(false);
+    initOffload(false);
+    initOffload(false);
+    stopOffload(true);  // balance out initOffload(true)
+}
+
+TEST_F(OffloadControlHidlTestBase, MultipleStopsWithoutInitReturnFalse) {
+    stopOffload(false);
+    stopOffload(false);
+    stopOffload(false);
+}
+
+TEST_F(OffloadControlHidlTestBase, AdditionalStopsWithInitReturnFalse) {
+    initOffload(true);
+    stopOffload(true);  // balance out initOffload(true)
+    stopOffload(false);
+    stopOffload(false);
+}
+
+TEST_F(OffloadControlHidlTestBase, SetLocalPrefixesWithoutInitReturnsFalse) {
+    const vector<hidl_string> prefixes{hidl_string("2001:db8::/64")};
+    const Return<void> ret = control->setLocalPrefixes(prefixes, CALLBACK_ASSERTS_FALSE);
+    EXPECT_TRUE(ret.isOk());
+}
+
+TEST_F(OffloadControlHidlTestBase, GetForwardedStatsWithoutInitReturnsZeroValues) {
+    const hidl_string upstream("dummy0");
+    const Return<void> ret = control->getForwardedStats(upstream, CALLBACK_ASSERTS_ZERO_BYTES);
+    EXPECT_TRUE(ret.isOk());
+}
+
+TEST_F(OffloadControlHidlTestBase, SetDataLimitWithoutInitReturnsFalse) {
+    const hidl_string upstream("dummy0");
+    const uint64_t limit = 5000ULL;
+    const Return<void> ret = control->setDataLimit(upstream, limit, CALLBACK_ASSERTS_FALSE);
+    EXPECT_TRUE(ret.isOk());
+}
+
+TEST_F(OffloadControlHidlTestBase, SetUpstreamParametersWithoutInitReturnsFalse) {
+    const hidl_string iface("dummy0");
+    const hidl_string v4Addr("192.0.2.0/24");
+    const hidl_string v4Gw("192.0.2.1");
+    const vector<hidl_string> v6Gws{hidl_string("fe80::db8:1")};
+    const Return<void> ret =
+        control->setUpstreamParameters(iface, v4Addr, v4Gw, v6Gws, CALLBACK_ASSERTS_FALSE);
+    EXPECT_TRUE(ret.isOk());
+}
+
+TEST_F(OffloadControlHidlTestBase, AddIPv4DownstreamWithoutInitReturnsFalse) {
+    const hidl_string iface("dummy0");
+    const hidl_string prefix("192.0.2.0/24");
+    const Return<void> ret = control->addDownstream(iface, prefix, CALLBACK_ASSERTS_FALSE);
+    EXPECT_TRUE(ret.isOk());
+}
+
+TEST_F(OffloadControlHidlTestBase, AddIPv6DownstreamWithoutInitReturnsFalse) {
+    const hidl_string iface("dummy0");
+    const hidl_string prefix("2001:db8::/64");
+    const Return<void> ret = control->addDownstream(iface, prefix, CALLBACK_ASSERTS_FALSE);
+    EXPECT_TRUE(ret.isOk());
+}
+
+TEST_F(OffloadControlHidlTestBase, RemoveIPv4DownstreamWithoutInitReturnsFalse) {
+    const hidl_string iface("dummy0");
+    const hidl_string prefix("192.0.2.0/24");
+    const Return<void> ret = control->removeDownstream(iface, prefix, CALLBACK_ASSERTS_FALSE);
+    EXPECT_TRUE(ret.isOk());
+}
+
+TEST_F(OffloadControlHidlTestBase, RemoveIPv6DownstreamWithoutInitReturnsFalse) {
+    const hidl_string iface("dummy0");
+    const hidl_string prefix("2001:db8::/64");
+    const Return<void> ret = control->removeDownstream(iface, prefix, CALLBACK_ASSERTS_FALSE);
+    EXPECT_TRUE(ret.isOk());
+}
+
+class OffloadControlHidlTest : public OffloadControlHidlTestBase {
+   public:
+    virtual void SetUp() override {
+        setupConfigHal();
+        setupControlHal();
+    }
+
+    virtual void TearDown() override { stopOffload(true); }
+};
+
+TEST_F(OffloadControlHidlTest, SetLocalPrefixesIPv4Address) {
+    const vector<hidl_string> prefixes{hidl_string("192.0.2.1")};
+    const Return<void> ret = control->setLocalPrefixes(prefixes, CALLBACK_ASSERTS_TRUE);
+    EXPECT_TRUE(ret.isOk());
+}
+
+TEST_F(OffloadControlHidlTest, SetLocalPrefixesIPv6Address) {
+    const vector<hidl_string> prefixes{hidl_string("fe80::1")};
+    const Return<void> ret = control->setLocalPrefixes(prefixes, CALLBACK_ASSERTS_TRUE);
+    EXPECT_TRUE(ret.isOk());
+}
+
+TEST_F(OffloadControlHidlTest, SetLocalPrefixesIPv4v6Prefixes) {
+    const vector<hidl_string> prefixes{hidl_string("192.0.2.0/24"), hidl_string("fe80::/64")};
+    const Return<void> ret = control->setLocalPrefixes(prefixes, CALLBACK_ASSERTS_TRUE);
+    EXPECT_TRUE(ret.isOk());
+}
+
+TEST_F(OffloadControlHidlTest, SetLocalPrefixesEmptyFails) {
+    const vector<hidl_string> prefixes{};
+    const Return<void> ret = control->setLocalPrefixes(prefixes, CALLBACK_ASSERTS_FALSE);
+    EXPECT_TRUE(ret.isOk());
+}
+
+TEST_F(OffloadControlHidlTest, SetLocalPrefixesInvalidFails) {
+    const vector<hidl_string> prefixes{hidl_string("192.0.2.0/24"), hidl_string("invalid")};
+    const Return<void> ret = control->setLocalPrefixes(prefixes, CALLBACK_ASSERTS_FALSE);
+    EXPECT_TRUE(ret.isOk());
+}
+
+TEST_F(OffloadControlHidlTest, GetForwardedStatsInvalidUpstreamIface) {
+    const hidl_string upstream("invalid");
+    const Return<void> ret = control->getForwardedStats(upstream, CALLBACK_ASSERTS_ZERO_BYTES);
+    EXPECT_TRUE(ret.isOk());
+}
+
+// The "dummy0" exists on the device (though in practice it can never be a suitable upstream).
+TEST_F(OffloadControlHidlTest, GetForwardedStatsDummyIface) {
+    const hidl_string upstream("dummy0");
+    const Return<void> ret = control->getForwardedStats(upstream, CALLBACK_ASSERTS_ZERO_BYTES);
+    EXPECT_TRUE(ret.isOk());
+}
+
+TEST_F(OffloadControlHidlTest, SetDataLimitEmptyUpstreamIfaceFails) {
+    const hidl_string upstream("");
+    const uint64_t limit = 5000ULL;
+    const Return<void> ret = control->setDataLimit(upstream, limit, CALLBACK_ASSERTS_FALSE);
+    EXPECT_TRUE(ret.isOk());
+}
+
+TEST_F(OffloadControlHidlTest, SetUpstreamParametersIPv6OnlyOk) {
+    const hidl_string iface("dummy0");
+    const hidl_string v4Addr("");
+    const hidl_string v4Gw("");
+    const vector<hidl_string> v6Gws{hidl_string("fe80::db8:1"), hidl_string("fe80::db8:2")};
+    const Return<void> ret =
+        control->setUpstreamParameters(iface, v4Addr, v4Gw, v6Gws, CALLBACK_ASSERTS_TRUE);
+    EXPECT_TRUE(ret.isOk());
+}
+
+TEST_F(OffloadControlHidlTest, SetUpstreamParametersAlternateIPv6OnlyOk) {
+    const hidl_string iface("dummy0");
+    const hidl_string v4Addr;
+    const hidl_string v4Gw;
+    const vector<hidl_string> v6Gws{hidl_string("fe80::db8:1"), hidl_string("fe80::db8:3")};
+    const Return<void> ret =
+        control->setUpstreamParameters(iface, v4Addr, v4Gw, v6Gws, CALLBACK_ASSERTS_TRUE);
+    EXPECT_TRUE(ret.isOk());
+}
+
+TEST_F(OffloadControlHidlTest, SetUpstreamParametersIPv4OnlyOk) {
+    const hidl_string iface("dummy0");
+    const hidl_string v4Addr("192.0.2.2");
+    const hidl_string v4Gw("192.0.2.1");
+    const vector<hidl_string> v6Gws{};
+    const Return<void> ret =
+        control->setUpstreamParameters(iface, v4Addr, v4Gw, v6Gws, CALLBACK_ASSERTS_TRUE);
+    EXPECT_TRUE(ret.isOk());
+}
+
+TEST_F(OffloadControlHidlTest, SetUpstreamParametersIPv4v6Ok) {
+    const hidl_string iface("dummy0");
+    const hidl_string v4Addr("192.0.2.2");
+    const hidl_string v4Gw("192.0.2.1");
+    const vector<hidl_string> v6Gws{hidl_string("fe80::db8:1")};
+    const Return<void> ret =
+        control->setUpstreamParameters(iface, v4Addr, v4Gw, v6Gws, CALLBACK_ASSERTS_TRUE);
+    EXPECT_TRUE(ret.isOk());
+}
+
+TEST_F(OffloadControlHidlTest, SetUpstreamParametersEmptyFails) {
+    const hidl_string iface("");
+    const hidl_string v4Addr("");
+    const hidl_string v4Gw("");
+    const vector<hidl_string> v6Gws{};
+    const Return<void> ret =
+        control->setUpstreamParameters(iface, v4Addr, v4Gw, v6Gws, CALLBACK_ASSERTS_FALSE);
+    EXPECT_TRUE(ret.isOk());
+}
+
+TEST_F(OffloadControlHidlTest, SetUpstreamParametersBogusIfaceFails) {
+    const hidl_string v4Addr("192.0.2.2");
+    const hidl_string v4Gw("192.0.2.1");
+    const vector<hidl_string> v6Gws{hidl_string("fe80::db8:1")};
+    for (const auto& bogus : {"", "invalid"}) {
+        const hidl_string iface(bogus);
+        const Return<void> ret =
+            control->setUpstreamParameters(iface, v4Addr, v4Gw, v6Gws, CALLBACK_ASSERTS_FALSE);
+        EXPECT_TRUE(ret.isOk());
+    }
+}
+
+TEST_F(OffloadControlHidlTest, SetUpstreamParametersInvalidIPv4AddrFails) {
+    const hidl_string iface("dummy0");
+    const hidl_string v4Gw("192.0.2.1");
+    const vector<hidl_string> v6Gws{hidl_string("fe80::db8:1")};
+    for (const auto& bogus : {"invalid", "192.0.2"}) {
+        const hidl_string v4Addr(bogus);
+        const Return<void> ret =
+            control->setUpstreamParameters(iface, v4Addr, v4Gw, v6Gws, CALLBACK_ASSERTS_FALSE);
+        EXPECT_TRUE(ret.isOk());
+    }
+}
+
+TEST_F(OffloadControlHidlTest, SetUpstreamParametersInvalidIPv4GatewayFails) {
+    const hidl_string iface("dummy0");
+    const hidl_string v4Addr("192.0.2.2");
+    const vector<hidl_string> v6Gws{hidl_string("fe80::db8:1")};
+    for (const auto& bogus : {"invalid", "192.0.2"}) {
+        const hidl_string v4Gw(bogus);
+        const Return<void> ret =
+            control->setUpstreamParameters(iface, v4Addr, v4Gw, v6Gws, CALLBACK_ASSERTS_FALSE);
+        EXPECT_TRUE(ret.isOk());
+    }
+}
+
+TEST_F(OffloadControlHidlTest, SetUpstreamParametersBadIPv6GatewaysFail) {
+    const hidl_string iface("dummy0");
+    const hidl_string v4Addr("192.0.2.2");
+    const hidl_string v4Gw("192.0.2.1");
+    for (const auto& bogus : {"", "invalid", "fe80::bogus", "192.0.2.66"}) {
+        const vector<hidl_string> v6Gws{hidl_string("fe80::1"), hidl_string(bogus)};
+        const Return<void> ret =
+            control->setUpstreamParameters(iface, v4Addr, v4Gw, v6Gws, CALLBACK_ASSERTS_FALSE);
+        EXPECT_TRUE(ret.isOk());
+    }
+}
+
+TEST_F(OffloadControlHidlTest, AddDownstreamIPv4) {
+    const hidl_string iface("dummy0");
+    const hidl_string prefix("192.0.2.0/24");
+    const Return<void> ret = control->addDownstream(iface, prefix, CALLBACK_ASSERTS_TRUE);
+    EXPECT_TRUE(ret.isOk());
+}
+
+TEST_F(OffloadControlHidlTest, AddDownstreamIPv6) {
+    const hidl_string iface("dummy0");
+    const hidl_string prefix("2001:db8::/64");
+    const Return<void> ret = control->addDownstream(iface, prefix, CALLBACK_ASSERTS_TRUE);
+    EXPECT_TRUE(ret.isOk());
+}
+
+TEST_F(OffloadControlHidlTest, AddDownstreamEmptyFails) {
+    const hidl_string iface("");
+    const hidl_string prefix("");
+    const Return<void> ret = control->addDownstream(iface, prefix, CALLBACK_ASSERTS_FALSE);
+    EXPECT_TRUE(ret.isOk());
+}
+
+TEST_F(OffloadControlHidlTest, AddDownstreamBogusPrefixFails) {
+    const hidl_string iface("dummy0");
+    for (const auto& bogus : {"", "192.0.2/24", "2001:db8/64"}) {
+        const hidl_string prefix(bogus);
+        const Return<void> ret = control->addDownstream(iface, prefix, CALLBACK_ASSERTS_FALSE);
+        EXPECT_TRUE(ret.isOk());
+    }
+}
+
+TEST_F(OffloadControlHidlTest, AddDownstreamInvalidIfaceFails) {
+    const hidl_string prefix("192.0.2.0/24");
+    for (const auto& bogus : {"", "invalid"}) {
+        const hidl_string iface(bogus);
+        const Return<void> ret = control->addDownstream(iface, prefix, CALLBACK_ASSERTS_FALSE);
+        EXPECT_TRUE(ret.isOk());
+    }
+}
+
+TEST_F(OffloadControlHidlTest, RemoveDownstreamIPv4) {
+    const hidl_string iface("dummy0");
+    const hidl_string prefix("192.0.2.0/24");
+    const Return<void> ret = control->removeDownstream(iface, prefix, CALLBACK_ASSERTS_TRUE);
+    EXPECT_TRUE(ret.isOk());
+}
+
+TEST_F(OffloadControlHidlTest, RemoveDownstreamIPv6) {
+    const hidl_string iface("dummy0");
+    const hidl_string prefix("2001:db8::/64");
+    const Return<void> ret = control->removeDownstream(iface, prefix, CALLBACK_ASSERTS_TRUE);
+    EXPECT_TRUE(ret.isOk());
+}
+
+TEST_F(OffloadControlHidlTest, RemoveDownstreamEmptyFails) {
+    const hidl_string iface("");
+    const hidl_string prefix("");
+    const Return<void> ret = control->removeDownstream(iface, prefix, CALLBACK_ASSERTS_FALSE);
+    EXPECT_TRUE(ret.isOk());
+}
+
+TEST_F(OffloadControlHidlTest, RemoveDownstreamBogusIfaceFails) {
+    const hidl_string prefix("192.0.2.0/24");
+    for (const auto& bogus : {"", "invalid"}) {
+        const hidl_string iface(bogus);
+        const Return<void> ret = control->removeDownstream(iface, prefix, CALLBACK_ASSERTS_FALSE);
+        EXPECT_TRUE(ret.isOk());
+    }
+}
+
+TEST_F(OffloadControlHidlTest, RemoveDownstreamBogusPrefixFails) {
+    const hidl_string iface("dummy0");
+    for (const auto& bogus : {"", "192.0.2/24", "2001:db8/64"}) {
+        const hidl_string prefix(bogus);
+        const Return<void> ret = control->removeDownstream(iface, prefix, CALLBACK_ASSERTS_FALSE);
+        EXPECT_TRUE(ret.isOk());
+    }
+}
+
+int main(int argc, char** argv) {
+    testing::InitGoogleTest(&argc, argv);
+    int status = RUN_ALL_TESTS();
+    ALOGE("Test result with status=%d", status);
+    return status;
+}
