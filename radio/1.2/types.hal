@@ -1,0 +1,76 @@
+/*
+ * Copyright (C) 2017 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package android.hardware.radio@1.2;
+
+import @1.1::RadioAccessSpecifier;
+import @1.1::ScanType;
+
+struct NetworkScanRequest {
+    /**
+     * One shot scan or periodic
+     */
+    ScanType type;
+
+    /**
+     * Time interval in seconds between periodic scans, only
+     * valid when type = PERIODIC
+     * Range: 5 to 300
+     */
+    int32_t interval;
+
+    /**
+     * networks with bands/channels to scan
+     * Maximum length of the vector is 8
+     */
+    vec<RadioAccessSpecifier> specifiers;
+
+    /** Maximum duration of the periodic search (in seconds).
+     * Expected range for the input is [60s - 3600s]
+     * If the search lasts maxSearchTime, it must be terminated.
+     */
+    int32_t maxSearchTime;
+
+    /**
+     * Indicates whether the modem should report incremental
+     * results of the network scan to the client.
+     * FALSE – Incremental results are not reported.
+     * TRUE (default) – Incremental
+     * results are reported
+     */
+    bool incrementalResults;
+
+    /**
+     * Indicates the periodicity with which the
+     * modem should report incremental results
+     * to the client (in seconds).
+     * Expected range for the input is [1s - 10s]
+     * This value must be less than or equal to maxSearchTime
+     */
+    int32_t incrementalResultsPeriodicity;
+
+    /** Describes the List of PLMN ids (MCC-MNC)
+     * If any PLMN of this list is
+     * found, search should end at that
+     * point and results with all PLMN
+     * found till that point should be
+     * sent as response. If list not
+     * sent, search to be completed till
+     * end and all PLMNs found to be
+     * reported.
+     */
+    vec<string> mccMncs;
+};
