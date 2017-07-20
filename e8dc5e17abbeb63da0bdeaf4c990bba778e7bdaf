@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ce441b0d_6b1182a6",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_stk.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1151058
+      },
+      "writtenOn": "2017-07-20T02:51:56Z",
+      "side": 1,
+      "message": "ASSERT_TRUE",
+      "range": {
+        "startLine": 147,
+        "startChar": 8,
+        "endLine": 147,
+        "endChar": 20
+      },
+      "revId": "e8dc5e17abbeb63da0bdeaf4c990bba778e7bdaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c422ffcd_8957a7f2",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_stk.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1151058
+      },
+      "writtenOn": "2017-07-20T02:51:56Z",
+      "side": 1,
+      "message": "ASSERT_TRUE",
+      "range": {
+        "startLine": 162,
+        "startChar": 8,
+        "endLine": 162,
+        "endChar": 20
+      },
+      "revId": "e8dc5e17abbeb63da0bdeaf4c990bba778e7bdaf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
