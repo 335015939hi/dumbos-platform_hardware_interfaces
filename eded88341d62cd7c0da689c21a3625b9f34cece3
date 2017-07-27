@@ -1,0 +1,349 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1ae452dd_2927405e",
+        "filename": "tetheroffload/config/1.0/vts/functional/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2017-07-27T09:08:31Z",
+      "side": 1,
+      "message": "?",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 42
+      },
+      "revId": "eded88341d62cd7c0da689c21a3625b9f34cece3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "746aac85_fc9de4a5",
+        "filename": "tetheroffload/config/1.0/vts/functional/VtsHalTetheroffloadConfigV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2017-07-27T09:08:31Z",
+      "side": 1,
+      "message": "Somehow this doesn\u0027t see quite right.",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 42
+      },
+      "revId": "eded88341d62cd7c0da689c21a3625b9f34cece3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c23a790_25810114",
+        "filename": "tetheroffload/config/1.0/vts/functional/VtsHalTetheroffloadConfigV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2017-07-27T09:08:31Z",
+      "side": 1,
+      "message": "\"both fds\", in this case.",
+      "range": {
+        "startLine": 130,
+        "startChar": 60,
+        "endLine": 130,
+        "endChar": 63
+      },
+      "revId": "eded88341d62cd7c0da689c21a3625b9f34cece3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "66605c91_ebbce4ca",
+        "filename": "tetheroffload/control/1.0/vts/functional/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2017-07-27T09:08:31Z",
+      "side": 1,
+      "message": "?",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 42
+      },
+      "revId": "eded88341d62cd7c0da689c21a3625b9f34cece3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6c4ef6c6_6107ad68",
+        "filename": "tetheroffload/control/1.0/vts/functional/VtsHalTetheroffloadControlV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2017-07-27T09:08:31Z",
+      "side": 1,
+      "message": "Do we really need to log this error message all the time?  Even if it was accidentally successful, I suspect the errmsg wouldn\u0027t be all that interesting...no?",
+      "range": {
+        "startLine": 201,
+        "startChar": 60,
+        "endLine": 201,
+        "endChar": 61
+      },
+      "revId": "eded88341d62cd7c0da689c21a3625b9f34cece3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8878ca20_1a8b4d1e",
+        "filename": "tetheroffload/control/1.0/vts/functional/VtsHalTetheroffloadControlV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2017-07-27T09:08:31Z",
+      "side": 1,
+      "message": "This is most definitely not my understanding.  We\u0027re going to some trouble to arrange calling this function.",
+      "range": {
+        "startLine": 219,
+        "startChar": 37,
+        "endLine": 219,
+        "endChar": 55
+      },
+      "revId": "eded88341d62cd7c0da689c21a3625b9f34cece3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bb2ad54b_326f95ff",
+        "filename": "tetheroffload/control/1.0/vts/functional/VtsHalTetheroffloadControlV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2017-07-27T09:08:31Z",
+      "side": 1,
+      "message": "Uh...?",
+      "range": {
+        "startLine": 221,
+        "startChar": 30,
+        "endLine": 221,
+        "endChar": 40
+      },
+      "revId": "eded88341d62cd7c0da689c21a3625b9f34cece3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b161a27_0aa0f5be",
+        "filename": "tetheroffload/control/1.0/vts/functional/VtsHalTetheroffloadControlV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2017-07-27T09:08:31Z",
+      "side": 1,
+      "message": "FWIW, it\u0027s fine with me to use only 4 space indent for lambda definitions just like they were an if statement.  Too much wasted indentation otherwise.  :)",
+      "range": {
+        "startLine": 229,
+        "startChar": 4,
+        "endLine": 229,
+        "endChar": 14
+      },
+      "revId": "eded88341d62cd7c0da689c21a3625b9f34cece3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9529eb3f_b0959cf0",
+        "filename": "tetheroffload/control/1.0/vts/functional/VtsHalTetheroffloadControlV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2017-07-27T09:08:31Z",
+      "side": 1,
+      "message": "\"e\", and you can probably reflow this text",
+      "range": {
+        "startLine": 270,
+        "startChar": 3,
+        "endLine": 270,
+        "endChar": 4
+      },
+      "revId": "eded88341d62cd7c0da689c21a3625b9f34cece3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "665d6d3d_4b8168d2",
+        "filename": "tetheroffload/control/1.0/vts/functional/VtsHalTetheroffloadControlV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2017-07-27T09:08:31Z",
+      "side": 1,
+      "message": "This test seems a bit weird. Should we delete it, or try to make it return true by calling setUpstreamParameters first?",
+      "range": {
+        "startLine": 291,
+        "startChar": 31,
+        "endLine": 291,
+        "endChar": 44
+      },
+      "revId": "eded88341d62cd7c0da689c21a3625b9f34cece3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3091bd0b_d5f95134",
+        "filename": "tetheroffload/control/1.0/vts/functional/VtsHalTetheroffloadControlV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2017-07-27T09:08:31Z",
+      "side": 1,
+      "message": "192.0.2.0/24 is a good  IPv4 documentation range:\n\n    https://tools.ietf.org/html/rfc5737#section-3\n    https://www.iana.org/assignments/iana-ipv4-special-registry/iana-ipv4-special-registry.xhtml",
+      "range": {
+        "startLine": 315,
+        "startChar": 24,
+        "endLine": 315,
+        "endChar": 31
+      },
+      "revId": "eded88341d62cd7c0da689c21a3625b9f34cece3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64a90437_c5075599",
+        "filename": "tetheroffload/control/1.0/vts/functional/VtsHalTetheroffloadControlV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2017-07-27T09:08:31Z",
+      "side": 1,
+      "message": "FYI I call this function with empty parameters when tethering is still active but there is temporarily no upstream (like switching between rmnet_data0 and wifi upstreams or something).\n\nI currently just log the errors and ignore them.",
+      "range": {
+        "startLine": 325,
+        "startChar": 51,
+        "endLine": 325,
+        "endChar": 70
+      },
+      "revId": "eded88341d62cd7c0da689c21a3625b9f34cece3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f5c2875_38ae7aa9",
+        "filename": "tetheroffload/control/1.0/vts/functional/VtsHalTetheroffloadControlV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2017-07-27T09:08:31Z",
+      "side": 1,
+      "message": "fe80 might be more truly representative of IPv6 default gateway addresses...",
+      "range": {
+        "startLine": 355,
+        "startChar": 33,
+        "endLine": 355,
+        "endChar": 46
+      },
+      "revId": "eded88341d62cd7c0da689c21a3625b9f34cece3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca204b72_7afd7847",
+        "filename": "tetheroffload/control/1.0/vts/functional/VtsHalTetheroffloadControlV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2017-07-27T09:08:31Z",
+      "side": 1,
+      "message": "Can we get two more positive tests?\n\n    [1] test valid v4-only works\n    [2] test valid v6-only works",
+      "range": {
+        "startLine": 552,
+        "startChar": 0,
+        "endLine": 552,
+        "endChar": 1
+      },
+      "revId": "eded88341d62cd7c0da689c21a3625b9f34cece3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca3d3de7_56a34834",
+        "filename": "tetheroffload/control/1.0/vts/functional/VtsHalTetheroffloadControlV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 650,
+      "author": {
+        "id": 1000451
+      },
+      "writtenOn": "2017-07-27T09:08:31Z",
+      "side": 1,
+      "message": "\"192.0.2.0/24\"",
+      "range": {
+        "startLine": 650,
+        "startChar": 24,
+        "endLine": 650,
+        "endChar": 31
+      },
+      "revId": "eded88341d62cd7c0da689c21a3625b9f34cece3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
