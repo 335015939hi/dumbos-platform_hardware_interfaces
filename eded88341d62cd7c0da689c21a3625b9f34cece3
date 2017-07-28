@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f94c6585_584cb22c",
+        "filename": "tetheroffload/config/1.0/vts/functional/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-07-28T07:01:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ae452dd_2927405e",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 42
+      },
+      "revId": "eded88341d62cd7c0da689c21a3625b9f34cece3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "746aac85_fc9de4a5",
         "filename": "tetheroffload/config/1.0/vts/functional/VtsHalTetheroffloadConfigV1_0TargetTest.cpp",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-07-27T09:08:31Z",
       "side": 1,
       "message": "Somehow this doesn\u0027t see quite right.",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 42
+      },
+      "revId": "eded88341d62cd7c0da689c21a3625b9f34cece3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9cf54b2_ab7f0214",
+        "filename": "tetheroffload/config/1.0/vts/functional/VtsHalTetheroffloadConfigV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-07-28T07:01:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "746aac85_fc9de4a5",
       "range": {
         "startLine": 2,
         "startChar": 22,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "26c14f2a_1898d7d5",
+        "filename": "tetheroffload/config/1.0/vts/functional/VtsHalTetheroffloadConfigV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-07-28T07:01:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c23a790_25810114",
+      "range": {
+        "startLine": 130,
+        "startChar": 60,
+        "endLine": 130,
+        "endChar": 63
+      },
+      "revId": "eded88341d62cd7c0da689c21a3625b9f34cece3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "66605c91_ebbce4ca",
         "filename": "tetheroffload/control/1.0/vts/functional/Android.bp",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2017-07-27T09:08:31Z",
       "side": 1,
       "message": "?",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 42
+      },
+      "revId": "eded88341d62cd7c0da689c21a3625b9f34cece3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "30e45378_e5490cbc",
+        "filename": "tetheroffload/control/1.0/vts/functional/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-07-28T07:01:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "66605c91_ebbce4ca",
       "range": {
         "startLine": 2,
         "startChar": 22,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "68599f51_8bfe9731",
+        "filename": "tetheroffload/control/1.0/vts/functional/VtsHalTetheroffloadControlV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-07-28T07:01:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c4ef6c6_6107ad68",
+      "range": {
+        "startLine": 201,
+        "startChar": 60,
+        "endLine": 201,
+        "endChar": 61
+      },
+      "revId": "eded88341d62cd7c0da689c21a3625b9f34cece3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8878ca20_1a8b4d1e",
         "filename": "tetheroffload/control/1.0/vts/functional/VtsHalTetheroffloadControlV1_0TargetTest.cpp",
         "patchSetId": 1
@@ -128,6 +248,30 @@
       "writtenOn": "2017-07-27T09:08:31Z",
       "side": 1,
       "message": "This is most definitely not my understanding.  We\u0027re going to some trouble to arrange calling this function.",
+      "range": {
+        "startLine": 219,
+        "startChar": 37,
+        "endLine": 219,
+        "endChar": 55
+      },
+      "revId": "eded88341d62cd7c0da689c21a3625b9f34cece3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5787f23e_450df52d",
+        "filename": "tetheroffload/control/1.0/vts/functional/VtsHalTetheroffloadControlV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-07-28T07:01:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8878ca20_1a8b4d1e",
       "range": {
         "startLine": 219,
         "startChar": 37,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "da48b3eb_4e4c3821",
+        "filename": "tetheroffload/control/1.0/vts/functional/VtsHalTetheroffloadControlV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-07-28T07:01:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb2ad54b_326f95ff",
+      "range": {
+        "startLine": 221,
+        "startChar": 30,
+        "endLine": 221,
+        "endChar": 40
+      },
+      "revId": "eded88341d62cd7c0da689c21a3625b9f34cece3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9b161a27_0aa0f5be",
         "filename": "tetheroffload/control/1.0/vts/functional/VtsHalTetheroffloadControlV1_0TargetTest.cpp",
         "patchSetId": 1
@@ -174,6 +342,30 @@
       "writtenOn": "2017-07-27T09:08:31Z",
       "side": 1,
       "message": "FWIW, it\u0027s fine with me to use only 4 space indent for lambda definitions just like they were an if statement.  Too much wasted indentation otherwise.  :)",
+      "range": {
+        "startLine": 229,
+        "startChar": 4,
+        "endLine": 229,
+        "endChar": 14
+      },
+      "revId": "eded88341d62cd7c0da689c21a3625b9f34cece3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e3979454_368e6a54",
+        "filename": "tetheroffload/control/1.0/vts/functional/VtsHalTetheroffloadControlV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-07-28T07:01:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b161a27_0aa0f5be",
       "range": {
         "startLine": 229,
         "startChar": 4,
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "bc81ed22_b633c80e",
+        "filename": "tetheroffload/control/1.0/vts/functional/VtsHalTetheroffloadControlV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-07-28T07:01:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9529eb3f_b0959cf0",
+      "range": {
+        "startLine": 270,
+        "startChar": 3,
+        "endLine": 270,
+        "endChar": 4
+      },
+      "revId": "eded88341d62cd7c0da689c21a3625b9f34cece3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "665d6d3d_4b8168d2",
         "filename": "tetheroffload/control/1.0/vts/functional/VtsHalTetheroffloadControlV1_0TargetTest.cpp",
         "patchSetId": 1
@@ -232,6 +448,30 @@
     },
     {
       "key": {
+        "uuid": "5c03e295_6dfe8f8d",
+        "filename": "tetheroffload/control/1.0/vts/functional/VtsHalTetheroffloadControlV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-07-28T07:01:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "665d6d3d_4b8168d2",
+      "range": {
+        "startLine": 291,
+        "startChar": 31,
+        "endLine": 291,
+        "endChar": 44
+      },
+      "revId": "eded88341d62cd7c0da689c21a3625b9f34cece3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3091bd0b_d5f95134",
         "filename": "tetheroffload/control/1.0/vts/functional/VtsHalTetheroffloadControlV1_0TargetTest.cpp",
         "patchSetId": 1
@@ -243,6 +483,30 @@
       "writtenOn": "2017-07-27T09:08:31Z",
       "side": 1,
       "message": "192.0.2.0/24 is a good  IPv4 documentation range:\n\n    https://tools.ietf.org/html/rfc5737#section-3\n    https://www.iana.org/assignments/iana-ipv4-special-registry/iana-ipv4-special-registry.xhtml",
+      "range": {
+        "startLine": 315,
+        "startChar": 24,
+        "endLine": 315,
+        "endChar": 31
+      },
+      "revId": "eded88341d62cd7c0da689c21a3625b9f34cece3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18c5de83_45de66c3",
+        "filename": "tetheroffload/control/1.0/vts/functional/VtsHalTetheroffloadControlV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-07-28T07:01:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3091bd0b_d5f95134",
       "range": {
         "startLine": 315,
         "startChar": 24,
@@ -301,6 +565,30 @@
     },
     {
       "key": {
+        "uuid": "1ad50ae2_0c0e5ce1",
+        "filename": "tetheroffload/control/1.0/vts/functional/VtsHalTetheroffloadControlV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-07-28T07:01:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f5c2875_38ae7aa9",
+      "range": {
+        "startLine": 355,
+        "startChar": 33,
+        "endLine": 355,
+        "endChar": 46
+      },
+      "revId": "eded88341d62cd7c0da689c21a3625b9f34cece3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca204b72_7afd7847",
         "filename": "tetheroffload/control/1.0/vts/functional/VtsHalTetheroffloadControlV1_0TargetTest.cpp",
         "patchSetId": 1
@@ -335,6 +623,30 @@
       "writtenOn": "2017-07-27T09:08:31Z",
       "side": 1,
       "message": "\"192.0.2.0/24\"",
+      "range": {
+        "startLine": 650,
+        "startChar": 24,
+        "endLine": 650,
+        "endChar": 31
+      },
+      "revId": "eded88341d62cd7c0da689c21a3625b9f34cece3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7da3f89b_fb69b168",
+        "filename": "tetheroffload/control/1.0/vts/functional/VtsHalTetheroffloadControlV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 650,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-07-28T07:01:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca3d3de7_56a34834",
       "range": {
         "startLine": 650,
         "startChar": 24,
