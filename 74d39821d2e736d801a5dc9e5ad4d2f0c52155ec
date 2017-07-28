@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "920a2349_b8ea39f1",
+        "filename": "tetheroffload/config/1.0/vts/functional/VtsHalTetheroffloadConfigV1_0TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-07-28T15:48:33Z",
+      "side": 1,
+      "message": "hey, Jeff, as you can see the problem is this test running as su, and the hal trying to get handles from it",
+      "range": {
+        "startLine": 111,
+        "startChar": 31,
+        "endLine": 111,
+        "endChar": 41
+      },
+      "revId": "74d39821d2e736d801a5dc9e5ad4d2f0c52155ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
