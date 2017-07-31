@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "677ed391_0a2b8c5b",
+        "filename": "Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1074628
+      },
+      "writtenOn": "2017-07-31T20:30:30Z",
+      "side": 1,
+      "message": "If you just care about ordering, that\u0027s what group_static_libs is for. whole_static_libs is different -- it acts as if the code in those static libs was inserted directly into your library (so it will mark all of them as exported and not eligible for dead code elimination)",
+      "parentUuid": "0870aa9e_ccad6291",
+      "range": {
+        "startLine": 16,
+        "startChar": 4,
+        "endLine": 16,
+        "endChar": 21
+      },
+      "revId": "e9b4f8f5b84908187914911891de58586055e1c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "646e35fc_b34f6f6e",
         "filename": "Android.bp",
         "patchSetId": 1
