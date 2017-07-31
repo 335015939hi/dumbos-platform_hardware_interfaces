@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0870aa9e_ccad6291",
+        "filename": "Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2017-07-31T20:22:36Z",
+      "side": 1,
+      "message": "Note, we use whole_static_libs to ameliorate ordering constraints on static libs.",
+      "range": {
+        "startLine": 16,
+        "startChar": 4,
+        "endLine": 16,
+        "endChar": 21
+      },
+      "revId": "e9b4f8f5b84908187914911891de58586055e1c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "646e35fc_b34f6f6e",
+        "filename": "Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2017-07-31T20:22:36Z",
+      "side": 1,
+      "message": "I really don\u0027t want to carry this as a static lib. \nAlso, it would be nice to have libhidlbase and libhidltransport here too!\nsmoreland@?",
+      "range": {
+        "startLine": 27,
+        "startChar": 9,
+        "endLine": 27,
+        "endChar": 20
+      },
+      "revId": "e9b4f8f5b84908187914911891de58586055e1c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
