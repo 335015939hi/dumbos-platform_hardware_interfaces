@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "4a7c106f_34b32b6e",
+        "filename": "Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-08-01T21:34:15Z",
+      "side": 1,
+      "message": "Ah, it\u0027s probably just using it for headers which are currently global.",
+      "parentUuid": "19a1310d_ebf68b20",
+      "range": {
+        "startLine": 18,
+        "startChar": 9,
+        "endLine": 18,
+        "endChar": 24
+      },
+      "revId": "d028565ee869b7dc5186fe30dcc79b70f20a0d92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84f2a694_5e565bd2",
         "filename": "Android.bp",
         "patchSetId": 1
