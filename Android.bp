@@ -9,3 +9,27 @@ cc_defaults {
         "-Werror",
     ],
 }
+
+cc_defaults {
+    name: "VtsHalTargetTestDefaults",
+    defaults: ["hidl_defaults"],
+    static_libs: [
+        "VtsHalHidlTargetTestBase",
+        "libnativehelper",
+    ],
+    group_static_libs: true,
+    shared_libs: [
+        "libbase",
+        "libcutils",
+        "liblog",
+        "libhwbinder",
+        "libhidltransport",
+        "libhidlbase",
+        "libutils",
+    ],
+    cflags: [
+        "-O0",
+        "-g",
+    ],
+
+}
