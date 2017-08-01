@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "19a1310d_ebf68b20",
+        "filename": "Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2017-08-01T21:30:27Z",
+      "side": 1,
+      "message": "VtsHalRadioV1_0TargetTest declared a dependency on it. But it compiles without it, so i\u0027ll remove this.",
+      "parentUuid": "77985475_6fcb3c76",
+      "range": {
+        "startLine": 18,
+        "startChar": 9,
+        "endLine": 18,
+        "endChar": 24
+      },
+      "revId": "d028565ee869b7dc5186fe30dcc79b70f20a0d92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84f2a694_5e565bd2",
         "filename": "Android.bp",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "960b0d88_e88cc756",
+        "filename": "Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2017-08-01T21:30:27Z",
+      "side": 1,
+      "message": "foo@1.0 def libs depend on all these except libbase; and now these def libs are static, i.e. the tests needs to link against these .\nas for libbase, it\u0027s still needed: linker complains about android::base::LogMessage and a lot of other stuff without libbase.\n\nbtw, VtsHalHidlTargetTestBase is static so i\u0027m not sure dependencies can be removed by re-exporting headers in it (definitely not in this case).",
+      "parentUuid": "84f2a694_5e565bd2",
+      "range": {
+        "startLine": 23,
+        "startChar": 9,
+        "endLine": 23,
+        "endChar": 18
+      },
+      "revId": "d028565ee869b7dc5186fe30dcc79b70f20a0d92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "18d0b968_34629098",
         "filename": "Android.bp",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2017-08-01T21:01:14Z",
       "side": 1,
       "message": "alphabetical pls",
+      "range": {
+        "startLine": 25,
+        "startChar": 9,
+        "endLine": 25,
+        "endChar": 20
+      },
+      "revId": "d028565ee869b7dc5186fe30dcc79b70f20a0d92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a91a552_b258750f",
+        "filename": "Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2017-08-01T21:30:27Z",
+      "side": 1,
+      "message": "good point",
+      "parentUuid": "18d0b968_34629098",
       "range": {
         "startLine": 25,
         "startChar": 9,
