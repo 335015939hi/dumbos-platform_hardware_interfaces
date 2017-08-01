@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5d5beab3_710e6cdc",
+        "filename": "Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2017-08-01T20:29:12Z",
+      "side": 1,
+      "message": "discussed offline with smoreland@: libhidltransport can be expected on the device -\u003e everything in this list of shared lib deps can be expected on the device.",
+      "range": {
+        "startLine": 26,
+        "startChar": 1,
+        "endLine": 26,
+        "endChar": 27
+      },
+      "revId": "d028565ee869b7dc5186fe30dcc79b70f20a0d92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
