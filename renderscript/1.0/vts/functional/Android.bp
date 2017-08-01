@@ -16,6 +16,7 @@
 
 cc_test {
     name: "VtsHalRenderscriptV1_0TargetTest",
+    defaults: ["VtsHalTargetTestDefaults"],
     srcs: [
         "VtsHalRenderscriptV1_0TargetTest.cpp",
         "VtsCopyTests.cpp",
@@ -23,20 +24,7 @@ cc_test {
         "VtsScriptTests.cpp",
         "bitcode.cpp",
     ],
-    defaults: ["hidl_defaults"],
-    shared_libs: [
-        "libbase",
-        "liblog",
-        "libcutils",
-        "libhidlbase",
-        "libhidltransport",
-        "libnativehelper",
-        "libutils",
+    static_libs: [
         "android.hardware.renderscript@1.0",
-    ],
-    static_libs: ["VtsHalHidlTargetTestBase"],
-    cflags: [
-        "-O0",
-        "-g",
     ],
 }
