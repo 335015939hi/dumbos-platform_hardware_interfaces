@@ -1,0 +1,280 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "63b2b11b_96b4148b",
+        "filename": "tetheroffload/config/1.0/vts/functional/VtsHalTetheroffloadConfigV1_0TargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-08-02T00:42:08Z",
+      "side": 1,
+      "message": "The failure may happen later on while attempting to offload, and server doesn\u0027t get any info from netfilter_conntrack. More of a runtime functional failure than a VTS failure.\nBesides, HAL doesn\u0027t have the net_admin privilege to check socket options on these FDs. So this test should probably be removed.",
+      "range": {
+        "startLine": 167,
+        "startChar": 30,
+        "endLine": 167,
+        "endChar": 63
+      },
+      "revId": "8422b5bc28593e160521d8c22022f94305d089a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e87d977_be425c6b",
+        "filename": "tetheroffload/config/1.0/vts/functional/VtsHalTetheroffloadConfigV1_0TargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-08-02T00:42:08Z",
+      "side": 1,
+      "message": "can detect it based on errno returned. getsockopt on valid netlink FD will set errno to EPERM, whereas for non netlinkhandle it will set to ENOPROTOOPT, EOPNOTSUP, etc. Should we rely on these at all? Since HAL doesnt have the privilege, perhaps these tests aren\u0027t valid.",
+      "range": {
+        "startLine": 191,
+        "startChar": 30,
+        "endLine": 191,
+        "endChar": 54
+      },
+      "revId": "8422b5bc28593e160521d8c22022f94305d089a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36376d51_271471be",
+        "filename": "tetheroffload/control/1.0/vts/functional/VtsHalTetheroffloadControlV1_0TargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-08-02T00:42:08Z",
+      "side": 1,
+      "message": "fixed in the server to match expected outcome.",
+      "range": {
+        "startLine": 247,
+        "startChar": 35,
+        "endLine": 247,
+        "endChar": 79
+      },
+      "revId": "8422b5bc28593e160521d8c22022f94305d089a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39127912_f24a0f03",
+        "filename": "tetheroffload/control/1.0/vts/functional/VtsHalTetheroffloadControlV1_0TargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-08-02T00:42:08Z",
+      "side": 1,
+      "message": "fixed in the server to match expected outcome.",
+      "range": {
+        "startLine": 257,
+        "startChar": 35,
+        "endLine": 257,
+        "endChar": 75
+      },
+      "revId": "8422b5bc28593e160521d8c22022f94305d089a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ff30e85_b2584580",
+        "filename": "tetheroffload/control/1.0/vts/functional/VtsHalTetheroffloadControlV1_0TargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-08-02T00:42:08Z",
+      "side": 1,
+      "message": "fixed in the server to match expected outcome.",
+      "range": {
+        "startLine": 264,
+        "startChar": 35,
+        "endLine": 264,
+        "endChar": 75
+      },
+      "revId": "8422b5bc28593e160521d8c22022f94305d089a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2007059_4818aa5e",
+        "filename": "tetheroffload/control/1.0/vts/functional/VtsHalTetheroffloadControlV1_0TargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-08-02T00:42:08Z",
+      "side": 1,
+      "message": "fixed in the server to match expected outcome.",
+      "range": {
+        "startLine": 271,
+        "startChar": 35,
+        "endLine": 271,
+        "endChar": 78
+      },
+      "revId": "8422b5bc28593e160521d8c22022f94305d089a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee0beed7_9202a2ab",
+        "filename": "tetheroffload/control/1.0/vts/functional/VtsHalTetheroffloadControlV1_0TargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-08-02T00:42:08Z",
+      "side": 1,
+      "message": "fixed in the server to match expected outcome.",
+      "range": {
+        "startLine": 278,
+        "startChar": 35,
+        "endLine": 278,
+        "endChar": 78
+      },
+      "revId": "8422b5bc28593e160521d8c22022f94305d089a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "582afe86_6da6b75f",
+        "filename": "tetheroffload/control/1.0/vts/functional/VtsHalTetheroffloadControlV1_0TargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-08-02T00:42:08Z",
+      "side": 1,
+      "message": "dummy0 is not a viable interface for upstream. So when hardware attempts to set data limit on this upstream, it doesn\u0027t find it and therefore it fails.",
+      "range": {
+        "startLine": 358,
+        "startChar": 32,
+        "endLine": 358,
+        "endChar": 38
+      },
+      "revId": "8422b5bc28593e160521d8c22022f94305d089a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07afd04e_3c09ccbb",
+        "filename": "tetheroffload/control/1.0/vts/functional/VtsHalTetheroffloadControlV1_0TargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-08-02T00:42:08Z",
+      "side": 1,
+      "message": "dummy0 is not a viable interface for upstream. So when driver attempts to set data limit on this upstream on the hardware, it doesn\u0027t find it and therefore it fails. if you use rmnet_dataX and that interface is up, then it should succeed.",
+      "range": {
+        "startLine": 365,
+        "startChar": 32,
+        "endLine": 365,
+        "endChar": 38
+      },
+      "revId": "8422b5bc28593e160521d8c22022f94305d089a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "deb09dc5_ee20cf12",
+        "filename": "tetheroffload/control/1.0/vts/functional/VtsHalTetheroffloadControlV1_0TargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-08-02T00:42:08Z",
+      "side": 1,
+      "message": "I don\u0027t think this is supported in hardware as of now, i.e. only one router in upstream is supported.",
+      "range": {
+        "startLine": 379,
+        "startChar": 76,
+        "endLine": 379,
+        "endChar": 89
+      },
+      "revId": "8422b5bc28593e160521d8c22022f94305d089a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "256ece79_ee02896f",
+        "filename": "tetheroffload/control/1.0/vts/functional/VtsHalTetheroffloadControlV1_0TargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-08-02T00:42:08Z",
+      "side": 1,
+      "message": "I don\u0027t think this is supported in hardware as of now, i.e. only one router in upstream is supported.",
+      "range": {
+        "startLine": 389,
+        "startChar": 77,
+        "endLine": 389,
+        "endChar": 88
+      },
+      "revId": "8422b5bc28593e160521d8c22022f94305d089a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e6c9d6e_e3a6320c",
+        "filename": "tetheroffload/control/1.0/vts/functional/VtsHalTetheroffloadControlV1_0TargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2017-08-02T00:42:08Z",
+      "side": 1,
+      "message": "I don\u0027t think this is supported in hardware as of now, i.e. only one router in upstream is supported.",
+      "range": {
+        "startLine": 409,
+        "startChar": 77,
+        "endLine": 409,
+        "endChar": 89
+      },
+      "revId": "8422b5bc28593e160521d8c22022f94305d089a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
