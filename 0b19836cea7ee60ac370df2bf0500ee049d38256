@@ -22,6 +22,30 @@
       "revId": "0b19836cea7ee60ac370df2bf0500ee049d38256",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57cd25c4_cfef2072",
+        "filename": "Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2017-08-03T17:37:03Z",
+      "side": 1,
+      "message": "this is a dependency of android.hardware.foo@V.v, which are now statically included with vts tests.",
+      "parentUuid": "f94baa76_872a2628",
+      "range": {
+        "startLine": 26,
+        "startChar": 9,
+        "endLine": 26,
+        "endChar": 20
+      },
+      "revId": "0b19836cea7ee60ac370df2bf0500ee049d38256",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
