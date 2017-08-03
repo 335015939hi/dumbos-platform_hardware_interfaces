@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c3cdf9a_a9f6dc20",
+        "filename": "tests/libhwbinder/1.0/Android.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-08-03T18:16:11Z",
+      "side": 1,
+      "message": "nit: where does this empty line come from?",
+      "revId": "c09fae7b3035eff3a755aff054ff9de2387c0ac7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
