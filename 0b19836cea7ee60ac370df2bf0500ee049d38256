@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f94baa76_872a2628",
+        "filename": "Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-08-03T17:32:52Z",
+      "side": 1,
+      "message": "this shouldn\u0027t be needed by any VTS test",
+      "range": {
+        "startLine": 26,
+        "startChar": 9,
+        "endLine": 26,
+        "endChar": 20
+      },
+      "revId": "0b19836cea7ee60ac370df2bf0500ee049d38256",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
