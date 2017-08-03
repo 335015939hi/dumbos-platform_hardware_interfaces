@@ -16,6 +16,24 @@
       "revId": "c09fae7b3035eff3a755aff054ff9de2387c0ac7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf22eb64_5878758a",
+        "filename": "tests/libhwbinder/1.0/Android.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-08-03T22:31:46Z",
+      "side": 1,
+      "message": "thanks!",
+      "parentUuid": "3c3cdf9a_a9f6dc20",
+      "revId": "c09fae7b3035eff3a755aff054ff9de2387c0ac7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
