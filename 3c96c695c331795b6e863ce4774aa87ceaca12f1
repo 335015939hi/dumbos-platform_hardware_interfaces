@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "76934a6b_8aa45d02",
+        "filename": "radio/1.1/IRadio.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-08-03T18:35:41Z",
+      "side": 1,
+      "message": "What this api for, can you provide detailed explaination of it here.",
+      "range": {
+        "startLine": 113,
+        "startChar": 6,
+        "endLine": 113,
+        "endChar": 7
+      },
+      "revId": "3c96c695c331795b6e863ce4774aa87ceaca12f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "389b1084_a1cdc7c3",
+        "filename": "radio/1.1/IRadioResponse.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-08-03T18:35:41Z",
+      "side": 1,
+      "message": "Can you explain this param here.",
+      "range": {
+        "startLine": 99,
+        "startChar": 40,
+        "endLine": 99,
+        "endChar": 43
+      },
+      "revId": "3c96c695c331795b6e863ce4774aa87ceaca12f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "95eafbfe_38a19feb",
+        "filename": "radio/1.1/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-08-03T18:35:41Z",
+      "side": 1,
+      "message": "Please provide document for this test",
+      "revId": "3c96c695c331795b6e863ce4774aa87ceaca12f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
