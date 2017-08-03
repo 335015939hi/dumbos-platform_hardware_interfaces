@@ -98,6 +98,30 @@
       "revId": "0fcf28211554bbc37a3d5a1962b0bb52e82aeca0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54f02d93_17ab4fdd",
+        "filename": "radio/1.1/IRadioResponse.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-08-03T22:00:16Z",
+      "side": 1,
+      "message": "ping",
+      "parentUuid": "d36a7146_7e008665",
+      "range": {
+        "startLine": 51,
+        "startChar": 40,
+        "endLine": 51,
+        "endChar": 43
+      },
+      "revId": "0fcf28211554bbc37a3d5a1962b0bb52e82aeca0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
