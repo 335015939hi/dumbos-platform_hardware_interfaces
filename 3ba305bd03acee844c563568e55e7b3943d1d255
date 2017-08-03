@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2209319a_b35c7220",
+        "filename": "radio/1.1/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-08-03T18:14:23Z",
+      "side": 1,
+      "message": "no removal of this?",
+      "range": {
+        "startLine": 394,
+        "startChar": 0,
+        "endLine": 394,
+        "endChar": 55
+      },
+      "revId": "3ba305bd03acee844c563568e55e7b3943d1d255",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
