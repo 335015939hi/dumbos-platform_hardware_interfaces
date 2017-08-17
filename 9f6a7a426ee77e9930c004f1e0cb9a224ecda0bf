@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c0cc01d9_f5f8b1f2",
+        "filename": "gpio/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1004277
+      },
+      "writtenOn": "2017-08-17T03:06:48Z",
+      "side": 1,
+      "message": "Maybe always return a Status for anything that can also return a Value and/or Direction, so don\u0027t need to have these non-value values (and handle these values being passed to a setter)?",
+      "range": {
+        "startLine": 22,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 18
+      },
+      "revId": "9f6a7a426ee77e9930c004f1e0cb9a224ecda0bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
