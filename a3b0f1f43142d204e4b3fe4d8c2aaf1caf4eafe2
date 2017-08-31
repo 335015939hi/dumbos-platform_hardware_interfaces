@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5242818f_c4c4ac4a",
+        "filename": "tests/foo/1.0/IFoo.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-08-31T23:32:54Z",
+      "side": 1,
+      "message": "nit: shorter names",
+      "range": {
+        "startLine": 125,
+        "startChar": 29,
+        "endLine": 125,
+        "endChar": 45
+      },
+      "revId": "a3b0f1f43142d204e4b3fe4d8c2aaf1caf4eafe2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
