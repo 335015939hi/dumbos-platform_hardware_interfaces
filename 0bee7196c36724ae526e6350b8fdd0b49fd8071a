@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d41b125c_4f63fbe3",
+        "filename": "tests/bar/1.0/default/.hidl_for_test",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-08-31T23:31:15Z",
+      "side": 1,
+      "message": "Seems like this file is unnecessary? (along with several others)",
+      "revId": "0bee7196c36724ae526e6350b8fdd0b49fd8071a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
