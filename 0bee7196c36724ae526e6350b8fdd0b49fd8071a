@@ -16,6 +16,24 @@
       "revId": "0bee7196c36724ae526e6350b8fdd0b49fd8071a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "354a0152_1d4682b5",
+        "filename": "tests/bar/1.0/default/.hidl_for_test",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2017-09-01T00:55:44Z",
+      "side": 1,
+      "message": "Thanks. Removed .hidl_for_test file under ./default directories.",
+      "parentUuid": "d41b125c_4f63fbe3",
+      "revId": "0bee7196c36724ae526e6350b8fdd0b49fd8071a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
