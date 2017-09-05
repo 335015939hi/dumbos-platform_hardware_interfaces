@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "be06c5d1_93f6f497",
+        "filename": "current.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-09-05T18:20:28Z",
+      "side": 1,
+      "message": "this is going to cause some merge conflicts (and it\u0027s technically in the wrong spot now). If you make this change, you should do it in master.",
+      "range": {
+        "startLine": 193,
+        "startChar": 0,
+        "endLine": 193,
+        "endChar": 64
+      },
+      "revId": "8e98873dcbc73810740e69555bea4be59f2b3933",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
