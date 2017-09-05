@@ -22,6 +22,30 @@
       "revId": "8e98873dcbc73810740e69555bea4be59f2b3933",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5153f93a_a4424afa",
+        "filename": "current.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-09-05T18:21:08Z",
+      "side": 1,
+      "message": "*internally, exact branch is mentioned internally",
+      "parentUuid": "be06c5d1_93f6f497",
+      "range": {
+        "startLine": 193,
+        "startChar": 0,
+        "endLine": 193,
+        "endChar": 64
+      },
+      "revId": "8e98873dcbc73810740e69555bea4be59f2b3933",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
