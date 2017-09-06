@@ -92,6 +92,10 @@ bool BluetoothAddress::get_local_address(uint8_t* local_addr) {
   /* Generate new BDA if necessary */
   if (!valid_bda) {
     char bdstr[kStringLength + 1];
+    struct timespec ts;
+
+    clock_gettime(CLOCK_REALTIME, &ts);
+    srand((unsigned int)ts.tv_nsec);
 
     /* No autogen BDA. Generate one now. */
     local_addr[0] = 0x22;
