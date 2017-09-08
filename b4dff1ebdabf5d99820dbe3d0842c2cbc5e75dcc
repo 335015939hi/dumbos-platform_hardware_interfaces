@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fcf62d17_e7b7283c",
+        "filename": "tests/libhwbinder/1.0/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2017-09-08T22:48:26Z",
+      "side": 1,
+      "message": "the cc_defaults should probably move somewhere else",
+      "range": {
+        "startLine": 1,
+        "startChar": 16,
+        "endLine": 1,
+        "endChar": 29
+      },
+      "revId": "b4dff1ebdabf5d99820dbe3d0842c2cbc5e75dcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
