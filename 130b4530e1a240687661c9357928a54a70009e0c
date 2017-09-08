@@ -22,6 +22,30 @@
       "revId": "130b4530e1a240687661c9357928a54a70009e0c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f82a920e_97675f69",
+        "filename": "tests/libhwbinder/1.0/default/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1074628
+      },
+      "writtenOn": "2017-09-08T23:27:07Z",
+      "side": 1,
+      "message": "That\u0027s something that we\u0027d like to do in the future, but generally won\u0027t be possible until Android.mk files no longer exist.",
+      "parentUuid": "d61b6a76_cd72023c",
+      "range": {
+        "startLine": 3,
+        "startChar": 16,
+        "endLine": 3,
+        "endChar": 41
+      },
+      "revId": "130b4530e1a240687661c9357928a54a70009e0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
