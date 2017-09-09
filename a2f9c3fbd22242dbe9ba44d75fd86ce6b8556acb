@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6e34ca5a_50e9e94c",
+        "filename": "tests/trie/1.0/ITrie.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1203643
+      },
+      "writtenOn": "2017-09-09T06:36:26Z",
+      "side": 1,
+      "message": "Add docstrings.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 15
+      },
+      "revId": "a2f9c3fbd22242dbe9ba44d75fd86ce6b8556acb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
