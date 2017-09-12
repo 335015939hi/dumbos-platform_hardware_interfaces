@@ -71,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "ea2e5404_4c153a99",
+        "filename": "tests/trie/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-09-12T22:46:55Z",
+      "side": 1,
+      "message": "-\u003e b/65563308",
+      "parentUuid": "464c7e52_08befdb3",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 0
+      },
+      "revId": "9aed6095ccf374b099cdae1982d91629a64567df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a3a57871_1358114d",
         "filename": "tests/trie/1.0/types.hal",
         "patchSetId": 2
