@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2511dabe_93aa9f47",
+        "filename": "tests/trie/1.0/default/Trie.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1203643
+      },
+      "writtenOn": "2017-09-12T23:16:05Z",
+      "side": 1,
+      "message": "To be totally sure :)",
+      "parentUuid": "50ff9df4_bec435c7",
+      "range": {
+        "startLine": 36,
+        "startChar": 4,
+        "endLine": 36,
+        "endChar": 27
+      },
+      "revId": "9aed6095ccf374b099cdae1982d91629a64567df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "520c25b2_60e882ca",
         "filename": "tests/trie/1.0/default/Trie.cpp",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2017-09-11T16:01:08Z",
       "side": 1,
       "message": "nit: Very slow tries :P, but I guess it\u0027s a test",
+      "range": {
+        "startLine": 73,
+        "startChar": 23,
+        "endLine": 73,
+        "endChar": 30
+      },
+      "revId": "9aed6095ccf374b099cdae1982d91629a64567df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e887b728_bf9da2ce",
+        "filename": "tests/trie/1.0/default/Trie.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1203643
+      },
+      "writtenOn": "2017-09-12T23:16:05Z",
+      "side": 1,
+      "message": "No BST or hash table, sorry.",
+      "parentUuid": "520c25b2_60e882ca",
       "range": {
         "startLine": 73,
         "startChar": 23,
@@ -106,6 +154,30 @@
       "writtenOn": "2017-09-11T16:01:08Z",
       "side": 1,
       "message": "nit: you could make this extend E1 to make it even more complicated (and still valid)",
+      "range": {
+        "startLine": 49,
+        "startChar": 10,
+        "endLine": 49,
+        "endChar": 17
+      },
+      "revId": "9aed6095ccf374b099cdae1982d91629a64567df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3489e9c5_3c1ce9f5",
+        "filename": "tests/trie/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1203643
+      },
+      "writtenOn": "2017-09-12T23:16:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a3a57871_1358114d",
       "range": {
         "startLine": 49,
         "startChar": 10,
