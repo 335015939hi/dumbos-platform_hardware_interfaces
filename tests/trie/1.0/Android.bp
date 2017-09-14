@@ -39,7 +39,7 @@ genrule {
     ],
 }
 
-cc_library {
+cc_test_library {
     name: "android.hardware.tests.trie@1.0",
     defaults: ["hidl-module-defaults"],
     generated_sources: ["android.hardware.tests.trie@1.0_genc++"],
