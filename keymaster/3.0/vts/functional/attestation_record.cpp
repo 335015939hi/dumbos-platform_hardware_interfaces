@@ -252,6 +252,8 @@ static ErrorCode extract_auth_list(const KM_AUTH_LIST* record, AuthorizationSet*
 
 MAKE_OPENSSL_PTR_TYPE(KM_KEY_DESCRIPTION)
 
+KM_KEY_DESCRIPTION_Ptr record;
+
 // Parse the DER-encoded attestation record, placing the results in keymaster_version,
 // attestation_challenge, software_enforced, tee_enforced and unique_id.
 ErrorCode parse_attestation_record(const uint8_t* asn1_key_desc, size_t asn1_key_desc_len,
@@ -264,7 +266,7 @@ ErrorCode parse_attestation_record(const uint8_t* asn1_key_desc, size_t asn1_key
                                    AuthorizationSet* tee_enforced,  //
                                    hidl_vec<uint8_t>* unique_id) {
     const uint8_t* p = asn1_key_desc;
-    KM_KEY_DESCRIPTION_Ptr record(d2i_KM_KEY_DESCRIPTION(nullptr, &p, asn1_key_desc_len));
+    record = KM_KEY_DESCRIPTION_Ptr(d2i_KM_KEY_DESCRIPTION(nullptr, &p, asn1_key_desc_len));
     if (!record.get()) return ErrorCode::UNKNOWN_ERROR;
 
     *attestation_version = ASN1_INTEGER_get(record->attestation_version);
