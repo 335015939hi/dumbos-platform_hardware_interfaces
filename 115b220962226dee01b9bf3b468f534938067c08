@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "48ea48a4_c893bbc3",
+        "filename": "health/2.0/IHealthInfoBus.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-09-23T00:04:39Z",
+      "side": 1,
+      "message": "the \u0027typedef @1.0::Result Result\u0027 in the 1.1 types.hal file is really growing on me",
+      "range": {
+        "startLine": 40,
+        "startChar": 62,
+        "endLine": 40,
+        "endChar": 68
+      },
+      "revId": "115b220962226dee01b9bf3b468f534938067c08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1dbe31e8_8077c0b8",
+        "filename": "health/2.0/IHealthInfoBus.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-09-23T00:04:39Z",
+      "side": 1,
+      "message": "I don\u0027t think we have single letter variables in many interfaces. r -\u003e result?",
+      "range": {
+        "startLine": 40,
+        "startChar": 75,
+        "endLine": 40,
+        "endChar": 76
+      },
+      "revId": "115b220962226dee01b9bf3b468f534938067c08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6ddc130_b243b30f",
+        "filename": "health/2.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-09-23T00:04:39Z",
+      "side": 1,
+      "message": "not used here?\n\nhow about import + typedef?",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 20
+      },
+      "revId": "115b220962226dee01b9bf3b468f534938067c08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
