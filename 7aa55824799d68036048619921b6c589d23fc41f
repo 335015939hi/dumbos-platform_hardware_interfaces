@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f6bd5d29_11fc3964",
+        "filename": "health/2.0/IHealthInfoBus.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-09-25T15:44:06Z",
+      "side": 1,
+      "message": "I wonder why the code style guide suggests fully-qualified names. I think \n\"@1.0::Result\" is great. But meh.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 43
+      },
+      "revId": "7aa55824799d68036048619921b6c589d23fc41f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
