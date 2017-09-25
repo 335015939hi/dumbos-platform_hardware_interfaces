@@ -39,6 +39,30 @@
       "revId": "3c290c440b26abdb43b107be7ca118779571f6bf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1011cbfd_43e94b1b",
+        "filename": "health/2.0/IHealthInfoBus.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-09-25T22:57:49Z",
+      "side": 1,
+      "message": "Yes; it should just keep a weak ref. (That\u0027s why I put that sentence in previous patch sets.)\n\nDo you want me to keep this sentence?\n\n\"The implementation of IHealthInfoBus must not hold a strong reference to the callback.\"",
+      "parentUuid": "51bc707d_75d37c65",
+      "range": {
+        "startLine": 33,
+        "startChar": 6,
+        "endLine": 34,
+        "endChar": 24
+      },
+      "revId": "3c290c440b26abdb43b107be7ca118779571f6bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
