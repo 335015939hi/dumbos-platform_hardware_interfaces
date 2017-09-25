@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "83b4091d_d35bb43a",
+        "filename": "health/2.0/IHealthInfoBus.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-09-25T15:33:49Z",
+      "side": 1,
+      "message": "Also, \"A callback is also automatically unregistered if all strong pointers to it is removed.\" But maybe I am specifying it too much.",
+      "parentUuid": "516f86e1_2863664b",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 23
+      },
+      "revId": "115b220962226dee01b9bf3b468f534938067c08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "48ea48a4_c893bbc3",
         "filename": "health/2.0/IHealthInfoBus.hal",
         "patchSetId": 1
