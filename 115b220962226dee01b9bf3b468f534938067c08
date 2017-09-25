@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "505f59fa_91a1633e",
+        "filename": "health/2.0/IHealthInfoBus.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2017-09-25T12:39:17Z",
+      "side": 1,
+      "message": "Why? You could hold a strong ref and drop it when \u0027unregisterCallback\u0027 is called? That said, I think weak binder calls work, we should probably add tests for them though.",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 23
+      },
+      "revId": "115b220962226dee01b9bf3b468f534938067c08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "48ea48a4_c893bbc3",
         "filename": "health/2.0/IHealthInfoBus.hal",
         "patchSetId": 1
