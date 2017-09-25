@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7dcb52b0_ba7d9c4e",
+        "filename": "drm/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-09-25T18:32:54Z",
+      "side": 1,
+      "message": "This is merged in master, be careful not to have any merge conflict on this one.\n\nI suggest to split this in a separate change.",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 18
+      },
+      "revId": "205aac3e288f9953c9334dc8834bb48aeefbec69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
