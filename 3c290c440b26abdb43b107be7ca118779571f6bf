@@ -63,6 +63,30 @@
       "revId": "3c290c440b26abdb43b107be7ca118779571f6bf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d5bca0b6_147c5c9f",
+        "filename": "health/2.0/IHealthInfoBus.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2017-09-26T08:05:02Z",
+      "side": 1,
+      "message": "Ok sorry, now I got it. Leaving as-is is ok with me. Did you test making binder calls on a weak ref works?",
+      "parentUuid": "1011cbfd_43e94b1b",
+      "range": {
+        "startLine": 33,
+        "startChar": 6,
+        "endLine": 34,
+        "endChar": 24
+      },
+      "revId": "3c290c440b26abdb43b107be7ca118779571f6bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
