@@ -1496,7 +1496,7 @@ bool convertHidlNanDataPathIndicationResponseToLegacy(
       return false;
     }
     if (legacy_request->key_info.body.passphrase_info.passphrase_len
-            > NAN_SECURITY_MIN_PASSPHRASE_LEN) {
+            > NAN_SECURITY_MAX_PASSPHRASE_LEN) {
       LOG(ERROR) << "convertHidlNanDataPathIndicationResponseToLegacy: passphrase_len too large";
       return false;
     }
