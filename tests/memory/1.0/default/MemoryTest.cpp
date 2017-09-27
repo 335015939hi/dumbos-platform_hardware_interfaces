@@ -20,6 +20,7 @@
 
 #include <log/log.h>
 
+#include <hidlmemory/HidlMemoryTokenizer.h>
 #include <hidlmemory/mapping.h>
 
 #include <android/hidl/memory/1.0/IMemory.h>
@@ -60,6 +61,20 @@ Return<void> Memory::fillMemory(const hidl_memory& memory_in, uint8_t filler) {
     return Void();
 }
 
+Return<void> Memory::haveSomeMemoryBlock(const hidl_memory_block& blk,
+                                         haveSomeMemoryBlock_cb _hidl_cb) {
+    _hidl_cb(blk);
+    return Void();
+}
+
+Return<void> Memory::set(const ::android::hardware::hidl_memory& mem) {
+    mSavedMemoryToken = new ::android::hardware::HidlMemoryTokenizer(HidlMemory::getInstance(mem));
+    return Void();
+}
+
+Return<::android::sp<::android::hidl::memory::V1_0::IMemoryToken>> Memory::get() {
+    return mSavedMemoryToken;
+}
 
 IMemoryTest* HIDL_FETCH_IMemoryTest(const char* /* name */) {
     return new Memory();

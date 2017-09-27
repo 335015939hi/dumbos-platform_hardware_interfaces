@@ -49,12 +49,14 @@ cc_library {
         "liblog",
         "libutils",
         "libcutils",
+        "android.hidl.memory@1.0",
     ],
     export_shared_lib_headers: [
         "libhidlbase",
         "libhidltransport",
         "libhwbinder",
         "libutils",
+        "android.hidl.memory@1.0",
     ],
 }
 
@@ -103,7 +105,9 @@ cc_library {
         "libcutils",
         "libhidladapter",
         "android.hardware.tests.memory@1.0",
+        "android.hidl.memory@1.0",
         "android.hidl.base@1.0-adapter-helper",
+        "android.hidl.memory@1.0-adapter-helper",
     ],
     export_shared_lib_headers: [
         "libhidlbase",
@@ -112,7 +116,9 @@ cc_library {
         "libutils",
         "libhidladapter",
         "android.hardware.tests.memory@1.0",
+        "android.hidl.memory@1.0",
         "android.hidl.base@1.0-adapter-helper",
+        "android.hidl.memory@1.0-adapter-helper",
     ],
 }
 
@@ -132,6 +138,7 @@ cc_test {
         "libhidltransport",
         "libutils",
         "android.hardware.tests.memory@1.0",
+        "android.hidl.memory@1.0",
         "android.hardware.tests.memory@1.0-adapter-helper",
     ],
     generated_sources: ["android.hardware.tests.memory@1.0-adapter_genc++"],
