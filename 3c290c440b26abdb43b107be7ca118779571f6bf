@@ -111,6 +111,30 @@
       "revId": "3c290c440b26abdb43b107be7ca118779571f6bf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a997d932_46b78619",
+        "filename": "health/2.0/IHealthInfoBus.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-09-27T23:01:36Z",
+      "side": 1,
+      "message": "Actually, I decide to not have this mechanism and require them to unregisterCallbacks explicitly. Also, the implementation linkToDeath to the callback, so if the client that registers the callback dies, it removes the callback.",
+      "parentUuid": "c857e408_8ff55439",
+      "range": {
+        "startLine": 33,
+        "startChar": 6,
+        "endLine": 34,
+        "endChar": 24
+      },
+      "revId": "3c290c440b26abdb43b107be7ca118779571f6bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
