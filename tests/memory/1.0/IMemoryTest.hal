@@ -16,7 +16,12 @@
 
 package android.hardware.tests.memory@1.0;
 
+import android.hidl.memory@1.1::IMemoryToken;
+
 interface IMemoryTest {
     haveSomeMemory(memory mem) generates(memory mem);
     fillMemory(memory memory_in, uint8_t filler);
+    haveSomeMemoryBlock(memory_block blk) generates(memory_block blk);
+    set(memory mem)generates();
+    get()generates(IMemoryToken token);
 };
