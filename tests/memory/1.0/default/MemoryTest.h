@@ -43,6 +43,8 @@ struct Memory : public IMemoryTest {
 
     Return<void> fillMemory(const hidl_memory& memory_in, uint8_t filler) override;
 
+    Return<void> set(const hidl_memory& mem) override;
+    Return<void> get(get_cb get_cb) override;
 };
 
 extern "C" IMemoryTest* HIDL_FETCH_IMemoryTest(const char* name);

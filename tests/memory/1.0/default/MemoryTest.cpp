@@ -60,6 +60,17 @@ Return<void> Memory::fillMemory(const hidl_memory& memory_in, uint8_t filler) {
     return Void();
 }
 
+static hidl_memory savedMemory;
+
+Return<void> Memory::set(const hidl_memory& mem) {
+    savedMemory = mem;
+    return Void();
+}
+
+Return<void> Memory::get(IMemoryTest::get_cb get_cb) {
+    get_cb(savedMemory);
+    return Void();
+}
 
 IMemoryTest* HIDL_FETCH_IMemoryTest(const char* /* name */) {
     return new Memory();
