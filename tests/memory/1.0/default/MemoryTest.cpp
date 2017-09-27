@@ -60,6 +60,29 @@ Return<void> Memory::fillMemory(const hidl_memory& memory_in, uint8_t filler) {
     return Void();
 }
 
+static hidl_memory savedMemory;
+
+Return<void> Memory::set(const hidl_memory& mem) {
+    savedMemory = mem;
+    return Void();
+}
+
+Return<void> Memory::get(IMemoryTest::get_cb get_cb) {
+    get_cb(savedMemory);
+    return Void();
+}
+
+static hidl_memblk savedHidlMemblk;
+
+Return<void> Memory::setMemBlk(const hidl_memblk& blk) {
+    savedHidlMemblk = blk;
+    return Void();
+}
+
+Return<void> Memory::getMemBlk(getMemBlk_cb _hidl_cb) {
+    _hidl_cb(savedHidlMemblk);
+    return Void();
+}
 
 IMemoryTest* HIDL_FETCH_IMemoryTest(const char* /* name */) {
     return new Memory();

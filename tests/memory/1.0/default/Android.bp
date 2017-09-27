@@ -34,3 +34,20 @@ cc_library {
     // libs should be used on device.
     static_libs: ["android.hardware.tests.memory@1.0"],
 }
+
+cc_test {
+    name: "android.hardware.tests.memory@1.0-service-test",
+    defaults: ["hidl_defaults"],
+    srcs: ["MemoryTestServiceTest.cpp"],
+    gtest: false,
+
+    shared_libs: [
+        "libhidlbase",
+        "libhidltransport",
+        "libhidlmemory",
+        "liblog",
+        "libutils",
+        "android.hardware.tests.memory@1.0",
+        "android.hidl.memory@1.0",
+    ],
+}
