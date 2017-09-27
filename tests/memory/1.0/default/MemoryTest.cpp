@@ -60,6 +60,11 @@ Return<void> Memory::fillMemory(const hidl_memory& memory_in, uint8_t filler) {
     return Void();
 }
 
+Return<void> Memory::haveSomeMemoryBlock(const hidl_memory_block& blk,
+                                         haveSomeMemoryBlock_cb _hidl_cb) {
+    _hidl_cb(blk);
+    return Void();
+}
 
 IMemoryTest* HIDL_FETCH_IMemoryTest(const char* /* name */) {
     return new Memory();

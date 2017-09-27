@@ -31,6 +31,7 @@ namespace implementation {
 using ::android::hardware::tests::memory::V1_0::IMemoryTest;
 using ::android::hardware::hidl_array;
 using ::android::hardware::hidl_memory;
+using ::android::hardware::hidl_memory_block;
 using ::android::hardware::hidl_string;
 using ::android::hardware::hidl_vec;
 using ::android::hardware::Return;
@@ -43,6 +44,8 @@ struct Memory : public IMemoryTest {
 
     Return<void> fillMemory(const hidl_memory& memory_in, uint8_t filler) override;
 
+    Return<void> haveSomeMemoryBlock(const hidl_memory_block& blk,
+                                     haveSomeMemoryBlock_cb _hidl_cb) override;
 };
 
 extern "C" IMemoryTest* HIDL_FETCH_IMemoryTest(const char* name);
