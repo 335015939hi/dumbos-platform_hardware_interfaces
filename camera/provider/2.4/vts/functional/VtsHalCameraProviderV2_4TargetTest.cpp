@@ -1733,7 +1733,8 @@ TEST_F(CameraHidlTest, setTorchMode) {
             returnStatus = device3_2->setTorchMode(TorchMode::ON);
             ASSERT_TRUE(returnStatus.isOk());
             if (!torchControlSupported) {
-                ASSERT_EQ(Status::METHOD_NOT_SUPPORTED, returnStatus);
+                ASSERT_TRUE(returnStatus == Status::METHOD_NOT_SUPPORTED ||
+                            returnStatus == Status::OPERATION_NOT_SUPPORTEDStatus);
             } else {
                 ASSERT_TRUE(returnStatus == Status::OK ||
                             returnStatus == Status::OPERATION_NOT_SUPPORTED);
