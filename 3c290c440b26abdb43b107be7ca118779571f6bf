@@ -87,6 +87,30 @@
       "revId": "3c290c440b26abdb43b107be7ca118779571f6bf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c857e408_8ff55439",
+        "filename": "health/2.0/IHealthInfoBus.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-09-27T22:57:38Z",
+      "side": 1,
+      "message": "I promote it and check for nullptr, and ignore any transaction errors.",
+      "parentUuid": "d5bca0b6_147c5c9f",
+      "range": {
+        "startLine": 33,
+        "startChar": 6,
+        "endLine": 34,
+        "endChar": 24
+      },
+      "revId": "3c290c440b26abdb43b107be7ca118779571f6bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
