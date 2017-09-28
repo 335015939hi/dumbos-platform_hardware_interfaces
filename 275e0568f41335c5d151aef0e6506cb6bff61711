@@ -25,6 +25,52 @@
     },
     {
       "key": {
+        "uuid": "4261e6b1_6d1478b2",
+        "filename": "health/2.0/IHealthInfoBus.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-09-28T20:25:56Z",
+      "side": 1,
+      "message": "should note that this doesn\u0027t unregister previous callbacks",
+      "range": {
+        "startLine": 37,
+        "startChar": 4,
+        "endLine": 37,
+        "endChar": 20
+      },
+      "revId": "275e0568f41335c5d151aef0e6506cb6bff61711",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82d383cc_fcf22963",
+        "filename": "health/2.0/IHealthInfoBus.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-09-28T20:25:56Z",
+      "side": 1,
+      "message": "since these are all like this, why not just return a bool?",
+      "range": {
+        "startLine": 72,
+        "startChar": 15,
+        "endLine": 72,
+        "endChar": 64
+      },
+      "revId": "275e0568f41335c5d151aef0e6506cb6bff61711",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "55cedc4d_a72a1313",
         "filename": "health/2.0/types.hal",
         "patchSetId": 7
