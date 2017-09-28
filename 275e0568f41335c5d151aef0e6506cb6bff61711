@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c118a9c_2544eac5",
+        "filename": "health/2.0/IHealthInfoBus.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-09-28T20:24:22Z",
+      "side": 1,
+      "message": "Why change the name from IHealth?",
+      "range": {
+        "startLine": 27,
+        "startChar": 10,
+        "endLine": 27,
+        "endChar": 24
+      },
+      "revId": "275e0568f41335c5d151aef0e6506cb6bff61711",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "55cedc4d_a72a1313",
+        "filename": "health/2.0/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-09-28T20:24:22Z",
+      "side": 1,
+      "message": "nit: uint32_t",
+      "range": {
+        "startLine": 22,
+        "startChar": 18,
+        "endLine": 22,
+        "endChar": 25
+      },
+      "revId": "275e0568f41335c5d151aef0e6506cb6bff61711",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "80cc14bf_088175a9",
+        "filename": "health/2.0/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-09-28T20:24:22Z",
+      "side": 1,
+      "message": "rather than comment this, static_assert this wherever BATTERY_PROPERTY_CHARGE_COUNTER is set",
+      "range": {
+        "startLine": 24,
+        "startChar": 24,
+        "endLine": 24,
+        "endChar": 65
+      },
+      "revId": "275e0568f41335c5d151aef0e6506cb6bff61711",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
