@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6e625b17_1a3a8828",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1004277
+      },
+      "writtenOn": "2017-09-28T23:45:07Z",
+      "side": 1,
+      "message": "As you\u0027ve seen, I punted on the original idea of merging battery health and thermal health into this interface, and extended the existing Thermal HAL for the new vendor thermal management -\u003e generic notification methods.  So this interface remains specific to battery/charger health.  Alas.",
+      "range": {
+        "startLine": 7,
+        "startChar": 21,
+        "endLine": 7,
+        "endChar": 27
+      },
+      "revId": "1d34de8789d95023d398dd57c018b7f6907c5c38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dae992b0_10d306b2",
+        "filename": "health/2.0/IHealth.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1004277
+      },
+      "writtenOn": "2017-09-28T23:45:07Z",
+      "side": 1,
+      "message": "nit: Since this isn\u0027t a bool, suggest similar text as used at lines 59-60:\n\n* @return result SUCCESS if successful or other values of {@link Result}\n*                on any error.",
+      "range": {
+        "startLine": 35,
+        "startChar": 22,
+        "endLine": 35,
+        "endChar": 56
+      },
+      "revId": "1d34de8789d95023d398dd57c018b7f6907c5c38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39275b90_8c168855",
+        "filename": "health/2.0/IHealth.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1004277
+      },
+      "writtenOn": "2017-09-28T23:45:07Z",
+      "side": 1,
+      "message": "typo: UNKNOWN",
+      "range": {
+        "startLine": 46,
+        "startChar": 44,
+        "endLine": 46,
+        "endChar": 51
+      },
+      "revId": "1d34de8789d95023d398dd57c018b7f6907c5c38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5734c3a5_2c4cd2e3",
+        "filename": "health/2.0/IHealth.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1004277
+      },
+      "writtenOn": "2017-09-28T23:45:07Z",
+      "side": 1,
+      "message": "suggest \"Get a property as an integer value\"",
+      "revId": "1d34de8789d95023d398dd57c018b7f6907c5c38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cecb9e4e_1b520b6b",
+        "filename": "health/2.0/IHealth.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1004277
+      },
+      "writtenOn": "2017-09-28T23:45:07Z",
+      "side": 1,
+      "message": "suggest \"be the string representation of the integer value\"",
+      "range": {
+        "startLine": 69,
+        "startChar": 7,
+        "endLine": 69,
+        "endChar": 25
+      },
+      "revId": "1d34de8789d95023d398dd57c018b7f6907c5c38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0beeca1_8bf7a9d0",
+        "filename": "health/2.0/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1004277
+      },
+      "writtenOn": "2017-09-28T23:45:07Z",
+      "side": 1,
+      "message": "Suggest \"Remaining battery capacity\", similar to line 42 a.o., to ensure this isn\u0027t construed as maximum capacity.",
+      "range": {
+        "startLine": 24,
+        "startChar": 7,
+        "endLine": 24,
+        "endChar": 23
+      },
+      "revId": "1d34de8789d95023d398dd57c018b7f6907c5c38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f49d0e91_71a9a040",
+        "filename": "health/2.0/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1004277
+      },
+      "writtenOn": "2017-09-28T23:45:07Z",
+      "side": 1,
+      "message": "aka BatteryStatus::* value, don\u0027t know which is better to mention here.",
+      "range": {
+        "startLine": 51,
+        "startChar": 34,
+        "endLine": 51,
+        "endChar": 59
+      },
+      "revId": "1d34de8789d95023d398dd57c018b7f6907c5c38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
