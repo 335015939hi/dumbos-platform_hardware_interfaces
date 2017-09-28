@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1373326f_5bc1ff8e",
+        "filename": "camera/provider/2.4/vts/functional/VtsHalCameraProviderV2_4TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1737,
+      "author": {
+        "id": 1141048
+      },
+      "writtenOn": "2017-09-28T08:49:26Z",
+      "side": 1,
+      "message": "This is not per API contract. If \"isSetTorchModeSupported\" returns false, then \"setTorchMode\" should always return \"METHOD_NOT_SUPPORTED\". There is a distinction between API support and HW device support. \"isSetTorchModeSupported\" checks the SW support for method \"setTorchMode\".",
+      "range": {
+        "startLine": 1737,
+        "startChar": 52,
+        "endLine": 1737,
+        "endChar": 75
+      },
+      "revId": "7208ad4dd43123e0c63ab8ceebbf4c1ebe854edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
