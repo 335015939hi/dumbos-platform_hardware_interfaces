@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "abcd05d9_a28280ea",
+        "filename": "health/2.0/IHealthInfoBus.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-09-28T22:40:50Z",
+      "side": 1,
+      "message": "getProperty and getRawProperty can return NOT_SUPPORTED if the corresponding file is missing, and UNKNOWN for other errors.\n\nFor consistency sake I would rather return Result for all functions (except getChargeStatus, which really doesn\u0027t worth a lambda function passing around).",
+      "parentUuid": "8398dd50_0bbcdb7e",
+      "range": {
+        "startLine": 72,
+        "startChar": 15,
+        "endLine": 72,
+        "endChar": 64
+      },
+      "revId": "275e0568f41335c5d151aef0e6506cb6bff61711",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "55cedc4d_a72a1313",
         "filename": "health/2.0/types.hal",
         "patchSetId": 7
