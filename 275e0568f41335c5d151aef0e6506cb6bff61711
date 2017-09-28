@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "09ede201_9fb2df46",
+        "filename": "health/2.0/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-09-28T22:39:02Z",
+      "side": 1,
+      "message": "and from BatteryManager.java. I will change BatteryManager.java to depend on the values define here though.\n\nAlso, this is the value passed into BatteryMonitor::getProperty, which is a signed integer. Hence keeping it signed here.",
+      "parentUuid": "cf590b5b_218151a8",
+      "range": {
+        "startLine": 22,
+        "startChar": 18,
+        "endLine": 22,
+        "endChar": 25
+      },
+      "revId": "275e0568f41335c5d151aef0e6506cb6bff61711",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "80cc14bf_088175a9",
         "filename": "health/2.0/types.hal",
         "patchSetId": 7
