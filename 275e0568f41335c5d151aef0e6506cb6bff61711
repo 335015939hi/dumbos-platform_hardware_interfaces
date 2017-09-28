@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2297b277_36ac4f76",
+        "filename": "health/2.0/IHealthInfoBus.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-09-28T21:00:44Z",
+      "side": 1,
+      "message": "It used to be IBatteryPropertiesRegistrar. But yeah maybe it should be called IHealth.",
+      "parentUuid": "3c118a9c_2544eac5",
+      "range": {
+        "startLine": 27,
+        "startChar": 10,
+        "endLine": 27,
+        "endChar": 24
+      },
+      "revId": "275e0568f41335c5d151aef0e6506cb6bff61711",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4261e6b1_6d1478b2",
         "filename": "health/2.0/IHealthInfoBus.hal",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2017-09-28T20:25:56Z",
       "side": 1,
       "message": "should note that this doesn\u0027t unregister previous callbacks",
+      "range": {
+        "startLine": 37,
+        "startChar": 4,
+        "endLine": 37,
+        "endChar": 20
+      },
+      "revId": "275e0568f41335c5d151aef0e6506cb6bff61711",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c819b0d4_a7ab3bd7",
+        "filename": "health/2.0/IHealthInfoBus.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-09-28T21:00:44Z",
+      "side": 1,
+      "message": "will do.",
+      "parentUuid": "4261e6b1_6d1478b2",
       "range": {
         "startLine": 37,
         "startChar": 4,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "8398dd50_0bbcdb7e",
+        "filename": "health/2.0/IHealthInfoBus.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-09-28T21:00:44Z",
+      "side": 1,
+      "message": "some of them can actually be \"unsupported\". I\u0027ll update the comments",
+      "parentUuid": "82d383cc_fcf22963",
+      "range": {
+        "startLine": 72,
+        "startChar": 15,
+        "endLine": 72,
+        "endChar": 64
+      },
+      "revId": "275e0568f41335c5d151aef0e6506cb6bff61711",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "55cedc4d_a72a1313",
         "filename": "health/2.0/types.hal",
         "patchSetId": 7
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "cf590b5b_218151a8",
+        "filename": "health/2.0/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-09-28T21:00:44Z",
+      "side": 1,
+      "message": "keeping int32_t (it is from libbatteryservice)",
+      "parentUuid": "55cedc4d_a72a1313",
+      "range": {
+        "startLine": 22,
+        "startChar": 18,
+        "endLine": 22,
+        "endChar": 25
+      },
+      "revId": "275e0568f41335c5d151aef0e6506cb6bff61711",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "80cc14bf_088175a9",
         "filename": "health/2.0/types.hal",
         "patchSetId": 7
@@ -105,6 +201,30 @@
       "writtenOn": "2017-09-28T20:24:22Z",
       "side": 1,
       "message": "rather than comment this, static_assert this wherever BATTERY_PROPERTY_CHARGE_COUNTER is set",
+      "range": {
+        "startLine": 24,
+        "startChar": 24,
+        "endLine": 24,
+        "endChar": 65
+      },
+      "revId": "275e0568f41335c5d151aef0e6506cb6bff61711",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef14a9a1_3af7ccc3",
+        "filename": "health/2.0/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-09-28T21:00:44Z",
+      "side": 1,
+      "message": "Will delete the comment. These values are from libbatteryservice, which I consider to remove.",
+      "parentUuid": "80cc14bf_088175a9",
       "range": {
         "startLine": 24,
         "startChar": 24,
