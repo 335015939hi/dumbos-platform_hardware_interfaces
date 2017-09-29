@@ -201,6 +201,29 @@
     },
     {
       "key": {
+        "uuid": "31fcc6a2_7c00e954",
+        "filename": "health/2.0/IHealth.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-09-29T01:12:04Z",
+      "side": 1,
+      "message": "Todd, I am not sure if this is necessary. The only use case is recovery, which is calling BatteryMonitor::getChargeStatus directly without checking BatteryMonitor::mAlwaysPluggedDevice.\n\nCan I remove this function, and let recovery call getProperty(BATTERY_STATUS) instead? (Then it will check mAlwaysPluggedDevice.)",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 55
+      },
+      "revId": "1d34de8789d95023d398dd57c018b7f6907c5c38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d0beeca1_8bf7a9d0",
         "filename": "health/2.0/types.hal",
         "patchSetId": 8
