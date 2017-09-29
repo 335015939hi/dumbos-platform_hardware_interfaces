@@ -21,6 +21,8 @@ cc_library_shared {
         "HidlUtils.cpp",
     ],
 
+    cflags: ["-Wall", "-Werror"],
+
     export_include_dirs: ["."],
 
     shared_libs: [
