@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "acefa06f_56e75c87",
+        "filename": "health/2.0/types.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-09-29T20:18:08Z",
+      "side": 1,
+      "message": "Should I mention this? I copied this line from BatteryMonitor.",
+      "range": {
+        "startLine": 80,
+        "startChar": 7,
+        "endLine": 80,
+        "endChar": 47
+      },
+      "revId": "4589981f3199dbca7640f90b38018fa4547fb3b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

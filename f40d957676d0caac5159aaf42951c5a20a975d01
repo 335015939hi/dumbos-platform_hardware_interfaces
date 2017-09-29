@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "537985ea_1ef4ab66",
+        "filename": "health/2.0/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-09-29T20:18:08Z",
+      "side": 1,
+      "message": "I had updated this, please see new PS.",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 47
+      },
+      "revId": "f40d957676d0caac5159aaf42951c5a20a975d01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "89cd3028_7178760a",
         "filename": "health/2.0/types.hal",
         "patchSetId": 9
@@ -36,6 +59,30 @@
       "writtenOn": "2017-09-29T19:48:21Z",
       "side": 1,
       "message": "On my device I only see Li-ion \u003d\u003e LION, but I don\u0027t know about other conversions.",
+      "range": {
+        "startLine": 114,
+        "startChar": 7,
+        "endLine": 114,
+        "endChar": 41
+      },
+      "revId": "f40d957676d0caac5159aaf42951c5a20a975d01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee9d2c6b_3b0204d3",
+        "filename": "health/2.0/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-09-29T20:18:08Z",
+      "side": 1,
+      "message": "I had updated the values, please see new PS.",
+      "parentUuid": "d9841952_180b9a02",
       "range": {
         "startLine": 114,
         "startChar": 7,
