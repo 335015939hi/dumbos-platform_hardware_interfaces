@@ -2,6 +2,121 @@
   "comments": [
     {
       "key": {
+        "uuid": "603baa39_61df6106",
+        "filename": "health/2.0/IHealth.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1004277
+      },
+      "writtenOn": "2017-09-29T20:30:06Z",
+      "side": 1,
+      "message": "Maybe put the above two UNKNOWN cases into the same phrase to make it clearer.",
+      "range": {
+        "startLine": 48,
+        "startChar": 22,
+        "endLine": 48,
+        "endChar": 46
+      },
+      "revId": "f40d957676d0caac5159aaf42951c5a20a975d01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56f2e6b0_ca14675e",
+        "filename": "health/2.0/IHealth.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1004277
+      },
+      "writtenOn": "2017-09-29T20:30:06Z",
+      "side": 1,
+      "message": "service uses to retrieve\n\n(and line 80)",
+      "range": {
+        "startLine": 63,
+        "startChar": 51,
+        "endLine": 63,
+        "endChar": 67
+      },
+      "revId": "f40d957676d0caac5159aaf42951c5a20a975d01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "243cae0e_d1e549ae",
+        "filename": "health/2.0/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1004277
+      },
+      "writtenOn": "2017-09-29T20:30:06Z",
+      "side": 1,
+      "message": "must exist\n\n(and below line 70 et al)",
+      "range": {
+        "startLine": 58,
+        "startChar": 29,
+        "endLine": 58,
+        "endChar": 34
+      },
+      "revId": "f40d957676d0caac5159aaf42951c5a20a975d01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "74e84a34_98c682e7",
+        "filename": "health/2.0/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1004277
+      },
+      "writtenOn": "2017-09-29T20:30:06Z",
+      "side": 1,
+      "message": "Warm and cool have same value",
+      "range": {
+        "startLine": 79,
+        "startChar": 1,
+        "endLine": 80,
+        "endChar": 41
+      },
+      "revId": "f40d957676d0caac5159aaf42951c5a20a975d01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "06b8cfe4_e295c687",
+        "filename": "health/2.0/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1004277
+      },
+      "writtenOn": "2017-09-29T20:30:06Z",
+      "side": 1,
+      "message": "These are 10 - 12 in the kernel sysfs numbering (plus one, assuming it\u0027s intended these start at 1 instead of zero like the kernel uses?)",
+      "range": {
+        "startLine": 79,
+        "startChar": 1,
+        "endLine": 81,
+        "endChar": 41
+      },
+      "revId": "f40d957676d0caac5159aaf42951c5a20a975d01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "537985ea_1ef4ab66",
         "filename": "health/2.0/types.hal",
         "patchSetId": 9
@@ -36,6 +151,30 @@
       "writtenOn": "2017-09-29T19:48:21Z",
       "side": 1,
       "message": "That\u0027s what BatteryMonitor current does. Should I say \"1\" here instead? If so, I will write VTS test to make sure this string property only has \"1\" or \"0\".",
+      "range": {
+        "startLine": 95,
+        "startChar": 12,
+        "endLine": 95,
+        "endChar": 31
+      },
+      "revId": "f40d957676d0caac5159aaf42951c5a20a975d01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e4ec43cb_91d5f4f3",
+        "filename": "health/2.0/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1004277
+      },
+      "writtenOn": "2017-09-29T20:30:06Z",
+      "side": 1,
+      "message": "Sounds fine to me.",
+      "parentUuid": "89cd3028_7178760a",
       "range": {
         "startLine": 95,
         "startChar": 12,
@@ -95,6 +234,30 @@
     },
     {
       "key": {
+        "uuid": "cf7b21d8_575830d0",
+        "filename": "health/2.0/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1004277
+      },
+      "writtenOn": "2017-09-29T20:30:06Z",
+      "side": 1,
+      "message": "From kernel drivers/power/power_supply_sysfs.c \n\n      static char *technology_text[] \u003d {\n                \"Unknown\", \"NiMH\", \"Li-ion\", \"Li-poly\", \"LiFe\", \"NiCd\",\n                \"LiMn\"\n        };",
+      "parentUuid": "d9841952_180b9a02",
+      "range": {
+        "startLine": 114,
+        "startChar": 7,
+        "endLine": 114,
+        "endChar": 41
+      },
+      "revId": "f40d957676d0caac5159aaf42951c5a20a975d01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3ab1684d_1235aa2d",
         "filename": "health/2.0/types.hal",
         "patchSetId": 9
@@ -112,6 +275,24 @@
     },
     {
       "key": {
+        "uuid": "c1d982a7_ae90d3f8",
+        "filename": "health/2.0/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1004277
+      },
+      "writtenOn": "2017-09-29T20:30:06Z",
+      "side": 1,
+      "message": "I think this is something added for a qualcomm-specific thing, I\u0027m afraid, I\u0027m not sure either but can find out soon.",
+      "parentUuid": "3ab1684d_1235aa2d",
+      "revId": "f40d957676d0caac5159aaf42951c5a20a975d01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fb62ff5d_f3927e5d",
         "filename": "health/2.0/types.hal",
         "patchSetId": 9
@@ -123,6 +304,30 @@
       "writtenOn": "2017-09-29T19:48:21Z",
       "side": 1,
       "message": "Not sure what this is, and what its unit is.",
+      "range": {
+        "startLine": 130,
+        "startChar": 0,
+        "endLine": 130,
+        "endChar": 6
+      },
+      "revId": "f40d957676d0caac5159aaf42951c5a20a975d01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8910cbed_1d4ebfcd",
+        "filename": "health/2.0/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1004277
+      },
+      "writtenOn": "2017-09-29T20:30:06Z",
+      "side": 1,
+      "message": "It doesn\u0027t seem to have any documentation.  Should be the number of charge cycles I think, not sure.  Will try to find out soon.",
+      "parentUuid": "fb62ff5d_f3927e5d",
       "range": {
         "startLine": 130,
         "startChar": 0,
