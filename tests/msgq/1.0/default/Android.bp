@@ -37,6 +37,7 @@ cc_test {
     name: "android.hardware.tests.msgq@1.0-service-benchmark",
     srcs: ["mq_benchmark_service.cpp"],
     gtest: false,
+    cflags: ["-Wall", "-Werror"],
 
     shared_libs: [
         "libbase",
@@ -53,6 +54,7 @@ cc_test {
     name: "android.hardware.tests.msgq@1.0-service-test",
     srcs: ["mq_test_service.cpp"],
     gtest: false,
+    cflags: ["-Wall", "-Werror"],
 
     shared_libs: [
         "libbase",

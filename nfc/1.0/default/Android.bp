@@ -23,6 +23,7 @@ cc_binary {
     proprietary: true,
     init_rc: ["android.hardware.nfc@1.0-service.rc"],
     srcs: ["service.cpp"],
+    cflags: ["-Wall", "-Werror"],
 
     shared_libs: [
         "liblog",

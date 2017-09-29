@@ -3,6 +3,8 @@ cc_library_shared {
 
     srcs: ["android/tests/binder/IBenchmark.aidl"],
 
+    cflags: ["-Wall", "-Werror"],
+
     aidl: {
         export_aidl_headers: true,
     },

@@ -5,6 +5,7 @@ cc_library_shared {
         "Benchmark.cpp",
         "ScheduleTest.cpp",
     ],
+    cflags: ["-Wall", "-Werror"],
     shared_libs: [
         "libcutils",
         "libhidlbase",
