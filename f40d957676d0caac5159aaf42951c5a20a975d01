@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "fe164ad5_7914f017",
+        "filename": "health/2.0/IHealth.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-09-29T22:51:05Z",
+      "side": 1,
+      "message": "Please see new PS",
+      "parentUuid": "56f2e6b0_ca14675e",
+      "range": {
+        "startLine": 63,
+        "startChar": 51,
+        "endLine": 63,
+        "endChar": 67
+      },
+      "revId": "f40d957676d0caac5159aaf42951c5a20a975d01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "243cae0e_d1e549ae",
         "filename": "health/2.0/types.hal",
         "patchSetId": 9
@@ -94,6 +118,30 @@
     },
     {
       "key": {
+        "uuid": "8a1f38bc_13e74d85",
+        "filename": "health/2.0/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-09-29T22:51:05Z",
+      "side": 1,
+      "message": "Yeah... I copied it from BatteryMonitor::getBatteryHealth. Warm and Cool maps to Good, and HOT maps to Overheat.\n\nThis is the interface exposed in BatteryManager.getLongProperty(), so I am not sure if I should change the behavior here. Maybe the HAL should provide distinct values, and framework code should put special case for these values?",
+      "parentUuid": "74e84a34_98c682e7",
+      "range": {
+        "startLine": 79,
+        "startChar": 1,
+        "endLine": 80,
+        "endChar": 41
+      },
+      "revId": "f40d957676d0caac5159aaf42951c5a20a975d01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "06b8cfe4_e295c687",
         "filename": "health/2.0/types.hal",
         "patchSetId": 9
@@ -105,6 +153,30 @@
       "writtenOn": "2017-09-29T20:30:06Z",
       "side": 1,
       "message": "These are 10 - 12 in the kernel sysfs numbering (plus one, assuming it\u0027s intended these start at 1 instead of zero like the kernel uses?)",
+      "range": {
+        "startLine": 79,
+        "startChar": 1,
+        "endLine": 81,
+        "endChar": 41
+      },
+      "revId": "f40d957676d0caac5159aaf42951c5a20a975d01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d491b54b_467e3c82",
+        "filename": "health/2.0/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-09-29T22:51:05Z",
+      "side": 1,
+      "message": "Yeah (again I copied it from BatteryMonitor::getBatteryHealth, and these number starts at 0)",
+      "parentUuid": "06b8cfe4_e295c687",
       "range": {
         "startLine": 79,
         "startChar": 1,
@@ -187,6 +259,30 @@
     },
     {
       "key": {
+        "uuid": "8b6be43c_1ea3cb72",
+        "filename": "health/2.0/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-09-29T22:51:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e4ec43cb_91d5f4f3",
+      "range": {
+        "startLine": 95,
+        "startChar": 12,
+        "endLine": 95,
+        "endChar": 31
+      },
+      "revId": "f40d957676d0caac5159aaf42951c5a20a975d01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d9841952_180b9a02",
         "filename": "health/2.0/types.hal",
         "patchSetId": 9
@@ -258,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "66c53642_d5ccf4a8",
+        "filename": "health/2.0/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-09-29T22:51:05Z",
+      "side": 1,
+      "message": "Thanks, please see new PS.",
+      "parentUuid": "cf7b21d8_575830d0",
+      "range": {
+        "startLine": 114,
+        "startChar": 7,
+        "endLine": 114,
+        "endChar": 41
+      },
+      "revId": "f40d957676d0caac5159aaf42951c5a20a975d01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3ab1684d_1235aa2d",
         "filename": "health/2.0/types.hal",
         "patchSetId": 9
@@ -287,6 +407,24 @@
       "side": 1,
       "message": "I think this is something added for a qualcomm-specific thing, I\u0027m afraid, I\u0027m not sure either but can find out soon.",
       "parentUuid": "3ab1684d_1235aa2d",
+      "revId": "f40d957676d0caac5159aaf42951c5a20a975d01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d872b7c6_58b0c961",
+        "filename": "health/2.0/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-09-29T22:51:05Z",
+      "side": 1,
+      "message": "It shows up in BatteryProperties, but yeah it doesn\u0027t have any documentation. If it is qc specific I think I shouldn\u0027t put it here. Sandeep?",
+      "parentUuid": "c1d982a7_ae90d3f8",
       "revId": "f40d957676d0caac5159aaf42951c5a20a975d01",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -328,6 +466,30 @@
       "side": 1,
       "message": "It doesn\u0027t seem to have any documentation.  Should be the number of charge cycles I think, not sure.  Will try to find out soon.",
       "parentUuid": "fb62ff5d_f3927e5d",
+      "range": {
+        "startLine": 130,
+        "startChar": 0,
+        "endLine": 130,
+        "endChar": 6
+      },
+      "revId": "f40d957676d0caac5159aaf42951c5a20a975d01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11d5148e_a2e6c309",
+        "filename": "health/2.0/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-09-29T22:51:05Z",
+      "side": 1,
+      "message": "(same as above)",
+      "parentUuid": "8910cbed_1d4ebfcd",
       "range": {
         "startLine": 130,
         "startChar": 0,
