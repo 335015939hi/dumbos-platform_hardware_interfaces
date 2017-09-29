@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "5b2b3a27_f5ee45ce",
+        "filename": "health/2.0/IHealth.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1108565
+      },
+      "writtenOn": "2017-09-29T23:25:04Z",
+      "side": 1,
+      "message": "this shouldn\u0027t be an id. The whole reason for this API is for anyone to be able to fetch a new power supply property that is not in the PropertyId as a string. There is no way to map the randon int32_t id to the PropertyId",
+      "range": {
+        "startLine": 85,
+        "startChar": 19,
+        "endLine": 85,
+        "endChar": 29
+      },
+      "revId": "4589981f3199dbca7640f90b38018fa4547fb3b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "acefa06f_56e75c87",
         "filename": "health/2.0/types.hal",
         "patchSetId": 11
@@ -22,6 +45,29 @@
       "revId": "4589981f3199dbca7640f90b38018fa4547fb3b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d775cd70_58fe428a",
+        "filename": "health/2.0/types.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1108565
+      },
+      "writtenOn": "2017-09-29T23:25:04Z",
+      "side": 1,
+      "message": "this is wrong, we shouldn\u0027t be doing this. However, there is a very good possibility that removing these will affect pixel, so be *very* careful in allowing vendors to override this and reflect this in pixel vendor impl",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 41
+      },
+      "revId": "4589981f3199dbca7640f90b38018fa4547fb3b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
