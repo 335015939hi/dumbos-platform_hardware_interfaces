@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "89cd3028_7178760a",
+        "filename": "health/2.0/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-09-29T19:48:21Z",
+      "side": 1,
+      "message": "That\u0027s what BatteryMonitor current does. Should I say \"1\" here instead? If so, I will write VTS test to make sure this string property only has \"1\" or \"0\".",
+      "range": {
+        "startLine": 95,
+        "startChar": 12,
+        "endLine": 95,
+        "endChar": 31
+      },
+      "revId": "f40d957676d0caac5159aaf42951c5a20a975d01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9841952_180b9a02",
+        "filename": "health/2.0/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-09-29T19:48:21Z",
+      "side": 1,
+      "message": "On my device I only see Li-ion \u003d\u003e LION, but I don\u0027t know about other conversions.",
+      "range": {
+        "startLine": 114,
+        "startChar": 7,
+        "endLine": 114,
+        "endChar": 41
+      },
+      "revId": "f40d957676d0caac5159aaf42951c5a20a975d01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ab1684d_1235aa2d",
+        "filename": "health/2.0/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-09-29T19:48:21Z",
+      "side": 1,
+      "message": "Not sure what this is, and what its unit is.",
+      "revId": "f40d957676d0caac5159aaf42951c5a20a975d01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb62ff5d_f3927e5d",
+        "filename": "health/2.0/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-09-29T19:48:21Z",
+      "side": 1,
+      "message": "Not sure what this is, and what its unit is.",
+      "range": {
+        "startLine": 130,
+        "startChar": 0,
+        "endLine": 130,
+        "endChar": 6
+      },
+      "revId": "f40d957676d0caac5159aaf42951c5a20a975d01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
