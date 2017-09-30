@@ -95,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "326acec0_9a09c2d1",
+        "filename": "health/2.0/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-09-30T00:42:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "243cae0e_d1e549ae",
+      "range": {
+        "startLine": 58,
+        "startChar": 29,
+        "endLine": 58,
+        "endChar": 34
+      },
+      "revId": "f40d957676d0caac5159aaf42951c5a20a975d01",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "74e84a34_98c682e7",
         "filename": "health/2.0/types.hal",
         "patchSetId": 9
