@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "9e582f82_57e5c1e6",
+        "filename": "health/2.0/IHealth.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-10-02T20:18:47Z",
+      "side": 1,
+      "message": "I can remove this documentation then. Indeed the HAL doesn\u0027t have to passthrough these values from kernel.",
+      "parentUuid": "4b49c22c_ec33beb6",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 57
+      },
+      "revId": "30896dbce3fb0bc1497c20c7508c82c6240201da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44c24c9c_288ef4ac",
         "filename": "health/2.0/IHealth.hal",
         "patchSetId": 12
