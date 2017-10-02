@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "4b49c22c_ec33beb6",
+        "filename": "health/2.0/IHealth.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1004277
+      },
+      "writtenOn": "2017-10-02T20:16:44Z",
+      "side": 1,
+      "message": "Hrm, all these are good points.  One of the reasons healthd added all this in the first place was that sometimes products also override the values from the kernel with product-specific logic, such as to adjust what\u0027s reported as 100% battery.  What we mainly don\u0027t want vendors to do is hack the kernels to put product-specific logic down there.  We should be careful about documenting that the HAL must only passthrough values read from the kernel.",
+      "parentUuid": "84ee3048_be96c135",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 57
+      },
+      "revId": "30896dbce3fb0bc1497c20c7508c82c6240201da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44c24c9c_288ef4ac",
         "filename": "health/2.0/IHealth.hal",
         "patchSetId": 12
