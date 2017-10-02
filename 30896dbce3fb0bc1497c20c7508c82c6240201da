@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "81203215_2f66e94d",
+        "filename": "health/2.0/IHealth.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-10-02T20:11:33Z",
+      "side": 1,
+      "message": "HIDL style guide suggest to put full qualified names.",
+      "parentUuid": "62b7f595_41feb1ee",
+      "range": {
+        "startLine": 19,
+        "startChar": 7,
+        "endLine": 19,
+        "endChar": 42
+      },
+      "revId": "30896dbce3fb0bc1497c20c7508c82c6240201da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8c3683af_e53fa0ce",
         "filename": "health/2.0/IHealth.hal",
         "patchSetId": 12
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "84ee3048_be96c135",
+        "filename": "health/2.0/IHealth.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-10-02T20:11:33Z",
+      "side": 1,
+      "message": "discussed offline. We should have a HAL because vendors could override this behavior for a customized kernel.",
+      "parentUuid": "8c3683af_e53fa0ce",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 57
+      },
+      "revId": "30896dbce3fb0bc1497c20c7508c82c6240201da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44c24c9c_288ef4ac",
         "filename": "health/2.0/IHealth.hal",
         "patchSetId": 12
@@ -59,6 +107,30 @@
       "writtenOn": "2017-10-02T19:33:01Z",
       "side": 1,
       "message": "The list of available string should be made available somehow to the android framework. What are example values?",
+      "range": {
+        "startLine": 82,
+        "startChar": 14,
+        "endLine": 82,
+        "endChar": 18
+      },
+      "revId": "30896dbce3fb0bc1497c20c7508c82c6240201da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6867a922_9fbfd0f6",
+        "filename": "health/2.0/IHealth.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-10-02T20:11:33Z",
+      "side": 1,
+      "message": "There are no clients right now. Note that there is a \"Result\" out param to suggest that a certain property is supported or not.",
+      "parentUuid": "44c24c9c_288ef4ac",
       "range": {
         "startLine": 82,
         "startChar": 14,
@@ -117,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "1d081e0d_d9a9c9f0",
+        "filename": "health/2.0/types.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-10-02T20:11:33Z",
+      "side": 1,
+      "message": "No. We don\u0027t necessary have a \"standard linux kernel\" either.",
+      "parentUuid": "1f2dfadb_571e3869",
+      "range": {
+        "startLine": 24,
+        "startChar": 42,
+        "endLine": 24,
+        "endChar": 63
+      },
+      "revId": "30896dbce3fb0bc1497c20c7508c82c6240201da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e63acda1_1942cce9",
         "filename": "health/2.0/types.hal",
         "patchSetId": 12
@@ -128,6 +224,30 @@
       "writtenOn": "2017-10-02T19:33:01Z",
       "side": 1,
       "message": "Is this the only change? If so, let\u0027s not introduce another struct. I\u0027d rather maintain the mapping than add this confusion.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 50
+      },
+      "revId": "30896dbce3fb0bc1497c20c7508c82c6240201da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e9d6276_c04c68ff",
+        "filename": "health/2.0/types.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-10-02T20:11:33Z",
+      "side": 1,
+      "message": "Yes. The values were off-by-one because the values were from the framework. I want the values to be those from the kernel. \n\nNote that these enums are here for reference only (for the framework to do the conversion between kernel values and framework values). The interface should resemble what the kernel provides, not what the framework wants.",
+      "parentUuid": "e63acda1_1942cce9",
       "range": {
         "startLine": 24,
         "startChar": 0,
@@ -163,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "477ade6e_4027c8ff",
+        "filename": "health/2.0/types.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-10-02T20:11:33Z",
+      "side": 1,
+      "message": "\"Quoted text are possible values for IHealth.getRawProperty(\"battery\", \"status\").\"\n\nI\u0027ll put this line in all comments.",
+      "parentUuid": "ba8eb40f_60216a8b",
+      "range": {
+        "startLine": 29,
+        "startChar": 4,
+        "endLine": 29,
+        "endChar": 20
+      },
+      "revId": "30896dbce3fb0bc1497c20c7508c82c6240201da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2606033c_b709efb7",
         "filename": "health/2.0/types.hal",
         "patchSetId": 12
@@ -174,6 +318,30 @@
       "writtenOn": "2017-10-02T19:33:01Z",
       "side": 1,
       "message": "Delete all of these comments or add more extensive information. These are useless right now.",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 20
+      },
+      "revId": "30896dbce3fb0bc1497c20c7508c82c6240201da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "12efc05f_d40dcc3c",
+        "filename": "health/2.0/types.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-10-02T20:11:33Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "2606033c_b709efb7",
       "range": {
         "startLine": 54,
         "startChar": 0,
@@ -209,6 +377,30 @@
     },
     {
       "key": {
+        "uuid": "c46900e6_3844ca9f",
+        "filename": "health/2.0/types.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-10-02T20:11:33Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "c383d571_3e16704a",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 17
+      },
+      "revId": "30896dbce3fb0bc1497c20c7508c82c6240201da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "609585d0_43aeaa53",
         "filename": "health/2.0/types.hal",
         "patchSetId": 12
@@ -220,6 +412,30 @@
       "writtenOn": "2017-10-02T19:33:01Z",
       "side": 1,
       "message": "Is there a specific reason not to introduce the name?",
+      "range": {
+        "startLine": 102,
+        "startChar": 8,
+        "endLine": 102,
+        "endChar": 15
+      },
+      "revId": "30896dbce3fb0bc1497c20c7508c82c6240201da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a80eb59_fec696b0",
+        "filename": "health/2.0/types.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-10-02T20:11:33Z",
+      "side": 1,
+      "message": "I don\u0027t have to export the values BTW... I\u0027ll remove all @exports.",
+      "parentUuid": "609585d0_43aeaa53",
       "range": {
         "startLine": 102,
         "startChar": 8,
