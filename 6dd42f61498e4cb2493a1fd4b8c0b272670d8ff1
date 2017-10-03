@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c6e15d5f_6f0385fd",
+        "filename": "health/2.0/IHealth.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1004277
+      },
+      "writtenOn": "2017-10-03T23:00:46Z",
+      "side": 1,
+      "message": "for other (and below)",
+      "range": {
+        "startLine": 64,
+        "startChar": 29,
+        "endLine": 64,
+        "endChar": 36
+      },
+      "revId": "6dd42f61498e4cb2493a1fd4b8c0b272670d8ff1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
