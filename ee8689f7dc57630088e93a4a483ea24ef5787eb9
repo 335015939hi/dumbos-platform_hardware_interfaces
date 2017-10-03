@@ -22,6 +22,29 @@
       "revId": "ee8689f7dc57630088e93a4a483ea24ef5787eb9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2559350b_21769818",
+        "filename": "update-makefiles.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-10-03T17:59:49Z",
+      "side": 1,
+      "message": "Check for $ANDROID_BUILD_TOP existence here (otherwise it will write to a random file /hardware/interfaces/audio/2.0/Android.bp that rest in the root of host).\n\n(We don\u0027t need the check before because of the `source` line)",
+      "range": {
+        "startLine": 5,
+        "startChar": 41,
+        "endLine": 5,
+        "endChar": 59
+      },
+      "revId": "ee8689f7dc57630088e93a4a483ea24ef5787eb9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
