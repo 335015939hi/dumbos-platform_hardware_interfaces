@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "701f2af1_7a4fb2d4",
+        "filename": "health/2.0/IHealth.hal",
+        "patchSetId": 16
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-03T23:14:08Z",
+      "side": 1,
+      "message": "will registering a new callback delete the old one?",
+      "range": {
+        "startLine": 29,
+        "startChar": 18,
+        "endLine": 29,
+        "endChar": 26
+      },
+      "revId": "3978d98cace3b29d1d2c7a5f69b1da3ddbdf9e08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3fb65138_21f87f70",
+        "filename": "health/2.0/IHealth.hal",
+        "patchSetId": 16
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-03T23:14:08Z",
+      "side": 1,
+      "message": "Could you clarify, should it send callback notifications? What is it updating?",
+      "range": {
+        "startLine": 51,
+        "startChar": 16,
+        "endLine": 51,
+        "endChar": 22
+      },
+      "revId": "3978d98cace3b29d1d2c7a5f69b1da3ddbdf9e08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e80a588_212ad815",
+        "filename": "health/2.0/IHealth.hal",
+        "patchSetId": 16
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-03T23:14:08Z",
+      "side": 1,
+      "message": "nit: remove comment",
+      "range": {
+        "startLine": 58,
+        "startChar": 7,
+        "endLine": 58,
+        "endChar": 15
+      },
+      "revId": "3978d98cace3b29d1d2c7a5f69b1da3ddbdf9e08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
