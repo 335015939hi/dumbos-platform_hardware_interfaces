@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "910c1747_c8beb9d5",
+        "filename": "health/2.0/IHealth.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-03T16:18:50Z",
+      "side": 1,
+      "message": "Talked to Sandeep offline. Yifan, can you just clarify that these must be opaque to the framework (that is, to the system.img + GSI?)",
+      "parentUuid": "cefcb44a_94896687",
+      "range": {
+        "startLine": 85,
+        "startChar": 19,
+        "endLine": 85,
+        "endChar": 29
+      },
+      "revId": "4589981f3199dbca7640f90b38018fa4547fb3b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "acefa06f_56e75c87",
         "filename": "health/2.0/types.hal",
         "patchSetId": 11
