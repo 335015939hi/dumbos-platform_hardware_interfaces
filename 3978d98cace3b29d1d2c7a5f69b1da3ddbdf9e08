@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "98bf5992_dd3e6e6c",
+        "filename": "health/2.0/IHealth.hal",
+        "patchSetId": 16
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-10-03T23:44:32Z",
+      "side": 1,
+      "message": "I really don\u0027t know how to specify this. This maps to the original healthd_battery_update() call, but I can\u0027t find any documentation for it.\n\nI\u0027ll try to fill in something here. Sandeep / Todd, please take a look.",
+      "parentUuid": "3fb65138_21f87f70",
+      "range": {
+        "startLine": 51,
+        "startChar": 16,
+        "endLine": 51,
+        "endChar": 22
+      },
+      "revId": "3978d98cace3b29d1d2c7a5f69b1da3ddbdf9e08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e80a588_212ad815",
         "filename": "health/2.0/IHealth.hal",
         "patchSetId": 16
