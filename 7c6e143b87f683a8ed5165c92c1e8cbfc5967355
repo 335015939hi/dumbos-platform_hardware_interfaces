@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba4e6366_477d6b2e",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1121516
+      },
+      "writtenOn": "2017-10-04T18:10:19Z",
+      "side": 1,
+      "message": "The callback is asynchronous, so this is a race condition depending on how the service is implemented. You can look at NFC for an example of how to handle this easily: https://cs.corp.google.com/android/hardware/interfaces/nfc/1.0/vts/functional/VtsHalNfcV1_0TargetTest.cpp?l\u003d70\n\nOr you could use a mocking approach (like broadcast radio):\nhttps://cs.corp.google.com/android/hardware/interfaces/broadcastradio/1.1/vts/functional/VtsHalBroadcastradioV1_1TargetTest.cpp?l\u003d79",
+      "range": {
+        "startLine": 86,
+        "startChar": 3,
+        "endLine": 88,
+        "endChar": 39
+      },
+      "revId": "7c6e143b87f683a8ed5165c92c1e8cbfc5967355",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bd99665_a4cfeb17",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1121516
+      },
+      "writtenOn": "2017-10-04T18:10:19Z",
+      "side": 1,
+      "message": "Can we get a docstring for the args",
+      "range": {
+        "startLine": 107,
+        "startChar": 40,
+        "endLine": 108,
+        "endChar": 66
+      },
+      "revId": "7c6e143b87f683a8ed5165c92c1e8cbfc5967355",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a148e5eb_4fb5d4ed",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1121516
+      },
+      "writtenOn": "2017-10-04T18:10:19Z",
+      "side": 1,
+      "message": "Let\u0027s put the tests at the bottom and defs at the top (including helping functions) so this is a little easier to read.",
+      "range": {
+        "startLine": 121,
+        "startChar": 1,
+        "endLine": 121,
+        "endChar": 7
+      },
+      "revId": "7c6e143b87f683a8ed5165c92c1e8cbfc5967355",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
