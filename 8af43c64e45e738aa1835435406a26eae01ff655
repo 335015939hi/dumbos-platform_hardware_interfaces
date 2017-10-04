@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d3827b7_7de028bb",
+        "filename": "health/2.0/IHealth.hal",
+        "patchSetId": 21
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1004277
+      },
+      "writtenOn": "2017-10-04T01:14:58Z",
+      "side": 1,
+      "message": "Not clear caller cares about killed apps or native daemons?",
+      "range": {
+        "startLine": 60,
+        "startChar": 22,
+        "endLine": 60,
+        "endChar": 70
+      },
+      "revId": "8af43c64e45e738aa1835435406a26eae01ff655",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

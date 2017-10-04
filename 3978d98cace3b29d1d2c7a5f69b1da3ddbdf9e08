@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "347cc4d4_0b2fe697",
+        "filename": "health/2.0/IHealth.hal",
+        "patchSetId": 16
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1004277
+      },
+      "writtenOn": "2017-10-04T01:14:58Z",
+      "side": 1,
+      "message": "IIRC that was added to periodically force current values to be reported to listeners for diagnostic purposes.  (It happened while I was away from Android and I wasn\u0027t closely involved in this work.)  Things that upload Pixel health data probably use this.",
+      "parentUuid": "98bf5992_dd3e6e6c",
+      "range": {
+        "startLine": 51,
+        "startChar": 16,
+        "endLine": 51,
+        "endChar": 22
+      },
+      "revId": "3978d98cace3b29d1d2c7a5f69b1da3ddbdf9e08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e80a588_212ad815",
         "filename": "health/2.0/IHealth.hal",
         "patchSetId": 16
