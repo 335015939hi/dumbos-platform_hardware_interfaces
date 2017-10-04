@@ -129,13 +129,16 @@ genrule {
 cc_test {
     name: "android.hardware.health@1.0-adapter",
     defaults: ["hidl-module-defaults"],
+    static_libs: [
+        "android.hardware.health@1.0",
+        "android.hardware.health@1.0-adapter-helper",
+    ],
     shared_libs: [
         "libhidladapter",
         "libhidlbase",
         "libhidltransport",
+        "libhwbinder",
         "libutils",
-        "android.hardware.health@1.0",
-        "android.hardware.health@1.0-adapter-helper",
     ],
     generated_sources: ["android.hardware.health@1.0-adapter_genc++"],
 }

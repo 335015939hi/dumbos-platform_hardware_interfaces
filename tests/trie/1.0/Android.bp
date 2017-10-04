@@ -126,13 +126,16 @@ genrule {
 cc_test {
     name: "android.hardware.tests.trie@1.0-adapter",
     defaults: ["hidl-module-defaults"],
+    static_libs: [
+        "android.hardware.tests.trie@1.0",
+        "android.hardware.tests.trie@1.0-adapter-helper",
+    ],
     shared_libs: [
         "libhidladapter",
         "libhidlbase",
         "libhidltransport",
+        "libhwbinder",
         "libutils",
-        "android.hardware.tests.trie@1.0",
-        "android.hardware.tests.trie@1.0-adapter-helper",
     ],
     generated_sources: ["android.hardware.tests.trie@1.0-adapter_genc++"],
 }

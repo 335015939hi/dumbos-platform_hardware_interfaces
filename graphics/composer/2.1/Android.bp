@@ -151,14 +151,17 @@ genrule {
 cc_test {
     name: "android.hardware.graphics.composer@2.1-adapter",
     defaults: ["hidl-module-defaults"],
+    static_libs: [
+        "android.hardware.graphics.common@1.0",
+        "android.hardware.graphics.composer@2.1",
+        "android.hardware.graphics.composer@2.1-adapter-helper",
+    ],
     shared_libs: [
         "libhidladapter",
         "libhidlbase",
         "libhidltransport",
+        "libhwbinder",
         "libutils",
-        "android.hardware.graphics.common@1.0",
-        "android.hardware.graphics.composer@2.1",
-        "android.hardware.graphics.composer@2.1-adapter-helper",
     ],
     generated_sources: ["android.hardware.graphics.composer@2.1-adapter_genc++"],
 }

@@ -136,15 +136,18 @@ genrule {
 cc_test {
     name: "android.hardware.graphics.allocator@2.0-adapter",
     defaults: ["hidl-module-defaults"],
-    shared_libs: [
-        "libhidladapter",
-        "libhidlbase",
-        "libhidltransport",
-        "libutils",
+    static_libs: [
         "android.hardware.graphics.allocator@2.0",
         "android.hardware.graphics.common@1.0",
         "android.hardware.graphics.mapper@2.0",
         "android.hardware.graphics.allocator@2.0-adapter-helper",
+    ],
+    shared_libs: [
+        "libhidladapter",
+        "libhidlbase",
+        "libhidltransport",
+        "libhwbinder",
+        "libutils",
     ],
     generated_sources: ["android.hardware.graphics.allocator@2.0-adapter_genc++"],
 }

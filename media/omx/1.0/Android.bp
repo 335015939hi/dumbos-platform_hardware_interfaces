@@ -188,16 +188,19 @@ genrule {
 cc_test {
     name: "android.hardware.media.omx@1.0-adapter",
     defaults: ["hidl-module-defaults"],
-    shared_libs: [
-        "libhidladapter",
-        "libhidlbase",
-        "libhidltransport",
-        "libutils",
+    static_libs: [
         "android.hardware.graphics.bufferqueue@1.0",
         "android.hardware.graphics.common@1.0",
         "android.hardware.media.omx@1.0",
         "android.hardware.media@1.0",
         "android.hardware.media.omx@1.0-adapter-helper",
+    ],
+    shared_libs: [
+        "libhidladapter",
+        "libhidlbase",
+        "libhidltransport",
+        "libhwbinder",
+        "libutils",
     ],
     generated_sources: ["android.hardware.media.omx@1.0-adapter_genc++"],
 }

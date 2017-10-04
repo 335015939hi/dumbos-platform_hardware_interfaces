@@ -138,13 +138,16 @@ genrule {
 cc_test {
     name: "android.hardware.biometrics.fingerprint@2.1-adapter",
     defaults: ["hidl-module-defaults"],
+    static_libs: [
+        "android.hardware.biometrics.fingerprint@2.1",
+        "android.hardware.biometrics.fingerprint@2.1-adapter-helper",
+    ],
     shared_libs: [
         "libhidladapter",
         "libhidlbase",
         "libhidltransport",
+        "libhwbinder",
         "libutils",
-        "android.hardware.biometrics.fingerprint@2.1",
-        "android.hardware.biometrics.fingerprint@2.1-adapter-helper",
     ],
     generated_sources: ["android.hardware.biometrics.fingerprint@2.1-adapter_genc++"],
 }
