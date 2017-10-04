@@ -2,6 +2,115 @@
   "comments": [
     {
       "key": {
+        "uuid": "9c0b8b8b_52cc417a",
+        "filename": "health/2.0/vts/functional/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-04T18:24:20Z",
+      "side": 1,
+      "message": "bpfmt -w \u003cthis\u003e please, this is very non-typical spacing",
+      "range": {
+        "startLine": 21,
+        "startChar": 4,
+        "endLine": 21,
+        "endChar": 15
+      },
+      "revId": "7c6e143b87f683a8ed5165c92c1e8cbfc5967355",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb0fb05e_7b9412ae",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-04T18:24:20Z",
+      "side": 1,
+      "message": "I like this pattern! You\u0027ve basically ported java anonymous subclasses in C++ :)",
+      "revId": "7c6e143b87f683a8ed5165c92c1e8cbfc5967355",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "76b4a8c1_c6428f42",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-04T18:24:20Z",
+      "side": 1,
+      "message": "using Functino \u003d IHealthInfoCallback::...._cb; ??",
+      "range": {
+        "startLine": 49,
+        "startChar": 4,
+        "endLine": 49,
+        "endChar": 60
+      },
+      "revId": "7c6e143b87f683a8ed5165c92c1e8cbfc5967355",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "823365b6_22c16afc",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-04T18:24:20Z",
+      "side": 1,
+      "message": "mInternal?",
+      "range": {
+        "startLine": 59,
+        "startChar": 13,
+        "endLine": 59,
+        "endChar": 22
+      },
+      "revId": "7c6e143b87f683a8ed5165c92c1e8cbfc5967355",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71144c23_c1688d57",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-04T18:24:20Z",
+      "side": 1,
+      "message": "Yifan, we should provide this function and the below two macros in a generic helper testing library for HIDL. They are copy/pasted and divergent.",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 1
+      },
+      "revId": "7c6e143b87f683a8ed5165c92c1e8cbfc5967355",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cc273bdc_383f3f6b",
         "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
         "patchSetId": 1
@@ -13,6 +122,24 @@
       "writtenOn": "2017-10-04T18:10:20Z",
       "side": 1,
       "message": "nit: avoid macros in favor of inline functions\nhttps://engdoc.corp.google.com/eng/doc/devguide/cpp/styleguide.shtml?cl\u003dhead#Preprocessor_Macros",
+      "revId": "7c6e143b87f683a8ed5165c92c1e8cbfc5967355",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a9c321e_41f10abb",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-04T18:24:20Z",
+      "side": 1,
+      "message": "The whole point of the macro is for __LINE__. Note that ASSERT_TRUE is a macro for this same reason.",
+      "parentUuid": "cc273bdc_383f3f6b",
       "revId": "7c6e143b87f683a8ed5165c92c1e8cbfc5967355",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -111,6 +238,53 @@
     },
     {
       "key": {
+        "uuid": "367a5bac_315529fe",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-04T18:24:20Z",
+      "side": 1,
+      "message": "Yeah. Even though the callback is called synchronously from within update, it\u0027s a oneway call.",
+      "parentUuid": "ba4e6366_477d6b2e",
+      "range": {
+        "startLine": 86,
+        "startChar": 3,
+        "endLine": 88,
+        "endChar": 39
+      },
+      "revId": "7c6e143b87f683a8ed5165c92c1e8cbfc5967355",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "15480afb_e38afe7d",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-04T18:24:20Z",
+      "side": 1,
+      "message": "nit:\nyou could generalize isAllOk to be is isOkWithResult and then do macros to make things like this:\n\nASSERT_HIDL(SUCCESS, ret);\nASSERT_HIDL(NOT_FOUND, ret);",
+      "range": {
+        "startLine": 100,
+        "startChar": 4,
+        "endLine": 101,
+        "endChar": 59
+      },
+      "revId": "7c6e143b87f683a8ed5165c92c1e8cbfc5967355",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2bd99665_a4cfeb17",
         "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
         "patchSetId": 1
@@ -154,6 +328,53 @@
       "revId": "7c6e143b87f683a8ed5165c92c1e8cbfc5967355",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "41ec5c6a_e3a70cd4",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-04T18:24:20Z",
+      "side": 1,
+      "message": "This layout does have the advantage of associating helper methods with the only tests that use them. I could take it either way, but I don\u0027t necessarily see the benefit of moving things around.",
+      "parentUuid": "a148e5eb_4fb5d4ed",
+      "range": {
+        "startLine": 121,
+        "startChar": 1,
+        "endLine": 121,
+        "endChar": 7
+      },
+      "revId": "7c6e143b87f683a8ed5165c92c1e8cbfc5967355",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d328708f_ea07c7ed",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-04T18:24:20Z",
+      "side": 1,
+      "message": "is this value used in the HIDL interface or are you just using it because it would indicate hardware failure?",
+      "range": {
+        "startLine": 127,
+        "startChar": 60,
+        "endLine": 127,
+        "endChar": 69
+      },
+      "revId": "7c6e143b87f683a8ed5165c92c1e8cbfc5967355",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
