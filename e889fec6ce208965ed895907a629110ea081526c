@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3365d5e4_b7bc8d4f",
+        "filename": "health/2.0/IHealth.hal",
+        "patchSetId": 22
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-10-04T18:04:17Z",
+      "side": 1,
+      "message": "I should mention that the value must be between 0-100. sspatil@ right?",
+      "revId": "e889fec6ce208965ed895907a629110ea081526c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
