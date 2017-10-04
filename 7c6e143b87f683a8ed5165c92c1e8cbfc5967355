@@ -2,6 +2,92 @@
   "comments": [
     {
       "key": {
+        "uuid": "cc273bdc_383f3f6b",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2017-10-04T18:10:20Z",
+      "side": 1,
+      "message": "nit: avoid macros in favor of inline functions\nhttps://engdoc.corp.google.com/eng/doc/devguide/cpp/styleguide.shtml?cl\u003dhead#Preprocessor_Macros",
+      "revId": "7c6e143b87f683a8ed5165c92c1e8cbfc5967355",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d735376_0214728a",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2017-10-04T18:10:20Z",
+      "side": 1,
+      "message": "seems like this should be !\u003d",
+      "range": {
+        "startLine": 74,
+        "startChar": 31,
+        "endLine": 74,
+        "endChar": 33
+      },
+      "revId": "7c6e143b87f683a8ed5165c92c1e8cbfc5967355",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1ffdf07_3a989733",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2017-10-04T18:10:20Z",
+      "side": 1,
+      "message": "Can you make a more descriptive name for this test case? or put a comment about what this does?",
+      "range": {
+        "startLine": 81,
+        "startChar": 23,
+        "endLine": 81,
+        "endChar": 32
+      },
+      "revId": "7c6e143b87f683a8ed5165c92c1e8cbfc5967355",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "354e33e9_6f4f7f8a",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2017-10-04T18:10:20Z",
+      "side": 1,
+      "message": "iiuc, this has raw pointer type Callback*. Is it safe to make hal api call with this as input?\nIn any case, smart pointers should be preferred.",
+      "range": {
+        "startLine": 83,
+        "startChar": 4,
+        "endLine": 83,
+        "endChar": 8
+      },
+      "revId": "7c6e143b87f683a8ed5165c92c1e8cbfc5967355",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ba4e6366_477d6b2e",
         "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
         "patchSetId": 1
