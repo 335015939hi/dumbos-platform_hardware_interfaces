@@ -113,6 +113,30 @@
     },
     {
       "key": {
+        "uuid": "d206b3b9_3d02f33b",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-10-05T01:46:35Z",
+      "side": 1,
+      "message": "This is not defined unfortunately.",
+      "parentUuid": "9eb7fe77_5510a219",
+      "range": {
+        "startLine": 49,
+        "startChar": 4,
+        "endLine": 49,
+        "endChar": 60
+      },
+      "revId": "7c6e143b87f683a8ed5165c92c1e8cbfc5967355",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "823365b6_22c16afc",
         "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
         "patchSetId": 1
