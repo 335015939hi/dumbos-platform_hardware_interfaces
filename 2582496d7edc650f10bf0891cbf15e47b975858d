@@ -22,6 +22,30 @@
       "revId": "2582496d7edc650f10bf0891cbf15e47b975858d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6debb9a3_b08ace2d",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-10-05T19:20:40Z",
+      "side": 1,
+      "message": "No we don\u0027t :) Here I am just asserting that the test must be run with --hal_service_instance.",
+      "parentUuid": "fcb6fe60_fb90f8ca",
+      "range": {
+        "startLine": 61,
+        "startChar": 8,
+        "endLine": 62,
+        "endChar": 42
+      },
+      "revId": "2582496d7edc650f10bf0891cbf15e47b975858d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
