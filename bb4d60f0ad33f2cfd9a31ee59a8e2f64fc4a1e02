@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b4a9c75e_714c1bb0",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1121516
+      },
+      "writtenOn": "2017-10-05T20:38:29Z",
+      "side": 1,
+      "message": "Docstring.",
+      "revId": "bb4d60f0ad33f2cfd9a31ee59a8e2f64fc4a1e02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a7be5bde_9df10612",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1121516
+      },
+      "writtenOn": "2017-10-05T20:38:29Z",
+      "side": 1,
+      "message": "Docstring. The test name makes it almost self-explanatory but I still think it is good practice to briefly describe what the test is asserting.",
+      "revId": "bb4d60f0ad33f2cfd9a31ee59a8e2f64fc4a1e02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
