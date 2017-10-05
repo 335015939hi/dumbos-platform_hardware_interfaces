@@ -22,6 +22,30 @@
       "revId": "8a73bdf653f76bb2fd309020408871aa97600eb8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "628c5ba9_2eca5017",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1019829
+      },
+      "writtenOn": "2017-10-05T15:55:18Z",
+      "side": 1,
+      "message": "QC received the request from multiple OEMs/carrier to support this three new perso categories, these types are not defined in specification(3GPP TS 22.022).\n\n\nInitially we uploaded this change by defining the new enums with the carrier perso names as is, but now we think it would better to define enums like OEM_PERSO_STATE_1/2//4.... for such carrier specific perso categories.\n\n\nCould you please share your opinion as well on defining   OEM_PERSO_STATE_XXX values for carrier specific perso categories like this ?\n\n\n\n\nFYI, Below is the description about the three perso lock types \n1) SIM_SP_EHPLMN: Perso lock enabled @ Modem by using a carrier specific SP(mcc/mnc/GID1/GID2) and EHPLMN values.\n\n2) SIM_ICCID: Perso lock enabled @ Modem by using a carrier specific range of ICCID values.\n\n3) SIM_SPN: Perso lock enabled @ Modem by using a carrier specific EF_SPN and mcc-mnc values.",
+      "parentUuid": "e6e8fd22_cbf75d22",
+      "range": {
+        "startLine": 232,
+        "startChar": 4,
+        "endLine": 243,
+        "endChar": 26
+      },
+      "revId": "8a73bdf653f76bb2fd309020408871aa97600eb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
