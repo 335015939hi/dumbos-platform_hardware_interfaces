@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f5599ca_f2e1934a",
+        "filename": "sensors/1.0/default/android.hardware.sensors@1.0-service.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2017-10-06T09:12:54Z",
+      "side": 1,
+      "message": "So all (RT) threads calling into this HAL are running at RT prio 10? If so, great, it\u0027s nice to be able to limit this.",
+      "range": {
+        "startLine": 6,
+        "startChar": 18,
+        "endLine": 6,
+        "endChar": 23
+      },
+      "revId": "db1ad9a8a9281ead897c372f2d1cc9decd061b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
