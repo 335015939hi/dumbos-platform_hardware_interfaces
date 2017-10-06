@@ -22,6 +22,30 @@
       "revId": "db1ad9a8a9281ead897c372f2d1cc9decd061b22",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28fd1d11_1d4cf505",
+        "filename": "sensors/1.0/default/android.hardware.sensors@1.0-service.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1074523
+      },
+      "writtenOn": "2017-10-06T17:37:15Z",
+      "side": 1,
+      "message": "In the parser code, the two numbers means soft and hard limit.\n\nhttps://cs.corp.google.com/android/system/core/init/rlimit_parser.cpp?rcl\u003d23da0b87d0a4a677d6cd444becd487fba24bc88f\u0026l\u003d68\n\nI confirmed by experimenting with \"rlimit rtprio 1 10\", and when asked for 3, the request failed.\n\n\"10 10\" because we do not expect anyone to ask more than that. Nanohub Sensor HAL asked 10 before and will changed to 3 after a change in the same topic.",
+      "parentUuid": "3f5599ca_f2e1934a",
+      "range": {
+        "startLine": 6,
+        "startChar": 18,
+        "endLine": 6,
+        "endChar": 23
+      },
+      "revId": "db1ad9a8a9281ead897c372f2d1cc9decd061b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
