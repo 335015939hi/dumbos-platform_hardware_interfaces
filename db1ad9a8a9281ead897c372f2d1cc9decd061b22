@@ -46,6 +46,30 @@
       "revId": "db1ad9a8a9281ead897c372f2d1cc9decd061b22",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7928c97e_d9dfb861",
+        "filename": "sensors/1.0/default/android.hardware.sensors@1.0-service.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2017-10-06T17:43:26Z",
+      "side": 1,
+      "message": "Got it, thanks!",
+      "parentUuid": "28fd1d11_1d4cf505",
+      "range": {
+        "startLine": 6,
+        "startChar": 18,
+        "endLine": 6,
+        "endChar": 23
+      },
+      "revId": "db1ad9a8a9281ead897c372f2d1cc9decd061b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
