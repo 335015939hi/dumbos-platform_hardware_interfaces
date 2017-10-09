@@ -46,6 +46,30 @@
       "revId": "8a73bdf653f76bb2fd309020408871aa97600eb8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2dfda69f_1d69550f",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-10-09T17:48:53Z",
+      "side": 1,
+      "message": "It is better to avoid OEM_xxx as much as possible. Even if the new states being added are not from specs, it will be better to have clean names and description, and the comment should also say that it is not from spec.",
+      "parentUuid": "628c5ba9_2eca5017",
+      "range": {
+        "startLine": 232,
+        "startChar": 4,
+        "endLine": 243,
+        "endChar": 26
+      },
+      "revId": "8a73bdf653f76bb2fd309020408871aa97600eb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
