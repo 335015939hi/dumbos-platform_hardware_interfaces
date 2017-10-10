@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "42224389_defd55e0",
+        "filename": "radio/1.1/IRadioResponse.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-10-10T17:16:15Z",
+      "side": 1,
+      "message": "INTERNAL_ERR is not recommended, as it is not very meaningful.",
+      "range": {
+        "startLine": 104,
+        "startChar": 20,
+        "endLine": 104,
+        "endChar": 32
+      },
+      "revId": "0029650abfc05aa7aa672cb57b70952d2b9621cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
