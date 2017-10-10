@@ -22,6 +22,23 @@
       "revId": "0029650abfc05aa7aa672cb57b70952d2b9621cb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d1b11c4c_0d6764bc",
+        "filename": "radio/1.1/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-10-10T18:27:50Z",
+      "side": 1,
+      "message": "It is better to cover the error codes/NONE defined in the response",
+      "revId": "0029650abfc05aa7aa672cb57b70952d2b9621cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
