@@ -20,6 +20,25 @@ LOCAL_NO_STANDARD_LIBRARIES := true
 LOCAL_JAVA_LIBRARIES += core-oj hwbinder
 
 #
+# Build types.hal (HealthInfo)
+#
+GEN := $(intermediates)/android/hardware/health/V2_0/HealthInfo.java
+$(GEN): $(HIDL)
+$(GEN): PRIVATE_HIDL := $(HIDL)
+$(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/types.hal
+$(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
+$(GEN): PRIVATE_CUSTOM_TOOL = \
+        $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
+        -Ljava \
+        -randroid.hardware:hardware/interfaces \
+        -randroid.hidl:system/libhidl/transport \
+        android.hardware.health@2.0::types.HealthInfo
+
+$(GEN): $(LOCAL_PATH)/types.hal
+	$(transform-generated-source)
+LOCAL_GENERATED_SOURCES += $(GEN)
+
+#
 # Build types.hal (Result)
 #
 GEN := $(intermediates)/android/hardware/health/V2_0/Result.java
@@ -68,6 +87,8 @@ GEN := $(intermediates)/android/hardware/health/V2_0/IHealthInfoCallback.java
 $(GEN): $(HIDL)
 $(GEN): PRIVATE_HIDL := $(HIDL)
 $(GEN): PRIVATE_DEPS := $(LOCAL_PATH)/IHealthInfoCallback.hal
+$(GEN): PRIVATE_DEPS += $(LOCAL_PATH)/types.hal
+$(GEN): $(LOCAL_PATH)/types.hal
 $(GEN): PRIVATE_OUTPUT_DIR := $(intermediates)
 $(GEN): PRIVATE_CUSTOM_TOOL = \
         $(PRIVATE_HIDL) -o $(PRIVATE_OUTPUT_DIR) \
