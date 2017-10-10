@@ -16,6 +16,7 @@
 
 package android.hardware.health@2.0;
 
+import @1.0::HealthInfo;
 import @1.0::Result;
 
 /**
@@ -24,4 +25,17 @@ import @1.0::Result;
 enum Result : @1.0::Result {
     NOT_FOUND,
     CALLBACK_DIED,
+};
+
+struct HealthInfo {
+    /**
+     * Legacy information from 1.0 HAL.
+     */
+    @1.0::HealthInfo legacy;
+
+    int32_t batteryCurrentAverage;
+
+    int32_t batteryCapacity;
+
+    int64_t energyCounter;
 };
