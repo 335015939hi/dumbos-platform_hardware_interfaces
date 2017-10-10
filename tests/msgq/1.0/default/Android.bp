@@ -13,56 +13,42 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+cc_defaults {
+    name: "fmq_test_defaults",
+    defaults: ["hidl_defaults"],
+    shared_libs: [
+        "libbase",
+        "libcutils",
+        "libhidlbase",
+        "libhidltransport",
+        "libhwbinder",
+        "liblog",
+        "libutils",
+    ],
+    static_libs: ["android.hardware.tests.msgq@1.0"],
+}
+
 cc_library_shared {
     name: "android.hardware.tests.msgq@1.0-impl",
-    defaults: ["hidl_defaults"],
+    defaults: ["fmq_test_defaults"],
     relative_install_path: "hw",
     srcs: [
         "TestMsgQ.cpp",
         "BenchmarkMsgQ.cpp"
     ],
-    shared_libs: [
-        "libbase",
-        "libcutils",
-        "libfmq",
-        "libhidlbase",
-        "libhidltransport",
-        "liblog",
-        "libutils",
-        "android.hardware.tests.msgq@1.0",
-    ],
+    shared_libs: ["libfmq"],
 }
 
 cc_test {
     name: "android.hardware.tests.msgq@1.0-service-benchmark",
-    defaults: ["hidl_defaults"],
+    defaults: ["fmq_test_defaults"],
     srcs: ["mq_benchmark_service.cpp"],
     gtest: false,
-
-    shared_libs: [
-        "libbase",
-        "libcutils",
-        "libhidlbase",
-        "libhidltransport",
-        "liblog",
-        "libutils",
-        "android.hardware.tests.msgq@1.0"
-    ],
 }
 
 cc_test {
     name: "android.hardware.tests.msgq@1.0-service-test",
-    defaults: ["hidl_defaults"],
+    defaults: ["fmq_test_defaults"],
     srcs: ["mq_test_service.cpp"],
     gtest: false,
-
-    shared_libs: [
-        "libbase",
-        "libcutils",
-        "libhidlbase",
-        "libhidltransport",
-        "liblog",
-        "libutils",
-        "android.hardware.tests.msgq@1.0"
-    ],
 }
