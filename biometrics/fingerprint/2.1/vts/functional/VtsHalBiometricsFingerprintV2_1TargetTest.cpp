@@ -43,7 +43,7 @@ namespace {
 static const uint32_t kTimeout = 3;
 static const std::chrono::seconds kTimeoutInSeconds = std::chrono::seconds(kTimeout);
 static const uint32_t kGroupId = 99;
-static const std::string kTmpDir = "/data/system/";
+static const std::string kTmpDir = "/data/system/users/0/fpdata/";
 static const uint32_t kIterations = 1000;
 
 // Wait for a callback to occur (signaled by the given future) up to the
