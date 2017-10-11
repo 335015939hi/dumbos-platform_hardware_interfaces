@@ -14,10 +14,13 @@ cc_library_shared {
         "libcutils",
         "libhidlbase",
         "libhidltransport",
+        "libhwbinder",
         "liblog",
         "libutils",
+    ],
+
+    static_libs: [
         "android.hardware.tests.foo@1.0",
         "android.hardware.tests.bar@1.0",
     ],
-
 }

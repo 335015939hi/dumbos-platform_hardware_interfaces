@@ -6,9 +6,12 @@ cc_library_shared {
         "Hash.cpp",
     ],
     shared_libs: [
+        "libcutils",
         "libhidlbase",
         "libhidltransport",
+        "libhwbinder",
+        "liblog",
         "libutils",
-        "android.hardware.tests.hash@1.0",
     ],
+    static_libs: ["android.hardware.tests.hash@1.0"],
 }

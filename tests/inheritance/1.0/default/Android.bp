@@ -12,11 +12,14 @@ cc_library_shared {
 
     shared_libs: [
         "libbase",
+        "libcutils",
         "libhidlbase",
         "libhidltransport",
+        "libhwbinder",
         "liblog",
         "libutils",
-        "android.hardware.tests.inheritance@1.0",
     ],
+
+    static_libs: ["android.hardware.tests.inheritance@1.0"],
 
 }
