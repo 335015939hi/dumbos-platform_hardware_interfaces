@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "875e43df_d7c39b6e",
+        "filename": "tests/msgq/1.0/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1114063
+      },
+      "writtenOn": "2017-10-12T23:59:46Z",
+      "side": 1,
+      "message": "Static link this as well? For fmqPerformance test",
+      "range": {
+        "startLine": 55,
+        "startChar": 8,
+        "endLine": 55,
+        "endChar": 41
+      },
+      "revId": "1973fb5496789b9801b95c746291d560626a2c4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
