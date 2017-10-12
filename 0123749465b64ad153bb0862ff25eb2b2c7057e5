@@ -22,6 +22,30 @@
       "revId": "0123749465b64ad153bb0862ff25eb2b2c7057e5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c56f0027_4e74f49a",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-10-12T22:51:22Z",
+      "side": 1,
+      "message": "We didn\u0027t copy the base functions\nhttps://cs.corp.google.com/android/hardware/interfaces/radio/1.1/IRadio.hal",
+      "parentUuid": "7a19de03_800fe6ee",
+      "range": {
+        "startLine": 39,
+        "startChar": 11,
+        "endLine": 39,
+        "endChar": 31
+      },
+      "revId": "0123749465b64ad153bb0862ff25eb2b2c7057e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
