@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a19de03_800fe6ee",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1002609
+      },
+      "writtenOn": "2017-10-12T22:44:53Z",
+      "side": 1,
+      "message": "I notice that in 1_1 we copied all the base functions even though it was also extends @1.0::IRadio\n\nWas that incorrect or does this file also need to copy all of 1_1?",
+      "range": {
+        "startLine": 39,
+        "startChar": 11,
+        "endLine": 39,
+        "endChar": 31
+      },
+      "revId": "0123749465b64ad153bb0862ff25eb2b2c7057e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
