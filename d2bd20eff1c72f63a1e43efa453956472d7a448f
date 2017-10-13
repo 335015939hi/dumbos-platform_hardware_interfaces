@@ -95,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "87d4d42b_9cb18f30",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-13T22:10:57Z",
+      "side": 1,
+      "message": "Then reference that constant here and where in 1.1 this is explained",
+      "parentUuid": "7e3f8355_1b896663",
+      "range": {
+        "startLine": 37,
+        "startChar": 39,
+        "endLine": 37,
+        "endChar": 40
+      },
+      "revId": "d2bd20eff1c72f63a1e43efa453956472d7a448f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7f891f8a_e0e36e5e",
         "filename": "radio/1.2/types.hal",
         "patchSetId": 2
@@ -130,6 +154,30 @@
       "side": 1,
       "message": "First of all it is not a base class, it is more of version update. To deal with base class for 1 version and deal with derived class for another version will complicate vendor code, especially if there is continus changes. Also to add it is not a true inheritance relation ship",
       "parentUuid": "7f891f8a_e0e36e5e",
+      "range": {
+        "startLine": 23,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 41
+      },
+      "revId": "d2bd20eff1c72f63a1e43efa453956472d7a448f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3ea2744_78b352cb",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-13T22:10:57Z",
+      "side": 1,
+      "message": "Reconsider? It\u0027s not clear without checking that we have the exact same struct repeated in here.",
+      "parentUuid": "25e85b31_df37c11e",
       "range": {
         "startLine": 23,
         "startChar": 4,
