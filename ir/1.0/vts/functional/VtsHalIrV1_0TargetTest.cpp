@@ -23,6 +23,7 @@
 
 #include <VtsHalHidlTargetTestBase.h>
 #include <algorithm>
+#include <cutils/properties.h>
 
 using ::android::hardware::ir::V1_0::IConsumerIr;
 using ::android::hardware::ir::V1_0::ConsumerIrFreqRange;
@@ -30,10 +31,20 @@ using ::android::hardware::hidl_vec;
 using ::android::hardware::Return;
 using ::android::sp;
 
+#define IR_DISABLED "config.disable_consumerir"
+#define PROP_LEN_MAX 256
+
+static bool kFeatureDisabled;
+
 // The main test class for IR HIDL HAL.
 class ConsumerIrHidlTest : public ::testing::VtsHalHidlTargetTestBase {
  public:
   virtual void SetUp() override {
+    //if product do not suuport feature, set test result as true.
+    if (kFeatureDisabled) {
+      ASSERT_TRUE(true);
+      return;
+    }
     ir = ::testing::VtsHalHidlTargetTestBase::getService<IConsumerIr>();
     ASSERT_NE(ir, nullptr);
   }
@@ -45,6 +56,12 @@ class ConsumerIrHidlTest : public ::testing::VtsHalHidlTargetTestBase {
 
 // Test transmit() for the min and max frequency of every available range
 TEST_F(ConsumerIrHidlTest, TransmitTest) {
+  //if product do not suuport feature, set test result as true.
+  if (kFeatureDisabled) {
+    ASSERT_TRUE(true);
+    return;
+  }
+
   bool success;
   hidl_vec<ConsumerIrFreqRange> ranges;
   auto cb = [&](bool s, hidl_vec<ConsumerIrFreqRange> v) {
@@ -69,6 +86,12 @@ TEST_F(ConsumerIrHidlTest, TransmitTest) {
 
 // Test transmit() when called with invalid frequencies
 TEST_F(ConsumerIrHidlTest, BadFreqTest) {
+  //if product do not suuport feature, set test result as true.
+  if (kFeatureDisabled) {
+    ASSERT_TRUE(true);
+    return;
+  }
+
   uint32_t len = 16;
   hidl_vec<int32_t> vec;
   vec.resize(len);
@@ -77,6 +100,14 @@ TEST_F(ConsumerIrHidlTest, BadFreqTest) {
 }
 
 int main(int argc, char **argv) {
+  char value[PROP_LEN_MAX];
+  memset(value, 0, PROP_LEN_MAX);
+  property_get(IR_DISABLED, value, "false");
+  if(!strncmp(value, "true", strlen(value))) {
+    LOG(INFO) << "deivce do not support ir, skip test";
+    kFeatureDisabled = true;
+  }
+
   ::testing::InitGoogleTest(&argc, argv);
   int status = RUN_ALL_TESTS();
   LOG(INFO) << "Test result = " << status;
