@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "05988719_2314af56",
+        "filename": "sensors/1.0/vts/functional/VtsHalSensorsV1_0TargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1180,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-13T21:14:11Z",
+      "side": 1,
+      "message": "nit: all of these should be put in constexprs",
+      "range": {
+        "startLine": 1180,
+        "startChar": 37,
+        "endLine": 1180,
+        "endChar": 43
+      },
+      "revId": "25e47b174791295416f5db516862a5b00204080a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
