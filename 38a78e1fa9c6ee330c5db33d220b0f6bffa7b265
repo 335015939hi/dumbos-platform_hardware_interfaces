@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "83aacf2b_1fc77140",
+        "filename": "tests/bar/1.0/default/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2017-10-13T07:06:03Z",
+      "side": 1,
+      "message": "why not cc_library_static?",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 12
+      },
+      "revId": "38a78e1fa9c6ee330c5db33d220b0f6bffa7b265",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
