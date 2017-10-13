@@ -46,6 +46,30 @@
       "revId": "1973fb5496789b9801b95c746291d560626a2c4f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f55654f9_f38f2681",
+        "filename": "tests/msgq/1.0/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1114063
+      },
+      "writtenOn": "2017-10-13T00:08:43Z",
+      "side": 1,
+      "message": "Ack, let\u0027s do it separately.",
+      "parentUuid": "6a4b93d9_1971d868",
+      "range": {
+        "startLine": 55,
+        "startChar": 8,
+        "endLine": 55,
+        "endChar": 41
+      },
+      "revId": "1973fb5496789b9801b95c746291d560626a2c4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
