@@ -71,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "7e3f8355_1b896663",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1112039
+      },
+      "writtenOn": "2017-10-13T22:04:00Z",
+      "side": 1,
+      "message": "please refer 1.1",
+      "parentUuid": "ffb356fe_accab055",
+      "range": {
+        "startLine": 37,
+        "startChar": 39,
+        "endLine": 37,
+        "endChar": 40
+      },
+      "revId": "d2bd20eff1c72f63a1e43efa453956472d7a448f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7f891f8a_e0e36e5e",
         "filename": "radio/1.2/types.hal",
         "patchSetId": 2
@@ -94,6 +118,30 @@
     },
     {
       "key": {
+        "uuid": "25e85b31_df37c11e",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1112039
+      },
+      "writtenOn": "2017-10-13T22:04:00Z",
+      "side": 1,
+      "message": "First of all it is not a base class, it is more of version update. To deal with base class for 1 version and deal with derived class for another version will complicate vendor code, especially if there is continus changes. Also to add it is not a true inheritance relation ship",
+      "parentUuid": "7f891f8a_e0e36e5e",
+      "range": {
+        "startLine": 23,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 41
+      },
+      "revId": "d2bd20eff1c72f63a1e43efa453956472d7a448f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1cd4b6cf_0625c43d",
         "filename": "radio/1.2/types.hal",
         "patchSetId": 2
@@ -105,6 +153,30 @@
       "writtenOn": "2017-10-13T21:40:13Z",
       "side": 1,
       "message": "formatting",
+      "range": {
+        "startLine": 41,
+        "startChar": 7,
+        "endLine": 41,
+        "endChar": 9
+      },
+      "revId": "d2bd20eff1c72f63a1e43efa453956472d7a448f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "911c3b38_7154970f",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1112039
+      },
+      "writtenOn": "2017-10-13T22:04:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cd4b6cf_0625c43d",
       "range": {
         "startLine": 41,
         "startChar": 7,
@@ -277,6 +349,30 @@
       "writtenOn": "2017-10-13T21:40:13Z",
       "side": 1,
       "message": "double checking -- are these acronyms explained anywhere?",
+      "range": {
+        "startLine": 65,
+        "startChar": 40,
+        "endLine": 65,
+        "endChar": 43
+      },
+      "revId": "d2bd20eff1c72f63a1e43efa453956472d7a448f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e03053bb_b82f0e21",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1112039
+      },
+      "writtenOn": "2017-10-13T22:04:00Z",
+      "side": 1,
+      "message": "refer 1.0",
+      "parentUuid": "d98b7c71_397766d5",
       "range": {
         "startLine": 65,
         "startChar": 40,
