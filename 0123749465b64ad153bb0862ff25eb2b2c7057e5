@@ -46,6 +46,30 @@
       "revId": "0123749465b64ad153bb0862ff25eb2b2c7057e5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "569495cf_7f0f48f1",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1002609
+      },
+      "writtenOn": "2017-10-13T15:20:36Z",
+      "side": 1,
+      "message": "Sorry - I didn\u0027t notice the size of the file..   just saw some _1_1  and some without and assumed there were copies from 1_0.  I\u0027m glad of this diff-only pattern.",
+      "parentUuid": "c56f0027_4e74f49a",
+      "range": {
+        "startLine": 39,
+        "startChar": 11,
+        "endLine": 39,
+        "endChar": 31
+      },
+      "revId": "0123749465b64ad153bb0862ff25eb2b2c7057e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
