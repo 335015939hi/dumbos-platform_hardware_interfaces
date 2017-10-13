@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "a366d7c0_5d198dce",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-13T22:32:05Z",
+      "side": 1,
+      "message": "Hmmm. Recommended to fix it in 1.2 and then use a struct here.",
+      "parentUuid": "0551b02b_d1688b20",
+      "range": {
+        "startLine": 37,
+        "startChar": 39,
+        "endLine": 37,
+        "endChar": 40
+      },
+      "revId": "d2bd20eff1c72f63a1e43efa453956472d7a448f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7f891f8a_e0e36e5e",
         "filename": "radio/1.2/types.hal",
         "patchSetId": 2
@@ -226,6 +250,30 @@
       "side": 1,
       "message": "I am worried about how vendor code will looks like trying to achieve backward compatibility. I am not getting convinced.",
       "parentUuid": "a3ea2744_78b352cb",
+      "range": {
+        "startLine": 23,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 41
+      },
+      "revId": "d2bd20eff1c72f63a1e43efa453956472d7a448f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0085345c_dab59453",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-13T22:32:05Z",
+      "side": 1,
+      "message": "It makes writing the client code easier:\n\nif (m1_2) {\n    m1_2-\u003enetworkRequest1_2(.., request);\n} else if (m1_1) {\n    m1_1-\u003enetworkRequest(.., request.1_1);\n} else { ... }\n\nI suppose the organization gets a little messy if you have multiple structs.\n\nMaybe:\n\nstruct NetworkScanRequestExtension {\n    /* new stuff */\n};\n\nstruct NetworkScanRequest {\n    @1.1::NetworkScanRequest 1_1;\n    @1.2::NetworkScanRequest 1_2;\n};\n\nIliyan, do you have a better idea? HIDL features to improve?",
+      "parentUuid": "98136e74_779c7a54",
       "range": {
         "startLine": 23,
         "startChar": 4,

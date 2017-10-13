@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "4b922d5b_f22eb92d",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-13T22:32:05Z",
+      "side": 1,
+      "message": "This is the only two values this can take.",
+      "parentUuid": "5a2eace0_7486d8a5",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 7
+      },
+      "revId": "5711709200afa68ec0c89821f4c4eb79e7ea7ef8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bf31a46d_f28a024c",
         "filename": "radio/1.2/types.hal",
         "patchSetId": 3
@@ -119,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "83168a0b_a57c0d0b",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-13T22:32:05Z",
+      "side": 1,
+      "message": "Please define constants for these then.",
+      "parentUuid": "cfe00047_ed212cd5",
+      "range": {
+        "startLine": 30,
+        "startChar": 7,
+        "endLine": 30,
+        "endChar": 22
+      },
+      "revId": "5711709200afa68ec0c89821f4c4eb79e7ea7ef8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a912b310_13a83107",
         "filename": "radio/1.2/types.hal",
         "patchSetId": 3
@@ -154,6 +202,30 @@
       "side": 1,
       "message": "same as above",
       "parentUuid": "a912b310_13a83107",
+      "range": {
+        "startLine": 42,
+        "startChar": 7,
+        "endLine": 42,
+        "endChar": 15
+      },
+      "revId": "5711709200afa68ec0c89821f4c4eb79e7ea7ef8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fcf77b42_424ff756",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-13T22:32:05Z",
+      "side": 1,
+      "message": "Same then, please define constants so that code has something to refer to (not just magic values)",
+      "parentUuid": "2f315e20_e6f47176",
       "range": {
         "startLine": 42,
         "startChar": 7,
