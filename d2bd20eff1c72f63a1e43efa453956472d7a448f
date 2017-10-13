@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "b1397887_4549be63",
+        "filename": "radio/1.2/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-13T21:42:27Z",
+      "side": 1,
+      "message": "TH error is also because you havne\u0027t regenerated makefiles after adding ISap",
+      "range": {
+        "startLine": 92,
+        "startChar": 8,
+        "endLine": 92,
+        "endChar": 46
+      },
+      "revId": "d2bd20eff1c72f63a1e43efa453956472d7a448f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2286d147_da96932e",
+        "filename": "radio/1.2/Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-13T21:42:27Z",
+      "side": 1,
+      "message": "delete this and re-generate makefiles (I sent an email to ANAPIC + hidl-announce recently about hidl-gen only generating soong files now)",
+      "range": {
+        "startLine": 1,
+        "startChar": 15,
+        "endLine": 1,
+        "endChar": 28
+      },
+      "revId": "d2bd20eff1c72f63a1e43efa453956472d7a448f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ffb356fe_accab055",
         "filename": "radio/1.2/types.hal",
         "patchSetId": 2
