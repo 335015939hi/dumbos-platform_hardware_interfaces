@@ -167,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "285ce774_3c346c41",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1112039
+      },
+      "writtenOn": "2017-10-13T22:37:38Z",
+      "side": 1,
+      "message": "I would prefer to keep the same 1.1 as the same can be leveraged for backward compatibility code at vendor. Else for type of data vendor code will have to have 2 different types of implementation.",
+      "parentUuid": "a366d7c0_5d198dce",
+      "range": {
+        "startLine": 37,
+        "startChar": 39,
+        "endLine": 37,
+        "endChar": 40
+      },
+      "revId": "d2bd20eff1c72f63a1e43efa453956472d7a448f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7f891f8a_e0e36e5e",
         "filename": "radio/1.2/types.hal",
         "patchSetId": 2
@@ -274,6 +298,30 @@
       "side": 1,
       "message": "It makes writing the client code easier:\n\nif (m1_2) {\n    m1_2-\u003enetworkRequest1_2(.., request);\n} else if (m1_1) {\n    m1_1-\u003enetworkRequest(.., request.1_1);\n} else { ... }\n\nI suppose the organization gets a little messy if you have multiple structs.\n\nMaybe:\n\nstruct NetworkScanRequestExtension {\n    /* new stuff */\n};\n\nstruct NetworkScanRequest {\n    @1.1::NetworkScanRequest 1_1;\n    @1.2::NetworkScanRequest 1_2;\n};\n\nIliyan, do you have a better idea? HIDL features to improve?",
       "parentUuid": "98136e74_779c7a54",
+      "range": {
+        "startLine": 23,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 41
+      },
+      "revId": "d2bd20eff1c72f63a1e43efa453956472d7a448f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb444585_33294e7d",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1112039
+      },
+      "writtenOn": "2017-10-13T22:37:38Z",
+      "side": 1,
+      "message": "I had tried to code the ril_Servcice.cpp having single type to deal with easier. Also you can have same utility functions to fill common data and can have specific code in 1.2 only for the new variable or data.",
+      "parentUuid": "0085345c_dab59453",
       "range": {
         "startLine": 23,
         "startChar": 4,
