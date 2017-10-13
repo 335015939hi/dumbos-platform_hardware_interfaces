@@ -22,6 +22,30 @@
       "revId": "38a78e1fa9c6ee330c5db33d220b0f6bffa7b265",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9686cd3_795f5de8",
+        "filename": "tests/bar/1.0/default/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1114063
+      },
+      "writtenOn": "2017-10-13T16:45:41Z",
+      "side": 1,
+      "message": "-impl lib should be shared lib in reality, we static linked it here just for test portability. Don\u0027t want to give the impression that -impl lib is static?",
+      "parentUuid": "83aacf2b_1fc77140",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 12
+      },
+      "revId": "38a78e1fa9c6ee330c5db33d220b0f6bffa7b265",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
