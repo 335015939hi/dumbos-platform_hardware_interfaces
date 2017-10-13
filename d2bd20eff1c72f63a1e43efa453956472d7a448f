@@ -1,0 +1,383 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffb356fe_accab055",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-13T21:40:13Z",
+      "side": 1,
+      "message": "add as constant?\n\nis there a reason for this maximum?",
+      "range": {
+        "startLine": 37,
+        "startChar": 39,
+        "endLine": 37,
+        "endChar": 40
+      },
+      "revId": "d2bd20eff1c72f63a1e43efa453956472d7a448f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f891f8a_e0e36e5e",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-13T21:40:13Z",
+      "side": 1,
+      "message": "Recommendation is to compose base NetworkScanRequest object. This makes it easier to write code that works with multiple versions.",
+      "range": {
+        "startLine": 23,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 41
+      },
+      "revId": "d2bd20eff1c72f63a1e43efa453956472d7a448f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1cd4b6cf_0625c43d",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-13T21:40:13Z",
+      "side": 1,
+      "message": "formatting",
+      "range": {
+        "startLine": 41,
+        "startChar": 7,
+        "endLine": 41,
+        "endChar": 9
+      },
+      "revId": "d2bd20eff1c72f63a1e43efa453956472d7a448f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c866021_3698d2f3",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-13T21:40:13Z",
+      "side": 1,
+      "message": "must",
+      "range": {
+        "startLine": 48,
+        "startChar": 35,
+        "endLine": 48,
+        "endChar": 41
+      },
+      "revId": "d2bd20eff1c72f63a1e43efa453956472d7a448f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d2a9972_b21b4dcb",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-13T21:40:13Z",
+      "side": 1,
+      "message": "nit: must be",
+      "range": {
+        "startLine": 50,
+        "startChar": 35,
+        "endLine": 50,
+        "endChar": 42
+      },
+      "revId": "d2bd20eff1c72f63a1e43efa453956472d7a448f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3c9e128_2756bb49",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-13T21:40:13Z",
+      "side": 1,
+      "message": "this shouldn\u0027t be wrapped",
+      "range": {
+        "startLine": 52,
+        "startChar": 7,
+        "endLine": 52,
+        "endChar": 27
+      },
+      "revId": "d2bd20eff1c72f63a1e43efa453956472d7a448f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c43e320_6f507676",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-13T21:40:13Z",
+      "side": 1,
+      "message": "nit: delete redundant lines",
+      "range": {
+        "startLine": 50,
+        "startChar": 7,
+        "endLine": 52,
+        "endChar": 0
+      },
+      "revId": "d2bd20eff1c72f63a1e43efa453956472d7a448f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7462e49f_c80ebc88",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-13T21:40:13Z",
+      "side": 1,
+      "message": "wrapping is inconsistent with the interface",
+      "range": {
+        "startLine": 57,
+        "startChar": 7,
+        "endLine": 58,
+        "endChar": 46
+      },
+      "revId": "d2bd20eff1c72f63a1e43efa453956472d7a448f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33cf2618_2b351270",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-13T21:40:13Z",
+      "side": 1,
+      "message": "must? No more often than?",
+      "revId": "d2bd20eff1c72f63a1e43efa453956472d7a448f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a890842_6a11482d",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-13T21:40:13Z",
+      "side": 1,
+      "message": "nit: secondsPerIncrementalResult",
+      "revId": "d2bd20eff1c72f63a1e43efa453956472d7a448f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d98b7c71_397766d5",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-13T21:40:13Z",
+      "side": 1,
+      "message": "double checking -- are these acronyms explained anywhere?",
+      "range": {
+        "startLine": 65,
+        "startChar": 40,
+        "endLine": 65,
+        "endChar": 43
+      },
+      "revId": "d2bd20eff1c72f63a1e43efa453956472d7a448f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72c3291f_56ce72c2",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-13T21:40:13Z",
+      "side": 1,
+      "message": "(formality) until",
+      "range": {
+        "startLine": 69,
+        "startChar": 13,
+        "endLine": 69,
+        "endChar": 17
+      },
+      "revId": "d2bd20eff1c72f63a1e43efa453956472d7a448f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9ef1255_403d478e",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-13T21:40:13Z",
+      "side": 1,
+      "message": "must",
+      "range": {
+        "startLine": 69,
+        "startChar": 29,
+        "endLine": 69,
+        "endChar": 35
+      },
+      "revId": "d2bd20eff1c72f63a1e43efa453956472d7a448f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d6bf64f_fa800fcd",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-13T21:40:13Z",
+      "side": 1,
+      "message": "*the* list *is* not sent",
+      "range": {
+        "startLine": 70,
+        "startChar": 28,
+        "endLine": 70,
+        "endChar": 32
+      },
+      "revId": "d2bd20eff1c72f63a1e43efa453956472d7a448f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7694ec0_deb24f8d",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-13T21:40:13Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 71,
+        "startChar": 36,
+        "endLine": 71,
+        "endChar": 40
+      },
+      "revId": "d2bd20eff1c72f63a1e43efa453956472d7a448f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b66ad62f_fd3925b7",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-13T21:40:13Z",
+      "side": 1,
+      "message": "not wrapped consistently",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 16
+      },
+      "revId": "d2bd20eff1c72f63a1e43efa453956472d7a448f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74f1a177_9177a067",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-13T21:40:13Z",
+      "side": 1,
+      "message": "is the meaning of this \u0027the search must continue until all PLMNS are found\u0027 ?",
+      "range": {
+        "startLine": 71,
+        "startChar": 13,
+        "endLine": 73,
+        "endChar": 16
+      },
+      "revId": "d2bd20eff1c72f63a1e43efa453956472d7a448f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
