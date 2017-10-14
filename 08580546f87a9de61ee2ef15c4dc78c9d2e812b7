@@ -22,6 +22,30 @@
       "revId": "08580546f87a9de61ee2ef15c4dc78c9d2e812b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd9cbf56_b0aebbf1",
+        "filename": "radio/1.2/Android.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1112039
+      },
+      "writtenOn": "2017-10-14T00:33:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ef5f2b8_ad473e3a",
+      "range": {
+        "startLine": 1,
+        "startChar": 7,
+        "endLine": 1,
+        "endChar": 11
+      },
+      "revId": "08580546f87a9de61ee2ef15c4dc78c9d2e812b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
