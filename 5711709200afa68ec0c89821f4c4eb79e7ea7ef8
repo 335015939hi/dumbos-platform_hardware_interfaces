@@ -167,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "ee6cfd43_7c6a4260",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-14T00:04:46Z",
+      "side": 1,
+      "message": "Ping (and also other unresponded comments)",
+      "parentUuid": "83168a0b_a57c0d0b",
+      "range": {
+        "startLine": 30,
+        "startChar": 7,
+        "endLine": 30,
+        "endChar": 22
+      },
+      "revId": "5711709200afa68ec0c89821f4c4eb79e7ea7ef8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a912b310_13a83107",
         "filename": "radio/1.2/types.hal",
         "patchSetId": 3
