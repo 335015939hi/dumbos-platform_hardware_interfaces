@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1da2256f_f60024a1",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1112039
+      },
+      "writtenOn": "2017-10-14T01:56:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "929bf083_76ab6c5e",
+      "range": {
+        "startLine": 23,
+        "startChar": 4,
+        "endLine": 23,
+        "endChar": 35
+      },
+      "revId": "f8189d64ea532a176aad6c696a6a06edb3c83cfc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3b8eaff5_1bb08d68",
         "filename": "radio/1.2/types.hal",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2017-10-14T01:52:57Z",
       "side": 1,
       "message": "oh -- also this being duplicated from 1.1. Is there an on team opinion on this? Even the original HIDL design doc specifies to version structs like this.",
+      "range": {
+        "startLine": 51,
+        "startChar": 4,
+        "endLine": 67,
+        "endChar": 41
+      },
+      "revId": "f8189d64ea532a176aad6c696a6a06edb3c83cfc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ad150bb_1779d437",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1112039
+      },
+      "writtenOn": "2017-10-14T01:56:21Z",
+      "side": 1,
+      "message": "This change was approved within team",
+      "parentUuid": "3b8eaff5_1bb08d68",
       "range": {
         "startLine": 51,
         "startChar": 4,
