@@ -93,6 +93,30 @@
       "revId": "f8189d64ea532a176aad6c696a6a06edb3c83cfc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d13d59c5_c4b3221b",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1112039
+      },
+      "writtenOn": "2017-10-14T01:57:32Z",
+      "side": 1,
+      "message": "Also I didnt have to make the constant if this was the case. So it makes it better from 1.1",
+      "parentUuid": "5ad150bb_1779d437",
+      "range": {
+        "startLine": 51,
+        "startChar": 4,
+        "endLine": 67,
+        "endChar": 41
+      },
+      "revId": "f8189d64ea532a176aad6c696a6a06edb3c83cfc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
