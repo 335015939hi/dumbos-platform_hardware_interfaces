@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e2346616_863646e2",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-10-15T22:09:25Z",
+      "side": 1,
+      "message": "nit: add space before too",
+      "range": {
+        "startLine": 22,
+        "startChar": 36,
+        "endLine": 22,
+        "endChar": 37
+      },
+      "revId": "12e2689f8640fa58aac9aa6ce532d8793b4e5949",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16854b81_24efb726",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-10-15T22:09:25Z",
+      "side": 1,
+      "message": "Add this to RadioConst instead? That\u0027s what that enum is for.",
+      "range": {
+        "startLine": 22,
+        "startChar": 5,
+        "endLine": 22,
+        "endChar": 36
+      },
+      "revId": "12e2689f8640fa58aac9aa6ce532d8793b4e5949",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d424697_4e685f65",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-10-15T22:09:25Z",
+      "side": 1,
+      "message": "Delete \u0027Type\u0027 from these enum names?",
+      "range": {
+        "startLine": 29,
+        "startChar": 22,
+        "endLine": 29,
+        "endChar": 26
+      },
+      "revId": "12e2689f8640fa58aac9aa6ce532d8793b4e5949",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
