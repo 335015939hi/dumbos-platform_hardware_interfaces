@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7675e7de_60a0e302",
+        "filename": "audio/2.0/vts/functional/AudioPrimaryHidlHalTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1136369
+      },
+      "writtenOn": "2017-10-16T23:31:08Z",
+      "side": 1,
+      "message": "I did not use a pipe because of its limited capacity. If the HAL writes too much data in the pipe (65kB on linux) write will start failing with EAGAIN.\nAn HAL might then `select`/`retry` the fd and block forever...",
+      "range": {
+        "startLine": 536,
+        "startChar": 28,
+        "endLine": 536,
+        "endChar": 38
+      },
+      "revId": "6c00ac31bbdd5ff85b0446bd89805f50dac4b78f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
