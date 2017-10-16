@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "42aa442b_bec84686",
+        "filename": "tests/extension/light/2.0/default/service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1052399
+      },
+      "writtenOn": "2017-10-16T19:11:10Z",
+      "side": 1,
+      "message": "smorland, what would you suggest to fix or suppress this warning?",
+      "revId": "378e14724f4d1965c982c02aea1e5edf4e21feb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
