@@ -157,6 +157,24 @@
       "revId": "e7a4ca8c45923884ba3bc2c68bb6cad9b4979474",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d1e2fe2_f02d9981",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1112039
+      },
+      "writtenOn": "2017-10-17T02:33:11Z",
+      "side": 1,
+      "message": "I think that is unncessary. It is better to match with java interface rather than causing sign conversion.",
+      "parentUuid": "f5e3e2aa_2a897ba7",
+      "revId": "e7a4ca8c45923884ba3bc2c68bb6cad9b4979474",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
