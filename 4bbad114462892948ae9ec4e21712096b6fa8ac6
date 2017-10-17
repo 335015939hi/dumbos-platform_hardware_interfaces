@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "869b5843_8c4cf1dd",
+        "filename": "renderscript/1.0/default/Device.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-17T02:42:34Z",
+      "side": 1,
+      "message": "nit: cpp style cast",
+      "range": {
+        "startLine": 48,
+        "startChar": 9,
+        "endLine": 48,
+        "endChar": 34
+      },
+      "revId": "4bbad114462892948ae9ec4e21712096b6fa8ac6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f7830bb_4eea043a",
+        "filename": "renderscript/1.0/default/Device.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-17T02:42:34Z",
+      "side": 1,
+      "message": "rsNamespace (to match context)",
+      "range": {
+        "startLine": 51,
+        "startChar": 29,
+        "endLine": 51,
+        "endChar": 41
+      },
+      "revId": "4bbad114462892948ae9ec4e21712096b6fa8ac6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
