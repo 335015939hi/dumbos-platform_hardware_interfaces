@@ -118,6 +118,30 @@
       "revId": "6c00ac31bbdd5ff85b0446bd89805f50dac4b78f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4607f71_d1ecaf0b",
+        "filename": "audio/2.0/vts/functional/AudioPrimaryHidlHalTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1136369
+      },
+      "writtenOn": "2017-10-17T17:43:27Z",
+      "side": 1,
+      "message": "This change has only be in for a week + on pixel the hal does not dump anything. I think we should at least increase the buffer size. if not adding a reader thread.",
+      "parentUuid": "0f48ef13_27379730",
+      "range": {
+        "startLine": 536,
+        "startChar": 28,
+        "endLine": 536,
+        "endChar": 38
+      },
+      "revId": "6c00ac31bbdd5ff85b0446bd89805f50dac4b78f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
