@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d9f7bb95_a9c7a3c6",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1112039
+      },
+      "writtenOn": "2017-10-17T02:15:29Z",
+      "side": 1,
+      "message": "I think smaller variable name is better, also the interface provides enough information needed with comments. It does not have to be clear from variable name.",
+      "parentUuid": "0c63ceb6_503e8ea5",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 3
+      },
+      "revId": "e7a4ca8c45923884ba3bc2c68bb6cad9b4979474",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f84fa663_4b6d7439",
         "filename": "radio/1.2/types.hal",
         "patchSetId": 11
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "8f4e9398_08cf0644",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1112039
+      },
+      "writtenOn": "2017-10-17T02:15:29Z",
+      "side": 1,
+      "message": "This was a comment from Amit from offline discussion. Amit, can you please comment.",
+      "parentUuid": "f84fa663_4b6d7439",
+      "range": {
+        "startLine": 51,
+        "startChar": 25,
+        "endLine": 51,
+        "endChar": 29
+      },
+      "revId": "e7a4ca8c45923884ba3bc2c68bb6cad9b4979474",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ee249247_f0af2e4d",
         "filename": "radio/1.2/types.hal",
         "patchSetId": 11
@@ -59,6 +107,30 @@
       "writtenOn": "2017-10-17T02:10:44Z",
       "side": 1,
       "message": "ping, unresolved comment from previous CL. This adds nothing",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 7
+      },
+      "revId": "e7a4ca8c45923884ba3bc2c68bb6cad9b4979474",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41105f3e_1f3f04f4",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1112039
+      },
+      "writtenOn": "2017-10-17T02:15:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee249247_f0af2e4d",
       "range": {
         "startLine": 52,
         "startChar": 0,
