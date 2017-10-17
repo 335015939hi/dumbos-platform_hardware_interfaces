@@ -16,6 +16,24 @@
       "revId": "378e14724f4d1965c982c02aea1e5edf4e21feb1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "be015897_02a0e03d",
+        "filename": "tests/extension/light/2.0/default/service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-17T02:43:54Z",
+      "side": 1,
+      "message": "It should just exit(1).",
+      "parentUuid": "42aa442b_bec84686",
+      "revId": "378e14724f4d1965c982c02aea1e5edf4e21feb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
