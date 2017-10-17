@@ -535,6 +535,9 @@ static void testDebugDump(DebugDump debugDump) {
     int fds[2];
     ASSERT_EQ(0, pipe2(fds, O_NONBLOCK)) << errno;
 
+    // Make sure that the pipe is at least 1 MB in size.
+    fcntl(fds[0], F_SETPIPE_SZ, 1 << 20);
+
     // Wrap the temporary file file descriptor in a native handle
     auto* nativeHandle = native_handle_create(1, 0);
     ASSERT_NE(nullptr, nativeHandle);
