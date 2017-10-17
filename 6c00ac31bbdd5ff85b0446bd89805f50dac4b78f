@@ -70,6 +70,30 @@
       "revId": "6c00ac31bbdd5ff85b0446bd89805f50dac4b78f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "58083d3d_ca9fda2f",
+        "filename": "audio/2.0/vts/functional/AudioPrimaryHidlHalTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2017-10-17T03:31:54Z",
+      "side": 1,
+      "message": "Actually, on second thought, it seems like the situation you described with blocking writes should be handled by HAL implementations. If an api advertises that it takes hidl_handles as input from the client, it should do error-checking when doing I/O on that handle.",
+      "parentUuid": "ba9b05cf_2775ffec",
+      "range": {
+        "startLine": 536,
+        "startChar": 28,
+        "endLine": 536,
+        "endChar": 38
+      },
+      "revId": "6c00ac31bbdd5ff85b0446bd89805f50dac4b78f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
