@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "65d8d74c_72f7abf5",
+        "filename": "current.txt",
+        "patchSetId": 5
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-17T22:58:52Z",
+      "side": 1,
+      "message": "whoops, should have been in this section\n\nFiled b/67910557 to audit and fix.",
+      "range": {
+        "startLine": 190,
+        "startChar": 6,
+        "endLine": 190,
+        "endChar": 52
+      },
+      "revId": "e82c301c474c0ccfcd42bfede2ccaac18c373391",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
