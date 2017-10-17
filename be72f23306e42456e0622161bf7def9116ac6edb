@@ -46,6 +46,30 @@
       "revId": "be72f23306e42456e0622161bf7def9116ac6edb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "63f0dbc9_f31be5d2",
+        "filename": "audio/2.0/vts/functional/AudioPrimaryHidlHalTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2017-10-17T23:14:20Z",
+      "side": 1,
+      "message": "how about adding a comment about potential EPERM if this binary runs directly as a non-privileged process and system has smaller limit (perhaps low-end devices)?\n\nor this might be a kernel test.",
+      "parentUuid": "7abd87a8_4dae34ae",
+      "range": {
+        "startLine": 538,
+        "startChar": 43,
+        "endLine": 538,
+        "endChar": 47
+      },
+      "revId": "be72f23306e42456e0622161bf7def9116ac6edb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
