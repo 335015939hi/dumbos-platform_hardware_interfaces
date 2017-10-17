@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "7ea47d04_aaac4471",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-17T02:45:16Z",
+      "side": 1,
+      "message": "Yeah, we want to avoid this when possible. Especially since it\u0027s entirely within this namespace.",
+      "parentUuid": "8f4e9398_08cf0644",
+      "range": {
+        "startLine": 51,
+        "startChar": 25,
+        "endLine": 51,
+        "endChar": 29
+      },
+      "revId": "e7a4ca8c45923884ba3bc2c68bb6cad9b4979474",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ee249247_f0af2e4d",
         "filename": "radio/1.2/types.hal",
         "patchSetId": 11
@@ -172,6 +196,24 @@
       "side": 1,
       "message": "I think that is unncessary. It is better to match with java interface rather than causing sign conversion.",
       "parentUuid": "f5e3e2aa_2a897ba7",
+      "revId": "e7a4ca8c45923884ba3bc2c68bb6cad9b4979474",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cdeb1581_90be2392",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-17T02:45:16Z",
+      "side": 1,
+      "message": "That\u0027s fine.",
+      "parentUuid": "9d1e2fe2_f02d9981",
       "revId": "e7a4ca8c45923884ba3bc2c68bb6cad9b4979474",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
