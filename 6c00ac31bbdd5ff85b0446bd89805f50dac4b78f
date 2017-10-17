@@ -94,6 +94,30 @@
       "revId": "6c00ac31bbdd5ff85b0446bd89805f50dac4b78f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f48ef13_27379730",
+        "filename": "audio/2.0/vts/functional/AudioPrimaryHidlHalTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2017-10-17T17:25:14Z",
+      "side": 1,
+      "message": "This doesn\u0027t seem to be a critical enough problem to fix in MR1, we never had issues with this in real life scenarios.\n\nMy suggestion would be that the VTS test should work around this issue when it is testing v2.0 of the audio HAL. We can make the wrapper more robust in P, HAL version 2.1.",
+      "parentUuid": "58083d3d_ca9fda2f",
+      "range": {
+        "startLine": 536,
+        "startChar": 28,
+        "endLine": 536,
+        "endChar": 38
+      },
+      "revId": "6c00ac31bbdd5ff85b0446bd89805f50dac4b78f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
