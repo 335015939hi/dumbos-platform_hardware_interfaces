@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "06b13f87_7e287a43",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1112039
+      },
+      "writtenOn": "2017-10-17T02:52:47Z",
+      "side": 1,
+      "message": "discussed offline with Amit and fixed this in patch 13",
+      "parentUuid": "7ea47d04_aaac4471",
+      "range": {
+        "startLine": 51,
+        "startChar": 25,
+        "endLine": 51,
+        "endChar": 29
+      },
+      "revId": "e7a4ca8c45923884ba3bc2c68bb6cad9b4979474",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ee249247_f0af2e4d",
         "filename": "radio/1.2/types.hal",
         "patchSetId": 11
