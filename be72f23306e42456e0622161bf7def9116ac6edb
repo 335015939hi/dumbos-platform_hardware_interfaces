@@ -94,6 +94,30 @@
       "revId": "be72f23306e42456e0622161bf7def9116ac6edb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b3e3e3b4_b6315165",
+        "filename": "audio/2.0/vts/functional/AudioPrimaryHidlHalTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2017-10-17T23:52:52Z",
+      "side": 1,
+      "message": "yim@, the test can\u0027t reach this far if it doesn\u0027t run is superuser domain. It\u0027ll fail on line 166, reason being it won\u0027t have access to the hal. More generally, our efforts to run vts in selinux enforcing mode are premised on running test bins in su domain, and su domain having all necessary permissions. I\u0027ll add a comment explaining why this call should be safe.",
+      "parentUuid": "b757ad25_0d417137",
+      "range": {
+        "startLine": 538,
+        "startChar": 43,
+        "endLine": 538,
+        "endChar": 47
+      },
+      "revId": "be72f23306e42456e0622161bf7def9116ac6edb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
