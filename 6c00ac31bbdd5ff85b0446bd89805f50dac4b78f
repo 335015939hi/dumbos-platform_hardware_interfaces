@@ -142,6 +142,30 @@
       "revId": "6c00ac31bbdd5ff85b0446bd89805f50dac4b78f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb379455_a394d6f1",
+        "filename": "audio/2.0/vts/functional/AudioPrimaryHidlHalTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2017-10-17T18:05:08Z",
+      "side": 1,
+      "message": "Yes, this definitely not a mr1 issue. The test is changing for PI timeline.",
+      "parentUuid": "a4607f71_d1ecaf0b",
+      "range": {
+        "startLine": 536,
+        "startChar": 28,
+        "endLine": 536,
+        "endChar": 38
+      },
+      "revId": "6c00ac31bbdd5ff85b0446bd89805f50dac4b78f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
