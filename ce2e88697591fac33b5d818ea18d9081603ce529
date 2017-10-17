@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8880e1b5_c56a0034",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-10-17T00:36:56Z",
+      "side": 1,
+      "message": "Change this to \u0027enum RadioConst : @1.0::RadioConst\u0027",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 29
+      },
+      "revId": "ce2e88697591fac33b5d818ea18d9081603ce529",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
