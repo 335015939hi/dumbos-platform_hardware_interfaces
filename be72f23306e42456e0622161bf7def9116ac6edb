@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a23ccbb4_d5e0c37f",
+        "filename": "audio/2.0/vts/functional/AudioPrimaryHidlHalTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2017-10-17T20:07:29Z",
+      "side": 1,
+      "message": "1 MB actually seems to be the maximum allowed on Android:\n\n$ adb shell cat /proc/sys/fs/pipe-max-size\n1048576",
+      "range": {
+        "startLine": 538,
+        "startChar": 43,
+        "endLine": 538,
+        "endChar": 47
+      },
+      "revId": "be72f23306e42456e0622161bf7def9116ac6edb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
