@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0c63ceb6_503e8ea5",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-17T02:10:44Z",
+      "side": 1,
+      "message": "nit: just delete comment and call these \"MIN_SECOND\" \"MAX_SECOND\"",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 3
+      },
+      "revId": "e7a4ca8c45923884ba3bc2c68bb6cad9b4979474",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f84fa663_4b6d7439",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-17T02:10:44Z",
+      "side": 1,
+      "message": "Hard no - V1_2::NetworkScanRequest_1_2 does not make sense, and it can be avoided. It was correct before.",
+      "range": {
+        "startLine": 51,
+        "startChar": 25,
+        "endLine": 51,
+        "endChar": 29
+      },
+      "revId": "e7a4ca8c45923884ba3bc2c68bb6cad9b4979474",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee249247_f0af2e4d",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-17T02:10:44Z",
+      "side": 1,
+      "message": "ping, unresolved comment from previous CL. This adds nothing",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 7
+      },
+      "revId": "e7a4ca8c45923884ba3bc2c68bb6cad9b4979474",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5e3e2aa_2a897ba7",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-17T02:10:44Z",
+      "side": 1,
+      "message": "nit: change to uint32_t since it is always positive, same elsewhere",
+      "revId": "e7a4ca8c45923884ba3bc2c68bb6cad9b4979474",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
