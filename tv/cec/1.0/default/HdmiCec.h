@@ -47,7 +47,7 @@ using ::android::hardware::hidl_vec;
 using ::android::hardware::hidl_string;
 using ::android::sp;
 
-struct HdmiCec : public IHdmiCec {
+struct HdmiCec : public IHdmiCec, public hidl_death_recipient {
     HdmiCec(hdmi_cec_device_t* device);
     // Methods from ::android::hardware::tv::cec::V1_0::IHdmiCec follow.
     Return<Result> addLogicalAddress(CecLogicalAddress addr)  override;
@@ -85,6 +85,11 @@ struct HdmiCec : public IHdmiCec {
                 mCallback->onHotplugEvent(hotplugEvent);
             }
         }
+    }
+
+    virtual void serviceDied(uint64_t /*cookie*/,
+                             const wp<::android::hidl::base::V1_0::IBase>& /*who*/) {
+        setCallback(nullptr);
     }
 
 private:
