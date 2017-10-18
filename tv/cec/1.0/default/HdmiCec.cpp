@@ -319,8 +319,16 @@ Return<SendMessageResult> HdmiCec::sendMessage(const CecMessage& message) {
 }
 
 Return<void> HdmiCec::setCallback(const sp<IHdmiCecCallback>& callback) {
-    mCallback = callback;
-    mDevice->register_event_callback(mDevice, eventCallback, nullptr);
+    if (mCallback != nullptr) {
+        mCallback->unlinkToDeath(this);
+        mCallback = nullptr;
+    }
+
+    if (callback != nullptr) {
+        mCallback = callback;
+        mCallback->linkToDeath(this, 0 /*cookie*/);
+        mDevice->register_event_callback(mDevice, eventCallback, nullptr);
+    }
     return Void();
 }
 
