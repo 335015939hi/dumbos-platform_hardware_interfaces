@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2f7d22fc_98760726",
+        "filename": "tests/memory/1.0/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-19T00:52:20Z",
+      "side": 1,
+      "message": "I think you manually generated the makefiles. Can you just run ./hardware/interfaces/update-makefiles.sh",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 6
+      },
+      "revId": "de8d898e33a4a869b2af4956674d52a0257a54b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
