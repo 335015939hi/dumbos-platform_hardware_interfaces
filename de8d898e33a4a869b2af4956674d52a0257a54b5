@@ -46,6 +46,53 @@
       "revId": "de8d898e33a4a869b2af4956674d52a0257a54b5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "66dade5a_d77a5087",
+        "filename": "tests/memory/1.0/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2017-10-19T14:00:33Z",
+      "side": 1,
+      "message": "HAL interface libs for test purpose shouldn\u0027t be marked as vndk. If they are marked as VNDK, they are included in GSI, which doesn\u0027t make sense.",
+      "parentUuid": "2c413910_52710428",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 6
+      },
+      "revId": "de8d898e33a4a869b2af4956674d52a0257a54b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "916fe5e2_02af0d1e",
+        "filename": "tests/memory/1.0/default/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2017-10-19T14:00:33Z",
+      "side": 1,
+      "message": "You may statically link to this library... then you don\u0027t need to care about the location of the lib.",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 44
+      },
+      "revId": "de8d898e33a4a869b2af4956674d52a0257a54b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
