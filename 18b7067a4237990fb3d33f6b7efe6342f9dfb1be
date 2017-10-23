@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4c15773d_fd852920",
+        "filename": "renderscript/1.0/default/Device.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2017-10-23T19:50:00Z",
+      "side": 1,
+      "message": "nit: when converting to or from void*, it\u0027s preferred to use static_cast.",
+      "range": {
+        "startLine": 47,
+        "startChar": 53,
+        "endLine": 47,
+        "endChar": 69
+      },
+      "revId": "18b7067a4237990fb3d33f6b7efe6342f9dfb1be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
