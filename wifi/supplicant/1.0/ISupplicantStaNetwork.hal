@@ -54,6 +54,8 @@ interface ISupplicantStaNetwork extends ISupplicantNetwork {
     IEEE8021X = 1 << 3,
     FT_EAP = 1 << 5,
     FT_PSK = 1 << 6,
+    IEEE8021X_SHA256 = 1 << 7,
+    PSK_SHA256 = 1 << 8,
     OSEN = 1 << 15
   };
 
