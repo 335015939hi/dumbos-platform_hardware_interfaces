@@ -70,6 +70,30 @@
       "revId": "8a73bdf653f76bb2fd309020408871aa97600eb8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "644b619d_add593f6",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1019829
+      },
+      "writtenOn": "2017-10-24T13:49:32Z",
+      "side": 1,
+      "message": "In future if a new carrier comes and asks for new Perso type support, we again need to make changes in this interface file.\n\nTo avoid changes again in future for new requirements, we feel its better to reserve few enums like OEM_PERSO_STATE_1/OEM_PERSO_STATE_2/...\n\nwhat do you say ?",
+      "parentUuid": "2dfda69f_1d69550f",
+      "range": {
+        "startLine": 232,
+        "startChar": 4,
+        "endLine": 243,
+        "endChar": 26
+      },
+      "revId": "8a73bdf653f76bb2fd309020408871aa97600eb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
