@@ -97,3 +97,179 @@ struct NetworkScanRequest {
      */
     vec<string> mccMncs;
 };
+
+struct CellIdentityCdma {
+    /**
+     * Network Id 0..65535, INT_MAX if unknown.
+     */
+    int32_t networkId;
+
+    /**
+     * CDMA System Id 0..32767, INT_MAX if unknown.
+     */
+    int32_t systemId;
+
+    /**
+     * Base Station Id 0..65535, INT_MAX if unknown.
+     */
+    int32_t baseStationId;
+
+    /**
+     * Longitude is a decimal number as specified in 3GPP2 C.S0005-A v6.0. It is represented in
+     * units of 3GPP2 C.S0005-A v6.0. It is represented in units of 0.25 seconds and ranges from
+     * -2592000 to 2592000, both values inclusive (corresponding to a range of -180 to +180
+     * degrees). INT_MAX if unknown.
+     */
+    int32_t longitude;
+
+    /**
+     * Latitude is a decimal number as specified in 3GPP2 C.S0005-A v6.0. It is represented in units
+     * of 0.25 seconds and ranges from -1296000 to 1296000, both values inclusive (corresponding to
+     * a range of -90 to +90 degrees). INT_MAX if unknown.
+     */
+    int32_t latitude;
+
+    /**
+     * The long alpha tag associated with the current scan result (may be the operator name string
+     * or extended operator name string). May be null if unknown.
+     */
+    string alphaLong;
+
+    /**
+     * The short alpha tag associated with the current scan result (may be the operator name string
+     * or extended operator name string). May be null if unknown.
+     */
+    string alphaShort;
+};
+
+struct CellIdentityGsm {
+    /**
+     * 3-digit Mobile Country Code in string format. Null if unknown.
+     */
+    string mccStr;
+
+    /**
+     * 2 or 3-digit Mobile Network Code in string format. Null if unknown.
+     */
+    string mncStr;
+
+    /**
+     * 16-bit Location Area Code, 0..65535, INT_MAX if unknown.
+     */
+    int32_t lac;
+
+    /**
+     * 16-bit GSM Cell Identity described in TS 27.007, 0..65535, INT_MAX if unknown.
+     */
+    int32_t cid;
+
+    /**
+     * 16-bit GSM Absolute RF channel number; this value must be valid.
+     */
+    int32_t arfcn;
+
+    /**
+     * 6-bit Base Station Identity Code, 0xFF if unknown.
+     */
+    uint8_t bsic;
+
+    /**
+     * The long alpha tag associated with the current scan result (may be the operator name string
+     * or extended operator name string). May be null if unknown.
+     */
+    string alphaLong;
+
+    /**
+     * The short alpha tag associated with the current scan result (may be the operator name string
+     * or extended operator name string). May be null if unknown.
+     */
+    string alphaShort;
+};
+
+struct CellIdentityLte {
+    /**
+     * 3-digit Mobile Country Code in string format. Null if unknown.
+     */
+    string mccStr;
+
+    /**
+     * 2 or 3-digit Mobile Network Code in string format. Null if unknown.
+     */
+    string mncStr;
+
+    /**
+     * 28-bit Cell Identity described in TS TS 27.007, INT_MAX if unknown.
+     */
+    int32_t ci;
+
+    /**
+     * Physical cell id 0..503; this value must be valid.
+     */
+    int32_t pci;
+
+    /**
+     * 16-bit tracking area code, INT_MAX if unknown.
+     */
+    int32_t tac;
+
+    /**
+     * 18-bit LTE Absolute RF Channel Number; this value must be valid.
+     */
+    int32_t earfcn;
+
+    /**
+     * The long alpha tag associated with the current scan result (may be the operator name string
+     * or extended operator name string). May be null if unknown.
+     */
+    string alphaLong;
+
+    /**
+     * The short alpha tag associated with the current scan result (may be the operator name string
+     * or extended operator name string). May be null if unknown.
+     */
+    string alphaShort;
+};
+
+struct CellIdentityWcdma {
+    /**
+     * 3-digit Mobile Country Code in string format. Null if unknown.
+     */
+    string mccStr;
+
+    /**
+     * 2 or 3-digit Mobile Network Code in string format. Null if unknown.
+     */
+    string mncStr;
+
+    /**
+     * 16-bit Location Area Code, 0..65535, INT_MAX if unknown.
+     */
+    int32_t lac;
+
+    /**
+     * 28-bit UMTS Cell Identity described in TS 25.331, 0..268435455, INT_MAX if unknown.
+     */
+    int32_t cid;
+
+    /**
+     * 9-bit UMTS Primary Scrambling Code described in TS 25.331, 0..511; this value must be valid.
+     */
+    int32_t psc;
+
+    /**
+     * 16-bit UMTS Absolute RF Channel Number; this value must be valid.
+     */
+    int32_t uarfcn;
+
+    /**
+     * The long alpha tag associated with the current scan result (may be the operator name string
+     * or extended operator name string). May be null if unknown.
+     */
+    string alphaLong;
+
+    /**
+     * The short alpha tag associated with the current scan result (may be the operator name string
+     * or extended operator name string). May be null if unknown.
+     */
+    string alphaShort;
+};
