@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f7f3d145_0ba01910",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-26T23:26:04Z",
+      "side": 1,
+      "message": "Exact value in a constant preferred. This allows code to directly reference it.",
+      "range": {
+        "startLine": 103,
+        "startChar": 28,
+        "endLine": 103,
+        "endChar": 35
+      },
+      "revId": "3d00fa029358306b9b6cc0bd16e072939a34ca7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8906d70d_cdcd8138",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-26T23:26:04Z",
+      "side": 1,
+      "message": "Better could be:\n\nstruct Id { uint16_t id; bool known; }",
+      "range": {
+        "startLine": 103,
+        "startChar": 18,
+        "endLine": 103,
+        "endChar": 26
+      },
+      "revId": "3d00fa029358306b9b6cc0bd16e072939a34ca7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5c110ec1_2b5658d9",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-26T23:26:04Z",
+      "side": 1,
+      "message": "must",
+      "range": {
+        "startLine": 133,
+        "startChar": 67,
+        "endLine": 133,
+        "endChar": 70
+      },
+      "revId": "3d00fa029358306b9b6cc0bd16e072939a34ca7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6577018_572c96c4",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-26T23:26:04Z",
+      "side": 1,
+      "message": "hidl strings can\u0027t be null, same below",
+      "range": {
+        "startLine": 134,
+        "startChar": 42,
+        "endLine": 134,
+        "endChar": 64
+      },
+      "revId": "3d00fa029358306b9b6cc0bd16e072939a34ca7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7107ebb8_283dfabf",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-26T23:26:04Z",
+      "side": 1,
+      "message": "is there a standard way to do this extension? same below",
+      "range": {
+        "startLine": 134,
+        "startChar": 10,
+        "endLine": 134,
+        "endChar": 39
+      },
+      "revId": "3d00fa029358306b9b6cc0bd16e072939a34ca7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2c2359fc_09464147",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-26T23:26:04Z",
+      "side": 1,
+      "message": "nit: consider uint8_t[3], same elsewhere",
+      "range": {
+        "startLine": 147,
+        "startChar": 7,
+        "endLine": 147,
+        "endChar": 14
+      },
+      "revId": "3d00fa029358306b9b6cc0bd16e072939a34ca7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "097d107d_f7454f49",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-26T23:26:04Z",
+      "side": 1,
+      "message": "int16_t",
+      "range": {
+        "startLine": 169,
+        "startChar": 4,
+        "endLine": 169,
+        "endChar": 11
+      },
+      "revId": "3d00fa029358306b9b6cc0bd16e072939a34ca7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "047d01db_96b1cf3b",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-26T23:26:04Z",
+      "side": 1,
+      "message": "with MSBs zero?",
+      "range": {
+        "startLine": 172,
+        "startChar": 7,
+        "endLine": 172,
+        "endChar": 12
+      },
+      "revId": "3d00fa029358306b9b6cc0bd16e072939a34ca7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
