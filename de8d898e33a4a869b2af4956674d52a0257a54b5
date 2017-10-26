@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "3c652197_a06a6e07",
+        "filename": "tests/memory/1.0/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1135739
+      },
+      "writtenOn": "2017-10-26T09:39:06Z",
+      "side": 1,
+      "message": "It\u0027s good to know that. I moved the test cases into hidl_test so that we can just remove it all.",
+      "parentUuid": "66dade5a_d77a5087",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 6
+      },
+      "revId": "de8d898e33a4a869b2af4956674d52a0257a54b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "916fe5e2_02af0d1e",
         "filename": "tests/memory/1.0/default/Android.bp",
         "patchSetId": 3
