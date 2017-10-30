@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c60c1143_40c12ea9",
+        "filename": "radio/1.2/IRadioIndication.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-30T23:01:42Z",
+      "side": 1,
+      "message": "in fact, if this were me, I wouldn\u0027t comment anything except for \"Incremental network scan results\"",
+      "range": {
+        "startLine": 30,
+        "startChar": 7,
+        "endLine": 31,
+        "endChar": 82
+      },
+      "revId": "277ac1e0017f5cd4b862826f5ab86448396dfe8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ee922db_ebec92fd",
+        "filename": "radio/1.2/IRadioIndication.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-30T23:01:42Z",
+      "side": 1,
+      "message": "this doesn\u0027t really say anything",
+      "range": {
+        "startLine": 31,
+        "startChar": 34,
+        "endLine": 31,
+        "endChar": 82
+      },
+      "revId": "277ac1e0017f5cd4b862826f5ab86448396dfe8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7cb2a87_49cf2e40",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-10-30T23:01:42Z",
+      "side": 1,
+      "message": "Looking in more details, all these structs are supersets of structs from the 1.0 interface.\n\nBetter for versioning is:\nCellIdentityAlphaNames { /* new fields */ };\nCellIdentity {\n    @1.0::CellIdentityCdma base;\n    CellIdentityAlphaNames alpha;\n};\n\nAs discussed with the radio team.",
+      "range": {
+        "startLine": 109,
+        "startChar": 7,
+        "endLine": 109,
+        "endChar": 23
+      },
+      "revId": "277ac1e0017f5cd4b862826f5ab86448396dfe8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
