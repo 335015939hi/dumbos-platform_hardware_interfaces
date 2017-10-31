@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7cb9358c_da1948ee",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1224967
+      },
+      "writtenOn": "2017-10-31T17:45:38Z",
+      "side": 1,
+      "message": "The CellInfo was defined in 1.0 : https://cs.corp.google.com/android/hardware/interfaces/radio/1.0/types.hal\nAnd according to my understanding, vector was used here only becuase hal does not support union structure and there is no NULL in hal. So with the use of five vectors here, it is easier to identify which field is empty and which field is in-use.",
+      "parentUuid": "72719f76_94892fa9",
+      "range": {
+        "startLine": 183,
+        "startChar": 0,
+        "endLine": 186,
+        "endChar": 7
+      },
+      "revId": "e3bfada69597424dfc4aa3db36f9bbe72f82e5e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "df4efe67_cb00927b",
         "filename": "radio/1.2/types.hal",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2017-10-31T17:26:58Z",
       "side": 1,
       "message": "cdma?",
+      "range": {
+        "startLine": 189,
+        "startChar": 28,
+        "endLine": 189,
+        "endChar": 31
+      },
+      "revId": "e3bfada69597424dfc4aa3db36f9bbe72f82e5e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c891804e_7bfa7eae",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1224967
+      },
+      "writtenOn": "2017-10-31T17:45:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df4efe67_cb00927b",
       "range": {
         "startLine": 189,
         "startChar": 28,
