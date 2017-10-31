@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "5987dcea_5482b31b",
+        "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1112039
+      },
+      "writtenOn": "2017-10-31T21:00:43Z",
+      "side": 1,
+      "message": "I thought it is already mentioned. I specifically called out the lower boundary of variable. Can you please elaborate what you are expecting.",
+      "parentUuid": "bcd70d89_ca36bc3f",
+      "range": {
+        "startLine": 85,
+        "startChar": 39,
+        "endLine": 85,
+        "endChar": 72
+      },
+      "revId": "df5f72f14ea38d4c8deec8bfdf1afba3bd4a7771",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "02f160ad_cb9dbe70",
         "filename": "radio/1.2/vts/functional/radio_hidl_hal_utils_v1_2.h",
         "patchSetId": 1
@@ -83,6 +107,30 @@
       "writtenOn": "2017-10-31T20:31:38Z",
       "side": 1,
       "message": "delete ?",
+      "range": {
+        "startLine": 546,
+        "startChar": 0,
+        "endLine": 550,
+        "endChar": 25
+      },
+      "revId": "df5f72f14ea38d4c8deec8bfdf1afba3bd4a7771",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d8aa111a_dccc3441",
+        "filename": "radio/1.2/vts/functional/radio_hidl_hal_utils_v1_2.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 550,
+      "author": {
+        "id": 1112039
+      },
+      "writtenOn": "2017-10-31T21:00:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02f160ad_cb9dbe70",
       "range": {
         "startLine": 546,
         "startChar": 0,
