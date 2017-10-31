@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "04bde0f4_7f76ab15",
+        "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1148298
+      },
+      "writtenOn": "2017-10-31T20:40:32Z",
+      "side": 1,
+      "message": "I believe this is inherited from vts 1.1. This error \"OPERATION_NOT_ALLOWED\" will be returned when the scan request is valid but the specified bands are not supported by the modem, I added this error in vts 1.1 because we did see it on some old devices.",
+      "parentUuid": "daff9770_55a370fe",
+      "range": {
+        "startLine": 53,
+        "startChar": 64,
+        "endLine": 53,
+        "endChar": 85
+      },
+      "revId": "df5f72f14ea38d4c8deec8bfdf1afba3bd4a7771",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bcd70d89_ca36bc3f",
         "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
         "patchSetId": 1
