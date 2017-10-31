@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bc81487a_6c95bee5",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1224967
+      },
+      "writtenOn": "2017-10-31T16:43:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a65f6503_e31de534",
+      "range": {
+        "startLine": 184,
+        "startChar": 7,
+        "endLine": 185,
+        "endChar": 17
+      },
+      "revId": "e31c540addc18bb6f632cc290974718225bb354d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "636446bf_3264e648",
         "filename": "radio/1.2/types.hal",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2017-10-31T16:39:45Z",
       "side": 1,
       "message": "duplicated? And the comment for previous one is wrong.",
+      "range": {
+        "startLine": 189,
+        "startChar": 0,
+        "endLine": 195,
+        "endChar": 27
+      },
+      "revId": "e31c540addc18bb6f632cc290974718225bb354d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7d565a10_6ece2c61",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1224967
+      },
+      "writtenOn": "2017-10-31T16:43:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "636446bf_3264e648",
       "range": {
         "startLine": 189,
         "startChar": 0,
