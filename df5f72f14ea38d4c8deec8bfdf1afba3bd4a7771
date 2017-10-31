@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "863e28b2_50b2bdb5",
+        "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1112039
+      },
+      "writtenOn": "2017-10-31T21:25:08Z",
+      "side": 1,
+      "message": "The difference is that I do not expenct SIM_ABSENT error in present case. Unfortunately our interface do not specifically mandate which error to return if you have multiple reasons to return error.",
+      "parentUuid": "1f79b87f_6bc277fc",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 5
+      },
+      "revId": "df5f72f14ea38d4c8deec8bfdf1afba3bd4a7771",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bcd70d89_ca36bc3f",
         "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
         "patchSetId": 1
