@@ -49,6 +49,29 @@
     },
     {
       "key": {
+        "uuid": "1f79b87f_6bc277fc",
+        "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-10-31T21:23:08Z",
+      "side": 1,
+      "message": "I am confused: if the error returned by this api is related to sim present/absent, the difference of error codes for both cases should be about SIM_ABSENT; if it is not related, the SIM_ABSENT should not be added.",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 5
+      },
+      "revId": "df5f72f14ea38d4c8deec8bfdf1afba3bd4a7771",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bcd70d89_ca36bc3f",
         "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
         "patchSetId": 1
