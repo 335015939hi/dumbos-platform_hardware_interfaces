@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "76642c7c_45c716f9",
+        "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2017-10-31T22:09:39Z",
+      "side": 1,
+      "message": "For this particular case, i was just expecting \"invalid interval of/for xyz\" (may be just complete the sentence so that person who doesn\u0027t have knowledge about this particular api gets high level overview by reading the doc)",
+      "parentUuid": "5987dcea_5482b31b",
+      "range": {
+        "startLine": 85,
+        "startChar": 39,
+        "endLine": 85,
+        "endChar": 72
+      },
+      "revId": "df5f72f14ea38d4c8deec8bfdf1afba3bd4a7771",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "02f160ad_cb9dbe70",
         "filename": "radio/1.2/vts/functional/radio_hidl_hal_utils_v1_2.h",
         "patchSetId": 1
