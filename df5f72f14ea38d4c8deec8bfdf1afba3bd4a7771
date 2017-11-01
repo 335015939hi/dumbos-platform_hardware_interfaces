@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "2c1c78b1_ad01f38d",
+        "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2017-11-01T01:54:42Z",
+      "side": 1,
+      "message": "Request to zero-initialize these.",
+      "revId": "df5f72f14ea38d4c8deec8bfdf1afba3bd4a7771",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "daff9770_55a370fe",
         "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
         "patchSetId": 1
@@ -42,6 +59,29 @@
         "startChar": 64,
         "endLine": 53,
         "endChar": 85
+      },
+      "revId": "df5f72f14ea38d4c8deec8bfdf1afba3bd4a7771",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c21f1cf1_932e7063",
+        "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2017-11-01T01:54:42Z",
+      "side": 1,
+      "message": "We should zero-initialize these structs to ensure that the test is always testing the same thing. It\u0027s good code hygiene.",
+      "range": {
+        "startLine": 63,
+        "startChar": 57,
+        "endLine": 63,
+        "endChar": 64
       },
       "revId": "df5f72f14ea38d4c8deec8bfdf1afba3bd4a7771",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -160,6 +200,29 @@
         "startChar": 39,
         "endLine": 85,
         "endChar": 72
+      },
+      "revId": "df5f72f14ea38d4c8deec8bfdf1afba3bd4a7771",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48f054c3_48a01b36",
+        "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2017-11-01T01:54:42Z",
+      "side": 1,
+      "message": "Almost all of this is copy+paste. I suggest that we use a factory method to get a \"valid\" instance of this thing, and then we can mutate it in tests where we want to introduce a specific error. It makes it easy to see what each test is doing.",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 105,
+        "endChar": 46
       },
       "revId": "df5f72f14ea38d4c8deec8bfdf1afba3bd4a7771",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
