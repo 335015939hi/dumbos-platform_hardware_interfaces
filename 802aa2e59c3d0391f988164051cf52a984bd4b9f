@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2aa8344f_f1bb3560",
+        "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1112039
+      },
+      "writtenOn": "2017-11-01T23:33:18Z",
+      "side": 1,
+      "message": "? Following the 1.1 conventions here.",
+      "parentUuid": "59c9705f_f9d75165",
+      "range": {
+        "startLine": 33,
+        "startChar": 16,
+        "endLine": 33,
+        "endChar": 36
+      },
+      "revId": "802aa2e59c3d0391f988164051cf52a984bd4b9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "182ea236_c115a564",
         "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2017-11-01T23:24:15Z",
       "side": 1,
       "message": "this is the wrong function name, also we\u0027re spamming logs when it is correct.\n\nAlso, you should include toString(error) so that the actual name is printed as well.",
+      "range": {
+        "startLine": 38,
+        "startChar": 11,
+        "endLine": 38,
+        "endChar": 27
+      },
+      "revId": "802aa2e59c3d0391f988164051cf52a984bd4b9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee19bf3a_802587e0",
+        "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1112039
+      },
+      "writtenOn": "2017-11-01T23:33:18Z",
+      "side": 1,
+      "message": "Currently do not see toString api for the error codes. I will address the concern with success case",
+      "parentUuid": "182ea236_c115a564",
       "range": {
         "startLine": 38,
         "startChar": 11,
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "abdd9500_ba7f2a43",
+        "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1112039
+      },
+      "writtenOn": "2017-11-01T23:33:18Z",
+      "side": 1,
+      "message": "Yes, same as 1.1",
+      "parentUuid": "97b101b2_1e409c76",
+      "range": {
+        "startLine": 61,
+        "startChar": 3,
+        "endLine": 64,
+        "endChar": 53
+      },
+      "revId": "802aa2e59c3d0391f988164051cf52a984bd4b9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cc42d856_e02b368c",
         "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
         "patchSetId": 5
@@ -128,6 +200,30 @@
       "writtenOn": "2017-11-01T23:31:14Z",
       "side": 1,
       "message": "It\u0027s also the \u0027;\u0027 in \u0027\u003d 60;\u0027 that actually confuses clang-format.",
+      "parentUuid": "cc42d856_e02b368c",
+      "range": {
+        "startLine": 89,
+        "startChar": 51,
+        "endLine": 89,
+        "endChar": 90
+      },
+      "revId": "802aa2e59c3d0391f988164051cf52a984bd4b9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "869bfc4f_e95f9a9f",
+        "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1112039
+      },
+      "writtenOn": "2017-11-01T23:33:18Z",
+      "side": 1,
+      "message": "This was messed up by clang script.",
       "parentUuid": "cc42d856_e02b368c",
       "range": {
         "startLine": 89,
