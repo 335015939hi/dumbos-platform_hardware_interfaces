@@ -89,6 +89,30 @@
     },
     {
       "key": {
+        "uuid": "873f8a09_752cbe68",
+        "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1112039
+      },
+      "writtenOn": "2017-11-01T17:07:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c21f1cf1_932e7063",
+      "range": {
+        "startLine": 63,
+        "startChar": 57,
+        "endLine": 63,
+        "endChar": 64
+      },
+      "revId": "df5f72f14ea38d4c8deec8bfdf1afba3bd4a7771",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1f79b87f_6bc277fc",
         "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
         "patchSetId": 1
@@ -218,6 +242,30 @@
       "writtenOn": "2017-11-01T01:54:42Z",
       "side": 1,
       "message": "Almost all of this is copy+paste. I suggest that we use a factory method to get a \"valid\" instance of this thing, and then we can mutate it in tests where we want to introduce a specific error. It makes it easy to see what each test is doing.",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 105,
+        "endChar": 46
+      },
+      "revId": "df5f72f14ea38d4c8deec8bfdf1afba3bd4a7771",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4ce04235_63472c10",
+        "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1112039
+      },
+      "writtenOn": "2017-11-01T17:07:00Z",
+      "side": 1,
+      "message": "I think to understand what is being changed, it is clearly described in the comment. Though I agree with you that there is scope for improvement, I am just following previous pattern and also I am time constrained to work on enhancements.",
+      "parentUuid": "48f054c3_48a01b36",
       "range": {
         "startLine": 91,
         "startChar": 0,
