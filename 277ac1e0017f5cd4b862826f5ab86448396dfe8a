@@ -236,6 +236,30 @@
       "revId": "277ac1e0017f5cd4b862826f5ab86448396dfe8a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5cd5889f_fe8c8975",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-11-01T16:40:08Z",
+      "side": 1,
+      "message": "Let me explain (one of the reasons) why this is has been in the HIDL versioning documentation since the beginning (and why the extension methodology for structs is composition):\n\nwhen you implement the 1.1 HAL, you must support 1.0 clients as well (according to Liskov Substitution Principle of course). This means you will end up implementing networkRequest and networkRequest1_2 as I\u0027m sure you\u0027re aware. When you do things this way, you can implement networkRequest(request) simply by calling networkRequest1_2({.base \u003d request, .operator\u003d[some default value]}). Doing this avoids having to write a conversion function (from 1.0/1 to 1.2) avoids having to template or duplicate conversion functions from libhardware types to HIDL types, and it also allows code which uses the original type to be re-use it for its original functionality without having to change it. This leads to less code on the device, thereby less duplication, thereby less chances to make a typo, thereby better tested, thereby more space.",
+      "parentUuid": "079c5f04_cbbfc3bd",
+      "range": {
+        "startLine": 109,
+        "startChar": 7,
+        "endLine": 109,
+        "endChar": 23
+      },
+      "revId": "277ac1e0017f5cd4b862826f5ab86448396dfe8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
