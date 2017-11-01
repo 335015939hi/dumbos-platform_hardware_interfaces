@@ -117,6 +117,30 @@
     },
     {
       "key": {
+        "uuid": "17ebf373_1b632f61",
+        "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1058860
+      },
+      "writtenOn": "2017-11-01T23:31:14Z",
+      "side": 1,
+      "message": "It\u0027s also the \u0027;\u0027 in \u0027\u003d 60;\u0027 that actually confuses clang-format.",
+      "parentUuid": "cc42d856_e02b368c",
+      "range": {
+        "startLine": 89,
+        "startChar": 51,
+        "endLine": 89,
+        "endChar": 90
+      },
+      "revId": "802aa2e59c3d0391f988164051cf52a984bd4b9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "374b0744_ed772536",
         "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
         "patchSetId": 5
