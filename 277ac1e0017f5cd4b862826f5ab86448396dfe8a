@@ -260,6 +260,30 @@
       "revId": "277ac1e0017f5cd4b862826f5ab86448396dfe8a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5fd981d_6ec39d07",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-11-01T17:01:09Z",
+      "side": 1,
+      "message": "I agree that it makes the struct, and probably the code much cleaner this way in this case. But in cases where some fields are changing from an older version, as opposed to just additions, this cannot be done. So uniformity was one of the reasons to not do it. Moreover once we have multiple versions, this can lead to chaining of structs which may become hard to navigate over time.\n\nIn any case, if we decide to do this, we should do this with NetworkScanRequest as well for uniformity.",
+      "parentUuid": "5cd5889f_fe8c8975",
+      "range": {
+        "startLine": 109,
+        "startChar": 7,
+        "endLine": 109,
+        "endChar": 23
+      },
+      "revId": "277ac1e0017f5cd4b862826f5ab86448396dfe8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
