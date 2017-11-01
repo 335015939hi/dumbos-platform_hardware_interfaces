@@ -140,6 +140,30 @@
       "revId": "277ac1e0017f5cd4b862826f5ab86448396dfe8a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0cbc90c6_9f501159",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-11-01T04:22:17Z",
+      "side": 1,
+      "message": "I thought we decided to not do it on Sooraj\u0027s CL: https://android-review.googlesource.com/#/c/platform/hardware/interfaces/+/508636/13/radio/1.2/types.hal",
+      "parentUuid": "af3d948d_dca4e71f",
+      "range": {
+        "startLine": 109,
+        "startChar": 7,
+        "endLine": 109,
+        "endChar": 23
+      },
+      "revId": "277ac1e0017f5cd4b862826f5ab86448396dfe8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
