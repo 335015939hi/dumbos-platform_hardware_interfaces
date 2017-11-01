@@ -188,6 +188,54 @@
       "revId": "277ac1e0017f5cd4b862826f5ab86448396dfe8a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26714491_d05678f1",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1224967
+      },
+      "writtenOn": "2017-11-01T16:38:18Z",
+      "side": 1,
+      "message": "I didn\u0027t quite get it here. But this is actually patch 5, structures has been modified in patch 9.",
+      "parentUuid": "0cbc90c6_9f501159",
+      "range": {
+        "startLine": 109,
+        "startChar": 7,
+        "endLine": 109,
+        "endChar": 23
+      },
+      "revId": "277ac1e0017f5cd4b862826f5ab86448396dfe8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ebe1840a_4481a8f7",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1224967
+      },
+      "writtenOn": "2017-11-01T16:38:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "079c5f04_cbbfc3bd",
+      "range": {
+        "startLine": 109,
+        "startChar": 7,
+        "endLine": 109,
+        "endChar": 23
+      },
+      "revId": "277ac1e0017f5cd4b862826f5ab86448396dfe8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
