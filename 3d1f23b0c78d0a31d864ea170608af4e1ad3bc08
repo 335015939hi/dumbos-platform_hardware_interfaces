@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c524b34a_f19e8fba",
+        "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1112039
+      },
+      "writtenOn": "2017-11-01T20:14:33Z",
+      "side": 1,
+      "message": "No currently setup do not guaranteee this. If you look at 1.1 code it runs specifcalyy on SIM_ABSENT",
+      "parentUuid": "be24ad8b_8ead6793",
+      "range": {
+        "startLine": 115,
+        "startChar": 8,
+        "endLine": 120,
+        "endChar": 5
+      },
+      "revId": "3d1f23b0c78d0a31d864ea170608af4e1ad3bc08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "009fd091_6d6d0899",
         "filename": "radio/1.2/vts/functional/radio_hidl_hal_test.cpp",
         "patchSetId": 3
