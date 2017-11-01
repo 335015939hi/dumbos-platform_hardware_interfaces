@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "64d77fa0_111b4a35",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-11-01T00:46:55Z",
+      "side": 1,
+      "message": "It\u0027s a makeshift union. Long story.",
+      "parentUuid": "7cb9358c_da1948ee",
+      "range": {
+        "startLine": 183,
+        "startChar": 0,
+        "endLine": 186,
+        "endChar": 7
+      },
+      "revId": "e3bfada69597424dfc4aa3db36f9bbe72f82e5e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "df4efe67_cb00927b",
         "filename": "radio/1.2/types.hal",
         "patchSetId": 7
