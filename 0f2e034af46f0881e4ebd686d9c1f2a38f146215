@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "db1700ca_faa0a20f",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-11-01T17:20:51Z",
+      "side": 1,
+      "message": "nit: space",
+      "range": {
+        "startLine": 210,
+        "startChar": 4,
+        "endLine": 210,
+        "endChar": 5
+      },
+      "revId": "0f2e034af46f0881e4ebd686d9c1f2a38f146215",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
