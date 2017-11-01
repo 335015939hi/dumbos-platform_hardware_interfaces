@@ -94,6 +94,30 @@
       "revId": "8a73bdf653f76bb2fd309020408871aa97600eb8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "421cbfd6_a741afb1",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-11-01T18:16:26Z",
+      "side": 1,
+      "message": "Add as many explicitly as possible. But since we have done the same in other places, its ok to add reserved values to be used for carrier specific states (add that as a comment).",
+      "parentUuid": "644b619d_add593f6",
+      "range": {
+        "startLine": 232,
+        "startChar": 4,
+        "endLine": 243,
+        "endChar": 26
+      },
+      "revId": "8a73bdf653f76bb2fd309020408871aa97600eb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
