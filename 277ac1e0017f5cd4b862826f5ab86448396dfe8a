@@ -164,6 +164,30 @@
       "revId": "277ac1e0017f5cd4b862826f5ab86448396dfe8a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "079c5f04_cbbfc3bd",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-11-01T04:43:58Z",
+      "side": 1,
+      "message": "I still think you should fix it in that struct, but the result is much more extreme here. Look at the current patchset; it\u0027s very neat.",
+      "parentUuid": "0cbc90c6_9f501159",
+      "range": {
+        "startLine": 109,
+        "startChar": 7,
+        "endLine": 109,
+        "endChar": 23
+      },
+      "revId": "277ac1e0017f5cd4b862826f5ab86448396dfe8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
