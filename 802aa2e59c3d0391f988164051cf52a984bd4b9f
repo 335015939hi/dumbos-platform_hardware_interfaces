@@ -237,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "52c12b60_ad89732d",
+        "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-11-01T23:37:20Z",
+      "side": 1,
+      "message": "Yeah-- you can see the bug below I filed on clang-format. Whatever the case, can you change this to use all commas?",
+      "parentUuid": "869bfc4f_e95f9a9f",
+      "range": {
+        "startLine": 89,
+        "startChar": 51,
+        "endLine": 89,
+        "endChar": 90
+      },
+      "revId": "802aa2e59c3d0391f988164051cf52a984bd4b9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "374b0744_ed772536",
         "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
         "patchSetId": 5
