@@ -382,6 +382,30 @@
     },
     {
       "key": {
+        "uuid": "509df93d_32c48379",
+        "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1112039
+      },
+      "writtenOn": "2017-11-02T21:21:01Z",
+      "side": 1,
+      "message": "Can we take the redesign discussion to the bug https://b.corp.google.com/issues/68813813",
+      "parentUuid": "134c1fc0_5b5308aa",
+      "range": {
+        "startLine": 61,
+        "startChar": 3,
+        "endLine": 64,
+        "endChar": 53
+      },
+      "revId": "802aa2e59c3d0391f988164051cf52a984bd4b9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cc42d856_e02b368c",
         "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
         "patchSetId": 5
