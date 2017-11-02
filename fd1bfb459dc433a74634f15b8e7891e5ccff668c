@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6b55a456_409d083d",
+        "filename": "radio/1.2/vts/functional/radio_hidl_hal_utils_v1_2.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-11-02T17:12:17Z",
+      "side": 1,
+      "message": "this kind of mass-namespace include is causing the compilation failure (because it makes many symbol names ambiguous).\n\nPlease only include the V1_2 namespace, if any. Then, you can reference 1.0/1.1 types as \"V1_0::something\" and \"V1_1::something\"\n\nThis will also make some of the long \"...::...::...::...\" types obsolete",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 49
+      },
+      "revId": "fd1bfb459dc433a74634f15b8e7891e5ccff668c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
