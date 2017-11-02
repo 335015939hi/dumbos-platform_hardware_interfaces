@@ -93,6 +93,30 @@
       "revId": "5f99ee3373828d22cbe01ec457e72a8207a71da2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25b3e62a_d978b4c9",
+        "filename": "radio/1.2/vts/functional/radio_hidl_hal_utils_v1_2.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 545,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-11-02T20:00:45Z",
+      "side": 1,
+      "message": "That\u0027s a bit much, don\u0027t you think?",
+      "parentUuid": "38ed29ee_8973d0a2",
+      "range": {
+        "startLine": 545,
+        "startChar": 27,
+        "endLine": 545,
+        "endChar": 40
+      },
+      "revId": "5f99ee3373828d22cbe01ec457e72a8207a71da2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
