@@ -211,6 +211,30 @@
     },
     {
       "key": {
+        "uuid": "5c3b45d0_fb107a56",
+        "filename": "radio/1.2/vts/functional/radio_hidl_hal_utils_v1_2.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2017-11-02T19:32:10Z",
+      "side": 1,
+      "message": "Is there a bug opened for this ? Can you add a TODO ?",
+      "parentUuid": "59780f0a_70393d4a",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 43
+      },
+      "revId": "53a02c04aeed865469c303575f3525609c3f5827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "115537c3_8abe454d",
         "filename": "radio/1.2/vts/functional/radio_hidl_hal_utils_v1_2.h",
         "patchSetId": 8
