@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "53b62469_be4ca1c5",
+        "filename": "radio/1.2/vts/functional/radio_hidl_hal_utils_v1_2.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-11-02T21:16:19Z",
+      "side": 1,
+      "message": "+1 either \"foo_\" or \"mFoo\" for member variables, but foo_ is preferred in tests (it feels better)",
+      "parentUuid": "9f65c5fb_cf4f7570",
+      "range": {
+        "startLine": 533,
+        "startChar": 8,
+        "endLine": 533,
+        "endChar": 13
+      },
+      "revId": "5f99ee3373828d22cbe01ec457e72a8207a71da2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "38ed29ee_8973d0a2",
         "filename": "radio/1.2/vts/functional/radio_hidl_hal_utils_v1_2.h",
         "patchSetId": 10
