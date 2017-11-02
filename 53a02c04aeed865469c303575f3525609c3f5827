@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "006c9026_e8f394a7",
+        "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1148298
+      },
+      "writtenOn": "2017-11-02T17:33:29Z",
+      "side": 1,
+      "message": "Move this log out of the if branch?",
+      "range": {
+        "startLine": 345,
+        "startChar": 8,
+        "endLine": 345,
+        "endChar": 13
+      },
+      "revId": "53a02c04aeed865469c303575f3525609c3f5827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a1b13096_361d6093",
+        "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1148298
+      },
+      "writtenOn": "2017-11-02T17:33:29Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 385,
+        "startChar": 8,
+        "endLine": 385,
+        "endChar": 13
+      },
+      "revId": "53a02c04aeed865469c303575f3525609c3f5827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
