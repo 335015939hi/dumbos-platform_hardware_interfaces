@@ -235,6 +235,30 @@
     },
     {
       "key": {
+        "uuid": "892025ee_8fe053fe",
+        "filename": "radio/1.2/vts/functional/radio_hidl_hal_utils_v1_2.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1112039
+      },
+      "writtenOn": "2017-11-02T19:41:48Z",
+      "side": 1,
+      "message": "https://b.corp.google.com/issues/68813813\nDon\u0027t want to add todo in the code. Will be better to track it as bug",
+      "parentUuid": "5c3b45d0_fb107a56",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 43
+      },
+      "revId": "53a02c04aeed865469c303575f3525609c3f5827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "115537c3_8abe454d",
         "filename": "radio/1.2/vts/functional/radio_hidl_hal_utils_v1_2.h",
         "patchSetId": 8
