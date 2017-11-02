@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "b95dde43_182fa815",
+        "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-11-02T00:05:00Z",
+      "side": 1,
+      "message": "Following conventions isn\u0027t the right thing. You should do it the right way here and then file a bug for them to fix the 1.1 tests.\n\nOtherwise, a HIDL error will crash the test and VTS.",
+      "parentUuid": "2aa8344f_f1bb3560",
+      "range": {
+        "startLine": 33,
+        "startChar": 16,
+        "endLine": 33,
+        "endChar": 36
+      },
+      "revId": "802aa2e59c3d0391f988164051cf52a984bd4b9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "182ea236_c115a564",
         "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
         "patchSetId": 5
