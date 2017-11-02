@@ -140,6 +140,30 @@
     },
     {
       "key": {
+        "uuid": "a3d62d79_93c7e975",
+        "filename": "radio/1.2/vts/functional/radio_hidl_hal_utils_v1_2.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1112039
+      },
+      "writtenOn": "2017-11-02T18:05:02Z",
+      "side": 1,
+      "message": "This is needed due to interdependency.",
+      "parentUuid": "fa2b801b_2d62d036",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 25
+      },
+      "revId": "53a02c04aeed865469c303575f3525609c3f5827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "69560bec_8f54beec",
         "filename": "radio/1.2/vts/functional/radio_hidl_hal_utils_v1_2.h",
         "patchSetId": 8
@@ -151,6 +175,30 @@
       "writtenOn": "2017-11-02T17:41:01Z",
       "side": 1,
       "message": "Just use RadioResponse_v1_1 rather than copy/pasting this",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 43
+      },
+      "revId": "53a02c04aeed865469c303575f3525609c3f5827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59780f0a_70393d4a",
+        "filename": "radio/1.2/vts/functional/radio_hidl_hal_utils_v1_2.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1112039
+      },
+      "writtenOn": "2017-11-02T18:05:02Z",
+      "side": 1,
+      "message": "This can be taken up as part of the clean up you suggested.",
+      "parentUuid": "69560bec_8f54beec",
       "range": {
         "startLine": 45,
         "startChar": 0,
