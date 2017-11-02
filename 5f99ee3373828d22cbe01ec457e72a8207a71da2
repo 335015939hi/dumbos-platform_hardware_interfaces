@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dfe0330f_cab157f0",
+        "filename": "radio/1.2/vts/functional/radio_hidl_hal_utils_v1_2.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1112039
+      },
+      "writtenOn": "2017-11-02T20:00:32Z",
+      "side": 1,
+      "message": "why?",
+      "parentUuid": "51482e7a_e1e8acb5",
+      "range": {
+        "startLine": 533,
+        "startChar": 8,
+        "endLine": 533,
+        "endChar": 13
+      },
+      "revId": "5f99ee3373828d22cbe01ec457e72a8207a71da2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "38ed29ee_8973d0a2",
         "filename": "radio/1.2/vts/functional/radio_hidl_hal_utils_v1_2.h",
         "patchSetId": 10
@@ -36,6 +60,30 @@
       "writtenOn": "2017-11-02T19:59:09Z",
       "side": 1,
       "message": "docstring for each attribute?",
+      "range": {
+        "startLine": 545,
+        "startChar": 27,
+        "endLine": 545,
+        "endChar": 40
+      },
+      "revId": "5f99ee3373828d22cbe01ec457e72a8207a71da2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "14ca9984_37f002f8",
+        "filename": "radio/1.2/vts/functional/radio_hidl_hal_utils_v1_2.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 545,
+      "author": {
+        "id": 1112039
+      },
+      "writtenOn": "2017-11-02T20:00:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38ed29ee_8973d0a2",
       "range": {
         "startLine": 545,
         "startChar": 27,
