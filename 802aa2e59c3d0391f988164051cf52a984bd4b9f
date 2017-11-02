@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "45555d9b_4b5f6b9d",
+        "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-11-02T19:28:02Z",
+      "side": 1,
+      "message": "Not very sure of this issue. The RIL api name is startNetworkScan_1_2.",
+      "parentUuid": "b95dde43_182fa815",
+      "range": {
+        "startLine": 33,
+        "startChar": 16,
+        "endLine": 33,
+        "endChar": 36
+      },
+      "revId": "802aa2e59c3d0391f988164051cf52a984bd4b9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "182ea236_c115a564",
         "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
         "patchSetId": 5
@@ -143,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "8e0d43ae_9f940175",
+        "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-11-02T19:28:02Z",
+      "side": 1,
+      "message": "Yes. I am doing that as part of the refactor issue b/63760809",
+      "parentUuid": "9162c5d5_9a1cae67",
+      "range": {
+        "startLine": 38,
+        "startChar": 4,
+        "endLine": 48,
+        "endChar": 5
+      },
+      "revId": "802aa2e59c3d0391f988164051cf52a984bd4b9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "97b101b2_1e409c76",
         "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
         "patchSetId": 5
@@ -178,6 +226,30 @@
       "side": 1,
       "message": "Yes, same as 1.1",
       "parentUuid": "97b101b2_1e409c76",
+      "range": {
+        "startLine": 61,
+        "startChar": 3,
+        "endLine": 64,
+        "endChar": 53
+      },
+      "revId": "802aa2e59c3d0391f988164051cf52a984bd4b9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7ab1086_373c31b3",
+        "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-11-02T19:28:02Z",
+      "side": 1,
+      "message": "This might be not that \u0027duplicate\u0027. The first line and third line are specific to the api itself.",
+      "parentUuid": "abdd9500_ba7f2a43",
       "range": {
         "startLine": 61,
         "startChar": 3,
