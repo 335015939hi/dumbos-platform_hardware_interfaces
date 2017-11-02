@@ -1,0 +1,41 @@
+cc_library_shared {
+    name: "android.hardware.light@2.0-impl",
+    vendor: true,
+    relative_install_path: "hw",
+    srcs: ["Light.cpp"],
+
+    shared_libs: [
+        "libhidlbase",
+        "libhidltransport",
+        "libutils",
+        "liblog",
+        "libcutils",
+        "libhardware",
+        "libbase",
+        "libcutils",
+        "android.hardware.light@2.0",
+    ],
+
+}
+
+cc_binary {
+    relative_install_path: "hw",
+    vendor: true,
+    name: "android.hardware.light@2.0-service",
+    init_rc: ["android.hardware.light@2.0-service.rc"],
+    srcs: ["service.cpp"],
+
+    shared_libs: [
+        "liblog",
+        "libcutils",
+        "libdl",
+        "libbase",
+        "libutils",
+        "libhardware",
+    ] + [
+        "libhidlbase",
+        "libhidltransport",
+        "android.hardware.light@2.0",
+    ],
+
+}
