@@ -1,0 +1,40 @@
+
+
+cc_library_shared {
+
+    relative_install_path: "hw",
+    proprietary: true,
+    name: "android.hardware.gatekeeper@1.0-impl",
+
+    srcs: ["Gatekeeper.cpp"],
+
+    shared_libs: [
+        "android.hardware.gatekeeper@1.0",
+        "libhardware",
+        "libhidlbase",
+        "libhidltransport",
+        "libutils",
+        "liblog",
+    ],
+
+}
+
+cc_binary {
+
+    relative_install_path: "hw",
+    proprietary: true,
+    name: "android.hardware.gatekeeper@1.0-service",
+    init_rc: ["android.hardware.gatekeeper@1.0-service.rc"],
+
+    srcs: ["service.cpp"],
+
+    shared_libs: [
+        "android.hardware.gatekeeper@1.0",
+        "libhardware",
+        "libhidlbase",
+        "libhidltransport",
+        "libutils",
+        "liblog",
+    ],
+
+}

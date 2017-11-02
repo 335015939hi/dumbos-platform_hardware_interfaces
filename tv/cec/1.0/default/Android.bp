@@ -1,0 +1,42 @@
+
+
+cc_library_shared {
+    name: "android.hardware.tv.cec@1.0-impl",
+    proprietary: true,
+    relative_install_path: "hw",
+    srcs: ["HdmiCec.cpp"],
+
+    shared_libs: [
+        "libhidlbase",
+        "libhidltransport",
+        "liblog",
+        "libbase",
+        "libutils",
+        "libhardware",
+        "android.hardware.tv.cec@1.0",
+    ],
+
+}
+
+cc_binary {
+    relative_install_path: "hw",
+    proprietary: true,
+    name: "android.hardware.tv.cec@1.0-service",
+    init_rc: ["android.hardware.tv.cec@1.0-service.rc"],
+    srcs: ["service.cpp"],
+
+    shared_libs: [
+        "liblog",
+        "libcutils",
+        "libdl",
+        "libbase",
+        "libutils",
+        "libhardware_legacy",
+        "libhardware",
+    ] + [
+        "libhidlbase",
+        "libhidltransport",
+        "android.hardware.tv.cec@1.0",
+    ],
+
+}
