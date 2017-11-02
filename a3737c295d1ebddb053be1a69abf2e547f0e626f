@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dcb81e7c_4e32e60d",
+        "filename": "radio/1.2/vts/functional/Android.bp",
+        "patchSetId": 11
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-11-02T21:30:39Z",
+      "side": 1,
+      "message": "bpfmt (I believe this was a comment on the original internal CL)",
+      "revId": "a3737c295d1ebddb053be1a69abf2e547f0e626f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
