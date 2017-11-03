@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "26d9ec81_13b3149c",
+        "filename": "thermal/1.0/default/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2017-11-03T08:59:42Z",
+      "side": 1,
+      "message": "wanted to change this in this CL?",
+      "range": {
+        "startLine": 19,
+        "startChar": 4,
+        "endLine": 19,
+        "endChar": 10
+      },
+      "revId": "63a0cc4c01b673e0c1cb9ae9a86c50cbc4fd6dcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
