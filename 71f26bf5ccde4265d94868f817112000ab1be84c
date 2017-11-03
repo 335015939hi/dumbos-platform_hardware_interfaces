@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "79ba0525_d3187070",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1013984
+      },
+      "writtenOn": "2017-11-03T15:28:50Z",
+      "side": 1,
+      "message": "Shouldn\u0027t you try to build / test dumpstate as well, just in case?\n\nI\u0027d add:\n\nTest: mmm -j32 frameworks/native/cmds/dumpstate/ \u0026\u0026 adb sync \u0026\u0026 \\\n      adb shell /data/nativetest/dumpstate_test/dumpstate_test \u0026\u0026 \\\n      adb shell /data/nativetest64/dumpstate_test/dumpstate_test \u0026\u0026 \\\n      printf \"\\n\\n#### ALL TESTS PASSED ####\\n",
+      "range": {
+        "startLine": 9,
+        "startChar": 17,
+        "endLine": 9,
+        "endChar": 18
+      },
+      "revId": "71f26bf5ccde4265d94868f817112000ab1be84c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
