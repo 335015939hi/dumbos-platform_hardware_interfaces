@@ -37,7 +37,7 @@ using ::android::hardware::Return;
 using ::android::hardware::Void;
 using ::android::sp;
 
-#define TIMEOUT_PERIOD 75
+#define TIMEOUT_PERIOD 300
 #define RADIO_SERVICE_NAME "slot1"
 
 class RadioHidlTest_v1_1;
