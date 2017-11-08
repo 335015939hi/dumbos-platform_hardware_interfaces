@@ -26,6 +26,7 @@ import @1.0::CellInfoType;
 import @1.0::EvdoSignalStrength;
 import @1.0::GsmSignalStrength;
 import @1.0::LteSignalStrength;
+import @1.0::PersoSubstate;
 import @1.0::RadioConst;
 import @1.0::TimeStampType;
 import @1.0::WcdmaSignalStrength;
@@ -33,6 +34,33 @@ import @1.1::RadioAccessSpecifier;
 import @1.0::RadioError;
 import @1.1::ScanStatus;
 import @1.1::ScanType;
+
+/**
+ * These are reserved values which will be used by OEM for carrier specific
+ * Personalisation requirements/states.
+ */
+enum PersoSubstate : @1.0::PersoSubstate {
+    OEM_PERSO_STATE_1,
+    OEM_PERSO_STATE_2,
+    OEM_PERSO_STATE_3,
+    OEM_PERSO_STATE_4,
+    OEM_PERSO_STATE_5,
+    OEM_PERSO_STATE_6,
+    OEM_PERSO_STATE_7,
+    OEM_PERSO_STATE_8,
+    OEM_PERSO_STATE_9,
+    OEM_PERSO_STATE_10,
+    OEM_PERSO_STATE_1_PUK,
+    OEM_PERSO_STATE_2_PUK,
+    OEM_PERSO_STATE_3_PUK,
+    OEM_PERSO_STATE_4_PUK,
+    OEM_PERSO_STATE_5_PUK,
+    OEM_PERSO_STATE_6_PUK,
+    OEM_PERSO_STATE_7_PUK,
+    OEM_PERSO_STATE_8_PUK,
+    OEM_PERSO_STATE_9_PUK,
+    OEM_PERSO_STATE_10_PUK,
+};
 
 enum RadioConst : @1.0::RadioConst {
     RADIO_ACCESS_SPEFICIER_MAX_SIZE = 8,
