@@ -118,6 +118,30 @@
       "revId": "8a73bdf653f76bb2fd309020408871aa97600eb8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9e537d2_489a4e6d",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1019829
+      },
+      "writtenOn": "2017-11-09T12:54:31Z",
+      "side": 1,
+      "message": "Uploaded it on 1.2 version. Defined OEM specific perso types from range 1 to 10.\n\nPlease find the same @ https://android-review.googlesource.com/#/c/platform/hardware/interfaces/+/532597/1",
+      "parentUuid": "421cbfd6_a741afb1",
+      "range": {
+        "startLine": 232,
+        "startChar": 4,
+        "endLine": 243,
+        "endChar": 26
+      },
+      "revId": "8a73bdf653f76bb2fd309020408871aa97600eb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
