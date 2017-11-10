@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e75af128_21e8425c",
+        "filename": "Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-11-10T17:10:33Z",
+      "side": 1,
+      "message": "this is the one rough corner. I will apply some changes later to fix these, but it\u0027s much better than it was before",
+      "range": {
+        "startLine": 7,
+        "startChar": 4,
+        "endLine": 7,
+        "endChar": 32
+      },
+      "revId": "a1169dd600091cc9a451b91e7b4573dc1d9049b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
