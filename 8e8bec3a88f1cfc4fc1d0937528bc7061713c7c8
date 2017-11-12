@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9e648772_8e2ecf77",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_test.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1061057
+      },
+      "writtenOn": "2017-11-12T16:01:13Z",
+      "side": 1,
+      "message": "This can be removed with the change to radio_hidl_hal_utils_v1_0.h.",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 1
+      },
+      "revId": "8e8bec3a88f1cfc4fc1d0937528bc7061713c7c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "983eed75_8e62593d",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_utils_v1_0.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1061057
+      },
+      "writtenOn": "2017-11-12T16:01:13Z",
+      "side": 1,
+      "message": "Comebine line 530 and 532 as:\nstd::cv_status wait(int sec\u003dTIMEOUT_PERIOD);",
+      "revId": "8e8bec3a88f1cfc4fc1d0937528bc7061713c7c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
