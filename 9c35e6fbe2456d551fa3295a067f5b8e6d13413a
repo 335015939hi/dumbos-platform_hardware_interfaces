@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa7ff9e3_b2f6183e",
+        "filename": "radio/1.1/vts/functional/radio_hidl_hal_utils_v1_1.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 553,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-11-13T20:08:44Z",
+      "side": 1,
+      "message": "This needs to be removed.",
+      "range": {
+        "startLine": 553,
+        "startChar": 0,
+        "endLine": 553,
+        "endChar": 26
+      },
+      "revId": "9c35e6fbe2456d551fa3295a067f5b8e6d13413a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "36961e94_17ae699b",
+        "filename": "radio/1.1/vts/functional/radio_hidl_hal_utils_v1_1.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 555,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2017-11-13T20:08:44Z",
+      "side": 1,
+      "message": "sec \u003d TIMEOUT_PERIOD",
+      "revId": "9c35e6fbe2456d551fa3295a067f5b8e6d13413a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
