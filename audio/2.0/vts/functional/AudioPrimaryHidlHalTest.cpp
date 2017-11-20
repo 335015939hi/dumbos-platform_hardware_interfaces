@@ -731,17 +731,13 @@ static void testCapabilityGetter(const string& name, IStream* stream,
         doc::partialTest(name + " is not supported");
         return;
     };
-    // TODO: This code has never been tested on a hal that supports
-    // getSupportedSampleRates
-    EXPECT_NE(std::find(capabilities.begin(), capabilities.end(), currentValue),
-              capabilities.end())
-        << "current " << name << " is not in the list of the supported ones "
-        << toString(capabilities);
 
     // Check that all declared supported values are indeed supported
     for (auto capability : capabilities) {
-        ASSERT_OK((stream->*setter)(capability));
-        ASSERT_EQ(capability, extract((stream->*getter)()));
+        if (capability == currentValue) {
+            ASSERT_OK((stream->*setter)(capability));
+            ASSERT_EQ(capability, extract((stream->*getter)()));
+        }
     }
 }
 
