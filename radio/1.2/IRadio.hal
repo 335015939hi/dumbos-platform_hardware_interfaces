@@ -79,4 +79,17 @@ interface IRadio extends @1.1::IRadio {
      * Response callback is IRadioResponse.setSimSlotsMappingResponse()
      */
     oneway setSimSlotsMapping(int32_t serial, vec<uint32_t> slotMap);
+
+    /*
+     * Manually select a specified network.
+     * This request must not respond until the new operator is selected and registered.
+     *
+     * @param serial Serial number of request.
+     * @param operatorNumeric string specifying MCCMNC of network to select (e.g. "310170")
+     * @param rat specifying the radio technology of OperatorInfo, valid values as defined
+     *            by RadioTechnology.
+     *
+     * Response function is IRadioResponse.setNetworkSelectionModeManualResponse()
+     */
+    oneway setNetworkSelectionModeManual_1_2(int32_t serial, string operatorNumeric, int32_t rat);
 };
