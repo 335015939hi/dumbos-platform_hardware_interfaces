@@ -41,4 +41,17 @@ interface IRadioResponse extends @1.1::IRadioResponse {
      *   RadioError:CANCELLED
      */
     oneway getCellInfoListResponse_1_2(RadioResponseInfo info, vec<CellInfo> cellInfo);
+
+    /**
+     * @param info Response info struct containing response type, serial no. and error
+     * @param atr String containing the ATR (Answer to Reset)
+     *
+     * Valid errors returned:
+     *   RadioError:NONE
+     *   RadioError:NO_MEMORY
+     *   RadioError:INTERNAL_ERR
+     *   RadioError:INVALID_ARGUMENTS
+     *   RadioError:MODEM_ERR
+     */
+     oneway getAtrResponse_1_2(RadioResponseInfo info, string atr);
 };
