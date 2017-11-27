@@ -33,6 +33,7 @@ hidl_interface {
         "MaxSearchTimeRange",
         "NetworkScanRequest",
         "NetworkScanResult",
+        "OperatorInfo",
         "RadioConst",
         "ScanIntervalRange",
     ],

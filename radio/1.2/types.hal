@@ -26,6 +26,8 @@ import @1.0::CellInfoType;
 import @1.0::EvdoSignalStrength;
 import @1.0::GsmSignalStrength;
 import @1.0::LteSignalStrength;
+import @1.0::OperatorInfo;
+import @1.0::OperatorStatus;
 import @1.0::RadioConst;
 import @1.0::TimeStampType;
 import @1.0::WcdmaSignalStrength;
@@ -220,4 +222,18 @@ struct CellInfo {
      * Valid only if type = tdscdma and size = 1 else must be empty.
      */
     vec<CellInfoTdscdma> tdscdma;
+};
+
+struct OperatorInfo {
+    @1.0::OperatorInfo baseInfo;
+
+    /*
+     * Indicates the radio technology of OperatorInfo, valid values as defined by RadioTechnology.
+     */
+    int32_t rat;
+
+    /*
+     * Indicates current network is HOME network, calculated by HPLMN/EHPLMN.
+     */
+    bool isHome;
 };
