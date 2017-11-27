@@ -30,12 +30,16 @@ hidl_interface {
         "CellInfoLte",
         "CellInfoWcdma",
         "IncrementalResultsPeriodicityRange",
+        "LogicalToPhysicalSlotMapping",
         "MaxSearchTimeRange",
         "NetworkScanRequest",
         "NetworkScanResult",
         "RadioConst",
         "ScanIntervalRange",
+        "SlotsStatus",
+        "SlotStatus",
+        "SlotState",
+        "CardStatus",
     ],
     gen_java: true,
 }
-

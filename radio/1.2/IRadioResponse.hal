@@ -41,4 +41,8 @@ interface IRadioResponse extends @1.1::IRadioResponse {
      *   RadioError:CANCELLED
      */
     oneway getCellInfoListResponse_1_2(RadioResponseInfo info, vec<CellInfo> cellInfo);
+
+    oneway getIccSlotStatusResponse(RadioResponseInfo info, SlotsStatus slotsStatus);
+
+    oneway setLogicalToPhysicalSlotMappingResponse(RadioResponseInfo info);
 };
