@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "39b71782_d6bf9b9c",
+        "filename": "radio/1.1/IRadioResponse.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1134734
+      },
+      "writtenOn": "2017-11-27T21:25:16Z",
+      "side": 1,
+      "message": "I checked with UIM team internally and this is one of the error codes that is returned. Also, getCellInfoListResponse_1_2 seems to use this as well.",
+      "parentUuid": "42224389_defd55e0",
+      "range": {
+        "startLine": 104,
+        "startChar": 20,
+        "endLine": 104,
+        "endChar": 32
+      },
+      "revId": "0029650abfc05aa7aa672cb57b70952d2b9621cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d1b11c4c_0d6764bc",
         "filename": "radio/1.1/vts/functional/radio_hidl_hal_api.cpp",
         "patchSetId": 9
@@ -36,6 +60,24 @@
       "writtenOn": "2017-10-10T18:27:50Z",
       "side": 1,
       "message": "It is better to cover the error codes/NONE defined in the response",
+      "revId": "0029650abfc05aa7aa672cb57b70952d2b9621cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f44b5b60_d9b6903e",
+        "filename": "radio/1.1/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1134734
+      },
+      "writtenOn": "2017-11-27T21:25:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d1b11c4c_0d6764bc",
       "revId": "0029650abfc05aa7aa672cb57b70952d2b9621cb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
