@@ -30,6 +30,7 @@ hidl_interface {
         "CellInfoLte",
         "CellInfoWcdma",
         "IncrementalResultsPeriodicityRange",
+        "LogicalToPhysicalSlotMapping",
         "MaxSearchTimeRange",
         "NetworkScanRequest",
         "NetworkScanResult",

@@ -182,6 +182,11 @@ struct CellInfoLte {
     LteSignalStrength signalStrengthLte;
 };
 
+struct LogicalToPhysicalSlotMapping {
+    uint8_t numSlots;
+    vec<uint8_t> pysicalSlots;
+};
+
 struct CellInfo {
     /**
      * Cell type for selecting from union CellInfo.
