@@ -37,4 +37,8 @@ interface IRadio extends @1.1::IRadio {
      * Response function is IRadioResponse.startNetworkScanResponse()
      */
     oneway startNetworkScan_1_2(int32_t serial, NetworkScanRequest request);
+
+    oneway getIccSlotStatus(int32_t serial);
+
+    oneway setLogicalToPhysicalSlotMapping(int32_t serial, LogicalToPhysicalSlotMapping mapping);
 };

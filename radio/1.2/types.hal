@@ -16,6 +16,7 @@
 
 package android.hardware.radio@1.2;
 
+import @1.0::CardState;
 import @1.0::CdmaSignalStrength;
 import @1.0::CellIdentityCdma;
 import @1.0::CellIdentityGsm;
@@ -220,4 +221,27 @@ struct CellInfo {
      * Valid only if type = tdscdma and size = 1 else must be empty.
      */
     vec<CellInfoTdscdma> tdscdma;
+};
+
+struct LogicalToPhysicalSlotMapping {
+    uint8_t numSlots;
+    vec<uint8_t> pysicalSlots;
+};
+
+struct SlotsStatus {
+    uint32_t numSlots;
+    vec<SlotStatus> slotStatus;
+};
+
+struct SlotStatus {
+    @1.0::CardState cardState;
+    SlotState slotState;
+    uint32_t logicalSlot;
+    uint32_t iccidLen;
+    vec<string> iccid;
+};
+
+enum SlotState : int32_t {
+    INACTIVE,
+    ACTIVE
 };
