@@ -393,3 +393,21 @@ TEST_F(RadioHidlTest_v1_2, startNetworkScan_GoodRequest2) {
                     radioRsp_v1_2->rspInfo.error == RadioError::REQUEST_NOT_SUPPORTED);
     }
 }
+
+TEST_F(RadioHidlTest_v1_2, getAtr) {
+    const int serial = GetRandomSerialNumber();
+
+    Return<void> res = radio_v1_2->getAtr_1_2(serial);
+    ASSERT_OK(res);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_v1_2->rspInfo.type);
+    EXPECT_EQ(serial, radioRsp_v1_2->rspInfo.serial);
+
+    ALOGI("startNetworkScan_InvalidArgument, rspInfo.error = %s\n",
+            toString(radioRsp_v1_2->rspInfo.error).c_str());
+    ASSERT_TRUE(radioRsp_v1_2->rspInfo.error == RadioError::NONE ||
+                radioRsp_v1_2->rspInfo.error == RadioError::NO_MEMORY ||
+                radioRsp_v1_2->rspInfo.error == RadioError::INTERNAL_ERR ||
+                radioRsp_v1_2->rspInfo.error == RadioError::INVALID_ARGUMENT ||
+                radioRsp_v1_2->rspInfo.error == RadioError::MODEM_ERR);
+}

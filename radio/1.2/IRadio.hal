@@ -37,4 +37,12 @@ interface IRadio extends @1.1::IRadio {
      * Response function is IRadioResponse.startNetworkScanResponse()
      */
     oneway startNetworkScan_1_2(int32_t serial, NetworkScanRequest request);
+
+    /**
+     * Get the ATR (Answer to Reset) for the SE (Secure Element)
+     * @param serial Serial number of request.
+     *
+     * Response function is IRadioResponse.getAtrResponse()
+     */
+     oneway getAtr_1_2(int32_t serial);
 };
