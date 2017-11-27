@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f5fdd0f_1f407296",
+        "filename": "biometrics/fingerprint/2.1/default/service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-11-27T20:52:31Z",
+      "side": 1,
+      "message": "if (::android::OK !\u003d bio-\u003eregisterAsService()) {\n    return 1;\n}",
+      "range": {
+        "startLine": 38,
+        "startChar": 14,
+        "endLine": 38,
+        "endChar": 39
+      },
+      "revId": "ddebf83f7089d718a6ad68e6731fa9cdbbf8e3c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
