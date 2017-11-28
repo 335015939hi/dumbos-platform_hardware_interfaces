@@ -17,6 +17,7 @@
 package android.hardware.radio@1.2;
 
 import @1.1::IRadio;
+import @1.1::RadioAccessNetworks;
 
 /**
  * This interface is used by telephony and telecom to talk to cellular radio.
@@ -39,44 +40,70 @@ interface IRadio extends @1.1::IRadio {
     oneway startNetworkScan_1_2(int32_t serial, NetworkScanRequest request);
 
     /**
-     * Get SIM Slot status.
+     * Sets the indication filter.
      *
-     * Request provides the slot status of all active and inactive SIM slots and whether card is
-     * present in the slots or not.
+     * Prevents the reporting of specified unsolicited indications from the radio. This is used
+     * for power saving in instances when those indications are not needed. If unset, defaults to
+     * @1.2::IndicationFilter:ALL.
      *
      * @param serial Serial number of request.
+     * @param indicationFilter 32-bit bitmap of IndicationFilter. Bits set to 1 indicate the
+     *        indications are enabled. See @1.2::IndicationFilter for the definition of each bit.
      *
-     * Response callback is IRadioResponse.getSimSlotsStatusResponse()
+     * Response callback is IRadioResponse.setIndicationFilterResponse()
      */
-    oneway getSimSlotsStatus(int32_t serial);
+    oneway setIndicationFilter_1_2(int32_t serial, bitfield<IndicationFilter> indicationFilter);
 
     /**
-     * Set SIM Slot mapping.
-
-     * Maps the logical slots to the physical slots. Logical slot is the slot that is seen by modem.
-     * Physical slot is the actual physical slot. Request maps the physical slot to logical slot.
-     * Logical slots that are already mapped to the requested physical slot are not impacted.
+     * Sets the signal strength reporting criteria.
      *
-     * Example no. of logical slots 1 and physical slots 2:
-     * The only logical slot (index 0) can be mapped to first physical slot (value 0) or second
-     * physical slot(value 1), while the other physical slot remains unmapped and inactive.
-     * slotMap[0] = 1 or slotMap[0] = 0
+     * The resulting reporting criteria are the AND of all the supplied criteria.
      *
-     * Example no. of logical slots 2 and physical slots 2:
-     * First logical slot (index 0) can be mapped to physical slot 1 or 2 and other logical slot
-     * can be mapped to other physical slot. Each logical slot must be mapped to a physical slot.
-     * slotMap[0] = 0 and slotMap[1] = 1 or slotMap[0] = 1 and slotMap[1] = 0
+     * Note: Reporting criteria must be individually set for each RAN. If unset, reporting criteria
+     * for that RAN are implementation-defined.
      *
-     * @param serial Serial number of request
-     * @param slotMap Logical to physical slot mapping, size == no. of radio instances. Index is
-     *        mapping to logical slot and value to physical slot, need to provide all the slots
-     *        mapping when sending request in case of multi slot device.
-     *        EX: uint32_t slotMap[logical slot] = physical slot
-     *        index 0 is the first logical_slot number of logical slots is equal to number of Radio
-     *        instances and number of physical slots is equal to size of slotStatus in
-     *        getSimSlotsStatusResponse
+     * Response callback is IRadioResponse.setSignalStrengthReportingCriteriaResponse().
      *
-     * Response callback is IRadioResponse.setSimSlotsMappingResponse()
+     * @param serial Serial number of request.
+     * @param hysteresisMs A hysteresis time in milliseconds to prevent flapping. A value of 0
+     *                     disables hysteresis.
+     * @param hysteresisDb An interval in dB defining the required magnitude change between reports.
+     *                     hysteresisDb must be smaller than the smallest threshold delta. An
+     *                     interval value of 0 disables hysteresis.
+     * @param thresholdsDbm A vector of trigger thresholds in dBm. A vector size of 0 disables the
+     *                      use of thresholds for reporting.
+     * @param ran The type of network for which to apply these thresholds.
      */
-    oneway setSimSlotsMapping(int32_t serial, vec<uint32_t> slotMap);
+    oneway setSignalStrengthReportingCriteria(int32_t serial, int32_t hysteresisMs,
+            int32_t hysteresisDb, vec<int32_t> thresholdsDbm, RadioAccessNetworks ran);
+
+    /**
+     * Sets the link capacity reporting criteria.
+     *
+     * The resulting reporting criteria are the AND of all the supplied criteria.
+     *
+     * Note: Reporting criteria must be individually set for each RAN. If unset, reporting criteria
+     * for that RAN are implementation-defined.
+     *
+     * Response callback is IRadioResponse.setLinkCapacityReportingCriteriaResponse().
+     *
+     * @param serial Serial number of request.
+     * @param hysteresisMs A hysteresis time in milliseconds to prevent flapping. A value of 0
+     *                     disables hysteresis.
+     * @param hysteresisDlKbps An interval in kbps defining the required magnitude change between DL
+     *                         reports. hysteresisDlKbps must be smaller than the smallest threshold
+     *                         delta. A value of 0 disables hysteresis.
+     * @param hysteresisUlKbps An interval in kbps defining the required magnitude change between UL
+     *                         reports. hysteresisUlKbps must be smaller than the smallest threshold
+     *                         delta. A value of 0 disables hysteresis.
+     * @param thresholdsDownlinkKbps A vector of trigger thresholds in kbps for downlink reports. A
+     *                               vector size of 0 disables the use of DL thresholds for
+     *                               reporting.
+     * @param thresholdsUplinkKbps A vector of trigger thresholds in kbps for uplink reports. A
+     *                             vector size of 0 disables the use of UL thresholds for reporting.
+     * @param ran The type of network for which to apply these thresholds.
+     */
+    oneway setLinkCapacityReportingCriteria(int32_t serial, int32_t hysteresisMs,
+            int32_t hysteresisDlKbps, int32_t hysteresisUlKbps, vec<int32_t> thresholdsDownlinkKbps,
+            vec<int32_t> thresholdsUplinkKbps, RadioAccessNetworks ran);
 };
