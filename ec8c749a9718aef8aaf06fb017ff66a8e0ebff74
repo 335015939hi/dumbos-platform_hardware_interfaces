@@ -46,6 +46,30 @@
       "revId": "ec8c749a9718aef8aaf06fb017ff66a8e0ebff74",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b5a3507_3b5cfca6",
+        "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2017-11-28T02:01:38Z",
+      "side": 1,
+      "message": "For sim card absent, ideally vendor code should return SIM_ABSENT.",
+      "parentUuid": "5d0f067d_eb2787dc",
+      "range": {
+        "startLine": 412,
+        "startChar": 16,
+        "endLine": 416,
+        "endChar": 69
+      },
+      "revId": "ec8c749a9718aef8aaf06fb017ff66a8e0ebff74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
