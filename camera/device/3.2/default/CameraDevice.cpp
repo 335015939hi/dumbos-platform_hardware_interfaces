@@ -40,7 +40,7 @@ CameraDevice::CameraDevice(
         mCameraDeviceNames(cameraDeviceNames) {
     mCameraIdInt = atoi(mCameraId.c_str());
     // Should not reach here as provider also validate ID
-    if (mCameraIdInt < 0 || mCameraIdInt >= module->getNumberOfCameras()) {
+    if (mCameraIdInt < 0) {
         ALOGE("%s: Invalid camera id: %s", __FUNCTION__, mCameraId.c_str());
         mInitFail = true;
     }
