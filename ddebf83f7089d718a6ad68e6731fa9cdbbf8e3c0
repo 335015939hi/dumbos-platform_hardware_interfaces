@@ -22,6 +22,30 @@
       "revId": "ddebf83f7089d718a6ad68e6731fa9cdbbf8e3c0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae3b5082_e74afff2",
+        "filename": "biometrics/fingerprint/2.1/default/service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1052399
+      },
+      "writtenOn": "2017-11-28T21:41:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f5fdd0f_1f407296",
+      "range": {
+        "startLine": 38,
+        "startChar": 14,
+        "endLine": 38,
+        "endChar": 39
+      },
+      "revId": "ddebf83f7089d718a6ad68e6731fa9cdbbf8e3c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
