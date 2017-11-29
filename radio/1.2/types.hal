@@ -16,6 +16,7 @@
 
 package android.hardware.radio@1.2;
 
+import @1.0::Call;
 import @1.0::CdmaSignalStrength;
 import @1.0::CellIdentityCdma;
 import @1.0::CellIdentityGsm;
@@ -60,6 +61,19 @@ enum MaxSearchTimeRange : int32_t {
 enum IncrementalResultsPeriodicityRange : int32_t {
     MIN = 1,
     MAX = 10,
+};
+
+enum AudioQuality : int32_t {
+    NONE,
+    AMR,
+    AMR_WB,
+    GSM_EFR,
+    GSM_FR,
+    GSM_HR,
+    EVRC,
+    EVRC_B,
+    EVRC_WB,
+    EVRC_NW,
 };
 
 struct NetworkScanRequest {
@@ -220,4 +234,9 @@ struct CellInfo {
      * Valid only if type = tdscdma and size = 1 else must be empty.
      */
     vec<CellInfoTdscdma> tdscdma;
+};
+
+struct Call {
+    @1.0::Call base;
+    AudioQuality audioQuality;
 };
