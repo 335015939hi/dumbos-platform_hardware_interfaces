@@ -16,6 +16,7 @@
 
 package android.hardware.radio@1.2;
 
+import @1.0::Call;
 import @1.0::CdmaSignalStrength;
 import @1.0::CellIdentityCdma;
 import @1.0::CellIdentityGsm;
@@ -60,6 +61,31 @@ enum MaxSearchTimeRange : int32_t {
 enum IncrementalResultsPeriodicityRange : int32_t {
     MIN = 1,
     MAX = 10,
+};
+
+/**
+ * Audio codec which is used on GSM, UMTS, and CDMA.
+ */
+enum AudioQuality : int32_t {
+    NONE,
+    /** AMR (Narrowband) audio codec */
+    AMR,
+    /** AMR (Wideband) audio codec */
+    AMR_WB,
+    /** GSM Enhanced Full-Rate audio codec */
+    GSM_EFR,
+    /** GSM Full-Rate audio codec */
+    GSM_FR,
+    /** GSM Half-Rate audio codec */
+    GSM_HR,
+    /** Enhanced Variable rate codec */
+    EVRC,
+    /** Enhanced Variable rate codec revision B */
+    EVRC_B,
+    /** Enhanced Variable rate codec (Wideband) */
+    EVRC_WB,
+    /** Enhanced Variable rate codec (Narrowband) */
+    EVRC_NW,
 };
 
 struct NetworkScanRequest {
@@ -220,4 +246,9 @@ struct CellInfo {
      * Valid only if type = tdscdma and size = 1 else must be empty.
      */
     vec<CellInfoTdscdma> tdscdma;
+};
+
+struct Call {
+    @1.0::Call base;
+    AudioQuality audioQuality;
 };
