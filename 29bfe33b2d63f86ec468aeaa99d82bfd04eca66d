@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bafc655a_7f647daf",
+        "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1061212
+      },
+      "writtenOn": "2017-11-29T20:23:43Z",
+      "side": 1,
+      "message": "we should have a test for else part otherwise vendors can bypass this test by just removing sim. SIM_ABSENT should be returned when sim is not present.",
+      "range": {
+        "startLine": 412,
+        "startChar": 7,
+        "endLine": 412,
+        "endChar": 51
+      },
+      "revId": "29bfe33b2d63f86ec468aeaa99d82bfd04eca66d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
