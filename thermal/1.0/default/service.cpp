@@ -18,10 +18,12 @@
 
 #include <android/hardware/thermal/1.0/IThermal.h>
 #include <hidl/LegacySupport.h>
+#include <binder/ProcessState.h>
 
 using android::hardware::thermal::V1_0::IThermal;
 using android::hardware::defaultPassthroughServiceImplementation;
 
 int main() {
+    android::ProcessState::initWithDriver("/dev/vndbinder");
     return defaultPassthroughServiceImplementation<IThermal>();
 }

@@ -46,6 +46,7 @@ cc_binary {
         "libdl",
         "libbase",
         "libutils",
+        "libbinder",
         "libhardware",
         "libhidlbase",
         "libhidltransport",

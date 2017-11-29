@@ -42,7 +42,11 @@ float finalizeTemperature(float temperature) {
 
 }
 
-Thermal::Thermal(thermal_module_t* module) : mModule(module) {}
+Thermal::Thermal(thermal_module_t* module) : mModule(module) {
+  if (mModule && mModule->init) {
+    mModule->init(mModule);
+  }
+}
 
 // Methods from ::android::hardware::thermal::V1_0::IThermal follow.
 Return<void> Thermal::getTemperatures(getTemperatures_cb _hidl_cb) {
