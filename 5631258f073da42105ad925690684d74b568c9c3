@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d1fcd947_26224fa3",
+        "filename": "biometrics/fingerprint/2.1/default/service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1004017
+      },
+      "writtenOn": "2017-11-29T01:33:46Z",
+      "side": 1,
+      "message": "This should log an error.",
+      "range": {
+        "startLine": 39,
+        "startChar": 12,
+        "endLine": 39,
+        "endChar": 21
+      },
+      "revId": "5631258f073da42105ad925690684d74b568c9c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
