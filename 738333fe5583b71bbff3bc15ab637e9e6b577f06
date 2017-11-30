@@ -16,6 +16,24 @@
       "revId": "738333fe5583b71bbff3bc15ab637e9e6b577f06",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e416cd0_1c324f2d",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1019829
+      },
+      "writtenOn": "2017-11-30T08:47:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "246b6730_ce50081f",
+      "revId": "738333fe5583b71bbff3bc15ab637e9e6b577f06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
