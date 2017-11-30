@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "246b6730_ce50081f",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1121198
+      },
+      "writtenOn": "2017-11-30T00:52:15Z",
+      "side": 1,
+      "message": "Can you add a comment saying these are reserved values which will be used for carrier specific states",
+      "revId": "738333fe5583b71bbff3bc15ab637e9e6b577f06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
