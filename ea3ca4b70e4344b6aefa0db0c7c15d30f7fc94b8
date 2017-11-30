@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "151a82f9_5c11e245",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 14
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-11-30T23:16:34Z",
+      "side": 1,
+      "message": "can you specify something like ISO/IEC 7816?",
+      "range": {
+        "startLine": 42,
+        "startChar": 14,
+        "endLine": 42,
+        "endChar": 36
+      },
+      "revId": "ea3ca4b70e4344b6aefa0db0c7c15d30f7fc94b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d5ec6fb_4384c2fb",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 14
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-11-30T23:16:34Z",
+      "side": 1,
+      "message": "newline before @param",
+      "revId": "ea3ca4b70e4344b6aefa0db0c7c15d30f7fc94b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
