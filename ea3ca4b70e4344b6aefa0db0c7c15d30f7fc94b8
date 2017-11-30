@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "21610870_3448cd0d",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 14
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-11-30T23:37:08Z",
+      "side": 1,
+      "message": "and if it is that ATR, then why is it a string and not a byte array?",
+      "parentUuid": "151a82f9_5c11e245",
+      "range": {
+        "startLine": 42,
+        "startChar": 14,
+        "endLine": 42,
+        "endChar": 36
+      },
+      "revId": "ea3ca4b70e4344b6aefa0db0c7c15d30f7fc94b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7d5ec6fb_4384c2fb",
         "filename": "radio/1.2/IRadio.hal",
         "patchSetId": 14
