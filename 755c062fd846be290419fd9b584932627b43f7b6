@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f70b0a7d_37c94b8f",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-12-01T19:55:46Z",
+      "side": 1,
+      "message": "As discussed offline, ATR is missing here.",
+      "revId": "755c062fd846be290419fd9b584932627b43f7b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "acf0cb59_3f1470d9",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-12-01T19:55:46Z",
+      "side": 1,
+      "message": "Add ICCID as well.",
+      "revId": "755c062fd846be290419fd9b584932627b43f7b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
