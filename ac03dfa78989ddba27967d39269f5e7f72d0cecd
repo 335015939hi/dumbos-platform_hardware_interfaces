@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "467c52bc_8d7c68c2",
+        "filename": "camera/device/3.2/default/CameraDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2017-12-01T19:45:16Z",
+      "side": 0,
+      "message": "Can you add some ALOGI for this condition to indicate we might be adding a new external camera device?",
+      "range": {
+        "startLine": 43,
+        "startChar": 24,
+        "endLine": 43,
+        "endChar": 72
+      },
+      "revId": "ac03dfa78989ddba27967d39269f5e7f72d0cecd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

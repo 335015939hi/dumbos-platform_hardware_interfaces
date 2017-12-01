@@ -1,0 +1,130 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "361ffc20_c592d9b8",
+        "filename": "camera/provider/2.4/default/CameraProvider.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2017-12-01T19:45:16Z",
+      "side": 1,
+      "message": "Can you just derive cam_new from checking mCameraIds?",
+      "range": {
+        "startLine": 64,
+        "startChar": 83,
+        "endLine": 64,
+        "endChar": 90
+      },
+      "revId": "e5d4d5fc3f35e8dd877276af895827c4e39b0f43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cda21b9f_d73645c1",
+        "filename": "camera/provider/2.4/default/CameraProvider.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2017-12-01T19:45:16Z",
+      "side": 1,
+      "message": "If you are adding a new device, wouldn\u0027t the status always be PRESENT?",
+      "range": {
+        "startLine": 64,
+        "startChar": 70,
+        "endLine": 64,
+        "endChar": 76
+      },
+      "revId": "e5d4d5fc3f35e8dd877276af895827c4e39b0f43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "345eb797_80aa8abb",
+        "filename": "camera/provider/2.4/default/CameraProvider.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2017-12-01T19:45:16Z",
+      "side": 1,
+      "message": "if () {\n}",
+      "revId": "e5d4d5fc3f35e8dd877276af895827c4e39b0f43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d4fe89a8_467426f1",
+        "filename": "camera/provider/2.4/default/CameraProvider.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2017-12-01T19:45:16Z",
+      "side": 1,
+      "message": "if () {\n}",
+      "range": {
+        "startLine": 91,
+        "startChar": 16,
+        "endLine": 91,
+        "endChar": 23
+      },
+      "revId": "e5d4d5fc3f35e8dd877276af895827c4e39b0f43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b7e11cb_240097cf",
+        "filename": "camera/provider/2.4/default/CameraProvider.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2017-12-01T19:45:16Z",
+      "side": 1,
+      "message": "Use this style:\nif () {\n}",
+      "revId": "e5d4d5fc3f35e8dd877276af895827c4e39b0f43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cbd83024_8b0e0f00",
+        "filename": "camera/provider/2.4/default/CameraProvider.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2017-12-01T19:45:16Z",
+      "side": 1,
+      "message": "Use space instead of tab",
+      "range": {
+        "startLine": 272,
+        "startChar": 0,
+        "endLine": 272,
+        "endChar": 1
+      },
+      "revId": "e5d4d5fc3f35e8dd877276af895827c4e39b0f43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
