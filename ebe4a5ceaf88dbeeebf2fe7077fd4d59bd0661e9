@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d2e062ef_855e9a8c",
+        "filename": "bluetooth/1.0/vts/functional/VtsHalBluetoothV1_0TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1254657
+      },
+      "writtenOn": "2017-12-01T08:41:25Z",
+      "side": 1,
+      "message": "I think you also need a wait_for_event(false); here. Otherwise the InitializeAndClose test will fail because events are potentially queued when it runs TearDown.",
+      "revId": "ebe4a5ceaf88dbeeebf2fe7077fd4d59bd0661e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2cd6ee05_2f48364a",
+        "filename": "bluetooth/1.0/vts/functional/VtsHalBluetoothV1_0TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1254657
+      },
+      "writtenOn": "2017-12-01T08:41:25Z",
+      "side": 1,
+      "message": "From the spec in section 4.4 COMMAND FLOW CONTROL, it say:\n\n\"To indicate to the Host that the Controller is ready to receive HCI command packets, the Controller may generate a Command Complete or Command Status event with the Command Opcode set to 0x0000 and the Num HCI Command Packets event parameter set to 1 or more.\"\n\nSo we should also consider a command status event with zero opcode as a NOP.",
+      "range": {
+        "startLine": 286,
+        "startChar": 0,
+        "endLine": 288,
+        "endChar": 79
+      },
+      "revId": "ebe4a5ceaf88dbeeebf2fe7077fd4d59bd0661e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8696129e_5614b84f",
+        "filename": "bluetooth/1.0/vts/functional/VtsHalBluetoothV1_0TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1254657
+      },
+      "writtenOn": "2017-12-01T08:41:25Z",
+      "side": 1,
+      "message": "This is problematic. The unknown HCI command error code can be sent as a command complete or a command status event type as far as I understand the spec, see Vol 2 Part D Section 1.2.\n\nSo we should expect either.",
+      "range": {
+        "startLine": 584,
+        "startChar": 2,
+        "endLine": 584,
+        "endChar": 71
+      },
+      "revId": "ebe4a5ceaf88dbeeebf2fe7077fd4d59bd0661e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
