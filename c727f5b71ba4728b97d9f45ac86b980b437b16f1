@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fe4a631e_35a8576f",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-12-01T21:47:45Z",
+      "side": 1,
+      "message": "What do these values correspond to in the framework? If things are done this way, nothing from the system partition should be using these.",
+      "revId": "c727f5b71ba4728b97d9f45ac86b980b437b16f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
