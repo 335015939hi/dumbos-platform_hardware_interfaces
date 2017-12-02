@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d35aa6b1_cdd4bbc3",
+        "filename": "audio/2.0/vts/functional/AudioPrimaryHidlHalTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 740,
+      "author": {
+        "id": 1136369
+      },
+      "writtenOn": "2017-12-02T06:03:26Z",
+      "side": 1,
+      "message": "This change is equivalent to disabling this part of the test.\nIf current value \u003d\u003d capability, setting capability is a noop and the getter will surely return the same value.",
+      "revId": "7bab4c75bd0b3f889ddeee6f7cab574f250790f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
