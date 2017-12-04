@@ -73,6 +73,7 @@ using ::android::hardware::radio::V1_0::SignalStrength;
 using ::android::hardware::radio::V1_0::SimApdu;
 using ::android::hardware::radio::V1_0::TtyMode;
 using ::android::hardware::radio::V1_0::VoiceRegStateResult;
+using ::android::hardware::radio::V1_0::AdnRecordInfo;
 
 using ::android::hardware::hidl_string;
 using ::android::hardware::hidl_vec;
@@ -478,6 +479,12 @@ class RadioResponse : public IRadioResponse {
   Return<void> setIndicationFilterResponse(const RadioResponseInfo& info);
 
   Return<void> setSimCardPowerResponse(const RadioResponseInfo& info);
+
+  Return<void> getAdnRecordResponse(const RadioResponseInfo& info,
+              const ::android::hardware::hidl_vec<int32_t>& adnCapacity);
+
+  Return<void> updateAdnRecordResponse(const RadioResponseInfo& info,
+                                      int32_t updatedRecordIndex);
 
   Return<void> acknowledgeRequest(int32_t serial);
 };

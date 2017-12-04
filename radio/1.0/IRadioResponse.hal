@@ -1951,6 +1951,30 @@ interface IRadioResponse {
     oneway setSimCardPowerResponse(RadioResponseInfo info);
 
     /**
+     * @param info Response info struct containing response type, serial no. and error
+     * @param adnCapacity Contains the adn,email,anr capacities in the sim card
+     *
+     * Valid errors returned:
+     *   RadioError:NONE
+     *   RadioError:RADIO_NOT_AVAILABLE
+     *   RadioError:REQUEST_NOT_SUPPORTED
+     *   RadioError:INVALID_ARGUMENTS
+     */
+    oneway getAdnRecordResponse(RadioResponseInfo info, vec<int32_t> adnCapacity);
+
+    /**
+     * @param info Response info struct containing response type, serial no. and error
+     * @param updatedRecordIndex The index of the updated record
+     *
+     * Valid errors returned:
+     *   RadioError:NONE
+     *   RadioError:RADIO_NOT_AVAILABLE
+     *   RadioError:REQUEST_NOT_SUPPORTED
+     *   RadioError:INVALID_ARGUMENTS
+     */
+    oneway updateAdnRecordResponse(RadioResponseInfo info, int32_t updatedRecordIndex);
+
+    /**
      * Acknowledge the receipt of radio request sent to the vendor. This must be sent only for
      * radio request which take long time to respond.
      * For more details, refer https://source.android.com/devices/tech/connect/ril.html

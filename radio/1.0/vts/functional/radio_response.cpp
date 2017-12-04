@@ -967,6 +967,21 @@ Return<void> RadioResponse::setSimCardPowerResponse(
   return Void();
 }
 
+Return<void> RadioResponse::getAdnRecordResponse(
+    const RadioResponseInfo& info,
+    const ::android::hardware::hidl_vec<int32_t>& AdnCapacity) {
+  rspInfo = info;
+  parent.notify();
+  return Void();
+}
+
+Return<void> RadioResponse::updateAdnRecordResponse(
+    const RadioResponseInfo& info, int32_t /*updatedRecordIndex*/) {
+  rspInfo = info;
+  parent.notify();
+  return Void();
+}
+
 Return<void> RadioResponse::acknowledgeRequest(int32_t /*serial*/) {
   return Void();
 }
