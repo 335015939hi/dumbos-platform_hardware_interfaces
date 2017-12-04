@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f658d9e7_28f1ae81",
+        "filename": "audio/common/2.0/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-12-04T23:24:37Z",
+      "side": 1,
+      "message": "can\u0027t have this stuff btw",
+      "range": {
+        "startLine": 339,
+        "startChar": 0,
+        "endLine": 339,
+        "endChar": 2
+      },
+      "revId": "249e7dbde779d42c49d8fba52ad54aff192bfc70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63daa680_0fbdb9d6",
+        "filename": "boot/1.0/IBootControl.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-12-04T23:24:37Z",
+      "side": 1,
+      "message": "and as mentioned in the bug, I need to fix it so that this isn\u0027t required (and will be added automatically if it\u0027s not there)",
+      "range": {
+        "startLine": 38,
+        "startChar": 5,
+        "endLine": 38,
+        "endChar": 21
+      },
+      "revId": "249e7dbde779d42c49d8fba52ad54aff192bfc70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
