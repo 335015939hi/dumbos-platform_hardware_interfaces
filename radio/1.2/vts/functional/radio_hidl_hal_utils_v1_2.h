@@ -398,6 +398,12 @@ class RadioResponse_v1_2 : public V1_1::IRadioResponse {
                                         const KeepaliveStatus& status);
 
     Return<void> stopKeepaliveResponse(const RadioResponseInfo& info);
+
+    Return<void> getAdnRecordResponse(const RadioResponseInfo& info,
+              const ::android::hardware::hidl_vec<int32_t>& adnCapacity);
+
+    Return<void> updateAdnRecordResponse(const RadioResponseInfo& info,
+              int32_t updatedRecordIndex);
 };
 
 /* Callback class for radio indication */
@@ -523,6 +529,9 @@ class RadioIndication_v1_2 : public V1_1::IRadioIndication {
 
     Return<void> modemReset(RadioIndicationType type,
                             const ::android::hardware::hidl_string& reason);
+    Return<void> adnInitDone(RadioIndicationType type);
+
+    Return<void> adnRecordsReceived(RadioIndicationType type, const AdnRecords& records);
 };
 
 // The main test class for Radio HIDL.

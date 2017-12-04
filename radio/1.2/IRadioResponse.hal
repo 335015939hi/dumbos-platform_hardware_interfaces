@@ -41,4 +41,38 @@ interface IRadioResponse extends @1.1::IRadioResponse {
      *   RadioError:CANCELLED
      */
     oneway getCellInfoListResponse_1_2(RadioResponseInfo info, vec<CellInfo> cellInfo);
+
+    /**
+     * @param info Response info struct containing response type, serial no. and error
+     * @param adnCapacity Contains the adn,email,anr capacities in the sim card:
+     *   int32_t  max_adn_num
+     *   int32_t  valid_adn_num
+     *   int32_t  max_email_num
+     *   int32_t  valid_email_num
+     *   int32_t  max_ad_num
+     *   int32_t  valid_ad_num
+     *   int32_t  max_name_len
+     *   int32_t  max_number_len
+     *   int32_t  max_email_len
+     *   int32_t  max_anr_len
+     *
+     * Valid errors returned:
+     *   RadioError:NONE
+     *   RadioError:RADIO_NOT_AVAILABLE
+     *   RadioError:REQUEST_NOT_SUPPORTED
+     *   RadioError:INVALID_ARGUMENTS
+     */
+    oneway getAdnRecordResponse(RadioResponseInfo info, vec<int32_t> adnCapacity);
+
+    /**
+     * @param info Response info struct containing response type, serial no. and error
+     * @param updatedRecordIndex The index of the updated record
+     *
+     * Valid errors returned:
+     *   RadioError:NONE
+     *   RadioError:RADIO_NOT_AVAILABLE
+     *   RadioError:REQUEST_NOT_SUPPORTED
+     *   RadioError:INVALID_ARGUMENTS
+     */
+    oneway updateAdnRecordResponse(RadioResponseInfo info, int32_t updatedRecordIndex);
 };

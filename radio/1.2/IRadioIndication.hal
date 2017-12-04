@@ -28,4 +28,8 @@ interface IRadioIndication extends @1.1::IRadioIndication {
      * Incremental network scan results
      */
     oneway networkScanResult_1_2(RadioIndicationType type, NetworkScanResult result);
+
+    oneway adnInitDone(RadioIndicationType type);
+
+    oneway adnRecordsReceived(RadioIndicationType type, AdnRecords adnRecords);
 };
