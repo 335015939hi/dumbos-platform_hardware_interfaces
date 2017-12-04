@@ -686,3 +686,18 @@ Return<void> RadioResponse_v1_2::startKeepaliveResponse(const RadioResponseInfo&
 Return<void> RadioResponse_v1_2::stopKeepaliveResponse(const RadioResponseInfo& /*info*/) {
     return Void();
 }
+
+Return<void> RadioResponse_v1_2::getAdnRecordResponse(
+    const RadioResponseInfo& info,
+    const ::android::hardware::hidl_vec<int32_t>& AdnCapacity) {
+  rspInfo = info;
+  parent.notify();
+  return Void();
+}
+
+Return<void> RadioResponse_v1_2::updateAdnRecordResponse(
+    const RadioResponseInfo& info, int32_t /*updatedRecordIndex*/) {
+  rspInfo = info;
+  parent.notify();
+  return Void();
+}

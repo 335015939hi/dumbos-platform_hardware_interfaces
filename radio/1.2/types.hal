@@ -221,3 +221,18 @@ struct CellInfo {
      */
     vec<CellInfoTdscdma> tdscdma;
 };
+
+struct AdnRecordInfo {
+    int32_t          recordId;
+    string           name;
+    string           number;
+    int32_t          emailElements;
+    vec<string>   email;
+    int32_t          anrElements;
+    vec<string>   adNumber;
+};
+
+struct AdnRecords {
+    int32_t               recordElements;
+    vec<AdnRecordInfo>    adnRecordInfo;
+};
