@@ -37,4 +37,25 @@ interface IRadio extends @1.1::IRadio {
      * Response function is IRadioResponse.startNetworkScanResponse()
      */
     oneway startNetworkScan_1_2(int32_t serial, NetworkScanRequest request);
+
+    /**
+     * get abbreviated dialing numbers records from the SIM card.
+     *
+     * The ADN records must be recevied via adnRecordsReceived().
+     *
+     * @param serial Serial number of request
+     *
+     * Response callback is IRadioResponse.getAdnRecordResponse()
+     */
+    oneway getAdnRecord(int32_t serial);
+
+    /**
+     * update abbreviated dialing numbers records to the SIM card.
+     *
+     * @param serial Serial number of request
+     * @param adnRecordInfo AdnRecordInfo
+     *
+     * Response callback is IRadioResponse.updateAdnRecordResponse()
+     */
+    oneway updateAdnRecord(int32_t serial, AdnRecordInfo adnRecordInfo);
 };
