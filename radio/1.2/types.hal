@@ -221,3 +221,25 @@ struct CellInfo {
      */
     vec<CellInfoTdscdma> tdscdma;
 };
+
+struct AdnRecordInfo {
+    uint32_t         recordId;  //record index, valid values are 0 - MAX
+    string           name;      //empty string if no value.
+    string           number;    //empty string if no value.
+    vec<string>      emails;    //size of vector should be 0 if no value.
+    vec<string>      adNumbers; //size of vector should be 0 if no value.
+};
+
+struct AdnCapacity {
+     int32_t  maxAdnNum;      //Maximum adn records possible in the phonebook
+     int32_t  validAdnNum;    //Used adn records in the phonebook
+     int32_t  maxEmailNum;    //Maximum email records possible in the phonebook
+     int32_t  validEmailNum;  //Used email records possible in the phonebook
+     int32_t  maxAdNum;       //Maximum additional number records possible in the phonebook
+     int32_t  validAdNum;     //Used additional number records possible in the phonebook
+     int32_t  maxNameLen;     //Maximum name length possible in the phonebook
+     int32_t  maxNumberLen;   //Maximum number length possible in the phonebook
+     int32_t  maxEmailLen;    //Maximum email length possible in the phonebook
+     int32_t  maxAnrLen;      //Maximum additional number length possible in the phonebook
+};
+
