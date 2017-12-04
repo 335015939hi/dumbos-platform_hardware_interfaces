@@ -35,6 +35,8 @@ hidl_interface {
         "NetworkScanResult",
         "RadioConst",
         "ScanIntervalRange",
+        "AdnRecordInfo",
+        "AdnRecords",
     ],
     gen_java: true,
 }
