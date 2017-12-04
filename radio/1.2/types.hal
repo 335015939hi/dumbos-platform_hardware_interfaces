@@ -221,3 +221,16 @@ struct CellInfo {
      */
     vec<CellInfoTdscdma> tdscdma;
 };
+
+struct AdnRecordInfo {
+    uint32_t         recordId;  //record index, valid values are 0 - MAX
+    string           name;      //empty string if no value.
+    string           number;    //empty string if no value.
+    vec<string>      emails;    //size of vector should be 0 if no value.
+    vec<string>      adNumbers; //size of vector should be 0 if no value.
+};
+
+struct AdnRecords {
+    int32_t               recordElements;
+    vec<AdnRecordInfo>    adnRecordInfo;
+};

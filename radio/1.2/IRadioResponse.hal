@@ -41,4 +41,39 @@ interface IRadioResponse extends @1.1::IRadioResponse {
      *   RadioError:CANCELLED
      */
     oneway getCellInfoListResponse_1_2(RadioResponseInfo info, vec<CellInfo> cellInfo);
+
+    /**
+     * @param info Response info struct containing response type, serial no. and error
+     * @param adnCapacity Contains the adn,email,anr capacities in the sim card:
+     *   int32_t  max_adn_num      Maximum adn records possible in the phonebook
+     *   int32_t  valid_adn_num    Used adn records in the phonebook
+     *   int32_t  max_email_num    Maximum email records possible in the phonebook
+     *   int32_t  valid_email_num  Used email records possible in the phonebook
+     *   int32_t  max_ad_num       Maximum additional number records possible in the phonebook
+     *   int32_t  valid_ad_num     Used additional number records possible in the phonebook
+     *   int32_t  max_name_len     Maximum name length possible in the phonebook
+     *   int32_t  max_number_len   Maximum number length possible in the phonebook
+     *   int32_t  max_email_len    Maximum email length possible in the phonebook
+     *   int32_t  max_anr_len      Maximum additional number length possible in the phonebook
+     *
+     * Valid errors returned:
+     *   RadioError:NONE
+     *   RadioError:RADIO_NOT_AVAILABLE
+     *   RadioError:REQUEST_NOT_SUPPORTED
+     *   RadioError:INVALID_ARGUMENTS
+     */
+    oneway getAdnRecordResponse(RadioResponseInfo info, vec<int32_t> adnCapacity);
+
+    /**
+     * @param info Response info struct containing response type, serial no. and error
+     * @param updatedRecordIndex The index of the updated record
+     *                           When adding one contact to SIM, the value is 0
+     *
+     * Valid errors returned:
+     *   RadioError:NONE
+     *   RadioError:RADIO_NOT_AVAILABLE
+     *   RadioError:REQUEST_NOT_SUPPORTED
+     *   RadioError:INVALID_ARGUMENTS
+     */
+    oneway updateAdnRecordResponse(RadioResponseInfo info, int32_t updatedRecordIndex);
 };

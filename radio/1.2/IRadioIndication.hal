@@ -28,4 +28,15 @@ interface IRadioIndication extends @1.1::IRadioIndication {
      * Incremental network scan results
      */
     oneway networkScanResult_1_2(RadioIndicationType type, NetworkScanResult result);
+
+    /**
+     * Indicates when the phonebook module is initialized done
+     */
+    oneway adnInitDone(RadioIndicationType type);
+
+    /**
+     * Indicates all the used ADN records in the sim card
+     * It must be sent after getAdnRecord()
+     */
+    oneway adnRecordsReceived(RadioIndicationType type, AdnRecords adnRecords);
 };
