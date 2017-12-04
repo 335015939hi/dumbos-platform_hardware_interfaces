@@ -16,6 +16,24 @@
       "revId": "c727f5b71ba4728b97d9f45ac86b980b437b16f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50b662ad_da605802",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1019829
+      },
+      "writtenOn": "2017-12-04T09:00:30Z",
+      "side": 1,
+      "message": "As part of below change we are adding corresponding enums in framework.\n\nhttps://android-review.googlesource.com/#/c/platform/frameworks/opt/telephony/+/381253/",
+      "parentUuid": "fe4a631e_35a8576f",
+      "revId": "c727f5b71ba4728b97d9f45ac86b980b437b16f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
