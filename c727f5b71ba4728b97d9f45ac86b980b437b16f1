@@ -34,6 +34,29 @@
       "revId": "c727f5b71ba4728b97d9f45ac86b980b437b16f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95ad2717_00af22a9",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1121198
+      },
+      "writtenOn": "2017-12-06T21:50:04Z",
+      "side": 1,
+      "message": "See discussion on bug, let\u0027s stick to the enums we already know we need.\n\nSIM_SP_EHPLMN, // comment what this is used for\nSIM_ICCID, // same\nSIM_SPN, // same",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 62,
+        "endChar": 27
+      },
+      "revId": "c727f5b71ba4728b97d9f45ac86b980b437b16f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
