@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5b5eef6e_1a334bd1",
+        "filename": "thermal/1.0/default/Thermal.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-12-07T00:19:17Z",
+      "side": 1,
+      "message": "nit brackets",
+      "revId": "9563f5b7f04e3e3a3603f7c0eb53af6e4e164131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "20f31d1f_10fc4ad1",
+        "filename": "thermal/1.0/default/Thermal.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-12-07T00:19:17Z",
+      "side": 1,
+      "message": "what if mModule-\u003einit is nullptr? Please handle this case as well.",
+      "revId": "9563f5b7f04e3e3a3603f7c0eb53af6e4e164131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
