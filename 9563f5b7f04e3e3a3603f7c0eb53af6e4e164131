@@ -131,6 +131,30 @@
     },
     {
       "key": {
+        "uuid": "82c7e6a5_d5066245",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1014603
+      },
+      "writtenOn": "2017-12-07T03:25:08Z",
+      "side": 1,
+      "message": "My previous reply on this was wrong. The real new thread starting work is in vendor HAL part.",
+      "parentUuid": "fc2d86d2_03a1c3b6",
+      "range": {
+        "startLine": 9,
+        "startChar": 44,
+        "endLine": 9,
+        "endChar": 56
+      },
+      "revId": "9563f5b7f04e3e3a3603f7c0eb53af6e4e164131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5b5eef6e_1a334bd1",
         "filename": "thermal/1.0/default/Thermal.cpp",
         "patchSetId": 1
