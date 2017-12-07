@@ -2,6 +2,69 @@
   "comments": [
     {
       "key": {
+        "uuid": "4e1b7a65_9c62600b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1004277
+      },
+      "writtenOn": "2017-12-07T01:39:50Z",
+      "side": 1,
+      "message": "thermal: Add ...",
+      "revId": "9563f5b7f04e3e3a3603f7c0eb53af6e4e164131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b544b143_fba1ba42",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1004277
+      },
+      "writtenOn": "2017-12-07T01:39:50Z",
+      "side": 1,
+      "message": "No thread started in this CL?",
+      "range": {
+        "startLine": 9,
+        "startChar": 44,
+        "endLine": 9,
+        "endChar": 56
+      },
+      "revId": "9563f5b7f04e3e3a3603f7c0eb53af6e4e164131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd34dbae_ea740fce",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1004277
+      },
+      "writtenOn": "2017-12-07T01:39:50Z",
+      "side": 1,
+      "message": "Don\u0027t see the init method here?",
+      "range": {
+        "startLine": 9,
+        "startChar": 1,
+        "endLine": 9,
+        "endChar": 24
+      },
+      "revId": "9563f5b7f04e3e3a3603f7c0eb53af6e4e164131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5b5eef6e_1a334bd1",
         "filename": "thermal/1.0/default/Thermal.cpp",
         "patchSetId": 1
@@ -30,6 +93,52 @@
       "writtenOn": "2017-12-07T00:19:17Z",
       "side": 1,
       "message": "what if mModule-\u003einit is nullptr? Please handle this case as well.",
+      "revId": "9563f5b7f04e3e3a3603f7c0eb53af6e4e164131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2828b095_11f76336",
+        "filename": "thermal/1.0/default/Thermal.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1004277
+      },
+      "writtenOn": "2017-12-07T01:39:50Z",
+      "side": 1,
+      "message": "No existing method with this name, and not defined in this CL?",
+      "range": {
+        "startLine": 47,
+        "startChar": 13,
+        "endLine": 47,
+        "endChar": 17
+      },
+      "revId": "9563f5b7f04e3e3a3603f7c0eb53af6e4e164131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f51ad823_3ea1eb81",
+        "filename": "thermal/1.0/default/service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1004277
+      },
+      "writtenOn": "2017-12-07T01:39:50Z",
+      "side": 1,
+      "message": "Is this supposed to be the init method?",
+      "range": {
+        "startLine": 27,
+        "startChar": 4,
+        "endLine": 27,
+        "endChar": 41
+      },
       "revId": "9563f5b7f04e3e3a3603f7c0eb53af6e4e164131",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
