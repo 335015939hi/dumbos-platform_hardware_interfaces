@@ -48,6 +48,54 @@
     },
     {
       "key": {
+        "uuid": "15dad4a3_765e2ab5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1014603
+      },
+      "writtenOn": "2017-12-07T05:10:56Z",
+      "side": 1,
+      "message": "Sure, I will refine the commit message in new patchset. The vndbinder init work has been removed from this patch and will be done in vendor HAL module.",
+      "parentUuid": "8fdede84_2df811ae",
+      "range": {
+        "startLine": 7,
+        "startChar": 33,
+        "endLine": 7,
+        "endChar": 52
+      },
+      "revId": "1a659a13af09387ecfd62c25fcfeba664ac4c612",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dcd89e3b_7481f710",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1014603
+      },
+      "writtenOn": "2017-12-07T05:10:56Z",
+      "side": 1,
+      "message": "Sorry for the typo, and it will be fixed in new patchset.",
+      "parentUuid": "abb39882_927dd69a",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 6
+      },
+      "revId": "1a659a13af09387ecfd62c25fcfeba664ac4c612",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "71bcf6a8_a9031c51",
         "filename": "thermal/1.0/default/service.cpp",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2017-12-07T03:59:09Z",
       "side": 1,
       "message": "If this needs to be here (not in vendor init method) then also describe in commit text that the change specifically initializes for the vndbinder driver (not just a possible thing the vendor init method might do)?",
+      "range": {
+        "startLine": 27,
+        "startChar": 4,
+        "endLine": 27,
+        "endChar": 59
+      },
+      "revId": "1a659a13af09387ecfd62c25fcfeba664ac4c612",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d0b9d3e_c65166a2",
+        "filename": "thermal/1.0/default/service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1014603
+      },
+      "writtenOn": "2017-12-07T05:10:56Z",
+      "side": 1,
+      "message": "Sure, it has been removed in new patchset. The vndbinder initialization work will be taken care in vendor HAL module.",
+      "parentUuid": "71bcf6a8_a9031c51",
       "range": {
         "startLine": 27,
         "startChar": 4,
