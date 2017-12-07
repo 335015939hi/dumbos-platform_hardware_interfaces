@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "13359442_0666c34a",
+        "filename": "nfc/1.1/INfc.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-12-07T18:38:51Z",
+      "side": 1,
+      "message": "ping from internal comment on this API which isn\u0027t needed (duplicates IBase::debug)",
+      "range": {
+        "startLine": 44,
+        "startChar": 4,
+        "endLine": 50,
+        "endChar": 25
+      },
+      "revId": "7a83c5820db11fa42c6425a65f004c95455d10a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43255d36_ba783fe5",
+        "filename": "nfc/1.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-12-07T18:38:51Z",
+      "side": 1,
+      "message": "ping from internal comment. This isn\u0027t used",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 2
+      },
+      "revId": "7a83c5820db11fa42c6425a65f004c95455d10a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
