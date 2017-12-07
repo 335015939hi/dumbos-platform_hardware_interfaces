@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9867cc71_0450f62c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1014603
+      },
+      "writtenOn": "2017-12-07T03:07:16Z",
+      "side": 1,
+      "message": "It will be addressed in new patchset.",
+      "parentUuid": "4e1b7a65_9c62600b",
+      "revId": "9563f5b7f04e3e3a3603f7c0eb53af6e4e164131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b544b143_fba1ba42",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -65,6 +83,54 @@
     },
     {
       "key": {
+        "uuid": "fc2d86d2_03a1c3b6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1014603
+      },
+      "writtenOn": "2017-12-07T03:07:16Z",
+      "side": 1,
+      "message": "New thread will be started when android::ProcessState::initWithDriver(\"/dev/vndbinder\"); for vndbinder communication.",
+      "parentUuid": "b544b143_fba1ba42",
+      "range": {
+        "startLine": 9,
+        "startChar": 44,
+        "endLine": 9,
+        "endChar": 56
+      },
+      "revId": "9563f5b7f04e3e3a3603f7c0eb53af6e4e164131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12a9beb5_a58b0330",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1014603
+      },
+      "writtenOn": "2017-12-07T03:07:16Z",
+      "side": 1,
+      "message": "The init method is implemented in the real HAL module with THERMAL_HARDWARE_MODULE_ID. So this part is in vendor code.",
+      "parentUuid": "bd34dbae_ea740fce",
+      "range": {
+        "startLine": 9,
+        "startChar": 1,
+        "endLine": 9,
+        "endChar": 24
+      },
+      "revId": "9563f5b7f04e3e3a3603f7c0eb53af6e4e164131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5b5eef6e_1a334bd1",
         "filename": "thermal/1.0/default/Thermal.cpp",
         "patchSetId": 1
@@ -76,6 +142,24 @@
       "writtenOn": "2017-12-07T00:19:17Z",
       "side": 1,
       "message": "nit brackets",
+      "revId": "9563f5b7f04e3e3a3603f7c0eb53af6e4e164131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27211468_b8704e61",
+        "filename": "thermal/1.0/default/Thermal.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1014603
+      },
+      "writtenOn": "2017-12-07T03:07:16Z",
+      "side": 1,
+      "message": "It will be fixed in new patchset.",
+      "parentUuid": "5b5eef6e_1a334bd1",
       "revId": "9563f5b7f04e3e3a3603f7c0eb53af6e4e164131",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -122,6 +206,48 @@
     },
     {
       "key": {
+        "uuid": "0fd97ffd_99a12ebb",
+        "filename": "thermal/1.0/default/Thermal.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1014603
+      },
+      "writtenOn": "2017-12-07T03:07:16Z",
+      "side": 1,
+      "message": "It is in vendor HAL module. Some similar AOSP code could be found under hardware/interfaces/memtrack/, power/, camera/.",
+      "parentUuid": "2828b095_11f76336",
+      "range": {
+        "startLine": 47,
+        "startChar": 13,
+        "endLine": 47,
+        "endChar": 17
+      },
+      "revId": "9563f5b7f04e3e3a3603f7c0eb53af6e4e164131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc4acfff_ff36474e",
+        "filename": "thermal/1.0/default/Thermal.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1014603
+      },
+      "writtenOn": "2017-12-07T03:07:16Z",
+      "side": 1,
+      "message": "It will be fixed in new patchset.",
+      "parentUuid": "20f31d1f_10fc4ad1",
+      "revId": "9563f5b7f04e3e3a3603f7c0eb53af6e4e164131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f51ad823_3ea1eb81",
         "filename": "thermal/1.0/default/service.cpp",
         "patchSetId": 1
@@ -133,6 +259,30 @@
       "writtenOn": "2017-12-07T01:39:50Z",
       "side": 1,
       "message": "Is this supposed to be the init method?",
+      "range": {
+        "startLine": 27,
+        "startChar": 4,
+        "endLine": 27,
+        "endChar": 41
+      },
+      "revId": "9563f5b7f04e3e3a3603f7c0eb53af6e4e164131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9e99932_90a44c44",
+        "filename": "thermal/1.0/default/service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1014603
+      },
+      "writtenOn": "2017-12-07T03:07:16Z",
+      "side": 1,
+      "message": "The real init method will be implemented in vendor HAL module with id:THERMAL_HARDWARE_MODULE_ID.",
+      "parentUuid": "f51ad823_3ea1eb81",
       "range": {
         "startLine": 27,
         "startChar": 4,
