@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8fdede84_2df811ae",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1004277
+      },
+      "writtenOn": "2017-12-07T03:59:09Z",
+      "side": 1,
+      "message": "suggest drop \"to enable vndbinder\" since what the init() method does is up to the vendor.\n\nThe new code that inits with the vndbinder driver should be mentioned here (but separate from the init method call).  Maybe just replace \" to \" above with \", \" and treat as 2 separate changes?",
+      "range": {
+        "startLine": 7,
+        "startChar": 33,
+        "endLine": 7,
+        "endChar": 52
+      },
+      "revId": "1a659a13af09387ecfd62c25fcfeba664ac4c612",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "abb39882_927dd69a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1004277
+      },
+      "writtenOn": "2017-12-07T03:59:09Z",
+      "side": 1,
+      "message": "Thermal",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 6
+      },
+      "revId": "1a659a13af09387ecfd62c25fcfeba664ac4c612",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71bcf6a8_a9031c51",
+        "filename": "thermal/1.0/default/service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1004277
+      },
+      "writtenOn": "2017-12-07T03:59:09Z",
+      "side": 1,
+      "message": "If this needs to be here (not in vendor init method) then also describe in commit text that the change specifically initializes for the vndbinder driver (not just a possible thing the vendor init method might do)?",
+      "range": {
+        "startLine": 27,
+        "startChar": 4,
+        "endLine": 27,
+        "endChar": 59
+      },
+      "revId": "1a659a13af09387ecfd62c25fcfeba664ac4c612",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
