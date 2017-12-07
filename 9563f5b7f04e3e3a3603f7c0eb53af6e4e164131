@@ -296,6 +296,30 @@
     },
     {
       "key": {
+        "uuid": "2846e37b_8988a432",
+        "filename": "thermal/1.0/default/Thermal.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1014603
+      },
+      "writtenOn": "2017-12-07T03:38:17Z",
+      "side": 1,
+      "message": "Yes, it was already present for memtrack, power, etc but not in thermal part. So we want to add this method definition in AOSP to give vendor some room to do the specific initialization work in vendor thermal HAL part.",
+      "parentUuid": "cb887fc2_91ebd886",
+      "range": {
+        "startLine": 47,
+        "startChar": 13,
+        "endLine": 47,
+        "endChar": 17
+      },
+      "revId": "9563f5b7f04e3e3a3603f7c0eb53af6e4e164131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f51ad823_3ea1eb81",
         "filename": "thermal/1.0/default/service.cpp",
         "patchSetId": 1
