@@ -42,6 +42,29 @@
     },
     {
       "key": {
+        "uuid": "9b6562f6_c3955e04",
+        "filename": "bluetooth/1.0/vts/functional/VtsHalBluetoothV1_0TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 1254657
+      },
+      "writtenOn": "2017-12-08T09:17:36Z",
+      "side": 1,
+      "message": "This will fail if we get command complete before connection complete.\n\nThe Core Specification does not state an order of these events as far as I can tell. Therefore the rule is that the events may arrive in any order. The test needs to support this.",
+      "range": {
+        "startLine": 509,
+        "startChar": 1,
+        "endLine": 544,
+        "endChar": 75
+      },
+      "revId": "ebe4a5ceaf88dbeeebf2fe7077fd4d59bd0661e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8696129e_5614b84f",
         "filename": "bluetooth/1.0/vts/functional/VtsHalBluetoothV1_0TargetTest.cpp",
         "patchSetId": 2
@@ -58,6 +81,29 @@
         "startChar": 2,
         "endLine": 584,
         "endChar": 71
+      },
+      "revId": "ebe4a5ceaf88dbeeebf2fe7077fd4d59bd0661e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d5a6c4aa_bc340f86",
+        "filename": "bluetooth/1.0/vts/functional/VtsHalBluetoothV1_0TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1254657
+      },
+      "writtenOn": "2017-12-08T09:17:36Z",
+      "side": 1,
+      "message": "This should be removed.\n\nSCO over HCI is not supported by all controllers. The test should not attempt to test SCO loopback via HCI when it is not supported. So it does not make sense to expect a non-zero buffer size.",
+      "range": {
+        "startLine": 597,
+        "startChar": 0,
+        "endLine": 597,
+        "endChar": 43
       },
       "revId": "ebe4a5ceaf88dbeeebf2fe7077fd4d59bd0661e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
