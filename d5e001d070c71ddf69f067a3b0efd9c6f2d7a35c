@@ -1,0 +1,314 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c9d204bb_67feb9e6",
+        "filename": "radio/1.2/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-12-11T17:39:57Z",
+      "side": 1,
+      "message": "regenerate this? I think hidl should put them alphabetically, does it not?\n\nMaybe everything in the types.hal file already happened to be alphabetical. Do look into this please. Thanks.",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 21
+      },
+      "revId": "d5e001d070c71ddf69f067a3b0efd9c6f2d7a35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f799aaf4_390e70c0",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-12-11T17:39:57Z",
+      "side": 1,
+      "message": "Abbreviated dialing numbers? maybe spell out as well",
+      "range": {
+        "startLine": 42,
+        "startChar": 11,
+        "endLine": 42,
+        "endChar": 14
+      },
+      "revId": "d5e001d070c71ddf69f067a3b0efd9c6f2d7a35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb584169_717f8d90",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-12-11T17:39:57Z",
+      "side": 1,
+      "message": "must",
+      "range": {
+        "startLine": 44,
+        "startChar": 23,
+        "endLine": 44,
+        "endChar": 27
+      },
+      "revId": "d5e001d070c71ddf69f067a3b0efd9c6f2d7a35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3f2c8d1_14067fad",
+        "filename": "radio/1.2/IRadioIndication.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-12-11T17:39:57Z",
+      "side": 1,
+      "message": "when must this be called?",
+      "range": {
+        "startLine": 32,
+        "startChar": 11,
+        "endLine": 32,
+        "endChar": 22
+      },
+      "revId": "d5e001d070c71ddf69f067a3b0efd9c6f2d7a35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0da4f9f4_648a3bc4",
+        "filename": "radio/1.2/IRadioIndication.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-12-11T17:39:57Z",
+      "side": 1,
+      "message": "when must this be called? Even after updateAdnRecord?",
+      "revId": "d5e001d070c71ddf69f067a3b0efd9c6f2d7a35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "180b9a66_ed183579",
+        "filename": "radio/1.2/IRadioResponse.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-12-11T17:39:57Z",
+      "side": 1,
+      "message": "how about three int32_t\u0027s then? The content of this vec isn\u0027t exactly clear",
+      "range": {
+        "startLine": 47,
+        "startChar": 39,
+        "endLine": 47,
+        "endChar": 52
+      },
+      "revId": "d5e001d070c71ddf69f067a3b0efd9c6f2d7a35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79a499a6_f9eb03a2",
+        "filename": "radio/1.2/IRadioResponse.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-12-11T17:39:57Z",
+      "side": 1,
+      "message": "is this part of some public standard?",
+      "range": {
+        "startLine": 59,
+        "startChar": 33,
+        "endLine": 59,
+        "endChar": 64
+      },
+      "revId": "d5e001d070c71ddf69f067a3b0efd9c6f2d7a35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23d222bd_23aad5b8",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-12-11T17:39:57Z",
+      "side": 1,
+      "message": "- any permissions problems with this?\n- why signed?",
+      "range": {
+        "startLine": 226,
+        "startChar": 4,
+        "endLine": 226,
+        "endChar": 30
+      },
+      "revId": "d5e001d070c71ddf69f067a3b0efd9c6f2d7a35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e543d96_b71bb6e7",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-12-11T17:39:57Z",
+      "side": 1,
+      "message": "format? opaque to framework?",
+      "range": {
+        "startLine": 227,
+        "startChar": 4,
+        "endLine": 227,
+        "endChar": 26
+      },
+      "revId": "d5e001d070c71ddf69f067a3b0efd9c6f2d7a35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "babf95c1_0c6c739c",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-12-11T17:39:57Z",
+      "side": 1,
+      "message": "format?",
+      "range": {
+        "startLine": 228,
+        "startChar": 4,
+        "endLine": 228,
+        "endChar": 28
+      },
+      "revId": "d5e001d070c71ddf69f067a3b0efd9c6f2d7a35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "532d53ba_b708bd60",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-12-11T17:39:57Z",
+      "side": 1,
+      "message": "len(email)? delete. Same below",
+      "range": {
+        "startLine": 229,
+        "startChar": 4,
+        "endLine": 229,
+        "endChar": 35
+      },
+      "revId": "d5e001d070c71ddf69f067a3b0efd9c6f2d7a35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "829d98df_e874cd5d",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-12-11T17:39:57Z",
+      "side": 1,
+      "message": "\"emails\"? format? does this contain multiple?",
+      "revId": "d5e001d070c71ddf69f067a3b0efd9c6f2d7a35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b87b9fd_e958889d",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-12-11T17:39:57Z",
+      "side": 1,
+      "message": "delete",
+      "range": {
+        "startLine": 231,
+        "startChar": 4,
+        "endLine": 231,
+        "endChar": 33
+      },
+      "revId": "d5e001d070c71ddf69f067a3b0efd9c6f2d7a35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "972b1a64_385a8ef2",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-12-11T17:39:57Z",
+      "side": 1,
+      "message": "\u0027numbers\u0027? format?",
+      "range": {
+        "startLine": 232,
+        "startChar": 4,
+        "endLine": 232,
+        "endChar": 29
+      },
+      "revId": "d5e001d070c71ddf69f067a3b0efd9c6f2d7a35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
