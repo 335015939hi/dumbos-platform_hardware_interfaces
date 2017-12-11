@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "00b4eb08_7debc7bf",
+        "filename": "nfc/1.1/INfc.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-12-11T22:22:47Z",
+      "side": 1,
+      "message": "actually, what if it is only called here and we say that the nfc hal client must call \"close\" during  a factory reset?",
+      "range": {
+        "startLine": 26,
+        "startChar": 47,
+        "endLine": 27,
+        "endChar": 40
+      },
+      "revId": "f8019df5bb21a49ee6d35e55fb6f8a3964738027",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
