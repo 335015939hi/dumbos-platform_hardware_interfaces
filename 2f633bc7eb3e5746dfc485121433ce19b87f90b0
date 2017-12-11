@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a50aae55_8fcbbd88",
+        "filename": "project.config",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1086523
+      },
+      "writtenOn": "2017-12-11T18:00:11Z",
+      "side": 1,
+      "message": "Should be oreo-vts-dev but if this is temporary you can land the change (since the granted group is narrow enough).",
+      "range": {
+        "startLine": 10,
+        "startChar": 20,
+        "endLine": 10,
+        "endChar": 21
+      },
+      "revId": "2f633bc7eb3e5746dfc485121433ce19b87f90b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
