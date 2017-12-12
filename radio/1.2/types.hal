@@ -17,6 +17,8 @@
 package android.hardware.radio@1.2;
 
 import @1.0::CdmaSignalStrength;
+import @1.0::CardState;
+import @1.0::CardStatus;
 import @1.0::CellIdentityCdma;
 import @1.0::CellIdentityGsm;
 import @1.0::CellIdentityLte;
@@ -36,6 +38,9 @@ import @1.1::ScanType;
 
 enum RadioConst : @1.0::RadioConst {
     RADIO_ACCESS_SPEFICIER_MAX_SIZE = 8,
+    MAX_ICCID_LENGTH = 10,
+    MAX_SIM_SLOT_COUNT = 5,
+    MAX_ATR_LENGTH = 33,
 };
 
 /**
@@ -220,4 +225,51 @@ struct CellInfo {
      * Valid only if type = tdscdma and size = 1 else must be empty.
      */
     vec<CellInfoTdscdma> tdscdma;
+};
+
+enum SlotState : int32_t {
+    /*
+     * Physical slot is inactive
+     */
+    PHYSICAL_SLOT_STATE_INACTIVE  = 0x00,
+    /*
+     * Physical slot is active
+     */
+    PHYSICAL_SLOT_STATE_ACTIVE    = 0x01,
+};
+
+struct CardStatus {
+    @1.0::CardStatus base;
+    uint8_t physicalSlotId;
+    /*
+     * applicable only when cardState is CardState:PRESENT
+     */
+    string atr;
+    /*
+     * applicable only when cardState is CardState:PRESENT
+     */
+    string iccid;
+};
+
+struct SimSlotStatus {
+    /*
+     * Card state in the physical slot
+     */
+    CardState cardState;
+    /*
+     * Slot state Active/Inactive
+     */
+    SlotState slotState;
+    /*
+     * Raw value of the ATR sent by the card during the initialization
+     */
+    string atrValue;
+    /*
+     * Logical slot value is valid only when the slot state is ACTIVE
+     */
+    uint32_t logicalSlot;
+    /*
+     * valid only when the slot state is ACTIVE
+     */
+    string iccid;
 };
