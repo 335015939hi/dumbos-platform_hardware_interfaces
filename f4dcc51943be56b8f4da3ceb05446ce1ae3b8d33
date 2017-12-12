@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ae5dcfc1_9ef28b81",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1148298
+      },
+      "writtenOn": "2017-12-12T18:25:13Z",
+      "side": 1,
+      "message": "getSimSlotsStatus?",
+      "range": {
+        "startLine": 52,
+        "startChar": 11,
+        "endLine": 52,
+        "endChar": 27
+      },
+      "revId": "f4dcc51943be56b8f4da3ceb05446ce1ae3b8d33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f68c8394_7e61fbe6",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1148298
+      },
+      "writtenOn": "2017-12-12T18:25:13Z",
+      "side": 1,
+      "message": "setSimSlotsMapping",
+      "range": {
+        "startLine": 84,
+        "startChar": 11,
+        "endLine": 84,
+        "endChar": 28
+      },
+      "revId": "f4dcc51943be56b8f4da3ceb05446ce1ae3b8d33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d8131c0_ac75c10a",
+        "filename": "radio/1.2/IRadioIndication.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1148298
+      },
+      "writtenOn": "2017-12-12T18:25:13Z",
+      "side": 1,
+      "message": "simSlotsStatusChanged?",
+      "range": {
+        "startLine": 39,
+        "startChar": 10,
+        "endLine": 39,
+        "endChar": 30
+      },
+      "revId": "f4dcc51943be56b8f4da3ceb05446ce1ae3b8d33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ed39cdf_99af3f1f",
+        "filename": "radio/1.2/IRadioResponse.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1148298
+      },
+      "writtenOn": "2017-12-12T18:25:13Z",
+      "side": 1,
+      "message": "maybe getSimSlotsStatusResponse is better since it is for all slots",
+      "range": {
+        "startLine": 68,
+        "startChar": 11,
+        "endLine": 68,
+        "endChar": 35
+      },
+      "revId": "f4dcc51943be56b8f4da3ceb05446ce1ae3b8d33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1bc97338_233aa432",
+        "filename": "radio/1.2/IRadioResponse.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1148298
+      },
+      "writtenOn": "2017-12-12T18:25:13Z",
+      "side": 1,
+      "message": "getSimSlotsStatusResponse ?",
+      "range": {
+        "startLine": 81,
+        "startChar": 11,
+        "endLine": 81,
+        "endChar": 36
+      },
+      "revId": "f4dcc51943be56b8f4da3ceb05446ce1ae3b8d33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "753f736f_5f7e73d2",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1148298
+      },
+      "writtenOn": "2017-12-12T18:25:13Z",
+      "side": 1,
+      "message": "NO need to use uint8_t, use uint32_t instead",
+      "range": {
+        "startLine": 229,
+        "startChar": 4,
+        "endLine": 229,
+        "endChar": 11
+      },
+      "revId": "f4dcc51943be56b8f4da3ceb05446ce1ae3b8d33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "efb0c597_c05025ad",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1148298
+      },
+      "writtenOn": "2017-12-12T18:25:13Z",
+      "side": 1,
+      "message": "Can we have a \"string atr\" and \"string iccid\"?  As far as I know another new API in hal 1.2 will return a \"string atr\" instead of bytes.",
+      "range": {
+        "startLine": 231,
+        "startChar": 0,
+        "endLine": 233,
+        "endChar": 80
+      },
+      "revId": "f4dcc51943be56b8f4da3ceb05446ce1ae3b8d33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2af25e25_a3957fd2",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1148298
+      },
+      "writtenOn": "2017-12-12T18:25:13Z",
+      "side": 1,
+      "message": "For those fields from the 1.0::CardStatusm, you can \n\nimport @1.0::CardStatus;\n\nstruct CardStatus {\n    @1.0::CardStatus base;",
+      "range": {
+        "startLine": 234,
+        "startChar": 0,
+        "endLine": 239,
+        "endChar": 77
+      },
+      "revId": "f4dcc51943be56b8f4da3ceb05446ce1ae3b8d33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "adad528c_371450af",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1148298
+      },
+      "writtenOn": "2017-12-12T18:25:13Z",
+      "side": 1,
+      "message": "I think you need to import @1.0::CardState first in order to use this",
+      "range": {
+        "startLine": 248,
+        "startChar": 2,
+        "endLine": 248,
+        "endChar": 11
+      },
+      "revId": "f4dcc51943be56b8f4da3ceb05446ce1ae3b8d33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18fde939_e896d91b",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1148298
+      },
+      "writtenOn": "2017-12-12T18:25:13Z",
+      "side": 1,
+      "message": "ditto, can we get a string?",
+      "range": {
+        "startLine": 250,
+        "startChar": 0,
+        "endLine": 252,
+        "endChar": 4
+      },
+      "revId": "f4dcc51943be56b8f4da3ceb05446ce1ae3b8d33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2c573c3_11d58758",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1148298
+      },
+      "writtenOn": "2017-12-12T18:25:13Z",
+      "side": 1,
+      "message": "ditto, can we get a string?",
+      "range": {
+        "startLine": 255,
+        "startChar": 0,
+        "endLine": 257,
+        "endChar": 98
+      },
+      "revId": "f4dcc51943be56b8f4da3ceb05446ce1ae3b8d33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
