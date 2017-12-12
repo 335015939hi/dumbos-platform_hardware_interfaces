@@ -37,4 +37,66 @@ interface IRadio extends @1.1::IRadio {
      * Response function is IRadioResponse.startNetworkScanResponse()
      */
     oneway startNetworkScan_1_2(int32_t serial, NetworkScanRequest request);
+
+    /**
+     * Get SIM Slot status.
+     * Request is equivalent to inserting or removing the card.
+     *
+     * Request provides the slot status of all active and inactive SIM
+     * slots and whether card is present in the slots or not.
+     *
+     * @param serial Serial number of request
+     *
+     * Response callback is IRadioResponse.getSimSlotStatusResponse()
+     */
+    oneway getSimSlotStatus(int32_t serial);
+
+    /**
+     * Set SIM Slot mapping.
+     * Maps the logical slots to the physical slots.
+     *
+     * Logical slot is the slot that is seen by modem.
+     * Physical slot is the actual physical slot.
+     * Request maps the physical slot to logicat slot.
+     * Logical slots that are already mapped to the requested
+     * physical slot are not impacted
+     * Example no. of ril instances 1: First logical slot (index 0) is
+     * mapped to second physical slot (value 1), while the first
+     * physical slot (index 0) remains unmapped.
+     * Example no. of ril instances 2: First logical slot (index 0) is
+     * mapped to second physical slot (value 1), and second logical
+     * slot (index 1) is mapped to first physical slot (value 0).
+     *
+     * @param serial Serial number of request
+     * @param slotMap Logical to physical slot mapping,
+     *                size <= no. of radio instances
+     *                Index is mapping to logical slot and value to physical
+     *                slot, need to provide all the slots mapping when sending
+     *                request in case of multi slot device.
+     *                EX: uint32_t slotMap[logical slot] = physical slot
+     *                index 0 is the first logical_slot
+     *                Number of logical slots is equal to number of Radio instances
+     *                and number of physical slots is equal to size of slotStatus
+     *                in getSimSlotStatusResponse
+     *
+     * Response callback is IRadioResponse.setSimSlotMappingResponse()
+     */
+    oneway setSimSlotMapping(int32_t serial, vec<uint32_t> slotMap);
+
+    /**
+     * Set LPA terminal capability.
+     *
+     * Set the value of the eUICC-related capabilities TLV
+     * object (see ETSI TS 102 221 clause 11.1.19.2.4) used
+     * by the terminal in the TERMINAL CAPABILITY command during
+     * the initialization of the SIM card. The value is applied
+     * starting from the next SIM card initialization.
+     *
+     * @param serial Serial number of request
+     * @param tlvValue -1 means TLV is not present values between 0 and 255
+     *                 are the actual value, other values are reserved
+     *
+     * Response callback is IRadioResponse.setTerminalCapabilityLPAResponse()
+     */
+    oneway setTerminalCapabilityLPA(int32_t serial, int32_t tlvValue);
 };

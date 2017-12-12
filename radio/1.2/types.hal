@@ -36,6 +36,9 @@ import @1.1::ScanType;
 
 enum RadioConst : @1.0::RadioConst {
     RADIO_ACCESS_SPEFICIER_MAX_SIZE = 8,
+    MAX_ICCID_LENGTH = 10,
+    MAX_SIM_SLOT_COUNT = 5,
+    MAX_ATR_LENGTH = 33,
 };
 
 /**
@@ -220,4 +223,36 @@ struct CellInfo {
      * Valid only if type = tdscdma and size = 1 else must be empty.
      */
     vec<CellInfoTdscdma> tdscdma;
+};
+
+struct CardStatus {
+    uint8_t physicalSlotId;
+    CardState cardState;
+    vec<uint8_t> atr;                     // size <= RadioConst:MAX_ATR_LENGTH
+                                          // applicable only when cardState is CardState:PRESENT
+    vec<uint8_t> iccid;                   // size <= RadioConst:MAX_ICCID_LENGTH
+                                          // applicable only when cardState is CardState:PRESENT
+    PinState universalPinState;           // applicable to USIM and CSIM
+    int32_t gsmUmtsSubscriptionAppIndex;  // value < RadioConst:CARD_MAX_APPS, -1 if none
+    int32_t cdmaSubscriptionAppIndex;     // value < RadioConst:CARD_MAX_APPS, -1 if none
+    int32_t imsSubscriptionAppIndex;      // value < RadioConst:CARD_MAX_APPS, -1 if none
+    vec<AppStatus> applications;          // size <= RadioConst:CARD_MAX_APPS
+};
+
+enum SlotState : int32_t {
+  PHYSICAL_SLOT_STATE_INACTIVE  = 0x00,  // Physical slot is inactive
+  PHYSICAL_SLOT_STATE_ACTIVE    = 0x01   // Physical slot is active
+};
+
+struct SimSlotStatus {
+  CardState                cardState;                  // Card state in the physical slot
+  SlotState                slotState;                  // Slot state Active/Inactive
+  vec<uint8_t>             atrValue;                   // size <= RadioConst:MAX_ATR_LENGTH
+                                                       // Raw value of the ATR sent by the card during
+                                                       // the initialization
+  uint32_t                 logicalSlot;                // Logical slot value is valid only
+                                                       // when the slot state is ACTIVE
+  vec<uint8_t>             iccid;                      // size <= RadioConst:MAX_ICCID_LENGTH
+                                                       // SIM card ICCID in BCD format and is
+                                                       // valid only when the slot state is ACTIVE
 };
