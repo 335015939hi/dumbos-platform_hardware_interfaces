@@ -293,7 +293,7 @@ Return<void> GrallocMapper::unlock(void* buffer, unlock_cb hidl_cb) {
     return Void();
 }
 
-IMapper* HIDL_FETCH_IMapper(const char* /* name */) {
+IMapper* GrallocFetchIMapper() {
     const hw_module_t* module = nullptr;
     int err = hw_get_module(GRALLOC_HARDWARE_MODULE_ID, &module);
     if (err) {

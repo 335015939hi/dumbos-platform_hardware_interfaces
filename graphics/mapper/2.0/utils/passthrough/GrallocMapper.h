@@ -84,7 +84,7 @@ class GrallocMapper : public IMapper {
     static hidl_handle getFenceHandle(int fenceFd, char* handleStorage);
 };
 
-extern "C" IMapper* HIDL_FETCH_IMapper(const char* name);
+IMapper* GrallocFetchIMapper();
 
 } // namespace implementation
 } // namespace V2_0

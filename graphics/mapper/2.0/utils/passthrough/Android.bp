@@ -13,24 +13,29 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-cc_library_shared {
-    name: "android.hardware.graphics.mapper@2.0-impl",
+cc_library_static {
+    name: "android.hardware.graphics.mapper@2.0-passthrough",
     defaults: ["hidl_defaults"],
     vendor: true,
-    relative_install_path: "hw",
-    srcs: ["passthrough.cpp"],
-    static_libs: [
-        "android.hardware.graphics.mapper@2.0-passthrough"
+    srcs: [
+        "Gralloc0Mapper.cpp",
+        "Gralloc1Mapper.cpp",
+        "GrallocMapper.cpp",
     ],
     shared_libs: [
         "android.hardware.graphics.mapper@2.0",
-        "libbase",
-        "libcutils",
         "libhardware",
-        "libhidlbase",
-        "libhidltransport",
-        "liblog",
         "libsync",
-        "libutils",
     ],
+    export_shared_lib_headers: [
+        "android.hardware.graphics.mapper@2.0",
+        "libhardware",
+    ],
+    export_include_dirs: ["."],
+}
+
+cc_library_headers {
+    name: "libgrallocmapperincludes",
+    vendor: true,
+    export_include_dirs: ["."],
 }
