@@ -28,4 +28,12 @@ interface IRadioIndication extends @1.1::IRadioIndication {
      * Incremental network scan results
      */
     oneway networkScanResult_1_2(RadioIndicationType type, NetworkScanResult result);
+
+    /**
+     * Indicates current link capacity estimate.
+     *
+     * @param type Type of radio indication
+     * @param lce LinkCapacityEstimate information as defined in types.hal
+     */
+    oneway currentLinkCapacityEstimate(RadioIndicationType type, LinkCapacityEstimate lce);
 };
