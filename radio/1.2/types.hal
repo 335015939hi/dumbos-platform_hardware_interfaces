@@ -33,6 +33,7 @@ import @1.1::RadioAccessSpecifier;
 import @1.0::RadioError;
 import @1.1::ScanStatus;
 import @1.1::ScanType;
+import @1.0::TdScdmaSignalStrength;
 
 enum RadioConst : @1.0::RadioConst {
     RADIO_ACCESS_SPECIFIER_MAX_SIZE = 8,
@@ -220,4 +221,21 @@ struct CellInfo {
      * Valid only if type = tdscdma and size = 1 else must be empty.
      */
     vec<CellInfoTdscdma> tdscdma;
+};
+
+struct GsmSignalStrength {
+    uint32_t signalStrength;              // Valid values are (0-61, 99) as defined in
+                                          // TS 27.007 8.69
+    uint32_t bitErrorRate;                // bit error rate (0-7, 99) as defined in TS 27.007 8.5
+    int32_t timingAdvance;                // Timing Advance in bit periods. 1 bit period = 48/13 us.
+                                          // INT_MAX denotes invalid value
+    int32_t rscp;                         // Valid values are (25 to 120) as defined in
+};
+
+struct SignalStrength {
+    GsmSignalStrength gw;
+    @1.0::CdmaSignalStrength cdma;
+    @1.0::EvdoSignalStrength evdo;
+    @1.0::LteSignalStrength lte;
+    @1.0::TdScdmaSignalStrength tdScdma;
 };

@@ -28,4 +28,12 @@ interface IRadioIndication extends @1.1::IRadioIndication {
      * Incremental network scan results
      */
     oneway networkScanResult_1_2(RadioIndicationType type, NetworkScanResult result);
+
+    /**
+     * Indicates current signal strength of the radio.
+     *
+     * @param type Type of radio indication
+     * @param signalStrength SignalStrength information as defined in types.hal
+     */
+    oneway currentSignalStrength_1_2(RadioIndicationType type, SignalStrength signalStrength);
 };
