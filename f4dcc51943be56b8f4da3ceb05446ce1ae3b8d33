@@ -284,6 +284,30 @@
     },
     {
       "key": {
+        "uuid": "0ed8cdfd_360a1a53",
+        "filename": "radio/1.2/IRadioResponse.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1148298
+      },
+      "writtenOn": "2017-12-13T17:51:53Z",
+      "side": 1,
+      "message": "You are right, should be setSimSlotsMappingResponse",
+      "parentUuid": "bc244f27_a5f5c1c3",
+      "range": {
+        "startLine": 81,
+        "startChar": 11,
+        "endLine": 81,
+        "endChar": 36
+      },
+      "revId": "f4dcc51943be56b8f4da3ceb05446ce1ae3b8d33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "753f736f_5f7e73d2",
         "filename": "radio/1.2/types.hal",
         "patchSetId": 1

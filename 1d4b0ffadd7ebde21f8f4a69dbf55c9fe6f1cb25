@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f913bbf6_8895ec2e",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1148298
+      },
+      "writtenOn": "2017-12-13T17:51:53Z",
+      "side": 1,
+      "message": "It seems that you forgot to modify this although you replied \"done\"...",
+      "range": {
+        "startLine": 243,
+        "startChar": 4,
+        "endLine": 243,
+        "endChar": 11
+      },
+      "revId": "1d4b0ffadd7ebde21f8f4a69dbf55c9fe6f1cb25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9eba6254_3da2e760",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1148298
+      },
+      "writtenOn": "2017-12-13T17:51:53Z",
+      "side": 1,
+      "message": "How about \"logicalSlotId\"?",
+      "range": {
+        "startLine": 270,
+        "startChar": 13,
+        "endLine": 270,
+        "endChar": 24
+      },
+      "revId": "1d4b0ffadd7ebde21f8f4a69dbf55c9fe6f1cb25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "92b37658_e6bc6145",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1148298
+      },
+      "writtenOn": "2017-12-13T17:51:53Z",
+      "side": 1,
+      "message": "Is this comment correct? I thought we will also get the iccid of the profile even when the slot is inactive. For example, if slot 0 is active and a new card is inserted into slot 1, we are supposed to get a unsol message of the \"SimmSlotStatus\" which contains the iccid of the card inserted into slot 1?",
+      "range": {
+        "startLine": 272,
+        "startChar": 7,
+        "endLine": 272,
+        "endChar": 47
+      },
+      "revId": "1d4b0ffadd7ebde21f8f4a69dbf55c9fe6f1cb25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
