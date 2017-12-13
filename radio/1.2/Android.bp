@@ -30,6 +30,8 @@ hidl_interface {
         "CellInfoLte",
         "CellInfoWcdma",
         "IncrementalResultsPeriodicityRange",
+        "IndicationFilter",
+        "LinkCapacityEstimate",
         "MaxSearchTimeRange",
         "NetworkScanRequest",
         "NetworkScanResult",
