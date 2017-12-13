@@ -17,6 +17,7 @@
 package android.hardware.radio@1.2;
 
 import @1.1::IRadio;
+import @1.1::RadioAccessNetworks;
 
 /**
  * This interface is used by telephony and telecom to talk to cellular radio.
@@ -37,4 +38,37 @@ interface IRadio extends @1.1::IRadio {
      * Response function is IRadioResponse.startNetworkScanResponse()
      */
     oneway startNetworkScan_1_2(int32_t serial, NetworkScanRequest request);
+
+    /**
+     * Sets the signal strength reporting criteria.
+     *
+     * The resulting reporting criteria is the AND of all the supplied criteria.
+     *
+     * @param serial Serial number of request.
+     * @param hysteresisMs A hysteresis time in milliseconds to prevent flapping.
+     * @param hysteresisDb An interval in dB defining the required magnitude change between reports.
+     * @param thresholdsDbm A vector of trigger thresholds in dBm
+     * @param ran The type of network to report.
+     */
+    oneway setSignalStrengthReportingCriteria(int32_t serial, int32_t hysteresisMs,
+            int32_t hysteresisDb, vec<int32_t> thresholdsDbm, RadioAccessNetworks ran);
+
+    /**
+     * Sets the link capacity reporting criteria.
+     *
+     * The resulting reporting criteria is the AND of all the supplied criteria.
+     *
+     * @param serial Serial number of request.
+     * @param hysteresisMs A hysteresis time in milliseconds to prevent flapping.
+     * @param hysteresisDlKbps An interval in kbps defining the required magnitude change between DL
+     *                         reports.
+     * @param hysteresisUlKbps An interval in kbps defining the required magnitude change between UL
+     *                         reports.
+     * @param thresholdsDownlinkKbps A vector of trigger thresholds in kbps for downlink reports.
+     * @param thresholdsUplinkKbps A vector of trigger thresholds in kbps for uplink reports.
+     * @param ran The type of network to report.
+     */
+    oneway setLinkCapacityReportingCriteria(int32_t serial, int32_t hysteresisMs,
+            int32_t hysteresisDlKbps, int32_t hysteresisUlKbps, vec<int32_t> thresholdsDownlinkKbps,
+            vec<int32_t> thresholdsUplinkKbps, RadioAccessNetworks ran);
 };
