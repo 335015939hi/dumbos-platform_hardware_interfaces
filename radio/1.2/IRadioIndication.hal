@@ -46,4 +46,12 @@ interface IRadioIndication extends @1.1::IRadioIndication {
      * @param records Current cell information known to radio
      */
      oneway cellInfoList_1_2(RadioIndicationType type, vec<CellInfo> records);
+
+    /**
+     * Indicates current link capacity estimate.
+     *
+     * @param type Type of radio indication
+     * @param lce LinkCapacityEstimate information as defined in types.hal
+     */
+    oneway currentLinkCapacityEstimate(RadioIndicationType type, LinkCapacityEstimate lce);
 };
