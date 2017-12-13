@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ad495c66_d68f6498",
+        "filename": "radio/1.2/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2017-12-13T07:03:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9d204bb_67feb9e6",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 21
+      },
+      "revId": "d5e001d070c71ddf69f067a3b0efd9c6f2d7a35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f799aaf4_390e70c0",
         "filename": "radio/1.2/IRadio.hal",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "d5e001d070c71ddf69f067a3b0efd9c6f2d7a35c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e178aa5_9606a847",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2017-12-13T07:03:11Z",
+      "side": 1,
+      "message": "Yes,done",
+      "parentUuid": "f799aaf4_390e70c0",
+      "range": {
+        "startLine": 42,
+        "startChar": 11,
+        "endLine": 42,
+        "endChar": 14
+      },
+      "revId": "d5e001d070c71ddf69f067a3b0efd9c6f2d7a35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "08cbd4d9_240030ba",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2017-12-13T07:03:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb584169_717f8d90",
+      "range": {
+        "startLine": 44,
+        "startChar": 23,
+        "endLine": 44,
+        "endChar": 27
+      },
+      "revId": "d5e001d070c71ddf69f067a3b0efd9c6f2d7a35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d3f2c8d1_14067fad",
         "filename": "radio/1.2/IRadioIndication.hal",
         "patchSetId": 3
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "03c33e17_0de47036",
+        "filename": "radio/1.2/IRadioIndication.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2017-12-13T07:03:11Z",
+      "side": 1,
+      "message": "This will be called when the phone book module initialized done, becasue we use the new API instead of SIM_IO to get ADN record from card.",
+      "parentUuid": "d3f2c8d1_14067fad",
+      "range": {
+        "startLine": 32,
+        "startChar": 11,
+        "endLine": 32,
+        "endChar": 22
+      },
+      "revId": "d5e001d070c71ddf69f067a3b0efd9c6f2d7a35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0da4f9f4_648a3bc4",
         "filename": "radio/1.2/IRadioIndication.hal",
         "patchSetId": 3
@@ -108,6 +204,24 @@
       "revId": "d5e001d070c71ddf69f067a3b0efd9c6f2d7a35c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57a780e3_d377f8bb",
+        "filename": "radio/1.2/IRadioIndication.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2017-12-13T07:03:11Z",
+      "side": 1,
+      "message": "No, after getAdnRecord, all of the ADN records will be reported to UI by this indication.",
+      "parentUuid": "0da4f9f4_648a3bc4",
+      "revId": "d5e001d070c71ddf69f067a3b0efd9c6f2d7a35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -134,6 +248,30 @@
     },
     {
       "key": {
+        "uuid": "caeb2f78_7809d15a",
+        "filename": "radio/1.2/IRadioResponse.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2017-12-13T07:03:11Z",
+      "side": 1,
+      "message": "Three int32_t\u0027s is not enough. I have updated the comments. Please check.",
+      "parentUuid": "180b9a66_ed183579",
+      "range": {
+        "startLine": 47,
+        "startChar": 39,
+        "endLine": 47,
+        "endChar": 52
+      },
+      "revId": "d5e001d070c71ddf69f067a3b0efd9c6f2d7a35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79a499a6_f9eb03a2",
         "filename": "radio/1.2/IRadioResponse.hal",
         "patchSetId": 3
@@ -145,6 +283,30 @@
       "writtenOn": "2017-12-11T17:39:57Z",
       "side": 1,
       "message": "is this part of some public standard?",
+      "range": {
+        "startLine": 59,
+        "startChar": 33,
+        "endLine": 59,
+        "endChar": 64
+      },
+      "revId": "d5e001d070c71ddf69f067a3b0efd9c6f2d7a35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5130a0e2_294bacff",
+        "filename": "radio/1.2/IRadioResponse.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2017-12-13T07:03:11Z",
+      "side": 1,
+      "message": "No,this is just the index which be sorted by phone book module.",
+      "parentUuid": "79a499a6_f9eb03a2",
       "range": {
         "startLine": 59,
         "startChar": 33,
@@ -180,6 +342,30 @@
     },
     {
       "key": {
+        "uuid": "b79040d3_3f580e45",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2017-12-13T07:03:11Z",
+      "side": 1,
+      "message": "changed to unsigned.",
+      "parentUuid": "23d222bd_23aad5b8",
+      "range": {
+        "startLine": 226,
+        "startChar": 4,
+        "endLine": 226,
+        "endChar": 30
+      },
+      "revId": "d5e001d070c71ddf69f067a3b0efd9c6f2d7a35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3e543d96_b71bb6e7",
         "filename": "radio/1.2/types.hal",
         "patchSetId": 3
@@ -191,6 +377,30 @@
       "writtenOn": "2017-12-11T17:39:57Z",
       "side": 1,
       "message": "format? opaque to framework?",
+      "range": {
+        "startLine": 227,
+        "startChar": 4,
+        "endLine": 227,
+        "endChar": 26
+      },
+      "revId": "d5e001d070c71ddf69f067a3b0efd9c6f2d7a35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d6e073d_cfa44a1e",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2017-12-13T07:03:11Z",
+      "side": 1,
+      "message": "Already decoded the raw data from SIM card to UCS2 string.The same as number,email and adNumber.",
+      "parentUuid": "3e543d96_b71bb6e7",
       "range": {
         "startLine": 227,
         "startChar": 4,
@@ -249,6 +459,30 @@
     },
     {
       "key": {
+        "uuid": "81a1bce1_16c5d542",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2017-12-13T07:03:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "532d53ba_b708bd60",
+      "range": {
+        "startLine": 229,
+        "startChar": 4,
+        "endLine": 229,
+        "endChar": 35
+      },
+      "revId": "d5e001d070c71ddf69f067a3b0efd9c6f2d7a35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "829d98df_e874cd5d",
         "filename": "radio/1.2/types.hal",
         "patchSetId": 3
@@ -260,6 +494,24 @@
       "writtenOn": "2017-12-11T17:39:57Z",
       "side": 1,
       "message": "\"emails\"? format? does this contain multiple?",
+      "revId": "d5e001d070c71ddf69f067a3b0efd9c6f2d7a35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3eb45f45_4804459b",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2017-12-13T07:03:11Z",
+      "side": 1,
+      "message": "Yes，contain multiple.",
+      "parentUuid": "829d98df_e874cd5d",
       "revId": "d5e001d070c71ddf69f067a3b0efd9c6f2d7a35c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -289,6 +541,30 @@
     },
     {
       "key": {
+        "uuid": "b8cb388d_85979834",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2017-12-13T07:03:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b87b9fd_e958889d",
+      "range": {
+        "startLine": 231,
+        "startChar": 4,
+        "endLine": 231,
+        "endChar": 33
+      },
+      "revId": "d5e001d070c71ddf69f067a3b0efd9c6f2d7a35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "972b1a64_385a8ef2",
         "filename": "radio/1.2/types.hal",
         "patchSetId": 3
@@ -300,6 +576,30 @@
       "writtenOn": "2017-12-11T17:39:57Z",
       "side": 1,
       "message": "\u0027numbers\u0027? format?",
+      "range": {
+        "startLine": 232,
+        "startChar": 4,
+        "endLine": 232,
+        "endChar": 29
+      },
+      "revId": "d5e001d070c71ddf69f067a3b0efd9c6f2d7a35c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62c1a674_159b734e",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2017-12-13T07:03:11Z",
+      "side": 1,
+      "message": "Yes，contain multiple.",
+      "parentUuid": "972b1a64_385a8ef2",
       "range": {
         "startLine": 232,
         "startChar": 4,
