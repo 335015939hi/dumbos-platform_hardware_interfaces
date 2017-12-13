@@ -37,4 +37,12 @@ interface IRadioIndication extends @1.1::IRadioIndication {
      *        the device
      */
     oneway simSlotsStatusChanged(RadioIndicationType type, vec<SimSlotStatus> slotStatus);
+
+    /**
+     * Indicates current link capacity estimate.
+     *
+     * @param type Type of radio indication
+     * @param lce LinkCapacityEstimate information as defined in types.hal
+     */
+    oneway currentLinkCapacityEstimate(RadioIndicationType type, LinkCapacityEstimate lce);
 };
