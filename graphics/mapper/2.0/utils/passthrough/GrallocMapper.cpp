@@ -76,22 +76,17 @@ RegisteredHandlePool* gRegisteredHandles = new RegisteredHandlePool;
 
 }  // anonymous namespace
 
-bool GrallocMapper::validateDescriptorInfo(
-    const BufferDescriptorInfo& descriptorInfo) const {
+bool GrallocMapper::validateDescriptorInfo(const BufferDescriptorInfo& descriptorInfo) const {
     const uint64_t validUsageBits =
-        BufferUsage::CPU_READ_MASK | BufferUsage::CPU_WRITE_MASK |
-        BufferUsage::GPU_TEXTURE | BufferUsage::GPU_RENDER_TARGET |
-        BufferUsage::COMPOSER_OVERLAY | BufferUsage::COMPOSER_CLIENT_TARGET |
-        BufferUsage::PROTECTED | BufferUsage::COMPOSER_CURSOR |
-        BufferUsage::VIDEO_ENCODER | BufferUsage::CAMERA_OUTPUT |
-        BufferUsage::CAMERA_INPUT | BufferUsage::RENDERSCRIPT |
-        BufferUsage::VIDEO_DECODER | BufferUsage::SENSOR_DIRECT_DATA |
-        BufferUsage::GPU_DATA_BUFFER | BufferUsage::VENDOR_MASK |
-        (mCapabilities.highUsageBits ? BufferUsage::VENDOR_MASK_HI
-                                     : static_cast<BufferUsage>(0));
+        BufferUsage::CPU_READ_MASK | BufferUsage::CPU_WRITE_MASK | BufferUsage::GPU_TEXTURE |
+        BufferUsage::GPU_RENDER_TARGET | BufferUsage::COMPOSER_OVERLAY |
+        BufferUsage::COMPOSER_CLIENT_TARGET | BufferUsage::PROTECTED |
+        BufferUsage::COMPOSER_CURSOR | BufferUsage::VIDEO_ENCODER | BufferUsage::CAMERA_OUTPUT |
+        BufferUsage::CAMERA_INPUT | BufferUsage::RENDERSCRIPT | BufferUsage::VIDEO_DECODER |
+        BufferUsage::SENSOR_DIRECT_DATA | BufferUsage::GPU_DATA_BUFFER | BufferUsage::VENDOR_MASK |
+        (mCapabilities.highUsageBits ? BufferUsage::VENDOR_MASK_HI : static_cast<BufferUsage>(0));
 
-    if (!descriptorInfo.width || !descriptorInfo.height ||
-        !descriptorInfo.layerCount) {
+    if (!descriptorInfo.width || !descriptorInfo.height || !descriptorInfo.layerCount) {
         return false;
     }
 
@@ -112,8 +107,8 @@ bool GrallocMapper::validateDescriptorInfo(
     return true;
 }
 
-Return<void> GrallocMapper::createDescriptor(
-    const BufferDescriptorInfo& descriptorInfo, createDescriptor_cb hidl_cb) {
+Return<void> GrallocMapper::createDescriptor(const BufferDescriptorInfo& descriptorInfo,
+                                             createDescriptor_cb hidl_cb) {
     if (validateDescriptorInfo(descriptorInfo)) {
         hidl_cb(Error::NONE, grallocEncodeBufferDescriptor(descriptorInfo));
     } else {
@@ -123,8 +118,7 @@ Return<void> GrallocMapper::createDescriptor(
     return Void();
 }
 
-Return<void> GrallocMapper::importBuffer(const hidl_handle& rawHandle,
-                                         importBuffer_cb hidl_cb) {
+Return<void> GrallocMapper::importBuffer(const hidl_handle& rawHandle, importBuffer_cb hidl_cb) {
     // because of passthrough HALs, we must not generate an error when
     // rawHandle has been imported
 
@@ -133,8 +127,7 @@ Return<void> GrallocMapper::importBuffer(const hidl_handle& rawHandle,
         return Void();
     }
 
-    native_handle_t* bufferHandle =
-        native_handle_clone(rawHandle.getNativeHandle());
+    native_handle_t* bufferHandle = native_handle_clone(rawHandle.getNativeHandle());
     if (!bufferHandle) {
         hidl_cb(Error::NO_RESOURCES, nullptr);
         return Void();
@@ -153,8 +146,7 @@ Return<void> GrallocMapper::importBuffer(const hidl_handle& rawHandle,
     // when a handle previously registered was native_handle_delete'd instead
     // of freeBuffer'd.
     if (!gRegisteredHandles->add(bufferHandle)) {
-        ALOGE("handle %p has already been imported; potential fd leaking",
-              bufferHandle);
+        ALOGE("handle %p has already been imported; potential fd leaking", bufferHandle);
         unregisterBuffer(bufferHandle);
         if (!mCapabilities.unregisterImplyDelete) {
             native_handle_close(bufferHandle);
@@ -192,14 +184,12 @@ void GrallocMapper::waitFenceFd(int fenceFd, const char* logname) {
     const int warningTimeout = 3500;
     const int error = sync_wait(fenceFd, warningTimeout);
     if (error < 0 && errno == ETIME) {
-        ALOGE("%s: fence %d didn't signal in %u ms", logname, fenceFd,
-              warningTimeout);
+        ALOGE("%s: fence %d didn't signal in %u ms", logname, fenceFd, warningTimeout);
         sync_wait(fenceFd, -1);
     }
 }
 
-bool GrallocMapper::getFenceFd(const hidl_handle& fenceHandle,
-                               int* outFenceFd) {
+bool GrallocMapper::getFenceFd(const hidl_handle& fenceHandle, int* outFenceFd) {
     auto handle = fenceHandle.getNativeHandle();
     if (handle && handle->numFds > 1) {
         ALOGE("invalid fence handle with %d fds", handle->numFds);
@@ -220,10 +210,8 @@ hidl_handle GrallocMapper::getFenceHandle(int fenceFd, char* handleStorage) {
     return hidl_handle(handle);
 }
 
-Return<void> GrallocMapper::lock(void* buffer, uint64_t cpuUsage,
-                                 const IMapper::Rect& accessRegion,
-                                 const hidl_handle& acquireFence,
-                                 lock_cb hidl_cb) {
+Return<void> GrallocMapper::lock(void* buffer, uint64_t cpuUsage, const IMapper::Rect& accessRegion,
+                                 const hidl_handle& acquireFence, lock_cb hidl_cb) {
     buffer_handle_t bufferHandle = gRegisteredHandles->get(buffer);
     if (!bufferHandle) {
         hidl_cb(Error::BAD_BUFFER, nullptr);
@@ -237,8 +225,7 @@ Return<void> GrallocMapper::lock(void* buffer, uint64_t cpuUsage,
     }
 
     void* data = nullptr;
-    Error error =
-        lockBuffer(bufferHandle, cpuUsage, accessRegion, fenceFd, &data);
+    Error error = lockBuffer(bufferHandle, cpuUsage, accessRegion, fenceFd, &data);
 
     hidl_cb(error, data);
     return Void();
@@ -246,8 +233,7 @@ Return<void> GrallocMapper::lock(void* buffer, uint64_t cpuUsage,
 
 Return<void> GrallocMapper::lockYCbCr(void* buffer, uint64_t cpuUsage,
                                       const IMapper::Rect& accessRegion,
-                                      const hidl_handle& acquireFence,
-                                      lockYCbCr_cb hidl_cb) {
+                                      const hidl_handle& acquireFence, lockYCbCr_cb hidl_cb) {
     YCbCrLayout layout = {};
 
     buffer_handle_t bufferHandle = gRegisteredHandles->get(buffer);
@@ -262,8 +248,7 @@ Return<void> GrallocMapper::lockYCbCr(void* buffer, uint64_t cpuUsage,
         return Void();
     }
 
-    Error error =
-        lockBuffer(bufferHandle, cpuUsage, accessRegion, fenceFd, &layout);
+    Error error = lockBuffer(bufferHandle, cpuUsage, accessRegion, fenceFd, &layout);
 
     hidl_cb(error, layout);
     return Void();
@@ -313,9 +298,9 @@ IMapper* GrallocFetchIMapper() {
     }
 }
 
-} // namespace implementation
-} // namespace V2_0
-} // namespace mapper
-} // namespace graphics
-} // namespace hardware
-} // namespace android
+}  // namespace implementation
+}  // namespace V2_0
+}  // namespace mapper
+}  // namespace graphics
+}  // namespace hardware
+}  // namespace android

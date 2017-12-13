@@ -43,10 +43,8 @@ void Gralloc0Mapper::unregisterBuffer(buffer_handle_t bufferHandle) {
     mModule->unregisterBuffer(mModule, bufferHandle);
 }
 
-Error Gralloc0Mapper::lockBuffer(buffer_handle_t bufferHandle,
-                                 uint64_t cpuUsage,
-                                 const IMapper::Rect& accessRegion, int fenceFd,
-                                 void** outData) {
+Error Gralloc0Mapper::lockBuffer(buffer_handle_t bufferHandle, uint64_t cpuUsage,
+                                 const IMapper::Rect& accessRegion, int fenceFd, void** outData) {
     int result;
     void* data = nullptr;
     if (mMinor >= 3 && mModule->lockAsync) {
@@ -59,15 +57,13 @@ Error Gralloc0Mapper::lockBuffer(buffer_handle_t bufferHandle,
             }
         }
 
-        result = mModule->lockAsync(mModule, bufferHandle, cpuUsage,
-                                    accessRegion.left, accessRegion.top,
-                                    accessRegion.width, accessRegion.height,
-                                    &data, fenceFd);
+        result =
+            mModule->lockAsync(mModule, bufferHandle, cpuUsage, accessRegion.left, accessRegion.top,
+                               accessRegion.width, accessRegion.height, &data, fenceFd);
     } else {
         waitFenceFd(fenceFd, "Gralloc0Mapper::lock");
 
-        result = mModule->lock(mModule, bufferHandle, cpuUsage,
-                               accessRegion.left, accessRegion.top,
+        result = mModule->lock(mModule, bufferHandle, cpuUsage, accessRegion.left, accessRegion.top,
                                accessRegion.width, accessRegion.height, &data);
     }
 
@@ -79,8 +75,7 @@ Error Gralloc0Mapper::lockBuffer(buffer_handle_t bufferHandle,
     }
 }
 
-Error Gralloc0Mapper::lockBuffer(buffer_handle_t bufferHandle,
-                                 uint64_t cpuUsage,
+Error Gralloc0Mapper::lockBuffer(buffer_handle_t bufferHandle, uint64_t cpuUsage,
                                  const IMapper::Rect& accessRegion, int fenceFd,
                                  YCbCrLayout* outLayout) {
     int result;
@@ -95,18 +90,16 @@ Error Gralloc0Mapper::lockBuffer(buffer_handle_t bufferHandle,
             }
         }
 
-        result = mModule->lockAsync_ycbcr(mModule, bufferHandle, cpuUsage,
-                                          accessRegion.left, accessRegion.top,
-                                          accessRegion.width,
-                                          accessRegion.height, &ycbcr, fenceFd);
+        result = mModule->lockAsync_ycbcr(mModule, bufferHandle, cpuUsage, accessRegion.left,
+                                          accessRegion.top, accessRegion.width, accessRegion.height,
+                                          &ycbcr, fenceFd);
     } else {
         waitFenceFd(fenceFd, "Gralloc0Mapper::lockYCbCr");
 
         if (mModule->lock_ycbcr) {
-            result = mModule->lock_ycbcr(mModule, bufferHandle, cpuUsage,
-                                         accessRegion.left, accessRegion.top,
-                                         accessRegion.width,
-                                         accessRegion.height, &ycbcr);
+            result = mModule->lock_ycbcr(mModule, bufferHandle, cpuUsage, accessRegion.left,
+                                         accessRegion.top, accessRegion.width, accessRegion.height,
+                                         &ycbcr);
         } else {
             result = -EINVAL;
         }
@@ -125,8 +118,7 @@ Error Gralloc0Mapper::lockBuffer(buffer_handle_t bufferHandle,
     }
 }
 
-Error Gralloc0Mapper::unlockBuffer(buffer_handle_t bufferHandle,
-                                   int* outFenceFd) {
+Error Gralloc0Mapper::unlockBuffer(buffer_handle_t bufferHandle, int* outFenceFd) {
     int result;
     int fenceFd = -1;
     if (mMinor >= 3 && mModule->unlockAsync) {

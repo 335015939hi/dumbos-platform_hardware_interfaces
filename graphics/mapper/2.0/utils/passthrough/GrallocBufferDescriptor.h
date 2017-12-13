@@ -50,9 +50,8 @@ inline BufferDescriptor grallocEncodeBufferDescriptor(
     return descriptor;
 }
 
-inline bool grallocDecodeBufferDescriptor(
-    const BufferDescriptor& descriptor,
-    IMapper::BufferDescriptorInfo* outDescriptorInfo) {
+inline bool grallocDecodeBufferDescriptor(const BufferDescriptor& descriptor,
+                                          IMapper::BufferDescriptorInfo* outDescriptorInfo) {
     if (descriptor.size() != grallocBufferDescriptorSize ||
         descriptor[0] != grallocBufferDescriptorMagicVersion) {
         return false;

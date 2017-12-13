@@ -40,15 +40,13 @@ class Gralloc1Mapper : public GrallocMapper {
     void initDispatch();
 
     static Error toError(int32_t error);
-    static bool toYCbCrLayout(const android_flex_layout& flex,
-                              YCbCrLayout* outLayout);
+    static bool toYCbCrLayout(const android_flex_layout& flex, YCbCrLayout* outLayout);
     static gralloc1_rect_t asGralloc1Rect(const IMapper::Rect& rect);
 
     Error registerBuffer(buffer_handle_t bufferHandle) override;
     void unregisterBuffer(buffer_handle_t bufferHandle) override;
     Error lockBuffer(buffer_handle_t bufferHandle, uint64_t cpuUsage,
-                     const IMapper::Rect& accessRegion, int fenceFd,
-                     void** outData) override;
+                     const IMapper::Rect& accessRegion, int fenceFd, void** outData) override;
     Error lockBuffer(buffer_handle_t bufferHandle, uint64_t cpuUsage,
                      const IMapper::Rect& accessRegion, int fenceFd,
                      YCbCrLayout* outLayout) override;

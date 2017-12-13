@@ -30,12 +30,10 @@ namespace implementation {
 
 using android::hardware::graphics::common::V1_0::BufferUsage;
 
-Gralloc1Mapper::Gralloc1Mapper(const hw_module_t* module)
-    : mDevice(nullptr), mDispatch() {
+Gralloc1Mapper::Gralloc1Mapper(const hw_module_t* module) : mDevice(nullptr), mDispatch() {
     int result = gralloc1_open(module, &mDevice);
     if (result) {
-        LOG_ALWAYS_FATAL("failed to open gralloc1 device: %s",
-                         strerror(-result));
+        LOG_ALWAYS_FATAL("failed to open gralloc1 device: %s", strerror(-result));
     }
 
     initCapabilities();
@@ -71,8 +69,7 @@ void Gralloc1Mapper::initCapabilities() {
 }
 
 template <typename T>
-void Gralloc1Mapper::initDispatch(gralloc1_function_descriptor_t desc,
-                                  T* outPfn) {
+void Gralloc1Mapper::initDispatch(gralloc1_function_descriptor_t desc, T* outPfn) {
     auto pfn = mDevice->getFunction(mDevice, desc);
     if (!pfn) {
         LOG_ALWAYS_FATAL("failed to get gralloc1 function %d", desc);
@@ -84,8 +81,7 @@ void Gralloc1Mapper::initDispatch(gralloc1_function_descriptor_t desc,
 void Gralloc1Mapper::initDispatch() {
     initDispatch(GRALLOC1_FUNCTION_RETAIN, &mDispatch.retain);
     initDispatch(GRALLOC1_FUNCTION_RELEASE, &mDispatch.release);
-    initDispatch(GRALLOC1_FUNCTION_GET_NUM_FLEX_PLANES,
-                 &mDispatch.getNumFlexPlanes);
+    initDispatch(GRALLOC1_FUNCTION_GET_NUM_FLEX_PLANES, &mDispatch.getNumFlexPlanes);
     initDispatch(GRALLOC1_FUNCTION_LOCK, &mDispatch.lock);
     initDispatch(GRALLOC1_FUNCTION_LOCK_FLEX, &mDispatch.lockFlex);
     initDispatch(GRALLOC1_FUNCTION_UNLOCK, &mDispatch.unlock);
@@ -112,8 +108,7 @@ Error Gralloc1Mapper::toError(int32_t error) {
     }
 }
 
-bool Gralloc1Mapper::toYCbCrLayout(const android_flex_layout& flex,
-                                   YCbCrLayout* outLayout) {
+bool Gralloc1Mapper::toYCbCrLayout(const android_flex_layout& flex, YCbCrLayout* outLayout) {
     // must be YCbCr
     if (flex.format != FLEX_FORMAT_YCbCr || flex.num_planes < 3) {
         return false;
@@ -179,10 +174,8 @@ void Gralloc1Mapper::unregisterBuffer(buffer_handle_t bufferHandle) {
     mDispatch.release(mDevice, bufferHandle);
 }
 
-Error Gralloc1Mapper::lockBuffer(buffer_handle_t bufferHandle,
-                                 uint64_t cpuUsage,
-                                 const IMapper::Rect& accessRegion, int fenceFd,
-                                 void** outData) {
+Error Gralloc1Mapper::lockBuffer(buffer_handle_t bufferHandle, uint64_t cpuUsage,
+                                 const IMapper::Rect& accessRegion, int fenceFd, void** outData) {
     // Dup fenceFd as it is going to be owned by gralloc.  Note that it is
     // gralloc's responsibility to close it, even on locking errors.
     if (fenceFd >= 0) {
@@ -192,12 +185,11 @@ Error Gralloc1Mapper::lockBuffer(buffer_handle_t bufferHandle,
         }
     }
 
-    const uint64_t consumerUsage =
-        cpuUsage & ~static_cast<uint64_t>(BufferUsage::CPU_WRITE_MASK);
+    const uint64_t consumerUsage = cpuUsage & ~static_cast<uint64_t>(BufferUsage::CPU_WRITE_MASK);
     const auto accessRect = asGralloc1Rect(accessRegion);
     void* data = nullptr;
-    int32_t error = mDispatch.lock(mDevice, bufferHandle, cpuUsage,
-                                   consumerUsage, &accessRect, &data, fenceFd);
+    int32_t error =
+        mDispatch.lock(mDevice, bufferHandle, cpuUsage, consumerUsage, &accessRect, &data, fenceFd);
 
     if (error == GRALLOC1_ERROR_NONE) {
         *outData = data;
@@ -206,14 +198,12 @@ Error Gralloc1Mapper::lockBuffer(buffer_handle_t bufferHandle,
     return toError(error);
 }
 
-Error Gralloc1Mapper::lockBuffer(buffer_handle_t bufferHandle,
-                                 uint64_t cpuUsage,
+Error Gralloc1Mapper::lockBuffer(buffer_handle_t bufferHandle, uint64_t cpuUsage,
                                  const IMapper::Rect& accessRegion, int fenceFd,
                                  YCbCrLayout* outLayout) {
     // prepare flex layout
     android_flex_layout flex = {};
-    int32_t error =
-        mDispatch.getNumFlexPlanes(mDevice, bufferHandle, &flex.num_planes);
+    int32_t error = mDispatch.getNumFlexPlanes(mDevice, bufferHandle, &flex.num_planes);
     if (error != GRALLOC1_ERROR_NONE) {
         return toError(error);
     }
@@ -229,11 +219,10 @@ Error Gralloc1Mapper::lockBuffer(buffer_handle_t bufferHandle,
         }
     }
 
-    const uint64_t consumerUsage =
-        cpuUsage & ~static_cast<uint64_t>(BufferUsage::CPU_WRITE_MASK);
+    const uint64_t consumerUsage = cpuUsage & ~static_cast<uint64_t>(BufferUsage::CPU_WRITE_MASK);
     const auto accessRect = asGralloc1Rect(accessRegion);
-    error = mDispatch.lockFlex(mDevice, bufferHandle, cpuUsage, consumerUsage,
-                               &accessRect, &flex, fenceFd);
+    error = mDispatch.lockFlex(mDevice, bufferHandle, cpuUsage, consumerUsage, &accessRect, &flex,
+                               fenceFd);
     if (error == GRALLOC1_ERROR_NONE && !toYCbCrLayout(flex, outLayout)) {
         ALOGD("unable to convert android_flex_layout to YCbCrLayout");
 
@@ -250,8 +239,7 @@ Error Gralloc1Mapper::lockBuffer(buffer_handle_t bufferHandle,
     return toError(error);
 }
 
-Error Gralloc1Mapper::unlockBuffer(buffer_handle_t bufferHandle,
-                                   int* outFenceFd) {
+Error Gralloc1Mapper::unlockBuffer(buffer_handle_t bufferHandle, int* outFenceFd) {
     int fenceFd = -1;
     int32_t error = mDispatch.unlock(mDevice, bufferHandle, &fenceFd);
 

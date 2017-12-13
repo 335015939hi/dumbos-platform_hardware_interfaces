@@ -35,8 +35,7 @@ class Gralloc0Mapper : public GrallocMapper {
     Error registerBuffer(buffer_handle_t bufferHandle) override;
     void unregisterBuffer(buffer_handle_t bufferHandle) override;
     Error lockBuffer(buffer_handle_t bufferHandle, uint64_t cpuUsage,
-                     const IMapper::Rect& accessRegion, int fenceFd,
-                     void** outData) override;
+                     const IMapper::Rect& accessRegion, int fenceFd, void** outData) override;
     Error lockBuffer(buffer_handle_t bufferHandle, uint64_t cpuUsage,
                      const IMapper::Rect& accessRegion, int fenceFd,
                      YCbCrLayout* outLayout) override;

@@ -35,17 +35,12 @@ class GrallocMapper : public IMapper {
     // IMapper interface
     Return<void> createDescriptor(const BufferDescriptorInfo& descriptorInfo,
                                   createDescriptor_cb hidl_cb) override;
-    Return<void> importBuffer(const hidl_handle& rawHandle,
-                              importBuffer_cb hidl_cb) override;
+    Return<void> importBuffer(const hidl_handle& rawHandle, importBuffer_cb hidl_cb) override;
     Return<Error> freeBuffer(void* buffer) override;
-    Return<void> lock(void* buffer, uint64_t cpuUsage,
-                      const IMapper::Rect& accessRegion,
-                      const hidl_handle& acquireFence,
-                      lock_cb hidl_cb) override;
-    Return<void> lockYCbCr(void* buffer, uint64_t cpuUsage,
-                           const IMapper::Rect& accessRegion,
-                           const hidl_handle& acquireFence,
-                           lockYCbCr_cb hidl_cb) override;
+    Return<void> lock(void* buffer, uint64_t cpuUsage, const IMapper::Rect& accessRegion,
+                      const hidl_handle& acquireFence, lock_cb hidl_cb) override;
+    Return<void> lockYCbCr(void* buffer, uint64_t cpuUsage, const IMapper::Rect& accessRegion,
+                           const hidl_handle& acquireFence, lockYCbCr_cb hidl_cb) override;
     Return<void> unlock(void* buffer, unlock_cb hidl_cb) override;
 
    protected:
@@ -58,8 +53,7 @@ class GrallocMapper : public IMapper {
     } mCapabilities = {};
 
    private:
-    virtual bool validateDescriptorInfo(
-        const BufferDescriptorInfo& descriptorInfo) const;
+    virtual bool validateDescriptorInfo(const BufferDescriptorInfo& descriptorInfo) const;
 
     // Register a buffer.  The handle is already cloned by the caller.
     virtual Error registerBuffer(buffer_handle_t bufferHandle) = 0;
@@ -70,15 +64,13 @@ class GrallocMapper : public IMapper {
 
     // Lock a buffer.  The fence is owned by the caller.
     virtual Error lockBuffer(buffer_handle_t bufferHandle, uint64_t cpuUsage,
-                             const IMapper::Rect& accessRegion, int fenceFd,
-                             void** outData) = 0;
+                             const IMapper::Rect& accessRegion, int fenceFd, void** outData) = 0;
     virtual Error lockBuffer(buffer_handle_t bufferHandle, uint64_t cpuUsage,
                              const IMapper::Rect& accessRegion, int fenceFd,
                              YCbCrLayout* outLayout) = 0;
 
     // Unlock a buffer.  The returned fence is owned by the caller.
-    virtual Error unlockBuffer(buffer_handle_t bufferHandle,
-                               int* outFenceFd) = 0;
+    virtual Error unlockBuffer(buffer_handle_t bufferHandle, int* outFenceFd) = 0;
 
     static bool getFenceFd(const hidl_handle& fenceHandle, int* outFenceFd);
     static hidl_handle getFenceHandle(int fenceFd, char* handleStorage);
@@ -86,11 +78,11 @@ class GrallocMapper : public IMapper {
 
 IMapper* GrallocFetchIMapper();
 
-} // namespace implementation
-} // namespace V2_0
-} // namespace mapper
-} // namespace graphics
-} // namespace hardware
-} // namespace android
+}  // namespace implementation
+}  // namespace V2_0
+}  // namespace mapper
+}  // namespace graphics
+}  // namespace hardware
+}  // namespace android
 
-#endif // ANDROID_HARDWARE_GRAPHICS_MAPPER_V2_0_GRALLOC_MAPPER_H
+#endif  // ANDROID_HARDWARE_GRAPHICS_MAPPER_V2_0_GRALLOC_MAPPER_H
