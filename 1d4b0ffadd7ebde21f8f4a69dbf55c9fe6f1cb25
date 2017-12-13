@@ -140,6 +140,30 @@
     },
     {
       "key": {
+        "uuid": "d4c313de_3932c334",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1138138
+      },
+      "writtenOn": "2017-12-13T18:21:54Z",
+      "side": 1,
+      "message": "Amit: I\u0027ve reviewed - it\u0027s related to the Modem\u0027s terminal capabilities that are sent to the eUICC.\n\nVenkata/QC: Please add reference to SGP spec which specifies tlvValue encoding: SGP.22 3.4.2",
+      "parentUuid": "405bd9d8_586ee2bb",
+      "range": {
+        "startLine": 101,
+        "startChar": 11,
+        "endLine": 101,
+        "endChar": 35
+      },
+      "revId": "1d4b0ffadd7ebde21f8f4a69dbf55c9fe6f1cb25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ff545e4f_a36298ee",
         "filename": "radio/1.2/IRadioIndication.hal",
         "patchSetId": 2
@@ -312,6 +336,30 @@
       "writtenOn": "2017-12-13T17:51:53Z",
       "side": 1,
       "message": "Is this comment correct? I thought we will also get the iccid of the profile even when the slot is inactive. For example, if slot 0 is active and a new card is inserted into slot 1, we are supposed to get a unsol message of the \"SimmSlotStatus\" which contains the iccid of the card inserted into slot 1?",
+      "range": {
+        "startLine": 272,
+        "startChar": 7,
+        "endLine": 272,
+        "endChar": 47
+      },
+      "revId": "1d4b0ffadd7ebde21f8f4a69dbf55c9fe6f1cb25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5786cab5_b13fa738",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1138138
+      },
+      "writtenOn": "2017-12-13T18:21:54Z",
+      "side": 1,
+      "message": "Agree w/ Ying, can we remove comment on line 272? You already have a comment on line 268 explaining that the logicalSlotId value for the inactive slots are invalid.",
+      "parentUuid": "92b37658_e6bc6145",
       "range": {
         "startLine": 272,
         "startChar": 7,
