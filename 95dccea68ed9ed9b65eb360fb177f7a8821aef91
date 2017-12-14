@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c43ed8f_88fa2f33",
+        "filename": "secure_element/1.0/ISecureElement.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1073593
+      },
+      "writtenOn": "2017-12-14T11:33:44Z",
+      "side": 1,
+      "message": "https://android-review.googlesource.com/c/platform/frameworks/base/+/562230/5/core/java/android/se/omapi/Reader.java\n\nis should be part of Reader class?\n\nAlso adding a powerCycle API (similar to NFC HAL) would be useful.",
+      "range": {
+        "startLine": 127,
+        "startChar": 4,
+        "endLine": 127,
+        "endChar": 58
+      },
+      "revId": "95dccea68ed9ed9b65eb360fb177f7a8821aef91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
