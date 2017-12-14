@@ -66,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "50cae004_8bf6b0d2",
+        "filename": "secure_element/1.0/ISecureElementCallback.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1041663
+      },
+      "writtenOn": "2017-12-14T17:59:01Z",
+      "side": 1,
+      "message": "Transaction event will be sent by the NFC Service as an intent to the SecureElement Service, where the access will be checked. And then the intent will be sent to the respective application(s).",
+      "parentUuid": "4d7b1a00_3a192c86",
+      "revId": "95dccea68ed9ed9b65eb360fb177f7a8821aef91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ab86ddb8_97cfc678",
         "filename": "secure_element/1.0/ISecureElementCallback.hal",
         "patchSetId": 2
@@ -77,6 +95,24 @@
       "writtenOn": "2017-12-14T17:33:02Z",
       "side": 1,
       "message": "For OMAPI compliance you need: IOError (e.g. error communicating with SIM card); SE Inserted, SE Removed.\n\nMay need to track SIM state changes (see https://developer.android.com/reference/android/telephony/TelephonyManager.html) - UICC Reader should not allow communication until SIM_STATE_READY - I suspect that this can be handled by using an int parameter to carry the important SIM state changes. At least:\n\nhttps://developer.android.com/reference/android/telephony/TelephonyManager.html#SIM_STATE_CARD_IO_ERROR\nhttps://developer.android.com/reference/android/telephony/TelephonyManager.html#SIM_STATE_CARD_READY\n\nYou may be able to combine SIM_STATE_ABSENT, SIM_STATE_CARD_RESTRICTED, SIM_STATE_NETWORK_LOCKED, SIM_STATE_PERM_DISABLED, SIM_STATE_PIMN_REQUIRED, SIM_STATE_PUK_REQUIRED and SIM_STATE_UNKNOWN into a single \"SIM state not ready\" for OMAPI.",
+      "revId": "95dccea68ed9ed9b65eb360fb177f7a8821aef91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d4deb81_7bf0d0a0",
+        "filename": "secure_element/1.0/ISecureElementCallback.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1041663
+      },
+      "writtenOn": "2017-12-14T17:59:01Z",
+      "side": 1,
+      "message": "Would there be different behavior from OMAPI wrt to different states?\neg: SIM_NOT_READY vs IO_ERROR?\n\nIn my opinion if the state changes due to any reason, error or if the sim was removed, the terminal shouldn\u0027t communicate to the sim card. \n\nNow after the sim has recovered or if the sim card has been inserted again, it should send SIM state ready and the OMAPI implementation can load the access control again. \n\nPlease let me know if that is not inline with the standard.",
+      "parentUuid": "ab86ddb8_97cfc678",
       "revId": "95dccea68ed9ed9b65eb360fb177f7a8821aef91",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
