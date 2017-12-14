@@ -30,7 +30,7 @@ cc_library_shared {
         "media_plugin_headers",
     ],
     include_dirs: [
-        "frameworks/native/include/media/openmax"
+        "frameworks/native/headers/media_plugin/media/openmax"
     ],
     export_include_dirs: ["."]
 }
