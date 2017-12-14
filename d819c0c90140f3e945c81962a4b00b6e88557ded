@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "d8a030f2_c8502da0",
+        "filename": "radio/1.2/IRadioIndication.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1125174
+      },
+      "writtenOn": "2017-12-14T17:34:33Z",
+      "side": 1,
+      "message": "Add this information as a comment.",
+      "parentUuid": "2a015145_800dd4a4",
+      "range": {
+        "startLine": 34,
+        "startChar": 11,
+        "endLine": 34,
+        "endChar": 29
+      },
+      "revId": "d819c0c90140f3e945c81962a4b00b6e88557ded",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ec17baa4_4e89ed7f",
         "filename": "radio/1.2/IRadioResponse.hal",
         "patchSetId": 4
@@ -178,6 +202,30 @@
       "side": 1,
       "message": "Framework will compare the response index with the request and just update this one in the cache.\nAnd the index 0 means adding one contact to SIM.",
       "parentUuid": "eeb1eae9_89cd7fd5",
+      "range": {
+        "startLine": 69,
+        "startChar": 33,
+        "endLine": 69,
+        "endChar": 64
+      },
+      "revId": "d819c0c90140f3e945c81962a4b00b6e88557ded",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f3d6a6c_075aa1c6",
+        "filename": "radio/1.2/IRadioResponse.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1125174
+      },
+      "writtenOn": "2017-12-14T17:34:33Z",
+      "side": 1,
+      "message": "Can you add the meaning of the \"index 0\" as a comment?",
+      "parentUuid": "01f4ae32_ddb916b3",
       "range": {
         "startLine": 69,
         "startChar": 33,

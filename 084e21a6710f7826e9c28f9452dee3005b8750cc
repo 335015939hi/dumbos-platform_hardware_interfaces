@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ecc65cf_86b9d188",
+        "filename": "radio/1.2/IRadioIndication.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1125174
+      },
+      "writtenOn": "2017-12-14T17:34:33Z",
+      "side": 1,
+      "message": "nit: change to \"is initialized\". \n\nIs this indication sent after RADIO ON? What if framework missed this indication?",
+      "range": {
+        "startLine": 33,
+        "startChar": 43,
+        "endLine": 33,
+        "endChar": 59
+      },
+      "revId": "084e21a6710f7826e9c28f9452dee3005b8750cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59e0441b_f4a6ed71",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1125174
+      },
+      "writtenOn": "2017-12-14T17:34:33Z",
+      "side": 1,
+      "message": "\"empty string\" or \"size of vector should be 0\". Which comment is more appropriate?",
+      "range": {
+        "startLine": 229,
+        "startChar": 34,
+        "endLine": 229,
+        "endChar": 58
+      },
+      "revId": "084e21a6710f7826e9c28f9452dee3005b8750cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
