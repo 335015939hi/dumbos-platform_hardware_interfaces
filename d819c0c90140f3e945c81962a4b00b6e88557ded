@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3cd7cdb9_0ea814f1",
+        "filename": "radio/1.2/IRadioIndication.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2017-12-14T08:55:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e788d74_ad855f47",
+      "range": {
+        "startLine": 32,
+        "startChar": 11,
+        "endLine": 32,
+        "endChar": 22
+      },
+      "revId": "d819c0c90140f3e945c81962a4b00b6e88557ded",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "477a24f2_75453753",
         "filename": "radio/1.2/IRadioIndication.hal",
         "patchSetId": 4
@@ -45,6 +69,30 @@
       "revId": "d819c0c90140f3e945c81962a4b00b6e88557ded",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a015145_800dd4a4",
+        "filename": "radio/1.2/IRadioIndication.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2017-12-14T08:55:12Z",
+      "side": 1,
+      "message": "Yes,will get both. Response reported the ADN capcatity. Indication reported the valid(un-empty) ADN records in the sim card.",
+      "parentUuid": "477a24f2_75453753",
+      "range": {
+        "startLine": 34,
+        "startChar": 11,
+        "endLine": 34,
+        "endChar": 29
+      },
+      "revId": "d819c0c90140f3e945c81962a4b00b6e88557ded",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "bd2ee626_5560ce74",
+        "filename": "radio/1.2/IRadioResponse.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2017-12-14T08:55:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ec17baa4_4e89ed7f",
+      "range": {
+        "startLine": 48,
+        "startChar": 18,
+        "endLine": 57,
+        "endChar": 29
+      },
+      "revId": "d819c0c90140f3e945c81962a4b00b6e88557ded",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eeb1eae9_89cd7fd5",
         "filename": "radio/1.2/IRadioResponse.hal",
         "patchSetId": 4
@@ -91,6 +163,30 @@
       "revId": "d819c0c90140f3e945c81962a4b00b6e88557ded",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01f4ae32_ddb916b3",
+        "filename": "radio/1.2/IRadioResponse.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2017-12-14T08:55:12Z",
+      "side": 1,
+      "message": "Framework will compare the response index with the request and just update this one in the cache.\nAnd the index 0 means adding one contact to SIM.",
+      "parentUuid": "eeb1eae9_89cd7fd5",
+      "range": {
+        "startLine": 69,
+        "startChar": 33,
+        "endLine": 69,
+        "endChar": 64
+      },
+      "revId": "d819c0c90140f3e945c81962a4b00b6e88557ded",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "3d173f88_211d9474",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2017-12-14T08:55:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4639edc5_ae2cf034",
+      "range": {
+        "startLine": 225,
+        "startChar": 7,
+        "endLine": 225,
+        "endChar": 20
+      },
+      "revId": "d819c0c90140f3e945c81962a4b00b6e88557ded",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "96b335f8_6030561b",
         "filename": "radio/1.2/vts/functional/radio_response.cpp",
         "patchSetId": 4
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "94d22278_21e196c6",
+        "filename": "radio/1.2/vts/functional/radio_response.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 694,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2017-12-14T08:55:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96b335f8_6030561b",
+      "range": {
+        "startLine": 694,
+        "startChar": 2,
+        "endLine": 694,
+        "endChar": 8
+      },
+      "revId": "d819c0c90140f3e945c81962a4b00b6e88557ded",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "04d6753c_6c622ce3",
         "filename": "radio/1.2/vts/functional/radio_response.cpp",
         "patchSetId": 4
@@ -160,6 +304,30 @@
       "revId": "d819c0c90140f3e945c81962a4b00b6e88557ded",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed20386c_cba02add",
+        "filename": "radio/1.2/vts/functional/radio_response.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 701,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2017-12-14T08:55:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04d6753c_6c622ce3",
+      "range": {
+        "startLine": 701,
+        "startChar": 2,
+        "endLine": 701,
+        "endChar": 8
+      },
+      "revId": "d819c0c90140f3e945c81962a4b00b6e88557ded",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
