@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1591f3f2_795716e5",
+        "filename": "current.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-12-14T23:49:30Z",
+      "side": 1,
+      "message": "is this not true about EVS?",
+      "range": {
+        "startLine": 30,
+        "startChar": 84,
+        "endLine": 34,
+        "endChar": 87
+      },
+      "revId": "3e65be85466d2aeceb44078e43a238c66b573253",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
