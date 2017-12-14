@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9035ff84_bb0c32c3",
+        "filename": "tests/foo/1.0/default/Foo.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2017-12-14T23:58:16Z",
+      "side": 1,
+      "message": "nit this branch is not used",
+      "range": {
+        "startLine": 24,
+        "startChar": 12,
+        "endLine": 24,
+        "endChar": 36
+      },
+      "revId": "b1747b6ea50a31342b5cb2d62666ec31edce1afe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
