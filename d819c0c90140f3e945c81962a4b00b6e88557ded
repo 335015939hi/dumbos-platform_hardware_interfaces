@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3e788d74_ad855f47",
+        "filename": "radio/1.2/IRadioIndication.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1125174
+      },
+      "writtenOn": "2017-12-14T00:15:04Z",
+      "side": 1,
+      "message": "Add a comment to indicate when this indication will be received",
+      "range": {
+        "startLine": 32,
+        "startChar": 11,
+        "endLine": 32,
+        "endChar": 22
+      },
+      "revId": "d819c0c90140f3e945c81962a4b00b6e88557ded",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "477a24f2_75453753",
+        "filename": "radio/1.2/IRadioIndication.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1125174
+      },
+      "writtenOn": "2017-12-14T00:15:04Z",
+      "side": 1,
+      "message": "How is this indication different from the response? Will we get both Indication and Response after a getAdnRecord?",
+      "range": {
+        "startLine": 34,
+        "startChar": 11,
+        "endLine": 34,
+        "endChar": 29
+      },
+      "revId": "d819c0c90140f3e945c81962a4b00b6e88557ded",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec17baa4_4e89ed7f",
+        "filename": "radio/1.2/IRadioResponse.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1125174
+      },
+      "writtenOn": "2017-12-14T00:15:04Z",
+      "side": 1,
+      "message": "Can you add description of reference to some standard which describes these fields?",
+      "range": {
+        "startLine": 48,
+        "startChar": 18,
+        "endLine": 57,
+        "endChar": 29
+      },
+      "revId": "d819c0c90140f3e945c81962a4b00b6e88557ded",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eeb1eae9_89cd7fd5",
+        "filename": "radio/1.2/IRadioResponse.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1125174
+      },
+      "writtenOn": "2017-12-14T00:15:04Z",
+      "side": 1,
+      "message": "What is framework supposed to do with this index.",
+      "range": {
+        "startLine": 69,
+        "startChar": 33,
+        "endLine": 69,
+        "endChar": 64
+      },
+      "revId": "d819c0c90140f3e945c81962a4b00b6e88557ded",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4639edc5_ae2cf034",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1125174
+      },
+      "writtenOn": "2017-12-14T00:15:04Z",
+      "side": 1,
+      "message": "Are all the fields in this record mandatory. Can number be \"\" ? Can you add some comments to indicate the valid values?",
+      "range": {
+        "startLine": 225,
+        "startChar": 7,
+        "endLine": 225,
+        "endChar": 20
+      },
+      "revId": "d819c0c90140f3e945c81962a4b00b6e88557ded",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96b335f8_6030561b",
+        "filename": "radio/1.2/vts/functional/radio_response.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 694,
+      "author": {
+        "id": 1125174
+      },
+      "writtenOn": "2017-12-14T00:15:04Z",
+      "side": 1,
+      "message": "Should this be parent_v1_2 ?",
+      "range": {
+        "startLine": 694,
+        "startChar": 2,
+        "endLine": 694,
+        "endChar": 8
+      },
+      "revId": "d819c0c90140f3e945c81962a4b00b6e88557ded",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04d6753c_6c622ce3",
+        "filename": "radio/1.2/vts/functional/radio_response.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 701,
+      "author": {
+        "id": 1125174
+      },
+      "writtenOn": "2017-12-14T00:15:04Z",
+      "side": 1,
+      "message": "parent_v1_2 ?",
+      "range": {
+        "startLine": 701,
+        "startChar": 2,
+        "endLine": 701,
+        "endChar": 8
+      },
+      "revId": "d819c0c90140f3e945c81962a4b00b6e88557ded",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
