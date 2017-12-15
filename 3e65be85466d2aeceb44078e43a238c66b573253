@@ -22,6 +22,30 @@
       "revId": "3e65be85466d2aeceb44078e43a238c66b573253",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d675f15d_8829dd2e",
+        "filename": "current.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1129688
+      },
+      "writtenOn": "2017-12-15T00:06:27Z",
+      "side": 1,
+      "message": "It is true of EVS as well.  We don\u0027t have immediate plans to change EVS, but I\u0027ll unfreeze it for now and we can revisit when the rest of automotive freezes.  Updated patch incoming...",
+      "parentUuid": "1591f3f2_795716e5",
+      "range": {
+        "startLine": 30,
+        "startChar": 84,
+        "endLine": 34,
+        "endChar": 87
+      },
+      "revId": "3e65be85466d2aeceb44078e43a238c66b573253",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
