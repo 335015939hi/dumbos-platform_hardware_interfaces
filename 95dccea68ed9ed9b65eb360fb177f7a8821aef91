@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "c6ad257c_ff55631a",
+        "filename": "secure_element/1.0/ISecureElement.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1041663
+      },
+      "writtenOn": "2017-12-15T17:19:50Z",
+      "side": 1,
+      "message": "OS update there will be a reboot, so the chip will go through init again. Wouldn\u0027t that be sufficient?\n\nWhat are the other use cases?",
+      "parentUuid": "d1a9fabb_f6759315",
+      "range": {
+        "startLine": 127,
+        "startChar": 4,
+        "endLine": 127,
+        "endChar": 58
+      },
+      "revId": "95dccea68ed9ed9b65eb360fb177f7a8821aef91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4d7b1a00_3a192c86",
         "filename": "secure_element/1.0/ISecureElementCallback.hal",
         "patchSetId": 2
