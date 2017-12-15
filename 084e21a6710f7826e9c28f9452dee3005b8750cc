@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "5e6fbb12_b7ae2f03",
+        "filename": "radio/1.2/IRadioIndication.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1125174
+      },
+      "writtenOn": "2017-12-15T11:00:22Z",
+      "side": 1,
+      "message": "There is no GET API here. How will framework double check after SIM Ready?",
+      "parentUuid": "2c102f01_03571569",
+      "range": {
+        "startLine": 33,
+        "startChar": 43,
+        "endLine": 33,
+        "endChar": 59
+      },
+      "revId": "084e21a6710f7826e9c28f9452dee3005b8750cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "59e0441b_f4a6ed71",
         "filename": "radio/1.2/types.hal",
         "patchSetId": 5
