@@ -18,9 +18,9 @@ cc_library_static {
     defaults: ["hidl_defaults"],
     vendor: true,
     srcs: [
-        "Gralloc0Mapper.cpp",
-        "Gralloc1Mapper.cpp",
-        "GrallocMapper.cpp",
+        "Gralloc0Hal.cpp",
+        "Gralloc1Hal.cpp",
+        "GrallocLoader.cpp",
     ],
     shared_libs: [
         "android.hardware.graphics.mapper@2.0",
@@ -31,11 +31,18 @@ cc_library_static {
         "android.hardware.graphics.mapper@2.0",
         "libhardware",
     ],
-    export_include_dirs: ["."],
+    header_libs: [
+        "android.hardware.graphics.mapper@2.0-hal",
+    ],
+    export_header_lib_headers: [
+        "android.hardware.graphics.mapper@2.0-hal",
+    ],
+    export_include_dirs: ["include"],
+    cflags: ["-DLOG_TAG=\"MapperHal\""],
 }
 
 cc_library_headers {
-    name: "libgrallocmapperincludes",
+    name: "android.hardware.graphics.mapper@2.0-passthrough_headers",
     vendor: true,
-    export_include_dirs: ["."],
+    export_include_dirs: ["include"],
 }

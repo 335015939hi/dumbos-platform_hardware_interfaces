@@ -13,12 +13,12 @@
  * limitations under the License.
  */
 
-#include <GrallocMapper.h>
 #include <android/hardware/graphics/mapper/2.0/IMapper.h>
+#include <mapper-passthrough/2.0/GrallocLoader.h>
 
 using android::hardware::graphics::mapper::V2_0::IMapper;
-using android::hardware::graphics::mapper::V2_0::implementation::GrallocFetchIMapper;
+using android::hardware::graphics::mapper::V2_0::passthrough::GrallocLoader;
 
 extern "C" IMapper* HIDL_FETCH_IMapper(const char* /*name*/) {
-    return GrallocFetchIMapper();
+    return GrallocLoader::load();
 }

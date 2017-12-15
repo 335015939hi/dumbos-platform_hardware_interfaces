@@ -18,9 +18,9 @@
 
 #include <string.h>
 
-#include <GrallocBufferDescriptor.h>
 #include <hardware/gralloc.h>
 #include <log/log.h>
+#include <mapper-passthrough/2.0/GrallocBufferDescriptor.h>
 
 namespace android {
 namespace hardware {
@@ -29,7 +29,7 @@ namespace allocator {
 namespace V2_0 {
 namespace passthrough {
 
-using mapper::V2_0::implementation::grallocDecodeBufferDescriptor;
+using mapper::V2_0::passthrough::grallocDecodeBufferDescriptor;
 
 Gralloc0Hal::~Gralloc0Hal() {
     if (mDevice) {

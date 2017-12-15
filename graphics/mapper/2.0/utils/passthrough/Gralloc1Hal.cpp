@@ -13,42 +13,50 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "Gralloc1Mapper"
+#include <mapper-passthrough/2.0/Gralloc1Hal.h>
 
-#include "Gralloc1Mapper.h"
+#include <inttypes.h>
 
 #include <vector>
 
 #include <log/log.h>
+#include <mapper-passthrough/2.0/GrallocBufferDescriptor.h>
 
 namespace android {
 namespace hardware {
 namespace graphics {
 namespace mapper {
 namespace V2_0 {
-namespace implementation {
+namespace passthrough {
 
 using android::hardware::graphics::common::V1_0::BufferUsage;
 
-Gralloc1Mapper::Gralloc1Mapper(const hw_module_t* module) : mDevice(nullptr), mDispatch() {
+Gralloc1Hal::~Gralloc1Hal() {
+    if (mDevice) {
+        gralloc1_close(mDevice);
+    }
+}
+
+bool Gralloc1Hal::initWithModule(const hw_module_t* module) {
     int result = gralloc1_open(module, &mDevice);
     if (result) {
-        LOG_ALWAYS_FATAL("failed to open gralloc1 device: %s", strerror(-result));
+        ALOGE("failed to open gralloc1 device: %s", strerror(-result));
+        mDevice = nullptr;
+        return false;
     }
 
     initCapabilities();
-    initDispatch();
+
+    if (!initDispatch()) {
+        gralloc1_close(mDevice);
+        mDevice = nullptr;
+        return false;
+    }
+
+    return true;
 }
 
-Gralloc1Mapper::~Gralloc1Mapper() {
-    gralloc1_close(mDevice);
-}
-
-void Gralloc1Mapper::initCapabilities() {
-    mCapabilities.highUsageBits = true;
-    mCapabilities.layeredBuffers = false;
-    mCapabilities.unregisterImplyDelete = false;
-
+void Gralloc1Hal::initCapabilities() {
     uint32_t count = 0;
     mDevice->getCapabilities(mDevice, &count, nullptr);
 
@@ -62,32 +70,71 @@ void Gralloc1Mapper::initCapabilities() {
                 mCapabilities.layeredBuffers = true;
                 break;
             case GRALLOC1_CAPABILITY_RELEASE_IMPLY_DELETE:
-                mCapabilities.unregisterImplyDelete = true;
+                mCapabilities.releaseImplyDelete = true;
                 break;
         }
     }
 }
 
-template <typename T>
-void Gralloc1Mapper::initDispatch(gralloc1_function_descriptor_t desc, T* outPfn) {
+gralloc1_function_pointer_t Gralloc1Hal::getDispatchFunction(
+    gralloc1_function_descriptor_t desc) const {
     auto pfn = mDevice->getFunction(mDevice, desc);
     if (!pfn) {
-        LOG_ALWAYS_FATAL("failed to get gralloc1 function %d", desc);
+        ALOGE("failed to get gralloc1 function %d", desc);
+        return nullptr;
+    }
+    return pfn;
+}
+
+bool Gralloc1Hal::initDispatch() {
+    if (!initDispatchFunction(GRALLOC1_FUNCTION_RETAIN, &mDispatch.retain) ||
+        !initDispatchFunction(GRALLOC1_FUNCTION_RELEASE, &mDispatch.release) ||
+        !initDispatchFunction(GRALLOC1_FUNCTION_GET_NUM_FLEX_PLANES, &mDispatch.getNumFlexPlanes) ||
+        !initDispatchFunction(GRALLOC1_FUNCTION_LOCK, &mDispatch.lock) ||
+        !initDispatchFunction(GRALLOC1_FUNCTION_LOCK_FLEX, &mDispatch.lockFlex) ||
+        !initDispatchFunction(GRALLOC1_FUNCTION_UNLOCK, &mDispatch.unlock)) {
+        return false;
     }
 
-    *outPfn = reinterpret_cast<T>(pfn);
+    return true;
 }
 
-void Gralloc1Mapper::initDispatch() {
-    initDispatch(GRALLOC1_FUNCTION_RETAIN, &mDispatch.retain);
-    initDispatch(GRALLOC1_FUNCTION_RELEASE, &mDispatch.release);
-    initDispatch(GRALLOC1_FUNCTION_GET_NUM_FLEX_PLANES, &mDispatch.getNumFlexPlanes);
-    initDispatch(GRALLOC1_FUNCTION_LOCK, &mDispatch.lock);
-    initDispatch(GRALLOC1_FUNCTION_LOCK_FLEX, &mDispatch.lockFlex);
-    initDispatch(GRALLOC1_FUNCTION_UNLOCK, &mDispatch.unlock);
+uint64_t Gralloc1Hal::getValidBufferUsageMask() const {
+    return BufferUsage::CPU_READ_MASK | BufferUsage::CPU_WRITE_MASK | BufferUsage::GPU_TEXTURE |
+           BufferUsage::GPU_RENDER_TARGET | BufferUsage::COMPOSER_OVERLAY |
+           BufferUsage::COMPOSER_CLIENT_TARGET | BufferUsage::PROTECTED |
+           BufferUsage::COMPOSER_CURSOR | BufferUsage::VIDEO_ENCODER | BufferUsage::CAMERA_OUTPUT |
+           BufferUsage::CAMERA_INPUT | BufferUsage::RENDERSCRIPT | BufferUsage::VIDEO_DECODER |
+           BufferUsage::SENSOR_DIRECT_DATA | BufferUsage::GPU_DATA_BUFFER |
+           BufferUsage::VENDOR_MASK | BufferUsage::VENDOR_MASK_HI;
 }
 
-Error Gralloc1Mapper::toError(int32_t error) {
+Error Gralloc1Hal::createDescriptor(const IMapper::BufferDescriptorInfo& descriptorInfo,
+                                    BufferDescriptor* outDescriptor) {
+    if (!descriptorInfo.width || !descriptorInfo.height || !descriptorInfo.layerCount) {
+        return Error::BAD_VALUE;
+    }
+
+    if (!mCapabilities.layeredBuffers && descriptorInfo.layerCount != 1) {
+        return Error::UNSUPPORTED;
+    }
+
+    if (descriptorInfo.format == static_cast<PixelFormat>(0)) {
+        return Error::BAD_VALUE;
+    }
+
+    const uint64_t validUsageBits = getValidBufferUsageMask();
+    if (descriptorInfo.usage & ~validUsageBits) {
+        ALOGW("buffer descriptor with invalid usage bits 0x%" PRIx64,
+              descriptorInfo.usage & ~validUsageBits);
+    }
+
+    *outDescriptor = grallocEncodeBufferDescriptor(descriptorInfo);
+
+    return Error::NONE;
+}
+
+Error Gralloc1Hal::toError(int32_t error) {
     switch (error) {
         case GRALLOC1_ERROR_NONE:
             return Error::NONE;
@@ -108,7 +155,7 @@ Error Gralloc1Mapper::toError(int32_t error) {
     }
 }
 
-bool Gralloc1Mapper::toYCbCrLayout(const android_flex_layout& flex, YCbCrLayout* outLayout) {
+bool Gralloc1Hal::toYCbCrLayout(const android_flex_layout& flex, YCbCrLayout* outLayout) {
     // must be YCbCr
     if (flex.format != FLEX_FORMAT_YCbCr || flex.num_planes < 3) {
         return false;
@@ -162,35 +209,46 @@ bool Gralloc1Mapper::toYCbCrLayout(const android_flex_layout& flex, YCbCrLayout*
     return true;
 }
 
-gralloc1_rect_t Gralloc1Mapper::asGralloc1Rect(const IMapper::Rect& rect) {
+gralloc1_rect_t Gralloc1Hal::asGralloc1Rect(const IMapper::Rect& rect) {
     return gralloc1_rect_t{rect.left, rect.top, rect.width, rect.height};
 }
 
-Error Gralloc1Mapper::registerBuffer(buffer_handle_t bufferHandle) {
-    return toError(mDispatch.retain(mDevice, bufferHandle));
-}
-
-void Gralloc1Mapper::unregisterBuffer(buffer_handle_t bufferHandle) {
-    mDispatch.release(mDevice, bufferHandle);
-}
-
-Error Gralloc1Mapper::lockBuffer(buffer_handle_t bufferHandle, uint64_t cpuUsage,
-                                 const IMapper::Rect& accessRegion, int fenceFd, void** outData) {
-    // Dup fenceFd as it is going to be owned by gralloc.  Note that it is
-    // gralloc's responsibility to close it, even on locking errors.
-    if (fenceFd >= 0) {
-        fenceFd = dup(fenceFd);
-        if (fenceFd < 0) {
-            return Error::NO_RESOURCES;
-        }
+Error Gralloc1Hal::importBuffer(const native_handle_t* rawHandle,
+                                native_handle_t** outBufferHandle) {
+    native_handle_t* bufferHandle = native_handle_clone(rawHandle);
+    if (!bufferHandle) {
+        return Error::NO_RESOURCES;
     }
 
+    int32_t error = mDispatch.retain(mDevice, bufferHandle);
+    if (error != GRALLOC1_ERROR_NONE) {
+        native_handle_close(bufferHandle);
+        native_handle_delete(bufferHandle);
+        return toError(error);
+    }
+
+    *outBufferHandle = bufferHandle;
+
+    return Error::NONE;
+}
+
+Error Gralloc1Hal::freeBuffer(native_handle_t* bufferHandle) {
+    int32_t error = mDispatch.release(mDevice, bufferHandle);
+    if (error == GRALLOC1_ERROR_NONE && !mCapabilities.releaseImplyDelete) {
+        native_handle_close(bufferHandle);
+        native_handle_delete(bufferHandle);
+    }
+    return toError(error);
+}
+
+Error Gralloc1Hal::lockBuffer(const native_handle_t* bufferHandle, uint64_t cpuUsage,
+                              const IMapper::Rect& accessRegion, base::unique_fd fenceFd,
+                              void** outData) {
     const uint64_t consumerUsage = cpuUsage & ~static_cast<uint64_t>(BufferUsage::CPU_WRITE_MASK);
     const auto accessRect = asGralloc1Rect(accessRegion);
     void* data = nullptr;
-    int32_t error =
-        mDispatch.lock(mDevice, bufferHandle, cpuUsage, consumerUsage, &accessRect, &data, fenceFd);
-
+    int32_t error = mDispatch.lock(mDevice, bufferHandle, cpuUsage, consumerUsage, &accessRect,
+                                   &data, fenceFd.release());
     if (error == GRALLOC1_ERROR_NONE) {
         *outData = data;
     }
@@ -198,9 +256,9 @@ Error Gralloc1Mapper::lockBuffer(buffer_handle_t bufferHandle, uint64_t cpuUsage
     return toError(error);
 }
 
-Error Gralloc1Mapper::lockBuffer(buffer_handle_t bufferHandle, uint64_t cpuUsage,
-                                 const IMapper::Rect& accessRegion, int fenceFd,
-                                 YCbCrLayout* outLayout) {
+Error Gralloc1Hal::lockBuffer(const native_handle_t* bufferHandle, uint64_t cpuUsage,
+                              const IMapper::Rect& accessRegion, base::unique_fd fenceFd,
+                              YCbCrLayout* outLayout) {
     // prepare flex layout
     android_flex_layout flex = {};
     int32_t error = mDispatch.getNumFlexPlanes(mDevice, bufferHandle, &flex.num_planes);
@@ -210,50 +268,30 @@ Error Gralloc1Mapper::lockBuffer(buffer_handle_t bufferHandle, uint64_t cpuUsage
     std::vector<android_flex_plane_t> flexPlanes(flex.num_planes);
     flex.planes = flexPlanes.data();
 
-    // Dup fenceFd as it is going to be owned by gralloc.  Note that it is
-    // gralloc's responsibility to close it, even on locking errors.
-    if (fenceFd >= 0) {
-        fenceFd = dup(fenceFd);
-        if (fenceFd < 0) {
-            return Error::NO_RESOURCES;
-        }
-    }
-
     const uint64_t consumerUsage = cpuUsage & ~static_cast<uint64_t>(BufferUsage::CPU_WRITE_MASK);
     const auto accessRect = asGralloc1Rect(accessRegion);
     error = mDispatch.lockFlex(mDevice, bufferHandle, cpuUsage, consumerUsage, &accessRect, &flex,
-                               fenceFd);
+                               fenceFd.release());
     if (error == GRALLOC1_ERROR_NONE && !toYCbCrLayout(flex, outLayout)) {
         ALOGD("unable to convert android_flex_layout to YCbCrLayout");
-
         // undo the lock
-        fenceFd = -1;
-        mDispatch.unlock(mDevice, bufferHandle, &fenceFd);
-        if (fenceFd >= 0) {
-            close(fenceFd);
-        }
-
+        unlockBuffer(bufferHandle, &fenceFd);
         error = GRALLOC1_ERROR_BAD_HANDLE;
     }
 
     return toError(error);
 }
 
-Error Gralloc1Mapper::unlockBuffer(buffer_handle_t bufferHandle, int* outFenceFd) {
+Error Gralloc1Hal::unlockBuffer(const native_handle_t* bufferHandle, base::unique_fd* outFenceFd) {
     int fenceFd = -1;
     int32_t error = mDispatch.unlock(mDevice, bufferHandle, &fenceFd);
 
-    if (error == GRALLOC1_ERROR_NONE) {
-        *outFenceFd = fenceFd;
-    } else if (fenceFd >= 0) {
-        // we always own the fenceFd even when unlock failed
-        close(fenceFd);
-    }
-
+    // we always own the fenceFd even when unlock failed
+    outFenceFd->reset(fenceFd);
     return toError(error);
 }
 
-}  // namespace implementation
+}  // namespace passthrough
 }  // namespace V2_0
 }  // namespace mapper
 }  // namespace graphics
