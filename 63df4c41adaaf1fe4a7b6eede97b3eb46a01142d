@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "89347262_a948072e",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1148298
+      },
+      "writtenOn": "2017-12-15T18:02:54Z",
+      "side": 1,
+      "message": "Is this needed? I don\u0027t find it used anywhere",
+      "range": {
+        "startLine": 41,
+        "startChar": 4,
+        "endLine": 41,
+        "endChar": 22
+      },
+      "revId": "63df4c41adaaf1fe4a7b6eede97b3eb46a01142d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
