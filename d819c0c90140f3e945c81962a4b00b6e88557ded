@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "43c3e285_5d88e7e9",
+        "filename": "radio/1.2/IRadioIndication.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2017-12-15T07:25:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d8a030f2_c8502da0",
+      "range": {
+        "startLine": 34,
+        "startChar": 11,
+        "endLine": 34,
+        "endChar": 29
+      },
+      "revId": "d819c0c90140f3e945c81962a4b00b6e88557ded",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ec17baa4_4e89ed7f",
         "filename": "radio/1.2/IRadioResponse.hal",
         "patchSetId": 4
@@ -226,6 +250,30 @@
       "side": 1,
       "message": "Can you add the meaning of the \"index 0\" as a comment?",
       "parentUuid": "01f4ae32_ddb916b3",
+      "range": {
+        "startLine": 69,
+        "startChar": 33,
+        "endLine": 69,
+        "endChar": 64
+      },
+      "revId": "d819c0c90140f3e945c81962a4b00b6e88557ded",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5275d263_98edcdb9",
+        "filename": "radio/1.2/IRadioResponse.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2017-12-15T07:25:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f3d6a6c_075aa1c6",
       "range": {
         "startLine": 69,
         "startChar": 33,
