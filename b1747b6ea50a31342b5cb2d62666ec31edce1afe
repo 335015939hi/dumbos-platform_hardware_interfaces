@@ -22,6 +22,30 @@
       "revId": "b1747b6ea50a31342b5cb2d62666ec31edce1afe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fab60811_425fcd56",
+        "filename": "tests/foo/1.0/default/Foo.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-12-15T00:02:26Z",
+      "side": 1,
+      "message": "That doesn\u0027t matter. The function is well defined, and if we decide to test it, we\u0027ll test it.\n\nI just wish that we would have done this for all of these methods. \"doThis\" isn\u0027t a well defined test.",
+      "parentUuid": "9035ff84_bb0c32c3",
+      "range": {
+        "startLine": 24,
+        "startChar": 12,
+        "endLine": 24,
+        "endChar": 36
+      },
+      "revId": "b1747b6ea50a31342b5cb2d62666ec31edce1afe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
