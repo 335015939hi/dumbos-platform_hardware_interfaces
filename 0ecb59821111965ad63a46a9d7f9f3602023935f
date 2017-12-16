@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bc256682_e9fa4d8b",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-12-16T02:05:00Z",
+      "side": 1,
+      "message": "this really should be renamed to RadioAccessNetwork",
+      "range": {
+        "startLine": 54,
+        "startChar": 62,
+        "endLine": 54,
+        "endChar": 81
+      },
+      "revId": "0ecb59821111965ad63a46a9d7f9f3602023935f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e790f07_9551282e",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-12-16T02:05:00Z",
+      "side": 1,
+      "message": "s/should always/must/g",
+      "range": {
+        "startLine": 68,
+        "startChar": 73,
+        "endLine": 68,
+        "endChar": 86
+      },
+      "revId": "0ecb59821111965ad63a46a9d7f9f3602023935f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33402e01_7a7ffd19",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-12-16T02:05:00Z",
+      "side": 1,
+      "message": "/** */ on previous lines so that these are picked up by hidl-doc",
+      "range": {
+        "startLine": 68,
+        "startChar": 42,
+        "endLine": 71,
+        "endChar": 66
+      },
+      "revId": "0ecb59821111965ad63a46a9d7f9f3602023935f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
