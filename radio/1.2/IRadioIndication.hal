@@ -45,4 +45,12 @@ interface IRadioIndication extends @1.1::IRadioIndication {
      * @param lce LinkCapacityEstimate information as defined in types.hal
      */
     oneway currentLinkCapacityEstimate(RadioIndicationType type, LinkCapacityEstimate lce);
+
+    /**
+     * Indicates current radio config.
+     *
+     * @param type Type of radio indication
+     * @param radioConfg RadioConfig information as defined in types.hal
+     */
+    oneway currentRadioConfig(RadioIndicationType type, RadioConfig radioConfig);
 };
