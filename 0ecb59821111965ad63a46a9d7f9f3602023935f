@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cbc2c79c_9d8fff64",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1244217
+      },
+      "writtenOn": "2017-12-18T17:21:13Z",
+      "side": 1,
+      "message": "Agreed, but that\u0027s kind of out of the scope of this change.",
+      "parentUuid": "bc256682_e9fa4d8b",
+      "range": {
+        "startLine": 54,
+        "startChar": 62,
+        "endLine": 54,
+        "endChar": 81
+      },
+      "revId": "0ecb59821111965ad63a46a9d7f9f3602023935f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1e790f07_9551282e",
         "filename": "radio/1.2/types.hal",
         "patchSetId": 4
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "194451aa_7302a6d5",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1244217
+      },
+      "writtenOn": "2017-12-18T17:21:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e790f07_9551282e",
+      "range": {
+        "startLine": 68,
+        "startChar": 73,
+        "endLine": 68,
+        "endChar": 86
+      },
+      "revId": "0ecb59821111965ad63a46a9d7f9f3602023935f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "33402e01_7a7ffd19",
         "filename": "radio/1.2/types.hal",
         "patchSetId": 4
@@ -68,6 +116,30 @@
       "revId": "0ecb59821111965ad63a46a9d7f9f3602023935f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc5fd78f_0e7266b6",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1244217
+      },
+      "writtenOn": "2017-12-18T17:21:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33402e01_7a7ffd19",
+      "range": {
+        "startLine": 68,
+        "startChar": 42,
+        "endLine": 71,
+        "endChar": 66
+      },
+      "revId": "0ecb59821111965ad63a46a9d7f9f3602023935f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
