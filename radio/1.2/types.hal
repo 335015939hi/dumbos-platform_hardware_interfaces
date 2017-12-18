@@ -62,6 +62,11 @@ enum IncrementalResultsPeriodicityRange : int32_t {
     MAX = 10,
 };
 
+enum ServingCellType : int32_t {
+    PrimaryServingCell,
+    SecondaryServingCell,
+};
+
 /*
  * Overwritten from @1.0::IndicationFilter in order to redefine ALL. In the future, this should
  * be extended instead of overwritten.
@@ -281,4 +286,20 @@ struct LinkCapacityEstimate {
      * Confidence level of uplink capacity estimate.
      */
     uint8_t uplinkConfidenceLevel;
+};
+
+struct AntennaConfig {
+    int32_t cellBandwidth;
+};
+
+struct PhysicalChannelConfig {
+    ServingCellType type;
+    AntennaConfig downlink;
+};
+
+struct RadioConfig {
+  /**
+   * The list of physical channel configurations.
+   */
+  vec<PhysicalChannelConfig> configs;
 };
