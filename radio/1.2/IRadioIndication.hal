@@ -53,4 +53,15 @@ interface IRadioIndication extends @1.1::IRadioIndication {
      * @param configs List of PhysicalChannelConfigs as defined in types.hal
      */
     oneway currentPhysicalChannelConfigs(RadioIndicationType type, vec<PhysicalChannelConfig> configs);
+
+   /**
+    * Indicates current cell information known to radio.
+    *
+    * Same information as returned by getCellInfoList(). The reporting criteria are set by
+    * IRadio.setCellInfoListRate().
+    *
+    * @param type Type of radio indication
+    * @param records Current cell information known to radio
+    */
+   oneway cellInfoList_1_2(RadioIndicationType type, vec<CellInfo> records);
 };
