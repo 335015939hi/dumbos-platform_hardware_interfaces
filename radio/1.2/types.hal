@@ -64,6 +64,13 @@ enum IncrementalResultsPeriodicityRange : int32_t {
     MAX = 10,
 };
 
+enum CellConnectionStatus : int32_t {
+    NONE,
+    CAMPED,
+    PRIMARY_SERVING,
+    SECONDARY_SERVING,
+};
+
 enum ServingCellType : int32_t {
     NON_SERVING = 0,
     PRIMARY,
@@ -202,6 +209,10 @@ struct CellIdentityGsm {
 struct CellIdentityLte {
     @1.0::CellIdentityLte base;
     CellIdentityOperatorNames operatorNames;
+    /**
+     * Cell bandwidth, in kHz.
+     */
+    int32_t bandwidth;
 };
 
 struct CellIdentityWcdma {
@@ -268,6 +279,10 @@ struct CellInfo {
      * Valid only if type = tdscdma and size = 1 else must be empty.
      */
     vec<CellInfoTdscdma> tdscdma;
+    /**
+     * Connection status for the cell.
+     */
+    CellConnectionStatus connectionStatus;
 };
 
 enum SlotState : int32_t {
