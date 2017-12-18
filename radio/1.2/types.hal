@@ -64,6 +64,21 @@ enum IncrementalResultsPeriodicityRange : int32_t {
     MAX = 10,
 };
 
+enum CellConnectionStatus : int32_t {
+    /**
+     * Cell is non serving.
+     */
+    NONE = 0,
+    /**
+     * UE has connection to cell for signalling and possibly data (3GPP 36.331, 25.331).
+     */
+    PRIMARY_SERVING,
+    /**
+     * UE has connection to cell for data (3GPP 36.331, 25.331).
+     */
+    SECONDARY_SERVING,
+};
+
 /*
  * Overwritten from @1.0::IndicationFilter in order to redefine ALL. In the future, this should
  * be extended instead of overwritten.
@@ -346,4 +361,22 @@ struct LinkCapacityEstimate {
      * perfect confidence. Calculation of this value is implementation-defined.
      */
     uint8_t uplinkConfidenceLevel;
+};
+
+struct PhysicalChannelConfig {
+    /**
+     * Connection status for cell. Valid values are PRIMARY_SERVING and SECONDARY_SERVING.
+     */
+    CellConnectionStatus status;
+    /**
+     * Cell bandwidth, in kHz.
+     */
+    int32_t cellBandwidthDownlink;
+};
+
+struct RadioConfig {
+    /**
+     * The list of physical channel configurations.
+     */
+    vec<PhysicalChannelConfig> configs;
 };
