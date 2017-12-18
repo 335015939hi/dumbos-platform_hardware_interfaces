@@ -22,6 +22,30 @@
       "revId": "6ab9ee0e7ed399f17b6258d9371bdd625b54d558",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38c74b15_e83b6feb",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1244217
+      },
+      "writtenOn": "2017-12-18T20:56:41Z",
+      "side": 1,
+      "message": "That\u0027s correct. It\u0027s effectively a complete redefinition of @1.0::IndicationFilter. The ALL field needed to be changed, so we couldn\u0027t just inherit from 1.0. Although @nharold and I also discussed an option where we just redefine a per-version ALL (e.g. ALL_1_2). The issue with that option is we would still have an incomplete ALL field, though.\n\n1.0 version here:\nhttps://cs.corp.google.com/android/hardware/interfaces/radio/1.0/types.hal?type\u003dcs\u0026l\u003d1117",
+      "parentUuid": "8cc82afc_8f947b7c",
+      "range": {
+        "startLine": 65,
+        "startChar": 5,
+        "endLine": 65,
+        "endChar": 21
+      },
+      "revId": "6ab9ee0e7ed399f17b6258d9371bdd625b54d558",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
