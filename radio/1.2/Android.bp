@@ -21,6 +21,7 @@ hidl_interface {
     types: [
         "AntennaConfig",
         "CardStatus",
+        "CellConnectionStatus",
         "CellIdentityCdma",
         "CellIdentityGsm",
         "CellIdentityLte",
