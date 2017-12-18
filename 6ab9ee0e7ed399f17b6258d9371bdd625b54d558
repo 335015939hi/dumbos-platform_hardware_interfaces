@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8cc82afc_8f947b7c",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1125174
+      },
+      "writtenOn": "2017-12-18T20:12:12Z",
+      "side": 1,
+      "message": "Is this basically the same as the existing \"RIL_UnsolicitedResponseFilter\". (Just documented explicitly in the HIDL interface with Lce Added?",
+      "range": {
+        "startLine": 65,
+        "startChar": 5,
+        "endLine": 65,
+        "endChar": 21
+      },
+      "revId": "6ab9ee0e7ed399f17b6258d9371bdd625b54d558",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
