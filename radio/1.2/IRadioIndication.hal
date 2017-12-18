@@ -53,4 +53,16 @@ interface IRadioIndication extends @1.1::IRadioIndication {
      * @param radioConfg RadioConfig information as defined in types.hal
      */
     oneway currentRadioConfig(RadioIndicationType type, RadioConfig radioConfig);
+
+   /**
+    * Indicates current cell information known to radio.
+    *
+    * Same information as returned by getCellInfoList().
+    *
+    * Note: Redefinition of @1.0::IRadioIndication.cellInfoList to accommodate @1.2::CellInfo type.
+    *
+    * @param type Type of radio indication
+    * @param records Current cell information known to radio
+    */
+   oneway cellInfoList_1_2(RadioIndicationType type, vec<CellInfo> records);
 };
