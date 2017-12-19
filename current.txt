@@ -791,6 +791,8 @@ bc3c8c233085fca3879dc74b490b9e5bc1063258470d3b4c12f7a74bf215cbbd android.hardwar
 86fb079a600b2301a752249dfbfc53983a795d752f11aabcb68315a189f6c9a2 android.hardware.radio@1.1::IRadio
 00366b2f88f9ec2458014972938270c8413d4ab303218e37bf3add2b8e6b829a android.hardware.radio@1.1::IRadioResponse
 2b5afef68e3e2ff1dab63e4f2ee57337ef2635ec812f49080cadfce966d33b52 android.hardware.radio@1.2::IRadio
+b40c13f9a9affc806c778c1f8c78e90d4acb50f1d6a6be185d933d7a04b91c5b android.hardware.sensors@1.0::ISensors
+432086950205f5876da85dbd42004b0d0d05b429b9494b4f76a4d888758c5bd8 android.hardware.sensors@1.0::types
 
 # HALs released in Android S
 59fa68432e374c8d3b7ec098a91a1e023a2c728110bb733237c551afa5929725 android.hardware.audio@7.0::IDevice
