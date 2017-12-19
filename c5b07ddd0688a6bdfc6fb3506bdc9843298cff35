@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "764eca72_68df636d",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2017-12-19T00:12:33Z",
+      "side": 1,
+      "message": "Will there need to be an additional request here that uses the 1.2 version of the Bitmap?",
+      "revId": "c5b07ddd0688a6bdfc6fb3506bdc9843298cff35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
