@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3b65966a_e3a3c2ed",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1244217
+      },
+      "writtenOn": "2017-12-19T00:04:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64b929d1_8cb47c7b",
+      "revId": "6ab9ee0e7ed399f17b6258d9371bdd625b54d558",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "745f5777_72727d36",
         "filename": "radio/1.2/IRadio.hal",
         "patchSetId": 5
@@ -30,6 +48,30 @@
       "writtenOn": "2017-12-18T21:56:10Z",
       "side": 1,
       "message": "for which to apply these thresholds. Could we use either -1 or INT_MAX? Should this become a bitmask where we just specify \"all\"?",
+      "range": {
+        "startLine": 51,
+        "startChar": 38,
+        "endLine": 51,
+        "endChar": 48
+      },
+      "revId": "6ab9ee0e7ed399f17b6258d9371bdd625b54d558",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0da8dc3b_f7fd3c0f",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1244217
+      },
+      "writtenOn": "2017-12-19T00:04:05Z",
+      "side": 1,
+      "message": "I\u0027d be in favor of making this a bitmask (which would also require us to create a new RAN enum).",
+      "parentUuid": "745f5777_72727d36",
       "range": {
         "startLine": 51,
         "startChar": 38,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "34b61982_47b8256f",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1244217
+      },
+      "writtenOn": "2017-12-19T00:04:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1ebbc4a_7268a6b0",
+      "range": {
+        "startLine": 62,
+        "startChar": 27,
+        "endLine": 62,
+        "endChar": 81
+      },
+      "revId": "6ab9ee0e7ed399f17b6258d9371bdd625b54d558",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "404ec563_3ca42247",
         "filename": "radio/1.2/IRadio.hal",
         "patchSetId": 5
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "f59c29c8_7fa57991",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1244217
+      },
+      "writtenOn": "2017-12-19T00:04:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "404ec563_3ca42247",
+      "range": {
+        "startLine": 63,
+        "startChar": 31,
+        "endLine": 64,
+        "endChar": 39
+      },
+      "revId": "6ab9ee0e7ed399f17b6258d9371bdd625b54d558",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f5117ff1_e8938b85",
         "filename": "radio/1.2/IRadio.hal",
         "patchSetId": 5
@@ -99,6 +189,30 @@
       "writtenOn": "2017-12-18T21:56:10Z",
       "side": 1,
       "message": "A vector of size zero disables the use of DL thresholds for reporting.",
+      "range": {
+        "startLine": 67,
+        "startChar": 37,
+        "endLine": 67,
+        "endChar": 97
+      },
+      "revId": "6ab9ee0e7ed399f17b6258d9371bdd625b54d558",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f37f5551_0bf2759f",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1244217
+      },
+      "writtenOn": "2017-12-19T00:04:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5117ff1_e8938b85",
       "range": {
         "startLine": 67,
         "startChar": 37,
@@ -182,6 +296,30 @@
     },
     {
       "key": {
+        "uuid": "947c2a3f_6440745c",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1244217
+      },
+      "writtenOn": "2017-12-19T00:04:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f87f38c5_a909989c",
+      "range": {
+        "startLine": 65,
+        "startChar": 5,
+        "endLine": 65,
+        "endChar": 21
+      },
+      "revId": "6ab9ee0e7ed399f17b6258d9371bdd625b54d558",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4151f4cb_a5cfcf13",
         "filename": "radio/1.2/types.hal",
         "patchSetId": 5
@@ -193,6 +331,30 @@
       "writtenOn": "2017-12-18T21:56:10Z",
       "side": 1,
       "message": "nit, ~0 is the logical bitmask you crave.",
+      "range": {
+        "startLine": 67,
+        "startChar": 10,
+        "endLine": 67,
+        "endChar": 13
+      },
+      "revId": "6ab9ee0e7ed399f17b6258d9371bdd625b54d558",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "136a5ee2_909e63c7",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1244217
+      },
+      "writtenOn": "2017-12-19T00:04:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4151f4cb_a5cfcf13",
       "range": {
         "startLine": 67,
         "startChar": 10,
