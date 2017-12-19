@@ -49,6 +49,52 @@
     },
     {
       "key": {
+        "uuid": "ce8f6cf4_dc302ba9",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-12-19T18:42:29Z",
+      "side": 1,
+      "message": "Lpa",
+      "range": {
+        "startLine": 99,
+        "startChar": 64,
+        "endLine": 99,
+        "endChar": 67
+      },
+      "revId": "63df4c41adaaf1fe4a7b6eede97b3eb46a01142d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "20089447_debe6d85",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-12-19T18:42:29Z",
+      "side": 1,
+      "message": "Lpa",
+      "range": {
+        "startLine": 101,
+        "startChar": 32,
+        "endLine": 101,
+        "endChar": 35
+      },
+      "revId": "63df4c41adaaf1fe4a7b6eede97b3eb46a01142d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "827c0887_e2de1e3c",
         "filename": "radio/1.2/IRadioIndication.hal",
         "patchSetId": 4
@@ -143,6 +189,29 @@
     },
     {
       "key": {
+        "uuid": "822747e6_4ffac7ed",
+        "filename": "radio/1.2/IRadioResponse.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-12-19T18:42:29Z",
+      "side": 1,
+      "message": "Lpa",
+      "range": {
+        "startLine": 94,
+        "startChar": 32,
+        "endLine": 94,
+        "endChar": 35
+      },
+      "revId": "63df4c41adaaf1fe4a7b6eede97b3eb46a01142d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "89347262_a948072e",
         "filename": "radio/1.2/types.hal",
         "patchSetId": 4
@@ -178,6 +247,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "89347262_a948072e",
+      "range": {
+        "startLine": 41,
+        "startChar": 4,
+        "endLine": 41,
+        "endChar": 22
+      },
+      "revId": "63df4c41adaaf1fe4a7b6eede97b3eb46a01142d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c7b1162b_99b4b697",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-12-19T18:42:29Z",
+      "side": 1,
+      "message": "Another patchset hasn\u0027t been uploaded yet..",
+      "parentUuid": "3c37e53d_41dbb06f",
       "range": {
         "startLine": 41,
         "startChar": 4,
@@ -237,6 +330,46 @@
     },
     {
       "key": {
+        "uuid": "0e25a3c7_5d61bd17",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-12-19T18:42:29Z",
+      "side": 1,
+      "message": "standard this refers to?",
+      "revId": "63df4c41adaaf1fe4a7b6eede97b3eb46a01142d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c559600_380898ff",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-12-19T18:42:29Z",
+      "side": 1,
+      "message": "but what is it?",
+      "range": {
+        "startLine": 247,
+        "startChar": 7,
+        "endLine": 247,
+        "endChar": 21
+      },
+      "revId": "63df4c41adaaf1fe4a7b6eede97b3eb46a01142d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5ba82d00_c7435bb4",
         "filename": "radio/1.2/types.hal",
         "patchSetId": 4
@@ -281,6 +414,29 @@
       "revId": "63df4c41adaaf1fe4a7b6eede97b3eb46a01142d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bb7ae601_6cea3563",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-12-19T18:42:29Z",
+      "side": 1,
+      "message": "This isn\u0027t commented",
+      "range": {
+        "startLine": 269,
+        "startChar": 4,
+        "endLine": 269,
+        "endChar": 17
+      },
+      "revId": "63df4c41adaaf1fe4a7b6eede97b3eb46a01142d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
