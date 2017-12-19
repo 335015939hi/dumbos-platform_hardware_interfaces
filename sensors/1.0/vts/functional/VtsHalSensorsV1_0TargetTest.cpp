@@ -888,7 +888,7 @@ TEST_F(SensorsHidlTest, SensorListValid) {
       });
 }
 
-// Test if sensor list returned is valid
+// Test if sensor hal can switch to different operation modes
 TEST_F(SensorsHidlTest, SetOperationMode) {
     std::vector<SensorInfo> sensorList = getSensorsList();
 
@@ -906,7 +906,7 @@ TEST_F(SensorsHidlTest, SetOperationMode) {
     ASSERT_EQ(Result::OK, S()->setOperationMode(OperationMode::NORMAL));
 }
 
-// Test if sensor list returned is valid
+// Test if sensor hal can receive injected events in loopback mode
 TEST_F(SensorsHidlTest, InjectSensorEventData) {
     std::vector<SensorInfo> sensorList = getSensorsList();
     std::vector<SensorInfo> sensorSupportInjection;
