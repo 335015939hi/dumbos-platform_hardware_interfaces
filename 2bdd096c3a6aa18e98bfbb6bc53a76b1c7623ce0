@@ -19,6 +19,29 @@
     },
     {
       "key": {
+        "uuid": "3e26f14f_7263e856",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2017-12-19T21:46:20Z",
+      "side": 1,
+      "message": "Even though it won\u0027t be used in the RadioConfig, if we are defining this... we should go ahead and make NonServingCell as the zeroth param. I have grand plans for it.",
+      "range": {
+        "startLine": 65,
+        "startChar": 5,
+        "endLine": 65,
+        "endChar": 20
+      },
+      "revId": "2bdd096c3a6aa18e98bfbb6bc53a76b1c7623ce0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1d5855a6_3a98ed9c",
         "filename": "radio/1.2/types.hal",
         "patchSetId": 4
@@ -62,6 +85,29 @@
       "revId": "2bdd096c3a6aa18e98bfbb6bc53a76b1c7623ce0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd92ffcf_d6a30bbd",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2017-12-19T21:46:20Z",
+      "side": 1,
+      "message": "We normally quote this in Mhz, but in order to use an integer (which we should), we should do it in Khz, which definitely bears documentation.",
+      "range": {
+        "startLine": 292,
+        "startChar": 12,
+        "endLine": 292,
+        "endChar": 25
+      },
+      "revId": "2bdd096c3a6aa18e98bfbb6bc53a76b1c7623ce0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
