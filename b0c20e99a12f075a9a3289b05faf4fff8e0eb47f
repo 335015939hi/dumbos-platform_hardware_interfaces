@@ -22,6 +22,30 @@
       "revId": "b0c20e99a12f075a9a3289b05faf4fff8e0eb47f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df44ef32_3180477b",
+        "filename": "light/2.0/default/Light.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-12-20T23:19:58Z",
+      "side": 1,
+      "message": "Yeah, actually it should be for every hal. Seems like this was never done in b/36520620.",
+      "parentUuid": "9fe0ebf5_47323cc8",
+      "range": {
+        "startLine": 48,
+        "startChar": 17,
+        "endLine": 48,
+        "endChar": 48
+      },
+      "revId": "b0c20e99a12f075a9a3289b05faf4fff8e0eb47f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
