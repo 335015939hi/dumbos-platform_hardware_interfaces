@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b4592c47_20dc3912",
+        "filename": "health/1.0/default/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-12-20T23:47:50Z",
+      "side": 0,
+      "message": "btw, if this patch were to ever be submitted, we couldn\u0027t delete all of these. A device can either:\n- include all of these health/etc... binaries\nOR\n- include a combined service",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 27
+      },
+      "revId": "8e0f8836d92fa92b67f516b9244d052ef61f2b23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

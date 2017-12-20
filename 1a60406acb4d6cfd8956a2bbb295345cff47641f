@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee0388ec_2710329d",
+        "filename": "combinedhals/default/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-12-20T23:47:50Z",
+      "side": 1,
+      "message": "if this were to ever be submitted, it should be Android.bp",
+      "revId": "1a60406acb4d6cfd8956a2bbb295345cff47641f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f058f47f_e3e48ead",
+        "filename": "combinedhals/default/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-12-20T23:47:50Z",
+      "side": 1,
+      "message": "delete",
+      "range": {
+        "startLine": 14,
+        "startChar": 4,
+        "endLine": 14,
+        "endChar": 9
+      },
+      "revId": "1a60406acb4d6cfd8956a2bbb295345cff47641f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
