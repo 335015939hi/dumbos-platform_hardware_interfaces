@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "07755f93_8ec3fdc2",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1121198
+      },
+      "writtenOn": "2017-12-20T22:22:08Z",
+      "side": 1,
+      "message": "can you add a comment explaining what these mean?",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 2
+      },
+      "revId": "391a336e759e7d9920c727bc8007e5f745c63b7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cfbfadb5_ba75593d",
         "filename": "radio/1.2/types.hal",
         "patchSetId": 1
@@ -13,6 +36,30 @@
       "writtenOn": "2017-12-20T21:47:01Z",
       "side": 1,
       "message": "This adds a field to call, I\u0027m not sure if that means getCurrentCallsResponse needs to be redefined though",
+      "range": {
+        "startLine": 241,
+        "startChar": 0,
+        "endLine": 241,
+        "endChar": 30
+      },
+      "revId": "391a336e759e7d9920c727bc8007e5f745c63b7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f061b699_fd6080c7",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1121198
+      },
+      "writtenOn": "2017-12-20T22:22:08Z",
+      "side": 1,
+      "message": "sanket points out that setSimCardPower() does something similar so this is probably fine",
+      "parentUuid": "cfbfadb5_ba75593d",
       "range": {
         "startLine": 241,
         "startChar": 0,
