@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9fe0ebf5_47323cc8",
+        "filename": "light/2.0/default/Light.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2017-12-20T23:11:48Z",
+      "side": 1,
+      "message": "I assume dumpstate will be calling this function, in which case hal_light_default selinux domain will need access to dumpstate\u0027s fds.",
+      "range": {
+        "startLine": 48,
+        "startChar": 17,
+        "endLine": 48,
+        "endChar": 48
+      },
+      "revId": "b0c20e99a12f075a9a3289b05faf4fff8e0eb47f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
