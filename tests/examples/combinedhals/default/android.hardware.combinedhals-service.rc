@@ -1,0 +1,4 @@
+service combined-hals /vendor/bin/hw/android.hardware.combinedhals-service
+    class hal
+    user system
+    group system
