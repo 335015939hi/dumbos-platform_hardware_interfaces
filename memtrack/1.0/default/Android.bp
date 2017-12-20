@@ -31,23 +31,3 @@ cc_library_shared {
 
 }
 
-cc_binary {
-    relative_install_path: "hw",
-    defaults: ["hidl_defaults"],
-    proprietary: true,
-    name: "android.hardware.memtrack@1.0-service",
-    init_rc: ["android.hardware.memtrack@1.0-service.rc"],
-    srcs: ["service.cpp"],
-
-    shared_libs: [
-        "liblog",
-        "libbase",
-        "libdl",
-        "libutils",
-        "libhardware",
-        "libhidlbase",
-        "libhidltransport",
-        "android.hardware.memtrack@1.0",
-    ],
-
-}
