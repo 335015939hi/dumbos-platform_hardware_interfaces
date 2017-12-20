@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "15cf98ee_0df7f7d9",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-12-20T22:09:34Z",
+      "side": 1,
+      "message": "this has been added since I reviewed. s/will/must/",
+      "range": {
+        "startLine": 70,
+        "startChar": 25,
+        "endLine": 70,
+        "endChar": 29
+      },
+      "revId": "b9f43d5cd2bd4f04cebbf070cd14a00130a41eb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8119bd83_e360d3cd",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2017-12-20T22:09:34Z",
+      "side": 1,
+      "message": "strings can\u0027t be null in hidl (same below several times)",
+      "revId": "b9f43d5cd2bd4f04cebbf070cd14a00130a41eb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
