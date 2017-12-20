@@ -12,22 +12,24 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-cc_library_static {
-    name: "android.hardware.health@1.0-convert",
-    vendor_available: true,
-    srcs: ["convert.cpp"],
-    include_dirs: [
-        "system/core/base/include",
-    ],
-    header_libs: ["libhealthd_headers"],
-    export_header_lib_headers: ["libhealthd_headers"],
-    export_include_dirs: ["include"],
+cc_binary {
+    name: "android.hardware.combinedhals-service",
+    defaults: ["hidl_defaults"],
+    relative_install_path: "hw",
+    proprietary: true,
+    init_rc: ["android.hardware.combinedhals-service.rc"],
+    srcs: ["service.cpp"],
+
     shared_libs: [
-        "libcutils",
+        "android.hardware.light@2.0",
+        "android.hardware.vibrator@1.0",
+        "android.hardware.health@1.0",
+        "android.hardware.memtrack@1.0",
+        "libhardware",
         "libhidlbase",
         "libhidltransport",
         "libutils",
-        "android.hardware.health@1.0",
+        "liblog",
     ],
 
 }
