@@ -46,6 +46,30 @@
       "revId": "b0c20e99a12f075a9a3289b05faf4fff8e0eb47f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "99a0d61e_55064ba8",
+        "filename": "light/2.0/default/Light.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2017-12-20T23:36:33Z",
+      "side": 1,
+      "message": "This should be ok on userdebug builds, because of:\nhttps://cs.corp.google.com/android/system/sepolicy/public/domain.te?l\u003d40",
+      "parentUuid": "df44ef32_3180477b",
+      "range": {
+        "startLine": 48,
+        "startChar": 17,
+        "endLine": 48,
+        "endChar": 48
+      },
+      "revId": "b0c20e99a12f075a9a3289b05faf4fff8e0eb47f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
