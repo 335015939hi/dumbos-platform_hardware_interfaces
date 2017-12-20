@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "67f3f8b7_c9f87120",
+        "filename": "camera/provider/2.4/default/CameraProvider.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2017-12-20T18:11:02Z",
+      "side": 1,
+      "message": "Add {} to both branch (sorry I violate my own coding style...)\n\nAnd maybe we should start checking status \u003d\u003d PRESENT/ENUMERATING in this branch.",
+      "revId": "9f34a1eaa0d0adf039d5b6f2b2004a493040e1db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
