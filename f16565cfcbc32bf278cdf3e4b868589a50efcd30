@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "105fd794_3aba54f9",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-12-21T19:11:52Z",
+      "side": 1,
+      "message": "must. And may be change this to \"Each logical slot must be mapped to a physical slot.\"",
+      "range": {
+        "startLine": 70,
+        "startChar": 25,
+        "endLine": 70,
+        "endChar": 29
+      },
+      "revId": "f16565cfcbc32bf278cdf3e4b868589a50efcd30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
