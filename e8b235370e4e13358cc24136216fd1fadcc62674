@@ -22,6 +22,30 @@
       "revId": "e8b235370e4e13358cc24136216fd1fadcc62674",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cdc448df_2f4cdfd3",
+        "filename": "secure_element/1.0/ISecureElement.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1041663
+      },
+      "writtenOn": "2017-12-21T18:02:12Z",
+      "side": 1,
+      "message": "HAL implementation should be keeping track of all the channels that are currently opened, when the last channel is closed, eSE can put the chip on low power mode or turn it off as per hardware design.",
+      "parentUuid": "dc20014f_2ebf516f",
+      "range": {
+        "startLine": 34,
+        "startChar": 4,
+        "endLine": 35,
+        "endChar": 47
+      },
+      "revId": "e8b235370e4e13358cc24136216fd1fadcc62674",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
