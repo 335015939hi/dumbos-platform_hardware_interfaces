@@ -36,6 +36,13 @@ android::sp<android::hardware::wifi::V1_0::IWifiP2pIface> getWifiP2pIface();
 android::sp<android::hardware::wifi::V1_0::IWifiStaIface> getWifiStaIface();
 android::sp<android::hardware::wifi::V1_0::IWifiRttController>
 getWifiRttController();
+// Check to see what chip modes the current device's wifi_chip supports.
+// Tests should check the modes they are testing before they run tests.
+bool getAvailableModes(
+    android::hardware::wifi::V1_0::IWifiChip::ChipMode chip_mode);
+// Returns the APChipMode.
+android::hardware::wifi::V1_0::IWifiChip::ChipMode createAPChipMode();
+
 // Configure the chip in a mode to support the creation of the provided
 // iface type.
 bool configureChipToSupportIfaceType(

@@ -35,6 +35,10 @@ using ::android::sp;
 class WifiApIfaceHidlTest : public ::testing::VtsHalHidlTargetTestBase {
    public:
     virtual void SetUp() override {
+        // Don't run test if the current wifi chip does not support AP mode.
+        if (!getAvailableModes(createAPChipMode())) {
+            return;
+        }
         wifi_ap_iface_ = getWifiApIface();
         ASSERT_NE(nullptr, wifi_ap_iface_.get());
     }
@@ -51,6 +55,10 @@ class WifiApIfaceHidlTest : public ::testing::VtsHalHidlTargetTestBase {
  * successfully created.
  */
 TEST(WifiApIfaceHidlTestNoFixture, Create) {
+    // Don't run test if the current wifi chip does not support AP mode.
+    if (!getAvailableModes(createAPChipMode())) {
+        return;
+    }
     EXPECT_NE(nullptr, getWifiApIface().get());
     stopWifi();
 }
@@ -60,6 +68,10 @@ TEST(WifiApIfaceHidlTestNoFixture, Create) {
  * Ensures that the correct interface type is returned for AP interface.
  */
 TEST_F(WifiApIfaceHidlTest, GetType) {
+    // Don't run test if the current wifi chip does not support AP mode.
+    if (!getAvailableModes(createAPChipMode())) {
+        return;
+    }
     const auto& status_and_type = HIDL_INVOKE(wifi_ap_iface_, getType);
     EXPECT_EQ(WifiStatusCode::SUCCESS, status_and_type.first.code);
     EXPECT_EQ(IfaceType::AP, status_and_type.second);
@@ -71,6 +83,10 @@ TEST_F(WifiApIfaceHidlTest, GetType) {
  * status code.
  */
 TEST_F(WifiApIfaceHidlTest, SetCountryCode) {
+    // Don't run test if the current wifi chip does not support AP mode.
+    if (!getAvailableModes(createAPChipMode())) {
+        return;
+    }
     const android::hardware::hidl_array<int8_t, 2> kCountryCode{
         std::array<int8_t, 2>{{0x55, 0x53}}};
     EXPECT_EQ(WifiStatusCode::SUCCESS,
@@ -82,6 +98,10 @@ TEST_F(WifiApIfaceHidlTest, SetCountryCode) {
  * Ensures that we can retrieve valid frequencies for 2.4 GHz band.
  */
 TEST_F(WifiApIfaceHidlTest, GetValidFrequenciesForBand) {
+    // Don't run test if the current wifi chip does not support AP mode.
+    if (!getAvailableModes(createAPChipMode())) {
+        return;
+    }
     const auto& status_and_freqs = HIDL_INVOKE(
         wifi_ap_iface_, getValidFrequenciesForBand, WifiBand::BAND_24GHZ);
     EXPECT_EQ(WifiStatusCode::SUCCESS, status_and_freqs.first.code);

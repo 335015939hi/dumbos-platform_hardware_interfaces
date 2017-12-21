@@ -38,6 +38,7 @@ using ::android::hardware::hidl_vec;
 namespace {
 constexpr uint32_t kHalStartRetryMaxCount = 5;
 constexpr uint32_t kHalStartRetryIntervalInMs = 2;
+constexpr ChipModeId kApChipModeId = 1;
 
 bool findAnyModeSupportingIfaceType(
     IfaceType desired_type, const std::vector<IWifiChip::ChipMode>& modes,
@@ -207,4 +208,29 @@ void stopWifi() {
     sp<IWifi> wifi = getWifi();
     ASSERT_NE(wifi, nullptr);
     ASSERT_EQ(HIDL_INVOKE(wifi, stop).code, WifiStatusCode::SUCCESS);
+}
+
+IWifiChip::ChipMode createAPChipMode() {
+    // AP mode iface combinations.
+    const IWifiChip::ChipIfaceCombinationLimit ap_chip_iface_combination_limit =
+        {{IfaceType::AP}, 1};
+    const IWifiChip::ChipIfaceCombination ap_chip_iface_combination = {
+        {ap_chip_iface_combination_limit}};
+    const IWifiChip::ChipMode ap_chip_mode = {kApChipModeId,
+                                              {ap_chip_iface_combination}};
+    return ap_chip_mode;
+}
+
+// Check to make sure the wifi_chip supports the given mode before
+// performing any tests.
+bool getAvailableModes(IWifiChip::ChipMode chip_mode) {
+    const auto& status_and_modes =
+        HIDL_INVOKE(getWifiChip(), getAvailableModes);
+    EXPECT_EQ(WifiStatusCode::SUCCESS, status_and_modes.first.code);
+    if (std::find(status_and_modes.second.begin(),
+                  status_and_modes.second.end(),
+                  chip_mode) != status_and_modes.second.end()) {
+        return true;
+    }
+    return false;
 }
