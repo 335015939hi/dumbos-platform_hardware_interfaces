@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e87cc98_07977fbc",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2017-12-21T22:34:38Z",
+      "side": 1,
+      "message": "I think smoreland is going to point out that you don\u0027t need the prefix:\n\nCellConnectionStatus::CAMPED is solid.",
+      "range": {
+        "startLine": 67,
+        "startChar": 4,
+        "endLine": 67,
+        "endChar": 15
+      },
+      "revId": "1d402f568f3ba23d1f52cc8808cc7be51d451487",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
