@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "17bd2eae_d3ec76c0",
+        "filename": "secure_element/1.0/ISecureElement.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1041663
+      },
+      "writtenOn": "2017-12-22T17:32:03Z",
+      "side": 1,
+      "message": "Yes. HAL implementation can register for a death recipient for the callback and when the service dies and can clean up all the channels.\n\nYou can take a look at \"hardware/interfaces/nfc/1.0/default/Nfc.h\" and \"hardware/interfaces/nfc/1.0/default/Nfc.cpp\" for an example.\n\n virtual void serviceDied(uint64_t /*cookie*/, const wp\u003c::android::hidl::base::V1_0::IBase\u003e\u0026 /*who*/) {}\nmCallback-\u003elinkToDeath(this, 0 /*cookie*/)",
+      "parentUuid": "54b5b3d6_a4975864",
+      "range": {
+        "startLine": 34,
+        "startChar": 4,
+        "endLine": 35,
+        "endChar": 47
+      },
+      "revId": "e8b235370e4e13358cc24136216fd1fadcc62674",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8a7bc66f_a914b782",
         "filename": "secure_element/1.0/ISecureElement.hal",
         "patchSetId": 4
@@ -84,6 +108,30 @@
       "writtenOn": "2017-12-22T09:18:37Z",
       "side": 1,
       "message": "How can we differentiate the following error cases (ID:5a vs ID:8) ?\n\n    Open Mobile API Test Specification for Transport API\n    6.4.7 Method: Channel openLogicalChannel(byte[] aid)\n\n    ID:5a - Open a logical channel, when no new logical channel is available,\n            device manages maximum number of logical channels\n            (API must return null - no exception is expected)\n\n    ID:8  - Communication problem with Secure Element\n            (API must generate IOError - throwing IOException)\n\nIt looks that CHANNEL_NOT_AVAILABLE is used for ID:5a, but IOException is never thrown in Terminal.openLogicalChannel().\nThe API must thrown IOException if the terminal could not receive SW from a SIM card though the terminal attempted to send MANAGE CHANNEL command to the card.\nMaybe the error handling is not enough.\n\n    public Channel openLogicalChannel(\n            SecureElementSession session, byte[] aid, byte p2,\n            ISecureElementCallback callback, String packageName,\n            int pid) throws Exception {\n    ...\n        if (status[0] \u003d\u003d SecureElementStatus.CHANNEL_NOT_AVAILABLE) {\n            return null;\n        } else if (status[0] \u003d\u003d SecureElementStatus.UNSUPPORTED_OPERATION) {\n            throw new UnsupportedOperationException(\"OpenBasicChannel() failed\");\n        }\n        if (responseArray[0].channelNumber \u003d\u003d 0) {\n            return null;\n        }",
+      "range": {
+        "startLine": 73,
+        "startChar": 43,
+        "endLine": 73,
+        "endChar": 64
+      },
+      "revId": "e8b235370e4e13358cc24136216fd1fadcc62674",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08ee3046_64168a8a",
+        "filename": "secure_element/1.0/ISecureElement.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1041663
+      },
+      "writtenOn": "2017-12-22T17:32:03Z",
+      "side": 1,
+      "message": "Agreed. Will add another error for IO Errors. Thanks!",
+      "parentUuid": "8a7bc66f_a914b782",
       "range": {
         "startLine": 73,
         "startChar": 43,
