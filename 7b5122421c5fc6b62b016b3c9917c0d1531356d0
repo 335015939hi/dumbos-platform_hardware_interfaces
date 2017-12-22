@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cff25d54_be3410d1",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2017-12-22T18:20:13Z",
+      "side": 1,
+      "message": "Line wrapping needs to be fixed here as well.",
+      "revId": "7b5122421c5fc6b62b016b3c9917c0d1531356d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
