@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "603e3b2e_6d06baf1",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1237921
+      },
+      "writtenOn": "2017-12-22T12:40:34Z",
+      "side": 1,
+      "message": "Yes, I added comments. Could you check the latest patchset?",
+      "parentUuid": "07755f93_8ec3fdc2",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 2
+      },
+      "revId": "391a336e759e7d9920c727bc8007e5f745c63b7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cfbfadb5_ba75593d",
         "filename": "radio/1.2/types.hal",
         "patchSetId": 1
