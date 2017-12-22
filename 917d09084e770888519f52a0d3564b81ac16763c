@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c0c5f057_306cf539",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1148298
+      },
+      "writtenOn": "2017-12-22T18:59:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70ef71b2_e8321cfc",
+      "range": {
+        "startLine": 76,
+        "startChar": 12,
+        "endLine": 84,
+        "endChar": 35
+      },
+      "revId": "917d09084e770888519f52a0d3564b81ac16763c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b48239ad_101e8756",
         "filename": "radio/1.2/IRadio.hal",
         "patchSetId": 13
@@ -36,6 +60,30 @@
       "writtenOn": "2017-12-22T18:31:33Z",
       "side": 1,
       "message": "the recommendation is four spaces before each line, btw (in Google3 for Java and in the hidl style guide)",
+      "range": {
+        "startLine": 101,
+        "startChar": 7,
+        "endLine": 102,
+        "endChar": 9
+      },
+      "revId": "917d09084e770888519f52a0d3564b81ac16763c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "611fb99d_09d96f09",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1148298
+      },
+      "writtenOn": "2017-12-22T18:59:29Z",
+      "side": 1,
+      "message": "Discussed offline, we all agree to keep the existing style like below:\n\n@param foo ....\n       next line starts here",
+      "parentUuid": "b48239ad_101e8756",
       "range": {
         "startLine": 101,
         "startChar": 7,
