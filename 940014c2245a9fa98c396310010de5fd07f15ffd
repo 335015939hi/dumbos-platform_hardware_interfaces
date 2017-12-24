@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "61f3ea24_d509c4e8",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1125174
+      },
+      "writtenOn": "2017-12-24T19:15:42Z",
+      "side": 1,
+      "message": "Please add the expected modem/RIL behavior when the reporting criteria is not set for a particular RAT. Can modem/RIL use its own thresholds and hysteresis.",
+      "range": {
+        "startLine": 56,
+        "startChar": 7,
+        "endLine": 67,
+        "endChar": 74
+      },
+      "revId": "940014c2245a9fa98c396310010de5fd07f15ffd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3211286d_4234dedb",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1125174
+      },
+      "writtenOn": "2017-12-24T19:15:42Z",
+      "side": 1,
+      "message": "Good to mention the expected behavior if any when reporting criteria is set to all 0s or if this API is never called.",
+      "range": {
+        "startLine": 73,
+        "startChar": 7,
+        "endLine": 73,
+        "endChar": 49
+      },
+      "revId": "940014c2245a9fa98c396310010de5fd07f15ffd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "595b2081_8ea9a9a3",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1125174
+      },
+      "writtenOn": "2017-12-24T19:15:42Z",
+      "side": 1,
+      "message": "The fields are missing here. Can you add a reference to the place where these fields are listed. Or list them out here ?",
+      "range": {
+        "startLine": 84,
+        "startChar": 23,
+        "endLine": 84,
+        "endChar": 39
+      },
+      "revId": "940014c2245a9fa98c396310010de5fd07f15ffd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "122423f5_b4a57803",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1125174
+      },
+      "writtenOn": "2017-12-24T19:15:42Z",
+      "side": 1,
+      "message": "We could rephrase this comment a lit to make it more readable. Wonder if something like this below is better.\n\n\"When this bit is set, modem must send the data call list changed indication\nIRadioIndication.dataCallListChanged() whenever any field in ITypes.SetupDataCallResult or \u0027active\u0027 field (for data dormancy) changes. Otherwise modem will suppress the indication when the only changed field is \u0027active\u0027 (for data dormancy)\"",
+      "range": {
+        "startLine": 92,
+        "startChar": 28,
+        "endLine": 93,
+        "endChar": 80
+      },
+      "revId": "940014c2245a9fa98c396310010de5fd07f15ffd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
