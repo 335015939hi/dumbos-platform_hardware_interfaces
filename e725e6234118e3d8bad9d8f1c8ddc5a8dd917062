@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "68eda0e3_a15b5b23",
+        "filename": "secure_element/1.0/ISecureElement.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1163305
+      },
+      "writtenOn": "2017-12-25T03:24:14Z",
+      "side": 1,
+      "message": "Thanks for adding SecureElementStatus::IOERROR to openBasicChannel() and openLogicalChannel().\nHow should we handle IOError happening during trnsmit()?\n\n    IOError - if there is a communication problem to the reader or the SE.\n\nMODEM should be unable to receive any status word from the card while a communication problem is happening.\nWe can introduce a kind of pseudo status word like SW 6F00 to indicate communication problem,\nbut it might be better to add a particular status response to transmit(), too.\n\n    +    *         status SecureElementStatus::SUCCESS on success,\n    +    *                SecureElementStatus::IOERROR if there was an error\n    +    *                communicating with the Secure Element.\n         */\n    -    transmit(vec\u003cuint8_t\u003e data) generates (vec\u003cuint8_t\u003e response);\n    +    transmit(vec\u003cuint8_t\u003e data) generates (vec\u003cuint8_t\u003e response, SecureElementStatus status);",
+      "range": {
+        "startLine": 62,
+        "startChar": 7,
+        "endLine": 62,
+        "endChar": 14
+      },
+      "revId": "e725e6234118e3d8bad9d8f1c8ddc5a8dd917062",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
