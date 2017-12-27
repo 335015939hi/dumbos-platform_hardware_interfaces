@@ -22,6 +22,30 @@
       "revId": "e725e6234118e3d8bad9d8f1c8ddc5a8dd917062",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "53f9c976_ea21f657",
+        "filename": "secure_element/1.0/ISecureElement.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1041663
+      },
+      "writtenOn": "2017-12-27T18:46:49Z",
+      "side": 1,
+      "message": "In case there was an error while communicating with the secure element, an empty vector can be returned. This can be checked by the Secure Element service. Since there aren\u0027t different behaviors with different kinds of error, I don\u0027t see the need to add another parameter for the status. Let me know if I am missing something. Thanks!",
+      "parentUuid": "68eda0e3_a15b5b23",
+      "range": {
+        "startLine": 62,
+        "startChar": 7,
+        "endLine": 62,
+        "endChar": 14
+      },
+      "revId": "e725e6234118e3d8bad9d8f1c8ddc5a8dd917062",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

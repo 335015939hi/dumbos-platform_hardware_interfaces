@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "64dea5d7_787b5a3f",
+        "filename": "secure_element/1.0/ISecureElement.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1041663
+      },
+      "writtenOn": "2017-12-27T18:46:49Z",
+      "side": 1,
+      "message": "Not only the default implementation. I would recommend all the implementations of the HAL to implement the death recipient, so that stray channels can be cleaned when the service dies.",
+      "parentUuid": "0af5d5da_99ace893",
+      "range": {
+        "startLine": 34,
+        "startChar": 4,
+        "endLine": 35,
+        "endChar": 47
+      },
+      "revId": "e8b235370e4e13358cc24136216fd1fadcc62674",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8a7bc66f_a914b782",
         "filename": "secure_element/1.0/ISecureElement.hal",
         "patchSetId": 4
