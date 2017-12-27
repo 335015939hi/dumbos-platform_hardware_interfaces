@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "128ca090_add75697",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_test_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2017-12-27T18:29:40Z",
+      "side": 1,
+      "message": "This is implementation defined (not specified in the HIDL interface). There is no guarantee that the AP mode ID will be 1 in all implementations..",
+      "range": {
+        "startLine": 41,
+        "startChar": 21,
+        "endLine": 41,
+        "endChar": 39
+      },
+      "revId": "0ac8b2d13f9b5a5c01dbdb8a1b1cb9cc99876337",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
