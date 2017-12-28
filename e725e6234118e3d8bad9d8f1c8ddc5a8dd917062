@@ -46,6 +46,30 @@
       "revId": "e725e6234118e3d8bad9d8f1c8ddc5a8dd917062",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c0c6e918_68951377",
+        "filename": "secure_element/1.0/ISecureElement.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1163305
+      },
+      "writtenOn": "2017-12-28T00:00:14Z",
+      "side": 1,
+      "message": "Thank you for updating the Javadoc comment to mention what empty vector means. I also think that it is enough, so I have no further comment on the patch set 6 for now.",
+      "parentUuid": "53f9c976_ea21f657",
+      "range": {
+        "startLine": 62,
+        "startChar": 7,
+        "endLine": 62,
+        "endChar": 14
+      },
+      "revId": "e725e6234118e3d8bad9d8f1c8ddc5a8dd917062",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
