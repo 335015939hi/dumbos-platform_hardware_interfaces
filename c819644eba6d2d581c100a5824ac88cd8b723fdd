@@ -46,6 +46,30 @@
       "revId": "c819644eba6d2d581c100a5824ac88cd8b723fdd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a0469be6_17ee12f6",
+        "filename": "radio/1.2/IRadioIndication.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2018-01-02T18:35:21Z",
+      "side": 1,
+      "message": "If the cellinfo structure is changed, is the 1.0 cellInfoList also reflected?",
+      "parentUuid": "857d835e_ba9d216e",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 60
+      },
+      "revId": "c819644eba6d2d581c100a5824ac88cd8b723fdd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
