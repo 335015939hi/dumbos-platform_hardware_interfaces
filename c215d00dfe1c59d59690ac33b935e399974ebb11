@@ -22,6 +22,30 @@
       "revId": "c215d00dfe1c59d59690ac33b935e399974ebb11",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06bef17a_1ee7c85a",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-01-02T17:58:21Z",
+      "side": 1,
+      "message": "there are *supposed* to be more fields in it, but they won\u0027t be supported in the next version; we could technically move it to the upper struct (PhyChanConfig) and then break it out again in a future release, but this more clearly conveys that the AntennaConfig is a bundle of things which incidentally only has 1 value. Another alternative is that we could go ahead and include all the other fields and then simply make them optional. That way, vendors who choose to implement can go ahead and knock it all out at once.",
+      "parentUuid": "b76c55a3_3234866e",
+      "range": {
+        "startLine": 292,
+        "startChar": 0,
+        "endLine": 297,
+        "endChar": 2
+      },
+      "revId": "c215d00dfe1c59d59690ac33b935e399974ebb11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
