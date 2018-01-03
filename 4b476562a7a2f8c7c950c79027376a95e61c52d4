@@ -22,6 +22,30 @@
       "revId": "4b476562a7a2f8c7c950c79027376a95e61c52d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "007833c3_2d98c868",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-01-03T23:02:41Z",
+      "side": 1,
+      "message": "Yes, which is how we determine the total aggregate bandwidth, ex 20+10+10.",
+      "parentUuid": "775e1caa_27457dcd",
+      "range": {
+        "startLine": 360,
+        "startChar": 0,
+        "endLine": 360,
+        "endChar": 34
+      },
+      "revId": "4b476562a7a2f8c7c950c79027376a95e61c52d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
