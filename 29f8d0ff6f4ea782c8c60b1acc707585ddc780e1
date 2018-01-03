@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0a46db86_d50838f5",
+        "filename": "bluetooth/1.0/vts/functional/VtsHalBluetoothV1_0TargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1254657
+      },
+      "writtenOn": "2018-01-03T07:58:23Z",
+      "side": 1,
+      "message": "I have tested on The Pixel (sailfish) and the LoopbackModeSinglePackets test fail sometimes.\n\nbluetooth_hidl_hal_test: setBufferSizes: ACL max 1024 num 7 SCO max 60 num 8\nbluetooth_hidl_hal_test: Connect complete type \u003d 1 handle \u003d 1\nbluetooth_hidl_hal_test: Connect complete type \u003d 0 handle \u003d 2\nbluetooth_hidl_hal_test: Only comparing 11 bytes\nbluetooth_hidl_hal_test: sendAndCheckHCI 106.3 KB/s (502 bytes in 0.005s)\nbluetooth_hidl_hal_test: sendAndCheckACL 238.1 KB/s (2048 bytes in 0.008s)\nbluetooth_hidl_hal_test: TestBody: packets_sent (1) !\u003d completed_packets (29003)",
+      "parentUuid": "3026a017_2294fff4",
+      "range": {
+        "startLine": 287,
+        "startChar": 0,
+        "endLine": 303,
+        "endChar": 1
+      },
+      "revId": "29f8d0ff6f4ea782c8c60b1acc707585ddc780e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "399af20d_9e18843b",
         "filename": "bluetooth/1.0/vts/functional/VtsHalBluetoothV1_0TargetTest.cpp",
         "patchSetId": 4
