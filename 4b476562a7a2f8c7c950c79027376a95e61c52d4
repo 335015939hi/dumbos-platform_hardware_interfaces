@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "775e1caa_27457dcd",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1132193
+      },
+      "writtenOn": "2018-01-03T22:59:27Z",
+      "side": 1,
+      "message": "Do we need the id for secondary cell?",
+      "range": {
+        "startLine": 360,
+        "startChar": 0,
+        "endLine": 360,
+        "endChar": 34
+      },
+      "revId": "4b476562a7a2f8c7c950c79027376a95e61c52d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
