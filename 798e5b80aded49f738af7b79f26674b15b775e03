@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "e7a3670a_f8962ca7",
+        "filename": "secure_element/1.0/ISecureElement.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1073593
+      },
+      "writtenOn": "2018-01-03T17:39:07Z",
+      "side": 1,
+      "message": "Since this is a blocking call,and the applet and/or vendor-specific initialization may take few secs. It would be good to return early and report the init completion later.",
+      "range": {
+        "startLine": 34,
+        "startChar": 4,
+        "endLine": 36,
+        "endChar": 0
+      },
+      "revId": "798e5b80aded49f738af7b79f26674b15b775e03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c9457582_79b739d7",
         "filename": "secure_element/1.0/types.hal",
         "patchSetId": 6
