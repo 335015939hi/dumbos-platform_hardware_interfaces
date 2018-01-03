@@ -46,6 +46,30 @@
       "revId": "c215d00dfe1c59d59690ac33b935e399974ebb11",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9b61ca4_7afdf12b",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1244217
+      },
+      "writtenOn": "2018-01-03T21:08:07Z",
+      "side": 1,
+      "message": "removed AntennaConfig and pushed the bandwidth up into physicalchannelconfig.",
+      "parentUuid": "06bef17a_1ee7c85a",
+      "range": {
+        "startLine": 292,
+        "startChar": 0,
+        "endLine": 297,
+        "endChar": 2
+      },
+      "revId": "c215d00dfe1c59d59690ac33b935e399974ebb11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
