@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "a85aa9ae_2ce2735f",
+        "filename": "bluetooth/1.0/vts/functional/VtsHalBluetoothV1_0TargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1254657
+      },
+      "writtenOn": "2018-01-03T19:42:02Z",
+      "side": 1,
+      "message": "Yes, this is exactly what I see too. As I mentioned it seems like we just pass through the WaitForCallback instantly, without waiting for the event. I suspect this to be the issue, but I can not see why this happens.",
+      "parentUuid": "ef10a03f_979b6bf5",
+      "range": {
+        "startLine": 287,
+        "startChar": 0,
+        "endLine": 303,
+        "endChar": 1
+      },
+      "revId": "29f8d0ff6f4ea782c8c60b1acc707585ddc780e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "399af20d_9e18843b",
         "filename": "bluetooth/1.0/vts/functional/VtsHalBluetoothV1_0TargetTest.cpp",
         "patchSetId": 4
@@ -108,6 +132,30 @@
       "side": 1,
       "message": "We always expect an event here, but when we don\u0027t get one, we want to stop the test here.  It makes it easier to tell what the real failure is.  If we don\u0027t bail out here, we get messages about popping from an empty queue, and then lots of miscompares.",
       "parentUuid": "399af20d_9e18843b",
+      "range": {
+        "startLine": 376,
+        "startChar": 4,
+        "endLine": 376,
+        "endChar": 40
+      },
+      "revId": "29f8d0ff6f4ea782c8c60b1acc707585ddc780e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc4be2c8_01e3ac4b",
+        "filename": "bluetooth/1.0/vts/functional/VtsHalBluetoothV1_0TargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1254657
+      },
+      "writtenOn": "2018-01-03T19:42:02Z",
+      "side": 1,
+      "message": "OK, good. I guess the test result will be fail when just returning then.",
+      "parentUuid": "bcbe987a_c4217fc2",
       "range": {
         "startLine": 376,
         "startChar": 4,
