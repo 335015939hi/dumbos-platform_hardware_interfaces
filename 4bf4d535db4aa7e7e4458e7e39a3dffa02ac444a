@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0fcc5d02_5b448c77",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1125174
+      },
+      "writtenOn": "2018-01-03T23:33:58Z",
+      "side": 1,
+      "message": "Can you document the difference between CAMPED and PRIMARY_SERVING or SECONDARY_SERVING?\n\nCan a PRIMARY_SERVING cell be CAMPED as well?\n\nAlso can we remove SERVING from the name?",
+      "range": {
+        "startLine": 69,
+        "startChar": 4,
+        "endLine": 71,
+        "endChar": 22
+      },
+      "revId": "4bf4d535db4aa7e7e4458e7e39a3dffa02ac444a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
