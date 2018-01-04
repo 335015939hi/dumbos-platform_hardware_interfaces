@@ -48,6 +48,54 @@
     },
     {
       "key": {
+        "uuid": "ebfe25a5_c421d890",
+        "filename": "camera/provider/2.4/default/CameraProvider.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1011728
+      },
+      "writtenOn": "2018-01-04T08:47:25Z",
+      "side": 1,
+      "message": "can it not be ENUMERATING?",
+      "parentUuid": "cda21b9f_d73645c1",
+      "range": {
+        "startLine": 64,
+        "startChar": 70,
+        "endLine": 64,
+        "endChar": 76
+      },
+      "revId": "e5d4d5fc3f35e8dd877276af895827c4e39b0f43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49c52607_3ff3a42e",
+        "filename": "camera/provider/2.4/default/CameraProvider.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1011728
+      },
+      "writtenOn": "2018-01-04T08:47:25Z",
+      "side": 1,
+      "message": "It\u0027s probably possible, and I agree, that it would make the method prototype look better, but the caller already knows, whether it\u0027s a new or a known one, so, we save traversing a list, searching for it again inside the method. The list isn\u0027t long, typically it would have 2 elements / cameras in it, so, not a big performance hit :-) Up to you - I can change it to improve the look or we can keep this to avoid a redundant calculation.",
+      "parentUuid": "361ffc20_c592d9b8",
+      "range": {
+        "startLine": 64,
+        "startChar": 83,
+        "endLine": 64,
+        "endChar": 90
+      },
+      "revId": "e5d4d5fc3f35e8dd877276af895827c4e39b0f43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "345eb797_80aa8abb",
         "filename": "camera/provider/2.4/default/CameraProvider.cpp",
         "patchSetId": 1
@@ -59,6 +107,24 @@
       "writtenOn": "2017-12-01T19:45:16Z",
       "side": 1,
       "message": "if () {\n}",
+      "revId": "e5d4d5fc3f35e8dd877276af895827c4e39b0f43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "493232fa_d1234ded",
+        "filename": "camera/provider/2.4/default/CameraProvider.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1011728
+      },
+      "writtenOn": "2018-01-04T08:47:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "345eb797_80aa8abb",
       "revId": "e5d4d5fc3f35e8dd877276af895827c4e39b0f43",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "769211c3_73bf37e8",
+        "filename": "camera/provider/2.4/default/CameraProvider.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1011728
+      },
+      "writtenOn": "2018-01-04T08:47:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d4fe89a8_467426f1",
+      "range": {
+        "startLine": 91,
+        "startChar": 16,
+        "endLine": 91,
+        "endChar": 23
+      },
+      "revId": "e5d4d5fc3f35e8dd877276af895827c4e39b0f43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5b7e11cb_240097cf",
         "filename": "camera/provider/2.4/default/CameraProvider.cpp",
         "patchSetId": 1
@@ -105,6 +195,24 @@
     },
     {
       "key": {
+        "uuid": "044ac7ce_98b905e3",
+        "filename": "camera/provider/2.4/default/CameraProvider.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1011728
+      },
+      "writtenOn": "2018-01-04T08:47:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b7e11cb_240097cf",
+      "revId": "e5d4d5fc3f35e8dd877276af895827c4e39b0f43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cbd83024_8b0e0f00",
         "filename": "camera/provider/2.4/default/CameraProvider.cpp",
         "patchSetId": 1
@@ -116,6 +224,30 @@
       "writtenOn": "2017-12-01T19:45:16Z",
       "side": 1,
       "message": "Use space instead of tab",
+      "range": {
+        "startLine": 272,
+        "startChar": 0,
+        "endLine": 272,
+        "endChar": 1
+      },
+      "revId": "e5d4d5fc3f35e8dd877276af895827c4e39b0f43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b941722_68f54531",
+        "filename": "camera/provider/2.4/default/CameraProvider.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1011728
+      },
+      "writtenOn": "2018-01-04T08:47:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cbd83024_8b0e0f00",
       "range": {
         "startLine": 272,
         "startChar": 0,
