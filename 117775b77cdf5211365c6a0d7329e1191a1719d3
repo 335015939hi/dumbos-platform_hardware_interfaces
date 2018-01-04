@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5eb1caef_effbb6dd",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-01-04T22:56:40Z",
+      "side": 1,
+      "message": "It would be \"none\" if it is scanned (but isn\u0027t the camped cell or one of the active cells). So most of the cells in scan results will typically be \"NONE\".",
+      "parentUuid": "7d8b96b2_f633dd05",
+      "range": {
+        "startLine": 71,
+        "startChar": 4,
+        "endLine": 71,
+        "endChar": 13
+      },
+      "revId": "117775b77cdf5211365c6a0d7329e1191a1719d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c71effb0_0b6720f7",
         "filename": "radio/1.2/types.hal",
         "patchSetId": 10
@@ -36,6 +60,30 @@
       "writtenOn": "2018-01-04T22:50:55Z",
       "side": 1,
       "message": "why no uplink?",
+      "range": {
+        "startLine": 373,
+        "startChar": 12,
+        "endLine": 373,
+        "endChar": 33
+      },
+      "revId": "117775b77cdf5211365c6a0d7329e1191a1719d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dcdc5870_4ee0f667",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-01-04T22:56:40Z",
+      "side": 1,
+      "message": "We were asked to remove it since it won\u0027t be reported in this release. The design includes it. :-/\n\nIf you prefer that we add the fields and simply allow them to not be reported, I was in favor of that strategy; however, I was outvoted. Your vote would carry the day.",
+      "parentUuid": "c71effb0_0b6720f7",
       "range": {
         "startLine": 373,
         "startChar": 12,
