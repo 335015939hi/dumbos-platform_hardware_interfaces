@@ -400,3 +400,39 @@ TEST_F(RadioHidlTest_v1_2, startNetworkScan_GoodRequest2) {
                                       RadioError::OPERATION_NOT_ALLOWED}));
     }
 }
+
+/*
+ * Test IRadio.getIccSlotsStatus()
+ */
+TEST_F(RadioHidlTest_v1_2, getIccSlotsStatus) {
+    const int serial = GetRandomSerialNumber();
+    Return<void> res = radio_v1_2->getSimSlotsStatus(serial);
+    ASSERT_OK(res);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_v1_2->rspInfo.type);
+    EXPECT_EQ(serial, radioRsp_v1_2->rspInfo.serial);
+    ALOGI("getIccSlotsStatus, rspInfo.error = %s\n",
+          toString(radioRsp_v1_2->rspInfo.error).c_str());
+
+    ASSERT_TRUE(radioRsp_v1_2->rspInfo.error == RadioError::NONE ||
+                radioRsp_v1_2->rspInfo.error == RadioError::REQUEST_NOT_SUPPORTED);
+}
+
+/*
+ * Test IRadio.setSimSlotsMapping()
+ */
+TEST_F(RadioHidlTest_v1_2, setSimSlotsMapping) {
+    const int serial = GetRandomSerialNumber();
+    ArrayList<Integer> mapping = new ArrayList<>();
+    mapping.add(new Integer(0));
+    Return<void> res = radio_v1_2->setSimSlotsMapping(serial, mapping);
+    ASSERT_OK(res);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_v1_2->rspInfo.type);
+    EXPECT_EQ(serial, radioRsp_v1_2->rspInfo.serial);
+    ALOGI("setSimSlotsMapping, rspInfo.error = %s\n",
+          toString(radioRsp_v1_2->rspInfo.error).c_str());
+
+    ASSERT_TRUE(radioRsp_v1_2->rspInfo.error == RadioError::NONE ||
+                radioRsp_v1_2->rspInfo.error == RadioError::REQUEST_NOT_SUPPORTED);
+}
