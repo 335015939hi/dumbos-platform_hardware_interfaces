@@ -49,6 +49,29 @@
     },
     {
       "key": {
+        "uuid": "012134ab_988dc396",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1125174
+      },
+      "writtenOn": "2018-01-04T23:02:25Z",
+      "side": 1,
+      "message": "It seems like NONE and IDLE_CAMPED are similar to the registered field in CellInfo. Can we remove these altogether and just have PRIMARY/SECONDARY?",
+      "range": {
+        "startLine": 68,
+        "startChar": 4,
+        "endLine": 75,
+        "endChar": 16
+      },
+      "revId": "117775b77cdf5211365c6a0d7329e1191a1719d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c71effb0_0b6720f7",
         "filename": "radio/1.2/types.hal",
         "patchSetId": 10
