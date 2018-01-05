@@ -37,4 +37,12 @@ interface IRadioIndication extends @1.1::IRadioIndication {
      *        the device
      */
     oneway simSlotsStatusChanged(RadioIndicationType type, vec<SimSlotStatus> slotStatus);
+
+    /**
+     * Same information as returned by getCellInfoList().
+     *
+     * @param type Type of radio indication
+     * @param records Current cell information known to radio
+     */
+     oneway cellInfoList_1_2(RadioIndicationType type, vec<CellInfo> records);
 };
