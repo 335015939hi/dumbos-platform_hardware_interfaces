@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f9d8923_348ac157",
+        "filename": "light/2.0/default/android.hardware.light@2.0-service.rc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-01-05T18:14:29Z",
+      "side": 1,
+      "message": "ah, wait. I see why...",
+      "range": {
+        "startLine": 1,
+        "startChar": 8,
+        "endLine": 1,
+        "endChar": 21
+      },
+      "revId": "4423db805147280312b485694c0cfc6fe845550f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
