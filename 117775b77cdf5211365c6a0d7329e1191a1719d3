@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "26e11e06_4b3d85cb",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-01-05T01:48:04Z",
+      "side": 1,
+      "message": "They are similar but as you imply, not the same. The obvious distinction is in emergency mode when the device will never register on the camped cell, contrary to the purpose of this API. It\u0027s also possible to have a serving cell that does not belong to the LA/RA/TA in which a device is registered (as occurs during handovers across area boundaries). As we continue to clean up these APIs, keeping the layer 3 state (which is idle+camped, Primary serving, and secondary serving) distinct from the L4 location context will be useful in avoiding more corner cases like missing the registration flag when we\u0027re in emergency mode but camped.\n\nFinal point in favor of this enhancement is that semantically it\u0027s impossible to be registered on a cell (registration is a NAS concept that applies to a LA/RA/TA), so we\u0027re making a clearer API by not dropping this important little piece of info.",
+      "parentUuid": "012134ab_988dc396",
+      "range": {
+        "startLine": 68,
+        "startChar": 4,
+        "endLine": 75,
+        "endChar": 16
+      },
+      "revId": "117775b77cdf5211365c6a0d7329e1191a1719d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c71effb0_0b6720f7",
         "filename": "radio/1.2/types.hal",
         "patchSetId": 10
