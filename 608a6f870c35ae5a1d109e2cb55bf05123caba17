@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4e864e3c_0981b21a",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1244217
+      },
+      "writtenOn": "2018-01-06T01:58:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f6f1cfd_1ce7aed0",
+      "range": {
+        "startLine": 105,
+        "startChar": 20,
+        "endLine": 105,
+        "endChar": 22
+      },
+      "revId": "608a6f870c35ae5a1d109e2cb55bf05123caba17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "774a715f_3025b31d",
         "filename": "radio/1.2/IRadio.hal",
         "patchSetId": 9
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "8c17eb06_42fc2399",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1244217
+      },
+      "writtenOn": "2018-01-06T01:58:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "774a715f_3025b31d",
+      "revId": "608a6f870c35ae5a1d109e2cb55bf05123caba17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f9afff48_2c75e9bb",
         "filename": "radio/1.2/IRadio.hal",
         "patchSetId": 9
@@ -53,6 +95,30 @@
       "writtenOn": "2018-01-06T00:50:31Z",
       "side": 1,
       "message": "nit",
+      "range": {
+        "startLine": 122,
+        "startChar": 80,
+        "endLine": 122,
+        "endChar": 81
+      },
+      "revId": "608a6f870c35ae5a1d109e2cb55bf05123caba17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af416215_80a3e027",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1244217
+      },
+      "writtenOn": "2018-01-06T01:58:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9afff48_2c75e9bb",
       "range": {
         "startLine": 122,
         "startChar": 80,
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "2a6c4450_00eb0678",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1244217
+      },
+      "writtenOn": "2018-01-06T01:58:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "abf1c667_1ca72378",
+      "range": {
+        "startLine": 125,
+        "startChar": 20,
+        "endLine": 125,
+        "endChar": 22
+      },
+      "revId": "608a6f870c35ae5a1d109e2cb55bf05123caba17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bdfca60e_11a47817",
         "filename": "radio/1.2/types.hal",
         "patchSetId": 9
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "72c7672a_80ea782b",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1244217
+      },
+      "writtenOn": "2018-01-06T01:58:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bdfca60e_11a47817",
+      "range": {
+        "startLine": 329,
+        "startChar": 38,
+        "endLine": 329,
+        "endChar": 42
+      },
+      "revId": "608a6f870c35ae5a1d109e2cb55bf05123caba17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f8d49ebc_a5a1a389",
         "filename": "radio/1.2/types.hal",
         "patchSetId": 9
@@ -122,6 +236,30 @@
       "writtenOn": "2018-01-06T00:50:31Z",
       "side": 1,
       "message": "We need better documentation for the confidence level. I believe it\u0027s a value 0-9, but please dig it out and paste it here?",
+      "range": {
+        "startLine": 334,
+        "startChar": 7,
+        "endLine": 334,
+        "endChar": 54
+      },
+      "revId": "608a6f870c35ae5a1d109e2cb55bf05123caba17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b649101_f9eba43a",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1244217
+      },
+      "writtenOn": "2018-01-06T01:58:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8d49ebc_a5a1a389",
       "range": {
         "startLine": 334,
         "startChar": 7,
