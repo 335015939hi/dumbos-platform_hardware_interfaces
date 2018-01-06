@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aea12428_a2892e3b",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2018-01-06T17:24:22Z",
+      "side": 1,
+      "message": "go/vts-annotation\n\nhow about adding some call flow annotations?",
+      "range": {
+        "startLine": 82,
+        "startChar": 4,
+        "endLine": 82,
+        "endChar": 10
+      },
+      "revId": "384bfbe03aa0cbde362117efc1e57797ba77755b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
