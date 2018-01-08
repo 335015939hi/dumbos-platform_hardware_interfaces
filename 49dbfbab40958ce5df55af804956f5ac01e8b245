@@ -46,6 +46,30 @@
       "revId": "49dbfbab40958ce5df55af804956f5ac01e8b245",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ccbd4529_14e4b0a4",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1244217
+      },
+      "writtenOn": "2018-01-08T23:02:13Z",
+      "side": 1,
+      "message": "This is the standard practice for revving HALs. Since the IndicationFilter type has changed, we need to provide a new method since there is no overloading. v1.0 setIndicationFilter is actually called by setUnsolResponseFilter. They\u0027ve always been separate.\n\n(https://cs.corp.google.com/android/frameworks/opt/telephony/src/java/com/android/internal/telephony/RIL.java?q\u003dsetunsolresponsefilter\u0026l\u003d3711)",
+      "parentUuid": "46c2252e_eda7c4ef",
+      "range": {
+        "startLine": 97,
+        "startChar": 11,
+        "endLine": 97,
+        "endChar": 34
+      },
+      "revId": "49dbfbab40958ce5df55af804956f5ac01e8b245",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
