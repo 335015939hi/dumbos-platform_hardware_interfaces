@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9bc1b5c9_00cffb69",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-01-08T22:53:16Z",
+      "side": 1,
+      "message": "Cell is not a serving cell?",
+      "range": {
+        "startLine": 69,
+        "startChar": 15,
+        "endLine": 69,
+        "endChar": 26
+      },
+      "revId": "5438ec899cd22021db55503ea2aa1eb6d0b9d678",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
