@@ -100,7 +100,7 @@ interface ISecureElement {
      *                element has reached the maximum limit on the number of
      *                channels it can support,
      *                SecureElementStatus::NO_SUCH_ELEMENT_ERROR if AID provided
-     *                doesn't match any applet on the secure element and
+     *                doesn't match any applet on the secure element
      *                SecureElementStatus::UNSUPPORTED_OPERATION if operation
      *                provided by the P2 parameter is not permitted by the
      *                applet.
