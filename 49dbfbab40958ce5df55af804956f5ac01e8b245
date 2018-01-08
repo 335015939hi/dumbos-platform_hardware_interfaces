@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "46c2252e_eda7c4ef",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1002609
+      },
+      "writtenOn": "2018-01-08T22:59:02Z",
+      "side": 1,
+      "message": "Should build into setUnsolResponseFilter rather than starting from scratch.",
+      "range": {
+        "startLine": 97,
+        "startChar": 11,
+        "endLine": 97,
+        "endChar": 34
+      },
+      "revId": "49dbfbab40958ce5df55af804956f5ac01e8b245",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
