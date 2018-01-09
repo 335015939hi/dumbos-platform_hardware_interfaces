@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1090f53f_e74a8078",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-01-09T23:44:48Z",
+      "side": 1,
+      "message": "can you not glob these?",
+      "range": {
+        "startLine": 6,
+        "startChar": 47,
+        "endLine": 6,
+        "endChar": 53
+      },
+      "revId": "c771006ec0fb3b7c79eaf93271bd440c3f605d40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a6d2127_684163cf",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-01-09T23:44:48Z",
+      "side": 1,
+      "message": "same, it would be nice if there was only one list of these in the makefile",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 44
+      },
+      "revId": "c771006ec0fb3b7c79eaf93271bd440c3f605d40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf44bacb_a638ddb0",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-01-09T23:44:48Z",
+      "side": 1,
+      "message": "this won\u0027t work -- many of the makefiles are deeply nested. You\u0027ll have to reference them directly here in a list",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 51
+      },
+      "revId": "c771006ec0fb3b7c79eaf93271bd440c3f605d40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
