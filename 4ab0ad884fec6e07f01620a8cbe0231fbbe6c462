@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "33eae47c_73f6d70c",
+        "filename": "radio/1.2/IRadioIndication.hal",
+        "patchSetId": 14
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1002609
+      },
+      "writtenOn": "2018-01-10T01:02:48Z",
+      "side": 1,
+      "message": "can we get more documentation.\n\nIf there is good documentation elsewhere let me know in a gerrit comment and I\u0027ll check that.",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 38
+      },
+      "revId": "4ab0ad884fec6e07f01620a8cbe0231fbbe6c462",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "006371be_6b24840a",
+        "filename": "radio/1.2/IRadioIndication.hal",
+        "patchSetId": 14
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1002609
+      },
+      "writtenOn": "2018-01-10T01:02:48Z",
+      "side": 1,
+      "message": "is \"current\" needed?",
+      "range": {
+        "startLine": 55,
+        "startChar": 11,
+        "endLine": 55,
+        "endChar": 29
+      },
+      "revId": "4ab0ad884fec6e07f01620a8cbe0231fbbe6c462",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
