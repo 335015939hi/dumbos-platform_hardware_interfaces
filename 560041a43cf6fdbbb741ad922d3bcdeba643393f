@@ -22,6 +22,30 @@
       "revId": "560041a43cf6fdbbb741ad922d3bcdeba643393f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d36eeb4_b6bb55c5",
+        "filename": "radio/1.2/IRadioIndication.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-01-10T02:32:16Z",
+      "side": 1,
+      "message": "This will be called when the reporting criteria are set to something other than \"don\u0027t use it\". In our current implementation (framework side) this is disabled, and it cannot be enabled via the public API. The diagnostic menu uses it, but that\u0027s it.\n\nI also don\u0027t want to further expose this unless/until we go through the exercise of updating the reporting criteria. Right now the only option is periodic or \"immediate\" which means \"vendor decision\".",
+      "parentUuid": "6bfb2ab1_a25dcc57",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 56
+      },
+      "revId": "560041a43cf6fdbbb741ad922d3bcdeba643393f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
