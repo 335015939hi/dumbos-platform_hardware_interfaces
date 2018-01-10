@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6bfb2ab1_a25dcc57",
+        "filename": "radio/1.2/IRadioIndication.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1002609
+      },
+      "writtenOn": "2018-01-10T00:59:02Z",
+      "side": 1,
+      "message": "When should this be called?  This is the primary documentation for silicon vendors and it probably isn\u0027t sufficient.",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 56
+      },
+      "revId": "560041a43cf6fdbbb741ad922d3bcdeba643393f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
