@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fbe13161_fc87b151",
+        "filename": "radio/1.2/IRadioIndication.hal",
+        "patchSetId": 14
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1244217
+      },
+      "writtenOn": "2018-01-10T20:05:58Z",
+      "side": 1,
+      "message": "Changed for clarity. We\u0027ve removed the RadioConfig type, and instead we\u0027re reporting a vec\u003cPhysicalChannelConfig\u003e instead. We added an IndicationFilter bit to better describe the reporting criteria.\n\nFor more context:\nhttps://docs.google.com/document/d/13f-arSuQcmeEAu7c8-BsHtzkAlD-LaNFfuy5NAZZEis/edit#heading\u003dh.7cawdmubcuj0",
+      "parentUuid": "33eae47c_73f6d70c",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 38
+      },
+      "revId": "4ab0ad884fec6e07f01620a8cbe0231fbbe6c462",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "006371be_6b24840a",
         "filename": "radio/1.2/IRadioIndication.hal",
         "patchSetId": 14
@@ -45,6 +69,30 @@
       "revId": "4ab0ad884fec6e07f01620a8cbe0231fbbe6c462",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e16542d7_7dc11936",
+        "filename": "radio/1.2/IRadioIndication.hal",
+        "patchSetId": 14
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1244217
+      },
+      "writtenOn": "2018-01-10T20:05:58Z",
+      "side": 1,
+      "message": "I\u0027m basing it off of IRadioIndication.currentSignalStrength(). I\u0027d prefer if we kept this consistent with other similar indications.",
+      "parentUuid": "006371be_6b24840a",
+      "range": {
+        "startLine": 55,
+        "startChar": 11,
+        "endLine": 55,
+        "endChar": 29
+      },
+      "revId": "4ab0ad884fec6e07f01620a8cbe0231fbbe6c462",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
