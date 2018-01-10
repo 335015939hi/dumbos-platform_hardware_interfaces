@@ -46,6 +46,30 @@
       "revId": "560041a43cf6fdbbb741ad922d3bcdeba643393f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be904de8_bba3654c",
+        "filename": "radio/1.2/IRadioIndication.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1244217
+      },
+      "writtenOn": "2018-01-10T20:07:29Z",
+      "side": 1,
+      "message": "Added a comment referring to the reporting criteria method. It\u0027s worth noting that this is just a redefinition of @1.0::cellInfoList since the CellInfo type has changed. We\u0027re not adding any new functionality.",
+      "parentUuid": "8d36eeb4_b6bb55c5",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 56
+      },
+      "revId": "560041a43cf6fdbbb741ad922d3bcdeba643393f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
