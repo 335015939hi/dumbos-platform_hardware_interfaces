@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "489b8e72_e8f46456",
+        "filename": "radio/1.2/IRadioResponse.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1121198
+      },
+      "writtenOn": "2018-01-11T23:51:40Z",
+      "side": 1,
+      "message": "appears twice?",
+      "range": {
+        "startLine": 56,
+        "startChar": 20,
+        "endLine": 56,
+        "endChar": 32
+      },
+      "revId": "38650a02dbeb2b4d60d403ada0a446846a204a96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
