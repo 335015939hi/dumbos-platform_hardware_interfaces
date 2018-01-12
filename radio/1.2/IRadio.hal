@@ -17,6 +17,8 @@
 package android.hardware.radio@1.2;
 
 import @1.1::IRadio;
+import @1.0::DataProfileInfo;
+import @1.0::RadioTechnology;
 
 /**
  * This interface is used by telephony and telecom to talk to cellular radio.
@@ -79,4 +81,63 @@ interface IRadio extends @1.1::IRadio {
      * Response callback is IRadioResponse.setSimSlotsMappingResponse()
      */
     oneway setSimSlotsMapping(int32_t serial, vec<uint32_t> slotMap);
+
+    /**
+     * Setup a packet data connection. If DataCallResponse.status returns DataCallFailCause:NONE,
+     * the data connection must be added to data calls and a unsolDataCallListChanged() must be
+     * sent. The call remains in the list until deactivateDataCall() is issued or the radio is
+     * powered off/on. This data call list is returned by getDataCallList() and
+     * dataCallListChanged().
+     *
+     * The Radio is expected to:
+     *  - Create one data call context.
+     *  - Create and configure a dedicated interface for the context.
+     *  - The interface must be point to point.
+     *  - The interface is configured with one or more addresses and
+     *    is capable of sending and receiving packets. The prefix length
+     *    of the addresses must be /32 for IPv4 and /128 for IPv6.
+     *  - Must NOT change the linux routing table.
+     *  - Support up to getDataRegistrationState response[5] number of simultaneous data call
+     *    contexts.
+     *
+     * @param serial Serial number of request.
+     * @param radioTechnology Radio technology to use.
+     * @param dataProfileInfo Data profile info.
+     * @param modemCognitive Indicating this profile was sent to the modem through setDataProfile
+     *                       earlier.
+     * @param roamingAllowed Indicating data roaming is allowed or not by the user.
+     * @param isRoaming Indicating the device is roaming or not. The 'protocol' parameter in the old
+     *                  RIL API must be filled accordingly based on the roaming condition.
+     *                  Note this is for backward compatibility with the old radio modem. The modem
+     *                  must not use this param for any other reason.
+     * @param isHandover True if the setup request is for IWLAN data handover.
+     * @param addresses If isHandover is true, this indicates the address of the data connection.
+     *                  It's a space-delimited list of addresses with optional "/"
+     *                  prefix length, e.g., "192.0.1.3" or "192.0.1.11/16 2001:db8::1/64".
+     *                  Typically 1 IPv4 or 1 IPv6 or one of each. If the prefix length is absent
+     *                  the addresses are assumed to be point to point with IPv4 having a prefix
+     *                  length of 32 and IPv6 128.
+     * @param dnses If isHandover is true, this indicates the DNS address of the data connection.
+     *              It's a space-delimited list of DNS server addresses, e.g., "192.0.1.3" or
+     *              "192.0.1.11 2001:db8::1". Empty if no dns server addresses returned.
+     *
+     * Response function is IRadioResponse.setupDataCallResponse()
+     */
+    oneway setupDataCall_1_2(int32_t serial, RadioTechnology radioTechnology,
+            DataProfileInfo dataProfileInfo, bool modemCognitive, bool roamingAllowed,
+            bool isRoaming, bool isHandover, string addresses, string dnses);
+
+    /**
+     * Deactivate packet data connection and remove from the data call list. An
+     * unsolDataCallListChanged() must be sent when data connection is deactivated.
+     *
+     * @param serial Serial number of request.
+     * @param cid Data call id.
+     * @param reasonRadioShutDown True if reason for data call deactivation is for radio shutdown.
+     * @param isHandover True if this request is for IWLAN data handover.
+     *
+     * Response function is IRadioResponse.deactivateDataCallResponse()
+     */
+    oneway deactivateDataCall_1_2(int32_t serial, int32_t cid, bool reasonRadioShutDown,
+            bool isHandover);
 };
