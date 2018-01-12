@@ -244,3 +244,28 @@ struct CardStatus {
      */
     string iccid;
 };
+
+enum AccessNetwork : int32_t {
+    GERAN = 1,                              // GSM EDGE Radio Access Network
+    UTRAN = 2,                              // Universal Terrestrial Radio Access Network
+    EUTRAN = 3,                             // Evolved Universal Terrestrial Radio Access Network
+    CDMA2000 = 4,                           // CDMA 2000
+    IWLAN = 5                               // Interworking Wireless LAN
+};
+
+
+enum DataRequestReason : int32_t {
+    /**
+     * The reason of the data request is normal
+     */
+    NORMAL    = 0x01,
+    /**
+     * The reason of the data request is device shutdown
+     */
+    SHUTDOWN  = 0x02,
+    /**
+     * The reason of the data request is IWLAN data handover to another transport
+     * (e.g. from cellular to wifi or vise versa)
+     */
+    HANDOVER  = 0x03,
+};
