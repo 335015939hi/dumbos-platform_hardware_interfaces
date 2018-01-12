@@ -65,7 +65,37 @@ class GraphicsComposerHidlEnvironment : public ::testing::VtsHalHidlTargetTestEn
    private:
     GraphicsComposerHidlEnvironment() {}
 
+<<<<<<< HEAD   (abec92 Merge changes from topic "b/69811500" into oc-dev am: 61ae0a)
     GTEST_DISALLOW_COPY_AND_ASSIGN_(GraphicsComposerHidlEnvironment);
+=======
+    if (mDisplays.count(display) == 0) {
+      mInvalidRefreshCount++;
+    }
+
+    return Void();
+  }
+
+  Return<void> onVsync(Display display, int64_t) override {
+    std::lock_guard<std::mutex> lock(mMutex);
+
+    if (!mVsyncAllowed || mDisplays.count(display) == 0) {
+      mInvalidVsyncCount++;
+    }
+
+    return Void();
+  }
+
+  mutable std::mutex mMutex;
+  // the set of all currently connected displays
+  std::unordered_set<Display> mDisplays;
+  // true only when vsync is enabled
+  bool mVsyncAllowed = true;
+
+  // track invalid callbacks
+  int mInvalidHotplugCount = 0;
+  int mInvalidRefreshCount = 0;
+  int mInvalidVsyncCount = 0;
+>>>>>>> BRANCH (353cc0 graphics: ignore/reduce spurious vsync in VTS)
 };
 
 class GraphicsComposerHidlTest : public ::testing::VtsHalHidlTargetTestBase {
@@ -79,12 +109,21 @@ class GraphicsComposerHidlTest : public ::testing::VtsHalHidlTargetTestBase {
       mComposerCallback = new GraphicsComposerCallback;
       mComposerClient->registerCallback(mComposerCallback);
 
+<<<<<<< HEAD   (abec92 Merge changes from topic "b/69811500" into oc-dev am: 61ae0a)
       // assume the first display is primary and is never removed
       mPrimaryDisplay = waitForFirstDisplay();
 
       // explicitly disable vsync
       mComposerClient->setVsyncEnabled(mPrimaryDisplay, false);
       mComposerCallback->setVsyncAllowed(false);
+=======
+    // assume the first display is primary and is never removed
+    mPrimaryDisplay = waitForFirstDisplay();
+
+    // explicitly disable vsync
+    mComposerClient->setVsyncEnabled(mPrimaryDisplay, false);
+    mComposerCallback->setVsyncAllowed(false);
+>>>>>>> BRANCH (353cc0 graphics: ignore/reduce spurious vsync in VTS)
   }
 
   void TearDown() override {

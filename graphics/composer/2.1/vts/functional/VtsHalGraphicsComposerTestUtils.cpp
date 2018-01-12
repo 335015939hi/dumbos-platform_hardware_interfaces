@@ -302,6 +302,7 @@ void ComposerClient::setVsyncEnabled(Display display, bool enabled) {
   if (!enabled) {
       usleep(5 * 1000);
   }
+<<<<<<< HEAD   (abec92 Merge changes from topic "b/69811500" into oc-dev am: 61ae0a)
 }
 
 void ComposerClient::execute(TestCommandReader* reader,
@@ -335,6 +336,8 @@ void ComposerClient::execute(TestCommandReader* reader,
         ASSERT_TRUE(reader->readQueue(tmpOutLength, tmpOutHandles));
         reader->parse();
       });
+=======
+>>>>>>> BRANCH (353cc0 graphics: ignore/reduce spurious vsync in VTS)
 }
 
 }  // namespace tests
