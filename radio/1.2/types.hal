@@ -244,3 +244,18 @@ struct CardStatus {
      */
     string iccid;
 };
+
+enum DataRequestReason : int32_t {
+    /**
+     * The reason of the data request is normal
+     */
+    NORMAL    = 0x01,
+    /**
+     * The reason of the data request is device shutdown
+     */
+    SHUTDOWN  = 0x02,
+    /**
+     * The reason of the data request is IWLAN data handover
+     */
+    HANDOVER  = 0x03,
+};
