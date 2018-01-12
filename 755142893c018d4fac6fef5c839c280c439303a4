@@ -39,6 +39,24 @@
       "revId": "755142893c018d4fac6fef5c839c280c439303a4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80e3e523_b4c59f04",
+        "filename": "radio/1.2/IRadioResponse.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1269390
+      },
+      "writtenOn": "2018-01-12T03:02:27Z",
+      "side": 1,
+      "message": "Perhaps need an LCE_NOT_SUPPORTED or similar?",
+      "parentUuid": "9e973fdb_41c72f35",
+      "revId": "755142893c018d4fac6fef5c839c280c439303a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
