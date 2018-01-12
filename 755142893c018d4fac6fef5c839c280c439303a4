@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "84a254ec_4c3eb404",
+        "filename": "radio/1.2/IRadioIndication.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1002609
+      },
+      "writtenOn": "2018-01-12T02:07:25Z",
+      "side": 1,
+      "message": "should we mark 1.0/IRadioIndication.clcdData as deprecated?",
+      "range": {
+        "startLine": 56,
+        "startChar": 11,
+        "endLine": 56,
+        "endChar": 38
+      },
+      "revId": "755142893c018d4fac6fef5c839c280c439303a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
