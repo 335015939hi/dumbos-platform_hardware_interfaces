@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "0658cd04_868fff0d",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-01-15T21:26:39Z",
+      "side": 1,
+      "message": "Suggest a rewording.\n\nPrevent the reporting of specified unsolicited indications \nfrom the radio; this is used for power saving in instances when those indications are not needed. If unset, defaults to ...",
+      "range": {
+        "startLine": 87,
+        "startChar": 7,
+        "endLine": 88,
+        "endChar": 81
+      },
+      "revId": "755142893c018d4fac6fef5c839c280c439303a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84a254ec_4c3eb404",
         "filename": "radio/1.2/IRadioIndication.hal",
         "patchSetId": 15
@@ -13,6 +36,30 @@
       "writtenOn": "2018-01-12T02:07:25Z",
       "side": 1,
       "message": "should we mark 1.0/IRadioIndication.clcdData as deprecated?",
+      "range": {
+        "startLine": 56,
+        "startChar": 11,
+        "endLine": 56,
+        "endChar": 38
+      },
+      "revId": "755142893c018d4fac6fef5c839c280c439303a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "039f01d8_63a95d31",
+        "filename": "radio/1.2/IRadioIndication.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-01-15T21:26:39Z",
+      "side": 1,
+      "message": "I don\u0027t know if deprecation works that way. Paging smoreland@",
+      "parentUuid": "84a254ec_4c3eb404",
       "range": {
         "startLine": 56,
         "startChar": 11,
@@ -54,6 +101,24 @@
       "side": 1,
       "message": "Perhaps need an LCE_NOT_SUPPORTED or similar?",
       "parentUuid": "9e973fdb_41c72f35",
+      "revId": "755142893c018d4fac6fef5c839c280c439303a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d85b5aea_c3fb6a53",
+        "filename": "radio/1.2/IRadioResponse.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-01-15T21:26:39Z",
+      "side": 1,
+      "message": "It must be supported by devices that support 1.2, and it must be supported for all RANs. Here\u0027s the rationale: LCe is exposed directly as an API in connectivity; the entire point is to reduce or eliminate the need for apps caring about radio technologies: we want them to use data services through the abstraction of connectivity rather than looking at RAT+RSSI (which is a terrible way to guess bandwidth, especially when each app will roll its own behavior). It\u0027s unrealistic to ask apps to use a new mechanism if they get inconsistent API behavior on different RANs. Basically, we are creating an abstraction, and it\u0027s not useful if it\u0027s obviously leaky.",
+      "parentUuid": "80e3e523_b4c59f04",
       "revId": "755142893c018d4fac6fef5c839c280c439303a4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
