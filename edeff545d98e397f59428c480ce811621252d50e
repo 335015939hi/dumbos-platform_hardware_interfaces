@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "3a310ccb_3bc8aab1",
+        "filename": "radio/1.2/IRadioIndication.hal",
+        "patchSetId": 17
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-01-15T21:46:07Z",
+      "side": 1,
+      "message": "as opposed to the information... not known to the radio?",
+      "range": {
+        "startLine": 46,
+        "startChar": 47,
+        "endLine": 46,
+        "endChar": 61
+      },
+      "revId": "edeff545d98e397f59428c480ce811621252d50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dd350616_104bbe56",
         "filename": "radio/1.2/IRadioIndication.hal",
         "patchSetId": 17
