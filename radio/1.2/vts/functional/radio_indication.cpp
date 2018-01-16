@@ -249,3 +249,8 @@ Return<void> RadioIndication_v1_2::modemReset(RadioIndicationType /*type*/,
                                               const ::android::hardware::hidl_string& /*reason*/) {
     return Void();
 }
+
+Return<void> RadioIndication_v1_2::unattendedDataRestrictionChanged(RadioIndicationType /*type*/,
+                                                                    bool /*restrict*/) {
+    return Void();
+}
