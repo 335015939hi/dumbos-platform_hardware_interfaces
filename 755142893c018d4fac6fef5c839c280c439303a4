@@ -543,6 +543,30 @@
       "revId": "755142893c018d4fac6fef5c839c280c439303a4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "192342bd_de296dee",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-01-16T23:48:29Z",
+      "side": 1,
+      "message": "Should we also remove the existing field from downlink?",
+      "parentUuid": "ad5a6d12_67b45a1f",
+      "range": {
+        "startLine": 346,
+        "startChar": 27,
+        "endLine": 346,
+        "endChar": 79
+      },
+      "revId": "755142893c018d4fac6fef5c839c280c439303a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
