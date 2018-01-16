@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "e7e2865d_8f3db291",
+        "filename": "radio/1.2/IRadioIndication.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-01-16T19:09:18Z",
+      "side": 1,
+      "message": "It doesn\u0027t, but if you are deprecating it, please comment here. Basically:\n\n- The framework must be able to handle either the old or the new function (since it has to support 1.1 interfaces).\n- Mention in a comment here than an implementation no longer has to call the old method on this callback.",
+      "parentUuid": "039f01d8_63a95d31",
+      "range": {
+        "startLine": 56,
+        "startChar": 11,
+        "endLine": 56,
+        "endChar": 38
+      },
+      "revId": "755142893c018d4fac6fef5c839c280c439303a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9e973fdb_41c72f35",
         "filename": "radio/1.2/IRadioResponse.hal",
         "patchSetId": 15
@@ -119,6 +143,121 @@
       "side": 1,
       "message": "It must be supported by devices that support 1.2, and it must be supported for all RANs. Here\u0027s the rationale: LCe is exposed directly as an API in connectivity; the entire point is to reduce or eliminate the need for apps caring about radio technologies: we want them to use data services through the abstraction of connectivity rather than looking at RAT+RSSI (which is a terrible way to guess bandwidth, especially when each app will roll its own behavior). It\u0027s unrealistic to ask apps to use a new mechanism if they get inconsistent API behavior on different RANs. Basically, we are creating an abstraction, and it\u0027s not useful if it\u0027s obviously leaky.",
       "parentUuid": "80e3e523_b4c59f04",
+      "revId": "755142893c018d4fac6fef5c839c280c439303a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65d1a691_764fda9c",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-01-16T19:09:18Z",
+      "side": 1,
+      "message": "**",
+      "range": {
+        "startLine": 67,
+        "startChar": 1,
+        "endLine": 67,
+        "endChar": 2
+      },
+      "revId": "755142893c018d4fac6fef5c839c280c439303a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41280402_481c4b54",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-01-16T19:09:18Z",
+      "side": 1,
+      "message": "must",
+      "range": {
+        "startLine": 95,
+        "startChar": 32,
+        "endLine": 95,
+        "endChar": 36
+      },
+      "revId": "755142893c018d4fac6fef5c839c280c439303a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81bbcc22_a92c2223",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-01-16T19:09:18Z",
+      "side": 1,
+      "message": "same as below",
+      "range": {
+        "startLine": 333,
+        "startChar": 4,
+        "endLine": 336,
+        "endChar": 7
+      },
+      "revId": "755142893c018d4fac6fef5c839c280c439303a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f7f3035_ae4f3d13",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-01-16T19:09:18Z",
+      "side": 1,
+      "message": "put in a constant?",
+      "range": {
+        "startLine": 345,
+        "startChar": 78,
+        "endLine": 345,
+        "endChar": 81
+      },
+      "revId": "755142893c018d4fac6fef5c839c280c439303a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9f403c9_6e025363",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-01-16T19:09:18Z",
+      "side": 1,
+      "message": "in this case, why not just let it be 0-128? Why add a restriction?\n\nAlso, if it is implementation defined, is it just shown to users? Should the framework only compare these relative to each other?",
+      "range": {
+        "startLine": 346,
+        "startChar": 27,
+        "endLine": 346,
+        "endChar": 79
+      },
       "revId": "755142893c018d4fac6fef5c839c280c439303a4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
