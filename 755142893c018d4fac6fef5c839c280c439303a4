@@ -495,6 +495,30 @@
       "revId": "755142893c018d4fac6fef5c839c280c439303a4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd9634cb_ba951acd",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-01-16T23:33:01Z",
+      "side": 1,
+      "message": "@Robert, I think we want confidence. I just don\u0027t think we need 100 levels. I was inclined to leave it because it\u0027s already what exists for downlink. I\u0027ll create a doc offline on how I think we should use it, and perhaps we can discuss with some of our vendor partners to see if we can make at least set some standard guidelines without taking away room to innovate (there is plenty of opportunity to innovate here).",
+      "parentUuid": "b0325d36_5c4bce8f",
+      "range": {
+        "startLine": 346,
+        "startChar": 27,
+        "endLine": 346,
+        "endChar": 79
+      },
+      "revId": "755142893c018d4fac6fef5c839c280c439303a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
