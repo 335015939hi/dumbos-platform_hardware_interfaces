@@ -519,6 +519,30 @@
       "revId": "755142893c018d4fac6fef5c839c280c439303a4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad5a6d12_67b45a1f",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1002609
+      },
+      "writtenOn": "2018-01-16T23:46:05Z",
+      "side": 1,
+      "message": "Can we remove it for now until we come to an agreement so we don\u0027t block this CL?",
+      "parentUuid": "bd9634cb_ba951acd",
+      "range": {
+        "startLine": 346,
+        "startChar": 27,
+        "endLine": 346,
+        "endChar": 79
+      },
+      "revId": "755142893c018d4fac6fef5c839c280c439303a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
