@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1205b227_1fbd9b19",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1244217
+      },
+      "writtenOn": "2018-01-16T22:17:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0658cd04_868fff0d",
+      "range": {
+        "startLine": 87,
+        "startChar": 7,
+        "endLine": 88,
+        "endChar": 81
+      },
+      "revId": "755142893c018d4fac6fef5c839c280c439303a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84a254ec_4c3eb404",
         "filename": "radio/1.2/IRadioIndication.hal",
         "patchSetId": 15
@@ -96,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "40fd4785_cbd59e11",
+        "filename": "radio/1.2/IRadioIndication.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1244217
+      },
+      "writtenOn": "2018-01-16T22:17:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e7e2865d_8f3db291",
+      "range": {
+        "startLine": 56,
+        "startChar": 11,
+        "endLine": 56,
+        "endChar": 38
+      },
+      "revId": "755142893c018d4fac6fef5c839c280c439303a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9e973fdb_41c72f35",
         "filename": "radio/1.2/IRadioResponse.hal",
         "patchSetId": 15
@@ -149,6 +197,24 @@
     },
     {
       "key": {
+        "uuid": "a35938b5_f8cc841b",
+        "filename": "radio/1.2/IRadioResponse.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1244217
+      },
+      "writtenOn": "2018-01-16T22:17:11Z",
+      "side": 1,
+      "message": "leaving as is, per nharold\u0027s rationale.",
+      "parentUuid": "d85b5aea_c3fb6a53",
+      "revId": "755142893c018d4fac6fef5c839c280c439303a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "65d1a691_764fda9c",
         "filename": "radio/1.2/types.hal",
         "patchSetId": 15
@@ -169,6 +235,30 @@
       "revId": "755142893c018d4fac6fef5c839c280c439303a4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e37882ca_a3d24987",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1244217
+      },
+      "writtenOn": "2018-01-16T22:17:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65d1a691_764fda9c",
+      "range": {
+        "startLine": 67,
+        "startChar": 1,
+        "endLine": 67,
+        "endChar": 2
+      },
+      "revId": "755142893c018d4fac6fef5c839c280c439303a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -195,6 +285,30 @@
     },
     {
       "key": {
+        "uuid": "c063c679_b8102444",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1244217
+      },
+      "writtenOn": "2018-01-16T22:17:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41280402_481c4b54",
+      "range": {
+        "startLine": 95,
+        "startChar": 32,
+        "endLine": 95,
+        "endChar": 36
+      },
+      "revId": "755142893c018d4fac6fef5c839c280c439303a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "81bbcc22_a92c2223",
         "filename": "radio/1.2/types.hal",
         "patchSetId": 15
@@ -215,6 +329,30 @@
       "revId": "755142893c018d4fac6fef5c839c280c439303a4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e63aa635_8ca0efe7",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1244217
+      },
+      "writtenOn": "2018-01-16T22:17:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "81bbcc22_a92c2223",
+      "range": {
+        "startLine": 333,
+        "startChar": 4,
+        "endLine": 336,
+        "endChar": 7
+      },
+      "revId": "755142893c018d4fac6fef5c839c280c439303a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -252,6 +390,30 @@
       "writtenOn": "2018-01-16T19:09:18Z",
       "side": 1,
       "message": "in this case, why not just let it be 0-128? Why add a restriction?\n\nAlso, if it is implementation defined, is it just shown to users? Should the framework only compare these relative to each other?",
+      "range": {
+        "startLine": 346,
+        "startChar": 27,
+        "endLine": 346,
+        "endChar": 79
+      },
+      "revId": "755142893c018d4fac6fef5c839c280c439303a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97ef80ba_3bb5d657",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1244217
+      },
+      "writtenOn": "2018-01-16T22:17:11Z",
+      "side": 1,
+      "message": "I\u0027m basing it off of the old lceData struct. I don\u0027t know why they limited it to 0-100. @nharold can you comment?\n\nhttps://cs.corp.google.com/aosp-master/hardware/interfaces/radio/1.0/types.hal?dr\u0026q\u003dconfidence+file:%5Ehardware/interfaces/radio/+package:%5Eaosp-master$\u0026l\u003d1832",
+      "parentUuid": "c9f403c9_6e025363",
       "range": {
         "startLine": 346,
         "startChar": 27,
