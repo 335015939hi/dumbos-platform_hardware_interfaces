@@ -409,6 +409,9 @@ class RadioIndication_v1_2 : public V1_1::IRadioIndication {
     RadioIndication_v1_2(RadioHidlTest_v1_2& parent_v1_2);
     virtual ~RadioIndication_v1_2() = default;
 
+    /* 1.2 Api */
+    Return<void> unattendedDataRestrictionChanged(RadioIndicationType type, bool restrict);
+
     /* 1.1 Api */
     Return<void> carrierInfoForImsiEncryption(RadioIndicationType info);
 

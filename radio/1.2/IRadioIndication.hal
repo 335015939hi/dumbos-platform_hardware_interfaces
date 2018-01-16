@@ -46,4 +46,18 @@ interface IRadioIndication extends @1.1::IRadioIndication {
      * @param records Current cell information known to radio
      */
      oneway cellInfoList_1_2(RadioIndicationType type, vec<CellInfo> records);
+
+    /**
+     * Network indication for when unattended data should be restricted.
+     *
+     * This indication is used for congestion control by limiting unattended
+     * data traffic. Unattended data traffic is defined as data traffic of which
+     * the user is unaware. Modem will send this indication to signal if
+     * unattended data should be restricted.
+     *
+     * @param type Type of radio indication
+     * @param restrict boolean to indicate when unattended data should be
+     *        restricted
+     */
+     oneway unattendedDataRestrictionChanged(RadioIndicationType type, bool restrict);
 };
