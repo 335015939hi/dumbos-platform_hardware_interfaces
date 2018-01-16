@@ -471,6 +471,30 @@
       "revId": "755142893c018d4fac6fef5c839c280c439303a4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0325d36_5c4bce8f",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1002609
+      },
+      "writtenOn": "2018-01-16T23:26:10Z",
+      "side": 1,
+      "message": "I agree this is too much granularity without guidance for callers or implemenators.  We run the risk of either doing to much work to refine the confidence level (burning battery for nothing) or too little and getting garbage.  The only utility I see is getting a threshold beyond which the info is too tenuous to be useful.  There may be several transition points between useless and useful, depending on the usecase for the data, but without understanding of what the confidence means apps can really rely on that level of precision.\n\nI\u0027d be inclined to not include confidence at this point.  If we get a good reason and can define it well we can add it in the future.",
+      "parentUuid": "d343a89f_90dbdf89",
+      "range": {
+        "startLine": 346,
+        "startChar": 27,
+        "endLine": 346,
+        "endChar": 79
+      },
+      "revId": "755142893c018d4fac6fef5c839c280c439303a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
