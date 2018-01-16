@@ -379,6 +379,30 @@
     },
     {
       "key": {
+        "uuid": "32997feb_173e420e",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-01-16T22:40:08Z",
+      "side": 1,
+      "message": "It wouldn\u0027t hurt.",
+      "parentUuid": "8f7f3035_ae4f3d13",
+      "range": {
+        "startLine": 345,
+        "startChar": 78,
+        "endLine": 345,
+        "endChar": 81
+      },
+      "revId": "755142893c018d4fac6fef5c839c280c439303a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c9f403c9_6e025363",
         "filename": "radio/1.2/types.hal",
         "patchSetId": 15
@@ -414,6 +438,30 @@
       "side": 1,
       "message": "I\u0027m basing it off of the old lceData struct. I don\u0027t know why they limited it to 0-100. @nharold can you comment?\n\nhttps://cs.corp.google.com/aosp-master/hardware/interfaces/radio/1.0/types.hal?dr\u0026q\u003dconfidence+file:%5Ehardware/interfaces/radio/+package:%5Eaosp-master$\u0026l\u003d1832",
       "parentUuid": "c9f403c9_6e025363",
+      "range": {
+        "startLine": 346,
+        "startChar": 27,
+        "endLine": 346,
+        "endChar": 79
+      },
+      "revId": "755142893c018d4fac6fef5c839c280c439303a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d343a89f_90dbdf89",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-01-16T22:40:08Z",
+      "side": 1,
+      "message": "I was not involved in the design of the original LCE API, and I\u0027d be surprised if there\u0027s a strong technical rationale for 1-100. Perhaps because it\u0027s \"confidence\", which the designers though of as a % with 100% being the highest confidence. Since more than 3-4 values is probably beyond the level of practical granularity 1-100 is already over-specified. I\u0027m not in favor of changing it unless there\u0027s any practical value, and I don\u0027t see any. If we did it all again, I probably would have made it 0 to 3, but... c\u0027est la vie  :-)",
+      "parentUuid": "97ef80ba_3bb5d657",
       "range": {
         "startLine": 346,
         "startChar": 27,
