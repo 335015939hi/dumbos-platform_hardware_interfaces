@@ -403,6 +403,30 @@
     },
     {
       "key": {
+        "uuid": "6e8970f8_49cdf4bf",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1244217
+      },
+      "writtenOn": "2018-01-17T02:24:36Z",
+      "side": 1,
+      "message": "removed entirely.",
+      "parentUuid": "32997feb_173e420e",
+      "range": {
+        "startLine": 345,
+        "startChar": 78,
+        "endLine": 345,
+        "endChar": 81
+      },
+      "revId": "755142893c018d4fac6fef5c839c280c439303a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c9f403c9_6e025363",
         "filename": "radio/1.2/types.hal",
         "patchSetId": 15
@@ -567,6 +591,30 @@
       "revId": "755142893c018d4fac6fef5c839c280c439303a4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "559908e5_f8487e6b",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1244217
+      },
+      "writtenOn": "2018-01-17T02:24:36Z",
+      "side": 1,
+      "message": "Removed the confidence fields",
+      "parentUuid": "192342bd_de296dee",
+      "range": {
+        "startLine": 346,
+        "startChar": 27,
+        "endLine": 346,
+        "endChar": 79
+      },
+      "revId": "755142893c018d4fac6fef5c839c280c439303a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
