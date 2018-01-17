@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "91ce571b_4ffb0b8f",
+        "filename": "radio/1.2/IRadioIndication.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-01-17T21:45:38Z",
+      "side": 1,
+      "message": "is the concept of \u0027unattended data\u0027 precisely defined?",
+      "revId": "e5510d029327048ef606d712a72983351b5cfe64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1f1b65c_b3aaa095",
+        "filename": "radio/1.2/IRadioIndication.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-01-17T21:45:38Z",
+      "side": 1,
+      "message": "must",
+      "range": {
+        "startLine": 55,
+        "startChar": 34,
+        "endLine": 55,
+        "endChar": 38
+      },
+      "revId": "e5510d029327048ef606d712a72983351b5cfe64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
