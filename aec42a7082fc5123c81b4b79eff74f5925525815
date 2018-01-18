@@ -22,6 +22,30 @@
       "revId": "aec42a7082fc5123c81b4b79eff74f5925525815",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e191ea1_c0277a65",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1237921
+      },
+      "writtenOn": "2018-01-18T02:28:13Z",
+      "side": 1,
+      "message": "\"NONE\" means that there is not any setting from the Modem side. I recommend \"NONE\" because it is already used with Audio quality of the IMS side(ImsStreamMediaProfile.AUDIO_QUALITY_NONE)",
+      "parentUuid": "dc6536ac_1c098e87",
+      "range": {
+        "startLine": 72,
+        "startChar": 4,
+        "endLine": 72,
+        "endChar": 8
+      },
+      "revId": "aec42a7082fc5123c81b4b79eff74f5925525815",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
