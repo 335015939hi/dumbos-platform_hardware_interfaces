@@ -22,6 +22,30 @@
       "revId": "dd822660123a47ea8e2c131e937a67655a30ff12",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "494eb916_f61c83a7",
+        "filename": "secure_element/1.0/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1041663
+      },
+      "writtenOn": "2018-01-18T22:59:12Z",
+      "side": 1,
+      "message": "init() has been updated to not return any status codes. Since there is nothing actionable with the return status. \n\nAfter init(), SecureElementService will wait for a stateChanged() callback set the state.",
+      "parentUuid": "5273f9b2_a5316fe5",
+      "range": {
+        "startLine": 20,
+        "startChar": 1,
+        "endLine": 26,
+        "endChar": 2
+      },
+      "revId": "dd822660123a47ea8e2c131e937a67655a30ff12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
