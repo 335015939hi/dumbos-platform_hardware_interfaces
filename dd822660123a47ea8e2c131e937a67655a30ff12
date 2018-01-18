@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5273f9b2_a5316fe5",
+        "filename": "secure_element/1.0/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1073593
+      },
+      "writtenOn": "2018-01-18T13:33:21Z",
+      "side": 1,
+      "message": "I don\u0027t see any status code with intermediate status (i.e. while HAL is performing long running tasks), do we understand that we need to return SUCCESS even if HAL init is not complete?",
+      "range": {
+        "startLine": 20,
+        "startChar": 1,
+        "endLine": 26,
+        "endChar": 2
+      },
+      "revId": "dd822660123a47ea8e2c131e937a67655a30ff12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
