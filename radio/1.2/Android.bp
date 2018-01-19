@@ -30,6 +30,7 @@ hidl_interface {
         "CellInfoGsm",
         "CellInfoLte",
         "CellInfoWcdma",
+        "DeviceCapabilities",
         "IncrementalResultsPeriodicityRange",
         "MaxSearchTimeRange",
         "NetworkScanRequest",

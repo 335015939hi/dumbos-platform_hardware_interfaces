@@ -38,6 +38,7 @@ import @1.1::ScanType;
 
 enum RadioConst : @1.0::RadioConst {
     RADIO_ACCESS_SPECIFIER_MAX_SIZE = 8,
+    RADIO_RELEASE_INFO_MAX_SIZE     = 3,
 };
 
 /**
@@ -244,3 +245,75 @@ struct CardStatus {
      */
     string iccid;
 };
+
+};
+
+struct DeviceCapabilities {
+    /*
+     * Device capabilities as defined by GSMA SGP22 specification.
+     */
+
+    /**
+     * gsmSupportedRelease – if GSM/GERAN is supported, this SHALL be the
+     * highest 3GPP release N fully supported by the device, encoded as a
+     * byte array '{N, 0, 0}'. If GSM/GERAN is not supported this SHALL be
+     * '{0, 0, 0}'.
+     */
+    uint8_t[RadioConst:RADIO_RELEASE_INFO_MAX_SIZE] gsmSupportedRelease;
+
+    /**
+     * utranSupportedRelease – if UMTS/UTRAN is supported, this SHALL be the
+     * highest 3GPP release N fully supported by the device, encoded as a
+     * byte array '{N, 0, 0}'. If UMTS/UTRAN is not supported this SHALL be
+     * '{0, 0, 0}'.
+     */
+    uint8_t[RadioConst:RADIO_RELEASE_INFO_MAX_SIZE] utranSupportedRelease;
+
+    /*
+     * cdma2000onexSupportedRelease – if cdma2000 1X is supported, this SHALL
+     * be encoded as a byte array '{1, 0, 0}'. If cdma2000 1X is not
+     * supported this SHALL be '{0, 0, 0}'.
+     */
+    uint8_t[RadioConst:RADIO_RELEASE_INFO_MAX_SIZE] cdma2000onexSupportedRelease;
+
+    /*
+     * cdma2000hrpdSupportedRelease – if cdma2000 HRPD is supported, this SHALL
+     * be encoded as a byte array '{R, 0, 0}'. If cdma2000 HRPD is not
+     * supported this SHALL be '{0, 0, 0}'. The value R SHALL represent the
+     * EVDO revision as follows:
+     * - Rev 0 SHALL be encoded as 1
+     * - Rev A SHALL be encoded as 2
+     * - Rev B SHALL be encoded as 3
+     */
+    uint8_t[RadioConst:RADIO_RELEASE_INFO_MAX_SIZE] cdma2000hrpdSupportedRelease;
+
+    /*
+     * cdma2000ehrpdSupportedRelease – if cdma2000 eHRPD, is supported this
+     * SHALL be the highest 3GPP release N fully supported by the device,
+     * encoded as a byte array '{N, 0, 0}'. If cdma2000 eHRPD is not
+     * supported this SHALL be '{0, 0, 0}'.
+     */
+    uint8_t[RadioConst:RADIO_RELEASE_INFO_MAX_SIZE] cdma2000ehrpdSupportedRelease;
+
+    /*
+     * eutranSupportedRelease – if LTE/E-UTRAN is supported, this SHALL be the
+     * highest 3GPP release N fully supported by the device, encoded as a byte
+     * array '{N, 0, 0}'. If LTE/E-UTRAN is not supported this SHALL be
+     * '{0, 0, 0}'.
+     */
+    uint8_t[RadioConst:RADIO_RELEASE_INFO_MAX_SIZE] eutranSupportedRelease;
+
+    /*
+     * contactlessSupportedRelease – if NFC is supported, this SHALL be the highest
+     * (version,revision) number of TS.26, encoded as a byte array
+     * '{version, revision, 0}'. If NFC is not supported this SHALL be '{0, 0, 0}'.
+     */
+    uint8_t[RadioConst:RADIO_RELEASE_INFO_MAX_SIZE] contactlessSupportedRelease;
+
+    /*
+     * rspCrlSupportedVersion – if load eUICC CRL as defined in section 5.7.12
+     * is supported, this SHALL be the highest SGP.22 release number supported
+     * by the device, encoded as a byte array '{N, 0, 0}'. If this function is
+     * not supported, this field SHALL be '{0, 0, 0}'.
+     */
+    uint8_t[RadioConst:RADIO_RELEASE_INFO_MAX_SIZE] rspCrlSupportedVersion;
