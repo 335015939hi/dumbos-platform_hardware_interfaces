@@ -22,6 +22,30 @@
       "revId": "734d77e572ebbf75a4d32e6d3d2eca99a7707fad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "938747ed_74ea91c7",
+        "filename": "radio/1.2/IRadioIndication.hal",
+        "patchSetId": 17
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1244217
+      },
+      "writtenOn": "2018-01-19T23:51:29Z",
+      "side": 1,
+      "message": "fwiw, this was added per @smoreland\u0027s request (see patchset 15). I\u0027m guessing the reason he wanted it was because this isn\u0027t simply adding a \"_1_2\" to the end of a function name.",
+      "parentUuid": "21f2d01d_86efda64",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 6
+      },
+      "revId": "734d77e572ebbf75a4d32e6d3d2eca99a7707fad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
