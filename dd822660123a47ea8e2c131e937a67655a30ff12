@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "15a26f4d_c8296ca1",
+        "filename": "secure_element/1.0/ISecureElement.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-01-19T00:04:06Z",
+      "side": 1,
+      "message": "**",
+      "range": {
+        "startLine": 21,
+        "startChar": 1,
+        "endLine": 21,
+        "endChar": 3
+      },
+      "revId": "dd822660123a47ea8e2c131e937a67655a30ff12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5273f9b2_a5316fe5",
         "filename": "secure_element/1.0/types.hal",
         "patchSetId": 8
@@ -42,6 +65,29 @@
         "startChar": 1,
         "endLine": 26,
         "endChar": 2
+      },
+      "revId": "dd822660123a47ea8e2c131e937a67655a30ff12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de0147f0_993a4035",
+        "filename": "secure_element/1.0/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-01-19T00:04:06Z",
+      "side": 1,
+      "message": "please mention the section of the standard where this is defined",
+      "range": {
+        "startLine": 31,
+        "startChar": 8,
+        "endLine": 31,
+        "endChar": 16
       },
       "revId": "dd822660123a47ea8e2c131e937a67655a30ff12",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
