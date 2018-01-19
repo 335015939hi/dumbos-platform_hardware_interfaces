@@ -46,6 +46,30 @@
       "revId": "734d77e572ebbf75a4d32e6d3d2eca99a7707fad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0768bbad_5e68b844",
+        "filename": "radio/1.2/IRadioIndication.hal",
+        "patchSetId": 17
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-01-19T23:52:38Z",
+      "side": 1,
+      "message": "https://android-review.googlesource.com/#/c/platform/hardware/interfaces/+/568244/15/radio/1.2/IRadioIndication.hal@56\n\nThis was added specifically at Steven\u0027s request. I think we\u0027re about 5 or 6 patches past when we should have merged this. Holding this patch hostage for further discussion over whether and to what extent we should include deprecation details in comments is pretty unfair, especially given the pace of reviews and the number of approving parties.",
+      "parentUuid": "21f2d01d_86efda64",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 6
+      },
+      "revId": "734d77e572ebbf75a4d32e6d3d2eca99a7707fad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
