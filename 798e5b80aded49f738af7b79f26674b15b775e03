@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "f9a49c7e_949185b0",
+        "filename": "secure_element/1.0/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1041663
+      },
+      "writtenOn": "2018-01-19T19:41:00Z",
+      "side": 1,
+      "message": "I tried to compile the patch from https://android-review.googlesource.com/c/platform/hardware/nxp/secure_element/+/592734 and it doesn\u0027t throw any error for the types.",
+      "parentUuid": "8e90046b_c0960521",
+      "range": {
+        "startLine": 22,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 29
+      },
+      "revId": "798e5b80aded49f738af7b79f26674b15b775e03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e7a3670a_f8962ca7",
         "filename": "secure_element/1.0/ISecureElement.hal",
         "patchSetId": 6
