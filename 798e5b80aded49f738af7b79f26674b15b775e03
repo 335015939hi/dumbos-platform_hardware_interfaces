@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "86372ebd_65f504de",
+        "filename": "secure_element/1.0/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1073593
+      },
+      "writtenOn": "2018-01-19T14:33:14Z",
+      "side": 1,
+      "message": "Please update the makefile , This is giving the following build error for constants.\n\"mismatch between declared and actual outputs\"",
+      "range": {
+        "startLine": 22,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 29
+      },
+      "revId": "798e5b80aded49f738af7b79f26674b15b775e03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e7a3670a_f8962ca7",
         "filename": "secure_element/1.0/ISecureElement.hal",
         "patchSetId": 6
