@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "40d325ed_fb8bd42e",
+        "filename": "secure_element/1.0/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1041663
+      },
+      "writtenOn": "2018-01-19T16:53:25Z",
+      "side": 1,
+      "message": "We need the gen_java_constants for SecureElement app to access the types.\n\nCould you point me to the HAL implementation file which is giving this error? I didn\u0027t get this when I tried to compile.",
+      "parentUuid": "86372ebd_65f504de",
+      "range": {
+        "startLine": 22,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 29
+      },
+      "revId": "798e5b80aded49f738af7b79f26674b15b775e03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e7a3670a_f8962ca7",
         "filename": "secure_element/1.0/ISecureElement.hal",
         "patchSetId": 6
