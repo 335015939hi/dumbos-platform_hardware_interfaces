@@ -37,4 +37,16 @@ interface IRadio extends @1.1::IRadio {
      * Response function is IRadioResponse.startNetworkScanResponse()
      */
     oneway startNetworkScan_1_2(int32_t serial, NetworkScanRequest request);
+
+    /**
+     * Get Device capabilities.
+     *
+     * Request provides the device capabilities per GSMA SGP22 specifications.
+     *
+     * @param serial Serial number of request.
+     *
+     * Response callback is IRadioResponse.getDeviceCapabilitiesResponse()
+     */
+    oneway getDeviceCapabilities(int32_t serial);
+
 };
