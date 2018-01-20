@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1eed731b_686b4ec0",
+        "filename": "radio/config/1.0/IRadioConfigIndication.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2018-01-20T01:45:16Z",
+      "side": 1,
+      "message": "I think it is important to document, when this indication is triggered: is it triggered along with a specific request, or triggered solely by modem after satisfying some specific conditions. \n\nIf this is triggered after a request, it is still testable in VTS? If this is triggered soly from Modem, it is not testable in VTS? Amit please confirm.",
+      "range": {
+        "startLine": 27,
+        "startChar": 7,
+        "endLine": 27,
+        "endChar": 40
+      },
+      "revId": "8cb08ceeef9f56ca810ac5bf356f1cba81709297",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
