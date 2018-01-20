@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "8da100e1_4690159f",
+        "filename": "radio/1.2/IRadioIndication.hal",
+        "patchSetId": 17
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2018-01-20T03:01:03Z",
+      "side": 1,
+      "message": "I prefer to mention this in this document.",
+      "parentUuid": "5228fe87_c71f6335",
+      "range": {
+        "startLine": 51,
+        "startChar": 7,
+        "endLine": 51,
+        "endChar": 48
+      },
+      "revId": "734d77e572ebbf75a4d32e6d3d2eca99a7707fad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "21f2d01d_86efda64",
         "filename": "radio/1.2/IRadioIndication.hal",
         "patchSetId": 17
