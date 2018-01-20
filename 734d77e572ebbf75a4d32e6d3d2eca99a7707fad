@@ -141,6 +141,29 @@
       "revId": "734d77e572ebbf75a4d32e6d3d2eca99a7707fad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3c9a72b_2b326424",
+        "filename": "radio/1.2/IRadioResponse.hal",
+        "patchSetId": 17
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1174770
+      },
+      "writtenOn": "2018-01-20T01:57:31Z",
+      "side": 1,
+      "message": "we may want to include RadioError:REQUEST_NOT_SUPPORTED as well",
+      "range": {
+        "startLine": 101,
+        "startChar": 9,
+        "endLine": 101,
+        "endChar": 32
+      },
+      "revId": "734d77e572ebbf75a4d32e6d3d2eca99a7707fad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
