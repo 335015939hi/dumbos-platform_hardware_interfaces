@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "5228fe87_c71f6335",
+        "filename": "radio/1.2/IRadioIndication.hal",
+        "patchSetId": 17
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1244217
+      },
+      "writtenOn": "2018-01-20T02:53:10Z",
+      "side": 1,
+      "message": "Please read the comment of the IndicationFilter.LINK_CAPACITY_ESTIMATE bit. It clearly explains that this method must be reported when the criteria met by setLinkCapacityReportingCriteria() are met.",
+      "parentUuid": "1b7ad622_f9207565",
+      "range": {
+        "startLine": 51,
+        "startChar": 7,
+        "endLine": 51,
+        "endChar": 48
+      },
+      "revId": "734d77e572ebbf75a4d32e6d3d2eca99a7707fad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "21f2d01d_86efda64",
         "filename": "radio/1.2/IRadioIndication.hal",
         "patchSetId": 17
