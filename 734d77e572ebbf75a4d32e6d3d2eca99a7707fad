@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5ae901b0_d6fd5665",
+        "filename": "radio/1.2/IRadioIndication.hal",
+        "patchSetId": 17
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1244217
+      },
+      "writtenOn": "2018-01-20T01:47:13Z",
+      "side": 1,
+      "message": "The requirements for reporting are specified in IndicationFilter.LINK_CAPACITY_ESTIMATE.",
+      "parentUuid": "52b4e5d6_32e74851",
+      "range": {
+        "startLine": 51,
+        "startChar": 7,
+        "endLine": 51,
+        "endChar": 48
+      },
+      "revId": "734d77e572ebbf75a4d32e6d3d2eca99a7707fad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "21f2d01d_86efda64",
         "filename": "radio/1.2/IRadioIndication.hal",
         "patchSetId": 17
