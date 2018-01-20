@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3a6b74b9_d70e8f92",
+        "filename": "radio/config/1.0/vts/functional/radio_config_hidl_hal_api.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1148298
+      },
+      "writtenOn": "2018-01-20T01:22:13Z",
+      "side": 1,
+      "message": "It should be getSimSlotsStatus.",
+      "parentUuid": "59cfafbc_bae712de",
+      "range": {
+        "startLine": 24,
+        "startChar": 28,
+        "endLine": 24,
+        "endChar": 45
+      },
+      "revId": "8857fab0e5d1c7f779453a2215494c2f9d7fd322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1978c220_c64f87bb",
         "filename": "radio/config/1.0/vts/functional/radio_config_hidl_hal_api.cpp",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2018-01-20T01:15:29Z",
       "side": 1,
       "message": "CHECK_GENERAL_ERROR flag is used for checking those general errors. Here it is not necessary, so below should be enough:\n\nASSERT_TRUE(CheckAnyOfErrors(radioConfigRsp-\u003erspInfo.error,\n {RadioError::NONE, RadioError::REQUEST_NOT_SUPPORTED}));",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 55
+      },
+      "revId": "8857fab0e5d1c7f779453a2215494c2f9d7fd322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "935ca0ab_ff893c05",
+        "filename": "radio/config/1.0/vts/functional/radio_config_hidl_hal_api.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1148298
+      },
+      "writtenOn": "2018-01-20T01:22:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1978c220_c64f87bb",
       "range": {
         "startLine": 34,
         "startChar": 0,
