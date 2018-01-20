@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "5559b37c_b3213636",
+        "filename": "radio/1.2/IRadioIndication.hal",
+        "patchSetId": 17
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-01-20T21:28:00Z",
+      "side": 1,
+      "message": "References to reporting criteria added.",
+      "parentUuid": "8da100e1_4690159f",
+      "range": {
+        "startLine": 51,
+        "startChar": 7,
+        "endLine": 51,
+        "endChar": 48
+      },
+      "revId": "734d77e572ebbf75a4d32e6d3d2eca99a7707fad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "21f2d01d_86efda64",
         "filename": "radio/1.2/IRadioIndication.hal",
         "patchSetId": 17
@@ -239,6 +263,30 @@
     },
     {
       "key": {
+        "uuid": "920c961c_e546544b",
+        "filename": "radio/1.2/IRadioResponse.hal",
+        "patchSetId": 17
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-01-20T21:28:00Z",
+      "side": 1,
+      "message": "All other Radio 1.2 functions currently have INTERNAL_ERROR, so if we want to remove it, we should do it in a separate CL. This CL is not the right place to make a change in policy since a policy change would require changes to every other new RadioResponse function.",
+      "parentUuid": "8cf11e8c_c8f2bf44",
+      "range": {
+        "startLine": 90,
+        "startChar": 20,
+        "endLine": 90,
+        "endChar": 32
+      },
+      "revId": "734d77e572ebbf75a4d32e6d3d2eca99a7707fad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3c9a72b_2b326424",
         "filename": "radio/1.2/IRadioResponse.hal",
         "patchSetId": 17
@@ -250,6 +298,30 @@
       "writtenOn": "2018-01-20T01:57:31Z",
       "side": 1,
       "message": "we may want to include RadioError:REQUEST_NOT_SUPPORTED as well",
+      "range": {
+        "startLine": 101,
+        "startChar": 9,
+        "endLine": 101,
+        "endChar": 32
+      },
+      "revId": "734d77e572ebbf75a4d32e6d3d2eca99a7707fad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40006f30_72fef59e",
+        "filename": "radio/1.2/IRadioResponse.hal",
+        "patchSetId": 17
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-01-20T21:28:00Z",
+      "side": 1,
+      "message": "We are considering this critical functionality, so there are no plans to make this optional.",
+      "parentUuid": "e3c9a72b_2b326424",
       "range": {
         "startLine": 101,
         "startChar": 9,
