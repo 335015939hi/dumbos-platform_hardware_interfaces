@@ -144,6 +144,29 @@
     },
     {
       "key": {
+        "uuid": "8cf11e8c_c8f2bf44",
+        "filename": "radio/1.2/IRadioResponse.hal",
+        "patchSetId": 17
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2018-01-20T02:01:45Z",
+      "side": 1,
+      "message": "Are we still removing INTERNAL_ERR in the future as in b/64568143? Robert, please confirm.",
+      "range": {
+        "startLine": 90,
+        "startChar": 20,
+        "endLine": 90,
+        "endChar": 32
+      },
+      "revId": "734d77e572ebbf75a4d32e6d3d2eca99a7707fad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3c9a72b_2b326424",
         "filename": "radio/1.2/IRadioResponse.hal",
         "patchSetId": 17
