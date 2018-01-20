@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "52b4e5d6_32e74851",
+        "filename": "radio/1.2/IRadioIndication.hal",
+        "patchSetId": 17
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2018-01-20T01:32:23Z",
+      "side": 1,
+      "message": "I think it is important to document, when this indication is triggered: is it triggered along with a request, or triggered solely by modem after satisfying some specific conditions.",
+      "range": {
+        "startLine": 51,
+        "startChar": 7,
+        "endLine": 51,
+        "endChar": 48
+      },
+      "revId": "734d77e572ebbf75a4d32e6d3d2eca99a7707fad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "21f2d01d_86efda64",
         "filename": "radio/1.2/IRadioIndication.hal",
         "patchSetId": 17
