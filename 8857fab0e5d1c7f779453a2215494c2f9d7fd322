@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "59cfafbc_bae712de",
+        "filename": "radio/config/1.0/vts/functional/radio_config_hidl_hal_api.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2018-01-20T01:15:29Z",
+      "side": 1,
+      "message": "I feel it\u0027s better to rename this one as getSimSlotsStatus as well, though I can see getIccSlotsStatus is used in RIL.java",
+      "range": {
+        "startLine": 24,
+        "startChar": 28,
+        "endLine": 24,
+        "endChar": 45
+      },
+      "revId": "8857fab0e5d1c7f779453a2215494c2f9d7fd322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1978c220_c64f87bb",
+        "filename": "radio/config/1.0/vts/functional/radio_config_hidl_hal_api.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2018-01-20T01:15:29Z",
+      "side": 1,
+      "message": "CHECK_GENERAL_ERROR flag is used for checking those general errors. Here it is not necessary, so below should be enough:\n\nASSERT_TRUE(CheckAnyOfErrors(radioConfigRsp-\u003erspInfo.error,\n {RadioError::NONE, RadioError::REQUEST_NOT_SUPPORTED}));",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 55
+      },
+      "revId": "8857fab0e5d1c7f779453a2215494c2f9d7fd322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
