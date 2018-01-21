@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e314c112_a5e6740e",
+        "filename": "secure_element/1.0/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1047473
+      },
+      "writtenOn": "2018-01-21T04:45:54Z",
+      "side": 1,
+      "message": "I think we should add a unique prefix for these status.\nThe build enter an endless loop (but didn\u0027t show any error) when building with MR1 8.1.0_r7 on Walleye.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 36
+      },
+      "revId": "d43097b338718e049e0197d15398590967f5922e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
