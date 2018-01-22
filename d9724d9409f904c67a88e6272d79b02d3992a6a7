@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3a817222_af5e5bf7",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-01-22T23:43:21Z",
+      "side": 1,
+      "message": "I\u0027d like to see some more flavor text in these, but we can do that in a future CL.",
+      "revId": "d9724d9409f904c67a88e6272d79b02d3992a6a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
