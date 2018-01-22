@@ -1,0 +1,280 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "db437540_4f063781",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-01-22T20:58:05Z",
+      "side": 1,
+      "message": "I\u0027d avoid using the word \"linux\" here, and I\u0027d say something with less assumption on the implementation.\n\n-Must not modify routing configuration related to this interface; routing management is exclusively within the purview of the Android OS.",
+      "range": {
+        "startLine": 99,
+        "startChar": 7,
+        "endLine": 99,
+        "endChar": 50
+      },
+      "revId": "876c7cf641f2b297dab35868a7df287ed7ab8157",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "58995257_1e5af3e1",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-01-22T20:58:05Z",
+      "side": 1,
+      "message": "this is oddly-specific. Is there a different way to say this?",
+      "range": {
+        "startLine": 100,
+        "startChar": 23,
+        "endLine": 100,
+        "endChar": 61
+      },
+      "revId": "876c7cf641f2b297dab35868a7df287ed7ab8157",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8d79c910_7dc0bf50",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-01-22T20:58:05Z",
+      "side": 1,
+      "message": "suggest:\nIndicates that the requested profile has previously been provided via setDataProfile()",
+      "range": {
+        "startLine": 106,
+        "startChar": 29,
+        "endLine": 107,
+        "endChar": 15
+      },
+      "revId": "876c7cf641f2b297dab35868a7df287ed7ab8157",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ddd394f_60bad830",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-01-22T20:58:05Z",
+      "side": 1,
+      "message": "whether or not data roaming is allowed by the user.",
+      "range": {
+        "startLine": 108,
+        "startChar": 40,
+        "endLine": 108,
+        "endChar": 83
+      },
+      "revId": "876c7cf641f2b297dab35868a7df287ed7ab8157",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62490159_e5e345b4",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-01-22T20:58:05Z",
+      "side": 1,
+      "message": "I think these should all be \"indicates\"",
+      "range": {
+        "startLine": 108,
+        "startChar": 29,
+        "endLine": 108,
+        "endChar": 39
+      },
+      "revId": "876c7cf641f2b297dab35868a7df287ed7ab8157",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84319617_eff75120",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-01-22T20:58:05Z",
+      "side": 1,
+      "message": "\"Indicates whether or not the framework has requested this setupDataCall for a roaming network. Note...\"\n\nquick question: can we \"fix\" this and not require it for this API?",
+      "range": {
+        "startLine": 109,
+        "startChar": 24,
+        "endLine": 109,
+        "endChar": 64
+      },
+      "revId": "876c7cf641f2b297dab35868a7df287ed7ab8157",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc200bf5_4c4bd382",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-01-22T20:58:05Z",
+      "side": 1,
+      "message": "I assume they are HANDOVER_REASON_NORMAL or _HANDOVER? If you can use the exact reason names that would be better.",
+      "range": {
+        "startLine": 113,
+        "startChar": 50,
+        "endLine": 113,
+        "endChar": 68
+      },
+      "revId": "876c7cf641f2b297dab35868a7df287ed7ab8157",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ddd67f00_96e58951",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-01-22T20:58:05Z",
+      "side": 1,
+      "message": "if",
+      "range": {
+        "startLine": 118,
+        "startChar": 40,
+        "endLine": 118,
+        "endChar": 42
+      },
+      "revId": "876c7cf641f2b297dab35868a7df287ed7ab8157",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16c1a391_58697911",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-01-22T20:58:05Z",
+      "side": 1,
+      "message": "I\u0027m going to guess there\u0027s a standard IETF weay to write these to which the addresses comply.",
+      "range": {
+        "startLine": 115,
+        "startChar": 18,
+        "endLine": 118,
+        "endChar": 33
+      },
+      "revId": "876c7cf641f2b297dab35868a7df287ed7ab8157",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca7224b9_94c8c2f4",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-01-22T20:58:05Z",
+      "side": 1,
+      "message": "This parameter shall be ignored unless \"reason\" is SETUP_REASON_HANDOVER.",
+      "range": {
+        "startLine": 114,
+        "startChar": 7,
+        "endLine": 122,
+        "endChar": 28
+      },
+      "revId": "876c7cf641f2b297dab35868a7df287ed7ab8157",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c6806886_e7c2a751",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-01-22T20:58:05Z",
+      "side": 1,
+      "message": "can we remove this thing or would that create a mess? Now that we have both home and roam protocols... does it honestly not do anything?",
+      "range": {
+        "startLine": 128,
+        "startChar": 12,
+        "endLine": 128,
+        "endChar": 26
+      },
+      "revId": "876c7cf641f2b297dab35868a7df287ed7ab8157",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b9c16085_415dd3a3",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-01-22T20:58:05Z",
+      "side": 1,
+      "message": "how is this different from \"normal\" in the shutdown case? Is the radio using this to indicate power-off as the detach reason?",
+      "range": {
+        "startLine": 136,
+        "startChar": 70,
+        "endLine": 136,
+        "endChar": 78
+      },
+      "revId": "876c7cf641f2b297dab35868a7df287ed7ab8157",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
