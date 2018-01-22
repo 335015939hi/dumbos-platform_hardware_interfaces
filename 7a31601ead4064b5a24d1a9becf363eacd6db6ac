@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "363ddb58_121e6e3b",
+        "filename": "radio/1.2/IRadioIndication.hal",
+        "patchSetId": 20
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-01-22T23:49:22Z",
+      "side": 1,
+      "message": "would probably be worth mentioning here when we expect this. Note: that information is already provided elsewhere in the CL, so it would be somewhat redundant. Perhaps in a follow-up we can add cross-references to the various places where the doc strings about this reside.",
+      "revId": "7a31601ead4064b5a24d1a9becf363eacd6db6ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "78136458_9d7e789d",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 20
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-01-22T23:49:22Z",
+      "side": 1,
+      "message": "If this is reported whenever LCE or signal strength change, we might also get reports for the camped cell, in which case it would actually be \"none\". We should do more clarification of what we expect in that case and whether this is ONLY to be reported when we are in DCH. None of that requires a change to the meat but the documentation might need to reflect that particular case.",
+      "range": {
+        "startLine": 365,
+        "startChar": 7,
+        "endLine": 365,
+        "endChar": 28
+      },
+      "revId": "7a31601ead4064b5a24d1a9becf363eacd6db6ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
