@@ -22,6 +22,30 @@
       "revId": "8cb08ceeef9f56ca810ac5bf356f1cba81709297",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c488df59_264be2db",
+        "filename": "radio/config/1.0/IRadioConfigIndication.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1148298
+      },
+      "writtenOn": "2018-01-22T17:23:21Z",
+      "side": 1,
+      "message": "Added some more comments to describe this indication. It is triggered by the modem instead of any request.",
+      "parentUuid": "1eed731b_686b4ec0",
+      "range": {
+        "startLine": 27,
+        "startChar": 7,
+        "endLine": 27,
+        "endChar": 40
+      },
+      "revId": "8cb08ceeef9f56ca810ac5bf356f1cba81709297",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
