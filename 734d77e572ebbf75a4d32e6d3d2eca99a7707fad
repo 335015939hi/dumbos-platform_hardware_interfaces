@@ -240,6 +240,30 @@
     },
     {
       "key": {
+        "uuid": "ffe51b64_059b3635",
+        "filename": "radio/1.2/IRadioIndication.hal",
+        "patchSetId": 17
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1002609
+      },
+      "writtenOn": "2018-01-22T23:26:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4b6364e_f85defb6",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 6
+      },
+      "revId": "734d77e572ebbf75a4d32e6d3d2eca99a7707fad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8cf11e8c_c8f2bf44",
         "filename": "radio/1.2/IRadioResponse.hal",
         "patchSetId": 17
@@ -275,6 +299,30 @@
       "side": 1,
       "message": "All other Radio 1.2 functions currently have INTERNAL_ERROR, so if we want to remove it, we should do it in a separate CL. This CL is not the right place to make a change in policy since a policy change would require changes to every other new RadioResponse function.",
       "parentUuid": "8cf11e8c_c8f2bf44",
+      "range": {
+        "startLine": 90,
+        "startChar": 20,
+        "endLine": 90,
+        "endChar": 32
+      },
+      "revId": "734d77e572ebbf75a4d32e6d3d2eca99a7707fad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "508dedeb_59e45091",
+        "filename": "radio/1.2/IRadioResponse.hal",
+        "patchSetId": 17
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1002609
+      },
+      "writtenOn": "2018-01-22T23:26:20Z",
+      "side": 1,
+      "message": "Lets address that bug separately.",
+      "parentUuid": "920c961c_e546544b",
       "range": {
         "startLine": 90,
         "startChar": 20,
@@ -331,6 +379,30 @@
       "revId": "734d77e572ebbf75a4d32e6d3d2eca99a7707fad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54511129_4ccddf5b",
+        "filename": "radio/1.2/IRadioResponse.hal",
+        "patchSetId": 17
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1002609
+      },
+      "writtenOn": "2018-01-22T23:26:20Z",
+      "side": 1,
+      "message": "We\u0027re really trying to reduce the number of optional API.",
+      "parentUuid": "40006f30_72fef59e",
+      "range": {
+        "startLine": 101,
+        "startChar": 9,
+        "endLine": 101,
+        "endChar": 32
+      },
+      "revId": "734d77e572ebbf75a4d32e6d3d2eca99a7707fad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
