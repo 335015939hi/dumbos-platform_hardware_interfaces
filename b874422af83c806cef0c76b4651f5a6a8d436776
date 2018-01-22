@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "61a1d59e_07c7ac9a",
+        "filename": "radio/config/1.0/IRadioConfigResponse.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1002609
+      },
+      "writtenOn": "2018-01-22T18:25:31Z",
+      "side": 1,
+      "message": "I\u0027d like to not have this.",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 41
+      },
+      "revId": "b874422af83c806cef0c76b4651f5a6a8d436776",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24b5495f_ee2e9e75",
+        "filename": "radio/config/1.0/IRadioConfigResponse.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1002609
+      },
+      "writtenOn": "2018-01-22T18:25:31Z",
+      "side": 1,
+      "message": "there were no arguments..",
+      "range": {
+        "startLine": 38,
+        "startChar": 9,
+        "endLine": 38,
+        "endChar": 37
+      },
+      "revId": "b874422af83c806cef0c76b4651f5a6a8d436776",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3fc4a85_67c5cbd9",
+        "filename": "radio/config/1.0/IRadioConfigResponse.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1002609
+      },
+      "writtenOn": "2018-01-22T18:25:31Z",
+      "side": 1,
+      "message": "please remove",
+      "range": {
+        "startLine": 48,
+        "startChar": 9,
+        "endLine": 48,
+        "endChar": 41
+      },
+      "revId": "b874422af83c806cef0c76b4651f5a6a8d436776",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b96cc1a_f2f8c611",
+        "filename": "radio/config/1.0/IRadioConfigResponse.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1002609
+      },
+      "writtenOn": "2018-01-22T18:25:31Z",
+      "side": 1,
+      "message": "shouldn\u0027t this have invalid_arguments?",
+      "range": {
+        "startLine": 53,
+        "startChar": 11,
+        "endLine": 53,
+        "endChar": 37
+      },
+      "revId": "b874422af83c806cef0c76b4651f5a6a8d436776",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5abdb511_bca7db60",
+        "filename": "radio/config/1.0/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1002609
+      },
+      "writtenOn": "2018-01-22T18:25:31Z",
+      "side": 1,
+      "message": "shouldn\u0027t we be removing slotstate from radio/1.2/types.hal",
+      "range": {
+        "startLine": 21,
+        "startChar": 5,
+        "endLine": 21,
+        "endChar": 14
+      },
+      "revId": "b874422af83c806cef0c76b4651f5a6a8d436776",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b950a3c_f923ee73",
+        "filename": "radio/config/1.0/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1002609
+      },
+      "writtenOn": "2018-01-22T18:25:31Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 32,
+        "startChar": 7,
+        "endLine": 32,
+        "endChar": 20
+      },
+      "revId": "b874422af83c806cef0c76b4651f5a6a8d436776",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
