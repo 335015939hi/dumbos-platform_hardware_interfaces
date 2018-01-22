@@ -94,6 +94,30 @@
       "revId": "aec42a7082fc5123c81b4b79eff74f5925525815",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d5599c7_4da08b69",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-01-22T20:24:35Z",
+      "side": 1,
+      "message": "Update the name preferred.",
+      "parentUuid": "b2b66e26_b519a736",
+      "range": {
+        "startLine": 72,
+        "startChar": 4,
+        "endLine": 72,
+        "endChar": 8
+      },
+      "revId": "aec42a7082fc5123c81b4b79eff74f5925525815",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
