@@ -70,6 +70,30 @@
       "revId": "aec42a7082fc5123c81b4b79eff74f5925525815",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b2b66e26_b519a736",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1237921
+      },
+      "writtenOn": "2018-01-22T05:46:28Z",
+      "side": 1,
+      "message": "Should I just add comments or update the name to \"AudioQuality::UNSPECIFIED\" and add comments?",
+      "parentUuid": "a2486a44_80abca6e",
+      "range": {
+        "startLine": 72,
+        "startChar": 4,
+        "endLine": 72,
+        "endChar": 8
+      },
+      "revId": "aec42a7082fc5123c81b4b79eff74f5925525815",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
