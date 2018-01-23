@@ -26,7 +26,6 @@ import @1.0::CellIdentityLte;
 import @1.0::CellIdentityTdscdma;
 import @1.0::CellIdentityWcdma;
 import @1.0::CellInfoTdscdma;
-import @1.0::CellInfoType;
 import @1.0::EvdoSignalStrength;
 import @1.0::GsmSignalStrength;
 import @1.0::LteSignalStrength;
@@ -66,6 +65,18 @@ enum MaxSearchTimeRange : int32_t {
 enum IncrementalResultsPeriodicityRange : int32_t {
     MIN = 1,
     MAX = 10,
+};
+
+enum NrRsrpRange : uint32_t {
+    MIN = 44,
+    MAX = 140,
+    INVALID = 0x7FFFFFFF,
+};
+
+enum NrSnrRange : int32_t {
+    MIN = -200,
+    MAX = 300,
+    INVALID = 0x7FFFFFFF,
 };
 
 enum CellConnectionStatus : int32_t {
@@ -268,6 +279,41 @@ struct CellIdentityWcdma {
     CellIdentityOperatorNames operatorNames;
 };
 
+struct CellIdentityNr {
+    /** 3-digit Mobile Country Code, 0..999, INT_MAX if unknown */
+    string mcc;
+
+    /** 2 or 3-digit Mobile Network Code, 0..999, INT_MAX if
+     *  unknown
+     */
+    string mnc;
+
+    /** 28-bit Cell Identity described in TS TS 27.007, INT_MAX
+     *  if unknown
+     */
+    int32_t ci;
+
+    /** 16-bit tracking area code, INT_MAX if unknown
+     */
+    int32_t tac;
+};
+
+struct NrSignalStrength {
+    /** The current Reference Signal Receive Power in dBm
+     * multipled by -1.
+     * Range: NrRsrpRange:MIN to NrRsrpRange:MAX dBm
+     * NrRsrpRange:INVALID denotes invalid value.
+     * Reference: 3GPP TS 36.133 9.1.4 */
+    uint32_t rsrp;
+
+    /** The current signal-to-noise ratio in
+     * 0.1 dB units.
+     * Range: NrSnrRange:MIN to NrSnrRange:MAX (-200 = -20.0 dB, +300 = 30dB).
+     * NrSnrRange:INVALID denotes invalid value.
+     * Reference: 3GPP TS 36.101 8.1.1 */
+    int32_t snr;
+};
+
 struct CellInfoGsm {
     CellIdentityGsm cellIdentityGsm;
     GsmSignalStrength signalStrengthGsm;
@@ -292,6 +338,21 @@ struct CellInfoLte {
 struct CellInfoTdscdma {
     CellIdentityTdscdma cellIdentityTdscdma;
     TdscdmaSignalStrength signalStrengthTdscdma;
+};
+
+struct CellInfoNr {
+    CellIdentityNr cellIdentityNr;
+    NrSignalStrength signalStrengthNr;
+};
+
+CellInfoType : int32_t {
+    NONE = 0,
+    GSM = 1,
+    CDMA = 2,
+    LTE = 3,
+    WCDMA = 4,
+    TD_SCDMA = 5,
+    NR = 6,
 };
 
 struct CellInfo {
@@ -332,6 +393,10 @@ struct CellInfo {
      * Valid only if type = tdscdma and size = 1 else must be empty.
      */
     vec<CellInfoTdscdma> tdscdma;
+    /**
+     * Valid only if type = nr and size = 1 else must be empty.
+     */
+    vec<CellInfoNr> nr;
     /**
      * Connection status for the cell.
      */
@@ -461,4 +526,5 @@ struct SignalStrength {
     LteSignalStrength lte;
     TdScdmaSignalStrength tdScdma;
     WcdmaSignalStrength wcdma;
+    NrSignalStrength nr;
 };
