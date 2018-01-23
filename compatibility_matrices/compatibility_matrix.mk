@@ -40,10 +40,10 @@ ifneq (,$(strip $(LOCAL_KERNEL_VERSIONS)))
 $(GEN): PRIVATE_KERNEL_CONFIG_DATA := kernel/configs
 $(GEN): PRIVATE_KERNEL_VERSIONS := $(LOCAL_KERNEL_VERSIONS)
 $(GEN): $(foreach version,$(PRIVATE_KERNEL_VERSIONS),\
-    $(wildcard $(PRIVATE_KERNEL_CONFIG_DATA)/android-$(version)/android-base*.cfg))
+    $(wildcard $(PRIVATE_KERNEL_CONFIG_DATA)/android-$(call remove-minor-revision,$(version))/android-base*.cfg))
 $(GEN): PRIVATE_FLAGS += $(foreach version,$(PRIVATE_KERNEL_VERSIONS),\
     --kernel=$(version):$(call normalize-path-list,\
-        $(wildcard $(PRIVATE_KERNEL_CONFIG_DATA)/android-$(version)/android-base*.cfg)))
+        $(wildcard $(PRIVATE_KERNEL_CONFIG_DATA)/android-$(call remove-minor-revision,$(version))/android-base*.cfg)))
 endif
 
 my_matrix_src_files := \
