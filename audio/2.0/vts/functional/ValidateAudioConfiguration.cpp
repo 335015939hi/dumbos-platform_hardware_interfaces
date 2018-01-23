@@ -24,11 +24,22 @@ TEST(CheckConfig, audioPolicyConfigurationValidation) {
     const char* possibleConfigLocations[] = {"/odm/etc", "/vendor/etc", "/system/etc"};
     const char* configSchemaPath = "/data/local/tmp/audio_policy_configuration.xsd";
 
+<<<<<<< HEAD   (73c30b Merge "Don't send more than 2K to addRngEntropy" into oreo-v)
     for (std::string folder : possibleConfigLocations) {
         const auto configPath = folder + '/' + configName;
         if (access(configPath.c_str(), R_OK) == 0) {
             ASSERT_VALID_XML(configPath.c_str(), configSchemaPath);
             return; // The framework does not read past the first config file found
+=======
+    bool found = false;
+    for (std::string folder : possibleConfigLocations) {
+        const auto configPath = folder + '/' + configName;
+        if (access(configPath.c_str(), R_OK) == 0) {
+            ASSERT_FALSE(found) << "Multiple " << configName << " found in "
+                                << ::testing::PrintToString(possibleConfigLocations);
+            found = true;
+            ASSERT_VALID_XML(configPath.c_str(), configSchemaPath);
+>>>>>>> BRANCH (5e7454 Merge "Audio VTS: Look for Audio policy config in all suppor)
         }
     }
 }
