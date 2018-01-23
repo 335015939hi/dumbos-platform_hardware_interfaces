@@ -327,3 +327,36 @@ struct PhysicalChannelConfig {
      */
     int32_t cellBandwidthDownlink;
 };
+
+enum Nr5gRsrpRange : uint32_t {
+    MIN = 44,
+    MAX = 140,
+    INVALID = 0x7FFFFFFF,
+};
+
+enum Nr5gSnrRange : int32_t {
+    MIN = -200,
+    MAX = 300,
+    INVALID = 0x7FFFFFFF,
+};
+
+struct Nr5gSignalStrength {
+    /** The current Reference Signal Receive Power in dBm
+     * multipled by -1.
+     * Range: Nr5gRsrpRange:MIN to Nr5gRsrpRange:MAX dBm
+     * Nr5gRsrpRange:INVALID denotes invalid value.
+     * Reference: 3GPP TS 36.133 9.1.4 */
+    uint32_t rsrp;
+
+    /** The current signal-to-noise ratio in
+     * 0.1 dB units.
+     * Range: Nr5gSnrRange:MIN to Nr5gSnrRange:MAX (-200 = -20.0 dB, +300 = 30dB).
+     * Nr5gSnrRange:INVALID denotes invalid value.
+     * Reference: 3GPP TS 36.101 8.1.1 */
+    int32_t snr;
+};
+
+struct SignalStrength {
+    @1.0::SignalStrength base;
+    Nr5gSignalStrength nr5g;
+};
