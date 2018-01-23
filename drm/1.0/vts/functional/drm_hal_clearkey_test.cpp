@@ -1122,9 +1122,12 @@ TEST_F(DrmHalClearkeyDecryptTest, TestQueryKeyStatus) {
         sessionId, [&](Status status, KeyedVector /* info */) { EXPECT_EQ(Status::OK, status); });
     EXPECT_OK(res);
 
+<<<<<<< HEAD   (b2b0cd Add REQUEST_NOT_SUPPORTED / SIM_ABSENT for vts tests am: 1d9)
     closeSession(sessionId);
 }
 
+=======
+>>>>>>> BRANCH (c312e2 Add tests to validate key length for clearkey plugin.)
 /**
  * Positive decrypt test.  "Decrypt" a single clear segment
  */
