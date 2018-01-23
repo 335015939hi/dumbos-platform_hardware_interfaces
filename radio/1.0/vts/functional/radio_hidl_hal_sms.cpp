@@ -239,8 +239,15 @@ TEST_F(RadioHidlTest, getSmscAddress) {
     EXPECT_EQ(serial, radioRsp->rspInfo.serial);
 
     if (cardStatus.cardState == CardState::ABSENT) {
+<<<<<<< HEAD   (b4fbd4 Add Sim absent assertion in the 1.0 setup am: 4e81e1f726  -s)
         ASSERT_TRUE(CheckGeneralError() || radioRsp->rspInfo.error == RadioError::INVALID_STATE ||
                     radioRsp->rspInfo.error == RadioError::INVALID_MODEM_STATE ||
+=======
+        ASSERT_TRUE(CheckGeneralError() ||
+                    radioRsp->rspInfo.error == RadioError::INVALID_STATE ||
+                    radioRsp->rspInfo.error ==
+                        RadioError::INVALID_MODEM_STATE ||
+>>>>>>> BRANCH (a945ba Update VTS tests so that Mediatek pass more VTS for O.)
                     radioRsp->rspInfo.error == RadioError::SIM_ABSENT);
     }
 }
@@ -290,7 +297,12 @@ TEST_F(RadioHidlTest, writeSmsToSim) {
                     radioRsp->rspInfo.error == RadioError::ENCODING_ERR ||
                     radioRsp->rspInfo.error == RadioError::NO_RESOURCES ||
                     radioRsp->rspInfo.error == RadioError::NETWORK_NOT_READY ||
+<<<<<<< HEAD   (b4fbd4 Add Sim absent assertion in the 1.0 setup am: 4e81e1f726  -s)
                     radioRsp->rspInfo.error == RadioError::INVALID_SMSC_ADDRESS ||
+=======
+                    radioRsp->rspInfo.error ==
+                        RadioError::INVALID_SMSC_ADDRESS ||
+>>>>>>> BRANCH (a945ba Update VTS tests so that Mediatek pass more VTS for O.)
                     radioRsp->rspInfo.error == RadioError::SIM_ABSENT);
     }
 }
@@ -314,7 +326,12 @@ TEST_F(RadioHidlTest, deleteSmsOnSim) {
                     radioRsp->rspInfo.error == RadioError::NONE ||
                     radioRsp->rspInfo.error == RadioError::MODEM_ERR ||
                     radioRsp->rspInfo.error == RadioError::NO_SUCH_ENTRY ||
+<<<<<<< HEAD   (b4fbd4 Add Sim absent assertion in the 1.0 setup am: 4e81e1f726  -s)
                     radioRsp->rspInfo.error == RadioError::INVALID_MODEM_STATE ||
+=======
+                    radioRsp->rspInfo.error ==
+                        RadioError::INVALID_MODEM_STATE ||
+>>>>>>> BRANCH (a945ba Update VTS tests so that Mediatek pass more VTS for O.)
                     radioRsp->rspInfo.error == RadioError::SIM_ABSENT);
     }
 }
@@ -368,7 +385,12 @@ TEST_F(RadioHidlTest, writeSmsToRuim) {
                     radioRsp->rspInfo.error == RadioError::NONE ||
                     radioRsp->rspInfo.error == RadioError::MODEM_ERR ||
                     radioRsp->rspInfo.error == RadioError::NO_SUCH_ENTRY ||
+<<<<<<< HEAD   (b4fbd4 Add Sim absent assertion in the 1.0 setup am: 4e81e1f726  -s)
                     radioRsp->rspInfo.error == RadioError::INVALID_SMSC_ADDRESS ||
+=======
+                    radioRsp->rspInfo.error ==
+                        RadioError::INVALID_SMSC_ADDRESS ||
+>>>>>>> BRANCH (a945ba Update VTS tests so that Mediatek pass more VTS for O.)
                     radioRsp->rspInfo.error == RadioError::SIM_ABSENT);
     }
 }
@@ -421,7 +443,12 @@ TEST_F(RadioHidlTest, deleteSmsOnRuim) {
                     radioRsp->rspInfo.error == RadioError::NONE ||
                     radioRsp->rspInfo.error == RadioError::MODEM_ERR ||
                     radioRsp->rspInfo.error == RadioError::NO_SUCH_ENTRY ||
+<<<<<<< HEAD   (b4fbd4 Add Sim absent assertion in the 1.0 setup am: 4e81e1f726  -s)
                     radioRsp->rspInfo.error == RadioError::INVALID_MODEM_STATE ||
+=======
+                    radioRsp->rspInfo.error ==
+                        RadioError::INVALID_MODEM_STATE ||
+>>>>>>> BRANCH (a945ba Update VTS tests so that Mediatek pass more VTS for O.)
                     radioRsp->rspInfo.error == RadioError::SIM_ABSENT);
     }
 }

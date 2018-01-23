@@ -686,7 +686,8 @@ TEST_F(RadioHidlTest, startLceService) {
 
     if (cardStatus.cardState == CardState::ABSENT) {
         std::cout << static_cast<int>(radioRsp->rspInfo.error) << std::endl;
-        ASSERT_TRUE(radioRsp->rspInfo.error == RadioError::RADIO_NOT_AVAILABLE ||
+        ASSERT_TRUE(radioRsp->rspInfo.error ==
+                        RadioError::RADIO_NOT_AVAILABLE ||
                     radioRsp->rspInfo.error == RadioError::LCE_NOT_SUPPORTED ||
                     radioRsp->rspInfo.error == RadioError::INTERNAL_ERR ||
                     radioRsp->rspInfo.error == RadioError::SIM_ABSENT);
@@ -707,7 +708,12 @@ TEST_F(RadioHidlTest, stopLceService) {
     if (cardStatus.cardState == CardState::ABSENT) {
         ASSERT_TRUE(radioRsp->rspInfo.error == RadioError::NONE ||
                     radioRsp->rspInfo.error == RadioError::LCE_NOT_SUPPORTED ||
+<<<<<<< HEAD   (b4fbd4 Add Sim absent assertion in the 1.0 setup am: 4e81e1f726  -s)
                     radioRsp->rspInfo.error == RadioError::REQUEST_NOT_SUPPORTED ||
+=======
+                    radioRsp->rspInfo.error ==
+                        RadioError::REQUEST_NOT_SUPPORTED ||
+>>>>>>> BRANCH (a945ba Update VTS tests so that Mediatek pass more VTS for O.)
                     radioRsp->rspInfo.error == RadioError::SIM_ABSENT);
     }
 }
@@ -724,9 +730,17 @@ TEST_F(RadioHidlTest, pullLceData) {
     EXPECT_EQ(serial, radioRsp->rspInfo.serial);
 
     if (cardStatus.cardState == CardState::ABSENT) {
+<<<<<<< HEAD   (b4fbd4 Add Sim absent assertion in the 1.0 setup am: 4e81e1f726  -s)
         ASSERT_TRUE(radioRsp->rspInfo.error == RadioError::RADIO_NOT_AVAILABLE || CheckOEMError() ||
                     radioRsp->rspInfo.error == RadioError::INTERNAL_ERR ||
                     radioRsp->rspInfo.error == RadioError::NONE);
+=======
+        ASSERT_TRUE(radioRsp->rspInfo.error ==
+                        RadioError::RADIO_NOT_AVAILABLE ||
+                    CheckOEMError() ||
+                    radioRsp->rspInfo.error == RadioError::INTERNAL_ERR ||
+                    radioRsp->rspInfo.error == RadioError::SIM_ABSENT);
+>>>>>>> BRANCH (a945ba Update VTS tests so that Mediatek pass more VTS for O.)
     }
 }
 
@@ -768,7 +782,12 @@ TEST_F(RadioHidlTest, setAllowedCarriers) {
 
     if (cardStatus.cardState == CardState::ABSENT) {
         ASSERT_TRUE(radioRsp->rspInfo.error == RadioError::NONE ||
+<<<<<<< HEAD   (b4fbd4 Add Sim absent assertion in the 1.0 setup am: 4e81e1f726  -s)
                     radioRsp->rspInfo.error == RadioError::REQUEST_NOT_SUPPORTED);
+=======
+                    radioRsp->rspInfo.error ==
+                        RadioError::REQUEST_NOT_SUPPORTED);
+>>>>>>> BRANCH (a945ba Update VTS tests so that Mediatek pass more VTS for O.)
     }
 
     /* Reset back to no carrier restriction */
@@ -783,7 +802,12 @@ TEST_F(RadioHidlTest, setAllowedCarriers) {
 
     if (cardStatus.cardState == CardState::ABSENT) {
         ASSERT_TRUE(radioRsp->rspInfo.error == RadioError::NONE ||
+<<<<<<< HEAD   (b4fbd4 Add Sim absent assertion in the 1.0 setup am: 4e81e1f726  -s)
                     radioRsp->rspInfo.error == RadioError::REQUEST_NOT_SUPPORTED);
+=======
+                    radioRsp->rspInfo.error ==
+                        RadioError::REQUEST_NOT_SUPPORTED);
+>>>>>>> BRANCH (a945ba Update VTS tests so that Mediatek pass more VTS for O.)
     }
 }
 

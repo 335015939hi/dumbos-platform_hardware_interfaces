@@ -76,10 +76,21 @@ TEST_F(RadioHidlTest, setupDataCall) {
 
     if (cardStatus.cardState == CardState::ABSENT) {
         ASSERT_TRUE(radioRsp->rspInfo.error == RadioError::NONE ||
+<<<<<<< HEAD   (b4fbd4 Add Sim absent assertion in the 1.0 setup am: 4e81e1f726  -s)
                     radioRsp->rspInfo.error == RadioError::RADIO_NOT_AVAILABLE ||
                     radioRsp->rspInfo.error == RadioError::OP_NOT_ALLOWED_BEFORE_REG_TO_NW ||
                     radioRsp->rspInfo.error == RadioError::OP_NOT_ALLOWED_DURING_VOICE_CALL ||
                     radioRsp->rspInfo.error == RadioError::SIM_ABSENT || CheckOEMError());
+=======
+                    radioRsp->rspInfo.error ==
+                        RadioError::RADIO_NOT_AVAILABLE ||
+                    radioRsp->rspInfo.error ==
+                        RadioError::OP_NOT_ALLOWED_BEFORE_REG_TO_NW ||
+                    radioRsp->rspInfo.error ==
+                        RadioError::OP_NOT_ALLOWED_DURING_VOICE_CALL ||
+                    radioRsp->rspInfo.error == RadioError::SIM_ABSENT ||
+                    CheckOEMError());
+>>>>>>> BRANCH (a945ba Update VTS tests so that Mediatek pass more VTS for O.)
     }
 }
 
@@ -100,8 +111,13 @@ TEST_F(RadioHidlTest, deactivateDataCall) {
     if (cardStatus.cardState == CardState::ABSENT) {
         ASSERT_TRUE(radioRsp->rspInfo.error == RadioError::NONE ||
                     radioRsp->rspInfo.error == RadioError::INVALID_CALL_ID ||
+<<<<<<< HEAD   (b4fbd4 Add Sim absent assertion in the 1.0 setup am: 4e81e1f726  -s)
                     radioRsp->rspInfo.error == RadioError::SIM_ABSENT || CheckOEMError() ||
                     radioRsp->rspInfo.error == RadioError::RADIO_NOT_AVAILABLE);
+=======
+                    radioRsp->rspInfo.error == RadioError::SIM_ABSENT ||
+                    CheckOEMError());
+>>>>>>> BRANCH (a945ba Update VTS tests so that Mediatek pass more VTS for O.)
     }
 }
 
@@ -119,7 +135,12 @@ TEST_F(RadioHidlTest, getDataCallList) {
 
     if (cardStatus.cardState == CardState::ABSENT) {
         ASSERT_TRUE(radioRsp->rspInfo.error == RadioError::NONE ||
+<<<<<<< HEAD   (b4fbd4 Add Sim absent assertion in the 1.0 setup am: 4e81e1f726  -s)
                     radioRsp->rspInfo.error == RadioError::RADIO_NOT_AVAILABLE ||
+=======
+                    radioRsp->rspInfo.error ==
+                        RadioError::RADIO_NOT_AVAILABLE ||
+>>>>>>> BRANCH (a945ba Update VTS tests so that Mediatek pass more VTS for O.)
                     radioRsp->rspInfo.error == RadioError::SIM_ABSENT);
     }
 }
@@ -225,8 +246,14 @@ TEST_F(RadioHidlTest, setDataProfile) {
 
     if (cardStatus.cardState == CardState::ABSENT) {
         ASSERT_TRUE(radioRsp->rspInfo.error == RadioError::NONE ||
+<<<<<<< HEAD   (b4fbd4 Add Sim absent assertion in the 1.0 setup am: 4e81e1f726  -s)
                     radioRsp->rspInfo.error == RadioError::RADIO_NOT_AVAILABLE ||
                     radioRsp->rspInfo.error == RadioError::SIM_ABSENT ||
                     radioRsp->rspInfo.error == RadioError::REQUEST_NOT_SUPPORTED);
+=======
+                    radioRsp->rspInfo.error ==
+                        RadioError::RADIO_NOT_AVAILABLE ||
+                    radioRsp->rspInfo.error == RadioError::SIM_ABSENT);
+>>>>>>> BRANCH (a945ba Update VTS tests so that Mediatek pass more VTS for O.)
     }
 }

@@ -122,9 +122,15 @@ TEST_F(RadioHidlTest, setCdmaBroadcastConfig) {
     EXPECT_EQ(serial, radioRsp->rspInfo.serial);
 
     if (cardStatus.cardState == CardState::ABSENT) {
+<<<<<<< HEAD   (b4fbd4 Add Sim absent assertion in the 1.0 setup am: 4e81e1f726  -s)
         ASSERT_TRUE(CheckGeneralError() ||
                     radioRsp->rspInfo.error == RadioError::INVALID_ARGUMENTS ||
                     radioRsp->rspInfo.error == RadioError::NONE);
+=======
+        ASSERT_TRUE(radioRsp->rspInfo.error == RadioError::NONE ||
+                    CheckGeneralError() ||
+                    radioRsp->rspInfo.error == RadioError::INVALID_ARGUMENTS);
+>>>>>>> BRANCH (a945ba Update VTS tests so that Mediatek pass more VTS for O.)
     }
 }
 
@@ -141,7 +147,12 @@ TEST_F(RadioHidlTest, getCdmaBroadcastConfig) {
     EXPECT_EQ(serial, radioRsp->rspInfo.serial);
 
     if (cardStatus.cardState == CardState::ABSENT) {
+<<<<<<< HEAD   (b4fbd4 Add Sim absent assertion in the 1.0 setup am: 4e81e1f726  -s)
         ASSERT_TRUE(CheckGeneralError() || radioRsp->rspInfo.error == RadioError::NONE);
+=======
+        ASSERT_TRUE(radioRsp->rspInfo.error == RadioError::NONE ||
+                    CheckGeneralError());
+>>>>>>> BRANCH (a945ba Update VTS tests so that Mediatek pass more VTS for O.)
     }
 }
 
@@ -159,9 +170,15 @@ TEST_F(RadioHidlTest, setCdmaBroadcastActivation) {
     EXPECT_EQ(serial, radioRsp->rspInfo.serial);
 
     if (cardStatus.cardState == CardState::ABSENT) {
+<<<<<<< HEAD   (b4fbd4 Add Sim absent assertion in the 1.0 setup am: 4e81e1f726  -s)
         ASSERT_TRUE(CheckGeneralError() ||
                     radioRsp->rspInfo.error == RadioError::INVALID_ARGUMENTS ||
                     radioRsp->rspInfo.error == RadioError::NONE);
+=======
+        ASSERT_TRUE(radioRsp->rspInfo.error == RadioError::NONE ||
+                    CheckGeneralError() ||
+                    radioRsp->rspInfo.error == RadioError::INVALID_ARGUMENTS);
+>>>>>>> BRANCH (a945ba Update VTS tests so that Mediatek pass more VTS for O.)
     }
 }
 

@@ -277,7 +277,20 @@ TEST_F(RadioHidlTest, getIccCardStatus) {
         EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
         EXPECT_EQ(serial, radioRsp->rspInfo.serial);
 
+<<<<<<< HEAD   (b4fbd4 Add Sim absent assertion in the 1.0 setup am: 4e81e1f726  -s)
         // TODO(sanketpadawe): Add test for error code
+=======
+    if (cardStatus.cardState == CardState::ABSENT) {
+        ASSERT_TRUE(radioRsp->rspInfo.error == RadioError::NONE ||
+                    radioRsp->rspInfo.error == RadioError::SYSTEM_ERR ||
+                    radioRsp->rspInfo.error == RadioError::NO_MEMORY ||
+                    radioRsp->rspInfo.error == RadioError::MODEM_ERR ||
+                    radioRsp->rspInfo.error == RadioError::INVALID_ARGUMENTS ||
+                    radioRsp->rspInfo.error == RadioError::INVALID_SIM_STATE ||
+                    radioRsp->rspInfo.error == RadioError::PASSWORD_INCORRECT ||
+                    radioRsp->rspInfo.error == RadioError::INTERNAL_ERR ||
+                    radioRsp->rspInfo.error == RadioError::SIM_ABSENT);
+>>>>>>> BRANCH (a945ba Update VTS tests so that Mediatek pass more VTS for O.)
     }
 
     /*
