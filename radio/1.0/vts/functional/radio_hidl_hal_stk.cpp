@@ -38,7 +38,10 @@ TEST_F(RadioHidlTest, sendEnvelope) {
         ASSERT_TRUE(CheckGeneralError() ||
                     radioRsp->rspInfo.error == RadioError::INVALID_ARGUMENTS ||
                     radioRsp->rspInfo.error == RadioError::NONE ||
+<<<<<<< HEAD   (0cc426 Fix VTS test which turns off radio. am: 71620817a9  -s ours)
                     radioRsp->rspInfo.error == RadioError::MODEM_ERR ||
+=======
+>>>>>>> BRANCH (1d93db Add REQUEST_NOT_SUPPORTED / SIM_ABSENT for vts tests)
                     radioRsp->rspInfo.error == RadioError::SIM_ABSENT);
     }
 }
