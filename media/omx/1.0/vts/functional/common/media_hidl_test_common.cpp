@@ -677,12 +677,21 @@ void testEOS(sp<IOmxNode> omxNode, sp<CodecObserver> observer,
         if (status == android::hardware::media::omx::V1_0::Status::OK) {
             if (msg.data.eventData.event == OMX_EventPortSettingsChanged) {
                 if (fptr) {
+<<<<<<< HEAD   (7c8df5 Skip direct report test if sensor is not available am: c9c4b)
                     ASSERT_NO_FATAL_FAILURE((*fptr)(
                         omxNode, observer, iBuffer, oBuffer, kPortIndexInput,
                         kPortIndexOutput, msg, pm[1], args));
                 } else {
                     // something unexpected happened
                     ASSERT_TRUE(false);
+=======
+                    (*fptr)(omxNode, observer, iBuffer, oBuffer,
+                            kPortIndexInput, kPortIndexOutput, msg, pm[1],
+                            args);
+                } else {
+                    // something unexpected happened
+                    EXPECT_TRUE(false);
+>>>>>>> BRANCH (7409a9 bug fix: handle OMX_EventBufferFlag events)
                 }
             } else {
                 // something unexpected happened

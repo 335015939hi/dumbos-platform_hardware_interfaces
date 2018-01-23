@@ -555,7 +555,11 @@ void portReconfiguration(sp<IOmxNode> omxNode, sp<CodecObserver> observer,
     } else if (msg.data.eventData.event == OMX_EventError) {
         std::cerr << "[   ERROR   ] OMX_EventError/ "
                      "Decode Frame Call might be failed \n";
+<<<<<<< HEAD   (7c8df5 Skip direct report test if sensor is not available am: c9c4b)
         ASSERT_TRUE(false);
+=======
+        return;
+>>>>>>> BRANCH (7409a9 bug fix: handle OMX_EventBufferFlag events)
     } else {
         // something unexpected happened
         ASSERT_TRUE(false);
@@ -577,10 +581,17 @@ void waitOnInputConsumption(sp<IOmxNode> omxNode, sp<CodecObserver> observer,
         status =
             observer->dequeueMessage(&msg, DEFAULT_TIMEOUT_Q, iBuffer, oBuffer);
         if (status == android::hardware::media::omx::V1_0::Status::OK) {
+<<<<<<< HEAD   (7c8df5 Skip direct report test if sensor is not available am: c9c4b)
             ASSERT_EQ(msg.type, Message::Type::EVENT);
             ASSERT_NO_FATAL_FAILURE(portReconfiguration(
                 omxNode, observer, iBuffer, oBuffer, kPortIndexInput,
                 kPortIndexOutput, msg, oPortMode, nullptr));
+=======
+            EXPECT_EQ(msg.type, Message::Type::EVENT);
+            portReconfiguration(omxNode, observer, iBuffer, oBuffer,
+                                kPortIndexInput, kPortIndexOutput, msg,
+                                oPortMode, nullptr);
+>>>>>>> BRANCH (7409a9 bug fix: handle OMX_EventBufferFlag events)
         }
         // status == TIMED_OUT, it could be due to process time being large
         // than DEFAULT_TIMEOUT or component needs output buffers to start
@@ -623,9 +634,15 @@ void decodeNFrames(sp<IOmxNode> omxNode, sp<CodecObserver> observer,
         // Port Reconfiguration
         if (status == android::hardware::media::omx::V1_0::Status::OK &&
             msg.type == Message::Type::EVENT) {
+<<<<<<< HEAD   (7c8df5 Skip direct report test if sensor is not available am: c9c4b)
             ASSERT_NO_FATAL_FAILURE(portReconfiguration(
                 omxNode, observer, iBuffer, oBuffer, kPortIndexInput,
                 kPortIndexOutput, msg, oPortMode, nullptr));
+=======
+            portReconfiguration(omxNode, observer, iBuffer, oBuffer,
+                                kPortIndexInput, kPortIndexOutput, msg,
+                                oPortMode, nullptr);
+>>>>>>> BRANCH (7409a9 bug fix: handle OMX_EventBufferFlag events)
         }
 
         if (frameID == (int)Info->size() || frameID == (offset + range)) break;
@@ -907,6 +924,7 @@ TEST_F(VideoDecHidlTest, DecodeTest) {
         omxNode, observer, &iBuffer, &oBuffer, kPortIndexInput,
         kPortIndexOutput, eleStream, &Info, 0, (int)Info.size(), portMode[1]));
     eleStream.close();
+<<<<<<< HEAD   (7c8df5 Skip direct report test if sensor is not available am: c9c4b)
     ASSERT_NO_FATAL_FAILURE(
         waitOnInputConsumption(omxNode, observer, &iBuffer, &oBuffer,
                                kPortIndexInput, kPortIndexOutput, portMode[1]));
@@ -914,6 +932,13 @@ TEST_F(VideoDecHidlTest, DecodeTest) {
         omxNode, observer, &iBuffer, &oBuffer, false, eosFlag, portMode,
         portReconfiguration, kPortIndexInput, kPortIndexOutput, nullptr));
     if (timestampDevTest) EXPECT_EQ(timestampUslist.empty(), true);
+=======
+    waitOnInputConsumption(omxNode, observer, &iBuffer, &oBuffer,
+                           kPortIndexInput, kPortIndexOutput, portMode[1]);
+    testEOS(omxNode, observer, &iBuffer, &oBuffer, false, eosFlag, portMode,
+            portReconfiguration, kPortIndexInput, kPortIndexOutput, nullptr);
+    EXPECT_EQ(timestampUslist.empty(), true);
+>>>>>>> BRANCH (7409a9 bug fix: handle OMX_EventBufferFlag events)
     // set state to idle
     ASSERT_NO_FATAL_FAILURE(
         changeStateExecutetoIdle(omxNode, observer, &iBuffer, &oBuffer));
@@ -1119,11 +1144,18 @@ TEST_F(VideoDecHidlTest, EOSTest_M) {
     ASSERT_NO_FATAL_FAILURE(changeStateIdletoExecute(omxNode, observer));
 
     // request EOS at the start
+<<<<<<< HEAD   (7c8df5 Skip direct report test if sensor is not available am: c9c4b)
     ASSERT_NO_FATAL_FAILURE(testEOS(
         omxNode, observer, &iBuffer, &oBuffer, true, eosFlag, portMode,
         portReconfiguration, kPortIndexInput, kPortIndexOutput, nullptr));
     ASSERT_NO_FATAL_FAILURE(flushPorts(omxNode, observer, &iBuffer, &oBuffer,
                                        kPortIndexInput, kPortIndexOutput));
+=======
+    testEOS(omxNode, observer, &iBuffer, &oBuffer, true, eosFlag, portMode,
+            portReconfiguration, kPortIndexInput, kPortIndexOutput, nullptr);
+    flushPorts(omxNode, observer, &iBuffer, &oBuffer, kPortIndexInput,
+               kPortIndexOutput);
+>>>>>>> BRANCH (7409a9 bug fix: handle OMX_EventBufferFlag events)
     EXPECT_GE(framesReceived, 0U);
     framesReceived = 0;
     timestampUs = 0;
@@ -1219,6 +1251,7 @@ TEST_F(VideoDecHidlTest, ThumbnailTest) {
         omxNode, observer, &iBuffer, &oBuffer, kPortIndexInput,
         kPortIndexOutput, eleStream, &Info, 0, i + 1, portMode[1]));
     eleStream.close();
+<<<<<<< HEAD   (7c8df5 Skip direct report test if sensor is not available am: c9c4b)
     ASSERT_NO_FATAL_FAILURE(
         waitOnInputConsumption(omxNode, observer, &iBuffer, &oBuffer,
                                kPortIndexInput, kPortIndexOutput, portMode[1]));
@@ -1227,6 +1260,14 @@ TEST_F(VideoDecHidlTest, ThumbnailTest) {
         portReconfiguration, kPortIndexInput, kPortIndexOutput, nullptr));
     ASSERT_NO_FATAL_FAILURE(flushPorts(omxNode, observer, &iBuffer, &oBuffer,
                                        kPortIndexInput, kPortIndexOutput));
+=======
+    waitOnInputConsumption(omxNode, observer, &iBuffer, &oBuffer,
+                           kPortIndexInput, kPortIndexOutput, portMode[1]);
+    testEOS(omxNode, observer, &iBuffer, &oBuffer, false, eosFlag, portMode,
+            portReconfiguration, kPortIndexInput, kPortIndexOutput, nullptr);
+    flushPorts(omxNode, observer, &iBuffer, &oBuffer, kPortIndexInput,
+               kPortIndexOutput);
+>>>>>>> BRANCH (7409a9 bug fix: handle OMX_EventBufferFlag events)
     EXPECT_GE(framesReceived, 1U);
     framesReceived = 0;
     timestampUs = 0;
@@ -1237,6 +1278,7 @@ TEST_F(VideoDecHidlTest, ThumbnailTest) {
         omxNode, observer, &iBuffer, &oBuffer, kPortIndexInput,
         kPortIndexOutput, eleStream, &Info, 0, i + 1, portMode[1], false));
     eleStream.close();
+<<<<<<< HEAD   (7c8df5 Skip direct report test if sensor is not available am: c9c4b)
     ASSERT_NO_FATAL_FAILURE(
         waitOnInputConsumption(omxNode, observer, &iBuffer, &oBuffer,
                                kPortIndexInput, kPortIndexOutput, portMode[1]));
@@ -1245,6 +1287,14 @@ TEST_F(VideoDecHidlTest, ThumbnailTest) {
         portReconfiguration, kPortIndexInput, kPortIndexOutput, nullptr));
     ASSERT_NO_FATAL_FAILURE(flushPorts(omxNode, observer, &iBuffer, &oBuffer,
                                        kPortIndexInput, kPortIndexOutput));
+=======
+    waitOnInputConsumption(omxNode, observer, &iBuffer, &oBuffer,
+                           kPortIndexInput, kPortIndexOutput, portMode[1]);
+    testEOS(omxNode, observer, &iBuffer, &oBuffer, true, eosFlag, portMode,
+            portReconfiguration, kPortIndexInput, kPortIndexOutput, nullptr);
+    flushPorts(omxNode, observer, &iBuffer, &oBuffer, kPortIndexInput,
+               kPortIndexOutput);
+>>>>>>> BRANCH (7409a9 bug fix: handle OMX_EventBufferFlag events)
     EXPECT_GE(framesReceived, 1U);
     framesReceived = 0;
     timestampUs = 0;
@@ -1345,6 +1395,7 @@ TEST_F(VideoDecHidlTest, SimpleEOSTest) {
                                           eleStream, &Info, 0, (int)Info.size(),
                                           portMode[1], false));
     eleStream.close();
+<<<<<<< HEAD   (7c8df5 Skip direct report test if sensor is not available am: c9c4b)
     ASSERT_NO_FATAL_FAILURE(
         waitOnInputConsumption(omxNode, observer, &iBuffer, &oBuffer,
                                kPortIndexInput, kPortIndexOutput, portMode[1]));
@@ -1353,6 +1404,14 @@ TEST_F(VideoDecHidlTest, SimpleEOSTest) {
         portReconfiguration, kPortIndexInput, kPortIndexOutput, nullptr));
     ASSERT_NO_FATAL_FAILURE(flushPorts(omxNode, observer, &iBuffer, &oBuffer,
                                        kPortIndexInput, kPortIndexOutput));
+=======
+    waitOnInputConsumption(omxNode, observer, &iBuffer, &oBuffer,
+                           kPortIndexInput, kPortIndexOutput, portMode[1]);
+    testEOS(omxNode, observer, &iBuffer, &oBuffer, true, eosFlag, portMode,
+            portReconfiguration, kPortIndexInput, kPortIndexOutput, nullptr);
+    flushPorts(omxNode, observer, &iBuffer, &oBuffer, kPortIndexInput,
+               kPortIndexOutput);
+>>>>>>> BRANCH (7409a9 bug fix: handle OMX_EventBufferFlag events)
     framesReceived = 0;
     timestampUs = 0;
 

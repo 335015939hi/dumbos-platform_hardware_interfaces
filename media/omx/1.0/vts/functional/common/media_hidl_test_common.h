@@ -133,6 +133,7 @@ struct CodecObserver : public IOmxObserver {
                 if (it->type ==
                     android::hardware::media::omx::V1_0::Message::Type::EVENT) {
                     *msg = *it;
+<<<<<<< HEAD   (7c8df5 Skip direct report test if sensor is not available am: c9c4b)
                     if (callBack) callBack(*it, nullptr);
                     it = msgQueue.erase(it);
                     // OMX_EventBufferFlag event is sent when the component has
@@ -142,6 +143,15 @@ struct CodecObserver : public IOmxObserver {
                     // event.
                     if (msg->data.eventData.event == OMX_EventBufferFlag)
                         continue;
+=======
+                    msgQueue.erase(it);
+                    // OMX_EventBufferFlag event is sent when the component has
+                    // processed a buffer with its EOS flag set. This event is
+                    // not sent by soft omx components. Vendor components can
+                    // send this. From IOMX point of view, we will ignore this
+                    // event.
+                    if (msg->data.eventData.event == OMX_EventBufferFlag) break;
+>>>>>>> BRANCH (7409a9 bug fix: handle OMX_EventBufferFlag events)
                     return ::android::hardware::media::omx::V1_0::Status::OK;
                 } else if (it->type == android::hardware::media::omx::V1_0::
                                            Message::Type::FILL_BUFFER_DONE) {
