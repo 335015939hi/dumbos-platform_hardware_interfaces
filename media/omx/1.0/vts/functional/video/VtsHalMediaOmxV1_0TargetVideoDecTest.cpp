@@ -28,6 +28,7 @@
 #include <android/hidl/allocator/1.0/IAllocator.h>
 #include <android/hidl/memory/1.0/IMapper.h>
 #include <android/hidl/memory/1.0/IMemory.h>
+#include <cutils/atomic.h>
 
 using ::android::hardware::media::omx::V1_0::IOmx;
 using ::android::hardware::media::omx::V1_0::IOmxObserver;
@@ -435,6 +436,85 @@ void GetURLForComponent(VideoDecHidlTest::standardComp comp, char* mURL,
     }
 }
 
+<<<<<<< HEAD   (fcaa3c Merge "bug fix: configure input port buffer size" into oreo-)
+=======
+void allocateGraphicBuffers(sp<IOmxNode> omxNode, OMX_U32 portIndex,
+                            android::Vector<BufferInfo>* buffArray,
+                            uint32_t nFrameWidth, uint32_t nFrameHeight,
+                            int32_t* nStride, int format, uint32_t count) {
+    android::hardware::media::omx::V1_0::Status status;
+    sp<android::hardware::graphics::allocator::V2_0::IAllocator> allocator =
+        android::hardware::graphics::allocator::V2_0::IAllocator::getService();
+    ASSERT_NE(nullptr, allocator.get());
+
+    sp<android::hardware::graphics::mapper::V2_0::IMapper> mapper =
+        android::hardware::graphics::mapper::V2_0::IMapper::getService();
+    ASSERT_NE(mapper.get(), nullptr);
+
+    android::hardware::graphics::mapper::V2_0::IMapper::BufferDescriptorInfo
+        descriptorInfo;
+    uint32_t usage;
+
+    descriptorInfo.width = nFrameWidth;
+    descriptorInfo.height = nFrameHeight;
+    descriptorInfo.layerCount = 1;
+    descriptorInfo.format = static_cast<PixelFormat>(format);
+    descriptorInfo.usage = static_cast<uint64_t>(BufferUsage::CPU_READ_OFTEN);
+    omxNode->getGraphicBufferUsage(
+        portIndex,
+        [&status, &usage](android::hardware::media::omx::V1_0::Status _s,
+                          uint32_t _n1) {
+            status = _s;
+            usage = _n1;
+        });
+    if (status == android::hardware::media::omx::V1_0::Status::OK) {
+        descriptorInfo.usage |= usage;
+    }
+
+    ::android::hardware::hidl_vec<uint32_t> descriptor;
+    android::hardware::graphics::mapper::V2_0::Error error;
+    mapper->createDescriptor(
+        descriptorInfo, [&error, &descriptor](
+                            android::hardware::graphics::mapper::V2_0::Error _s,
+                            ::android::hardware::hidl_vec<uint32_t> _n1) {
+            error = _s;
+            descriptor = _n1;
+        });
+    EXPECT_EQ(error, android::hardware::graphics::mapper::V2_0::Error::NONE);
+
+    EXPECT_EQ(buffArray->size(), count);
+
+    static volatile int32_t nextId = 0;
+    uint64_t id = static_cast<uint64_t>(getpid()) << 32;
+    allocator->allocate(
+        descriptor, count,
+        [&](android::hardware::graphics::mapper::V2_0::Error _s, uint32_t _n1,
+            const ::android::hardware::hidl_vec<
+                ::android::hardware::hidl_handle>& _n2) {
+            ASSERT_EQ(android::hardware::graphics::mapper::V2_0::Error::NONE,
+                      _s);
+            *nStride = _n1;
+            ASSERT_EQ(count, _n2.size());
+            for (uint32_t i = 0; i < count; i++) {
+                buffArray->editItemAt(i).omxBuffer.nativeHandle = _n2[i];
+                buffArray->editItemAt(i).omxBuffer.attr.anwBuffer.width =
+                    nFrameWidth;
+                buffArray->editItemAt(i).omxBuffer.attr.anwBuffer.height =
+                    nFrameHeight;
+                buffArray->editItemAt(i).omxBuffer.attr.anwBuffer.stride = _n1;
+                buffArray->editItemAt(i).omxBuffer.attr.anwBuffer.format =
+                    descriptorInfo.format;
+                buffArray->editItemAt(i).omxBuffer.attr.anwBuffer.usage =
+                    descriptorInfo.usage;
+                buffArray->editItemAt(i).omxBuffer.attr.anwBuffer.layerCount =
+                    descriptorInfo.layerCount;
+                buffArray->editItemAt(i).omxBuffer.attr.anwBuffer.id =
+                    id | static_cast<uint32_t>(android_atomic_inc(&nextId));
+            }
+        });
+}
+
+>>>>>>> BRANCH (569069 bug fix: output colorformat configuration fixed)
 // port settings reconfiguration during runtime. reconfigures frame dimensions
 void portReconfiguration(sp<IOmxNode> omxNode, sp<CodecObserver> observer,
                          android::Vector<BufferInfo>* iBuffer,
@@ -516,8 +596,28 @@ void portReconfiguration(sp<IOmxNode> omxNode, sp<CodecObserver> observer,
                     status,
                     android::hardware::media::omx::V1_0::Status::TIMED_OUT);
 
+<<<<<<< HEAD   (fcaa3c Merge "bug fix: configure input port buffer size" into oreo-)
                 ASSERT_NO_FATAL_FAILURE(allocatePortBuffers(
                     omxNode, oBuffer, kPortIndexOutput, oPortMode, true));
+=======
+                allocatePortBuffers(omxNode, oBuffer, kPortIndexOutput,
+                                    oPortMode);
+                if (oPortMode != PortMode::PRESET_BYTE_BUFFER) {
+                    OMX_PARAM_PORTDEFINITIONTYPE portDef;
+
+                    status = getPortParam(omxNode, OMX_IndexParamPortDefinition,
+                                          kPortIndexOutput, &portDef);
+                    ASSERT_EQ(
+                        status,
+                        ::android::hardware::media::omx::V1_0::Status::OK);
+                    allocateGraphicBuffers(omxNode, kPortIndexOutput, oBuffer,
+                                           portDef.format.video.nFrameWidth,
+                                           portDef.format.video.nFrameHeight,
+                                           &portDef.format.video.nStride,
+                                           portDef.format.video.eColorFormat,
+                                           portDef.nBufferCountActual);
+                }
+>>>>>>> BRANCH (569069 bug fix: output colorformat configuration fixed)
                 status = observer->dequeueMessage(&msg, DEFAULT_TIMEOUT,
                                                   iBuffer, oBuffer);
                 ASSERT_EQ(status,
@@ -782,6 +882,116 @@ void getDefaultColorFormat(sp<IOmxNode> omxNode, OMX_U32 kPortIndexOutput,
     }
 }
 
+// DescribeColorFormatParams Copy Constructor (Borrowed from OMXUtils.cpp)
+android::DescribeColorFormatParams::DescribeColorFormatParams(
+    const android::DescribeColorFormat2Params& params) {
+    eColorFormat = params.eColorFormat;
+    nFrameWidth = params.nFrameWidth;
+    nFrameHeight = params.nFrameHeight;
+    nStride = params.nStride;
+    nSliceHeight = params.nSliceHeight;
+    bUsingNativeBuffers = params.bUsingNativeBuffers;
+};
+
+bool isColorFormatFlexibleYUV(sp<IOmxNode> omxNode,
+                              OMX_COLOR_FORMATTYPE eColorFormat) {
+    android::hardware::media::omx::V1_0::Status status;
+    unsigned int index = OMX_IndexMax, index2 = OMX_IndexMax;
+    omxNode->getExtensionIndex(
+        "OMX.google.android.index.describeColorFormat",
+        [&index](android::hardware::media::omx::V1_0::Status _s,
+                          unsigned int _nl) {
+            if (_s == ::android::hardware::media::omx::V1_0::Status::OK)
+                index = _nl;
+        });
+    omxNode->getExtensionIndex(
+        "OMX.google.android.index.describeColorFormat2",
+        [&index2](android::hardware::media::omx::V1_0::Status _s,
+                           unsigned int _nl) {
+            if (_s == ::android::hardware::media::omx::V1_0::Status::OK)
+                index2 = _nl;
+        });
+
+    android::DescribeColorFormat2Params describeParams;
+    describeParams.eColorFormat = eColorFormat;
+    describeParams.nFrameWidth = 128;
+    describeParams.nFrameHeight = 128;
+    describeParams.nStride = 128;
+    describeParams.nSliceHeight = 128;
+    describeParams.bUsingNativeBuffers = OMX_FALSE;
+    if (index != OMX_IndexMax) {
+        android::DescribeColorFormatParams describeParamsV1(describeParams);
+        status = getParam(omxNode, static_cast<OMX_INDEXTYPE>(index),
+                          &describeParamsV1);
+        if (status == ::android::hardware::media::omx::V1_0::Status::OK) {
+            android::MediaImage& img = describeParamsV1.sMediaImage;
+            if (img.mType == android::MediaImage::MEDIA_IMAGE_TYPE_YUV) {
+                if (img.mNumPlanes == 3 &&
+                    img.mPlane[img.Y].mHorizSubsampling == 1 &&
+                    img.mPlane[img.Y].mVertSubsampling == 1) {
+                    if (img.mPlane[img.U].mHorizSubsampling == 2 &&
+                        img.mPlane[img.U].mVertSubsampling == 2 &&
+                        img.mPlane[img.V].mHorizSubsampling == 2 &&
+                        img.mPlane[img.V].mVertSubsampling == 2) {
+                        if (img.mBitDepth <= 8) {
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+    } else if (index2 != OMX_IndexMax) {
+        status = getParam(omxNode, static_cast<OMX_INDEXTYPE>(index2),
+                          &describeParams);
+        android::MediaImage2& img = describeParams.sMediaImage;
+        if (img.mType == android::MediaImage2::MEDIA_IMAGE_TYPE_YUV) {
+            if (img.mNumPlanes == 3 &&
+                img.mPlane[img.Y].mHorizSubsampling == 1 &&
+                img.mPlane[img.Y].mVertSubsampling == 1) {
+                if (img.mPlane[img.U].mHorizSubsampling == 2 &&
+                    img.mPlane[img.U].mVertSubsampling == 2 &&
+                    img.mPlane[img.V].mHorizSubsampling == 2 &&
+                    img.mPlane[img.V].mVertSubsampling == 2) {
+                    if (img.mBitDepth <= 8) {
+                        return true;
+                    }
+                }
+            }
+        }
+    }
+    return false;
+}
+
+// get default color format for output port
+void getDefaultColorFormat(sp<IOmxNode> omxNode, OMX_U32 kPortIndexOutput,
+                           PortMode oPortMode,
+                           OMX_COLOR_FORMATTYPE* eColorFormat) {
+    android::hardware::media::omx::V1_0::Status status;
+    OMX_VIDEO_PARAM_PORTFORMATTYPE portFormat;
+    *eColorFormat = OMX_COLOR_FormatUnused;
+    portFormat.nIndex = 0;
+    while (1) {
+        status = getPortParam(omxNode, OMX_IndexParamVideoPortFormat,
+                              kPortIndexOutput, &portFormat);
+        if (status != ::android::hardware::media::omx::V1_0::Status::OK) break;
+        EXPECT_EQ(portFormat.eCompressionFormat, OMX_VIDEO_CodingUnused);
+        if (oPortMode != PortMode::PRESET_BYTE_BUFFER) {
+            *eColorFormat = portFormat.eColorFormat;
+            break;
+        }
+        if (isColorFormatFlexibleYUV(omxNode, portFormat.eColorFormat)) {
+            *eColorFormat = portFormat.eColorFormat;
+            break;
+        }
+        if (OMX_COLOR_FormatYUV420SemiPlanar == portFormat.eColorFormat ||
+            OMX_COLOR_FormatYUV420Planar == portFormat.eColorFormat) {
+            *eColorFormat = portFormat.eColorFormat;
+            break;
+        }
+        portFormat.nIndex++;
+    }
+}
+
 // set component role
 TEST_F(VideoDecHidlTest, SetRole) {
     description("Test Set Component Role");
@@ -898,7 +1108,24 @@ TEST_F(VideoDecHidlTest, DecodeTest) {
         omxNode, observer, &iBuffer, &oBuffer, kPortIndexInput,
         kPortIndexOutput, portMode, true));
     // set state to executing
+<<<<<<< HEAD   (fcaa3c Merge "bug fix: configure input port buffer size" into oreo-)
     ASSERT_NO_FATAL_FAILURE(changeStateIdletoExecute(omxNode, observer));
+=======
+    changeStateIdletoExecute(omxNode, observer);
+
+    if (portMode[1] != PortMode::PRESET_BYTE_BUFFER) {
+        OMX_PARAM_PORTDEFINITIONTYPE portDef;
+
+        status = getPortParam(omxNode, OMX_IndexParamPortDefinition,
+                              kPortIndexOutput, &portDef);
+        ASSERT_EQ(status, ::android::hardware::media::omx::V1_0::Status::OK);
+        allocateGraphicBuffers(
+            omxNode, kPortIndexOutput, &oBuffer,
+            portDef.format.video.nFrameWidth, portDef.format.video.nFrameHeight,
+            &portDef.format.video.nStride, portDef.format.video.eColorFormat,
+            portDef.nBufferCountActual);
+    }
+>>>>>>> BRANCH (569069 bug fix: output colorformat configuration fixed)
 
     // Port Reconfiguration
     eleStream.open(mURL, std::ifstream::binary);
