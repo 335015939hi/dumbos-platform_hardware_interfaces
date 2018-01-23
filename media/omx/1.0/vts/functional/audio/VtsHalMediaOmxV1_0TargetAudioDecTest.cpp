@@ -825,9 +825,14 @@ TEST_F(AudioDecHidlTest, DecodeTest) {
         waitOnInputConsumption(omxNode, observer, &iBuffer, &oBuffer, eEncoding,
                                kPortIndexInput, kPortIndexOutput, compName));
     packedArgs audioArgs = {eEncoding, compName};
+<<<<<<< HEAD   (2d7693 bug fix: handle multiple port settings change events signall)
     ASSERT_NO_FATAL_FAILURE(testEOS(
         omxNode, observer, &iBuffer, &oBuffer, false, eosFlag, nullptr,
         portReconfiguration, kPortIndexInput, kPortIndexOutput, &audioArgs));
+=======
+    testEOS(omxNode, observer, &iBuffer, &oBuffer, false, eosFlag, nullptr,
+            portReconfiguration, kPortIndexInput, kPortIndexOutput, &audioArgs);
+>>>>>>> BRANCH (8d009a bug fix: restore support for broken flag)
     if (timestampDevTest) EXPECT_EQ(timestampUslist.empty(), true);
     // set state to idle
     ASSERT_NO_FATAL_FAILURE(

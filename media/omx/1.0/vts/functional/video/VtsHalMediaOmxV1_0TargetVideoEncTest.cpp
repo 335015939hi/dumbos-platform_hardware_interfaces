@@ -1279,10 +1279,15 @@ TEST_F(VideoEncHidlTest, EncodeTest) {
         &oBuffer, 32, xFramerate, (nFrameWidth * nFrameHeight * 3) >> 1,
         eleStream, &timestampUslist));
     eleStream.close();
+<<<<<<< HEAD   (2d7693 bug fix: handle multiple port settings change events signall)
     ASSERT_NO_FATAL_FAILURE(
         waitOnInputConsumption(omxNode, observer, &iBuffer, &oBuffer));
     ASSERT_NO_FATAL_FAILURE(
         testEOS(omxNode, observer, &iBuffer, &oBuffer, false, eosFlag));
+=======
+    waitOnInputConsumption(omxNode, observer, &iBuffer, &oBuffer);
+    testEOS(omxNode, observer, &iBuffer, &oBuffer, false, eosFlag);
+>>>>>>> BRANCH (8d009a bug fix: restore support for broken flag)
     if (timestampDevTest) EXPECT_EQ(timestampUslist.empty(), true);
 
     // set state to idle

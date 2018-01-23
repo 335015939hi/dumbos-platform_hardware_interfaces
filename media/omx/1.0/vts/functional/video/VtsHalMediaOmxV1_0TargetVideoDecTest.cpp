@@ -907,12 +907,19 @@ TEST_F(VideoDecHidlTest, DecodeTest) {
         omxNode, observer, &iBuffer, &oBuffer, kPortIndexInput,
         kPortIndexOutput, eleStream, &Info, 0, (int)Info.size(), portMode[1]));
     eleStream.close();
+<<<<<<< HEAD   (2d7693 bug fix: handle multiple port settings change events signall)
     ASSERT_NO_FATAL_FAILURE(
         waitOnInputConsumption(omxNode, observer, &iBuffer, &oBuffer,
                                kPortIndexInput, kPortIndexOutput, portMode[1]));
     ASSERT_NO_FATAL_FAILURE(testEOS(
         omxNode, observer, &iBuffer, &oBuffer, false, eosFlag, portMode,
         portReconfiguration, kPortIndexInput, kPortIndexOutput, nullptr));
+=======
+    waitOnInputConsumption(omxNode, observer, &iBuffer, &oBuffer,
+                           kPortIndexInput, kPortIndexOutput, portMode[1]);
+    testEOS(omxNode, observer, &iBuffer, &oBuffer, false, eosFlag, portMode,
+            portReconfiguration, kPortIndexInput, kPortIndexOutput, nullptr);
+>>>>>>> BRANCH (8d009a bug fix: restore support for broken flag)
     if (timestampDevTest) EXPECT_EQ(timestampUslist.empty(), true);
     // set state to idle
     ASSERT_NO_FATAL_FAILURE(
