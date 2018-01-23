@@ -28,7 +28,10 @@
 #include <android/hardware/camera/device/3.2/ICameraDevice.h>
 #include <android/hardware/camera/device/3.3/ICameraDeviceSession.h>
 #include <android/hardware/camera/provider/2.4/ICameraProvider.h>
+<<<<<<< HEAD   (7dba96 Fix ICryptoFactory service am: 8a85370679  -s ours)
 #include <android/hidl/manager/1.0/IServiceManager.h>
+=======
+>>>>>>> BRANCH (beffc5 Camera: Add support for testing partial results)
 #include <binder/MemoryHeapBase.h>
 #include <CameraMetadata.h>
 #include <CameraParameters.h>
@@ -44,7 +47,10 @@
 #include <ui/GraphicBuffer.h>
 
 #include <VtsHalHidlTargetTestBase.h>
+<<<<<<< HEAD   (7dba96 Fix ICryptoFactory service am: 8a85370679  -s ours)
 #include <VtsHalHidlTargetTestEnvBase.h>
+=======
+>>>>>>> BRANCH (beffc5 Camera: Add support for testing partial results)
 
 using ::android::hardware::Return;
 using ::android::hardware::Void;
@@ -100,7 +106,10 @@ using ::android::hardware::camera::device::V1_0::HandleTimestampMessage;
 using ::android::hardware::MessageQueue;
 using ::android::hardware::kSynchronizedReadWrite;
 using ResultMetadataQueue = MessageQueue<uint8_t, kSynchronizedReadWrite>;
+<<<<<<< HEAD   (7dba96 Fix ICryptoFactory service am: 8a85370679  -s ours)
 using ::android::hidl::manager::V1_0::IServiceManager;
+=======
+>>>>>>> BRANCH (beffc5 Camera: Add support for testing partial results)
 
 using namespace ::android::hardware::camera;
 
@@ -2955,6 +2964,7 @@ TEST_F(CameraHidlTest, processCaptureRequestPreview) {
     ::android::hardware::hidl_vec<uint8_t> settings;
 
     for (const auto& name : cameraDeviceNames) {
+<<<<<<< HEAD   (7dba96 Fix ICryptoFactory service am: 8a85370679  -s ours)
         int deviceVersion = getCameraDeviceVersion(name, mProviderType);
         switch (deviceVersion) {
             case CAMERA_DEVICE_API_VERSION_3_3:
@@ -2968,6 +2978,37 @@ TEST_F(CameraHidlTest, processCaptureRequestPreview) {
                                        &previewStream /*out*/, &halStreamConfig /*out*/,
                                        &supportsPartialResults /*out*/,
                                        &partialResultCount /*out*/);
+=======
+        if (getCameraDeviceVersion(name) == CAMERA_DEVICE_API_VERSION_3_2) {
+            Stream previewStream;
+            HalStreamConfiguration halStreamConfig;
+            sp<ICameraDeviceSession> session;
+            bool supportsPartialResults = false;
+            uint32_t partialResultCount = 0;
+            configurePreviewStream(name, env, &previewThreshold,
+                    &session /*out*/, &previewStream /*out*/,
+                    &halStreamConfig /*out*/, &supportsPartialResults /*out*/,
+                    &partialResultCount/*out*/);
+
+            std::shared_ptr<ResultMetadataQueue> resultQueue;
+            auto resultQueueRet = session->getCaptureResultMetadataQueue(
+                [&resultQueue](const auto& descriptor) {
+                    resultQueue = std::make_shared<ResultMetadataQueue>(
+                            descriptor);
+                    if (!resultQueue->isValid() ||
+                            resultQueue->availableToWrite() <= 0) {
+                        ALOGE("%s: HAL returns empty result metadata fmq,"
+                                " not use it", __func__);
+                        resultQueue = nullptr;
+                        // Don't use the queue onwards.
+                    }
+                });
+            ASSERT_TRUE(resultQueueRet.isOk());
+            ASSERT_NE(nullptr, resultQueue);
+
+            InFlightRequest inflightReq = {1, false, supportsPartialResults,
+                    partialResultCount, resultQueue};
+>>>>>>> BRANCH (beffc5 Camera: Add support for testing partial results)
 
                 std::shared_ptr<ResultMetadataQueue> resultQueue;
                 auto resultQueueRet =
@@ -2988,6 +3029,7 @@ TEST_F(CameraHidlTest, processCaptureRequestPreview) {
                 InFlightRequest inflightReq = {1, false, supportsPartialResults,
                                                partialResultCount, resultQueue};
 
+<<<<<<< HEAD   (7dba96 Fix ICryptoFactory service am: 8a85370679  -s ours)
                 RequestTemplate reqTemplate = RequestTemplate::PREVIEW;
                 Return<void> ret;
                 ret = session->constructDefaultRequestSettings(reqTemplate,
@@ -2996,6 +3038,13 @@ TEST_F(CameraHidlTest, processCaptureRequestPreview) {
                                                                    settings = req;
                                                                });
                 ASSERT_TRUE(ret.isOk());
+=======
+            {
+                std::unique_lock<std::mutex> l(mLock);
+                mInflightMap.clear();
+                mInflightMap.add(frameNumber, &inflightReq);
+            }
+>>>>>>> BRANCH (beffc5 Camera: Add support for testing partial results)
 
                 sp<GraphicBuffer> gb = new GraphicBuffer(
                     previewStream.width, previewStream.height,
@@ -3034,6 +3083,7 @@ TEST_F(CameraHidlTest, processCaptureRequestPreview) {
                 ASSERT_EQ(Status::OK, status);
                 ASSERT_EQ(numRequestProcessed, 1u);
 
+<<<<<<< HEAD   (7dba96 Fix ICryptoFactory service am: 8a85370679  -s ours)
                 {
                     std::unique_lock<std::mutex> l(mLock);
                     while (!inflightReq.errorCodeValid &&
@@ -3060,11 +3110,44 @@ TEST_F(CameraHidlTest, processCaptureRequestPreview) {
                     inflightReq = {1, false, supportsPartialResults, partialResultCount,
                                    resultQueue};
                     mInflightMap.add(request.frameNumber, &inflightReq);
+=======
+            {
+                std::unique_lock<std::mutex> l(mLock);
+                while (!inflightReq.errorCodeValid &&
+                        ((0 < inflightReq.numBuffersLeft) ||
+                                (!inflightReq.haveResultMetadata))) {
+                    auto timeout = std::chrono::system_clock::now() +
+                            std::chrono::seconds(kStreamBufferTimeoutSec);
+                    ASSERT_NE(std::cv_status::timeout,
+                            mResultCondition.wait_until(l, timeout));
+>>>>>>> BRANCH (beffc5 Camera: Add support for testing partial results)
                 }
 
+<<<<<<< HEAD   (7dba96 Fix ICryptoFactory service am: 8a85370679  -s ours)
                 returnStatus = session->processCaptureRequest(
                     {request}, cachesToRemove, [&status, &numRequestProcessed](auto s,
                             uint32_t n) {
+=======
+                ASSERT_FALSE(inflightReq.errorCodeValid);
+                ASSERT_NE(inflightReq.resultOutputBuffers.size(), 0u);
+                ASSERT_EQ(previewStream.id,
+                          inflightReq.resultOutputBuffers[0].streamId);
+
+                request.frameNumber++;
+                //Empty settings should be supported after the first call
+                //for repeating requests.
+                request.settings.setToExternal(nullptr, 0, true);
+                mInflightMap.clear();
+                inflightReq = {1, false, supportsPartialResults,
+                                    partialResultCount, resultQueue};
+                mInflightMap.add(request.frameNumber, &inflightReq);
+            }
+
+            returnStatus = session->processCaptureRequest(
+                    {request},
+                    cachesToRemove,
+                    [&status, &numRequestProcessed] (auto s, uint32_t n) {
+>>>>>>> BRANCH (beffc5 Camera: Add support for testing partial results)
                         status = s;
                         numRequestProcessed = n;
                     });
@@ -3072,6 +3155,7 @@ TEST_F(CameraHidlTest, processCaptureRequestPreview) {
                 ASSERT_EQ(Status::OK, status);
                 ASSERT_EQ(numRequestProcessed, 1u);
 
+<<<<<<< HEAD   (7dba96 Fix ICryptoFactory service am: 8a85370679  -s ours)
                 {
                     std::unique_lock<std::mutex> l(mLock);
                     while (!inflightReq.errorCodeValid &&
@@ -3086,7 +3170,27 @@ TEST_F(CameraHidlTest, processCaptureRequestPreview) {
                     ASSERT_FALSE(inflightReq.errorCodeValid);
                     ASSERT_NE(inflightReq.resultOutputBuffers.size(), 0u);
                     ASSERT_EQ(previewStream.id, inflightReq.resultOutputBuffers[0].streamId);
+=======
+            {
+                std::unique_lock<std::mutex> l(mLock);
+                while (!inflightReq.errorCodeValid &&
+                        ((0 < inflightReq.numBuffersLeft) ||
+                                (!inflightReq.haveResultMetadata))) {
+                    auto timeout = std::chrono::system_clock::now() +
+                            std::chrono::seconds(kStreamBufferTimeoutSec);
+                    ASSERT_NE(std::cv_status::timeout,
+                            mResultCondition.wait_until(l, timeout));
+>>>>>>> BRANCH (beffc5 Camera: Add support for testing partial results)
                 }
+<<<<<<< HEAD   (7dba96 Fix ICryptoFactory service am: 8a85370679  -s ours)
+=======
+
+                ASSERT_FALSE(inflightReq.errorCodeValid);
+                ASSERT_NE(inflightReq.resultOutputBuffers.size(), 0u);
+                ASSERT_EQ(previewStream.id,
+                          inflightReq.resultOutputBuffers[0].streamId);
+            }
+>>>>>>> BRANCH (beffc5 Camera: Add support for testing partial results)
 
                 ret = session->close();
                 ASSERT_TRUE(ret.isOk());
@@ -3117,6 +3221,7 @@ TEST_F(CameraHidlTest, processCaptureRequestInvalidSinglePreview) {
     ::android::hardware::hidl_vec<uint8_t> settings;
 
     for (const auto& name : cameraDeviceNames) {
+<<<<<<< HEAD   (7dba96 Fix ICryptoFactory service am: 8a85370679  -s ours)
         int deviceVersion = getCameraDeviceVersion(name, mProviderType);
         switch (deviceVersion) {
             case CAMERA_DEVICE_API_VERSION_3_3:
@@ -3130,6 +3235,18 @@ TEST_F(CameraHidlTest, processCaptureRequestInvalidSinglePreview) {
                                        &previewStream /*out*/, &halStreamConfig /*out*/,
                                        &supportsPartialResults /*out*/,
                                        &partialResultCount /*out*/);
+=======
+        if (getCameraDeviceVersion(name) == CAMERA_DEVICE_API_VERSION_3_2) {
+            Stream previewStream;
+            HalStreamConfiguration halStreamConfig;
+            sp<ICameraDeviceSession> session;
+            bool supportsPartialResults = false;
+            uint32_t partialResultCount = 0;
+            configurePreviewStream(name, env, &previewThreshold,
+                    &session /*out*/, &previewStream /*out*/,
+                    &halStreamConfig /*out*/, &supportsPartialResults /*out*/,
+                    &partialResultCount /*out*/);
+>>>>>>> BRANCH (beffc5 Camera: Add support for testing partial results)
 
                 sp<GraphicBuffer> gb = new GraphicBuffer(
                     previewStream.width, previewStream.height,
@@ -3191,6 +3308,7 @@ TEST_F(CameraHidlTest, processCaptureRequestInvalidBuffer) {
     ::android::hardware::hidl_vec<uint8_t> settings;
 
     for (const auto& name : cameraDeviceNames) {
+<<<<<<< HEAD   (7dba96 Fix ICryptoFactory service am: 8a85370679  -s ours)
         int deviceVersion = getCameraDeviceVersion(name, mProviderType);
         switch (deviceVersion) {
             case CAMERA_DEVICE_API_VERSION_3_3:
@@ -3204,6 +3322,18 @@ TEST_F(CameraHidlTest, processCaptureRequestInvalidBuffer) {
                                        &previewStream /*out*/, &halStreamConfig /*out*/,
                                        &supportsPartialResults /*out*/,
                                        &partialResultCount /*out*/);
+=======
+        if (getCameraDeviceVersion(name) == CAMERA_DEVICE_API_VERSION_3_2) {
+            Stream previewStream;
+            HalStreamConfiguration halStreamConfig;
+            sp<ICameraDeviceSession> session;
+            bool supportsPartialResults = false;
+            uint32_t partialResultCount = 0;
+            configurePreviewStream(name, env, &previewThreshold,
+                    &session /*out*/, &previewStream /*out*/,
+                    &halStreamConfig /*out*/, &supportsPartialResults/*out*/,
+                    &partialResultCount /*out*/);
+>>>>>>> BRANCH (beffc5 Camera: Add support for testing partial results)
 
                 RequestTemplate reqTemplate = RequestTemplate::PREVIEW;
                 Return<void> ret;
@@ -3262,6 +3392,7 @@ TEST_F(CameraHidlTest, flushPreviewRequest) {
     ::android::hardware::hidl_vec<uint8_t> settings;
 
     for (const auto& name : cameraDeviceNames) {
+<<<<<<< HEAD   (7dba96 Fix ICryptoFactory service am: 8a85370679  -s ours)
         int deviceVersion = getCameraDeviceVersion(name, mProviderType);
         switch (deviceVersion) {
             case CAMERA_DEVICE_API_VERSION_3_3:
@@ -3275,7 +3406,20 @@ TEST_F(CameraHidlTest, flushPreviewRequest) {
                                        &previewStream /*out*/, &halStreamConfig /*out*/,
                                        &supportsPartialResults /*out*/,
                                        &partialResultCount /*out*/);
+=======
+        if (getCameraDeviceVersion(name) == CAMERA_DEVICE_API_VERSION_3_2) {
+            Stream previewStream;
+            HalStreamConfiguration halStreamConfig;
+            sp<ICameraDeviceSession> session;
+            bool supportsPartialResults = false;
+            uint32_t partialResultCount = 0;
+            configurePreviewStream(name, env, &previewThreshold,
+                    &session /*out*/, &previewStream /*out*/,
+                    &halStreamConfig /*out*/, &supportsPartialResults /*out*/,
+                    &partialResultCount /*out*/);
+>>>>>>> BRANCH (beffc5 Camera: Add support for testing partial results)
 
+<<<<<<< HEAD   (7dba96 Fix ICryptoFactory service am: 8a85370679  -s ours)
                 std::shared_ptr<ResultMetadataQueue> resultQueue;
                 auto resultQueueRet =
                     session->getCaptureResultMetadataQueue(
@@ -3291,6 +3435,33 @@ TEST_F(CameraHidlTest, flushPreviewRequest) {
                             }
                         });
                 ASSERT_TRUE(resultQueueRet.isOk());
+=======
+            std::shared_ptr<ResultMetadataQueue> resultQueue;
+            auto resultQueueRet = session->getCaptureResultMetadataQueue(
+                [&resultQueue](const auto& descriptor) {
+                    resultQueue = std::make_shared<ResultMetadataQueue>(
+                            descriptor);
+                    if (!resultQueue->isValid() ||
+                            resultQueue->availableToWrite() <= 0) {
+                        ALOGE("%s: HAL returns empty result metadata fmq,"
+                                " not use it", __func__);
+                        resultQueue = nullptr;
+                        // Don't use the queue onwards.
+                    }
+                });
+            ASSERT_TRUE(resultQueueRet.isOk());
+            ASSERT_NE(nullptr, resultQueue);
+
+            InFlightRequest inflightReq = {1, false, supportsPartialResults,
+                    partialResultCount, resultQueue};
+            RequestTemplate reqTemplate = RequestTemplate::PREVIEW;
+            Return<void> ret;
+            ret = session->constructDefaultRequestSettings(reqTemplate,
+                [&](auto status, const auto& req) {
+                    ASSERT_EQ(Status::OK, status);
+                    settings = req; });
+            ASSERT_TRUE(ret.isOk());
+>>>>>>> BRANCH (beffc5 Camera: Add support for testing partial results)
 
                 InFlightRequest inflightReq = {1, false, supportsPartialResults,
                                                partialResultCount, resultQueue};
@@ -3303,6 +3474,7 @@ TEST_F(CameraHidlTest, flushPreviewRequest) {
                                                                });
                 ASSERT_TRUE(ret.isOk());
 
+<<<<<<< HEAD   (7dba96 Fix ICryptoFactory service am: 8a85370679  -s ours)
                 sp<GraphicBuffer> gb = new GraphicBuffer(
                     previewStream.width, previewStream.height,
                     static_cast<int32_t>(halStreamConfig.streams[0].overrideFormat), 1,
@@ -3320,6 +3492,13 @@ TEST_F(CameraHidlTest, flushPreviewRequest) {
                                                        BufferStatus::ERROR, nullptr, nullptr};
                 CaptureRequest request = {frameNumber, 0 /* fmqSettingsSize */, settings,
                                           emptyInputBuffer, outputBuffers};
+=======
+            {
+                std::unique_lock<std::mutex> l(mLock);
+                mInflightMap.clear();
+                mInflightMap.add(frameNumber, &inflightReq);
+            }
+>>>>>>> BRANCH (beffc5 Camera: Add support for testing partial results)
 
                 {
                     std::unique_lock<std::mutex> l(mLock);
@@ -3345,6 +3524,7 @@ TEST_F(CameraHidlTest, flushPreviewRequest) {
                 ASSERT_TRUE(returnStatus.isOk());
                 ASSERT_EQ(Status::OK, returnStatus);
 
+<<<<<<< HEAD   (7dba96 Fix ICryptoFactory service am: 8a85370679  -s ours)
                 {
                     std::unique_lock<std::mutex> l(mLock);
                     while (!inflightReq.errorCodeValid &&
@@ -3355,7 +3535,20 @@ TEST_F(CameraHidlTest, flushPreviewRequest) {
                         ASSERT_NE(std::cv_status::timeout, mResultCondition.wait_until(l,
                                 timeout));
                     }
+=======
+            {
+                std::unique_lock<std::mutex> l(mLock);
+                while (!inflightReq.errorCodeValid &&
+                        ((0 < inflightReq.numBuffersLeft) ||
+                                (!inflightReq.haveResultMetadata))) {
+                    auto timeout = std::chrono::system_clock::now() +
+                            std::chrono::seconds(kStreamBufferTimeoutSec);
+                    ASSERT_NE(std::cv_status::timeout,
+                            mResultCondition.wait_until(l, timeout));
+                }
+>>>>>>> BRANCH (beffc5 Camera: Add support for testing partial results)
 
+<<<<<<< HEAD   (7dba96 Fix ICryptoFactory service am: 8a85370679  -s ours)
                     if (!inflightReq.errorCodeValid) {
                         ASSERT_NE(inflightReq.resultOutputBuffers.size(), 0u);
                         ASSERT_EQ(previewStream.id, inflightReq.resultOutputBuffers[0].streamId);
@@ -3371,6 +3564,23 @@ TEST_F(CameraHidlTest, flushPreviewRequest) {
                                 FAIL() << "Unexpected error:"
                                        << static_cast<uint32_t>(inflightReq.errorCode);
                         }
+=======
+                if (!inflightReq.errorCodeValid) {
+                    ASSERT_NE(inflightReq.resultOutputBuffers.size(), 0u);
+                    ASSERT_EQ(previewStream.id,
+                              inflightReq.resultOutputBuffers[0].streamId);
+                } else {
+                    switch (inflightReq.errorCode) {
+                        case ErrorCode::ERROR_REQUEST:
+                        case ErrorCode::ERROR_RESULT:
+                        case ErrorCode::ERROR_BUFFER:
+                            //Expected
+                            break;
+                        case ErrorCode::ERROR_DEVICE:
+                        default:
+                            FAIL() << "Unexpected error:" << static_cast<uint32_t> (
+                                    inflightReq.errorCode);
+>>>>>>> BRANCH (beffc5 Camera: Add support for testing partial results)
                     }
 
                     ret = session->close();
@@ -3399,6 +3609,7 @@ TEST_F(CameraHidlTest, flushEmpty) {
                                         static_cast<int32_t>(PixelFormat::IMPLEMENTATION_DEFINED)};
 
     for (const auto& name : cameraDeviceNames) {
+<<<<<<< HEAD   (7dba96 Fix ICryptoFactory service am: 8a85370679  -s ours)
         int deviceVersion = getCameraDeviceVersion(name, mProviderType);
         switch (deviceVersion) {
             case CAMERA_DEVICE_API_VERSION_3_3:
@@ -3430,6 +3641,29 @@ TEST_F(CameraHidlTest, flushEmpty) {
             break;
             case CAMERA_DEVICE_API_VERSION_1_0: {
                 //Not applicable
+=======
+        if (getCameraDeviceVersion(name) == CAMERA_DEVICE_API_VERSION_3_2) {
+            Stream previewStream;
+            HalStreamConfiguration halStreamConfig;
+            sp<ICameraDeviceSession> session;
+            bool supportsPartialResults = false;
+            uint32_t partialResultCount = 0;
+            configurePreviewStream(name, env, &previewThreshold,
+                    &session /*out*/, &previewStream /*out*/,
+                    &halStreamConfig /*out*/, &supportsPartialResults /*out*/,
+                    &partialResultCount /*out*/);
+
+            Return<Status> returnStatus = session->flush();
+            ASSERT_TRUE(returnStatus.isOk());
+            ASSERT_EQ(Status::OK, returnStatus);
+
+            {
+                std::unique_lock<std::mutex> l(mLock);
+                auto timeout = std::chrono::system_clock::now() +
+                        std::chrono::milliseconds(kEmptyFlushTimeoutMSec);
+                ASSERT_EQ(std::cv_status::timeout,
+                        mResultCondition.wait_until(l, timeout));
+>>>>>>> BRANCH (beffc5 Camera: Add support for testing partial results)
             }
             break;
             default: {
@@ -3633,6 +3867,10 @@ void CameraHidlTest::configurePreviewStream(const std::string &name,
         HalStreamConfiguration *halStreamConfig /*out*/,
         bool *supportsPartialResults /*out*/,
         uint32_t *partialResultCount /*out*/) {
+<<<<<<< HEAD   (7dba96 Fix ICryptoFactory service am: 8a85370679  -s ours)
+=======
+    ASSERT_NE(nullptr, env);
+>>>>>>> BRANCH (beffc5 Camera: Add support for testing partial results)
     ASSERT_NE(nullptr, session);
     ASSERT_NE(nullptr, previewStream);
     ASSERT_NE(nullptr, halStreamConfig);

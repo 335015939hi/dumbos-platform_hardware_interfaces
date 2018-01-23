@@ -26,7 +26,12 @@ cc_test {
         "libfmq",
         "libgui",
         "libui",
+<<<<<<< HEAD   (7dba96 Fix ICryptoFactory service am: 8a85370679  -s ours)
+=======
+        "libfmq",
+>>>>>>> BRANCH (beffc5 Camera: Add support for testing partial results)
     ],
+<<<<<<< HEAD   (7dba96 Fix ICryptoFactory service am: 8a85370679  -s ours)
 
     // Statically link to libs not guaranteed to be present on the device.
     static_libs: [
@@ -39,5 +44,15 @@ cc_test {
         "android.hardware.graphics.common@1.0",
         "android.hardware.graphics.mapper@2.0",
         "libgrallocusage",
+=======
+    static_libs: [
+        "VtsHalHidlTargetTestBase",
+        "libgrallocusage",
+        "android.hardware.camera.common@1.0-helper",
+    ],
+    cflags: [
+        "-O0",
+        "-g",
+>>>>>>> BRANCH (beffc5 Camera: Add support for testing partial results)
     ],
 }
