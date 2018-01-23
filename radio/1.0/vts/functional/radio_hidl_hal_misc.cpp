@@ -283,8 +283,12 @@ TEST_F(RadioHidlTest, setCdmaRoamingPreference) {
 
     if (cardStatus.cardState == CardState::ABSENT) {
         ASSERT_TRUE(radioRsp->rspInfo.error == RadioError::NONE ||
+<<<<<<< HEAD   (6b4881 Fix consumerir test bugs am: 43e1c6bc55  -s ours)
                     radioRsp->rspInfo.error == RadioError::REQUEST_NOT_SUPPORTED ||
                     radioRsp->rspInfo.error == RadioError::SIM_ABSENT);
+=======
+                    radioRsp->rspInfo.error == RadioError::REQUEST_NOT_SUPPORTED);
+>>>>>>> BRANCH (44bd0b Fix some VTS for 2017 devices)
     }
 }
 
@@ -707,8 +711,12 @@ TEST_F(RadioHidlTest, stopLceService) {
     if (cardStatus.cardState == CardState::ABSENT) {
         ASSERT_TRUE(radioRsp->rspInfo.error == RadioError::NONE ||
                     radioRsp->rspInfo.error == RadioError::LCE_NOT_SUPPORTED ||
+<<<<<<< HEAD   (6b4881 Fix consumerir test bugs am: 43e1c6bc55  -s ours)
                     radioRsp->rspInfo.error == RadioError::REQUEST_NOT_SUPPORTED ||
                     radioRsp->rspInfo.error == RadioError::SIM_ABSENT);
+=======
+                    radioRsp->rspInfo.error == RadioError::REQUEST_NOT_SUPPORTED);
+>>>>>>> BRANCH (44bd0b Fix some VTS for 2017 devices)
     }
 }
 
