@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e651b929_4bc28004",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-01-23T04:32:59Z",
+      "side": 1,
+      "message": "Please expand on this and explain what the purpose is for this proposed change.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 23
+      },
+      "revId": "05a33867dcaa03cae0ac1371fd5b21eea04b138b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dbc8c381_3486f27c",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-01-23T04:32:59Z",
+      "side": 1,
+      "message": "SGP seems to refer to Remote SIM provisioning:\n\nhttps://www.gsma.com/newsroom/all-documents/sgp-22-v2-2-technical-specification/\n\nSection 4.2",
+      "range": {
+        "startLine": 251,
+        "startChar": 46,
+        "endLine": 251,
+        "endChar": 51
+      },
+      "revId": "05a33867dcaa03cae0ac1371fd5b21eea04b138b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "db199462_8ae56a4a",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-01-23T04:32:59Z",
+      "side": 1,
+      "message": "Why is this an array of 3 values? It looks like only one value is accepted and changing that would mean revving the HAL, so I don\u0027t see the benefit of the array.",
+      "range": {
+        "startLine": 257,
+        "startChar": 23,
+        "endLine": 257,
+        "endChar": 27
+      },
+      "revId": "05a33867dcaa03cae0ac1371fd5b21eea04b138b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "459461c2_4da7de6e",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-01-23T04:32:59Z",
+      "side": 1,
+      "message": "If we\u0027re getting this info, it feels far more relevant to know whether TD-SCDMA is supported than whether the device supports EVDO rev A or rev B.",
+      "range": {
+        "startLine": 262,
+        "startChar": 0,
+        "endLine": 268,
+        "endChar": 74
+      },
+      "revId": "05a33867dcaa03cae0ac1371fd5b21eea04b138b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "18a63fd5_524f0fd1",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-01-23T04:32:59Z",
+      "side": 1,
+      "message": "Could I request that this data structure be re-worked to use the available data types for the interface?",
+      "range": {
+        "startLine": 271,
+        "startChar": 5,
+        "endLine": 273,
+        "endChar": 43
+      },
+      "revId": "05a33867dcaa03cae0ac1371fd5b21eea04b138b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d1f40855_eab4a77b",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-01-23T04:32:59Z",
+      "side": 1,
+      "message": "what about Rev C?",
+      "range": {
+        "startLine": 281,
+        "startChar": 2,
+        "endLine": 284,
+        "endChar": 36
+      },
+      "revId": "05a33867dcaa03cae0ac1371fd5b21eea04b138b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b76ff8e_9bd7d490",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-01-23T04:32:59Z",
+      "side": 1,
+      "message": "This API feels like a very weird mishmash of radio support and some oddly-specific eSIM pieces.\n\nThere has been talk for quite a while of querying modem support for things such as radio techs... but this doesn\u0027t seem like a very tidy way to go about it.",
+      "range": {
+        "startLine": 303,
+        "startChar": 0,
+        "endLine": 317,
+        "endChar": 75
+      },
+      "revId": "05a33867dcaa03cae0ac1371fd5b21eea04b138b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
