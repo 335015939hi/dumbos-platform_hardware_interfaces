@@ -16,32 +16,33 @@
 
 LOCAL_PATH := $(call my-dir)
 
-BUILD_FRAMEWORK_COMPATIBILITY_MATRIX := $(LOCAL_PATH)/compatibility_matrix.mk
+-include $(LOCAL_PATH)/definitions.mk
+-include $(LOCAL_PATH)/config.mk
 
 # Install all compatibility_matrix.*.xml to /system/etc/vintf
 
 include $(CLEAR_VARS)
 LOCAL_MODULE_STEM   := compatibility_matrix.legacy.xml
 LOCAL_SRC_FILES 	:= $(LOCAL_MODULE_STEM)
-LOCAL_KERNEL_VERSIONS    := 3.18 4.4 4.9
+LOCAL_KERNEL_VERSIONS    := 3.18.0 4.4.0 4.9.0
 include $(BUILD_FRAMEWORK_COMPATIBILITY_MATRIX)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE_STEM   := compatibility_matrix.1.xml
 LOCAL_SRC_FILES 	:= $(LOCAL_MODULE_STEM)
-LOCAL_KERNEL_VERSIONS    := 3.18 4.4 4.9
+LOCAL_KERNEL_VERSIONS    := 3.18.0 4.4.0 4.9.0
 include $(BUILD_FRAMEWORK_COMPATIBILITY_MATRIX)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE_STEM   := compatibility_matrix.2.xml
 LOCAL_SRC_FILES 	:= $(LOCAL_MODULE_STEM)
-LOCAL_KERNEL_VERSIONS    := 3.18 4.4 4.9
+LOCAL_KERNEL_VERSIONS    := 3.18.0 4.4.0 4.9.0
 include $(BUILD_FRAMEWORK_COMPATIBILITY_MATRIX)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE_STEM   := compatibility_matrix.current.xml
 LOCAL_SRC_FILES 	:= $(LOCAL_MODULE_STEM)
-LOCAL_KERNEL_VERSIONS    := 4.4 4.9
+LOCAL_KERNEL_VERSIONS    := 4.4.0 4.9.0
 include $(BUILD_FRAMEWORK_COMPATIBILITY_MATRIX)
 
 # Framework Compatibility Matrix (common to all FCM versions)
