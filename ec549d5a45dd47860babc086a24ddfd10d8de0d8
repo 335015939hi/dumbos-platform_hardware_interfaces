@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3e0dc8ad_84afc1ae",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-01-23T23:32:48Z",
+      "side": 1,
+      "message": "double .",
+      "range": {
+        "startLine": 48,
+        "startChar": 68,
+        "endLine": 48,
+        "endChar": 69
+      },
+      "revId": "ec549d5a45dd47860babc086a24ddfd10d8de0d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9fb513d_b52e5377",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-01-23T23:32:48Z",
+      "side": 1,
+      "message": "@parm ...\n    ....\n\n(indentation)",
+      "revId": "ec549d5a45dd47860babc086a24ddfd10d8de0d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e5786b3_186718a6",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-01-23T23:32:48Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 71,
+        "startChar": 25,
+        "endLine": 71,
+        "endChar": 26
+      },
+      "revId": "ec549d5a45dd47860babc086a24ddfd10d8de0d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b90eb57_93654121",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-01-23T23:32:48Z",
+      "side": 1,
+      "message": "Can we replace this with something that is structured?",
+      "range": {
+        "startLine": 91,
+        "startChar": 58,
+        "endLine": 91,
+        "endChar": 64
+      },
+      "revId": "ec549d5a45dd47860babc086a24ddfd10d8de0d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2419b8a_f7b8c7b5",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-01-23T23:32:48Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 91,
+        "startChar": 81,
+        "endLine": 91,
+        "endChar": 87
+      },
+      "revId": "ec549d5a45dd47860babc086a24ddfd10d8de0d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
