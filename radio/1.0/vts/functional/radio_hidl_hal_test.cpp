@@ -24,7 +24,11 @@ void RadioHidlTest::SetUp() {
         radio = ::testing::VtsHalHidlTargetTestBase::getService<IRadio>(
             hidl_string(RADIO_SERVICE_NAME));
     }
+<<<<<<< HEAD   (f657ce Loosen speed check for first GPS location am: bf4f6db431  -s)
     ASSERT_NE(nullptr, radio.get());
+=======
+    ASSERT_NE(radio, nullptr);
+>>>>>>> BRANCH (d4c4a4 Set time delay in the vts test setup)
 
     radioRsp = new (std::nothrow) RadioResponse(*this);
     ASSERT_NE(nullptr, radioRsp.get());
