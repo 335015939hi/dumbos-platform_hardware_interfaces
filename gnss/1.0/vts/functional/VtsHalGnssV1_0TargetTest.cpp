@@ -330,6 +330,117 @@ class GnssHalTest : public ::testing::VtsHalHidlTargetTestBase {
 TEST_F(GnssHalTest, SetCallbackCapabilitiesCleanup) {}
 
 /*
+<<<<<<< HEAD   (4a9b59 Add tests to validate key length for clearkey plugin. am: c3)
+=======
+ * CheckLocation:
+ * Helper function to vet Location fields
+ */
+void CheckLocation(GnssLocation& location, bool checkAccuracies,
+                   bool checkSpeed) {
+  EXPECT_TRUE(location.gnssLocationFlags & GnssLocationFlags::HAS_LAT_LONG);
+  EXPECT_TRUE(location.gnssLocationFlags & GnssLocationFlags::HAS_ALTITUDE);
+  if (checkSpeed) {
+    EXPECT_TRUE(location.gnssLocationFlags & GnssLocationFlags::HAS_SPEED);
+  }
+  EXPECT_TRUE(location.gnssLocationFlags &
+              GnssLocationFlags::HAS_HORIZONTAL_ACCURACY);
+  // New uncertainties available in O must be provided,
+  // at least when paired with modern hardware (2017+)
+  if (checkAccuracies) {
+    EXPECT_TRUE(location.gnssLocationFlags &
+                GnssLocationFlags::HAS_VERTICAL_ACCURACY);
+    EXPECT_TRUE(location.gnssLocationFlags &
+                GnssLocationFlags::HAS_SPEED_ACCURACY);
+    if (location.gnssLocationFlags & GnssLocationFlags::HAS_BEARING) {
+      EXPECT_TRUE(location.gnssLocationFlags &
+                  GnssLocationFlags::HAS_BEARING_ACCURACY);
+    }
+  }
+  EXPECT_GE(location.latitudeDegrees, -90.0);
+  EXPECT_LE(location.latitudeDegrees, 90.0);
+  EXPECT_GE(location.longitudeDegrees, -180.0);
+  EXPECT_LE(location.longitudeDegrees, 180.0);
+  EXPECT_GE(location.altitudeMeters, -1000.0);
+  EXPECT_LE(location.altitudeMeters, 30000.0);
+  if (checkSpeed) {
+    // VTS tests are stationary.  5.0m/s max allows for measurement noise.
+    EXPECT_GE(location.speedMetersPerSec, 0.0);
+    EXPECT_LE(location.speedMetersPerSec, 5.0);
+
+    // Non-zero speeds must be reported with an associated bearing
+    if (location.speedMetersPerSec > 0.0) {
+      EXPECT_TRUE(location.gnssLocationFlags & GnssLocationFlags::HAS_BEARING);
+    }
+  }
+
+  /*
+   * Tolerating some especially high values for accuracy estimate, in case of
+   * first fix with especially poor geometry (happens occasionally)
+   */
+  EXPECT_GT(location.horizontalAccuracyMeters, 0.0);
+  EXPECT_LE(location.horizontalAccuracyMeters, 250.0);
+
+  /*
+   * Some devices may define bearing as -180 to +180, others as 0 to 360.
+   * Both are okay & understandable.
+   */
+  if (location.gnssLocationFlags & GnssLocationFlags::HAS_BEARING) {
+    EXPECT_GE(location.bearingDegrees, -180.0);
+    EXPECT_LE(location.bearingDegrees, 360.0);
+  }
+  if (location.gnssLocationFlags & GnssLocationFlags::HAS_VERTICAL_ACCURACY) {
+    EXPECT_GT(location.verticalAccuracyMeters, 0.0);
+    EXPECT_LE(location.verticalAccuracyMeters, 500.0);
+  }
+  if (location.gnssLocationFlags & GnssLocationFlags::HAS_SPEED_ACCURACY) {
+    EXPECT_GT(location.speedAccuracyMetersPerSecond, 0.0);
+    EXPECT_LE(location.speedAccuracyMetersPerSecond, 50.0);
+  }
+  if (location.gnssLocationFlags & GnssLocationFlags::HAS_BEARING_ACCURACY) {
+    EXPECT_GT(location.bearingAccuracyDegrees, 0.0);
+    EXPECT_LE(location.bearingAccuracyDegrees, 360.0);
+  }
+
+  // Check timestamp > 1.48e12 (47 years in msec - 1970->2017+)
+  EXPECT_GT(location.timestamp, 1.48e12);
+}
+
+/*
+ * StartAndGetSingleLocation:
+ * Helper function to get one Location and check fields
+ *
+ * returns  true if a location was successfully generated
+ */
+bool StartAndGetSingleLocation(GnssHalTest* test, bool checkAccuracies) {
+  auto result = test->gnss_hal_->start();
+
+  EXPECT_TRUE(result.isOk());
+  EXPECT_TRUE(result);
+
+  /*
+   * GPS signals initially optional for this test, so don't expect fast fix,
+   * or no timeout, unless signal is present
+   */
+  int firstGnssLocationTimeoutSeconds = sAgpsIsPresent ? 15 : 45;
+  if (sSignalIsWeak) {
+    // allow more time for weak signals
+    firstGnssLocationTimeoutSeconds += 30;
+  }
+
+  test->wait(firstGnssLocationTimeoutSeconds);
+  if (sAgpsIsPresent) {
+    EXPECT_EQ(test->location_called_count_, 1);
+  }
+  if (test->location_called_count_ > 0) {
+    // don't require speed on first fix
+    CheckLocation(test->last_location_, checkAccuracies, false /* checkSpeed */ );
+    return true;
+  }
+  return false;
+}
+
+/*
+>>>>>>> BRANCH (bf4f6d Loosen speed check for first GPS location)
  * GetLocation:
  * Turns on location, waits 45 second for at least 5 locations,
  * and checks them for reasonable validity.
@@ -361,9 +472,16 @@ TEST_F(GnssHalTest, GetLocation) {
 
   if (gotLocation) {
     for (int i = 1; i < LOCATIONS_TO_CHECK; i++) {
+<<<<<<< HEAD   (4a9b59 Add tests to validate key length for clearkey plugin. am: c3)
         EXPECT_EQ(std::cv_status::no_timeout, wait(LOCATION_TIMEOUT_SUBSEQUENT_SEC));
         EXPECT_EQ(location_called_count_, i + 1);
         CheckLocation(last_location_, checkMoreAccuracies, true);
+=======
+      EXPECT_EQ(std::cv_status::no_timeout,
+          wait(LOCATION_TIMEOUT_SUBSEQUENT_SEC));
+      EXPECT_EQ(location_called_count_, i + 1);
+      CheckLocation(last_location_, checkMoreAccuracies, true /* checkSpeed */);
+>>>>>>> BRANCH (bf4f6d Loosen speed check for first GPS location)
     }
   }
 
