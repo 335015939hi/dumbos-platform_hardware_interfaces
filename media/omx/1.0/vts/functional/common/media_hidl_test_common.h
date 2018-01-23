@@ -57,6 +57,14 @@
 #define ALIGN_POWER_OF_TWO(value, n) \
     (((value) + ((1 << (n)) - 1)) & ~((1 << (n)) - 1))
 
+/*
+ * Random Index used for monkey testing while get/set parameters
+ */
+#define RANDOM_INDEX 1729
+
+#define ALIGN_POWER_OF_TWO(value, n) \
+    (((value) + ((1 << (n)) - 1)) & ~((1 << (n)) - 1))
+
 enum bufferOwner {
     client,
     component,
@@ -297,9 +305,12 @@ Return<android::hardware::media::omx::V1_0::Status> setVideoPortFormat(
 Return<android::hardware::media::omx::V1_0::Status> setAudioPortFormat(
     sp<IOmxNode> omxNode, OMX_U32 portIndex, OMX_AUDIO_CODINGTYPE eEncoding);
 
+<<<<<<< HEAD   (fa0c4e Update broadcastradio HAL 1.0 VTS tests. am: aab4a1a574  -s )
 void allocateBuffer(sp<IOmxNode> omxNode, BufferInfo* buffer, OMX_U32 portIndex,
                     OMX_U32 nBufferSize, PortMode portMode);
 
+=======
+>>>>>>> BRANCH (ccc3c3 Merge "bug fix: configure input port buffer size" into oreo-)
 void allocatePortBuffers(sp<IOmxNode> omxNode,
                          android::Vector<BufferInfo>* buffArray,
                          OMX_U32 portIndex,

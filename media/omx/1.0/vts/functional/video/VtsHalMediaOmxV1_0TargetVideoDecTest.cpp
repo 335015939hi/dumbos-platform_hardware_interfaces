@@ -890,6 +890,12 @@ TEST_F(VideoDecHidlTest, DecodeTest) {
     EXPECT_EQ(status, ::android::hardware::media::omx::V1_0::Status::OK);
     setDefaultPortParam(omxNode, kPortIndexOutput, OMX_VIDEO_CodingUnused,
                         eColorFormat, nFrameWidth, nFrameHeight, 0, xFramerate);
+<<<<<<< HEAD   (fa0c4e Update broadcastradio HAL 1.0 VTS tests. am: aab4a1a574  -s )
+=======
+
+    // disabling adaptive playback.
+    omxNode->prepareForAdaptivePlayback(kPortIndexOutput, false, 1920, 1080);
+>>>>>>> BRANCH (ccc3c3 Merge "bug fix: configure input port buffer size" into oreo-)
 
     android::Vector<BufferInfo> iBuffer, oBuffer;
 
@@ -1178,6 +1184,23 @@ TEST_F(VideoDecHidlTest, ThumbnailTest) {
     maxBytesCount = ALIGN_POWER_OF_TWO(maxBytesCount, 10);
     status = setPortBufferSize(omxNode, kPortIndexInput, maxBytesCount);
     ASSERT_EQ(status, ::android::hardware::media::omx::V1_0::Status::OK);
+<<<<<<< HEAD   (fa0c4e Update broadcastradio HAL 1.0 VTS tests. am: aab4a1a574  -s )
+=======
+
+    // set port mode
+    status = omxNode->setPortMode(kPortIndexInput, portMode[0]);
+    ASSERT_EQ(status, ::android::hardware::media::omx::V1_0::Status::OK);
+    status = omxNode->setPortMode(kPortIndexOutput, portMode[1]);
+    ASSERT_EQ(status, ::android::hardware::media::omx::V1_0::Status::OK);
+
+    // set Port Params
+    uint32_t nFrameWidth, nFrameHeight, xFramerate;
+    OMX_COLOR_FORMATTYPE eColorFormat = OMX_COLOR_FormatYUV420Planar;
+    getInputChannelInfo(omxNode, kPortIndexInput, &nFrameWidth, &nFrameHeight,
+                        &xFramerate);
+    setDefaultPortParam(omxNode, kPortIndexOutput, OMX_VIDEO_CodingUnused,
+                        eColorFormat, nFrameWidth, nFrameHeight, 0, xFramerate);
+>>>>>>> BRANCH (ccc3c3 Merge "bug fix: configure input port buffer size" into oreo-)
 
     // set port mode
     status = omxNode->setPortMode(kPortIndexInput, portMode[0]);
@@ -1299,6 +1322,23 @@ TEST_F(VideoDecHidlTest, SimpleEOSTest) {
     maxBytesCount = ALIGN_POWER_OF_TWO(maxBytesCount, 10);
     status = setPortBufferSize(omxNode, kPortIndexInput, maxBytesCount);
     ASSERT_EQ(status, ::android::hardware::media::omx::V1_0::Status::OK);
+<<<<<<< HEAD   (fa0c4e Update broadcastradio HAL 1.0 VTS tests. am: aab4a1a574  -s )
+=======
+
+    // set port mode
+    status = omxNode->setPortMode(kPortIndexInput, portMode[0]);
+    ASSERT_EQ(status, ::android::hardware::media::omx::V1_0::Status::OK);
+    status = omxNode->setPortMode(kPortIndexOutput, portMode[1]);
+    ASSERT_EQ(status, ::android::hardware::media::omx::V1_0::Status::OK);
+
+    // set Port Params
+    uint32_t nFrameWidth, nFrameHeight, xFramerate;
+    OMX_COLOR_FORMATTYPE eColorFormat = OMX_COLOR_FormatYUV420Planar;
+    getInputChannelInfo(omxNode, kPortIndexInput, &nFrameWidth, &nFrameHeight,
+                        &xFramerate);
+    setDefaultPortParam(omxNode, kPortIndexOutput, OMX_VIDEO_CodingUnused,
+                        eColorFormat, nFrameWidth, nFrameHeight, 0, xFramerate);
+>>>>>>> BRANCH (ccc3c3 Merge "bug fix: configure input port buffer size" into oreo-)
 
     // set port mode
     portMode[0] = PortMode::PRESET_BYTE_BUFFER;
@@ -1406,6 +1446,23 @@ TEST_F(VideoDecHidlTest, FlushTest) {
     maxBytesCount = ALIGN_POWER_OF_TWO(maxBytesCount, 10);
     status = setPortBufferSize(omxNode, kPortIndexInput, maxBytesCount);
     ASSERT_EQ(status, ::android::hardware::media::omx::V1_0::Status::OK);
+<<<<<<< HEAD   (fa0c4e Update broadcastradio HAL 1.0 VTS tests. am: aab4a1a574  -s )
+=======
+
+    // set port mode
+    status = omxNode->setPortMode(kPortIndexInput, portMode[0]);
+    ASSERT_EQ(status, ::android::hardware::media::omx::V1_0::Status::OK);
+    status = omxNode->setPortMode(kPortIndexOutput, portMode[1]);
+    ASSERT_EQ(status, ::android::hardware::media::omx::V1_0::Status::OK);
+
+    // set Port Params
+    uint32_t nFrameWidth, nFrameHeight, xFramerate;
+    OMX_COLOR_FORMATTYPE eColorFormat = OMX_COLOR_FormatYUV420Planar;
+    getInputChannelInfo(omxNode, kPortIndexInput, &nFrameWidth, &nFrameHeight,
+                        &xFramerate);
+    setDefaultPortParam(omxNode, kPortIndexOutput, OMX_VIDEO_CodingUnused,
+                        eColorFormat, nFrameWidth, nFrameHeight, 0, xFramerate);
+>>>>>>> BRANCH (ccc3c3 Merge "bug fix: configure input port buffer size" into oreo-)
 
     // set port mode
     status = omxNode->setPortMode(kPortIndexInput, portMode[0]);

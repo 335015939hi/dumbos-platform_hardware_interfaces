@@ -191,6 +191,7 @@ Return<android::hardware::media::omx::V1_0::Status> setAudioPortFormat(
     return status;
 }
 
+<<<<<<< HEAD   (fa0c4e Update broadcastradio HAL 1.0 VTS tests. am: aab4a1a574  -s )
 void allocateGraphicBuffers(sp<IOmxNode> omxNode, OMX_U32 portIndex,
                             BufferInfo* buffer, uint32_t nFrameWidth,
                             uint32_t nFrameHeight, int32_t* nStride,
@@ -338,6 +339,8 @@ void allocateBuffer(sp<IOmxNode> omxNode, BufferInfo* buffer, OMX_U32 portIndex,
     }
 }
 
+=======
+>>>>>>> BRANCH (ccc3c3 Merge "bug fix: configure input port buffer size" into oreo-)
 // allocate buffers needed on a component port
 void allocatePortBuffers(sp<IOmxNode> omxNode,
                          android::Vector<BufferInfo>* buffArray,

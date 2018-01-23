@@ -238,6 +238,10 @@ void initPortMode(PortMode* pm, bool isSecure,
                 break;
         }
     }
+<<<<<<< HEAD   (fa0c4e Update broadcastradio HAL 1.0 VTS tests. am: aab4a1a574  -s )
+=======
+    return;
+>>>>>>> BRANCH (ccc3c3 Merge "bug fix: configure input port buffer size" into oreo-)
 }
 
 // test dispatch message API call

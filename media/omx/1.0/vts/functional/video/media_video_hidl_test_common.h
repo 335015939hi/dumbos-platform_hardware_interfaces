@@ -20,6 +20,10 @@
 /*
  * Common video utils
  */
+<<<<<<< HEAD   (fa0c4e Update broadcastradio HAL 1.0 VTS tests. am: aab4a1a574  -s )
+=======
+
+>>>>>>> BRANCH (ccc3c3 Merge "bug fix: configure input port buffer size" into oreo-)
 void enumerateProfileAndLevel(sp<IOmxNode> omxNode, OMX_U32 portIndex,
                               std::vector<int32_t>* arrProfile,
                               std::vector<int32_t>* arrLevel);
