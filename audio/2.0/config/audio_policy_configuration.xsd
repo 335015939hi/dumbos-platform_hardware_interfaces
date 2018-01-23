@@ -406,6 +406,30 @@
             </xs:element>
         </xs:sequence>
     </xs:complexType>
+    <xs:simpleType name="gainMode">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="AUDIO_GAIN_MODE_JOINT"/>
+            <xs:enumeration value="AUDIO_GAIN_MODE_CHANNELS"/>
+            <xs:enumeration value="AUDIO_GAIN_MODE_RAMP"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="gains">
+        <xs:sequence>
+            <xs:element name="gain" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:attribute name="name" type="xs:token" use="required"/>
+                    <xs:attribute name="mode" type="gainMode" use="required"/>
+                    <xs:attribute name="channel_mask" type="channelMask" use="optional"/>
+                    <xs:attribute name="minValueMB" type="xs:int" use="optional"/>
+                    <xs:attribute name="maxValueMB" type="xs:int" use="optional"/>
+                    <xs:attribute name="defaultValueMB" type="xs:int" use="optional"/>
+                    <xs:attribute name="stepValueMB" type="xs:int" use="optional"/>
+                    <xs:attribute name="minRampMs" type="xs:int" use="optional"/>
+                    <xs:attribute name="maxRampMs" type="xs:int" use="optional"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
     <xs:complexType name="devicePorts">
         <xs:sequence>
             <xs:element name="devicePort" minOccurs="0" maxOccurs="unbounded">
@@ -417,7 +441,11 @@
                     <xs:attribute name="tagName" type="xs:token" use="required"/>
                     <xs:attribute name="type" type="audioDevice" use="required"/>
                     <xs:attribute name="role" type="role" use="required"/>
+<<<<<<< HEAD   (3b48a3 Merge "Add corresponding error code to fix vts test" into or)
                     <xs:attribute name="address" type="xs:string" use="optional" default=""/>
+=======
+                    <xs:attribute name="address" type="xs:string" use="optional"/>
+>>>>>>> BRANCH (69ad0a Audio policy config xsd: add missing gains and address in po)
                 </xs:complexType>
                 <xs:unique name="devicePortProfileUniqueness">
                     <xs:selector xpath="profile"/>
