@@ -37,9 +37,13 @@ TEST_F(RadioHidlTest, sendEnvelope) {
         std::cout << static_cast<int>(radioRsp->rspInfo.error) << std::endl;
         ASSERT_TRUE(CheckGeneralError() ||
                     radioRsp->rspInfo.error == RadioError::INVALID_ARGUMENTS ||
+<<<<<<< HEAD   (cf08db Audio policy config xsd: add missing gains and address in po)
                     radioRsp->rspInfo.error == RadioError::NONE ||
                     radioRsp->rspInfo.error == RadioError::MODEM_ERR ||
                     radioRsp->rspInfo.error == RadioError::SIM_ABSENT);
+=======
+                    radioRsp->rspInfo.error == RadioError::NONE);
+>>>>>>> BRANCH (40d939 Add EMPTY_RECORD for getDeviceIdentity)
     }
 }
 
@@ -62,8 +66,12 @@ TEST_F(RadioHidlTest, sendTerminalResponseToSim) {
         std::cout << static_cast<int>(radioRsp->rspInfo.error) << std::endl;
         ASSERT_TRUE(CheckGeneralError() ||
                     radioRsp->rspInfo.error == RadioError::INVALID_ARGUMENTS ||
+<<<<<<< HEAD   (cf08db Audio policy config xsd: add missing gains and address in po)
                     radioRsp->rspInfo.error == RadioError::NONE ||
                     radioRsp->rspInfo.error == RadioError::SIM_ABSENT);
+=======
+                    radioRsp->rspInfo.error == RadioError::NONE);
+>>>>>>> BRANCH (40d939 Add EMPTY_RECORD for getDeviceIdentity)
     }
 }
 
@@ -124,7 +132,10 @@ TEST_F(RadioHidlTest, sendEnvelopeWithStatus) {
     if (cardStatus.cardState == CardState::ABSENT) {
         ASSERT_TRUE(CheckGeneralError() ||
                     radioRsp->rspInfo.error == RadioError::INVALID_ARGUMENTS ||
+<<<<<<< HEAD   (cf08db Audio policy config xsd: add missing gains and address in po)
                     radioRsp->rspInfo.error == RadioError::MODEM_ERR ||
+=======
+>>>>>>> BRANCH (40d939 Add EMPTY_RECORD for getDeviceIdentity)
                     radioRsp->rspInfo.error == RadioError::SIM_ABSENT);
     }
 }
