@@ -161,7 +161,10 @@ interface IRadioResponse {
      *   RadioError:NO_RESOURCES
      *   RadioError:CANCELLED
      *   RadioError:REQUEST_NOT_SUPPORTED
+<<<<<<< HEAD   (4e87b6 Merge "Fix flakiness of sensor VTS test cases" into oreo-dev)
      *   RadioError:SIM_ABSENT
+=======
+>>>>>>> BRANCH (01d37f Update IRadioResponse.hal documentation)
      */
     oneway supplyNetworkDepersonalizationResponse(RadioResponseInfo info, int32_t remainingRetries);
 
@@ -545,7 +548,10 @@ interface IRadioResponse {
      *   RadioError:OPERATION_NOT_ALLOWED
      *   RadioError:NO_RESOURCES
      *   RadioError:CANCELLED
+<<<<<<< HEAD   (4e87b6 Merge "Fix flakiness of sensor VTS test cases" into oreo-dev)
      *   RadioError:SIM_ABSENT
+=======
+>>>>>>> BRANCH (01d37f Update IRadioResponse.hal documentation)
      */
     oneway sendSmsResponse(RadioResponseInfo info, SendSmsResult sms);
 
@@ -576,7 +582,10 @@ interface IRadioResponse {
      *   RadioError:OPERATION_NOT_ALLOWED
      *   RadioError:NO_RESOURCES
      *   RadioError:CANCELLED
+<<<<<<< HEAD   (4e87b6 Merge "Fix flakiness of sensor VTS test cases" into oreo-dev)
      *   RadioError:SIM_ABSENT
+=======
+>>>>>>> BRANCH (01d37f Update IRadioResponse.hal documentation)
      */
     oneway sendSMSExpectMoreResponse(RadioResponseInfo info, SendSmsResult sms);
 
@@ -597,7 +606,10 @@ interface IRadioResponse {
      *   RadioError:NO_MEMORY
      *   RadioError:NO_RESOURCES
      *   RadioError:CANCELLED
+<<<<<<< HEAD   (4e87b6 Merge "Fix flakiness of sensor VTS test cases" into oreo-dev)
      *   RadioError:SIM_ABSENT
+=======
+>>>>>>> BRANCH (01d37f Update IRadioResponse.hal documentation)
      */
     oneway setupDataCallResponse(RadioResponseInfo info, SetupDataCallResult dcResponse);
 
@@ -864,7 +876,10 @@ interface IRadioResponse {
      *   RadioError:NO_MEMORY
      *   RadioError:NO_RESOURCES
      *   RadioError:CANCELLED
+<<<<<<< HEAD   (4e87b6 Merge "Fix flakiness of sensor VTS test cases" into oreo-dev)
      *   RadioError:SIM_ABSENT
+=======
+>>>>>>> BRANCH (01d37f Update IRadioResponse.hal documentation)
      */
     oneway deactivateDataCallResponse(RadioResponseInfo info);
 
@@ -1171,7 +1186,10 @@ interface IRadioResponse {
      *   RadioError:NO_RESOURCES
      *   RadioError:CANCELLED
      *   RadioError:REQUEST_NOT_SUPPORTED
+<<<<<<< HEAD   (4e87b6 Merge "Fix flakiness of sensor VTS test cases" into oreo-dev)
      *   RadioError:SIM_ABSENT
+=======
+>>>>>>> BRANCH (01d37f Update IRadioResponse.hal documentation)
      */
     oneway getDataCallListResponse(RadioResponseInfo info, vec<SetupDataCallResult> dcResponse);
 
@@ -1190,7 +1208,10 @@ interface IRadioResponse {
      *   RadioError:REQUEST_NOT_SUPPORTED
      *   RadioError:NO_RESOURCES
      *   RadioError:CANCELLED
+<<<<<<< HEAD   (4e87b6 Merge "Fix flakiness of sensor VTS test cases" into oreo-dev)
      *   RadioError:SIM_ABSENT
+=======
+>>>>>>> BRANCH (01d37f Update IRadioResponse.hal documentation)
      */
     oneway setSuppServiceNotificationsResponse(RadioResponseInfo info);
 
@@ -1217,7 +1238,10 @@ interface IRadioResponse {
      *   RadioError:REQUEST_NOT_SUPPORTED
      *   RadioError:CANCELLED
      *   RadioError:INVALID_MODEM_STATE
+<<<<<<< HEAD   (4e87b6 Merge "Fix flakiness of sensor VTS test cases" into oreo-dev)
      *   RadioError:SIM_ABSENT
+=======
+>>>>>>> BRANCH (01d37f Update IRadioResponse.hal documentation)
      */
     oneway writeSmsToSimResponse(RadioResponseInfo info, int32_t index);
 
@@ -1296,7 +1320,10 @@ interface IRadioResponse {
      *   RadioError:INVALID_ARGUMENTS
      *   RadioError:MODEM_ERR
      *   RadioError:REQUEST_NOT_SUPPORTED
+<<<<<<< HEAD   (4e87b6 Merge "Fix flakiness of sensor VTS test cases" into oreo-dev)
      *   RadioError:SIM_ABSENT
+=======
+>>>>>>> BRANCH (01d37f Update IRadioResponse.hal documentation)
      */
     oneway sendEnvelopeResponse(RadioResponseInfo info, string commandResponse);
 
@@ -1314,7 +1341,10 @@ interface IRadioResponse {
      *   RadioError:CANCELLED
      *   RadioError:INVALID_MODEM_STATE
      *   RadioError:REQUEST_NOT_SUPPORTED
+<<<<<<< HEAD   (4e87b6 Merge "Fix flakiness of sensor VTS test cases" into oreo-dev)
      *   RadioError:SIM_ABSENT
+=======
+>>>>>>> BRANCH (01d37f Update IRadioResponse.hal documentation)
      */
     oneway sendTerminalResponseToSimResponse(RadioResponseInfo info);
 
@@ -1332,7 +1362,10 @@ interface IRadioResponse {
      *   RadioError:NO_RESOURCES
      *   RadioError:CANCELLED
      *   RadioError:REQUEST_NOT_SUPPORTED
+<<<<<<< HEAD   (4e87b6 Merge "Fix flakiness of sensor VTS test cases" into oreo-dev)
      *   RadioError:SIM_ABSENT
+=======
+>>>>>>> BRANCH (01d37f Update IRadioResponse.hal documentation)
      */
     oneway handleStkCallSetupRequestFromSimResponse(RadioResponseInfo info);
 
@@ -1429,7 +1462,10 @@ interface IRadioResponse {
      *   RadioError:REQUEST_NOT_SUPPORTED
      *   RadioError:NO_RESOURCES
      *   RadioError:CANCELLED
+<<<<<<< HEAD   (4e87b6 Merge "Fix flakiness of sensor VTS test cases" into oreo-dev)
      *   RadioError:SIM_ABSENT
+=======
+>>>>>>> BRANCH (01d37f Update IRadioResponse.hal documentation)
      */
     oneway setLocationUpdatesResponse(RadioResponseInfo info);
 
@@ -1464,7 +1500,10 @@ interface IRadioResponse {
      *   RadioError:OPERATION_NOT_ALLOWED
      *   RadioError:NO_RESOURCES
      *   RadioError:CANCELLED
+<<<<<<< HEAD   (4e87b6 Merge "Fix flakiness of sensor VTS test cases" into oreo-dev)
      *   RadioError:SIM_ABSENT
+=======
+>>>>>>> BRANCH (01d37f Update IRadioResponse.hal documentation)
      */
     oneway setCdmaRoamingPreferenceResponse(RadioResponseInfo info);
 
@@ -1483,7 +1522,10 @@ interface IRadioResponse {
      *   RadioError:REQUEST_NOT_SUPPORTED
      *   RadioError:NO_RESOURCES
      *   RadioError:CANCELLED
+<<<<<<< HEAD   (4e87b6 Merge "Fix flakiness of sensor VTS test cases" into oreo-dev)
      *   RadioError:SIM_ABSENT
+=======
+>>>>>>> BRANCH (01d37f Update IRadioResponse.hal documentation)
      */
     oneway getCdmaRoamingPreferenceResponse(RadioResponseInfo info, CdmaRoamingType type);
 
@@ -1578,7 +1620,10 @@ interface IRadioResponse {
      *   RadioError:INVALID_MODEM_STATE
      *   RadioError:NO_RESOURCES
      *   RadioError:CANCELLED
+<<<<<<< HEAD   (4e87b6 Merge "Fix flakiness of sensor VTS test cases" into oreo-dev)
      *   RadioError:OPERATION_NOT_ALLOWED
+=======
+>>>>>>> BRANCH (01d37f Update IRadioResponse.hal documentation)
      */
     oneway sendCDMAFeatureCodeResponse(RadioResponseInfo info);
 
@@ -1599,7 +1644,11 @@ interface IRadioResponse {
      *   RadioError:NO_RESOURCES
      *   RadioError:CANCELLED
      *   RadioError:INVALID_MODEM_STATE
+<<<<<<< HEAD   (4e87b6 Merge "Fix flakiness of sensor VTS test cases" into oreo-dev)
      *   RadioError:OPERATION_NOT_ALLOWED
+=======
+     *   RadioError:MODE_NOT_SUPPORTED
+>>>>>>> BRANCH (01d37f Update IRadioResponse.hal documentation)
      */
     oneway sendBurstDtmfResponse(RadioResponseInfo info);
 
@@ -1630,7 +1679,10 @@ interface IRadioResponse {
      *   RadioError:ENCODING_ERR
      *   RadioError:NO_RESOURCES
      *   RadioError:CANCELLED
+<<<<<<< HEAD   (4e87b6 Merge "Fix flakiness of sensor VTS test cases" into oreo-dev)
      *   RadioError:SIM_ABSENT
+=======
+>>>>>>> BRANCH (01d37f Update IRadioResponse.hal documentation)
      */
     oneway sendCdmaSmsResponse(RadioResponseInfo info, SendSmsResult sms);
 
@@ -1808,7 +1860,10 @@ interface IRadioResponse {
      *   RadioError:REQUEST_NOT_SUPPORTED
      *   RadioError:NO_RESOURCES
      *   RadioError:CANCELLED
+<<<<<<< HEAD   (4e87b6 Merge "Fix flakiness of sensor VTS test cases" into oreo-dev)
      *   RadioError:SIM_ABSENT
+=======
+>>>>>>> BRANCH (01d37f Update IRadioResponse.hal documentation)
      */
     oneway getCDMASubscriptionResponse(RadioResponseInfo info, string mdn, string hSid,
             string hNid, string min, string prl);
@@ -1836,7 +1891,10 @@ interface IRadioResponse {
      *   RadioError:NO_RESOURCES
      *   RadioError:CANCELLED
      *   RadioError:INVALID_MODEM_STATE
+<<<<<<< HEAD   (4e87b6 Merge "Fix flakiness of sensor VTS test cases" into oreo-dev)
      *   RadioError:SIM_ABSENT
+=======
+>>>>>>> BRANCH (01d37f Update IRadioResponse.hal documentation)
      */
     oneway writeSmsToRuimResponse(RadioResponseInfo info, uint32_t index);
 
@@ -1904,7 +1962,10 @@ interface IRadioResponse {
      *   RadioError:REQUEST_NOT_SUPPORTED
      *   RadioError:NO_RESOURCES
      *   RadioError:CANCELLED
+<<<<<<< HEAD   (4e87b6 Merge "Fix flakiness of sensor VTS test cases" into oreo-dev)
      *   RadioError:SIM_ABSENT
+=======
+>>>>>>> BRANCH (01d37f Update IRadioResponse.hal documentation)
      */
     oneway exitEmergencyCallbackModeResponse(RadioResponseInfo info);
 
@@ -1927,7 +1988,10 @@ interface IRadioResponse {
      *   RadioError:OPERATION_NOT_ALLOWED
      *   RadioError:NO_RESOURCES
      *   RadioError:CANCELLED
+<<<<<<< HEAD   (4e87b6 Merge "Fix flakiness of sensor VTS test cases" into oreo-dev)
      *   RadioError:SIM_ABSENT
+=======
+>>>>>>> BRANCH (01d37f Update IRadioResponse.hal documentation)
      */
     oneway getSmscAddressResponse(RadioResponseInfo info, string smsc);
 
@@ -1949,7 +2013,10 @@ interface IRadioResponse {
      *   RadioError:OPERATION_NOT_ALLOWED
      *   RadioError:NO_RESOURCES
      *   RadioError:CANCELLED
+<<<<<<< HEAD   (4e87b6 Merge "Fix flakiness of sensor VTS test cases" into oreo-dev)
      *   RadioError:SIM_ABSENT
+=======
+>>>>>>> BRANCH (01d37f Update IRadioResponse.hal documentation)
      */
     oneway setSmscAddressResponse(RadioResponseInfo info);
 
@@ -1969,7 +2036,10 @@ interface IRadioResponse {
      *   RadioError:REQUEST_NOT_SUPPORTED
      *   RadioError:NO_RESOURCES
      *   RadioError:CANCELLED
+<<<<<<< HEAD   (4e87b6 Merge "Fix flakiness of sensor VTS test cases" into oreo-dev)
      *   RadioError:SIM_ABSENT
+=======
+>>>>>>> BRANCH (01d37f Update IRadioResponse.hal documentation)
      */
     oneway reportSmsMemoryStatusResponse(RadioResponseInfo info);
 
@@ -2000,7 +2070,10 @@ interface IRadioResponse {
      *   RadioError:NO_RESOURCES
      *   RadioError:CANCELLED
      *   RadioError:REQUEST_NOT_SUPPORTED
+<<<<<<< HEAD   (4e87b6 Merge "Fix flakiness of sensor VTS test cases" into oreo-dev)
      *   RadioError:SIM_ABSENT
+=======
+>>>>>>> BRANCH (01d37f Update IRadioResponse.hal documentation)
      */
     oneway getCdmaSubscriptionSourceResponse(RadioResponseInfo info, CdmaSubscriptionSource source);
 
@@ -2018,7 +2091,10 @@ interface IRadioResponse {
      *   RadioError:INVALID_MODEM_STATE
      *   RadioError:INVALID_ARGUMENTS
      *   RadioError:REQUEST_NOT_SUPPORTED
+<<<<<<< HEAD   (4e87b6 Merge "Fix flakiness of sensor VTS test cases" into oreo-dev)
      *   RadioError:SIM_ABSENT
+=======
+>>>>>>> BRANCH (01d37f Update IRadioResponse.hal documentation)
      */
     oneway requestIsimAuthenticationResponse(RadioResponseInfo info, string response);
 
@@ -2050,7 +2126,10 @@ interface IRadioResponse {
      *   RadioError:NO_RESOURCES
      *   RadioError:CANCELLED
      *   RadioError:REQUEST_NOT_SUPPORTED
+<<<<<<< HEAD   (4e87b6 Merge "Fix flakiness of sensor VTS test cases" into oreo-dev)
      *   RadioError:SIM_ABSENT
+=======
+>>>>>>> BRANCH (01d37f Update IRadioResponse.hal documentation)
      */
     oneway sendEnvelopeWithStatusResponse(RadioResponseInfo info, IccIoResult iccIo);
 
@@ -2355,7 +2434,10 @@ interface IRadioResponse {
      *   RadioError:NO_RESOURCES
      *   RadioError:CANCELLED
      *   RadioError:REQUEST_NOT_SUPPORTED
+<<<<<<< HEAD   (4e87b6 Merge "Fix flakiness of sensor VTS test cases" into oreo-dev)
      *   RadioError:SIM_ABSENT
+=======
+>>>>>>> BRANCH (01d37f Update IRadioResponse.hal documentation)
      */
     oneway setDataProfileResponse(RadioResponseInfo info);
 
@@ -2442,7 +2524,10 @@ interface IRadioResponse {
      *   RadioError:NO_RESOURCES
      *   RadioError:CANCELLED
      *   RadioError:REQUEST_NOT_SUPPORTED
+<<<<<<< HEAD   (4e87b6 Merge "Fix flakiness of sensor VTS test cases" into oreo-dev)
      *   RadioError:SIM_ABSENT
+=======
+>>>>>>> BRANCH (01d37f Update IRadioResponse.hal documentation)
      */
     oneway stopLceServiceResponse(RadioResponseInfo info, LceStatusInfo statusInfo);
 
@@ -2459,7 +2544,10 @@ interface IRadioResponse {
      *   RadioError:NO_RESOURCES
      *   RadioError:CANCELLED
      *   RadioError:REQUEST_NOT_SUPPORTED
+<<<<<<< HEAD   (4e87b6 Merge "Fix flakiness of sensor VTS test cases" into oreo-dev)
      *   RadioError:SIM_ABSENT
+=======
+>>>>>>> BRANCH (01d37f Update IRadioResponse.hal documentation)
      */
     oneway pullLceDataResponse(RadioResponseInfo info, LceDataInfo lceInfo);
 

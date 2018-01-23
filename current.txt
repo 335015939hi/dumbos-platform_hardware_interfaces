@@ -187,6 +187,7 @@ b12ef0bdd8a4d247a8a6e960b227ed32383f2b0241f55d67fcea6eff6a6737fa android.hardwar
 d8f0877ae1d321c1d884c7631dfe36cab0ec8a4b2863d4b687f85d3549a63bcc android.hardware.wifi.supplicant@1.0::ISupplicantStaNetworkCallback
 fe3c3c2f572b72f15f8594c538b0577bd5c28722c31879cfe6231330cddb6747 android.hardware.wifi.supplicant@1.0::types
 
+<<<<<<< HEAD   (4e87b6 Merge "Fix flakiness of sensor VTS test cases" into oreo-dev)
 # ABI preserving changes to HALs during Android O MR1 (Initial Set)
 
 26a4dd19a71f3a28249100af29be470f80e08355165fe6a7173aaa1ef264640d android.hardware.automotive.vehicle@2.0::types
@@ -257,3 +258,8 @@ f66f9a38541bf92001d3adcce678cd7e3da2262124befb460b1c9aea9492813b android.hardwar
 73e03573494ba96f0e711ab7f1956c5b2d54c3da690cd7ecf4d6d0f287447730 android.hardware.neuralnetworks@1.0::IPreparedModelCallback
 f4945e397b5dea41bb64518dfde59be71245d8a125fd1e0acffeb57ac7b08fed android.hardware.thermal@1.1::IThermal
 c8bc853546dd55584611def2a9fa1d99f657e3366c976d2f60fe6b8aa6d2cb87 android.hardware.thermal@1.1::IThermalCallback
+=======
+# ABI preserving changes to HALs released in Android O
+
+78589343d8ee2e1b155acad3fbdc7fcbb6af94491aee968b2383c21627264f8b android.hardware.radio@1.0::IRadioResponse
+>>>>>>> BRANCH (01d37f Update IRadioResponse.hal documentation)
