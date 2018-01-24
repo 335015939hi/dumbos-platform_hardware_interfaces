@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4a0dc3f0_fb2d8ff5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2018-01-24T15:56:55Z",
+      "side": 1,
+      "message": "n?",
+      "range": {
+        "startLine": 7,
+        "startChar": 2,
+        "endLine": 7,
+        "endChar": 3
+      },
+      "revId": "5d27be40dface223f3b7dc2c6dc729a5a5602c56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b1baabda_11117999",
+        "filename": "sensors/1.0/vts/functional/VtsHalSensorsV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2018-01-24T15:56:55Z",
+      "side": 1,
+      "message": "can we derive this dynamically from comp matrix or some other entities?",
+      "range": {
+        "startLine": 122,
+        "startChar": 72,
+        "endLine": 122,
+        "endChar": 79
+      },
+      "revId": "5d27be40dface223f3b7dc2c6dc729a5a5602c56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
