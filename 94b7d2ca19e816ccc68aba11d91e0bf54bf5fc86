@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "584eb8f6_d2d41359",
+        "filename": "compatibility_matrices/Android.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2018-01-24T18:18:51Z",
+      "side": 1,
+      "message": "We can, on P launch devices, but not on older devices. On older devices all VINTF metadata states x.y.0; we cannot lift this requirement from VINTF\u0027s standpoint.",
+      "parentUuid": "8347a32a_9a8e83c7",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 43
+      },
+      "revId": "94b7d2ca19e816ccc68aba11d91e0bf54bf5fc86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6482c271_92a00c62",
         "filename": "compatibility_matrices/compatibility_matrix.mk",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2018-01-24T14:17:50Z",
       "side": 1,
       "message": "does this line still need to be here?",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 49
+      },
+      "revId": "94b7d2ca19e816ccc68aba11d91e0bf54bf5fc86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad00bef2_2a96be83",
+        "filename": "compatibility_matrices/compatibility_matrix.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2018-01-24T18:18:51Z",
+      "side": 1,
+      "message": "Yeah (easy for testing if we want to change the function later)\n\nSee other functions in definitions.mk",
+      "parentUuid": "6482c271_92a00c62",
       "range": {
         "startLine": 26,
         "startChar": 0,
