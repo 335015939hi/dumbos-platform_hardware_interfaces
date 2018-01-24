@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c1290d2f_555b7ccc",
+        "filename": "compatibility_matrices/Android.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1125653
+      },
+      "writtenOn": "2018-01-24T14:10:49Z",
+      "side": 1,
+      "message": "4.14 should also be allowed, no reason to not allow someone to take a newer kernel, right?\\\n\nSame for all lists below.",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 37
+      },
+      "revId": "44c9b2e1f4b26e334ced156f7ecd41adbcb81923",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
