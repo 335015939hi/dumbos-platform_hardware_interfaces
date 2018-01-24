@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "012036c5_0321c482",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1010140
+      },
+      "writtenOn": "2018-01-24T01:02:49Z",
+      "side": 1,
+      "message": "NR stands for \"New Radio\". 5G NR is the name of the standard (http://www.3gpp.org/news-events/3gpp-news/1929-nsa_nr_5g). Using it here as NR 5g to avoid digits at the beginning of symbol names",
+      "parentUuid": "b7859f66_cbf55b5c",
+      "range": {
+        "startLine": 370,
+        "startChar": 7,
+        "endLine": 370,
+        "endChar": 11
+      },
+      "revId": "b3f98184c4fd57c0c7cf3c6891e3eafd50e98709",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a8545d15_e9c83d91",
         "filename": "radio/1.2/types.hal",
         "patchSetId": 1
