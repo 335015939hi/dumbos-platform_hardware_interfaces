@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "6077ef75_4ead5441",
+        "filename": "secure_element/1.0/ISecureElement.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1163305
+      },
+      "writtenOn": "2018-01-24T09:07:14Z",
+      "side": 1,
+      "message": "The following requirements was achieved in Transmit.protocolTransmit() in the original design.\nThese shall be done in SE HAL under SE HAL in the new design, right?\n\n    OMAPI Specification\n    (b) Using Transport layer T\u003d0\n    ...\n    - For status word \u002761 XX\u0027 the API or underlying implementation shall issue\n    a GET RESPONSE command as specified by ISO 7816 standard with LE\u003dXX. The same\n    behaviour has to be applied for the scenario where the SE returns overall\n    response data of more than 256 bytes to the APDU. If an Error SW is received\n    to GET RESPONSE command, all data received so far shall be discarded and the\n    Error SW shall be returned.\n    - For the status word \u00276C XX\u0027, the API or underlying implementation shall\n    reissue the input command with LE\u003dXX as specified by ISO 7816 standard.\n    If an Error SW is received to the reissued command, all data received so far\n    shall be discarded and the Error SW shall be returned.",
+      "range": {
+        "startLine": 57,
+        "startChar": 7,
+        "endLine": 57,
+        "endChar": 64
+      },
+      "revId": "d43097b338718e049e0197d15398590967f5922e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e314c112_a5e6740e",
         "filename": "secure_element/1.0/types.hal",
         "patchSetId": 9
