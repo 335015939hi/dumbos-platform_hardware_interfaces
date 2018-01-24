@@ -22,6 +22,30 @@
       "revId": "44c9b2e1f4b26e334ced156f7ecd41adbcb81923",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab5c5394_7af87c51",
+        "filename": "compatibility_matrices/Android.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2018-01-24T18:16:20Z",
+      "side": 1,
+      "message": "It is allowed, but we don\u0027t have kernel configurations in the code base yet.",
+      "parentUuid": "c1290d2f_555b7ccc",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 37
+      },
+      "revId": "44c9b2e1f4b26e334ced156f7ecd41adbcb81923",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
