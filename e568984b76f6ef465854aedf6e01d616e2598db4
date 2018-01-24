@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "34ef2329_2bb5a05c",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-01-24T18:18:37Z",
+      "side": 1,
+      "message": "tl;dr\nIf you can or expect to make a change on both sides of the interface which introduces new functionality without changing the interface itself, then the interface is not structured.\nBackground\n\nIn Project Treble for Android, we are providing backwards compatibility support. This means that any of the interactions between the vendor.img and the system.img must be explicitly and thoroughly defined so that they can still continue to work X+ years in the future. For Project Treble, this includes many API surfaces, but one of the major ones is the IPC mechanism HIDL used for interprocess communication on this system.img/vendor.img boundary.\n\nRequirements for Structured Interfaces in Treble\nAll data passed through HIDL must be explicitly defined. We have adopted the following rules in order to make sure that an implementation and client will continue to work together even when compiled separately or developed on independently:\nIt can be described in HIDL directly (using structs/enums/etc..) with semantic names and meaning.\nIt can be described by a public standard (such as ISO/IEC 7816).\nIt can be described by a hardware standard or physical layout of hardware.\n(only if necessary) It can be opaque data (for instance, public keys, ids, etc..). If these values are used, they must only ever be read by one side of the HIDL interface. For instance, if vendor.img code gives something on the system.img a “string message” or “vec\u003cuint8_t\u003e data” then that data may never be parsed by the system.img itself. It can only ever be passed back to the vendor code to interpret.\n\nRules of Thumb\nFor a well structured interface, adding new types of functionality that were not part of the original design should require a modification to the HIDL interface. See tl;dr above.\n\nYou should be able to write an implementation or client of a hal by looking at the .hal files alone even without looking at Android source (this includes looking at public standards).\n\nAll things should be for sure. Statements like “an implementation may do A or B” encourage implementations to become intertwined with the clients they are developed with. By spelling out required behavior exactly, this can be avoided.",
+      "range": {
+        "startLine": 72,
+        "startChar": 20,
+        "endLine": 72,
+        "endChar": 31
+      },
+      "revId": "e568984b76f6ef465854aedf6e01d616e2598db4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6ac558a_932bd679",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-01-24T18:18:37Z",
+      "side": 1,
+      "message": "Can you guarantee the implementation isn\u0027t reading this? Maybe amend the comment above to say \"only for use in displaying audio quality\"?",
+      "range": {
+        "startLine": 72,
+        "startChar": 8,
+        "endLine": 72,
+        "endChar": 19
+      },
+      "revId": "e568984b76f6ef465854aedf6e01d616e2598db4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
