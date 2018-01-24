@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b7859f66_cbf55b5c",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-01-24T00:13:10Z",
+      "side": 1,
+      "message": "Can you comment what the Nr stands for?",
+      "range": {
+        "startLine": 370,
+        "startChar": 7,
+        "endLine": 370,
+        "endChar": 11
+      },
+      "revId": "b3f98184c4fd57c0c7cf3c6891e3eafd50e98709",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8545d15_e9c83d91",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-01-24T00:13:10Z",
+      "side": 1,
+      "message": "So that it could be included in the docs\n/** ... */\nrsp",
+      "range": {
+        "startLine": 371,
+        "startChar": 4,
+        "endLine": 371,
+        "endChar": 12
+      },
+      "revId": "b3f98184c4fd57c0c7cf3c6891e3eafd50e98709",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe636de9_be4eceb9",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-01-24T00:13:10Z",
+      "side": 1,
+      "message": "can you provide these in constants",
+      "range": {
+        "startLine": 373,
+        "startChar": 45,
+        "endLine": 374,
+        "endChar": 87
+      },
+      "revId": "b3f98184c4fd57c0c7cf3c6891e3eafd50e98709",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ba891f3_14821f1f",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-01-24T00:13:10Z",
+      "side": 1,
+      "message": "formatting",
+      "range": {
+        "startLine": 386,
+        "startChar": 0,
+        "endLine": 386,
+        "endChar": 2
+      },
+      "revId": "b3f98184c4fd57c0c7cf3c6891e3eafd50e98709",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
