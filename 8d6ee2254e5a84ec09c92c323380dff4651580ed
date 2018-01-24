@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "0ae14b6b_60a1f6ae",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1108565
+      },
+      "writtenOn": "2018-01-24T00:57:02Z",
+      "side": 1,
+      "message": "legacy in this case is \"don\u0027t care\" since comp matrix, vintf didn\u0027t exist then ..",
+      "range": {
+        "startLine": 10,
+        "startChar": 3,
+        "endLine": 10,
+        "endChar": 9
+      },
+      "revId": "8d6ee2254e5a84ec09c92c323380dff4651580ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "aa622dc1_c7849f6e",
         "filename": "compatibility_matrices/Android.mk",
         "patchSetId": 5
@@ -36,6 +59,29 @@
       "writtenOn": "2018-01-24T00:53:40Z",
       "side": 1,
       "message": "You should probably clear all potential input variables at the beginning here too",
+      "revId": "8d6ee2254e5a84ec09c92c323380dff4651580ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd6b1ff0_77572347",
+        "filename": "compatibility_matrices/Android.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1108565
+      },
+      "writtenOn": "2018-01-24T00:57:02Z",
+      "side": 1,
+      "message": "4.4 4.9 4.14\n\nAlso, a todo with stopship bug against me to add the 4.4.y / 4.9.y / 4.14.y when its finalized.",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 32
+      },
       "revId": "8d6ee2254e5a84ec09c92c323380dff4651580ed",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
