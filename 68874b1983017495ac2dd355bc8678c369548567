@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "37dfc7f8_47b11221",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-01-24T00:25:15Z",
+      "side": 1,
+      "message": "same here",
+      "range": {
+        "startLine": 79,
+        "startChar": 11,
+        "endLine": 79,
+        "endChar": 41
+      },
+      "revId": "68874b1983017495ac2dd355bc8678c369548567",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb42f82a_671fceb9",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-01-24T00:25:15Z",
+      "side": 1,
+      "message": "is this a standard address? Is this meant to be two items in the list?",
+      "range": {
+        "startLine": 84,
+        "startChar": 44,
+        "endLine": 84,
+        "endChar": 68
+      },
+      "revId": "68874b1983017495ac2dd355bc8678c369548567",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3a1f380_7a583d1b",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-01-24T00:25:15Z",
+      "side": 1,
+      "message": "/** */ style comments to make sure these get in the generated docs?",
+      "range": {
+        "startLine": 249,
+        "startChar": 45,
+        "endLine": 249,
+        "endChar": 46
+      },
+      "revId": "68874b1983017495ac2dd355bc8678c369548567",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
