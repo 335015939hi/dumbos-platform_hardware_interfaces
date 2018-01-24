@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0f7573ff_3d1c73b1",
+        "filename": "compatibility_matrices/definitions.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1074628
+      },
+      "writtenOn": "2018-01-24T00:53:50Z",
+      "side": 1,
+      "message": "Just put this in compatibility_matrix.mk, and unset it at the end of the file",
+      "revId": "f7c17db45e44ee0536b1d3b6544ced2626bb380b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
