@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "f5e9c212_77462b1a",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2018-01-24T00:53:27Z",
+      "side": 1,
+      "message": "Good catch. The 1.0 API takes a single string with space delimited IP addresses.",
+      "parentUuid": "eb42f82a_671fceb9",
+      "range": {
+        "startLine": 84,
+        "startChar": 44,
+        "endLine": 84,
+        "endChar": 68
+      },
+      "revId": "68874b1983017495ac2dd355bc8678c369548567",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a3a1f380_7a583d1b",
         "filename": "radio/1.2/types.hal",
         "patchSetId": 9
@@ -59,6 +83,30 @@
       "writtenOn": "2018-01-24T00:25:15Z",
       "side": 1,
       "message": "/** */ style comments to make sure these get in the generated docs?",
+      "range": {
+        "startLine": 249,
+        "startChar": 45,
+        "endLine": 249,
+        "endChar": 46
+      },
+      "revId": "68874b1983017495ac2dd355bc8678c369548567",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6fe3aae3_fb877669",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2018-01-24T00:53:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3a1f380_7a583d1b",
       "range": {
         "startLine": 249,
         "startChar": 45,
