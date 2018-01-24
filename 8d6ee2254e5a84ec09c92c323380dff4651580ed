@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aa622dc1_c7849f6e",
+        "filename": "compatibility_matrices/Android.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1074628
+      },
+      "writtenOn": "2018-01-24T00:53:40Z",
+      "side": 1,
+      "message": "Why optional, it will always be there? Though, why split this single line out to it\u0027s own file at all?",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 1
+      },
+      "revId": "8d6ee2254e5a84ec09c92c323380dff4651580ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3372185_98435b5e",
+        "filename": "compatibility_matrices/Android.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1074628
+      },
+      "writtenOn": "2018-01-24T00:53:40Z",
+      "side": 1,
+      "message": "You should probably clear all potential input variables at the beginning here too",
+      "revId": "8d6ee2254e5a84ec09c92c323380dff4651580ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ddfccea9_c734185e",
+        "filename": "compatibility_matrices/Android.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1074628
+      },
+      "writtenOn": "2018-01-24T00:53:40Z",
+      "side": 1,
+      "message": "Unset BUILD_FRAMEWORK_COMPATIBILITY_MATRIX",
+      "revId": "8d6ee2254e5a84ec09c92c323380dff4651580ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
