@@ -25,6 +25,23 @@
     },
     {
       "key": {
+        "uuid": "04acf85c_062db179",
+        "filename": "secure_element/1.0/ISecureElement.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1259546
+      },
+      "writtenOn": "2018-01-24T12:16:40Z",
+      "side": 1,
+      "message": "I think that the SE HAL layer should only provide necessary features to work on the provided HW and not to implement any generic applicative logic.\n\nI suggest that applicative behaviors (such as GET RESPONSE) are handled by the SecureElement package directly (as it is a generic behavior and not specific to the HW). \nWhat about re-adding the deleted code to SecureElement package which was here to handle this applicative logic ?",
+      "revId": "d43097b338718e049e0197d15398590967f5922e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e314c112_a5e6740e",
         "filename": "secure_element/1.0/types.hal",
         "patchSetId": 9
