@@ -1470,9 +1470,16 @@ TEST_F(VideoDecHidlTest, FlushTest) {
                           kPortIndexInput, kPortIndexOutput, eleStream, &Info,
                           index, Info.size() - index, portMode[1], false));
     }
+<<<<<<< HEAD   (73f2fd Audio policy config: remove cross-module device port name un)
     eleStream.close();
     ASSERT_NO_FATAL_FAILURE(flushPorts(omxNode, observer, &iBuffer, &oBuffer,
                                        kPortIndexInput, kPortIndexOutput));
+=======
+    // Note: Assumes 200 ms is enough to end any decode call that started
+    eleStream.close();
+    flushPorts(omxNode, observer, &iBuffer, &oBuffer, kPortIndexInput,
+               kPortIndexOutput, 200000);
+>>>>>>> BRANCH (e4fb4e Merge "bug fix: close file pointer" into oreo-vts-dev)
     framesReceived = 0;
 
     // set state to idle
