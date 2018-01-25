@@ -42,6 +42,24 @@
     },
     {
       "key": {
+        "uuid": "8ff899f6_74b454fe",
+        "filename": "secure_element/1.0/ISecureElement.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1041663
+      },
+      "writtenOn": "2018-01-25T19:26:34Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "04acf85c_062db179",
+      "revId": "d43097b338718e049e0197d15398590967f5922e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e314c112_a5e6740e",
         "filename": "secure_element/1.0/types.hal",
         "patchSetId": 9
