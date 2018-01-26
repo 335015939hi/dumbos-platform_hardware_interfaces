@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cc582f09_fd4fb817",
+        "filename": "secure_element/1.0/vts/functional/VtsHalSecureElementV1_0TargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1114063
+      },
+      "writtenOn": "2018-01-26T18:45:34Z",
+      "side": 1,
+      "message": "You can set your default name here, e.g. \nSecureElementHidlEnvironment::Instance()-\u003egetServiceName\u003cISecureElement\u003e(\"eSE1\");",
+      "range": {
+        "startLine": 87,
+        "startChar": 53,
+        "endLine": 87,
+        "endChar": 87
+      },
+      "revId": "8501bf5a6f8d73f766c97ecc478a80faded618e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9ebe1088_697c4eeb",
+        "filename": "secure_element/1.0/vts/functional/VtsHalSecureElementV1_0TargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1114063
+      },
+      "writtenOn": "2018-01-26T18:45:34Z",
+      "side": 1,
+      "message": "Need to pass the serviceName you get above, otherwise it will just use the given one (i.e. eSE1)",
+      "range": {
+        "startLine": 90,
+        "startChar": 78,
+        "endLine": 90,
+        "endChar": 84
+      },
+      "revId": "8501bf5a6f8d73f766c97ecc478a80faded618e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
