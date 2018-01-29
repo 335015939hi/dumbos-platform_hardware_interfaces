@@ -16,7 +16,9 @@
 
 #define LOG_TAG "media_omx_hidl_video_test_common"
 #ifdef __LP64__
+#ifndef USE_64BITMEDIA
 #define OMX_ANDROID_COMPILE_AS_32BIT_ON_64BIT_PLATFORMS
+#endif
 #endif
 
 #include <android-base/logging.h>
