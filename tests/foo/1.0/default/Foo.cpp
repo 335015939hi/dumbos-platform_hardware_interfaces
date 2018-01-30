@@ -39,6 +39,13 @@ Return<void> Foo::convertToBoolIfSmall(Discriminator d, const hidl_vec<Union>& u
     return Void();
 }
 
+Return<hidl_identifier<IFoo::Value>> Foo::getValueId(IFoo::Value value) {
+    return mFactory.getIdentifier(value);
+}
+Return<IFoo::Value> Foo::valueFromId(const hidl_identifier<IFoo::Value>& id) {
+    return mFactory.get(id, Value::UNSPECIFIED);
+}
+
 Return<void> Foo::doThis(float param) {
     LOG(INFO) << "SERVER(Foo) doThis(" << param << ")";
 

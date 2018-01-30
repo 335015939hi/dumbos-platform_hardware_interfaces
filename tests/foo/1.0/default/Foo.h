@@ -19,6 +19,7 @@ using ::android::hardware::tests::foo::V1_0::IFooCallback;
 using ::android::hardware::tests::foo::V1_0::ISimple;
 using ::android::hardware::Return;
 using ::android::hardware::Void;
+using ::android::hardware::hidl_identifier;
 using ::android::hardware::hidl_vec;
 using ::android::hardware::hidl_string;
 using ::android::sp;
@@ -30,6 +31,8 @@ struct Foo : public IFoo {
     // Methods from ::android::hardware::tests::foo::V1_0::IFoo follow.
     virtual Return<void> convertToBoolIfSmall(Discriminator d, const hidl_vec<Union>& u,
                                               convertToBoolIfSmall_cb _hidl_cb) override;
+    virtual Return<hidl_identifier<Value>> getValueId(Value value) override;
+    virtual Return<Value> valueFromId(const hidl_identifier<Value>& id) override;
     virtual Return<void> doThis(float param)  override;
     virtual Return<int32_t> doThatAndReturnSomething(int64_t param)  override;
     virtual Return<double> doQuiteABit(int32_t a, int64_t b, float c, double d)  override;
@@ -65,6 +68,7 @@ struct Foo : public IFoo {
     Return<void> echoNullInterface(const sp<IFooCallback> &cb, echoNullInterface_cb _hidl_cb) override;
 private:
     std::vector<::native_handle_t *> mHandles;
+    ::android::hardware::hidl_identifier_factory<Value> mFactory;
 };
 
 extern "C" IFoo* HIDL_FETCH_IFoo(const char* name);

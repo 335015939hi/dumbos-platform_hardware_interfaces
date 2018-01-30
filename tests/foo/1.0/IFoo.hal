@@ -167,6 +167,10 @@ interface IFoo {
      */
     convertToBoolIfSmall(Discriminator d, vec<Union> u) generates (vec<ContainsUnion> c);
 
+    enum Value : uint32_t { UNSPECIFIED, A, B, C };
+    getValueId(Value value) generates (identifier<Value> id);
+    valueFromId(identifier<Value> id) generates (Value value);
+
     doThis(float param);
     doThatAndReturnSomething(int64_t param) generates (int32_t result);
     doQuiteABit(int32_t a, int64_t b, float c, double d) generates (double something);
