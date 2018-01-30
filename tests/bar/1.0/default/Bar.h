@@ -33,6 +33,8 @@ struct Bar : public IBar {
     // Methods from ::android::hardware::tests::foo::V1_0::IFoo follow.
     virtual Return<void> convertToBoolIfSmall(Discriminator d, const hidl_vec<Union>& u,
                                               convertToBoolIfSmall_cb _hidl_cb) override;
+    virtual Return<hidl_identifier<Value>> getValueId(Value value) override;
+    virtual Return<Value> valueFromId(const hidl_identifier<Value>& id) override;
     virtual Return<void> doThis(float param)  override;
     virtual Return<int32_t> doThatAndReturnSomething(int64_t param)  override;
     virtual Return<double> doQuiteABit(int32_t a, int64_t b, float c, double d)  override;
