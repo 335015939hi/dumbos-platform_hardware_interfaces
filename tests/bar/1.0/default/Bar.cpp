@@ -24,6 +24,13 @@ Return<void> Bar::convertToBoolIfSmall(Discriminator d, const hidl_vec<Union>& u
     return mFoo->convertToBoolIfSmall(d, u, _hidl_cb);
 }
 
+Return<hidl_identifier<IFoo::Value>> Bar::getValueId(IFoo::Value value) {
+    return mFoo->getValueId(value);
+}
+Return<IFoo::Value> Bar::valueFromId(const hidl_identifier<IFoo::Value>& id) {
+    return mFoo->valueFromId(id);
+}
+
 Return<void> Bar::doThis(float param) {
     return mFoo->doThis(param);
 }
