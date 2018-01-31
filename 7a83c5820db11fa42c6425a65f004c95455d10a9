@@ -45,6 +45,30 @@
       "revId": "7a83c5820db11fa42c6425a65f004c95455d10a9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "232462b4_d96ff23a",
+        "filename": "nfc/1.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-01-31T22:26:52Z",
+      "side": 1,
+      "message": "ping",
+      "parentUuid": "43255d36_ba783fe5",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 2
+      },
+      "revId": "7a83c5820db11fa42c6425a65f004c95455d10a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
