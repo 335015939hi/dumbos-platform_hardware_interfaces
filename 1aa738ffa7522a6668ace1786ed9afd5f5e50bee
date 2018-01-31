@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "31cabd32_dd5abdc5",
+        "filename": "tests/foo/1.0/IFoo.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1136369
+      },
+      "writtenOn": "2018-01-31T00:32:48Z",
+      "side": 1,
+      "message": "I would rather not have UNSPECIFIED part of the enum but valueFromId returning an optional.\n\nThe API might not want an invalid value for its enum as it would force the code to check everywere if not UNSPECIFIED instead of when unwrapping the optional.",
+      "range": {
+        "startLine": 170,
+        "startChar": 28,
+        "endLine": 170,
+        "endChar": 39
+      },
+      "revId": "1aa738ffa7522a6668ace1786ed9afd5f5e50bee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
