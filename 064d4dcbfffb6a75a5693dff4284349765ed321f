@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9950ab73_c3278226",
+        "filename": "nfc/1.1/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-01-31T22:29:41Z",
+      "side": 1,
+      "message": "also, didn\u0027t notice before, \u0027initialized\u0027",
+      "range": {
+        "startLine": 21,
+        "startChar": 56,
+        "endLine": 21,
+        "endChar": 66
+      },
+      "revId": "064d4dcbfffb6a75a5693dff4284349765ed321f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
