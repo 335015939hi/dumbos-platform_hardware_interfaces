@@ -22,6 +22,30 @@
       "revId": "1aa738ffa7522a6668ace1786ed9afd5f5e50bee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35611876_ee4a4ce2",
+        "filename": "tests/foo/1.0/IFoo.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-01-31T18:04:48Z",
+      "side": 1,
+      "message": "I mean, that\u0027s an option here too. This is just a test though.\n\nstruct OptionalValue {\n    bool present;\n    enum Value { A, B, C } value;\n};\n\nAre you asking us to also add an optional type to the HIDL language? We could consider that, but it\u0027s not really in the scope of this.",
+      "parentUuid": "31cabd32_dd5abdc5",
+      "range": {
+        "startLine": 170,
+        "startChar": 28,
+        "endLine": 170,
+        "endChar": 39
+      },
+      "revId": "1aa738ffa7522a6668ace1786ed9afd5f5e50bee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
