@@ -37,6 +37,7 @@ using ::android::hardware::hidl_vec;
 
 class ParametersUtil {
   public:
+    Result setParam(const char* name, const char* value);
     Result getParam(const char* name, bool* value);
     Result getParam(const char* name, int* value);
     Result getParam(const char* name, String8* value);

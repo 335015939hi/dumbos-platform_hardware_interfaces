@@ -110,6 +110,12 @@ std::unique_ptr<AudioParameter> ParametersUtil::getParams(
     return std::unique_ptr<AudioParameter>(new AudioParameter(paramsAndValues));
 }
 
+Result ParametersUtil::setParam(const char* name, const char* value) {
+    AudioParameter param;
+    param.add(String8(name), String8(value));
+    return setParams(param);
+}
+
 Result ParametersUtil::setParam(const char* name, bool value) {
     AudioParameter param;
     param.add(String8(name), String8(value ? AudioParameter::valueOn
