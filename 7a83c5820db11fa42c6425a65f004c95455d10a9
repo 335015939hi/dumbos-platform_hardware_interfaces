@@ -69,6 +69,30 @@
       "revId": "7a83c5820db11fa42c6425a65f004c95455d10a9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "486aff2a_645b798d",
+        "filename": "nfc/1.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1041663
+      },
+      "writtenOn": "2018-02-01T00:54:47Z",
+      "side": 1,
+      "message": "https://android-review.googlesource.com/c/platform/system/nfc/+/605575\n\nWill need HAL support to test it.",
+      "parentUuid": "232462b4_d96ff23a",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 2
+      },
+      "revId": "7a83c5820db11fa42c6425a65f004c95455d10a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
