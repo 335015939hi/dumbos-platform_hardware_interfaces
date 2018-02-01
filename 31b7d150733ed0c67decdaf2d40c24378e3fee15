@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6b47c9a3_1cfe63d3",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1125174
+      },
+      "writtenOn": "2018-02-01T00:11:12Z",
+      "side": 1,
+      "message": "Assuming you could have 4G and 5G cells signal strength at any point of time. How will upper layers decide which one to use to show the actual bars on the UI ? Until now, if a 4G RAT was present that took precedence over other RATs and we used the RAT from service state as also an indication to convey to us which RAT to use.",
+      "range": {
+        "startLine": 360,
+        "startChar": 4,
+        "endLine": 361,
+        "endChar": 28
+      },
+      "revId": "31b7d150733ed0c67decdaf2d40c24378e3fee15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
