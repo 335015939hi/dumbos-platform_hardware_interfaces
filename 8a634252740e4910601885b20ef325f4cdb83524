@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "19b9883f_ec4ab32c",
+        "filename": "nfc/1.1/INfc.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-02-01T02:34:59Z",
+      "side": 1,
+      "message": "followup with @parm + @return or mention that this is the same as the 1.0 open method",
+      "range": {
+        "startLine": 44,
+        "startChar": 8,
+        "endLine": 44,
+        "endChar": 12
+      },
+      "revId": "8a634252740e4910601885b20ef325f4cdb83524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb94e0c1_53af1170",
+        "filename": "nfc/1.1/INfcClientCallback.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-02-01T02:34:59Z",
+      "side": 1,
+      "message": "can omit",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 22
+      },
+      "revId": "8a634252740e4910601885b20ef325f4cdb83524",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
