@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3d8df111_6f1b2da9",
+        "filename": "compatibility_matrices/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2018-02-02T21:11:33Z",
+      "side": 1,
+      "message": "Note: these variables will be captured when assemble_vintf runs, not when build rules are generated. Hence, although these variables are defined in system/sepolicy/Android.mk, it is safe to use unless some other file unsets these vars. See compatibility_matrix.mk (in the same CL), and CL:606748.\n\ndwillemsen@ any concerns?",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 34
+      },
+      "revId": "5eb4b568681bf0336364152ef9b62d459a237d76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
