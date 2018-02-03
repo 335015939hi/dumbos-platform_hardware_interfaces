@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "00f748dd_dd29fc15",
+        "filename": "bluetooth/1.0/vts/functional/VtsHalBluetoothV1_0TargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2018-02-03T00:50:17Z",
+      "side": 1,
+      "message": "As I read the spec, the controller should have no need to look into the packet in loopback mode.  The packet is simply returned to the host.\n\nA more fair test for that would be to cycle through all of the possible combinations to see that they are returned.",
+      "parentUuid": "d61d5594_91e308ba",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 74
+      },
+      "revId": "29f8d0ff6f4ea782c8c60b1acc707585ddc780e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6c53c6a0_e77e1d5f",
         "filename": "bluetooth/1.0/vts/functional/VtsHalBluetoothV1_0TargetTest.cpp",
         "patchSetId": 4
@@ -226,6 +250,30 @@
       "side": 1,
       "message": "OK, good. I guess the test result will be fail when just returning then.",
       "parentUuid": "bcbe987a_c4217fc2",
+      "range": {
+        "startLine": 376,
+        "startChar": 4,
+        "endLine": 376,
+        "endChar": 40
+      },
+      "revId": "29f8d0ff6f4ea782c8c60b1acc707585ddc780e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b821b000_e4247082",
+        "filename": "bluetooth/1.0/vts/functional/VtsHalBluetoothV1_0TargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2018-02-03T00:50:17Z",
+      "side": 1,
+      "message": "Yes.  wait_for_event() fails the test when it times out.",
+      "parentUuid": "dc4be2c8_01e3ac4b",
       "range": {
         "startLine": 376,
         "startChar": 4,
