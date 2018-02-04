@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f145cfde_efe5652a",
+        "filename": "nfc/1.1/vts/functional/VtsHalNfcV1_1TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2018-02-04T23:11:44Z",
+      "side": 1,
+      "message": "does it run if the test case listing command-line arg is used?",
+      "range": {
+        "startLine": 210,
+        "startChar": 3,
+        "endLine": 211,
+        "endChar": 13
+      },
+      "revId": "912ce33eeba8ea761465d8b399e6829eb57066bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
