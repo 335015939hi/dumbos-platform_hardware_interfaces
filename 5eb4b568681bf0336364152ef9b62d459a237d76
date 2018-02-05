@@ -70,6 +70,30 @@
       "revId": "5eb4b568681bf0336364152ef9b62d459a237d76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82de7100_855bd02f",
+        "filename": "compatibility_matrices/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1074628
+      },
+      "writtenOn": "2018-02-05T21:47:46Z",
+      "side": 1,
+      "message": "It\u0027s not safe to assume that system/sepolicy/Android.mk was loaded during this execution (try running `mm` in this directory)",
+      "parentUuid": "7d49cd8c_58cf158a",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 34
+      },
+      "revId": "5eb4b568681bf0336364152ef9b62d459a237d76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
