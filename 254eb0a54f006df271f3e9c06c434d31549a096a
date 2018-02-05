@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "479d15d2_15ce1f32",
+        "filename": "biometrics/iris/1.0/IBiometricsIris.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-02-05T19:34:09Z",
+      "side": 1,
+      "message": "So, this HAL is already identified by the binder object.\n\n.. foo \u003d IBiometricIris::getService();\nauto deviceId \u003d foo-\u003esetNotify(...);\n\nThen foo and deviceId both identify this device. What benefit is that?",
+      "range": {
+        "startLine": 33,
+        "startChar": 26,
+        "endLine": 33,
+        "endChar": 34
+      },
+      "revId": "254eb0a54f006df271f3e9c06c434d31549a096a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16fe4d9a_79b09f72",
+        "filename": "biometrics/iris/1.0/IBiometricsIris.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-02-05T19:34:09Z",
+      "side": 1,
+      "message": "format of this?",
+      "range": {
+        "startLine": 48,
+        "startChar": 25,
+        "endLine": 48,
+        "endChar": 33
+      },
+      "revId": "254eb0a54f006df271f3e9c06c434d31549a096a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7697404_602e81ee",
+        "filename": "biometrics/iris/1.0/IBiometricsIris.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-02-05T19:34:09Z",
+      "side": 1,
+      "message": "you want to rename this to not confuse it with the linux concept?",
+      "range": {
+        "startLine": 61,
+        "startChar": 12,
+        "endLine": 61,
+        "endChar": 15
+      },
+      "revId": "254eb0a54f006df271f3e9c06c434d31549a096a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19218b1f_e4387544",
+        "filename": "biometrics/iris/1.0/IBiometricsIris.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-02-05T19:34:09Z",
+      "side": 1,
+      "message": "until what?",
+      "range": {
+        "startLine": 62,
+        "startChar": 25,
+        "endLine": 62,
+        "endChar": 32
+      },
+      "revId": "254eb0a54f006df271f3e9c06c434d31549a096a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c393634_7875a184",
+        "filename": "biometrics/iris/1.0/IBiometricsIris.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-02-05T19:34:09Z",
+      "side": 1,
+      "message": "go/android-hal-design-guidelines #12.2",
+      "range": {
+        "startLine": 64,
+        "startChar": 13,
+        "endLine": 64,
+        "endChar": 23
+      },
+      "revId": "254eb0a54f006df271f3e9c06c434d31549a096a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b56532a_5a16ff04",
+        "filename": "biometrics/iris/1.0/IBiometricsIris.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-02-05T19:34:09Z",
+      "side": 1,
+      "message": "really? put in a constant?",
+      "range": {
+        "startLine": 69,
+        "startChar": 17,
+        "endLine": 69,
+        "endChar": 19
+      },
+      "revId": "254eb0a54f006df271f3e9c06c434d31549a096a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "76a5f166_1c921351",
+        "filename": "biometrics/iris/1.0/IBiometricsIris.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-02-05T19:34:09Z",
+      "side": 1,
+      "message": "another high level comment:\n\nwhy encode the concept of \u0027enrolling\u0027 an iris into the HAL? Isn\u0027t that application level object? We just want the ability to recognize irises. Right?",
+      "range": {
+        "startLine": 74,
+        "startChar": 16,
+        "endLine": 75,
+        "endChar": 58
+      },
+      "revId": "254eb0a54f006df271f3e9c06c434d31549a096a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab36774f_d58ba603",
+        "filename": "biometrics/iris/1.0/IBiometricsIris.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-02-05T19:34:09Z",
+      "side": 1,
+      "message": "how many clients are expected?",
+      "range": {
+        "startLine": 137,
+        "startChar": 9,
+        "endLine": 137,
+        "endChar": 34
+      },
+      "revId": "254eb0a54f006df271f3e9c06c434d31549a096a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d3cb7ef_74868f57",
+        "filename": "biometrics/iris/1.0/IBiometricsIris.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-02-05T19:34:09Z",
+      "side": 1,
+      "message": "shouldn\u0027t be in HIDL",
+      "range": {
+        "startLine": 150,
+        "startChar": 38,
+        "endLine": 150,
+        "endChar": 47
+      },
+      "revId": "254eb0a54f006df271f3e9c06c434d31549a096a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d106c71_aa7f6ebf",
+        "filename": "biometrics/iris/1.0/IBiometricsIris.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-02-05T19:34:09Z",
+      "side": 1,
+      "message": "possible values",
+      "range": {
+        "startLine": 162,
+        "startChar": 15,
+        "endLine": 162,
+        "endChar": 23
+      },
+      "revId": "254eb0a54f006df271f3e9c06c434d31549a096a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
