@@ -46,7 +46,7 @@ interface IBluetoothHci {
      */
     @entry
     @callflow(next={"sendHciCommand", "sendAclData", "sendScoData", "close"})
-    initialize(IBluetoothHciCallbacks callback);
+    oneway initialize(IBluetoothHciCallbacks callback);
 
     /**
      * Send an HCI command (as specified in the Bluetooth Specification
@@ -56,7 +56,7 @@ interface IBluetoothHci {
      * @param command is the HCI command to be sent
      */
     @callflow(next={"sendHciCommand", "sendAclData", "sendScoData", "close"})
-    sendHciCommand(HciPacket command);
+    oneway sendHciCommand(HciPacket command);
 
     /**
      * Send an HCI ACL data packet (as specified in the Bluetooth Specification
@@ -65,7 +65,7 @@ interface IBluetoothHci {
      * @param data HCI data packet to be sent
      */
     @callflow(next={"sendHciCommand", "sendAclData", "sendScoData", "close"})
-    sendAclData(HciPacket data);
+    oneway sendAclData(HciPacket data);
 
     /**
      * Send an SCO data packet (as specified in the Bluetooth Specification
@@ -74,11 +74,11 @@ interface IBluetoothHci {
      * @param data HCI data packet to be sent
      */
     @callflow(next={"sendHciCommand", "sendAclData", "sendScoData", "close"})
-    sendScoData(HciPacket data);
+    oneway sendScoData(HciPacket data);
 
     /**
      * Close the HCI interface
      */
     @exit
-    close();
+    oneway close();
 };
