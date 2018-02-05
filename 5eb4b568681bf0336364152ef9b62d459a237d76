@@ -94,6 +94,30 @@
       "revId": "5eb4b568681bf0336364152ef9b62d459a237d76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47e15b16_bc7ffbdd",
+        "filename": "compatibility_matrices/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2018-02-05T23:32:00Z",
+      "side": 1,
+      "message": "What\u0027s your suggestion to do this?\nNote that even I define PLATFORM_SEPOLICY_COMPAT_VERSIONS in core/config.mk, PLATFORM_SEPOLICY_VERSION is still defined in system/sepolicy.mk. Do you want me to move those definition to core/config.mk as well?",
+      "parentUuid": "82de7100_855bd02f",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 34
+      },
+      "revId": "5eb4b568681bf0336364152ef9b62d459a237d76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
