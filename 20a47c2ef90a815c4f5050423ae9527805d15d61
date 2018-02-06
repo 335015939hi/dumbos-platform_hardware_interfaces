@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f02856e_45ae4436",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1150808
+      },
+      "writtenOn": "2018-02-06T03:41:37Z",
+      "side": 1,
+      "message": "Hi Jakub,\n\nThanks for the patch.\nCould you help share more detail about test steps for this? We would like to test it on our chip as well.\nThanks.\n\nRegards,\nPeng QI",
+      "range": {
+        "startLine": 12,
+        "startChar": 6,
+        "endLine": 12,
+        "endChar": 44
+      },
+      "revId": "20a47c2ef90a815c4f5050423ae9527805d15d61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
