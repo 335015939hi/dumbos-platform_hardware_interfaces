@@ -46,6 +46,30 @@
       "revId": "20a47c2ef90a815c4f5050423ae9527805d15d61",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "15858aa3_68dcc68f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1150808
+      },
+      "writtenOn": "2018-02-06T06:00:33Z",
+      "side": 1,
+      "message": "Hi Jakub,\n\nThanks for your sharing. We are quite interested in the topic - performance enhancement related. We will be pleased if could join in this kind of test with our vendor chip.\n\nThanks.\n\nRegards,\nPeng QI",
+      "parentUuid": "e2d0f930_f12d0b89",
+      "range": {
+        "startLine": 12,
+        "startChar": 6,
+        "endLine": 12,
+        "endChar": 44
+      },
+      "revId": "20a47c2ef90a815c4f5050423ae9527805d15d61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
