@@ -22,6 +22,30 @@
       "revId": "20a47c2ef90a815c4f5050423ae9527805d15d61",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e2d0f930_f12d0b89",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2018-02-06T03:45:21Z",
+      "side": 1,
+      "message": "Hi Peng Qi,\nThis is just a proposition, I\u0027m not sure it\u0027ll get in as is, we still need to do some developement around it.",
+      "parentUuid": "5f02856e_45ae4436",
+      "range": {
+        "startLine": 12,
+        "startChar": 6,
+        "endLine": 12,
+        "endChar": 44
+      },
+      "revId": "20a47c2ef90a815c4f5050423ae9527805d15d61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
