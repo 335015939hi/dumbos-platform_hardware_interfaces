@@ -22,6 +22,30 @@
       "revId": "31b7d150733ed0c67decdaf2d40c24378e3fee15",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f34edb15_c413687a",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1010140
+      },
+      "writtenOn": "2018-02-06T17:59:22Z",
+      "side": 1,
+      "message": "IMO, it would be based on whatever algorithm you use to select whether to display 4G or 5G icon.\nIn other words, we provide the information available, you decide when to use it. Most likely that means that you would use the physical layer config to make the determination.",
+      "parentUuid": "6b47c9a3_1cfe63d3",
+      "range": {
+        "startLine": 360,
+        "startChar": 4,
+        "endLine": 361,
+        "endChar": 28
+      },
+      "revId": "31b7d150733ed0c67decdaf2d40c24378e3fee15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
