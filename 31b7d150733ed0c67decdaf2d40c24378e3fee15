@@ -70,6 +70,30 @@
       "revId": "31b7d150733ed0c67decdaf2d40c24378e3fee15",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7a30ed3_f2884923",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1010140
+      },
+      "writtenOn": "2018-02-07T17:00:57Z",
+      "side": 1,
+      "message": "Maybe. But I believe the whole point is to have the flexibility so that you can accommodate potentially conflicting operator requirements.\n\nIf you ask me, the main UI should conform to whatever the operator requirements are, or lacking those, your preferred approach. But it should also be possible to have a power UI where you display more details, including both 4G and 5G signal strength, since showing 4G signal strength in the 5G active state, could be misleading. E.g. what if 4G signal strength is great, but 5G is spotty? If you always display 4G, the user might feel the number of bars don\u0027t correspond to their experience, and put less stock in it.\n\nThe way I see it, this is a bit like how we have cellular signal strength and wifi signal strength. There is value in having both from an API point of view. How you decide to display it is another matter",
+      "parentUuid": "ec6bd314_a663d62a",
+      "range": {
+        "startLine": 360,
+        "startChar": 4,
+        "endLine": 361,
+        "endChar": 28
+      },
+      "revId": "31b7d150733ed0c67decdaf2d40c24378e3fee15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
