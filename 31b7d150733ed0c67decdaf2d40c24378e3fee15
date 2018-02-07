@@ -94,6 +94,30 @@
       "revId": "31b7d150733ed0c67decdaf2d40c24378e3fee15",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d29b2127_a798523e",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-02-07T18:39:01Z",
+      "side": 1,
+      "message": "The APIs need to maintain a consistent approach to surfacing information, and the SignalStrength API has always surfaced the signal strength of the primary serving/camped cell. HSPA and LTE both have multi-carrier configs, and in those cases as well, it would be inappropriate to surface the signal strength of a secondary serving cell to the exclusion of the primary serving cell even if that secondary cell has a higher RSCP/RSRP/RSRQ. Since NR is by-design not a primary cell, it shouldn\u0027t be surfaced in an API that surfaces the signal strength of the primary cell.",
+      "parentUuid": "b7a30ed3_f2884923",
+      "range": {
+        "startLine": 360,
+        "startChar": 4,
+        "endLine": 361,
+        "endChar": 28
+      },
+      "revId": "31b7d150733ed0c67decdaf2d40c24378e3fee15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
