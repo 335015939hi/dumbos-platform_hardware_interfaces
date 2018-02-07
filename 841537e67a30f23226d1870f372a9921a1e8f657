@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffac5f21_7897ec12",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-02-07T18:50:20Z",
+      "side": 1,
+      "message": "We should be adding WcdmaSignalStrength to the record rather than adding an incorrect field to GsmSignalStrength.",
+      "range": {
+        "startLine": 232,
+        "startChar": 3,
+        "endLine": 232,
+        "endChar": 87
+      },
+      "revId": "841537e67a30f23226d1870f372a9921a1e8f657",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
