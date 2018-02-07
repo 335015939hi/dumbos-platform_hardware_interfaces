@@ -471,6 +471,30 @@
     },
     {
       "key": {
+        "uuid": "05322e47_198a2219",
+        "filename": "biometrics/iris/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1272909
+      },
+      "writtenOn": "2018-02-07T20:11:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31be98e0_dd27c0ad",
+      "range": {
+        "startLine": 94,
+        "startChar": 2,
+        "endLine": 94,
+        "endChar": 22
+      },
+      "revId": "254eb0a54f006df271f3e9c06c434d31549a096a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6afe1f74_2bce9e31",
         "filename": "biometrics/iris/1.0/types.hal",
         "patchSetId": 2
@@ -494,6 +518,30 @@
     },
     {
       "key": {
+        "uuid": "07c46b86_8254af6c",
+        "filename": "biometrics/iris/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1272909
+      },
+      "writtenOn": "2018-02-07T20:11:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6afe1f74_2bce9e31",
+      "range": {
+        "startLine": 97,
+        "startChar": 6,
+        "endLine": 97,
+        "endChar": 25
+      },
+      "revId": "254eb0a54f006df271f3e9c06c434d31549a096a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f2cda3a4_c6a7af37",
         "filename": "biometrics/iris/1.0/types.hal",
         "patchSetId": 2
@@ -514,6 +562,30 @@
       "revId": "254eb0a54f006df271f3e9c06c434d31549a096a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e077f7ea_6b09c526",
+        "filename": "biometrics/iris/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1272909
+      },
+      "writtenOn": "2018-02-07T20:11:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f2cda3a4_c6a7af37",
+      "range": {
+        "startLine": 118,
+        "startChar": 5,
+        "endLine": 118,
+        "endChar": 21
+      },
+      "revId": "254eb0a54f006df271f3e9c06c434d31549a096a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -563,6 +635,30 @@
     },
     {
       "key": {
+        "uuid": "6e0c2570_7837e9b3",
+        "filename": "biometrics/iris/1.0/vts/functional/VtsHalBiometricsIrisV1_0TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1272909
+      },
+      "writtenOn": "2018-02-07T20:11:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f7dc908_c73a5a72",
+      "range": {
+        "startLine": 46,
+        "startChar": 37,
+        "endLine": 46,
+        "endChar": 67
+      },
+      "revId": "254eb0a54f006df271f3e9c06c434d31549a096a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "06050856_f4dc1848",
         "filename": "biometrics/iris/1.0/vts/functional/VtsHalBiometricsIrisV1_0TargetTest.cpp",
         "patchSetId": 2
@@ -583,6 +679,30 @@
       "revId": "254eb0a54f006df271f3e9c06c434d31549a096a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d15e6594_e5463819",
+        "filename": "biometrics/iris/1.0/vts/functional/VtsHalBiometricsIrisV1_0TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1272909
+      },
+      "writtenOn": "2018-02-07T20:11:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06050856_f4dc1848",
+      "range": {
+        "startLine": 177,
+        "startChar": 42,
+        "endLine": 177,
+        "endChar": 72
+      },
+      "revId": "254eb0a54f006df271f3e9c06c434d31549a096a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
