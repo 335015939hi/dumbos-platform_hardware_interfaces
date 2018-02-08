@@ -16,12 +16,13 @@
 
 #define LOG_TAG "fingerprint_hidl_hal_test"
 
+#include <VtsHalHidlTargetTestBase.h>
+#include <VtsHalHidlTargetTestEnvBase.h>
 #include <android-base/logging.h>
 #include <android/hardware/biometrics/fingerprint/2.1/IBiometricsFingerprint.h>
 #include <android/hardware/biometrics/fingerprint/2.1/IBiometricsFingerprintClientCallback.h>
 #include <hidl/HidlSupport.h>
 #include <hidl/HidlTransportSupport.h>
-#include <VtsHalHidlTargetTestBase.h>
 
 #include <cinttypes>
 #include <future>
@@ -179,17 +180,30 @@ class RemoveCallback : public FingerprintCallbackBase {
   std::promise<void> promise;
 };
 
+// Test environment for Fingerprint HIDL HAL.
+class FingerprintHidlEnvironment : public ::testing::VtsHalHidlTargetTestEnvBase {
+   public:
+    // get the test environment singleton
+    static FingerprintHidlEnvironment* Instance() {
+        static FingerprintHidlEnvironment* instance = new FingerprintHidlEnvironment;
+        return instance;
+    }
+
+    virtual void registerTestServices() override { registerTestService<IBiometricsFingerprint>(); }
+};
+
 class FingerprintHidlTest : public ::testing::VtsHalHidlTargetTestBase {
  public:
   virtual void SetUp() override {
-    mService = ::testing::VtsHalHidlTargetTestBase::getService<IBiometricsFingerprint>();
-    ASSERT_FALSE(mService == nullptr);
+      mService = ::testing::VtsHalHidlTargetTestBase::getService<IBiometricsFingerprint>(
+          FingerprintHidlEnvironment::Instance()->getServiceName<IBiometricsFingerprint>());
+      ASSERT_FALSE(mService == nullptr);
 
-    // Create an active group
-    // FP service can only write to /data/system/users/*/fpdata/ due to
-    // SELinux Policy and Linux Dir Permissions
-    Return<RequestStatus> res = mService->setActiveGroup(kGroupId, kTmpDir);
-    ASSERT_EQ(RequestStatus::SYS_OK, static_cast<RequestStatus>(res));
+      // Create an active group
+      // FP service can only write to /data/system/users/*/fpdata/ due to
+      // SELinux Policy and Linux Dir Permissions
+      Return<RequestStatus> res = mService->setActiveGroup(kGroupId, kTmpDir);
+      ASSERT_EQ(RequestStatus::SYS_OK, static_cast<RequestStatus>(res));
   }
 
   virtual void TearDown() override {}
@@ -454,9 +468,11 @@ TEST_F(FingerprintHidlTest, CancelRemoveAllTest) {
 }  // anonymous namespace
 
 int main(int argc, char **argv) {
-  ::testing::InitGoogleTest(&argc, argv);
-  int status = RUN_ALL_TESTS();
-  LOG(INFO) << "Test result = " << status;
-  return status;
+    ::testing::AddGlobalTestEnvironment(FingerprintHidlEnvironment::Instance());
+    ::testing::InitGoogleTest(&argc, argv);
+    FingerprintHidlEnvironment::Instance()->init(&argc, argv);
+    int status = RUN_ALL_TESTS();
+    LOG(INFO) << "Test result = " << status;
+    return status;
 }
 
