@@ -24,6 +24,7 @@
 
 #include <VtsHalHidlTargetCallbackBase.h>
 #include <VtsHalHidlTargetTestBase.h>
+#include <VtsHalHidlTargetTestEnvBase.h>
 
 using ::android::hardware::nfc::V1_0::INfc;
 using ::android::hardware::nfc::V1_0::INfcClientCallback;
@@ -93,34 +94,47 @@ class NfcClientCallback
     };
 };
 
+// Test environment for Nfc HIDL HAL.
+class NfcHidlEnvironment : public ::testing::VtsHalHidlTargetTestEnvBase {
+   public:
+    // get the test environment singleton
+    static NfcHidlEnvironment* Instance() {
+        static NfcHidlEnvironment* instance = new NfcHidlEnvironment;
+        return instance;
+    }
+
+    virtual void registerTestServices() override { registerTestService<INfc>(); }
+};
+
 // The main test class for NFC HIDL HAL.
 class NfcHidlTest : public ::testing::VtsHalHidlTargetTestBase {
  public:
   virtual void SetUp() override {
-    nfc_ = ::testing::VtsHalHidlTargetTestBase::getService<INfc>();
-    ASSERT_NE(nfc_, nullptr);
+      nfc_ = ::testing::VtsHalHidlTargetTestBase::getService<INfc>(
+          NfcHidlEnvironment::Instance()->getServiceName<INfc>());
+      ASSERT_NE(nfc_, nullptr);
 
-    nfc_cb_ = new NfcClientCallback();
-    ASSERT_NE(nfc_cb_, nullptr);
+      nfc_cb_ = new NfcClientCallback();
+      ASSERT_NE(nfc_cb_, nullptr);
 
-    EXPECT_EQ(NfcStatus::OK, nfc_->open(nfc_cb_));
-    // Wait for OPEN_CPLT event
-    auto res = nfc_cb_->WaitForCallback(kCallbackNameSendEvent);
-    EXPECT_TRUE(res.no_timeout);
-    EXPECT_EQ(NfcEvent::OPEN_CPLT, res.args->last_event_);
-    EXPECT_EQ(NfcStatus::OK, res.args->last_status_);
+      EXPECT_EQ(NfcStatus::OK, nfc_->open(nfc_cb_));
+      // Wait for OPEN_CPLT event
+      auto res = nfc_cb_->WaitForCallback(kCallbackNameSendEvent);
+      EXPECT_TRUE(res.no_timeout);
+      EXPECT_EQ(NfcEvent::OPEN_CPLT, res.args->last_event_);
+      EXPECT_EQ(NfcStatus::OK, res.args->last_status_);
 
-    /* Get the NCI version that the device supports */
-    std::vector<uint8_t> cmd = CORE_RESET_CMD;
-    NfcData data = cmd;
-    EXPECT_EQ(data.size(), nfc_->write(data));
-    // Wait for CORE_RESET_RSP
-    res = nfc_cb_->WaitForCallback(kCallbackNameSendData);
-    EXPECT_TRUE(res.no_timeout);
-    EXPECT_GE(6ul, res.args->last_data_.size());
-    EXPECT_EQ((int)NfcStatus::OK, res.args->last_data_[3]);
-    if (res.args->last_data_.size() == 6) {
-        nci_version = res.args->last_data_[4];
+      /* Get the NCI version that the device supports */
+      std::vector<uint8_t> cmd = CORE_RESET_CMD;
+      NfcData data = cmd;
+      EXPECT_EQ(data.size(), nfc_->write(data));
+      // Wait for CORE_RESET_RSP
+      res = nfc_cb_->WaitForCallback(kCallbackNameSendData);
+      EXPECT_TRUE(res.no_timeout);
+      EXPECT_GE(6ul, res.args->last_data_.size());
+      EXPECT_EQ((int)NfcStatus::OK, res.args->last_data_[3]);
+      if (res.args->last_data_.size() == 6) {
+          nci_version = res.args->last_data_[4];
     } else {
         EXPECT_EQ(4ul, res.args->last_data_.size());
         nci_version = NCI_VERSION_2;
@@ -161,15 +175,6 @@ class NfcHidlTest : public ::testing::VtsHalHidlTargetTestBase {
   uint8_t nci_version;
   sp<INfc> nfc_;
   sp<NfcClientCallback> nfc_cb_;
-};
-
-// A class for test environment setup (kept since this file is a template).
-class NfcHidlEnvironment : public ::testing::Environment {
- public:
-  virtual void SetUp() {}
-  virtual void TearDown() {}
-
- private:
 };
 
 /*
@@ -586,17 +591,18 @@ TEST_F(NfcHidlTest, OpenAfterOpen) {
 }
 
 int main(int argc, char** argv) {
-  ::testing::AddGlobalTestEnvironment(new NfcHidlEnvironment);
-  ::testing::InitGoogleTest(&argc, argv);
+    ::testing::AddGlobalTestEnvironment(NfcHidlEnvironment::Instance());
+    ::testing::InitGoogleTest(&argc, argv);
+    NfcHidlEnvironment::Instance()->init(&argc, argv);
 
-  std::system("svc nfc disable"); /* Turn off NFC */
-  sleep(5);
+    std::system("svc nfc disable"); /* Turn off NFC */
+    sleep(5);
 
-  int status = RUN_ALL_TESTS();
-  LOG(INFO) << "Test result = " << status;
+    int status = RUN_ALL_TESTS();
+    LOG(INFO) << "Test result = " << status;
 
-  std::system("svc nfc enable"); /* Turn on NFC */
-  sleep(5);
+    std::system("svc nfc enable"); /* Turn on NFC */
+    sleep(5);
 
-  return status;
+    return status;
 }
