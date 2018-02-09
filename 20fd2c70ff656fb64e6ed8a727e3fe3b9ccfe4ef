@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "83c5562d_7ec534ca",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 24
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1010140
+      },
+      "writtenOn": "2018-02-09T21:14:18Z",
+      "side": 1,
+      "message": "Do we need to know if we are currently in connected vs idle state? I assume some operators might want to show the icon based on that?",
+      "range": {
+        "startLine": 75,
+        "startChar": 12,
+        "endLine": 75,
+        "endChar": 19
+      },
+      "revId": "20fd2c70ff656fb64e6ed8a727e3fe3b9ccfe4ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
