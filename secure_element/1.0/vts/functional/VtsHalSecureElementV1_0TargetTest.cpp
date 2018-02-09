@@ -92,6 +92,10 @@ class SecureElementHidlTest : public ::testing::VtsHalHidlTargetTestBase {
 
         se_cb_ = new SecureElementHalCallback();
         ASSERT_NE(se_cb_, nullptr);
+        se_->init(se_cb_);
+        auto res = se_cb_->WaitForCallback(kCallbackNameOnStateChange);
+        EXPECT_TRUE(res.no_timeout);
+        EXPECT_TRUE(res.args->state_);
     }
 
     sp<ISecureElement> se_;
@@ -243,6 +247,9 @@ int main(int argc, char** argv) {
     ::testing::AddGlobalTestEnvironment(SecureElementHidlEnvironment::Instance());
     ::testing::InitGoogleTest(&argc, argv);
     SecureElementHidlEnvironment::Instance()->init(&argc, argv);
+
+    std::system("stop");
     int status = RUN_ALL_TESTS();
+    std::system("start");
     return status;
 }
