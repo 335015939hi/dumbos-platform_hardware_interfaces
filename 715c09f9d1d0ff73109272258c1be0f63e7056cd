@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7dd35d3e_c1b2d4a1",
+        "filename": "biometrics/fingerprint/2.1/vts/functional/VtsHalBiometricsFingerprintV2_1TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1157913
+      },
+      "writtenOn": "2018-02-09T06:07:32Z",
+      "side": 1,
+      "message": "Is there any particular reason these were moved to the top? (Any style guide?)",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 40
+      },
+      "revId": "715c09f9d1d0ff73109272258c1be0f63e7056cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bfde8499_37d790b8",
+        "filename": "biometrics/fingerprint/2.1/vts/functional/VtsHalBiometricsFingerprintV2_1TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1157913
+      },
+      "writtenOn": "2018-02-09T06:07:32Z",
+      "side": 1,
+      "message": "While we\u0027re at it, might as well move this under line 23 to make them in alphabetical order",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 33
+      },
+      "revId": "715c09f9d1d0ff73109272258c1be0f63e7056cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d368e625_3177b65f",
+        "filename": "biometrics/fingerprint/2.1/vts/functional/VtsHalBiometricsFingerprintV2_1TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1157913
+      },
+      "writtenOn": "2018-02-09T06:07:32Z",
+      "side": 1,
+      "message": "the spacing here (and most of the things below) are inconsistent with the rest of the file, 1 space for public:, 2 spaces for everything else",
+      "revId": "715c09f9d1d0ff73109272258c1be0f63e7056cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
