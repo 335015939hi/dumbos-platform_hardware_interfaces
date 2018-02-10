@@ -23,6 +23,7 @@ import @1.0::CdmaSignalStrength;
 import @1.0::CellIdentityCdma;
 import @1.0::CellIdentityGsm;
 import @1.0::CellIdentityLte;
+import @1.0::CellIdentityTdscdma;
 import @1.0::CellIdentityWcdma;
 import @1.0::CellInfoTdscdma;
 import @1.0::CellInfoType;
@@ -253,6 +254,13 @@ struct CellIdentityLte {
     int32_t bandwidth;
 };
 
+struct CellIdentityTdscdma {
+    @1.0::CellIdentityTdscdma base;
+    int32_t earfcn;                          // 18-bit LTE Absolute RF Channel Number; this value
+                                             // must be valid
+    CellIdentityOperatorNames operatorNames;
+};
+
 struct CellIdentityWcdma {
     @1.0::CellIdentityWcdma base;
     CellIdentityOperatorNames operatorNames;
@@ -277,6 +285,11 @@ struct CellInfoCdma {
 struct CellInfoLte {
     CellIdentityLte cellIdentityLte;
     @1.0::LteSignalStrength signalStrengthLte;
+};
+
+struct CellInfoTdscdma {
+    CellIdentityTdscdma cellIdentityTdscdma;
+    TdscdmaSignalStrength signalStrengthTdscdma; // The signal strength is the same as WCDMA
 };
 
 struct CellInfo {
@@ -408,11 +421,20 @@ struct WcdmaSignalStrength {
                                     // Valid values are (0-49, 255) as defined in TS 27.007 8.69
 };
 
+struct TdscdmaSignalStrength {
+    int32_t signalStrength;      // UTRA carrier RSSI as defined in TS 25.225 5.1.4
+                                 // Valid values are (0-96, 99) as defined in TS 27.007 8.69
+    int32_t bitErrorRate;        // Transport Channel BER as defined in TS 25.225 5.2.5
+                                 // Valid values are (0-49, 99) as defined in TS 27.007 8.69
+    uint32_t rscp;               // P-CCPCH RSCP as defined in TS 25.225 5.1.1
+                                 // Valid values are (0-96, 255) as defined in TS 27.007 8.69
+};
+
 struct SignalStrength {
     @1.0::GsmSignalStrength gsm;
     @1.0::CdmaSignalStrength cdma;
     @1.0::EvdoSignalStrength evdo;
     @1.0::LteSignalStrength lte;
-    @1.0::TdScdmaSignalStrength tdScdma;
+    TdscdmaSignalStrength tdScdma;
     WcdmaSignalStrength wcdma;
 };
