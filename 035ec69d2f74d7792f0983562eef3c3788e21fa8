@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "44327c59_1d32ab25",
+        "filename": "tetheroffload/config/1.0/vts/functional/VtsHalTetheroffloadConfigV1_0TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-02-12T20:03:28Z",
+      "side": 1,
+      "message": "the benefit, Erik, is that the service name isn\u0027t baked into the test. This allows us to test even if there are multiple services installed with different names. Hope this makes things more clear.",
+      "range": {
+        "startLine": 99,
+        "startChar": 54,
+        "endLine": 99,
+        "endChar": 68
+      },
+      "revId": "035ec69d2f74d7792f0983562eef3c3788e21fa8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
