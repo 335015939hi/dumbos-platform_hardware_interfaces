@@ -2062,7 +2062,8 @@ TEST_F(VerificationOperationsTest, RsaAllPaddingsAndDigests) {
                 continue;
             }
 
-            if (padding == PaddingMode::RSA_PSS && digest == Digest::NONE) {
+            if (padding == PaddingMode::RSA_PSS &&
+                (digest == Digest::NONE || digest == Digest::MD5)) {
                 // PSS requires digesting.
                 continue;
             }
@@ -2654,8 +2655,8 @@ TEST_F(EncryptionOperationsTest, RsaNoPaddingTooLarge) {
  * Verifies that RSA-OAEP encryption operations work, with all digests.
  */
 TEST_F(EncryptionOperationsTest, RsaOaepSuccess) {
-    auto digests = {Digest::MD5,       Digest::SHA1,      Digest::SHA_2_224,
-                    Digest::SHA_2_256, Digest::SHA_2_384, Digest::SHA_2_512};
+    auto digests = {Digest::SHA1, Digest::SHA_2_224, Digest::SHA_2_256, Digest::SHA_2_384,
+                    Digest::SHA_2_512};
 
     size_t key_size = 2048;  // Need largish key for SHA-512 test.
     ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
