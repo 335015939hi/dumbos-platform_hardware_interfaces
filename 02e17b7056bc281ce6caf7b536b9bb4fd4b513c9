@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e3206e36_7b3fcac4",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2018-02-13T23:07:56Z",
+      "side": 1,
+      "message": "can you use this?",
+      "range": {
+        "startLine": 373,
+        "startChar": 0,
+        "endLine": 384,
+        "endChar": 2
+      },
+      "revId": "02e17b7056bc281ce6caf7b536b9bb4fd4b513c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
