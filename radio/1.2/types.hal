@@ -34,6 +34,7 @@ import @1.0::TimeStampType;
 import @1.0::WcdmaSignalStrength;
 import @1.1::RadioAccessSpecifier;
 import @1.0::RadioError;
+import @1.1::RadioAccessNetworks;
 import @1.1::ScanStatus;
 import @1.1::ScanType;
 
