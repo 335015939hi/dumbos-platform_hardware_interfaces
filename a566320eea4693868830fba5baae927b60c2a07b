@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e9daa3d8_5e90f13f",
+        "filename": "bluetooth/1.0/vts/functional/VtsHalBluetoothV1_0TargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2018-02-13T00:43:41Z",
+      "side": 1,
+      "message": "It turns out that WaitForCallback keeps a count and returns immediately if a callback has occurred more often than WaitForCallback was called.",
+      "range": {
+        "startLine": 294,
+        "startChar": 22,
+        "endLine": 294,
+        "endChar": 37
+      },
+      "revId": "a566320eea4693868830fba5baae927b60c2a07b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
