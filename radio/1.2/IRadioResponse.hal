@@ -31,14 +31,7 @@ interface IRadioResponse extends @1.1::IRadioResponse {
      * Valid errors returned:
      *   RadioError:NONE
      *   RadioError:RADIO_NOT_AVAILABLE
-     *   RadioError:NO_MEMORY
      *   RadioError:INTERNAL_ERR
-     *   RadioError:SYSTEM_ERR
-     *   RadioError:MODEM_ERR
-     *   RadioError:NO_NETWORK_FOUND
-     *   RadioError:REQUEST_NOT_SUPPORTED
-     *   RadioError:NO_RESOURCES
-     *   RadioError:CANCELLED
      */
     oneway getCellInfoListResponse_1_2(RadioResponseInfo info, vec<CellInfo> cellInfo);
 
@@ -48,6 +41,8 @@ interface IRadioResponse extends @1.1::IRadioResponse {
      *
      * Valid errors returned:
      *   RadioError:NONE
+     *   RadioError:RADIO_NOT_AVAILABLE
+     *   RadioError:INTERNAL_ERR
      */
     oneway getIccCardStatusResponse_1_2(RadioResponseInfo info, CardStatus cardStatus);
 
@@ -79,13 +74,7 @@ interface IRadioResponse extends @1.1::IRadioResponse {
      * Valid errors returned:
      *   RadioError:NONE
      *   RadioError:RADIO_NOT_AVAILABLE
-     *   RadioError:NO_MEMORY
      *   RadioError:INTERNAL_ERR
-     *   RadioError:SYSTEM_ERR
-     *   RadioError:INVALID_ARGUMENTS
-     *   RadioError:REQUEST_NOT_SUPPORTED
-     *   RadioError:NO_RESOURCES
-     *   RadioError:CANCELLED
      */
     oneway getCurrentCallsResponse_1_2(RadioResponseInfo info, vec<Call> calls);
 };
