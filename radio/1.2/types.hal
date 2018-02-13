@@ -34,11 +34,17 @@ import @1.0::TimeStampType;
 import @1.0::WcdmaSignalStrength;
 import @1.1::RadioAccessSpecifier;
 import @1.0::RadioError;
+import @1.1::RadioAccessNetworks;
 import @1.1::ScanStatus;
 import @1.1::ScanType;
 
 enum RadioConst : @1.0::RadioConst {
     RADIO_ACCESS_SPECIFIER_MAX_SIZE = 8,
+};
+
+enum RadioAccessNetworks : @1.1::RadioAccessNetworks {
+    CDMA2000 = 4,
+    IWLAN = 5,
 };
 
 /**
