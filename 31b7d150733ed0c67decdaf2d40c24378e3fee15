@@ -118,6 +118,30 @@
       "revId": "31b7d150733ed0c67decdaf2d40c24378e3fee15",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e91e280a_98664d7e",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1274073
+      },
+      "writtenOn": "2018-02-13T11:09:05Z",
+      "side": 1,
+      "message": "@nharold: Fair enough. The current interface satisfies that requirement, and it will work for 5G SA mode. I\u0027ll make a change to the cell info interface through which the secondary cell information can be obtained for the NSA case. Does that sound ok?",
+      "parentUuid": "d29b2127_a798523e",
+      "range": {
+        "startLine": 360,
+        "startChar": 4,
+        "endLine": 361,
+        "endChar": 28
+      },
+      "revId": "31b7d150733ed0c67decdaf2d40c24378e3fee15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
