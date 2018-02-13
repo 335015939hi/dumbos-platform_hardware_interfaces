@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9cd352fd_d7effaff",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-02-13T23:52:35Z",
+      "side": 1,
+      "message": "This (and from reading the bug) sounds like a post-IC feature addition. If you feel differently, please start an email thread. I\u0027ll go ahead and leave comments depending on the outcome of that/if you still want to do this in Q",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 53
+      },
+      "revId": "6557a1390a450c1c5947174de980fd2642288ef2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1786a3a_04100814",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-02-13T23:52:35Z",
+      "side": 1,
+      "message": "what exactly?",
+      "range": {
+        "startLine": 17,
+        "startChar": 6,
+        "endLine": 17,
+        "endChar": 12
+      },
+      "revId": "6557a1390a450c1c5947174de980fd2642288ef2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50e493b9_4df96160",
+        "filename": "radio/1.2/IRadioIndication.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-02-13T23:52:35Z",
+      "side": 1,
+      "message": "I shouldn\u0027t have allowed this comment anywhere. This is already in the type system.",
+      "range": {
+        "startLine": 70,
+        "startChar": 44,
+        "endLine": 70,
+        "endChar": 79
+      },
+      "revId": "6557a1390a450c1c5947174de980fd2642288ef2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00f87a0a_664a07d7",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-02-13T23:52:35Z",
+      "side": 1,
+      "message": "is this just to be explicit?",
+      "range": {
+        "startLine": 263,
+        "startChar": 4,
+        "endLine": 263,
+        "endChar": 10
+      },
+      "revId": "6557a1390a450c1c5947174de980fd2642288ef2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4468cbb8_554d46ce",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-02-13T23:52:35Z",
+      "side": 1,
+      "message": "For hidl-doc:\n\n/** .. */\nuint32_t rscp;",
+      "range": {
+        "startLine": 405,
+        "startChar": 4,
+        "endLine": 405,
+        "endChar": 12
+      },
+      "revId": "6557a1390a450c1c5947174de980fd2642288ef2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
