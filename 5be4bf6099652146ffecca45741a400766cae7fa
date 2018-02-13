@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e2d9f21f_b4bbc2f1",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1244217
+      },
+      "writtenOn": "2018-02-13T21:43:36Z",
+      "side": 1,
+      "message": "do we want to fix the name (RadioAccessNetwork) in this version or would that cause confusion?",
+      "range": {
+        "startLine": 45,
+        "startChar": 5,
+        "endLine": 45,
+        "endChar": 24
+      },
+      "revId": "5be4bf6099652146ffecca45741a400766cae7fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
