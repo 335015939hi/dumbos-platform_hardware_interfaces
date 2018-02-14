@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "490b7327_e08338de",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1121198
+      },
+      "writtenOn": "2018-02-14T21:59:46Z",
+      "side": 1,
+      "message": "can we link to spec 3GPP TS 36.104 5.4.3",
+      "range": {
+        "startLine": 259,
+        "startChar": 12,
+        "endLine": 259,
+        "endChar": 18
+      },
+      "revId": "35dce58b0d517ff9dd3928914af105bc2dbb5002",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
