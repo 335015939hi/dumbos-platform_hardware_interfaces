@@ -46,6 +46,30 @@
       "revId": "35dce58b0d517ff9dd3928914af105bc2dbb5002",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "79b8b1d4_2d639554",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-02-14T22:13:21Z",
+      "side": 1,
+      "message": "oh crap... this is UARFCN, and it\u0027s defined in 25.102 5.4.4. :-)",
+      "parentUuid": "490b7327_e08338de",
+      "range": {
+        "startLine": 259,
+        "startChar": 12,
+        "endLine": 259,
+        "endChar": 18
+      },
+      "revId": "35dce58b0d517ff9dd3928914af105bc2dbb5002",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
