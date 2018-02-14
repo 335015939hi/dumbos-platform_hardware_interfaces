@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7b3ba6c7_a9179a76",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-02-14T00:08:29Z",
+      "side": 1,
+      "message": "Hi Steven, this is an alternate definition for a partner contribution, which AIUI we are still taking. Yes there is something new there insofar as the partners asked to add a single field; however, the partner contribution further muddies the API, rather than cleaning it up, so I don\u0027t think we can/should take their implementation though we should implement the functionality. You can see that functionally-almost-equivalent proposal here:\nhttps://android-review.googlesource.com/#/c/platform/hardware/interfaces/+/577274/\n\nIt\u0027s between you and the telephony team as to whether we continue to take contributions - I will only add the following two things:\n1) I\u0027d rather take nothing at all than take something that moves the API in the wrong direction\n2) since this API and almost all its related structures are already being revved in 1.2, this seems like the most-opportune time to clean up the HAL: otherwise we will just need to rev this exact same set of structures again in 1.3 for very incremental functional change. That is actually just more work for us and for our partners to track another set of revisions that would be required to do the cleanup (that IMO should have ideally been done in 1.0) if we have to do it later.",
+      "parentUuid": "9cd352fd_d7effaff",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 53
+      },
+      "revId": "6557a1390a450c1c5947174de980fd2642288ef2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b1786a3a_04100814",
         "filename": "/COMMIT_MSG",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2018-02-13T23:52:35Z",
       "side": 1,
       "message": "what exactly?",
+      "range": {
+        "startLine": 17,
+        "startChar": 6,
+        "endLine": 17,
+        "endChar": 12
+      },
+      "revId": "6557a1390a450c1c5947174de980fd2642288ef2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c445d3c5_ef170208",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-02-14T00:08:29Z",
+      "side": 1,
+      "message": "Since we don\u0027t have a radio implementation that supports this yet, all we can say is that the device boots and still shows a signal bar. That\u0027s the way it goes when we lock down interfaces before we get the implementation.",
+      "parentUuid": "b1786a3a_04100814",
       "range": {
         "startLine": 17,
         "startChar": 6,
@@ -71,6 +119,53 @@
     },
     {
       "key": {
+        "uuid": "f5c780c5_c12511dc",
+        "filename": "radio/1.2/IRadioIndication.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-02-14T00:08:29Z",
+      "side": 1,
+      "message": "something something inconsistent bar. If I upload another patch, I\u0027ll remove it everywhere.",
+      "parentUuid": "50e493b9_4df96160",
+      "range": {
+        "startLine": 70,
+        "startChar": 44,
+        "endLine": 70,
+        "endChar": 79
+      },
+      "revId": "6557a1390a450c1c5947174de980fd2642288ef2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72e7bdd5_43b191aa",
+        "filename": "radio/1.2/IRadioResponse.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-02-14T00:08:29Z",
+      "side": 1,
+      "message": "I don\u0027t think it\u0027s possible to have an invalid argument to this request.",
+      "range": {
+        "startLine": 97,
+        "startChar": 5,
+        "endLine": 97,
+        "endChar": 37
+      },
+      "revId": "6557a1390a450c1c5947174de980fd2642288ef2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "00f87a0a_664a07d7",
         "filename": "radio/1.2/types.hal",
         "patchSetId": 3
@@ -94,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "3cf2752e_2f5f1081",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-02-14T00:08:29Z",
+      "side": 1,
+      "message": "Yeah, now that we are keeping multiple versions of these structures and mixing them in files, I get dizzy unless I do this. if it\u0027s bad HIDL form then I can remove them, but I much prefer to be explicit, and if you look at lines 412-417, there\u0027s a perfect example of when we\u0027d almost need them to be explicit to avoid misleading readers.",
+      "parentUuid": "00f87a0a_664a07d7",
+      "range": {
+        "startLine": 263,
+        "startChar": 4,
+        "endLine": 263,
+        "endChar": 10
+      },
+      "revId": "6557a1390a450c1c5947174de980fd2642288ef2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4468cbb8_554d46ce",
         "filename": "radio/1.2/types.hal",
         "patchSetId": 3
@@ -105,6 +224,30 @@
       "writtenOn": "2018-02-13T23:52:35Z",
       "side": 1,
       "message": "For hidl-doc:\n\n/** .. */\nuint32_t rscp;",
+      "range": {
+        "startLine": 405,
+        "startChar": 4,
+        "endLine": 405,
+        "endChar": 12
+      },
+      "revId": "6557a1390a450c1c5947174de980fd2642288ef2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7dd029a2_169e1002",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-02-14T00:08:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4468cbb8_554d46ce",
       "range": {
         "startLine": 405,
         "startChar": 4,
