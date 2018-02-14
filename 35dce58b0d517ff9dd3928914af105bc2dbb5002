@@ -22,6 +22,30 @@
       "revId": "35dce58b0d517ff9dd3928914af105bc2dbb5002",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "efd0efb6_3076e8f5",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1121198
+      },
+      "writtenOn": "2018-02-14T22:01:16Z",
+      "side": 1,
+      "message": "or TS 136 104, a newer version",
+      "parentUuid": "490b7327_e08338de",
+      "range": {
+        "startLine": 259,
+        "startChar": 12,
+        "endLine": 259,
+        "endChar": 18
+      },
+      "revId": "35dce58b0d517ff9dd3928914af105bc2dbb5002",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
