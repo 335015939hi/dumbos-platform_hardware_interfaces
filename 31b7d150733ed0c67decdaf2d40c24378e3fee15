@@ -142,6 +142,30 @@
       "revId": "31b7d150733ed0c67decdaf2d40c24378e3fee15",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6cbcdfa5_6189c124",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-02-14T18:55:10Z",
+      "side": 1,
+      "message": "I would expect NR cells to show up in CellInfo in NSA mode while they are part of the active set, so that makes sense, and they must also show up in the PhysicalChannelConfig (though without any signal strength measurements... just radio config). And later when standalone mode is supported, they will show up everywhere... but we don\u0027t even have a name for that yet... NRA? NRAN? I also heard GigRA? ... it\u0027s just too early IMO.\n\nOn that note, I know the nomenclature for 5G is still somewhat in-flight, but keeping with consistency of the other techs, we won\u0027t use the \"5g\" prefix. It will be \"Nr\" assuming that \"new radio\" actually sticks at the name for this thing (ugh), just like we have \"Lte\".",
+      "parentUuid": "e91e280a_98664d7e",
+      "range": {
+        "startLine": 360,
+        "startChar": 4,
+        "endLine": 361,
+        "endChar": 28
+      },
+      "revId": "31b7d150733ed0c67decdaf2d40c24378e3fee15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
