@@ -237,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "77e518a7_0aa28171",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1002609
+      },
+      "writtenOn": "2018-02-14T01:09:46Z",
+      "side": 1,
+      "message": "Is there a desired pattern here Steven?  It\u0027s nice to indicate where this is defined, but I don\u0027t want this masking a newer version..\n\nI think *I* would prefer no annotation here..  I think these should always be the latest version and this could introduce bugs.",
+      "parentUuid": "d9f1a350_0f4c0891",
+      "range": {
+        "startLine": 263,
+        "startChar": 4,
+        "endLine": 263,
+        "endChar": 10
+      },
+      "revId": "6557a1390a450c1c5947174de980fd2642288ef2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4468cbb8_554d46ce",
         "filename": "radio/1.2/types.hal",
         "patchSetId": 3
