@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "46e2d6fd_07e0dd06",
+        "filename": "radio/1.2/IRadioIndication.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-02-15T00:17:49Z",
+      "side": 1,
+      "message": "I really don\u0027t like a comment which only expressing things that are in the type system alone.\n\nI would prefer:\n- not touching the original stuff (even though I don\u0027t like it)\n- removing the comment\n- updating the text to provide meaningful information or hints",
+      "range": {
+        "startLine": 61,
+        "startChar": 22,
+        "endLine": 61,
+        "endChar": 54
+      },
+      "revId": "d0f9466801e262bd5d30ca3e4be9011f61f72b82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
