@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "371099d5_ddb85949",
+        "filename": "current.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-02-15T23:15:20Z",
+      "side": 1,
+      "message": "this will merge conflict though, might be better to just merge in master",
+      "range": {
+        "startLine": 249,
+        "startChar": 40,
+        "endLine": 249,
+        "endChar": 47
+      },
+      "revId": "a3f60e8986f40373a4a3e6b5c64f59bd75852229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
