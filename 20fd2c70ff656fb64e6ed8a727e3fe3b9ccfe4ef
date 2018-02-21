@@ -22,6 +22,30 @@
       "revId": "20fd2c70ff656fb64e6ed8a727e3fe3b9ccfe4ef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf07f5b4_00bedab8",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 24
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-02-21T23:25:07Z",
+      "side": 1,
+      "message": "I have filed a bug to make sure we at least take a look at this; if you have any specific requirements/use cases in mind, that would help us. It\u0027s good feedback. Thanks Jaime.",
+      "parentUuid": "83c5562d_7ec534ca",
+      "range": {
+        "startLine": 75,
+        "startChar": 12,
+        "endLine": 75,
+        "endChar": 19
+      },
+      "revId": "20fd2c70ff656fb64e6ed8a727e3fe3b9ccfe4ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
