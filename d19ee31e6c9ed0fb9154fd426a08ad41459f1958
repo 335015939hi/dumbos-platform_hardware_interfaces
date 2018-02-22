@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "22daba9d_f1afeb2f",
+        "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1224967
+      },
+      "writtenOn": "2018-02-22T21:57:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2eab107c_b40fcb4b",
+      "range": {
+        "startLine": 48,
+        "startChar": 7,
+        "endLine": 48,
+        "endChar": 87
+      },
+      "revId": "d19ee31e6c9ed0fb9154fd426a08ad41459f1958",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3301eab1_4c1ed23b",
         "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
         "patchSetId": 4
@@ -68,6 +92,30 @@
       "revId": "d19ee31e6c9ed0fb9154fd426a08ad41459f1958",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7701ef07_57039fc8",
+        "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1224967
+      },
+      "writtenOn": "2018-02-22T21:57:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3301eab1_4c1ed23b",
+      "range": {
+        "startLine": 49,
+        "startChar": 4,
+        "endLine": 49,
+        "endChar": 5
+      },
+      "revId": "d19ee31e6c9ed0fb9154fd426a08ad41459f1958",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
