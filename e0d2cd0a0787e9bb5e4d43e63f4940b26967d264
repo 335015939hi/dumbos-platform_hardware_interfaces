@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5346fbec_80630e9d",
+        "filename": "radio/1.2/IRadioResponse.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-02-23T20:07:51Z",
+      "side": 1,
+      "message": "How about using\nstruct AdnCapacity {\n    int32_t maxAdnNum;\n    ...\n};",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 93
+      },
+      "revId": "e0d2cd0a0787e9bb5e4d43e63f4940b26967d264",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ce8d2e7_ba2ffe0a",
+        "filename": "radio/1.2/IRadioResponse.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-02-23T20:07:51Z",
+      "side": 1,
+      "message": "delete extra spaces",
+      "range": {
+        "startLine": 70,
+        "startChar": 11,
+        "endLine": 70,
+        "endChar": 33
+      },
+      "revId": "e0d2cd0a0787e9bb5e4d43e63f4940b26967d264",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4ba4aba_c096eb87",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-02-23T20:07:51Z",
+      "side": 1,
+      "message": "are these kept track of by the SIM? Is this the same as the index in adnRecordInfo vec?",
+      "range": {
+        "startLine": 226,
+        "startChar": 4,
+        "endLine": 226,
+        "endChar": 12
+      },
+      "revId": "e0d2cd0a0787e9bb5e4d43e63f4940b26967d264",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ebf648ff_806523d6",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-02-23T20:07:51Z",
+      "side": 1,
+      "message": "what about first vs. last name, etc...\n\nIs there a standard for this format?",
+      "revId": "e0d2cd0a0787e9bb5e4d43e63f4940b26967d264",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a74fb70b_f5722e7e",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-02-23T20:07:51Z",
+      "side": 1,
+      "message": "is this just adnRecordInfo.size()? It seems like we could just use vec\u003cAdnRecordInfo\u003e in the rest of the hal",
+      "range": {
+        "startLine": 234,
+        "startChar": 4,
+        "endLine": 234,
+        "endChar": 41
+      },
+      "revId": "e0d2cd0a0787e9bb5e4d43e63f4940b26967d264",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
