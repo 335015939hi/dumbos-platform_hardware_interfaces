@@ -22,6 +22,30 @@
       "revId": "d588d8406690ffe84dd0ed67757b7e43b1eb553d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6ed7287_58f1ee2a",
+        "filename": "configstore/1.0/default/surfaceflinger.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1241863
+      },
+      "writtenOn": "2018-02-26T22:40:57Z",
+      "side": 1,
+      "message": "Steven, these are out of scope for me. If these lines are a problem, can you contact the folks who added the lines initially?",
+      "parentUuid": "c7a860d3_dd98da49",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 0
+      },
+      "revId": "d588d8406690ffe84dd0ed67757b7e43b1eb553d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
