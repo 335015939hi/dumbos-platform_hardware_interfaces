@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c7a860d3_dd98da49",
+        "filename": "configstore/1.0/default/surfaceflinger.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-02-26T22:06:08Z",
+      "side": 1,
+      "message": "Jay, can you follow up and clean these two use cases as well while we\u0027re at it? Not sure if they can be cleaned up in AOSP",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 0
+      },
+      "revId": "d588d8406690ffe84dd0ed67757b7e43b1eb553d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
