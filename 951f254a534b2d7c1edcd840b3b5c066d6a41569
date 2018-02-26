@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d559ec73_cb9d58be",
+        "filename": "secure_element/1.0/vts/functional/VtsHalSecureElementV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1114063
+      },
+      "writtenOn": "2018-02-26T20:45:28Z",
+      "side": 1,
+      "message": "I dont think we need to do this, since you specified binary-test-disable-framework in AndroidTest.xml, VTS framework will turn off the framework before the test run.",
+      "range": {
+        "startLine": 251,
+        "startChar": 4,
+        "endLine": 251,
+        "endChar": 24
+      },
+      "revId": "951f254a534b2d7c1edcd840b3b5c066d6a41569",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
