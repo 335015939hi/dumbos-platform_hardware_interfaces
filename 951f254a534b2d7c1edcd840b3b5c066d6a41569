@@ -70,6 +70,30 @@
       "revId": "951f254a534b2d7c1edcd840b3b5c066d6a41569",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65d7f84d_c1c1fa28",
+        "filename": "secure_element/1.0/vts/functional/VtsHalSecureElementV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-02-26T21:58:51Z",
+      "side": 1,
+      "message": "In the future, AndroidTest.xml files will be mostly auto-generated (but hopefully completely auto-generated). So, in the long term, it would be nice to not have non-build/run related information in them. If not anything else, just a good thing to keep in mind.",
+      "parentUuid": "df02bb6f_a837642e",
+      "range": {
+        "startLine": 251,
+        "startChar": 4,
+        "endLine": 251,
+        "endChar": 24
+      },
+      "revId": "951f254a534b2d7c1edcd840b3b5c066d6a41569",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
