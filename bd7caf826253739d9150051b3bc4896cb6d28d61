@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8aef4c9a_72d9d414",
+        "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 1244217
+      },
+      "writtenOn": "2018-02-27T02:28:17Z",
+      "side": 1,
+      "message": "Thoughts on adding per-RAN tests? I did it for SignalStrength, but thought I\u0027d get a pulse before copy/pasting 4 more of these.",
+      "range": {
+        "startLine": 554,
+        "startChar": 27,
+        "endLine": 554,
+        "endChar": 65
+      },
+      "revId": "bd7caf826253739d9150051b3bc4896cb6d28d61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
