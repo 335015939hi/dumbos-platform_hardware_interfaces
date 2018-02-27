@@ -166,6 +166,30 @@
       "revId": "31b7d150733ed0c67decdaf2d40c24378e3fee15",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b283f554_de77b2e2",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1010140
+      },
+      "writtenOn": "2018-02-27T02:22:52Z",
+      "side": 1,
+      "message": "I\u0027m uploading a new patch that I believe addresses most of the concerns. I renamed the structures from Nr5g to simply Nr.\n@nharold: Please note that the non-standalone mode (NSA) vs standalone mode (SA) doesn\u0027t really change the fundamental characteristics of the technology, but mostly how it is deployed. It is still NR. And yes, the name is officially NR. You can look here http://www.3gpp.org/news-events/3gpp-news/1929-nsa_nr_5g and here http://www.3gpp.org/DynaReport/38-series.htm. NR5G might be clearer on other contexts than simply NR though, which is why it I had decided to call it NR5G",
+      "parentUuid": "6cbcdfa5_6189c124",
+      "range": {
+        "startLine": 360,
+        "startChar": 4,
+        "endLine": 361,
+        "endChar": 28
+      },
+      "revId": "31b7d150733ed0c67decdaf2d40c24378e3fee15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
