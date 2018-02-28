@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "5bcddd31_ee831bd2",
+        "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1244217
+      },
+      "writtenOn": "2018-02-28T01:32:56Z",
+      "side": 1,
+      "message": "Done. Thanks!",
+      "parentUuid": "91db0612_19ad279c",
+      "range": {
+        "startLine": 372,
+        "startChar": 67,
+        "endLine": 372,
+        "endChar": 69
+      },
+      "revId": "bd7caf826253739d9150051b3bc4896cb6d28d61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8aef4c9a_72d9d414",
         "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
         "patchSetId": 1
