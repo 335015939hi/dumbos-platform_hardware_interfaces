@@ -443,6 +443,30 @@
     },
     {
       "key": {
+        "uuid": "7509384c_da9482f9",
+        "filename": "nfc/1.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1041663
+      },
+      "writtenOn": "2018-02-28T20:04:02Z",
+      "side": 1,
+      "message": "Makes sense. Will remove that and subsequent logic in the libnfc stack as well.",
+      "parentUuid": "27994cac_2bd2f053",
+      "range": {
+        "startLine": 48,
+        "startChar": 4,
+        "endLine": 56,
+        "endChar": 35
+      },
+      "revId": "50972591758337c50832a2543404c717c5e87ef4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d3fbeace_7d651c33",
         "filename": "nfc/1.1/types.hal",
         "patchSetId": 1
@@ -537,6 +561,30 @@
       "side": 1,
       "message": "Isn\u0027t that DEFAULT_OFFHOST_ROUTE? IIRC ACTIVE_SE and ACTIVE_SE_NFCF are used to configure those secure elements for listen mode, but it isn\u0027t necessarily the same as default route.",
       "parentUuid": "61572595_f5de9a6a",
+      "range": {
+        "startLine": 63,
+        "startChar": 8,
+        "endLine": 63,
+        "endChar": 30
+      },
+      "revId": "50972591758337c50832a2543404c717c5e87ef4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "067250df_3ed44d23",
+        "filename": "nfc/1.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1041663
+      },
+      "writtenOn": "2018-02-28T20:04:02Z",
+      "side": 1,
+      "message": "Default off host and active SE is essentially the same thing. The stack doesn\u0027t do anything different for them. I can rename the config to default off-host if that\u0027s better. I need to change Nfc stack to remove unused code wrt this.",
+      "parentUuid": "b1dd9031_89173388",
       "range": {
         "startLine": 63,
         "startChar": 8,
@@ -688,6 +736,30 @@
       "revId": "50972591758337c50832a2543404c717c5e87ef4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1cc685d5_389bac7b",
+        "filename": "nfc/1.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1041663
+      },
+      "writtenOn": "2018-02-28T20:04:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d8662a6c_6415d8c8",
+      "range": {
+        "startLine": 67,
+        "startChar": 8,
+        "endLine": 67,
+        "endChar": 33
+      },
+      "revId": "50972591758337c50832a2543404c717c5e87ef4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
