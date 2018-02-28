@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e33f4038_5993e90c",
+        "filename": "nfc/1.1/INfc.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1041663
+      },
+      "writtenOn": "2018-02-28T21:45:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50365534_7f875287",
+      "range": {
+        "startLine": 58,
+        "startChar": 13,
+        "endLine": 58,
+        "endChar": 14
+      },
+      "revId": "b94ef73f85d590d386f9e8b12c4440bf33365346",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "11a8a94d_b1cc5bf9",
         "filename": "nfc/1.1/types.hal",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "f803a2b3_4a06654a",
+        "filename": "nfc/1.1/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1041663
+      },
+      "writtenOn": "2018-02-28T21:45:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "11a8a94d_b1cc5bf9",
+      "range": {
+        "startLine": 33,
+        "startChar": 19,
+        "endLine": 33,
+        "endChar": 23
+      },
+      "revId": "b94ef73f85d590d386f9e8b12c4440bf33365346",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ecdaeb2e_4ce7e8cc",
         "filename": "nfc/1.1/types.hal",
         "patchSetId": 3
@@ -68,6 +116,30 @@
       "revId": "b94ef73f85d590d386f9e8b12c4440bf33365346",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f02052ac_0f9f59a9",
+        "filename": "nfc/1.1/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1041663
+      },
+      "writtenOn": "2018-02-28T21:45:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ecdaeb2e_4ce7e8cc",
+      "range": {
+        "startLine": 50,
+        "startChar": 11,
+        "endLine": 50,
+        "endChar": 12
+      },
+      "revId": "b94ef73f85d590d386f9e8b12c4440bf33365346",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
