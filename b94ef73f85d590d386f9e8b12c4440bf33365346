@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "50365534_7f875287",
+        "filename": "nfc/1.1/INfc.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-02-28T20:45:25Z",
+      "side": 1,
+      "message": "nit:here as well\n\nI do have reasoning for this btw. \u0027configuration\u0027 is a set of options. \u0027configurations\u0027 sounds like multiple different options on multiple devices.",
+      "range": {
+        "startLine": 58,
+        "startChar": 13,
+        "endLine": 58,
+        "endChar": 14
+      },
+      "revId": "b94ef73f85d590d386f9e8b12c4440bf33365346",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11a8a94d_b1cc5bf9",
+        "filename": "nfc/1.1/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-02-28T20:45:25Z",
+      "side": 1,
+      "message": "must (go/android-hal-design-guidelines #16), same below",
+      "range": {
+        "startLine": 33,
+        "startChar": 19,
+        "endLine": 33,
+        "endChar": 23
+      },
+      "revId": "b94ef73f85d590d386f9e8b12c4440bf33365346",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ecdaeb2e_4ce7e8cc",
+        "filename": "nfc/1.1/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-02-28T20:45:25Z",
+      "side": 1,
+      "message": "Lets",
+      "range": {
+        "startLine": 50,
+        "startChar": 11,
+        "endLine": 50,
+        "endChar": 12
+      },
+      "revId": "b94ef73f85d590d386f9e8b12c4440bf33365346",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
