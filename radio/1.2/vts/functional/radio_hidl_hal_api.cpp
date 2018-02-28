@@ -567,3 +567,21 @@ TEST_F(RadioHidlTest_v1_2, setLinkCapacityReportingCriteria_Geran) {
           toString(radioRsp_v1_2->rspInfo.error).c_str());
     ASSERT_TRUE(CheckAnyOfErrors(radioRsp_v1_2->rspInfo.error, {RadioError::NONE}));
 }
+
+/*
+ * Test IRadio.getCellInfoList() for the response returned.
+ */
+TEST_F(RadioHidlTest_v1_2, getCellInfoList_1_2) {
+    int serial = GetRandomSerialNumber();
+
+    radio_v1_2->getCellInfoList(serial);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_v1_2->rspInfo.type);
+    EXPECT_EQ(serial, radioRsp_v1_2->rspInfo.serial);
+
+    if (cardStatus.cardState == CardState::ABSENT) {
+        ASSERT_TRUE(CheckAnyOfErrors(radioRsp_v1_2->rspInfo.error,
+                                     {RadioError::NONE, RadioError::NO_NETWORK_FOUND},
+                                     CHECK_GENERAL_ERROR));
+    }
+}
