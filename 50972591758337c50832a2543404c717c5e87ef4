@@ -278,6 +278,30 @@
     },
     {
       "key": {
+        "uuid": "20be7df8_ececef44",
+        "filename": "nfc/1.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1041663
+      },
+      "writtenOn": "2018-02-28T20:31:21Z",
+      "side": 1,
+      "message": "discoveryXYZ is used to define the technology which is used in DISCOVER_CMD, where as protocolXYZ is used to declare proprietary protocols used in RF_ACTIVATED_NTF. Hence there is a need for both.",
+      "parentUuid": "43eeacf9_0823e00c",
+      "range": {
+        "startLine": 30,
+        "startChar": 3,
+        "endLine": 38,
+        "endChar": 34
+      },
+      "revId": "50972591758337c50832a2543404c717c5e87ef4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ef3e14d6_97d6f40f",
         "filename": "nfc/1.1/types.hal",
         "patchSetId": 1
