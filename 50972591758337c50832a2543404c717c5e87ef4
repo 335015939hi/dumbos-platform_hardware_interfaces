@@ -1,0 +1,314 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "53111ff1_76676925",
+        "filename": "nfc/1.1/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-02-28T00:58:52Z",
+      "side": 1,
+      "message": "spaces (is hidl-gen generating this? ./update-makefiles.sh should do it automatically or hidl-gen -Landroidbp android.hardware.nfc@1.0)",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 1
+      },
+      "revId": "50972591758337c50832a2543404c717c5e87ef4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0ed0f23_1b1f60c6",
+        "filename": "nfc/1.1/INfc.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-02-28T00:58:52Z",
+      "side": 1,
+      "message": "nit: alphabetical",
+      "revId": "50972591758337c50832a2543404c717c5e87ef4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eef6e33a_8f9b619d",
+        "filename": "nfc/1.1/INfc.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-02-28T00:58:52Z",
+      "side": 1,
+      "message": "also, no need to import 1.1 things. Should be automatically imported from types.hal",
+      "range": {
+        "startLine": 21,
+        "startChar": 13,
+        "endLine": 21,
+        "endChar": 23
+      },
+      "revId": "50972591758337c50832a2543404c717c5e87ef4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "696e677e_12c1ceb3",
+        "filename": "nfc/1.1/INfc.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-02-28T00:58:52Z",
+      "side": 1,
+      "message": "nit: just four spaces of indention",
+      "range": {
+        "startLine": 57,
+        "startChar": 10,
+        "endLine": 57,
+        "endChar": 22
+      },
+      "revId": "50972591758337c50832a2543404c717c5e87ef4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "724ef2b6_fc89580f",
+        "filename": "nfc/1.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-02-28T00:58:52Z",
+      "side": 1,
+      "message": "can you add:\n\nenum Constant : uint8_t {\n    UNSUPORTED_CONFIG \u003d 0xFF,\n};\n\nFor referencing in source code.",
+      "range": {
+        "startLine": 27,
+        "startChar": 10,
+        "endLine": 27,
+        "endChar": 14
+      },
+      "revId": "50972591758337c50832a2543404c717c5e87ef4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81a291df_9538d457",
+        "filename": "nfc/1.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-02-28T00:58:52Z",
+      "side": 1,
+      "message": "these would all need more comments to describe what they mean",
+      "range": {
+        "startLine": 30,
+        "startChar": 3,
+        "endLine": 38,
+        "endChar": 34
+      },
+      "revId": "50972591758337c50832a2543404c717c5e87ef4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef3e14d6_97d6f40f",
+        "filename": "nfc/1.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-02-28T00:58:52Z",
+      "side": 1,
+      "message": "select",
+      "range": {
+        "startLine": 42,
+        "startChar": 24,
+        "endLine": 42,
+        "endChar": 31
+      },
+      "revId": "50972591758337c50832a2543404c717c5e87ef4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0943d4cd_71c6a23c",
+        "filename": "nfc/1.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-02-28T00:58:52Z",
+      "side": 1,
+      "message": "remove prefix? these will have to be referenced as PresenceCheckAlgorithm::NFA_RW_PRES_CHK_DEFAULT in source",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 20
+      },
+      "revId": "50972591758337c50832a2543404c717c5e87ef4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd537f55_8efbdc88",
+        "filename": "nfc/1.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-02-28T00:58:52Z",
+      "side": 1,
+      "message": "I don\u0027t quite understand what the comments mean on these.\n\nAre these defined in some other standard?",
+      "range": {
+        "startLine": 48,
+        "startChar": 4,
+        "endLine": 56,
+        "endChar": 35
+      },
+      "revId": "50972591758337c50832a2543404c717c5e87ef4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3fbeace_7d651c33",
+        "filename": "nfc/1.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-02-28T00:58:52Z",
+      "side": 1,
+      "message": "What do you think about NfcConfig instead?",
+      "revId": "50972591758337c50832a2543404c717c5e87ef4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80fa8a31_6d7a5e42",
+        "filename": "nfc/1.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-02-28T00:58:52Z",
+      "side": 1,
+      "message": "is this defined somewhere, what does it mean?",
+      "range": {
+        "startLine": 63,
+        "startChar": 8,
+        "endLine": 63,
+        "endChar": 30
+      },
+      "revId": "50972591758337c50832a2543404c717c5e87ef4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0782c79_2ccf7af9",
+        "filename": "nfc/1.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-02-28T00:58:52Z",
+      "side": 1,
+      "message": "FeliCa?",
+      "range": {
+        "startLine": 65,
+        "startChar": 35,
+        "endLine": 65,
+        "endChar": 41
+      },
+      "revId": "50972591758337c50832a2543404c717c5e87ef4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02fc5ac5_b584cee2",
+        "filename": "nfc/1.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-02-28T00:58:52Z",
+      "side": 1,
+      "message": "is this defined somewhere? what does it mean?",
+      "range": {
+        "startLine": 67,
+        "startChar": 8,
+        "endLine": 67,
+        "endChar": 33
+      },
+      "revId": "50972591758337c50832a2543404c717c5e87ef4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0f1d4f9_aeb593e7",
+        "filename": "nfc/1.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-02-28T00:58:52Z",
+      "side": 1,
+      "message": "nit: put this next to PresenceCheckAlgorithm and delineate with spaces to make it more visibly distinguished from the uint*_t options",
+      "range": {
+        "startLine": 75,
+        "startChar": 4,
+        "endLine": 75,
+        "endChar": 46
+      },
+      "revId": "50972591758337c50832a2543404c717c5e87ef4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
