@@ -17,6 +17,9 @@ hidl_interface {
     ],
     types: [
         "NfcEvent",
+	"ProtocolDiscoveryConfig",
+	"PresenceCheckAlgorithm",
+	"NfcConfigs",
     ],
     gen_java: true,
 }
