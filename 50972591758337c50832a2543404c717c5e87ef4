@@ -254,6 +254,30 @@
     },
     {
       "key": {
+        "uuid": "43eeacf9_0823e00c",
+        "filename": "nfc/1.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2018-02-28T19:24:43Z",
+      "side": 1,
+      "message": "These are defined in different specs - some are proprietary (like Mifare/Kovio), some are open with official specs.\n\nBTW what\u0027s the difference between protocolKovio vs discoveryPollKovio? I know this is copied from the config file but I forgot why. It\u0027s definitely worth commenting.",
+      "parentUuid": "7c546120_add5972b",
+      "range": {
+        "startLine": 30,
+        "startChar": 3,
+        "endLine": 38,
+        "endChar": 34
+      },
+      "revId": "50972591758337c50832a2543404c717c5e87ef4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ef3e14d6_97d6f40f",
         "filename": "nfc/1.1/types.hal",
         "patchSetId": 1
@@ -395,6 +419,30 @@
     },
     {
       "key": {
+        "uuid": "27994cac_2bd2f053",
+        "filename": "nfc/1.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2018-02-28T19:24:43Z",
+      "side": 1,
+      "message": "Methods 1 and 5 are the official methods defined in the ISO/IEC 14443-4 specification. The others are proprietary and not recommended because they may alter tag state. Ruchi if we don\u0027t have any devices using the proprietary methods, perhaps we should just remove those.",
+      "parentUuid": "bbc180dc_8063802f",
+      "range": {
+        "startLine": 48,
+        "startChar": 4,
+        "endLine": 56,
+        "endChar": 35
+      },
+      "revId": "50972591758337c50832a2543404c717c5e87ef4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d3fbeace_7d651c33",
         "filename": "nfc/1.1/types.hal",
         "patchSetId": 1
@@ -477,6 +525,30 @@
     },
     {
       "key": {
+        "uuid": "b1dd9031_89173388",
+        "filename": "nfc/1.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2018-02-28T19:24:43Z",
+      "side": 1,
+      "message": "Isn\u0027t that DEFAULT_OFFHOST_ROUTE? IIRC ACTIVE_SE and ACTIVE_SE_NFCF are used to configure those secure elements for listen mode, but it isn\u0027t necessarily the same as default route.",
+      "parentUuid": "61572595_f5de9a6a",
+      "range": {
+        "startLine": 63,
+        "startChar": 8,
+        "endLine": 63,
+        "endChar": 30
+      },
+      "revId": "50972591758337c50832a2543404c717c5e87ef4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d0782c79_2ccf7af9",
         "filename": "nfc/1.1/types.hal",
         "patchSetId": 1
@@ -524,6 +596,30 @@
     },
     {
       "key": {
+        "uuid": "3e68242b_5182fabb",
+        "filename": "nfc/1.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2018-02-28T19:24:43Z",
+      "side": 1,
+      "message": "same Q - how does this compare to DEFAULT_NFCF_ROUTE ?",
+      "parentUuid": "a86dbc2e_7eb7958a",
+      "range": {
+        "startLine": 65,
+        "startChar": 35,
+        "endLine": 65,
+        "endChar": 41
+      },
+      "revId": "50972591758337c50832a2543404c717c5e87ef4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "02fc5ac5_b584cee2",
         "filename": "nfc/1.1/types.hal",
         "patchSetId": 1
@@ -559,6 +655,30 @@
       "side": 1,
       "message": "There is a routing table in the NFC chip which keeps track of how/where data should be routed.\nSystem code matching is one of the method. Every technique needs to have a default, where all the packets are routed to some environment if there wasn\u0027t any matching. This would provide an option for the vendor to define what the default behavior should be.\n\nSystem Code routing is defined in NCI Specification.",
       "parentUuid": "02fc5ac5_b584cee2",
+      "range": {
+        "startLine": 67,
+        "startChar": 8,
+        "endLine": 67,
+        "endChar": 33
+      },
+      "revId": "50972591758337c50832a2543404c717c5e87ef4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8662a6c_6415d8c8",
+        "filename": "nfc/1.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2018-02-28T19:24:43Z",
+      "side": 1,
+      "message": "Refer to the NCI spec in comments? Same for the ones above.",
+      "parentUuid": "f10f1101_5a37f127",
       "range": {
         "startLine": 67,
         "startChar": 8,
