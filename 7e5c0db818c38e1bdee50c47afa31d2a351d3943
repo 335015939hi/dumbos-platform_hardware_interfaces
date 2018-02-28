@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "35c79125_a2585de0",
+        "filename": "tests/bar/1.0/IFooCallback.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1013030
+      },
+      "writtenOn": "2018-02-28T12:39:36Z",
+      "side": 1,
+      "message": "what do you actually use this for?",
+      "range": {
+        "startLine": 19,
+        "startChar": 1,
+        "endLine": 19,
+        "endChar": 19
+      },
+      "revId": "7e5c0db818c38e1bdee50c47afa31d2a351d3943",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
