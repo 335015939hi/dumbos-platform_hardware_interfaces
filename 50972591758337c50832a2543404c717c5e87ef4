@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2091052d_dbfe6d87",
+        "filename": "nfc/1.1/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1041663
+      },
+      "writtenOn": "2018-02-28T18:37:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53111ff1_76676925",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 1
+      },
+      "revId": "50972591758337c50832a2543404c717c5e87ef4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a0ed0f23_1b1f60c6",
         "filename": "nfc/1.1/INfc.hal",
         "patchSetId": 1
@@ -65,6 +89,30 @@
     },
     {
       "key": {
+        "uuid": "739ef7a5_30a9fd33",
+        "filename": "nfc/1.1/INfc.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1041663
+      },
+      "writtenOn": "2018-02-28T18:37:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eef6e33a_8f9b619d",
+      "range": {
+        "startLine": 21,
+        "startChar": 13,
+        "endLine": 21,
+        "endChar": 23
+      },
+      "revId": "50972591758337c50832a2543404c717c5e87ef4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "696e677e_12c1ceb3",
         "filename": "nfc/1.1/INfc.hal",
         "patchSetId": 1
@@ -85,6 +133,30 @@
       "revId": "50972591758337c50832a2543404c717c5e87ef4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c253dfb8_02c5f8d6",
+        "filename": "nfc/1.1/INfc.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1041663
+      },
+      "writtenOn": "2018-02-28T18:37:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "696e677e_12c1ceb3",
+      "range": {
+        "startLine": 57,
+        "startChar": 10,
+        "endLine": 57,
+        "endChar": 22
+      },
+      "revId": "50972591758337c50832a2543404c717c5e87ef4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -111,6 +183,30 @@
     },
     {
       "key": {
+        "uuid": "ff764e9b_5f5f2e47",
+        "filename": "nfc/1.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1041663
+      },
+      "writtenOn": "2018-02-28T18:37:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "724ef2b6_fc89580f",
+      "range": {
+        "startLine": 27,
+        "startChar": 10,
+        "endLine": 27,
+        "endChar": 14
+      },
+      "revId": "50972591758337c50832a2543404c717c5e87ef4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "81a291df_9538d457",
         "filename": "nfc/1.1/types.hal",
         "patchSetId": 1
@@ -122,6 +218,30 @@
       "writtenOn": "2018-02-28T00:58:52Z",
       "side": 1,
       "message": "these would all need more comments to describe what they mean",
+      "range": {
+        "startLine": 30,
+        "startChar": 3,
+        "endLine": 38,
+        "endChar": 34
+      },
+      "revId": "50972591758337c50832a2543404c717c5e87ef4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c546120_add5972b",
+        "filename": "nfc/1.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1041663
+      },
+      "writtenOn": "2018-02-28T18:37:50Z",
+      "side": 1,
+      "message": "All these are standard NFC protocols.",
+      "parentUuid": "81a291df_9538d457",
       "range": {
         "startLine": 30,
         "startChar": 3,
@@ -157,6 +277,30 @@
     },
     {
       "key": {
+        "uuid": "f3163641_c077d3e0",
+        "filename": "nfc/1.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1041663
+      },
+      "writtenOn": "2018-02-28T18:37:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef3e14d6_97d6f40f",
+      "range": {
+        "startLine": 42,
+        "startChar": 24,
+        "endLine": 42,
+        "endChar": 31
+      },
+      "revId": "50972591758337c50832a2543404c717c5e87ef4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0943d4cd_71c6a23c",
         "filename": "nfc/1.1/types.hal",
         "patchSetId": 1
@@ -180,6 +324,30 @@
     },
     {
       "key": {
+        "uuid": "038f85a3_8e2e1261",
+        "filename": "nfc/1.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1041663
+      },
+      "writtenOn": "2018-02-28T18:37:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0943d4cd_71c6a23c",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 20
+      },
+      "revId": "50972591758337c50832a2543404c717c5e87ef4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dd537f55_8efbdc88",
         "filename": "nfc/1.1/types.hal",
         "patchSetId": 1
@@ -191,6 +359,30 @@
       "writtenOn": "2018-02-28T00:58:52Z",
       "side": 1,
       "message": "I don\u0027t quite understand what the comments mean on these.\n\nAre these defined in some other standard?",
+      "range": {
+        "startLine": 48,
+        "startChar": 4,
+        "endLine": 56,
+        "endChar": 35
+      },
+      "revId": "50972591758337c50832a2543404c717c5e87ef4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bbc180dc_8063802f",
+        "filename": "nfc/1.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1041663
+      },
+      "writtenOn": "2018-02-28T18:37:50Z",
+      "side": 1,
+      "message": "These are presence check algorithms, which are used to check if the NFC tag is still present in the field. If the tag has been lost, then a full polling cycle starts again instead of polling for only the tag type.",
+      "parentUuid": "dd537f55_8efbdc88",
       "range": {
         "startLine": 48,
         "startChar": 4,
@@ -220,6 +412,24 @@
     },
     {
       "key": {
+        "uuid": "4aa7c57c_e9b30f9f",
+        "filename": "nfc/1.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1041663
+      },
+      "writtenOn": "2018-02-28T18:37:50Z",
+      "side": 1,
+      "message": "Since there were multiple configs, I thought Configs would reflect it better. Okay with any.",
+      "parentUuid": "d3fbeace_7d651c33",
+      "revId": "50972591758337c50832a2543404c717c5e87ef4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "80fa8a31_6d7a5e42",
         "filename": "nfc/1.1/types.hal",
         "patchSetId": 1
@@ -231,6 +441,30 @@
       "writtenOn": "2018-02-28T00:58:52Z",
       "side": 1,
       "message": "is this defined somewhere, what does it mean?",
+      "range": {
+        "startLine": 63,
+        "startChar": 8,
+        "endLine": 63,
+        "endChar": 30
+      },
+      "revId": "50972591758337c50832a2543404c717c5e87ef4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61572595_f5de9a6a",
+        "filename": "nfc/1.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1041663
+      },
+      "writtenOn": "2018-02-28T18:37:50Z",
+      "side": 1,
+      "message": "This indicates if there is any Secure Element(off-host) that is connected/supported to/by the NFC Chip.",
+      "parentUuid": "80fa8a31_6d7a5e42",
       "range": {
         "startLine": 63,
         "startChar": 8,
@@ -266,6 +500,30 @@
     },
     {
       "key": {
+        "uuid": "a86dbc2e_7eb7958a",
+        "filename": "nfc/1.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1041663
+      },
+      "writtenOn": "2018-02-28T18:37:50Z",
+      "side": 1,
+      "message": "Felica is another protocol, and vendors can specify where the Felica traffic should be routed. It can be Embedded Secure Element or UICC or Host etc.",
+      "parentUuid": "d0782c79_2ccf7af9",
+      "range": {
+        "startLine": 65,
+        "startChar": 35,
+        "endLine": 65,
+        "endChar": 41
+      },
+      "revId": "50972591758337c50832a2543404c717c5e87ef4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "02fc5ac5_b584cee2",
         "filename": "nfc/1.1/types.hal",
         "patchSetId": 1
@@ -277,6 +535,30 @@
       "writtenOn": "2018-02-28T00:58:52Z",
       "side": 1,
       "message": "is this defined somewhere? what does it mean?",
+      "range": {
+        "startLine": 67,
+        "startChar": 8,
+        "endLine": 67,
+        "endChar": 33
+      },
+      "revId": "50972591758337c50832a2543404c717c5e87ef4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f10f1101_5a37f127",
+        "filename": "nfc/1.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1041663
+      },
+      "writtenOn": "2018-02-28T18:37:50Z",
+      "side": 1,
+      "message": "There is a routing table in the NFC chip which keeps track of how/where data should be routed.\nSystem code matching is one of the method. Every technique needs to have a default, where all the packets are routed to some environment if there wasn\u0027t any matching. This would provide an option for the vendor to define what the default behavior should be.\n\nSystem Code routing is defined in NCI Specification.",
+      "parentUuid": "02fc5ac5_b584cee2",
       "range": {
         "startLine": 67,
         "startChar": 8,
@@ -309,6 +591,30 @@
       "revId": "50972591758337c50832a2543404c717c5e87ef4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16ecef3e_c863276b",
+        "filename": "nfc/1.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1041663
+      },
+      "writtenOn": "2018-02-28T18:37:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e0f1d4f9_aeb593e7",
+      "range": {
+        "startLine": 75,
+        "startChar": 4,
+        "endLine": 75,
+        "endChar": 46
+      },
+      "revId": "50972591758337c50832a2543404c717c5e87ef4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
