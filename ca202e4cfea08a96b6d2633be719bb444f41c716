@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0504fa1b_fbf82e23",
+        "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1148298
+      },
+      "writtenOn": "2018-03-01T00:15:12Z",
+      "side": 1,
+      "message": "Please use the same style as other functions.\n\nReturn\u003cvoid\u003e res \u003d",
+      "range": {
+        "startLine": 577,
+        "startChar": 4,
+        "endLine": 577,
+        "endChar": 14
+      },
+      "revId": "ca202e4cfea08a96b6d2633be719bb444f41c716",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
