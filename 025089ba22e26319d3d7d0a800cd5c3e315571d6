@@ -22,6 +22,30 @@
       "revId": "025089ba22e26319d3d7d0a800cd5c3e315571d6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9e97a9bf_dc9f65b6",
+        "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 673,
+      "author": {
+        "id": 1224967
+      },
+      "writtenOn": "2018-03-01T23:50:29Z",
+      "side": 1,
+      "message": "Removed the CHECK_GENERAL_ERROR flag. And this API is not related to SIM absence.",
+      "parentUuid": "7d0af9aa_2e308393",
+      "range": {
+        "startLine": 671,
+        "startChar": 4,
+        "endLine": 673,
+        "endChar": 55
+      },
+      "revId": "025089ba22e26319d3d7d0a800cd5c3e315571d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
