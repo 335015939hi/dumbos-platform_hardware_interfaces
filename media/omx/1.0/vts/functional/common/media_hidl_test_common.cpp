@@ -288,21 +288,21 @@ void changeStateLoadedtoIdle(sp<IOmxNode> omxNode, sp<CodecObserver> observer,
     ASSERT_EQ(status, android::hardware::media::omx::V1_0::Status::OK);
 
     // Dont switch states until the ports are populated
-    status = observer->dequeueMessage(&msg, DEFAULT_TIMEOUT, iBuffer, oBuffer);
+    status = observer->dequeueMessage(&msg, LOADED_TO_IDLE_TIMEOUT, iBuffer, oBuffer);
     ASSERT_EQ(status, android::hardware::media::omx::V1_0::Status::TIMED_OUT);
 
     // allocate buffers on input port
     allocatePortBuffers(omxNode, iBuffer, kPortIndexInput, pm[0]);
 
     // Dont switch states until the ports are populated
-    status = observer->dequeueMessage(&msg, DEFAULT_TIMEOUT, iBuffer, oBuffer);
+    status = observer->dequeueMessage(&msg, LOADED_TO_IDLE_TIMEOUT, iBuffer, oBuffer);
     ASSERT_EQ(status, android::hardware::media::omx::V1_0::Status::TIMED_OUT);
 
     // allocate buffers on output port
     allocatePortBuffers(omxNode, oBuffer, kPortIndexOutput, pm[1]);
 
     // As the ports are populated, check if the state transition is complete
-    status = observer->dequeueMessage(&msg, DEFAULT_TIMEOUT, iBuffer, oBuffer);
+    status = observer->dequeueMessage(&msg, LOADED_TO_IDLE_TIMEOUT, iBuffer, oBuffer);
     ASSERT_EQ(status, android::hardware::media::omx::V1_0::Status::OK);
     ASSERT_EQ(msg.type, Message::Type::EVENT);
     ASSERT_EQ(msg.data.eventData.event, OMX_EventCmdComplete);
@@ -329,7 +329,7 @@ void changeStateIdletoLoaded(sp<IOmxNode> omxNode, sp<CodecObserver> observer,
     ASSERT_EQ(status, android::hardware::media::omx::V1_0::Status::OK);
 
     // dont change state until all buffers are freed
-    status = observer->dequeueMessage(&msg, DEFAULT_TIMEOUT, iBuffer, oBuffer);
+    status = observer->dequeueMessage(&msg, IDLE_TO_LOADED_TIMEOUT, iBuffer, oBuffer);
     ASSERT_EQ(status, android::hardware::media::omx::V1_0::Status::TIMED_OUT);
 
     for (size_t i = 0; i < iBuffer->size(); ++i) {
@@ -338,7 +338,7 @@ void changeStateIdletoLoaded(sp<IOmxNode> omxNode, sp<CodecObserver> observer,
     }
 
     // dont change state until all buffers are freed
-    status = observer->dequeueMessage(&msg, DEFAULT_TIMEOUT, iBuffer, oBuffer);
+    status = observer->dequeueMessage(&msg, IDLE_TO_LOADED_TIMEOUT, iBuffer, oBuffer);
     ASSERT_EQ(status, android::hardware::media::omx::V1_0::Status::TIMED_OUT);
 
     for (size_t i = 0; i < oBuffer->size(); ++i) {
@@ -346,7 +346,7 @@ void changeStateIdletoLoaded(sp<IOmxNode> omxNode, sp<CodecObserver> observer,
         ASSERT_EQ(status, android::hardware::media::omx::V1_0::Status::OK);
     }
 
-    status = observer->dequeueMessage(&msg, DEFAULT_TIMEOUT, iBuffer, oBuffer);
+    status = observer->dequeueMessage(&msg, IDLE_TO_LOADED_TIMEOUT, iBuffer, oBuffer);
     ASSERT_EQ(status, android::hardware::media::omx::V1_0::Status::OK);
     ASSERT_EQ(msg.type, Message::Type::EVENT);
     ASSERT_EQ(msg.data.eventData.event, OMX_EventCmdComplete);
@@ -368,7 +368,7 @@ void changeStateIdletoExecute(sp<IOmxNode> omxNode,
     status = omxNode->sendCommand(toRawCommandType(OMX_CommandStateSet),
                                   OMX_StateExecuting);
     ASSERT_EQ(status, android::hardware::media::omx::V1_0::Status::OK);
-    status = observer->dequeueMessage(&msg, DEFAULT_TIMEOUT);
+    status = observer->dequeueMessage(&msg, IDLE_TO_EXECUTING_TIMEOUT);
     ASSERT_EQ(status, android::hardware::media::omx::V1_0::Status::OK);
     ASSERT_EQ(msg.type, Message::Type::EVENT);
     ASSERT_EQ(msg.data.eventData.event, OMX_EventCmdComplete);
@@ -391,7 +391,7 @@ void changeStateExecutetoIdle(sp<IOmxNode> omxNode, sp<CodecObserver> observer,
     status = omxNode->sendCommand(toRawCommandType(OMX_CommandStateSet),
                                   OMX_StateIdle);
     ASSERT_EQ(status, android::hardware::media::omx::V1_0::Status::OK);
-    status = observer->dequeueMessage(&msg, DEFAULT_TIMEOUT, iBuffer, oBuffer);
+    status = observer->dequeueMessage(&msg, EXECUTING_TO_IDLE_TIMEOUT, iBuffer, oBuffer);
     ASSERT_EQ(status, android::hardware::media::omx::V1_0::Status::OK);
     ASSERT_EQ(msg.type, Message::Type::EVENT);
     ASSERT_EQ(msg.data.eventData.event, OMX_EventCmdComplete);

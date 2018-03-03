@@ -49,6 +49,13 @@
 #define TIMEOUT_COUNTER_Q (5000000 / DEFAULT_TIMEOUT_Q)
 #define TIMEOUT_COUNTER_PE (5000000 / DEFAULT_TIMEOUT_PE)
 
+/* Situation-specific timeouts */
+#define IDLE_TO_LOADED_TIMEOUT 400000
+#define LOADED_TO_IDLE_TIMEOUT 100000
+#define IDLE_TO_EXECUTING_TIMEOUT 400000
+#define EXECUTING_TO_IDLE_TIMEOUT 100000
+#define PORT_ENABLE_TIMEOUT 200000
+
 /*
  * Random Index used for monkey testing while get/set parameters
  */
