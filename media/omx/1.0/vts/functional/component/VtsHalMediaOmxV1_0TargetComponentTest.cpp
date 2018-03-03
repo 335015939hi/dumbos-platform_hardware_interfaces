@@ -172,7 +172,7 @@ class ComponentHidlTest : public ::testing::VtsHalHidlTargetTestBase {
                             strlen(gEnv->getComponent().c_str()) - suffixLen,
                         ".secure");
         }
-        if (disableTest) std::cerr << "[          ] Warning !  Test Disabled\n";
+        if (disableTest) std::cout << "[   WARN   ] Test Disabled \n";
     }
 
     virtual void TearDown() override {
@@ -939,15 +939,17 @@ TEST_F(ComponentHidlTest, PortEnableDisable_Execute) {
             ASSERT_EQ(status, android::hardware::media::omx::V1_0::Status::OK);
 
             // do not enable the port until all the buffers are supplied
-            status = observer->dequeueMessage(&msg, DEFAULT_TIMEOUT,
-                                              &pBuffer[0], &pBuffer[1]);
+            status = observer->dequeueMessage(&msg,
+                    isSecure ? DEFAULT_TIMEOUT_SECURE : DEFAULT_TIMEOUT,
+                    &pBuffer[0], &pBuffer[1]);
             ASSERT_EQ(status,
                       android::hardware::media::omx::V1_0::Status::TIMED_OUT);
 
-            allocatePortBuffers(omxNode, &pBuffer[i - portBase], i,
-                                portMode[i - portBase]);
-            status = observer->dequeueMessage(&msg, DEFAULT_TIMEOUT,
-                                              &pBuffer[0], &pBuffer[1]);
+            ASSERT_NO_FATAL_FAILURE(allocatePortBuffers(
+                omxNode, &pBuffer[i - portBase], i, portMode[i - portBase]));
+            status = observer->dequeueMessage(&msg,
+                    isSecure ? DEFAULT_TIMEOUT_SECURE : DEFAULT_TIMEOUT,
+                    &pBuffer[0], &pBuffer[1]);
             ASSERT_EQ(status, android::hardware::media::omx::V1_0::Status::OK);
             ASSERT_EQ(msg.type, Message::Type::EVENT);
             ASSERT_EQ(msg.data.eventData.data1, OMX_CommandPortEnable);

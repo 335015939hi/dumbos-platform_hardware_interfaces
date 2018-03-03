@@ -196,7 +196,15 @@ class AudioEncHidlTest : public ::testing::VtsHalHidlTargetTestBase {
         }
         if (i == kNumCompToCoding) disableTest = true;
         eosFlag = false;
-        if (disableTest) std::cerr << "[          ] Warning !  Test Disabled\n";
+        isSecure = false;
+        size_t suffixLen = strlen(".secure");
+        if (strlen(gEnv->getComponent().c_str()) >= suffixLen) {
+            isSecure =
+                !strcmp(gEnv->getComponent().c_str() +
+                            strlen(gEnv->getComponent().c_str()) - suffixLen,
+                        ".secure");
+        }
+        if (disableTest) std::cout << "[   WARN   ] Test Disabled \n";
     }
 
     virtual void TearDown() override {
@@ -251,6 +259,7 @@ class AudioEncHidlTest : public ::testing::VtsHalHidlTargetTestBase {
     OMX_AUDIO_CODINGTYPE eEncoding;
     bool disableTest;
     bool eosFlag;
+    bool isSecure;
 
    protected:
     static void description(const std::string& description) {
