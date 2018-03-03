@@ -49,6 +49,9 @@
 #define TIMEOUT_COUNTER_Q (5000000 / DEFAULT_TIMEOUT_Q)
 #define TIMEOUT_COUNTER_PE (5000000 / DEFAULT_TIMEOUT_PE)
 
+/* Extended timeout for state transition and port enabling of secure components */
+#define DEFAULT_TIMEOUT_SECURE 400000
+
 /*
  * Random Index used for monkey testing while get/set parameters
  */
@@ -306,18 +309,22 @@ void changeStateLoadedtoIdle(sp<IOmxNode> omxNode, sp<CodecObserver> observer,
                              android::Vector<BufferInfo>* iBuffer,
                              android::Vector<BufferInfo>* oBuffer,
                              OMX_U32 kPortIndexInput, OMX_U32 kPortIndexOutput,
-                             PortMode* portMode = nullptr);
+                             PortMode* portMode = nullptr,
+                             bool isSecure = false);
 
 void changeStateIdletoLoaded(sp<IOmxNode> omxNode, sp<CodecObserver> observer,
                              android::Vector<BufferInfo>* iBuffer,
                              android::Vector<BufferInfo>* oBuffer,
-                             OMX_U32 kPortIndexInput, OMX_U32 kPortIndexOutput);
+                             OMX_U32 kPortIndexInput, OMX_U32 kPortIndexOutput,
+                             bool isSecure = false);
 
-void changeStateIdletoExecute(sp<IOmxNode> omxNode, sp<CodecObserver> observer);
+void changeStateIdletoExecute(sp<IOmxNode> omxNode, sp<CodecObserver> observer,
+                              bool isSecure = false);
 
 void changeStateExecutetoIdle(sp<IOmxNode> omxNode, sp<CodecObserver> observer,
                               android::Vector<BufferInfo>* iBuffer,
-                              android::Vector<BufferInfo>* oBuffer);
+                              android::Vector<BufferInfo>* oBuffer,
+                              bool isSecure = false);
 
 size_t getEmptyBufferID(android::Vector<BufferInfo>* buffArray);
 
