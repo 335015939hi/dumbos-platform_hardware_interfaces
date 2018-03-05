@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "12a8881f_d36c7e66",
+        "filename": "nfc/1.1/vts/functional/VtsHalNfcV1_1TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2018-03-05T23:50:32Z",
+      "side": 1,
+      "message": "please move the comment to line 41.",
+      "range": {
+        "startLine": 221,
+        "startChar": 8,
+        "endLine": 222,
+        "endChar": 67
+      },
+      "revId": "15f39e2cc98c6ea89f6b7fc30a59c7d92aa065bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
