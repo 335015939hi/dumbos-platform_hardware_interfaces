@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "74bac869_3f6df84d",
+        "filename": "nfc/1.1/vts/functional/VtsHalNfcV1_1TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1041663
+      },
+      "writtenOn": "2018-03-05T23:44:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e307553_3800ebf6",
+      "range": {
+        "startLine": 220,
+        "startChar": 28,
+        "endLine": 220,
+        "endChar": 35
+      },
+      "revId": "4511bf01baa33333639a92a720743786c5166f3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "01703a6c_ec89c4b9",
         "filename": "nfc/1.1/vts/functional/VtsHalNfcV1_1TargetTest.cpp",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2018-03-05T23:20:48Z",
       "side": 1,
       "message": "then how abt defining a const for this?",
+      "range": {
+        "startLine": 221,
+        "startChar": 66,
+        "endLine": 221,
+        "endChar": 69
+      },
+      "revId": "4511bf01baa33333639a92a720743786c5166f3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "14209ab0_88179e3d",
+        "filename": "nfc/1.1/vts/functional/VtsHalNfcV1_1TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1041663
+      },
+      "writtenOn": "2018-03-05T23:44:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01703a6c_ec89c4b9",
       "range": {
         "startLine": 221,
         "startChar": 66,
