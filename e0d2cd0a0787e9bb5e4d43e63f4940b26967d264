@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8ea10ccd_9ef43f56",
+        "filename": "radio/1.2/IRadioResponse.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2018-03-13T08:11:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5346fbec_80630e9d",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 93
+      },
+      "revId": "e0d2cd0a0787e9bb5e4d43e63f4940b26967d264",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2ce8d2e7_ba2ffe0a",
         "filename": "radio/1.2/IRadioResponse.hal",
         "patchSetId": 6
@@ -45,6 +69,30 @@
       "revId": "e0d2cd0a0787e9bb5e4d43e63f4940b26967d264",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72bb2602_b836fbe9",
+        "filename": "radio/1.2/IRadioResponse.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2018-03-13T08:11:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ce8d2e7_ba2ffe0a",
+      "range": {
+        "startLine": 70,
+        "startChar": 11,
+        "endLine": 70,
+        "endChar": 33
+      },
+      "revId": "e0d2cd0a0787e9bb5e4d43e63f4940b26967d264",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -88,6 +136,24 @@
     },
     {
       "key": {
+        "uuid": "337b6092_d87a565d",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2018-03-13T08:11:07Z",
+      "side": 1,
+      "message": "Sim contact just has one name filed, and did not distinguish the first and last name.",
+      "parentUuid": "ebf648ff_806523d6",
+      "revId": "e0d2cd0a0787e9bb5e4d43e63f4940b26967d264",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a74fb70b_f5722e7e",
         "filename": "radio/1.2/types.hal",
         "patchSetId": 6
@@ -108,6 +174,30 @@
       "revId": "e0d2cd0a0787e9bb5e4d43e63f4940b26967d264",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8abbbddc_93b5beb2",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2018-03-13T08:11:07Z",
+      "side": 1,
+      "message": "Yes, it is the size().Removed struct AdnRecords.",
+      "parentUuid": "a74fb70b_f5722e7e",
+      "range": {
+        "startLine": 234,
+        "startChar": 4,
+        "endLine": 234,
+        "endChar": 41
+      },
+      "revId": "e0d2cd0a0787e9bb5e4d43e63f4940b26967d264",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
