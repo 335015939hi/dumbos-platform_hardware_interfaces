@@ -119,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "4b2d9748_46e51ea2",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2018-03-13T08:12:07Z",
+      "side": 1,
+      "message": "It could be the contact record index in sim. \nIt also could be the index in modem uim, and modem uim map the index to sim index.\nThe index is not always continuous, so it is not the index in adnRecordInfo.\nFor example, the record for the first sim contact could not be 1 \nNoramlly, there will be 500-1000 sim contacts in one card.\nAll of sim contacts will not be reported in one indication.\nIf reported 10 contacts in one indication, the recordId will be 1-10,10-20, and so on.",
+      "parentUuid": "f4ba4aba_c096eb87",
+      "range": {
+        "startLine": 226,
+        "startChar": 4,
+        "endLine": 226,
+        "endChar": 12
+      },
+      "revId": "e0d2cd0a0787e9bb5e4d43e63f4940b26967d264",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ebf648ff_806523d6",
         "filename": "radio/1.2/types.hal",
         "patchSetId": 6
