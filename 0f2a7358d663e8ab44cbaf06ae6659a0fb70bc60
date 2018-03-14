@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "341ba22a_30a466ee",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 23
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1274073
+      },
+      "writtenOn": "2018-03-14T20:54:12Z",
+      "side": 1,
+      "message": "Can you make the bandwidth optional? We don\u0027t always have it available",
+      "range": {
+        "startLine": 223,
+        "startChar": 12,
+        "endLine": 223,
+        "endChar": 21
+      },
+      "revId": "0f2a7358d663e8ab44cbaf06ae6659a0fb70bc60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
