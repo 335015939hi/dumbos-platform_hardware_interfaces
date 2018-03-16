@@ -102,7 +102,7 @@ enum FrameCallbackFlag : uint32_t {
 
 typedef bitfield<FrameCallbackFlag> FrameCallbackFlags;
 
-/**
+/***
  * Subset of commands in /system/core/include/system/camera.h relevant for
  * ICameraDevice@1.0::sendCommand()
  */
