@@ -210,7 +210,7 @@ TEST_F(RadioHidlTest, getAvailableBandModes) {
 TEST_F(RadioHidlTest, setPreferredNetworkType) {
     int serial = GetRandomSerialNumber();
 
-    radio->setPreferredNetworkType(serial, PreferredNetworkType::GSM_ONLY);
+    radio->setPreferredNetworkType(serial, PreferredNetworkType::WCDMA);
     EXPECT_EQ(std::cv_status::no_timeout, wait());
     EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
     EXPECT_EQ(serial, radioRsp->rspInfo.serial);
