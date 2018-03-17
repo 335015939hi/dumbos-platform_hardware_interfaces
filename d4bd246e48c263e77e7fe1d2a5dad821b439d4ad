@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "72755a26_a8cdc372",
+        "filename": "radio/1.2/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-03-17T02:59:00Z",
+      "side": 1,
+      "message": "These requests are reasonable in the abstract; however, I have put a meeting on the calendar to discuss. The structs as-is are a 100% copy+paste of the 1.0 structs (with only docstring changes and a pointer to a 1.2 CellInfo struct). Before we make changes to the part we aren\u0027t intending to touch, I\u0027d like to be sure all stakeholders are aligned.",
+      "parentUuid": "2358dfdc_9f6d1578",
+      "range": {
+        "startLine": 491,
+        "startChar": 18,
+        "endLine": 491,
+        "endChar": 33
+      },
+      "revId": "d4bd246e48c263e77e7fe1d2a5dad821b439d4ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "47c3b3b2_fa750241",
         "filename": "radio/1.2/types.hal",
         "patchSetId": 1
