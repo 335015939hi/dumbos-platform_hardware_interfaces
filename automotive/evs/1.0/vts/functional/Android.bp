@@ -30,7 +30,6 @@ cc_test {
     shared_libs: [
         "android.hardware.automotive.evs@1.0",
         "liblog",
-        "libutils",
         "libui",
         "libhidlbase",
         "libhidltransport",

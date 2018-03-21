@@ -32,7 +32,6 @@ cc_library_static {
         "libhidlbase",
         "libhidltransport",
         "libnativehelper",
-        "libutils",
         "android.hardware.wifi@1.0",
     ],
     static_libs: ["VtsHalHidlTargetTestBase"],
