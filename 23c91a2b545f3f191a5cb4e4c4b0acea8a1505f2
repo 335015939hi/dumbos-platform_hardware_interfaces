@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cd839aa4_103acfb5",
+        "filename": "sensors/1.0/vts/functional/VtsHalSensorsV1_0TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1324,
+      "author": {
+        "id": 1094493
+      },
+      "writtenOn": "2018-03-22T01:00:50Z",
+      "side": 1,
+      "message": "Reverted clang format indentation change, it\u0027s not consistent with the rest of the file.",
+      "revId": "23c91a2b545f3f191a5cb4e4c4b0acea8a1505f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
