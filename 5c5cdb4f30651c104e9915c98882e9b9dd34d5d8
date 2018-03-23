@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8c893370_34774803",
+        "filename": "bluetooth/1.0/default/android.hardware.bluetooth@1.0-service.rc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1150808
+      },
+      "writtenOn": "2018-03-23T03:24:04Z",
+      "side": 1,
+      "message": "@Tom,\n\nCould you share more detail about what the new added capabilities are used for?\n\nThanks.\n\nRegards,\nPeng QI",
+      "range": {
+        "startLine": 3,
+        "startChar": 4,
+        "endLine": 3,
+        "endChar": 35
+      },
+      "revId": "5c5cdb4f30651c104e9915c98882e9b9dd34d5d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f97bcc9_18abf8eb",
+        "filename": "bluetooth/1.0/default/android.hardware.bluetooth@1.0-service.rc",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1150808
+      },
+      "writtenOn": "2018-03-23T03:24:04Z",
+      "side": 1,
+      "message": "It is heard that AOSP plans to restrict vendor binary to use system properties from AOSP. I\u0027m not sure if we(vendor) need to apply white list for the properties marked. Or they will be exempted during VTS test by selinux?\n\nThanks for the heads-up.\n\nRegards,\nPeng QI",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 23
+      },
+      "revId": "5c5cdb4f30651c104e9915c98882e9b9dd34d5d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
