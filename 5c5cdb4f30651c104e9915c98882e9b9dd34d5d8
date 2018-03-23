@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ba08d795_def8fed3",
+        "filename": "bluetooth/1.0/default/android.hardware.bluetooth@1.0-service.rc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2018-03-23T05:08:58Z",
+      "side": 1,
+      "message": "they\u0027re not new. these are currently in fs_config, but they\u0027re moving away from that global location to be part of the configuration for each individual service.",
+      "parentUuid": "8c893370_34774803",
+      "range": {
+        "startLine": 3,
+        "startChar": 4,
+        "endLine": 3,
+        "endChar": 35
+      },
+      "revId": "5c5cdb4f30651c104e9915c98882e9b9dd34d5d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f97bcc9_18abf8eb",
         "filename": "bluetooth/1.0/default/android.hardware.bluetooth@1.0-service.rc",
         "patchSetId": 2
