@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "0840698f_a3fbd691",
+        "filename": "bluetooth/1.0/default/android.hardware.bluetooth@1.0-service.rc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1150808
+      },
+      "writtenOn": "2018-03-23T07:41:22Z",
+      "side": 1,
+      "message": "@Elliott,\n\nThanks for your info:)\n\nDo you have any idea/suggestions about the property question below? Thanks.\n\nRegards,\nPeng QI",
+      "parentUuid": "ba08d795_def8fed3",
+      "range": {
+        "startLine": 3,
+        "startChar": 4,
+        "endLine": 3,
+        "endChar": 35
+      },
+      "revId": "5c5cdb4f30651c104e9915c98882e9b9dd34d5d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f97bcc9_18abf8eb",
         "filename": "bluetooth/1.0/default/android.hardware.bluetooth@1.0-service.rc",
         "patchSetId": 2
