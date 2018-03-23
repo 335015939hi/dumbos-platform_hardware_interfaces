@@ -93,6 +93,30 @@
       "revId": "5c5cdb4f30651c104e9915c98882e9b9dd34d5d8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "955be9d9_26487c6b",
+        "filename": "bluetooth/1.0/default/android.hardware.bluetooth@1.0-service.rc",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1064128
+      },
+      "writtenOn": "2018-03-23T15:44:30Z",
+      "side": 1,
+      "message": "Yes, vendor binaries will only be able to use the properties that are whitelisted.  The whitelist is on the system image and is tested during VTS.  The whitelist is located at https://android.googlesource.com/platform/system/sepolicy/+/master/public/property_contexts",
+      "parentUuid": "9f97bcc9_18abf8eb",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 23
+      },
+      "revId": "5c5cdb4f30651c104e9915c98882e9b9dd34d5d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
