@@ -117,6 +117,30 @@
       "revId": "5c5cdb4f30651c104e9915c98882e9b9dd34d5d8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dd9f2462_0cae49e7",
+        "filename": "bluetooth/1.0/default/android.hardware.bluetooth@1.0-service.rc",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1150808
+      },
+      "writtenOn": "2018-03-26T05:46:29Z",
+      "side": 1,
+      "message": "@Tom,\n\nThanks for your answer.\nIt is noticed that \"vts.native_server.on\" is not whitelisted in the table you shared. Do we have to apply it into the white list?\nThanks.\n\nRegards,\nPeng QI",
+      "parentUuid": "955be9d9_26487c6b",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 23
+      },
+      "revId": "5c5cdb4f30651c104e9915c98882e9b9dd34d5d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
