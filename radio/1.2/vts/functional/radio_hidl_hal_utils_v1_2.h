@@ -416,6 +416,12 @@ class RadioResponse_v1_2 : public V1_1::IRadioResponse {
 
     Return<void> getCellInfoListResponse_1_2(
         const RadioResponseInfo& info, const ::android::hardware::hidl_vec<CellInfo>& cellInfo);
+
+    Return<void> getVoiceRegistrationStateResponse_1_2(
+        const RadioResponseInfo& info, const VoiceRegStateResult& V1_2::voiceRegResponse);
+
+    Return<void> getDataRegistrationStateResponse_1_2(
+        const RadioResponseInfo& info, const DataRegStateResult& V1_2::dataRegResponse);
 };
 
 /* Callback class for radio indication */
