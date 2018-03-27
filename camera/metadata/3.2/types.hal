@@ -1067,6 +1067,7 @@ enum CameraMetadataEnumAndroidRequestAvailableCapabilities : uint32_t {
 
     ANDROID_REQUEST_AVAILABLE_CAPABILITIES_CONSTRAINED_HIGH_SPEED_VIDEO,
 
+    ANDROID_REQUEST_AVAILABLE_CAPABILITIES_MONOCHROME,
 };
 
 enum CameraMetadataEnumAndroidScalerAvailableFormats : uint32_t {
