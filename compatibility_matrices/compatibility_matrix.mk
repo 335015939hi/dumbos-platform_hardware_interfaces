@@ -86,6 +86,9 @@ $(GEN): PRIVATE_ADDITIONAL_ENV_VARS += PRODUCT_ENFORCE_VINTF_MANIFEST=true
 $(GEN): PRIVATE_COMMAND_TAIL := || (echo $(strip $(LOCAL_WARN_REQUIRED_HALS)) && false)
 endif
 
+# Enforce that all HALs in the device manifest are in framework compatibility matrix.
+# $(GEN): PRIVATE_ADDITIONAL_ENV_VARS += ENFORCE_NO_UNUSED_HALS=true
+
 $(GEN): PRIVATE_SRC_FILES := $(my_matrix_src_files)
 $(GEN): $(my_matrix_src_files) $(HOST_OUT_EXECUTABLES)/assemble_vintf
 	$(foreach varname,$(PRIVATE_ENV_VARS),$(varname)="$($(varname))") \
