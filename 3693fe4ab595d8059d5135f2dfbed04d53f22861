@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "39468e19_795e9e74",
+        "filename": "compatibility_matrices/compatibility_matrix.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-03-29T18:49:17Z",
+      "side": 1,
+      "message": "nit: what if we have an extra \"CLEAR_COMPATIBILITY_MATRIX_VARS.mk\" file\n\nand call that to make it more clear.",
+      "range": {
+        "startLine": 127,
+        "startChar": 0,
+        "endLine": 133,
+        "endChar": 30
+      },
+      "revId": "3693fe4ab595d8059d5135f2dfbed04d53f22861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
