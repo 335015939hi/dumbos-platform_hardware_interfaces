@@ -22,6 +22,7 @@
 
 #include <dlfcn.h>
 #include <fcntl.h>
+#include <pthread.h>
 
 #include "bluetooth_address.h"
 #include "h4_protocol.h"
@@ -50,6 +51,8 @@ bool recent_activity_flag;
 
 VendorInterface* g_vendor_interface = nullptr;
 std::mutex wakeup_mutex_;
+
+pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
 
 HC_BT_HDR* WrapPacketAndCopy(uint16_t event, const hidl_vec<uint8_t>& data) {
   size_t packet_size = data.size() + sizeof(HC_BT_HDR);
@@ -246,6 +249,7 @@ bool VendorInterface::Open(InitializeCompleteCallback initialize_complete_cb,
     HandleIncomingEvent(event);
   };
 
+  pthread_mutex_lock(&lock);
   if (fd_count == 1) {
     hci::H4Protocol* h4_hci =
         new hci::H4Protocol(fd_list[0], intercept_events, acl_cb, sco_cb);
@@ -262,6 +266,7 @@ bool VendorInterface::Open(InitializeCompleteCallback initialize_complete_cb,
         [mct_hci](int fd) { mct_hci->OnAclDataReady(fd); });
     hci_ = mct_hci;
   }
+  pthread_mutex_unlock(&lock);
 
   // Initially, the power management is off.
   lpm_wake_deasserted = true;
@@ -283,10 +288,12 @@ void VendorInterface::Close() {
 
   fd_watcher_.StopWatchingFileDescriptors();
 
+  pthread_mutex_lock(&lock);
   if (hci_ != nullptr) {
     delete hci_;
     hci_ = nullptr;
   }
+  pthread_mutex_unlock(&lock);
 
   if (lib_interface_ != nullptr) {
     lib_interface_->op(BT_VND_OP_USERIAL_CLOSE, nullptr);
