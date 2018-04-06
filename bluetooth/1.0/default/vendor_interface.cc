@@ -246,21 +246,22 @@ bool VendorInterface::Open(InitializeCompleteCallback initialize_complete_cb,
     HandleIncomingEvent(event);
   };
 
-  if (fd_count == 1) {
-    hci::H4Protocol* h4_hci =
-        new hci::H4Protocol(fd_list[0], intercept_events, acl_cb, sco_cb);
-    fd_watcher_.WatchFdForNonBlockingReads(
-        fd_list[0], [h4_hci](int fd) { h4_hci->OnDataReady(fd); });
-    hci_ = h4_hci;
-  } else {
-    hci::MctProtocol* mct_hci =
-        new hci::MctProtocol(fd_list, intercept_events, acl_cb);
-    fd_watcher_.WatchFdForNonBlockingReads(
-        fd_list[CH_EVT], [mct_hci](int fd) { mct_hci->OnEventDataReady(fd); });
-    fd_watcher_.WatchFdForNonBlockingReads(
-        fd_list[CH_ACL_IN],
-        [mct_hci](int fd) { mct_hci->OnAclDataReady(fd); });
-    hci_ = mct_hci;
+  {
+      std::unique_lock<std::mutex> lock(wakeup_mutex_);
+      if (fd_count == 1) {
+          hci::H4Protocol* h4_hci =
+              new hci::H4Protocol(fd_list[0], intercept_events, acl_cb, sco_cb);
+          fd_watcher_.WatchFdForNonBlockingReads(fd_list[0],
+                                                 [h4_hci](int fd) { h4_hci->OnDataReady(fd); });
+          hci_ = h4_hci;
+      } else {
+          hci::MctProtocol* mct_hci = new hci::MctProtocol(fd_list, intercept_events, acl_cb);
+          fd_watcher_.WatchFdForNonBlockingReads(
+              fd_list[CH_EVT], [mct_hci](int fd) { mct_hci->OnEventDataReady(fd); });
+          fd_watcher_.WatchFdForNonBlockingReads(
+              fd_list[CH_ACL_IN], [mct_hci](int fd) { mct_hci->OnAclDataReady(fd); });
+          hci_ = mct_hci;
+      }
   }
 
   // Initially, the power management is off.
@@ -283,9 +284,12 @@ void VendorInterface::Close() {
 
   fd_watcher_.StopWatchingFileDescriptors();
 
-  if (hci_ != nullptr) {
-    delete hci_;
-    hci_ = nullptr;
+  {
+      std::unique_lock<std::mutex> lock(wakeup_mutex_);
+      if (hci_ != nullptr) {
+          delete hci_;
+          hci_ = nullptr;
+      }
   }
 
   if (lib_interface_ != nullptr) {
