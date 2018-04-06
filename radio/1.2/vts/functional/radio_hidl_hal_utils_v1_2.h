@@ -44,6 +44,7 @@ using ::android::sp;
 
 class RadioHidlTest_v1_2;
 extern CardStatus cardStatus;
+extern hidl_vec<RadioBandMode> radioBandModes;
 
 /* Callback class for radio response v1_2*/
 class RadioResponse_v1_2 : public V1_1::IRadioResponse {

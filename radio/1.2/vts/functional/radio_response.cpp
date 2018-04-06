@@ -18,6 +18,8 @@
 
 CardStatus cardStatus;
 
+::android::hardware::hidl_vec<RadioBandMode> radioBandModes;
+
 RadioResponse_v1_2::RadioResponse_v1_2(RadioHidlTest_v1_2& parent) : parent_v1_2(parent) {}
 
 /* 1.0 Apis */
@@ -312,8 +314,11 @@ Return<void> RadioResponse_v1_2::setBandModeResponse(const RadioResponseInfo& /*
 }
 
 Return<void> RadioResponse_v1_2::getAvailableBandModesResponse(
-    const RadioResponseInfo& /*info*/,
-    const ::android::hardware::hidl_vec<RadioBandMode>& /*bandModes*/) {
+    const RadioResponseInfo& info,
+    const ::android::hardware::hidl_vec<RadioBandMode>& bandModes) {
+    rspInfo = info;
+    radioBandModes = bandModes;
+    parent_v1_2.notify();
     return Void();
 }
 
