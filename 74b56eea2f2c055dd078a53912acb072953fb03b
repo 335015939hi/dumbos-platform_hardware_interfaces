@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "2ba9a346_c02089a4",
+        "filename": "wifi/1.0/vts/functional/wifi_chip_hidl_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2018-04-06T23:17:31Z",
+      "side": 1,
+      "message": "I changed this to match the pattern below so that we have a constant pattern.",
+      "parentUuid": "ac9b0a82_9276aa05",
+      "revId": "74b56eea2f2c055dd078a53912acb072953fb03b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3557090a_fc98a07b",
         "filename": "wifi/1.0/vts/functional/wifi_chip_hidl_test.cpp",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2018-03-23T22:49:53Z",
       "side": 1,
       "message": "Maybe |return| here?",
+      "revId": "74b56eea2f2c055dd078a53912acb072953fb03b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9763df0c_2fca2c82",
+        "filename": "wifi/1.0/vts/functional/wifi_chip_hidl_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2018-04-06T23:17:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3557090a_fc98a07b",
       "revId": "74b56eea2f2c055dd078a53912acb072953fb03b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
