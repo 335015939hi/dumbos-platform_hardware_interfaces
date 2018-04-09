@@ -227,7 +227,13 @@ class VideoEncHidlTest : public ::testing::VtsHalHidlTargetTestBase {
                         ".secure");
         }
         if (isSecure) disableTest = true;
-        if (disableTest) std::cerr << "[          ] Warning !  Test Disabled\n";
+        suffixLen = strlen(".tunnel");
+        if (!disableTest && strlen(gEnv->getComponent().c_str()) >= suffixLen &&
+            !strcmp(gEnv->getComponent().c_str() +
+                        strlen(gEnv->getComponent().c_str()) - suffixLen,
+                    ".tunnel"))
+            disableTest = true;
+        if (disableTest) std::cout << "[   WARN   ] Test Disabled \n";
     }
 
     virtual void TearDown() override {
