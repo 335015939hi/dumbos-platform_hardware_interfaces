@@ -404,7 +404,7 @@ void changeStateLoadedtoIdle(sp<IOmxNode> omxNode, sp<CodecObserver> observer,
         omxNode, oBuffer, kPortIndexOutput, pm[1], allocGrap));
 
     // As the ports are populated, check if the state transition is complete
-    status = observer->dequeueMessage(&msg, DEFAULT_TIMEOUT, iBuffer, oBuffer);
+    status = observer->dequeueMessage(&msg, DEFAULT_TIMEOUT_R, iBuffer, oBuffer);
     ASSERT_EQ(status, android::hardware::media::omx::V1_0::Status::OK);
     ASSERT_EQ(msg.type, Message::Type::EVENT);
     ASSERT_EQ(msg.data.eventData.event, OMX_EventCmdComplete);
@@ -448,7 +448,7 @@ void changeStateIdletoLoaded(sp<IOmxNode> omxNode, sp<CodecObserver> observer,
         ASSERT_EQ(status, android::hardware::media::omx::V1_0::Status::OK);
     }
 
-    status = observer->dequeueMessage(&msg, DEFAULT_TIMEOUT, iBuffer, oBuffer);
+    status = observer->dequeueMessage(&msg, DEFAULT_TIMEOUT_R, iBuffer, oBuffer);
     ASSERT_EQ(status, android::hardware::media::omx::V1_0::Status::OK);
     ASSERT_EQ(msg.type, Message::Type::EVENT);
     ASSERT_EQ(msg.data.eventData.event, OMX_EventCmdComplete);
