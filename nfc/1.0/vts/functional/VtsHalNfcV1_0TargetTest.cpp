@@ -148,6 +148,7 @@ class NfcHidlTest : public ::testing::VtsHalHidlTargetTestBase {
   }
 
   virtual void TearDown() override {
+    ASSERT_NE(nfc_, nullptr);
     EXPECT_EQ(NfcStatus::OK, nfc_->close());
     // Wait for CLOSE_CPLT event
     auto res = nfc_cb_->WaitForCallback(kCallbackNameSendEvent);
