@@ -40,6 +40,14 @@
         </interface>
     </hal>
     <hal format="hidl" optional="true">
+        <name>android.hardware.biometrics.face_authentication</name>
+        <version>1.0</version>
+        <interface>
+            <name>IBiometricsFace</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
         <name>android.hardware.bluetooth</name>
         <version>1.0</version>
         <interface>

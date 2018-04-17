@@ -1,0 +1,147 @@
+/*
+ * Copyright (C) 2017 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package android.hardware.biometrics.face_authentication@1.0;
+
+/**
+ * Request status indicates whether the request is accepted by the vendor
+ * implementation or not. These values are taken from the errno set,
+ * except for the SYS_UNKNOWN
+ */
+enum RequestStatus : int32_t {
+  SYS_UNKNOWN = 1,
+  SYS_OK = 0,
+  SYS_ENOENT = -2,
+  SYS_EINTR = -4,
+  SYS_EIO = -5,
+  SYS_EAGAIN = -11,
+  SYS_ENOMEM = -12,
+  SYS_EACCES = -13,
+  SYS_EFAULT = -14,
+  SYS_EBUSY = -16,
+  SYS_EINVAL = -22,
+  SYS_ENOSPC = -28,
+  SYS_ETIMEDOUT = -110,
+};
+
+/**
+ * Face authentication errors are meant to tell the framework to terminate the 
+ * current operation and ask for the user to correct the situation. These will
+ * almost always result in messaging and user interaction to correct the problem.
+ *
+ * For example, ERROR_CANCELED should follow any acquisition message that
+ * results in a situation where the current operation can't continue without
+ * user interaction. For example, if the images comes out too bright
+ * during enrollment and no further enrollment progress can be made, 
+ * send ACQUIRED_TOO_BRIGHT followed by ERROR_CANCELED.
+ */
+enum FaceError : int32_t {
+  /** Used for testing, no error returned */
+  ERROR_NO_ERROR = 0,
+  /** The hardware has an error that can't be resolved. */
+  ERROR_HW_UNAVAILABLE = 1,
+  /** Bad data; operation can't continue */
+  ERROR_UNABLE_TO_PROCESS = 2,
+  /** The operation has timed out waiting for user input. */
+  ERROR_TIMEOUT = 3,
+  /** No space available to store a template */
+  ERROR_NO_SPACE = 4,
+  /** The current operation has been canceled */
+  ERROR_CANCELED = 5,
+  /** Unable to remove a template */
+  ERROR_UNABLE_TO_REMOVE = 6,
+  /** The hardware is in lockout due to too many attempts */
+  ERROR_LOCKOUT = 7,
+  /** Vendor-specific error message */
+  ERROR_VENDOR = 8,
+  /** User does not have a face enrolled **/
+  ERROR_NOT_ENROLLED = 11
+};
+
+/**
+ * Face acquisition info is meant as feedback for the current operation.
+ * Anything but ACQUIRED_GOOD must be shown to the user as feedback on how to
+ * take action on the current operation. For example, ACQUIRED_TOO_BRIGHT may
+ * be used to tell the user to try again in an environment with lower ambient light.
+ * If this causes the current operation to fail, an additional ERROR_CANCELED
+ * must be sent to stop the operation in progress (e.g. enrollment).
+ * In general, these messages will result in a "Try again" message.
+ */
+enum FaceAcquiredInfo : int32_t {
+  ACQUIRED_GOOD = 0,
+  /** image quality is not good enough */
+  ACQUIRED_INSUFFICIENT = 1,
+  /** too much ambient light */
+  ACQUIRED_TOO_BRIGHT = 2,
+  /** illumination light abscured */
+  ACQUIRED_TOO_DARK = 3,
+  /** face too close to sensor */
+  ACQUIRED_TOO_CLOSE = 4,
+  /** face too far from sensor */
+  ACQUIRED_TOO_FAR = 5,
+  /** only upper part of face was detected by sensor */
+  ACQUIRED_TOO_HIGH = 6,
+  /** only lower part of face was detected by sensor  */
+  ACQUIRED_TOO_LOW = 7,
+  /** only right part of face was detected by sensor */
+  ACQUIRED_TOO_RIGHT = 8,
+  /** only left part of face was detected by sensor */
+  ACQUIRED_TOO_LEFT = 9,
+  /** face gaze too rotated in relation to sensor */
+  ACQUIRED_POOR_GAZE = 10,
+  /** face not detected */
+  ACQUIRED_NOT_DETECTED = 11,
+  /** vendor-specific acquisition messages */
+  ACQUIRED_VENDOR = 12
+};
+
+struct FaceAuthenticationFaceId {
+  /** User ID */
+  uint32_t uid;
+};
+
+struct FaceEnroll {
+  /** Template ID */
+  FaceAuthenticationFaceId face;
+  /**
+   * samplesRemaining goes from N (no data collected, but N scans needed)
+   * to 0 (no more data is needed to build a template). */
+  uint32_t samplesRemaining;
+  /** Vendor specific message. Used for user guidance */
+  uint64_t msg;
+};
+
+struct FaceAcquired {
+  /** information about the image */
+  FaceAcquiredInfo acquiredInfo;
+};
+
+struct FaceAuthenticated {
+  /** Matched template ID */
+  FaceAuthenticationFaceId face;
+  /** Authentication result from the keymaster */
+  uint8_t[69] hat;
+};
+
+/** Run time type identification for the notify() call payload. */
+enum FaceMsgType : int32_t {
+  ERROR = -1,
+  ACQUIRED = 1,
+  TEMPLATE_ENROLLING = 3,
+  TEMPLATE_REMOVED = 4,
+  AUTHENTICATED = 5,
+};
+
