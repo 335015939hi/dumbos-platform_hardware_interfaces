@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4c600d9d_9e33b641",
+        "filename": "media/omx/1.0/vts/functional/audio/VtsHalMediaOmxV1_0TargetAudioDecTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1021605
+      },
+      "writtenOn": "2018-04-20T00:18:53Z",
+      "side": 1,
+      "message": "we should not detect secure components by name, but by XML/IOmxStore API via feature-secure-playback metadata",
+      "range": {
+        "startLine": 213,
+        "startChar": 27,
+        "endLine": 213,
+        "endChar": 44
+      },
+      "revId": "434c83add1cc8f013bfaae2a2e6a5efe14d50c78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
