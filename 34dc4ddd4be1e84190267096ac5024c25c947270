@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b68a159c_4f5de8c7",
+        "filename": "graphics/composer/2.1/utils/hwc2on1adapter/CleanSpec.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-04-26T17:39:05Z",
+      "side": 1,
+      "message": "moving this will cause these to be rerun",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 79
+      },
+      "revId": "34dc4ddd4be1e84190267096ac5024c25c947270",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
