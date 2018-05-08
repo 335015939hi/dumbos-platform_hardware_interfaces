@@ -1,0 +1,15 @@
+cc_library_shared {
+    name: "android.hardware.fastboot@1.0-impl",
+    relative_install_path: "hw",
+    proprietary: true,
+    srcs: [
+        "Fastboot.cpp",
+        "FastbootLogger.cpp",
+    ],
+    shared_libs: [
+        "libhidlbase",
+        "libhidltransport",
+        "libutils",
+        "android.hardware.fastboot@1.0",
+    ],
+}
