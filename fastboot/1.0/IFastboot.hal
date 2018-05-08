@@ -1,0 +1,166 @@
+/*
+ * Copyright (C) 2018 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package android.hardware.fastboot@1.0;
+
+import IFastbootLogger;
+
+/**
+ * IFastboot interface implements vendor specific fastboot commands.
+ */
+interface IFastboot {
+    /**
+     * Returns a bool indicating whether the bootloader is enforcing verified
+     * boot.
+     *
+     * @return verifiedBootState True if the bootloader is enforcing verified
+     *             boot and False otherwise.
+     */
+    isVerifiedBootEnabled() generates (bool verifiedBootState);
+
+    /**
+     * Returns a bool indicating the off-mode-charge setting. If off-mode
+     * charging is enabled, the device autoboots into a special mode when
+     * power is applied.
+     *
+     * @return offModeChargeState True if the setting is enabled and False if
+     *             not.
+     */
+    isOffModeChargeEnabled() generates (bool offModeChargeState);
+
+    /**
+     * Returns the minimum battery voltage required for flashing in mV.
+     *
+     * @return batteryVoltage Minimum batterery voltage (in mV) required for
+     *             flashing to be successful.
+     */
+    getBatteryVoltageFlashingThreshold() generates (int32_t batteryVoltage);
+
+    /**
+     * Returns a bool indicating whether the device has been unlocked for
+     * flashing using the fastboot command "flashing unlocked".
+     *
+     * @return lockStatus True if the device is locked for flashing
+     *             and False otherwise.
+     */
+    getFlashingLockState() generates (bool lockStatus);
+
+    /**
+     * Lock/unlock the ability to flash the device.
+     *
+     * @param lockState Locks device flashing if set to True, unlocks if False.
+     * @return result SUCCESS if the operation is successful,
+     *             FAILURE_UNKNOWN if unsuccessful,
+     *             NOT_SUPPORTED if the operation is not supported.
+     */
+    setFlashingLockState(bool lockState) generates (Result result);
+
+    /**
+     * Returns a bool indicating whether the critical partitions of the device
+     * (needed to boot bootloader) are unlocked for flashing.
+     *
+     * @return lockStatus True if the critical partitions are locked
+     *             for flashing and False otherwise.
+     */
+    getCriticalFlashingLockState() generates (bool lockStatus);
+
+    /**
+     * Lock or unlock flashing of critical partitions needed to boot to
+     * the bootloader. If a reboot is required to
+     * accomplish this, the device must reboot back to fastboot.
+     *
+     * @param lockState Locks the flashing of critical partitions if true,
+     *            unlocks if false.
+     * @return result SUCCESS if the operation is successful,
+     *             FALIURE if unsuccessful,
+     *             NOT_SUPPORTED if the operation is not supported.
+     */
+    setCriticalFlashingLockState(bool lockState) generates (Result result);
+
+    /**
+     * Returns the maximum size of an image that can be downloaded in bytes.
+     * Images larger than this size will be sent from the host using
+     * multiple sparse images.
+     *
+     * @return imageSize Maximum size of an image that can be downloaded in
+     *             bytes.
+     */
+    getMaxDownloadSize() generates (uint64_t imageSize);
+
+    /**
+     * Returns the list of partition names.
+     *
+     * @return partitions List of PartitionDetails structs which contain
+     *             partition names, types, sizes and whether they need to be
+     *             flashed by the HAL.
+     */
+    getPartitions() generates (vec<PartitionDetails> partitions);
+
+    /**
+     * Flash a partition with vendor logic or check vendor specific conditions
+     * before flashing a partition.
+     *
+     * @param partitionName Name of the partition to be flashed. 'partitionName'
+     *            must be one of the partitions returned by getPartitions().
+     * @param image A native handle with one file descriptor to pass image
+     *            data to be flashed.
+     * @param isFill If 'isFill' is true, flashing is done with a repeated
+     *            4-byte sequence. The pattern to be used and the size of
+     *            the memory to be flashed will be passed using 'image'.
+     * @param offset Offset in partition to begin flashing.
+     * @return result SUCCESS if the operation was successful,
+     *             INVALID_ARGUMENT if 'partitionName' is invalid,
+     *             INVALID_IMAGE_SIZE for errors due to image size,
+     *             FAILURE_UNKNOWN if the flash failed for any other reason.
+     */
+    flashPartition(string partitionName, handle image, bool isFill,
+            uint64_t offset
+        ) generates (Result result);
+
+    /**
+     * Erase a partion with vendor logic or check vendor specific conditions
+     * before erasing a partition.
+     *
+     * @param partitionName Name of the partition to be erased. 'partitionName'
+     *            must be one of the partitions returned by getPartitions().
+     * @return result SUCCESS if the operation was successful,
+     *             INVALID_ARGUMENT if 'partitionName' is invalid,
+     *             FAILURE_UNKNOWN if the erase failed.
+     */
+    erasePartition(string partitionName) generates (Result result);
+
+    /**
+     * Enables/disables serial console for the device.
+     *
+     * @param uartState Enables serial console if True and disables it
+     *            otherwise.
+     * @return result SUCCESS if the operation was successful,
+     *             FAILURE_UNKNOWN if unsuccessful,
+     *             NOT_SUPPORTED if the method is not supported.
+     */
+    setSerialConsoleState(bool uartState) generates (Result result);
+
+    /**
+     * Opens the interface and provides the logger routines.
+     * The previously registered callback must be replaced with
+     * 'logger'.
+     *
+     * @param logger Logger interface for IFastboot.
+     * @return result SUCCESS if the operation is successful,
+     *             INVALID_ARGUMENT if 'logger' is invalid
+     *             FAILURE_UNKNOWN for other errors.
+     */
+    setLogger(IFastbootLogger logger) generates (Result result);
+};
