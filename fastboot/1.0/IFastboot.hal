@@ -1,0 +1,149 @@
+/*
+ * Copyright (C) 2018 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package android.hardware.fastboot@1.0;
+
+import IFastbootLogger;
+/**
+ * IFastboot interface implements vendor specific fastboot commands.
+ */
+
+interface IFastboot {
+    /**
+     * Returns a bool indicating whether the bootloader is enforcing security
+     * policies like boot verification.
+     *
+     * @return secureStatus True if the bootloader is enforcing security and
+     * False otherwise.
+     */
+    getSecureStatus() generates (bool secureStatus);
+
+    /**
+     * Returns a bool indicating whether the device has been unlocked for
+     * flashing using the fastboot command "flashing unlocked"
+     *
+     * @return unlockStatus True if the device has been unlocked for flashing
+     * and False otherwise.
+     */
+    getFlashUnlockStatus() generates (bool unlockStatus);
+
+    /**
+     * Returns a bool indicating the off-mode-charge setting. If off-mode
+     * charging is enabled, the device autoboots into a special mode when
+     * power is applied.
+     *
+     * @return offModeChargeSetting True if the setting is enabled and False if
+     * not.
+     */
+    getOffModeChargeSetting() generates (bool offModeChargeSetting);
+
+    /**
+     * Returns the current battery voltage.
+     *
+     * @return batteryVoltage Battery Voltage in mV.
+     */
+    getBatteryVoltage() generates (int32_t batteryVoltage);
+
+    /**
+     * Return a bool indicating if the battery voltage is sufficient
+     * for flashing.
+     *
+     * @return status True if the battery voltage is acceptable
+     * for flashing and false otherwise.
+     */
+    getBatteryFlashStatus() generates (bool status);
+
+    /**
+     * Returns the number of supported slots.
+     *
+     * @return slotCount Integer returning number of supported slots.
+     */
+    getSlotCount() generates (uint8_t slotCount);
+
+    /**
+     * Lock/unlock the ability to flash the device.
+     *
+     * @param lockState Locks device flashing if set to true, unlocks if false.
+     *
+     * @return result Returns SUCCESS if the operation is successful,
+     *                        FAILURE if unsuccessful,
+     *                        NOT_SUPPORTED if the operation is not supported.
+     */
+    setFlashingLockState(bool lockState ) generates (Result result);
+
+    /**
+     * Lock or unlock flashing of critical partitions(the ones needed to boot to
+     * the bootloader. If a reboot is required to
+     * accomplish this, the device will reboot back to fastboot.
+     *
+     * @param lockState Locks the flashing of critical partitions if true,
+     * unlocks if false.
+     *
+     * @return result Returns SUCCESS if the operation is successful,
+     *                        FALIURE if unsuccessful,
+     *                        NOT_SUPPORTED if the operation is not supported.
+     */
+    setCriticalFlashingLockState(bool lockState) generates (Result result);
+
+    /**
+     * Flash a partition with vendor logic or check vendor specific conditions
+     * before flashing a partition. The HAL would have received the image to be
+     * flashed by an earlier downloadImage() command.
+     *
+     * @param partitionName Name of the partition to be flashed.
+     * @param imageData Image to be flashed.
+     *
+     * @return result Returns SUCCESS if the operation was successful,
+     *                        INVALID_ARGUMENT if 'partitionName' is invalid,
+     *                        FAILURE if the flash failed.
+     */
+    flashPartition(string partitionName, vec<uint8_t> imageData) generates
+        (Result result);
+
+    /**
+     * Erase a partion with vendor logic or check vendor specific conditions
+     * before erasing a partition.
+     *
+     * @param partitionName Name of the partition to be erased.
+     *
+     * @return result Returns SUCCESS if the operation was successful,
+     *                        INVALID_ARGUMENT if 'partitionName' is invalid,
+     *                        FAILURE if the erase failed.
+     */
+    erasePartition(string partitionName) generates (Result result);
+
+    /**
+     * Enables/disables serial console for the device.
+     *
+     * @param uartState Enables serial console if True and disables it
+     * otherwise.
+     *
+     * @return result Returns SUCCESS if the operation was successful,
+     *                        FAILURE if unsuccessful,
+     *                        NOT_SUPPORTED if the method is not supported.
+     */
+    setSerialConsoleState(bool uartState) generates (Result result);
+
+    /**
+     * Opens the interface and provides the logger routines
+     * to the implementation of this interface.
+     *
+     * @param logger Logger interface for IFastboot.
+     * @return result returns SUCCESS if the operation is successful,
+     *                        INVALID_ARGUMENT if 'logger' is invalid
+     *                        FAILURE for other errors.
+     */
+    setLogger(IFastbootLogger logger) generates (Result result);
+};
