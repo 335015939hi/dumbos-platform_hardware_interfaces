@@ -1,0 +1,76 @@
+/*
+ * Copyright (C) 2016 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package android.hardware.fastboot@1.0;
+
+/**
+ * IFastboot interface implements vendor specific fastboot commands.
+ */
+
+interface IFastboot {
+    /**
+     *  Return a bootloader variable, or all variables.
+     *
+     * @param variableName Name of the variable whose value will be returned.
+     * @return value Value of the bootloader variable 'variableName'
+     * @return result SUCCESS on success
+     *                NOT_SUPPORTED if the variable is not supported
+     */
+    //getBootloaderVariable(BootLoaderVariable variableName) generates(string value, Result result);
+
+    /**
+     * Sets the slot that will be booted on in the next boot attempt.
+     * @param slot Slot that will be booted from the next boot attempt.
+     * @return result SUCCESS on success
+     *                NOT_SUPPORTED if the slot is invalid.
+     */
+    setActiveSlot(/*SlotName*/ string slot) generates (Result result);
+
+    /**
+     * Reboots the device into fastboot mode.
+     *
+     */
+    oneway rebootBootloader();
+
+    /**
+     * Sets the device into a flashable state.
+     *
+     * @return result Returns SUCCESS or FAILURE depending on the status of the
+     * operation
+     */
+    setFlashingUnlock() generates (Result result);
+
+    /**
+     * Sets the device into a flashable state.
+     *
+     * @return result Returns SUCCESS or FAILURE depending on the status of the
+     * operation
+     */
+    setFlashingLock() generates (Result result);
+
+    /**
+     * Set the device into a state where critical partitions(the ones needed to
+     * boot to the bootloader) can be flashed. If a reboot is required to
+     * accomplish this, the device will reboot back to fastboot.
+     */
+    oneway setFlashingUnlockCritical();
+
+    /**
+     * Sets the device into a state where critical partitions cannot be flashed.
+     * If a reboot is required to accomplish this, it will reboot back into
+     * fastboot
+     */
+    oneway setFlashingLockCritical();
+};
