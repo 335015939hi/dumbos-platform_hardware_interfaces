@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2aae6281_489355c3",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2018-05-09T02:17:05Z",
+      "side": 1,
+      "message": "Suggest expand to multiple functions (one for each BootLoaderVariable) to allow better extensibility. smoreland@ ?",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 98
+      },
+      "revId": "c84eaf3aa93427f971c10713f043b553db9ac90d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
