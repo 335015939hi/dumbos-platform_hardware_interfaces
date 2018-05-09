@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3eaf413d_c79a2b68",
+        "filename": "current.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-05-09T16:45:38Z",
+      "side": 1,
+      "message": "not here",
+      "range": {
+        "startLine": 224,
+        "startChar": 3,
+        "endLine": 224,
+        "endChar": 44
+      },
+      "revId": "7b2777a2f510ace1ae9be373c29a6a9579d4c7f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb2fdd67_8e22660d",
+        "filename": "current.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-05-09T16:45:38Z",
+      "side": 1,
+      "message": "here :)",
+      "range": {
+        "startLine": 252,
+        "startChar": 65,
+        "endLine": 252,
+        "endChar": 107
+      },
+      "revId": "7b2777a2f510ace1ae9be373c29a6a9579d4c7f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
