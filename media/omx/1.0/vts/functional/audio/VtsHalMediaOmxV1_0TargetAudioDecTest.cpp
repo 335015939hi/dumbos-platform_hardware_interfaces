@@ -209,7 +209,22 @@ class AudioDecHidlTest : public ::testing::VtsHalHidlTargetTestBase {
         framesReceived = 0;
         timestampUs = 0;
         timestampDevTest = false;
-        if (disableTest) std::cerr << "[          ] Warning !  Test Disabled\n";
+        bool isSecure = false;
+        size_t suffixLen = strlen(".secure");
+        if (strlen(gEnv->getComponent().c_str()) >= suffixLen) {
+            isSecure =
+                !strcmp(gEnv->getComponent().c_str() +
+                            strlen(gEnv->getComponent().c_str()) - suffixLen,
+                        ".secure");
+        }
+        if (isSecure) disableTest = true;
+        suffixLen = strlen(".tunnel");
+        if (!disableTest && strlen(gEnv->getComponent().c_str()) >= suffixLen &&
+            !strcmp(gEnv->getComponent().c_str() +
+                        strlen(gEnv->getComponent().c_str()) - suffixLen,
+                    ".tunnel"))
+            disableTest = true;
+        if (disableTest) std::cout << "[   WARN   ] Test Disabled \n";
     }
 
     virtual void TearDown() override {
