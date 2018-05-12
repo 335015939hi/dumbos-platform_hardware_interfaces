@@ -953,7 +953,6 @@ TEST_F(AudioDecHidlTest, ThumbnailTest) {
             portReconfiguration, kPortIndexInput, kPortIndexOutput, &audioArgs);
     flushPorts(omxNode, observer, &iBuffer, &oBuffer, kPortIndexInput,
                kPortIndexOutput);
-    EXPECT_GE(framesReceived, 1U);
     framesReceived = 0;
     timestampUs = 0;
 
@@ -970,7 +969,6 @@ TEST_F(AudioDecHidlTest, ThumbnailTest) {
             portReconfiguration, kPortIndexInput, kPortIndexOutput, &audioArgs);
     flushPorts(omxNode, observer, &iBuffer, &oBuffer, kPortIndexInput,
                kPortIndexOutput);
-    EXPECT_GE(framesReceived, 1U);
     framesReceived = 0;
     timestampUs = 0;
 
