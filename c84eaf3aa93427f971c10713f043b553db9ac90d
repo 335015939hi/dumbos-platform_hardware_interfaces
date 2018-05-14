@@ -22,6 +22,30 @@
       "revId": "c84eaf3aa93427f971c10713f043b553db9ac90d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d47e2386_0baef4d9",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2018-05-14T17:55:30Z",
+      "side": 1,
+      "message": "This is done now.",
+      "parentUuid": "2aae6281_489355c3",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 98
+      },
+      "revId": "c84eaf3aa93427f971c10713f043b553db9ac90d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
