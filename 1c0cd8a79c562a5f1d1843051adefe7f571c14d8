@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cf879d3f_5d059bfc",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1113594
+      },
+      "writtenOn": "2018-05-14T18:01:05Z",
+      "side": 1,
+      "message": "this should be handled by boot ctl",
+      "revId": "1c0cd8a79c562a5f1d1843051adefe7f571c14d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "223dd944_1aeda1fe",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1113594
+      },
+      "writtenOn": "2018-05-14T18:01:05Z",
+      "side": 1,
+      "message": "we can already boot to the bootloader from recovery, so I\u0027m not sure this is necessary",
+      "revId": "1c0cd8a79c562a5f1d1843051adefe7f571c14d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4cda141_e4af103b",
+        "filename": "fastboot/1.0/IFastbootCallback.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1113594
+      },
+      "writtenOn": "2018-05-14T18:01:05Z",
+      "side": 1,
+      "message": "The callback will have an enum {INFO, DATA, FAIL, OKAY} for the first parameter, and a string for the second.",
+      "revId": "1c0cd8a79c562a5f1d1843051adefe7f571c14d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
