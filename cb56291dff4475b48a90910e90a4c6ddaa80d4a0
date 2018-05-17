@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d39faf03_d9526545",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1115183
+      },
+      "writtenOn": "2018-05-17T19:06:09Z",
+      "side": 1,
+      "message": "Is this necessary? The boot control HAL already provides getNumberSlots()",
+      "range": {
+        "startLine": 73,
+        "startChar": 4,
+        "endLine": 73,
+        "endChar": 16
+      },
+      "revId": "cb56291dff4475b48a90910e90a4c6ddaa80d4a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
