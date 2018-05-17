@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "31b114f3_64bb20cc",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2018-05-17T17:42:07Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "cf879d3f_5d059bfc",
+      "revId": "1c0cd8a79c562a5f1d1843051adefe7f571c14d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "223dd944_1aeda1fe",
         "filename": "fastboot/1.0/IFastboot.hal",
         "patchSetId": 3
@@ -33,6 +51,24 @@
       "revId": "1c0cd8a79c562a5f1d1843051adefe7f571c14d8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26c895b5_a313250a",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2018-05-17T17:42:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "223dd944_1aeda1fe",
+      "revId": "1c0cd8a79c562a5f1d1843051adefe7f571c14d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -65,6 +101,24 @@
       "side": 1,
       "message": "suggest to call this \"log\", \"onLog\", etc. \n\n\"Fastboot\" and \"Cb\" is not necessary because it is in the interface name.\n\nAlso, it looks like this is not really a \"callback\" conceptually. Maybe change this to \"IFastbootLogger\" and change setCallback to setLogger? Unless there are more APIs to be added to the callback interface.\n\nAlso, oneway? Does it care if the log is not successful?",
       "parentUuid": "a4cda141_e4af103b",
+      "revId": "1c0cd8a79c562a5f1d1843051adefe7f571c14d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98d5dad1_5d2b6976",
+        "filename": "fastboot/1.0/IFastbootCallback.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2018-05-17T17:42:07Z",
+      "side": 1,
+      "message": "Since only FAIL and INFO types contain descriptive messages, I made Result a struct to contain a string for the failure/info messages(the type can be determined based on the status field). The callback can hence be used strictly for messages of type INFO.\n\nstruct Result {                                                                                     \n    // status information                                                                           \n    Status status;                                                                                  \n    /**                                                                                              \n     * Log message pertaining to the status. It can be a failure message for                        \n     * Status FAILURE_UNKNOWN/NOT_SUPPORTED or an informative message for                           \n     * status SUCCESS.                                                                              \n     */                                                                                             \n    string Log;                                                                                     \n}; \n\nAlso, made the method oneway and changed the interface to IFastbootLogger.",
+      "parentUuid": "26a78bbf_0ce9de28",
       "revId": "1c0cd8a79c562a5f1d1843051adefe7f571c14d8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
