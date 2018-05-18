@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "656bf462_68eed73d",
+        "filename": "graphics/composer/2.1/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2018-05-18T00:41:13Z",
+      "side": 1,
+      "message": "it should be:\n\n    /** no error */\n    NONE            \u003d 0,",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 39
+      },
+      "revId": "6d77a234e3e56905f598a4f0692bb2cb2a8ebccf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
