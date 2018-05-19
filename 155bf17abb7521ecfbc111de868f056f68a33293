@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ef78820a_61308dff",
+        "filename": "biometrics/face_authentication/1.0/IBiometricsFace.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1004017
+      },
+      "writtenOn": "2018-05-19T00:41:54Z",
+      "side": 1,
+      "message": "Please rename to \"setCallback\"",
+      "range": {
+        "startLine": 32,
+        "startChar": 2,
+        "endLine": 32,
+        "endChar": 11
+      },
+      "revId": "155bf17abb7521ecfbc111de868f056f68a33293",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4780a71_d8ba22dc",
+        "filename": "biometrics/face_authentication/1.0/IBiometricsFace.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1004017
+      },
+      "writtenOn": "2018-05-19T00:41:54Z",
+      "side": 1,
+      "message": "Please add the enumerate function back in:\n\n   /**\n     * Enumerates all face templates associated with the active user.\n     *\n     * The onEnumerate() callback method will be invoked once for each face\n     * template found.\n     *\n     * @return status The status of this method call.\n     */\n    enumerate() generates (Status status);",
+      "range": {
+        "startLine": 103,
+        "startChar": 2,
+        "endLine": 103,
+        "endChar": 5
+      },
+      "revId": "155bf17abb7521ecfbc111de868f056f68a33293",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f99e1ec7_73904344",
+        "filename": "biometrics/face_authentication/1.0/IBiometricsFace.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1004017
+      },
+      "writtenOn": "2018-05-19T00:41:54Z",
+      "side": 1,
+      "message": "This must take a faceId or 0 (meaning \"all\"):\n    \n/**\n     * Removes a face template or all face templates associated with the active\n     * user.\n     *\n     * @param faceId The id correpsonding to the face to be removed; or 0 if all\n     *    faces are to be removed.\n     * @return status The status of this method call.\n     */\n    remove(uint32_t faceId) generates (Status status);",
+      "range": {
+        "startLine": 116,
+        "startChar": 2,
+        "endLine": 116,
+        "endChar": 23
+      },
+      "revId": "155bf17abb7521ecfbc111de868f056f68a33293",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7208f4b7_5ce14a27",
+        "filename": "biometrics/face_authentication/1.0/IBiometricsFace.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1004017
+      },
+      "writtenOn": "2018-05-19T00:41:54Z",
+      "side": 1,
+      "message": "Please call this \"setActiveUser\"",
+      "range": {
+        "startLine": 129,
+        "startChar": 2,
+        "endLine": 129,
+        "endChar": 16
+      },
+      "revId": "155bf17abb7521ecfbc111de868f056f68a33293",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2578ef6f_8710f84d",
+        "filename": "biometrics/face_authentication/1.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1004017
+      },
+      "writtenOn": "2018-05-19T00:41:54Z",
+      "side": 1,
+      "message": "I\u0027m not sure what this class represents.  I *think* it\u0027s the equivalent of FingerprintFingerId, but it only contains a user id?  It should contain a token representing the unique id of a specific enrollment. E.g. could be the non-zero position in the database or ideally a unique random number.\n\nPlease make these types closely match those in fingerprint.",
+      "range": {
+        "startLine": 111,
+        "startChar": 7,
+        "endLine": 111,
+        "endChar": 31
+      },
+      "revId": "155bf17abb7521ecfbc111de868f056f68a33293",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f050dc30_1ac2be9a",
+        "filename": "biometrics/face_authentication/1.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1004017
+      },
+      "writtenOn": "2018-05-19T00:41:54Z",
+      "side": 1,
+      "message": "Please remove this class and  follow closely to what was done for fingerprint.",
+      "range": {
+        "startLine": 119,
+        "startChar": 2,
+        "endLine": 122,
+        "endChar": 28
+      },
+      "revId": "155bf17abb7521ecfbc111de868f056f68a33293",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2b4d7b7_aedbd3c1",
+        "filename": "biometrics/face_authentication/1.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1004017
+      },
+      "writtenOn": "2018-05-19T00:41:54Z",
+      "side": 1,
+      "message": "Not sure what this is.  All feedback should be done through onAcquired() or onError().",
+      "range": {
+        "startLine": 124,
+        "startChar": 11,
+        "endLine": 124,
+        "endChar": 14
+      },
+      "revId": "155bf17abb7521ecfbc111de868f056f68a33293",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
