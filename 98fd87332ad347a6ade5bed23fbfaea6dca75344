@@ -422,6 +422,30 @@
     },
     {
       "key": {
+        "uuid": "ca5a5ef5_ca201e79",
+        "filename": "fastboot/1.0/IFastbootLogger.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1113594
+      },
+      "writtenOn": "2018-05-21T20:27:46Z",
+      "side": 1,
+      "message": "To clarify, messages passed through this function will be transmitted over USB and printed through the host fastboot tool. We don\u0027t have logcat during recovery, but we do have dmesg - its just that this does something fundamentally different.",
+      "parentUuid": "e8e8ab32_41f6dc02",
+      "range": {
+        "startLine": 27,
+        "startChar": 11,
+        "endLine": 27,
+        "endChar": 28
+      },
+      "revId": "98fd87332ad347a6ade5bed23fbfaea6dca75344",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "248ec096_299441c4",
         "filename": "fastboot/1.0/default/Android.bp",
         "patchSetId": 6
