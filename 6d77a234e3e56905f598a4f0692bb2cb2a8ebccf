@@ -22,6 +22,30 @@
       "revId": "6d77a234e3e56905f598a4f0692bb2cb2a8ebccf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ba1cebc_ac5fe17a",
+        "filename": "graphics/composer/2.1/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-05-21T21:41:03Z",
+      "side": 1,
+      "message": "These are all just re-statements of the variable name. I opted for the simplest find/replace.",
+      "parentUuid": "656bf462_68eed73d",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 39
+      },
+      "revId": "6d77a234e3e56905f598a4f0692bb2cb2a8ebccf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
