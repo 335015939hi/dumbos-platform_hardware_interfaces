@@ -1,0 +1,153 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aa83d2a6_81b9fa7b",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2018-05-21T20:15:50Z",
+      "side": 1,
+      "message": "nit: Add empty line here.",
+      "revId": "98fd87332ad347a6ade5bed23fbfaea6dca75344",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "670920f6_65b7ebe8",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2018-05-21T20:15:50Z",
+      "side": 1,
+      "message": "nit: remove empty lines here.\n\nSteven, does hidl-gen catch these cases now? and should it? (that the doc should be immediately before relevant documentation)",
+      "revId": "98fd87332ad347a6ade5bed23fbfaea6dca75344",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23c15f43_d7293f84",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2018-05-21T20:15:50Z",
+      "side": 1,
+      "message": "space\n\nnit: also, would it be more intuitive to have lockDeviceFlashing / unlockDeviceFlashing? Same below. Steven?\n(or maybe it is an overkill and over-complicates the interface...)",
+      "range": {
+        "startLine": 77,
+        "startChar": 39,
+        "endLine": 77,
+        "endChar": 40
+      },
+      "revId": "98fd87332ad347a6ade5bed23fbfaea6dca75344",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37cf0f6e_541c7cd1",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2018-05-21T20:15:50Z",
+      "side": 1,
+      "message": "flashPartition(string partitionName, handle image)\n    generates (Result result);",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 24
+      },
+      "revId": "98fd87332ad347a6ade5bed23fbfaea6dca75344",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee77a14e_cba1d9ba",
+        "filename": "fastboot/1.0/default/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2018-05-21T20:15:50Z",
+      "side": 1,
+      "message": "The implementation can be in a follow up CL, since this CL doesn\u0027t really provide an implementation (but just stubs)",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 47
+      },
+      "revId": "98fd87332ad347a6ade5bed23fbfaea6dca75344",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5ff8195_5247b90b",
+        "filename": "fastboot/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2018-05-21T20:15:50Z",
+      "side": 1,
+      "message": "/** Operation completed without errors. */\nSUCCESS,",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 62
+      },
+      "revId": "98fd87332ad347a6ade5bed23fbfaea6dca75344",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "383e5a93_f11c3269",
+        "filename": "fastboot/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2018-05-21T20:15:50Z",
+      "side": 1,
+      "message": "Turn this into a doc or remove this line",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 25
+      },
+      "revId": "98fd87332ad347a6ade5bed23fbfaea6dca75344",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
