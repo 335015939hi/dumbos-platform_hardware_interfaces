@@ -446,6 +446,30 @@
     },
     {
       "key": {
+        "uuid": "4664381c_b9619176",
+        "filename": "fastboot/1.0/IFastbootLogger.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-05-21T20:46:19Z",
+      "side": 1,
+      "message": "I see. Hridya, could you add some of this information to the comments? Thanks!\n\nAlso, with this being oneway, this will be forced onto another thread specific to oneway transactions.",
+      "parentUuid": "ca5a5ef5_ca201e79",
+      "range": {
+        "startLine": 27,
+        "startChar": 11,
+        "endLine": 27,
+        "endChar": 28
+      },
+      "revId": "98fd87332ad347a6ade5bed23fbfaea6dca75344",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "248ec096_299441c4",
         "filename": "fastboot/1.0/default/Android.bp",
         "patchSetId": 6
