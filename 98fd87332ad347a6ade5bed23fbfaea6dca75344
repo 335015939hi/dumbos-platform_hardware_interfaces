@@ -169,6 +169,30 @@
     },
     {
       "key": {
+        "uuid": "5f8312a3_2cc868ef",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2018-05-22T01:49:53Z",
+      "side": 1,
+      "message": "ah, yeah, that\u0027s better: that\u0027s the Java naming convention everyone knows :-)",
+      "parentUuid": "cec48624_80ab231c",
+      "range": {
+        "startLine": 31,
+        "startChar": 38,
+        "endLine": 31,
+        "endChar": 50
+      },
+      "revId": "98fd87332ad347a6ade5bed23fbfaea6dca75344",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cda57c73_f4d07f7b",
         "filename": "fastboot/1.0/IFastboot.hal",
         "patchSetId": 6
@@ -555,6 +579,29 @@
         "startChar": 27,
         "endLine": 31,
         "endChar": 38
+      },
+      "revId": "98fd87332ad347a6ade5bed23fbfaea6dca75344",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4c1ffd6_31153484",
+        "filename": "fastboot/1.0/default/Fastboot.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2018-05-22T01:49:53Z",
+      "side": 1,
+      "message": "(should this be \"status\" too? not clear to me whether you have a naming convention where bool \u003c\u003d\u003e status.)",
+      "range": {
+        "startLine": 42,
+        "startChar": 17,
+        "endLine": 42,
+        "endChar": 40
       },
       "revId": "98fd87332ad347a6ade5bed23fbfaea6dca75344",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
