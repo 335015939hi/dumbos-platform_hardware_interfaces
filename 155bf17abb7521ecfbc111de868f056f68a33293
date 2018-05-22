@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "99e3c2c2_8195ced8",
+        "filename": "biometrics/face_authentication/1.0/IBiometricsFace.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1284969
+      },
+      "writtenOn": "2018-05-22T09:25:04Z",
+      "side": 1,
+      "message": "This function is only required if we support multiple faces (different persons) enrollment for a single user. we agreed to remove enumeration from the entire stack when we agreed for a single person face enrollment.",
+      "parentUuid": "c4780a71_d8ba22dc",
+      "range": {
+        "startLine": 103,
+        "startChar": 2,
+        "endLine": 103,
+        "endChar": 5
+      },
+      "revId": "155bf17abb7521ecfbc111de868f056f68a33293",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f99e1ec7_73904344",
         "filename": "biometrics/face_authentication/1.0/IBiometricsFace.hal",
         "patchSetId": 1
@@ -59,6 +83,30 @@
       "writtenOn": "2018-05-19T00:41:54Z",
       "side": 1,
       "message": "This must take a faceId or 0 (meaning \"all\"):\n    \n/**\n     * Removes a face template or all face templates associated with the active\n     * user.\n     *\n     * @param faceId The id correpsonding to the face to be removed; or 0 if all\n     *    faces are to be removed.\n     * @return status The status of this method call.\n     */\n    remove(uint32_t faceId) generates (Status status);",
+      "range": {
+        "startLine": 116,
+        "startChar": 2,
+        "endLine": 116,
+        "endChar": 23
+      },
+      "revId": "155bf17abb7521ecfbc111de868f056f68a33293",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9136881c_483b2cee",
+        "filename": "biometrics/face_authentication/1.0/IBiometricsFace.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1284969
+      },
+      "writtenOn": "2018-05-22T09:25:04Z",
+      "side": 1,
+      "message": "We removed as part of the support of single enrollment, as we agreed.",
+      "parentUuid": "f99e1ec7_73904344",
       "range": {
         "startLine": 116,
         "startChar": 2,
@@ -117,6 +165,30 @@
     },
     {
       "key": {
+        "uuid": "5f1721f5_c9832527",
+        "filename": "biometrics/face_authentication/1.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1284969
+      },
+      "writtenOn": "2018-05-22T09:25:04Z",
+      "side": 1,
+      "message": "Indeed the struct is only to match fingerprint struct, removing the multiple enrollments fields. The same as we discussed and agreed in the FaceAuthenticationManager Face class.",
+      "parentUuid": "2578ef6f_8710f84d",
+      "range": {
+        "startLine": 111,
+        "startChar": 7,
+        "endLine": 111,
+        "endChar": 31
+      },
+      "revId": "155bf17abb7521ecfbc111de868f056f68a33293",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f050dc30_1ac2be9a",
         "filename": "biometrics/face_authentication/1.0/types.hal",
         "patchSetId": 1
@@ -140,6 +212,30 @@
     },
     {
       "key": {
+        "uuid": "217089a8_07d62b06",
+        "filename": "biometrics/face_authentication/1.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1284969
+      },
+      "writtenOn": "2018-05-22T09:25:04Z",
+      "side": 1,
+      "message": "This is actually directly derived from FingerprintEnroll, which is defined in types.hal of the fingerprint interface. It was unused by onEnrollResult in fingerprint, but since we need this data in the enrollment app, face enroll result uses it.",
+      "parentUuid": "f050dc30_1ac2be9a",
+      "range": {
+        "startLine": 119,
+        "startChar": 2,
+        "endLine": 122,
+        "endChar": 28
+      },
+      "revId": "155bf17abb7521ecfbc111de868f056f68a33293",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c2b4d7b7_aedbd3c1",
         "filename": "biometrics/face_authentication/1.0/types.hal",
         "patchSetId": 1
@@ -151,6 +247,30 @@
       "writtenOn": "2018-05-19T00:41:54Z",
       "side": 1,
       "message": "Not sure what this is.  All feedback should be done through onAcquired() or onError().",
+      "range": {
+        "startLine": 124,
+        "startChar": 11,
+        "endLine": 124,
+        "endChar": 14
+      },
+      "revId": "155bf17abb7521ecfbc111de868f056f68a33293",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40463a3d_67e17d92",
+        "filename": "biometrics/face_authentication/1.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1284969
+      },
+      "writtenOn": "2018-05-22T09:25:04Z",
+      "side": 1,
+      "message": "onAcquire and onError include messages to the user for erroneous behavior in enrollment. We need a way to pass data on enrollment positive progress, to provide feedback to the user on enrollment status (such as which sides of his face were already captured successfully).",
+      "parentUuid": "c2b4d7b7_aedbd3c1",
       "range": {
         "startLine": 124,
         "startChar": 11,
