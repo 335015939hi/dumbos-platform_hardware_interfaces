@@ -1,11 +1,12 @@
 cc_library_shared {
     name: "android.hardware.boot@1.0-impl",
+    recovery_available: true,
+    vendor_available: true,
     defaults: ["hidl_defaults"],
-    relative_install_path: "hw",
-    vendor: true,
     srcs: ["BootControl.cpp"],
 
     shared_libs: [
+        "libbase",
         "liblog",
         "libhidlbase",
         "libhidltransport",
@@ -14,6 +15,7 @@ cc_library_shared {
         "android.hardware.boot@1.0",
     ],
 
+    export_include_dirs: ["include"],
 }
 
 cc_binary {
