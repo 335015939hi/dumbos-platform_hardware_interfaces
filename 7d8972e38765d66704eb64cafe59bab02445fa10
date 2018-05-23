@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6489e71b_767c8321",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-05-23T18:55:43Z",
+      "side": 1,
+      "message": "the format is exactly four spaces here (to be like java doc and also to provide more room) sorry for the confusion!",
+      "range": {
+        "startLine": 29,
+        "startChar": 7,
+        "endLine": 29,
+        "endChar": 28
+      },
+      "revId": "7d8972e38765d66704eb64cafe59bab02445fa10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae46885c_4387218d",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-05-23T18:55:43Z",
+      "side": 1,
+      "message": "voltage can technically be negative?",
+      "range": {
+        "startLine": 49,
+        "startChar": 52,
+        "endLine": 49,
+        "endChar": 60
+      },
+      "revId": "7d8972e38765d66704eb64cafe59bab02445fa10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50a7a804_e0962098",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-05-23T18:55:43Z",
+      "side": 1,
+      "message": "extra newline?",
+      "revId": "7d8972e38765d66704eb64cafe59bab02445fa10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d85ac7b_a010126f",
+        "filename": "fastboot/1.0/IFastbootLogger.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-05-23T18:55:43Z",
+      "side": 1,
+      "message": "must",
+      "revId": "7d8972e38765d66704eb64cafe59bab02445fa10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

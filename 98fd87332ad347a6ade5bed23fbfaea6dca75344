@@ -704,6 +704,30 @@
     },
     {
       "key": {
+        "uuid": "1e366366_3091ea07",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-05-23T18:55:43Z",
+      "side": 1,
+      "message": "ping?",
+      "parentUuid": "69e764cc_29e96ec0",
+      "range": {
+        "startLine": 106,
+        "startChar": 19,
+        "endLine": 106,
+        "endChar": 39
+      },
+      "revId": "98fd87332ad347a6ade5bed23fbfaea6dca75344",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "37cf0f6e_541c7cd1",
         "filename": "fastboot/1.0/IFastboot.hal",
         "patchSetId": 6
