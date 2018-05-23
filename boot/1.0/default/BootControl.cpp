@@ -19,7 +19,7 @@
 
 #include <hardware/hardware.h>
 #include <hardware/boot_control.h>
-#include "BootControl.h"
+#include "boot/BootControl.h"
 
 namespace android {
 namespace hardware {
