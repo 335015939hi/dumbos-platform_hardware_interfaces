@@ -728,6 +728,24 @@
     },
     {
       "key": {
+        "uuid": "3fbba77f_323d0543",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-05-23T19:51:34Z",
+      "side": 1,
+      "message": "we don\u0027t want something like getPartitions or similar? As options for erase partition? Otherwise, we would have to define the standard partitions in this file.",
+      "parentUuid": "5bddd09d_19485208",
+      "revId": "98fd87332ad347a6ade5bed23fbfaea6dca75344",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "37cf0f6e_541c7cd1",
         "filename": "fastboot/1.0/IFastboot.hal",
         "patchSetId": 6
