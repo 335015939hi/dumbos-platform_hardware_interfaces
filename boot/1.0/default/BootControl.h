@@ -17,6 +17,7 @@
 #define ANDROID_HARDWARE_BOOT_V1_0_BOOTCONTROL_H
 
 #include <android/hardware/boot/1.0/IBootControl.h>
+#include <hardware/boot_control.h>
 #include <hidl/Status.h>
 
 #include <hidl/MQDescriptor.h>
