@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "72e316eb_7e301657",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2018-05-24T23:47:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6489e71b_767c8321",
+      "range": {
+        "startLine": 29,
+        "startChar": 7,
+        "endLine": 29,
+        "endChar": 28
+      },
+      "revId": "7d8972e38765d66704eb64cafe59bab02445fa10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ae46885c_4387218d",
         "filename": "fastboot/1.0/IFastboot.hal",
         "patchSetId": 7
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "c18e24ad_eede5572",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2018-05-24T23:47:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae46885c_4387218d",
+      "range": {
+        "startLine": 49,
+        "startChar": 52,
+        "endLine": 49,
+        "endChar": 60
+      },
+      "revId": "7d8972e38765d66704eb64cafe59bab02445fa10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "50a7a804_e0962098",
         "filename": "fastboot/1.0/IFastboot.hal",
         "patchSetId": 7
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "648bc957_94ef9f40",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2018-05-24T23:47:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50a7a804_e0962098",
+      "revId": "7d8972e38765d66704eb64cafe59bab02445fa10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7d85ac7b_a010126f",
         "filename": "fastboot/1.0/IFastbootLogger.hal",
         "patchSetId": 7
@@ -79,6 +145,24 @@
       "revId": "7d8972e38765d66704eb64cafe59bab02445fa10",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da19253a_1b7295f0",
+        "filename": "fastboot/1.0/IFastbootLogger.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2018-05-24T23:47:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d85ac7b_a010126f",
+      "revId": "7d8972e38765d66704eb64cafe59bab02445fa10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

@@ -746,6 +746,24 @@
     },
     {
       "key": {
+        "uuid": "d74a1f98_db3721d1",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2018-05-24T23:47:11Z",
+      "side": 1,
+      "message": "Added a getPartitions() method.",
+      "parentUuid": "3fbba77f_323d0543",
+      "revId": "98fd87332ad347a6ade5bed23fbfaea6dca75344",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "37cf0f6e_541c7cd1",
         "filename": "fastboot/1.0/IFastboot.hal",
         "patchSetId": 6
