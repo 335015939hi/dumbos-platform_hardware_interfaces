@@ -141,6 +141,30 @@
     },
     {
       "key": {
+        "uuid": "57fabbfa_ab4436b2",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1056365
+      },
+      "writtenOn": "2018-05-25T18:44:54Z",
+      "side": 1,
+      "message": "fastboot only queries the partition size when needing to format that partition (e.g. system, or userdata). For flashing, it queries the max-download-size, then sends the given image in chunks. bootloader may reject oversizing images.",
+      "parentUuid": "6e70e1c1_01b53964",
+      "range": {
+        "startLine": 107,
+        "startChar": 7,
+        "endLine": 109,
+        "endChar": 47
+      },
+      "revId": "b457d2b6f4dc34023a85f327f84ca08a9db98169",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c3be80a4_127a8a8c",
         "filename": "fastboot/1.0/IFastbootLogger.hal",
         "patchSetId": 8
