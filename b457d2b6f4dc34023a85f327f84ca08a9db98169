@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "247e77bf_86f36ea6",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2018-05-25T18:29:42Z",
+      "side": 1,
+      "message": "OEMs can user whatever verified boot solution they like - we currently only require that it has certain properties, not that it uses a particular file format or implementation. See https://source.android.com/compatibility/android-cdd#9_10_device_integrity",
+      "parentUuid": "8298d29c_8a3fd4aa",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 31,
+        "endChar": 25
+      },
+      "revId": "b457d2b6f4dc34023a85f327f84ca08a9db98169",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f2306c25_9bffd267",
         "filename": "fastboot/1.0/IFastboot.hal",
         "patchSetId": 8
