@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "06ac3b47_44855aa7",
+        "filename": "biometrics/face_authentication/1.0/IBiometricsFace.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1004017
+      },
+      "writtenOn": "2018-05-29T23:07:54Z",
+      "side": 1,
+      "message": "I think it\u0027s fine to rename it in this case. The setNotify() method in fingerprint was named to be consistent with the legacy HAL implementation.",
+      "parentUuid": "a88f1111_93bdc252",
+      "range": {
+        "startLine": 32,
+        "startChar": 2,
+        "endLine": 32,
+        "endChar": 11
+      },
+      "revId": "155bf17abb7521ecfbc111de868f056f68a33293",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c4780a71_d8ba22dc",
         "filename": "biometrics/face_authentication/1.0/IBiometricsFace.hal",
         "patchSetId": 1
@@ -96,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "6e58addf_5141956e",
+        "filename": "biometrics/face_authentication/1.0/IBiometricsFace.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1004017
+      },
+      "writtenOn": "2018-05-29T23:07:54Z",
+      "side": 1,
+      "message": "Phones should have exactly 1 or 0. The method needs to be there to support some device classes.  Cars and TVs, for example, might have more than 1 per account.",
+      "parentUuid": "99e3c2c2_8195ced8",
+      "range": {
+        "startLine": 103,
+        "startChar": 2,
+        "endLine": 103,
+        "endChar": 5
+      },
+      "revId": "155bf17abb7521ecfbc111de868f056f68a33293",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f99e1ec7_73904344",
         "filename": "biometrics/face_authentication/1.0/IBiometricsFace.hal",
         "patchSetId": 1
@@ -131,6 +179,30 @@
       "side": 1,
       "message": "We removed as part of the support of single enrollment, as we agreed.",
       "parentUuid": "f99e1ec7_73904344",
+      "range": {
+        "startLine": 116,
+        "startChar": 2,
+        "endLine": 116,
+        "endChar": 23
+      },
+      "revId": "155bf17abb7521ecfbc111de868f056f68a33293",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51ac2dfe_25ed63e5",
+        "filename": "biometrics/face_authentication/1.0/IBiometricsFace.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1004017
+      },
+      "writtenOn": "2018-05-29T23:07:54Z",
+      "side": 1,
+      "message": "That\u0027s a separate topic, as addressed above.  This still needs to take a faceId or 0 as the id to remove.",
+      "parentUuid": "9136881c_483b2cee",
       "range": {
         "startLine": 116,
         "startChar": 2,
