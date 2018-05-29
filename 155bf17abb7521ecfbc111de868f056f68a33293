@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a88f1111_93bdc252",
+        "filename": "biometrics/face_authentication/1.0/IBiometricsFace.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1297033
+      },
+      "writtenOn": "2018-05-29T19:39:08Z",
+      "side": 1,
+      "message": "We were following fingerprint function names, should we diverge in this case?",
+      "parentUuid": "ef78820a_61308dff",
+      "range": {
+        "startLine": 32,
+        "startChar": 2,
+        "endLine": 32,
+        "endChar": 11
+      },
+      "revId": "155bf17abb7521ecfbc111de868f056f68a33293",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c4780a71_d8ba22dc",
         "filename": "biometrics/face_authentication/1.0/IBiometricsFace.hal",
         "patchSetId": 1
@@ -139,6 +163,30 @@
       "revId": "155bf17abb7521ecfbc111de868f056f68a33293",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49f8e06d_4671e4c0",
+        "filename": "biometrics/face_authentication/1.0/IBiometricsFace.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1297033
+      },
+      "writtenOn": "2018-05-29T19:39:08Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7208f4b7_5ce14a27",
+      "range": {
+        "startLine": 129,
+        "startChar": 2,
+        "endLine": 129,
+        "endChar": 16
+      },
+      "revId": "155bf17abb7521ecfbc111de868f056f68a33293",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
