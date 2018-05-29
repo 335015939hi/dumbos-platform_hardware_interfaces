@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "f7006159_1606902b",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2018-05-29T22:55:08Z",
+      "side": 1,
+      "message": "Ok, not adding an API to query vboot version in that case since the fastboot server does not need this information.",
+      "parentUuid": "247e77bf_86f36ea6",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 31,
+        "endChar": 25
+      },
+      "revId": "b457d2b6f4dc34023a85f327f84ca08a9db98169",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f2306c25_9bffd267",
         "filename": "fastboot/1.0/IFastboot.hal",
         "patchSetId": 8
@@ -93,6 +117,30 @@
       "revId": "b457d2b6f4dc34023a85f327f84ca08a9db98169",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a70fd59_60fb7aae",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2018-05-29T22:55:08Z",
+      "side": 1,
+      "message": "Discussed with cfries@, this cannot be made mandatory as there are still phones that do not support fastboot unlock.",
+      "parentUuid": "f2306c25_9bffd267",
+      "range": {
+        "startLine": 66,
+        "startChar": 19,
+        "endLine": 66,
+        "endChar": 32
+      },
+      "revId": "b457d2b6f4dc34023a85f327f84ca08a9db98169",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -119,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "a7688512_3d80ccc0",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2018-05-29T22:55:08Z",
+      "side": 1,
+      "message": "This is actually an optional fastboot command as per go/android-bootloader-requirements so we should allow the NOT_SUPPORTED status.",
+      "parentUuid": "f19e0ac8_729164d4",
+      "range": {
+        "startLine": 88,
+        "startChar": 19,
+        "endLine": 88,
+        "endChar": 32
+      },
+      "revId": "b457d2b6f4dc34023a85f327f84ca08a9db98169",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed5e34d3_85940f93",
         "filename": "fastboot/1.0/IFastboot.hal",
         "patchSetId": 8
@@ -139,6 +211,30 @@
       "revId": "b457d2b6f4dc34023a85f327f84ca08a9db98169",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6af7a23_e106e97e",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2018-05-29T22:55:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed5e34d3_85940f93",
+      "range": {
+        "startLine": 95,
+        "startChar": 34,
+        "endLine": 95,
+        "endChar": 44
+      },
+      "revId": "b457d2b6f4dc34023a85f327f84ca08a9db98169",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -189,6 +285,30 @@
     },
     {
       "key": {
+        "uuid": "bc57cb04_05e03f55",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2018-05-29T22:55:08Z",
+      "side": 1,
+      "message": "Adding an API to query the maximum download size and a new error type to report invalid image size. Also added new arguments to the API to support spare image usage.",
+      "parentUuid": "57fabbfa_ab4436b2",
+      "range": {
+        "startLine": 107,
+        "startChar": 7,
+        "endLine": 109,
+        "endChar": 47
+      },
+      "revId": "b457d2b6f4dc34023a85f327f84ca08a9db98169",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3be80a4_127a8a8c",
         "filename": "fastboot/1.0/IFastbootLogger.hal",
         "patchSetId": 8
@@ -200,6 +320,30 @@
       "writtenOn": "2018-05-25T17:47:28Z",
       "side": 1,
       "message": "Should we standardize the format of these log messages as well. Will be easier to test, diagnose etc.",
+      "range": {
+        "startLine": 27,
+        "startChar": 14,
+        "endLine": 27,
+        "endChar": 44
+      },
+      "revId": "b457d2b6f4dc34023a85f327f84ca08a9db98169",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35741385_c88199b4",
+        "filename": "fastboot/1.0/IFastbootLogger.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2018-05-29T22:55:08Z",
+      "side": 1,
+      "message": "The Result struct(https://android-review.googlesource.com/c/platform/hardware/interfaces/+/681642/8/fastboot/1.0/types.hal#38) already couples success/failure status with the corresponding logs. This methods simply sends informative logs so I am not sure if we really need to format it.",
+      "parentUuid": "c3be80a4_127a8a8c",
       "range": {
         "startLine": 27,
         "startChar": 14,
