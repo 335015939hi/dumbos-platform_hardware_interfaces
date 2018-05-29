@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "d4370001_7255caca",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1080813
+      },
+      "writtenOn": "2018-05-29T14:00:38Z",
+      "side": 1,
+      "message": "It\u0027s also mentioned here:\n\nhttps://source.android.com/security/verifiedboot/verified-boot#bootloader_requirements\n\nCommunicating boot state\nSystem software needs to be able to determine the verification status of previous stages. The bootloader specifies the current boot state as a parameter on the kernel command line (or through the device tree under firmware/android/verifiedbootstate) as described in the table below:\n\nandroidboot.verifiedbootstate\u003dgreen, yellow or orange",
+      "parentUuid": "247e77bf_86f36ea6",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 31,
+        "endChar": 25
+      },
+      "revId": "b457d2b6f4dc34023a85f327f84ca08a9db98169",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f2306c25_9bffd267",
         "filename": "fastboot/1.0/IFastboot.hal",
         "patchSetId": 8
