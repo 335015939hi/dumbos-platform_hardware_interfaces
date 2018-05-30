@@ -1,0 +1,15 @@
+cc_library_static {
+    name: "android.hardware.fastboot@1.0-impl",
+    recovery_available: true,
+    srcs: [
+        "Fastboot.cpp",
+    ],
+    export_include_dirs: ["include"],
+    shared_libs: [
+        "libhidlbase",
+        "libhidltransport",
+        "libutils",
+	"libcutils",
+        "android.hardware.fastboot@1.0",
+    ],
+}
