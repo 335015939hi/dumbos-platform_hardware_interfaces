@@ -22,6 +22,30 @@
       "revId": "5822c835de913089d5b429b7ddc99858a141a0dc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef50ab9c_f64f1973",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2018-05-30T20:55:49Z",
+      "side": 1,
+      "message": "flashPartition(string partitionName, handle image, bool isFill,\n               uint64_t offset)\n    generates (Result result);",
+      "parentUuid": "39794ff3_6ec8fe58",
+      "range": {
+        "startLine": 126,
+        "startChar": 0,
+        "endLine": 128,
+        "endChar": 36
+      },
+      "revId": "5822c835de913089d5b429b7ddc99858a141a0dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
