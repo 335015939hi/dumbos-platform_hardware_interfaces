@@ -186,6 +186,7 @@ class ComponentHidlTest : public ::testing::VtsHalHidlTargetTestBase {
                             strlen(gEnv->getComponent().c_str()) - suffixLen,
                         ".secure");
         }
+        if (isSecure) disableTest = true;
         if (disableTest) std::cout << "[   WARN   ] Test Disabled \n";
     }
 
