@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9b6bf49d_357445fb",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-06-04T23:32:46Z",
+      "side": 1,
+      "message": "consistency with \u0027is\u0027 used above?",
+      "range": {
+        "startLine": 58,
+        "startChar": 2,
+        "endLine": 58,
+        "endChar": 7
+      },
+      "revId": "54ad4105853fe5e6c62c62f090217cbfa001fd21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35c3ecea_2ff03e65",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-06-04T23:32:46Z",
+      "side": 1,
+      "message": "must",
+      "range": {
+        "startLine": 94,
+        "startChar": 36,
+        "endLine": 94,
+        "endChar": 40
+      },
+      "revId": "54ad4105853fe5e6c62c62f090217cbfa001fd21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
