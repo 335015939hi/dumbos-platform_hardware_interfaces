@@ -1,0 +1,48 @@
+/*
+ * Copyright (C) 2016 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package android.hardware.tests.safeunion@1.0;
+
+typedef uint8_t TypeA;
+typedef uint16_t TypeB;
+typedef uint32_t TypeC;
+typedef uint64_t TypeD;
+
+typedef uint8_t[13] TypeE;
+typedef uint64_t[5] TypeF;
+
+typedef string TypeG;
+typedef vec<bool> TypeH;
+typedef vec<uint64_t> TypeI;
+
+safe_union EmptySafeUnion {
+};
+
+safe_union SmallSafeUnion {
+    TypeA a;
+};
+
+safe_union LargeSafeUnion {
+    TypeA a;
+    TypeB b;
+    TypeC c;
+    TypeD d;
+    TypeE e;
+    TypeF f;
+    TypeG g;
+    TypeH h;
+    TypeI i;
+};
