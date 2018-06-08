@@ -1,0 +1,53 @@
+/*
+ * Copyright (C) 2017 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+#ifndef ANDROID_HARDWARE_TESTS_SAFEUNION_V1_0_SAFEUNION_H
+#define ANDROID_HARDWARE_TESTS_SAFEUNION_V1_0_SAFEUNION_H
+
+#include <android/hardware/tests/safeunion/1.0/ISafeUnion.h>
+#include <hidl/MQDescriptor.h>
+#include <hidl/Status.h>
+
+namespace android {
+namespace hardware {
+namespace tests {
+namespace safeunion {
+namespace V1_0 {
+namespace implementation {
+
+using ::android::hardware::Return;
+using ::android::hardware::Void;
+using ::android::hardware::tests::safeunion::V1_0::LargeSafeUnion;
+
+struct SafeUnion : public ISafeUnion {
+    // Methods from ::android::hardware::tests::safeunion::V1_0::ISafeUnion follow.
+    Return<void> newLargeSafeUnion(newLargeSafeUnion_cb _hidl_cb) override;
+    Return<void> setA(const LargeSafeUnion& myUnion, uint8_t a, setA_cb _hidl_cb) override;
+    Return<void> setB(const LargeSafeUnion& myUnion, uint16_t b, setB_cb _hidl_cb) override;
+    Return<void> setC(const LargeSafeUnion& myUnion, uint32_t c, setC_cb _hidl_cb) override;
+    Return<void> setD(const LargeSafeUnion& myUnion, uint64_t d, setD_cb _hidl_cb) override;
+};
+
+extern "C" ISafeUnion* HIDL_FETCH_ISafeUnion(const char* name);
+
+}  // namespace implementation
+}  // namespace V1_0
+}  // namespace safeunion
+}  // namespace tests
+}  // namespace hardware
+}  // namespace android
+
+#endif  // ANDROID_HARDWARE_TESTS_SAFEUNION_V1_0_SAFEUNION_H
