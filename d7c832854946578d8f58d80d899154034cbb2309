@@ -16,6 +16,24 @@
       "revId": "d7c832854946578d8f58d80d899154034cbb2309",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a332311d_218ce3a0",
+        "filename": "tests/safeunion/1.0/.hidl_for_test",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-06-11T18:19:12Z",
+      "side": 1,
+      "message": "actually, this is what is used to exclude this from the VNDK, so we need it",
+      "parentUuid": "a4941f6a_8ad2cc40",
+      "revId": "d7c832854946578d8f58d80d899154034cbb2309",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
