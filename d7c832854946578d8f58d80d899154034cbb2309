@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "ee582cd5_06f77450",
+        "filename": "tests/safeunion/1.0/.hidl_for_test",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2018-06-13T20:34:17Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a332311d_218ce3a0",
+      "revId": "d7c832854946578d8f58d80d899154034cbb2309",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a7bb5358_971ebc92",
         "filename": "tests/safeunion/1.0/ISafeUnion.hal",
         "patchSetId": 1
