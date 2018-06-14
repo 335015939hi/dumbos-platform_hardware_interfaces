@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4a3a5bbd_8703100f",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_misc.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 732,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2018-06-14T00:46:06Z",
+      "side": 1,
+      "message": "is this done by solving merge conflict?\nNONE should be added, not replace SIM_ABSENT",
+      "range": {
+        "startLine": 732,
+        "startChar": 59,
+        "endLine": 732,
+        "endChar": 63
+      },
+      "revId": "7bfcc6b1b22045d47edeb6ca2be1e70f9089dfc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
