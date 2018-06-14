@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d1468224_720b40a2",
+        "filename": "biometrics/face_authentication/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1004017
+      },
+      "writtenOn": "2018-06-14T21:11:40Z",
+      "side": 1,
+      "message": "Suggest adding a new one: ACQUIRED_TOO_MUCH_MOTION. \nThis message would simply ask the user to be more still.",
+      "range": {
+        "startLine": 108,
+        "startChar": 2,
+        "endLine": 108,
+        "endChar": 17
+      },
+      "revId": "3989156102906a05983b8c66de5ca01b3bcd0158",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
