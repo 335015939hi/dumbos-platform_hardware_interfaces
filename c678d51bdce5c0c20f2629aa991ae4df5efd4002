@@ -46,6 +46,30 @@
       "revId": "c678d51bdce5c0c20f2629aa991ae4df5efd4002",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1657e2d6_f0284131",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_misc.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2018-06-15T00:16:49Z",
+      "side": 0,
+      "message": "Still we are changing an old, existing test that was never tested with SIM present (basically was a no-op with SIM present). We want to keep the change to minimal here, and not introduce new test scenarios.",
+      "parentUuid": "2c1a024b_ceb038d1",
+      "range": {
+        "startLine": 186,
+        "startChar": 8,
+        "endLine": 186,
+        "endChar": 49
+      },
+      "revId": "c678d51bdce5c0c20f2629aa991ae4df5efd4002",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
