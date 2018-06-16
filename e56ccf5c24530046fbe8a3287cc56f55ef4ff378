@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6ed5961d_1751beb1",
+        "filename": "tests/safeunion/1.0/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1320646
+      },
+      "writtenOn": "2018-06-16T01:20:15Z",
+      "side": 1,
+      "message": "TODO: Fix typo (MiscTypesSafeUnion)",
+      "range": {
+        "startLine": 17,
+        "startChar": 8,
+        "endLine": 17,
+        "endChar": 37
+      },
+      "revId": "e56ccf5c24530046fbe8a3287cc56f55ef4ff378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
