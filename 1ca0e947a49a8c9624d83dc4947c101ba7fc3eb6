@@ -22,6 +22,30 @@
       "revId": "1ca0e947a49a8c9624d83dc4947c101ba7fc3eb6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fcf3136e_59592cce",
+        "filename": "configstore/1.0/default/seccomp_policy/configstore@1.0-arm64.policy",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2018-06-18T19:33:01Z",
+      "side": 1,
+      "message": "Agreed. We have the same setup for mediacodec, so need to fix that too.",
+      "parentUuid": "320a087d_a9394652",
+      "range": {
+        "startLine": 54,
+        "startChar": 10,
+        "endLine": 54,
+        "endChar": 16
+      },
+      "revId": "1ca0e947a49a8c9624d83dc4947c101ba7fc3eb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
