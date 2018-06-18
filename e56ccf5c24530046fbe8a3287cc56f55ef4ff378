@@ -22,6 +22,29 @@
       "revId": "e56ccf5c24530046fbe8a3287cc56f55ef4ff378",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c070917_8ccd8ed3",
+        "filename": "tests/safeunion/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-06-18T22:34:25Z",
+      "side": 1,
+      "message": "you\u0027ll want to remove this from this interface, otherwise you won\u0027t be able to use this same test union for java",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 13
+      },
+      "revId": "e56ccf5c24530046fbe8a3287cc56f55ef4ff378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
