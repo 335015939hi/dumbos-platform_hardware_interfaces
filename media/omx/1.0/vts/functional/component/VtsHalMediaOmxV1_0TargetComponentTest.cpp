@@ -117,6 +117,18 @@ class ComponentHidlTest : public ::testing::VtsHalHidlTargetTestBase {
                             strlen(gEnv->getComponent().c_str()) - suffixLen,
                         ".secure");
         }
+        if (compClass == video_decoder) {
+            omxNode->configureVideoTunnelMode(
+                1, OMX_TRUE, 0,
+                [&](android::hardware::media::omx::V1_0::Status _s,
+                    const ::android::hardware::hidl_handle& sidebandHandle) {
+                    (void)sidebandHandle;
+                    if (_s == android::hardware::media::omx::V1_0::Status::OK)
+                        this->disableTest = true;
+                });
+        }
+        // NOTES: secure and tunneled components are not covered in these tests.
+        // we are disabling tests for them
         if (disableTest) std::cout << "[   WARN   ] Test Disabled \n";
     }
 
