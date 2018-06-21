@@ -22,6 +22,30 @@
       "revId": "f866da4391f4607fe404145345d6a78bad45d51d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c67221ad_7c52ff53",
+        "filename": "radio/1.2/IRadio.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-06-21T20:17:39Z",
+      "side": 1,
+      "message": "Fixed on the pi-dev CL at ag/4398118. Not sure where this is going to be submitted. I notice that pi-dev has a number of other HAL changes that aren\u0027t in AOSP.",
+      "parentUuid": "74286868_85a09e39",
+      "range": {
+        "startLine": 64,
+        "startChar": 94,
+        "endLine": 64,
+        "endChar": 95
+      },
+      "revId": "f866da4391f4607fe404145345d6a78bad45d51d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
