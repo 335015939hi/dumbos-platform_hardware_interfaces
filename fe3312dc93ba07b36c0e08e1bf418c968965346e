@@ -22,6 +22,30 @@
       "revId": "fe3312dc93ba07b36c0e08e1bf418c968965346e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a2acbd4_dcc4c120",
+        "filename": "boot/1.0/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1113594
+      },
+      "writtenOn": "2018-06-21T20:56:20Z",
+      "side": 1,
+      "message": "getService doesn\u0027t (yet) work in recovery. b/80132328",
+      "parentUuid": "87dfc186_67065b5c",
+      "range": {
+        "startLine": 18,
+        "startChar": 4,
+        "endLine": 18,
+        "endChar": 23
+      },
+      "revId": "fe3312dc93ba07b36c0e08e1bf418c968965346e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
