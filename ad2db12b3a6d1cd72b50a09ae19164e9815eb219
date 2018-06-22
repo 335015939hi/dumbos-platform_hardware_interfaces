@@ -46,6 +46,30 @@
       "revId": "ad2db12b3a6d1cd72b50a09ae19164e9815eb219",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd7fc25c_9e26db29",
+        "filename": "boot/1.0/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-06-22T21:01:27Z",
+      "side": 0,
+      "message": "Well, it will need to be loaded from hw/, and we\u0027ll have to add that path to the paths getService looks in. We don\u0027t want the library to be loaded directly or its headers to be referenced because the client should only be depending on the interface.",
+      "parentUuid": "d08eee4f_ac0b526d",
+      "range": {
+        "startLine": 4,
+        "startChar": 28,
+        "endLine": 4,
+        "endChar": 30
+      },
+      "revId": "ad2db12b3a6d1cd72b50a09ae19164e9815eb219",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }

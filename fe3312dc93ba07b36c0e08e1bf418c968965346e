@@ -46,6 +46,30 @@
       "revId": "fe3312dc93ba07b36c0e08e1bf418c968965346e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed18bad1_7e79ad76",
+        "filename": "boot/1.0/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-06-22T21:01:27Z",
+      "side": 1,
+      "message": "It works if you statically link it because it will dlopen self (dlopen(nullptr)), but it doesn\u0027t work fully. The point is, we don\u0027t want any client code to have a dependency on the implementation headers. Rather, it should depend on the interface only.",
+      "parentUuid": "5a2acbd4_dcc4c120",
+      "range": {
+        "startLine": 18,
+        "startChar": 4,
+        "endLine": 18,
+        "endChar": 23
+      },
+      "revId": "fe3312dc93ba07b36c0e08e1bf418c968965346e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
