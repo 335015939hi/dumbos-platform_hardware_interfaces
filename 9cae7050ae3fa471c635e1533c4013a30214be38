@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "67d64234_e246c746",
+        "filename": "tests/safeunion/1.0/default/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2018-06-25T20:19:22Z",
+      "side": 1,
+      "message": "nit: remove?",
+      "range": {
+        "startLine": 13,
+        "startChar": 9,
+        "endLine": 13,
+        "endChar": 20
+      },
+      "revId": "9cae7050ae3fa471c635e1533c4013a30214be38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df2fa0c3_1eaeb078",
+        "filename": "tests/safeunion/1.0/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2018-06-25T20:19:22Z",
+      "side": 1,
+      "message": "nit: change some of them to signed integers",
+      "range": {
+        "startLine": 41,
+        "startChar": 4,
+        "endLine": 41,
+        "endChar": 12
+      },
+      "revId": "9cae7050ae3fa471c635e1533c4013a30214be38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
