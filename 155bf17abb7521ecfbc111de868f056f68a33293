@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "2c7040f9_80c1e9e4",
+        "filename": "biometrics/face_authentication/1.0/IBiometricsFace.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1297033
+      },
+      "writtenOn": "2018-06-25T14:11:46Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "06ac3b47_44855aa7",
+      "range": {
+        "startLine": 32,
+        "startChar": 2,
+        "endLine": 32,
+        "endChar": 11
+      },
+      "revId": "155bf17abb7521ecfbc111de868f056f68a33293",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4780a71_d8ba22dc",
         "filename": "biometrics/face_authentication/1.0/IBiometricsFace.hal",
         "patchSetId": 1
