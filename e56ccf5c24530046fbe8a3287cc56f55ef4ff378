@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8595ebf7_2ad5d125",
+        "filename": "tests/safeunion/1.0/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1320646
+      },
+      "writtenOn": "2018-06-25T18:38:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ed5961d_1751beb1",
+      "range": {
+        "startLine": 17,
+        "startChar": 8,
+        "endLine": 17,
+        "endChar": 37
+      },
+      "revId": "e56ccf5c24530046fbe8a3287cc56f55ef4ff378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c070917_8ccd8ed3",
         "filename": "tests/safeunion/1.0/types.hal",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2018-06-18T22:34:25Z",
       "side": 1,
       "message": "you\u0027ll want to remove this from this interface, otherwise you won\u0027t be able to use this same test union for java",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 13
+      },
+      "revId": "e56ccf5c24530046fbe8a3287cc56f55ef4ff378",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bafa76bc_bb0318f2",
+        "filename": "tests/safeunion/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1320646
+      },
+      "writtenOn": "2018-06-25T18:38:17Z",
+      "side": 1,
+      "message": "Ack. Sure, I\u0027ll do this in a follow-up CL :) Thanks!",
+      "parentUuid": "9c070917_8ccd8ed3",
       "range": {
         "startLine": 64,
         "startChar": 0,
