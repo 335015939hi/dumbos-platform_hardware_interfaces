@@ -534,7 +534,11 @@ TEST_F(RadioHidlTest_v1_2, setLinkCapacityReportingCriteria_invalidHysteresisDlK
 
     ALOGI("setLinkCapacityReportingCriteria_invalidHysteresisDlKbps, rspInfo.error = %s\n",
           toString(radioRsp_v1_2->rspInfo.error).c_str());
-    ASSERT_TRUE(CheckAnyOfErrors(radioRsp_v1_2->rspInfo.error, {RadioError::INVALID_ARGUMENTS}));
+    // Allow REQUEST_NOT_SUPPORTED as setLinkCapacityReportingCriteria() may not be supported for
+    // GERAN
+    ASSERT_TRUE(
+        CheckAnyOfErrors(radioRsp_v1_2->rspInfo.error,
+                         {RadioError::INVALID_ARGUMENTS, RadioError::REQUEST_NOT_SUPPORTED}));
 }
 
 /*
@@ -555,7 +559,11 @@ TEST_F(RadioHidlTest_v1_2, setLinkCapacityReportingCriteria_invalidHysteresisUlK
 
     ALOGI("setLinkCapacityReportingCriteria_invalidHysteresisUlKbps, rspInfo.error = %s\n",
           toString(radioRsp_v1_2->rspInfo.error).c_str());
-    ASSERT_TRUE(CheckAnyOfErrors(radioRsp_v1_2->rspInfo.error, {RadioError::INVALID_ARGUMENTS}));
+    // Allow REQUEST_NOT_SUPPORTED as setLinkCapacityReportingCriteria() may not be supported for
+    // GERAN
+    ASSERT_TRUE(
+        CheckAnyOfErrors(radioRsp_v1_2->rspInfo.error,
+                         {RadioError::INVALID_ARGUMENTS, RadioError::REQUEST_NOT_SUPPORTED}));
 }
 
 /*
@@ -573,7 +581,10 @@ TEST_F(RadioHidlTest_v1_2, setLinkCapacityReportingCriteria_emptyParams) {
 
     ALOGI("setLinkCapacityReportingCriteria_emptyParams, rspInfo.error = %s\n",
           toString(radioRsp_v1_2->rspInfo.error).c_str());
-    ASSERT_TRUE(CheckAnyOfErrors(radioRsp_v1_2->rspInfo.error, {RadioError::NONE}));
+    // Allow REQUEST_NOT_SUPPORTED as setLinkCapacityReportingCriteria() may not be supported for
+    // GERAN
+    ASSERT_TRUE(CheckAnyOfErrors(radioRsp_v1_2->rspInfo.error,
+                                 {RadioError::NONE, RadioError::REQUEST_NOT_SUPPORTED}));
 }
 
 /*
@@ -592,7 +603,10 @@ TEST_F(RadioHidlTest_v1_2, setLinkCapacityReportingCriteria_Geran) {
 
     ALOGI("setLinkCapacityReportingCriteria_invalidHysteresisUlKbps, rspInfo.error = %s\n",
           toString(radioRsp_v1_2->rspInfo.error).c_str());
-    ASSERT_TRUE(CheckAnyOfErrors(radioRsp_v1_2->rspInfo.error, {RadioError::NONE}));
+    // Allow REQUEST_NOT_SUPPORTED as setLinkCapacityReportingCriteria() may not be supported for
+    // GERAN
+    ASSERT_TRUE(CheckAnyOfErrors(radioRsp_v1_2->rspInfo.error,
+                                 {RadioError::NONE, RadioError::REQUEST_NOT_SUPPORTED}));
 }
 
 /*
