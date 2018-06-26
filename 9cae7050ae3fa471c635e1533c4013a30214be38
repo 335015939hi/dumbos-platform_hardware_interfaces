@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c846f4a3_bbd933b3",
+        "filename": "tests/safeunion/1.0/default/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1320646
+      },
+      "writtenOn": "2018-06-26T22:13:33Z",
+      "side": 1,
+      "message": "Done. Sorry, I just copied a random Android.bp (:",
+      "parentUuid": "67d64234_e246c746",
+      "range": {
+        "startLine": 13,
+        "startChar": 9,
+        "endLine": 13,
+        "endChar": 20
+      },
+      "revId": "9cae7050ae3fa471c635e1533c4013a30214be38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "df2fa0c3_1eaeb078",
         "filename": "tests/safeunion/1.0/types.hal",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2018-06-25T20:19:22Z",
       "side": 1,
       "message": "nit: change some of them to signed integers",
+      "range": {
+        "startLine": 41,
+        "startChar": 4,
+        "endLine": 41,
+        "endChar": 12
+      },
+      "revId": "9cae7050ae3fa471c635e1533c4013a30214be38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a61a93d4_407bc9d8",
+        "filename": "tests/safeunion/1.0/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1320646
+      },
+      "writtenOn": "2018-06-26T22:13:33Z",
+      "side": 1,
+      "message": "Done. Good suggestion, thanks!",
+      "parentUuid": "df2fa0c3_1eaeb078",
       "range": {
         "startLine": 41,
         "startChar": 4,
