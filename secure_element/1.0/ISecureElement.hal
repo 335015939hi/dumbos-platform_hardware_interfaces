@@ -98,7 +98,8 @@ interface ISecureElement {
      *                doesn't match any applet on the secure element and
      *                SecureElementStatus::UNSUPPORTED_OPERATION if operation
      *                provided by the P2 parameter is not permitted by the
-     *                applet.
+     *                applet or if the basic channel is blocked on this secure
+     *                element.
      *                SecureElementStatus::IOERROR if there was an error
      *                communicating with the Secure Element.
      * @return selectResponse On success, response to SELECT command is returned
