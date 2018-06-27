@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "27578bf5_fff541a9",
+        "filename": "tests/safeunion/1.0/default/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1320646
+      },
+      "writtenOn": "2018-06-27T00:57:46Z",
+      "side": 1,
+      "message": "Whoops, removing that line seems to break linking on sailfish and aosp* (https://android-build.googleplex.com/builds/where-is-my-cl/android-review/702608?revision\u003d6\u0026revisionAttempt\u003d1) :( Reverted to the original version!",
+      "parentUuid": "c846f4a3_bbd933b3",
+      "range": {
+        "startLine": 13,
+        "startChar": 9,
+        "endLine": 13,
+        "endChar": 20
+      },
+      "revId": "9cae7050ae3fa471c635e1533c4013a30214be38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "df2fa0c3_1eaeb078",
         "filename": "tests/safeunion/1.0/types.hal",
         "patchSetId": 5
