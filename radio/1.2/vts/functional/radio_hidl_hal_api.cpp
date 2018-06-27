@@ -666,7 +666,7 @@ TEST_F(RadioHidlTest_v1_2, deactivateDataCall_1_2) {
  * Test IRadio.getCellInfoList() for the response returned.
  */
 TEST_F(RadioHidlTest_v1_2, getCellInfoList_1_2) {
-    int serial = GetRandomSerialNumber();
+    serial = GetRandomSerialNumber();
 
     Return<void> res = radio_v1_2->getCellInfoList(serial);
     ASSERT_OK(res);
@@ -684,7 +684,7 @@ TEST_F(RadioHidlTest_v1_2, getCellInfoList_1_2) {
  * Test IRadio.getVoiceRegistrationState() for the response returned.
  */
 TEST_F(RadioHidlTest_v1_2, getVoiceRegistrationState) {
-    int serial = GetRandomSerialNumber();
+    serial = GetRandomSerialNumber();
 
     Return<void> res = radio_v1_2->getVoiceRegistrationState(serial);
     ASSERT_OK(res);
@@ -702,7 +702,7 @@ TEST_F(RadioHidlTest_v1_2, getVoiceRegistrationState) {
  * Test IRadio.getDataRegistrationState() for the response returned.
  */
 TEST_F(RadioHidlTest_v1_2, getDataRegistrationState) {
-    int serial = GetRandomSerialNumber();
+    serial = GetRandomSerialNumber();
 
     Return<void> res = radio_v1_2->getDataRegistrationState(serial);
     ASSERT_OK(res);
@@ -721,7 +721,7 @@ TEST_F(RadioHidlTest_v1_2, getDataRegistrationState) {
  * Test IRadio.getAvailableBandModes() for the response returned.
  */
 TEST_F(RadioHidlTest_v1_2, getAvailableBandModes) {
-    int serial = GetRandomSerialNumber();
+    serial = GetRandomSerialNumber();
 
     Return<void> res = radio_v1_2->getAvailableBandModes(serial);
     ASSERT_OK(res);
