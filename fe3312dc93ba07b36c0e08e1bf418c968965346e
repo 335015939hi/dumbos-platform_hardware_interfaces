@@ -94,6 +94,30 @@
       "revId": "fe3312dc93ba07b36c0e08e1bf418c968965346e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8dac0377_b97fa93a",
+        "filename": "boot/1.0/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-06-30T00:17:27Z",
+      "side": 1,
+      "message": "Yeah, that\u0027s really weird. I\u0027m not sure how Yifan is getting around that. Perhaps by specifying getStub \u003d true?",
+      "parentUuid": "e7a8fc07_0e60fccb",
+      "range": {
+        "startLine": 18,
+        "startChar": 4,
+        "endLine": 18,
+        "endChar": 23
+      },
+      "revId": "fe3312dc93ba07b36c0e08e1bf418c968965346e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
