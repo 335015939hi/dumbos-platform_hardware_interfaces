@@ -70,6 +70,30 @@
       "revId": "fe3312dc93ba07b36c0e08e1bf418c968965346e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7a8fc07_0e60fccb",
+        "filename": "boot/1.0/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1113594
+      },
+      "writtenOn": "2018-06-30T00:13:45Z",
+      "side": 1,
+      "message": "I tried statically linking all boot ctrl related stuff and using getService, but I get endless \"ServiceManagement: Waited for hwservicemanager.ready for a second, waiting another...\". \n\ni did notice that health 2.0 exports its headers in a similar way to this",
+      "parentUuid": "ed18bad1_7e79ad76",
+      "range": {
+        "startLine": 18,
+        "startChar": 4,
+        "endLine": 18,
+        "endChar": 23
+      },
+      "revId": "fe3312dc93ba07b36c0e08e1bf418c968965346e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
