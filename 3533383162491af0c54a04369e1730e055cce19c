@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6ffff80d_b8d1bf63",
+        "filename": "tests/safeunion/1.0/ISafeUnion.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1320646
+      },
+      "writtenOn": "2018-07-01T20:57:35Z",
+      "side": 1,
+      "message": "Note: Only this is new. All other structs/unions were copied over as-is from types.hal!",
+      "range": {
+        "startLine": 73,
+        "startChar": 4,
+        "endLine": 77,
+        "endChar": 6
+      },
+      "revId": "3533383162491af0c54a04369e1730e055cce19c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
