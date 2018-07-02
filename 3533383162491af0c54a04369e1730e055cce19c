@@ -46,6 +46,30 @@
       "revId": "3533383162491af0c54a04369e1730e055cce19c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b0b81d8_cb76854c",
+        "filename": "tests/safeunion/1.0/ISafeUnion.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1320646
+      },
+      "writtenOn": "2018-07-02T18:34:42Z",
+      "side": 1,
+      "message": "I wanted to define a safe_union containing an interface, but Steven pointed out that I couldn\u0027t do this in the types.hal file without creating a sub-package. Instead of fragmenting the struct/union definitions across a types.hal and another interface file, I thought it would be cleaner to move everything here (and delete types.hal). Thanks!",
+      "parentUuid": "690ad006_e1a1c9f8",
+      "range": {
+        "startLine": 73,
+        "startChar": 4,
+        "endLine": 77,
+        "endChar": 6
+      },
+      "revId": "3533383162491af0c54a04369e1730e055cce19c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
