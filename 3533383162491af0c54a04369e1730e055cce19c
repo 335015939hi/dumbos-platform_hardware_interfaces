@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "994f6450_8ae64b14",
+        "filename": "tests/safeunion/1.0/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-07-02T19:10:45Z",
+      "side": 1,
+      "message": "does this really print out if you re-generate the makefiles?",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 6
+      },
+      "revId": "3533383162491af0c54a04369e1730e055cce19c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6ffff80d_b8d1bf63",
         "filename": "tests/safeunion/1.0/ISafeUnion.hal",
         "patchSetId": 1
