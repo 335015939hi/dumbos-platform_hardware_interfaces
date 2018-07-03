@@ -142,6 +142,30 @@
       "revId": "fe3312dc93ba07b36c0e08e1bf418c968965346e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4e8574e_a10dfcc9",
+        "filename": "boot/1.0/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2018-07-03T18:13:40Z",
+      "side": 1,
+      "message": "health HAL does not use getService. It exports headers and initialize the implementation directly. b/80132328 is to clean this up.\n\nStill, I agree that headers should be in its own directory (perhaps include/boot/)",
+      "parentUuid": "ecf7981e_018cecee",
+      "range": {
+        "startLine": 18,
+        "startChar": 4,
+        "endLine": 18,
+        "endChar": 23
+      },
+      "revId": "fe3312dc93ba07b36c0e08e1bf418c968965346e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
