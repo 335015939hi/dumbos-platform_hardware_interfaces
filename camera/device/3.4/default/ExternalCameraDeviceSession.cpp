@@ -1684,7 +1684,10 @@ int ExternalCameraDeviceSession::OutputThread::createJpegLocked(
     /* Unlock the HAL jpeg code buffer */
     int relFence = sHandleImporter.unlock(*(halBuf.bufPtr));
     if (relFence > 0) {
-        halBuf.acquireFence = relFence;
+        while(sync_wait(relFence, 500)) {
+            ALOGE("%s: wait for unlock timeout, retry", __func__);
+        }
+        ::close(relFence);
     }
 
     /* Check if our JPEG actually succeeded */
@@ -1833,7 +1836,10 @@ bool ExternalCameraDeviceSession::OutputThread::threadLoop() {
                 }
                 int relFence = sHandleImporter.unlock(*(halBuf.bufPtr));
                 if (relFence > 0) {
-                    halBuf.acquireFence = relFence;
+                    while (sync_wait(relFence, kSyncWaitTimeoutMs)) {
+                        ALOGE("%s: wait for unlock timeout, retry", __func__);
+                    }
+                    ::close(relFence);
                 }
             } break;
             default:
