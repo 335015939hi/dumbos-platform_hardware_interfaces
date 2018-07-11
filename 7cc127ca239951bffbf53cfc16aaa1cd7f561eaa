@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "24b6185c_f1b8e37e",
+        "filename": "fastboot/1.0/default/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2018-07-11T22:14:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2976d7b9_077e7e8e",
+      "range": {
+        "startLine": 1,
+        "startChar": 10,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "7cc127ca239951bffbf53cfc16aaa1cd7f561eaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c1ea59b2_96dfc7cf",
         "filename": "fastboot/1.0/default/Android.bp",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "7c58c698_cb3dcbf5",
+        "filename": "fastboot/1.0/default/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2018-07-11T22:14:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1ea59b2_96dfc7cf",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 1
+      },
+      "revId": "7cc127ca239951bffbf53cfc16aaa1cd7f561eaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "01b67d8a_3651be89",
         "filename": "fastboot/1.0/default/Fastboot.cpp",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2018-07-09T21:37:57Z",
       "side": 1,
       "message": "this isn\u0027t threadsafe (not that it needs to be, but) w/ C++11, you can just do:\n\nstatic sp\u003cFastboot\u003e instance_ \u003d new Fastboot();\nreturn instace_;\n\nand it will get called the first time. However, it\u0027s more typical for these to return a new instance every time. If you do that (and make the client handle the singleton) I think it would be more consistent w/ the rest of the platform.\n\nYou could just use HIDL_FETCH_IFastboot for future compatibility. Up to you.",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 5
+      },
+      "revId": "7cc127ca239951bffbf53cfc16aaa1cd7f561eaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f665a87e_f512a4ed",
+        "filename": "fastboot/1.0/default/Fastboot.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2018-07-11T22:14:45Z",
+      "side": 1,
+      "message": "Agree, I will change it to getService once that is working in recovery(b/80132328)",
+      "parentUuid": "01b67d8a_3651be89",
       "range": {
         "startLine": 75,
         "startChar": 0,
@@ -91,6 +163,30 @@
       "revId": "7cc127ca239951bffbf53cfc16aaa1cd7f561eaa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b88bca9b_195278d1",
+        "filename": "fastboot/1.0/default/Fastboot.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2018-07-11T22:14:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9017974a_e1855580",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 0
+      },
+      "revId": "7cc127ca239951bffbf53cfc16aaa1cd7f561eaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
