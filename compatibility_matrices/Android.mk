@@ -145,4 +145,40 @@ include $(BUILD_FRAMEWORK_COMPATIBILITY_MATRIX)
 BUILT_SYSTEM_MATRIX := $(LOCAL_BUILT_MODULE)
 
 my_system_matrix_deps :=
+
+# Recovery Manifest
+ifdef DEVICE_RECOVERY_MANIFEST_FILE
+# $(DEVICE_RECOVERY_MANIFEST_FILE) can be a list of files
+include $(CLEAR_VARS)
+LOCAL_MODULE        := device_manifest.recovery.xml
+LOCAL_MODULE_STEM   := manifest.xml
+LOCAL_MODULE_CLASS  := ETC
+LOCAL_MODULE_PATH   := $(TARGET_RECOVERY_ROOT_OUT)/vendor/etc/vintf
+
+GEN := $(local-generated-sources-dir)/manifest.xml
+$(GEN): PRIVATE_DEVICE_RECOVERY_MANIFEST_FILE := $(DEVICE_RECOVERY_MANIFEST_FILE)
+$(GEN): $(DEVICE_RECOVERY_MANIFEST_FILE) $(HOST_OUT_EXECUTABLES)/assemble_vintf
+	$(HOST_OUT_EXECUTABLES)/assemble_vintf -o $@ \
+		-i $(call normalize-path-list,$(PRIVATE_DEVICE_RECOVERY_MANIFEST_FILE))
+
+LOCAL_PREBUILT_MODULE_FILE := $(GEN)
+include $(BUILD_PREBUILT)
+endif
+
+# Recovery Compatibility Matrix
+include $(CLEAR_VARS)
+include $(LOCAL_PATH)/clear_vars.mk
+LOCAL_MODULE := verified_assembled_system_matrix.recovery.xml
+LOCAL_MODULE_PATH := $(PRODUCT_OUT)
+LOCAL_SRC_FILES := \
+    compatibility_matrix.recovery.current.xml \
+
+ifdef DEVICE_RECOVERY_MANIFEST_FILE
+LOCAL_ASSEMBLE_VINTF_ENV_VARS += PRODUCT_ENFORCE_VINTF_MANIFEST
+LOCAL_GEN_FILE_DEPENDENCIES += $(DEVICE_RECOVERY_MANIFEST_FILE)
+LOCAL_ASSEMBLE_VINTF_FLAGS += -c "$(DEVICE_RECOVERY_MANIFEST_FILE)"
+endif
+
+include $(BUILD_FRAMEWORK_COMPATIBILITY_MATRIX)
+
 BUILD_FRAMEWORK_COMPATIBILITY_MATRIX :=
