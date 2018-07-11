@@ -731,7 +731,8 @@ TEST_F(RadioHidlTest, pullLceData) {
                         RadioError::RADIO_NOT_AVAILABLE ||
                     CheckOEMError() ||
                     radioRsp->rspInfo.error == RadioError::INTERNAL_ERR ||
-                    radioRsp->rspInfo.error == RadioError::SIM_ABSENT);
+                    radioRsp->rspInfo.error == RadioError::SIM_ABSENT ||
+                    radioRsp->rspInfo.error == RadioError::NONE);
     }
 }
 
