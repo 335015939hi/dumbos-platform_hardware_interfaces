@@ -276,6 +276,7 @@
             <xs:enumeration value="AUDIO_DEVICE_IN_BUS"/>
             <xs:enumeration value="AUDIO_DEVICE_IN_PROXY"/>
             <xs:enumeration value="AUDIO_DEVICE_IN_USB_HEADSET"/>
+            <xs:enumeration value="AUDIO_DEVICE_IN_FAR_FIELD_MIC"/>
             <xs:enumeration value="AUDIO_DEVICE_IN_DEFAULT"/>
             <xs:enumeration value="AUDIO_DEVICE_IN_STUB"/>
         </xs:restriction>
