@@ -82,6 +82,62 @@ using ::android::hardware::audio::common::V2_0::ThreadInfo;
 
 using namespace ::android::hardware::audio::common::test::utility;
 
+<<<<<<< HEAD   (cfab8d Audio VTS: run tear-down hooks in LIFO instead of FIFO)
+=======
+const char* getTestName() {
+    return ::testing::UnitTest::GetInstance()->current_test_info()->name();
+}
+
+namespace doc {
+/** Document the current test case.
+ * Eg: calling `doc::test("Dump the state of the hal")` in the "debugDump" test
+ * will output:
+ *   <testcase name="debugDump" status="run" time="6"
+ *             classname="AudioPrimaryHidlTest"
+               description="Dump the state of the hal." />
+ * see
+ https://github.com/google/googletest/blob/master/googletest/docs/AdvancedGuide.md#logging-additional-information
+ */
+void test(const std::string& testCaseDocumentation) {
+    ::testing::Test::RecordProperty("description", testCaseDocumentation);
+}
+
+/** Document why a test was not fully run. Usually due to an optional feature
+ * not implemented. */
+void partialTest(const std::string& reason) {
+    LOG(INFO) << "Test " << getTestName() << " partially run: " << reason;
+    ::testing::Test::RecordProperty("partialyRunTest", reason);
+}
+
+/** Add a note to the test. */
+void note(const std::string& note) {
+    LOG(INFO) << "Test " << getTestName() << " noted: " << note;
+    ::testing::Test::RecordProperty("note", note);
+}
+}
+
+// Register callback for static object destruction
+// Avoid destroying static objects after main return.
+// Post main return destruction leads to incorrect gtest timing measurements as
+// well as harder
+// debuging if anything goes wrong during destruction.
+class Environment : public ::testing::Environment {
+   public:
+    using TearDownFunc = std::function<void()>;
+    void registerTearDown(TearDownFunc&& tearDown) {
+        tearDowns.push_front(std::move(tearDown));
+    }
+
+   private:
+    void TearDown() override {
+        // Call the tear downs in reverse order of insertion
+        for (auto& tearDown : tearDowns) {
+            tearDown();
+        }
+    }
+    std::list<TearDownFunc> tearDowns;
+};
+>>>>>>> BRANCH (01ead7 Audio VTS: run tear-down hooks in LIFO instead of FIFO)
 // Instance to register global tearDown
 static Environment* environment;
 
