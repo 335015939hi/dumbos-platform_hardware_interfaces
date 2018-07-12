@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9eab59e8_e9977531",
+        "filename": "media/omx/1.0/vts/functional/audio/VtsHalMediaOmxV1_0TargetAudioDecTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1021605
+      },
+      "writtenOn": "2018-07-12T01:00:10Z",
+      "side": 1,
+      "message": "this is not a reliable way to detect \"tunneled\" decoders. Also, we have not defined \"tunneled\" audio decoders for Android.",
+      "range": {
+        "startLine": 221,
+        "startChar": 1,
+        "endLine": 227,
+        "endChar": 0
+      },
+      "revId": "02d80c802cbdfc7dfa762433a552f7413047c15f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
