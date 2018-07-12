@@ -225,6 +225,18 @@ class AudioDecHidlTest : public ::testing::VtsHalHidlTargetTestBase {
         framesReceived = 0;
         timestampUs = 0;
         timestampDevTest = false;
+<<<<<<< HEAD   (70d13c [automerger skipped] Audio VTS: run tear-down hooks in LIFO )
+=======
+        isSecure = false;
+        size_t suffixLen = strlen(".secure");
+        if (strlen(gEnv->getComponent().c_str()) >= suffixLen) {
+            isSecure =
+                !strcmp(gEnv->getComponent().c_str() +
+                            strlen(gEnv->getComponent().c_str()) - suffixLen,
+                        ".secure");
+        }
+        if (isSecure) disableTest = true;
+>>>>>>> BRANCH (b92f1d Disable tests for secure audio decoders)
         if (disableTest) std::cout << "[   WARN   ] Test Disabled \n";
     }
 
@@ -321,6 +333,7 @@ class AudioDecHidlTest : public ::testing::VtsHalHidlTargetTestBase {
     OMX_AUDIO_CODINGTYPE eEncoding;
     bool disableTest;
     bool eosFlag;
+    bool isSecure;
     uint32_t framesReceived;
     uint64_t timestampUs;
     ::android::List<uint64_t> timestampUslist;
