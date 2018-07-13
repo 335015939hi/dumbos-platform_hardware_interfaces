@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "84c591d6_00b6d84e",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_misc.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 731,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-07-13T18:31:22Z",
+      "side": 1,
+      "message": "It would be nice to try and put the errors in the same order (starting with NONE).",
+      "range": {
+        "startLine": 731,
+        "startChar": 59,
+        "endLine": 731,
+        "endChar": 63
+      },
+      "revId": "70805cffdd6ebfb98fc355620ffe2402ec377094",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
