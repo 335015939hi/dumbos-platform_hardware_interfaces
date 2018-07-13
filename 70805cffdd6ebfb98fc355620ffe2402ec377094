@@ -22,6 +22,30 @@
       "revId": "70805cffdd6ebfb98fc355620ffe2402ec377094",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb9a0966_2f3e000a",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_misc.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 731,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2018-07-13T18:37:32Z",
+      "side": 1,
+      "message": "It seems put it at the tail could prevent merge conflict",
+      "parentUuid": "84c591d6_00b6d84e",
+      "range": {
+        "startLine": 731,
+        "startChar": 59,
+        "endLine": 731,
+        "endChar": 63
+      },
+      "revId": "70805cffdd6ebfb98fc355620ffe2402ec377094",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
