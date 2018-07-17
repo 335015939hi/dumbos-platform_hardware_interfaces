@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d45df915_7f7d419e",
+        "filename": "compatibility_matrices/Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-07-17T22:44:59Z",
+      "side": 1,
+      "message": "always define it, but it will only get installed if it is depended on",
+      "range": {
+        "startLine": 150,
+        "startChar": 6,
+        "endLine": 150,
+        "endChar": 35
+      },
+      "revId": "4bb1b78d4d18f9cce0b497379dff2551d074a0fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "777984ee_b58279c6",
+        "filename": "compatibility_matrices/compatibility_matrix.recovery.current.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-07-17T22:44:59Z",
+      "side": 1,
+      "message": "what makes sure this is in sync?",
+      "range": {
+        "startLine": 1,
+        "startChar": 59,
+        "endLine": 1,
+        "endChar": 62
+      },
+      "revId": "4bb1b78d4d18f9cce0b497379dff2551d074a0fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
