@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cef8b9df_d23cbbea",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-07-17T16:21:31Z",
+      "side": 1,
+      "message": "Can you abandon the change internally and remove this and just merge here? I\u0027m assuming there is no merge conflict?",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 52
+      },
+      "revId": "329adf8818d2c0d838e01284ef45658db5f83c76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
