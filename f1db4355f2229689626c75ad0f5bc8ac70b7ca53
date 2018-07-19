@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "40267fbd_2b2bfb3d",
+        "filename": "fastboot/1.0/Android.bp",
+        "patchSetId": 13
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1074628
+      },
+      "writtenOn": "2018-07-19T18:17:04Z",
+      "side": 1,
+      "message": "Where is this used? it seems to be used by android.hardware.fastboot@1.0-impl which would imply that this at least needs to be `recovery_available: true`. Is it actually used on system \u0026 vendor?",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 6
+      },
+      "revId": "f1db4355f2229689626c75ad0f5bc8ac70b7ca53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
