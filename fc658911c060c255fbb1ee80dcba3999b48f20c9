@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "457b873f_cb49677a",
+        "filename": "fastboot/1.0/default/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1074628
+      },
+      "writtenOn": "2018-07-19T18:16:53Z",
+      "side": 1,
+      "message": "Is this actually used outside of recovery, or should this just be recovery: true?",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 29
+      },
+      "revId": "fc658911c060c255fbb1ee80dcba3999b48f20c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
