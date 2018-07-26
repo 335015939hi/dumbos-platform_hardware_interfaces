@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4504c30c_f6f9e2b3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1131915
+      },
+      "writtenOn": "2018-07-26T22:57:35Z",
+      "side": 1,
+      "message": "PRODUCT_OTA_REQUIRE_KERNEL is false",
+      "range": {
+        "startLine": 9,
+        "startChar": 33,
+        "endLine": 9,
+        "endChar": 48
+      },
+      "revId": "69bb753217cd3bf0b12cd4c4fab8246aee93bf50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60d0db5b_cb553a06",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1131915
+      },
+      "writtenOn": "2018-07-26T22:57:35Z",
+      "side": 1,
+      "message": "does want to enforce kernel requirements",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 33
+      },
+      "revId": "69bb753217cd3bf0b12cd4c4fab8246aee93bf50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eebb95cd_62d60431",
+        "filename": "compatibility_matrices/Android.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1131915
+      },
+      "writtenOn": "2018-07-26T22:57:35Z",
+      "side": 1,
+      "message": "is this now just PRODUCT_OTA_REQUIRE_KERNEL",
+      "range": {
+        "startLine": 144,
+        "startChar": 36,
+        "endLine": 144,
+        "endChar": 42
+      },
+      "revId": "69bb753217cd3bf0b12cd4c4fab8246aee93bf50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
