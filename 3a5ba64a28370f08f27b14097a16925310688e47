@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "139f95d7_f225aed7",
+        "filename": "compatibility_matrices/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-07-26T21:38:02Z",
+      "side": 1,
+      "message": "nit: \u0027ifneq ($(...),true)\u0027 is way more common",
+      "range": {
+        "startLine": 144,
+        "startChar": 7,
+        "endLine": 144,
+        "endChar": 48
+      },
+      "revId": "3a5ba64a28370f08f27b14097a16925310688e47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1bb5288f_44707e9c",
+        "filename": "compatibility_matrices/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-07-26T21:38:02Z",
+      "side": 1,
+      "message": "shouldn\u0027t this be +\u003d?",
+      "range": {
+        "startLine": 145,
+        "startChar": 27,
+        "endLine": 145,
+        "endChar": 28
+      },
+      "revId": "3a5ba64a28370f08f27b14097a16925310688e47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
