@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "207d6540_a2af4630",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1108565
+      },
+      "writtenOn": "2018-07-27T18:55:35Z",
+      "side": 1,
+      "message": "this sounds / looks weird.\n\nThis should be, PRODUCT_SKIP_OTA_KERNEL_CHECK or something like that.",
+      "range": {
+        "startLine": 9,
+        "startChar": 7,
+        "endLine": 9,
+        "endChar": 33
+      },
+      "revId": "787962a4b217231e99dc78ec71d5fe2075cc86fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
