@@ -22,6 +22,546 @@
       "revId": "f1db4355f2229689626c75ad0f5bc8ac70b7ca53",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee582708_81bb361c",
+        "filename": "fastboot/1.0/Android.bp",
+        "patchSetId": 13
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-07-27T18:48:58Z",
+      "side": 1,
+      "message": "It will actually be used during normal boots, right?",
+      "parentUuid": "40267fbd_2b2bfb3d",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 6
+      },
+      "revId": "f1db4355f2229689626c75ad0f5bc8ac70b7ca53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b45675c1_17494693",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-07-27T18:48:58Z",
+      "side": 1,
+      "message": "four spaces (five including the one after the star) from the style guide and also to match javadoc",
+      "range": {
+        "startLine": 29,
+        "startChar": 7,
+        "endLine": 29,
+        "endChar": 19
+      },
+      "revId": "f1db4355f2229689626c75ad0f5bc8ac70b7ca53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0f4b525_a8ef2be0",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-07-27T18:48:58Z",
+      "side": 1,
+      "message": "can throw an error?",
+      "revId": "f1db4355f2229689626c75ad0f5bc8ac70b7ca53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f91f853_b232250f",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-07-27T18:48:58Z",
+      "side": 1,
+      "message": "can throw an error?",
+      "revId": "f1db4355f2229689626c75ad0f5bc8ac70b7ca53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b674b41e_5a030ff3",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-07-27T18:48:58Z",
+      "side": 1,
+      "message": "can throw an error?",
+      "revId": "f1db4355f2229689626c75ad0f5bc8ac70b7ca53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f87e833_4091586e",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-07-27T18:48:58Z",
+      "side": 1,
+      "message": "can throw an error?",
+      "revId": "f1db4355f2229689626c75ad0f5bc8ac70b7ca53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0b5c925_c049c9b9",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-07-27T18:48:58Z",
+      "side": 1,
+      "message": "can throw an error?",
+      "revId": "f1db4355f2229689626c75ad0f5bc8ac70b7ca53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d512cd50_e513cd49",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-07-27T18:48:58Z",
+      "side": 1,
+      "message": "may",
+      "range": {
+        "startLine": 93,
+        "startChar": 49,
+        "endLine": 93,
+        "endChar": 52
+      },
+      "revId": "f1db4355f2229689626c75ad0f5bc8ac70b7ca53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2ac1149_6c23a53f",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-07-27T18:48:58Z",
+      "side": 1,
+      "message": "must",
+      "range": {
+        "startLine": 94,
+        "startChar": 36,
+        "endLine": 94,
+        "endChar": 40
+      },
+      "revId": "f1db4355f2229689626c75ad0f5bc8ac70b7ca53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0474013_613328c0",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-07-27T18:48:58Z",
+      "side": 1,
+      "message": "can throw an error?",
+      "revId": "f1db4355f2229689626c75ad0f5bc8ac70b7ca53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "189b9034_36960b47",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-07-27T18:48:58Z",
+      "side": 1,
+      "message": "it seems like the framework should be deciding whether or not they need to be flashed.\n\nThis is returning information about the phone.\n\nWouldn\u0027t it be better to know:\n- is the partition bootable\n- is the partition empty\n- etc...\n\nAnd the client can decide if it needs to be flashed?",
+      "range": {
+        "startLine": 106,
+        "startChar": 53,
+        "endLine": 107,
+        "endChar": 38
+      },
+      "revId": "f1db4355f2229689626c75ad0f5bc8ac70b7ca53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ccdf0ce_4137828c",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-07-27T18:48:58Z",
+      "side": 1,
+      "message": "how well defined/established is the format here?",
+      "range": {
+        "startLine": 117,
+        "startChar": 64,
+        "endLine": 118,
+        "endChar": 22
+      },
+      "revId": "f1db4355f2229689626c75ad0f5bc8ac70b7ca53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1446d127_fffd4dc6",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-07-27T18:48:58Z",
+      "side": 1,
+      "message": "just isFill (no quotes) (everywhere)",
+      "range": {
+        "startLine": 119,
+        "startChar": 24,
+        "endLine": 119,
+        "endChar": 32
+      },
+      "revId": "f1db4355f2229689626c75ad0f5bc8ac70b7ca53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "107655ec_6614a34b",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-07-27T18:48:58Z",
+      "side": 1,
+      "message": "what sequence?",
+      "range": {
+        "startLine": 120,
+        "startChar": 18,
+        "endLine": 120,
+        "endChar": 33
+      },
+      "revId": "f1db4355f2229689626c75ad0f5bc8ac70b7ca53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7be22b61_dc77ce67",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-07-27T18:48:58Z",
+      "side": 1,
+      "message": "must",
+      "range": {
+        "startLine": 121,
+        "startChar": 43,
+        "endLine": 121,
+        "endChar": 47
+      },
+      "revId": "f1db4355f2229689626c75ad0f5bc8ac70b7ca53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90356a0d_5149e2a9",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-07-27T18:48:58Z",
+      "side": 1,
+      "message": "This is technically against the style guide.\n\nhttps://source.android.com/devices/architecture/hidl/code-style#function-declarations",
+      "range": {
+        "startLine": 128,
+        "startChar": 19,
+        "endLine": 130,
+        "endChar": 7
+      },
+      "revId": "f1db4355f2229689626c75ad0f5bc8ac70b7ca53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b7334cd_a795c642",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-07-27T18:48:58Z",
+      "side": 1,
+      "message": "make sure sepolicy requires a 1-1 client/server in order to avoid problems like b/73731675",
+      "range": {
+        "startLine": 157,
+        "startChar": 42,
+        "endLine": 158,
+        "endChar": 15
+      },
+      "revId": "f1db4355f2229689626c75ad0f5bc8ac70b7ca53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ff6af17_78cb365a",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-07-27T18:48:58Z",
+      "side": 1,
+      "message": "if nullptr, it should return SUCCESS though, right?",
+      "range": {
+        "startLine": 162,
+        "startChar": 51,
+        "endLine": 162,
+        "endChar": 58
+      },
+      "revId": "f1db4355f2229689626c75ad0f5bc8ac70b7ca53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "286b1275_f2db1c2e",
+        "filename": "fastboot/1.0/IFastbootLogger.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-07-27T18:48:58Z",
+      "side": 1,
+      "message": "consistent wrapping",
+      "range": {
+        "startLine": 22,
+        "startChar": 47,
+        "endLine": 23,
+        "endChar": 7
+      },
+      "revId": "f1db4355f2229689626c75ad0f5bc8ac70b7ca53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d5c34a0_95b248a3",
+        "filename": "fastboot/1.0/IFastbootLogger.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-07-27T18:48:58Z",
+      "side": 1,
+      "message": "implementation detail (fastboot is not fully standardized, it could be some other tool, right?)",
+      "range": {
+        "startLine": 25,
+        "startChar": 39,
+        "endLine": 25,
+        "endChar": 58
+      },
+      "revId": "f1db4355f2229689626c75ad0f5bc8ac70b7ca53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "516511d1_d1ad153b",
+        "filename": "fastboot/1.0/IFastbootLogger.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-07-27T18:48:58Z",
+      "side": 1,
+      "message": "implementation detail",
+      "range": {
+        "startLine": 25,
+        "startChar": 12,
+        "endLine": 25,
+        "endChar": 15
+      },
+      "revId": "f1db4355f2229689626c75ad0f5bc8ac70b7ca53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01268606_92bb14d6",
+        "filename": "fastboot/1.0/IFastbootLogger.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-07-27T18:48:58Z",
+      "side": 1,
+      "message": "\"Log from the IFastboot which must be printed\"",
+      "range": {
+        "startLine": 27,
+        "startChar": 40,
+        "endLine": 27,
+        "endChar": 44
+      },
+      "revId": "f1db4355f2229689626c75ad0f5bc8ac70b7ca53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a23e6ed_792d2866",
+        "filename": "fastboot/1.0/IFastbootLogger.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-07-27T18:48:58Z",
+      "side": 1,
+      "message": "nit: just \u0027log\u0027 (since it is requesting an action not responding to an action)",
+      "range": {
+        "startLine": 29,
+        "startChar": 4,
+        "endLine": 29,
+        "endChar": 9
+      },
+      "revId": "f1db4355f2229689626c75ad0f5bc8ac70b7ca53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6efb6f13_9f932fa1",
+        "filename": "fastboot/1.0/types.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-07-27T18:48:58Z",
+      "side": 1,
+      "message": "nit: PartitionDetail right?",
+      "range": {
+        "startLine": 57,
+        "startChar": 7,
+        "endLine": 57,
+        "endChar": 23
+      },
+      "revId": "f1db4355f2229689626c75ad0f5bc8ac70b7ca53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5aff5250_655eed9a",
+        "filename": "fastboot/1.0/types.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-07-27T18:48:58Z",
+      "side": 1,
+      "message": "nit: s/log/error/ for name to disambiguate from this HALs usage of \u0027log\u0027 as the parameter of IFastbootLogger",
+      "range": {
+        "startLine": 83,
+        "startChar": 11,
+        "endLine": 83,
+        "endChar": 14
+      },
+      "revId": "f1db4355f2229689626c75ad0f5bc8ac70b7ca53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
