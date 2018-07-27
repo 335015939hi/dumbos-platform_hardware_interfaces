@@ -46,6 +46,30 @@
       "revId": "787962a4b217231e99dc78ec71d5fe2075cc86fa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca519006_4de11f27",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2018-07-27T19:29:21Z",
+      "side": 1,
+      "message": "I can change the commit message to:\n\n\"Enforce kernel requirements in OTA if flag is set...\"",
+      "parentUuid": "b143f3df_14ac7e9a",
+      "range": {
+        "startLine": 9,
+        "startChar": 7,
+        "endLine": 9,
+        "endChar": 33
+      },
+      "revId": "787962a4b217231e99dc78ec71d5fe2075cc86fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
