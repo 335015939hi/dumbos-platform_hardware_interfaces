@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "db43e54b_9573b56a",
+        "filename": "tests/baz/1.0/IBaz.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-07-27T18:29:57Z",
+      "side": 1,
+      "message": "There\u0027s no need for Baz to hold onto these handles for our test, it seems. It\u0027s much nicer just to close the handle and let the ownership be transferred.",
+      "range": {
+        "startLine": 113,
+        "startChar": 4,
+        "endLine": 113,
+        "endChar": 16
+      },
+      "revId": "9a4338290bf8a401cce734e4318aafe717eac8d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
