@@ -400,6 +400,33 @@ Return<void> Baz::haveSomeStructWithInterface(const StructWithInterface& swi,
     _hidl_cb(swi);
     return Void();
 }
+
+Return<void> Baz::createMyHandle(createMyHandle_cb _hidl_cb) {
+    native_handle_t* nh = native_handle_create(0, 10);
+    int data[] = {2, 3, 5, 7, 11, 13, 17, 19, 21, 23};
+    CHECK(sizeof(data) == 10 * sizeof(int));
+    memcpy(nh->data, data, sizeof(data));
+
+    MyHandle h;
+    h.guard = 666;
+    h.h.setTo(nh, true /* shouldOwn */);
+
+    _hidl_cb(h);
+    return Void();
+}
+
+Return<void> Baz::createHandles(uint32_t size, createHandles_cb _hidl_cb) {
+    hidl_vec<hidl_handle> handles;
+    handles.resize(size);
+    for(uint32_t i = 0; i < size; ++i) {
+        createMyHandle([&](const MyHandle& h) {
+            handles[i] = h.h;
+        });
+    }
+    _hidl_cb(handles);
+    return Void();
+}
+
 // Methods from ::android::hidl::base::V1_0::IBase follow.
 
 IBaz* HIDL_FETCH_IBaz(const char* /* name */) {

@@ -18,6 +18,7 @@ using ::android::hardware::tests::baz::V1_0::IBazCallback;
 using ::android::hidl::base::V1_0::DebugInfo;
 using ::android::hidl::base::V1_0::IBase;
 using ::android::hardware::hidl_array;
+using ::android::hardware::hidl_handle;
 using ::android::hardware::hidl_memory;
 using ::android::hardware::hidl_string;
 using ::android::hardware::hidl_vec;
@@ -93,6 +94,10 @@ struct Baz : public IBaz {
 
     Return<void> haveSomeStructWithInterface(const StructWithInterface& swi,
                                              haveSomeStructWithInterface_cb _hidl_cb) override;
+
+    Return<void> createMyHandle(createMyHandle_cb _hidl_cb) override;
+    Return<void> createHandles(uint32_t size, createHandles_cb _hidl_cb) override;
+
     // Methods from ::android::hidl::base::V1_0::IBase follow.
  private:
     sp<IBazCallback> mStoredCallback;
