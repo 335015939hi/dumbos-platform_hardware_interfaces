@@ -68,6 +68,11 @@ interface IBaz extends IBase {
         bitfield<BitField> bf;
     };
 
+    struct MyHandle {
+        handle h;
+        int32_t guard;
+    };
+
     struct StructWithInterface {
         int32_t number;
         int8_t[7] array;
@@ -102,4 +107,8 @@ interface IBaz extends IBase {
     getNestedStructs() generates(vec<NestedStruct> data);
 
     haveSomeStructWithInterface(StructWithInterface swi) generates(StructWithInterface swi);
+
+    createMyHandle() generates (MyHandle h);
+    createHandles(uint32_t size) generates (vec<handle> handles);
+    closeHandles();
 };
