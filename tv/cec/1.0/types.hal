@@ -194,6 +194,9 @@ enum OptionKey : int32_t {
     SYSTEM_CEC_CONTROL = 3,
 
     /* Option 4 not used */
+    /* Pass if system support multichannels or not for ARC devices.
+     */
+    SUPPORT_MULTICHANNELS = 6,
 };
 
 struct CecMessage {
