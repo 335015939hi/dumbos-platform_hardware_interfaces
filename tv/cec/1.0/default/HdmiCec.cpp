@@ -261,7 +261,8 @@ static_assert(HDMI_OPTION_ENABLE_CEC == static_cast<int>(OptionKey::ENABLE_CEC),
         "OptionKey::ENABLE_CEC must match legacy value.");
 static_assert(HDMI_OPTION_SYSTEM_CEC_CONTROL == static_cast<int>(OptionKey::SYSTEM_CEC_CONTROL),
         "OptionKey::SYSTEM_CEC_CONTROL must match legacy value.");
-
+static_assert(HDMI_OPTION_SUPPORT_MULTICHANNELS == static_cast<int>(OptionKey::SUPPORT_MULTICHANNELS),
+        "OptionKey::SUPPORT_MULTICHANNELS must match legacy value.");
 sp<IHdmiCecCallback> HdmiCec::mCallback = nullptr;
 
 HdmiCec::HdmiCec(hdmi_cec_device_t* device) : mDevice(device) {
