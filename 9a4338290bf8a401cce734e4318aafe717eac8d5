@@ -46,6 +46,30 @@
       "revId": "9a4338290bf8a401cce734e4318aafe717eac8d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf779c1e_ebd78186",
+        "filename": "tests/baz/1.0/IBaz.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1320646
+      },
+      "writtenOn": "2018-07-30T22:52:22Z",
+      "side": 1,
+      "message": "Sorry for the delay! Done.",
+      "parentUuid": "e6ad36c0_6b24f9f5",
+      "range": {
+        "startLine": 113,
+        "startChar": 4,
+        "endLine": 113,
+        "endChar": 16
+      },
+      "revId": "9a4338290bf8a401cce734e4318aafe717eac8d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
