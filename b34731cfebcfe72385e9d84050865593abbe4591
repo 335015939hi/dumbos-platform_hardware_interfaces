@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3185f6af_4a735d42",
+        "filename": "tv/cec/1.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1060286
+      },
+      "writtenOn": "2018-07-30T15:49:59Z",
+      "side": 1,
+      "message": "Javadoc format starts with /**\n\nImprove the text using the same format as line 177 to 181",
+      "range": {
+        "startLine": 197,
+        "startChar": 0,
+        "endLine": 198,
+        "endChar": 7
+      },
+      "revId": "b34731cfebcfe72385e9d84050865593abbe4591",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
