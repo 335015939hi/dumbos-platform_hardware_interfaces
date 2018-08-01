@@ -295,7 +295,6 @@ void ComposerClient::execute(TestCommandReader* reader, CommandWriterBase* write
     if (queueChanged) {
         auto ret = mClient->setInputCommandQueue(*writer->getMQDescriptor());
         ASSERT_EQ(Error::NONE, static_cast<Error>(ret));
-        return;
     }
 
     mClient->executeCommands(commandLength, commandHandles,
@@ -314,6 +313,8 @@ void ComposerClient::execute(TestCommandReader* reader, CommandWriterBase* write
                                  ASSERT_TRUE(reader->readQueue(tmpOutLength, tmpOutHandles));
                                  reader->parse();
                              });
+    reader->reset();
+    writer->reset();
 }
 
 }  // namespace vts
