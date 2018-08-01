@@ -141,13 +141,12 @@ void ComposerClient_v2_2::getReadbackBufferAttributes(Display display, PixelForm
         });
 }
 
-void ComposerClient_v2_2::getReadbackBufferFence(Display display, int32_t* outFence) {
-    hidl_handle handle;
-    mClient_v2_2->getReadbackBufferFence(display, [&](const auto& tmpError, const auto& tmpHandle) {
+void ComposerClient::getReadbackBufferFence(Display display, int32_t* outFence) {
+    mClient->getReadbackBufferFence(display, [&](const auto& tmpError, const auto& tmpHandle) {
         ASSERT_EQ(Error::NONE, tmpError) << "failed to get readback fence";
-        handle = tmpHandle;
+        const native_handle_t* nativeFenceHandle = tmpHandle.getNativeHandle();
+        *outFence = dup(nativeFenceHandle->data[0]);
     });
-    *outFence = 0;
 }
 
 std::vector<ColorMode> ComposerClient_v2_2::getColorModes(Display display) {
