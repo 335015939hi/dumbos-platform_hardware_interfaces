@@ -1902,6 +1902,7 @@ TEST_F(CameraHidlTest, getCameraCharacteristics) {
                     });
                 ASSERT_TRUE(ret.isOk());
 
+<<<<<<< HEAD   (0f0328 Effect VTS: Allow an effect proxy as pre/post processing)
                 ret = device3_x->getCameraCharacteristics([&](auto status, const auto& chars) {
                     ALOGI("getCameraCharacteristics returns status:%d", (int)status);
                     ASSERT_EQ(Status::OK, status);
@@ -1915,6 +1916,41 @@ TEST_F(CameraHidlTest, getCameraCharacteristics) {
                     ASSERT_GT(entryCount, 0u);
                     ALOGI("getCameraCharacteristics metadata entry count is %zu", entryCount);
                 });
+=======
+                ret = device3_2->getCameraCharacteristics(
+                    [&](auto status, const auto& chars) {
+                        ALOGI("getCameraCharacteristics returns status:%d",
+                              (int)status);
+                        ASSERT_EQ(Status::OK, status);
+                        const camera_metadata_t* metadata =
+                                (camera_metadata_t*) chars.data();
+                        size_t expectedSize = chars.size();
+                        int result = validate_camera_metadata_structure(
+                                metadata, &expectedSize);
+                        ASSERT_TRUE((result == 0) ||
+                                (result == CAMERA_METADATA_VALIDATION_SHIFTED));
+                        size_t entryCount = get_camera_metadata_entry_count(
+                                metadata);
+                        // TODO: we can do better than 0 here. Need to check how many required
+                        // characteristics keys we've defined.
+                        ASSERT_GT(entryCount, 0u);
+                        ALOGI("getCameraCharacteristics metadata entry count is %zu",
+                              entryCount);
+
+                        camera_metadata_ro_entry entry;
+                        int retcode = find_camera_metadata_ro_entry(metadata,
+                                ANDROID_INFO_SUPPORTED_HARDWARE_LEVEL, &entry);
+                        if ((0 == retcode) && (entry.count > 0)) {
+                            uint8_t hardwareLevel = entry.data.u8[0];
+                            ASSERT_TRUE(
+                                    hardwareLevel == ANDROID_INFO_SUPPORTED_HARDWARE_LEVEL_LIMITED ||
+                                    hardwareLevel == ANDROID_INFO_SUPPORTED_HARDWARE_LEVEL_FULL ||
+                                    hardwareLevel == ANDROID_INFO_SUPPORTED_HARDWARE_LEVEL_3);
+                        } else {
+                            ADD_FAILURE() << "Get camera hardware level failed!";
+                        }
+                    });
+>>>>>>> BRANCH (cd0229 Camera: add proper HwLevel check)
                 ASSERT_TRUE(ret.isOk());
             }
             break;
