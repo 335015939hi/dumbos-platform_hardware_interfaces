@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ac408071_c495bbbf",
+        "filename": "camera/provider/2.4/vts/functional/VtsHalCameraProviderV2_4TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2077,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2018-08-02T16:16:48Z",
+      "side": 1,
+      "message": "where is the launching-with-O check? is using first_api_level sysprop an option?",
+      "range": {
+        "startLine": 2072,
+        "startChar": 35,
+        "endLine": 2077,
+        "endChar": 101
+      },
+      "revId": "cd02298b46cfb17954555e0f1d324f63085aa204",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
