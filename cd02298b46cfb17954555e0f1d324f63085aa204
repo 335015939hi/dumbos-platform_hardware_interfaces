@@ -22,6 +22,30 @@
       "revId": "cd02298b46cfb17954555e0f1d324f63085aa204",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a1b445c_fc3b3db9",
+        "filename": "camera/provider/2.4/vts/functional/VtsHalCameraProviderV2_4TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2077,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2018-08-02T16:19:50Z",
+      "side": 1,
+      "message": "My understanding is VTS is not required for devices launched prior to O, so I assume I can do a global check here. Is it not the case?",
+      "parentUuid": "ac408071_c495bbbf",
+      "range": {
+        "startLine": 2072,
+        "startChar": 35,
+        "endLine": 2077,
+        "endChar": 101
+      },
+      "revId": "cd02298b46cfb17954555e0f1d324f63085aa204",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
