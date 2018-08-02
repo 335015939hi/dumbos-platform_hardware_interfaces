@@ -70,6 +70,30 @@
       "revId": "cd02298b46cfb17954555e0f1d324f63085aa204",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a007e206_6cef5175",
+        "filename": "camera/provider/2.4/vts/functional/VtsHalCameraProviderV2_4TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2077,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2018-08-02T16:33:00Z",
+      "side": 1,
+      "message": "Even for devices upgrading to O, this check still provides important warning on API violation (the API spec was there since L)\nSo I\u0027d prefer let those upgrading devices see this failure.",
+      "parentUuid": "65cc2de9_b2e0a6cc",
+      "range": {
+        "startLine": 2072,
+        "startChar": 35,
+        "endLine": 2077,
+        "endChar": 101
+      },
+      "revId": "cd02298b46cfb17954555e0f1d324f63085aa204",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
