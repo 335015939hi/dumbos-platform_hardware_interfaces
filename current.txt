@@ -385,6 +385,7 @@ cd4330c3196bda1d642a32abfe23a7d64ebfbda721940643af6867af3b3f0aa9 android.hardwar
 10ff2fae516346b86121368ce5790d5accdfcb73983246b813f3d488b66db45a android.hardware.wifi.supplicant@1.1::ISupplicantStaNetwork
 
 # ABI preserving changes to HALs during Android Q
+a95745bbf76aea16a76518bd7efe70cabc5886d09eaeffc993c2e1787a22ed23 android.hardware.camera.metadata@3.3::types
 da33234403ff5d60f3473711917b9948e6484a4260b5247acdafb111193a9de2 android.hardware.configstore@1.0::ISurfaceFlingerConfigs
 78886339f2c848cf13c1edd3ebba63f89796b2620d3bf3b5c21d038a53519ba0 android.hardware.gnss@1.0::IGnssMeasurementCallback
 b7ecf29927055ec422ec44bf776223f07d79ad9f92ccf9becf167e62c2607e7a android.hardware.keymaster@4.0::IKeymasterDevice
