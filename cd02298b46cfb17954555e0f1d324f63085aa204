@@ -46,6 +46,30 @@
       "revId": "cd02298b46cfb17954555e0f1d324f63085aa204",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65cc2de9_b2e0a6cc",
+        "filename": "camera/provider/2.4/vts/functional/VtsHalCameraProviderV2_4TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2077,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2018-08-02T16:24:42Z",
+      "side": 1,
+      "message": "it\u0027s true upgrading-to-O devices use VTS in practice. so it\u0027s a post-release revision, adding a check here would make sense for the existing users.\n\nwhat kinds of global check you\u0027ve in mind? if you\u0027re going to use first_api_level, please make sure that may not be defined and in that case sdk api level is used as a replacement.",
+      "parentUuid": "0a1b445c_fc3b3db9",
+      "range": {
+        "startLine": 2072,
+        "startChar": 35,
+        "endLine": 2077,
+        "endChar": 101
+      },
+      "revId": "cd02298b46cfb17954555e0f1d324f63085aa204",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
