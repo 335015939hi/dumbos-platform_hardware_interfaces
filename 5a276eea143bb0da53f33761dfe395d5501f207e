@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "38753e2f_d4858743",
+        "filename": "health/filesystem/1.0/IFileSystem.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-08-09T23:51:41Z",
+      "side": 1,
+      "message": "an",
+      "range": {
+        "startLine": 20,
+        "startChar": 59,
+        "endLine": 20,
+        "endChar": 62
+      },
+      "revId": "5a276eea143bb0da53f33761dfe395d5501f207e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a941a5b6_2974c3b7",
+        "filename": "health/filesystem/1.0/IFileSystem.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-08-09T23:51:41Z",
+      "side": 1,
+      "message": "flash memory",
+      "range": {
+        "startLine": 21,
+        "startChar": 29,
+        "endLine": 21,
+        "endChar": 36
+      },
+      "revId": "5a276eea143bb0da53f33761dfe395d5501f207e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afc77915_aa8c463d",
+        "filename": "health/filesystem/1.0/IFileSystem.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-08-09T23:51:41Z",
+      "side": 1,
+      "message": "nit: specify \u0027must be called at regular intervals when it is a good time for a longer-running cleanup tasks\u0027?",
+      "revId": "5a276eea143bb0da53f33761dfe395d5501f207e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c702035e_3055ace5",
+        "filename": "health/filesystem/1.0/IFileSystem.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-08-09T23:51:41Z",
+      "side": 1,
+      "message": "the fact that it is a call makes it manual. Just omit this word?",
+      "range": {
+        "startLine": 25,
+        "startChar": 32,
+        "endLine": 25,
+        "endChar": 40
+      },
+      "revId": "5a276eea143bb0da53f33761dfe395d5501f207e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9af6d05f_e80d123c",
+        "filename": "health/filesystem/1.0/IFileSystem.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-08-09T23:51:41Z",
+      "side": 1,
+      "message": "just \u0027garbageCollect\u0027? since it is intrinsically manual (not automatic?)",
+      "range": {
+        "startLine": 29,
+        "startChar": 4,
+        "endLine": 29,
+        "endChar": 24
+      },
+      "revId": "5a276eea143bb0da53f33761dfe395d5501f207e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "553def08_d9a136cd",
+        "filename": "health/filesystem/1.0/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-08-09T23:51:41Z",
+      "side": 1,
+      "message": "let\u0027s omit this. There should be no reason to have the HAL if it does this",
+      "range": {
+        "startLine": 27,
+        "startChar": 1,
+        "endLine": 30,
+        "endChar": 18
+      },
+      "revId": "5a276eea143bb0da53f33761dfe395d5501f207e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f68185ff_3067a99a",
+        "filename": "health/filesystem/1.0/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-08-09T23:51:41Z",
+      "side": 1,
+      "message": "is the intention for the garbage collection to hold up the client of this call?",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 12
+      },
+      "revId": "5a276eea143bb0da53f33761dfe395d5501f207e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
