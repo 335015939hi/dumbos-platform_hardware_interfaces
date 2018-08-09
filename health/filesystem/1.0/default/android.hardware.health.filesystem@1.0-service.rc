@@ -1,0 +1,7 @@
+service vendor.health-filesystem-hal-1-0 /vendor/bin/hw/android.hardware.health.filesystem@1.0-service
+    interface android.hardware.health.filesystem@1.0::IFileSystem default
+    class hal
+    user system
+    group system
+    oneshot
+    disabled
