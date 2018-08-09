@@ -134,6 +134,30 @@
     },
     {
       "key": {
+        "uuid": "93c54001_26f026ea",
+        "filename": "health/filesystem/1.0/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2018-08-09T23:58:30Z",
+      "side": 1,
+      "message": "Ack. I put this here in case there are more functions in the HAL and the HAL only implement part of them. It is okay to remove now.",
+      "parentUuid": "553def08_d9a136cd",
+      "range": {
+        "startLine": 27,
+        "startChar": 1,
+        "endLine": 30,
+        "endChar": 18
+      },
+      "revId": "5a276eea143bb0da53f33761dfe395d5501f207e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f68185ff_3067a99a",
         "filename": "health/filesystem/1.0/types.hal",
         "patchSetId": 5
@@ -145,6 +169,30 @@
       "writtenOn": "2018-08-09T23:51:41Z",
       "side": 1,
       "message": "is the intention for the garbage collection to hold up the client of this call?",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 12
+      },
+      "revId": "5a276eea143bb0da53f33761dfe395d5501f207e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e0343a1_4fc11d66",
+        "filename": "health/filesystem/1.0/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2018-08-09T23:58:30Z",
+      "side": 1,
+      "message": "I am not sure if it is the intention, but this is the current behavior.",
+      "parentUuid": "f68185ff_3067a99a",
       "range": {
         "startLine": 31,
         "startChar": 0,
