@@ -1,0 +1,11 @@
+<manifest version="1.0" type="device">
+    <hal>
+        <name>android.hardware.health.filesystem</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IFileSystem</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+</manifest>
