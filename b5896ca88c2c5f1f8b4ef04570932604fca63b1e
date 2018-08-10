@@ -22,6 +22,30 @@
       "revId": "b5896ca88c2c5f1f8b4ef04570932604fca63b1e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "847c3486_6939caaf",
+        "filename": "compatibility_matrices/compatibility_matrix.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2018-08-10T18:00:48Z",
+      "side": 1,
+      "message": "Also, ideally we don\u0027t want new devices (shipping API level \u003e\u003d 29) to define this. Can you upload a separate change to config.mk to emit an error if shipping API level \u003e\u003d 29 and this variable is defined?\n\nOtherwise I\u0027ll do it after we merge the CL here.",
+      "parentUuid": "8b9dc473_abb7ef52",
+      "range": {
+        "startLine": 62,
+        "startChar": 10,
+        "endLine": 62,
+        "endChar": 49
+      },
+      "revId": "b5896ca88c2c5f1f8b4ef04570932604fca63b1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
