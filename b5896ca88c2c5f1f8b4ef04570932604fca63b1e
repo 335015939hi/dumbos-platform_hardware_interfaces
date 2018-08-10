@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8b9dc473_abb7ef52",
+        "filename": "compatibility_matrices/compatibility_matrix.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2018-08-10T17:50:31Z",
+      "side": 1,
+      "message": "nit: BOARD_OTA_FRAMEWORK_VBMETA_VERSION_OVERRIDE",
+      "range": {
+        "startLine": 62,
+        "startChar": 10,
+        "endLine": 62,
+        "endChar": 49
+      },
+      "revId": "b5896ca88c2c5f1f8b4ef04570932604fca63b1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
