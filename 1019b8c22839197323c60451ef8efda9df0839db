@@ -1,0 +1,153 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a7f18b36_cda60bed",
+        "filename": "health/filesystem/1.0/vts/functional/Android.bp",
+        "patchSetId": 9
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-08-13T23:36:12Z",
+      "side": 1,
+      "message": "8",
+      "range": {
+        "startLine": 2,
+        "startChar": 20,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "1019b8c22839197323c60451ef8efda9df0839db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48a6b27d_297023bd",
+        "filename": "health/filesystem/1.0/vts/functional/VtsHalHealthFilesystemV1_0TargetTest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-08-13T23:36:12Z",
+      "side": 1,
+      "message": "8 :)",
+      "range": {
+        "startLine": 2,
+        "startChar": 20,
+        "endLine": 2,
+        "endChar": 22
+      },
+      "revId": "1019b8c22839197323c60451ef8efda9df0839db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b2c9eb2_d66a1d06",
+        "filename": "health/filesystem/1.0/vts/functional/VtsHalHealthFilesystemV1_0TargetTest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-08-13T23:36:12Z",
+      "side": 1,
+      "message": "just remove: libbase uses the process name",
+      "revId": "1019b8c22839197323c60451ef8efda9df0839db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0f214ac_dff3b8eb",
+        "filename": "health/filesystem/1.0/vts/functional/VtsHalHealthFilesystemV1_0TargetTest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-08-13T23:36:12Z",
+      "side": 1,
+      "message": "we should provide this (the right way) in something like \u0027libhidltestutils\u0027 honestly.. I\u0027m tired of seeing defined so many times :(",
+      "revId": "1019b8c22839197323c60451ef8efda9df0839db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81e706c4_133f9a6c",
+        "filename": "health/filesystem/1.0/vts/functional/VtsHalHealthFilesystemV1_0TargetTest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-08-13T23:36:12Z",
+      "side": 1,
+      "message": "nit: for this type of thing in general, why not just have:\n\nstatic HealthFilesystemHidlEnvironment instance;\nreturn \u0026instance;\n\nIt will make sure cleanup for the library works if it is unloaded? Not that it matters here...",
+      "range": {
+        "startLine": 38,
+        "startChar": 46,
+        "endLine": 38,
+        "endChar": 47
+      },
+      "revId": "1019b8c22839197323c60451ef8efda9df0839db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5e77f36_edc68ed1",
+        "filename": "health/filesystem/1.0/vts/functional/VtsHalHealthFilesystemV1_0TargetTest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-08-13T23:36:12Z",
+      "side": 1,
+      "message": "Is there a reason this isn\u0027t capitalized to match the other ones?",
+      "range": {
+        "startLine": 42,
+        "startChar": 17,
+        "endLine": 42,
+        "endChar": 18
+      },
+      "revId": "1019b8c22839197323c60451ef8efda9df0839db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a81439a_6fcde2cf",
+        "filename": "health/filesystem/1.0/vts/functional/VtsHalHealthFilesystemV1_0TargetTest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-08-13T23:36:12Z",
+      "side": 1,
+      "message": "we should delete these logs everywhere and just print it in VtsHalHidlTargetTestBase\u0027s getService",
+      "range": {
+        "startLine": 55,
+        "startChar": 33,
+        "endLine": 55,
+        "endChar": 39
+      },
+      "revId": "1019b8c22839197323c60451ef8efda9df0839db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
