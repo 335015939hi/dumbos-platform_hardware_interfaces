@@ -46,6 +46,30 @@
       "revId": "b5896ca88c2c5f1f8b4ef04570932604fca63b1e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d29497fd_277718b7",
+        "filename": "compatibility_matrices/compatibility_matrix.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1080813
+      },
+      "writtenOn": "2018-08-13T16:27:24Z",
+      "side": 1,
+      "message": "OK, both done!\n\nhttps://android-review.googlesource.com/c/platform/build/+/730387",
+      "parentUuid": "847c3486_6939caaf",
+      "range": {
+        "startLine": 62,
+        "startChar": 10,
+        "endLine": 62,
+        "endChar": 49
+      },
+      "revId": "b5896ca88c2c5f1f8b4ef04570932604fca63b1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
