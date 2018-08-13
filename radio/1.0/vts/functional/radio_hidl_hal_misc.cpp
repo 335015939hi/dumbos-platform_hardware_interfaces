@@ -694,9 +694,18 @@ TEST_F(RadioHidlTest, startLceService) {
     EXPECT_EQ(serial, radioRsp->rspInfo.serial);
 
     if (cardStatus.cardState == CardState::ABSENT) {
+<<<<<<< HEAD   (795990 Update power HAL to version 1.3.)
         ASSERT_TRUE(CheckAnyOfErrors(radioRsp->rspInfo.error,
                                      {RadioError::INTERNAL_ERR, RadioError::LCE_NOT_SUPPORTED,
                                       RadioError::RADIO_NOT_AVAILABLE, RadioError::SIM_ABSENT}));
+=======
+        std::cout << static_cast<int>(radioRsp->rspInfo.error) << std::endl;
+        ASSERT_TRUE(radioRsp->rspInfo.error == RadioError::RADIO_NOT_AVAILABLE ||
+                    radioRsp->rspInfo.error == RadioError::LCE_NOT_SUPPORTED ||
+                    radioRsp->rspInfo.error == RadioError::INTERNAL_ERR ||
+                    radioRsp->rspInfo.error == RadioError::SIM_ABSENT ||
+                    radioRsp->rspInfo.error == RadioError::NONE);
+>>>>>>> BRANCH (898d05 resolve merge conflicts of dfa79a6292a42dd8609053febd8df7d5e)
     }
 }
 
@@ -730,10 +739,17 @@ TEST_F(RadioHidlTest, pullLceData) {
     EXPECT_EQ(serial, radioRsp->rspInfo.serial);
 
     if (cardStatus.cardState == CardState::ABSENT) {
+<<<<<<< HEAD   (795990 Update power HAL to version 1.3.)
         ASSERT_TRUE(CheckAnyOfErrors(
             radioRsp->rspInfo.error,
             {RadioError::NONE, RadioError::INTERNAL_ERR, RadioError::RADIO_NOT_AVAILABLE},
             CHECK_OEM_ERROR));
+=======
+        ASSERT_TRUE(radioRsp->rspInfo.error == RadioError::RADIO_NOT_AVAILABLE || CheckOEMError() ||
+                    radioRsp->rspInfo.error == RadioError::INTERNAL_ERR ||
+                    radioRsp->rspInfo.error == RadioError::NONE ||
+                    radioRsp->rspInfo.error == RadioError::SIM_ABSENT);
+>>>>>>> BRANCH (898d05 resolve merge conflicts of dfa79a6292a42dd8609053febd8df7d5e)
     }
 }
 
