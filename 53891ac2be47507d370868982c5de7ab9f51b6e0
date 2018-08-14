@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "588d3272_f8043e3d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1080813
+      },
+      "writtenOn": "2018-08-14T02:11:30Z",
+      "side": 1,
+      "message": "just to confirm, this system_matrix.xml with FAKE avb version only exist in the OTA package.\nAnd it is NOT the system matrix installed to /system/etc/vintf after OTA.",
+      "range": {
+        "startLine": 9,
+        "startChar": 4,
+        "endLine": 9,
+        "endChar": 42
+      },
+      "revId": "53891ac2be47507d370868982c5de7ab9f51b6e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
