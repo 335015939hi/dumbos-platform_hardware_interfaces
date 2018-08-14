@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "9bcef353_e03d2be3",
+        "filename": "fastboot/1.0/Android.bp",
+        "patchSetId": 13
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-08-14T19:20:52Z",
+      "side": 1,
+      "message": "Why are we making this a HIDL interface then? I\u0027m assuming the answer is \u0027for increased consistency\u0027?\n\nBut, if it isn\u0027t used during normal builds, you are losing some advantages (namely, you don\u0027t actually need the ABI stability here). If we want the ABI stability (for the benefits of uniformity), then maybe that\u0027s fine, but I think we should consider (potentially) moving the interface out of hardware/interfaces into a new directory which is specific to recovery. This will also (automagically) stop generating \u0027vndk: enabled: true\u0027 here.",
+      "parentUuid": "8e3c95bc_31c32bd5",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 6
+      },
+      "revId": "f1db4355f2229689626c75ad0f5bc8ac70b7ca53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b45675c1_17494693",
         "filename": "fastboot/1.0/IFastboot.hal",
         "patchSetId": 13
