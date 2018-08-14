@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d577eb2f_322a7242",
+        "filename": "current.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-08-14T18:18:05Z",
+      "side": 1,
+      "message": "can you move this up one (to be in alphanumeric order for the second column?)",
+      "range": {
+        "startLine": 391,
+        "startChar": 65,
+        "endLine": 391,
+        "endChar": 72
+      },
+      "revId": "f3791f6a3fdc5ecee223772187eea3d9c093c4f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
