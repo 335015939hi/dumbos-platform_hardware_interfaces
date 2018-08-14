@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "50ffb8b5_8c2e291c",
+        "filename": "fastboot/1.0/IFastbootLogger.hal",
+        "patchSetId": 14
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-08-14T19:59:42Z",
+      "side": 1,
+      "message": "log (for consistency/to follow the style guide)",
+      "range": {
+        "startLine": 28,
+        "startChar": 4,
+        "endLine": 28,
+        "endChar": 7
+      },
+      "revId": "60dded0e41b3133933bc8ba4637e59a81b9db75e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
