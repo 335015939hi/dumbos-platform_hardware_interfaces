@@ -92,6 +92,30 @@
       "revId": "dcece4954fae8b7c2ba183fbe9417772ff1c9278",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7ffca3f_5b618d59",
+        "filename": "radio/1.3/ISap.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-08-14T16:46:43Z",
+      "side": 1,
+      "message": "Oh wait. I recall this now.\n\nFortunately, because of \u0027fqname\u0027 in VINTF manifest files, this restriction no longer applies. You can keep it for consistency if you want though.",
+      "parentUuid": "4db539bf_4f37a08d",
+      "range": {
+        "startLine": 22,
+        "startChar": 3,
+        "endLine": 22,
+        "endChar": 29
+      },
+      "revId": "dcece4954fae8b7c2ba183fbe9417772ff1c9278",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
