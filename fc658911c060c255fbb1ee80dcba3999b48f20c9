@@ -22,6 +22,30 @@
       "revId": "fc658911c060c255fbb1ee80dcba3999b48f20c9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47707456_cf379ce6",
+        "filename": "fastboot/1.0/default/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-08-14T22:12:34Z",
+      "side": 1,
+      "message": "it should be \u0027recovery: true\u0027 for now, yes",
+      "parentUuid": "457b873f_cb49677a",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 29
+      },
+      "revId": "fc658911c060c255fbb1ee80dcba3999b48f20c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
