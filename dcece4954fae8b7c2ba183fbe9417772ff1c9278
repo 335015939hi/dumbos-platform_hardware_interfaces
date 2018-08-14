@@ -68,6 +68,30 @@
       "revId": "dcece4954fae8b7c2ba183fbe9417772ff1c9278",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4db539bf_4f37a08d",
+        "filename": "radio/1.3/ISap.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2018-08-14T06:03:08Z",
+      "side": 1,
+      "message": "What do you mean? This is just added because unfortunately it\u0027s under the same package and AFAIK treble version is per package.",
+      "parentUuid": "42539b4a_5c2d3daa",
+      "range": {
+        "startLine": 22,
+        "startChar": 3,
+        "endLine": 22,
+        "endChar": 29
+      },
+      "revId": "dcece4954fae8b7c2ba183fbe9417772ff1c9278",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
