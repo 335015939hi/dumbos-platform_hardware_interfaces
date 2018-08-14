@@ -33,17 +33,17 @@ TEST_F(RadioHidlTest_v1_1, setSimCardPower_1_1) {
     ASSERT_TRUE(CheckAnyOfErrors(radioRsp_v1_1->rspInfo.error,
                                  {RadioError::NONE, RadioError::REQUEST_NOT_SUPPORTED,
                                   RadioError::INVALID_ARGUMENTS, RadioError::RADIO_NOT_AVAILABLE}));
-    /* Wait some time for setting sim power down and then verify it */
-    updateSimCardStatus();
-    auto startTime = std::chrono::system_clock::now();
-    while (cardStatus.cardState != CardState::ABSENT &&
+    if (radioRsp_v1_1->rspInfo.error == RadioError::NONE) {
+        /* Wait some time for setting sim power down and then verify it */
+        updateSimCardStatus();
+        auto startTime = std::chrono::system_clock::now();
+        while (cardStatus.cardState != CardState::ABSENT &&
            std::chrono::duration_cast<chrono::seconds>(std::chrono::system_clock::now() - startTime)
                    .count() < 80) {
-        /* Set 2 seconds as interval to check card status */
-        sleep(2);
-        updateSimCardStatus();
-    }
-    if (radioRsp_v1_1->rspInfo.error == RadioError::NONE) {
+            /* Set 2 seconds as interval to check card status */
+            sleep(2);
+            updateSimCardStatus();
+        }
         EXPECT_EQ(CardState::ABSENT, cardStatus.cardState);
     }
 
