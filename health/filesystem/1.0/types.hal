@@ -25,9 +25,9 @@ enum Result : uint32_t {
      */
     SUCCESS = 0,
     /**
-     * Execution of the method timed out.
+     * Execution of the method is successful, but nothing more needs to be done.
      */
-    TIMEOUT,
+    NO_MORE_TO_DO,
     /**
      * An IO error is encountered when the HAL communicates with the device.
      */

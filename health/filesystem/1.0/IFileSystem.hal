@@ -22,12 +22,17 @@ package android.hardware.health.filesystem@1.0;
  */
 interface IFileSystem {
     /**
-     * Start garbage collection on the driver of storage devices. This function
-     * must be called at regular intervals when it is a good time for a
-     * longer-running cleanup tasks.
+     * Start or stop garbage collection on the driver of storage devices.
      *
+     * Garbage collection must be started at regular intervals when it is a good
+     * time for a longer-running cleanup tasks. After a short period of time,
+     * garbage collection must be stopped.
+     *
+     * Execution of this function must not block and must return immediately.
+     *
+     * @param isStart true to start garbage collection, false to stop.
      * @return result Execution result. See documentation for Result for
      *     details.
      */
-    garbageCollect() generates (Result result);
+    garbageCollect(bool isStart) generates (Result result);
 };
