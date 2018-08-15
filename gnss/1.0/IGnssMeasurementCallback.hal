@@ -172,29 +172,32 @@ interface IGnssMeasurementCallback {
 
         /**
          * The difference between hardware clock ('time' field) inside GNSS receiver
-         * and the true GNSS time since 0000Z, January 6, 1980, in nanoseconds.
+         * and the true GPS time since 0000Z, January 6, 1980, in nanoseconds.
          *
          * The sign of the value is defined by the following equation:
-         *      local estimate of GNSS time = timeNs - (fullBiasNs + biasNs)
+         *      local estimate of GPS time = timeNs - (fullBiasNs + biasNs)
          *
-         * This value is mandatory if the receiver has estimated GNSS time. If the
+         * This value is mandatory if the receiver has estimated GPS time. If the
          * computed time is for a non-GNSS constellation, the time offset of that
-         * constellation to GNSS has to be applied to fill this value. The error
-         * estimate for the sum of this and the biasNs is the biasUncertaintyNs,
+         * constellation to GPS has to be applied to fill this value.
+         *
+         * The error estimate for the sum of this and the biasNs is the biasUncertaintyNs,
          * and the caller is responsible for using this uncertainty (it can be very
-         * large before the GNSS time has been solved for.) If the data is available
-         * gnssClockFlags must contain HAS_FULL_BIAS.
+         * large before the GPS time has been solved for.)
+         *
+         * If the data is available gnssClockFlags must contain HAS_FULL_BIAS.
          */
         int64_t fullBiasNs;
 
         /**
-         * Sub-nanosecond bias.
+         * Sub-nanosecond bias - used with fullBiasNS, see fullBiasNs for details.
+         *
          * The error estimate for the sum of this and the fullBiasNs is the
          * biasUncertaintyNs.
          *
-         * If the data is available gnssClockFlags must contain HAS_BIAS. If GNSS
-         * has computed a position fix. This value is mandatory if the receiver has
-         * estimated GNSS time.
+         * This value is mandatory if the receiver has estimated GNSS time. 
+         *
+         * If the data is available gnssClockFlags must contain HAS_BIAS.
          */
         double biasNs;
 
@@ -235,8 +238,7 @@ interface IGnssMeasurementCallback {
         double driftUncertaintyNsps;
 
         /**
-         * When there are any discontinuities in the HW clock, this field is
-         * mandatory.
+         * This field is mandatory.
          *
          * A "discontinuity" is meant to cover the case of a switch from one source
          * of clock to another.  A single free-running crystal oscillator (XO)
@@ -285,12 +287,15 @@ interface IGnssMeasurementCallback {
 
         /**
          * Satellite vehicle ID number, as defined in GnssSvInfo::svid
+         *
          * This is a mandatory value.
          */
         int16_t svid;
 
         /**
          * Defines the constellation of the given SV.
+         *
+         * This is a mandatory value.
          */
         GnssConstellationType constellation;
 
@@ -302,7 +307,9 @@ interface IGnssMeasurementCallback {
          *      measurement time = GnssClock::timeNs + timeOffsetNs
          *
          * It provides an individual time-stamp for the measurement, and allows
-         * sub-nanosecond accuracy.
+         * sub-nanosecond accuracy. It may be zero if all measurements are
+         * aligned to a common time.
+         *
          * This is a mandatory value.
          */
         double timeOffsetNs;
