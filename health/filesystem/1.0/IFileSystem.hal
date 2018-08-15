@@ -22,12 +22,28 @@ package android.hardware.health.filesystem@1.0;
  */
 interface IFileSystem {
     /**
-     * Start garbage collection on the driver of storage devices. This function
-     * must be called at regular intervals when it is a good time for a
-     * longer-running cleanup tasks.
+     * Start garbage collection on the driver of storage devices.
      *
-     * @return result Execution result. See documentation for Result for
-     *     details.
+     * Garbage collection must be started at regular intervals when it is a good
+     * time for a longer-running cleanup tasks, roughly daily.
+     *
+     * If garbage collection has finished or has encountered an error before the
+     * specified timeout, the implementation must call IGarbageCollect.finish
+     * immediately with appropriate result.
+     *
+     * If garbage collection has not finished after the specified timeout,
+     * the implementation must stop garbage collection and call
+     * IGarbageCollect.finish(TIMEOUT).
+     *
+     * Execution of this function must not block and must return immediately.
+     *
+     * @param timeoutSeconds timeout in seconds. The implementation must
+     * return after the timeout is reached.
+     *
+     * @param callback callback interface. Callback must be null if the client
+     * does not need to receive any callbacks.
+     *
      */
-    garbageCollect() generates (Result result);
+    oneway garbageCollect(uint64_t timeoutSeconds,
+                          IGarbageCollectCallback callback);
 };
