@@ -22,6 +22,30 @@
       "revId": "b34731cfebcfe72385e9d84050865593abbe4591",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c50c1f7f_5e0ba32e",
+        "filename": "tv/cec/1.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1158195
+      },
+      "writtenOn": "2018-08-16T08:56:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3185f6af_4a735d42",
+      "range": {
+        "startLine": 197,
+        "startChar": 0,
+        "endLine": 198,
+        "endChar": 7
+      },
+      "revId": "b34731cfebcfe72385e9d84050865593abbe4591",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
