@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c895b1c0_6ee8e4da",
+        "filename": "health/filesystem/1.0/IFileSystem.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-08-16T00:28:34Z",
+      "side": 1,
+      "message": "nit: just \u0027start\u0027 or \u0027active\u0027. not sure why this doesn\u0027t right to me \u0027isTheStart\u0027 or \u0027isStarting\u0027 sounds better, but simpler is better",
+      "range": {
+        "startLine": 37,
+        "startChar": 24,
+        "endLine": 37,
+        "endChar": 31
+      },
+      "revId": "e4532a9173ccf58cb80f994be01acf03d0de82eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db301fcf_e5cd4774",
+        "filename": "health/filesystem/1.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-08-16T00:28:34Z",
+      "side": 1,
+      "message": "DONE/FINISHED/ALREADY_DONE\n\nWhen should this be returned? When garbage collection is starting but no more needs to be done?\n\nThis is one thing about the API change. Should there be a callback to notify when it is done? Is the task guaranteed to be easily interruptible?",
+      "range": {
+        "startLine": 30,
+        "startChar": 4,
+        "endLine": 30,
+        "endChar": 17
+      },
+      "revId": "e4532a9173ccf58cb80f994be01acf03d0de82eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
