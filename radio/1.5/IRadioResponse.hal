@@ -19,6 +19,7 @@ package android.hardware.radio@1.5;
 import @1.0::RadioResponseInfo;
 import @1.4::IRadioResponse;
 import @1.4::SetupDataCallResult;
+import @1.5::Call;
 
 /**
  * Interface declaring response functions to solicited radio requests.
@@ -145,4 +146,20 @@ interface IRadioResponse extends @1.4::IRadioResponse {
      *   RadioError:INVALID_ARGUMENTS
      */
     oneway setRadioPowerResponse_1_5(RadioResponseInfo info);
+
+    /**
+     * @param calls Current call list
+     *
+     * Valid errors returned:
+     *   RadioError:NONE
+     *   RadioError:RADIO_NOT_AVAILABLE
+     *   RadioError:NO_MEMORY
+     *   RadioError:INTERNAL_ERR
+     *   RadioError:SYSTEM_ERR
+     *   RadioError:INVALID_ARGUMENTS
+     *   RadioError:REQUEST_NOT_SUPPORTED
+     *   RadioError:NO_RESOURCES
+     *   RadioError:CANCELLED
+     */
+    oneway getCurrentCallsResponse_1_5(RadioResponseInfo info, vec<Call> calls);
 };

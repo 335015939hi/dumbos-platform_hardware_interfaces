@@ -221,4 +221,13 @@ interface IRadio extends @1.4::IRadio {
      */
     oneway setRadioPower_1_5(int32_t serial, bool powerOn, bool forEmergencyCall,
             bool preferredForEmergencyCall);
+
+    /**
+     * Requests current call list
+     *
+     * @param serial Serial number of request.
+     *
+     * Response function is IRadioResponse.getCurrentCallsResponse_1_5()
+     */
+    oneway getCurrentCalls_1_5(int32_t serial);
 };
