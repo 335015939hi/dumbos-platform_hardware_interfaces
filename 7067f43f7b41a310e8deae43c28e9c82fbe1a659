@@ -1,0 +1,268 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "21c75fba_6f28644f",
+        "filename": "tv/cec/1.1/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-08-17T23:41:54Z",
+      "side": 1,
+      "message": "can you please re-generate this in the current tree so that it uses hidl_interface?",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 9
+      },
+      "revId": "7067f43f7b41a310e8deae43c28e9c82fbe1a659",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82b8e893_b140a80e",
+        "filename": "tv/cec/1.1/Android.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-08-17T23:41:54Z",
+      "side": 1,
+      "message": "(regenerating the makefiles on ToT would also entail removing this file)",
+      "revId": "7067f43f7b41a310e8deae43c28e9c82fbe1a659",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42a7b622_057e7423",
+        "filename": "tv/cec/1.1/IHdmiCec.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-08-17T23:41:54Z",
+      "side": 1,
+      "message": "can you only import what is needed?",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 35
+      },
+      "revId": "7067f43f7b41a310e8deae43c28e9c82fbe1a659",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51b0009c_7a1f94ac",
+        "filename": "tv/cec/1.1/IHdmiCec.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-08-17T23:41:54Z",
+      "side": 1,
+      "message": "newline above this",
+      "revId": "7067f43f7b41a310e8deae43c28e9c82fbe1a659",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae5b21bd_cd545418",
+        "filename": "tv/cec/1.1/IHdmiCec.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-08-17T23:41:54Z",
+      "side": 1,
+      "message": "this can be omitted",
+      "range": {
+        "startLine": 26,
+        "startChar": 27,
+        "endLine": 26,
+        "endChar": 50
+      },
+      "revId": "7067f43f7b41a310e8deae43c28e9c82fbe1a659",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9aaab6f_ce1e5cee",
+        "filename": "tv/cec/1.1/IHdmiCecCallback.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-08-17T23:41:54Z",
+      "side": 1,
+      "message": "8",
+      "range": {
+        "startLine": 2,
+        "startChar": 20,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "7067f43f7b41a310e8deae43c28e9c82fbe1a659",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7c12d32_a54e4442",
+        "filename": "tv/cec/1.1/IHdmiCecCallback.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-08-17T23:41:54Z",
+      "side": 1,
+      "message": "same, just import IHdmiCecCallback",
+      "range": {
+        "startLine": 19,
+        "startChar": 34,
+        "endLine": 19,
+        "endChar": 35
+      },
+      "revId": "7067f43f7b41a310e8deae43c28e9c82fbe1a659",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ac45cdb_738df906",
+        "filename": "tv/cec/1.1/IHdmiCecCallback.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-08-17T23:41:54Z",
+      "side": 1,
+      "message": "can you add additional functionality before checking in?",
+      "range": {
+        "startLine": 21,
+        "startChar": 58,
+        "endLine": 21,
+        "endChar": 60
+      },
+      "revId": "7067f43f7b41a310e8deae43c28e9c82fbe1a659",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1aaec61_00969bec",
+        "filename": "tv/cec/1.1/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-08-17T23:41:54Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 35
+      },
+      "revId": "7067f43f7b41a310e8deae43c28e9c82fbe1a659",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ecf74d0_24371204",
+        "filename": "tv/cec/1.1/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-08-17T23:41:54Z",
+      "side": 1,
+      "message": "this is only for supporting additional output formats to satisfy legacy codebase requirements. You should be able to omit it here.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 7
+      },
+      "revId": "7067f43f7b41a310e8deae43c28e9c82fbe1a659",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed7f0ea8_dee559ba",
+        "filename": "tv/cec/1.1/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-08-17T23:41:54Z",
+      "side": 1,
+      "message": "the convention is to omit this",
+      "range": {
+        "startLine": 25,
+        "startChar": 14,
+        "endLine": 25,
+        "endChar": 18
+      },
+      "revId": "7067f43f7b41a310e8deae43c28e9c82fbe1a659",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88781e07_a4a1ad84",
+        "filename": "tv/cec/1.1/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-08-17T23:41:54Z",
+      "side": 1,
+      "message": "can you explain further what this entails?",
+      "range": {
+        "startLine": 27,
+        "startChar": 7,
+        "endLine": 27,
+        "endChar": 67
+      },
+      "revId": "7067f43f7b41a310e8deae43c28e9c82fbe1a659",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
