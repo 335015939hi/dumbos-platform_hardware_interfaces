@@ -50,6 +50,7 @@ class RadioResponse : public IRadioResponse {
 
    public:
     RadioResponseInfo rspInfo;
+    DataRegStateResult dataRegResp;
     hidl_string imsi;
     IccIoResult iccIoResult;
     int channelId;
