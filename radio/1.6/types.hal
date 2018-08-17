@@ -18,6 +18,7 @@ package android.hardware.radio@1.6;
 
 import @1.0::RadioError;
 import @1.0::RadioResponseType;
+import @1.2::Call;
 import @1.5::SetupDataCallResult;
 
 import android.hidl.safe_union@1.0::Monostate;
@@ -283,4 +284,13 @@ enum NrDualConnectivityState: int32_t {
      * was active. This may result in radio link failure.
      */
     DISABLE_IMMEDIATE= 3,
+};
+
+struct Call {
+    @1.2::Call base;
+    /**
+     * Forwarded number. It can set only one forwarded number based on 3GPP rule of the CS.
+     * Reference: 3GPP TS 24.008 section 10.5.4.21b
+     */
+    string forwardedNumber;
 };
