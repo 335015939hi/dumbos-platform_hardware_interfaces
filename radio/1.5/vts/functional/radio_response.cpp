@@ -1011,3 +1011,19 @@ Return<void> RadioResponse_v1_5::sendCdmaSmsExpectMoreResponse(const RadioRespon
                                                                const SendSmsResult& /*sms*/) {
     return Void();
 }
+
+Return<void> RadioResponse_v1_5::supplySimDepersonalizationResponse(
+        const RadioResponseInfo& /*info*/,
+        ::android::hardware::radio::V1_5::PersoSubstate /*persoType*/,
+        int32_t /*remainingRetries*/) {
+    return Void();
+}
+
+Return<void> RadioResponse_v1_5::getCurrentCallsResponse_1_5(
+    const RadioResponseInfo& info, const ::android::hardware::hidl_vec<
+        ::android::hardware::radio::V1_5::Call>& /*calls*/) {
+    rspInfo = info;
+    parent_v1_5.notify(info.serial);
+    return Void();
+}
+

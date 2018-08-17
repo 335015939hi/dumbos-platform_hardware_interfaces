@@ -1066,3 +1066,15 @@ TEST_F(RadioHidlTest_v1_5, sendCdmaSmsExpectMore) {
             CHECK_GENERAL_ERROR));
     }
 }
+
+/*
+ * Test IRadio.getCurrentCalls_1_5() for the response returned.
+ */
+TEST_F(RadioHidlTest_v1_5, getCurrentCalls_1_5) {
+    serial = GetRandomSerialNumber();
+    radio_v1_5->getCurrentCalls_1_5(serial);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_v1_5->rspInfo.type);
+    EXPECT_EQ(serial, radioRsp_v1_5->rspInfo.serial);
+    EXPECT_EQ(RadioError::NONE, radioRsp_v1_5->rspInfo.error);
+}
