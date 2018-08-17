@@ -28,6 +28,7 @@
 #include <android/hardware/radio/1.2/types.h>
 
 #include "vts_test_util.h"
+#include "vts_test_util_v1_2.h"
 
 using namespace ::android::hardware::radio::V1_2;
 using namespace ::android::hardware::radio::V1_1;
@@ -55,6 +56,9 @@ class RadioResponse_v1_2 : public ::android::hardware::radio::V1_2::IRadioRespon
     hidl_vec<RadioBandMode> radioBandModes;
 
     RadioResponseInfo rspInfo;
+
+    // Data
+    ::android::hardware::radio::V1_2::DataRegStateResult dataRegResp;
 
     RadioResponse_v1_2(RadioHidlTest_v1_2& parent_v1_2);
     virtual ~RadioResponse_v1_2() = default;

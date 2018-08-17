@@ -38,6 +38,11 @@ enum CheckFlag {
 int GetRandomSerialNumber();
 
 /*
+ * Get the total size of cell identities
+ */
+int GetCellIdentityTotalSize(android::hardware::radio::V1_0::CellIdentity cellIdentities);
+
+/*
  * Check multiple radio error codes which are possibly returned because of the different
  * vendor/devices implementations. It allows optional checks for general errors or/and oem errors.
  */
