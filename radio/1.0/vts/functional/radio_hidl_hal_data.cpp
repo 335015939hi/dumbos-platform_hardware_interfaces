@@ -36,6 +36,67 @@ TEST_F(RadioHidlTest, getDataRegistrationState) {
 }
 
 /*
+ * Test IRadio.getDataRegistrationState() for the response values. Mcc and mnc should be empty if
+ * unknown (Not test-able at the moment), and between 0 and 999 otherwise.
+ */
+TEST_F(RadioHidlTest, getDataRegistrationStateValues) {
+    serial = GetRandomSerialNumber();
+    bool checkMccMnc = true;
+    hidl_string zero = hidl_string("0");
+    hidl_string hidl_mcc;
+    hidl_string hidl_mnc;
+
+    radio->getDataRegistrationState(serial);
+
+    CellIdentity cellIdentities = radioRsp->dataRegResp.cellIdentity;
+    CellInfoType cellInfoType = cellIdentities.cellInfoType;
+
+    if (cellInfoType == CellInfoType::NONE) {
+        // All the fields are 0
+        EXPECT_EQ(0, cellIdentities.cellIdentityGsm.size());
+        EXPECT_EQ(0, cellIdentities.cellIdentityCdma.size());
+        EXPECT_EQ(0, cellIdentities.cellIdentityLte.size());
+        EXPECT_EQ(0, cellIdentities.cellIdentityWcdma.size());
+        EXPECT_EQ(0, cellIdentities.cellIdentityTdscdma.size());
+        checkMccMnc = false;
+    } else if (cellInfoType == CellInfoType::GSM) {
+        EXPECT_EQ(1, cellIdentities.cellIdentityGsm.size());
+        CellIdentityGsm cig = cellIdentities.cellIdentityGsm[0];
+        hidl_mcc = cig.mcc;
+        hidl_mnc = cig.mnc;
+    } else if (cellInfoType == CellInfoType::LTE) {
+        EXPECT_EQ(1, cellIdentities.cellIdentityLte.size());
+        CellIdentityLte cil = cellIdentities.cellIdentityLte[0];
+        hidl_mcc = cil.mcc;
+        hidl_mnc = cil.mnc;
+    } else if (cellInfoType == CellInfoType::WCDMA) {
+        EXPECT_EQ(1, cellIdentities.cellIdentityWcdma.size());
+        CellIdentityWcdma ciw = cellIdentities.cellIdentityWcdma[0];
+        hidl_mcc = ciw.mcc;
+        hidl_mnc = ciw.mnc;
+    } else if (cellInfoType == CellInfoType::TD_SCDMA) {
+        EXPECT_EQ(1, cellIdentities.cellIdentityTdscdma.size());
+        CellIdentityTdscdma cit = cellIdentities.cellIdentityTdscdma[0];
+        hidl_mcc = cit.mcc;
+        hidl_mnc = cit.mnc;
+    } else if (cellInfoType == CellInfoType::CDMA) {
+        EXPECT_EQ(CellInfoType::CDMA, cellInfoType);
+        EXPECT_EQ(1, cellIdentities.cellIdentityCdma.size());
+        checkMccMnc = false;
+    } else {
+        // There might be more cellInfoType other than NONE, GSM, LTE, WCDMA, CDMA and TDSCDMA.
+        checkMccMnc = false;
+    }
+
+    if (checkMccMnc) {
+        int casted_mcc = stoi(static_cast<string>(hidl_mcc));
+        int casted_mnc = stoi(static_cast<string>(hidl_mnc));
+        EXPECT_TRUE(casted_mcc >= 0 && casted_mcc <= 999);
+        EXPECT_TRUE(casted_mnc >= 0 && casted_mnc <= 999);
+    }
+}
+
+/*
  * Test IRadio.setupDataCall() for the response returned.
  */
 TEST_F(RadioHidlTest, setupDataCall) {
