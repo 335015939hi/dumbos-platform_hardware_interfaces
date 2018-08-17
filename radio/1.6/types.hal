@@ -18,6 +18,7 @@ package android.hardware.radio@1.6;
 
 import @1.0::RadioError;
 import @1.0::RadioResponseType;
+import @1.2::Call;
 import @1.5::SetupDataCallResult;
 
 import android.hidl.safe_union@1.0::Monostate;
@@ -285,6 +286,7 @@ enum NrDualConnectivityState: int32_t {
     DISABLE_IMMEDIATE= 3,
 };
 
+<<<<<<< HEAD
 /**
  * Overwritten from @1.2::LinkCapacityEstimate to update LinkCapacityEstimate to 1.6 version.
  */
@@ -327,4 +329,13 @@ struct LinkCapacityEstimate {
     * mode.This must be filled with -1 if secondary is not connected.
     */
    uint32_t secondaryUplinkCapacityKbps;
+=======
+struct Call {
+    @1.2::Call base;
+    /**
+     * Forwarded number. It can set only one forwarded number based on 3GPP rule of the CS.
+     * Reference: 3GPP TS 24.008 section 10.5.4.21b
+     */
+    string forwardedNumber;
+>>>>>>> a46cc52e6... Receive forwarded number from Modem
 };

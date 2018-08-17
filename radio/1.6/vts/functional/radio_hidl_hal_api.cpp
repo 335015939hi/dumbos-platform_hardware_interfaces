@@ -295,3 +295,15 @@ TEST_P(RadioHidlTest_v1_6, isNrDualConnectivityEnabled) {
                                   ::android::hardware::radio::V1_6::RadioError::INTERNAL_ERR,
                                   ::android::hardware::radio::V1_6::RadioError::NONE}));
 }
+
+/*
+ * Test IRadio.getCurrentCalls_1_6() for the response returned.
+ */
+TEST_P(RadioHidlTest_v1_6, getCurrentCalls_1_6) {
+    serial = GetRandomSerialNumber();
+    radio_v1_6->getCurrentCalls_1_6(serial);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_v1_6->rspInfo.type);
+    EXPECT_EQ(serial, radioRsp_v1_6->rspInfo.serial);
+    EXPECT_EQ(::android::hardware::radio::V1_6::RadioError::NONE, radioRsp_v1_6->rspInfo.error);
+}
