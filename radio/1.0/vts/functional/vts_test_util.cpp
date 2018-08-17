@@ -20,6 +20,12 @@ int GetRandomSerialNumber() {
     return rand();
 }
 
+int GetCellIdentityTotalSize(android::hardware::radio::V1_0::CellIdentity cellIdentities) {
+    return cellIdentities.cellIdentityGsm.size() + cellIdentities.cellIdentityCdma.size() +
+           cellIdentities.cellIdentityLte.size() + cellIdentities.cellIdentityWcdma.size() +
+           cellIdentities.cellIdentityTdscdma.size();
+}
+
 ::testing::AssertionResult CheckAnyOfErrors(RadioError err, std::vector<RadioError> errors,
                                             CheckFlag flag) {
     const static vector<RadioError> generalErrors = {

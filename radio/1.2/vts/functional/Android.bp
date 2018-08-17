@@ -23,6 +23,7 @@ cc_test {
         "radio_response.cpp",
         "radio_indication.cpp",
         "VtsHalRadioV1_2TargetTest.cpp",
+        "vts_test_util_v1_2.cpp",
     ],
     static_libs: [
         "RadioVtsTestUtilBase",
