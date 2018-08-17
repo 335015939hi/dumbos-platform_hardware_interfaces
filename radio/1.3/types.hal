@@ -23,6 +23,7 @@ import @1.0::DataProfileInfoType;
 import @1.0::RadioAccessFamily;
 import @1.0::RegState;
 import @1.2::AccessNetwork;
+import @1.2::Call;
 import @1.2::CellIdentity;
 import @1.2::DataRegStateResult;
 
@@ -154,6 +155,14 @@ struct LteVopsInfo {
      * In case of limited service on LTE this field indicates (b).
      */
     bool isEmcBearerSupported;
+};
+
+struct Call {
+    @1.2::Call base;
+    string forwardedNumber;               // List of forwarded number. If the list has plural
+                                          // forwarded number, those are separated with
+                                          // "\r\n" characters.
+                                          // (e.g. "1111\r\n2222")
 };
 
 struct DataRegStateResult {
