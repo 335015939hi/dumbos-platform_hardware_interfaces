@@ -29,6 +29,7 @@ import @1.2::CellIdentityTdscdma;
 import @1.2::CellIdentityLte;
 import @1.2::IndicationFilter;
 import @1.2::NetworkScanRequest;
+import @1.2::Call;
 import @1.4::AccessNetwork;
 import @1.4::ApnTypes;
 import @1.4::CellIdentityNr;
@@ -552,4 +553,13 @@ enum IndicationFilter : @1.2::IndicationFilter {
     REGISTRATION_FAILURE = 1 << 5,
     /** Control the unsolicited sending of barring info updates via onBarringInfo */
     BARRING_INFO = 1 << 6,
+};
+
+struct Call {
+    @1.2::Call base;
+    /**
+     * Forwarded number. It can set only one forwarded number based on 3GPP rule of the CS.
+     * Reference: 3GPP TS 24.008 section 10.5.4.21b
+     */
+    string forwardedNumber;
 };

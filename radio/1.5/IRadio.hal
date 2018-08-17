@@ -245,4 +245,13 @@ interface IRadio extends @1.4::IRadio {
      * Response callback is IRadioResponse.getBarringInfoResponse()
      */
     oneway getBarringInfo(int32_t serial);
+
+    /**
+     * Requests current call list
+     *
+     * @param serial Serial number of request.
+     *
+     * Response function is IRadioResponse.getCurrentCallsResponse_1_5()
+     */
+    oneway getCurrentCalls_1_5(int32_t serial);
 };
