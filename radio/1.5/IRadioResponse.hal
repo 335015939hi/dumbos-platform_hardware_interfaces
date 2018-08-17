@@ -20,6 +20,7 @@ import @1.0::RadioResponseInfo;
 import @1.0::SendSmsResult;
 import @1.4::IRadioResponse;
 import @1.5::BarringInfo;
+import @1.5::Call;
 import @1.5::CellInfo;
 import @1.5::RegStateResult;
 import @1.5::SetupDataCallResult;
@@ -291,4 +292,16 @@ interface IRadioResponse extends @1.4::IRadioResponse {
      */
     oneway supplySimDepersonalizationResponse(RadioResponseInfo info,
         PersoSubstate persoType, int32_t remainingRetries);
+
+    /**
+     * @param calls Current call list
+     *   RadioError:NO_MEMORY
+     *   RadioError:INTERNAL_ERR
+     *   RadioError:SYSTEM_ERR
+     *   RadioError:INVALID_ARGUMENTS
+     *   RadioError:REQUEST_NOT_SUPPORTED
+     *   RadioError:NO_RESOURCES
+     *   RadioError:CANCELLED
+     */
+    oneway getCurrentCallsResponse_1_5(RadioResponseInfo info, vec<Call> calls);
 };

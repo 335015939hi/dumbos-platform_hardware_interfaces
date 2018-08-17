@@ -1011,3 +1011,12 @@ Return<void> RadioResponse_v1_5::sendCdmaSmsExpectMoreResponse(const RadioRespon
                                                                const SendSmsResult& /*sms*/) {
     return Void();
 }
+
+Return<void> RadioResponse::getCurrentCallsResponse_1_5(
+    const RadioResponseInfo& info, const ::android::hardware::hidl_vec<
+        ::android::hardware::radio::V1_5::Call>& /*calls*/) {
+    rspInfo = info;
+    parent.notify(info.serial);
+    return Void();
+}
+

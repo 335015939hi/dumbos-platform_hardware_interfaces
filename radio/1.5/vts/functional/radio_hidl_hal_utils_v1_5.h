@@ -579,6 +579,9 @@ class RadioResponse_v1_5 : public ::android::hardware::radio::V1_5::IRadioRespon
 
     Return<void> sendCdmaSmsExpectMoreResponse(const RadioResponseInfo& info,
                                                const SendSmsResult& sms);
+
+    Return<void> getCurrentCallsResponse_1_5(const RadioResponseInfo& info,
+                                             const ::android::hardware::hidl_vec<Call>& calls);
 };
 
 /* Callback class for radio indication */
