@@ -16,6 +16,7 @@
 
 package android.hardware.radio@1.5;
 
+import @1.2::Call;
 import @1.4::AccessNetwork;
 
 /**
@@ -113,4 +114,13 @@ enum AccessNetwork : @1.4::AccessNetwork {
      *  Next-Generation Radio Access Network (NGRAN)
      */
     NGRAN = 6,
+};
+
+struct Call {
+    @1.2::Call base;
+    /**
+     * Forwarded number. It can set only one forwarded number based on 3GPP rule of the CS.
+     * Reference: 3GPP TS 24.008 section 10.5.4.21b
+     */
+    string forwardedNumber;
 };
