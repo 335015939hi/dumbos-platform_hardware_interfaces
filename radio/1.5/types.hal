@@ -35,6 +35,7 @@ import @1.1::RadioAccessSpecifier;
 import @1.1::ScanStatus;
 import @1.1::ScanType;
 import @1.1::UtranBands;
+import @1.2::Call;
 import @1.2::CellConnectionStatus;
 import @1.2::CellIdentityCdma;
 import @1.2::CellIdentityGsm;
@@ -1041,4 +1042,13 @@ enum PersoSubstate : @1.0::PersoSubstate {
     SIM_IMPI_PUK,
     SIM_NS_SP,                  // Network subset service provider
     SIM_NS_SP_PUK,
+};
+
+struct Call {
+    @1.2::Call base;
+    /**
+     * Forwarded number. It can set only one forwarded number based on 3GPP rule of the CS.
+     * Reference: 3GPP TS 24.008 section 10.5.4.21b
+     */
+    string forwardedNumber;
 };
