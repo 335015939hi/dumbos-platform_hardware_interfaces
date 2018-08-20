@@ -2075,8 +2075,12 @@ TEST_F(CameraHidlTest, getCameraCharacteristics) {
                         ASSERT_TRUE(
                                 hardwareLevel == ANDROID_INFO_SUPPORTED_HARDWARE_LEVEL_LIMITED ||
                                 hardwareLevel == ANDROID_INFO_SUPPORTED_HARDWARE_LEVEL_FULL ||
+<<<<<<< HEAD   (a3268e Effect VTS: Allow an effect proxy as pre/post processing am:)
                                 hardwareLevel == ANDROID_INFO_SUPPORTED_HARDWARE_LEVEL_3 ||
                                 hardwareLevel == ANDROID_INFO_SUPPORTED_HARDWARE_LEVEL_EXTERNAL);
+=======
+                                hardwareLevel == ANDROID_INFO_SUPPORTED_HARDWARE_LEVEL_3);
+>>>>>>> BRANCH (79cea4 resolve merge conflicts of cd02298b46cfb17954555e0f1d324f630)
                     } else {
                         ADD_FAILURE() << "Get camera hardware level failed!";
                     }
