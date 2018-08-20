@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "001024cf_89a78872",
+        "filename": "health/filesystem/1.0/IFileSystem.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1013508
+      },
+      "writtenOn": "2018-08-20T19:47:08Z",
+      "side": 1,
+      "message": "After looking at the vold CL, my questions above have been answered, but please improve the docs here to make them clearer, since this is your contract between the OS and HAL.\n\nDesign LGTM.",
+      "parentUuid": "35d0463f_49d339d4",
+      "range": {
+        "startLine": 28,
+        "startChar": 47,
+        "endLine": 29,
+        "endChar": 42
+      },
+      "revId": "e4532a9173ccf58cb80f994be01acf03d0de82eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c895b1c0_6ee8e4da",
         "filename": "health/filesystem/1.0/IFileSystem.hal",
         "patchSetId": 1
