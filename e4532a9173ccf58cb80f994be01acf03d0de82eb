@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "35d0463f_49d339d4",
+        "filename": "health/filesystem/1.0/IFileSystem.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1013508
+      },
+      "writtenOn": "2018-08-20T19:43:27Z",
+      "side": 1,
+      "message": "Who is this \"MUST\" contract directed at?  Does the person calling the HAL need to stop it?  Or does the HAL internally need to stop?\n\nThe ideal design from my PoV is to have the OS say \"hey, start doing any idle maintenance tasks you have to improve performance.\"  And a second invocation to say \"hey, stop and wrap it up, we\u0027ve gotta go do other things, cuz the user is back.\"\n\nPlease also define \"regular intervals\" more clearly, such as clarifying that it\u0027s \"roughly daily\".\n\nIs there any meaningful statistics you\u0027d want to return up the stack?  For example, if you were able to finish, or if you still have pending GC work.  Or other stats you\u0027d want logged in various telemetry pipelines.\n\nAnd finally, you might consider a callback for the implementation to say \"I finished early\" instead of waiting for the timeout from the OS.",
+      "range": {
+        "startLine": 28,
+        "startChar": 47,
+        "endLine": 29,
+        "endChar": 42
+      },
+      "revId": "e4532a9173ccf58cb80f994be01acf03d0de82eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c895b1c0_6ee8e4da",
         "filename": "health/filesystem/1.0/IFileSystem.hal",
         "patchSetId": 1
