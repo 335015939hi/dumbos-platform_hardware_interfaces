@@ -16,6 +16,24 @@
       "revId": "7ab3ba17e1bf4613ca40ae3e4ff11645f216bcc0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b2e9b66_bd294b70",
+        "filename": "configstore/1.0/ISurfaceFlingerConfigs.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1267775
+      },
+      "writtenOn": "2018-08-21T17:39:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a35a9531_37df6116",
+      "revId": "7ab3ba17e1bf4613ca40ae3e4ff11645f216bcc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
