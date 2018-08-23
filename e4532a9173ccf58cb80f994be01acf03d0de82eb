@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "b73ca34d_da3c0c35",
+        "filename": "health/filesystem/1.0/IFileSystem.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-08-23T02:09:59Z",
+      "side": 1,
+      "message": "The statements of the contract are directed both at the client and the server (this is the standard in HIDL interfaces). However, I do agree saying \u0027by the client\u0027 or perhaps something more like \u0027the client is responsible for controlling the lifecycle of the garbage collection\u0027 would be more clear.",
+      "parentUuid": "001024cf_89a78872",
+      "range": {
+        "startLine": 28,
+        "startChar": 47,
+        "endLine": 29,
+        "endChar": 42
+      },
+      "revId": "e4532a9173ccf58cb80f994be01acf03d0de82eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c895b1c0_6ee8e4da",
         "filename": "health/filesystem/1.0/IFileSystem.hal",
         "patchSetId": 1
