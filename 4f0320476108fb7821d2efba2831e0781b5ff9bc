@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f04362f_780d3354",
+        "filename": "wifi/1.0/vts/functional/wifi_chip_hidl_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-08-23T02:25:12Z",
+      "side": 1,
+      "message": "at least",
+      "range": {
+        "startLine": 351,
+        "startChar": 51,
+        "endLine": 351,
+        "endChar": 58
+      },
+      "revId": "4f0320476108fb7821d2efba2831e0781b5ff9bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
