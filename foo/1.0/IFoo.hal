@@ -1,0 +1,11 @@
+package android.hardware.foo@1.0;
+
+/**
+ * example implementation of binderized HAL
+ * @author: yuzhou
+ * @email: chengyuzhou1992@gmail.com
+ */
+interface IFoo {
+    foo(int32_t valueIn) generates (int32_t valueOut);
+    bar(int32_t valueIn) generates(int32_t valueOut, bool boolOut);
+};
