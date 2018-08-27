@@ -16,6 +16,7 @@
 
 package android.hardware.radio@1.3;
 
+import @1.0::OperatorInfo;
 import @1.2::AccessNetwork;
 
 enum AccessNetwork : @1.2::AccessNetwork {
@@ -24,3 +25,9 @@ enum AccessNetwork : @1.2::AccessNetwork {
      */
     UNKNOWN = 0,
 };
+
+struct OperatorInfo {
+    @1.0::OperatorInfo base;
+    string rat;
+};
+

@@ -9,6 +9,7 @@ hidl_interface {
     srcs: [
         "types.hal",
         "IRadio.hal",
+        "IRadioResponse.hal"
     ],
     interfaces: [
         "android.hardware.radio@1.0",
@@ -18,6 +19,7 @@ hidl_interface {
     ],
     types: [
         "AccessNetwork",
+        "OperatorInfo",
     ],
     gen_java: true,
 }

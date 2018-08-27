@@ -82,4 +82,19 @@ interface IRadio extends @1.2::IRadio {
     oneway setupDataCall_1_3(int32_t serial, AccessNetwork accessNetwork,
             DataProfileInfo dataProfileInfo, bool modemCognitive, bool roamingAllowed,
             bool isRoaming, DataRequestReason reason, vec<string> addresses, vec<string> dnses);
+
+
+    /**
+     * Manually select a specified network.
+     * This request must not respond until the new operator is selected and registered.
+     *
+     * @param serial Serial number of request.
+     * @param operatorNumeric string specifying MCCMNC of network to select (eg "310170")
+     * @param rat string specifying rat of network
+     *
+     * Response function is IRadioResponse.setNetworkSelectionModeManualResponse()
+     *
+     * Note this API is same as 1.0 version except using the 1.3 rat as the input param.
+     */
+    oneway setNetworkSelectionModeManual_1_3(int32_t serial, string operatorNumeric, string rat);
 };
