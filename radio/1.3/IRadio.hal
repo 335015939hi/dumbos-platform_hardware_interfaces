@@ -82,4 +82,16 @@ interface IRadio extends @1.2::IRadio {
     oneway setupDataCall_1_3(int32_t serial, AccessNetwork accessNetwork,
             DataProfileInfo dataProfileInfo, bool modemCognitive, bool roamingAllowed,
             bool isRoaming, DataRequestReason reason, vec<string> addresses, vec<string> dnses);
+
+    /**
+     * Requests that deactivates the SIM personalization.
+     *
+     * @param serial Serial number of request.
+     * @param persoType Current SIM personalized type.
+     * @param netPin depersonlization code corresponding to persoType
+     *
+     * Response function is IRadioResponse.supplySimDepersonalizationResponse()
+     *
+     */
+    oneway supplySimDepersonalization(int32_t serial, int persoType, string netPin);
 };
