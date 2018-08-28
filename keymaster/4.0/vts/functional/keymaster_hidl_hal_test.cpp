@@ -546,9 +546,8 @@ TEST_F(NewKeyGenerationTest, EcdsaAllValidCurves) {
         digest = Digest::SHA_2_512;
     }
     for (auto curve : ValidCurves()) {
-        EXPECT_EQ(
-            ErrorCode::OK,
-            GenerateKey(AuthorizationSetBuilder().EcdsaSigningKey(curve).Digest(digest)))
+        EXPECT_EQ(ErrorCode::OK,
+                  GenerateKey(AuthorizationSetBuilder().EcdsaSigningKey(curve).Digest(digest)))
             << "Failed to generate key on curve: " << curve;
         CheckCharacteristics(key_blob_, key_characteristics_);
         CheckedDeleteKey();
@@ -1550,8 +1549,8 @@ TEST_F(VerificationOperationsTest, HmacSigningKeyCannotVerify) {
     // Signing key should not work.
     AuthorizationSet out_params;
     EXPECT_EQ(ErrorCode::INCOMPATIBLE_PURPOSE,
-              Begin(KeyPurpose::VERIFY, signing_key, AuthorizationSetBuilder().Digest(Digest::SHA_2_256),
-                    &out_params, &op_handle_));
+              Begin(KeyPurpose::VERIFY, signing_key,
+                    AuthorizationSetBuilder().Digest(Digest::SHA_2_256), &out_params, &op_handle_));
 
     // Verification key should work.
     VerifyMessage(verification_key, message, signature,
@@ -1918,10 +1917,11 @@ TEST_F(ImportWrappedKeyTest, Success) {
                                  .Padding(PaddingMode::RSA_OAEP)
                                  .Authorization(TAG_PURPOSE, KeyPurpose::WRAP_KEY);
 
-    ASSERT_EQ(ErrorCode::OK,
-              ImportWrappedKey(
-                  wrapped_key, wrapping_key, wrapping_key_desc, zero_masking_key,
-                  AuthorizationSetBuilder().Digest(Digest::SHA_2_256).Padding(PaddingMode::RSA_OAEP)));
+    ASSERT_EQ(
+        ErrorCode::OK,
+        ImportWrappedKey(
+            wrapped_key, wrapping_key, wrapping_key_desc, zero_masking_key,
+            AuthorizationSetBuilder().Digest(Digest::SHA_2_256).Padding(PaddingMode::RSA_OAEP)));
 
     string message = "Hello World!";
     auto params = AuthorizationSetBuilder().BlockMode(BlockMode::ECB).Padding(PaddingMode::PKCS7);
@@ -1937,10 +1937,11 @@ TEST_F(ImportWrappedKeyTest, SuccessMasked) {
                                  .Padding(PaddingMode::RSA_OAEP)
                                  .Authorization(TAG_PURPOSE, KeyPurpose::WRAP_KEY);
 
-    ASSERT_EQ(ErrorCode::OK,
-              ImportWrappedKey(
-                  wrapped_key_masked, wrapping_key, wrapping_key_desc, masking_key,
-                  AuthorizationSetBuilder().Digest(Digest::SHA_2_256).Padding(PaddingMode::RSA_OAEP)));
+    ASSERT_EQ(
+        ErrorCode::OK,
+        ImportWrappedKey(
+            wrapped_key_masked, wrapping_key, wrapping_key_desc, masking_key,
+            AuthorizationSetBuilder().Digest(Digest::SHA_2_256).Padding(PaddingMode::RSA_OAEP)));
 }
 
 TEST_F(ImportWrappedKeyTest, WrongMask) {
@@ -1950,10 +1951,11 @@ TEST_F(ImportWrappedKeyTest, WrongMask) {
                                  .Padding(PaddingMode::RSA_OAEP)
                                  .Authorization(TAG_PURPOSE, KeyPurpose::WRAP_KEY);
 
-    ASSERT_EQ(ErrorCode::VERIFICATION_FAILED,
-              ImportWrappedKey(
-                  wrapped_key_masked, wrapping_key, wrapping_key_desc, zero_masking_key,
-                  AuthorizationSetBuilder().Digest(Digest::SHA_2_256).Padding(PaddingMode::RSA_OAEP)));
+    ASSERT_EQ(
+        ErrorCode::VERIFICATION_FAILED,
+        ImportWrappedKey(
+            wrapped_key_masked, wrapping_key, wrapping_key_desc, zero_masking_key,
+            AuthorizationSetBuilder().Digest(Digest::SHA_2_256).Padding(PaddingMode::RSA_OAEP)));
 }
 
 TEST_F(ImportWrappedKeyTest, WrongPurpose) {
@@ -1962,10 +1964,11 @@ TEST_F(ImportWrappedKeyTest, WrongPurpose) {
                                  .Digest(Digest::SHA_2_256)
                                  .Padding(PaddingMode::RSA_OAEP);
 
-    ASSERT_EQ(ErrorCode::INCOMPATIBLE_PURPOSE,
-              ImportWrappedKey(
-                  wrapped_key_masked, wrapping_key, wrapping_key_desc, zero_masking_key,
-                  AuthorizationSetBuilder().Digest(Digest::SHA_2_256).Padding(PaddingMode::RSA_OAEP)));
+    ASSERT_EQ(
+        ErrorCode::INCOMPATIBLE_PURPOSE,
+        ImportWrappedKey(
+            wrapped_key_masked, wrapping_key, wrapping_key_desc, zero_masking_key,
+            AuthorizationSetBuilder().Digest(Digest::SHA_2_256).Padding(PaddingMode::RSA_OAEP)));
 }
 
 typedef KeymasterHidlTest EncryptionOperationsTest;
@@ -2195,9 +2198,10 @@ TEST_F(EncryptionOperationsTest, RsaOaepTooLarge) {
     constexpr size_t digest_size = 256 /* SHA_2_256 */ / 8;
     constexpr size_t oaep_overhead = 2 * digest_size + 2;
     string message(1024 / 8 - oaep_overhead + 1, 'a');
-    EXPECT_EQ(ErrorCode::OK,
-              Begin(KeyPurpose::ENCRYPT,
-                    AuthorizationSetBuilder().Padding(PaddingMode::RSA_OAEP).Digest(Digest::SHA_2_256)));
+    EXPECT_EQ(
+        ErrorCode::OK,
+        Begin(KeyPurpose::ENCRYPT,
+              AuthorizationSetBuilder().Padding(PaddingMode::RSA_OAEP).Digest(Digest::SHA_2_256)));
     string result;
     EXPECT_EQ(ErrorCode::INVALID_ARGUMENT, Finish(message, &result));
     EXPECT_EQ(0U, result.size());
