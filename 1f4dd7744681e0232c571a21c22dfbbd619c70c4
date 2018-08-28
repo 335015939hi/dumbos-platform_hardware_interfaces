@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "82661edc_22711ef8",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2018-08-28T18:00:23Z",
+      "side": 1,
+      "message": "This checking condition means sim is absent. Can this checking condition be removed? RadioError::NONE means success. If the success of getDataRegistrationState response is not related to the sim absent/presnet, this constrain could be removed so that the test can cover more.",
+      "range": {
+        "startLine": 34,
+        "startChar": 4,
+        "endLine": 34,
+        "endChar": 50
+      },
+      "revId": "1f4dd7744681e0232c571a21c22dfbbd619c70c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e4f058e_63908657",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2018-08-28T18:00:23Z",
+      "side": 1,
+      "message": "If the constrain is caused by a bug, please put a bug number here to track the issue; and remove the constrains after that bug is fixed.",
+      "range": {
+        "startLine": 83,
+        "startChar": 8,
+        "endLine": 84,
+        "endChar": 27
+      },
+      "revId": "1f4dd7744681e0232c571a21c22dfbbd619c70c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
