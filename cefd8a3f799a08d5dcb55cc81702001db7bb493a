@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8a83c27b_673db53d",
+        "filename": "health/filesystem/1.0/IFileSystem.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2018-08-28T22:43:54Z",
+      "side": 1,
+      "message": "I must say I don\u0027t like the interface as it is now; this is putting to much contract in the interface. Jeff, can I do the following instead?\n\n/*\n * client MUST return after specified timeout (in seconds) is reached.\n */\ngarbageCollect(uint64_t timeoutSeconds) generates (Result result);\n\nThe whole loop will be moved from vold to the HAL.\nThen in VTS test, run garbageCollect and ensure that it returns in timeoutSeconds + a short time to prevent flakiness.",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 30
+      },
+      "revId": "cefd8a3f799a08d5dcb55cc81702001db7bb493a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
