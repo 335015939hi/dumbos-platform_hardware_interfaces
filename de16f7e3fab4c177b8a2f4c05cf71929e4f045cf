@@ -22,6 +22,53 @@
       "revId": "de16f7e3fab4c177b8a2f4c05cf71929e4f045cf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5969f108_72c1b0ff",
+        "filename": "health/filesystem/1.0/IFileSystem.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-08-28T23:26:44Z",
+      "side": 1,
+      "message": "s/trivial/implicit/\n\nNo need to comment something which is expressed in the language IMO (I actually find it kind of funny when I see this). Please remove. Thanks!",
+      "parentUuid": "c37a81ba_1f316054",
+      "range": {
+        "startLine": 38,
+        "startChar": 7,
+        "endLine": 38,
+        "endChar": 77
+      },
+      "revId": "de16f7e3fab4c177b8a2f4c05cf71929e4f045cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ecb7da0e_fbdfa4a0",
+        "filename": "health/filesystem/1.0/IFileSystem.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-08-28T23:26:44Z",
+      "side": 1,
+      "message": "four spaces (five including the one after the star) to match javadoc/our style guide. Same elsewhere",
+      "range": {
+        "startLine": 41,
+        "startChar": 7,
+        "endLine": 41,
+        "endChar": 9
+      },
+      "revId": "de16f7e3fab4c177b8a2f4c05cf71929e4f045cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
