@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c37a81ba_1f316054",
+        "filename": "health/filesystem/1.0/IFileSystem.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2018-08-28T23:16:33Z",
+      "side": 1,
+      "message": "This is trivial, since function is oneway. Steven should I keep this statement?",
+      "range": {
+        "startLine": 38,
+        "startChar": 7,
+        "endLine": 38,
+        "endChar": 77
+      },
+      "revId": "de16f7e3fab4c177b8a2f4c05cf71929e4f045cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
