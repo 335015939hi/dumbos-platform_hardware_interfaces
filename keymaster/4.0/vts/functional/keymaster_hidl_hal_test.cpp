@@ -308,7 +308,11 @@ bool verify_attestation_record(const string& challenge, const string& app_id,
 
     expected_sw_enforced.push_back(TAG_ATTESTATION_APPLICATION_ID, HidlBuf(app_id));
 
+<<<<<<< HEAD   (8ee59f Merge "Fixing Keymaster documentation." into pie-vts-dev am:)
     EXPECT_EQ(att_keymaster_version, 4U);
+=======
+    EXPECT_GE(att_keymaster_version, 3U);
+>>>>>>> BRANCH (e101aa Merge changes Ic41afbd0,Ibe264d08 into pie-vts-dev)
     EXPECT_EQ(security_level, att_keymaster_security_level);
     EXPECT_EQ(security_level, att_attestation_security_level);
 
