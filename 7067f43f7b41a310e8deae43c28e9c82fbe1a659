@@ -128,6 +128,30 @@
     },
     {
       "key": {
+        "uuid": "a2f80822_7235498a",
+        "filename": "tv/cec/1.1/IHdmiCecCallback.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1158195
+      },
+      "writtenOn": "2018-08-29T08:57:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9aaab6f_ce1e5cee",
+      "range": {
+        "startLine": 2,
+        "startChar": 20,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "7067f43f7b41a310e8deae43c28e9c82fbe1a659",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7c12d32_a54e4442",
         "filename": "tv/cec/1.1/IHdmiCecCallback.hal",
         "patchSetId": 4
