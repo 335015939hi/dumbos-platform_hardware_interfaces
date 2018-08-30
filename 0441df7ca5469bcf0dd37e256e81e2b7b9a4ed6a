@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e2d3fba2_a8685a8c",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2018-08-30T22:31:38Z",
+      "side": 1,
+      "message": "Please still check with CardState::PRESENT with another else if, because CardState has other options.",
+      "range": {
+        "startLine": 37,
+        "startChar": 6,
+        "endLine": 37,
+        "endChar": 12
+      },
+      "revId": "0441df7ca5469bcf0dd37e256e81e2b7b9a4ed6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
