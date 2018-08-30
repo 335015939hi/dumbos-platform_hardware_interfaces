@@ -180,7 +180,7 @@ Return<void> Sensors::poll(int32_t maxCount, poll_cb _hidl_cb) {
             // This is guaranteed to not trigger in passthrough mode.
             LOG(ERROR) <<
                     "ISensors::poll() re-entry. I do not know what to do except killing myself.";
-            ::exit(-1);
+            _exit(-1);
         }
 
         if (maxCount <= 0) {
