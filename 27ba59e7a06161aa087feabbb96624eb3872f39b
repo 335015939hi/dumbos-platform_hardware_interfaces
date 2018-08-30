@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "981c5c6d_fb630a08",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_utils_v1_0.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1351305
+      },
+      "writtenOn": "2018-08-30T21:55:36Z",
+      "side": 1,
+      "message": "move after Sms with comment // Data",
+      "revId": "27ba59e7a06161aa087feabbb96624eb3872f39b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}

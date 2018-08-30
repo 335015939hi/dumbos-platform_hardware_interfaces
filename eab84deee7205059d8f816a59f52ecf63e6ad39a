@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "612460d0_2e0dffdf",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1351305
+      },
+      "writtenOn": "2018-08-30T21:55:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6698d9b7_c8f8a7cc",
+      "range": {
+        "startLine": 39,
+        "startChar": 67,
+        "endLine": 40,
+        "endChar": 74
+      },
+      "revId": "eab84deee7205059d8f816a59f52ecf63e6ad39a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "77fbd2db_15133190",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2018-08-20T17:51:53Z",
       "side": 1,
       "message": "I think you can move the code into the above TEST_F(RadioHidlTest, getDataRegistrationState) as an enhanced part of it, because both the test cases are the same.",
+      "range": {
+        "startLine": 42,
+        "startChar": 22,
+        "endLine": 42,
+        "endChar": 52
+      },
+      "revId": "eab84deee7205059d8f816a59f52ecf63e6ad39a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a68ed045_79ac0ef0",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1351305
+      },
+      "writtenOn": "2018-08-30T21:55:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "77fbd2db_15133190",
       "range": {
         "startLine": 42,
         "startChar": 22,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "c87e2e94_465cc22e",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1351305
+      },
+      "writtenOn": "2018-08-30T21:55:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aada9426_7df18a77",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 40
+      },
+      "revId": "eab84deee7205059d8f816a59f52ecf63e6ad39a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7df55215_87fce8d7",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
         "patchSetId": 1
@@ -91,6 +163,30 @@
       "revId": "eab84deee7205059d8f816a59f52ecf63e6ad39a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9561653b_5bb890cc",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1351305
+      },
+      "writtenOn": "2018-08-30T21:55:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7df55215_87fce8d7",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 25
+      },
+      "revId": "eab84deee7205059d8f816a59f52ecf63e6ad39a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -140,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "785999bb_2b56be53",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1351305
+      },
+      "writtenOn": "2018-08-30T21:55:36Z",
+      "side": 1,
+      "message": "It can but I don\u0027t know if we should test it till that detailed. (Test could be a lot longer) Any advice?",
+      "parentUuid": "e12c09cd_431d7827",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 60
+      },
+      "revId": "eab84deee7205059d8f816a59f52ecf63e6ad39a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "16032f3f_a9a48a25",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
         "patchSetId": 1
@@ -160,6 +280,30 @@
       "revId": "eab84deee7205059d8f816a59f52ecf63e6ad39a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2808f1ef_d7196595",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1351305
+      },
+      "writtenOn": "2018-08-30T21:55:36Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "16032f3f_a9a48a25",
+      "range": {
+        "startLine": 87,
+        "startChar": 8,
+        "endLine": 88,
+        "endChar": 28
+      },
+      "revId": "eab84deee7205059d8f816a59f52ecf63e6ad39a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
