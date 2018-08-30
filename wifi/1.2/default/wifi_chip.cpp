@@ -744,7 +744,7 @@ std::pair<WifiStatus, sp<IWifiApIface>> WifiChip::createApIfaceInternal() {
     if (!canCurrentModeSupportIfaceOfType(IfaceType::AP)) {
         return {createWifiStatus(WifiStatusCode::ERROR_NOT_AVAILABLE), {}};
     }
-    std::string ifname = allocateApOrStaIfaceName();
+    std::string ifname = allocateApIfaceName();
     sp<WifiApIface> iface = new WifiApIface(ifname, legacy_hal_);
     ap_ifaces_.push_back(iface);
     for (const auto& callback : event_cb_handler_.getCallbacks()) {
@@ -883,7 +883,7 @@ std::pair<WifiStatus, sp<IWifiStaIface>> WifiChip::createStaIfaceInternal() {
     if (!canCurrentModeSupportIfaceOfType(IfaceType::STA)) {
         return {createWifiStatus(WifiStatusCode::ERROR_NOT_AVAILABLE), {}};
     }
-    std::string ifname = allocateApOrStaIfaceName();
+    std::string ifname = allocateStaIfaceName();
     sp<WifiStaIface> iface = new WifiStaIface(ifname, legacy_hal_);
     sta_ifaces_.push_back(iface);
     for (const auto& callback : event_cb_handler_.getCallbacks()) {
@@ -1366,23 +1366,19 @@ bool WifiChip::isValidModeId(ChipModeId mode_id) {
     return false;
 }
 
-// Return "wlan0", if "wlan0" is not already in use, else return "wlan1".
-// This is based on the assumption that we'll have a max of 2 concurrent
-// AP/STA ifaces.
-std::string WifiChip::allocateApOrStaIfaceName() {
-    auto ap_iface = findUsingName(ap_ifaces_, getWlan0IfaceName());
-    auto sta_iface = findUsingName(sta_ifaces_, getWlan0IfaceName());
-    if (!ap_iface.get() && !sta_iface.get()) {
+// AP will come up on wlan1 for dual interface supported devices.
+// For other devices, it will come up on wlan0.
+std::string WifiChip::allocateApIfaceName() {
+    if (feature_flags_.lock()->isDualInterfaceSupported()) {
+        return getWlan1IfaceName();
+    } else {
         return getWlan0IfaceName();
     }
-    ap_iface = findUsingName(ap_ifaces_, getWlan1IfaceName());
-    sta_iface = findUsingName(sta_ifaces_, getWlan1IfaceName());
-    if (!ap_iface.get() && !sta_iface.get()) {
-        return getWlan1IfaceName();
-    }
-    // This should never happen. We screwed up somewhere if it did.
-    CHECK(0) << "wlan0 and wlan1 in use already!";
-    return {};
+}
+
+// STA will always come up on wlan0.
+std::string WifiChip::allocateStaIfaceName() {
+    return getWlan0IfaceName();
 }
 
 bool WifiChip::writeRingbufferFilesInternal() {

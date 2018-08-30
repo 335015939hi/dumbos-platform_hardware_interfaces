@@ -215,7 +215,8 @@ class WifiChip : public V1_2::IWifiChip {
         const std::map<IfaceType, size_t>& combo, IfaceType type);
     bool canCurrentModeSupportIfaceOfType(IfaceType type);
     bool isValidModeId(ChipModeId mode_id);
-    std::string allocateApOrStaIfaceName();
+    std::string allocateApIfaceName();
+    std::string allocateStaIfaceName();
     bool writeRingbufferFilesInternal();
 
     ChipId chip_id_;
