@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee831a6d_86e2ee93",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2018-08-31T01:56:33Z",
+      "side": 1,
+      "message": "If the returned error is related to sim card, please keep the card status check: \nif (cardStatus.cardState \u003d\u003d CardState::ABSENT) {\n   ...\n} else if (cardStatus.cardState \u003d\u003d CardState::PRESENT) {\n   ...\n}",
+      "range": {
+        "startLine": 33,
+        "startChar": 4,
+        "endLine": 33,
+        "endChar": 54
+      },
+      "revId": "4ffd009a31e6db9164e8d2297a7f0d2e9588a2b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02b71bfb_374bacc8",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2018-08-31T01:56:33Z",
+      "side": 1,
+      "message": "This indentation seems not correct. Is it done by the script when this is uploaded?",
+      "range": {
+        "startLine": 75,
+        "startChar": 13,
+        "endLine": 75,
+        "endChar": 49
+      },
+      "revId": "4ffd009a31e6db9164e8d2297a7f0d2e9588a2b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
