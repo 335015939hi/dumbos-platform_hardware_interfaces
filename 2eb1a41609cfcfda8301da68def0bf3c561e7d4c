@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "13ebe802_94243fb8",
+        "filename": "radio/1.3/IRadio.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2018-08-31T03:23:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2524b0ae_4b3cd389",
+      "range": {
+        "startLine": 89,
+        "startChar": 23,
+        "endLine": 89,
+        "endChar": 44
+      },
+      "revId": "2eb1a41609cfcfda8301da68def0bf3c561e7d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ec0b67bf_5084f475",
         "filename": "radio/1.3/IRadio.hal",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "1fcf34c0_0c3a6431",
+        "filename": "radio/1.3/IRadio.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2018-08-31T03:23:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ec0b67bf_5084f475",
+      "range": {
+        "startLine": 91,
+        "startChar": 7,
+        "endLine": 91,
+        "endChar": 59
+      },
+      "revId": "2eb1a41609cfcfda8301da68def0bf3c561e7d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4b70201a_0475de74",
         "filename": "radio/1.3/IRadio.hal",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2018-08-31T00:39:25Z",
       "side": 1,
       "message": "it sounds like it\u0027s okay for 112/911 to not be available when the sim is not present?",
+      "range": {
+        "startLine": 99,
+        "startChar": 38,
+        "endLine": 100,
+        "endChar": 22
+      },
+      "revId": "2eb1a41609cfcfda8301da68def0bf3c561e7d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61b86788_5876eeba",
+        "filename": "radio/1.3/IRadio.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2018-08-31T03:23:44Z",
+      "side": 1,
+      "message": "This is the exact expression of 3GPP. I added a \u0027Besides\u0027 here.",
+      "parentUuid": "4b70201a_0475de74",
       "range": {
         "startLine": 99,
         "startChar": 38,
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "4a06941b_20c4d652",
+        "filename": "radio/1.3/IRadio.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2018-08-31T03:23:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fcb7ae66_5d83558a",
+      "range": {
+        "startLine": 126,
+        "startChar": 55,
+        "endLine": 126,
+        "endChar": 56
+      },
+      "revId": "2eb1a41609cfcfda8301da68def0bf3c561e7d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5b98054b_3989f9f7",
         "filename": "radio/1.3/IRadioResponse.hal",
         "patchSetId": 2
@@ -114,6 +210,30 @@
       "revId": "2eb1a41609cfcfda8301da68def0bf3c561e7d4c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0049a47_439c7e13",
+        "filename": "radio/1.3/IRadioResponse.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2018-08-31T03:23:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b98054b_3989f9f7",
+      "range": {
+        "startLine": 35,
+        "startChar": 46,
+        "endLine": 35,
+        "endChar": 52
+      },
+      "revId": "2eb1a41609cfcfda8301da68def0bf3c561e7d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "6a602369_2016e2dd",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2018-08-31T03:23:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5814c75d_eaa482d0",
+      "range": {
+        "startLine": 34,
+        "startChar": 39,
+        "endLine": 34,
+        "endChar": 45
+      },
+      "revId": "2eb1a41609cfcfda8301da68def0bf3c561e7d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2290a6d1_637cda0d",
         "filename": "radio/1.3/types.hal",
         "patchSetId": 2
@@ -151,6 +295,30 @@
       "writtenOn": "2018-08-31T00:40:01Z",
       "side": 1,
       "message": "is this guaranteed to be three digits? what formats should be supported?",
+      "range": {
+        "startLine": 44,
+        "startChar": 4,
+        "endLine": 44,
+        "endChar": 18
+      },
+      "revId": "2eb1a41609cfcfda8301da68def0bf3c561e7d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9a74d3a_b442bd0c",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2018-08-31T03:23:44Z",
+      "side": 1,
+      "message": "There seems no reference that define the digits: from current ril.ecclist and 3GPP examples, the digits vary.",
+      "parentUuid": "2290a6d1_637cda0d",
       "range": {
         "startLine": 44,
         "startChar": 4,
