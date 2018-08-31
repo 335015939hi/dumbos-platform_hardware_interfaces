@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3e4ca78a_bc6cf8d4",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1351305
+      },
+      "writtenOn": "2018-08-31T20:24:34Z",
+      "side": 1,
+      "message": "Done. See if it makes sense now.",
+      "parentUuid": "ee831a6d_86e2ee93",
+      "range": {
+        "startLine": 33,
+        "startChar": 4,
+        "endLine": 33,
+        "endChar": 54
+      },
+      "revId": "4ffd009a31e6db9164e8d2297a7f0d2e9588a2b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "02b71bfb_374bacc8",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
         "patchSetId": 8
@@ -45,6 +69,30 @@
       "revId": "4ffd009a31e6db9164e8d2297a7f0d2e9588a2b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c8412cc_7c815a93",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1351305
+      },
+      "writtenOn": "2018-08-31T20:24:34Z",
+      "side": 1,
+      "message": "Tried to correct but seems the script like it this way.",
+      "parentUuid": "02b71bfb_374bacc8",
+      "range": {
+        "startLine": 75,
+        "startChar": 13,
+        "endLine": 75,
+        "endChar": 49
+      },
+      "revId": "4ffd009a31e6db9164e8d2297a7f0d2e9588a2b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
