@@ -30,7 +30,7 @@ namespace implementation {
 Return<void> DevicesFactory::openDevice(IDevicesFactory::Device device, openDevice_cb _hidl_cb) {
     switch (device) {
         case IDevicesFactory::Device::PRIMARY:
-            return openDevice<PrimaryDevice>(AUDIO_HARDWARE_MODULE_ID_PRIMARY, _hidl_cb);
+            return openPrimaryDevice(_hidl_cb);
         case IDevicesFactory::Device::A2DP:
             return openDevice(AUDIO_HARDWARE_MODULE_ID_A2DP, _hidl_cb);
         case IDevicesFactory::Device::USB:
@@ -47,30 +47,39 @@ Return<void> DevicesFactory::openDevice(IDevicesFactory::Device device, openDevi
 #ifdef AUDIO_HAL_VERSION_4_0
 Return<void> DevicesFactory::openDevice(const hidl_string& moduleName, openDevice_cb _hidl_cb) {
     if (moduleName == AUDIO_HARDWARE_MODULE_ID_PRIMARY) {
-        return openDevice<PrimaryDevice>(moduleName.c_str(), _hidl_cb);
+        return openPrimaryDevice(_hidl_cb);
     }
     return openDevice(moduleName.c_str(), _hidl_cb);
 }
 Return<void> DevicesFactory::openPrimaryDevice(openPrimaryDevice_cb _hidl_cb) {
-    return openDevice<PrimaryDevice>(AUDIO_HARDWARE_MODULE_ID_PRIMARY, _hidl_cb);
+    return openPrimaryDevice<>(_hidl_cb);
 }
 #endif
 
 Return<void> DevicesFactory::openDevice(const char* moduleName, openDevice_cb _hidl_cb) {
-    return openDevice<implementation::Device>(moduleName, _hidl_cb);
+    return openDevice<implementation::Device>(moduleName, &mDeviceCache[moduleName], _hidl_cb);
 }
 
-template <class DeviceShim, class Callback>
-Return<void> DevicesFactory::openDevice(const char* moduleName, Callback _hidl_cb) {
+template <class Callback>
+Return<void> DevicesFactory::openPrimaryDevice(Callback _hidl_cb) {
+    return openDevice<PrimaryDevice>(AUDIO_HARDWARE_MODULE_ID_PRIMARY, &mPrimaryDeviceCache,
+                                     _hidl_cb);
+}
+
+template <class DeviceImpl, class DeviceItf, class Callback>
+Return<void> DevicesFactory::openDevice(const char* moduleName, wp<DeviceItf>* cache,
+                                        Callback _hidl_cb) {
     audio_hw_device_t* halDevice;
-    Result retval(Result::INVALID_ARGUMENTS);
-    sp<DeviceShim> result;
-    int halStatus = loadAudioInterface(moduleName, &halDevice);
-    if (halStatus == OK) {
-        result = new DeviceShim(halDevice);
-        retval = Result::OK;
-    } else if (halStatus == -EINVAL) {
-        retval = Result::NOT_INITIALIZED;
+    Result retval = Result::OK;
+    sp<DeviceItf> result = cache->promote();
+    if (result == nullptr) {
+        int halStatus = loadAudioInterface(moduleName, &halDevice);
+        if (halStatus == OK) {
+            result = new DeviceImpl(halDevice);
+            *cache = result;
+        } else if (halStatus == -EINVAL) {
+            retval = Result::NOT_INITIALIZED;
+        }
     }
     _hidl_cb(retval, result);
     return Void();

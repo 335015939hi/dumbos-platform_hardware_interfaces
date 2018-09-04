@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+#include <map>
+
 #include <common/all-versions/IncludeGuard.h>
 
 #include <hardware/audio.h>
@@ -21,20 +23,22 @@
 #include <hidl/Status.h>
 
 #include <hidl/MQDescriptor.h>
+
 namespace android {
 namespace hardware {
 namespace audio {
 namespace AUDIO_HAL_VERSION {
 namespace implementation {
 
-using ::android::hardware::audio::AUDIO_HAL_VERSION::IDevice;
-using ::android::hardware::audio::AUDIO_HAL_VERSION::IDevicesFactory;
-using ::android::hardware::audio::AUDIO_HAL_VERSION::Result;
+using ::android::sp;
+using ::android::hardware::hidl_string;
+using ::android::hardware::hidl_vec;
 using ::android::hardware::Return;
 using ::android::hardware::Void;
-using ::android::hardware::hidl_vec;
-using ::android::hardware::hidl_string;
-using ::android::sp;
+using ::android::hardware::audio::AUDIO_HAL_VERSION::IDevice;
+using ::android::hardware::audio::AUDIO_HAL_VERSION::IDevicesFactory;
+using ::android::hardware::audio::AUDIO_HAL_VERSION::IPrimaryDevice;
+using ::android::hardware::audio::AUDIO_HAL_VERSION::Result;
 
 struct DevicesFactory : public IDevicesFactory {
 #ifdef AUDIO_HAL_VERSION_2_0
@@ -46,11 +50,18 @@ struct DevicesFactory : public IDevicesFactory {
 #endif
 
    private:
-    template <class DeviceShim, class Callback>
-    Return<void> openDevice(const char* moduleName, Callback _hidl_cb);
     Return<void> openDevice(const char* moduleName, openDevice_cb _hidl_cb);
 
+    template <class Callback>
+    Return<void> openPrimaryDevice(Callback _hidl_cb);
+
+    template <class DeviceImpl, class DeviceItf, class Callback>
+    static Return<void> openDevice(const char* moduleName, wp<DeviceItf>* cache, Callback _hidl_cb);
+
     static int loadAudioInterface(const char* if_name, audio_hw_device_t** dev);
+
+    std::map<std::string, wp<IDevice>> mDeviceCache;
+    wp<IPrimaryDevice> mPrimaryDeviceCache;
 };
 
 extern "C" IDevicesFactory* HIDL_FETCH_IDevicesFactory(const char* name);
