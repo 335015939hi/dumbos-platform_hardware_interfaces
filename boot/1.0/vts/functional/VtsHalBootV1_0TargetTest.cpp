@@ -173,12 +173,22 @@ TEST_F(BootHidlTest, GetSuffix) {
     string suffixStr;
     unordered_set<string> suffixes;
     auto cb = [&](hidl_string suffix) { suffixStr = suffix.c_str(); };
+
+    constexpr int32_t SIZE_CHECK_API_LEVEL = 28;
+    int32_t firstApiLevel = property_get_int32("ro.product.first_api_level", /*default*/-1);
+    if (firstApiLevel < 0)
+        firstApiLevel = property_get_int32("ro.build.version.sdk", /*default*/-1);
+
+    ASSERT_GT(firstApiLevel, 0);
+
     for (Slot i = 0; i < boot->getNumberSlots(); i++) {
         CommandResult cr;
         Return<void> result = boot->getSuffix(i, cb);
         EXPECT_TRUE(result.isOk());
         ASSERT_EQ('_', suffixStr[0]);
-        ASSERT_LE((unsigned)2, suffixStr.size());
+        // Devices launched before P may have used longer suffixes
+        if (firstApiLevel >= SIZE_CHECK_API_LEVEL)
+            ASSERT_LE((unsigned)2, suffixStr.size());
         suffixes.insert(suffixStr);
     }
     // All suffixes should be unique
