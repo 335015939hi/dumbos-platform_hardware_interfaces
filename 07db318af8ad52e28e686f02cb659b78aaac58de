@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a12e48de_b978b110",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1351305
+      },
+      "writtenOn": "2018-09-04T17:39:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba7f99e8_67f77038",
+      "range": {
+        "startLine": 36,
+        "startChar": 8,
+        "endLine": 37,
+        "endChar": 60
+      },
+      "revId": "07db318af8ad52e28e686f02cb659b78aaac58de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "02a2903f_0f932c3d",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
         "patchSetId": 9
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "c81aa518_68cce30f",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1351305
+      },
+      "writtenOn": "2018-09-04T17:39:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02a2903f_0f932c3d",
+      "range": {
+        "startLine": 40,
+        "startChar": 84,
+        "endLine": 40,
+        "endChar": 97
+      },
+      "revId": "07db318af8ad52e28e686f02cb659b78aaac58de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4fec548f_cc23c262",
         "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
         "patchSetId": 9
@@ -59,6 +107,30 @@
       "writtenOn": "2018-09-04T17:32:41Z",
       "side": 1,
       "message": "does it have 32bit limit as well? What\u0027s the result of running this?",
+      "range": {
+        "startLine": 802,
+        "startChar": 0,
+        "endLine": 805,
+        "endChar": 40
+      },
+      "revId": "07db318af8ad52e28e686f02cb659b78aaac58de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "841a1401_7353e8e2",
+        "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 805,
+      "author": {
+        "id": 1351305
+      },
+      "writtenOn": "2018-09-04T17:39:56Z",
+      "side": 1,
+      "message": "Nope. The radio 1.2 doesn\u0027t have that problem. It just appears in 1.0.",
+      "parentUuid": "4fec548f_cc23c262",
       "range": {
         "startLine": 802,
         "startChar": 0,
