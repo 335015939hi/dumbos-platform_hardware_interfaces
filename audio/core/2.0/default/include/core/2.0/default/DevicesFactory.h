@@ -18,6 +18,7 @@
 #define ANDROID_HARDWARE_AUDIO_V2_0_DEVICESFACTORY_H
 
 #include <android/hardware/audio/2.0/IDevicesFactory.h>
+#include <android/hardware/audio/2.0/IPrimaryDevice.h>
 
 #define AUDIO_HAL_VERSION V2_0
 #include <core/all-versions/default/DevicesFactory.h>
