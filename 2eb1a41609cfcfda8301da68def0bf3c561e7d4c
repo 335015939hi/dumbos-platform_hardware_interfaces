@@ -376,6 +376,30 @@
       "revId": "2eb1a41609cfcfda8301da68def0bf3c561e7d4c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "174a865e_f7e83ade",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2018-09-04T17:42:56Z",
+      "side": 1,
+      "message": "Agree with your suggestions. I will make a define soon. I think we should only allow pin-pad characters including numeric characters and *# (for MMI code).",
+      "parentUuid": "1a6ea6c7_88651027",
+      "range": {
+        "startLine": 44,
+        "startChar": 4,
+        "endLine": 44,
+        "endChar": 18
+      },
+      "revId": "2eb1a41609cfcfda8301da68def0bf3c561e7d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
