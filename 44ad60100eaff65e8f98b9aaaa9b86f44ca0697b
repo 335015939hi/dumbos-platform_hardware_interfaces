@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "336fbf6a_62924557",
+        "filename": "tv/cec/1.1/IHdmiCec.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-09-04T15:21:29Z",
+      "side": 1,
+      "message": "must?",
+      "range": {
+        "startLine": 23,
+        "startChar": 55,
+        "endLine": 23,
+        "endChar": 58
+      },
+      "revId": "44ad60100eaff65e8f98b9aaaa9b86f44ca0697b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54fd38f3_e63c1c37",
+        "filename": "tv/cec/1.1/IHdmiCecCallback.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-09-04T15:21:29Z",
+      "side": 1,
+      "message": "can you avoid adding this if it doesn\u0027t do anything different?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 61
+      },
+      "revId": "44ad60100eaff65e8f98b9aaaa9b86f44ca0697b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "09acf1c0_4925e52e",
+        "filename": "tv/cec/1.1/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-09-04T15:21:29Z",
+      "side": 1,
+      "message": "this is only used for exporting legacy constants. For new code, you should just be able to include this library directly. Do you need it?",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 7
+      },
+      "revId": "44ad60100eaff65e8f98b9aaaa9b86f44ca0697b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5009f31_83411cb1",
+        "filename": "tv/cec/1.1/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-09-04T15:21:29Z",
+      "side": 1,
+      "message": "we don\u0027t need this",
+      "range": {
+        "startLine": 25,
+        "startChar": 14,
+        "endLine": 25,
+        "endChar": 18
+      },
+      "revId": "44ad60100eaff65e8f98b9aaaa9b86f44ca0697b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5359ff6_0bb665e0",
+        "filename": "tv/cec/1.1/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-09-04T15:21:29Z",
+      "side": 1,
+      "message": "you\u0027ll have to add a method which uses this new type",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 30
+      },
+      "revId": "44ad60100eaff65e8f98b9aaaa9b86f44ca0697b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
