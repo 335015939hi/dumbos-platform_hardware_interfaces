@@ -22,6 +22,30 @@
       "revId": "6ae2e1d20209e265ed05d017072bd44f6cd80437",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a4aff17_eb87f432",
+        "filename": "radio/1.3/IRadioIndication.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2018-09-04T20:01:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e52bdb9b_959599c9",
+      "range": {
+        "startLine": 46,
+        "startChar": 7,
+        "endLine": 46,
+        "endChar": 12
+      },
+      "revId": "6ae2e1d20209e265ed05d017072bd44f6cd80437",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
