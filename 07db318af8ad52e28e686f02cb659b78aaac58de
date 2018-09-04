@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba7f99e8_67f77038",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2018-09-04T17:32:41Z",
+      "side": 1,
+      "message": "cardStatus enforcement check is done in the setup and it is not a part of API function test. Please still keep the \u0027else if\u0027.",
+      "range": {
+        "startLine": 36,
+        "startChar": 8,
+        "endLine": 37,
+        "endChar": 60
+      },
+      "revId": "07db318af8ad52e28e686f02cb659b78aaac58de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02a2903f_0f932c3d",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2018-09-04T17:32:41Z",
+      "side": 1,
+      "message": "No need to put CHECK_DEFAULT here. Default is processed in the header file.\nJust use it like this: https://cs.corp.google.com/android/hardware/interfaces/radio/1.0/vts/functional/radio_hidl_hal_icc.cpp?q\u003dradio_hidl_hal_icc.cpp\u0026dr\u0026l\u003d49",
+      "range": {
+        "startLine": 40,
+        "startChar": 84,
+        "endLine": 40,
+        "endChar": 97
+      },
+      "revId": "07db318af8ad52e28e686f02cb659b78aaac58de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4fec548f_cc23c262",
+        "filename": "radio/1.2/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 805,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2018-09-04T17:32:41Z",
+      "side": 1,
+      "message": "does it have 32bit limit as well? What\u0027s the result of running this?",
+      "range": {
+        "startLine": 802,
+        "startChar": 0,
+        "endLine": 805,
+        "endChar": 40
+      },
+      "revId": "07db318af8ad52e28e686f02cb659b78aaac58de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
