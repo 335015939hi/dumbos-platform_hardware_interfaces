@@ -46,6 +46,30 @@
       "revId": "8f9ca3cd39dffb3605292144077f650f84c44599",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c240595b_82cf00e0",
+        "filename": "audio/core/4.0/vts/functional/AudioPrimaryHidlHalTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1136369
+      },
+      "writtenOn": "2018-09-05T21:33:48Z",
+      "side": 1,
+      "message": "To trigger the remote object destruction, you need to drop all strong reference to its proxy.\nWhen done, it also drops the binder token used to communicate with the Bn object. Thus there is not way to ping the remote object.",
+      "parentUuid": "84a3e073_aa6bd147",
+      "range": {
+        "startLine": 182,
+        "startChar": 14,
+        "endLine": 182,
+        "endChar": 67
+      },
+      "revId": "8f9ca3cd39dffb3605292144077f650f84c44599",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
