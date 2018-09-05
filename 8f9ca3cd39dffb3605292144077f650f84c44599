@@ -22,6 +22,30 @@
       "revId": "8f9ca3cd39dffb3605292144077f650f84c44599",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "84a3e073_aa6bd147",
+        "filename": "audio/core/4.0/vts/functional/AudioPrimaryHidlHalTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2018-09-05T20:55:33Z",
+      "side": 1,
+      "message": "But we were supposed to get rid of all of the references to the interface at this point. If we weren\u0027t then HwBinder will never attempt to destroy the server side as there is \u003e\u003d 1 client.",
+      "parentUuid": "f77ba38a_7182c3b3",
+      "range": {
+        "startLine": 182,
+        "startChar": 14,
+        "endLine": 182,
+        "endChar": 67
+      },
+      "revId": "8f9ca3cd39dffb3605292144077f650f84c44599",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
