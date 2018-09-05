@@ -125,4 +125,13 @@ interface IRadio extends @1.2::IRadio {
      */
     oneway emergencyDial(int32_t serial, Dial dialInfo,
             bitfield<EmergencyServiceCategory> categories);
+
+    /**
+     * Set the available data profiles that can be used to setup data connections on the network.
+     *
+     * @param serial Serial number of request.
+     * @param profiles Data profiles that can be used to setup data connections on the current
+     *     network.
+     */
+    oneway setAvailableDataProfiles(int32_t serial, vec<DataProfileInfo> profiles);
 };
