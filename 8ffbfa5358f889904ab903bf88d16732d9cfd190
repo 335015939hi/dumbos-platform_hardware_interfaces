@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a7431e7c_971b9ed5",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-09-05T18:42:30Z",
+      "side": 1,
+      "message": "I\u0027m not sure if this definition of a number is rigorous enough. Maybe Nathan/Robert can double check it.",
+      "range": {
+        "startLine": 43,
+        "startChar": 29,
+        "endLine": 44,
+        "endChar": 39
+      },
+      "revId": "8ffbfa5358f889904ab903bf88d16732d9cfd190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
