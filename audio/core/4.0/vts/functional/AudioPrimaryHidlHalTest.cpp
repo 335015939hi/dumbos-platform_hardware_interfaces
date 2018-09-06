@@ -753,14 +753,14 @@ TEST_IO_STREAM(GetFrameSize, "Check that the stream frame size == the one it was
 TEST_IO_STREAM(GetBufferSize, "Check that the stream buffer size== the one it was opened with",
                ASSERT_GE(extract(stream->getBufferSize()), extract(stream->getFrameSize())));
 
-template <class Property, class CapablityGetter>
+template <class Property>
 static void testCapabilityGetter(const string& name, IStream* stream,
-                                 CapablityGetter capablityGetter,
+                                 Result (*capablityGetter)(IStream*, hidl_vec<Property>&),
                                  Return<Property> (IStream::*getter)(),
                                  Return<Result> (IStream::*setter)(Property),
                                  bool currentMustBeSupported = true) {
     hidl_vec<Property> capabilities;
-    auto ret = capablityGetter(stream, capabilities);
+    Result ret = capablityGetter(stream, capabilities);
     if (ret == Result::NOT_SUPPORTED) {
         doc::partialTest(name + " is not supported");
         return;
@@ -1402,6 +1402,7 @@ TEST_F(AudioPrimaryHidlTest, setBtHfpVolume) {
         "Make sure setBtHfpVolume is either not supported or "
         "only succeed if volume is in [0,1]");
     auto ret = device->setBtHfpVolume(0.0);
+    ASSERT_TRUE(ret.isOk());
     if (ret == Result::NOT_SUPPORTED) {
         doc::partialTest("setBtHfpVolume is not supported");
         return;
