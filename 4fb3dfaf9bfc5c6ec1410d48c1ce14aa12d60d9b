@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2ad7f7d5_4bfd78c5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2018-09-06T00:35:38Z",
+      "side": 1,
+      "message": "typo: weak",
+      "range": {
+        "startLine": 22,
+        "startChar": 39,
+        "endLine": 22,
+        "endChar": 43
+      },
+      "revId": "4fb3dfaf9bfc5c6ec1410d48c1ce14aa12d60d9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78ac6137_f564512e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2018-09-06T00:35:38Z",
+      "side": 1,
+      "message": "typo: remove space; or say \"IDevice instances\"",
+      "range": {
+        "startLine": 22,
+        "startChar": 25,
+        "endLine": 22,
+        "endChar": 34
+      },
+      "revId": "4fb3dfaf9bfc5c6ec1410d48c1ce14aa12d60d9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97e84263_1d16556d",
+        "filename": "audio/core/all-versions/default/include/core/all-versions/default/DevicesFactory.impl.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2018-09-06T00:35:38Z",
+      "side": 1,
+      "message": "else retval \u003d Result::INVALID_ARGUMENTS",
+      "range": {
+        "startLine": 82,
+        "startChar": 8,
+        "endLine": 82,
+        "endChar": 9
+      },
+      "revId": "4fb3dfaf9bfc5c6ec1410d48c1ce14aa12d60d9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
