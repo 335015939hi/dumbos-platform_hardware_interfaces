@@ -94,6 +94,30 @@
     },
     {
       "key": {
+        "uuid": "a4cf9944_66ea3cd0",
+        "filename": "tv/cec/1.1/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1158195
+      },
+      "writtenOn": "2018-09-06T09:58:04Z",
+      "side": 1,
+      "message": "We are not sure why we don\u0027t need this, since we referred to PortMode_1_1 in USB module. (hardware\\interfaces\\usb\\1.1\\types.hal)",
+      "parentUuid": "e5009f31_83411cb1",
+      "range": {
+        "startLine": 25,
+        "startChar": 14,
+        "endLine": 25,
+        "endChar": 18
+      },
+      "revId": "44ad60100eaff65e8f98b9aaaa9b86f44ca0697b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e5359ff6_0bb665e0",
         "filename": "tv/cec/1.1/types.hal",
         "patchSetId": 5
@@ -105,6 +129,30 @@
       "writtenOn": "2018-09-04T15:21:29Z",
       "side": 1,
       "message": "you\u0027ll have to add a method which uses this new type",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 30
+      },
+      "revId": "44ad60100eaff65e8f98b9aaaa9b86f44ca0697b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba102a6c_122dc15c",
+        "filename": "tv/cec/1.1/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1158195
+      },
+      "writtenOn": "2018-09-06T09:58:04Z",
+      "side": 1,
+      "message": "Do you mean create a function to get this value? But, it\u0027s a constant value. Why should we add a method?",
+      "parentUuid": "e5359ff6_0bb665e0",
       "range": {
         "startLine": 26,
         "startChar": 0,
