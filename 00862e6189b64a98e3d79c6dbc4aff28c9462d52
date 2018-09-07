@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e9f29260_e6dfac22",
+        "filename": "usb/1.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2018-09-07T20:19:33Z",
+      "side": 1,
+      "message": "In addition of adding the comment, I also suggest:\n\nenum PortMode_1_1 : @1.0::PortMode {};\ntypedef PortMode PortMode_1_1;",
+      "revId": "00862e6189b64a98e3d79c6dbc4aff28c9462d52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
