@@ -16,6 +16,46 @@
       "revId": "00862e6189b64a98e3d79c6dbc4aff28c9462d52",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a2e4cb4_a501c83c",
+        "filename": "usb/1.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2018-09-07T20:20:02Z",
+      "side": 1,
+      "message": "fix comment",
+      "range": {
+        "startLine": 43,
+        "startChar": 15,
+        "endLine": 43,
+        "endChar": 23
+      },
+      "revId": "00862e6189b64a98e3d79c6dbc4aff28c9462d52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afb5844c_18f2c6a1",
+        "filename": "vibrator/1.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2018-09-07T20:20:02Z",
+      "side": 1,
+      "message": "fix comment",
+      "revId": "00862e6189b64a98e3d79c6dbc4aff28c9462d52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
