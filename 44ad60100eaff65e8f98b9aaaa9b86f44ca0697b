@@ -118,6 +118,30 @@
     },
     {
       "key": {
+        "uuid": "3625cca2_239b8099",
+        "filename": "tv/cec/1.1/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-09-07T00:51:52Z",
+      "side": 1,
+      "message": "This was an unfortunate typo. It is the only known case of a problem here. Nothing else does this. I\u0027ll upload a CL to comment that it can\u0027t be changed and is only like that as an accident.",
+      "parentUuid": "a4cf9944_66ea3cd0",
+      "range": {
+        "startLine": 25,
+        "startChar": 14,
+        "endLine": 25,
+        "endChar": 18
+      },
+      "revId": "44ad60100eaff65e8f98b9aaaa9b86f44ca0697b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e5359ff6_0bb665e0",
         "filename": "tv/cec/1.1/types.hal",
         "patchSetId": 5
@@ -153,6 +177,30 @@
       "side": 1,
       "message": "Do you mean create a function to get this value? But, it\u0027s a constant value. Why should we add a method?",
       "parentUuid": "e5359ff6_0bb665e0",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 30
+      },
+      "revId": "44ad60100eaff65e8f98b9aaaa9b86f44ca0697b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08489956_5a9dfa84",
+        "filename": "tv/cec/1.1/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-09-07T00:51:52Z",
+      "side": 1,
+      "message": "What I mean is that setOption(OptionKey key, bool value) takes a 1.0 OptionKey not a 1.1 OptionKey. In this case, you should add setOption_1_1.",
+      "parentUuid": "ba102a6c_122dc15c",
       "range": {
         "startLine": 26,
         "startChar": 0,
