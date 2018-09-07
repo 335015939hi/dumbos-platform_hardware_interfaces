@@ -22,6 +22,23 @@
       "revId": "85066a8f888c42ddc305dd79517fd388685f6afd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e7ea85e_4b79398c",
+        "filename": "audio/core/all-versions/default/include/core/all-versions/default/DevicesFactory.impl.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1136369
+      },
+      "writtenOn": "2018-09-07T18:06:10Z",
+      "side": 1,
+      "message": "Actually this does not work. There is a race condition if the cached object destructor and the openDevice are called concurently.\nThe cache pointer could be null, but the cache object not be destroyed yet.\nThus a new object will be created, while the previous object is still alive. \u003d\u003e crash.",
+      "revId": "85066a8f888c42ddc305dd79517fd388685f6afd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
