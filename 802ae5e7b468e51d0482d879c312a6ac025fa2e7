@@ -22,6 +22,30 @@
       "revId": "802ae5e7b468e51d0482d879c312a6ac025fa2e7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2300f113_869b0e6b",
+        "filename": "health/filesystem/1.0/IGarbageCollectCallback.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2018-09-07T23:36:07Z",
+      "side": 1,
+      "message": "It may optionally call onFinish(TIMEOUT). But really, vold will just stop waiting for the callback when timeout is reached.\n\nSince it is not required to call onFinish(TIMEOUT), should I still say this?\n\"When garbage collection has not completed before timeout is reached, the implementation may optionally call onFinish(TIMEOUT),\"\n\nOr, maybe I should remove \"TIMEOUT\" from Result completely, and don\u0027t have any callbacks at all if timeout?",
+      "parentUuid": "2dc3f12b_00f7fcda",
+      "range": {
+        "startLine": 29,
+        "startChar": 11,
+        "endLine": 29,
+        "endChar": 19
+      },
+      "revId": "802ae5e7b468e51d0482d879c312a6ac025fa2e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
