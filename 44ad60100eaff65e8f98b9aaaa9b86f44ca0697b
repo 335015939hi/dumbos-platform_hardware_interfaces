@@ -142,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "72ed3ece_f20117c5",
+        "filename": "tv/cec/1.1/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-09-07T01:05:51Z",
+      "side": 1,
+      "message": "-\u003e https://android-review.googlesource.com/c/platform/hardware/interfaces/+/750048",
+      "parentUuid": "3625cca2_239b8099",
+      "range": {
+        "startLine": 25,
+        "startChar": 14,
+        "endLine": 25,
+        "endChar": 18
+      },
+      "revId": "44ad60100eaff65e8f98b9aaaa9b86f44ca0697b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e5359ff6_0bb665e0",
         "filename": "tv/cec/1.1/types.hal",
         "patchSetId": 5
