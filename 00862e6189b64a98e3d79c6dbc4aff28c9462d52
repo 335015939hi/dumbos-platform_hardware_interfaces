@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c7f24cf5_a49d2830",
+        "filename": "usb/1.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-09-09T19:31:19Z",
+      "side": 1,
+      "message": "The interface cannot be changed even if the change is trivial.",
+      "parentUuid": "e9f29260_e6dfac22",
+      "revId": "00862e6189b64a98e3d79c6dbc4aff28c9462d52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a2e4cb4_a501c83c",
         "filename": "usb/1.1/types.hal",
         "patchSetId": 1
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "a966c804_6973d063",
+        "filename": "usb/1.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-09-09T19:31:19Z",
+      "side": 1,
+      "message": "good catch. done",
+      "parentUuid": "2a2e4cb4_a501c83c",
+      "range": {
+        "startLine": 43,
+        "startChar": 15,
+        "endLine": 43,
+        "endChar": 23
+      },
+      "revId": "00862e6189b64a98e3d79c6dbc4aff28c9462d52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "afb5844c_18f2c6a1",
         "filename": "vibrator/1.1/types.hal",
         "patchSetId": 1
@@ -56,6 +98,24 @@
       "revId": "00862e6189b64a98e3d79c6dbc4aff28c9462d52",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2fcd3303_2c241cc8",
+        "filename": "vibrator/1.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-09-09T19:31:19Z",
+      "side": 1,
+      "message": "good catch. done.",
+      "parentUuid": "afb5844c_18f2c6a1",
+      "revId": "00862e6189b64a98e3d79c6dbc4aff28c9462d52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
