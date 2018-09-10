@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "fa6f808d_e31bab0c",
+        "filename": "health/filesystem/1.0/IFileSystem.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1108565
+      },
+      "writtenOn": "2018-09-10T17:29:42Z",
+      "side": 1,
+      "message": "s/if/when \n\"finishes or encounters an error\"",
+      "range": {
+        "startLine": 32,
+        "startChar": 29,
+        "endLine": 32,
+        "endChar": 60
+      },
+      "revId": "802ae5e7b468e51d0482d879c312a6ac025fa2e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1643f66f_1057235c",
+        "filename": "health/filesystem/1.0/IFileSystem.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1108565
+      },
+      "writtenOn": "2018-09-10T17:29:42Z",
+      "side": 1,
+      "message": "doesn\u0027t finish within the specified timeout?",
+      "range": {
+        "startLine": 36,
+        "startChar": 29,
+        "endLine": 36,
+        "endChar": 73
+      },
+      "revId": "802ae5e7b468e51d0482d879c312a6ac025fa2e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "339fec15_f56edb4e",
+        "filename": "health/filesystem/1.0/IFileSystem.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1108565
+      },
+      "writtenOn": "2018-09-10T17:29:42Z",
+      "side": 1,
+      "message": "why seconds? Are these timeout supposed to last really long?",
+      "range": {
+        "startLine": 47,
+        "startChar": 35,
+        "endLine": 47,
+        "endChar": 49
+      },
+      "revId": "802ae5e7b468e51d0482d879c312a6ac025fa2e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2dc3f12b_00f7fcda",
         "filename": "health/filesystem/1.0/IGarbageCollectCallback.hal",
         "patchSetId": 5
@@ -61,6 +130,30 @@
       "side": 1,
       "message": "It\u0027s better to require the behavior one way or another (don\u0027t make it optional). That makes sure that client code which works for one implementation should work with another.",
       "parentUuid": "2300f113_869b0e6b",
+      "range": {
+        "startLine": 29,
+        "startChar": 11,
+        "endLine": 29,
+        "endChar": 19
+      },
+      "revId": "802ae5e7b468e51d0482d879c312a6ac025fa2e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "424e6f19_d180a206",
+        "filename": "health/filesystem/1.0/IGarbageCollectCallback.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1108565
+      },
+      "writtenOn": "2018-09-10T17:29:42Z",
+      "side": 1,
+      "message": "yes, this contradicts with the earlier comment too. There we are saying the implementation \"must\" call onFinish(TIMEOUT). So, may be just run with that. OTOH, if this is not a \"critical\" operation for vold or any other caller, then the timeout \"error\" should never really get propagater back to the caller (optionally or otherwise, since they are not going to care)",
+      "parentUuid": "583ed503_4bdcd54c",
       "range": {
         "startLine": 29,
         "startChar": 11,
