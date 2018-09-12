@@ -478,10 +478,10 @@ TEST_F(GnssHalTest, MeasurementCapabilites) {
 
 /*
  * SchedulingCapabilities:
- * Verifies that 2018+ hardware supports Scheduling capabilities.
+ * Verifies that 2019+ hardware supports Scheduling capabilities.
  */
 TEST_F(GnssHalTest, SchedulingCapabilities) {
-    if (info_called_count_ > 0 && last_info_.yearOfHw >= 2018) {
+    if (info_called_count_ > 0 && last_info_.yearOfHw >= 2019) {
         EXPECT_TRUE(last_capabilities_ & IGnssCallback::Capabilities::SCHEDULING);
     }
 }
