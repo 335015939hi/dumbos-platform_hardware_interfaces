@@ -70,6 +70,29 @@
       "revId": "8f9ca3cd39dffb3605292144077f650f84c44599",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac6626fc_2048edd8",
+        "filename": "audio/core/4.0/vts/functional/AudioPrimaryHidlHalTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2018-09-13T00:21:13Z",
+      "side": 1,
+      "message": "how about filing a bug for this and tracking here using TODO? when we want to address the underlying issue, reverting this CL will help reproduce and verify the fix. so TODO will help benefit those who follow-up.\n\nif it\u0027s a timing issue, what\u0027s the known, measured flakiness ratio? we can move the discussion to the bug.",
+      "range": {
+        "startLine": 188,
+        "startChar": 11,
+        "endLine": 188,
+        "endChar": 14
+      },
+      "revId": "8f9ca3cd39dffb3605292144077f650f84c44599",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
