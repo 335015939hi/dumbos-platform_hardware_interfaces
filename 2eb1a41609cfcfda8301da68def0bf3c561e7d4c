@@ -448,6 +448,30 @@
       "revId": "2eb1a41609cfcfda8301da68def0bf3c561e7d4c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de4061ff_fe80b662",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-09-13T02:11:05Z",
+      "side": 1,
+      "message": "The doc I put together for this 2 years ago has the spec reference. go/android-ims-modem-api\n\n24.301 - 9.9.3.37 and 24.008 -10.5.3.13\n\nYou can dig further and find the number format referenced from those IE definitions.",
+      "parentUuid": "636fe16c_ffed2a2b",
+      "range": {
+        "startLine": 44,
+        "startChar": 4,
+        "endLine": 44,
+        "endChar": 18
+      },
+      "revId": "2eb1a41609cfcfda8301da68def0bf3c561e7d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
