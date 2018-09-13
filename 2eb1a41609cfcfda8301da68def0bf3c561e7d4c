@@ -472,6 +472,30 @@
       "revId": "2eb1a41609cfcfda8301da68def0bf3c561e7d4c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8fc51f7d_fecf8eff",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2018-09-13T03:49:56Z",
+      "side": 1,
+      "message": "Thanks for sharing. I didn\u0027t read your document and that spec when I design and implement this.\n\nAfter checking 24.008 -10.5.3.13, it seems to tell how many spaces are allocated to transmit the information carried by the signal. It tells developers how to parse the emergency number when it is received from network signal. I don\u0027t think that could be the reference to define the concept.\n\nThe emergency number has multiple sources not only network signals.",
+      "parentUuid": "de4061ff_fe80b662",
+      "range": {
+        "startLine": 44,
+        "startChar": 4,
+        "endLine": 44,
+        "endChar": 18
+      },
+      "revId": "2eb1a41609cfcfda8301da68def0bf3c561e7d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
