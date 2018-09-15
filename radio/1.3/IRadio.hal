@@ -16,7 +16,7 @@
 
 package android.hardware.radio@1.3;
 
-import @1.0::DataProfileInfo;
+import @1.3::DataProfileInfo;
 import @1.0::Dial;
 import @1.2::DataRequestReason;
 import @1.2::IRadio;
@@ -59,10 +59,6 @@ interface IRadio extends @1.2::IRadio {
      * @param modemCognitive Indicates that the requested profile has previously been provided via
      *     setDataProfile().
      * @param roamingAllowed Indicates whether or not data roaming is allowed by the user.
-     * @param isRoaming Indicates whether or not the framework has requested this setupDataCall for
-     *     a roaming network. The 'protocol' parameter in the old RIL API must be filled
-     *     accordingly based on the roaming condition. Note this is for backward compatibility with
-     *     the old radio modem. The modem must not use this param for any other reason.
      * @param reason The request reason. Must be DataRequestReason.NORMAL or
      *     DataRequestReason.HANDOVER.
      * @param addresses If the reason is DataRequestReason.HANDOVER, this indicates the list of link
@@ -83,7 +79,32 @@ interface IRadio extends @1.2::IRadio {
      */
     oneway setupDataCall_1_3(int32_t serial, AccessNetwork accessNetwork,
             DataProfileInfo dataProfileInfo, bool modemCognitive, bool roamingAllowed,
-            bool isRoaming, DataRequestReason reason, vec<string> addresses, vec<string> dnses);
+            DataRequestReason reason, vec<string> addresses, vec<string> dnses);
+
+    /**
+     * Set an apn to initial attach network
+     *
+     * @param serial Serial number of request.
+     * @param dataProfileInfo data profile containing APN settings
+     * @param modemCognitive indicating the data profile was sent to the modem through
+     *      setDataProfile earlier.
+     *
+     * Response callback is IRadioResponse.setInitialAttachApnResponse()
+     */
+    oneway setInitialAttachApn_1_3(int32_t serial, DataProfileInfo dataProfileInfo,
+            bool modemCognitive);
+
+    /**
+     * Send data profiles of the current carrier to the modem. Modem must erase existing profiles
+     * from framework, and apply the new profiles.
+     *
+     * @param serial Serial number of request.
+     * @param profiles Array of DataProfile to set. Empty list is sent when no profiles are
+     *      available for the current carrier.
+     *
+     * Response callback is IRadioResponse.setDataProfileResponse()
+     */
+    oneway setDataProfile_1_3(int32_t serial, vec<DataProfileInfo> profiles);
 
     /**
      * Request the current emergency number list.
