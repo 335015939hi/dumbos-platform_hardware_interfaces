@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "651a5c47_4828f26f",
+        "filename": "radio/1.3/IRadio.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-09-15T00:57:22Z",
+      "side": 1,
+      "message": "Note, the whole statement about \"backwards compatibility with old modems\" further makes me think we shouldn\u0027t need this. Now that HALs are versioned, there are no old modems getting 1.3 unless they choose to take it.",
+      "parentUuid": "6bbd604a_3df5af5f",
+      "range": {
+        "startLine": 118,
+        "startChar": 82,
+        "endLine": 118,
+        "endChar": 91
+      },
+      "revId": "69132ca91a57d8f534e29bde243a455c69bc5a47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "71248730_7a83c470",
         "filename": "radio/1.3/types.hal",
         "patchSetId": 1
