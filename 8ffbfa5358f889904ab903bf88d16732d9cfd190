@@ -22,6 +22,29 @@
       "revId": "8ffbfa5358f889904ab903bf88d16732d9cfd190",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90b7ed7b_0b12b60e",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-09-17T23:46:58Z",
+      "side": 1,
+      "message": "Additional follow-up, as per 24.008 these bits are only valid when initiating an emergency call (MS-\u003eNetwork direction). They shouldn\u0027t be considered valid in the Network-\u003eMS direction or if used from the SIM. Those bits are considered SPARE in the USIM and from the NW -\u003e MS.",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 58
+      },
+      "revId": "8ffbfa5358f889904ab903bf88d16732d9cfd190",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
