@@ -97,6 +97,29 @@
     },
     {
       "key": {
+        "uuid": "f5ee8965_e68a80d9",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-09-17T21:48:34Z",
+      "side": 1,
+      "message": "I\u0027m still not thrilled about these being uint8_t. I think either booleans or a bitfield are both more appropriate. Remember there\u0027s no benefit to an ABI-compatible interface: we still have to make a new version when we up-rev it, and we\u0027ll be subject to the same pattern of inheriting from base + on the Java side the types will be different anyway (there\u0027s no casting).",
+      "range": {
+        "startLine": 100,
+        "startChar": 4,
+        "endLine": 100,
+        "endChar": 11
+      },
+      "revId": "3841eb2230cf78176fd626ca5baf2e8242da4529",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "84de9d07_179657c8",
         "filename": "radio/1.3/types.hal",
         "patchSetId": 2
