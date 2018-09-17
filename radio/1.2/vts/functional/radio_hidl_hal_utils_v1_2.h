@@ -440,6 +440,8 @@ class RadioResponse_v1_2 : public ::android::hardware::radio::V1_2::IRadioRespon
     Return<void> getDataRegistrationStateResponse_1_2(
         const RadioResponseInfo& info,
         const ::android::hardware::radio::V1_2::DataRegStateResult& dataRegResponse);
+
+    Return<void> startNetworkScanResponse_1_2(const RadioResponseInfo& info);
 };
 
 /* Callback class for radio indication */
