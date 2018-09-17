@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "00c14d89_7d73222f",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2018-09-17T18:58:48Z",
+      "side": 1,
+      "message": "Sorry not sure why this was changed from bool to int. Can\u0027t find the review history about this change.",
+      "range": {
+        "startLine": 100,
+        "startChar": 4,
+        "endLine": 100,
+        "endChar": 11
+      },
+      "revId": "3841eb2230cf78176fd626ca5baf2e8242da4529",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
