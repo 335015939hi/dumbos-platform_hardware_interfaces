@@ -46,6 +46,53 @@
       "revId": "3841eb2230cf78176fd626ca5baf2e8242da4529",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5010216_9653534e",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2018-09-17T20:56:09Z",
+      "side": 1,
+      "message": "Since LteVopsInfo is for LTE only, I think it\u0027s better to use bool here.",
+      "parentUuid": "0af3cb22_f1047553",
+      "range": {
+        "startLine": 100,
+        "startChar": 4,
+        "endLine": 100,
+        "endChar": 11
+      },
+      "revId": "3841eb2230cf78176fd626ca5baf2e8242da4529",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "84de9d07_179657c8",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2018-09-17T20:56:09Z",
+      "side": 1,
+      "message": "Should this also be a bool?",
+      "range": {
+        "startLine": 113,
+        "startChar": 4,
+        "endLine": 113,
+        "endChar": 11
+      },
+      "revId": "3841eb2230cf78176fd626ca5baf2e8242da4529",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
