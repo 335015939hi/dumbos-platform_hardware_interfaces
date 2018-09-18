@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "e78b4918_e9c131ae",
+        "filename": "radio/1.3/IRadio.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2018-09-18T17:38:29Z",
+      "side": 1,
+      "message": "nice catch! This definitely should be removed in 1.3.",
+      "parentUuid": "651a5c47_4828f26f",
+      "range": {
+        "startLine": 118,
+        "startChar": 82,
+        "endLine": 118,
+        "endChar": 91
+      },
+      "revId": "69132ca91a57d8f534e29bde243a455c69bc5a47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "71248730_7a83c470",
         "filename": "radio/1.3/types.hal",
         "patchSetId": 1
@@ -69,6 +93,30 @@
       "revId": "69132ca91a57d8f534e29bde243a455c69bc5a47",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2193355b_827a2809",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2018-09-18T17:38:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71248730_7a83c470",
+      "range": {
+        "startLine": 149,
+        "startChar": 28,
+        "endLine": 149,
+        "endChar": 37
+      },
+      "revId": "69132ca91a57d8f534e29bde243a455c69bc5a47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
