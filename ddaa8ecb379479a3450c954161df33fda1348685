@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "94f7f1d3_9826ba3f",
+        "filename": "fastboot/1.0/IFastboot.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-09-18T18:07:02Z",
+      "side": 1,
+      "message": "I think this is fine because it allows fastboot to be generic and the system image won\u0027t be relying on this. Checking w/ malchev though.",
+      "revId": "ddaa8ecb379479a3450c954161df33fda1348685",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
