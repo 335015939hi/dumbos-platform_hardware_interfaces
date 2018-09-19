@@ -22,6 +22,30 @@
       "revId": "4ea0d55245ccfde03dcd80baab98294cff781a27",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f159e0e_3968b90b",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2018-09-19T22:32:24Z",
+      "side": 1,
+      "message": "Removed the \u0027OTHER\u0027. I think DB is technically a config in modem. Or do you agree to change MODEN_CONFIG to MODEM?",
+      "parentUuid": "f3461516_a5e2ba30",
+      "range": {
+        "startLine": 99,
+        "startChar": 4,
+        "endLine": 99,
+        "endChar": 9
+      },
+      "revId": "4ea0d55245ccfde03dcd80baab98294cff781a27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
