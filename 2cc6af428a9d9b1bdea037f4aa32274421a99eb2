@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "76bf6485_ed24f796",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-09-19T20:52:13Z",
+      "side": 1,
+      "message": "nit: this is overly explicit",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 27
+      },
+      "revId": "2cc6af428a9d9b1bdea037f4aa32274421a99eb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5360d456_99cc0008",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-09-19T20:52:13Z",
+      "side": 1,
+      "message": "This is defining a type, not adding it to the struct (so it is unused, you should be able to see it with \u0027hidl-gen -Lcheck -v android.hardware.radio@1.3\u0027\n\nYou want to add VopsInfo as a member here. Is it intentionally optional? If so, explain why it is optional. I can\u0027t recall if we decided to require one of the elements in a safe_union to be used.",
+      "range": {
+        "startLine": 121,
+        "startChar": 3,
+        "endLine": 123,
+        "endChar": 6
+      },
+      "revId": "2cc6af428a9d9b1bdea037f4aa32274421a99eb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
