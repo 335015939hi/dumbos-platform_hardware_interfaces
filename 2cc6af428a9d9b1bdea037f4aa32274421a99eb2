@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a45ece75_53177fef",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1254469
+      },
+      "writtenOn": "2018-09-19T21:22:04Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "76bf6485_ed24f796",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 27
+      },
+      "revId": "2cc6af428a9d9b1bdea037f4aa32274421a99eb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5360d456_99cc0008",
         "filename": "radio/1.3/types.hal",
         "patchSetId": 4
@@ -60,6 +84,30 @@
       "side": 1,
       "message": "@Smoreland, I think the syntax is a guess based on the commit messages for safe_union. Is there an updated doc that says what it should look like (might be easier to digest than the git commits)?\n\nShould this be (in C/C++ style):\n\nsafe_union {\n    LteVopsInfo lteVopsInfo;\n} VopsInfo;",
       "parentUuid": "5360d456_99cc0008",
+      "range": {
+        "startLine": 121,
+        "startChar": 3,
+        "endLine": 123,
+        "endChar": 6
+      },
+      "revId": "2cc6af428a9d9b1bdea037f4aa32274421a99eb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f572c42_b4d8999c",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1254469
+      },
+      "writtenOn": "2018-09-19T21:22:04Z",
+      "side": 1,
+      "message": "I have the same question. Steve,pls confirm ?\nWill add comment on why its optional .",
+      "parentUuid": "3dc458be_9c373fe6",
       "range": {
         "startLine": 121,
         "startChar": 3,
