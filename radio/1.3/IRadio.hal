@@ -89,7 +89,8 @@ interface IRadio extends @1.2::IRadio {
      * Request the current emergency number list.
      *
      * Each emergency number (@1.3::EmergencyNumber) in the emergency number list contains a
-     * dialing number, one or more service category(s), and mobile country code.
+     * dialing number, one or more service category(s), mobile country code and source(s) that
+     * indicate where it comes from.
      *
      * Radio must collect all sources of the emergency number to build the response.
      * For example, network operator signals, sim card information, modem configuration, OEM
