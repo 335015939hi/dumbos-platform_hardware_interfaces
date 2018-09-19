@@ -93,6 +93,30 @@
       "revId": "8f9ca3cd39dffb3605292144077f650f84c44599",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "863d3924_d52bb75f",
+        "filename": "audio/core/4.0/vts/functional/AudioPrimaryHidlHalTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1136369
+      },
+      "writtenOn": "2018-09-19T18:27:06Z",
+      "side": 1,
+      "message": "A follow up bug already exist to avoid the need for this workaround: b/114451103.\nHowever is needs some vendor code change, so we will not be able to remove this usleep until the next HAL revision.\n\nIt is a timing issue that is not flaky (or at least not in practice).\nIt depends on the HAL close time. So it occurs 100% of the time for some device and 0% of others. (I theory some device could also hit it randomly, but I have not eared of such devices).",
+      "parentUuid": "ac6626fc_2048edd8",
+      "range": {
+        "startLine": 188,
+        "startChar": 11,
+        "endLine": 188,
+        "endChar": 14
+      },
+      "revId": "8f9ca3cd39dffb3605292144077f650f84c44599",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
