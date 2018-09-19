@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f3461516_a5e2ba30",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1002609
+      },
+      "writtenOn": "2018-09-19T22:17:52Z",
+      "side": 1,
+      "message": "I was puzzled by bitfield for this.  I think it may be useful though when the same data is reported by several sources (came off the sim card, but also matches a modem-based DB for example).  In that case though OTHER needs a bit too and can\u0027t just be the absence of bits.",
+      "range": {
+        "startLine": 99,
+        "startChar": 4,
+        "endLine": 99,
+        "endChar": 9
+      },
+      "revId": "4ea0d55245ccfde03dcd80baab98294cff781a27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
