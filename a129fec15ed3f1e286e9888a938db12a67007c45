@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6c9703ef_fe8af32e",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-09-20T23:16:02Z",
+      "side": 1,
+      "message": "it would be nice if we could provide some explanation as to how this should be used. Questions I\u0027d ask if I were implementing this at the modem.\n\n1) if we have 2 that are preferred what does that mean?\n2) if we have none that are preferred what does that mean?\n3) Does this have meaning for APNs that don\u0027t support ApnType::INTERNET?\n4) If it\u0027s preferred for HOME is it also preferred for ROAM?",
+      "range": {
+        "startLine": 189,
+        "startChar": 4,
+        "endLine": 189,
+        "endChar": 74
+      },
+      "revId": "a129fec15ed3f1e286e9888a938db12a67007c45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
