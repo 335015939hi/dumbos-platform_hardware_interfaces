@@ -117,6 +117,30 @@
       "revId": "2cc6af428a9d9b1bdea037f4aa32274421a99eb2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0319c88_f824de30",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-09-20T01:47:37Z",
+      "side": 1,
+      "message": "I sent you the doc offline. This is true for a struct/safe_union/union. This syntax just declares a type (https://source.android.com/devices/architecture/hidl).\n\nAlso, please see b/116156870. The intention was to not allow no_init to be passed through IPC.",
+      "parentUuid": "2f572c42_b4d8999c",
+      "range": {
+        "startLine": 121,
+        "startChar": 3,
+        "endLine": 123,
+        "endChar": 6
+      },
+      "revId": "2cc6af428a9d9b1bdea037f4aa32274421a99eb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
