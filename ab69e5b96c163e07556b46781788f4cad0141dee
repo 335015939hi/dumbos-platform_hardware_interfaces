@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "738c6a37_6a2d79a5",
+        "filename": "radio/1.3/IRadio.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-09-20T21:34:06Z",
+      "side": 1,
+      "message": "I have a feeling that modemCognitive only works with profileId (since otherwise, it would be hard to figure out which APN to update) ... can we put them both in the struct, move them both out of the struct, or remove modemCognitive support entirely?\n\nI looked at of the 46 APNs that are marked modem_cognitive, 44 are Verizon APNs... hence I think 45 and 46 are a mistake (since I think it\u0027s also the only one that doesn\u0027t have a profile_id). I suggest we just remove it modemCognitive. If it\u0027s a carrier APN, they should be able to have it unambiguously persist in the modem by providing it a profile ID that supercedes the previous APN with that same profile_id.\n\n@QC folks, tell me where I\u0027m wrong.",
+      "range": {
+        "startLine": 95,
+        "startChar": 17,
+        "endLine": 95,
+        "endChar": 31
+      },
+      "revId": "ab69e5b96c163e07556b46781788f4cad0141dee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
