@@ -22,6 +22,30 @@
       "revId": "feb87a9cf89d44f483fae9113b0dd5ff6a713da4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac26f9d7_57ae51ee",
+        "filename": "current.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-09-21T20:49:22Z",
+      "side": 0,
+      "message": "You only need one hash per interface per release. Since this is another change in Android Q, it\u0027s okay. :)",
+      "parentUuid": "af42206a_e77e7d38",
+      "range": {
+        "startLine": 390,
+        "startChar": 0,
+        "endLine": 390,
+        "endChar": 64
+      },
+      "revId": "feb87a9cf89d44f483fae9113b0dd5ff6a713da4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
