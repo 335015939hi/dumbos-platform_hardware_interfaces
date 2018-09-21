@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e34a03b1_47cfcc30",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-09-21T17:17:03Z",
+      "side": 1,
+      "message": "I think there\u0027s an interesting question of what\u0027s the lesser of 2 evils:\n1) changing an existing field so that it\u0027s signed in some places and unsigned in others.\n2) keeping a type that should have been unsigned but is currently signed.\n\nI feel like changing it here without changing it materially in some other way is likely to lead to weird issues when implementers rely on unsigned integer promotion.",
+      "parentUuid": "03bff2df_0014c475",
+      "range": {
+        "startLine": 165,
+        "startChar": 4,
+        "endLine": 175,
+        "endChar": 21
+      },
+      "revId": "a129fec15ed3f1e286e9888a938db12a67007c45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b8eefde0_3a3cf536",
         "filename": "radio/1.3/types.hal",
         "patchSetId": 5
