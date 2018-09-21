@@ -147,6 +147,30 @@
     },
     {
       "key": {
+        "uuid": "c7d74097_0b0f4970",
+        "filename": "health/filesystem/1.0/vts/functional/VtsHalHealthFilesystemV1_0TargetTest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2018-09-21T19:19:38Z",
+      "side": 1,
+      "message": "Actually, I cannot do that. GTest framework owns the environment, and will delete the object at program exit:\nhttps://github.com/google/googletest/blob/master/googletest/docs/advanced.md#global-set-up-and-tear-down\nIn fact, I see segfaults when the instance is allocated in static memory.",
+      "parentUuid": "33302492_8a17d51e",
+      "range": {
+        "startLine": 38,
+        "startChar": 46,
+        "endLine": 38,
+        "endChar": 47
+      },
+      "revId": "1019b8c22839197323c60451ef8efda9df0839db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c5e77f36_edc68ed1",
         "filename": "health/filesystem/1.0/vts/functional/VtsHalHealthFilesystemV1_0TargetTest.cpp",
         "patchSetId": 9
