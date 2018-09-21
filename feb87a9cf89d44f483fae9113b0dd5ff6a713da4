@@ -22,6 +22,30 @@
       "revId": "feb87a9cf89d44f483fae9113b0dd5ff6a713da4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9753956d_36bc24ed",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2018-09-21T23:38:21Z",
+      "side": 1,
+      "message": "This is my understanding: many (all?) of the tests migrated from 1.1 to 1.2 consist of a V1_1::Model that is downcast to a V1_2::Model and tested on a 1.2 interface method. Even though the Model is logically the same for now, 1) the interface call and data types are new and 2) there will be new operations added soon.",
+      "parentUuid": "05003f5e_85173704",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 24
+      },
+      "revId": "feb87a9cf89d44f483fae9113b0dd5ff6a713da4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
