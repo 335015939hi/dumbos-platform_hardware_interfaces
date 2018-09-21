@@ -22,6 +22,30 @@
       "revId": "41997af886df1c9f33eab3f786679e62b5617d2c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37a49399_29c5b0cd",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2018-09-21T20:39:24Z",
+      "side": 1,
+      "message": "I think 3gpp\u0027s doc for general EmergencyServiceCategory means more \"all categories\" than \"unknown\", I would like the actual value be consistent with \"all categories\" which is 0b1111111. ~0 inside this enum equals to 0b1111111, right?",
+      "parentUuid": "26fa05ce_40e34663",
+      "range": {
+        "startLine": 99,
+        "startChar": 4,
+        "endLine": 99,
+        "endChar": 95
+      },
+      "revId": "41997af886df1c9f33eab3f786679e62b5617d2c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
