@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "4057032e_dd223615",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1279921
+      },
+      "writtenOn": "2018-09-21T23:24:01Z",
+      "side": 1,
+      "message": "Nit: modemCognitive was never part of @1.0::DataProfileInfo, so it can be removed from the comment.",
+      "revId": "a129fec15ed3f1e286e9888a938db12a67007c45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "03bff2df_0014c475",
         "filename": "radio/1.3/types.hal",
         "patchSetId": 5
