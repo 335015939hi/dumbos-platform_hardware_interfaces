@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a714609c_2c0a4d5a",
+        "filename": "health/storage/1.0/vts/functional/VtsHalHealthStorageV1_0TargetTest.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2018-09-21T18:27:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e41aeb0_3c4351de",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 62
+      },
+      "revId": "25d54e8bc99e58c8e5ca7306de52d50a1a83a4b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "51cf0742_0c6631b0",
         "filename": "health/storage/1.0/vts/functional/VtsHalHealthStorageV1_0TargetTest.cpp",
         "patchSetId": 20
@@ -45,6 +69,30 @@
       "revId": "25d54e8bc99e58c8e5ca7306de52d50a1a83a4b3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9791f52b_ea9ba7eb",
+        "filename": "health/storage/1.0/vts/functional/VtsHalHealthStorageV1_0TargetTest.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2018-09-21T18:27:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51cf0742_0c6631b0",
+      "range": {
+        "startLine": 44,
+        "startChar": 15,
+        "endLine": 44,
+        "endChar": 32
+      },
+      "revId": "25d54e8bc99e58c8e5ca7306de52d50a1a83a4b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
