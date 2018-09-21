@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "97168522_6dc4a758",
+        "filename": "health/storage/1.0/vts/functional/VtsHalHealthStorageV1_0TargetTest.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-09-21T22:16:05Z",
+      "side": 1,
+      "message": "there are so many copies of this :(",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 67
+      },
+      "revId": "14eea6bb3f5b40b68a22da50db93b6a94b055d8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f2f1655_c2de8e90",
+        "filename": "health/storage/1.0/vts/functional/VtsHalHealthStorageV1_0TargetTest.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-09-21T22:16:05Z",
+      "side": 1,
+      "message": "expected, result !",
+      "range": {
+        "startLine": 124,
+        "startChar": 17,
+        "endLine": 124,
+        "endChar": 30
+      },
+      "revId": "14eea6bb3f5b40b68a22da50db93b6a94b055d8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
