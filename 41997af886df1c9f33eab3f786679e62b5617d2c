@@ -46,6 +46,30 @@
       "revId": "41997af886df1c9f33eab3f786679e62b5617d2c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c05ad49b_5aae572e",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-09-24T18:26:18Z",
+      "side": 1,
+      "message": "\u003e enum EmergencyServiceCategory : int32_t\n\n~0 will \u00270b1...1\u0027 where the number of 1\u0027s is 32. You could change it to uint8_t to get that behavior though.",
+      "parentUuid": "37a49399_29c5b0cd",
+      "range": {
+        "startLine": 99,
+        "startChar": 4,
+        "endLine": 99,
+        "endChar": 95
+      },
+      "revId": "41997af886df1c9f33eab3f786679e62b5617d2c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
