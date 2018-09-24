@@ -70,6 +70,30 @@
       "revId": "41997af886df1c9f33eab3f786679e62b5617d2c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a66dc4c_4427ecf8",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2018-09-24T20:28:33Z",
+      "side": 1,
+      "message": "Ok then I would keep 0 for it, because ~0 in uint8_t will have 8 1\u0027s, which is still not exactly what I want.",
+      "parentUuid": "c05ad49b_5aae572e",
+      "range": {
+        "startLine": 99,
+        "startChar": 4,
+        "endLine": 99,
+        "endChar": 95
+      },
+      "revId": "41997af886df1c9f33eab3f786679e62b5617d2c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
