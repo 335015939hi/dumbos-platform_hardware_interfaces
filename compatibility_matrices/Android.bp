@@ -60,6 +60,7 @@ vintf_compatibility_matrix {
         "kernel_config_p_4.4",
         "kernel_config_p_4.9",
         "kernel_config_p_4.14",
+        "kernel_config_p_4.19",
     ]
 }
 
