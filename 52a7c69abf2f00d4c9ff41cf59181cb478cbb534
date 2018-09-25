@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dc2755ef_2d969f12",
+        "filename": "configstore/1.0/ISurfaceFlingerConfigs.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-09-25T21:33:12Z",
+      "side": 1,
+      "message": "\u0027rd\u0027 internally :(",
+      "range": {
+        "startLine": 64,
+        "startChar": 11,
+        "endLine": 64,
+        "endChar": 13
+      },
+      "revId": "52a7c69abf2f00d4c9ff41cf59181cb478cbb534",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
