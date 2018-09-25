@@ -67,6 +67,7 @@ LOCAL_KERNEL_CONFIG_DATA_PATHS := \
     4.4.107:$(my_kernel_config_data)/p/android-4.4 \
     4.9.84:$(my_kernel_config_data)/p/android-4.9 \
     4.14.42:$(my_kernel_config_data)/p/android-4.14 \
+    4.19.0:$(my_kernel_config_data)/p/android-4.19 \
 
 include $(BUILD_FRAMEWORK_COMPATIBILITY_MATRIX)
 
