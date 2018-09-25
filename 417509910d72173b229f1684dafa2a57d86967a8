@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c6600ce9_08d7e2eb",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-09-25T20:24:50Z",
+      "side": 1,
+      "message": "nit, suggest UNSPECIFIED.",
+      "range": {
+        "startLine": 86,
+        "startChar": 4,
+        "endLine": 86,
+        "endChar": 11
+      },
+      "revId": "417509910d72173b229f1684dafa2a57d86967a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e44a06f8_179ae5d6",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-09-25T20:24:50Z",
+      "side": 1,
+      "message": "We shouldn\u0027t ask the modem to provide us information from the UICC. We have access to the UICC and have been moving away from this, not towards it (because it\u0027s redundant), so this is directionally-incorrect.",
+      "revId": "417509910d72173b229f1684dafa2a57d86967a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a4b73e2_906aeecb",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-09-25T20:24:50Z",
+      "side": 1,
+      "message": "At the HAL layer, there is no difference between MODEM and OEM. It\u0027s \"a distinction without a difference\". This is simply assuming an implementation detail.",
+      "range": {
+        "startLine": 119,
+        "startChar": 3,
+        "endLine": 123,
+        "endChar": 17
+      },
+      "revId": "417509910d72173b229f1684dafa2a57d86967a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
