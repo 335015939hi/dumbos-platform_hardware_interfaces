@@ -22,6 +22,30 @@
       "revId": "c5da457c1ec69a62972c35ba93bd73743225edfd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81eb22cf_0d23d306",
+        "filename": "audio/core/4.0/vts/functional/AudioPrimaryHidlHalTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1102563
+      },
+      "writtenOn": "2018-09-25T17:12:26Z",
+      "side": 1,
+      "message": "According to the test log, this test passed. https://sponge.corp.google.com/invocation?tab\u003dmodule_VtsHalAudioV4_0Target_output_files_arm64-v8a.zip\u0026show\u003d\u0026id\u003d8a1e52b4-93c2-4592-9c91-45ea5491b517\u0026searchFor\u003d\u0026sortBy\u003dSTATUS",
+      "parentUuid": "14b95d2d_7cff592e",
+      "range": {
+        "startLine": 520,
+        "startChar": 12,
+        "endLine": 525,
+        "endChar": 13
+      },
+      "revId": "c5da457c1ec69a62972c35ba93bd73743225edfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }

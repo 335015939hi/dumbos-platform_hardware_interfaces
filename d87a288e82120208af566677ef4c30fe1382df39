@@ -22,6 +22,30 @@
       "revId": "d87a288e82120208af566677ef4c30fe1382df39",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f850924_22d85221",
+        "filename": "audio/core/4.0/vts/functional/AudioPrimaryHidlHalTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1124,
+      "author": {
+        "id": 1102563
+      },
+      "writtenOn": "2018-09-25T17:12:26Z",
+      "side": 0,
+      "message": "This may not work on no mic device. And it is covered at GetMicrophonesTest",
+      "parentUuid": "0dca2555_76c44e2a",
+      "range": {
+        "startLine": 1120,
+        "startChar": 5,
+        "endLine": 1124,
+        "endChar": 19
+      },
+      "revId": "d87a288e82120208af566677ef4c30fe1382df39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
