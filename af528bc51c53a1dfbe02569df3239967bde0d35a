@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e07cf41_8d780027",
+        "filename": "current.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-09-25T00:55:31Z",
+      "side": 1,
+      "message": "oops, these shouldn\u0027t have gone in since the interface is still in development",
+      "range": {
+        "startLine": 392,
+        "startChar": 0,
+        "endLine": 393,
+        "endChar": 109
+      },
+      "revId": "af528bc51c53a1dfbe02569df3239967bde0d35a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
