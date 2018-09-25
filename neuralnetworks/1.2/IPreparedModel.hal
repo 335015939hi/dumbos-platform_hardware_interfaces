@@ -20,6 +20,7 @@ import @1.0::ErrorStatus;
 import @1.0::IPreparedModel;
 import @1.0::Request;
 import IExecutionCallback;
+import IFmqContextToken.ExecutionBurstChannel;
 
 /**
  * IPreparedModel describes a model that has been prepared for execution and
@@ -107,4 +108,30 @@ interface IPreparedModel extends @1.0::IPreparedModel {
      */
     executeSynchronously(Request request)
         generates (ErrorStatus status);
+
+    /**
+     * Prepare to execute a model in rapid succession.
+     *
+     * @param request The input and output information on which the prepared
+     *                model is to be executed.
+     * @param channelIn Used by the NeuralNetworks runtime to signal the
+     *                  service to begin executing the Request on the Model.
+     *                  ChannelIn must not be signaled again until a response
+     *                  has been received from channelOut.
+     * @return status Error status of configuring the execution burst, must be:
+     *                - NONE if the burst is successfully configured
+     *                - DEVICE_UNAVAILABLE if driver is offline or busy
+     *                - GENERAL_FAILURE if there is an unspecified error
+     *                - OUTPUT_INSUFFICIENT_SIZE if provided output buffer is
+     *                  not large enough to store the resultant values
+     *                - INVALID_ARGUMENT if one of the input arguments is
+     *                  invalid
+     * @return channelOut Used by the service to signal the NeuralNetworks
+     *                    runtime that an execution has completed and whether
+     *                    the execution completed successfully or not.
+     *                    ChannelOut must be used to return a result if
+     *                    channelIn was signaled.
+     */
+    configureExecutionBurst(Request request, ExecutionBurstChannel channelIn)
+                 generates (ErrorStatus status, ExecutionBurstChannel channelOut);
 };

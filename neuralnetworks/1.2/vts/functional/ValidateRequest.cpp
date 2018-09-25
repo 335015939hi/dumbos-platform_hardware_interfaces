@@ -19,6 +19,7 @@
 #include "VtsHalNeuralnetworks.h"
 
 #include "Callbacks.h"
+#include "FmqChannel.h"
 #include "TestHarness.h"
 #include "Utils.h"
 
@@ -98,6 +99,7 @@ static void validate(const sp<IPreparedModel>& preparedModel, const std::string&
                      Request request, const std::function<void(Request*)>& mutation) {
     mutation(&request);
 
+    // asynchronous validation
     {
         SCOPED_TRACE(message + " [execute_1_2]");
 
@@ -113,12 +115,31 @@ static void validate(const sp<IPreparedModel>& preparedModel, const std::string&
         ASSERT_EQ(ErrorStatus::INVALID_ARGUMENT, executionReturnStatus);
     }
 
+    // synchronous validation
     {
         SCOPED_TRACE(message + " [executeSynchronously]");
 
         Return<ErrorStatus> executeStatus = preparedModel->executeSynchronously(request);
         ASSERT_TRUE(executeStatus.isOk());
         ASSERT_EQ(ErrorStatus::INVALID_ARGUMENT, static_cast<ErrorStatus>(executeStatus));
+    }
+
+    // FMQ validation
+    {
+        using ::android::nn::createExecutionBurstChannel;
+        using ExecutionBurstChannel =
+            ::android::hardware::neuralnetworks::V1_2::IFmqContextToken::ExecutionBurstChannel;
+
+        SCOPED_TRACE(message + " [configureExecutionBurst]");
+
+        const ExecutionBurstChannel channelIn = createExecutionBurstChannel(/*blocking=*/true);
+        auto cb = [](ErrorStatus status, const auto& /*channelOut*/) {
+            ASSERT_EQ(status, ErrorStatus::INVALID_ARGUMENT);
+        };
+
+        const Return<void> burstStatus =
+            preparedModel->configureExecutionBurst(request, channelIn, cb);
+        ASSERT_TRUE(burstStatus.isOk());
     }
 }
 

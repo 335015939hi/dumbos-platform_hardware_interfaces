@@ -1,0 +1,46 @@
+/*
+ * Copyright (C) 2018 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package android.hardware.neuralnetworks@1.2;
+
+import @1.0::ErrorStatus;
+
+/**
+ * Context object for ref-counting purposes.
+ *
+ * The side that allocates this object must define a destructor to release the
+ * resources of the corresponding FastMessageQueue.
+ *
+ * The side that recieves this object must register a death recipient to
+ * properly handle the case when the sending side of the FastMessageQueue
+ * is invalidated either because the object is released or the process has died.
+ */
+interface IFmqContextToken {
+     /**
+      * Lifetime-managed FMQ object.
+      */
+     struct ExecutionBurstChannel {
+         /**
+          * Descriptor for the FMQ-based channel.
+          */
+         fmq_sync<ErrorStatus> fmq;
+
+         /**
+          * Context object for ref-counting purposes.
+          */
+         IFmqContextToken context;
+     };
+};

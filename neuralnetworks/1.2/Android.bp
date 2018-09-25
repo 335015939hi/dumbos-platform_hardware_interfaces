@@ -10,6 +10,7 @@ hidl_interface {
         "types.hal",
         "IDevice.hal",
         "IExecutionCallback.hal",
+        "IFmqContextToken.hal",
         "IPreparedModel.hal",
         "IPreparedModelCallback.hal",
     ],
@@ -19,6 +20,7 @@ hidl_interface {
         "android.hidl.base@1.0",
     ],
     types: [
+        "ExecutionBurstChannel",
         "Model",
         "Operand",
         "OperandType",
