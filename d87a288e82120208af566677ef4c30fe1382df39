@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0dca2555_76c44e2a",
+        "filename": "audio/core/4.0/vts/functional/AudioPrimaryHidlHalTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1124,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2018-09-25T16:03:49Z",
+      "side": 0,
+      "message": "can this part be kept?",
+      "range": {
+        "startLine": 1120,
+        "startChar": 5,
+        "endLine": 1124,
+        "endChar": 19
+      },
+      "revId": "d87a288e82120208af566677ef4c30fe1382df39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

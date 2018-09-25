@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "14b95d2d_7cff592e",
+        "filename": "audio/core/4.0/vts/functional/AudioPrimaryHidlHalTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2018-09-25T16:03:49Z",
+      "side": 1,
+      "message": "do we have pixel 2 test result?",
+      "range": {
+        "startLine": 520,
+        "startChar": 12,
+        "endLine": 525,
+        "endChar": 13
+      },
+      "revId": "c5da457c1ec69a62972c35ba93bd73743225edfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
