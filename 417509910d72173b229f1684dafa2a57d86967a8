@@ -102,6 +102,24 @@
     },
     {
       "key": {
+        "uuid": "0e5b3a6c_b39230a6",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2018-09-26T23:21:02Z",
+      "side": 1,
+      "message": "I am fine to do the work for a separate UICC, but I feel a separate path for UICC is just an another option. \n  When sim status changes, modem must read sim\u0027s information regardless framework request or not. I don\u0027t see the necessity for framework do another I/O for that information via modem again.\n  As we discussed, if we collect the emergency numbers of UICC via another HAL, this complicates HAL and we need to document here to restrict radio to return non-UICC emergency numbers from here. This will make the name \u0027getEmergencyNumberList\u0027 confusing to vendors. \n  Emergency number is important and I feel this is fine to collect them together. The current behavior is updating the numbers via \u0027ril.ecclist\u0027, which is a single path, so collecting everything in one HAL seems a safer change IMO.",
+      "parentUuid": "36fa5c5f_6ec5fe63",
+      "revId": "417509910d72173b229f1684dafa2a57d86967a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a4b73e2_906aeecb",
         "filename": "radio/1.3/types.hal",
         "patchSetId": 8
