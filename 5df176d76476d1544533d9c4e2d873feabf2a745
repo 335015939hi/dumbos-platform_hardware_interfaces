@@ -22,6 +22,30 @@
       "revId": "5df176d76476d1544533d9c4e2d873feabf2a745",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a96317f_64a61149",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1199008
+      },
+      "writtenOn": "2018-09-26T23:52:34Z",
+      "side": 1,
+      "message": "Can we get some details on how the preferred apn concept works on framework. is it applicable only for internet? is this persistent information or set only after internet call is brought up? if there are multiple profiles that have the same apn type, is one of them marked as preferred? If we don\u0027t have preference set for each apn type, than modem will not know which one is preferred",
+      "parentUuid": "e855a302_254b0863",
+      "range": {
+        "startLine": 189,
+        "startChar": 0,
+        "endLine": 190,
+        "endChar": 31
+      },
+      "revId": "5df176d76476d1544533d9c4e2d873feabf2a745",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
