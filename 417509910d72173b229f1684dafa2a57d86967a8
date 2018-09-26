@@ -84,6 +84,24 @@
     },
     {
       "key": {
+        "uuid": "36fa5c5f_6ec5fe63",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-09-26T22:26:04Z",
+      "side": 1,
+      "message": "Conclusion of the offline discussion: it\u0027s technically unnecessary to support UICC but saves work, and given the current set of independent source bits, doesn\u0027t constrain future implementation. Thus my objection is a soft objection, which is overruled.",
+      "parentUuid": "10a8d3f5_853bf559",
+      "revId": "417509910d72173b229f1684dafa2a57d86967a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a4b73e2_906aeecb",
         "filename": "radio/1.3/types.hal",
         "patchSetId": 8
