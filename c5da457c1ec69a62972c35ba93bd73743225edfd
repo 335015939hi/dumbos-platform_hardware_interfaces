@@ -70,6 +70,30 @@
       "revId": "c5da457c1ec69a62972c35ba93bd73743225edfd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d882e0b7_7f13300f",
+        "filename": "audio/core/4.0/vts/functional/AudioPrimaryHidlHalTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1102563
+      },
+      "writtenOn": "2018-09-26T17:09:43Z",
+      "side": 1,
+      "message": "Yes, this CL is cherry-picked from master ag/4786521. I added Merged-In. But the same as change id is the same.",
+      "parentUuid": "0d982037_66d8f9ab",
+      "range": {
+        "startLine": 520,
+        "startChar": 12,
+        "endLine": 525,
+        "endChar": 13
+      },
+      "revId": "c5da457c1ec69a62972c35ba93bd73743225edfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
