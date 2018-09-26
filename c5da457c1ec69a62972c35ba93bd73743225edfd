@@ -46,6 +46,30 @@
       "revId": "c5da457c1ec69a62972c35ba93bd73743225edfd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d982037_66d8f9ab",
+        "filename": "audio/core/4.0/vts/functional/AudioPrimaryHidlHalTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2018-09-26T16:05:09Z",
+      "side": 1,
+      "message": "i see that\u0027s from master. if this\u0027s a CP, can we use Merged-In: please?",
+      "parentUuid": "81eb22cf_0d23d306",
+      "range": {
+        "startLine": 520,
+        "startChar": 12,
+        "endLine": 525,
+        "endChar": 13
+      },
+      "revId": "c5da457c1ec69a62972c35ba93bd73743225edfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
