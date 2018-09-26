@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e855a302_254b0863",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-09-26T21:33:55Z",
+      "side": 1,
+      "message": "Just so I\u0027m clear, this means it\u0027s always false unless it\u0027s for INTERNET, and iff it\u0027s internet will be true if the last time we established data for the carrier it was successful on the given profile? So if we set it for anything that doesn\u0027t support internet it\u0027s an INVALID_ARG?\n\nWhy do we have this? This seems very strange.",
+      "range": {
+        "startLine": 189,
+        "startChar": 0,
+        "endLine": 190,
+        "endChar": 31
+      },
+      "revId": "5df176d76476d1544533d9c4e2d873feabf2a745",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
