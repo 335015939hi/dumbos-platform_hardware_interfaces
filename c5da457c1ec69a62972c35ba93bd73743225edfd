@@ -94,6 +94,30 @@
       "revId": "c5da457c1ec69a62972c35ba93bd73743225edfd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b203510e_5932644d",
+        "filename": "audio/core/4.0/vts/functional/AudioPrimaryHidlHalTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1102563
+      },
+      "writtenOn": "2018-09-27T18:21:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d882e0b7_7f13300f",
+      "range": {
+        "startLine": 520,
+        "startChar": 12,
+        "endLine": 525,
+        "endChar": 13
+      },
+      "revId": "c5da457c1ec69a62972c35ba93bd73743225edfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
