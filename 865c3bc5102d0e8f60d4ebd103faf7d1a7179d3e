@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d7fd481_9c5283c0",
+        "filename": "boot/1.0/default/Android.bp",
+        "patchSetId": 10
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1060959
+      },
+      "writtenOn": "2018-09-28T11:49:40Z",
+      "side": 1,
+      "message": "this broke gsi/mainline_system as android.harware.boot@1.0-impl is no longer installed in /vendor. Is { vendor: true, recovery_available: true } a valid configuration?",
+      "revId": "865c3bc5102d0e8f60d4ebd103faf7d1a7179d3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
