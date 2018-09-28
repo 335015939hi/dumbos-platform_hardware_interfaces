@@ -34,6 +34,24 @@
       "revId": "8b3b1c743829c48c6b58b2c25517e3b28708165b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "797b92e6_d9e2e7e0",
+        "filename": "camera/provider/2.4/vts/functional/VtsHalCameraProviderV2_4TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1175,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2018-09-28T16:14:44Z",
+      "side": 1,
+      "message": "Nice. Can you document that with a comment?",
+      "parentUuid": "e8c74890_148e4e8d",
+      "revId": "8b3b1c743829c48c6b58b2c25517e3b28708165b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
