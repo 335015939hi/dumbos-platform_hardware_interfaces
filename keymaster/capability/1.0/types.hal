@@ -1,0 +1,82 @@
+/*
+ * Copyright (C) 2018 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package android.hardware.keymaster.capability@1.0;
+
+/**
+ * Capability type, used by some KeymasterCapabilities to specify capability semantics.
+ */
+enum CapabilityType : uint32_t {
+    NOT_APPLICABLE = 0,
+    PASSWORD_AUTH = 1 << 0,
+    BIOMETRIC_AUTH = 1 << 1,
+
+    // Additional entries must be powers of 2.
+    ANY = 0xFFFFFFFF,
+};
+
+/**
+ * An KeymasterCapability is a secure token used to unlock some secure operation, usually in
+ * Keymaster.
+ *
+ * KeymasterCapabilities are produced by secure environment applications, notably GateKeeper and
+ * Fingerprint, and consumed by the Keymaster secure environment application.  Other uses are
+ * possible and may be added in the future.  It is up to the caller to determine which of the
+ * generated KeymasterCapabilities is appropriate for a given key operation.
+ *
+ * Backward compatibility note: KeymasterCapabilities represent a new, more flexible replacement for
+ * the hw_auth_token_t (and it's slightly HIDL-ized variation, HardwareAuthToken).  See the support
+ * library for translation utilities.
+ */
+struct KeymasterCapability {
+    /**
+     * A challenge value that's used to bind a KeymasterCapability to a specific context and to
+     * prove freshness.  Zero if unusued.
+     */
+    uint64_t challenge;
+
+    /**
+     * An ID is an abstract reference to the resource that a given KeymasterCapability unlocks.  One
+     * KeymasterCapability may unlock multiple resources, so multiple IDs may be present.
+     */
+    vec<uint64_t> ids;
+
+    /**
+     * The type of KeymasterCapability, if any.
+     */
+    CapabilityType capabilityType;
+
+    /**
+     * timestamp indicates when the KeymasterCapability was created (e.g. authentication occurred),
+     * in milliseconds since device boot.
+     */
+    uint64_t timestamp;
+
+    /**
+     * secure_token contains a secure blob that incorporates the above fields and contains zero or
+     * more encrypted secrets which are used to decrypt resources to which this capability provides
+     * access.
+     *
+     * The content of this field is a deliberately opaque implementation detail, for flexibility of
+     * implementations and for extensibility.  All HALs that generate and consume
+     * KeymasterCapabilities on a device must agree on secure_token contents.
+     */
+    vec<uint8_t> secure_token;
+};
+
+typedef vec<uint8_t> Edge;
+
+
