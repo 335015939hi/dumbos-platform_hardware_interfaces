@@ -1,0 +1,118 @@
+/*
+ * Copyright (C) 2018 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package android.hardware.key_agreement@1.0;
+
+/**
+ * An IKeyAgreementParty is a service that provides access to an application running in a secure
+ * environment, which needs to collaborate with other IKeyAgreementParties to compute a shared
+ * secret for the group to use to exchange secure messages.  The agreement process is managed by an
+ * IKeyAgreementManager, so IKeyAgreementParties must use the registerKeyAgreementParty of
+ * IKeyAgreementManager to register themselves, rather than registering with the hardware service
+ * manager.
+ *
+ * The canonical examples of IKeyAgreementParties are the IKeymasterDevice and IGatekeeper, which
+ * need to share an HMAC key so the IGatekeeper (and IBiometricsFingerprint) are able to mint HMAC
+ * tokens to prove that authentications were performed, to unlock keys.  Note that none of those
+ * HALs extend IKeyAgreementParty, however, which provides implementers flexibility in how they
+ * choose to construct the required per-boot shared keys.  In some cases, the parties may exchange
+ * keys via secure-world IPC, which means that none of them need to be IKeyAgreementParties.  In
+ * other cases, where there are no available secure-world IPC channels, the parties may implement
+ * this interface in their services, and allow the IKeyAgreementManager to securely coordinate their
+ * key agreement process.
+ */
+interface IKeyAgreementParty {
+    /**
+     * Start the creation of an HMAC key, shared with other IKeyAgreementParties.  The
+     * IKeyAgreementManager calls this method on each of the HAL instances and collects the results
+     * in preparation for the second step.
+     *
+     * @param context the context for key agreement; see IKeyAgreementManager.hal.  This parameter
+     *     allows a party who wants to participate in multiple key agreement processes to
+     *     disambiguate the agreement processes.
+     *
+     * @return errorMessage must be an empty string upon success, or otherwise must be an
+     *     English-language error message describing the failure (for debugging only; no need for
+     *     i18n).
+     *
+     * @return params The HmacSharingParameters to use.  As specified in the HmacSharingParameters
+     *     documentation in types.hal, the seed must contain the same value in every invocation of
+     *     the method on a given device, and the nonce must return the same value for every
+     *     invocation during a boot session.
+     */
+    getHmacSharingParameters(string context)
+         generates (string errorMessage, HmacSharingParameters params);
+
+    /**
+     * Complete the creation of an HMAC key, shared among a set of IKeyAgreementParties.
+     *
+     * To ensure consistent ordering of the KeyAgreementParameters, the IKeyAgreementManager must
+     * sort the parameters lexicographically.
+     *
+     * This method computes the shared 32-byte key ``A'' as follows (all IKeyAgreementParties
+     * perform the same computation to arrive at the same result):
+     *
+     *     A = CKDF(key = K,
+     *              context = P1 || P2 || ... || Pn,
+     *              label = "CapabilityAgreementKey")
+     *
+     * where:
+     *
+     *     ``CKDF'' is the standard AES-CMAC KDF from NIST SP 800-108 in counter mode (see Section
+     *           5.1 of the referenced publication).  ``key'', ``context'', and ``label'' are
+     *           defined in the standard.  The counter is prefixed and length L appended, as shown
+     *           in the construction on page 12 of the standard.  The label string is UTF-8 encoded.
+     *
+     *     ``K'' is a pre-established shared secret, set up during factory reset.  The mechanism for
+     *           establishing this shared secret is implementation-defined.
+     *
+     *           CRITICAL SECURITY REQUIREMENT: All keys created by a IKeymasterDevice instance MUST
+     *           be cryptographically bound to the value of K, such that establishing a new K
+     *           permanently destroys them.
+     *
+     *     ``||'' represents concatenation.
+     *
+     *     ``Pi'' is the i'th KeyAgreementParameters value in the params vector.  Encoding of an
+     *           KeyAgreementParameters is the concatenation of its two fields, i.e. seed || nonce.
+     *
+     * Note that the label "CapabilityAgreementKey" is the 18-byte UTF-8 encoding of the string.
+     *
+     * Any method of securely establishing K that ensures that an attacker cannot obtain or
+     * derive its value is acceptable.
+     *
+     * @param context the context for key agreement; see IKeyAgreementManager.hal.  This parameter
+     *     allows a party who wants to participate in multiple key agreement processes to
+     *     disambiguate the agreement processes.
+     *
+     * @param params The HmacSharingParameters data returned by all IKeymasterDevice instances when
+     *     getHmacSharingParameters was called.
+     *
+     * @return error ErrorCode::OK in the event that there is no error.  ErrorCode::INVALID_ARGUMENT
+     *     if one of the provided parameters is not the value returned by the prior call to
+     *     getHmacParameters().
+     *
+     * @return sharingCheck A 32-byte value used to verify that all IKeymasterDevice instances have
+     *     computed the same shared HMAC key.  The sharingCheck value is computed as follows:
+     *
+     *         sharingCheck = HMAC(H, "Keymaster HMAC Verification")
+     *
+     *     The string is UTF-8 encoded, 27 bytes in length.  If the returned values of all
+     *     IKeymasterDevice instances don't match, IKeyAgreementManager must assume that HMAC
+     *     agreement failed.
+     */
+    computeSharedKey(string context, vec<HmacSharingParameters> params)
+        generates (string errorMessage, vec<uint8_t> sharingCheck);
+};
