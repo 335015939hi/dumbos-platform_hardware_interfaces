@@ -16,6 +16,24 @@
       "revId": "8b3b1c743829c48c6b58b2c25517e3b28708165b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8c74890_148e4e8d",
+        "filename": "camera/provider/2.4/vts/functional/VtsHalCameraProviderV2_4TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1175,
+      "author": {
+        "id": 1226353
+      },
+      "writtenOn": "2018-09-28T16:10:42Z",
+      "side": 1,
+      "message": "All devices \u003e\u003d 27 with low_ram *must* be Android Go.",
+      "parentUuid": "fc8ca27e_901f9364",
+      "revId": "8b3b1c743829c48c6b58b2c25517e3b28708165b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
