@@ -52,6 +52,24 @@
       "revId": "8b3b1c743829c48c6b58b2c25517e3b28708165b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd2b3644_cad421f4",
+        "filename": "camera/provider/2.4/vts/functional/VtsHalCameraProviderV2_4TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1175,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2018-09-28T16:50:33Z",
+      "side": 1,
+      "message": "Offline sync: we will exempt any device that\u0027s setting low_ram flag. I am good with this CL now.",
+      "parentUuid": "797b92e6_d9e2e7e0",
+      "revId": "8b3b1c743829c48c6b58b2c25517e3b28708165b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
