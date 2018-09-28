@@ -434,6 +434,26 @@ TEST_F(NewKeyGenerationTest, RsaNoDefaultSize) {
 }
 
 /*
+ * NewKeyGenerationTest.ReturnUnknownTag
+ *
+ * Verifies that an unknown tag and its value is returned in the software enforced list in
+ * getKeyCharacteristics().
+ */
+TEST_F(NewKeyGenerationTest, ReturnUnknownTag) {
+    HidlBuf key_blob;
+    KeyCharacteristics key_characteristics;
+    typedef typename Tag2TypedTag<static_cast<Tag>((12 << 26) | (255 << 12))>::type TAG_UNKNOWN_t;
+    TAG_UNKNOWN_t TAG_UNKNOWN;
+    ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
+                                             .RsaSigningKey(2048, 3)
+                                             .Digest(Digest::NONE)
+                                             .Padding(PaddingMode::NONE)
+                                             .Authorization(TAG_UNKNOWN, 'a'),
+                                         &key_blob, &key_characteristics));
+    CheckCharacteristics(key_blob, key_characteristics);
+}
+
+/*
  * NewKeyGenerationTest.Ecdsa
  *
  * Verifies that keymaster can generate all required EC key sizes, and that the resulting keys have
