@@ -1,0 +1,44 @@
+/*
+ * Copyright (C) 2018 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package android.hardware.key_agreement@1.0;
+
+import IKeyAgreementParty;
+
+/**
+ * IKeyAgreementManager manages the process of negotiating shared secure environment keys among a
+ * group of HALs which all implment the IKeyAgreementParty interface.
+ */
+interface IKeyAgreementManager {
+    /**
+     * Register key agreement party.
+     *
+     * @param name is the name of the party (service) registering for key agrement participation.
+     *
+     * @param context is the context in which the party wishes to agree on a key.  This parameter
+     *     exists to allow key agreement to be done for different purposes, between different sets
+     *     of parties.  The IKeyAgreementManager must perform the key agreement process separately
+     *     for each group of parties that specify a given context value.
+     *
+     * @param party the party who wishes to participate in key agreement.
+     *
+     * @return errorMessage is a human-readable English-language error message in the event of an
+     *     error, or an empty string if no error occurs.  This string is for logging and debugging
+     *     only and therefore does not need to be internationalized.
+     */
+    registerKeyAgreementParty(string name, string context, IKeyAgreementParty party)
+        generates (string errorMessage);
+};
