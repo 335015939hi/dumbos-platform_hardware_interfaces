@@ -22,6 +22,30 @@
       "revId": "b89b330a0b32bc9cbc6f79160f0ffc00ec82a290",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05e08e29_7a8bd765",
+        "filename": "gnss/1.1/vts/functional/gnss_hal_test_cases.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1105161
+      },
+      "writtenOn": "2018-09-28T14:14:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "648b7f7e_8a54ff62",
+      "range": {
+        "startLine": 199,
+        "startChar": 2,
+        "endLine": 199,
+        "endChar": 7
+      },
+      "revId": "b89b330a0b32bc9cbc6f79160f0ffc00ec82a290",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
