@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "79932506_56a102a8",
+        "filename": "radio/1.3/IRadio.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-10-01T18:30:33Z",
+      "side": 1,
+      "message": "I\u0027m not clear on exactly what this is supposed to mean. Does it mean...\n\n\"If there are no specified service categories for a dialed emergency number, then the ServiceCategory field shall be set to 0; iff either the EmergencyService category is set to 0 or the underlying technology used to request emergency services does not support ServiceCategory, then the interpretation of the categories is implementation-defined.\"\n\n??",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 17
+      },
+      "revId": "af5150379d1d35fa217d319446c52ed5d7f2e204",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46445e20_b3cd5aa7",
+        "filename": "radio/1.3/IRadioIndication.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-10-01T18:30:33Z",
+      "side": 1,
+      "message": "a bitmap indicating all sources specifying this exact tupe of \u003cnumber, categories\u003e.",
+      "range": {
+        "startLine": 30,
+        "startChar": 82,
+        "endLine": 30,
+        "endChar": 95
+      },
+      "revId": "af5150379d1d35fa217d319446c52ed5d7f2e204",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "073e1eb9_b05cb27a",
+        "filename": "radio/1.3/IRadioIndication.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-10-01T18:30:33Z",
+      "side": 1,
+      "message": "nit, zero or more",
+      "range": {
+        "startLine": 30,
+        "startChar": 23,
+        "endLine": 30,
+        "endChar": 26
+      },
+      "revId": "af5150379d1d35fa217d319446c52ed5d7f2e204",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39ece9c9_1c1ff44c",
+        "filename": "radio/1.3/IRadioIndication.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-10-01T18:30:33Z",
+      "side": 1,
+      "message": "The radio must report ALL valid emergency numbers along with their known ServiceCategories from ALL available sources...",
+      "range": {
+        "startLine": 33,
+        "startChar": 7,
+        "endLine": 33,
+        "endChar": 28
+      },
+      "revId": "af5150379d1d35fa217d319446c52ed5d7f2e204",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac7539f0_9a643435",
+        "filename": "radio/1.3/IRadioIndication.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-10-01T18:30:33Z",
+      "side": 1,
+      "message": "The modem shall not report emergency numbers that are invalid in the current locale.",
+      "range": {
+        "startLine": 34,
+        "startChar": 21,
+        "endLine": 34,
+        "endChar": 96
+      },
+      "revId": "af5150379d1d35fa217d319446c52ed5d7f2e204",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e549723_52e05ee9",
+        "filename": "radio/1.3/IRadioIndication.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-10-01T18:30:33Z",
+      "side": 1,
+      "message": "within the given locale (inclusive of all MCCs for the current country).",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 20
+      },
+      "revId": "af5150379d1d35fa217d319446c52ed5d7f2e204",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67732eb3_52705920",
+        "filename": "radio/1.3/IRadioIndication.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-10-01T18:30:33Z",
+      "side": 1,
+      "message": "you can delete this with some minor tweaks to the language above.",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 6
+      },
+      "revId": "af5150379d1d35fa217d319446c52ed5d7f2e204",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5882532_1fe62148",
+        "filename": "radio/1.3/IRadioIndication.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-10-01T18:30:33Z",
+      "side": 1,
+      "message": "Spec reference plz.",
+      "range": {
+        "startLine": 41,
+        "startChar": 2,
+        "endLine": 42,
+        "endChar": 66
+      },
+      "revId": "af5150379d1d35fa217d319446c52ed5d7f2e204",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3fdece18_2b063058",
+        "filename": "radio/1.3/IRadioIndication.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-10-01T18:30:33Z",
+      "side": 1,
+      "message": "Whenever the modem detects a change to the valid emergency number list, a complete updated list must be reported. Whenever the modem connects to a new client, the valid emergency number list must be reported to that client.",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 69
+      },
+      "revId": "af5150379d1d35fa217d319446c52ed5d7f2e204",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06c813a7_5f125599",
+        "filename": "radio/1.3/IRadioIndication.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-10-01T18:30:33Z",
+      "side": 1,
+      "message": "The tuple of \u003cEmergencyNumber, ServiceCategories\u003e must be unique within the reported list.",
+      "range": {
+        "startLine": 48,
+        "startChar": 8,
+        "endLine": 48,
+        "endChar": 88
+      },
+      "revId": "af5150379d1d35fa217d319446c52ed5d7f2e204",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
