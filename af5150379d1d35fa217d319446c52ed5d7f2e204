@@ -71,6 +71,54 @@
     },
     {
       "key": {
+        "uuid": "15c3d3be_8e837b39",
+        "filename": "radio/1.3/IRadioIndication.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2018-10-01T21:39:29Z",
+      "side": 1,
+      "message": "This has been documented in EmergencyNumber type.",
+      "parentUuid": "46445e20_b3cd5aa7",
+      "range": {
+        "startLine": 30,
+        "startChar": 82,
+        "endLine": 30,
+        "endChar": 95
+      },
+      "revId": "af5150379d1d35fa217d319446c52ed5d7f2e204",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7645a3c_b29a67ab",
+        "filename": "radio/1.3/IRadioIndication.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2018-10-01T21:39:29Z",
+      "side": 1,
+      "message": "I think zero is a little confusing. It might be clearer after people read all the documentations.",
+      "parentUuid": "073e1eb9_b05cb27a",
+      "range": {
+        "startLine": 30,
+        "startChar": 23,
+        "endLine": 30,
+        "endChar": 26
+      },
+      "revId": "af5150379d1d35fa217d319446c52ed5d7f2e204",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "39ece9c9_1c1ff44c",
         "filename": "radio/1.3/IRadioIndication.hal",
         "patchSetId": 11
