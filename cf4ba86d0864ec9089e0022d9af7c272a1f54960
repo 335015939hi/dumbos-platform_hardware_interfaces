@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "08e4cbd7_74ae6b20",
+        "filename": "camera/provider/2.4/vts/functional/VtsHalCameraProviderV2_4TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1179,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2018-10-01T15:49:54Z",
+      "side": 1,
+      "message": "add some logging?",
+      "range": {
+        "startLine": 1179,
+        "startChar": 8,
+        "endLine": 1179,
+        "endChar": 15
+      },
+      "revId": "cf4ba86d0864ec9089e0022d9af7c272a1f54960",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
