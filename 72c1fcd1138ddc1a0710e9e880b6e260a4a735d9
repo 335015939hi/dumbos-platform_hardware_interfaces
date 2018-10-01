@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "45e9b75c_5082121d",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2018-10-01T21:29:55Z",
+      "side": 1,
+      "message": "Will do",
+      "parentUuid": "06f791d1_ba66180c",
+      "range": {
+        "startLine": 445,
+        "startChar": 52,
+        "endLine": 445,
+        "endChar": 59
+      },
+      "revId": "72c1fcd1138ddc1a0710e9e880b6e260a4a735d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6bea615e_3ae9bc0a",
         "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "bc9d8b9f_cc72a2e5",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2018-10-01T21:29:55Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6bea615e_3ae9bc0a",
+      "range": {
+        "startLine": 448,
+        "startChar": 45,
+        "endLine": 448,
+        "endChar": 68
+      },
+      "revId": "72c1fcd1138ddc1a0710e9e880b6e260a4a735d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f56f9110_353f28ea",
         "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
         "patchSetId": 3
@@ -59,6 +107,30 @@
       "writtenOn": "2018-10-01T19:46:14Z",
       "side": 1,
       "message": "The tag should be in softwareEnforced.",
+      "range": {
+        "startLine": 454,
+        "startChar": 21,
+        "endLine": 454,
+        "endChar": 73
+      },
+      "revId": "72c1fcd1138ddc1a0710e9e880b6e260a4a735d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6fbb60d4_da4aecc1",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2018-10-01T21:29:55Z",
+      "side": 1,
+      "message": "Ah, I swapped to hardwareEnforced just to make sure it wasn\u0027t accidentally being stored here and forgot to flip back.",
+      "parentUuid": "f56f9110_353f28ea",
       "range": {
         "startLine": 454,
         "startChar": 21,
