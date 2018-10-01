@@ -163,6 +163,29 @@
     },
     {
       "key": {
+        "uuid": "12d4a9ac_48a41f8e",
+        "filename": "radio/1.3/IRadioIndication.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-10-01T20:47:34Z",
+      "side": 1,
+      "message": "reword? \"defaultly\" If everything for the API is in the same subsection of the same spec,then as per discussion it\u0027s probably OK to just put the spec reference at the bottom where it is now.",
+      "range": {
+        "startLine": 41,
+        "startChar": 27,
+        "endLine": 41,
+        "endChar": 36
+      },
+      "revId": "af5150379d1d35fa217d319446c52ed5d7f2e204",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a5882532_1fe62148",
         "filename": "radio/1.3/IRadioIndication.hal",
         "patchSetId": 11
