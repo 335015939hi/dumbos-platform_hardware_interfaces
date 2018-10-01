@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "06f791d1_ba66180c",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2018-10-01T19:46:14Z",
+      "side": 1,
+      "message": "Maybe even make this a random value (outside of all valid values; Janis has some ideas about how you can use the tag meta list) so implementers can\u0027t just hardcode this one case.",
+      "range": {
+        "startLine": 445,
+        "startChar": 52,
+        "endLine": 445,
+        "endChar": 59
+      },
+      "revId": "72c1fcd1138ddc1a0710e9e880b6e260a4a735d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6bea615e_3ae9bc0a",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2018-10-01T19:46:14Z",
+      "side": 1,
+      "message": "Using an AES key would be faster, especially on StrongBox.",
+      "range": {
+        "startLine": 448,
+        "startChar": 45,
+        "endLine": 448,
+        "endChar": 68
+      },
+      "revId": "72c1fcd1138ddc1a0710e9e880b6e260a4a735d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f56f9110_353f28ea",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 454,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2018-10-01T19:46:14Z",
+      "side": 1,
+      "message": "The tag should be in softwareEnforced.",
+      "range": {
+        "startLine": 454,
+        "startChar": 21,
+        "endLine": 454,
+        "endChar": 73
+      },
+      "revId": "72c1fcd1138ddc1a0710e9e880b6e260a4a735d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
