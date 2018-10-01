@@ -16,6 +16,24 @@
       "revId": "865c3bc5102d0e8f60d4ebd103faf7d1a7179d3e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b570982_e2b5dc8b",
+        "filename": "boot/1.0/default/Android.bp",
+        "patchSetId": 10
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2018-10-01T05:13:33Z",
+      "side": 1,
+      "message": "Sorry, will test and upload a patch tomorrow.",
+      "parentUuid": "2d7fd481_9c5283c0",
+      "revId": "865c3bc5102d0e8f60d4ebd103faf7d1a7179d3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
