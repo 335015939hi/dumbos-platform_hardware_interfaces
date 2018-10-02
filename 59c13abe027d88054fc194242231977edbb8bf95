@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e8e2bdd_3d9be608",
+        "filename": "radio/1.3/IRadioIndication.hal",
+        "patchSetId": 14
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2018-10-02T00:31:36Z",
+      "side": 1,
+      "message": "similar to RIL_CONNECTED?",
+      "range": {
+        "startLine": 43,
+        "startChar": 31,
+        "endLine": 43,
+        "endChar": 85
+      },
+      "revId": "59c13abe027d88054fc194242231977edbb8bf95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
