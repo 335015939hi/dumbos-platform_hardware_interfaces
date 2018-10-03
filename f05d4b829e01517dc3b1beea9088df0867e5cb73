@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fe0ea33f_c994a6a0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2018-10-03T17:59:37Z",
+      "side": 1,
+      "message": "go/vts-merge",
+      "range": {
+        "startLine": 13,
+        "startChar": 6,
+        "endLine": 13,
+        "endChar": 14
+      },
+      "revId": "f05d4b829e01517dc3b1beea9088df0867e5cb73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
