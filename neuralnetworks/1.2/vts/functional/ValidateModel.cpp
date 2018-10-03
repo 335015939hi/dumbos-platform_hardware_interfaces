@@ -25,17 +25,17 @@ namespace hardware {
 namespace neuralnetworks {
 namespace V1_2 {
 
-using V1_0::IPreparedModel;
 using V1_0::Operand;
 using V1_0::OperandLifeTime;
 using V1_0::OperandType;
 using V1_1::ExecutionPreference;
+using V1_1::IPreparedModel;
 
 namespace vts {
 namespace functional {
 
 using ::android::hardware::neuralnetworks::V1_0::implementation::ExecutionCallback;
-using ::android::hardware::neuralnetworks::V1_0::implementation::PreparedModelCallback;
+using ::android::hardware::neuralnetworks::V1_1::implementation::PreparedModelCallback;
 
 ///////////////////////// UTILITY FUNCTIONS /////////////////////////
 

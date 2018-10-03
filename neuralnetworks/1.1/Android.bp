@@ -9,6 +9,8 @@ hidl_interface {
     srcs: [
         "types.hal",
         "IDevice.hal",
+        "IPreparedModel.hal",
+        "IPreparedModelCallback_1_1.hal",
     ],
     interfaces: [
         "android.hardware.neuralnetworks@1.0",

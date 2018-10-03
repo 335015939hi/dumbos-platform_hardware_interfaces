@@ -17,9 +17,9 @@
 package android.hardware.neuralnetworks@1.2;
 
 import @1.0::ErrorStatus;
-import @1.0::IPreparedModelCallback;
 import @1.1::ExecutionPreference;
 import @1.1::IDevice;
+import @1.1::IPreparedModelCallback_1_1;
 
 /**
  * This interface represents a device driver.
@@ -101,6 +101,6 @@ interface IDevice extends @1.1::IDevice {
      *     - INVALID_ARGUMENT if one of the input arguments is invalid
      */
     prepareModel_1_2(Model model, ExecutionPreference preference,
-                     IPreparedModelCallback callback)
+                     IPreparedModelCallback_1_1 callback)
           generates (ErrorStatus status);
 };

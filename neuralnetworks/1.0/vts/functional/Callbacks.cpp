@@ -82,29 +82,6 @@ void CallbackBase::join_thread_locked() {
     }
 }
 
-PreparedModelCallback::PreparedModelCallback() :
-        mErrorStatus(ErrorStatus::GENERAL_FAILURE), mPreparedModel(nullptr) {}
-
-PreparedModelCallback::~PreparedModelCallback() {}
-
-Return<void> PreparedModelCallback::notify(ErrorStatus errorStatus,
-                                           const sp<IPreparedModel>& preparedModel) {
-    mErrorStatus = errorStatus;
-    mPreparedModel = preparedModel;
-    CallbackBase::notify();
-    return Void();
-}
-
-ErrorStatus PreparedModelCallback::getStatus() {
-    wait();
-    return mErrorStatus;
-}
-
-sp<IPreparedModel> PreparedModelCallback::getPreparedModel() {
-    wait();
-    return mPreparedModel;
-}
-
 ExecutionCallback::ExecutionCallback() : mErrorStatus(ErrorStatus::GENERAL_FAILURE) {}
 
 ExecutionCallback::~ExecutionCallback() {}

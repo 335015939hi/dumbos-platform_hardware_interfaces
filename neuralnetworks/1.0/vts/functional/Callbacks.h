@@ -3,11 +3,12 @@
 
 #include <android/hardware/neuralnetworks/1.0/IExecutionCallback.h>
 #include <android/hardware/neuralnetworks/1.0/IPreparedModelCallback.h>
+#include <android/hardware/neuralnetworks/1.1/IPreparedModelCallback_1_1.h>
+#include <hidl/MQDescriptor.h>
+#include <hidl/Status.h>
 #include <chrono>
 #include <condition_variable>
 #include <functional>
-#include <hidl/MQDescriptor.h>
-#include <hidl/Status.h>
 #include <mutex>
 #include <thread>
 
@@ -164,10 +165,26 @@ class CallbackBase {
  * IPreparedModelCallback. This callback object is passed as an argument to
  * IDevice::prepareModel.
  */
-class PreparedModelCallback : public CallbackBase, public IPreparedModelCallback {
- public:
-    PreparedModelCallback();
-    ~PreparedModelCallback() override;
+namespace {
+template <class T_IPreparedModelCallback>
+struct CallbackToModel {};
+template <>
+struct CallbackToModel<V1_0::IPreparedModelCallback> {
+    using type = V1_0::IPreparedModel;
+};
+template <>
+struct CallbackToModel<V1_1::IPreparedModelCallback_1_1> {
+    using type = V1_1::IPreparedModel;
+};
+}  // namespace
+template <class T_IPreparedModelCallback>
+class PreparedModelCallbackBase : public CallbackBase, public T_IPreparedModelCallback {
+    using T_IPreparedModel = typename CallbackToModel<T_IPreparedModelCallback>::type;
+
+   public:
+    PreparedModelCallbackBase()
+        : mErrorStatus(ErrorStatus::GENERAL_FAILURE), mPreparedModel(nullptr) {}
+    ~PreparedModelCallbackBase() override {}
 
     /**
      * IPreparedModelCallback::notify marks the callback object with the return
@@ -189,7 +206,12 @@ class PreparedModelCallback : public CallbackBase, public IPreparedModelCallback
      * @param preparedModel Returned model that has been prepared for execution,
      *                      nullptr if the model was unable to be prepared.
      */
-    Return<void> notify(ErrorStatus status, const sp<IPreparedModel>& preparedModel) override;
+    Return<void> notify(ErrorStatus status, const sp<T_IPreparedModel>& preparedModel) override {
+        mErrorStatus = status;
+        mPreparedModel = preparedModel;
+        CallbackBase::notify();
+        return Void();
+    }
 
     /**
      * Retrieves the error status returned from the asynchronous task launched
@@ -204,7 +226,10 @@ class PreparedModelCallback : public CallbackBase, public IPreparedModelCallback
      *                - GENERAL_FAILURE if there is an unspecified error
      *                - INVALID_ARGUMENT if the input model is invalid
      */
-    ErrorStatus getStatus();
+    ErrorStatus getStatus() {
+        wait();
+        return mErrorStatus;
+    }
 
     /**
      * Retrieves the model that has been prepared for execution from the
@@ -217,12 +242,17 @@ class PreparedModelCallback : public CallbackBase, public IPreparedModelCallback
      *                       execution, nullptr if the model was unable to be
      *                       prepared.
      */
-    sp<IPreparedModel> getPreparedModel();
+    sp<T_IPreparedModel> getPreparedModel() {
+        wait();
+        return mPreparedModel;
+    }
 
- private:
+   protected:
     ErrorStatus        mErrorStatus;
-    sp<IPreparedModel> mPreparedModel;
+    sp<T_IPreparedModel> mPreparedModel;
 };
+
+using PreparedModelCallback = PreparedModelCallbackBase<V1_0::IPreparedModelCallback>;
 
 /**
  * The ExecutionCallback class is used to receive the error status of the
@@ -300,6 +330,17 @@ std::cv_status CallbackBase::wait_for(const std::chrono::duration<Rep,Period>& t
 
 }  // namespace implementation
 }  // namespace V1_0
+
+namespace V1_1 {
+namespace implementation {
+
+// TODO -- V1_0::implementation::PreparedModelCallbackBase<> should live in some more suitable
+// namespace
+using PreparedModelCallback =
+    V1_0::implementation::PreparedModelCallbackBase<V1_1::IPreparedModelCallback_1_1>;
+}  // namespace implementation
+}  // namespace V1_1
+
 }  // namespace neuralnetworks
 }  // namespace hardware
 }  // namespace android
