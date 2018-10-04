@@ -61,4 +61,16 @@ interface IRadioResponse extends @1.2::IRadioResponse {
      */
     oneway getDataRegistrationStateResponse_1_3(RadioResponseInfo info,
             DataRegStateResult dataRegResponse);
+
+    /**
+     * @param info Response info struct containing response type, serial no. and error
+     *
+     * Valid errors returned:
+     *   RadioError:NONE
+     *   RadioError:RADIO_NOT_AVAILABLE
+     *   RadioError:INTERNAL_ERR
+     *   RadioError:SYSTEM_ERR
+     *   RadioError:DEVICE_IN_USE
+     */
+    oneway rebootModem(RadioResponseInfo info);
 };
