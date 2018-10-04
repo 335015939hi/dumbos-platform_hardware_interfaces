@@ -108,4 +108,14 @@ interface IRadio extends @1.2::IRadio {
      */
     oneway emergencyDial(int32_t serial, Dial dialInfo,
             bitfield<EmergencyServiceCategory> categories);
+
+    /**
+     * Initiate modem reboot.
+     *
+     * @param serial Serial number of request.
+     *
+     * Response function is IRadioResponse.rebootModem()
+     *
+     */
+    oneway rebootModem(int32_t serial);
 };
