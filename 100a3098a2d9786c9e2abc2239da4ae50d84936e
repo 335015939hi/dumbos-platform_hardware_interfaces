@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8b4444ce_951fa92c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-10-05T02:38:12Z",
+      "side": 1,
+      "message": "nit, preferred",
+      "range": {
+        "startLine": 11,
+        "startChar": 6,
+        "endLine": 11,
+        "endChar": 15
+      },
+      "revId": "100a3098a2d9786c9e2abc2239da4ae50d84936e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "142b6569_31974309",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-10-05T02:38:12Z",
+      "side": 1,
+      "message": "Didn\u0027t we actually convert modemCognitive from a parameter of the method to a parameter of the DataProfile?",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 72
+      },
+      "revId": "100a3098a2d9786c9e2abc2239da4ae50d84936e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe6cbbd7_ec8e50a4",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 12
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-10-05T02:38:12Z",
+      "side": 1,
+      "message": "I thought the modem folks indicated that these are not used?\n@sunmeet, @niraj?",
+      "range": {
+        "startLine": 205,
+        "startChar": 0,
+        "endLine": 209,
+        "endChar": 21
+      },
+      "revId": "100a3098a2d9786c9e2abc2239da4ae50d84936e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
