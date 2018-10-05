@@ -149,6 +149,11 @@ Return<void> Bar::closeHandles() {
     return mFoo->closeHandles();
 }
 
+Return<void> Bar::repeatEverything(const IFoo::Everything& everything,
+                                   repeatEverything_cb _hidl_cb) {
+    return mFoo->repeatEverything(everything, _hidl_cb);
+}
+
 Return<void> Bar::echoNullInterface(const sp<IFooCallback> &cb, echoNullInterface_cb _hidl_cb) {
     return mFoo->echoNullInterface(cb, _hidl_cb);
 }

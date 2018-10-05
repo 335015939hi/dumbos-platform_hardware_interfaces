@@ -167,6 +167,8 @@ interface IFoo {
      */
     convertToBoolIfSmall(Discriminator d, vec<Union> u) generates (vec<ContainsUnion> c);
 
+    repeatEverything(Everything everything) generates (Everything everything);
+
     doThis(float param);
     doThatAndReturnSomething(int64_t param) generates (int32_t result);
     doQuiteABit(int32_t a, int64_t b, float c, double d) generates (double something);

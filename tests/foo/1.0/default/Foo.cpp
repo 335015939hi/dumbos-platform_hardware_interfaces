@@ -379,6 +379,12 @@ Return<void> Foo::echoNullInterface(const sp<IFooCallback> &cb, echoNullInterfac
     return Void();
 }
 
+Return<void> Foo::repeatEverything(const IFoo::Everything& everything,
+                                   repeatEverything_cb _hidl_cb) {
+    _hidl_cb(everything);
+    return Void();
+}
+
 IFoo* HIDL_FETCH_IFoo(const char* /* name */) {
     return new Foo();
 }
