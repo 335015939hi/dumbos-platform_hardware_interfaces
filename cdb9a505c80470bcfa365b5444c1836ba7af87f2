@@ -22,6 +22,30 @@
       "revId": "cdb9a505c80470bcfa365b5444c1836ba7af87f2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e93ab08_528f42ea",
+        "filename": "bluetooth/1.0/vts/functional/VtsHalBluetoothV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2018-10-08T19:16:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "783d2225_ec962c2a",
+      "range": {
+        "startLine": 193,
+        "startChar": 4,
+        "endLine": 193,
+        "endChar": 6
+      },
+      "revId": "cdb9a505c80470bcfa365b5444c1836ba7af87f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
