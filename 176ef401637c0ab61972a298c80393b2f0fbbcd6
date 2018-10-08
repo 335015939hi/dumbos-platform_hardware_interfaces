@@ -2,6 +2,132 @@
   "comments": [
     {
       "key": {
+        "uuid": "ec71e978_9bef8bc5",
+        "filename": "key_agreement/1.0/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-10-08T18:06:27Z",
+      "side": 1,
+      "message": "same on this, one high level comment, keymaster.agreement to help organize them?",
+      "revId": "176ef401637c0ab61972a298c80393b2f0fbbcd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b26bdd89_7083ff07",
+        "filename": "key_agreement/1.0/IKeyAgreementManager.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-10-08T18:06:27Z",
+      "side": 1,
+      "message": "Is this just for logging? Does it have to be unique?",
+      "revId": "176ef401637c0ab61972a298c80393b2f0fbbcd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3bb4aa37_b865a442",
+        "filename": "key_agreement/1.0/IKeyAgreementManager.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-10-08T18:06:27Z",
+      "side": 1,
+      "message": "and what is the structure of this? Arbitrary? How should it be parsed?",
+      "range": {
+        "startLine": 31,
+        "startChar": 14,
+        "endLine": 31,
+        "endChar": 21
+      },
+      "revId": "176ef401637c0ab61972a298c80393b2f0fbbcd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2cd44b1d_c8ed090c",
+        "filename": "key_agreement/1.0/IKeyAgreementParty.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-10-08T18:06:27Z",
+      "side": 1,
+      "message": "s/can/may/ (and below), from android-hal-design-guidelines #16",
+      "range": {
+        "startLine": 28,
+        "startChar": 77,
+        "endLine": 28,
+        "endChar": 80
+      },
+      "revId": "176ef401637c0ab61972a298c80393b2f0fbbcd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c46561e3_0fe1e7e1",
+        "filename": "key_agreement/1.0/IKeyAgreementParty.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-10-08T18:06:27Z",
+      "side": 1,
+      "message": "same question, how to parse this?",
+      "range": {
+        "startLine": 43,
+        "startChar": 14,
+        "endLine": 43,
+        "endChar": 21
+      },
+      "revId": "176ef401637c0ab61972a298c80393b2f0fbbcd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89fc92b0_d5f28976",
+        "filename": "key_agreement/1.0/IKeyAgreementParty.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-10-08T18:06:27Z",
+      "side": 1,
+      "message": "nit: 4 spaces (like javadoc)",
+      "range": {
+        "startLine": 44,
+        "startChar": 7,
+        "endLine": 44,
+        "endChar": 15
+      },
+      "revId": "176ef401637c0ab61972a298c80393b2f0fbbcd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bee24089_5857271f",
         "filename": "key_agreement/1.0/IKeyAgreementParty.hal",
         "patchSetId": 4
@@ -13,6 +139,29 @@
       "writtenOn": "2018-10-08T16:38:30Z",
       "side": 1,
       "message": "Is this an injective encoding of P1...Pn? Are all of P1 to Pn guaranteed to be prefix-free?",
+      "revId": "176ef401637c0ab61972a298c80393b2f0fbbcd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d49d1dfc_e7ec091b",
+        "filename": "key_agreement/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-10-08T18:06:27Z",
+      "side": 1,
+      "message": "why not also use vec\u003cuint8_t\u003e to be able to resize this?",
+      "range": {
+        "startLine": 31,
+        "startChar": 9,
+        "endLine": 31,
+        "endChar": 16
+      },
       "revId": "176ef401637c0ab61972a298c80393b2f0fbbcd6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
