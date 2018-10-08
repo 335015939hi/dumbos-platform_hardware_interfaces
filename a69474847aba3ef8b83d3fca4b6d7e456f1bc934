@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c880b274_8aba02bc",
+        "filename": "gatekeeper/2.0/IGatekeeper.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1129218
+      },
+      "writtenOn": "2018-10-08T08:01:50Z",
+      "side": 1,
+      "message": "deleteUser is also an optional method in 1.0. Will this method must be supported in 2.0?",
+      "revId": "a69474847aba3ef8b83d3fca4b6d7e456f1bc934",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
