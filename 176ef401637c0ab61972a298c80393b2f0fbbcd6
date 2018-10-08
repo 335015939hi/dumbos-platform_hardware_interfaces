@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bee24089_5857271f",
+        "filename": "key_agreement/1.0/IKeyAgreementParty.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1060907
+      },
+      "writtenOn": "2018-10-08T16:38:30Z",
+      "side": 1,
+      "message": "Is this an injective encoding of P1...Pn? Are all of P1 to Pn guaranteed to be prefix-free?",
+      "revId": "176ef401637c0ab61972a298c80393b2f0fbbcd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
