@@ -25,14 +25,14 @@ package android.hardware.key_agreement@1.0;
  * manager.
  *
  * The canonical examples of IKeyAgreementParties are the IKeymasterDevice and IGatekeeper, which
- * need to share an HMAC key so the IGatekeeper (and IBiometricsFingerprint) can HMAC tokens to
- * prove that authentications were performed, to unlock keys.  Note that none of those HALs extend
- * IKeyAgreementParty, however, which provides implementers flexibility in how they choose to
- * construct the required per-boot shared keys.  In some cases, the parties can exchange keys via
- * secure-world IPC, which means that none of them need to be IKeyAgreementParties.  In other cases,
- * where there are no available secure-world IPC channels, the parties can implement this interface
- * in their services, and allow the IKeyAgreementManager to securely coordinate their key agreement
- * process.
+ * need to share an HMAC key so the IGatekeeper (and IBiometricsFingerprint) are able to mint HMAC
+ * tokens to prove that authentications were performed, to unlock keys.  Note that none of those
+ * HALs extend IKeyAgreementParty, however, which provides implementers flexibility in how they
+ * choose to construct the required per-boot shared keys.  In some cases, the parties may exchange
+ * keys via secure-world IPC, which means that none of them need to be IKeyAgreementParties.  In
+ * other cases, where there are no available secure-world IPC channels, the parties may implement
+ * this interface in their services, and allow the IKeyAgreementManager to securely coordinate their
+ * key agreement process.
  */
 interface IKeyAgreementParty {
     /**
@@ -41,17 +41,17 @@ interface IKeyAgreementParty {
      * in preparation for the second step.
      *
      * @param context the context for key agreement; see IKeyAgreementManager.hal.  This parameter
-     *         allows a party who wants to participate in multiple key agreement processes to
-     *         disambiguate the agreement processes.
+     *     allows a party who wants to participate in multiple key agreement processes to
+     *     disambiguate the agreement processes.
      *
      * @return errorMessage must be an empty string upon success, or otherwise must be an
-     *         English-language error message describing the failure (for debugging only; no need
-     *         for i18n).
+     *     English-language error message describing the failure (for debugging only; no need for
+     *     i18n).
      *
      * @return params The HmacSharingParameters to use.  As specified in the HmacSharingParameters
-     *         documentation in types.hal, the seed must contain the same value in every invocation
-     *         of the method on a given device, and the nonce must return the same value for every
-     *         invocation during a boot session.
+     *     documentation in types.hal, the seed must contain the same value in every invocation of
+     *     the method on a given device, and the nonce must return the same value for every
+     *     invocation during a boot session.
      */
     getHmacSharingParameters(string context)
          generates (string errorMessage, HmacSharingParameters params);
@@ -94,24 +94,24 @@ interface IKeyAgreementParty {
      * derive its value is acceptable.
      *
      * @param context the context for key agreement; see IKeyAgreementManager.hal.  This parameter
-     *         allows a party who wants to participate in multiple key agreement processes to
-     *         disambiguate the agreement processes.
+     *     allows a party who wants to participate in multiple key agreement processes to
+     *     disambiguate the agreement processes.
      *
      * @param params The HmacSharingParameters data returned by all IKeymasterDevice instances when
-     *        getHmacSharingParameters was called.
+     *     getHmacSharingParameters was called.
      *
      * @return error ErrorCode::OK in the event that there is no error.  ErrorCode::INVALID_ARGUMENT
-     *         if one of the provided parameters is not the value returned by the prior call to
-     *         getHmacParameters().
+     *     if one of the provided parameters is not the value returned by the prior call to
+     *     getHmacParameters().
      *
      * @return sharingCheck A 32-byte value used to verify that all IKeymasterDevice instances have
-     *         computed the same shared HMAC key.  The sharingCheck value is computed as follows:
+     *     computed the same shared HMAC key.  The sharingCheck value is computed as follows:
      *
-     *             sharingCheck = HMAC(H, "Keymaster HMAC Verification")
+     *         sharingCheck = HMAC(H, "Keymaster HMAC Verification")
      *
-     *         The string is UTF-8 encoded, 27 bytes in length.  If the returned values of all
-     *         IKeymasterDevice instances don't match, IKeyAgreementManager must assume that HMAC
-     *         agreement failed.
+     *     The string is UTF-8 encoded, 27 bytes in length.  If the returned values of all
+     *     IKeymasterDevice instances don't match, IKeyAgreementManager must assume that HMAC
+     *     agreement failed.
      */
     computeSharedKey(string context, vec<HmacSharingParameters> params)
         generates (string errorMessage, vec<uint8_t> sharingCheck);

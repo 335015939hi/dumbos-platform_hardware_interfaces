@@ -29,15 +29,15 @@ interface IKeyAgreementManager {
      * @param name is the name of the party (service) registering for key agrement participation.
      *
      * @param context is the context in which the party wishes to agree on a key.  This parameter
-     *        exists to allow key agreement to be done for different purposes, between different
-     *        sets of parties.  The IKeyAgreementManager must perform the key agreement process
-     *        separately for each group of parties that specify a given context value.
+     *     exists to allow key agreement to be done for different purposes, between different sets
+     *     of parties.  The IKeyAgreementManager must perform the key agreement process separately
+     *     for each group of parties that specify a given context value.
      *
      * @param party the party who wishes to participate in key agreement.
      *
      * @return errorMessage is a human-readable English-language error message in the event of an
-     *         error, or an empty string if no error occurs.  This string is for logging and
-     *         debugging only and therefore does not need to be internationalized.
+     *     error, or an empty string if no error occurs.  This string is for logging and debugging
+     *     only and therefore does not need to be internationalized.
      */
     registerKeyAgreementParty(string name, string context, IKeyAgreementParty party)
         generates (string errorMessage);
