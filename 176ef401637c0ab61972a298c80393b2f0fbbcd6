@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d89ede96_f227b104",
+        "filename": "key_agreement/1.0/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2018-10-09T06:15:58Z",
+      "side": 1,
+      "message": "This isn\u0027t keymaster-specific.  It\u0027s used by keymaster, but will be used by other HAL services.",
+      "parentUuid": "ec71e978_9bef8bc5",
+      "revId": "176ef401637c0ab61972a298c80393b2f0fbbcd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b26bdd89_7083ff07",
         "filename": "key_agreement/1.0/IKeyAgreementManager.hal",
         "patchSetId": 4
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "f7800ff7_820726b8",
+        "filename": "key_agreement/1.0/IKeyAgreementManager.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2018-10-09T06:15:58Z",
+      "side": 1,
+      "message": "It\u0027s just for logging.",
+      "parentUuid": "b26bdd89_7083ff07",
+      "revId": "176ef401637c0ab61972a298c80393b2f0fbbcd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3bb4aa37_b865a442",
         "filename": "key_agreement/1.0/IKeyAgreementManager.hal",
         "patchSetId": 4
@@ -47,6 +83,30 @@
       "writtenOn": "2018-10-08T18:06:27Z",
       "side": 1,
       "message": "and what is the structure of this? Arbitrary? How should it be parsed?",
+      "range": {
+        "startLine": 31,
+        "startChar": 14,
+        "endLine": 31,
+        "endChar": 21
+      },
+      "revId": "176ef401637c0ab61972a298c80393b2f0fbbcd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b9653bd_0520cb6c",
+        "filename": "key_agreement/1.0/IKeyAgreementManager.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2018-10-09T06:15:58Z",
+      "side": 1,
+      "message": "It\u0027s just a label, no structure, won\u0027t be parsed.",
+      "parentUuid": "3bb4aa37_b865a442",
       "range": {
         "startLine": 31,
         "startChar": 14,
@@ -82,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "e800e321_9e385cd3",
+        "filename": "key_agreement/1.0/IKeyAgreementParty.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2018-10-09T06:15:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2cd44b1d_c8ed090c",
+      "range": {
+        "startLine": 28,
+        "startChar": 77,
+        "endLine": 28,
+        "endChar": 80
+      },
+      "revId": "176ef401637c0ab61972a298c80393b2f0fbbcd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c46561e3_0fe1e7e1",
         "filename": "key_agreement/1.0/IKeyAgreementParty.hal",
         "patchSetId": 4
@@ -102,6 +186,30 @@
       "revId": "176ef401637c0ab61972a298c80393b2f0fbbcd6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b67a0874_3bcb2282",
+        "filename": "key_agreement/1.0/IKeyAgreementParty.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2018-10-09T06:15:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c46561e3_0fe1e7e1",
+      "range": {
+        "startLine": 43,
+        "startChar": 14,
+        "endLine": 43,
+        "endChar": 21
+      },
+      "revId": "176ef401637c0ab61972a298c80393b2f0fbbcd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -128,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "2ebc155d_5aa29a56",
+        "filename": "key_agreement/1.0/IKeyAgreementParty.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2018-10-09T06:15:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89fc92b0_d5f28976",
+      "range": {
+        "startLine": 44,
+        "startChar": 7,
+        "endLine": 44,
+        "endChar": 15
+      },
+      "revId": "176ef401637c0ab61972a298c80393b2f0fbbcd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bee24089_5857271f",
         "filename": "key_agreement/1.0/IKeyAgreementParty.hal",
         "patchSetId": 4
@@ -145,6 +277,24 @@
     },
     {
       "key": {
+        "uuid": "06f90744_8f5983d1",
+        "filename": "key_agreement/1.0/IKeyAgreementParty.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2018-10-09T06:15:58Z",
+      "side": 1,
+      "message": "I don\u0027t understand the issue you\u0027re getting at.",
+      "parentUuid": "bee24089_5857271f",
+      "revId": "176ef401637c0ab61972a298c80393b2f0fbbcd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d49d1dfc_e7ec091b",
         "filename": "key_agreement/1.0/types.hal",
         "patchSetId": 4
@@ -156,6 +306,30 @@
       "writtenOn": "2018-10-08T18:06:27Z",
       "side": 1,
       "message": "why not also use vec\u003cuint8_t\u003e to be able to resize this?",
+      "range": {
+        "startLine": 31,
+        "startChar": 9,
+        "endLine": 31,
+        "endChar": 16
+      },
+      "revId": "176ef401637c0ab61972a298c80393b2f0fbbcd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61054f04_d4909b2e",
+        "filename": "key_agreement/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2018-10-09T06:15:58Z",
+      "side": 1,
+      "message": "It can\u0027t be any other size.",
+      "parentUuid": "d49d1dfc_e7ec091b",
       "range": {
         "startLine": 31,
         "startChar": 9,
