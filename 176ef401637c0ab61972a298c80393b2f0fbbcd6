@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "f82d66cb_693c84e0",
+        "filename": "key_agreement/1.0/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-10-09T20:47:33Z",
+      "side": 1,
+      "message": "What about key.agreement then? Will we have future key-related things? The main idea is to make sure related things are grouped together as we can\u0027t change their packages in the future. If not, nbd.",
+      "parentUuid": "d89ede96_f227b104",
+      "revId": "176ef401637c0ab61972a298c80393b2f0fbbcd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b26bdd89_7083ff07",
         "filename": "key_agreement/1.0/IKeyAgreementManager.hal",
         "patchSetId": 4
@@ -66,6 +84,24 @@
       "side": 1,
       "message": "It\u0027s just for logging.",
       "parentUuid": "b26bdd89_7083ff07",
+      "revId": "176ef401637c0ab61972a298c80393b2f0fbbcd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ecb4175f_4b8128af",
+        "filename": "key_agreement/1.0/IKeyAgreementManager.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-10-09T20:47:33Z",
+      "side": 1,
+      "message": "Can you specify that here?",
+      "parentUuid": "f7800ff7_820726b8",
       "revId": "176ef401637c0ab61972a298c80393b2f0fbbcd6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -107,6 +143,30 @@
       "side": 1,
       "message": "It\u0027s just a label, no structure, won\u0027t be parsed.",
       "parentUuid": "3bb4aa37_b865a442",
+      "range": {
+        "startLine": 31,
+        "startChar": 14,
+        "endLine": 31,
+        "endChar": 21
+      },
+      "revId": "176ef401637c0ab61972a298c80393b2f0fbbcd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee6d77c6_9353ab15",
+        "filename": "key_agreement/1.0/IKeyAgreementManager.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-10-09T20:47:33Z",
+      "side": 1,
+      "message": "Can you specify that here (but ack)?",
+      "parentUuid": "8b9653bd_0520cb6c",
       "range": {
         "startLine": 31,
         "startChar": 14,
