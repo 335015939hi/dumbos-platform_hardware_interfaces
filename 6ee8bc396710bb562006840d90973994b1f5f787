@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ad7d844d_2df090b7",
+        "filename": "keymaster_capability/1.0/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2018-10-09T06:27:49Z",
+      "side": 1,
+      "message": "Do you mean I should move this into hardware/interfaces/keymaster?",
+      "parentUuid": "edf7ae5c_54bd8cb3",
+      "range": {
+        "startLine": 4,
+        "startChar": 28,
+        "endLine": 4,
+        "endChar": 48
+      },
+      "revId": "6ee8bc396710bb562006840d90973994b1f5f787",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "403bfc0b_6301695c",
         "filename": "keymaster_capability/1.0/IKeymasterCapabilitySink.hal",
         "patchSetId": 5
@@ -36,6 +60,24 @@
       "writtenOn": "2018-10-08T16:08:29Z",
       "side": 1,
       "message": "I don\u0027t understand this - don\u0027t sinks generally want to do some operation enabled by the capability? So they\u0027ll have methods that take capabilities, but different sinks won\u0027t necessarily have any methods in common.",
+      "revId": "6ee8bc396710bb562006840d90973994b1f5f787",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3e1e27e_3f9f5a09",
+        "filename": "keymaster_capability/1.0/IKeymasterCapabilitySink.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2018-10-09T06:27:49Z",
+      "side": 1,
+      "message": "Right now, keystore is the only sink, and the only thing it does with capabilities is store them for use in operations.",
+      "parentUuid": "403bfc0b_6301695c",
       "revId": "6ee8bc396710bb562006840d90973994b1f5f787",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "49a5ed7f_7e97b36a",
+        "filename": "keymaster_capability/1.0/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2018-10-09T06:27:49Z",
+      "side": 1,
+      "message": "Zero, I suppose.  I\u0027ll document that.",
+      "parentUuid": "aa9106d5_d72ec119",
+      "revId": "6ee8bc396710bb562006840d90973994b1f5f787",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7b5495e8_8c0f7be7",
         "filename": "keymaster_capability/1.0/types.hal",
         "patchSetId": 5
@@ -70,6 +130,24 @@
       "writtenOn": "2018-10-08T16:08:29Z",
       "side": 1,
       "message": "Is there a special value for \"none\" here?",
+      "revId": "6ee8bc396710bb562006840d90973994b1f5f787",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa4b44d3_f1b2f12a",
+        "filename": "keymaster_capability/1.0/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2018-10-09T06:27:49Z",
+      "side": 1,
+      "message": "How can a capability have no creation timestamp?",
+      "parentUuid": "7b5495e8_8c0f7be7",
       "revId": "6ee8bc396710bb562006840d90973994b1f5f787",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
