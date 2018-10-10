@@ -161,7 +161,7 @@ struct DataRegStateResult {
      * on LTE network and must be present when device is camped on LTE. vopsInfo
      * will be empty when device is camped only on 2G/3G .
      */
-    safe_union VopsInfo {
+    optional_safe_union VopsInfo {
         LteVopsInfo lteVopsInfo; // LTE network capability
     } vopsInfo;
 };
