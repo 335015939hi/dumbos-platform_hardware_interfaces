@@ -69,6 +69,12 @@ struct SafeUnion : public ISafeUnion {
                             setHandleB_cb _hidl_cb) override;
     Return<void> setHandleC(const HandleTypeSafeUnion& myUnion, const hidl_vec<hidl_handle>& c,
                             setHandleC_cb _hidl_cb) override;
+
+    Return<void> repeatRequiredSafeUnion(const RequiredSafeUnion& value,
+                                         repeatRequiredSafeUnion_cb _hidl_cb) override;
+    Return<void> repeatRequiredInterfaceSafeUnion(
+        const RequiredInterfaceSafeUnion& value,
+        repeatRequiredInterfaceSafeUnion_cb _hidl_cb) override;
 };
 
 extern "C" ISafeUnion* HIDL_FETCH_ISafeUnion(const char* name);
