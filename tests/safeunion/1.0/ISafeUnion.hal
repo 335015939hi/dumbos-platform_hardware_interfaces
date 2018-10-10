@@ -33,14 +33,14 @@ interface ISafeUnion {
         string j3;
     };
 
-    safe_union EmptySafeUnion {
+    optional_safe_union EmptySafeUnion {
     };
 
-    safe_union SmallSafeUnion {
+    optional_safe_union SmallSafeUnion {
         uint8_t a;
     };
 
-    safe_union LargeSafeUnion {
+    optional_safe_union LargeSafeUnion {
         int8_t a;
         uint16_t b;
         int32_t c;
@@ -65,7 +65,7 @@ interface ISafeUnion {
         bitfield<BitField> n;
     };
 
-    safe_union InterfaceTypeSafeUnion {
+    optional_safe_union InterfaceTypeSafeUnion {
         uint32_t a;
         int8_t[7] b;
         IOtherInterface c;
@@ -75,7 +75,7 @@ interface ISafeUnion {
         vec<handle> g;
     };
 
-    safe_union HandleTypeSafeUnion {
+    optional_safe_union HandleTypeSafeUnion {
         handle a;
         handle[5] b;
         vec<handle> c;
