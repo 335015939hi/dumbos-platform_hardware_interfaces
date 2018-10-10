@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "23aca506_bbc9e466",
+        "filename": "keymaster_capability/1.0/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-10-10T01:19:15Z",
+      "side": 1,
+      "message": "Yes, specifically hardware/interfaces/keymaster/capability",
+      "parentUuid": "ad7d844d_2df090b7",
+      "range": {
+        "startLine": 4,
+        "startChar": 28,
+        "endLine": 4,
+        "endChar": 48
+      },
+      "revId": "6ee8bc396710bb562006840d90973994b1f5f787",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "403bfc0b_6301695c",
         "filename": "keymaster_capability/1.0/IKeymasterCapabilitySink.hal",
         "patchSetId": 5
