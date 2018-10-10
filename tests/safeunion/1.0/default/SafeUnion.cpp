@@ -298,6 +298,20 @@ Return<void> SafeUnion::setHandleC(const HandleTypeSafeUnion& myUnion,
     return Void();
 }
 
+Return<void> SafeUnion::repeatRequiredSafeUnion(const RequiredSafeUnion& value,
+                                                repeatRequiredSafeUnion_cb _hidl_cb) {
+    LOG(INFO) << "SERVER(SafeUnion) repeatRequiredSafeUnion(" << toString(value) << ")";
+    _hidl_cb(value);
+    return Void();
+}
+
+Return<void> SafeUnion::repeatRequiredInterfaceSafeUnion(
+    const RequiredInterfaceSafeUnion& value, repeatRequiredInterfaceSafeUnion_cb _hidl_cb) {
+    LOG(INFO) << "SERVER(SafeUnion) repeatRequiredInterfaceSafeUnion(" << toString(value) << ")";
+    _hidl_cb(value);
+    return Void();
+}
+
 ISafeUnion* HIDL_FETCH_ISafeUnion(const char* /* name */) {
     return new SafeUnion();
 }
