@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c4184fd_db886cfd",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2018-10-11T19:24:33Z",
+      "side": 1,
+      "message": "prefer noInit",
+      "revId": "dec5272582ace2253090f29a5b3c8734d5b19234",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
