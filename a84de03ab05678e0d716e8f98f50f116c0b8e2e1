@@ -1,0 +1,146 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d024026b_6ec91eb2",
+        "filename": "bluetooth/audio/2.0/IBluetoothAudioHost.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2018-10-12T02:20:19Z",
+      "side": 1,
+      "message": "How do you think if the interface is IBluetoothAudioSink? Because data is from Audio side, I am a bit confused which side is Host.",
+      "range": {
+        "startLine": 30,
+        "startChar": 10,
+        "endLine": 30,
+        "endChar": 29
+      },
+      "revId": "a84de03ab05678e0d716e8f98f50f116c0b8e2e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7abcbf83_c0383605",
+        "filename": "bluetooth/audio/2.0/IBluetoothAudioHost.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2018-10-12T02:20:19Z",
+      "side": 1,
+      "message": "Is it possible to pass dataMQ.getDesc() to Stack so the dataMQ is created by HIDL (StreamOut::prepareForWriting) and shared between Stack (Sink) and AudioServer (Provider)?\nAnd, should we add another param about the sessionType so we can know whether AudioHal can handle the offloading or need our help?",
+      "revId": "a84de03ab05678e0d716e8f98f50f116c0b8e2e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1144f992_8dd630c5",
+        "filename": "bluetooth/audio/2.0/IBluetoothAudioHost.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2018-10-12T02:20:19Z",
+      "side": 1,
+      "message": "I don\u0027t know how Stack can calculate the data size of streaming when running offloading.\nHow about if using getLatency / getDelay and calculating the presentation position by HIDL for both of software and offloading?",
+      "revId": "a84de03ab05678e0d716e8f98f50f116c0b8e2e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3a199fc_9c8eba48",
+        "filename": "bluetooth/audio/2.0/IBluetoothAudioProvider.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2018-10-12T02:20:19Z",
+      "side": 1,
+      "message": "Is it possible to add one more param for DeviceName so AudioHAL can know whose session is starting?",
+      "revId": "a84de03ab05678e0d716e8f98f50f116c0b8e2e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3b7dff4_151e654b",
+        "filename": "bluetooth/audio/2.0/IBluetoothAudioProvider.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2018-10-12T02:20:19Z",
+      "side": 1,
+      "message": "Should it be possible for Stack to report the delay? It is because Audio may ask the delay more than accessory reportes.",
+      "revId": "a84de03ab05678e0d716e8f98f50f116c0b8e2e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba3f562b_89c28237",
+        "filename": "bluetooth/audio/2.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2018-10-12T02:20:19Z",
+      "side": 1,
+      "message": "should we add more codecType for HA (G.722)?",
+      "revId": "a84de03ab05678e0d716e8f98f50f116c0b8e2e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5ef4803_2c33e34c",
+        "filename": "bluetooth/audio/2.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2018-10-12T02:20:19Z",
+      "side": 1,
+      "message": "the SampleRate of HA is 16 kHz / 24 kHz and should we add for it?",
+      "revId": "a84de03ab05678e0d716e8f98f50f116c0b8e2e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83c03f58_62a09b3f",
+        "filename": "bluetooth/audio/2.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2018-10-12T02:20:19Z",
+      "side": 1,
+      "message": "there is also JOINT_STEREO and DUAL_CHANNEL for SBC and should we add?",
+      "revId": "a84de03ab05678e0d716e8f98f50f116c0b8e2e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
