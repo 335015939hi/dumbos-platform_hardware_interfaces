@@ -110,6 +110,24 @@
     },
     {
       "key": {
+        "uuid": "9e704e9b_f61966a4",
+        "filename": "bluetooth/audio/2.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1220282
+      },
+      "writtenOn": "2018-10-12T03:02:21Z",
+      "side": 1,
+      "message": "I think this config is for hardware encoding. HA gets PCM from audio framework so I think it\u0027s ok to use UNKNOWN.",
+      "parentUuid": "ba3f562b_89c28237",
+      "revId": "a84de03ab05678e0d716e8f98f50f116c0b8e2e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f5ef4803_2c33e34c",
         "filename": "bluetooth/audio/2.0/types.hal",
         "patchSetId": 1
