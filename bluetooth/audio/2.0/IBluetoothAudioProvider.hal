@@ -1,0 +1,88 @@
+/*
+ * Copyright 2018 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package android.hardware.bluetooth.audio@2.0;
+
+import IBluetoothAudioPort;
+
+/**
+ * HAL interface for Bluetooth audio functionality.
+ *
+ * This interface is from HAL client to HAL server.
+ *
+ * The HAL client must provide the handle of IBluetoothAudioPort as well
+ * as session type and codec configuration to the HAL server.
+ * HAL Server, based on the feedback from the Audio
+ * framework must call into the commands provided by the IBluetoothAudioPort.
+ * HAL client must call into IBluetoothAudioProvider to provide the status of
+ * these commands. Once the device becomes inactive, the HAL client must
+ * call the endSession to terminate the session with the HAL server.
+ */
+interface IBluetoothAudioProvider {
+
+    /**
+     * Indicates that the HAL client is connected to a remote audio receiving
+     * device and is ready to stream audio. This function is also used to
+     * register the BluetoothAudioPort interface and to provide the current
+     * negotiated codec.
+     *
+     * |endSession| must be called to unregister the interface.
+     *
+     * @param hostIf interface used to request stream control
+     * @param codecConfig Codec configuration as negotiated with the remote
+     *    device
+     *
+     * @return status one of the following
+     *    SUCCESS if HAL server successfully initializes the platform with the
+     *        given session type and codec configuration
+     *    UNSUPPORTED_CODEC_CONFIGURATION if HAL server cannot initialize the
+     *        platform with the given session type and codec configuration
+     *    FAILURE if HAL server cannot initialize the platform for any other
+     *        reason
+     * @return dataMQ the audio data path for Software Encoding Datapath and it
+     *    will be nullptr for none Software Encoding case. This is used to
+     *    share the streaming data between Bluetooth Stack and Audio Hal which
+     *    format is specified by the codecConfig parameter.
+     */
+    startSession(IBluetoothAudioPort hostIf, CodecConfiguration codecConfig)
+                generates (Status status, fmq_sync<uint8_t> dataMQ);
+
+    /**
+     * Updates status for start stream request. The HAL client may need
+     * to communicate to Bluetooth Controller and remote Bluetooth accessory,
+     * and once the operation is completed, it must return with either SUCCESS
+     * or FAILURE.
+     *
+     * @param status SUCCESS or FAILURE
+     */
+    streamStarted(Status status);
+
+    /**
+     * Updates status for suspend stream request. The HAL client may need
+     * to communicate to Bluetooth Controller and remote Bluetooth accessory,
+     * and once the operation is completed, it must return with either SUCCESS
+     * or FAILURE.
+     *
+     * @param status SUCCESS or FAILURE
+     */
+    streamSuspended(Status status);
+
+    /**
+     * Ends the current A2DP offload session and unregisters the
+     * BluetoothAudioPort interface.
+     */
+    endSession();
+};
