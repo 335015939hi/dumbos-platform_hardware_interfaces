@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "62cab80a_91a52c33",
+        "filename": "compatibility_matrices/build/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2018-10-12T21:33:43Z",
+      "side": 1,
+      "message": "I\u0027d expect you need blueprint-pathtools here",
+      "revId": "992337dac9aff8f7d2b12bec73ad9c80029481af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9581a80b_59303b35",
+        "filename": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2018-10-12T21:33:43Z",
+      "side": 1,
+      "message": "You don\u0027t need this, you\u0027re not getting any information from the assemble_vintf module, you\u0027re just assuming the final install location (which is fine)",
+      "revId": "992337dac9aff8f7d2b12bec73ad9c80029481af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2bd5bdc0_cd1231d5",
+        "filename": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2018-10-12T21:33:43Z",
+      "side": 1,
+      "message": "Run this command with ctx.Build instead of in make, use ctx.InstallFile, and you shouldn\u0027t need Custom to install it.  That way it will probably work in a soong only build in the future.",
+      "revId": "992337dac9aff8f7d2b12bec73ad9c80029481af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
