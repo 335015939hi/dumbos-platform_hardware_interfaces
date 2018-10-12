@@ -17,6 +17,10 @@
 
 #include <android/hardware/confirmationui/support/cbor.h>
 
+#ifndef FALLTHROUGH_INTENDED
+#define FALLTHROUGH_INTENDED [[fallthrough]]
+#endif
+
 namespace android {
 namespace hardware {
 namespace confirmationui {
@@ -36,11 +40,14 @@ WriteState writeBytes(WriteState state, uint64_t value, uint8_t size) {
             *pos++ = getByte(value, 6);
             *pos++ = getByte(value, 5);
             *pos++ = getByte(value, 4);
+            FALLTHROUGH_INTENDED;
         case 4:
             *pos++ = getByte(value, 3);
             *pos++ = getByte(value, 2);
+            FALLTHROUGH_INTENDED;
         case 2:
             *pos++ = getByte(value, 1);
+            FALLTHROUGH_INTENDED;
         case 1:
             *pos++ = value;
             break;
