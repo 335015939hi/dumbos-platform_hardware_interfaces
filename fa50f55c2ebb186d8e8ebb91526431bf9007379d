@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad1a5cd5_6929caa2",
+        "filename": "confirmationui/support/src/cbor.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-10-12T23:51:40Z",
+      "side": 1,
+      "message": "this is a relatively contained module. Why not just use \u0027[[fallthrough]]\u0027 below and simplify things?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 0
+      },
+      "revId": "fa50f55c2ebb186d8e8ebb91526431bf9007379d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
