@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "321895d9_30c4df09",
+        "filename": "compatibility_matrices/build/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2018-10-12T23:44:07Z",
+      "side": 1,
+      "message": "removed dependency",
+      "parentUuid": "62cab80a_91a52c33",
+      "revId": "992337dac9aff8f7d2b12bec73ad9c80029481af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9581a80b_59303b35",
         "filename": "compatibility_matrices/build/vintf_compatibility_matrix.go",
         "patchSetId": 2
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "a5ec15f6_9d208430",
+        "filename": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2018-10-12T23:44:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9581a80b_59303b35",
+      "revId": "992337dac9aff8f7d2b12bec73ad9c80029481af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2bd5bdc0_cd1231d5",
         "filename": "compatibility_matrices/build/vintf_compatibility_matrix.go",
         "patchSetId": 2
@@ -50,6 +86,24 @@
       "revId": "992337dac9aff8f7d2b12bec73ad9c80029481af",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31ebd5a5_cf009847",
+        "filename": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2018-10-12T23:44:07Z",
+      "side": 1,
+      "message": "Done, PTAL\n(I still need STEM and PATH though)",
+      "parentUuid": "2bd5bdc0_cd1231d5",
+      "revId": "992337dac9aff8f7d2b12bec73ad9c80029481af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
