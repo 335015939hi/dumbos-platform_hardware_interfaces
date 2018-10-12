@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6ecafb79_02fc13c7",
+        "filename": "bluetooth/audio/2.0/IBluetoothAudioHost.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1071489
+      },
+      "writtenOn": "2018-10-12T20:03:44Z",
+      "side": 1,
+      "message": "Agree that we should consider changing the \"Host\" suffix to something more intuitive (in this iteration I copied it from the existing android.hardware.bluetooth.a2dp@1.0 equivalent file.\n\nHowever, \"Sink\" suffix can be confusing on its own - could be mistaken with the A2DP Sink - the Headset.\n\nLets keep thinking about alternative names.",
+      "parentUuid": "d024026b_6ec91eb2",
+      "range": {
+        "startLine": 30,
+        "startChar": 10,
+        "endLine": 30,
+        "endChar": 29
+      },
+      "revId": "a84de03ab05678e0d716e8f98f50f116c0b8e2e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7abcbf83_c0383605",
         "filename": "bluetooth/audio/2.0/IBluetoothAudioHost.hal",
         "patchSetId": 1
@@ -36,6 +60,24 @@
       "writtenOn": "2018-10-12T02:20:19Z",
       "side": 1,
       "message": "Is it possible to pass dataMQ.getDesc() to Stack so the dataMQ is created by HIDL (StreamOut::prepareForWriting) and shared between Stack (Sink) and AudioServer (Provider)?\nAnd, should we add another param about the sessionType so we can know whether AudioHal can handle the offloading or need our help?",
+      "revId": "a84de03ab05678e0d716e8f98f50f116c0b8e2e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "413ad674_d6fac666",
+        "filename": "bluetooth/audio/2.0/IBluetoothAudioHost.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1071489
+      },
+      "writtenOn": "2018-10-12T20:03:44Z",
+      "side": 1,
+      "message": "prepareDataPathForWriting() (for the SW data encoding datapath) should be called before startStream() - dataMQ will be generated at that time and should be accessible / shared by both sides:\n\n\u003c--- startSession()\nprepareDataPathForWriting() ---\u003e // NOTE: Used only for the software data encoding datapath\nstartStream ---\u003e\n\u003c--- streamStarted()\n\nAlso, dataMQ is needed / used by only for the software data encoding datapath, hence\nit shouldn\u0027t be used by startStream() - startStream() is used by both SW encoding datapath\nand HW offload datapath.\n\nTo your second question:\nsessionType shouldn\u0027t be necessary here - it will be always the same sessionType when the\nthe session was created by startSession().",
+      "parentUuid": "7abcbf83_c0383605",
       "revId": "a84de03ab05678e0d716e8f98f50f116c0b8e2e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "90be3ccb_2ab5db95",
+        "filename": "bluetooth/audio/2.0/IBluetoothAudioHost.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1071489
+      },
+      "writtenOn": "2018-10-12T20:03:44Z",
+      "side": 1,
+      "message": "For the SW encoding datapath it can\u0027t, so the Stack will return zero.\nThe Stack can return only the remoteDeviceAudioDelay (when supported by the\nremote device).\nHence, for HW offload, the HAL implementation needs to obtain the transmittedOctets / transmittedOctetsTimeStamp in some other ways (not from the Stack).\n\nIn any case, I prefer to use a single call to obtain all info (if available), so\nthe result is atomic. Otherwise, if we use two calls: one for the remoteDeviceAudioDelay,\nand another for transmittedOctets, this is (1) sub-efficient, and (2) the result is not atomic so it might not accurate.",
+      "parentUuid": "1144f992_8dd630c5",
+      "revId": "a84de03ab05678e0d716e8f98f50f116c0b8e2e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c3a199fc_9c8eba48",
         "filename": "bluetooth/audio/2.0/IBluetoothAudioProvider.hal",
         "patchSetId": 1
@@ -76,6 +136,24 @@
     },
     {
       "key": {
+        "uuid": "0f3df977_655838ed",
+        "filename": "bluetooth/audio/2.0/IBluetoothAudioProvider.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1071489
+      },
+      "writtenOn": "2018-10-12T20:03:44Z",
+      "side": 1,
+      "message": "Presumably, the DeviceName will be useful only for debugging info?\nAlternatively, we should consider the Bluetooth address; however, for HearingAid there\nare two addresses, so this gets a bit more complex.\n\nMy preference is to leave it out for now - it can be easily added later during the\nactual implementation / testing of the new HIDL.",
+      "parentUuid": "c3a199fc_9c8eba48",
+      "revId": "a84de03ab05678e0d716e8f98f50f116c0b8e2e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c3b7dff4_151e654b",
         "filename": "bluetooth/audio/2.0/IBluetoothAudioProvider.hal",
         "patchSetId": 1
@@ -87,6 +165,24 @@
       "writtenOn": "2018-10-12T02:20:19Z",
       "side": 1,
       "message": "Should it be possible for Stack to report the delay? It is because Audio may ask the delay more than accessory reportes.",
+      "revId": "a84de03ab05678e0d716e8f98f50f116c0b8e2e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fabb3188_31e5c818",
+        "filename": "bluetooth/audio/2.0/IBluetoothAudioProvider.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1071489
+      },
+      "writtenOn": "2018-10-12T20:03:44Z",
+      "side": 1,
+      "message": "Not sure - the existing model with the UNIX domain sockets is that the Audio Server is the\none asking for the presentation position.\n\nNeeds to be discussed with Ajay and the Audio Team whether the Stack can / should make\nunsolicited calls to report changes int he presentation position.",
+      "parentUuid": "c3b7dff4_151e654b",
       "revId": "a84de03ab05678e0d716e8f98f50f116c0b8e2e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -128,6 +224,24 @@
     },
     {
       "key": {
+        "uuid": "e3d7c21d_386aac28",
+        "filename": "bluetooth/audio/2.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1071489
+      },
+      "writtenOn": "2018-10-12T20:03:44Z",
+      "side": 1,
+      "message": "Agree with Hansong.\nThe CodecType is needed / used only for HW offload.\nG.722 (and similar) HA codec(s) should be added if/when HW offload for HA is added/implemented.",
+      "parentUuid": "9e704e9b_f61966a4",
+      "revId": "a84de03ab05678e0d716e8f98f50f116c0b8e2e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f5ef4803_2c33e34c",
         "filename": "bluetooth/audio/2.0/types.hal",
         "patchSetId": 1
@@ -145,6 +259,24 @@
     },
     {
       "key": {
+        "uuid": "7770bd0b_929b75d8",
+        "filename": "bluetooth/audio/2.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1071489
+      },
+      "writtenOn": "2018-10-12T20:03:44Z",
+      "side": 1,
+      "message": "Done in next Patch Set.",
+      "parentUuid": "f5ef4803_2c33e34c",
+      "revId": "a84de03ab05678e0d716e8f98f50f116c0b8e2e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "83c03f58_62a09b3f",
         "filename": "bluetooth/audio/2.0/types.hal",
         "patchSetId": 1
@@ -156,6 +288,24 @@
       "writtenOn": "2018-10-12T02:20:19Z",
       "side": 1,
       "message": "there is also JOINT_STEREO and DUAL_CHANNEL for SBC and should we add?",
+      "revId": "a84de03ab05678e0d716e8f98f50f116c0b8e2e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0acae831_797bbcdc",
+        "filename": "bluetooth/audio/2.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1071489
+      },
+      "writtenOn": "2018-10-12T20:03:44Z",
+      "side": 1,
+      "message": "Those are codec-specific. The parameters here are for the original PCM data.\nSaid that, we might want to add the SBC-specific channel modes to the SBC section below.",
+      "parentUuid": "83c03f58_62a09b3f",
       "revId": "a84de03ab05678e0d716e8f98f50f116c0b8e2e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
