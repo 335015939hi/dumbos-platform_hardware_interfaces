@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e8d5ae6a_7e55dd83",
+        "filename": "camera/device/3.4/default/ExternalCameraDeviceSession.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1744,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2018-10-12T21:00:51Z",
+      "side": 1,
+      "message": "Why not use onDeviceError here?",
+      "range": {
+        "startLine": 1743,
+        "startChar": 8,
+        "endLine": 1744,
+        "endChar": 28
+      },
+      "revId": "96ca1347b30b7b3a02ffc7d0e3d263515d505c09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
