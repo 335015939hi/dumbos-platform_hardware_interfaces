@@ -24,8 +24,8 @@
 static const size_t kMaxThreads = 5;
 
 // Generated HIDL files
-using android::hardware::bluetooth::V1_0::IBluetoothHci;
 using android::hardware::defaultPassthroughServiceImplementation;
+using android::hardware::bluetooth::V1_0::IBluetoothHci;
 
 int main() {
     return defaultPassthroughServiceImplementation<IBluetoothHci>(kMaxThreads);

@@ -26,17 +26,17 @@
 #include <VtsHalHidlTargetTestBase.h>
 #include <VtsHalHidlTargetTestEnvBase.h>
 
-using ::android::hardware::bluetooth::a2dp::V1_0::IBluetoothAudioHost;
-using ::android::hardware::bluetooth::a2dp::V1_0::IBluetoothAudioOffload;
-using ::android::hardware::bluetooth::a2dp::V1_0::Status;
-using ::android::hardware::bluetooth::a2dp::V1_0::CodecType;
-using ::android::hardware::bluetooth::a2dp::V1_0::SampleRate;
+using ::android::sp;
+using ::android::hardware::Return;
+using ::android::hardware::Void;
 using ::android::hardware::bluetooth::a2dp::V1_0::BitsPerSample;
 using ::android::hardware::bluetooth::a2dp::V1_0::ChannelMode;
 using ::android::hardware::bluetooth::a2dp::V1_0::CodecConfiguration;
-using ::android::hardware::Return;
-using ::android::hardware::Void;
-using ::android::sp;
+using ::android::hardware::bluetooth::a2dp::V1_0::CodecType;
+using ::android::hardware::bluetooth::a2dp::V1_0::IBluetoothAudioHost;
+using ::android::hardware::bluetooth::a2dp::V1_0::IBluetoothAudioOffload;
+using ::android::hardware::bluetooth::a2dp::V1_0::SampleRate;
+using ::android::hardware::bluetooth::a2dp::V1_0::Status;
 
 // Test environment for Bluetooth HIDL A2DP HAL.
 class BluetoothA2dpHidlEnvironment : public ::testing::VtsHalHidlTargetTestEnvBase {
