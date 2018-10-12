@@ -22,6 +22,30 @@
       "revId": "96ca1347b30b7b3a02ffc7d0e3d263515d505c09",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9e5e9a3_dfe8ebc5",
+        "filename": "camera/device/3.4/default/ExternalCameraDeviceSession.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1744,
+      "author": {
+        "id": 1249565
+      },
+      "writtenOn": "2018-10-12T21:29:56Z",
+      "side": 1,
+      "message": "yes, onDeviceError is much better.\n\nDone",
+      "parentUuid": "e8d5ae6a_7e55dd83",
+      "range": {
+        "startLine": 1743,
+        "startChar": 8,
+        "endLine": 1744,
+        "endChar": 28
+      },
+      "revId": "96ca1347b30b7b3a02ffc7d0e3d263515d505c09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
