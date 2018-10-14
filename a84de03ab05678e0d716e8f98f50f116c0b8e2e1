@@ -309,6 +309,24 @@
       "revId": "a84de03ab05678e0d716e8f98f50f116c0b8e2e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1b1c8ff_49453d32",
+        "filename": "bluetooth/audio/2.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1071489
+      },
+      "writtenOn": "2018-10-14T17:03:35Z",
+      "side": 1,
+      "message": "Added SBC-specific channel mode in Patch Set 3.",
+      "parentUuid": "0acae831_797bbcdc",
+      "revId": "a84de03ab05678e0d716e8f98f50f116c0b8e2e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
