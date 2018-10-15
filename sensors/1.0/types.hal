@@ -1157,8 +1157,7 @@ union EventPayload {
     Vec3 vec3;
 
     /**
-     * SensorType::ROTATION_VECTOR, SensorType::GAME_ROTATION_VECTOR,
-     * SensorType::GEOMAGNETIC_ROTATION_VECTOR
+     * SensorType::GAME_ROTATION_VECTOR
      */
     Vec4 vec4;
 
@@ -1200,7 +1199,11 @@ union EventPayload {
     /** SensorType::ADDITIONAL_INFO */
     AdditionalInfo additional;
 
-    /** undefined/custom sensor type >= SensorType::DEVICE_PRIVATE_BASE */
+    /**
+     * Undefined/custom sensor type >= SensorType::DEVICE_PRIVATE_BASE,
+     * SensorType::ROTATION_VECTOR, SensorType::GEOMAGNETIC_ROTATION_VECTOR
+     * (Vec4 with an additional float accuracy field)
+     */
     float[16] data;
 };
 
