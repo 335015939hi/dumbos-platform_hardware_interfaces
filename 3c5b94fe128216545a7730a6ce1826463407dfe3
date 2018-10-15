@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b292b858_4f0d8d10",
+        "filename": "compatibility_matrices/Android.mk",
+        "patchSetId": 9
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2018-10-15T20:50:56Z",
+      "side": 1,
+      "message": "Here is the makefile dependency.",
+      "revId": "3c5b94fe128216545a7730a6ce1826463407dfe3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25eadf57_e9b7b990",
+        "filename": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+        "patchSetId": 9
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2018-10-15T20:50:56Z",
+      "side": 1,
+      "message": "Note: I have to use AndroidMk to install it (instead of ctx.Build to the output path directly) because of makefile dependencies (see other comment).\n\nDan / Colin, do you have other suggestions? (I need module-installed-files to work)",
+      "revId": "3c5b94fe128216545a7730a6ce1826463407dfe3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
