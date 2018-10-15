@@ -46,6 +46,30 @@
       "revId": "fa50f55c2ebb186d8e8ebb91526431bf9007379d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b82ae71_2943ae31",
+        "filename": "confirmationui/support/src/cbor.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2018-10-15T17:39:31Z",
+      "side": 1,
+      "message": "We should probably try to push these patches upstream, and I would guess that they would have a better chance if they were more portable. GCC does not understand [[fallthrough]], does it?",
+      "parentUuid": "1ec042d1_8b3ddb6f",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 0
+      },
+      "revId": "fa50f55c2ebb186d8e8ebb91526431bf9007379d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
