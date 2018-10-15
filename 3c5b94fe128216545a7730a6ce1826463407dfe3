@@ -19,6 +19,63 @@
     },
     {
       "key": {
+        "uuid": "9f1f53b1_2a4a3caf",
+        "filename": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+        "patchSetId": 9
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2018-10-15T21:24:17Z",
+      "side": 1,
+      "message": "Add:\n\n    CommandDeps: []string{\"${assembleVintfCmd}\"},",
+      "revId": "3c5b94fe128216545a7730a6ce1826463407dfe3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cdab6262_bc07010c",
+        "filename": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+        "patchSetId": 9
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2018-10-15T21:24:17Z",
+      "side": 1,
+      "message": "Add a comment for each property, which will be visible as the property documentation at go/Android.bp\n\nUse *string for string properties.",
+      "revId": "3c5b94fe128216545a7730a6ce1826463407dfe3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cbbad326_49c8f150",
+        "filename": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+        "patchSetId": 9
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2018-10-15T21:24:17Z",
+      "side": 1,
+      "message": "outputFileName \u003d\u003d \"\"",
+      "range": {
+        "startLine": 83,
+        "startChar": 4,
+        "endLine": 83,
+        "endChar": 28
+      },
+      "revId": "3c5b94fe128216545a7730a6ce1826463407dfe3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dfcabe17_519c4e23",
         "filename": "compatibility_matrices/build/vintf_compatibility_matrix.go",
         "patchSetId": 9
