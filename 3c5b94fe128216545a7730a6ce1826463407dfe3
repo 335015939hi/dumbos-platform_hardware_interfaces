@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "dfcabe17_519c4e23",
+        "filename": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+        "patchSetId": 9
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2018-10-15T21:19:03Z",
+      "side": 1,
+      "message": "this can be:\n\ninputPaths :\u003d android.PathsForModuleSrc(ctx, g.properties.Srcs)\nctx.VisitDirectDepsWithTag(kernelConfigTag, func(m android.Module) {\n    ...\n    inputPaths \u003d append(inputPaths, k.OutputPath())\n}\n\nPreallocating the array is unnecessary.  If you really wanted to, you could preallocate the capacity with:\n\n    inputPaths :\u003d make(android.Paths, 0, len(g.properties.Srcs)+len(g.properties.Kernel_configs))\n\nand then append to it, which would avoid any reallocations, but that doesn\u0027t seem necessary here.",
+      "revId": "3c5b94fe128216545a7730a6ce1826463407dfe3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "25eadf57_e9b7b990",
         "filename": "compatibility_matrices/build/vintf_compatibility_matrix.go",
         "patchSetId": 9
@@ -30,6 +47,24 @@
       "writtenOn": "2018-10-15T20:50:56Z",
       "side": 1,
       "message": "Note: I have to use AndroidMk to install it (instead of ctx.Build to the output path directly) because of makefile dependencies (see other comment).\n\nDan / Colin, do you have other suggestions? (I need module-installed-files to work)",
+      "revId": "3c5b94fe128216545a7730a6ce1826463407dfe3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c37852d1_934df485",
+        "filename": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+        "patchSetId": 9
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2018-10-15T21:19:03Z",
+      "side": 1,
+      "message": "No, this is correct.",
+      "parentUuid": "25eadf57_e9b7b990",
       "revId": "3c5b94fe128216545a7730a6ce1826463407dfe3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
