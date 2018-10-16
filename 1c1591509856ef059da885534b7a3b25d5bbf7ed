@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7ea26ff6_04ce33af",
+        "filename": "neuralnetworks/1.2/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-10-16T23:40:15Z",
+      "side": 1,
+      "message": "I guess the output of hidl-gen has two newlines here. If anyone cares particularly, I\u0027m happy to update that instead, but better to be consistent with the script on ToT so that other people updating makefiles don\u0027t have to checkout this file.",
+      "revId": "1c1591509856ef059da885534b7a3b25d5bbf7ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
