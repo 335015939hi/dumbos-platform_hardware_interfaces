@@ -276,3 +276,22 @@ TEST_F(RadioHidlTest_v1_5, setSignalStrengthReportingCriteria_1_5_NGRAN_SSSINR) 
           toString(radioRsp_v1_5->rspInfo.error).c_str());
     ASSERT_TRUE(CheckAnyOfErrors(radioRsp_v1_5->rspInfo.error, {RadioError::NONE}));
 }
+
+/*
+ * Test IRadio.setNetworkSelectionModeManual_1_5() for the response returned.
+ */
+TEST_F(RadioHidlTest_v1_5, setNetworkSelectionModeManual_1_5) {
+    serial = GetRandomSerialNumber();
+
+    Return<void> res = radio_v1_5->setNetworkSelectionModeManual_1_5(serial, "123456", 3);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp->rspInfo.type);
+    EXPECT_EQ(serial, radioRsp->rspInfo.serial);
+
+    if (cardStatus.cardState == CardState::ABSENT) {
+        ASSERT_TRUE(CheckAnyOfErrors(radioRsp->rspInfo.error,
+                                     {RadioError::NONE, RadioError::ILLEGAL_SIM_OR_ME,
+                                      RadioError::INVALID_ARGUMENTS, RadioError::INVALID_STATE},
+                                     CHECK_GENERAL_ERROR));
+    }
+}

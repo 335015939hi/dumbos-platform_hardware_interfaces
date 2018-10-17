@@ -55,4 +55,17 @@ interface IRadio extends @1.4::IRadio {
      */
     oneway setSignalStrengthReportingCriteria_1_5(int32_t serial,
             SignalThresholdInfo signalThresholdInfo, AccessNetwork accessNetwork);
+
+    /*
+     * Manually select a specified network.
+     * This request must not respond until the new operator is selected and registered.
+     *
+     * @param serial Serial number of request.
+     * @param operatorNumeric string specifying MCCMNC of network to select (e.g. "310170")
+     * @param cellType Cell identity type.
+     *
+     * Response function is IRadioResponse.setNetworkSelectionModeManualResponse()
+     */
+    oneway setNetworkSelectionModeManual_1_5(int32_t serial, string operatorNumeric,
+            int32_t cellType);
 };
