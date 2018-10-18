@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f340cba_540dbd24",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-10-18T21:32:56Z",
+      "side": 1,
+      "message": "value",
+      "range": {
+        "startLine": 286,
+        "startChar": 12,
+        "endLine": 286,
+        "endChar": 17
+      },
+      "revId": "c02aa300f031b613ea8d35992db2cea1cf5504d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e424a5f5_c881d025",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-10-18T21:32:56Z",
+      "side": 1,
+      "message": "There are currently 2 standards:\n1) ASU\n2) -RSRP\n\nPlease let\u0027s not add a third. I prefer #1.",
+      "range": {
+        "startLine": 296,
+        "startChar": 14,
+        "endLine": 296,
+        "endChar": 29
+      },
+      "revId": "c02aa300f031b613ea8d35992db2cea1cf5504d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47b512ba_8d567b8f",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-10-18T21:32:56Z",
+      "side": 1,
+      "message": "Same",
+      "range": {
+        "startLine": 303,
+        "startChar": 5,
+        "endLine": 303,
+        "endChar": 26
+      },
+      "revId": "c02aa300f031b613ea8d35992db2cea1cf5504d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28e6f100_e0650ec6",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-10-18T21:32:56Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 317,
+        "startChar": 7,
+        "endLine": 318,
+        "endChar": 46
+      },
+      "revId": "c02aa300f031b613ea8d35992db2cea1cf5504d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd77b471_d7ea4e7e",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-10-18T21:32:56Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 324,
+        "startChar": 0,
+        "endLine": 325,
+        "endChar": 47
+      },
+      "revId": "c02aa300f031b613ea8d35992db2cea1cf5504d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6547715a_071a2465",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 352,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-10-18T21:32:56Z",
+      "side": 1,
+      "message": "I still really don\u0027t like this, but since you\u0027re inventing something that\u0027s not directly from the spec, please be very explicit in describing how to calculate this boolean from things that are in the spec.",
+      "range": {
+        "startLine": 348,
+        "startChar": 0,
+        "endLine": 352,
+        "endChar": 23
+      },
+      "revId": "c02aa300f031b613ea8d35992db2cea1cf5504d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
