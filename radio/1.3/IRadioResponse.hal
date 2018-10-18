@@ -48,6 +48,24 @@ interface IRadioResponse extends @1.2::IRadioResponse {
      */
     oneway emergencyDialResponse(RadioResponseInfo info);
 
+   /**
+     * @param info Response info struct containing response type, serial no. and error
+     * @param cellInfo List of current cell information known to radio
+     *
+     * Valid errors returned:
+     *   RadioError:NONE
+     *   RadioError:RADIO_NOT_AVAILABLE
+     *   RadioError:NO_MEMORY
+     *   RadioError:INTERNAL_ERR
+     *   RadioError:SYSTEM_ERR
+     *   RadioError:MODEM_ERR
+     *   RadioError:NO_NETWORK_FOUND
+     *   RadioError:REQUEST_NOT_SUPPORTED
+     *   RadioError:NO_RESOURCES
+     *   RadioError:CANCELLED
+     */
+    oneway getCellInfoListResponse_1_3(RadioResponseInfo info, vec<CellInfo> cellInfo);
+
     /**
      * @param info Response info struct containing response type, serial no. and error
      * @param dataRegResponse Current Data registration response as defined by DataRegStateResult in
@@ -61,4 +79,14 @@ interface IRadioResponse extends @1.2::IRadioResponse {
      */
     oneway getDataRegistrationStateResponse_1_3(RadioResponseInfo info,
             DataRegStateResult dataRegResponse);
+
+    /**
+     * @param signalStrength Current signal strength
+     *
+     * Valid errors returned:
+     *   RadioError:NONE
+     *   RadioError:RADIO_NOT_AVAILABLE
+     *   RadioError:INTERNAL_ERR
+     */
+    oneway getSignalStrengthResponse_1_3(RadioResponseInfo info, SignalStrength signalStrength);
 };
