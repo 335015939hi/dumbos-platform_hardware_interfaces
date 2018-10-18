@@ -31,7 +31,6 @@ interface IRadioIndication extends @1.1::IRadioIndication {
 
     /**
      * Request all of the current cell information known to the radio.
-     * Same information as returned by getCellInfoList() in 1.0::IRadio.
      *
      * @param type Type of radio indication
      * @param records Current cell information
