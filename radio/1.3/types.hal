@@ -18,13 +18,18 @@ package android.hardware.radio@1.3;
 
 import @1.0::ApnAuthType;
 import @1.0::ApnTypes;
+import @1.0::CellInfoType;
 import @1.0::DataProfileId;
 import @1.0::DataProfileInfoType;
 import @1.0::RadioAccessFamily;
 import @1.0::RegState;
 import @1.2::AccessNetwork;
+import @1.2::CellInfo;
+import @1.2::CellInfoLte;
 import @1.2::CellIdentity;
+import @1.2::CellIdentityOperatorNames;
 import @1.2::DataRegStateResult;
+import @1.2::SignalStrength;
 
 import android.hidl.safe_union@1.0::Monostate;
 
@@ -158,6 +163,7 @@ struct LteVopsInfo {
 
 struct DataRegStateResult {
     @1.2::DataRegStateResult base;
+
     /**
      * Network capabilities for voice over PS services. This info is valid only
      * on LTE network and must be present when device is camped on LTE. vopsInfo
@@ -168,6 +174,18 @@ struct DataRegStateResult {
 
         LteVopsInfo lteVopsInfo; // LTE network capability
     } vopsInfo;
+
+    /**
+     * True if use of dual connectivity with NR is not restricted.
+     * Reference: TS 24.301 v15.03 section 9.3.3.12A.
+     */
+    bool isDCNRAllowed;
+
+    /**
+     * True if NR is supported by the selected plmn.
+     * Reference: TS 136.331 v15.2.2 section 6.3.1 PLMN-InfoList-r15.
+     */
+    bool isNRAvailable;
 };
 
 /**
@@ -242,4 +260,126 @@ struct DataProfileInfo {
      * overwrite it.
      */
     bool persistent;
+};
+
+struct CellIdentityNR {
+    /** 3-digit Mobile Country Code, in range[0, 999], Integer.MAX_VALUE if unknown. */
+    string mcc;
+
+    /**
+     * 2 or 3-digit Mobile Network Code, in range [0, 999], Integer.MAX_VALUE if unknown.
+     */
+    string mnc;
+
+    /**
+     * Physical cell id in range [0, 1007] described in TS 38.331. This value must be valid.
+     */
+    int32_t pci;
+
+    /** 16-bit tracking area code, Integer.MAX_VALUE if unknown. */
+    int32_t tac;
+
+    /**
+     * NR Absolute Radio Frequency Channel Number, in range [0, 3279165].
+     * Reference: TS 38.101-1 and TS 38.101-2 section 5.4.2.1.
+     * This value must be valid.
+     */
+    int32_t nrarfcn;
+
+    CellIdentityOperatorNames operatorNames;
+};
+
+struct NRSignalStrength {
+    /**
+     * SS reference signal received power, multipled by -1.
+     * Reference: TS 138.215.
+     * Range: 44 dBm to 140 dBm.
+     * Integer.MAX_VALUE means unreported value.
+     */
+    int32_t ssRsrp;
+
+    /**
+     * SS reference signal received quality, multipled by -1.
+     * Reference: TS 138.215.
+     * Range: 3 dB to 20 dB.
+     * Integer.MAX_VALUE means unreported value.
+     */
+    int32_t ssRsrq;
+
+    /**
+     * Reference: TS 138.215 Sec 5.1.*, TS 38.331 SINR-Range.
+     * Range: 0 to 127.
+     * Integer.MAX_VALUE means unreported value.
+     */
+    int32_t ssSinr;
+
+    /**
+     * CSI reference signal received power, multipled by -1.
+     * Reference: TS 138.215.
+     * Range: 44 dBm to 140 dBm.
+     * Integer.MAX_VALUE means unreported value.
+     */
+    int32_t csiRsrp;
+
+    /**
+     * CSI reference signal received quality, multipled by -1.
+     * Reference: TS 138.215.
+     * Range: 3 dB to 20 dB.
+     * Integer.MAX_VALUE means unreported value.
+     */
+    int32_t csiRsrq;
+
+    /**
+     * Reference: TS 138.215 Sec 5.1.*, TS 38.331 SINR-Range.
+     * Range: 0 to 127.
+     * Integer.MAX_VALUE means unreported value.
+     */
+    int32_t csiSinr;
+};
+
+struct CellInfoNR {
+    NRSignalStrength signalStrength;
+    CellIdentityNR cellidentity;
+};
+
+enum CellInfoType : @1.0::CellInfoType {
+    /** Indicates the 5G cell. */
+    NR = 6,
+};
+
+struct CellConfigLte {
+    /**
+     * Indicates that if E-UTRA-NR Dual Connectivity (EN-DC) is upported by the LTE cell.
+     *
+     * True if the plmn-InfoList-r15 is present in SIB2 and at least one bit in this list is true,
+     * otherwise this value should be false.
+     *
+     * Reference: TS 136.331 6.3.1 System information blocks.
+     */
+    bool endcAvailable;
+};
+
+struct CellInfoLte {
+    @1.2::CellInfoLte base;
+    CellConfigLte cellConfig;
+};
+
+struct CellInfo {
+    @1.2::CellInfo base;
+    vec<CellInfoNR> nr;
+};
+
+struct CellIdentity {
+    @1.2::CellIdentity base;
+
+    /**
+     * If the CellInfoType is NR, the size of the vector should be 1, otherwise the vector should
+     * be empty.
+     */
+    vec<CellIdentityNR> cellIdentityNR;
+};
+
+struct SignalStrength {
+    @1.2::SignalStrength base;
+    NRSignalStrength nr;
 };
