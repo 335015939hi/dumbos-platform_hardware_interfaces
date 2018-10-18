@@ -18,13 +18,36 @@ package android.hardware.radio@1.3;
 
 import @1.0::ApnAuthType;
 import @1.0::ApnTypes;
+import @1.0::CellInfoType;
+import @1.0::CdmaSignalStrength;
 import @1.0::DataProfileId;
 import @1.0::DataProfileInfoType;
+import @1.0::EvdoSignalStrength;
+import @1.0::GsmSignalStrength;
+import @1.0::LteSignalStrength;
 import @1.0::RadioAccessFamily;
+import @1.0::RadioError;
 import @1.0::RegState;
+import @1.0::TimeStampType;
+import @1.1::ScanStatus;
 import @1.2::AccessNetwork;
+import @1.2::CellInfo;
+import @1.2::CellInfoCdma;
+import @1.2::CellInfoGsm;
+import @1.2::CellInfoLte;
+import @1.2::CellInfoTdscdma;
+import @1.2::CellInfoWcdma;
 import @1.2::CellIdentity;
+import @1.2::CellIdentityCdma;
+import @1.2::CellIdentityGsm;
+import @1.2::CellIdentityLte;
+import @1.2::CellIdentityTdscdma;
+import @1.2::CellIdentityWcdma;
+import @1.2::CellIdentityOperatorNames;
 import @1.2::DataRegStateResult;
+import @1.2::SignalStrength;
+import @1.2::TdscdmaSignalStrength;
+import @1.2::WcdmaSignalStrength;
 
 import android.hidl.safe_union@1.0::Monostate;
 
@@ -157,7 +180,41 @@ struct LteVopsInfo {
 };
 
 struct DataRegStateResult {
-    @1.2::DataRegStateResult base;
+    /**
+     * Valid reg states are NOT_REG_MT_NOT_SEARCHING_OP,
+     * REG_HOME, NOT_REG_MT_SEARCHING_OP, REG_DENIED,
+     * UNKNOWN, REG_ROAMING defined in RegState
+     */
+    RegState regState;
+
+    /**
+     * Indicates the available data radio technology,
+     * valid values as defined by RadioTechnology.
+     */
+    int32_t rat;
+
+    /**
+     * If registration state is 3 (Registration
+     * denied) this is an enumerated reason why
+     * registration was denied. See 3GPP TS 24.008,
+     * Annex G.6 "Additional cause codes for GMM".
+     * 7 == GPRS services not allowed
+     * 8 == GPRS services and non-GPRS services not allowed
+     * 9 == MS identity cannot be derived by the network
+     * 10 == Implicitly detached
+     * 14 == GPRS services not allowed in this PLMN
+     * 16 == MSC temporarily not reachable
+     * 40 == No PDP context activated
+     */
+    int32_t reasonDataDenied;
+
+    /**
+     * The maximum number of simultaneous Data Calls must be established using setupDataCall().
+     */
+    int32_t maxDataCalls;
+
+    CellIdentity cellIdentity;
+
     /**
      * Network capabilities for voice over PS services. This info is valid only
      * on LTE network and must be present when device is camped on LTE. vopsInfo
@@ -168,6 +225,18 @@ struct DataRegStateResult {
 
         LteVopsInfo lteVopsInfo; // LTE network capability
     } vopsInfo;
+
+    /**
+     * True if use of dual connectivity with NR is not restricted.
+     * Reference: TS 24.301 v15.03 section 9.3.3.12A.
+     */
+    bool isDcnrAllowed;
+
+    /**
+     * True if NR is supported by the selected plmn.
+     * Reference: TS 136.331 v15.2.2 section 6.3.1 PLMN-InfoList-r15.
+     */
+    bool isNrAvailable;
 };
 
 /**
@@ -242,4 +311,270 @@ struct DataProfileInfo {
      * overwrite it.
      */
     bool persistent;
+};
+
+struct CellIdentityNr {
+    /** 3-digit Mobile Country Code, in range[0, 999], Integer.MAX_VALUE if unknown. */
+    string mcc;
+
+    /**
+     * 2 or 3-digit Mobile Network Code, in range [0, 999], Integer.MAX_VALUE if unknown.
+     */
+    string mnc;
+
+    /**
+     * Physical cell id in range [0, 1007] described in TS 38.331. This value must be valid.
+     */
+    uint32_t pci;
+
+    /** 16-bit tracking area code, Integer.MAX_VALUE if unknown. */
+    int32_t tac;
+
+    /**
+     * NR Absolute Radio Frequency Channel Number, in range [0, 3279165].
+     * Reference: TS 38.101-1 and TS 38.101-2 section 5.4.2.1.
+     * This value must be valid.
+     */
+    int32_t nrarfcn;
+
+    CellIdentityOperatorNames operatorNames;
+};
+
+struct NrSignalStrength {
+    /**
+     * SS reference signal received power, multipled by -1.
+     * Reference: TS 138.215.
+     * Range: 44 dBm to 140 dBm.
+     * Integer.MAX_VALUE means unreported value.
+     */
+    int32_t ssRsrp;
+
+    /**
+     * SS reference signal received quality, multipled by -1.
+     * Reference: TS 138.215.
+     * Range: 3 dB to 20 dB.
+     * Integer.MAX_VALUE means unreported value.
+     */
+    int32_t ssRsrq;
+
+    /**
+     * Reference: TS 138.215 Sec 5.1.*, TS 38.331 SINR-Range.
+     * Range: 0 to 127.
+     * Integer.MAX_VALUE means unreported value.
+     */
+    int32_t ssSinr;
+
+    /**
+     * CSI reference signal received power, multipled by -1.
+     * Reference: TS 138.215.
+     * Range: 44 dBm to 140 dBm.
+     * Integer.MAX_VALUE means unreported value.
+     */
+    int32_t csiRsrp;
+
+    /**
+     * CSI reference signal received quality, multipled by -1.
+     * Reference: TS 138.215.
+     * Range: 3 dB to 20 dB.
+     * Integer.MAX_VALUE means unreported value.
+     */
+    int32_t csiRsrq;
+
+    /**
+     * Reference: TS 138.215 Sec 5.1.*, TS 38.331 SINR-Range.
+     * Range: 0 to 127.
+     * Integer.MAX_VALUE means unreported value.
+     */
+    int32_t csiSinr;
+};
+
+struct CellInfoNr {
+    NrSignalStrength signalStrength;
+    CellIdentityNr cellidentity;
+};
+
+enum CellInfoType : @1.0::CellInfoType {
+    /** Indicates the 5G cell. */
+    NR = 6,
+};
+
+struct CellConfigLte {
+    /**
+     * Indicates that if E-UTRA-NR Dual Connectivity (EN-DC) is upported by the LTE cell.
+     *
+     * True if the plmn-InfoList-r15 is present in SIB2 and at least one bit in this list is true,
+     * otherwise this value should be false.
+     *
+     * Reference: TS 136.331 6.3.1 System information blocks.
+     */
+    bool endcAvailable;
+};
+
+struct CellInfoLte {
+    @1.2::CellInfoLte base;
+    CellConfigLte cellConfig;
+};
+
+struct CellInfo {
+    /** Cell type for selecting from union CellInfo. */
+    CellInfoType cellInfoType;
+
+    /** True if this cell is registered false if not registered. */
+    bool registered;
+
+    /** Type of time stamp represented by timeStamp. */
+    TimeStampType timeStampType;
+
+    /** Time in nanos as returned by ril_nano_time. */
+    uint64_t timeStamp;
+
+    /**
+     * Only one of the below vectors must be of size 1 based on the CellInfoType and others must be
+     * of size 0.
+     */
+
+    /** Valid only if type = gsm and size = 1 else must be empty. */
+    vec<CellInfoGsm> gsm;
+
+    /** Valid only if type = cdma and size = 1 else must be empty. */
+    vec<CellInfoCdma> cdma;
+
+    /** Valid only if type = lte and size = 1 else must be empty. */
+    vec<CellInfoLte> lte;
+
+    /** Valid only if type = wcdma and size = 1 else must be empty. */
+    vec<CellInfoWcdma> wcdma;
+
+    /** Valid only if type = tdscdma and size = 1 else must be empty. */
+    vec<CellInfoTdscdma> tdscdma;
+
+    /** Valid only if type = nr and size = 1 else must be empty. */
+    vec<CellInfoNr> nr;
+};
+
+struct CellIdentity {
+    /**
+     * Cell type for selecting from union CellInfo.
+     * Only one of the below vectors must be of size 1 based on a
+     * valid CellInfoType and others must be of size 0.
+     * If cell info type is NONE, then all the vectors must be of size 0.
+     */
+    CellInfoType cellInfoType;
+    vec<CellIdentityGsm> cellIdentityGsm;
+    vec<CellIdentityWcdma> cellIdentityWcdma;
+    vec<CellIdentityCdma> cellIdentityCdma;
+    vec<CellIdentityLte> cellIdentityLte;
+    vec<CellIdentityTdscdma> cellIdentityTdscdma;
+    vec<CellIdentityNr> cellIdentityNr;
+};
+
+struct VoiceRegStateResult {
+    /**
+     * Valid reg states are NOT_REG_MT_NOT_SEARCHING_OP,
+     * REG_HOME, NOT_REG_MT_SEARCHING_OP, REG_DENIED,
+     * UNKNOWN, REG_ROAMING defined in RegState
+     */
+    RegState regState;
+
+    /**
+     * Indicates the available voice radio technology, valid values as
+     * defined by RadioTechnology.
+     */
+    int32_t rat;
+
+    /**
+     * concurrent services support indicator. if registered on a CDMA system.
+     * false - Concurrent services not supported,
+     * true - Concurrent services supported
+     */
+    bool cssSupported;
+
+    /**
+     * TSB-58 Roaming Indicator if registered on a CDMA or EVDO system or -1 if not.
+     * Valid values are 0-255.
+     */
+    int32_t roamingIndicator;
+
+    /**
+     * Indicates whether the current system is in the PRL if registered on a CDMA or EVDO system
+     * or -1 if not. 0=not in the PRL, 1=in the PRL
+     */
+    int32_t systemIsInPrl;
+
+    /**
+     * Default Roaming Indicator from the PRL if registered on a CDMA or EVDO system or -1 if not.
+     * Valid values are 0-255.
+     */
+    int32_t defaultRoamingIndicator;
+
+    /**
+     * reasonForDenial if registration state is 3
+     * (Registration denied) this is an enumerated reason why
+     * registration was denied. See 3GPP TS 24.008,
+     * 10.5.3.6 and Annex G.
+     * 0 - General
+     * 1 - Authentication Failure
+     * 2 - IMSI unknown in HLR
+     * 3 - Illegal MS
+     * 4 - Illegal ME
+     * 5 - PLMN not allowed
+     * 6 - Location area not allowed
+     * 7 - Roaming not allowed
+     * 8 - No Suitable Cells in this Location Area
+     * 9 - Network failure
+     * 10 - Persistent location update reject
+     * 11 - PLMN not allowed
+     * 12 - Location area not allowed
+     * 13 - Roaming not allowed in this Location Area
+     * 15 - No Suitable Cells in this Location Area
+     * 17 - Network Failure
+     * 20 - MAC Failure
+     * 21 - Sync Failure
+     * 22 - Congestion
+     * 23 - GSM Authentication unacceptable
+     * 25 - Not Authorized for this CSG
+     * 32 - Service option not supported
+     * 33 - Requested service option not subscribed
+     * 34 - Service option temporarily out of order
+     * 38 - Call cannot be identified
+     * 48-63 - Retry upon entry into a new cell
+     * 95 - Semantically incorrect message
+     * 96 - Invalid mandatory information
+     * 97 - Message type non-existent or not implemented
+     * 98 - Message type not compatible with protocol state
+     * 99 - Information element non-existent or not implemented
+     * 100 - Conditional IE error
+     * 101 - Message not compatible with protocol state
+     * 111 - Protocol error, unspecified
+     */
+    int32_t reasonForDenial;
+
+    CellIdentity cellIdentity;
+};
+
+struct SignalStrength {
+    GsmSignalStrength gsm;
+    CdmaSignalStrength cdma;
+    EvdoSignalStrength evdo;
+    LteSignalStrength lte;
+    TdscdmaSignalStrength tdscdma;
+    WcdmaSignalStrength wcdma;
+    NrSignalStrength nr;
+};
+
+struct NetworkScanResult {
+    /**
+     * The status of the scan.
+     */
+    ScanStatus status;
+
+    /**
+     * The error code of the incremental result.
+     */
+    RadioError error;
+
+    /**
+     * List of network information as CellInfo.
+     */
+    vec<CellInfo> networkInfos;
 };
