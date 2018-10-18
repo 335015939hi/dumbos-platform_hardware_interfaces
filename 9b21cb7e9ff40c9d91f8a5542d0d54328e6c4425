@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a4d0ab20_046b0142",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-10-18T23:41:48Z",
+      "side": 1,
+      "message": "nit, I believe all of these phrases should end with a \".\"",
+      "range": {
+        "startLine": 265,
+        "startChar": 66,
+        "endLine": 265,
+        "endChar": 73
+      },
+      "revId": "9b21cb7e9ff40c9d91f8a5542d0d54328e6c4425",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "662f36b5_834f8f83",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-10-18T23:41:48Z",
+      "side": 1,
+      "message": "Does this fit on the line above?",
+      "range": {
+        "startLine": 270,
+        "startChar": 7,
+        "endLine": 270,
+        "endChar": 25
+      },
+      "revId": "9b21cb7e9ff40c9d91f8a5542d0d54328e6c4425",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c281c75_5868952b",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-10-18T23:41:48Z",
+      "side": 1,
+      "message": "P",
+      "range": {
+        "startLine": 275,
+        "startChar": 7,
+        "endLine": 275,
+        "endChar": 8
+      },
+      "revId": "9b21cb7e9ff40c9d91f8a5542d0d54328e6c4425",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
