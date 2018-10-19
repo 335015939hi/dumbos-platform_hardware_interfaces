@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fc787cb8_31289891",
+        "filename": "neuralnetworks/1.2/IDevice.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-10-19T18:52:05Z",
+      "side": 1,
+      "message": "I know this is a cherry-pick, but could you consider making the wrapping here consistent with the rest of the HAL as well?",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 6
+      },
+      "revId": "618028b888dadc61152e0e0afc623a5de268df8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
