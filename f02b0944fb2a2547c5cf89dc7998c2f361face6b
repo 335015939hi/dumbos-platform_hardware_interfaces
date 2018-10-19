@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "efa48c91_cf1bd605",
+        "filename": "bluetooth/audio/2.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2018-10-19T07:05:30Z",
+      "side": 1,
+      "message": "TODO: Pre discussed at 10/18 afternoon, we may need 2 session types for Hearing Aids:\n - media for music streaming, and\n - voice for phone / voip calls.",
+      "range": {
+        "startLine": 40,
+        "startChar": 4,
+        "endLine": 40,
+        "endChar": 42
+      },
+      "revId": "f02b0944fb2a2547c5cf89dc7998c2f361face6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "130693e3_aad37355",
+        "filename": "bluetooth/audio/2.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2018-10-19T07:05:30Z",
+      "side": 1,
+      "message": "TODO: Pre discussed at 10/18 afternoon, we may need more for LDAC channel mode and some specific of other codecs.",
+      "range": {
+        "startLine": 135,
+        "startChar": 19,
+        "endLine": 135,
+        "endChar": 27
+      },
+      "revId": "f02b0944fb2a2547c5cf89dc7998c2f361face6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
