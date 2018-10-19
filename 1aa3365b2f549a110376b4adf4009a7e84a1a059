@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "86292e07_12605599",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2018-10-19T19:19:19Z",
+      "side": 1,
+      "message": "nit: Use a different Change-Id since this change-id was reverted in master. But I guess it is okay without Merged-In...",
+      "revId": "1aa3365b2f549a110376b4adf4009a7e84a1a059",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
