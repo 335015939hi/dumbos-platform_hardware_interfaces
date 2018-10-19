@@ -21,13 +21,13 @@ package android.hardware.bluetooth.audio@2.0;
  *
  * This interface is from HAL server to HAL client.
  *
- * The HAL server must call into the IBluetoothAudioHost to initiate
+ * The HAL server must call into the IBluetoothAudioPort to initiate
  * the start, suspend and stop of the streaming operation. These
  * calls return immediately and the results, if any, are send over
  * the IBluetoothAudioProvider interface.
  */
 
-interface IBluetoothAudioHost {
+interface IBluetoothAudioPort {
     /**
      * Invoked when the start stream is requested from HAL server
      * to HAL client. This indicates that the HAL server
@@ -74,17 +74,4 @@ interface IBluetoothAudioHost {
     getPresentationPosition() generates (Status status,
         TimeSpec remoteDeviceAudioDelay, uint64_t transmittedOctets,
         TimeSpec transmittedOctetsTimeStamp);
-
-    /**
-     * PLACEHOLDER: Prepare Data Path - copied from audio/4.0/IStreamOut.hal
-     */
-/*
-    prepareDataPathForWriting(uint32_t frameSize, uint32_t framesCount)
-    generates (
-            Result retval,
-            fmq_sync<WriteCommand> commandMQ,
-            fmq_sync<uint8_t> dataMQ,
-            fmq_sync<WriteStatus> statusMQ,
-            ThreadInfo threadInfo);
-*/
 };

@@ -16,17 +16,17 @@
 
 package android.hardware.bluetooth.audio@2.0;
 
-import IBluetoothAudioHost;
+import IBluetoothAudioPort;
 
 /**
  * HAL interface for Bluetooth audio functionality.
  *
  * This interface is from HAL client to HAL server.
  *
- * The HAL client must provide the handle of IBluetoothAudioHost as well
+ * The HAL client must provide the handle of IBluetoothAudioPort as well
  * as session type and codec configuration to the HAL server.
  * HAL Server, based on the feedback from the Audio
- * framework must call into the commands provided by the IBluetoothAudioHost.
+ * framework must call into the commands provided by the IBluetoothAudioPort.
  * HAL client must call into IBluetoothAudioProvider to provide the status of
  * these commands. Once the device becomes inactive, the HAL client must
  * call the endSession to terminate the session with the HAL server.
@@ -36,7 +36,7 @@ interface IBluetoothAudioProvider {
     /**
      * Indicates that the HAL client is connected to a remote audio receiving
      * device and is ready to stream audio. This function is also used to
-     * register the BluetoothAudioHost interface and the provide the current
+     * register the BluetoothAudioPort interface and the provide the current
      * negotiated codec.
      *
      * |endSession| must be called to unregister the interface.
@@ -55,8 +55,9 @@ interface IBluetoothAudioProvider {
      *    FAILURE if HAL server cannot initialize the platform for any other
      *        reason
      */
-    startSession(IBluetoothAudioHost hostIf, SessionType sessionType,
-                CodecConfiguration codecConfig) generates (Status status);
+    startSession(IBluetoothAudioPort hostIf, SessionType sessionType,
+                CodecConfiguration codecConfig)
+                generates (Status status, fmq_sync<uint8_t> dataMQ);
 
     /**
      * Updates status for start stream request. The HAL client may need
@@ -80,7 +81,7 @@ interface IBluetoothAudioProvider {
 
     /**
      * Ends the current A2DP offload session and unregisters the
-     * BluetoothAudioHost interface.
+     * BluetoothAudioPort interface.
      */
     endSession();
 };
