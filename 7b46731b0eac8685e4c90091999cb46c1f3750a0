@@ -22,6 +22,30 @@
       "revId": "7b46731b0eac8685e4c90091999cb46c1f3750a0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb88ce72_35532456",
+        "filename": "update-makefiles.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2018-10-19T23:34:55Z",
+      "side": 1,
+      "message": "\u003e if this command fails, then the user will be left in a different directory (because of \u0027set -e\u0027)\n\npushd\u0027s change is limited to the script process itself. its parent bash\u0027s path is unaffected.",
+      "parentUuid": "d2199219_70a10db7",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 28
+      },
+      "revId": "7b46731b0eac8685e4c90091999cb46c1f3750a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
