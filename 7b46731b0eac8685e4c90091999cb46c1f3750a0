@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d2199219_70a10db7",
+        "filename": "update-makefiles.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-10-19T23:28:26Z",
+      "side": 1,
+      "message": "if this command fails, then the user will be left in a different directory (because of \u0027set -e\u0027). Can you change it so that it doesn\u0027t depend on pwd?",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 28
+      },
+      "revId": "7b46731b0eac8685e4c90091999cb46c1f3750a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
