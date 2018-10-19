@@ -29,6 +29,8 @@ enum Status : uint8_t {
     FAILURE,
     /** codec configuration not supported by the audio platform */
     UNSUPPORTED_CODEC_CONFIGURATION,
+    /** Bluetooth Stack is still running previous command */
+    BUSY_TRY_AGAIN,
     /** operation is pending */
     PENDING,
 };
@@ -38,7 +40,7 @@ enum SessionType : uint8_t {
     A2DP_SOFTWARE_ENCODING_DATAPATH,
     A2DP_HARDWARE_OFFLOAD_DATAPATH,
     HEARING_AID_SOFTWARE_ENCODING_DATAPATH,
-}
+};
 
 enum CodecType : uint32_t {
     UNKNOWN = 0x00,
@@ -74,6 +76,15 @@ enum ChannelMode : uint8_t {
     STEREO = 0x02,
 };
 
+enum SbcChannelMode : uint8_t {
+    /** Channel Mode: 4 bits */
+    UNKNOWN = 0x00,
+    JOINT_STEREO = 0x01,
+    STEREO = 0x02,
+    DUAL = 0x04,
+    MONO = 0x08,
+};
+
 enum AacObjectType : uint8_t {
     /** MPEG-2 Low Complexity. Support is Mandatory. */
     MPEG2_LC = 0x80,
@@ -83,6 +94,14 @@ enum AacObjectType : uint8_t {
     MPEG4_LTP = 0x20,
     /** MPEG-4 Scalable. Support is Optional. */
     MPEG4_SCALABLE = 0x10,
+};
+
+enum LdacChannelMode : uint8_t {
+    /** Channel Mode: 3 bits */
+    UNKNOWN = 0x00,
+    STEREO = 0x01,
+    DUAL = 0x02,
+    MONO = 0x04,
 };
 
 struct CodecConfiguration {
@@ -118,7 +137,7 @@ struct CodecConfiguration {
              */
             struct SbcData {
                 /** Reserved: 4 bits | Channel Mode: 4 bits */
-                uint8_t channelMode;
+                SbcChannelMode channelMode;
                 /** Block length: 4 bits | Subbands: 2 bits | Allocation Method: 2 bits */
                 uint8_t codecParameters;
                 /** Minimum bitpool value */
@@ -133,6 +152,8 @@ struct CodecConfiguration {
                 bool variableBitRateEnabled;
             } aacData;
             struct LdacData {
+                /** Reserved: 5 bits | Channel Mode: 3 bits */
+                LdacChannelMode channelMode;
                 /**
                  * LDAC bitrate index value:
                  * 0x00 - High

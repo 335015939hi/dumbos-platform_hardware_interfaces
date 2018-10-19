@@ -21,37 +21,43 @@ package android.hardware.bluetooth.audio@2.0;
  *
  * This interface is from HAL server to HAL client.
  *
- * The HAL server must call into the IBluetoothAudioHost to initiate
+ * The HAL server must call into the IBluetoothAudioPort to initiate
  * the start, suspend and stop of the streaming operation. These
  * calls return immediately and the results, if any, are send over
  * the IBluetoothAudioProvider interface.
  */
 
-interface IBluetoothAudioHost {
+interface IBluetoothAudioPort {
     /**
      * Invoked when the start stream is requested from HAL server
-     * to HAL client. This indicates that the HAL server
-     * has initialized the platform for streaming use case, and the
+     * to HAL client. This indicates that the HAL server has
+     * initialized the platform for streaming use case, and the
      * HAL client can proceed with the streaming procedure. The
-     * result of the operation must be provided by the HAL
-     * client using the IBluetoothAudioServer interface.
+     * result of the operation must be provided by the HAL client
+     * using the IBluetoothAudioProvider interface. The caller
+     * of HAL server must wait for the result received either
+     * SUCCESS or FAILURE before any further actions.
      */
     startStream();
 
     /**
      * Invoked when the suspend stream is requested from HAL server
-     * to HAL client. This indicates that the HAL server
-     * wants to suspend the streaming procedure. The result of the
-     * operation must be provided by the HAL client using the
-     * IBluetoothAudioServer interface.
+     * to HAL client. This indicates that the HAL server wants to
+     * suspend the streaming procedure. It keeps the data path to be
+     * opened but inactive. The result of the operation must be
+     * provided by the HAL client using the IBluetoothAudioProvider
+     * interface and the HAL server must wait for it.
      */
     suspendStream();
 
     /**
      * Invoked when the stop stream is requested from HAL server
      * to HAL client. This indicates that the HAL server wants to
-     * stop and reset the streaming procedure. There is no result
-     * provided by the HAL client for this call.
+     * stop and reset the streaming procedure. It means the Audio
+     * HAL won’t use the data path any more. There is no result
+     * provided by the HAL client for this call and does NOT
+     * guarantee the stream can be started successfully again in
+     * a short time.
      */
     stopStream();
 
@@ -59,32 +65,19 @@ interface IBluetoothAudioHost {
      * Get the audio presentation position.
      *
      * @return status the command status
-     * @return remoteDeviceAudioDelay the audio delay from the
-     * remote device (headset) receiving audio data to the device playing
-     * the sound. If the delay is unknown, the value is set to zero.
+     * @return remoteDeviceAudioDelay the audio delay from the remote
+     *    device (headset) receiving audio data to the device playing
+     *    the sound. If the delay is unknown, the value is set to zero.
      * @return transmittedOctets the number of audio data octets presented
-     * to an external observer. This excludes octets which have been written
-     * but are still in the pipeline. The count is not reset to zero when
-     * output enters standby. If the transmittedOctets are unknown
-     * (e.g., for A2DP Hardware Offload), the value is set to zero.
+     *    to an external observer. This excludes octets which have been written
+     *    but are still in the pipeline. The count is not reset to zero when
+     *    output enters standby. If the transmittedOctets are unknown
+     *    (e.g., for A2DP Hardware Offload), the value is set to zero.
      * @return transmittedOctetsTimeStamp the value of CLOCK_MONOTONIC
-     * corresponding to transmittedOctets. If the transmittedOctets are
-     * unknown (e.g., for A2DP Hardware Offload), the value is set to zero.
+     *    corresponding to transmittedOctets. If the transmittedOctets are
+     *    unknown (e.g., for A2DP Hardware Offload), the value is set to zero.
      */
     getPresentationPosition() generates (Status status,
         TimeSpec remoteDeviceAudioDelay, uint64_t transmittedOctets,
         TimeSpec transmittedOctetsTimeStamp);
-
-    /**
-     * PLACEHOLDER: Prepare Data Path - copied from audio/4.0/IStreamOut.hal
-     */
-/*
-    prepareDataPathForWriting(uint32_t frameSize, uint32_t framesCount)
-    generates (
-            Result retval,
-            fmq_sync<WriteCommand> commandMQ,
-            fmq_sync<uint8_t> dataMQ,
-            fmq_sync<WriteStatus> statusMQ,
-            ThreadInfo threadInfo);
-*/
 };
