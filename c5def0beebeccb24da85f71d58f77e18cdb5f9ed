@@ -46,6 +46,30 @@
       "revId": "c5def0beebeccb24da85f71d58f77e18cdb5f9ed",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c10509f_66cd87b2",
+        "filename": "wifi/1.2/default/wifi_legacy_hal.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 553,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-10-22T20:37:27Z",
+      "side": 1,
+      "message": "I\u0027m referring to the whole statement \u0027[[fallthrough]];\u0027. \"fallthrough statement\" in the standard seems to refer to a fallthrough attribute applied to the empty \u0027;\u0027 statement.",
+      "parentUuid": "49506c1b_78f84774",
+      "range": {
+        "startLine": 553,
+        "startChar": 31,
+        "endLine": 553,
+        "endChar": 32
+      },
+      "revId": "c5def0beebeccb24da85f71d58f77e18cdb5f9ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
