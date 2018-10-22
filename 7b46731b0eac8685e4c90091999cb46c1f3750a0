@@ -46,6 +46,30 @@
       "revId": "7b46731b0eac8685e4c90091999cb46c1f3750a0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5e904b23_3dc03191",
+        "filename": "update-makefiles.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-10-22T19:30:21Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "eb88ce72_35532456",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 28
+      },
+      "revId": "7b46731b0eac8685e4c90091999cb46c1f3750a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
