@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "49e7ce89_3fc36a35",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-10-22T23:20:54Z",
+      "side": 1,
+      "message": "Can you use the enum here?",
+      "range": {
+        "startLine": 194,
+        "startChar": 4,
+        "endLine": 194,
+        "endChar": 11
+      },
+      "revId": "85678c4f47589ee5a5334bb0eb09660adbafd32d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c4c68f4_a2ab176a",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-10-22T23:20:54Z",
+      "side": 1,
+      "message": "could you define these in HIDL?",
+      "range": {
+        "startLine": 201,
+        "startChar": 0,
+        "endLine": 207,
+        "endChar": 37
+      },
+      "revId": "85678c4f47589ee5a5334bb0eb09660adbafd32d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9636200_0c1b06bf",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-10-22T23:20:54Z",
+      "side": 1,
+      "message": "This was originally a hack to support Java. This is actually supported in the type system now. You can have:\n\nsafe_union {\n    CellInfoGsm gsm;\n    ...\n};\n\n:D",
+      "range": {
+        "startLine": 431,
+        "startChar": 4,
+        "endLine": 452,
+        "endChar": 23
+      },
+      "revId": "85678c4f47589ee5a5334bb0eb09660adbafd32d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47e9c6a3_aebc79f7",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-10-22T23:20:54Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 463,
+        "startChar": 0,
+        "endLine": 468,
+        "endChar": 39
+      },
+      "revId": "85678c4f47589ee5a5334bb0eb09660adbafd32d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6748b11_5dcb2d02",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-10-22T23:20:54Z",
+      "side": 1,
+      "message": "same",
+      "revId": "85678c4f47589ee5a5334bb0eb09660adbafd32d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca2e7616_fda98394",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-10-22T23:20:54Z",
+      "side": 1,
+      "message": "bool?",
+      "range": {
+        "startLine": 502,
+        "startChar": 4,
+        "endLine": 502,
+        "endChar": 11
+      },
+      "revId": "85678c4f47589ee5a5334bb0eb09660adbafd32d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fdb86c89_df5161db",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-10-22T23:20:54Z",
+      "side": 1,
+      "message": "could you define these in HIDL?",
+      "range": {
+        "startLine": 515,
+        "startChar": 0,
+        "endLine": 548,
+        "endChar": 40
+      },
+      "revId": "85678c4f47589ee5a5334bb0eb09660adbafd32d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
