@@ -137,6 +137,30 @@
       "revId": "c3d6f68f6bd3996c2f4fcd00762082cae0a00a4d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5c832f9_cb28cc89",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1098848
+      },
+      "writtenOn": "2018-10-22T18:06:35Z",
+      "side": 1,
+      "message": "yes, just follow the parameter as other signal strength indicator.",
+      "parentUuid": "f9745b27_f12aca83",
+      "range": {
+        "startLine": 294,
+        "startChar": 43,
+        "endLine": 294,
+        "endChar": 58
+      },
+      "revId": "c3d6f68f6bd3996c2f4fcd00762082cae0a00a4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
