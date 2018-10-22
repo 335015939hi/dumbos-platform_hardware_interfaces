@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "154b36de_267c07ee",
+        "filename": "wifi/1.2/default/wifi_legacy_hal.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 553,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-10-22T20:24:39Z",
+      "side": 1,
+      "message": "It seems really strange to me this is a statement, but I guess that\u0027s the standard. :( I guess it is for parity with break/return? And they can\u0027t re-use \u0027continue\u0027 here because it would affect some loops? :(",
+      "range": {
+        "startLine": 553,
+        "startChar": 31,
+        "endLine": 553,
+        "endChar": 32
+      },
+      "revId": "c5def0beebeccb24da85f71d58f77e18cdb5f9ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
