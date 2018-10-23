@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fac96beb_e54f0313",
+        "filename": "drm/1.1/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-10-23T22:17:47Z",
+      "side": 1,
+      "message": "How about:\n\ntag was introduced to be able to express multiple different versions of the same HAL in VINTF manifests (for DRM)",
+      "range": {
+        "startLine": 3,
+        "startChar": 30,
+        "endLine": 4,
+        "endChar": 18
+      },
+      "revId": "f8861fcb1180bfab28e42bc8b4d325b98e56df06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1cbd42c_03eb63d6",
+        "filename": "drm/1.1/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-10-23T22:17:47Z",
+      "side": 1,
+      "message": "nit: requirements for non-optional HALs",
+      "range": {
+        "startLine": 6,
+        "startChar": 8,
+        "endLine": 6,
+        "endChar": 20
+      },
+      "revId": "f8861fcb1180bfab28e42bc8b4d325b98e56df06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "757e3e74_515582c2",
+        "filename": "drm/1.1/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-10-23T22:17:47Z",
+      "side": 1,
+      "message": "older versions of `libvintf` do\n\n-or-\n\nthe older version of `libvintf` will",
+      "range": {
+        "startLine": 6,
+        "startChar": 36,
+        "endLine": 6,
+        "endChar": 62
+      },
+      "revId": "f8861fcb1180bfab28e42bc8b4d325b98e56df06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c8d26e2_3aa98dcd",
+        "filename": "drm/1.1/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-10-23T22:17:47Z",
+      "side": 1,
+      "message": "maybe just use @1.1::I*/other in the example? Perhaps Jeff can say so, but I don\u0027t think it\u0027s best to put references to these (granted, common) DRM implementations",
+      "range": {
+        "startLine": 10,
+        "startChar": 1,
+        "endLine": 10,
+        "endChar": 43
+      },
+      "revId": "f8861fcb1180bfab28e42bc8b4d325b98e56df06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
