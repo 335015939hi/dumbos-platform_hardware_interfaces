@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "602ffd79_4b4f91b8",
+        "filename": "radio/1.3/IRadioResponse.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1098848
+      },
+      "writtenOn": "2018-10-23T17:22:09Z",
+      "side": 1,
+      "message": "Just like other method, keep the RADIO_NOT_AVAILABLE and INTERNAL_ERR.",
+      "parentUuid": "ad9f49e0_a58e6374",
+      "range": {
+        "startLine": 58,
+        "startChar": 3,
+        "endLine": 65,
+        "endChar": 29
+      },
+      "revId": "85678c4f47589ee5a5334bb0eb09660adbafd32d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "49e7ce89_3fc36a35",
         "filename": "radio/1.3/types.hal",
         "patchSetId": 7
@@ -45,6 +69,30 @@
       "revId": "85678c4f47589ee5a5334bb0eb09660adbafd32d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27bbdbbc_2fbf9a22",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1098848
+      },
+      "writtenOn": "2018-10-23T17:22:09Z",
+      "side": 1,
+      "message": "Yes, it should be RadioTechnology, thanks!",
+      "parentUuid": "49e7ce89_3fc36a35",
+      "range": {
+        "startLine": 194,
+        "startChar": 4,
+        "endLine": 194,
+        "endChar": 11
+      },
+      "revId": "85678c4f47589ee5a5334bb0eb09660adbafd32d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "7efe2e7c_02fbcafb",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1098848
+      },
+      "writtenOn": "2018-10-23T17:22:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c4c68f4_a2ab176a",
+      "range": {
+        "startLine": 201,
+        "startChar": 0,
+        "endLine": 207,
+        "endChar": 37
+      },
+      "revId": "85678c4f47589ee5a5334bb0eb09660adbafd32d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c7b1b1c_441e7637",
         "filename": "radio/1.3/types.hal",
         "patchSetId": 7
@@ -91,6 +163,30 @@
       "revId": "85678c4f47589ee5a5334bb0eb09660adbafd32d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "194d12d5_e166e7b9",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1098848
+      },
+      "writtenOn": "2018-10-23T17:22:09Z",
+      "side": 1,
+      "message": "Since this is probably, let keep it know :-)",
+      "parentUuid": "3c7b1b1c_441e7637",
+      "range": {
+        "startLine": 425,
+        "startChar": 0,
+        "endLine": 426,
+        "endChar": 32
+      },
+      "revId": "85678c4f47589ee5a5334bb0eb09660adbafd32d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -141,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "4cc579e4_05db2fbe",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1098848
+      },
+      "writtenOn": "2018-10-23T17:22:09Z",
+      "side": 1,
+      "message": "It\u0027s great to have the union supported! Thanks!",
+      "parentUuid": "6c5ebad7_62a5eff9",
+      "range": {
+        "startLine": 431,
+        "startChar": 4,
+        "endLine": 452,
+        "endChar": 23
+      },
+      "revId": "85678c4f47589ee5a5334bb0eb09660adbafd32d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "47e9c6a3_aebc79f7",
         "filename": "radio/1.3/types.hal",
         "patchSetId": 7
@@ -164,6 +284,30 @@
     },
     {
       "key": {
+        "uuid": "62921b12_3904d360",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1098848
+      },
+      "writtenOn": "2018-10-23T17:22:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "47e9c6a3_aebc79f7",
+      "range": {
+        "startLine": 463,
+        "startChar": 0,
+        "endLine": 468,
+        "endChar": 39
+      },
+      "revId": "85678c4f47589ee5a5334bb0eb09660adbafd32d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a6748b11_5dcb2d02",
         "filename": "radio/1.3/types.hal",
         "patchSetId": 7
@@ -178,6 +322,24 @@
       "revId": "85678c4f47589ee5a5334bb0eb09660adbafd32d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7906ce04_382d9aa6",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1098848
+      },
+      "writtenOn": "2018-10-23T17:22:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6748b11_5dcb2d02",
+      "revId": "85678c4f47589ee5a5334bb0eb09660adbafd32d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -204,6 +366,30 @@
     },
     {
       "key": {
+        "uuid": "6b8dec42_9ce53181",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1098848
+      },
+      "writtenOn": "2018-10-23T17:22:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca2e7616_fda98394",
+      "range": {
+        "startLine": 502,
+        "startChar": 4,
+        "endLine": 502,
+        "endChar": 11
+      },
+      "revId": "85678c4f47589ee5a5334bb0eb09660adbafd32d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fdb86c89_df5161db",
         "filename": "radio/1.3/types.hal",
         "patchSetId": 7
@@ -224,6 +410,30 @@
       "revId": "85678c4f47589ee5a5334bb0eb09660adbafd32d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d8703f9_bf9030ef",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 1098848
+      },
+      "writtenOn": "2018-10-23T17:22:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fdb86c89_df5161db",
+      "range": {
+        "startLine": 515,
+        "startChar": 0,
+        "endLine": 548,
+        "endChar": 40
+      },
+      "revId": "85678c4f47589ee5a5334bb0eb09660adbafd32d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
