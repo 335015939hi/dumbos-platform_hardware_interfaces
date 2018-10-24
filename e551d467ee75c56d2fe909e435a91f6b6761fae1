@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "160103d9_38981902",
+        "filename": "radio/config/1.1/IRadioConfigIndication.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-10-24T02:17:34Z",
+      "side": 1,
+      "message": "missing \u0027*\u0027",
+      "revId": "e551d467ee75c56d2fe909e435a91f6b6761fae1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1f99211_d37b6146",
+        "filename": "radio/config/1.1/IRadioConfigResponse.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-10-24T02:17:34Z",
+      "side": 1,
+      "message": "formatting",
+      "range": {
+        "startLine": 31,
+        "startChar": 5,
+        "endLine": 31,
+        "endChar": 6
+      },
+      "revId": "e551d467ee75c56d2fe909e435a91f6b6761fae1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ff03bcb_930650eb",
+        "filename": "radio/config/1.1/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-10-24T02:17:34Z",
+      "side": 1,
+      "message": "nit: more comments for this?",
+      "range": {
+        "startLine": 39,
+        "startChar": 13,
+        "endLine": 39,
+        "endChar": 26
+      },
+      "revId": "e551d467ee75c56d2fe909e435a91f6b6761fae1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
