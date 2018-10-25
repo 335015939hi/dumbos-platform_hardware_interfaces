@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "4b6806a3_861d83db",
+        "filename": "radio/config/1.1/IRadioConfigIndication.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1121198
+      },
+      "writtenOn": "2018-10-25T19:29:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "160103d9_38981902",
+      "revId": "e551d467ee75c56d2fe909e435a91f6b6761fae1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a1f99211_d37b6146",
         "filename": "radio/config/1.1/IRadioConfigResponse.hal",
         "patchSetId": 2
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "1eca6513_7fd2f5b8",
+        "filename": "radio/config/1.1/IRadioConfigResponse.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1121198
+      },
+      "writtenOn": "2018-10-25T19:29:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1f99211_d37b6146",
+      "range": {
+        "startLine": 31,
+        "startChar": 5,
+        "endLine": 31,
+        "endChar": 6
+      },
+      "revId": "e551d467ee75c56d2fe909e435a91f6b6761fae1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8ff03bcb_930650eb",
         "filename": "radio/config/1.1/types.hal",
         "patchSetId": 2
@@ -62,6 +104,30 @@
       "revId": "e551d467ee75c56d2fe909e435a91f6b6761fae1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb0c9c91_e2afbc42",
+        "filename": "radio/config/1.1/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1121198
+      },
+      "writtenOn": "2018-10-25T19:29:20Z",
+      "side": 1,
+      "message": "This is all copied from the 1.0, except for eid at the bottom. I can still add comments though, let me check with the original authors",
+      "parentUuid": "8ff03bcb_930650eb",
+      "range": {
+        "startLine": 39,
+        "startChar": 13,
+        "endLine": 39,
+        "endChar": 26
+      },
+      "revId": "e551d467ee75c56d2fe909e435a91f6b6761fae1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
