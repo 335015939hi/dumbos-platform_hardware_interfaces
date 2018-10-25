@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "110d4c59_621c496e",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2018-10-25T21:44:39Z",
+      "side": 1,
+      "message": "remove this",
+      "range": {
+        "startLine": 541,
+        "startChar": 4,
+        "endLine": 541,
+        "endChar": 14
+      },
+      "revId": "7f22e4e4af9f50cbdd5e5486c013c8d438dea2e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3378f5de_787da0ba",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2018-10-25T21:44:39Z",
+      "side": 1,
+      "message": "remove as INTERNAL_ERROR can cover this",
+      "range": {
+        "startLine": 542,
+        "startChar": 4,
+        "endLine": 542,
+        "endChar": 31
+      },
+      "revId": "7f22e4e4af9f50cbdd5e5486c013c8d438dea2e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1dbd22c_0c6a1453",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2018-10-25T21:44:39Z",
+      "side": 1,
+      "message": "Remove this as ERROR_UNSPECIFIED can be used",
+      "range": {
+        "startLine": 543,
+        "startChar": 4,
+        "endLine": 543,
+        "endChar": 22
+      },
+      "revId": "7f22e4e4af9f50cbdd5e5486c013c8d438dea2e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18d68835_39f0ed8f",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2018-10-25T21:44:39Z",
+      "side": 1,
+      "message": "This name doesn\u0027t convey any thing.. we may need to use a better name",
+      "range": {
+        "startLine": 560,
+        "startChar": 4,
+        "endLine": 560,
+        "endChar": 16
+      },
+      "revId": "7f22e4e4af9f50cbdd5e5486c013c8d438dea2e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "741e293f_d0ba94b1",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 590,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2018-10-25T21:44:39Z",
+      "side": 1,
+      "message": "Remove ?",
+      "range": {
+        "startLine": 590,
+        "startChar": 4,
+        "endLine": 590,
+        "endChar": 30
+      },
+      "revId": "7f22e4e4af9f50cbdd5e5486c013c8d438dea2e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9d83b83_0d4c9c7f",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 600,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2018-10-25T21:44:39Z",
+      "side": 1,
+      "message": "Pls add CDMA_ prefix if its specific to CDMA",
+      "range": {
+        "startLine": 600,
+        "startChar": 4,
+        "endLine": 600,
+        "endChar": 13
+      },
+      "revId": "7f22e4e4af9f50cbdd5e5486c013c8d438dea2e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61a9456e_6fb7e992",
+        "filename": "radio/1.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 752,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2018-10-25T21:44:39Z",
+      "side": 1,
+      "message": "Pls remove this one",
+      "range": {
+        "startLine": 752,
+        "startChar": 4,
+        "endLine": 752,
+        "endChar": 22
+      },
+      "revId": "7f22e4e4af9f50cbdd5e5486c013c8d438dea2e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
