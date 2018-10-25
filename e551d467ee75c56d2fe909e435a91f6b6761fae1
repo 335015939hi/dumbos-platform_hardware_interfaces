@@ -151,6 +151,30 @@
       "revId": "e551d467ee75c56d2fe909e435a91f6b6761fae1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66dfe79e_d4ed2981",
+        "filename": "radio/config/1.1/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1121198
+      },
+      "writtenOn": "2018-10-25T20:50:17Z",
+      "side": 1,
+      "message": "Good recommendation, will do",
+      "parentUuid": "9d0e81f6_6b173090",
+      "range": {
+        "startLine": 23,
+        "startChar": 1,
+        "endLine": 47,
+        "endChar": 16
+      },
+      "revId": "e551d467ee75c56d2fe909e435a91f6b6761fae1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
