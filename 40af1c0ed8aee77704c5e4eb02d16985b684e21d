@@ -46,6 +46,30 @@
       "revId": "40af1c0ed8aee77704c5e4eb02d16985b684e21d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf720923_9852e9df",
+        "filename": "radio/config/1.1/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1121198
+      },
+      "writtenOn": "2018-10-25T21:43:32Z",
+      "side": 1,
+      "message": "I\u0027m thinking that I will add the comment to the 1.0 version for documentation",
+      "parentUuid": "4a8792ad_b7743a8b",
+      "range": {
+        "startLine": 39,
+        "startChar": 4,
+        "endLine": 46,
+        "endChar": 7
+      },
+      "revId": "40af1c0ed8aee77704c5e4eb02d16985b684e21d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
