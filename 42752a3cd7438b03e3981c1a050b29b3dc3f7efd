@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "98a1acf8_23402b63",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2018-10-26T14:48:27Z",
+      "side": 1,
+      "message": "this is not correct\n\npls override 1.2 like this one \n\nenum AccessNetwork : @1.2::AccessNetwork {",
+      "range": {
+        "startLine": 250,
+        "startChar": 0,
+        "endLine": 250,
+        "endChar": 34
+      },
+      "revId": "42752a3cd7438b03e3981c1a050b29b3dc3f7efd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
