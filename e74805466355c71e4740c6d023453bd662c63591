@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "34df6a8a_b82fe1d2",
+        "filename": "radio/config/1.1/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1098848
+      },
+      "writtenOn": "2018-10-26T20:55:48Z",
+      "side": 1,
+      "message": "nit: remove the extra lines.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 0
+      },
+      "revId": "e74805466355c71e4740c6d023453bd662c63591",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1384f224_38d440ad",
+        "filename": "radio/config/1.1/IRadioConfigIndication.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1098848
+      },
+      "writtenOn": "2018-10-26T20:55:48Z",
+      "side": 1,
+      "message": "just curiosity, what is the inactive slot?",
+      "range": {
+        "startLine": 32,
+        "startChar": 15,
+        "endLine": 32,
+        "endChar": 28
+      },
+      "revId": "e74805466355c71e4740c6d023453bd662c63591",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab2b9315_4c984449",
+        "filename": "radio/config/1.1/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1098848
+      },
+      "writtenOn": "2018-10-26T20:55:48Z",
+      "side": 1,
+      "message": "nit: I think we can put more words into the previous line :-)",
+      "range": {
+        "startLine": 26,
+        "startChar": 7,
+        "endLine": 26,
+        "endChar": 27
+      },
+      "revId": "e74805466355c71e4740c6d023453bd662c63591",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
