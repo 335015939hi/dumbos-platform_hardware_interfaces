@@ -140,6 +140,30 @@
       "revId": "e74805466355c71e4740c6d023453bd662c63591",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8026a35_08ea69a1",
+        "filename": "radio/config/1.1/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1098848
+      },
+      "writtenOn": "2018-10-26T21:18:23Z",
+      "side": 1,
+      "message": "Most of the vim config set the char limit to 80 char, but we have wider screen now :-)",
+      "parentUuid": "1f525b95_b594362d",
+      "range": {
+        "startLine": 26,
+        "startChar": 7,
+        "endLine": 26,
+        "endChar": 27
+      },
+      "revId": "e74805466355c71e4740c6d023453bd662c63591",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
