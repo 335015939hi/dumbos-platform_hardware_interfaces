@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "505f7b87_3edd73e7",
+        "filename": "radio/config/1.1/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1121198
+      },
+      "writtenOn": "2018-10-26T21:13:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34df6a8a_b82fe1d2",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 0
+      },
+      "revId": "e74805466355c71e4740c6d023453bd662c63591",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1384f224_38d440ad",
         "filename": "radio/config/1.1/IRadioConfigIndication.hal",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2018-10-26T20:55:48Z",
       "side": 1,
       "message": "just curiosity, what is the inactive slot?",
+      "range": {
+        "startLine": 32,
+        "startChar": 15,
+        "endLine": 32,
+        "endChar": 28
+      },
+      "revId": "e74805466355c71e4740c6d023453bd662c63591",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67c594e9_e9c6ccdb",
+        "filename": "radio/config/1.1/IRadioConfigIndication.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1121198
+      },
+      "writtenOn": "2018-10-26T21:13:18Z",
+      "side": 1,
+      "message": "The Pixel 2 for example has two slots (UICC slot and eUICC slot) but the platform only see\u0027s one slot and uses switchSlots() to go between them. Then one of them is considered active and the other is inactive,  but we still expect to receive radio config indications from the inactive slot.",
+      "parentUuid": "1384f224_38d440ad",
       "range": {
         "startLine": 32,
         "startChar": 15,
@@ -68,6 +116,30 @@
       "revId": "e74805466355c71e4740c6d023453bd662c63591",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f525b95_b594362d",
+        "filename": "radio/config/1.1/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1121198
+      },
+      "writtenOn": "2018-10-26T21:13:18Z",
+      "side": 1,
+      "message": "True! For some reason my editor was imposing an 80 char limit on .hal files, so I thought maybe it was standard.",
+      "parentUuid": "ab2b9315_4c984449",
+      "range": {
+        "startLine": 26,
+        "startChar": 7,
+        "endLine": 26,
+        "endChar": 27
+      },
+      "revId": "e74805466355c71e4740c6d023453bd662c63591",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
