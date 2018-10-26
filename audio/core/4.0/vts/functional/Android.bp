@@ -19,14 +19,15 @@ cc_test {
     defaults: ["VtsHalTargetTestDefaults"],
     srcs: [
         "AudioPrimaryHidlHalTest.cpp",
-        "ValidateAudioConfiguration.cpp"
     ],
     static_libs: [
         "android.hardware.audio.common.test.utility",
         "android.hardware.audio@4.0",
         "android.hardware.audio.common@4.0",
+        "libaudiopolicycomponents_test",
         "libicuuc",
         "libicuuc_stubdata",
+        "libmedia_helper",
         "libxml2",
     ],
     shared_libs: [
