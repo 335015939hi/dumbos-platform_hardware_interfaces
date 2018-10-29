@@ -45,6 +45,29 @@
       "revId": "eab44ceaad93e49d7a4dbbb5f36bef2d0f6f63da",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b50b42cf_34ee4bb2",
+        "filename": "nfc/1.2/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1073593
+      },
+      "writtenOn": "2018-10-29T23:11:38Z",
+      "side": 1,
+      "message": "Would be good to have array for multi uicc support.",
+      "range": {
+        "startLine": 27,
+        "startChar": 12,
+        "endLine": 27,
+        "endChar": 29
+      },
+      "revId": "eab44ceaad93e49d7a4dbbb5f36bef2d0f6f63da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
