@@ -1,0 +1,245 @@
+/*
+ * Copyright 2018 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package android.hardware.identity_credential@1.0;
+
+import android.hardware.keymaster.capability@1.0::CapabilityType;
+import android.hardware.keymaster.capability@1.0::KeymasterCapability;
+
+enum ResultCode : int32_t {
+    /**
+     * Success.
+     */
+    OK = 0,
+
+    /**
+     * TODO(hoelzl) Define this
+     */
+    FAILED = 1,
+
+    /**
+     * TODO(hoelzl) Define this
+     */
+    IOERROR = 2,
+
+    /**
+     * TODO(hoelzl) Define this
+     */
+    UNSUPPORTED_OPERATION = 3,
+
+    /**
+     * TODO(hoelzl) Define this
+     */
+    INVALID_DATA = 4,
+
+    /**
+     * An access condition was not satisfied.
+     */
+    RETRIEVAL_DENIED = 5,
+
+    // Error codes above 10000 reserved for implementations.
+};
+
+// TODO(swillden): If we're only going to support one curve, maybe remove this?
+enum KeyType : uint16_t {
+    EC_NIST_P_256,
+};
+
+/**
+ * An AuditLogEntry is a cryptographically-authenticated record that a credential presentation
+ * occurred.
+ */
+struct AuditLogEntry {
+    /**
+     * Hash of the data request.  It contains:
+     *
+     *     SHA-256(ReaderAuthenticationData).
+     *
+     *  See StartRetrievalArguments.requestData for the definition of ReaderAuthenticationData.
+     */
+    uint8_t[32] requestHash;
+
+    /**
+     * Hash of the response.  It contains:
+     *
+     *     SHA-256(AuthenticatedData).
+     *
+     * See IIdentityCredential.finishRetrieval for the definition of AuthenticatedData.
+     */
+    uint8_t[32] responseHash;
+
+    /**
+     * Signature that authenticates this audit log entry.  Contains:
+     *
+     *     ECDSA(CredentialKey, AuditLogData)
+     *
+     *  where
+     *
+     *      AuditLogData = [
+     *          "AuditLogEntry",
+     *          requestHash : bstr,
+     *          responseHash: bstr,
+     *          previousAuditSignatureHash : bstr
+     *     ]
+     *
+     *  requestHash and responseHash are the values above, See IIdentityCredential.finishRetrieval
+     *  for previousAuditSignatureHash.
+     */
+    vec<uint8_t> signature;
+};
+
+safe_union EntryValue {
+    uint64_t integer;
+    string textString;
+    vec<uint8_t> byteString;
+    bool booleanValue;
+};
+
+typedef uint8_t AccessControlProfileId;
+
+struct SecureAccessControlProfile {
+    /**
+     * id is a numeric identifier that must be unique within the context of a Credential and may be
+     * used to reference the profile.
+     */
+    AccessControlProfileId id;
+
+    /**
+     * readerAuthPubKey, if non-empty, specifies a reader public key that must be used to
+     * authenticate requests (see the readerSignature parameter of ICredential.getEntries()).
+     */
+    vec<uint8_t> readerAuthPubKey;
+
+    /**
+     * capabilityId, if non-zero, specifies a 64-bit secure user ID that must be authenticated to
+     * allow requests (see the authToken parameter of ICredential.getEntries()).  Required
+     * authentication freshness is specified by timeout below.
+     */
+    uint64_t capabilityId;
+
+    /**
+     *
+     */
+    CapabilityType capabilityType;
+
+    /**
+     * Timeout specifies the amount of time, in seconds, for which a user authentication (see
+     * capabilityId above) is valid, if capabilityId is non-empty.  If timout is zero then
+     * authentication is required for each reader session.  In that case the authToken provided to
+     * getEntries() must contain a SHA-256 hash of the session transcript (see the sessionTranscript
+     * parameter of ICredentials.getEntries).
+     *
+     * If capabilityId is zero, timeout must be zero.
+     */
+    uint32_t timeout;
+
+    /**
+     * The mac is used to authenticate the access control profile.  It contains:
+     *
+     *      AES-GCM-ENC(storageKey, R, {}, AccessControlProfile)
+     *
+     *  where AccessControlProfile is the CBOR map:
+     *
+     *      AccessControlProfile = {
+     *          "id": uint,                  ; 8 bits
+     *          ? "readerAuthPubKey" : bstr,
+     *          ? (
+     *              "capabilityTypes": uint,   ; 32 bits
+     *              "capabilityId" : uint,   ; 64 bits
+     *              ? "timeout": uint,       ; 32 bits
+     *          )
+     *      }
+     */
+    vec<uint8_t> mac;
+};
+
+struct DirectAccessSigningKeyStatus {
+    vec<uint8_t> signingKeyBlob;
+    uint16_t usageCount;
+};
+
+struct StartRetrievalArguments {
+    /**
+     * Access control profiles that are required to retrieve the entries that are going to be
+     * requested with IIdentityCredential.getEntry.  The requirements of the provided profiles must
+     * be met by the provided authToken and/or readerSignature.
+     *
+     * At most one of the provided SecureAccessControlProfiles may contain a non-empty
+     * readerAuthPubKey.  If more than one is provided, the startRetrievel call must fail with
+     * ResultCode::XXX.
+     */
+    vec<SecureAccessControlProfile> accessControlProfiles;
+
+    /**
+     * The authentication token that proves the user was authenticated, as required by one or more
+     * of the provided accessControlProfiles
+     */
+    KeymasterCapability authToken;
+
+    /**
+     * If non-empty, contains request data that is signed by the reader.  The content can be defined
+     * in the way appropriate for the credential, but there are four requirements that must be met
+     * to work with this HAL:
+     *
+     * 1. The content must be a CBOR-encoded structure.
+     * 2. The CBOR structure must be a map.
+     * 3. The map must contain a key "SessionTranscript" whose value must be a CBOR data structure
+     *    that, somewhere contains a CBOR value of type bytestring, with the value of the ephemeral
+     *    key created by createEphemeralKeyPair.
+     * 4. The map must contain a key "Request" whose value is an array of maps, defined below.
+     *
+     * For example the ISO 18013 Mobile Driving License standard specifies that the data signed
+     * by the reader is structured as:
+     *
+     *     ReaderAuthenticationData = {
+     *         "SessionTranscript" : SessionTranscript,
+     *         "Request" : DataReq
+     *     }
+     *     SessionTranscript = [
+     *         DeviceEngagement,     ; Complicated structure that contains the ephemeral key
+     *         bstr                  ; Reader ephemeral public key
+     *     ]
+     *     DataReq = {
+     *         ? "DocType" : DocType,
+     *         + Namespace => DataItemNames
+     *     }
+     *     DocType = tstr
+     *     Namespace = tstr
+     *     DataItemNames = [ + tstr ]
+     */
+    vec<uint8_t> requestData;
+
+    /**
+     * readerSignature is either empty or contains ECDSA(readerAuthPubKey, requestData) where
+     * readerAuthPubKey is the reader public key from one of the access control profiles.
+     */
+    vec<uint8_t> readerSignature;
+
+    /**
+     * requestCounts specifies the number of data items that are going to be requested, per
+     * namespace.  The number of elements in the vector must be the number of namespaces for which
+     * data items will be requested in retrieveEntry() calls, and the values of the elments must be
+     * the number of items from each namespace, in order, that will be requested in retrieveEntry()
+     * calls.
+     *
+     * Note that it's the caller's responsibility to ensure that the counts correspond to the
+     * retrieveEntry() calls that will be made, and that every retrieveEntry() call will succeed
+     * (i.e. that the access control profile checks will succeed).  This means that it's the
+     * responsibility of the caller to determine which access control checks will fail and remove
+     * the corresponding requests from the counts.
+     */
+    vec<uint16_t> requestCounts;
+};
