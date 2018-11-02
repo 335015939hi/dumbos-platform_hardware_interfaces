@@ -243,3 +243,107 @@ struct DataProfileInfo {
      */
     bool persistent;
 };
+
+struct SetupDataCallResult {
+    DataCallFailCause status;             // Data call fail cause. DataCallFailCause.NONE if no
+                                          // error.
+    int32_t suggestedRetryTime;           // If status != DataCallFailCause.NONE, this field
+                                          // indicates the suggested retry back-off timer value RIL
+                                          // wants to override the one pre-configured in FW.
+                                          // The unit is milliseconds.
+                                          // The value < 0 means no value is suggested.
+                                          // The value 0 means retry must be done ASAP.
+                                          // The value of INT_MAX(0x7fffffff) means no retry.
+    int32_t cid;                          // Context ID, uniquely identifies this call
+    int32_t active;                       // 0=inactive, 1=active/physical link down,
+                                          // 2=active/physical link up */
+    string type;                          // One of the PDP_type values in TS 27.007 section 10.1.1.
+                                          // For example, "IP", "IPV6", "IPV4V6", or "PPP". If
+                                          // status is
+                                          // DataCallFailCause.ONLY_SINGLE_BEARER_ALLOWED, this
+                                          // is the type supported such as "IP" or "IPV6".
+    string ifname;                        // The network interface name
+    string addresses;                     // A space-delimited list of addresses with optional "/"
+                                          // prefix length, e.g., "192.0.1.3" or
+                                          // "192.0.1.11/16 2001:db8::1/64".
+                                          // Typically 1 IPv4 or 1 IPv6 or
+                                          // one of each. If the prefix length is absent the
+                                          // addresses are assumed to be point to point with IPv4
+                                          // having a prefix length of 32 and IPv6 128.
+    string dnses;                         // A space-delimited list of DNS server addresses,
+                                          // e.g., "192.0.1.3" or "192.0.1.11 2001:db8::1".
+                                          // Empty if no dns server addresses returned.
+    string gateways;                      // A space-delimited list of default gateway addresses,
+                                          // e.g., "192.0.1.3" or "192.0.1.11 2001:db8::1".
+                                          // When empty, the addresses represent
+                                          // point to point connections.
+    string pcscf;                         // the Proxy Call State Control Function address
+                                          // via PCO(Protocol Configuration Option) for IMS client.
+    int32_t mtu;                          // MTU received from network
+                                          // Value <= 0 means network has either not sent a
+                                          // value or sent an invalid value
+    int32_t rat;                          // indicates the available data radio technology,
+                                          // valid values as defined by RadioTechnology.
+    bitfield<RadioBearerTech> bearerTechBitmap; // The allocated bearer technology bitmap
+                                          // See RadioBearerTechnology for the value of each bit.
+};
+
+/**
+ * Type to define technology of radio bearers for a data call. This is available in
+ * SetupDataCallResult
+ */
+enum RadioBearerTech : int32_t {
+    /**
+     * Unspecified bearer type
+    /*
+    UNSPECIFIED = 1 << 0,
+    /**
+     * Dual Carrier as applicable to HSUPA or HSDPA RadioTechnology
+     */
+    DC = 1 << 1,
+    /**
+     * Modulation scheme is 64 Quadrature Amplitude Modulation
+     */
+    QAM_64 = 1 << 2,
+    /**
+     * Limited service operation, applicable to LTE, and NR RadioTechnologies
+     */
+    LIMITED_SERVICE = 1 << 3,
+    /**
+     * Bearer is on Frequency Division Duplexing scheme
+     */
+    FDD = 1 << 4,
+    /**
+     * Bearer is on Time Division Duplexing scheme
+     */
+    TDD = 1 << 5,
+    /**
+     * Bearer is using carrier aggregation in downlink direction
+     */
+    CA_DL = 1 << 6,
+    /**
+     * Bearer is using carrier aggregation in uplink direction
+     */
+    CA_UL = 1 << 7,
+    /**
+     * Bearer is using any of the LTE RadioTechnology advanced pro techniques
+     * defined in 3gpp Rel 13 onwards.
+     */
+    ADVANCED_PRO = 1 << 8,
+    /**
+     * Secondary Cell Group 'SCG' configured bearer in 5G non-standalone mode
+     */
+    NSA = 1 << 9,
+    /**
+     * Bearer is configured on NR RadioTechnology Standalone mode
+     */
+    SA = 1 << 10,
+    /**
+     * Bearer is using SUB-6 GHz frequency
+     */
+    SUB6 = 1 << 11,
+    /**
+     * Bearer is using milli-meter wave frequency
+     */
+    MMWAVE = 1 << 12,
+};
