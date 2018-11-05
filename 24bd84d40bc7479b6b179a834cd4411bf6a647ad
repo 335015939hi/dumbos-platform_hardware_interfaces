@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ec2c679c_60623955",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1175853
+      },
+      "writtenOn": "2018-11-05T19:02:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "586d5e0d_84254b3f",
+      "range": {
+        "startLine": 10,
+        "startChar": 60,
+        "endLine": 10,
+        "endChar": 68
+      },
+      "revId": "24bd84d40bc7479b6b179a834cd4411bf6a647ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c017caed_b7fd3181",
         "filename": "sensors/1.0/types.hal",
         "patchSetId": 5
