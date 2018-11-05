@@ -1,20 +1,10 @@
-cc_binary {
-    name: "android.hardware.cas@1.0-service",
-    vintf_fragments: ["android.hardware.cas@1.0-service.xml"],
+cc_defaults {
+    name: "cas_service_defaults",
     defaults: ["hidl_defaults"],
     vendor: true,
     relative_install_path: "hw",
-    srcs: [
-      "CasImpl.cpp",
-      "DescramblerImpl.cpp",
-      "MediaCasService.cpp",
-      "service.cpp",
-      "SharedLibrary.cpp",
-      "TypeConvert.cpp",
-    ],
 
     compile_multilib: "32",
-    init_rc: ["android.hardware.cas@1.0-service.rc"],
 
     shared_libs: [
       "android.hardware.cas@1.0",
@@ -31,4 +21,29 @@ cc_binary {
       "libstagefright_foundation_headers",
       "media_plugin_headers",
     ],
+}
+
+cas_service_common_srcs = [
+  "CasImpl.cpp",
+  "DescramblerImpl.cpp",
+  "MediaCasService.cpp",
+  "SharedLibrary.cpp",
+  "TypeConvert.cpp",
+]
+
+cc_binary {
+    name: "android.hardware.cas@1.0-service",
+    vintf_fragments: ["android.hardware.cas@1.0-service.xml"],
+    init_rc: ["android.hardware.cas@1.0-service.rc"],
+    defaults: ["cas_service_defaults"],
+    srcs: cas_service_common_srcs + ["service.cpp"]
+}
+
+cc_binary {
+    name: "android.hardware.cas@1.0-service-lazy",
+    vintf_fragments: ["android.hardware.cas@1.0-service-lazy.xml"],
+    overrides: [ "android.hardware.cas@1.0-service" ],
+    defaults: ["cas_service_defaults"],
+    init_rc: ["android.hardware.cas@1.0-service.rc"],
+    srcs: cas_service_common_srcs + ["serviceLazy.cpp"]
 }
