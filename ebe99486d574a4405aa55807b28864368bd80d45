@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d55dd04d_26b9274f",
+        "filename": "sensors/1.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 1205,
+      "author": {
+        "id": 1094493
+      },
+      "writtenOn": "2018-11-05T17:23:08Z",
+      "side": 1,
+      "message": "nit: suggest rewording/reformatting this slightly as it could be interpreted that private sensor types use Vec4+accuracy",
+      "range": {
+        "startLine": 1203,
+        "startChar": 7,
+        "endLine": 1205,
+        "endChar": 53
+      },
+      "revId": "ebe99486d574a4405aa55807b28864368bd80d45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
