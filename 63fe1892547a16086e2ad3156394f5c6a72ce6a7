@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f698454b_ff8e915c",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-05T22:25:36Z",
+      "side": 1,
+      "message": "nit: \u0027/**\u0027 style prefix comment (for docs to show up)",
+      "range": {
+        "startLine": 162,
+        "startChar": 42,
+        "endLine": 162,
+        "endChar": 45
+      },
+      "revId": "63fe1892547a16086e2ad3156394f5c6a72ce6a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c3d5cb6_a31ff039",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-05T22:25:36Z",
+      "side": 1,
+      "message": "How about vec\u003cstring\u003e instead?",
+      "range": {
+        "startLine": 164,
+        "startChar": 45,
+        "endLine": 164,
+        "endChar": 51
+      },
+      "revId": "63fe1892547a16086e2ad3156394f5c6a72ce6a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
