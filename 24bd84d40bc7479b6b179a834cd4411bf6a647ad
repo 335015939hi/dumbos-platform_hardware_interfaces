@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c017caed_b7fd3181",
+        "filename": "sensors/1.0/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 1208,
+      "author": {
+        "id": 1175853
+      },
+      "writtenOn": "2018-11-05T18:40:11Z",
+      "side": 1,
+      "message": "After discussing offline with smoreland@, made the accuracy field more clear. Please take a look.",
+      "range": {
+        "startLine": 1205,
+        "startChar": 78,
+        "endLine": 1208,
+        "endChar": 76
+      },
+      "revId": "24bd84d40bc7479b6b179a834cd4411bf6a647ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
