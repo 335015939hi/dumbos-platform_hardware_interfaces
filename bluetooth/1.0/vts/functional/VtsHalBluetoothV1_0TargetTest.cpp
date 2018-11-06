@@ -197,8 +197,13 @@ class BluetoothHidlTest : public ::testing::VtsHalHidlTargetTestBase {
   }
 
   virtual void TearDown() override {
+    ALOGI("TearDown");
     // Should not be checked in production code
     ASSERT_TRUE(bluetooth->close().isOk());
+    EXPECT_TRUE(bluetooth->unlinkToDeath(bluetooth_hci_death_recipient).isOk());
+    bluetooth_hci_death_recipient = nullptr;
+    bluetooth = nullptr;
+    bluetooth_cb = nullptr;
     handle_no_ops();
     EXPECT_EQ(static_cast<size_t>(0), event_queue.size());
     EXPECT_EQ(static_cast<size_t>(0), sco_queue.size());
@@ -222,9 +227,10 @@ class BluetoothHidlTest : public ::testing::VtsHalHidlTargetTestBase {
 
   class BluetoothHciDeathRecipient : public hidl_death_recipient {
    public:
-    virtual void serviceDied(
+    void serviceDied(
         uint64_t /*cookie*/,
-        const android::wp<::android::hidl::base::V1_0::IBase>& /*who*/) {
+        const android::wp<::android::hidl::base::V1_0::IBase>& /*who*/)
+        override {
       FAIL();
     }
   };
@@ -308,7 +314,7 @@ void BluetoothHidlTest::handle_no_ops() {
     if (event_is_no_op) {
       event_queue.pop();
     } else {
-      return;
+      break;
     }
   }
 }
