@@ -125,7 +125,7 @@ interface IGnssCallback {
          * to L1 must be filled, and in the other all of the values related to
          * L5 must be filled.
          *
-         * If the data is available, gnssClockFlags must contain
+         * If the data is available, gnssMeasurementFlags must contain
          * HAS_CARRIER_FREQUENCY.
          */
         float carrierFrequencyHz;
