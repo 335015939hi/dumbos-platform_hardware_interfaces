@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3cc2fea5_7b31a39b",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1048283
+      },
+      "writtenOn": "2018-11-06T22:50:37Z",
+      "side": 1,
+      "message": "Is the new NR enum added to RadioTechnology? \n\nAlso, PreferredNetworkType needs the NR network modes.",
+      "revId": "0e90a25d980f255fc54121fe329c1df26a29fcfa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
