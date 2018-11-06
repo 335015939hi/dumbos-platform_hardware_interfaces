@@ -308,7 +308,7 @@ void BluetoothHidlTest::handle_no_ops() {
     if (event_is_no_op) {
       event_queue.pop();
     } else {
-      return;
+      break;
     }
   }
 }
