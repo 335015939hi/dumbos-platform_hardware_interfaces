@@ -95,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "27275775_3c7d67d6",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2018-11-06T19:49:46Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ff9113fe_082631b8",
+      "range": {
+        "startLine": 261,
+        "startChar": 58,
+        "endLine": 261,
+        "endChar": 90
+      },
+      "revId": "c64b7afcccfcf488c7d4f5e06cd3ba9821168f51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "527ef843_ae8feac3",
         "filename": "radio/1.3/types.hal",
         "patchSetId": 1
@@ -130,6 +154,30 @@
       "side": 1,
       "message": "how so?",
       "parentUuid": "527ef843_ae8feac3",
+      "range": {
+        "startLine": 285,
+        "startChar": 3,
+        "endLine": 286,
+        "endChar": 88
+      },
+      "revId": "c64b7afcccfcf488c7d4f5e06cd3ba9821168f51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86b78e9b_faf0176c",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2018-11-06T19:49:46Z",
+      "side": 1,
+      "message": "e.g. where this is needed is, DataRegState.rat \u003d\u003d LTE, but for internet PDN setupdatacallresult.rat \u003d\u003d NR, and bearerTech \u003d\u003d NSA | MMWAVE, and IMS PDN, setupdatacallresult.rat \u003d\u003d LTE and bearerTech \u003d\u003d UNSPECIFIED.",
+      "parentUuid": "7e562daf_6bcd345f",
       "range": {
         "startLine": 285,
         "startChar": 3,
