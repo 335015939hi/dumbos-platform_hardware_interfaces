@@ -42,7 +42,7 @@ using ::android::hardware::bluetooth::V1_0::Status;
 #define NUM_HCI_COMMANDS_BANDWIDTH 1000
 #define NUM_SCO_PACKETS_BANDWIDTH 1000
 #define NUM_ACL_PACKETS_BANDWIDTH 1000
-#define WAIT_FOR_INIT_TIMEOUT std::chrono::milliseconds(2000)
+#define WAIT_FOR_INIT_TIMEOUT std::chrono::milliseconds(4000)
 #define WAIT_FOR_HCI_EVENT_TIMEOUT std::chrono::milliseconds(2000)
 #define WAIT_FOR_SCO_DATA_TIMEOUT std::chrono::milliseconds(1000)
 #define WAIT_FOR_ACL_DATA_TIMEOUT std::chrono::milliseconds(1000)
@@ -197,6 +197,7 @@ class BluetoothHidlTest : public ::testing::VtsHalHidlTargetTestBase {
   }
 
   virtual void TearDown() override {
+    ALOGI("TearDown");
     // Should not be checked in production code
     ASSERT_TRUE(bluetooth->close().isOk());
     handle_no_ops();
@@ -222,9 +223,10 @@ class BluetoothHidlTest : public ::testing::VtsHalHidlTargetTestBase {
 
   class BluetoothHciDeathRecipient : public hidl_death_recipient {
    public:
-    virtual void serviceDied(
+    void serviceDied(
         uint64_t /*cookie*/,
-        const android::wp<::android::hidl::base::V1_0::IBase>& /*who*/) {
+        const android::wp<::android::hidl::base::V1_0::IBase>& /*who*/)
+        override {
       FAIL();
     }
   };
@@ -308,7 +310,7 @@ void BluetoothHidlTest::handle_no_ops() {
     if (event_is_no_op) {
       event_queue.pop();
     } else {
-      return;
+      break;
     }
   }
 }
