@@ -2,6 +2,98 @@
   "comments": [
     {
       "key": {
+        "uuid": "39125f8a_3b41a5ca",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-11-06T02:36:26Z",
+      "side": 1,
+      "message": "All these should be in javadoc format.",
+      "range": {
+        "startLine": 248,
+        "startChar": 41,
+        "endLine": 249,
+        "endChar": 51
+      },
+      "revId": "c64b7afcccfcf488c7d4f5e06cd3ba9821168f51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed760578_3a080470",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-11-06T02:36:26Z",
+      "side": 1,
+      "message": "Enum of ints?",
+      "range": {
+        "startLine": 258,
+        "startChar": 38,
+        "endLine": 259,
+        "endChar": 73
+      },
+      "revId": "c64b7afcccfcf488c7d4f5e06cd3ba9821168f51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff9113fe_082631b8",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-11-06T02:36:26Z",
+      "side": 1,
+      "message": "Define these as constants plz?",
+      "range": {
+        "startLine": 261,
+        "startChar": 58,
+        "endLine": 261,
+        "endChar": 90
+      },
+      "revId": "c64b7afcccfcf488c7d4f5e06cd3ba9821168f51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "527ef843_ae8feac3",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-11-06T02:36:26Z",
+      "side": 1,
+      "message": "I believe this should now be redundant",
+      "range": {
+        "startLine": 285,
+        "startChar": 3,
+        "endLine": 286,
+        "endChar": 88
+      },
+      "revId": "c64b7afcccfcf488c7d4f5e06cd3ba9821168f51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "21645cb0_295b3a6f",
         "filename": "radio/1.3/types.hal",
         "patchSetId": 1
@@ -25,6 +117,29 @@
     },
     {
       "key": {
+        "uuid": "701b2890_fdf8d884",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-11-06T02:36:26Z",
+      "side": 1,
+      "message": "This should just be 0. We don\u0027t need a bit to say that it\u0027s unspecified.",
+      "range": {
+        "startLine": 299,
+        "startChar": 4,
+        "endLine": 299,
+        "endChar": 15
+      },
+      "revId": "c64b7afcccfcf488c7d4f5e06cd3ba9821168f51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "928accd7_9e204230",
         "filename": "radio/1.3/types.hal",
         "patchSetId": 1
@@ -41,6 +156,121 @@
         "startChar": 4,
         "endLine": 300,
         "endChar": 7
+      },
+      "revId": "c64b7afcccfcf488c7d4f5e06cd3ba9821168f51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64221209_0488a8ce",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-11-06T02:36:26Z",
+      "side": 1,
+      "message": "Doesn\u0027t belong here. This isn\u0027t something that\u0027s assigned per bearer.",
+      "range": {
+        "startLine": 301,
+        "startChar": 5,
+        "endLine": 302,
+        "endChar": 7
+      },
+      "revId": "c64b7afcccfcf488c7d4f5e06cd3ba9821168f51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8590f15e_c06a5566",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-11-06T02:36:26Z",
+      "side": 1,
+      "message": "Doesn\u0027t belong here. This is a physical channel description. Further note, if we want to start talking about defining this (which Qualcomm refused in a previous example), then we need to get all of the commercially deployed options. There\u0027s nothing special about 64 - LTE is using 256 pretty extensively today.",
+      "range": {
+        "startLine": 307,
+        "startChar": 0,
+        "endLine": 310,
+        "endChar": 7
+      },
+      "revId": "c64b7afcccfcf488c7d4f5e06cd3ba9821168f51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cdeb5f58_56a22ae8",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-11-06T02:36:26Z",
+      "side": 1,
+      "message": "What is this doing here? this has absolutely nothing to do with RadioBearers at all.",
+      "range": {
+        "startLine": 311,
+        "startChar": 4,
+        "endLine": 311,
+        "endChar": 19
+      },
+      "revId": "c64b7afcccfcf488c7d4f5e06cd3ba9821168f51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac92f3b7_3f7ac474",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-11-06T02:36:26Z",
+      "side": 1,
+      "message": "This isn\u0027t per-bearer at all. It\u0027s per cell.",
+      "range": {
+        "startLine": 315,
+        "startChar": 3,
+        "endLine": 319,
+        "endChar": 17
+      },
+      "revId": "c64b7afcccfcf488c7d4f5e06cd3ba9821168f51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6cd83043_fb3c3aea",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-11-06T02:36:26Z",
+      "side": 1,
+      "message": "This is marketing jargon... please use technical names rather than marketing names for feature support.",
+      "range": {
+        "startLine": 327,
+        "startChar": 0,
+        "endLine": 332,
+        "endChar": 26
       },
       "revId": "c64b7afcccfcf488c7d4f5e06cd3ba9821168f51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
