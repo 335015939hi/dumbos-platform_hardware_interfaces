@@ -203,6 +203,7 @@ class BluetoothHidlTest : public ::testing::VtsHalHidlTargetTestBase {
     EXPECT_EQ(static_cast<size_t>(0), event_queue.size());
     EXPECT_EQ(static_cast<size_t>(0), sco_queue.size());
     EXPECT_EQ(static_cast<size_t>(0), acl_queue.size());
+    bluetooth->
   }
 
   void setBufferSizes();
@@ -308,7 +309,7 @@ void BluetoothHidlTest::handle_no_ops() {
     if (event_is_no_op) {
       event_queue.pop();
     } else {
-      return;
+      break;
     }
   }
 }
