@@ -62,6 +62,7 @@
 #include <android/hardware/keymaster/4.0/IKeymasterDevice.h>
 
 #include <type_traits>
+#include <utility>
 
 namespace android {
 namespace hardware {
@@ -101,7 +102,7 @@ struct Tag2TypedTag {
 };
 
 #define DECLARE_TYPED_TAG(name)                                    \
-    typedef typename Tag2TypedTag<Tag::name>::type TAG_##name##_t; \
+    using TAG_##name##_t = typename Tag2TypedTag<Tag::name>::type; \
     static TAG_##name##_t TAG_##name;
 
 DECLARE_TYPED_TAG(ACTIVE_DATETIME);
@@ -154,23 +155,30 @@ DECLARE_TYPED_TAG(VENDOR_PATCHLEVEL);
 template <typename... Elems>
 struct MetaList {};
 
-using all_tags_t =
-    MetaList<TAG_INVALID_t, TAG_KEY_SIZE_t, TAG_MAC_LENGTH_t, TAG_CALLER_NONCE_t,
-             TAG_MIN_MAC_LENGTH_t, TAG_RSA_PUBLIC_EXPONENT_t, TAG_INCLUDE_UNIQUE_ID_t,
-             TAG_ACTIVE_DATETIME_t, TAG_ORIGINATION_EXPIRE_DATETIME_t, TAG_USAGE_EXPIRE_DATETIME_t,
-             TAG_MIN_SECONDS_BETWEEN_OPS_t, TAG_MAX_USES_PER_BOOT_t, TAG_USER_ID_t,
-             TAG_USER_SECURE_ID_t, TAG_NO_AUTH_REQUIRED_t, TAG_AUTH_TIMEOUT_t,
-             TAG_ALLOW_WHILE_ON_BODY_t, TAG_UNLOCKED_DEVICE_REQUIRED_t, TAG_APPLICATION_ID_t,
-             TAG_APPLICATION_DATA_t, TAG_CREATION_DATETIME_t, TAG_ROLLBACK_RESISTANCE_t,
-             TAG_ROOT_OF_TRUST_t, TAG_ASSOCIATED_DATA_t, TAG_NONCE_t, TAG_BOOTLOADER_ONLY_t,
-             TAG_OS_VERSION_t, TAG_OS_PATCHLEVEL_t, TAG_UNIQUE_ID_t, TAG_ATTESTATION_CHALLENGE_t,
-             TAG_ATTESTATION_APPLICATION_ID_t, TAG_RESET_SINCE_ID_ROTATION_t, TAG_PURPOSE_t,
-             TAG_ALGORITHM_t, TAG_BLOCK_MODE_t, TAG_DIGEST_t, TAG_PADDING_t,
-             TAG_BLOB_USAGE_REQUIREMENTS_t, TAG_ORIGIN_t, TAG_USER_AUTH_TYPE_t, TAG_EC_CURVE_t,
-             TAG_BOOT_PATCHLEVEL_t, TAG_VENDOR_PATCHLEVEL_t, TAG_TRUSTED_USER_PRESENCE_REQUIRED_t>;
+template <typename T>
+struct EnumList2MetaList;
+
+template <typename T, T... values>
+struct EnumList2MetaList<std::integer_sequence<T, values...>> {
+    using type = MetaList<typename Tag2TypedTag<values>::type...>;
+};
+
+using all_tags_t = typename EnumList2MetaList<
+    typename ::android::hardware::details::hidl_meta_enum<Tag>::type>::type;
 
 template <typename TypedTagType>
 struct TypedTag2ValueType;
+
+template <TagType tag_type, Tag tag>
+inline void accessTagValue(TypedTag<tag_type, tag>, const KeyParameter& param) {
+    // with a toString meta function I could output the exact name tag for which the implementation
+    // is missing
+    static_assert(false, "unknown tag");
+}
+template <TagType tag_type, Tag tag>
+inline void accessTagValue(TypedTag<tag_type, tag>, KeyParameter& param) {
+    static_assert(false, "unknown tag");
+}
 
 #define MAKE_TAG_VALUE_ACCESSOR(tag_type, field_name)                              \
     template <Tag tag>                                                             \
