@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cae360bf_ebe1e3e9",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-07T17:54:51Z",
+      "side": 1,
+      "message": "-\u003e hidl enum",
+      "range": {
+        "startLine": 591,
+        "startChar": 7,
+        "endLine": 591,
+        "endChar": 73
+      },
+      "revId": "98bb6a915c27388e68170c2fcad6996c82665c03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "84b38593_264f45a0",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 601,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-07T17:54:51Z",
+      "side": 1,
+      "message": "can this be changed to an enumeration?",
+      "range": {
+        "startLine": 601,
+        "startChar": 4,
+        "endLine": 601,
+        "endChar": 10
+      },
+      "revId": "98bb6a915c27388e68170c2fcad6996c82665c03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e6d508b_1ce725bf",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 609,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-07T17:54:51Z",
+      "side": 1,
+      "message": "can we switch this to vec\u003cstring\u003e now?",
+      "range": {
+        "startLine": 609,
+        "startChar": 9,
+        "endLine": 609,
+        "endChar": 42
+      },
+      "revId": "98bb6a915c27388e68170c2fcad6996c82665c03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "325ae29e_70239119",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 621,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-07T17:54:51Z",
+      "side": 1,
+      "message": "same, vec\u003cstring\u003e",
+      "range": {
+        "startLine": 621,
+        "startChar": 4,
+        "endLine": 621,
+        "endChar": 10
+      },
+      "revId": "98bb6a915c27388e68170c2fcad6996c82665c03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff441ad9_0397d2b9",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-07T17:54:51Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 628,
+        "startChar": 4,
+        "endLine": 628,
+        "endChar": 10
+      },
+      "revId": "98bb6a915c27388e68170c2fcad6996c82665c03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b48c30d4_1bbbd373",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-07T17:54:51Z",
+      "side": 1,
+      "message": "can you also specify the format here?",
+      "range": {
+        "startLine": 631,
+        "startChar": 36,
+        "endLine": 631,
+        "endChar": 44
+      },
+      "revId": "98bb6a915c27388e68170c2fcad6996c82665c03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
