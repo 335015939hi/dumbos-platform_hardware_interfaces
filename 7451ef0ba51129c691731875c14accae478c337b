@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f92645a_24eb82e6",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-11-07T17:25:35Z",
+      "side": 1,
+      "message": "Suggest calling this something like BearerMappingInfo",
+      "range": {
+        "startLine": 338,
+        "startChar": 5,
+        "endLine": 338,
+        "endChar": 20
+      },
+      "revId": "7451ef0ba51129c691731875c14accae478c337b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9a4f0f6_c38bf777",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-11-07T17:25:35Z",
+      "side": 1,
+      "message": "I have nightmares of this thing expanding rapidly to meet the marketing demands of hundreds of global carriers... suggest we use a long.",
+      "revId": "7451ef0ba51129c691731875c14accae478c337b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47670bba_e66887a5",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-11-07T17:25:35Z",
+      "side": 1,
+      "message": "Can we generalize this to a bitmap of Radio techs? NSA (today) implies LTE + 5G, but I believe that soon we will seen PDU sessions mapped to both 5G and WLAN.",
+      "range": {
+        "startLine": 343,
+        "startChar": 0,
+        "endLine": 350,
+        "endChar": 16
+      },
+      "revId": "7451ef0ba51129c691731875c14accae478c337b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d2109fd_0c4eaee6",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-11-07T17:25:35Z",
+      "side": 1,
+      "message": "Is there a 3rd possibility? ISTM we are representing 1 bit of information with 2 bits (it\u0027s either 5G \u003e 6 or 5G \u003c 6, no?) Thus we can have a bit that indicates MMWave that if-false can be presumed to be sub-6?",
+      "range": {
+        "startLine": 351,
+        "startChar": 0,
+        "endLine": 358,
+        "endChar": 20
+      },
+      "revId": "7451ef0ba51129c691731875c14accae478c337b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
