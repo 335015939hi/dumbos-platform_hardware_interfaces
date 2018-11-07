@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "751efa4f_a6e65606",
+        "filename": "gnss/1.0/IGnssCallback.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1105161
+      },
+      "writtenOn": "2018-11-07T23:28:53Z",
+      "side": 1,
+      "message": "suggest \"zero\" - it can\u0027t be \u0027unset\u0027 - it\u0027s a float in a struct.",
+      "range": {
+        "startLine": 118,
+        "startChar": 67,
+        "endLine": 118,
+        "endChar": 74
+      },
+      "revId": "abea59665235d80c5c199e1e07b48fbbb26c5a76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2031c11_84b38a94",
+        "filename": "gnss/1.0/IGnssCallback.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1105161
+      },
+      "writtenOn": "2018-11-07T23:28:53Z",
+      "side": 1,
+      "message": "Comment doesn\u0027t apply (this was inadvertently copied from GnssMeasurement) - just remove the whole thing.",
+      "range": {
+        "startLine": 127,
+        "startChar": 10,
+        "endLine": 129,
+        "endChar": 33
+      },
+      "revId": "abea59665235d80c5c199e1e07b48fbbb26c5a76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
