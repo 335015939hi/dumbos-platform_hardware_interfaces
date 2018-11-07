@@ -2,6 +2,98 @@
   "comments": [
     {
       "key": {
+        "uuid": "d414a54b_f3213baa",
+        "filename": "radio/1.3/IRadioIndication.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-11-07T00:17:17Z",
+      "side": 1,
+      "message": "nit, this isn\u0027t correct. It returns @1.3::CellInfo, which has more than the 1.0 structs.",
+      "range": {
+        "startLine": 55,
+        "startChar": 7,
+        "endLine": 55,
+        "endChar": 72
+      },
+      "revId": "0e90a25d980f255fc54121fe329c1df26a29fcfa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c3e1498_a68dbebf",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-11-07T00:17:17Z",
+      "side": 1,
+      "message": "nit: now there is an enum you can reference. :-)",
+      "range": {
+        "startLine": 172,
+        "startChar": 28,
+        "endLine": 172,
+        "endChar": 52
+      },
+      "revId": "0e90a25d980f255fc54121fe329c1df26a29fcfa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91ea99b8_c1f29ff2",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-11-07T00:17:17Z",
+      "side": 1,
+      "message": "formatting nit: please use 100 character lines.",
+      "range": {
+        "startLine": 237,
+        "startChar": 0,
+        "endLine": 239,
+        "endChar": 47
+      },
+      "revId": "0e90a25d980f255fc54121fe329c1df26a29fcfa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e41e224b_7201d5d1",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-11-07T00:17:17Z",
+      "side": 1,
+      "message": "same formatting nit: please use 100 character lines.",
+      "range": {
+        "startLine": 244,
+        "startChar": 6,
+        "endLine": 245,
+        "endChar": 50
+      },
+      "revId": "0e90a25d980f255fc54121fe329c1df26a29fcfa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3cc2fea5_7b31a39b",
         "filename": "radio/1.3/types.hal",
         "patchSetId": 9
@@ -13,6 +105,167 @@
       "writtenOn": "2018-11-06T22:50:37Z",
       "side": 1,
       "message": "Is the new NR enum added to RadioTechnology? \n\nAlso, PreferredNetworkType needs the NR network modes.",
+      "revId": "0e90a25d980f255fc54121fe329c1df26a29fcfa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0743366e_6b86f0fb",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-11-07T00:17:17Z",
+      "side": 1,
+      "message": "N?",
+      "range": {
+        "startLine": 274,
+        "startChar": 13,
+        "endLine": 274,
+        "endChar": 14
+      },
+      "revId": "0e90a25d980f255fc54121fe329c1df26a29fcfa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62493ef6_0cdbb113",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-11-07T00:17:17Z",
+      "side": 1,
+      "message": "nit: PLMN",
+      "range": {
+        "startLine": 277,
+        "startChar": 47,
+        "endLine": 277,
+        "endChar": 51
+      },
+      "revId": "0e90a25d980f255fc54121fe329c1df26a29fcfa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ea39658_51ab0824",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-11-07T00:17:17Z",
+      "side": 1,
+      "message": "nit: I think we should be consistent and reference the 3gpp spec numbers if possible. (remove the \"1\"). Right now some look like they are using the 3gpp number and some using the ETSI number.",
+      "range": {
+        "startLine": 387,
+        "startChar": 18,
+        "endLine": 387,
+        "endChar": 22
+      },
+      "revId": "0e90a25d980f255fc54121fe329c1df26a29fcfa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86157e3d_6ff502d7",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-11-07T00:17:17Z",
+      "side": 1,
+      "message": "\u003cbr\u003e",
+      "range": {
+        "startLine": 396,
+        "startChar": 7,
+        "endLine": 396,
+        "endChar": 8
+      },
+      "revId": "0e90a25d980f255fc54121fe329c1df26a29fcfa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7939218_f0a8c541",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-11-07T00:17:17Z",
+      "side": 1,
+      "message": "nit: you can use set notation for consistency. Range [3, 20]",
+      "range": {
+        "startLine": 396,
+        "startChar": 14,
+        "endLine": 396,
+        "endChar": 28
+      },
+      "revId": "0e90a25d980f255fc54121fe329c1df26a29fcfa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77547cce_ea1fb3ca",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-11-07T00:17:17Z",
+      "side": 1,
+      "message": "Move to the above line.",
+      "range": {
+        "startLine": 397,
+        "startChar": 7,
+        "endLine": 397,
+        "endChar": 48
+      },
+      "revId": "0e90a25d980f255fc54121fe329c1df26a29fcfa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "025d81af_5c28b1e7",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-11-07T00:17:17Z",
+      "side": 1,
+      "message": "same comments as above.",
+      "range": {
+        "startLine": 402,
+        "startChar": 0,
+        "endLine": 404,
+        "endChar": 48
+      },
       "revId": "0e90a25d980f255fc54121fe329c1df26a29fcfa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
