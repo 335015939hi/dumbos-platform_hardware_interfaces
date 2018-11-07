@@ -49,6 +49,29 @@
     },
     {
       "key": {
+        "uuid": "2a2d40df_072a4eff",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-07T17:55:21Z",
+      "side": 1,
+      "message": "nit: \u0027/**\u0027 style comments so that they will show up on SAC?",
+      "range": {
+        "startLine": 248,
+        "startChar": 43,
+        "endLine": 249,
+        "endChar": 51
+      },
+      "revId": "c64b7afcccfcf488c7d4f5e06cd3ba9821168f51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ed760578_3a080470",
         "filename": "radio/1.3/types.hal",
         "patchSetId": 1
