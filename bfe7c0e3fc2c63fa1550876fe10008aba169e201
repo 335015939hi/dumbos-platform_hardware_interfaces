@@ -93,6 +93,46 @@
       "revId": "bfe7c0e3fc2c63fa1550876fe10008aba169e201",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c52e44c5_e1339c7e",
+        "filename": "keymaster/4.0/support/include/keymasterV4_0/keymaster_tags.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1136369
+      },
+      "writtenOn": "2018-11-08T01:33:51Z",
+      "side": 1,
+      "message": "I see why you want a type list now. One last question, why does all this work with type tag ? Would it not have been easier to take a value template parameter instead of warping each value in types ?",
+      "revId": "bfe7c0e3fc2c63fa1550876fe10008aba169e201",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c06e5cbc_e03ec1b9",
+        "filename": "keymaster/4.0/support/include/keymasterV4_0/keymaster_tags.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1136369
+      },
+      "writtenOn": "2018-11-08T01:33:51Z",
+      "side": 1,
+      "message": "You should use std::declval it is made for that.",
+      "range": {
+        "startLine": 186,
+        "startChar": 25,
+        "endLine": 186,
+        "endChar": 60
+      },
+      "revId": "bfe7c0e3fc2c63fa1550876fe10008aba169e201",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
