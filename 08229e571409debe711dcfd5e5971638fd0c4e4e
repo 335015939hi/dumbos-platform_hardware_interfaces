@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9e3bb327_a9b0e40e",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1098848
+      },
+      "writtenOn": "2018-11-08T03:15:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb7b5639_bc67f862",
+      "range": {
+        "startLine": 183,
+        "startChar": 7,
+        "endLine": 183,
+        "endChar": 66
+      },
+      "revId": "08229e571409debe711dcfd5e5971638fd0c4e4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4f112a95_e70de30a",
         "filename": "radio/1.3/types.hal",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2018-11-08T01:09:23Z",
       "side": 1,
       "message": "This is true if the bit N is in the PlmnInfoListR15 at position N is true and the selected PLMN is present in PlmnInfoList at position N...\n\n(or something).",
+      "range": {
+        "startLine": 189,
+        "startChar": 47,
+        "endLine": 189,
+        "endChar": 51
+      },
+      "revId": "08229e571409debe711dcfd5e5971638fd0c4e4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d701e12d_f4889c1b",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1098848
+      },
+      "writtenOn": "2018-11-08T03:15:18Z",
+      "side": 1,
+      "message": "A bit complicated, but clearer, thanks!",
+      "parentUuid": "4f112a95_e70de30a",
       "range": {
         "startLine": 189,
         "startChar": 47,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "430a554f_a2a35695",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1098848
+      },
+      "writtenOn": "2018-11-08T03:15:18Z",
+      "side": 1,
+      "message": "because of vd :-(",
+      "parentUuid": "d120ac27_2861cb9f",
+      "range": {
+        "startLine": 197,
+        "startChar": 64,
+        "endLine": 197,
+        "endChar": 65
+      },
+      "revId": "08229e571409debe711dcfd5e5971638fd0c4e4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c4eb368e_422f4ce3",
         "filename": "radio/1.3/types.hal",
         "patchSetId": 2
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "ca36c273_08ca345e",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1098848
+      },
+      "writtenOn": "2018-11-08T03:15:18Z",
+      "side": 1,
+      "message": "Thanks for figure out the correct behavior, I\u0027m not not confused with this bit.",
+      "parentUuid": "c4eb368e_422f4ce3",
+      "range": {
+        "startLine": 216,
+        "startChar": 40,
+        "endLine": 216,
+        "endChar": 45
+      },
+      "revId": "08229e571409debe711dcfd5e5971638fd0c4e4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e566f45c_7b0ba82e",
         "filename": "radio/1.3/types.hal",
         "patchSetId": 2
@@ -105,6 +201,30 @@
       "writtenOn": "2018-11-08T01:09:23Z",
       "side": 1,
       "message": "These are no longer used; you can remove them.\nhttps://android-review.googlesource.com/q/topic:%22cellinfo-timestamp%22+(status:open%20OR%20status:merged)",
+      "range": {
+        "startLine": 218,
+        "startChar": 0,
+        "endLine": 223,
+        "endChar": 23
+      },
+      "revId": "08229e571409debe711dcfd5e5971638fd0c4e4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6942b129_9c5c6bd2",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1098848
+      },
+      "writtenOn": "2018-11-08T03:15:18Z",
+      "side": 1,
+      "message": "well done!!",
+      "parentUuid": "e566f45c_7b0ba82e",
       "range": {
         "startLine": 218,
         "startChar": 0,
