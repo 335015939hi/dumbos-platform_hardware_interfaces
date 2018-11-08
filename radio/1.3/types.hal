@@ -18,11 +18,21 @@ package android.hardware.radio@1.3;
 
 import @1.0::ApnAuthType;
 import @1.0::ApnTypes;
+import @1.0::CellInfoType;
 import @1.0::DataProfileId;
 import @1.0::DataProfileInfoType;
 import @1.0::RadioAccessFamily;
+import @1.0::RadioError;
 import @1.0::RegState;
+import @1.0::TimeStampType;
+import @1.1::ScanStatus;
 import @1.2::AccessNetwork;
+import @1.2::CellInfo;
+import @1.2::CellInfoCdma;
+import @1.2::CellInfoGsm;
+import @1.2::CellInfoLte;
+import @1.2::CellInfoTdscdma;
+import @1.2::CellInfoWcdma;
 import @1.2::CellIdentity;
 import @1.2::DataRegStateResult;
 
@@ -168,6 +178,75 @@ struct DataRegStateResult {
 
         LteVopsInfo lteVopsInfo; // LTE network capability
     } vopsInfo;
+
+    /**
+     * True if use of dual connectivity with NR is not restricted.
+     * Reference: TS 24.301 v15.03 section 9.3.3.12A.
+     */
+    bool isDcNrAllowed;
+
+    /**
+     * True if NR is supported by the selected PLMN.
+     * Reference: TS 136.331 v15.2.2 section 6.3.1 PLMN-InfoList-r15.
+     */
+    bool isNrAvailable;
+};
+
+struct CellConfigLte {
+    /**
+     * Indicates that if E-UTRA-NR Dual Connectivity (EN-DC) is upported by the LTE cell.
+     *
+     * True if the plmn-InfoList-r15 is present in SIB2 and at least one bit in this list is true,
+     * otherwise this value should be false.
+     *
+     * Reference: TS 136.331 6.3.1 System information blocks.
+     */
+    bool endcAvailable;
+};
+
+struct CellInfoLte {
+    @1.2::CellInfoLte base;
+    CellConfigLte cellConfig;
+};
+
+struct CellInfo {
+    /** Cell type for selecting from union CellInfo. */
+    CellInfoType cellInfoType;
+
+    /** True if this cell is registered false if not registered. */
+    bool registered;
+
+    /** Type of time stamp represented by timeStamp. */
+    TimeStampType timeStampType;
+
+    /** Time in nanos as returned by ril_nano_time. */
+    uint64_t timeStamp;
+
+    /** CellInfo details, cellInfoType can tell which cell info should be used. */
+    safe_union Info {
+        CellInfoGsm gsm;
+        CellInfoCdma cdma;
+        CellInfoWcdma wcdma;
+        CellInfoTdscdma tdscdma;
+        CellInfoLte lte;
+    };
+};
+
+struct NetworkScanResult {
+    /**
+     * The status of the scan.
+     */
+    ScanStatus status;
+
+    /**
+     * The error code of the incremental result.
+     */
+    RadioError error;
+
+    /**
+     * List of network information as CellInfo.
+     */
+    vec<CellInfo> networkInfos;
 };
 
 /**
