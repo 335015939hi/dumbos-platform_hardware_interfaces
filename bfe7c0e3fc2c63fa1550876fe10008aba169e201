@@ -45,6 +45,30 @@
       "revId": "bfe7c0e3fc2c63fa1550876fe10008aba169e201",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54932b7b_f9132b3b",
+        "filename": "keymaster/4.0/support/include/keymasterV4_0/keymaster_tags.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-08T00:36:59Z",
+      "side": 1,
+      "message": "btw, hidl-gen also creates toString already",
+      "parentUuid": "6ce48916_d35d0e87",
+      "range": {
+        "startLine": 174,
+        "startChar": 4,
+        "endLine": 175,
+        "endChar": 17
+      },
+      "revId": "bfe7c0e3fc2c63fa1550876fe10008aba169e201",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
