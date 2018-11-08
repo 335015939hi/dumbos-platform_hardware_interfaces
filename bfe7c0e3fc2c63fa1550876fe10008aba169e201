@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "9b8ba7c8_a3c6f054",
+        "filename": "keymaster/4.0/support/include/keymasterV4_0/keymaster_tags.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2018-11-08T00:34:08Z",
+      "side": 1,
+      "message": "essentially, wherever we used all_tags_t we could use ::android::hardware::details::hidl_meta_enum\u003cTag\u003e::type\ndirectly if we changed the call sites a little.",
+      "range": {
+        "startLine": 166,
+        "startChar": 6,
+        "endLine": 166,
+        "endChar": 16
+      },
+      "revId": "bfe7c0e3fc2c63fa1550876fe10008aba169e201",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6ce48916_d35d0e87",
         "filename": "keymaster/4.0/support/include/keymasterV4_0/keymaster_tags.h",
         "patchSetId": 1
