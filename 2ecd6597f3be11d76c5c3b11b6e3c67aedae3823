@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "417d0ca5_0b95dc45",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2018-11-09T14:54:14Z",
+      "side": 1,
+      "message": "This actually does not prevent RVO. I\u0027ll fix that in a followup CL.",
+      "range": {
+        "startLine": 18,
+        "startChar": 9,
+        "endLine": 19,
+        "endChar": 21
+      },
+      "revId": "2ecd6597f3be11d76c5c3b11b6e3c67aedae3823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
