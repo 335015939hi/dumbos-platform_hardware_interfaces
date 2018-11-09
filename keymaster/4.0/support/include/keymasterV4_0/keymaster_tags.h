@@ -62,6 +62,7 @@
 #include <android/hardware/keymaster/4.0/IKeymasterDevice.h>
 
 #include <type_traits>
+#include <utility>
 
 namespace android {
 namespace hardware {
@@ -155,21 +156,23 @@ DECLARE_TYPED_TAG(VENDOR_PATCHLEVEL);
 template <typename... Elems>
 struct MetaList {};
 
-using all_tags_t =
-    MetaList<TAG_INVALID_t, TAG_KEY_SIZE_t, TAG_MAC_LENGTH_t, TAG_CALLER_NONCE_t,
-             TAG_MIN_MAC_LENGTH_t, TAG_RSA_PUBLIC_EXPONENT_t, TAG_INCLUDE_UNIQUE_ID_t,
-             TAG_ACTIVE_DATETIME_t, TAG_ORIGINATION_EXPIRE_DATETIME_t, TAG_USAGE_EXPIRE_DATETIME_t,
-             TAG_MIN_SECONDS_BETWEEN_OPS_t, TAG_MAX_USES_PER_BOOT_t, TAG_USER_ID_t,
-             TAG_USER_SECURE_ID_t, TAG_NO_AUTH_REQUIRED_t, TAG_AUTH_TIMEOUT_t,
-             TAG_ALLOW_WHILE_ON_BODY_t, TAG_UNLOCKED_DEVICE_REQUIRED_t, TAG_APPLICATION_ID_t,
-             TAG_APPLICATION_DATA_t, TAG_CREATION_DATETIME_t, TAG_ROLLBACK_RESISTANCE_t,
-             TAG_HARDWARE_TYPE_t, TAG_ROOT_OF_TRUST_t, TAG_ASSOCIATED_DATA_t, TAG_NONCE_t,
-             TAG_BOOTLOADER_ONLY_t, TAG_OS_VERSION_t, TAG_OS_PATCHLEVEL_t, TAG_UNIQUE_ID_t,
-             TAG_ATTESTATION_CHALLENGE_t, TAG_ATTESTATION_APPLICATION_ID_t,
-             TAG_RESET_SINCE_ID_ROTATION_t, TAG_PURPOSE_t, TAG_ALGORITHM_t, TAG_BLOCK_MODE_t,
-             TAG_DIGEST_t, TAG_PADDING_t, TAG_BLOB_USAGE_REQUIREMENTS_t, TAG_ORIGIN_t,
-             TAG_USER_AUTH_TYPE_t, TAG_EC_CURVE_t, TAG_BOOT_PATCHLEVEL_t, TAG_VENDOR_PATCHLEVEL_t,
-             TAG_TRUSTED_CONFIRMATION_REQUIRED_t, TAG_TRUSTED_USER_PRESENCE_REQUIRED_t>;
+template <typename Enum, typename Seq>
+struct array2MetalistHelper;
+
+template <typename Enum, size_t... i>
+struct array2MetalistHelper<Enum, std::index_sequence<i...>> {
+    using type = MetaList<
+        typename Tag2TypedTag<android::hardware::details::hidl_enum_values<Enum>[i]>::type...>;
+};
+
+template <typename Enum>
+struct array2Metalist {
+    using type = typename array2MetalistHelper<
+        Enum, std::make_index_sequence<
+                  ::android::hardware::details::hidl_enum_values<Enum>.size()>>::type;
+};
+
+using all_tags_t = array2Metalist<Tag>::type;
 
 template <typename TypedTagType>
 struct TypedTag2ValueType;
