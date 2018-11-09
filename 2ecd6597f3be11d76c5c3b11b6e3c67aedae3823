@@ -22,6 +22,30 @@
       "revId": "2ecd6597f3be11d76c5c3b11b6e3c67aedae3823",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c84f212_b28d09a5",
+        "filename": "bluetooth/1.0/default/android.hardware.bluetooth@1.0-service.rc",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1114063
+      },
+      "writtenOn": "2018-11-09T06:29:54Z",
+      "side": 0,
+      "message": "No..",
+      "parentUuid": "9bae9a16_407d8513",
+      "range": {
+        "startLine": 9,
+        "startChar": 9,
+        "endLine": 9,
+        "endChar": 16
+      },
+      "revId": "2ecd6597f3be11d76c5c3b11b6e3c67aedae3823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
