@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "d2a82909_1097b467",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 609,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-09T02:33:25Z",
+      "side": 1,
+      "message": "The code to do split/join strings is already available in libbase (and in many other places), and it is trivial to implement. Is there a reason this API just uses a string?",
+      "parentUuid": "d5e52215_70f99529",
+      "range": {
+        "startLine": 609,
+        "startChar": 9,
+        "endLine": 609,
+        "endChar": 42
+      },
+      "revId": "98bb6a915c27388e68170c2fcad6996c82665c03",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "325ae29e_70239119",
         "filename": "radio/1.3/types.hal",
         "patchSetId": 8
