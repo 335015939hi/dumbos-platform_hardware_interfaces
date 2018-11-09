@@ -59,9 +59,11 @@
  * value1.isOk() yields false, but value2.isOk() yields true, thus value2.value() is save to access.
  */
 
+#include <android/hardware/keymaster/3.0/types.h>
 #include <android/hardware/keymaster/4.0/IKeymasterDevice.h>
 
 #include <type_traits>
+#include <utility>
 
 namespace android {
 namespace hardware {
@@ -152,24 +154,205 @@ DECLARE_TYPED_TAG(USER_ID);
 DECLARE_TYPED_TAG(USER_SECURE_ID);
 DECLARE_TYPED_TAG(VENDOR_PATCHLEVEL);
 
+#define DECLARE_TYPED_KM3_TAG(name)                                                 \
+    using TAG_##name##_t = TypedTag<typeFromTag(static_cast<Tag>(V3_0::Tag::name)), \
+                                    static_cast<Tag>(V3_0::Tag::name)>;             \
+    static TAG_##name##_t TAG_##name;
+
+DECLARE_TYPED_KM3_TAG(KDF);
+
 template <typename... Elems>
 struct MetaList {};
 
+namespace details {
+
+template <typename Enum, typename Seq>
+struct array2MetalistHelper;
+
+template <typename Enum, size_t... i>
+struct array2MetalistHelper<Enum, std::index_sequence<i...>> {
+    template <uint32_t tag>
+    struct uint32_t2TypedTag {
+        using type = TypedTag<typeFromTag(static_cast<Tag>(tag)), static_cast<Tag>(tag)>;
+    };
+
+    using type = MetaList<typename uint32_t2TypedTag<static_cast<uint32_t>(
+        android::hardware::details::hidl_enum_values<Enum>[i])>::type...>;
+};
+
+template <typename Enum>
+struct array2Metalist {
+    using type = typename array2MetalistHelper<
+        Enum, std::make_index_sequence<
+                  ::android::hardware::details::hidl_enum_values<Enum>.size()>>::type;
+};
+
+/**
+ * Implementation of merge sort on MetaList
+ */
+
+/**
+ * odd_half produces a list of all the odd indexed elements in a MetaList
+ */
+template <typename List, typename Odd = MetaList<>>
+struct odd_half;
+
+template <typename Head, typename Neck, typename... Body, typename... OddElems>
+struct odd_half<MetaList<Head, Neck, Body...>, MetaList<OddElems...>> {
+    using type = typename odd_half<MetaList<Body...>, MetaList<OddElems..., Head>>::type;
+};
+
+template <typename Head, typename... OddElems>
+struct odd_half<MetaList<Head>, MetaList<OddElems...>> {
+    using type = MetaList<OddElems..., Head>;
+};
+
+template <typename... OddElems>
+struct odd_half<MetaList<>, MetaList<OddElems...>> {
+    using type = MetaList<OddElems...>;
+};
+
+/**
+ * even_half produces a list of all the even indexed elements in a MetaList
+ */
+template <typename List, typename Even = MetaList<>>
+struct even_half;
+
+template <typename Head, typename Neck, typename... Body, typename... EvenElems>
+struct even_half<MetaList<Head, Neck, Body...>, MetaList<EvenElems...>> {
+    using type = typename even_half<MetaList<Body...>, MetaList<EvenElems..., Neck>>::type;
+};
+
+template <typename Head, typename... EvenElems>
+struct even_half<MetaList<Head>, MetaList<EvenElems...>> {
+    using type = MetaList<EvenElems...>;
+};
+
+template <typename... EvenElems>
+struct even_half<MetaList<>, MetaList<EvenElems...>> {
+    using type = MetaList<EvenElems...>;
+};
+
+/**
+ * merge_sorted takes two assumed sorted MetaLists and merges them such that the result is still
+ * sorted.
+ */
+template <template <typename, typename> class Less, typename Left, typename Right,
+          typename Merged = MetaList<>>
+struct merge_sorted;
+
+template <template <typename, typename> class Less, typename... MElems, typename LHead,
+          typename RHead, typename... LElems, typename... RElems>
+struct merge_sorted<Less, MetaList<LHead, LElems...>, MetaList<RHead, RElems...>,
+                    MetaList<MElems...>> {
+    using type = typename merge_sorted<
+        Less,
+        typename std::conditional_t<Less<LHead, RHead>::value, MetaList<LElems...>,
+                                    MetaList<LHead, LElems...>>,
+        typename std::conditional_t<Less<LHead, RHead>::value, MetaList<RHead, RElems...>,
+                                    MetaList<RElems...>>,
+        MetaList<MElems...,
+                 typename std::conditional_t<Less<LHead, RHead>::value, LHead, RHead>>>::type;
+};
+
+template <template <typename, typename> class Less, typename... MElems, typename... LElems>
+struct merge_sorted<Less, MetaList<LElems...>, MetaList<>, MetaList<MElems...>> {
+    using type = MetaList<MElems..., LElems...>;
+};
+
+template <template <typename, typename> class Less, typename... MElems, typename... RElems>
+struct merge_sorted<Less, MetaList<>, MetaList<RElems...>, MetaList<MElems...>> {
+    using type = MetaList<MElems..., RElems...>;
+};
+
+template <template <typename, typename> class Less, typename Merged>
+struct merge_sorted<Less, MetaList<>, MetaList<>, Merged> {
+    using type = Merged;
+};
+
+/**
+ * merge_sort implements merge sort on MetaLists based using odd_half, even_half, and merge_sorted.
+ */
+template <template <typename, typename> class Less, typename List>
+struct merge_sort {
+    using type = typename merge_sorted<
+        Less, typename merge_sort<Less, typename odd_half<List>::type>::type,
+        typename merge_sort<Less, typename even_half<List>::type>::type>::type;
+};
+
+template <template <typename, typename> class Less, typename T>
+struct merge_sort<Less, MetaList<T>> {
+    using type = MetaList<T>;
+};
+
+template <template <typename, typename> class Less>
+struct merge_sort<Less, MetaList<>> {
+    using type = MetaList<>;
+};
+
+/**
+ * Implementation of Less and Equal for TypedTags based on their numeric tag value.
+ */
+template <typename T>
+struct getUint32FromTypedTag;
+
+template <TagType tag_type, Tag tag>
+struct getUint32FromTypedTag<TypedTag<tag_type, tag>> {
+    static constexpr const uint32_t value = static_cast<uint32_t>(tag);
+};
+
+template <typename Left, typename Right>
+struct TypedTagLess {
+    static constexpr const bool value =
+        getUint32FromTypedTag<Left>::value < getUint32FromTypedTag<Right>::value;
+};
+
+template <typename Left, typename Right>
+struct TypedTagEquals {
+    static constexpr const bool value =
+        getUint32FromTypedTag<Left>::value == getUint32FromTypedTag<Right>::value;
+};
+
+/**
+ * unique takes a sorted MetaList and produces a list with unique entries.
+ */
+template <template <typename, typename> class Equals, typename T, typename Unique = MetaList<>>
+struct unique;
+
+template <template <typename, typename> class Equals, typename Head, typename Neck,
+          typename... Body, typename... UElems>
+struct unique<Equals, MetaList<Head, Neck, Body...>, MetaList<UElems...>> {
+    using type =
+        typename unique<Equals, MetaList<Neck, Body...>,
+                        typename std::conditional_t<Equals<Head, Neck>::value, MetaList<UElems...>,
+                                                    MetaList<UElems..., Head>>>::type;
+};
+template <template <typename, typename> class Equals, typename Head, typename... UElems>
+struct unique<Equals, MetaList<Head>, MetaList<UElems...>> {
+    using type = MetaList<UElems..., Head>;
+};
+
+template <template <typename, typename> class Equals, typename... UElems>
+struct unique<Equals, MetaList<>, MetaList<UElems...>> {
+    using type = MetaList<UElems...>;
+};
+
+}  // namespace details
+
+/**
+ * With array2MetaList, merge_sort, and unique, we can now generate lists
+ * of KM3 tags, KM4 tags, and all tags.
+ */
+using all_KM3_tags_t = typename details::merge_sort<details::TypedTagLess,
+                                                    details::array2Metalist<V3_0::Tag>::type>::type;
+
+using all_KM4_tags_t =
+    typename details::merge_sort<details::TypedTagLess, details::array2Metalist<Tag>::type>::type;
+
 using all_tags_t =
-    MetaList<TAG_INVALID_t, TAG_KEY_SIZE_t, TAG_MAC_LENGTH_t, TAG_CALLER_NONCE_t,
-             TAG_MIN_MAC_LENGTH_t, TAG_RSA_PUBLIC_EXPONENT_t, TAG_INCLUDE_UNIQUE_ID_t,
-             TAG_ACTIVE_DATETIME_t, TAG_ORIGINATION_EXPIRE_DATETIME_t, TAG_USAGE_EXPIRE_DATETIME_t,
-             TAG_MIN_SECONDS_BETWEEN_OPS_t, TAG_MAX_USES_PER_BOOT_t, TAG_USER_ID_t,
-             TAG_USER_SECURE_ID_t, TAG_NO_AUTH_REQUIRED_t, TAG_AUTH_TIMEOUT_t,
-             TAG_ALLOW_WHILE_ON_BODY_t, TAG_UNLOCKED_DEVICE_REQUIRED_t, TAG_APPLICATION_ID_t,
-             TAG_APPLICATION_DATA_t, TAG_CREATION_DATETIME_t, TAG_ROLLBACK_RESISTANCE_t,
-             TAG_HARDWARE_TYPE_t, TAG_ROOT_OF_TRUST_t, TAG_ASSOCIATED_DATA_t, TAG_NONCE_t,
-             TAG_BOOTLOADER_ONLY_t, TAG_OS_VERSION_t, TAG_OS_PATCHLEVEL_t, TAG_UNIQUE_ID_t,
-             TAG_ATTESTATION_CHALLENGE_t, TAG_ATTESTATION_APPLICATION_ID_t,
-             TAG_RESET_SINCE_ID_ROTATION_t, TAG_PURPOSE_t, TAG_ALGORITHM_t, TAG_BLOCK_MODE_t,
-             TAG_DIGEST_t, TAG_PADDING_t, TAG_BLOB_USAGE_REQUIREMENTS_t, TAG_ORIGIN_t,
-             TAG_USER_AUTH_TYPE_t, TAG_EC_CURVE_t, TAG_BOOT_PATCHLEVEL_t, TAG_VENDOR_PATCHLEVEL_t,
-             TAG_TRUSTED_CONFIRMATION_REQUIRED_t, TAG_TRUSTED_USER_PRESENCE_REQUIRED_t>;
+    typename details::unique<details::TypedTagEquals,
+                             typename details::merge_sorted<details::TypedTagLess, all_KM4_tags_t,
+                                                            all_KM3_tags_t>::type>::type;
 
 template <typename TypedTagType>
 struct TypedTag2ValueType;
@@ -223,6 +406,7 @@ MAKE_TAG_ENUM_VALUE_ACCESSOR(TAG_PADDING, f.paddingMode)
 MAKE_TAG_ENUM_VALUE_ACCESSOR(TAG_PURPOSE, f.purpose)
 MAKE_TAG_ENUM_VALUE_ACCESSOR(TAG_USER_AUTH_TYPE, f.hardwareAuthenticatorType)
 MAKE_TAG_ENUM_VALUE_ACCESSOR(TAG_HARDWARE_TYPE, f.hardwareType)
+MAKE_TAG_ENUM_VALUE_ACCESSOR(TAG_KDF, f.keyDerivationFunction);
 
 template <TagType tag_type, Tag tag, typename ValueT>
 inline KeyParameter makeKeyParameter(TypedTag<tag_type, tag> ttag, ValueT&& value) {
