@@ -46,6 +46,30 @@
       "revId": "2ecd6597f3be11d76c5c3b11b6e3c67aedae3823",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5dc4578_ece5f65d",
+        "filename": "bluetooth/1.0/default/android.hardware.bluetooth@1.0-service.rc",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-09T17:59:19Z",
+      "side": 0,
+      "message": "Yes, confirmed that it won\u0027t. Happy to talk about this if you want.",
+      "parentUuid": "7c84f212_b28d09a5",
+      "range": {
+        "startLine": 9,
+        "startChar": 9,
+        "endLine": 9,
+        "endChar": 16
+      },
+      "revId": "2ecd6597f3be11d76c5c3b11b6e3c67aedae3823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
