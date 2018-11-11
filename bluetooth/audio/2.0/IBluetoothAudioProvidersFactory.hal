@@ -48,6 +48,7 @@ interface IBluetoothAudioProvidersFactory {
      *        provider with the given session type and codec configuration
      *    FAILURE if HAL server cannot open the provider for any other
      *        reason
+     * @return provider the provider of specified session type
      */
     openProvider(SessionType sessionType, CodecConfiguration codecConfig)
         generates (Status status, IBluetoothAudioProvider provider);
