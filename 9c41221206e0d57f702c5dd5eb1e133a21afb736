@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ac6c1407_62b8bf36",
+        "filename": "keymaster/3.0/vts/functional/authorization_set.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-12T19:05:36Z",
+      "side": 1,
+      "message": "I think copying in place might be better than this iterative solution.\n\nhttp://cs/android/system/libhidl/base/include/hidl/HidlSupport.h?l\u003d370\u0026rcl\u003d044ec25063560974146a922f451e0c125dfc8e6f\n\nWe could probably be doing something smarter in templates here, but you might want to do resize + memcpy",
+      "range": {
+        "startLine": 228,
+        "startChar": 38,
+        "endLine": 228,
+        "endChar": 52
+      },
+      "revId": "9c41221206e0d57f702c5dd5eb1e133a21afb736",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
