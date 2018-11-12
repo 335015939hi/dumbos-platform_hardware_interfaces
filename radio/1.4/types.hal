@@ -22,6 +22,7 @@ import @1.0::CellInfoType;
 import @1.0::DataCallFailCause;
 import @1.0::DataProfileId;
 import @1.0::DataProfileInfoType;
+import @1.0::PcoDataInfo;
 import @1.0::RadioAccessFamily;
 import @1.0::RadioCapabilityPhase;
 import @1.0::RadioCapabilityStatus ;
@@ -1598,6 +1599,29 @@ struct DataProfileInfo {
     bool persistent;
 };
 
+struct DedicatedBearerInfo {
+    /**
+     * ID of the bearer (3GPP 24.301 9.3.2)
+     */
+    int32_t id;
+
+    /**
+     * EPS QoS data associated with this bearer. Formatted according to 3GPP
+     * 24.301 9.9.4.3
+     */
+    vec<uint8_t> epsQos;
+
+    /**
+     * PCO data associated with the dedicated bearer
+     */
+    PcoDataInfo carrierPco;
+
+    /**
+     * Traffic flow template. Defined in 3GPP 24.301 9.9.4.16.
+     */
+    vec<uint8_t> tft;
+};
+
 struct CardStatus {
     @1.2::CardStatus base;
     /**
@@ -1692,4 +1716,9 @@ struct SetupDataCallResult {
      * invalid value.
      */
     int32_t mtu;
+
+    /**
+     * List of dedicated bearers associated with this pdn
+     */
+    vec<DedicatedBearerInfo> dedicatedBearers;
 };
