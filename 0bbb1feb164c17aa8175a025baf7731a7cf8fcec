@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1e7bafe8_ca36c1e0",
+        "filename": "bluetooth/audio/2.0/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-12T23:10:45Z",
+      "side": 1,
+      "message": "high level question: which part of bluetooth.audio@1.0 are we wanting to deprecate?",
+      "revId": "0bbb1feb164c17aa8175a025baf7731a7cf8fcec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a304ae34_b8f1c6cd",
+        "filename": "bluetooth/audio/2.0/IBluetoothAudioPort.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-12T23:10:45Z",
+      "side": 1,
+      "message": "You might want to talk to the audio team about splitting out this data so that these versions aren\u0027t coupled",
+      "range": {
+        "startLine": 19,
+        "startChar": 30,
+        "endLine": 19,
+        "endChar": 33
+      },
+      "revId": "0bbb1feb164c17aa8175a025baf7731a7cf8fcec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cbbfb47f_76bee810",
+        "filename": "bluetooth/audio/2.0/IBluetoothAudioPort.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-12T23:10:45Z",
+      "side": 1,
+      "message": "these are all synchronous, but they return results via a callback. Why not return the results in the return packet from this call directly?",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 15
+      },
+      "revId": "0bbb1feb164c17aa8175a025baf7731a7cf8fcec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf7550a7_af4838a1",
+        "filename": "bluetooth/audio/2.0/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-12T23:10:45Z",
+      "side": 1,
+      "message": "you can use safe_union now to combine this in a type-safe way w/ the discriminator if you want",
+      "range": {
+        "startLine": 133,
+        "startChar": 8,
+        "endLine": 133,
+        "endChar": 13
+      },
+      "revId": "0bbb1feb164c17aa8175a025baf7731a7cf8fcec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
