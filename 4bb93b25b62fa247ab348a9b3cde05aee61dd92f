@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dbf67acb_8afd55e2",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1098848
+      },
+      "writtenOn": "2018-11-12T22:31:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f4265a7_26a0a84f",
+      "range": {
+        "startLine": 197,
+        "startChar": 0,
+        "endLine": 197,
+        "endChar": 20
+      },
+      "revId": "4bb93b25b62fa247ab348a9b3cde05aee61dd92f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e5e283d6_f0a108d0",
         "filename": "radio/1.3/types.hal",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2018-11-12T19:46:53Z",
       "side": 1,
       "message": "Do we want to be consistent so all boolean variables start with \u0027is\u0027 or not?",
+      "range": {
+        "startLine": 222,
+        "startChar": 9,
+        "endLine": 222,
+        "endChar": 19
+      },
+      "revId": "4bb93b25b62fa247ab348a9b3cde05aee61dd92f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f44caef5_e1935feb",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1098848
+      },
+      "writtenOn": "2018-11-12T22:31:27Z",
+      "side": 1,
+      "message": "I want to add the \"is\" prefix, at least for 1.3 version.",
+      "parentUuid": "e5e283d6_f0a108d0",
       "range": {
         "startLine": 222,
         "startChar": 9,
