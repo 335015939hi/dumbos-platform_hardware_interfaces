@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b362bcab_fc30b895",
+        "filename": "bluetooth/audio/2.0/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2018-11-13T02:20:52Z",
+      "side": 1,
+      "message": "The 1.0 is only for A2DP offloading (BluetoothA2dp) and the new HAL is unified for BT streaming like Hearing Aid / A2DP. We also add more codec specified to more completed the interface.",
+      "parentUuid": "1e7bafe8_ca36c1e0",
+      "revId": "0bbb1feb164c17aa8175a025baf7731a7cf8fcec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a304ae34_b8f1c6cd",
         "filename": "bluetooth/audio/2.0/IBluetoothAudioPort.hal",
         "patchSetId": 7
@@ -30,6 +48,30 @@
       "writtenOn": "2018-11-12T23:10:45Z",
       "side": 1,
       "message": "You might want to talk to the audio team about splitting out this data so that these versions aren\u0027t coupled",
+      "range": {
+        "startLine": 19,
+        "startChar": 30,
+        "endLine": 19,
+        "endChar": 33
+      },
+      "revId": "0bbb1feb164c17aa8175a025baf7731a7cf8fcec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2465a867_28f1f007",
+        "filename": "bluetooth/audio/2.0/IBluetoothAudioPort.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2018-11-13T02:20:52Z",
+      "side": 1,
+      "message": "yes, let me discuss with audio team and thanks.",
+      "parentUuid": "a304ae34_b8f1c6cd",
       "range": {
         "startLine": 19,
         "startChar": 30,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "3236f8cf_cbb8a65b",
+        "filename": "bluetooth/audio/2.0/IBluetoothAudioPort.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2018-11-13T02:20:52Z",
+      "side": 1,
+      "message": "It is because the procedure of starting / suspending may take long time over seconds which depends on how quick the BT accessory can reply. If we return results directly, the caller will be stuck for long time by replied late so it is better to be asynchronous and wait for results or drop the call by caller (timed out).",
+      "parentUuid": "cbbfb47f_76bee810",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 15
+      },
+      "revId": "0bbb1feb164c17aa8175a025baf7731a7cf8fcec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cf7550a7_af4838a1",
         "filename": "bluetooth/audio/2.0/types.hal",
         "patchSetId": 7
@@ -76,6 +142,30 @@
       "writtenOn": "2018-11-12T23:10:45Z",
       "side": 1,
       "message": "you can use safe_union now to combine this in a type-safe way w/ the discriminator if you want",
+      "range": {
+        "startLine": 133,
+        "startChar": 8,
+        "endLine": 133,
+        "endChar": 13
+      },
+      "revId": "0bbb1feb164c17aa8175a025baf7731a7cf8fcec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "412f197f_6bfeb3a7",
+        "filename": "bluetooth/audio/2.0/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2018-11-13T02:20:52Z",
+      "side": 1,
+      "message": "Yes, let me study about safe_union and thanks.",
+      "parentUuid": "cf7550a7_af4838a1",
       "range": {
         "startLine": 133,
         "startChar": 8,
