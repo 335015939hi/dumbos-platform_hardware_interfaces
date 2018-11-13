@@ -261,8 +261,9 @@ struct choose_serializer<MetaList<Tags...>> {
 template <>
 struct choose_serializer<> {
     static OutStreams& serialize(OutStreams& out, const KeyParameter& param) {
-        LOG(ERROR) << "Trying to serialize unknown tag " << unsigned(param.tag)
+        LOG(FATAL) << "Trying to serialize unknown tag " << unsigned(param.tag)
                    << ". Did you forget to add it to all_tags_t?";
+        abort();
         return out;
     }
 };
