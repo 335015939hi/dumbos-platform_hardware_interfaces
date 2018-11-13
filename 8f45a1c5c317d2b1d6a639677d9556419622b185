@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e3c9904c_8fcafd3a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2018-11-13T21:42:55Z",
+      "side": 1,
+      "message": "this is the AIDL serialization which is different from this serialization.",
+      "range": {
+        "startLine": 12,
+        "startChar": 52,
+        "endLine": 12,
+        "endChar": 66
+      },
+      "revId": "8f45a1c5c317d2b1d6a639677d9556419622b185",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
