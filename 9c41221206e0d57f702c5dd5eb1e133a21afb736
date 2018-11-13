@@ -22,6 +22,30 @@
       "revId": "9c41221206e0d57f702c5dd5eb1e133a21afb736",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d30225d3_e160f7f6",
+        "filename": "keymaster/3.0/vts/functional/authorization_set.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2018-11-13T00:42:06Z",
+      "side": 1,
+      "message": "KeyParameter has a hidl_vec\u003cuint8_t\u003e blob field. It must be deep copied.",
+      "parentUuid": "ac6c1407_62b8bf36",
+      "range": {
+        "startLine": 228,
+        "startChar": 38,
+        "endLine": 228,
+        "endChar": 52
+      },
+      "revId": "9c41221206e0d57f702c5dd5eb1e133a21afb736",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
