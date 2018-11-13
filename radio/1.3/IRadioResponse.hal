@@ -74,12 +74,9 @@ interface IRadioResponse extends @1.2::IRadioResponse {
             DataRegStateResult dataRegResponse);
 
     /**
-     * @param info Response info struct containing response type, serial no. and error
      * @param cardStatus ICC card status as defined by CardStatus in types.hal
      *
      * Valid errors returned:
-     *   RadioError:NONE
-     *   RadioError:RADIO_NOT_AVAILABLE
      *   RadioError:INTERNAL_ERR
      *   RadioError:NO_MEMORY
      *   RadioError:NO_RESOURCES
@@ -87,4 +84,18 @@ interface IRadioResponse extends @1.2::IRadioResponse {
      *   RadioError:REQUEST_NOT_SUPPORTED
      */
     oneway getIccCardStatusResponse_1_3(RadioResponseInfo info, CardStatus cardStatus);
+
+    /**
+     * @param Response info struct containing response type, serial no. and error
+     *
+     * Valid errors returned:
+     *   RadioError:NONE
+     *   RadioError:RADIO_NOT_AVAILABLE
+     *   RadioError:DEVICE_IN_USE
+     *   RadioError:INTERNAL_ERR
+     *   RadioError:NO_MEMORY
+     *   RadioError:MODEM_ERR
+     *   RadioError:INVALID_ARGUMENTS
+     */
+    oneway startNetworkScanResponse_1_3(RadioResponseInfo info);
 };
