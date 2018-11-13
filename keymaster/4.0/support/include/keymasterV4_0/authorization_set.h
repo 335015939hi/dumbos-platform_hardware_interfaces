@@ -142,11 +142,6 @@ class AuthorizationSet {
     std::vector<KeyParameter>::const_iterator end() const { return data_.end(); }
 
     /**
-     * Modifies this Authorization set such that it only keeps the entries for which doKeep
-     * returns true.
-     */
-    void Filter(std::function<bool(const KeyParameter&)> doKeep);
-    /**
      * Returns the nth element of the set.
      * Like for std::vector::operator[] there is no range check performed. Use of out of range
      * indices is undefined.
@@ -214,7 +209,7 @@ class AuthorizationSet {
         }
     }
 
-    const hidl_vec<KeyParameter> hidl_data() const {
+    hidl_vec<KeyParameter> hidl_data() const {
         hidl_vec<KeyParameter> result;
         result.setToExternal(const_cast<KeyParameter*>(data()), size());
         return result;
