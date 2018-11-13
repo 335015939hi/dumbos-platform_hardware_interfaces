@@ -69,6 +69,30 @@
       "revId": "d34e58a7f55a8909939bfa536dc83ea83296ff68",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0dd4ac70_60d81633",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1121198
+      },
+      "writtenOn": "2018-11-13T19:18:13Z",
+      "side": 1,
+      "message": "I think we can keep it consistent with SlotStatus and pass up null/empty, then just use TextUtils.isEmpty() in platform code.",
+      "parentUuid": "a5199c2e_848ba189",
+      "range": {
+        "startLine": 254,
+        "startChar": 34,
+        "endLine": 255,
+        "endChar": 22
+      },
+      "revId": "d34e58a7f55a8909939bfa536dc83ea83296ff68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
