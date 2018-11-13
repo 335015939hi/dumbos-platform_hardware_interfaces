@@ -70,6 +70,30 @@
       "revId": "9c41221206e0d57f702c5dd5eb1e133a21afb736",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4be702f9_cdf17aba",
+        "filename": "keymaster/3.0/vts/functional/authorization_set.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2018-11-13T22:29:07Z",
+      "side": 1,
+      "message": "memcpy would copy the content of the hidl_vec\u003cKeyParameter\u003e shallow (!) which would lead to two owners of the indirect buffers referenced by the KeyParameter::blob fields and, subsequently, to a double free. Maybe I am not getting what you are suggesting, but what I am getting sounds dangerous.",
+      "parentUuid": "1a2c995b_32d52ae5",
+      "range": {
+        "startLine": 228,
+        "startChar": 38,
+        "endLine": 228,
+        "endChar": 52
+      },
+      "revId": "9c41221206e0d57f702c5dd5eb1e133a21afb736",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
