@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e7d446b9_f4b2b13a",
+        "filename": "gnss/1.0/IGnssCallback.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1105161
+      },
+      "writtenOn": "2018-11-13T01:33:33Z",
+      "side": 1,
+      "message": "nit: no s in variable name below ?",
+      "range": {
+        "startLine": 128,
+        "startChar": 43,
+        "endLine": 128,
+        "endChar": 44
+      },
+      "revId": "e68048d5936cf3de77905ffb4dc5ac8c202e20ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
