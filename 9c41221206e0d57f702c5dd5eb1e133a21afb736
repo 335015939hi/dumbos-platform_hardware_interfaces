@@ -46,6 +46,30 @@
       "revId": "9c41221206e0d57f702c5dd5eb1e133a21afb736",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a2c995b_32d52ae5",
+        "filename": "keymaster/3.0/vts/functional/authorization_set.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-13T21:51:56Z",
+      "side": 1,
+      "message": "I was suggesting using memcpy rather than this which is using a for-loop, but I guess this is a test, so it may not be critical.",
+      "parentUuid": "d30225d3_e160f7f6",
+      "range": {
+        "startLine": 228,
+        "startChar": 38,
+        "endLine": 228,
+        "endChar": 52
+      },
+      "revId": "9c41221206e0d57f702c5dd5eb1e133a21afb736",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
