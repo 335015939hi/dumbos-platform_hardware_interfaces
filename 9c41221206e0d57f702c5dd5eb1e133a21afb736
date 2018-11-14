@@ -94,6 +94,30 @@
       "revId": "9c41221206e0d57f702c5dd5eb1e133a21afb736",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5d062926_b5cfd70e",
+        "filename": "keymaster/3.0/vts/functional/authorization_set.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-14T01:08:48Z",
+      "side": 1,
+      "message": "Sorry, yeah, this was my bad.",
+      "parentUuid": "4be702f9_cdf17aba",
+      "range": {
+        "startLine": 228,
+        "startChar": 38,
+        "endLine": 228,
+        "endChar": 52
+      },
+      "revId": "9c41221206e0d57f702c5dd5eb1e133a21afb736",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
