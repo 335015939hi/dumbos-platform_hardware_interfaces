@@ -171,6 +171,30 @@
     },
     {
       "key": {
+        "uuid": "eec36fb8_ba740d10",
+        "filename": "bluetooth/audio/2.0/IBluetoothAudioPort.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2018-11-14T22:01:36Z",
+      "side": 1,
+      "message": "No, we want to limit the format so the caller from vendor does not confuse which type it is.",
+      "parentUuid": "c50d8d91_0a429f14",
+      "range": {
+        "startLine": 78,
+        "startChar": 42,
+        "endLine": 78,
+        "endChar": 70
+      },
+      "revId": "0bbb1feb164c17aa8175a025baf7731a7cf8fcec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8fecf3b3_2d3453c0",
         "filename": "bluetooth/audio/2.0/IBluetoothAudioProvider.hal",
         "patchSetId": 7
@@ -325,6 +349,30 @@
       "side": 1,
       "message": "I think the main question is whether a Provider can be reused. For a particular session type, a provider may work for some codec, but not others. e.g. If a HW encoder only supports SBC and AAC, then the following sequence will result in a failure:\n\n1) openProvider(SESSION_A2DP_HW);\n2) startSession(SBC) -\u003e works\n3) endSession()\n3) startSession(APTX) -\u003e will fail -\u003e BT stack has to re-open another provider\n\nInstead, I think the call flow should be standardized such that BT stack always go through the following sequence:\n\n1) openProvider(SESSION_A2DP_HW, SBC)\n2) startSession() -\u003e returns nothing\n3) endSession()\n4) openProvider(SESSION_A2DP_SW, APTX)\n5) startSession() -\u003e returns the fast message queue\n5) endSession()\n\nIf startSession() takes no parameter, BT stack developer is forced to always call openProvider(sessionType, codecConfig) before calling startSession(), avoiding codec not supported errors like above.",
       "parentUuid": "90ebcd3c_656b117a",
+      "range": {
+        "startLine": 60,
+        "startChar": 45,
+        "endLine": 61,
+        "endChar": 46
+      },
+      "revId": "0bbb1feb164c17aa8175a025baf7731a7cf8fcec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64aaa09d_1401baad",
+        "filename": "bluetooth/audio/2.0/IBluetoothAudioProvider.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2018-11-14T22:01:36Z",
+      "side": 1,
+      "message": "By my viewpoint, the variable is Audio Vendor\u0027s Hal but BT Stack should be fixed to AOSP. It means BT Stack has consistent behavior and based on this assumption, it should be enough to tell Audio Vendor what we will do.\nBack to Jack\u0027s case, since all checks are done by Stack (step#4), it seems to be well for reuse and Stack needs to reopen when this codec is not supported by current session.\nThat is we (BT Stack) will always select the codec which the provider supported and it can just return UNSUPPORTED_CODEC_CONFIGURATION and the exception is handled by Stack.",
+      "parentUuid": "cc6f15b9_3fec53c5",
       "range": {
         "startLine": 60,
         "startChar": 45,
