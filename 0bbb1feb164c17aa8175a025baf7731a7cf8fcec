@@ -241,6 +241,30 @@
     },
     {
       "key": {
+        "uuid": "685cc9c9_ae63ebb5",
+        "filename": "bluetooth/audio/2.0/IBluetoothAudioProvider.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1071489
+      },
+      "writtenOn": "2018-11-14T18:09:50Z",
+      "side": 1,
+      "message": "In case the same provider implements the handling for multiple session types - \nthe startSession(SessionType) will avoid the ambiguity which session type will be started.",
+      "parentUuid": "16d3a41e_d3dd5644",
+      "range": {
+        "startLine": 60,
+        "startChar": 45,
+        "endLine": 61,
+        "endChar": 46
+      },
+      "revId": "0bbb1feb164c17aa8175a025baf7731a7cf8fcec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "055d3be9_9c4e89a5",
         "filename": "bluetooth/audio/2.0/types.hal",
         "patchSetId": 7
