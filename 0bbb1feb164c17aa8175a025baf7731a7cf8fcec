@@ -84,6 +84,23 @@
     },
     {
       "key": {
+        "uuid": "0233e6d5_a1140423",
+        "filename": "bluetooth/audio/2.0/IBluetoothAudioPort.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-14T02:02:38Z",
+      "side": 1,
+      "message": "nit: no newline",
+      "revId": "0bbb1feb164c17aa8175a025baf7731a7cf8fcec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cbbfb47f_76bee810",
         "filename": "bluetooth/audio/2.0/IBluetoothAudioPort.hal",
         "patchSetId": 7
@@ -131,6 +148,29 @@
     },
     {
       "key": {
+        "uuid": "c50d8d91_0a429f14",
+        "filename": "bluetooth/audio/2.0/IBluetoothAudioPort.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-14T02:02:38Z",
+      "side": 1,
+      "message": "does this need to be the value of CLOCK_MONOTONIC, or can it be any monotonic clock?",
+      "range": {
+        "startLine": 78,
+        "startChar": 42,
+        "endLine": 78,
+        "endChar": 70
+      },
+      "revId": "0bbb1feb164c17aa8175a025baf7731a7cf8fcec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8fecf3b3_2d3453c0",
         "filename": "bluetooth/audio/2.0/IBluetoothAudioProvider.hal",
         "patchSetId": 7
@@ -142,6 +182,30 @@
       "writtenOn": "2018-11-14T00:14:49Z",
       "side": 1,
       "message": "Specify the format of dataMQ in documentation. e.g. mention that it is PCM formatted.",
+      "range": {
+        "startLine": 57,
+        "startChar": 7,
+        "endLine": 57,
+        "endChar": 21
+      },
+      "revId": "0bbb1feb164c17aa8175a025baf7731a7cf8fcec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dbd880e4_cdec34fa",
+        "filename": "bluetooth/audio/2.0/IBluetoothAudioProvider.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-14T02:02:38Z",
+      "side": 1,
+      "message": "and also any additional information you can add about it",
+      "parentUuid": "8fecf3b3_2d3453c0",
       "range": {
         "startLine": 57,
         "startChar": 7,
@@ -170,6 +234,52 @@
         "startChar": 45,
         "endLine": 61,
         "endChar": 46
+      },
+      "revId": "0bbb1feb164c17aa8175a025baf7731a7cf8fcec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "055d3be9_9c4e89a5",
+        "filename": "bluetooth/audio/2.0/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-14T02:02:38Z",
+      "side": 1,
+      "message": "I thought this was no longer a2dp?",
+      "range": {
+        "startLine": 41,
+        "startChar": 4,
+        "endLine": 41,
+        "endChar": 8
+      },
+      "revId": "0bbb1feb164c17aa8175a025baf7731a7cf8fcec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30995809_72de2fb5",
+        "filename": "bluetooth/audio/2.0/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-14T02:02:38Z",
+      "side": 1,
+      "message": "can you add comments to explain the differences in behavior expected between these? Is it just for logging?",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 43
       },
       "revId": "0bbb1feb164c17aa8175a025baf7731a7cf8fcec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
