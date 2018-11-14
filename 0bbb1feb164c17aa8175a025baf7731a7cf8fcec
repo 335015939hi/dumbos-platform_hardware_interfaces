@@ -131,6 +131,29 @@
     },
     {
       "key": {
+        "uuid": "8fecf3b3_2d3453c0",
+        "filename": "bluetooth/audio/2.0/IBluetoothAudioProvider.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2018-11-14T00:14:49Z",
+      "side": 1,
+      "message": "Specify the format of dataMQ in documentation. e.g. mention that it is PCM formatted.",
+      "range": {
+        "startLine": 57,
+        "startChar": 7,
+        "endLine": 57,
+        "endChar": 21
+      },
+      "revId": "0bbb1feb164c17aa8175a025baf7731a7cf8fcec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cf7550a7_af4838a1",
         "filename": "bluetooth/audio/2.0/types.hal",
         "patchSetId": 7
