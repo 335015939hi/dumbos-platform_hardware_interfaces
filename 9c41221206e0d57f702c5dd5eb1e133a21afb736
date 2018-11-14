@@ -141,6 +141,30 @@
       "revId": "9c41221206e0d57f702c5dd5eb1e133a21afb736",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fda27895_609cbfff",
+        "filename": "keymaster/4.0/support/include/keymasterV4_0/authorization_set.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2018-11-14T23:01:31Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "84abe1f8_8efab747",
+      "range": {
+        "startLine": 218,
+        "startChar": 8,
+        "endLine": 219,
+        "endChar": 22
+      },
+      "revId": "9c41221206e0d57f702c5dd5eb1e133a21afb736",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
