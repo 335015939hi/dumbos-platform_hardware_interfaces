@@ -313,6 +313,30 @@
     },
     {
       "key": {
+        "uuid": "cc6f15b9_3fec53c5",
+        "filename": "bluetooth/audio/2.0/IBluetoothAudioProvider.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2018-11-14T20:10:57Z",
+      "side": 1,
+      "message": "I think the main question is whether a Provider can be reused. For a particular session type, a provider may work for some codec, but not others. e.g. If a HW encoder only supports SBC and AAC, then the following sequence will result in a failure:\n\n1) openProvider(SESSION_A2DP_HW);\n2) startSession(SBC) -\u003e works\n3) endSession()\n3) startSession(APTX) -\u003e will fail -\u003e BT stack has to re-open another provider\n\nInstead, I think the call flow should be standardized such that BT stack always go through the following sequence:\n\n1) openProvider(SESSION_A2DP_HW, SBC)\n2) startSession() -\u003e returns nothing\n3) endSession()\n4) openProvider(SESSION_A2DP_SW, APTX)\n5) startSession() -\u003e returns the fast message queue\n5) endSession()\n\nIf startSession() takes no parameter, BT stack developer is forced to always call openProvider(sessionType, codecConfig) before calling startSession(), avoiding codec not supported errors like above.",
+      "parentUuid": "90ebcd3c_656b117a",
+      "range": {
+        "startLine": 60,
+        "startChar": 45,
+        "endLine": 61,
+        "endChar": 46
+      },
+      "revId": "0bbb1feb164c17aa8175a025baf7731a7cf8fcec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8945a82d_4589979b",
         "filename": "bluetooth/audio/2.0/IBluetoothAudioProvidersFactory.hal",
         "patchSetId": 7
