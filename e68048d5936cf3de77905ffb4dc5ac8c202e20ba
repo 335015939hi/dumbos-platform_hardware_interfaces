@@ -46,6 +46,30 @@
       "revId": "e68048d5936cf3de77905ffb4dc5ac8c202e20ba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2c58500c_eb5d65db",
+        "filename": "gnss/1.0/IGnssCallback.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-14T00:48:06Z",
+      "side": 1,
+      "message": "It still appears to be there",
+      "parentUuid": "1eb43ff0_8d15c1fb",
+      "range": {
+        "startLine": 128,
+        "startChar": 43,
+        "endLine": 128,
+        "endChar": 44
+      },
+      "revId": "e68048d5936cf3de77905ffb4dc5ac8c202e20ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
