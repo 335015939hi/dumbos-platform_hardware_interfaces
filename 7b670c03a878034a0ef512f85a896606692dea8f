@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90d0ddca_f84be67e",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2018-11-14T01:59:38Z",
+      "side": 1,
+      "message": "rename this as SIM_CARD_EVT",
+      "range": {
+        "startLine": 201,
+        "startChar": 4,
+        "endLine": 201,
+        "endChar": 19
+      },
+      "revId": "7b670c03a878034a0ef512f85a896606692dea8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9771dcb5_6129dcdd",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2018-11-14T01:59:38Z",
+      "side": 1,
+      "message": "Better name",
+      "range": {
+        "startLine": 258,
+        "startChar": 1,
+        "endLine": 259,
+        "endChar": 21
+      },
+      "revId": "7b670c03a878034a0ef512f85a896606692dea8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4ad5bef_3bd1c38c",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2018-11-14T01:59:38Z",
+      "side": 1,
+      "message": "what is ACL ? better name",
+      "range": {
+        "startLine": 310,
+        "startChar": 4,
+        "endLine": 310,
+        "endChar": 15
+      },
+      "revId": "7b670c03a878034a0ef512f85a896606692dea8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
