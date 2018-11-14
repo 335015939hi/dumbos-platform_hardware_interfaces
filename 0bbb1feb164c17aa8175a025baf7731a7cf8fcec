@@ -289,6 +289,53 @@
     },
     {
       "key": {
+        "uuid": "90ebcd3c_656b117a",
+        "filename": "bluetooth/audio/2.0/IBluetoothAudioProvider.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1071489
+      },
+      "writtenOn": "2018-11-14T18:37:49Z",
+      "side": 1,
+      "message": "If you want to simplify things a bit, you can explicitly restrict/document that\na provider cannot implement more than one sessionType. Then:\n\n1) openProvider(sessionType)\n2) startSession(codecConfig)\n\nI added a comment elsewhere, that codecConfig as a second argument to openProvider\nis wrong so it should be removed (I don\u0027t remember why I had it there in the first\nversion of the CL). Having multiple providers per sessionType AND per\ncodecConfig will create lots of complexity.",
+      "parentUuid": "34936b53_e7a49c93",
+      "range": {
+        "startLine": 60,
+        "startChar": 45,
+        "endLine": 61,
+        "endChar": 46
+      },
+      "revId": "0bbb1feb164c17aa8175a025baf7731a7cf8fcec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8945a82d_4589979b",
+        "filename": "bluetooth/audio/2.0/IBluetoothAudioProvidersFactory.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1071489
+      },
+      "writtenOn": "2018-11-14T18:37:49Z",
+      "side": 1,
+      "message": "Semantically, this shouldn\u0027t be here. I don\u0027t remember why I had it included in the first version of the CL.",
+      "range": {
+        "startLine": 53,
+        "startChar": 42,
+        "endLine": 53,
+        "endChar": 72
+      },
+      "revId": "0bbb1feb164c17aa8175a025baf7731a7cf8fcec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "055d3be9_9c4e89a5",
         "filename": "bluetooth/audio/2.0/types.hal",
         "patchSetId": 7
