@@ -265,6 +265,30 @@
     },
     {
       "key": {
+        "uuid": "34936b53_e7a49c93",
+        "filename": "bluetooth/audio/2.0/IBluetoothAudioProvider.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2018-11-14T18:26:03Z",
+      "side": 1,
+      "message": "Thanks to reply and may I say it will cover some cases for sub-session like openProvider(SESSION_HYBRID) -\u003e startSession(SESSION_HYBRID_SW or SESSION_HYBRID_HW)?\nHow about the codecConfig if we limit that developer must to do something like below?\n    openProvider(sessionType, codecConfig) {\n        Provider.init(sessionType, codecConfig);\n        return Provider;\n    }\n    Provider.startSession(subSessionType);\nHow do you think if it can be a well defined?",
+      "parentUuid": "685cc9c9_ae63ebb5",
+      "range": {
+        "startLine": 60,
+        "startChar": 45,
+        "endLine": 61,
+        "endChar": 46
+      },
+      "revId": "0bbb1feb164c17aa8175a025baf7731a7cf8fcec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "055d3be9_9c4e89a5",
         "filename": "bluetooth/audio/2.0/types.hal",
         "patchSetId": 7
@@ -276,6 +300,30 @@
       "writtenOn": "2018-11-14T02:02:38Z",
       "side": 1,
       "message": "I thought this was no longer a2dp?",
+      "range": {
+        "startLine": 41,
+        "startChar": 4,
+        "endLine": 41,
+        "endChar": 8
+      },
+      "revId": "0bbb1feb164c17aa8175a025baf7731a7cf8fcec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf960fa4_7d077bed",
+        "filename": "bluetooth/audio/2.0/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2018-11-14T18:26:03Z",
+      "side": 1,
+      "message": "No, it is A2DP here but more types like HEARING_AID. This indicates which uses case is so BT Stack and Audio HAL can talk to each other with same language. Ex, when A2DP SW case, AudioPolicy will open the right output linked to A2DP_SOFTWARE_ENCODING_DATAPATH and talk to BT Stack for control and data to A2DP. When Hearing Aid, there is another ports from Audio viewpoint and they go to HEARING_AID_SOFTWARE_ENCODING_DATAPATH so all send via BLE. They are different path.",
+      "parentUuid": "055d3be9_9c4e89a5",
       "range": {
         "startLine": 41,
         "startChar": 4,
