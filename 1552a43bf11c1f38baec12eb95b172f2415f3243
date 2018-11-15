@@ -22,6 +22,29 @@
       "revId": "1552a43bf11c1f38baec12eb95b172f2415f3243",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96b5bd65_fa0df619",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2018-11-15T18:26:59Z",
+      "side": 1,
+      "message": "use the actual HIDL type",
+      "range": {
+        "startLine": 187,
+        "startChar": 14,
+        "endLine": 187,
+        "endChar": 22
+      },
+      "revId": "1552a43bf11c1f38baec12eb95b172f2415f3243",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
