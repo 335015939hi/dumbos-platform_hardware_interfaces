@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "d50d5a72_2a5746c2",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1098848
+      },
+      "writtenOn": "2018-11-15T23:00:10Z",
+      "side": 1,
+      "message": "Sure, we add the \".\" for each field\u0027s comment.",
+      "parentUuid": "8caa13a0_b7085583",
+      "range": {
+        "startLine": 179,
+        "startChar": 53,
+        "endLine": 179,
+        "endChar": 54
+      },
+      "revId": "1552a43bf11c1f38baec12eb95b172f2415f3243",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f1bf1e3d_93436033",
         "filename": "radio/1.3/types.hal",
         "patchSetId": 1
@@ -131,6 +155,30 @@
       "writtenOn": "2018-11-15T21:57:07Z",
       "side": 1,
       "message": "nit, I believe putting a \".\" here will mess up the javadoc. Suggest to reword. Also, can you add something to explain that if the list is empty then the physical channel has no data bearers mapped to it (which is OK).",
+      "range": {
+        "startLine": 186,
+        "startChar": 67,
+        "endLine": 186,
+        "endChar": 70
+      },
+      "revId": "1552a43bf11c1f38baec12eb95b172f2415f3243",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0bfb5f1d_1b39c925",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1098848
+      },
+      "writtenOn": "2018-11-15T23:00:10Z",
+      "side": 1,
+      "message": "Look through the generated doc of radio/1.2/types.hal, \n\nhttps://source.android.com/reference/hidl/android/hardware/radio/1.2/types\n\nThe statement for each parameter will go into the same line, ignore the \".\" or new line in the statement.",
+      "parentUuid": "08786fbb_3f5b83d5",
       "range": {
         "startLine": 186,
         "startChar": 67,
