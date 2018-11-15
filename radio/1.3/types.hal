@@ -23,6 +23,7 @@ import @1.0::DataProfileId;
 import @1.0::DataProfileInfoType;
 import @1.0::RadioAccessFamily;
 import @1.0::RadioError;
+import @1.0::RadioTechnology;
 import @1.0::RegState;
 import @1.0::TimeStampType;
 import @1.1::ScanStatus;
@@ -36,6 +37,7 @@ import @1.2::CellInfoWcdma;
 import @1.2::CardStatus;
 import @1.2::CellIdentity;
 import @1.2::DataRegStateResult;
+import @1.2::PhysicalChannelConfig;
 
 import android.hidl.safe_union@1.0::Monostate;
 
@@ -141,6 +143,50 @@ enum EmergencyNumberSource : int32_t {
      * present.
      */
     DEFAULT = 1 << 3,
+};
+
+enum RadioTechnology : @1.0::RadioTechnology {
+    /** 5G NR */
+    NR = 20,
+};
+
+/** Mapping the frequency to a rough range. */
+enum FrequencyRange : int32_t {
+    /** Indicates the frequency range is below 1GHz */
+    LOW = 1,
+
+    /** Indicates the frequency range is between 1GHz and 3GHz */
+    MID = 2,
+
+    /** Indicates the frequency range is between 3GHz and 6GHz */
+    HIGH = 3,
+
+    /** Indicates the frequency range is above 6GHz (millimeter wave frequency) */
+    MMWAVE = 4,
+};
+
+safe_union RadioFrequencyInfo {
+    /** A rough frequency range. */
+    FrequencyRange range;
+
+    /** The Absolute Radio Frequency Channel Number. */
+    int32_t channelNumber;
+};
+
+struct PhysicalChannelConfig {
+    @1.2::PhysicalChannelConfig base;
+
+    /** The radio technology for this physical channel */
+    RadioTechnology rat;
+
+    /** The radio frequency info */
+    RadioFrequencyInfo rfInfo;
+
+    /**
+     * A list of bearers/data calls mapped to this Physical Channel. The context id must match the
+     * cid of DataCall.
+     */
+    vec<int32_t> contextIds;
 };
 
 /**
