@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "15530b31_a193087f",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2018-11-15T01:07:08Z",
+      "side": 1,
+      "message": "we shouldn\u0027t define vendor specific error codes in AOSP.",
+      "range": {
+        "startLine": 164,
+        "startChar": 0,
+        "endLine": 164,
+        "endChar": 27
+      },
+      "revId": "50bd1956fc163d16bb74f8c034d02195d9b1fc90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52ff3502_0e244bfc",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2018-11-15T01:07:08Z",
+      "side": 1,
+      "message": "Need the source (e.g. spec number) of those error codes. Same for PPP and EHRPD sections",
+      "range": {
+        "startLine": 252,
+        "startChar": 0,
+        "endLine": 430,
+        "endChar": 31
+      },
+      "revId": "50bd1956fc163d16bb74f8c034d02195d9b1fc90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b950275_e7b25731",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 651,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2018-11-15T01:07:08Z",
+      "side": 1,
+      "message": "Need to change all APIs that use @1.0::SetupDataCallResult. Those APIs need to use the @1.3 one.",
+      "range": {
+        "startLine": 651,
+        "startChar": 7,
+        "endLine": 651,
+        "endChar": 26
+      },
+      "revId": "50bd1956fc163d16bb74f8c034d02195d9b1fc90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49cad2b5_170954e6",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2018-11-15T01:07:08Z",
+      "side": 1,
+      "message": "Consider renaming this to cause",
+      "range": {
+        "startLine": 655,
+        "startChar": 22,
+        "endLine": 655,
+        "endChar": 28
+      },
+      "revId": "50bd1956fc163d16bb74f8c034d02195d9b1fc90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "92561588_38a16377",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 675,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2018-11-15T01:07:08Z",
+      "side": 1,
+      "message": "should define an enum for that",
+      "range": {
+        "startLine": 675,
+        "startChar": 4,
+        "endLine": 675,
+        "endChar": 11
+      },
+      "revId": "50bd1956fc163d16bb74f8c034d02195d9b1fc90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5029547a_7cbcde94",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 683,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2018-11-15T01:07:08Z",
+      "side": 1,
+      "message": "Should be an enum",
+      "range": {
+        "startLine": 683,
+        "startChar": 4,
+        "endLine": 683,
+        "endChar": 16
+      },
+      "revId": "50bd1956fc163d16bb74f8c034d02195d9b1fc90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "09d7c019_9687ef3b",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 711,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2018-11-15T01:07:08Z",
+      "side": 1,
+      "message": "Should use vector of string instead of a single string to hold all addresses. See https://android.googlesource.com/platform/hardware/interfaces/+/master/radio/1.3/IRadio.hal#80 and its javadoc as reference.",
+      "range": {
+        "startLine": 690,
+        "startChar": 0,
+        "endLine": 711,
+        "endChar": 0
+      },
+      "revId": "50bd1956fc163d16bb74f8c034d02195d9b1fc90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
