@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f1bf1e3d_93436033",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-11-15T03:44:42Z",
+      "side": 1,
+      "message": "Could you add an \"int physicalCellId\"? Just like the other fields, I\u0027m resigned to the idea that some chipset vendors might not support it, but it would actually help us to have it here and I know that at least older firmwares we have do support it. Mr. Naveen and I discussed it when this API was happening last year and he suggested adding it. I didn\u0027t see the need at the time, but I was wrong. it\u0027s better to have it here.",
+      "range": {
+        "startLine": 183,
+        "startChar": 0,
+        "endLine": 183,
+        "endChar": 30
+      },
+      "revId": "1552a43bf11c1f38baec12eb95b172f2415f3243",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
