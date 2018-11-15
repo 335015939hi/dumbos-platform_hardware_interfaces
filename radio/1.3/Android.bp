@@ -25,6 +25,8 @@ hidl_interface {
         "CellInfo",
         "CellInfoLte",
         "CardStatus",
+        "DataCallFailCause",
+        "DataConnActiveStatus",
         "DataProfileInfo",
         "DataRegStateResult",
         "EmergencyNumber",
@@ -32,6 +34,7 @@ hidl_interface {
         "EmergencyServiceCategory",
         "LteVopsInfo",
         "NetworkScanResult",
+        "SetupDataCallResult",
     ],
     gen_java: true,
 }
