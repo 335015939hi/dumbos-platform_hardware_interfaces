@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "6ad1a473_c74332e0",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2018-11-15T02:40:51Z",
+      "side": 1,
+      "message": "These caused codes doesn\u0027t come from network, they are coming from modem from various layers and spec will not list them explicitly. Some vendor may or may not have these caused code",
+      "parentUuid": "52ff3502_0e244bfc",
+      "range": {
+        "startLine": 252,
+        "startChar": 0,
+        "endLine": 430,
+        "endChar": 31
+      },
+      "revId": "50bd1956fc163d16bb74f8c034d02195d9b1fc90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3b950275_e7b25731",
         "filename": "radio/1.3/types.hal",
         "patchSetId": 10
