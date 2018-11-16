@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a8f0d17c_705a3ac6",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-16T01:12:40Z",
+      "side": 1,
+      "message": "This is a Java thing, but this is a generic interface. Could we use a more generic description of this?",
+      "range": {
+        "startLine": 192,
+        "startChar": 63,
+        "endLine": 192,
+        "endChar": 80
+      },
+      "revId": "e0d64c421e029e9be617a051ce7b4846e6b9e4f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
