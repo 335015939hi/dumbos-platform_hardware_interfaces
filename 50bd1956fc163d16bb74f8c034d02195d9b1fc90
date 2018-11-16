@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d08bda36_b2079afc",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1308473
+      },
+      "writtenOn": "2018-11-16T02:47:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15530b31_a193087f",
+      "range": {
+        "startLine": 164,
+        "startChar": 0,
+        "endLine": 164,
+        "endChar": 27
+      },
+      "revId": "50bd1956fc163d16bb74f8c034d02195d9b1fc90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "52ff3502_0e244bfc",
         "filename": "radio/1.3/types.hal",
         "patchSetId": 10
@@ -95,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "6c382982_414ca32d",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 651,
+      "author": {
+        "id": 1308473
+      },
+      "writtenOn": "2018-11-16T02:47:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3b950275_e7b25731",
+      "range": {
+        "startLine": 651,
+        "startChar": 7,
+        "endLine": 651,
+        "endChar": 26
+      },
+      "revId": "50bd1956fc163d16bb74f8c034d02195d9b1fc90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "49cad2b5_170954e6",
         "filename": "radio/1.3/types.hal",
         "patchSetId": 10
@@ -115,6 +163,30 @@
       "revId": "50bd1956fc163d16bb74f8c034d02195d9b1fc90",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d31ac51_c5ba25d6",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 1308473
+      },
+      "writtenOn": "2018-11-16T02:47:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "49cad2b5_170954e6",
+      "range": {
+        "startLine": 655,
+        "startChar": 22,
+        "endLine": 655,
+        "endChar": 28
+      },
+      "revId": "50bd1956fc163d16bb74f8c034d02195d9b1fc90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -141,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "161105bb_ed9e420b",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 675,
+      "author": {
+        "id": 1308473
+      },
+      "writtenOn": "2018-11-16T02:47:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92561588_38a16377",
+      "range": {
+        "startLine": 675,
+        "startChar": 4,
+        "endLine": 675,
+        "endChar": 11
+      },
+      "revId": "50bd1956fc163d16bb74f8c034d02195d9b1fc90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5029547a_7cbcde94",
         "filename": "radio/1.3/types.hal",
         "patchSetId": 10
@@ -164,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "e7b8f952_584801f0",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 683,
+      "author": {
+        "id": 1308473
+      },
+      "writtenOn": "2018-11-16T02:47:11Z",
+      "side": 1,
+      "message": "As TS 27.007 section 10.1.1 definition, PDP_type should be a string type.\nhttps://www.etsi.org/deliver/etsi_ts/127000_127099/127007/15.03.00_60/ts_127007v150300p.pdf",
+      "parentUuid": "5029547a_7cbcde94",
+      "range": {
+        "startLine": 683,
+        "startChar": 4,
+        "endLine": 683,
+        "endChar": 16
+      },
+      "revId": "50bd1956fc163d16bb74f8c034d02195d9b1fc90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "09d7c019_9687ef3b",
         "filename": "radio/1.3/types.hal",
         "patchSetId": 10
@@ -175,6 +295,30 @@
       "writtenOn": "2018-11-15T01:07:08Z",
       "side": 1,
       "message": "Should use vector of string instead of a single string to hold all addresses. See https://android.googlesource.com/platform/hardware/interfaces/+/master/radio/1.3/IRadio.hal#80 and its javadoc as reference.",
+      "range": {
+        "startLine": 690,
+        "startChar": 0,
+        "endLine": 711,
+        "endChar": 0
+      },
+      "revId": "50bd1956fc163d16bb74f8c034d02195d9b1fc90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b1378fd_d486da4a",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 711,
+      "author": {
+        "id": 1308473
+      },
+      "writtenOn": "2018-11-16T02:47:11Z",
+      "side": 1,
+      "message": "Change to vec\u003cstring\u003e for all these parameters.",
+      "parentUuid": "09d7c019_9687ef3b",
       "range": {
         "startLine": 690,
         "startChar": 0,
