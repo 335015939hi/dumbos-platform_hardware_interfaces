@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "91b7204c_71606070",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1062130
+      },
+      "writtenOn": "2018-11-16T21:06:53Z",
+      "side": 1,
+      "message": "please  (add comment) allow for unknown downlinkBandwidth (0?) in the base struct for 5G NSA PhysicalChannelConfig.",
+      "range": {
+        "startLine": 177,
+        "startChar": 4,
+        "endLine": 177,
+        "endChar": 37
+      },
+      "revId": "8243f101705edd3730c2f9767af1abf56cb1d1fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
