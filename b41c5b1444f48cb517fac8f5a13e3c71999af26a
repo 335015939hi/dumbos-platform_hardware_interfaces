@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "95d2ef4f_9379b262",
+        "filename": "bluetooth/audio/2.0/default/A2dpLegacyAudioProvider.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2018-11-16T05:27:48Z",
+      "side": 1,
+      "message": "FALLTHROUGH_INTENDED;",
+      "range": {
+        "startLine": 70,
+        "startChar": 4,
+        "endLine": 70,
+        "endChar": 11
+      },
+      "revId": "b41c5b1444f48cb517fac8f5a13e3c71999af26a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b1be8b7_6720fe81",
+        "filename": "bluetooth/audio/2.0/default/A2dpLegacyAudioProvider.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2018-11-16T05:27:48Z",
+      "side": 1,
+      "message": "FALLTHROUGH_INTENDED;",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 32
+      },
+      "revId": "b41c5b1444f48cb517fac8f5a13e3c71999af26a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "125536de_6efd777f",
+        "filename": "bluetooth/audio/2.0/default/A2dpLegacyAudioProvider.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2018-11-16T05:27:48Z",
+      "side": 1,
+      "message": "FALLTHROUGH_INTENDED;",
+      "range": {
+        "startLine": 89,
+        "startChar": 4,
+        "endLine": 89,
+        "endChar": 11
+      },
+      "revId": "b41c5b1444f48cb517fac8f5a13e3c71999af26a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
