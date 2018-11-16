@@ -1,0 +1,40 @@
+cc_library_shared {
+    name: "android.hardware.bluetooth.audio@2.0-impl",
+    defaults: ["hidl_defaults"],
+    vendor: true,
+    relative_install_path: "hw",
+    srcs: [
+        "BluetoothAudioProvidersFactory.cpp",
+        "BluetoothAudioProvider.cpp",
+        "A2dpLegacyAudioProvider.cpp",
+    ],
+    header_libs: ["libhardware_headers"],
+    shared_libs: [
+        "android.hardware.audio@4.0",
+        "android.hardware.bluetooth.audio@2.0",
+        "libcutils",
+        "libfmq",
+        "libhidlbase",
+        "libhidltransport",
+        "liblog",
+        "libutils",
+    ],
+}
+
+cc_library_static {
+    name: "android.hardware.bluetooth.audio-lib",
+    defaults: ["hidl_defaults"],
+    vendor: true,
+    srcs: [
+        "bt_audio_lib.cpp",
+    ],
+    export_include_dirs: ["."],
+    header_libs: ["libhardware_headers"],
+    shared_libs: [
+        "android.hardware.bluetooth.audio@2.0",
+        "libcutils",
+        "libfmq",
+        "libhidlbase",
+        "libhidltransport",
+    ],
+}
