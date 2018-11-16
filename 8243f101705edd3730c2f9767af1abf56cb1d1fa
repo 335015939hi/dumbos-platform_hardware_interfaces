@@ -22,6 +22,29 @@
       "revId": "8243f101705edd3730c2f9767af1abf56cb1d1fa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6ce24dd_c8e6b4c9",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-16T21:59:24Z",
+      "side": 1,
+      "message": "sorry, I didn\u0027t notice this before.\n\npciPsc (https://source.android.com/devices/architecture/hidl/code-style)\n\nCould you update this?",
+      "range": {
+        "startLine": 193,
+        "startChar": 12,
+        "endLine": 193,
+        "endChar": 19
+      },
+      "revId": "8243f101705edd3730c2f9767af1abf56cb1d1fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
