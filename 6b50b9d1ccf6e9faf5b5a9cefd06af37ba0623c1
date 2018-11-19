@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a1c83207_c3f6fd12",
+        "filename": "keymaster/capability/1.0/types.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-19T22:51:53Z",
+      "side": 1,
+      "message": "haha!",
+      "range": {
+        "startLine": 41,
+        "startChar": 33,
+        "endLine": 41,
+        "endChar": 51
+      },
+      "revId": "6b50b9d1ccf6e9faf5b5a9cefd06af37ba0623c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef7cb5ab_46d87c3a",
+        "filename": "keymaster/capability/1.0/types.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-19T22:51:53Z",
+      "side": 1,
+      "message": "this is an implementation detail that could change. Consider adding it to a README or in the makefile to be able to change it more",
+      "range": {
+        "startLine": 41,
+        "startChar": 82,
+        "endLine": 42,
+        "endChar": 37
+      },
+      "revId": "6b50b9d1ccf6e9faf5b5a9cefd06af37ba0623c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9cbe7ea1_698a8f97",
+        "filename": "keymaster/capability/1.0/types.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-19T22:51:53Z",
+      "side": 1,
+      "message": "secureToken",
+      "range": {
+        "startLine": 77,
+        "startChar": 17,
+        "endLine": 77,
+        "endChar": 29
+      },
+      "revId": "6b50b9d1ccf6e9faf5b5a9cefd06af37ba0623c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "179b56df_2c10c532",
+        "filename": "keymaster/capability/1.0/types.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-19T22:51:53Z",
+      "side": 1,
+      "message": "comment?",
+      "range": {
+        "startLine": 80,
+        "startChar": 21,
+        "endLine": 80,
+        "endChar": 25
+      },
+      "revId": "6b50b9d1ccf6e9faf5b5a9cefd06af37ba0623c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
