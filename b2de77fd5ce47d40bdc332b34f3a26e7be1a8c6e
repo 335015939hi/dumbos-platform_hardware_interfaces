@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b7b87294_b6c50336",
+        "filename": "bluetooth/audio/2.0/IBluetoothAudioPort.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-19T21:26:01Z",
+      "side": 1,
+      "message": "this still appears to be used",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 50
+      },
+      "revId": "b2de77fd5ce47d40bdc332b34f3a26e7be1a8c6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2971aa5_215382d0",
+        "filename": "bluetooth/audio/2.0/types.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-19T21:26:01Z",
+      "side": 1,
+      "message": "If we just copy it, we aren\u0027t gaining much. Can we get audio team to create the new type in a new package?",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 176,
+        "endChar": 3
+      },
+      "revId": "b2de77fd5ce47d40bdc332b34f3a26e7be1a8c6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03d1330f_b328af8a",
+        "filename": "bluetooth/audio/2.0/types.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-19T21:26:01Z",
+      "side": 1,
+      "message": "Possible values?",
+      "range": {
+        "startLine": 178,
+        "startChar": 0,
+        "endLine": 179,
+        "endChar": 25
+      },
+      "revId": "b2de77fd5ce47d40bdc332b34f3a26e7be1a8c6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
