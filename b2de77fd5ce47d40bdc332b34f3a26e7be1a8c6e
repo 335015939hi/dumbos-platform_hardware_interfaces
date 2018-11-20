@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2f7d7e9d_4d6596e0",
+        "filename": "bluetooth/audio/2.0/IBluetoothAudioPort.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2018-11-20T08:51:37Z",
+      "side": 1,
+      "message": "Thanks to review and sorry I forgot to remove this one.",
+      "parentUuid": "b7b87294_b6c50336",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 50
+      },
+      "revId": "b2de77fd5ce47d40bdc332b34f3a26e7be1a8c6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f2971aa5_215382d0",
         "filename": "bluetooth/audio/2.0/types.hal",
         "patchSetId": 11
@@ -36,6 +60,30 @@
       "writtenOn": "2018-11-19T21:26:01Z",
       "side": 1,
       "message": "If we just copy it, we aren\u0027t gaining much. Can we get audio team to create the new type in a new package?",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 176,
+        "endChar": 3
+      },
+      "revId": "b2de77fd5ce47d40bdc332b34f3a26e7be1a8c6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f135c596_1d2c7e0f",
+        "filename": "bluetooth/audio/2.0/types.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2018-11-20T08:51:37Z",
+      "side": 1,
+      "message": "yes, you are right and it should be better to have help from audio team so can be consistent.\nelaurent@, how do you think whether we can have a common definition out of 4.0 and no need to be upgraded with audio hal every time?",
+      "parentUuid": "f2971aa5_215382d0",
       "range": {
         "startLine": 174,
         "startChar": 0,
