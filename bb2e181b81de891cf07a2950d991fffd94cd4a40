@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ed7b3044_f9529c51",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2018-11-21T00:33:58Z",
+      "side": 1,
+      "message": "I think we should name it physicalCellId, and then specifying this PCI if RAT is LTE, and PSC if RAT is UMTS.",
+      "range": {
+        "startLine": 193,
+        "startChar": 12,
+        "endLine": 193,
+        "endChar": 20
+      },
+      "revId": "bb2e181b81de891cf07a2950d991fffd94cd4a40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
