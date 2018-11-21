@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "60d06f6c_40754e4a",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2018-11-21T19:08:22Z",
+      "side": 1,
+      "message": "run-on sentence.\n\nIn UTRAN, this value is the primary scrambling code. The range is [0, 511].\n\nSame below.",
+      "range": {
+        "startLine": 195,
+        "startChar": 7,
+        "endLine": 195,
+        "endChar": 78
+      },
+      "revId": "bdb94e406b8d8c60c9f051b51729b7530ffe5a37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
