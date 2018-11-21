@@ -37,6 +37,7 @@ hidl_interface {
         "PhysicalChannelConfig",
         "LteVopsInfo",
         "NetworkScanResult",
+        "NrNsaParameters",
     ],
     gen_java: true,
 }
