@@ -242,6 +242,13 @@ struct DataRegStateResult {
     } vopsInfo;
 
     /**
+     * Primary serving cell config.
+     */
+    safe_union CellConfig {
+        CellConfigLte lte;
+    } cellConfig;
+
+    /**
      * True if use of dual connectivity with NR is restricted.
      * Reference: 3GPP TS 24.301 v15.03 section 9.3.3.12A.
      */
