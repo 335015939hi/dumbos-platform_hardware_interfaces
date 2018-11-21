@@ -50,4 +50,7 @@ cc_library_shared {
         "libmedia_helper",
     ],
 
+    required: [
+        "audio_policy_configuration.docs",
+    ],
 }

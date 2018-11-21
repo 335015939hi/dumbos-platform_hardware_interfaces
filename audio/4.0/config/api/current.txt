@@ -1,0 +1,179 @@
+package audio.policy.configuration {
+
+  public class AttachedDevices {
+    ctor public AttachedDevices();
+    method public java.util.List<java.lang.String> getItem();
+  }
+
+  public class AudioPolicyConfiguration {
+    ctor public AudioPolicyConfiguration();
+    method public audio.policy.configuration.GlobalConfiguration getGlobalConfiguration();
+    method public java.util.List<audio.policy.configuration.Modules> getModules();
+    method public java.math.BigDecimal getVersion();
+    method public java.util.List<audio.policy.configuration.Volumes> getVolumes();
+    method public void setGlobalConfiguration(audio.policy.configuration.GlobalConfiguration);
+    method public void setVersion(java.math.BigDecimal);
+  }
+
+  public class DevicePorts {
+    ctor public DevicePorts();
+    method public java.util.List<audio.policy.configuration.DevicePorts.DevicePort> getDevicePort();
+  }
+
+  public static class DevicePorts.DevicePort {
+    ctor public DevicePorts.DevicePort();
+    method public java.lang.String getAddress();
+    method public audio.policy.configuration.Gains getGains();
+    method public java.util.List<audio.policy.configuration.Profile> getProfile();
+    method public java.lang.String getRole();
+    method public java.lang.String getTagName();
+    method public java.lang.String getType();
+    method public boolean get_default();
+    method public void setAddress(java.lang.String);
+    method public void setGains(audio.policy.configuration.Gains);
+    method public void setRole(java.lang.String);
+    method public void setTagName(java.lang.String);
+    method public void setType(java.lang.String);
+    method public void set_default(boolean);
+  }
+
+  public class Gains {
+    ctor public Gains();
+    method public java.util.List<audio.policy.configuration.Gains.Gain> getGain();
+  }
+
+  public static class Gains.Gain {
+    ctor public Gains.Gain();
+    method public java.lang.String getChannel_mask();
+    method public int getDefaultValueMB();
+    method public int getMaxRampMs();
+    method public int getMaxValueMB();
+    method public int getMinRampMs();
+    method public int getMinValueMB();
+    method public java.lang.String getMode();
+    method public java.lang.String getName();
+    method public int getStepValueMB();
+    method public void setChannel_mask(java.lang.String);
+    method public void setDefaultValueMB(int);
+    method public void setMaxRampMs(int);
+    method public void setMaxValueMB(int);
+    method public void setMinRampMs(int);
+    method public void setMinValueMB(int);
+    method public void setMode(java.lang.String);
+    method public void setName(java.lang.String);
+    method public void setStepValueMB(int);
+  }
+
+  public class GlobalConfiguration {
+    ctor public GlobalConfiguration();
+    method public boolean getSpeaker_drc_enabled();
+    method public void setSpeaker_drc_enabled(boolean);
+  }
+
+  public class MixPorts {
+    ctor public MixPorts();
+    method public java.util.List<audio.policy.configuration.MixPorts.MixPort> getMixPort();
+  }
+
+  public static class MixPorts.MixPort {
+    ctor public MixPorts.MixPort();
+    method public java.lang.String getFlags();
+    method public audio.policy.configuration.Gains getGains();
+    method public long getMaxActiveCount();
+    method public long getMaxOpenCount();
+    method public java.lang.String getName();
+    method public java.util.List<java.lang.String> getPreferredUsage();
+    method public java.util.List<audio.policy.configuration.Profile> getProfile();
+    method public java.lang.String getRole();
+    method public void setFlags(java.lang.String);
+    method public void setGains(audio.policy.configuration.Gains);
+    method public void setMaxActiveCount(long);
+    method public void setMaxOpenCount(long);
+    method public void setName(java.lang.String);
+    method public void setPreferredUsage(java.util.List<java.lang.String>);
+    method public void setRole(java.lang.String);
+  }
+
+  public class Modules {
+    ctor public Modules();
+    method public java.util.List<audio.policy.configuration.Modules.Module> getModule();
+  }
+
+  public static class Modules.Module {
+    ctor public Modules.Module();
+    method public audio.policy.configuration.AttachedDevices getAttachedDevices();
+    method public java.lang.String getDefaultOutputDevice();
+    method public audio.policy.configuration.DevicePorts getDevicePorts();
+    method public java.math.BigDecimal getHalVersion();
+    method public audio.policy.configuration.MixPorts getMixPorts();
+    method public java.lang.String getName();
+    method public audio.policy.configuration.Routes getRoutes();
+    method public void setAttachedDevices(audio.policy.configuration.AttachedDevices);
+    method public void setDefaultOutputDevice(java.lang.String);
+    method public void setDevicePorts(audio.policy.configuration.DevicePorts);
+    method public void setHalVersion(java.math.BigDecimal);
+    method public void setMixPorts(audio.policy.configuration.MixPorts);
+    method public void setName(java.lang.String);
+    method public void setRoutes(audio.policy.configuration.Routes);
+  }
+
+  public class Profile {
+    ctor public Profile();
+    method public java.lang.String getChannelMasks();
+    method public java.lang.String getFormat();
+    method public java.lang.String getName();
+    method public java.lang.String getSamplingRates();
+    method public void setChannelMasks(java.lang.String);
+    method public void setFormat(java.lang.String);
+    method public void setName(java.lang.String);
+    method public void setSamplingRates(java.lang.String);
+  }
+
+  public class Reference {
+    ctor public Reference();
+    method public java.lang.String getName();
+    method public java.util.List<java.lang.String> getPoint();
+    method public void setName(java.lang.String);
+  }
+
+  public class Routes {
+    ctor public Routes();
+    method public java.util.List<audio.policy.configuration.Routes.Route> getRoute();
+  }
+
+  public static class Routes.Route {
+    ctor public Routes.Route();
+    method public java.lang.String getSink();
+    method public java.lang.String getSources();
+    method public java.lang.String getType();
+    method public void setSink(java.lang.String);
+    method public void setSources(java.lang.String);
+    method public void setType(java.lang.String);
+  }
+
+  public class Volume {
+    ctor public Volume();
+    method public java.lang.String getDeviceCategory();
+    method public java.util.List<java.lang.String> getPoint();
+    method public java.lang.String getRef();
+    method public java.lang.String getStream();
+    method public void setDeviceCategory(java.lang.String);
+    method public void setRef(java.lang.String);
+    method public void setStream(java.lang.String);
+  }
+
+  public class Volumes {
+    ctor public Volumes();
+    method public java.util.List<audio.policy.configuration.Reference> getReference();
+    method public java.util.List<audio.policy.configuration.Volume> getVolume();
+  }
+
+  public class XmlParser {
+    ctor public XmlParser();
+    method public static audio.policy.configuration.AudioPolicyConfiguration read(java.io.InputStream) throws javax.xml.datatype.DatatypeConfigurationException, java.io.IOException, org.xmlpull.v1.XmlPullParserException;
+    method public static java.lang.String readText(org.xmlpull.v1.XmlPullParser) throws java.io.IOException, org.xmlpull.v1.XmlPullParserException;
+    method public static void skip(org.xmlpull.v1.XmlPullParser) throws java.io.IOException, org.xmlpull.v1.XmlPullParserException;
+  }
+
+}
+
