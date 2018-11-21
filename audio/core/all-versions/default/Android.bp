@@ -26,4 +26,9 @@ cc_library_headers {
         "libmedia_headers",
          "android.hardware.audio.common.util@all-versions",
     ],
+
+    required: [
+        "audio_policy_configuration_V4_0.docs",
+        "audio_policy_configuration_V5_0.docs",
+    ],
 }
