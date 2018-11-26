@@ -1,0 +1,130 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dc22eb6b_022c087b",
+        "filename": "usb/1.0-basic/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-26T23:40:33Z",
+      "side": 1,
+      "message": "can you move this into something like usb/1.0/default-basic/ or similar?",
+      "revId": "ca18f451adc212bf0013225f53b25164d1fb4e8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ff2a532_9129a736",
+        "filename": "usb/1.0-basic/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-26T23:40:33Z",
+      "side": 1,
+      "message": "nit: vendor",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 31,
+        "endChar": 15
+      },
+      "revId": "ca18f451adc212bf0013225f53b25164d1fb4e8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94103532_270db875",
+        "filename": "usb/1.0-basic/Usb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-26T23:40:33Z",
+      "side": 1,
+      "message": "why not standard C++ locks? Also, this is single-threaded, so just remove the locking?",
+      "range": {
+        "startLine": 52,
+        "startChar": 4,
+        "endLine": 52,
+        "endChar": 22
+      },
+      "revId": "ca18f451adc212bf0013225f53b25164d1fb4e8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb41ba10_75ae19c3",
+        "filename": "usb/1.0-basic/Usb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-26T23:40:33Z",
+      "side": 1,
+      "message": "nit: nullptr",
+      "range": {
+        "startLine": 53,
+        "startChar": 21,
+        "endLine": 53,
+        "endChar": 25
+      },
+      "revId": "ca18f451adc212bf0013225f53b25164d1fb4e8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24963f7e_72cc441f",
+        "filename": "usb/1.0-basic/Usb.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-26T23:40:33Z",
+      "side": 1,
+      "message": "nit: unused",
+      "revId": "ca18f451adc212bf0013225f53b25164d1fb4e8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f66c9b39_edac309c",
+        "filename": "usb/1.0-basic/service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-26T23:40:33Z",
+      "side": 1,
+      "message": "the normal license here? I haven\u0027t seen us using others. Will have to check..",
+      "range": {
+        "startLine": 2,
+        "startChar": 31,
+        "endLine": 2,
+        "endChar": 40
+      },
+      "revId": "ca18f451adc212bf0013225f53b25164d1fb4e8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
