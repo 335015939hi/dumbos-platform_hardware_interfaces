@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "894ca2af_856686c5",
+        "filename": "cas/1.0/default/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1321491
+      },
+      "writtenOn": "2018-11-26T23:09:44Z",
+      "side": 1,
+      "message": "Good to know! I was wondering how that worked.",
+      "parentUuid": "9ec74a08_1fdd67a2",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 23
+      },
+      "revId": "90e563d968ab7d630c4ae0bdedc90448660fe1ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dc7fc595_a60c91d2",
         "filename": "cas/1.0/default/Android.bp",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2018-11-26T22:56:18Z",
       "side": 1,
       "message": "these files should be exactly the same. These could be in the same file (and moved into the defaults).",
+      "range": {
+        "startLine": 44,
+        "startChar": 55,
+        "endLine": 44,
+        "endChar": 60
+      },
+      "revId": "90e563d968ab7d630c4ae0bdedc90448660fe1ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb8af5f7_7e218ef3",
+        "filename": "cas/1.0/default/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1321491
+      },
+      "writtenOn": "2018-11-26T23:09:44Z",
+      "side": 1,
+      "message": "I am doing it that way in internal and it works, but when I cherry-picked to AOSP I got this build error:\n\nFAILED:\nbuild/make/core/base_rules.mk:461: error: overriding commands for target `out/target/product/marlin/vendor/etc/vintf/manifest/android.hardware.cas@1.0-service.xml\u0027, previously defined at build/make/core/base_rules.mk:461\n15:06:22 ckati failed with: exit status 1\n\nI couldn\u0027t make sense of it... have you seen this before?",
+      "parentUuid": "dc7fc595_a60c91d2",
       "range": {
         "startLine": 44,
         "startChar": 55,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "f2617d2a_425cfb75",
+        "filename": "cas/1.0/default/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1321491
+      },
+      "writtenOn": "2018-11-26T23:09:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8064841b_1a5c9383",
+      "range": {
+        "startLine": 45,
+        "startChar": 16,
+        "endLine": 45,
+        "endChar": 17
+      },
+      "revId": "90e563d968ab7d630c4ae0bdedc90448660fe1ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84a7bffd_ec996d68",
         "filename": "cas/1.0/default/Android.bp",
         "patchSetId": 2
@@ -91,6 +163,30 @@
       "revId": "90e563d968ab7d630c4ae0bdedc90448660fe1ec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e4ccba97_a30e8620",
+        "filename": "cas/1.0/default/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1321491
+      },
+      "writtenOn": "2018-11-26T23:09:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84a7bffd_ec996d68",
+      "range": {
+        "startLine": 47,
+        "startChar": 47,
+        "endLine": 47,
+        "endChar": 50
+      },
+      "revId": "90e563d968ab7d630c4ae0bdedc90448660fe1ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
