@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ec74a08_1fdd67a2",
+        "filename": "cas/1.0/default/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-26T22:56:18Z",
+      "side": 1,
+      "message": "this should just be in srcs on the default and they will automatically be unioned",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 23
+      },
+      "revId": "90e563d968ab7d630c4ae0bdedc90448660fe1ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc7fc595_a60c91d2",
+        "filename": "cas/1.0/default/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-26T22:56:18Z",
+      "side": 1,
+      "message": "these files should be exactly the same. These could be in the same file (and moved into the defaults).",
+      "range": {
+        "startLine": 44,
+        "startChar": 55,
+        "endLine": 44,
+        "endChar": 60
+      },
+      "revId": "90e563d968ab7d630c4ae0bdedc90448660fe1ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8064841b_1a5c9383",
+        "filename": "cas/1.0/default/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-26T22:56:18Z",
+      "side": 1,
+      "message": "extra spaces (\u0027bpfmt -w \u003cthis\u003e\u0027)",
+      "range": {
+        "startLine": 45,
+        "startChar": 16,
+        "endLine": 45,
+        "endChar": 17
+      },
+      "revId": "90e563d968ab7d630c4ae0bdedc90448660fe1ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "84a7bffd_ec996d68",
+        "filename": "cas/1.0/default/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-26T22:56:18Z",
+      "side": 1,
+      "message": "-lazy.rc",
+      "range": {
+        "startLine": 47,
+        "startChar": 47,
+        "endLine": 47,
+        "endChar": 50
+      },
+      "revId": "90e563d968ab7d630c4ae0bdedc90448660fe1ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f3d0a1e_5dc8e1b2",
+        "filename": "cas/1.0/default/serviceLazy.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-26T22:56:18Z",
+      "side": 1,
+      "message": "this is already in the log tag",
+      "range": {
+        "startLine": 34,
+        "startChar": 11,
+        "endLine": 34,
+        "endChar": 43
+      },
+      "revId": "90e563d968ab7d630c4ae0bdedc90448660fe1ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "261bbb9b_6df41115",
+        "filename": "cas/1.0/default/serviceLazy.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-26T22:56:18Z",
+      "side": 1,
+      "message": "this can be deleted (it\u0027s implicit)",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 60
+      },
+      "revId": "90e563d968ab7d630c4ae0bdedc90448660fe1ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "078f4f00_af05b45f",
+        "filename": "cas/1.0/default/serviceLazy.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-26T22:56:18Z",
+      "side": 1,
+      "message": "nit: use -D instead to separate these to avoid duplicating this",
+      "range": {
+        "startLine": 40,
+        "startChar": 27,
+        "endLine": 40,
+        "endChar": 28
+      },
+      "revId": "90e563d968ab7d630c4ae0bdedc90448660fe1ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
