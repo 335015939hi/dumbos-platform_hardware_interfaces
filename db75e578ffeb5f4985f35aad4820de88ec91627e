@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "776221c1_5995a0f0",
+        "filename": "cas/1.0/default/service.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1039918
+      },
+      "writtenOn": "2018-11-26T23:48:36Z",
+      "side": 1,
+      "message": "why don\u0027t you just #ifdef here? kLazyService doesn\u0027t seem useful at runtime.",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 5
+      },
+      "revId": "db75e578ffeb5f4985f35aad4820de88ec91627e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
