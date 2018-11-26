@@ -22,6 +22,30 @@
       "revId": "db75e578ffeb5f4985f35aad4820de88ec91627e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "252f0446_3495a3a3",
+        "filename": "cas/1.0/default/service.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1321491
+      },
+      "writtenOn": "2018-11-26T23:59:27Z",
+      "side": 1,
+      "message": "True, but this ensures that both branches compile even if you only compile one of the targets. It makes the build a little harder to accidentally break.",
+      "parentUuid": "776221c1_5995a0f0",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 5
+      },
+      "revId": "db75e578ffeb5f4985f35aad4820de88ec91627e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
