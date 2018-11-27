@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ae002bdc_28158895",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2018-11-27T18:18:10Z",
+      "side": 1,
+      "message": "What\u0027s QCI?",
+      "range": {
+        "startLine": 205,
+        "startChar": 7,
+        "endLine": 205,
+        "endChar": 10
+      },
+      "revId": "bfef333561850ee2c80794fea1fae9da586d47cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
