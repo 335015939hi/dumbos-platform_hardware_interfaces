@@ -46,6 +46,184 @@
       "revId": "bfef333561850ee2c80794fea1fae9da586d47cd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48447619_385d366f",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2018-11-27T18:38:08Z",
+      "side": 1,
+      "message": "It looks like its not very clear, can we remove this if we don\u0027t know why this will be sent?",
+      "range": {
+        "startLine": 505,
+        "startChar": 0,
+        "endLine": 508,
+        "endChar": 31
+      },
+      "revId": "bfef333561850ee2c80794fea1fae9da586d47cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "971f388d_652226de",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 556,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2018-11-27T18:38:08Z",
+      "side": 1,
+      "message": "These seems to be CDMA specific so pls add CDMA_ prefix",
+      "range": {
+        "startLine": 552,
+        "startChar": 0,
+        "endLine": 556,
+        "endChar": 23
+      },
+      "revId": "bfef333561850ee2c80794fea1fae9da586d47cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b329b4d7_0793320a",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 561,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2018-11-27T18:38:08Z",
+      "side": 1,
+      "message": "This name doesn\u0027t really match the description",
+      "range": {
+        "startLine": 561,
+        "startChar": 4,
+        "endLine": 561,
+        "endChar": 23
+      },
+      "revId": "bfef333561850ee2c80794fea1fae9da586d47cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c496f2e_0bc1ba72",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2018-11-27T18:38:08Z",
+      "side": 1,
+      "message": "Seems not reflecting , may be use CCS_INCOMPATIBLE ?",
+      "revId": "bfef333561850ee2c80794fea1fae9da586d47cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d163f3b8_0a929fc3",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2018-11-27T18:38:08Z",
+      "side": 1,
+      "message": "I think it looks same as CCS_NOT_ALLOWED \u003d 0x830",
+      "range": {
+        "startLine": 585,
+        "startChar": 4,
+        "endLine": 585,
+        "endChar": 17
+      },
+      "revId": "bfef333561850ee2c80794fea1fae9da586d47cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4241bf9_b188da4f",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2018-11-27T18:38:08Z",
+      "side": 1,
+      "message": "can we reuse CCS_NOT_ALLOWED \u003d 0x830",
+      "range": {
+        "startLine": 589,
+        "startChar": 4,
+        "endLine": 589,
+        "endChar": 38
+      },
+      "revId": "bfef333561850ee2c80794fea1fae9da586d47cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "155186c8_efe02273",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2018-11-27T18:38:08Z",
+      "side": 1,
+      "message": "Lets understand this one better",
+      "range": {
+        "startLine": 594,
+        "startChar": 0,
+        "endLine": 597,
+        "endChar": 29
+      },
+      "revId": "bfef333561850ee2c80794fea1fae9da586d47cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b2705e7_0c23390f",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 1144,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2018-11-27T18:38:08Z",
+      "side": 1,
+      "message": "Can we rename this to LOCAL_END",
+      "range": {
+        "startLine": 1144,
+        "startChar": 4,
+        "endLine": 1144,
+        "endChar": 23
+      },
+      "revId": "bfef333561850ee2c80794fea1fae9da586d47cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
