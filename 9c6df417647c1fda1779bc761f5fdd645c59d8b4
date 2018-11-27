@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d47d49c3_f0e6ffef",
+        "filename": "cas/1.0/default/service.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-27T02:30:09Z",
+      "side": 1,
+      "message": "nit: this line of code is duplicated",
+      "range": {
+        "startLine": 49,
+        "startChar": 8,
+        "endLine": 49,
+        "endChar": 70
+      },
+      "revId": "9c6df417647c1fda1779bc761f5fdd645c59d8b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "066ebc30_4e603577",
+        "filename": "cas/1.0/default/service.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-27T02:30:09Z",
+      "side": 1,
+      "message": "nit: add as default argument (this is part of the ABI and pretty usual here)",
+      "range": {
+        "startLine": 50,
+        "startChar": 69,
+        "endLine": 50,
+        "endChar": 79
+      },
+      "revId": "9c6df417647c1fda1779bc761f5fdd645c59d8b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
