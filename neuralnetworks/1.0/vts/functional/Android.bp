@@ -66,4 +66,5 @@ cc_test {
         "libneuralnetworks_generated_test_harness_headers",
         "libneuralnetworks_generated_tests",
     ],
+    test_suites: ["general-tests"],
 }
