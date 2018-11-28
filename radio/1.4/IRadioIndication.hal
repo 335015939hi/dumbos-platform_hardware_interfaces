@@ -73,4 +73,17 @@ interface IRadioIndication extends @1.3::IRadioIndication {
      */
     oneway currentPhysicalChannelConfigs_1_4(RadioIndicationType type,
             vec<PhysicalChannelConfig> configs);
+
+    /**
+     * Indicates data call contexts have changed.
+     *
+     * @param type Type of radio indication
+     * @param dcList array of SetupDataCallResult identical to that
+     *        returned by IRadio.getDataCallList(). It is the complete list
+     *        of current data contexts including new contexts that have been
+     *        activated. A data call is only removed from this list when the
+     *        framework sends a IRadio.deactivateDataCall() or the radio
+     *        is powered off/on
+     */
+    oneway dataCallListChanged_1_4(RadioIndicationType type, vec<SetupDataCallResult> dcList);
 };
