@@ -22,6 +22,30 @@
       "revId": "1cd9fe3013e40b37c19c477a608f410d22b73062",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72c4508c_49514766",
+        "filename": "radio/1.4/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1098848
+      },
+      "writtenOn": "2018-11-28T21:26:56Z",
+      "side": 1,
+      "message": "I make the change in internal-master, then i will cherry-pick the change to aosp.",
+      "parentUuid": "37da2b0b_e96b09ad",
+      "range": {
+        "startLine": 244,
+        "startChar": 0,
+        "endLine": 267,
+        "endChar": 23
+      },
+      "revId": "1cd9fe3013e40b37c19c477a608f410d22b73062",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
