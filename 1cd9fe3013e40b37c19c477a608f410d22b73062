@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "37da2b0b_e96b09ad",
+        "filename": "radio/1.4/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-11-28T01:00:25Z",
+      "side": 1,
+      "message": "All of these should be in some kind of structure indicating that they are only valid on a particular RAN. The nature of that structure I leave to you but none of them belongs in the top-level DataRegStateResult.",
+      "range": {
+        "startLine": 244,
+        "startChar": 0,
+        "endLine": 267,
+        "endChar": 23
+      },
+      "revId": "1cd9fe3013e40b37c19c477a608f410d22b73062",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
