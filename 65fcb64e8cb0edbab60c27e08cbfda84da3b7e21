@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "52b876a2_025e8f6b",
+        "filename": "atrace/1.0/vts/functional/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-28T21:29:00Z",
+      "side": 1,
+      "message": "why can\u0027t this be done in the defaults module that we already have?",
+      "range": {
+        "startLine": 19,
+        "startChar": 16,
+        "endLine": 19,
+        "endChar": 40
+      },
+      "revId": "65fcb64e8cb0edbab60c27e08cbfda84da3b7e21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
