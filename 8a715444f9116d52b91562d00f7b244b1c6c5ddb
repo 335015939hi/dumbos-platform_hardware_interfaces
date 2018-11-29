@@ -22,6 +22,57 @@
       "revId": "8a715444f9116d52b91562d00f7b244b1c6c5ddb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a940d74_ad189b6b",
+        "filename": "identity_credential/1.0/IWritableIdentityCredential.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1387655
+      },
+      "writtenOn": "2018-11-29T18:04:12Z",
+      "side": 1,
+      "message": "userSecureId is missing here",
+      "revId": "8a715444f9116d52b91562d00f7b244b1c6c5ddb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8335279b_b21e9a6a",
+        "filename": "identity_credential/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1387655
+      },
+      "writtenOn": "2018-11-29T18:04:12Z",
+      "side": 1,
+      "message": "This should probably be userAuthenticationId (in the access control profile it is referred as userSecureId - should probably become consistent)",
+      "revId": "8a715444f9116d52b91562d00f7b244b1c6c5ddb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d76d57f6_35915cda",
+        "filename": "identity_credential/1.0/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1387655
+      },
+      "writtenOn": "2018-11-29T18:04:12Z",
+      "side": 1,
+      "message": "Is this the same as userAuthTypes?",
+      "revId": "8a715444f9116d52b91562d00f7b244b1c6c5ddb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
