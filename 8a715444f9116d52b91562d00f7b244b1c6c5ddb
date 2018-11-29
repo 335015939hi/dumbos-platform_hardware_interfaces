@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f47ae420_33b30fda",
+        "filename": "identity_credential/1.0/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2018-11-29T18:04:16Z",
+      "side": 1,
+      "message": "Actually the credential folder at the top level should be deleted.",
+      "parentUuid": "de0b5496_78edeb23",
+      "range": {
+        "startLine": 4,
+        "startChar": 28,
+        "endLine": 4,
+        "endChar": 47
+      },
+      "revId": "8a715444f9116d52b91562d00f7b244b1c6c5ddb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9a940d74_ad189b6b",
         "filename": "identity_credential/1.0/IWritableIdentityCredential.hal",
         "patchSetId": 6
