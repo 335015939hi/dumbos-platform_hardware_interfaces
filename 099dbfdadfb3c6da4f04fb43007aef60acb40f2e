@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "8ac5e1d7_b1f25aa3",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2018-11-29T23:21:19Z",
+      "side": 1,
+      "message": "I thought there was a consensus that this was completely unsustainable and that this would be replaced with a bitmask of technologies instead? May I suggest that these pieces be broken into smaller chunks so that we can have discussions on them individually?",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 23
+      },
+      "revId": "099dbfdadfb3c6da4f04fb43007aef60acb40f2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "187f403a_d6101734",
         "filename": "radio/1.3/types.hal",
         "patchSetId": 11
