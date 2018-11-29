@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "bc69de62_498d79dc",
+        "filename": "audio/4.0/config/api/current.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1136369
+      },
+      "writtenOn": "2018-11-29T00:06:23Z",
+      "side": 1,
+      "message": "Why can it not be generated in the out folder during compilation, just like the other HIDL generated files ?",
+      "parentUuid": "e888ef2a_34284af0",
+      "revId": "44dbe9d4272d2217ec762ba4c0310371f4584383",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0293f6e4_e678ed7f",
         "filename": "audio/core/4.0/default/Android.bp",
         "patchSetId": 1
