@@ -91,6 +91,24 @@
     },
     {
       "key": {
+        "uuid": "8b71c1e2_d7d53243",
+        "filename": "audio/4.0/config/api/current.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1136369
+      },
+      "writtenOn": "2018-11-30T05:43:07Z",
+      "side": 1,
+      "message": "hmm, HIDL uses sha1 of the interface files to check that is has not changed. I am not sure this current.txt is the right approach to check if the API has not changed.\nThere are many things in the XSD that can be change without this file changing. For example all the enums...\n\nAdditionally, which java component will use that file ? If it was C++, it would be usefull as it would help the deserializer, but the audio config files are never read in Java, only C++.\n\nSorry for the push-back, but I am adding a new V5 version and I do not see the gain of having yet an other file to maintain just to update the HAL if there is no need for it. Can we not use the existing HIDL sha1 file ?",
+      "parentUuid": "88c85969_f725b636",
+      "revId": "44dbe9d4272d2217ec762ba4c0310371f4584383",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0293f6e4_e678ed7f",
         "filename": "audio/core/4.0/default/Android.bp",
         "patchSetId": 1
