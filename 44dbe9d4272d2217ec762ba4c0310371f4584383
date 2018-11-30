@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "88c85969_f725b636",
+        "filename": "audio/4.0/config/api/current.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1187124
+      },
+      "writtenOn": "2018-11-30T01:07:38Z",
+      "side": 1,
+      "message": "And current.txt file is for comparing the generated API.\nIf it\u0027s different, it means you change, delete or add APIs.\nUsually, when frameworks/base/current.txt is updated, api-council discuss about changed APIs.\nSo we need this file to know about the API update.",
+      "parentUuid": "bc69de62_498d79dc",
+      "revId": "44dbe9d4272d2217ec762ba4c0310371f4584383",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0293f6e4_e678ed7f",
         "filename": "audio/core/4.0/default/Android.bp",
         "patchSetId": 1
