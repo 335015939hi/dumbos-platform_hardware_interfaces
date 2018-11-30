@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "610f2272_12dd5353",
+        "filename": "radio/1.4/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-30T19:49:05Z",
+      "side": 1,
+      "message": "nit: can you pick a different name? This is commonly understood to mean something else.",
+      "range": {
+        "startLine": 232,
+        "startChar": 9,
+        "endLine": 232,
+        "endChar": 12
+      },
+      "revId": "2a66dd3d58495c0f036690faa564b8452c2fa8a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d53d453_fb463a1a",
+        "filename": "radio/1.4/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-30T19:49:05Z",
+      "side": 1,
+      "message": "must",
+      "range": {
+        "startLine": 265,
+        "startChar": 7,
+        "endLine": 265,
+        "endChar": 11
+      },
+      "revId": "2a66dd3d58495c0f036690faa564b8452c2fa8a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5ef33cc_3fd593e9",
+        "filename": "radio/1.4/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-30T19:49:05Z",
+      "side": 1,
+      "message": "must",
+      "range": {
+        "startLine": 275,
+        "startChar": 7,
+        "endLine": 275,
+        "endChar": 13
+      },
+      "revId": "2a66dd3d58495c0f036690faa564b8452c2fa8a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0d68366_00b1003b",
+        "filename": "radio/1.4/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-11-30T19:49:05Z",
+      "side": 1,
+      "message": "this struct can\u0027t be null. Just empty?",
+      "range": {
+        "startLine": 275,
+        "startChar": 17,
+        "endLine": 275,
+        "endChar": 21
+      },
+      "revId": "2a66dd3d58495c0f036690faa564b8452c2fa8a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
