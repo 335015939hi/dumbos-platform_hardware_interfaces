@@ -109,6 +109,24 @@
     },
     {
       "key": {
+        "uuid": "38c9ac97_a0708fa2",
+        "filename": "audio/4.0/config/api/current.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1187124
+      },
+      "writtenOn": "2018-11-30T13:05:30Z",
+      "side": 1,
+      "message": "This file only checks whether the API of java that generated from xsd has changed. This is not related to hidl, it is only used to verify the xsd file. Make sure the xml parser has been changed via xsd just as you would use an xsd file in vts to verify the xml file.\nIn conclusion, my CL is not related to HIDL, but it is related to xml parser.\n\nAnd xsdc can be generated in C ++. You can use it if you need it.\nThe test code is in https://cs.corp.google.com/android/system/tools/xsdc/tests/main.cpp",
+      "parentUuid": "8b71c1e2_d7d53243",
+      "revId": "44dbe9d4272d2217ec762ba4c0310371f4584383",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0293f6e4_e678ed7f",
         "filename": "audio/core/4.0/default/Android.bp",
         "patchSetId": 1
