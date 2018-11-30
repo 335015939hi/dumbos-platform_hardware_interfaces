@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "2e2e3fec_56771b0c",
+        "filename": "radio/1.4/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1098848
+      },
+      "writtenOn": "2018-11-30T19:58:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d53d453_fb463a1a",
+      "range": {
+        "startLine": 265,
+        "startChar": 7,
+        "endLine": 265,
+        "endChar": 11
+      },
+      "revId": "2a66dd3d58495c0f036690faa564b8452c2fa8a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d5ef33cc_3fd593e9",
         "filename": "radio/1.4/types.hal",
         "patchSetId": 2
@@ -82,6 +106,54 @@
       "writtenOn": "2018-11-30T19:49:05Z",
       "side": 1,
       "message": "this struct can\u0027t be null. Just empty?",
+      "range": {
+        "startLine": 275,
+        "startChar": 17,
+        "endLine": 275,
+        "endChar": 21
+      },
+      "revId": "2a66dd3d58495c0f036690faa564b8452c2fa8a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98745280_3388be09",
+        "filename": "radio/1.4/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1098848
+      },
+      "writtenOn": "2018-11-30T19:58:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5ef33cc_3fd593e9",
+      "range": {
+        "startLine": 275,
+        "startChar": 7,
+        "endLine": 275,
+        "endChar": 13
+      },
+      "revId": "2a66dd3d58495c0f036690faa564b8452c2fa8a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "86831e0d_3c57a38a",
+        "filename": "radio/1.4/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1098848
+      },
+      "writtenOn": "2018-11-30T19:58:45Z",
+      "side": 1,
+      "message": "Yes, should be empty.",
+      "parentUuid": "a0d68366_00b1003b",
       "range": {
         "startLine": 275,
         "startChar": 17,
