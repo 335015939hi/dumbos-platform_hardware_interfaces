@@ -127,6 +127,24 @@
     },
     {
       "key": {
+        "uuid": "cf639266_2b6fd87e",
+        "filename": "audio/4.0/config/api/current.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1136369
+      },
+      "writtenOn": "2018-12-01T00:41:55Z",
+      "side": 1,
+      "message": "I\u0027m lost, if this is not related to HIDL API validation, and given that no service uses any java code to parse this XML, nor do we want to expose the XML content to apps, why do we need this CL exactly ?",
+      "parentUuid": "38c9ac97_a0708fa2",
+      "revId": "44dbe9d4272d2217ec762ba4c0310371f4584383",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0293f6e4_e678ed7f",
         "filename": "audio/core/4.0/default/Android.bp",
         "patchSetId": 1
