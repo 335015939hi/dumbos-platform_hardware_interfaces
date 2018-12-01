@@ -145,6 +145,24 @@
     },
     {
       "key": {
+        "uuid": "8416b32d_6ef6de5e",
+        "filename": "audio/4.0/config/api/current.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2018-12-01T02:37:05Z",
+      "side": 1,
+      "message": "Hi Kevin,\n\nThe audio_effects.xml file is provided by device maker (vendor) and read by a framework service (system). So, the xsd file is actually describing interface in between system and vendor (that\u0027s why the xsd file is under hardware/interfaces along with HIDL). And because of that the interface should be evolved in a backward compatible way. For example, removing a tag should be prohibited.\n\nHowever, the problem is that, unlike HIDL, we hadn\u0027t had a build system support to prevent backward incompatible modification to XSDs. We have been relying on human developer, which we thought we should let machines do.\n\nNow, with following module definition, that is checked by the build system.\n\nxsd_config {\n    name: \"audio_policy_configuration\",\n    srcs: [\"audio_policy_configuration.xsd\"],\n    package_name: \"audio.policy.configuration\",\n}\n\nYou may wonder then what is the use of the \"Java\" API definitions in the story. That\u0027s a valid question. The Java API serves two purposes. One is that we rely on the existing API checker, which is written for Java API, to \"indirectly\" detect backward incompatible changes in XSD. So this \u003cversion\u003e.txt file is effectively a versioned snapshot of XSD translated in Java classes. In other words, we didn\u0027t make a new API checker that directly understands and compares XSD. In the future, we could, but that would still be an implementation detail. \n\nSecondly, the xsd_config module provides Java and C++ parser libraries so that you don\u0027t need to write and update the parser by yourself. In the audio effect case, you may not need the parser libraries since you already have a hand-made one (libeffectsconfig), but there are non-audio cases that the libs could be useful.\n\nHope this answers to your questions :)",
+      "parentUuid": "cf639266_2b6fd87e",
+      "revId": "44dbe9d4272d2217ec762ba4c0310371f4584383",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0293f6e4_e678ed7f",
         "filename": "audio/core/4.0/default/Android.bp",
         "patchSetId": 1
