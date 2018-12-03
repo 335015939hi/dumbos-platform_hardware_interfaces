@@ -163,6 +163,24 @@
     },
     {
       "key": {
+        "uuid": "562e4535_a4ec69cd",
+        "filename": "audio/4.0/config/api/current.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1136369
+      },
+      "writtenOn": "2018-12-03T00:51:23Z",
+      "side": 1,
+      "message": "Thanks for the detail answer. I now understand the purpose of this file. Note that this file is missing a lot of information from the XSD but I guess it is good enough.",
+      "parentUuid": "8416b32d_6ef6de5e",
+      "revId": "44dbe9d4272d2217ec762ba4c0310371f4584383",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0293f6e4_e678ed7f",
         "filename": "audio/core/4.0/default/Android.bp",
         "patchSetId": 1
