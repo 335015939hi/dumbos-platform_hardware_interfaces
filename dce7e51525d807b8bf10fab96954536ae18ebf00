@@ -46,6 +46,30 @@
       "revId": "dce7e51525d807b8bf10fab96954536ae18ebf00",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78d45cfe_3efa1bf9",
+        "filename": "audio/4.0/config/audio_policy_configuration.xsd",
+        "patchSetId": 1
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1136369
+      },
+      "writtenOn": "2018-12-03T22:26:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5ababf2_4af86db8",
+      "range": {
+        "startLine": 284,
+        "startChar": 20,
+        "endLine": 284,
+        "endChar": 29
+      },
+      "revId": "dce7e51525d807b8bf10fab96954536ae18ebf00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
