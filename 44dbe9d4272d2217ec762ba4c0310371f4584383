@@ -217,6 +217,24 @@
     },
     {
       "key": {
+        "uuid": "0994e556_7ee1b593",
+        "filename": "audio/4.0/config/api/current.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1136369
+      },
+      "writtenOn": "2018-12-03T19:33:00Z",
+      "side": 1,
+      "message": "Thanks. Feel free to merge.",
+      "parentUuid": "5f115eb5_87c9a177",
+      "revId": "44dbe9d4272d2217ec762ba4c0310371f4584383",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0293f6e4_e678ed7f",
         "filename": "audio/core/4.0/default/Android.bp",
         "patchSetId": 1
