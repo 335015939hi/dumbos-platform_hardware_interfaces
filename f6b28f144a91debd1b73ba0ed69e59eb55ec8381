@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "f92b0c05_1b334298",
+        "filename": "bluetooth/audio/2.0/Android.bp",
+        "patchSetId": 17
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2018-12-03T15:27:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0537b0f_26797de1",
+      "range": {
+        "startLine": 26,
+        "startChar": 9,
+        "endLine": 26,
+        "endChar": 30
+      },
+      "revId": "f6b28f144a91debd1b73ba0ed69e59eb55ec8381",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d2679c90_1e4e56a9",
         "filename": "bluetooth/audio/2.0/IBluetoothAudioPort.hal",
         "patchSetId": 17
