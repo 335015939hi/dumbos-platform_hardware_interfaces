@@ -199,6 +199,24 @@
     },
     {
       "key": {
+        "uuid": "5f115eb5_87c9a177",
+        "filename": "audio/4.0/config/api/current.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1187124
+      },
+      "writtenOn": "2018-12-03T04:45:38Z",
+      "side": 1,
+      "message": "I created bug b/120392538.",
+      "parentUuid": "ff87639c_a64ce1c8",
+      "revId": "44dbe9d4272d2217ec762ba4c0310371f4584383",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0293f6e4_e678ed7f",
         "filename": "audio/core/4.0/default/Android.bp",
         "patchSetId": 1
