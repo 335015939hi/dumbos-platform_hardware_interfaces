@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8aa4088b_7a1450f2",
+        "filename": "radio/config/1.1/IRadioConfigResponse.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1170206
+      },
+      "writtenOn": "2018-12-05T03:26:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "601340c5_6a905137",
+      "range": {
+        "startLine": 26,
+        "startChar": 9,
+        "endLine": 26,
+        "endChar": 15
+      },
+      "revId": "5d6e0718319eed2307f293e9502c1309976cc548",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fefe1557_b2694384",
         "filename": "radio/config/1.1/types.hal",
         "patchSetId": 2
@@ -39,6 +63,24 @@
       "revId": "5d6e0718319eed2307f293e9502c1309976cc548",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "030652cd_cfec8f02",
+        "filename": "radio/config/1.1/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1170206
+      },
+      "writtenOn": "2018-12-05T03:26:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fefe1557_b2694384",
+      "revId": "5d6e0718319eed2307f293e9502c1309976cc548",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
