@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "601340c5_6a905137",
+        "filename": "radio/config/1.1/IRadioConfigResponse.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-12-05T00:32:30Z",
+      "side": 1,
+      "message": "nit: I didn\u0027t notice this in the internal CL, but this should also be \u0027are\u0027",
+      "range": {
+        "startLine": 26,
+        "startChar": 9,
+        "endLine": 26,
+        "endChar": 15
+      },
+      "revId": "5d6e0718319eed2307f293e9502c1309976cc548",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fefe1557_b2694384",
+        "filename": "radio/config/1.1/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-12-05T00:32:30Z",
+      "side": 1,
+      "message": "same",
+      "revId": "5d6e0718319eed2307f293e9502c1309976cc548",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
