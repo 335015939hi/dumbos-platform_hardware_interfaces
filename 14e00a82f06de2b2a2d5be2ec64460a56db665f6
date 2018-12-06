@@ -59,6 +59,29 @@
     },
     {
       "key": {
+        "uuid": "c326d776_95db4213",
+        "filename": "radio/1.4/types.hal",
+        "patchSetId": 17
+      },
+      "lineNbr": 1303,
+      "author": {
+        "id": 1173768
+      },
+      "writtenOn": "2018-12-06T01:03:54Z",
+      "side": 1,
+      "message": "Don\u0027t we need handoff failure reasons?",
+      "range": {
+        "startLine": 1303,
+        "startChar": 35,
+        "endLine": 1303,
+        "endChar": 36
+      },
+      "revId": "14e00a82f06de2b2a2d5be2ec64460a56db665f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e8da27f8_2c7a0a53",
         "filename": "radio/1.4/types.hal",
         "patchSetId": 17
