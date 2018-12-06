@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "379435ad_66f2f765",
+        "filename": "radio/1.4/types.hal",
+        "patchSetId": 17
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1308473
+      },
+      "writtenOn": "2018-12-06T09:11:26Z",
+      "side": 1,
+      "message": "Indeed, we need this large table to map each setup cellular connection error cause which is sent from modem. In 1.0 DataCallFailCause, we didn\u0027t have enough failed causes, lots of error causes exposed to unspecific error or oem failed cause to framework/app. Framework/App want to know the precise failed reason for each setup connection failure. Besides, I have added comment for each error cause, it should be easy to know the detailed reason for each error cause.",
+      "parentUuid": "f81a23f5_01df836d",
+      "revId": "14e00a82f06de2b2a2d5be2ec64460a56db665f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d51c385e_8aedbbef",
         "filename": "radio/1.4/types.hal",
         "patchSetId": 17
@@ -30,6 +48,30 @@
       "writtenOn": "2018-12-06T00:17:30Z",
       "side": 1,
       "message": "this isn\u0027t commenting anything?",
+      "range": {
+        "startLine": 186,
+        "startChar": 0,
+        "endLine": 186,
+        "endChar": 7
+      },
+      "revId": "14e00a82f06de2b2a2d5be2ec64460a56db665f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d74ce1d_3ec0e884",
+        "filename": "radio/1.4/types.hal",
+        "patchSetId": 17
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1308473
+      },
+      "writtenOn": "2018-12-06T09:11:26Z",
+      "side": 1,
+      "message": "Sorry for this redundant comment. Will remove it.",
+      "parentUuid": "d51c385e_8aedbbef",
       "range": {
         "startLine": 186,
         "startChar": 0,
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "9ce06772_38141270",
+        "filename": "radio/1.4/types.hal",
+        "patchSetId": 17
+      },
+      "lineNbr": 1240,
+      "author": {
+        "id": 1308473
+      },
+      "writtenOn": "2018-12-06T09:11:26Z",
+      "side": 1,
+      "message": "Sorry for my mistake. It\u0027s different error cause. I have corrected the failed reason for EHRPD_VSNCP_GEN_ERROR.",
+      "parentUuid": "2e6cf59a_a4105236",
+      "revId": "14e00a82f06de2b2a2d5be2ec64460a56db665f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c326d776_95db4213",
         "filename": "radio/1.4/types.hal",
         "patchSetId": 17
@@ -70,6 +130,30 @@
       "writtenOn": "2018-12-06T01:03:54Z",
       "side": 1,
       "message": "Don\u0027t we need handoff failure reasons?",
+      "range": {
+        "startLine": 1303,
+        "startChar": 35,
+        "endLine": 1303,
+        "endChar": 36
+      },
+      "revId": "14e00a82f06de2b2a2d5be2ec64460a56db665f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0175e4fd_6c189d4e",
+        "filename": "radio/1.4/types.hal",
+        "patchSetId": 17
+      },
+      "lineNbr": 1303,
+      "author": {
+        "id": 1308473
+      },
+      "writtenOn": "2018-12-06T09:11:26Z",
+      "side": 1,
+      "message": "Thanks for your reminder. I lost handoff failure reason actually.",
+      "parentUuid": "c326d776_95db4213",
       "range": {
         "startLine": 1303,
         "startChar": 35,
@@ -102,6 +186,30 @@
       "revId": "14e00a82f06de2b2a2d5be2ec64460a56db665f6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6989ab47_be3e8cb8",
+        "filename": "radio/1.4/types.hal",
+        "patchSetId": 17
+      },
+      "lineNbr": 1327,
+      "author": {
+        "id": 1308473
+      },
+      "writtenOn": "2018-12-06T09:11:26Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e8da27f8_2c7a0a53",
+      "range": {
+        "startLine": 1327,
+        "startChar": 6,
+        "endLine": 1327,
+        "endChar": 8
+      },
+      "revId": "14e00a82f06de2b2a2d5be2ec64460a56db665f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
