@@ -2,6 +2,46 @@
   "comments": [
     {
       "key": {
+        "uuid": "f81a23f5_01df836d",
+        "filename": "radio/1.4/types.hal",
+        "patchSetId": 17
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-12-06T00:17:30Z",
+      "side": 1,
+      "message": "This is an extremely large interface surface. Out of curiosity, what are these used for? Are they just for buckets or does the framework actually process these to gain insights? Would it be possible to replace these with human-readable string reasons? or something similar?",
+      "revId": "14e00a82f06de2b2a2d5be2ec64460a56db665f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d51c385e_8aedbbef",
+        "filename": "radio/1.4/types.hal",
+        "patchSetId": 17
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-12-06T00:17:30Z",
+      "side": 1,
+      "message": "this isn\u0027t commenting anything?",
+      "range": {
+        "startLine": 186,
+        "startChar": 0,
+        "endLine": 186,
+        "endChar": 7
+      },
+      "revId": "14e00a82f06de2b2a2d5be2ec64460a56db665f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2e6cf59a_a4105236",
         "filename": "radio/1.4/types.hal",
         "patchSetId": 17
@@ -13,6 +53,29 @@
       "writtenOn": "2018-12-05T18:45:29Z",
       "side": 1,
       "message": "Looks like EHRPD_VSNCP_GEN_ERROR and EHRPD_VSNCP_UNAUTH_APN are same reason. Could you please clarify?",
+      "revId": "14e00a82f06de2b2a2d5be2ec64460a56db665f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8da27f8_2c7a0a53",
+        "filename": "radio/1.4/types.hal",
+        "patchSetId": 17
+      },
+      "lineNbr": 1327,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-12-06T00:17:30Z",
+      "side": 1,
+      "message": "PdpProtocolType, https://source.android.com/devices/architecture/hidl/code-style",
+      "range": {
+        "startLine": 1327,
+        "startChar": 6,
+        "endLine": 1327,
+        "endChar": 8
+      },
       "revId": "14e00a82f06de2b2a2d5be2ec64460a56db665f6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
