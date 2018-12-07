@@ -705,6 +705,7 @@ TEST_F(BluetoothHidlTest, LoopbackModeBandwidth) {
     sendAndCheckACL(NUM_ACL_PACKETS_BANDWIDTH, max_acl_data_packet_length,
                     acl_connection_handles[0]);
     int acl_packets_sent = NUM_ACL_PACKETS_BANDWIDTH;
+    usleep(20000);
     int completed_packets = wait_for_completed_packets_event(acl_connection_handles[0]);
     if (acl_packets_sent != completed_packets) {
         ALOGW("%s: packets_sent (%d) != completed_packets (%d)", __func__, acl_packets_sent,
