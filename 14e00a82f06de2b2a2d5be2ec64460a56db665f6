@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "dff1a1b4_041f0e29",
+        "filename": "radio/1.4/types.hal",
+        "patchSetId": 17
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-12-07T22:32:42Z",
+      "side": 1,
+      "message": "Does the framework execute different code based on this information though?",
+      "parentUuid": "379435ad_66f2f765",
+      "revId": "14e00a82f06de2b2a2d5be2ec64460a56db665f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d51c385e_8aedbbef",
         "filename": "radio/1.4/types.hal",
         "patchSetId": 17
