@@ -16,6 +16,24 @@
       "revId": "01af7094010447a1404ea0c581ef023ab9d6c9d1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c749d04d_e7b0a61d",
+        "filename": "audio/core/all-versions/default/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1136369
+      },
+      "writtenOn": "2018-12-07T18:49:37Z",
+      "side": 1,
+      "message": "Sorry that I missed that on my first review, I though this was the hidl_interface block.",
+      "parentUuid": "f2b13439_007c4d5e",
+      "revId": "01af7094010447a1404ea0c581ef023ab9d6c9d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
