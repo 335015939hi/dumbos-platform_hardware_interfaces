@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f2b13439_007c4d5e",
+        "filename": "audio/core/all-versions/default/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1136369
+      },
+      "writtenOn": "2018-12-07T18:48:55Z",
+      "side": 1,
+      "message": "What is that .docs target and were is it defined ? Is it derived from the xsd_config{audio_policy_configuration_V4_0} target ? If so why is there a .docs suffix ? That\u0027s confusing, its the first time I see such target rename in soong.\n\nWhy is it added to the default impl ? HAL does not read the xml, only the framework. So it should not have a dependency on it.\n\nAdditionally if a vendor does not use the default impl, does it mean the check is no longer perform ? I think adding the require on the hidl_interface target would be more consistent as this check is part of the hidl_interface, not its implementation.",
+      "revId": "01af7094010447a1404ea0c581ef023ab9d6c9d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
