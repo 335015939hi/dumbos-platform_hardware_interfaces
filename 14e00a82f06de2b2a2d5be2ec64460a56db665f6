@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "2a1ab04b_f884a7f6",
+        "filename": "radio/1.4/types.hal",
+        "patchSetId": 17
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1308473
+      },
+      "writtenOn": "2018-12-10T07:11:37Z",
+      "side": 1,
+      "message": "Yes, different error code will result different behavior on framework like temporary failure retry setup data call but permanent failure not.",
+      "parentUuid": "dff1a1b4_041f0e29",
+      "revId": "14e00a82f06de2b2a2d5be2ec64460a56db665f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d51c385e_8aedbbef",
         "filename": "radio/1.4/types.hal",
         "patchSetId": 17
