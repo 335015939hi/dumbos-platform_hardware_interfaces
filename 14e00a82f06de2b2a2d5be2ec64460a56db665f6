@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "27c0089f_f8ace42d",
+        "filename": "radio/1.4/types.hal",
+        "patchSetId": 17
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-12-10T19:26:07Z",
+      "side": 1,
+      "message": "Are there more differences than that?\n\nWhat if you had this:\nstruct DataCallFailCase {\n    /** whether it is expected to be recovered from */\n    bool temporary;\n    /** human readable error message */\n    string error;\n};\n\nWould that be sufficient?",
+      "parentUuid": "2a1ab04b_f884a7f6",
+      "revId": "14e00a82f06de2b2a2d5be2ec64460a56db665f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d51c385e_8aedbbef",
         "filename": "radio/1.4/types.hal",
         "patchSetId": 17
