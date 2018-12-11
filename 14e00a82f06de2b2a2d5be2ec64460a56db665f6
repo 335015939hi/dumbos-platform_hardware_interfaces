@@ -109,6 +109,24 @@
     },
     {
       "key": {
+        "uuid": "97fc84dd_9714d8bd",
+        "filename": "radio/1.4/types.hal",
+        "patchSetId": 17
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-12-11T18:19:02Z",
+      "side": 1,
+      "message": "Ack. Could there be other bits sent up which would allow the framework to calculate this though (not \u0027bool temporary\u0027 but something else)?",
+      "parentUuid": "a1f16653_2275be12",
+      "revId": "14e00a82f06de2b2a2d5be2ec64460a56db665f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d51c385e_8aedbbef",
         "filename": "radio/1.4/types.hal",
         "patchSetId": 17
