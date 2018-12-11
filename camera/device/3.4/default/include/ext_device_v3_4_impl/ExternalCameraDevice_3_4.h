@@ -91,6 +91,15 @@ protected:
     status_t initOutputCharsKeys(int fd,
             ::android::hardware::camera::common::V1_0::helper::CameraMetadata*);
 
+    // Helper function for initOutputCharskeys
+    template <size_t SIZE>
+    status_t initOutputCharskeysByFormat(
+        ::android::hardware::camera::common::V1_0::helper::CameraMetadata*,
+        std::array<int, SIZE>& formats, int scaler_stream_config_tag, int stream_configuration,
+        int min_frame_duration, int stall_duration);
+
+    bool calculateMinFps(::android::hardware::camera::common::V1_0::helper::CameraMetadata*);
+
     static void getFrameRateList(int fd, double fpsUpperBound, SupportedV4L2Format* format);
 
     // Get candidate supported formats list of input cropping type.
