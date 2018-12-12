@@ -127,6 +127,24 @@
     },
     {
       "key": {
+        "uuid": "1e999e45_212b8ca4",
+        "filename": "radio/1.4/types.hal",
+        "patchSetId": 17
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1308473
+      },
+      "writtenOn": "2018-12-12T05:21:48Z",
+      "side": 1,
+      "message": "Sorry, I don\u0027t understand what your meaning for sending up failure type to framework. Could you please elaborate more details? Thanks.",
+      "parentUuid": "97fc84dd_9714d8bd",
+      "revId": "14e00a82f06de2b2a2d5be2ec64460a56db665f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d51c385e_8aedbbef",
         "filename": "radio/1.4/types.hal",
         "patchSetId": 17
