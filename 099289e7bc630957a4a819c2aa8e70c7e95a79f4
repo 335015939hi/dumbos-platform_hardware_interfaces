@@ -140,6 +140,30 @@
       "revId": "099289e7bc630957a4a819c2aa8e70c7e95a79f4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "affc65ec_ee7af3fe",
+        "filename": "radio/1.4/IRadioResponse.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1308473
+      },
+      "writtenOn": "2018-12-12T06:07:14Z",
+      "side": 1,
+      "message": "Sorry, I reviewed this comment again and it should be right description. This error is included in RadioResponseInfo. RadioError.NONE means setup data call request has been executed normally without radio error no matter setup data call was success or failure. The real setup data call status is in DataCallResponse.status. Maybe I can change the \"Valid errors returned\" to \"Valid RadioError returned\" make description more clear.",
+      "parentUuid": "aa00b138_87331e54",
+      "range": {
+        "startLine": 112,
+        "startChar": 20,
+        "endLine": 114,
+        "endChar": 73
+      },
+      "revId": "099289e7bc630957a4a819c2aa8e70c7e95a79f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
