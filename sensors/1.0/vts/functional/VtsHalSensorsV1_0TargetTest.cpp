@@ -1101,8 +1101,8 @@ void SensorsHidlTest::testSamplingRateHotSwitchOperation(SensorType type, bool f
   }
 
   int32_t handle = sensor.sensorHandle;
-  int64_t minSamplingPeriodInNs = sensor.minDelay * 1000ll;
-  int64_t maxSamplingPeriodInNs = sensor.maxDelay * 1000ll;
+  int64_t minSamplingPeriodInNs = sensor.minDelay * 1000LL;
+  int64_t maxSamplingPeriodInNs = sensor.maxDelay * 1000LL;
 
   if (minSamplingPeriodInNs == maxSamplingPeriodInNs) {
     // only support single rate
@@ -1215,7 +1215,7 @@ void SensorsHidlTest::testBatchingOperation(SensorType type) {
   }
 
   int32_t handle = sensor.sensorHandle;
-  int64_t minSamplingPeriodInNs = sensor.minDelay * 1000ll;
+  int64_t minSamplingPeriodInNs = sensor.minDelay * 1000LL;
   uint32_t minFifoCount = sensor.fifoReservedEventCount;
   int64_t batchingPeriodInNs = minFifoCount * minSamplingPeriodInNs;
 
