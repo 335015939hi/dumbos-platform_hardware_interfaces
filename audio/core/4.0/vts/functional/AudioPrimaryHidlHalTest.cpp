@@ -530,7 +530,7 @@ TEST_F(AudioPrimaryHidlTest, GetMicrophonesTest) {
         auto flags = hidl_bitfield<AudioInputFlag>(AudioInputFlag::NONE);
         const SinkMetadata initialMetadata = {{{AudioSource::MIC, 1 /* gain */}}};
         EventFlag* efGroup;
-        for (auto microphone : microphones) {
+        for (const auto& microphone : microphones) {
             if (microphone.deviceAddress.device != AudioDevice::IN_BUILTIN_MIC) {
                 continue;
             }

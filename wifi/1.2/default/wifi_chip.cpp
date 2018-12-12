@@ -140,7 +140,7 @@ bool removeOldFilesInternal() {
     valid_files.sort();  // sort the list of files by last modified time from
                          // small to big.
     uint32_t cur_file_count = valid_files.size();
-    for (auto cur_file : valid_files) {
+    for (const auto& cur_file : valid_files) {
         if (cur_file_count > kMaxRingBufferFileNum ||
             cur_file.first < delete_files_before) {
             if (unlink(cur_file.second.c_str()) != 0) {
