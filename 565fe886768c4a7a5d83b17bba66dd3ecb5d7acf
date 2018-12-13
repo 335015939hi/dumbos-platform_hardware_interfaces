@@ -22,6 +22,30 @@
       "revId": "565fe886768c4a7a5d83b17bba66dd3ecb5d7acf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca955d29_cc38fa8f",
+        "filename": "camera/device/3.2/ICameraDeviceSession.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1010050
+      },
+      "writtenOn": "2018-12-13T22:38:08Z",
+      "side": 0,
+      "message": "We\u0027re not changing any behavior, just trying to make the docs more clear for the HAL implementer, because the current wording was misleading (though technically correct)",
+      "parentUuid": "edd737ac_e1446104",
+      "range": {
+        "startLine": 94,
+        "startChar": 33,
+        "endLine": 95,
+        "endChar": 15
+      },
+      "revId": "565fe886768c4a7a5d83b17bba66dd3ecb5d7acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }

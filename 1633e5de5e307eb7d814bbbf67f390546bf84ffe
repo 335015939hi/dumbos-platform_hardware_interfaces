@@ -22,6 +22,30 @@
       "revId": "1633e5de5e307eb7d814bbbf67f390546bf84ffe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d2a0c32_9b495bad",
+        "filename": "camera/device/3.2/ICameraDeviceSession.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1010050
+      },
+      "writtenOn": "2018-12-13T22:38:08Z",
+      "side": 1,
+      "message": "This leads to confusion on its own (keeps being read by HAL implementor as a \u0027must\u0027 that applies to that side, instead of a \u0027must\u0027 that applies to the client).  So let\u0027s say the \"the client must set the consumer usage flags in requestedConfiguration\" just to add even more detail.",
+      "parentUuid": "c146304f_9b001679",
+      "range": {
+        "startLine": 94,
+        "startChar": 39,
+        "endLine": 94,
+        "endChar": 43
+      },
+      "revId": "1633e5de5e307eb7d814bbbf67f390546bf84ffe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
