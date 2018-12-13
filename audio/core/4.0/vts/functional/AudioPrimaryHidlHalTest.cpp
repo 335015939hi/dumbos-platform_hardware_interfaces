@@ -698,13 +698,23 @@ class OpenStreamTest : public AudioConfigPrimaryTest,
 
     Return<Result> closeStream() {
         open = false;
-        return stream->close();
+        auto res = stream->close();
+        stream.clear();
+        // FIXME: there is no way to know when the remote IStream is being destroyed
+        //        Binder does not support testing if an object is alive, thus
+        //        wait for 100ms to let the binder destruction propagates and
+        //        the remote device has the time to be destroyed.
+        //        flushCommand makes sure all local command are sent, thus should reduce
+        //        the latency between local and remote destruction.
+        IPCThreadState::self()->flushCommands();
+        usleep(100);
+        return res;
     }
 
    private:
     void TearDown() override {
         if (open) {
-            ASSERT_OK(stream->close());
+            ASSERT_OK(closeStream());
         }
     }
 
