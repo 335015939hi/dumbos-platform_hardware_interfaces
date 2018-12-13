@@ -149,17 +149,6 @@ StreamIn::StreamIn(const sp<Device>& device, audio_stream_in_t* stream)
 StreamIn::~StreamIn() {
     ATRACE_CALL();
     close();
-    if (mReadThread.get()) {
-        ATRACE_NAME("mReadThread->join");
-        status_t status = mReadThread->join();
-        ALOGE_IF(status, "read thread exit error: %s", strerror(-status));
-    }
-    if (mEfGroup) {
-        status_t status = EventFlag::deleteEventFlag(&mEfGroup);
-        ALOGE_IF(status, "read MQ event flag deletion error: %s", strerror(-status));
-    }
-    mDevice->closeInputStream(mStream);
-    mStream = nullptr;
 }
 
 // Methods from ::android::hardware::audio::AUDIO_HAL_VERSION::IStream follow.
@@ -310,6 +299,17 @@ Return<Result> StreamIn::close() {
     if (mEfGroup) {
         mEfGroup->wake(static_cast<uint32_t>(MessageQueueFlagBits::NOT_FULL));
     }
+
+    if (mReadThread.get()) {
+        ATRACE_NAME("mReadThread->join");
+        status_t status = mReadThread->join();
+        ALOGE_IF(status, "read thread exit error: %s", strerror(-status));
+    }
+    if (mEfGroup) {
+        status_t status = EventFlag::deleteEventFlag(&mEfGroup);
+        ALOGE_IF(status, "read MQ event flag deletion error: %s", strerror(-status));
+    }
+    mDevice->closeInputStream(mStream);
     return Result::OK;
 }
 

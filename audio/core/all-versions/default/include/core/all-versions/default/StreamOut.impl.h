@@ -148,21 +148,6 @@ StreamOut::StreamOut(const sp<Device>& device, audio_stream_out_t* stream)
 StreamOut::~StreamOut() {
     ATRACE_CALL();
     close();
-    if (mWriteThread.get()) {
-        ATRACE_NAME("mWriteThread->join");
-        status_t status = mWriteThread->join();
-        ALOGE_IF(status, "write thread exit error: %s", strerror(-status));
-    }
-    if (mEfGroup) {
-        status_t status = EventFlag::deleteEventFlag(&mEfGroup);
-        ALOGE_IF(status, "write MQ event flag deletion error: %s", strerror(-status));
-    }
-    mCallback.clear();
-    mDevice->closeOutputStream(mStream);
-    // Closing the output stream in the HAL waits for the callback to finish,
-    // and joins the callback thread. Thus is it guaranteed that the callback
-    // thread will not be accessing our object anymore.
-    mStream = nullptr;
 }
 
 // Methods from ::android::hardware::audio::AUDIO_HAL_VERSION::IStream follow.
@@ -298,6 +283,21 @@ Return<Result> StreamOut::close() {
     if (mEfGroup) {
         mEfGroup->wake(static_cast<uint32_t>(MessageQueueFlagBits::NOT_EMPTY));
     }
+
+    if (mWriteThread.get()) {
+        ATRACE_NAME("mWriteThread->join");
+        status_t status = mWriteThread->join();
+        ALOGE_IF(status, "write thread exit error: %s", strerror(-status));
+    }
+    if (mEfGroup) {
+        status_t status = EventFlag::deleteEventFlag(&mEfGroup);
+        ALOGE_IF(status, "write MQ event flag deletion error: %s", strerror(-status));
+    }
+    mCallback.clear();
+    mDevice->closeOutputStream(mStream);
+    // Closing the output stream in the HAL waits for the callback to finish,
+    // and joins the callback thread. Thus is it guaranteed that the callback
+    // thread will not be accessing our object anymore.
     return Result::OK;
 }
 
