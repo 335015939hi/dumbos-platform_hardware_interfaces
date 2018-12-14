@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7f59bb14_76094974",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1236374
+      },
+      "writtenOn": "2018-12-14T07:35:00Z",
+      "side": 1,
+      "message": "Thank you, done in next patchset.",
+      "parentUuid": "f698454b_ff8e915c",
+      "range": {
+        "startLine": 162,
+        "startChar": 42,
+        "endLine": 162,
+        "endChar": 45
+      },
+      "revId": "63fe1892547a16086e2ad3156394f5c6a72ce6a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c3d5cb6_a31ff039",
         "filename": "radio/1.3/types.hal",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "63fe1892547a16086e2ad3156394f5c6a72ce6a7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "daf76a97_99a2436d",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1236374
+      },
+      "writtenOn": "2018-12-14T07:35:00Z",
+      "side": 1,
+      "message": "Thank you for your suggestion. After re-considering 3GPP spec, I\u0027ve updated it to single String w/o \"\\r\\n\".\nBecause forwardedNumger via this radio interface is only for GSM/WCDMA CS and not IMS. According to 3GPP TS24.008, forwarded number for CS does not support multi values. (Multi values can be used for IMS only)\nSo, the comment of forwardedNumger was also incorrect, and updated it in next patchset.",
+      "parentUuid": "7c3d5cb6_a31ff039",
+      "range": {
+        "startLine": 164,
+        "startChar": 45,
+        "endLine": 164,
+        "endChar": 51
+      },
+      "revId": "63fe1892547a16086e2ad3156394f5c6a72ce6a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
