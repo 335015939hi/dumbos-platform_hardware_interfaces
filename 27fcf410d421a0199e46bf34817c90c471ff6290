@@ -301,6 +301,29 @@
     },
     {
       "key": {
+        "uuid": "a3fb3e74_cc6d0d52",
+        "filename": "radio/1.3/IRadioIndication.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2018-12-14T23:11:48Z",
+      "side": 1,
+      "message": "Does this return all the records at once? If the card contains 1000 valid entries, would it return all of them in some indication? what\u0027s the max that we expect?\nAfter checking internally, binder transactions are capped to be no larger than 1MB total. Is there a risk of exceeding it?",
+      "range": {
+        "startLine": 33,
+        "startChar": 17,
+        "endLine": 33,
+        "endChar": 20
+      },
+      "revId": "27fcf410d421a0199e46bf34817c90c471ff6290",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9dae6f10_efb14259",
         "filename": "radio/1.3/IRadioIndication.hal",
         "patchSetId": 1
