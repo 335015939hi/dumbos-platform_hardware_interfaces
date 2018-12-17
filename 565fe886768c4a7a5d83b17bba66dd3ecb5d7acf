@@ -46,6 +46,30 @@
       "revId": "565fe886768c4a7a5d83b17bba66dd3ecb5d7acf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f7824d6_ab90b97b",
+        "filename": "camera/device/3.2/ICameraDeviceSession.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1092583
+      },
+      "writtenOn": "2018-12-17T22:46:36Z",
+      "side": 0,
+      "message": "Ack",
+      "parentUuid": "ca955d29_cc38fa8f",
+      "range": {
+        "startLine": 94,
+        "startChar": 33,
+        "endLine": 95,
+        "endChar": 15
+      },
+      "revId": "565fe886768c4a7a5d83b17bba66dd3ecb5d7acf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
