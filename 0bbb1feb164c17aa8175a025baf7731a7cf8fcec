@@ -126,6 +126,30 @@
     },
     {
       "key": {
+        "uuid": "aefcda53_1de31b8f",
+        "filename": "bluetooth/audio/2.0/IBluetoothAudioPort.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2018-12-18T02:36:09Z",
+      "side": 1,
+      "message": "Done - android.hardware.audio.common@5.0 is used",
+      "parentUuid": "e5f1708e_2ff74d05",
+      "range": {
+        "startLine": 19,
+        "startChar": 30,
+        "endLine": 19,
+        "endChar": 33
+      },
+      "revId": "0bbb1feb164c17aa8175a025baf7731a7cf8fcec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0233e6d5_a1140423",
         "filename": "bluetooth/audio/2.0/IBluetoothAudioPort.hal",
         "patchSetId": 7
