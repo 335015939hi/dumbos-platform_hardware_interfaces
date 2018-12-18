@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "0c9a5fe6_cf390c67",
+        "filename": "bluetooth/audio/2.0/IBluetoothAudioPort.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2018-12-18T02:35:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f7d7e9d_4d6596e0",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 50
+      },
+      "revId": "b2de77fd5ce47d40bdc332b34f3a26e7be1a8c6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f2971aa5_215382d0",
         "filename": "bluetooth/audio/2.0/types.hal",
         "patchSetId": 11
@@ -96,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "051b32e3_806376a8",
+        "filename": "bluetooth/audio/2.0/types.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2018-12-18T02:35:20Z",
+      "side": 1,
+      "message": "android.hardware.audio.common@5.0 is used",
+      "parentUuid": "f135c596_1d2c7e0f",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 176,
+        "endChar": 3
+      },
+      "revId": "b2de77fd5ce47d40bdc332b34f3a26e7be1a8c6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "03d1330f_b328af8a",
         "filename": "bluetooth/audio/2.0/types.hal",
         "patchSetId": 11
@@ -116,6 +164,30 @@
       "revId": "b2de77fd5ce47d40bdc332b34f3a26e7be1a8c6e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28c3ae2a_a451bb72",
+        "filename": "bluetooth/audio/2.0/types.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2018-12-18T02:35:20Z",
+      "side": 1,
+      "message": "android.hardware.audio.common@5.0 is used",
+      "parentUuid": "03d1330f_b328af8a",
+      "range": {
+        "startLine": 178,
+        "startChar": 0,
+        "endLine": 179,
+        "endChar": 25
+      },
+      "revId": "b2de77fd5ce47d40bdc332b34f3a26e7be1a8c6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

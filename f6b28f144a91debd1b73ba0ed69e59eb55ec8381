@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f80cee74_938de17b",
+        "filename": "bluetooth/audio/2.0/Android.bp",
+        "patchSetId": 17
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2018-12-18T02:35:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "be341ae1_c1e18fe7",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 37
+      },
+      "revId": "f6b28f144a91debd1b73ba0ed69e59eb55ec8381",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0537b0f_26797de1",
         "filename": "bluetooth/audio/2.0/Android.bp",
         "patchSetId": 17
@@ -92,6 +116,30 @@
       "revId": "f6b28f144a91debd1b73ba0ed69e59eb55ec8381",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "29646079_b9bff84a",
+        "filename": "bluetooth/audio/2.0/IBluetoothAudioPort.hal",
+        "patchSetId": 17
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2018-12-18T02:35:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d2679c90_1e4e56a9",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 50
+      },
+      "revId": "f6b28f144a91debd1b73ba0ed69e59eb55ec8381",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

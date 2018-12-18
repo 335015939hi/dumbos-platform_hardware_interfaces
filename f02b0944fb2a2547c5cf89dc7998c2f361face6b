@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e78cc82f_c0f1d552",
+        "filename": "bluetooth/audio/2.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2018-12-18T02:35:20Z",
+      "side": 1,
+      "message": "Done - No need for another types and uses updateMetadata() for Hearing Aids",
+      "parentUuid": "efa48c91_cf1bd605",
+      "range": {
+        "startLine": 40,
+        "startChar": 4,
+        "endLine": 40,
+        "endChar": 42
+      },
+      "revId": "f02b0944fb2a2547c5cf89dc7998c2f361face6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "130693e3_aad37355",
         "filename": "bluetooth/audio/2.0/types.hal",
         "patchSetId": 4
@@ -45,6 +69,30 @@
       "revId": "f02b0944fb2a2547c5cf89dc7998c2f361face6b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c066deb5_af21787f",
+        "filename": "bluetooth/audio/2.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2018-12-18T02:35:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "130693e3_aad37355",
+      "range": {
+        "startLine": 135,
+        "startChar": 19,
+        "endLine": 135,
+        "endChar": 27
+      },
+      "revId": "f02b0944fb2a2547c5cf89dc7998c2f361face6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
