@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fd4678be_a9946aae",
+        "filename": "radio/1.4/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1056478
+      },
+      "writtenOn": "2018-12-18T16:05:21Z",
+      "side": 1,
+      "message": "We already capture this in SuppServiceNotification#history for IMS calls; is this done via supp service as well?",
+      "range": {
+        "startLine": 245,
+        "startChar": 4,
+        "endLine": 245,
+        "endChar": 27
+      },
+      "revId": "df3fff4f74313a4274d550096bdad74ae337a1a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
