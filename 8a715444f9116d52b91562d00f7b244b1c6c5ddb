@@ -90,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "85df6721_1ebe8c98",
+        "filename": "identity_credential/1.0/IWritableIdentityCredential.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2018-12-18T15:41:28Z",
+      "side": 1,
+      "message": "It\u0027s not, actually.  This message is for the issuing authority, and the userSecureId value is meaningless to the IA; it has meaning only on-device.  So we specify the auth type and timeout required here, but not the ID.",
+      "parentUuid": "9a940d74_ad189b6b",
+      "revId": "8a715444f9116d52b91562d00f7b244b1c6c5ddb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8335279b_b21e9a6a",
         "filename": "identity_credential/1.0/types.hal",
         "patchSetId": 6
