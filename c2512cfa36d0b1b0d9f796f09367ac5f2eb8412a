@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "286cb7d3_f18a097a",
+        "filename": "bluetooth/audio/2.0/IBluetoothAudioProvider.hal",
+        "patchSetId": 24
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-12-18T19:07:25Z",
+      "side": 1,
+      "message": "dataMq\n\nhttps://source.android.com/devices/architecture/hidl/code-style",
+      "range": {
+        "startLine": 61,
+        "startChar": 65,
+        "endLine": 61,
+        "endChar": 66
+      },
+      "revId": "c2512cfa36d0b1b0d9f796f09367ac5f2eb8412a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
