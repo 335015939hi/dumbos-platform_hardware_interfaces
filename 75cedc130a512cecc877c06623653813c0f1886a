@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3d009842_e2db5f57",
+        "filename": "identity_credential/1.0/IIdentityCredential.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-12-18T19:34:11Z",
+      "side": 1,
+      "message": "btw, can you indicate which of these are opaque or not? what is the format of this for instance?",
+      "range": {
+        "startLine": 26,
+        "startChar": 47,
+        "endLine": 26,
+        "endChar": 59
+      },
+      "revId": "75cedc130a512cecc877c06623653813c0f1886a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95851039_6eba2cef",
+        "filename": "identity_credential/1.0/IIdentityCredential.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-12-18T19:34:11Z",
+      "side": 1,
+      "message": "what are the fields on this?",
+      "range": {
+        "startLine": 98,
+        "startChar": 76,
+        "endLine": 98,
+        "endChar": 88
+      },
+      "revId": "75cedc130a512cecc877c06623653813c0f1886a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55f98990_c58e66ac",
+        "filename": "identity_credential/1.0/IIdentityCredential.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-12-18T19:34:11Z",
+      "side": 1,
+      "message": "btw, this is a lot of parameters:\n- consider grouping into a struct for sanity\n- what is the maximum size expected for all of these? (binder has 1MB concurrent transaction limit by default)",
+      "range": {
+        "startLine": 114,
+        "startChar": 14,
+        "endLine": 117,
+        "endChar": 48
+      },
+      "revId": "75cedc130a512cecc877c06623653813c0f1886a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f1616d3_3082dfda",
+        "filename": "identity_credential/1.0/IIdentityCredential.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-12-18T19:34:11Z",
+      "side": 1,
+      "message": "spaces (everywhere)",
+      "range": {
+        "startLine": 118,
+        "startChar": 0,
+        "endLine": 118,
+        "endChar": 1
+      },
+      "revId": "75cedc130a512cecc877c06623653813c0f1886a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46458fad_07c2a576",
+        "filename": "identity_credential/1.0/IWritableIdentityCredential.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-12-18T19:34:11Z",
+      "side": 1,
+      "message": "same here (worried about size restrictions)",
+      "range": {
+        "startLine": 91,
+        "startChar": 31,
+        "endLine": 93,
+        "endChar": 41
+      },
+      "revId": "75cedc130a512cecc877c06623653813c0f1886a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c1bb3b6_3a17ad2d",
+        "filename": "identity_credential/1.0/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-12-18T19:34:11Z",
+      "side": 1,
+      "message": "will you be adding more values here?",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 2
+      },
+      "revId": "75cedc130a512cecc877c06623653813c0f1886a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0818680_cfb8286a",
+        "filename": "identity_credential/1.0/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-12-18T19:34:11Z",
+      "side": 1,
+      "message": "fyi, there is a type in HIDL which can express this:\n\nsafe_union Union {\n    uint16_t int16;\n    uint32_t int32;\n    uint64_t int64;\n    vec\u003cuint8_t\u003e bytes;\n}\n\nyou could consider this (it\u0027s also type safe)",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 21
+      },
+      "revId": "75cedc130a512cecc877c06623653813c0f1886a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
