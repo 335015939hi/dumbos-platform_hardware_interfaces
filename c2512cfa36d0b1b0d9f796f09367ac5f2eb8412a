@@ -22,6 +22,30 @@
       "revId": "c2512cfa36d0b1b0d9f796f09367ac5f2eb8412a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2a5e171_1415ed23",
+        "filename": "bluetooth/audio/2.0/IBluetoothAudioProvider.hal",
+        "patchSetId": 24
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2018-12-19T02:39:59Z",
+      "side": 1,
+      "message": "Because there is another dataMQ in Audio Hal and it is the same type of parameter here, I prefer to keep the naming so is consisted with Audio side.\nhttps://android.googlesource.com/platform/hardware/interfaces/+/master/audio/5.0/IStreamOut.hal#117",
+      "parentUuid": "286cb7d3_f18a097a",
+      "range": {
+        "startLine": 61,
+        "startChar": 65,
+        "endLine": 61,
+        "endChar": 66
+      },
+      "revId": "c2512cfa36d0b1b0d9f796f09367ac5f2eb8412a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
