@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d6189c33_7c2176a8",
+        "filename": "keymaster/capability/1.0/types.hal",
+        "patchSetId": 14
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-12-20T00:20:40Z",
+      "side": 1,
+      "message": "one high level question for my understanding, why keymaster? Is this as opposed to another type of capability? Is it actually intrinsically tied to keymaster or does it just make sense to be coupled here because of how Android works?",
+      "range": {
+        "startLine": 44,
+        "startChar": 7,
+        "endLine": 44,
+        "endChar": 16
+      },
+      "revId": "d7ee8b4b21de7aa5d0d38edee5983c36ef889096",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0b4b08a_797b9da8",
+        "filename": "keymaster/capability/1.0/types.hal",
+        "patchSetId": 14
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-12-20T00:20:40Z",
+      "side": 1,
+      "message": "how does this work across the vendor/system boundary (as in, how do we make sure that vendor/system sides of the interface aren\u0027t requiring the other side to know the specific value of one of these blobs)?",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 22
+      },
+      "revId": "d7ee8b4b21de7aa5d0d38edee5983c36ef889096",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68ed53ec_2961786c",
+        "filename": "keymaster/capability/1.0/types.hal",
+        "patchSetId": 14
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-12-20T00:20:40Z",
+      "side": 1,
+      "message": "secureToken",
+      "range": {
+        "startLine": 77,
+        "startChar": 17,
+        "endLine": 77,
+        "endChar": 29
+      },
+      "revId": "d7ee8b4b21de7aa5d0d38edee5983c36ef889096",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3f6a9c6_df02ef31",
+        "filename": "keymaster/capability/1.0/types.hal",
+        "patchSetId": 14
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2018-12-20T00:20:40Z",
+      "side": 1,
+      "message": "definition?",
+      "range": {
+        "startLine": 80,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 26
+      },
+      "revId": "d7ee8b4b21de7aa5d0d38edee5983c36ef889096",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
