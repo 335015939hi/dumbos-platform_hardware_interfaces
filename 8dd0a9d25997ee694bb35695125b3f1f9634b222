@@ -68,6 +68,30 @@
       "revId": "8dd0a9d25997ee694bb35695125b3f1f9634b222",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6550cc1a_ca645433",
+        "filename": "identity_credential/1.0/IWritableIdentityCredential.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1403755
+      },
+      "writtenOn": "2018-12-28T12:32:16Z",
+      "side": 1,
+      "message": "OK, my bad. This is defined through the credentialStore API.",
+      "parentUuid": "9f81f27e_ae58396c",
+      "range": {
+        "startLine": 142,
+        "startChar": 22,
+        "endLine": 142,
+        "endChar": 40
+      },
+      "revId": "8dd0a9d25997ee694bb35695125b3f1f9634b222",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
