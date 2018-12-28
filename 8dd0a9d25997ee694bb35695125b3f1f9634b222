@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ec52a87a_5a68d003",
+        "filename": "identity_credential/1.0/IIdentityCredential.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1403755
+      },
+      "writtenOn": "2018-12-28T12:21:08Z",
+      "side": 1,
+      "message": "This should probably belong to the method \"finishRetrieval\", which does not exist yet.",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 6
+      },
+      "revId": "8dd0a9d25997ee694bb35695125b3f1f9634b222",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb6bc16c_fb3326db",
+        "filename": "identity_credential/1.0/IWritableIdentityCredential.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1403755
+      },
+      "writtenOn": "2018-12-28T12:21:08Z",
+      "side": 1,
+      "message": "What is data block in the initial auditLogHash?",
+      "range": {
+        "startLine": 66,
+        "startChar": 35,
+        "endLine": 66,
+        "endChar": 44
+      },
+      "revId": "8dd0a9d25997ee694bb35695125b3f1f9634b222",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f81f27e_ae58396c",
+        "filename": "identity_credential/1.0/IWritableIdentityCredential.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1403755
+      },
+      "writtenOn": "2018-12-28T12:21:08Z",
+      "side": 1,
+      "message": "Is that already defined somewhere or is that pre-installed on the applet?",
+      "range": {
+        "startLine": 142,
+        "startChar": 22,
+        "endLine": 142,
+        "endChar": 40
+      },
+      "revId": "8dd0a9d25997ee694bb35695125b3f1f9634b222",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
