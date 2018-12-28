@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9e70bb2a_5082889f",
+        "filename": "identity_credential/1.0/IIdentityCredential.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2018-12-28T13:59:51Z",
+      "side": 1,
+      "message": "Doh!\n\nFixed.",
+      "parentUuid": "ec52a87a_5a68d003",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 6
+      },
+      "revId": "8dd0a9d25997ee694bb35695125b3f1f9634b222",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bb6bc16c_fb3326db",
         "filename": "identity_credential/1.0/IWritableIdentityCredential.hal",
         "patchSetId": 10
@@ -45,6 +69,30 @@
       "revId": "8dd0a9d25997ee694bb35695125b3f1f9634b222",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c17b31c_26f97138",
+        "filename": "identity_credential/1.0/IWritableIdentityCredential.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2018-12-28T13:59:51Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "bb6bc16c_fb3326db",
+      "range": {
+        "startLine": 66,
+        "startChar": 35,
+        "endLine": 66,
+        "endChar": 44
+      },
+      "revId": "8dd0a9d25997ee694bb35695125b3f1f9634b222",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -83,6 +131,30 @@
       "side": 1,
       "message": "OK, my bad. This is defined through the credentialStore API.",
       "parentUuid": "9f81f27e_ae58396c",
+      "range": {
+        "startLine": 142,
+        "startChar": 22,
+        "endLine": 142,
+        "endChar": 40
+      },
+      "revId": "8dd0a9d25997ee694bb35695125b3f1f9634b222",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "40ffa0d8_f626d21a",
+        "filename": "identity_credential/1.0/IWritableIdentityCredential.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2018-12-28T13:59:51Z",
+      "side": 1,
+      "message": "Actually, there is an issue here.  The docType needs to be stored somewhere, so it has to be in the credentialBlob.  I added a TODO.",
+      "parentUuid": "6550cc1a_ca645433",
       "range": {
         "startLine": 142,
         "startChar": 22,
