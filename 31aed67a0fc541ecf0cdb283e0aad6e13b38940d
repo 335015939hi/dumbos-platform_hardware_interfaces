@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c2db44dc_48c64e10",
+        "filename": "radio/1.4/types.hal",
+        "patchSetId": 21
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1103203
+      },
+      "writtenOn": "2019-01-02T14:08:53Z",
+      "side": 1,
+      "message": "This CL added a huge enum which increased the zygote size because there\u0027s now a string literal for each enum value; see http://b/122060560\n\nIs the enum necessary?",
+      "range": {
+        "startLine": 179,
+        "startChar": 0,
+        "endLine": 179,
+        "endChar": 50
+      },
+      "revId": "31aed67a0fc541ecf0cdb283e0aad6e13b38940d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
