@@ -1,0 +1,1672 @@
+/*
+ * Copyright 2019, The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+#define LOG_TAG "android.hardware.identity_credential-support"
+
+#include <android/hardware/identity_credential/support/IdentityCredentialUtils.h>
+
+#define _POSIX_C_SOURCE 199309L
+
+#include <ctype.h>
+#include <stdarg.h>
+#include <stdio.h>
+#include <time.h>
+#include <iomanip>
+
+#include <openssl/aes.h>
+#include <openssl/bn.h>
+#include <openssl/crypto.h>
+#include <openssl/ec.h>
+#include <openssl/err.h>
+#include <openssl/evp.h>
+#include <openssl/objects.h>
+#include <openssl/pem.h>
+#include <openssl/rand.h>
+#include <openssl/x509.h>
+
+#include <android-base/logging.h>
+#include <android-base/stringprintf.h>
+
+namespace android {
+namespace hardware {
+namespace identity_credential {
+namespace support {
+
+using std::pair;
+using std::string;
+using std::vector;
+
+using android::hardware::identity_credential::V1_0::EntryValue;
+
+// ---------------------------------------------------------------------------
+// Miscellaneous utilities.
+// ---------------------------------------------------------------------------
+
+void hexdump(const string& name, const vector<uint8_t>& data) {
+    fprintf(stderr, "%s: dumping %zd bytes\n", name.c_str(), data.size());
+    size_t n, m, o;
+    for (n = 0; n < data.size(); n += 16) {
+        fprintf(stderr, "%04zx  ", n);
+        for (m = 0; m < 16 && n + m < data.size(); m++) {
+            fprintf(stderr, "%02x ", data[n + m]);
+        }
+        for (o = m; o < 16; o++) {
+            fprintf(stderr, "   ");
+        }
+        fprintf(stderr, " ");
+        for (m = 0; m < 16 && n + m < data.size(); m++) {
+            int c = data[n + m];
+            fprintf(stderr, "%c", isprint(c) ? c : '.');
+        }
+        fprintf(stderr, "\n");
+    }
+    fprintf(stderr, "\n");
+}
+
+// ---------------------------------------------------------------------------
+// CBOR / libcn-cbor utilities.
+// ---------------------------------------------------------------------------
+
+bool cborEncode(cn_cbor* value, vector<uint8_t>& encoded) {
+    // Unfortunately there's no way to know how big the encoded blob will be [1]
+    // so we just hardcode a ceiling for now... it's not very elegant but it
+    // works.
+    //
+    // [1] : ideally cn_cbor_encoded_write(nullptr, 0, 0, array.get()) would
+    // return how many bytes _would_ have been written just like sprintf() and
+    // friends... but that's not how it works right now.
+    encoded.resize(1024 * 1024);
+    ssize_t enc_sz = cn_cbor_encoder_write(encoded.data(), 0, encoded.size(), value);
+    if (enc_sz == -1) {
+        LOG(ERROR) << "Error encoding CBOR data";
+        return false;
+    }
+    encoded.resize(enc_sz);
+    return true;
+}
+
+// Takes ownership of |cbor_value| on both success and error paths.
+bool cborMapPutStringValue(cn_cbor* map, const char* key, cn_cbor* cbor_value) {
+    cn_cbor_errback err;
+
+    if (!cn_cbor_mapput_string(map, key, cbor_value, &err)) {
+        LOG(ERROR) << "Error " << err.err << " putting value in map (pos " << err.pos << ")";
+        cn_cbor_free(cbor_value);
+        return false;
+    }
+    return true;
+}
+
+bool cborMapPutStringString(cn_cbor* map, const char* key, const char* value) {
+    cn_cbor_errback err;
+
+    cn_cbor* cbor_value = cn_cbor_string_create(value, &err);
+    if (cbor_value == nullptr) {
+        LOG(ERROR) << "Error " << err.err << " creating string (pos " << err.pos << ")";
+        return false;
+    }
+    return cborMapPutStringValue(map, key, cbor_value);
+}
+
+bool cborMapPutStringBStr(cn_cbor* map, const char* key, const uint8_t* value, size_t value_size) {
+    cn_cbor_errback err;
+
+    cn_cbor* cbor_value = cn_cbor_data_create(value, value_size, &err);
+    if (cbor_value == nullptr) {
+        LOG(ERROR) << "Error " << err.err << " creating bstr (pos " << err.pos << ")";
+        return false;
+    }
+    return cborMapPutStringValue(map, key, cbor_value);
+}
+
+bool cborMapPutStringInt(cn_cbor* map, const char* key, int64_t value) {
+    cn_cbor_errback err;
+
+    cn_cbor* cbor_value = cn_cbor_int_create(value, &err);
+    if (cbor_value == nullptr) {
+        LOG(ERROR) << "Error " << err.err << " creating int (pos " << err.pos << ")";
+        return false;
+    }
+    return cborMapPutStringValue(map, key, cbor_value);
+}
+
+bool cborMapPutStringBool(cn_cbor* map, const char* key, bool value) {
+    // There is no cn_cbor_bool_create()
+    cn_cbor* cbor_value = (cn_cbor*)calloc(1, sizeof(cn_cbor));
+    if (cbor_value == nullptr) {
+        LOG(ERROR) << "Error creating bool";
+        return false;
+    }
+    cbor_value->type = value ? CN_CBOR_TRUE : CN_CBOR_FALSE;
+    return cborMapPutStringValue(map, key, cbor_value);
+}
+
+// Takes ownership of |cbor_value| on both success and error paths.
+bool cborArrayAppendValue(cn_cbor* array, cn_cbor* cbor_value) {
+    cn_cbor_errback err;
+    if (!cn_cbor_array_append(array, cbor_value, &err)) {
+        LOG(ERROR) << "Error " << err.err << " appending value to array (pos " << err.pos << ")";
+        cn_cbor_free(cbor_value);
+        return false;
+    }
+    return true;
+}
+
+bool cborArrayAppendInt(cn_cbor* array, int64_t value) {
+    cn_cbor_errback err;
+
+    cn_cbor* cbor_value = cn_cbor_int_create(value, &err);
+    if (cbor_value == nullptr) {
+        LOG(ERROR) << "Error " << err.err << " creating int (pos " << err.pos << ")";
+        return false;
+    }
+    return cborArrayAppendValue(array, cbor_value);
+}
+
+bool cborArrayAppendBool(cn_cbor* array, bool value) {
+    // There is no cn_cbor_bool_create()
+    cn_cbor* cbor_value = (cn_cbor*)calloc(1, sizeof(cn_cbor));
+    if (cbor_value == nullptr) {
+        LOG(ERROR) << "Error creating bool";
+        return false;
+    }
+    cbor_value->type = value ? CN_CBOR_TRUE : CN_CBOR_FALSE;
+    return cborArrayAppendValue(array, cbor_value);
+}
+
+bool cborArrayAppendString(cn_cbor* array, const char* value) {
+    cn_cbor_errback err;
+
+    cn_cbor* cbor_value = cn_cbor_string_create(value, &err);
+    if (cbor_value == nullptr) {
+        LOG(ERROR) << "Error " << err.err << " creating string (pos " << err.pos << ")";
+        return false;
+    }
+    return cborArrayAppendValue(array, cbor_value);
+}
+
+bool cborArrayAppendString(cn_cbor* array, const std::string& value) {
+    return cborArrayAppendString(array, value.c_str());
+}
+
+bool cborArrayAppendBStr(cn_cbor* array, const std::vector<uint8_t>& value) {
+    return cborArrayAppendBStr(array, value.data(), value.size());
+}
+
+bool cborArrayAppendBStr(cn_cbor* array, const uint8_t* value, size_t value_size) {
+    cn_cbor_errback err;
+
+    cn_cbor* cbor_value = cn_cbor_data_create(value, value_size, &err);
+    if (cbor_value == nullptr) {
+        LOG(ERROR) << "Error " << err.err << " creating bstr (pos " << err.pos << ")";
+        return false;
+    }
+    return cborArrayAppendValue(array, cbor_value);
+}
+
+bool cborArrayGetString(cn_cbor* array, size_t idx, string& data) {
+    cn_cbor* elem = cn_cbor_index(array, idx);
+    if (elem == nullptr) {
+        LOG(ERROR) << "No element at given index";
+        return false;
+    }
+    if (elem->type != CN_CBOR_TEXT) {
+        LOG(ERROR) << "Expected type CN_CBOR_BYTES but got " << elem->type;
+        return false;
+    }
+    data.resize(elem->length);
+    memcpy(data.data(), elem->v.bytes, elem->length);
+    return true;
+}
+
+bool cborArrayGetBool(cn_cbor* array, size_t idx, bool& data) {
+    cn_cbor* elem = cn_cbor_index(array, idx);
+    if (elem == nullptr) {
+        LOG(ERROR) << "No element at given index";
+        return false;
+    }
+    if (elem->type == CN_CBOR_TRUE) {
+        data = true;
+    } else if (elem->type == CN_CBOR_FALSE) {
+        data = false;
+    } else {
+        LOG(ERROR) << "Expected type CN_CBOR_TRUE or CN_CBOR_FALSE but got " << elem->type;
+        return false;
+    }
+    return true;
+}
+
+bool cborArrayGetBStr(cn_cbor* array, size_t idx, vector<uint8_t>& data) {
+    cn_cbor* elem = cn_cbor_index(array, idx);
+    if (elem == nullptr) {
+        LOG(ERROR) << "No element at given index";
+        return false;
+    }
+    if (elem->type != CN_CBOR_BYTES) {
+        LOG(ERROR) << "Expected type CN_CBOR_BYTES but got " << elem->type;
+        return false;
+    }
+    data.resize(elem->length);
+    memcpy(data.data(), elem->v.bytes, elem->length);
+    return true;
+}
+
+static bool cborPrettyPrintInternal(cn_cbor* value, string& out, size_t indent, size_t maxBStrSize,
+                                    const vector<string>& mapKeysToNotPrint) {
+    char buf[80];
+
+    switch (value->type) {
+        case CN_CBOR_FALSE:
+            out.append("false");
+            break;
+        case CN_CBOR_TRUE:
+            out.append("true");
+            break;
+        case CN_CBOR_NULL:
+            out.append("null");
+            break;
+        case CN_CBOR_UNDEF:
+            out.append("undefined");
+            break;
+        case CN_CBOR_UINT:
+            snprintf(buf, sizeof(buf), "%" PRIu64, (uint64_t)value->v.uint);
+            out.append(buf);
+            break;
+        case CN_CBOR_INT:
+            snprintf(buf, sizeof(buf), "%" PRId64, (uint64_t)value->v.sint);
+            out.append(buf);
+            break;
+        case CN_CBOR_BYTES:
+            if (value->length > maxBStrSize) {
+                unsigned char digest[SHA_DIGEST_LENGTH];
+                SHA_CTX ctx;
+                SHA1_Init(&ctx);
+                SHA1_Update(&ctx, value->v.bytes, value->length);
+                SHA1_Final(digest, &ctx);
+                char buf2[SHA_DIGEST_LENGTH * 2 + 1];
+                for (size_t n = 0; n < SHA_DIGEST_LENGTH; n++) {
+                    snprintf(buf2 + n * 2, 3, "%02x", digest[n]);
+                }
+                snprintf(buf, sizeof(buf), "<bstr size=%d sha1=%s>", value->length, buf2);
+                out.append(buf);
+            } else {
+                out.append("{");
+                for (size_t n = 0; n < value->length; n++) {
+                    if (n > 0) {
+                        out.append(", ");
+                    }
+                    snprintf(buf, sizeof(buf), "0x%02x", value->v.bytes[n]);
+                    out.append(buf);
+                }
+                out.append("}");
+            }
+            break;
+        case CN_CBOR_TEXT:
+            out.append("'");
+            {
+                // TODO: escape "'" characters
+                string str = string(value->v.str, value->length);
+                out.append(str.c_str());
+            }
+            out.append("'");
+            break;
+        case CN_CBOR_ARRAY:
+            out.append("[");
+            for (size_t n = 0; n < value->length; n++) {
+                if (n > 0) {
+                    out.append(", ");
+                }
+                cn_cbor* item = cn_cbor_index(value, n);
+                if (!cborPrettyPrintInternal(item, out, indent + 2, maxBStrSize,
+                                             mapKeysToNotPrint)) {
+                    return false;
+                }
+            }
+            out.append("]");
+            break;
+        case CN_CBOR_MAP:
+            out.append("{\n");
+            for (size_t n = 0; n < value->length; n += 2) {
+                for (size_t m = 0; m < indent + 2; m++) {
+                    out.append(" ");
+                }
+                cn_cbor* map_key = cn_cbor_index(value, n);
+                cn_cbor* map_value = cn_cbor_index(value, n + 1);
+                if (!cborPrettyPrintInternal(map_key, out, indent + 2, maxBStrSize,
+                                             mapKeysToNotPrint)) {
+                    return false;
+                }
+                out.append(" : ");
+                if (map_key->type == CN_CBOR_TEXT &&
+                    std::find(mapKeysToNotPrint.begin(), mapKeysToNotPrint.end(),
+                              string(map_key->v.str, map_key->length)) != mapKeysToNotPrint.end()) {
+                    out.append("<not printed>");
+                } else {
+                    if (!cborPrettyPrintInternal(map_value, out, indent + 2, maxBStrSize,
+                                                 mapKeysToNotPrint)) {
+                        return false;
+                    }
+                }
+                if (n + 2 < value->length) {
+                    out.append(",");
+                }
+                out.append("\n");
+            }
+            for (size_t m = 0; m < indent; m++) {
+                out.append(" ");
+            }
+            out.append("}");
+            break;
+        case CN_CBOR_TAG:
+            out.append("x");
+            break;
+        case CN_CBOR_DOUBLE:
+            snprintf(buf, sizeof(buf), "%g", value->v.dbl);
+            out.append(buf);
+            break;
+        case CN_CBOR_INVALID:
+            LOG(ERROR) << "Encountered type invalid while pretty printing";
+            return false;
+        case CN_CBOR_SIMPLE:
+        case CN_CBOR_BYTES_CHUNKED:
+        case CN_CBOR_TEXT_CHUNKED:
+            LOG(ERROR) << "No pretty-print support for CBOR type " << value->type;
+            return false;
+    }
+    return true;
+}
+
+static bool cborPrettyPrintInternal(const vector<uint8_t>& encodedCbor, string& out, size_t indent,
+                                    size_t maxBStrSize, const vector<string>& mapKeysToNotPrint) {
+    cn_cbor_errback err;
+    auto value = CnCborPtr(cn_cbor_decode(encodedCbor.data(), encodedCbor.size(), &err));
+    if (value.get() == nullptr) {
+        LOG(ERROR) << "Error " << err.err << " decoding CBOR (pos " << err.pos << ")";
+        return false;
+    }
+    return cborPrettyPrintInternal(value.get(), out, indent, maxBStrSize, mapKeysToNotPrint);
+}
+
+bool cborPrettyPrint(cn_cbor* value, string& out, size_t maxBStrSize,
+                     const vector<string>& mapKeysToNotPrint) {
+    out.clear();
+    return cborPrettyPrintInternal(value, out, 0, maxBStrSize, mapKeysToNotPrint);
+}
+
+bool cborPrettyPrint(const vector<uint8_t>& encodedCbor, string& out, size_t maxBStrSize,
+                     const vector<string>& mapKeysToNotPrint) {
+    out.clear();
+    return cborPrettyPrintInternal(encodedCbor, out, 0, maxBStrSize, mapKeysToNotPrint);
+}
+
+bool cborHasBStr(cn_cbor* value, const vector<uint8_t>& valueBStr) {
+    switch (value->type) {
+        case CN_CBOR_BYTES:
+            return value->length == valueBStr.size() &&
+                   memcmp(value->v.bytes, valueBStr.data(), value->length) == 0;
+
+        case CN_CBOR_ARRAY:
+        case CN_CBOR_MAP:
+            for (cn_cbor* i = value->first_child; i != nullptr; i = i->next) {
+                if (cborHasBStr(i, valueBStr)) {
+                    return true;
+                }
+            }
+            return false;
+
+        default:
+            return false;
+    }
+    return false;
+}
+
+// ---------------------------------------------------------------------------
+// Crypto functionality / abstraction.
+// ---------------------------------------------------------------------------
+
+struct EVP_CIPHER_CTX_Deleter {
+    void operator()(EVP_CIPHER_CTX* ctx) const {
+        if (ctx != nullptr) {
+            EVP_CIPHER_CTX_free(ctx);
+        }
+    }
+};
+
+using EvpCipherCtxPtr = std::unique_ptr<EVP_CIPHER_CTX, EVP_CIPHER_CTX_Deleter>;
+
+bool getRandom(size_t numBytes, vector<uint8_t>& output) {
+    output.resize(numBytes);
+    if (RAND_bytes(output.data(), numBytes) != 1) {
+        LOG(ERROR) << "RAND_bytes: failed getting " << numBytes << " random";
+        return false;
+    }
+    return true;
+}
+
+bool decryptAes128Gcm(const vector<uint8_t>& key, const vector<uint8_t>& encryptedData,
+                      const vector<uint8_t>& additionalAuthenticatedData,
+                      vector<uint8_t>& plainText) {
+    int cipherTextSize = int(encryptedData.size()) - kAesGcmIvSize - kAesGcmTagSize;
+    if (cipherTextSize < 0) {
+        LOG(ERROR) << "encryptedData too small";
+        return false;
+    }
+    unsigned char* nonce = (unsigned char*)encryptedData.data();
+    unsigned char* cipherText = nonce + kAesGcmIvSize;
+    unsigned char* tag = cipherText + cipherTextSize;
+    plainText.resize(cipherTextSize);
+
+    auto ctx = EvpCipherCtxPtr(EVP_CIPHER_CTX_new());
+    if (ctx.get() == nullptr) {
+        LOG(ERROR) << "EVP_CIPHER_CTX_new: failed";
+        return false;
+    }
+
+    if (EVP_DecryptInit_ex(ctx.get(), EVP_aes_128_gcm(), NULL, NULL, NULL) != 1) {
+        LOG(ERROR) << "EVP_DecryptInit_ex: failed";
+        return false;
+    }
+
+    if (EVP_CIPHER_CTX_ctrl(ctx.get(), EVP_CTRL_GCM_SET_IVLEN, kAesGcmIvSize, NULL) != 1) {
+        LOG(ERROR) << "EVP_CIPHER_CTX_ctrl: failed setting nonce length";
+        return false;
+    }
+
+    if (EVP_DecryptInit_ex(ctx.get(), NULL, NULL, (unsigned char*)key.data(), nonce) != 1) {
+        LOG(ERROR) << "EVP_DecryptInit_ex: failed";
+        return false;
+    }
+
+    int numWritten;
+    if (additionalAuthenticatedData.size() > 0) {
+        if (EVP_DecryptUpdate(ctx.get(), NULL, &numWritten,
+                              (unsigned char*)additionalAuthenticatedData.data(),
+                              additionalAuthenticatedData.size()) != 1) {
+            LOG(ERROR) << "EVP_DecryptUpdate: failed for additionalAuthenticatedData";
+            return false;
+        }
+        if ((size_t)numWritten != additionalAuthenticatedData.size()) {
+            LOG(ERROR) << "EVP_DecryptUpdate: Unexpected outl=" << numWritten << " (expected "
+                       << additionalAuthenticatedData.size() << ") for additionalAuthenticatedData";
+            return false;
+        }
+    }
+
+    if (EVP_DecryptUpdate(ctx.get(), (unsigned char*)plainText.data(), &numWritten, cipherText,
+                          cipherTextSize) != 1) {
+        LOG(ERROR) << "EVP_DecryptUpdate: failed";
+        return false;
+    }
+    if (numWritten != cipherTextSize) {
+        LOG(ERROR) << "EVP_DecryptUpdate: Unexpected outl=" << numWritten << " (expected "
+                   << cipherTextSize << ")";
+        return false;
+    }
+
+    if (!EVP_CIPHER_CTX_ctrl(ctx.get(), EVP_CTRL_GCM_SET_TAG, kAesGcmTagSize, tag)) {
+        LOG(ERROR) << "EVP_CIPHER_CTX_ctrl: failed setting expected tag";
+        return false;
+    }
+
+    int ret =
+        EVP_DecryptFinal_ex(ctx.get(), (unsigned char*)plainText.data() + numWritten, &numWritten);
+    if (ret != 1) {
+        LOG(ERROR) << "EVP_DecryptFinal_ex: failed";
+        return false;
+    }
+    if (numWritten != 0) {
+        LOG(ERROR) << "EVP_DecryptFinal_ex: Unexpected non-zero outl=" << numWritten;
+        return false;
+    }
+
+    return true;
+}
+
+bool encryptAes128Gcm(const vector<uint8_t>& key, const vector<uint8_t>& nonce,
+                      const vector<uint8_t>& data,
+                      const vector<uint8_t>& additionalAuthenticatedData,
+                      vector<uint8_t>& encryptedData) {
+    if (key.size() != kAes128GcmKeySize) {
+        LOG(ERROR) << "key is not kAes128GcmKeySize bytes";
+        return false;
+    }
+    if (nonce.size() != kAesGcmIvSize) {
+        LOG(ERROR) << "nonce is not kAesGcmIvSize bytes";
+        return false;
+    }
+
+    // The result is the nonce (kAesGcmIvSize bytes), the ciphertext, and
+    // finally the tag (kAesGcmTagSize bytes).
+    encryptedData.resize(data.size() + kAesGcmIvSize + kAesGcmTagSize);
+    unsigned char* noncePtr = (unsigned char*)encryptedData.data();
+    unsigned char* cipherText = noncePtr + kAesGcmIvSize;
+    unsigned char* tag = cipherText + data.size();
+    memcpy(noncePtr, nonce.data(), kAesGcmIvSize);
+
+    auto ctx = EvpCipherCtxPtr(EVP_CIPHER_CTX_new());
+    if (ctx.get() == nullptr) {
+        LOG(ERROR) << "EVP_CIPHER_CTX_new: failed";
+        return false;
+    }
+
+    if (EVP_EncryptInit_ex(ctx.get(), EVP_aes_128_gcm(), NULL, NULL, NULL) != 1) {
+        LOG(ERROR) << "EVP_EncryptInit_ex: failed";
+        return false;
+    }
+
+    if (EVP_CIPHER_CTX_ctrl(ctx.get(), EVP_CTRL_GCM_SET_IVLEN, kAesGcmIvSize, NULL) != 1) {
+        LOG(ERROR) << "EVP_CIPHER_CTX_ctrl: failed setting nonce length";
+        return false;
+    }
+
+    if (EVP_EncryptInit_ex(ctx.get(), NULL, NULL, (unsigned char*)key.data(),
+                           (unsigned char*)nonce.data()) != 1) {
+        LOG(ERROR) << "EVP_EncryptInit_ex: failed";
+        return false;
+    }
+
+    int numWritten;
+    if (additionalAuthenticatedData.size() > 0) {
+        if (EVP_EncryptUpdate(ctx.get(), NULL, &numWritten,
+                              (unsigned char*)additionalAuthenticatedData.data(),
+                              additionalAuthenticatedData.size()) != 1) {
+            LOG(ERROR) << "EVP_EncryptUpdate: failed for additionalAuthenticatedData";
+            return false;
+        }
+        if ((size_t)numWritten != additionalAuthenticatedData.size()) {
+            LOG(ERROR) << "EVP_EncryptUpdate: Unexpected outl=" << numWritten << " (expected "
+                       << additionalAuthenticatedData.size() << ") for additionalAuthenticatedData";
+            return false;
+        }
+    }
+
+    if (data.size() > 0) {
+        if (EVP_EncryptUpdate(ctx.get(), cipherText, &numWritten, (unsigned char*)data.data(),
+                              data.size()) != 1) {
+            LOG(ERROR) << "EVP_EncryptUpdate: failed";
+            return false;
+        }
+        if ((size_t)numWritten != data.size()) {
+            LOG(ERROR) << "EVP_EncryptUpdate: Unexpected outl=" << numWritten << " (expected "
+                       << data.size() << ")";
+            return false;
+        }
+    }
+
+    if (EVP_EncryptFinal_ex(ctx.get(), cipherText + numWritten, &numWritten) != 1) {
+        LOG(ERROR) << "EVP_EncryptFinal_ex: failed";
+        return false;
+    }
+    if (numWritten != 0) {
+        LOG(ERROR) << "EVP_EncryptFinal_ex: Unexpected non-zero outl=" << numWritten;
+        return false;
+    }
+
+    if (EVP_CIPHER_CTX_ctrl(ctx.get(), EVP_CTRL_GCM_GET_TAG, kAesGcmTagSize, tag) != 1) {
+        LOG(ERROR) << "EVP_CIPHER_CTX_ctrl: failed getting tag";
+        return false;
+    }
+
+    return true;
+}
+
+struct EC_KEY_Deleter {
+    void operator()(EC_KEY* key) const {
+        if (key != nullptr) {
+            EC_KEY_free(key);
+        }
+    }
+};
+using EC_KEY_Ptr = std::unique_ptr<EC_KEY, EC_KEY_Deleter>;
+
+struct EVP_PKEY_Deleter {
+    void operator()(EVP_PKEY* key) const {
+        if (key != nullptr) {
+            EVP_PKEY_free(key);
+        }
+    }
+};
+using EVP_PKEY_Ptr = std::unique_ptr<EVP_PKEY, EVP_PKEY_Deleter>;
+
+struct EC_GROUP_Deleter {
+    void operator()(EC_GROUP* group) const {
+        if (group != nullptr) {
+            EC_GROUP_free(group);
+        }
+    }
+};
+using EC_GROUP_Ptr = std::unique_ptr<EC_GROUP, EC_GROUP_Deleter>;
+
+struct EC_POINT_Deleter {
+    void operator()(EC_POINT* point) const {
+        if (point != nullptr) {
+            EC_POINT_free(point);
+        }
+    }
+};
+
+using EC_POINT_Ptr = std::unique_ptr<EC_POINT, EC_POINT_Deleter>;
+
+struct ECDSA_SIG_Deleter {
+    void operator()(ECDSA_SIG* sig) const {
+        if (sig != nullptr) {
+            ECDSA_SIG_free(sig);
+        }
+    }
+};
+using ECDSA_SIG_Ptr = std::unique_ptr<ECDSA_SIG, ECDSA_SIG_Deleter>;
+
+struct X509_Deleter {
+    void operator()(X509* x509) const {
+        if (x509 != nullptr) {
+            X509_free(x509);
+        }
+    }
+};
+using X509_Ptr = std::unique_ptr<X509, X509_Deleter>;
+
+struct BIGNUM_Deleter {
+    void operator()(BIGNUM* bignum) const {
+        if (bignum != nullptr) {
+            BN_free(bignum);
+        }
+    }
+};
+using BIGNUM_Ptr = std::unique_ptr<BIGNUM, BIGNUM_Deleter>;
+
+struct ASN1_INTEGER_Deleter {
+    void operator()(ASN1_INTEGER* value) const {
+        if (value != nullptr) {
+            ASN1_INTEGER_free(value);
+        }
+    }
+};
+using ASN1_INTEGER_Ptr = std::unique_ptr<ASN1_INTEGER, ASN1_INTEGER_Deleter>;
+
+struct ASN1_TIME_Deleter {
+    void operator()(ASN1_TIME* value) const {
+        if (value != nullptr) {
+            ASN1_TIME_free(value);
+        }
+    }
+};
+using ASN1_TIME_Ptr = std::unique_ptr<ASN1_TIME, ASN1_TIME_Deleter>;
+
+struct X509_NAME_Deleter {
+    void operator()(X509_NAME* value) const {
+        if (value != nullptr) {
+            X509_NAME_free(value);
+        }
+    }
+};
+using X509_NAME_Ptr = std::unique_ptr<X509_NAME, X509_NAME_Deleter>;
+
+static bool parseX509Certificates(const vector<uint8_t>& certificateChain,
+                                  vector<X509_Ptr>& parsedCertificates) {
+    const unsigned char* p = (unsigned char*)certificateChain.data();
+    const unsigned char* pEnd = p + certificateChain.size();
+    parsedCertificates.resize(0);
+    while (p < pEnd) {
+        auto x509 = X509_Ptr(d2i_X509(nullptr, &p, pEnd - p));
+        if (x509 == nullptr) {
+            LOG(ERROR) << "Error parsing X509 certificate";
+            return false;
+        }
+        parsedCertificates.push_back(std::move(x509));
+    }
+    return true;
+}
+
+bool checkEcDsaSignature(const vector<uint8_t>& digest, const vector<uint8_t>& signature,
+                         const vector<uint8_t>& certificateChain) {
+    const unsigned char* p = (unsigned char*)signature.data();
+    auto sig = ECDSA_SIG_Ptr(d2i_ECDSA_SIG(nullptr, &p, signature.size()));
+    if (sig.get() == nullptr) {
+        LOG(ERROR) << "Error decoding DER encoded signature";
+        return false;
+    }
+
+    vector<X509_Ptr> certs;
+    if (!parseX509Certificates(certificateChain, certs)) {
+        return false;
+    }
+    if (certs.size() < 1) {
+        LOG(ERROR) << "No certificates in chain";
+        return false;
+    }
+
+    int algoId = OBJ_obj2nid(certs[0]->cert_info->key->algor->algorithm);
+    if (algoId != NID_X9_62_id_ecPublicKey) {
+        LOG(ERROR) << "Expected NID_ecEncryption, got " << OBJ_nid2ln(algoId);
+        return false;
+    }
+
+    auto pkey = EVP_PKEY_Ptr(X509_get_pubkey(certs[0].get()));
+    if (pkey.get() == nullptr) {
+        LOG(ERROR) << "No public key";
+        return false;
+    }
+
+    auto ecKey = EC_KEY_Ptr(EVP_PKEY_get1_EC_KEY(pkey.get()));
+    if (ecKey.get() == nullptr) {
+        LOG(ERROR) << "Failed getting EC key";
+        return false;
+    }
+
+    int rc = ECDSA_do_verify(digest.data(), digest.size(), sig.get(), ecKey.get());
+    if (rc != 1) {
+        LOG(ERROR) << "Error verifying signature (rc=" << rc << ")";
+        return false;
+    }
+
+    return true;
+}
+
+vector<uint8_t> sha256(const vector<uint8_t>& data) {
+    vector<uint8_t> ret;
+    ret.resize(SHA256_DIGEST_LENGTH);
+    SHA256_CTX ctx;
+    SHA256_Init(&ctx);
+    SHA256_Update(&ctx, data.data(), data.size());
+    SHA256_Final((unsigned char*)ret.data(), &ctx);
+    return ret;
+}
+
+bool signEcDsa(const vector<uint8_t>& key, const vector<uint8_t>& data,
+               vector<uint8_t>& signature) {
+    auto bn = BIGNUM_Ptr(BN_bin2bn(key.data(), key.size(), nullptr));
+    if (bn.get() == nullptr) {
+        LOG(ERROR) << "Error creating BIGNUM";
+        return false;
+    }
+
+    auto ec_key = EC_KEY_Ptr(EC_KEY_new_by_curve_name(NID_X9_62_prime256v1));
+    if (EC_KEY_set_private_key(ec_key.get(), bn.get()) != 1) {
+        LOG(ERROR) << "Error setting private key from BIGNUM";
+        return false;
+    }
+
+    auto digest = sha256(data);
+    ECDSA_SIG* sig = ECDSA_do_sign(digest.data(), digest.size(), ec_key.get());
+    if (sig == nullptr) {
+        LOG(ERROR) << "Error signing digest";
+        return false;
+    }
+    size_t len = i2d_ECDSA_SIG(sig, nullptr);
+    signature.resize(len);
+    unsigned char* p = (unsigned char*)signature.data();
+    i2d_ECDSA_SIG(sig, &p);
+    ECDSA_SIG_free(sig);
+    return true;
+}
+
+bool createEcKeyPair(vector<uint8_t>& keyPair) {
+    auto ec_key = EC_KEY_Ptr(EC_KEY_new());
+    auto pkey = EVP_PKEY_Ptr(EVP_PKEY_new());
+    auto group = EC_GROUP_Ptr(EC_GROUP_new_by_curve_name(NID_X9_62_prime256v1));
+    if (ec_key.get() == nullptr || pkey.get() == nullptr) {
+        LOG(ERROR) << "Memory allocation failed";
+        return false;
+    }
+
+    if (EC_KEY_set_group(ec_key.get(), group.get()) != 1 ||
+        EC_KEY_generate_key(ec_key.get()) != 1 || EC_KEY_check_key(ec_key.get()) < 0) {
+        LOG(ERROR) << "Error generating key";
+        return false;
+    }
+
+    if (EVP_PKEY_set1_EC_KEY(pkey.get(), ec_key.get()) != 1) {
+        LOG(ERROR) << "Error getting private key";
+        return false;
+    }
+
+    int size = i2d_PrivateKey(pkey.get(), nullptr);
+    if (size == 0) {
+        LOG(ERROR) << "Error generating public key encoding";
+        return false;
+    }
+    keyPair.resize(size);
+    unsigned char* p = keyPair.data();
+    i2d_PrivateKey(pkey.get(), &p);
+    return true;
+}
+
+bool ecKeyPairGetPublicKey(const vector<uint8_t>& keyPair, vector<uint8_t>& publicKey) {
+    const unsigned char* p = (const unsigned char*)keyPair.data();
+    auto pkey = EVP_PKEY_Ptr(d2i_PrivateKey(EVP_PKEY_EC, nullptr, &p, keyPair.size()));
+    if (pkey.get() == nullptr) {
+        LOG(ERROR) << "Error parsing keyPair";
+        return false;
+    }
+
+    auto ecKey = EC_KEY_Ptr(EVP_PKEY_get1_EC_KEY(pkey.get()));
+    if (ecKey.get() == nullptr) {
+        LOG(ERROR) << "Failed getting EC key";
+        return false;
+    }
+
+    auto ecGroup = EC_KEY_get0_group(ecKey.get());
+    auto ecPoint = EC_KEY_get0_public_key(ecKey.get());
+    int size =
+        EC_POINT_point2oct(ecGroup, ecPoint, POINT_CONVERSION_UNCOMPRESSED, nullptr, 0, nullptr);
+    if (size == 0) {
+        LOG(ERROR) << "Error generating public key encoding";
+        return false;
+    }
+    publicKey.resize(size);
+    EC_POINT_point2oct(ecGroup, ecPoint, POINT_CONVERSION_UNCOMPRESSED, publicKey.data(),
+                       publicKey.size(), nullptr);
+    return true;
+}
+
+bool ecKeyPairGetPrivateKey(const vector<uint8_t>& keyPair, vector<uint8_t>& privateKey) {
+    const unsigned char* p = (const unsigned char*)keyPair.data();
+    auto pkey = EVP_PKEY_Ptr(d2i_PrivateKey(EVP_PKEY_EC, nullptr, &p, keyPair.size()));
+    if (pkey.get() == nullptr) {
+        LOG(ERROR) << "Error parsing keyPair";
+        return false;
+    }
+
+    auto ecKey = EC_KEY_Ptr(EVP_PKEY_get1_EC_KEY(pkey.get()));
+    if (ecKey.get() == nullptr) {
+        LOG(ERROR) << "Failed getting EC key";
+        return false;
+    }
+
+    const BIGNUM* bignum = EC_KEY_get0_private_key(ecKey.get());
+    if (bignum == nullptr) {
+        LOG(ERROR) << "Error getting bignum from private key";
+        return false;
+    }
+    privateKey.resize(BN_num_bytes(bignum));
+    BN_bn2bin(bignum, privateKey.data());
+    return true;
+}
+
+bool ecPublicKeyGenerateCertificate(const vector<uint8_t>& publicKey,
+                                    const vector<uint8_t>& signingKey, const string& serialDecimal,
+                                    const string& issuer, const string& subject,
+                                    time_t validityNotBefore, time_t validityNotAfter,
+                                    vector<uint8_t>& certificate) {
+    auto group = EC_GROUP_Ptr(EC_GROUP_new_by_curve_name(NID_X9_62_prime256v1));
+    auto point = EC_POINT_Ptr(EC_POINT_new(group.get()));
+    if (EC_POINT_oct2point(group.get(), point.get(), publicKey.data(), publicKey.size(), nullptr) !=
+        1) {
+        LOG(ERROR) << "Error decoding publicKey";
+        return false;
+    }
+    auto ecKey = EC_KEY_Ptr(EC_KEY_new());
+    auto pkey = EVP_PKEY_Ptr(EVP_PKEY_new());
+    if (ecKey.get() == nullptr || pkey.get() == nullptr) {
+        LOG(ERROR) << "Memory allocation failed";
+        return false;
+    }
+    if (EC_KEY_set_group(ecKey.get(), group.get()) != 1) {
+        LOG(ERROR) << "Error setting group";
+        return false;
+    }
+    if (EC_KEY_set_public_key(ecKey.get(), point.get()) != 1) {
+        LOG(ERROR) << "Error setting point";
+        return false;
+    }
+    if (EVP_PKEY_set1_EC_KEY(pkey.get(), ecKey.get()) != 1) {
+        LOG(ERROR) << "Error setting key";
+        return false;
+    }
+
+    auto bn = BIGNUM_Ptr(BN_bin2bn(signingKey.data(), signingKey.size(), nullptr));
+    if (bn.get() == nullptr) {
+        LOG(ERROR) << "Error creating BIGNUM for private key";
+        return false;
+    }
+    auto privEcKey = EC_KEY_Ptr(EC_KEY_new_by_curve_name(NID_X9_62_prime256v1));
+    if (EC_KEY_set_private_key(privEcKey.get(), bn.get()) != 1) {
+        LOG(ERROR) << "Error setting private key from BIGNUM";
+        return false;
+    }
+    auto privPkey = EVP_PKEY_Ptr(EVP_PKEY_new());
+    if (EVP_PKEY_set1_EC_KEY(privPkey.get(), privEcKey.get()) != 1) {
+        LOG(ERROR) << "Error setting private key";
+        return false;
+    }
+
+    auto x509 = X509_Ptr(X509_new());
+    if (!x509.get()) {
+        LOG(ERROR) << "Error creating X509 certificate";
+        return false;
+    }
+
+    if (!X509_set_version(x509.get(), 2 /* version 3, but zero-based */)) {
+        LOG(ERROR) << "Error setting version to 3";
+        return false;
+    }
+
+    if (X509_set_pubkey(x509.get(), pkey.get()) != 1) {
+        LOG(ERROR) << "Error setting public key";
+        return false;
+    }
+
+    BIGNUM* bignumSerial = nullptr;
+    if (BN_dec2bn(&bignumSerial, serialDecimal.c_str()) == 0) {
+        LOG(ERROR) << "Error parsing serial";
+        return false;
+    }
+    auto bignumSerialPtr = BIGNUM_Ptr(bignumSerial);
+    auto asnSerial = ASN1_INTEGER_Ptr(BN_to_ASN1_INTEGER(bignumSerial, nullptr));
+    if (X509_set_serialNumber(x509.get(), asnSerial.get()) != 1) {
+        LOG(ERROR) << "Error setting serial";
+        return false;
+    }
+
+    auto x509Issuer = X509_NAME_Ptr(X509_NAME_new());
+    if (x509Issuer.get() == nullptr ||
+        X509_NAME_add_entry_by_txt(x509Issuer.get(), "CN", MBSTRING_ASC,
+                                   (const uint8_t*)issuer.c_str(), issuer.size(), -1 /* loc */,
+                                   0 /* set */) != 1 ||
+        X509_set_issuer_name(x509.get(), x509Issuer.get()) != 1) {
+        LOG(ERROR) << "Error setting issuer";
+        return false;
+    }
+
+    auto x509Subject = X509_NAME_Ptr(X509_NAME_new());
+    if (x509Subject.get() == nullptr ||
+        X509_NAME_add_entry_by_txt(x509Subject.get(), "CN", MBSTRING_ASC,
+                                   (const uint8_t*)subject.c_str(), subject.size(), -1 /* loc */,
+                                   0 /* set */) != 1 ||
+        X509_set_subject_name(x509.get(), x509Subject.get()) != 1) {
+        LOG(ERROR) << "Error setting subject";
+        return false;
+    }
+
+    auto asnNotBefore = ASN1_TIME_Ptr(ASN1_TIME_set(nullptr, validityNotBefore));
+    if (asnNotBefore.get() == nullptr || X509_set_notBefore(x509.get(), asnNotBefore.get()) != 1) {
+        LOG(ERROR) << "Error setting notBefore";
+        return false;
+    }
+
+    auto asnNotAfter = ASN1_TIME_Ptr(ASN1_TIME_set(nullptr, validityNotAfter));
+    if (asnNotAfter.get() == nullptr || X509_set_notAfter(x509.get(), asnNotAfter.get()) != 1) {
+        LOG(ERROR) << "Error setting notAfter";
+        return false;
+    }
+
+    if (X509_sign(x509.get(), privPkey.get(), EVP_sha256()) == 0) {
+        LOG(ERROR) << "Error signing X509 certificate";
+        return false;
+    }
+
+    unsigned char* buffer = nullptr;
+    int length = i2d_X509(x509.get(), &buffer);
+    if (length < 0) {
+        LOG(ERROR) << "Error DER encoding X509 certificate";
+        return false;
+    }
+    certificate.resize(length);
+    memcpy(certificate.data(), buffer, length);
+    OPENSSL_free(buffer);
+    return true;
+}
+
+// ---------------------------------------------------------------------------
+// Platform abstraction.
+// ---------------------------------------------------------------------------
+
+bool getMillisecondsSinceBoot(uint64_t& milliseconds) {
+    struct timespec tp;
+
+    if (clock_gettime(CLOCK_MONOTONIC, &tp) != 0) {
+        LOG(ERROR) << "Error getting monotonic time: " << strerror(errno);
+        return false;
+    }
+    milliseconds = uint64_t(tp.tv_sec) * 1000 + uint64_t(tp.tv_nsec) / 1000000;
+    return true;
+}
+
+bool validateAuthToken(const KeymasterCapability& authToken) {
+    LOG(INFO) << "No way to authenticate a KeymasterCapability in SW";
+    return true;
+}
+
+// This is not a very random HBK but that's OK because this is the SW
+// implementation where it can't be kept secret.
+vector<uint8_t> hardwareBoundKey = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
+
+const std::vector<uint8_t>& getHardwareBoundKey() {
+    return hardwareBoundKey;
+}
+
+bool checkAccess(const SecureAccessControlProfile& profile, const KeymasterCapability& authToken,
+                 const vector<uint8_t>& sessionTranscriptDigest) {
+    // For every bit in |profile.capabilityType| the corresponding bit must be set
+    // in |authToken.capabilityType|. It is OK if |authToken.capabilityType| has
+    // bits set that are not set in |profile.capabilityType|.
+    if ((uint32_t(profile.capabilityType) & uint32_t(authToken.capabilityType)) !=
+        uint32_t(profile.capabilityType)) {
+        LOG(ERROR) << "profile.capabilityType is 0x" << std::hex << std::setw(8)
+                   << std::setfill('0') << uint32_t(profile.capabilityType)
+                   << " which has bits set that are unset in authToken.capabilityType which is 0x"
+                   << uint32_t(authToken.capabilityType);
+        return false;
+    }
+
+    if (profile.capabilityId == 0) {
+        return true;
+    }
+
+    if (std::find(authToken.ids.begin(), authToken.ids.end(), profile.capabilityId) ==
+        authToken.ids.end()) {
+        LOG(ERROR) << "Profile has non-zero capabilityId " << profile.capabilityId
+                   << " which isn't in the supplied authToken";
+        return false;
+    }
+
+    if (profile.timeout == 0) {
+        // Authentication is required for each session. In that case the
+        // |challenge| field of the authToken provided to getEntries() must
+        // contain the first eight bytes of the SHA-256 digest of the session
+        // transcript combined in an implementation-specific way.
+        //
+        // For this SW implementation we combine the bytes in the following way:
+        // (digest[0]<<56) + (digest[1]<<48) + ... + (digest[5]<<8) +
+        // (digest[6]<<8) + ... + digest[7].
+        if (sessionTranscriptDigest.size() != SHA256_DIGEST_LENGTH) {
+            LOG(ERROR) << "Need sessionTranscript to authenticate but it has unexpected size "
+                       << sessionTranscriptDigest.size();
+            return false;
+        }
+        uint64_t challenge = 0;
+        for (size_t n = 0; n < 8; n++) {
+            challenge += sessionTranscriptDigest[n] << ((7 - n) * 8);
+        }
+        if (challenge != authToken.challenge) {
+            LOG(ERROR) << "Challenge doesn't match";
+            return false;
+        }
+    } else {
+        uint64_t nowMilliseconds;
+        if (!getMillisecondsSinceBoot(nowMilliseconds)) {
+            LOG(ERROR) << "Error getting time since boot";
+            return false;
+        }
+        if (nowMilliseconds > authToken.timestamp + profile.timeout) {
+            LOG(ERROR) << "authToken expired";
+            return false;
+        }
+    }
+
+    return true;
+}
+
+// ---------------------------------------------------------------------------
+// Utility functions specific to IdentityCredential.
+// ---------------------------------------------------------------------------
+
+Result okResult{ResultCode::OK, ""};
+
+const Result& resultOK() {
+    return okResult;
+}
+
+Result result(ResultCode code, const char* format, ...) {
+    va_list ap;
+    va_start(ap, format);
+    string str;
+    android::base::StringAppendV(&str, format, ap);
+    va_end(ap);
+    return Result{code, str};
+}
+
+// Returns a new Result with the given code and message.
+Result getResult(ResultCode code, const std::string& message);
+
+bool buildAndEncodeAuditLogData(const std::vector<uint8_t>& requestHash,
+                                const std::vector<uint8_t>& responseHash,
+                                const std::vector<uint8_t>& previousAuditSignatureHash,
+                                std::vector<uint8_t>& encodedAuditLogData) {
+    cn_cbor_errback err;
+    auto cbor = support::CnCborPtr(cn_cbor_array_create(&err));
+    if (cbor.get() == nullptr || !support::cborArrayAppendString(cbor.get(), "AuditLogEntry") ||
+        !support::cborArrayAppendBStr(cbor.get(), requestHash) ||
+        !support::cborArrayAppendBStr(cbor.get(), responseHash) ||
+        !support::cborArrayAppendBStr(cbor.get(), previousAuditSignatureHash)) {
+        LOG(ERROR) << "Error building AuditLogData";
+        return false;
+    }
+    if (!support::cborEncode(cbor.get(), encodedAuditLogData)) {
+        LOG(ERROR) << "Error encoding AuditLogData";
+        return false;
+    }
+    return true;
+}
+
+bool secureAccessControlProfileEncodeCbor(const SecureAccessControlProfile& profile,
+                                          vector<uint8_t>& cborData) {
+    cn_cbor_errback err;
+
+    auto map = CnCborPtr(cn_cbor_map_create(&err));
+    if (map.get() == nullptr) {
+        LOG(ERROR) << "Error " << err.err << " creating map (pos " << err.pos << ")";
+        return false;
+    }
+    if (!cborMapPutStringInt(map.get(), "Id", profile.id)) {
+        return false;
+    }
+
+    if (profile.readerCertificate.size() > 0) {
+        if (!cborMapPutStringBStr(map.get(), "ReaderCertificate", profile.readerCertificate.data(),
+                                  profile.readerCertificate.size())) {
+            return false;
+        }
+    }
+
+    if (profile.capabilityId != 0) {
+        if (!cborMapPutStringInt(map.get(), "CapabilityId", profile.capabilityId)) {
+            return false;
+        }
+    }
+    if (profile.capabilityType !=
+        ::android::hardware::keymaster::capability::V1_0::CapabilityType::NOT_APPLICABLE) {
+        if (!cborMapPutStringInt(map.get(), "CapabilityTypes", int64_t(profile.capabilityType))) {
+            return false;
+        }
+    }
+
+    if (!cborEncode(map.get(), cborData)) {
+        return false;
+    }
+    return true;
+}
+
+bool secureAccessControlProfileCalcMac(const SecureAccessControlProfile& profile,
+                                       const vector<uint8_t>& storageKey, vector<uint8_t>& mac) {
+    vector<uint8_t> cborData;
+    if (!secureAccessControlProfileEncodeCbor(profile, cborData)) {
+        return false;
+    }
+    vector<uint8_t> nonce;
+    if (!getRandom(12, nonce)) {
+        return false;
+    }
+    if (!encryptAes128Gcm(storageKey, nonce, {}, cborData, mac)) {
+        return false;
+    }
+    return true;
+}
+
+bool secureAccessControlProfileCheckMac(const SecureAccessControlProfile& profile,
+                                        const vector<uint8_t>& storageKey) {
+    vector<uint8_t> cborData;
+    if (!secureAccessControlProfileEncodeCbor(profile, cborData)) {
+        return false;
+    }
+    vector<uint8_t> mac;
+    vector<uint8_t> nonce =
+        vector<uint8_t>(profile.mac.begin(), profile.mac.begin() + kAesGcmIvSize);
+    if (!encryptAes128Gcm(storageKey, nonce, {}, cborData, mac)) {
+        return false;
+    }
+    if (mac != vector<uint8_t>(profile.mac)) {
+        return false;
+    }
+    return true;
+}
+
+vector<EntryValue> entrySplitIntoChunks(const EntryValue& value, size_t chunkSize) {
+    vector<EntryValue> ret;
+    if (value.getDiscriminator() == EntryValue::hidl_discriminator::byteString) {
+        if (value.byteString().size() > chunkSize) {
+            size_t offset = 0;
+            size_t remaining = value.byteString().size();
+            const uint8_t* valueData = &(value.byteString()[0]);
+            do {
+                size_t size = std::min(remaining, chunkSize);
+                vector<uint8_t> data;
+                data.resize(size);
+                memcpy(data.data(), valueData + offset, size);
+                EntryValue value;
+                value.byteString(data);
+                ret.push_back(value);
+                offset += size;
+                remaining -= size;
+            } while (remaining > 0);
+            return ret;
+        }
+    } else if (value.getDiscriminator() == EntryValue::hidl_discriminator::textString) {
+        if (value.textString().size() > chunkSize) {
+            size_t offset = 0;
+            size_t remaining = value.textString().size();
+            const uint8_t* valueData = &(value.textString()[0]);
+            do {
+                size_t size = std::min(remaining, chunkSize);
+                vector<uint8_t> data;
+                data.resize(size);
+                memcpy(data.data(), valueData + offset, size);
+                EntryValue value;
+                value.textString(data);
+                ret.push_back(value);
+                offset += size;
+                remaining -= size;
+            } while (remaining > 0);
+            return ret;
+        }
+    }
+    ret.push_back(value);
+    return ret;
+}
+
+vector<uint8_t> testHardwareBoundKey = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+
+const vector<uint8_t>& getTestHardwareBoundKey() {
+    return testHardwareBoundKey;
+}
+
+bool entryCreateAdditionalData(const string& nameSpace, const string& name,
+                               const vector<uint8_t> accessControlProfileIds,
+                               vector<uint8_t>& encodedCbor) {
+    cn_cbor_errback err;
+    auto map = CnCborPtr(cn_cbor_map_create(&err));
+    if (map.get() == nullptr) {
+        LOG(ERROR) << "Error " << err.err << " creating map (pos " << err.pos << ")";
+        return false;
+    }
+    if (!cborMapPutStringString(map.get(), "Namespace", nameSpace.c_str())) {
+        return false;
+    }
+    if (!cborMapPutStringString(map.get(), "Name", name.c_str())) {
+        return false;
+    }
+    cn_cbor* array = cn_cbor_array_create(&err);
+    if (array == nullptr) {
+        LOG(ERROR) << "Error " << err.err << " creating array (pos " << err.pos << ")";
+        return false;
+    }
+    if (!cborMapPutStringValue(map.get(), "AccessControlProfileIds", array)) {
+        return false;
+    }
+    for (uint8_t id : accessControlProfileIds) {
+        if (!cborArrayAppendInt(array, id)) {
+            return false;
+        }
+    }
+    if (!cborEncode(map.get(), encodedCbor)) {
+        return false;
+    }
+    return true;
+}
+
+bool AuthenticatedDataBuilder::reset(const string& docType,
+                                     const vector<uint8_t>& encodedSessionTranscript) {
+    docType_ = docType;
+    encodedSessionTranscript_ = encodedSessionTranscript;
+
+    return true;
+}
+
+bool AuthenticatedDataBuilder::addDataItem(const string& nameSpace, const string& key,
+                                           const EntryValue& value) {
+    items_.push_back(Item(nameSpace, key, value));
+    return true;
+}
+
+static cn_cbor* EntryValueToCBor(const EntryValue& value) {
+    cn_cbor* cbor_value;
+    cn_cbor_errback err;
+    switch (value.getDiscriminator()) {
+        case EntryValue::hidl_discriminator::integer:
+            cbor_value = cn_cbor_int_create(value.integer(), &err);
+            break;
+        case EntryValue::hidl_discriminator::textString:
+            cbor_value =
+                cn_cbor_data_create(value.textString().data(), value.textString().size(), &err);
+            cbor_value->type = CN_CBOR_TEXT;
+            break;
+        case EntryValue::hidl_discriminator::byteString:
+            cbor_value =
+                cn_cbor_data_create(value.byteString().data(), value.byteString().size(), &err);
+            break;
+        case EntryValue::hidl_discriminator::booleanValue:
+            // There is no cn_cbor_bool_create()
+            cbor_value = (cn_cbor*)calloc(1, sizeof(cn_cbor));
+            cbor_value->type = value.booleanValue() ? CN_CBOR_TRUE : CN_CBOR_TRUE;
+            break;
+    }
+    if (cbor_value == nullptr) {
+        LOG(ERROR) << "Error " << err.err << " creating object (pos " << err.pos << ")";
+    }
+    return cbor_value;
+}
+
+bool AuthenticatedDataBuilder::getEncodedCbor(vector<uint8_t>& encodedCbor) {
+    cn_cbor_errback err;
+
+    auto cbor = CnCborPtr(cn_cbor_map_create(&err));
+    if (cbor.get() == nullptr) {
+        LOG(ERROR) << "Error " << err.err << " creating map (pos " << err.pos << ")";
+        return false;
+    }
+
+    if (encodedSessionTranscript_.size() > 0) {
+        cn_cbor* decodedSessionTranscript = cn_cbor_decode(encodedSessionTranscript_.data(),
+                                                           encodedSessionTranscript_.size(), &err);
+        if (decodedSessionTranscript == nullptr) {
+            LOG(ERROR) << "Error " << err.err << " decoding encodedSessionTranscript (pos "
+                       << err.pos << ")";
+            return false;
+        }
+        if (!cborMapPutStringValue(cbor.get(), "SessionTranscript", decodedSessionTranscript)) {
+            cn_cbor_free(decodedSessionTranscript);
+            return false;
+        }
+    }
+
+    cn_cbor* responseMap = cn_cbor_map_create(&err);
+    if (responseMap == nullptr) {
+        LOG(ERROR) << "Error " << err.err << " creating responseMap (pos " << err.pos << ")";
+        return false;
+    }
+    if (!cborMapPutStringValue(cbor.get(), "Response", responseMap)) {
+        cn_cbor_free(responseMap);
+        return false;
+    }
+
+    cn_cbor* docTypeMap = cn_cbor_map_create(&err);
+    if (docTypeMap == nullptr) {
+        LOG(ERROR) << "Error " << err.err << " creating docTypeMap (pos " << err.pos << ")";
+        return false;
+    }
+    if (!cborMapPutStringValue(responseMap, docType_.c_str(), docTypeMap)) {
+        cn_cbor_free(docTypeMap);
+        return false;
+    }
+
+    string curNameSpace;
+    cn_cbor* curDataItemsMap = nullptr;
+    for (const auto& item : items_) {
+        if (curNameSpace != item.nameSpace_ || curDataItemsMap == nullptr) {
+            curDataItemsMap = cn_cbor_map_create(&err);
+            if (curDataItemsMap == nullptr) {
+                LOG(ERROR) << "Error " << err.err << " creating curDataItemsMap (pos " << err.pos
+                           << ")";
+                return false;
+            }
+            if (!cborMapPutStringValue(docTypeMap, item.nameSpace_.c_str(), curDataItemsMap)) {
+                cn_cbor_free(curDataItemsMap);
+                return false;
+            }
+            curNameSpace = item.nameSpace_;
+        }
+        cn_cbor* cborValue = EntryValueToCBor(item.value_);
+        if (cborValue == nullptr) {
+            return false;
+        }
+        if (!cborMapPutStringValue(curDataItemsMap, item.name_.c_str(), cborValue)) {
+            cn_cbor_free(cborValue);
+            return false;
+        }
+    }
+
+    if (!cborEncode(cbor.get(), encodedCbor)) {
+        return false;
+    }
+    return true;
+}
+
+cn_cbor* SignedDataBuilder::Entry::toCbor() const {
+    cn_cbor_errback err;
+
+    cn_cbor* ret = cn_cbor_map_create(&err);
+    if (ret == nullptr) {
+        LOG(ERROR) << "Error " << err.err << " creating map (pos " << err.pos << ")";
+        return nullptr;
+    }
+    if (!cborMapPutStringString(ret, "Name", name_.c_str())) {
+        cn_cbor_free(ret);
+        return nullptr;
+    }
+    cn_cbor* array = cn_cbor_array_create(&err);
+    if (array == nullptr) {
+        LOG(ERROR) << "Error " << err.err << " creating array (pos " << err.pos << ")";
+        cn_cbor_free(ret);
+        return nullptr;
+    }
+    if (!cborMapPutStringValue(ret, "AccessControlProfileIds", array)) {
+        cn_cbor_free(array);
+        cn_cbor_free(ret);
+        return nullptr;
+    }
+    for (auto id : accessControlProfileIds_) {
+        if (!cborArrayAppendInt(array, id)) {
+            cn_cbor_free(ret);
+            return nullptr;
+        }
+    }
+    cn_cbor* cborValue = EntryValueToCBor(value_);
+    if (cborValue == nullptr) {
+        cn_cbor_free(ret);
+        return nullptr;
+    }
+    if (!cborMapPutStringValue(ret, "Value", cborValue)) {
+        cn_cbor_free(cborValue);
+        cn_cbor_free(ret);
+        return nullptr;
+    }
+    if (!cborMapPutStringBool(ret, "DirectlyAvailable", directlyAvailable_)) {
+        cn_cbor_free(ret);
+        return nullptr;
+    }
+
+    return ret;
+}
+
+void SignedDataBuilder::reset(const string& docType, bool testCredential) {
+    docType_ = docType;
+    testCredential_ = testCredential;
+    entries_.resize(0);
+}
+
+void SignedDataBuilder::addEntry(
+    const string& nameSpace, const string& name, const vector<uint8_t>& accessControlProfileIds,
+    const ::android::hardware::identity_credential::V1_0::EntryValue& value,
+    bool directlyAvailable) {
+    entries_.push_back(Entry(nameSpace, name, accessControlProfileIds, value, directlyAvailable));
+}
+
+void SignedDataBuilder::addAccessControlProfile(
+    const SecureAccessControlProfile& accessControlProfile) {
+    accessControlProfiles_.push_back(accessControlProfile);
+}
+
+bool SignedDataBuilder::getEncodedCbor(vector<uint8_t>& encodedCbor) {
+    cn_cbor_errback err;
+
+    auto cbor = CnCborPtr(cn_cbor_map_create(&err));
+    if (cbor.get() == nullptr) {
+        LOG(ERROR) << "Error " << err.err << " creating map (pos " << err.pos << ")";
+        return false;
+    }
+
+    if (!cborMapPutStringString(cbor.get(), "DocType", docType_.c_str())) {
+        return false;
+    }
+
+    cn_cbor* array = cn_cbor_array_create(&err);
+    if (array == nullptr) {
+        LOG(ERROR) << "Error " << err.err << " creating array (pos " << err.pos << ")";
+        return false;
+    }
+    if (!cborMapPutStringValue(cbor.get(), "AccessControlProfiles", array)) {
+        cn_cbor_free(array);
+        return false;
+    }
+    for (const auto& profile : accessControlProfiles_) {
+        cn_cbor* map = cn_cbor_map_create(&err);
+        if (map == nullptr) {
+            LOG(ERROR) << "Error " << err.err << " creating map (pos " << err.pos << ")";
+            return false;
+        }
+        if (!cborArrayAppendValue(array, map)) {
+            cn_cbor_free(map);
+            return false;
+        }
+        if (!cborMapPutStringInt(map, "Id", profile.id)) {
+            return false;
+        }
+        if (profile.readerCertificate.size() > 0) {
+            if (!cborMapPutStringBStr(map, "ReaderCertificate", profile.readerCertificate.data(),
+                                      profile.readerCertificate.size())) {
+                return false;
+            }
+        }
+        if (profile.capabilityType !=
+            ::android::hardware::keymaster::capability::V1_0::CapabilityType::NOT_APPLICABLE) {
+            if (!cborMapPutStringInt(map, "CapabilityType", int64_t(profile.capabilityType))) {
+                return false;
+            }
+            if (profile.timeout > 0) {
+                if (!cborMapPutStringInt(map, "Timeout", int64_t(profile.timeout))) {
+                    return false;
+                }
+            }
+        }
+    }
+
+    cn_cbor* nameSpacesMap = cn_cbor_map_create(&err);
+    if (nameSpacesMap == nullptr) {
+        LOG(ERROR) << "Error " << err.err << " creating nameSpacesMap (pos " << err.pos << ")";
+        return false;
+    }
+    if (!cborMapPutStringValue(cbor.get(), "Namespaces", nameSpacesMap)) {
+        cn_cbor_free(nameSpacesMap);
+        return false;
+    }
+
+    string curNameSpace;
+    cn_cbor* curEntriesArray = nullptr;
+    for (const auto& entry : entries_) {
+        if (curNameSpace != entry.nameSpace_ || curEntriesArray == nullptr) {
+            curEntriesArray = cn_cbor_array_create(&err);
+            if (curEntriesArray == nullptr) {
+                LOG(ERROR) << "Error " << err.err << " creating curEntriesArray (pos " << err.pos
+                           << ")";
+                return false;
+            }
+            if (!cborMapPutStringValue(nameSpacesMap, entry.nameSpace_.c_str(), curEntriesArray)) {
+                cn_cbor_free(curEntriesArray);
+                return false;
+            }
+            curNameSpace = entry.nameSpace_;
+        }
+        cn_cbor* cborValue = entry.toCbor();
+        if (cborValue == nullptr) {
+            return false;
+        }
+        if (!cborArrayAppendValue(curEntriesArray, cborValue)) {
+            cn_cbor_free(cborValue);
+            return false;
+        }
+    }
+
+    if (!cborMapPutStringBool(cbor.get(), "TestCredential", testCredential_)) {
+        return false;
+    }
+
+    if (!cborEncode(cbor.get(), encodedCbor)) {
+        return false;
+    }
+    return true;
+}
+
+bool generateRequestData(const vector<uint8_t>& encodedSessionTranscript,
+                         const vector<pair<string, vector<pair<string, vector<string>>>>>&
+                             docTypeAndNameSpaceAndDataItems,
+                         vector<uint8_t>& requestDataCbor) {
+    cn_cbor_errback err;
+    auto map = CnCborPtr(cn_cbor_map_create(&err));
+    if (map.get() == nullptr) {
+        LOG(ERROR) << "Error " << err.err << " creating map (pos " << err.pos << ")";
+        return false;
+    }
+
+    cn_cbor* decodedSessionTranscript =
+        cn_cbor_decode(encodedSessionTranscript.data(), encodedSessionTranscript.size(), &err);
+    if (decodedSessionTranscript == nullptr) {
+        LOG(ERROR) << "Error " << err.err << " decoding encodedSessionTranscript (pos " << err.pos
+                   << ")";
+        return false;
+    }
+    if (!cborMapPutStringValue(map.get(), "SessionTranscript", decodedSessionTranscript)) {
+        cn_cbor_free(decodedSessionTranscript);
+        return false;
+    }
+
+    cn_cbor* array = cn_cbor_array_create(&err);
+    if (array == nullptr) {
+        LOG(ERROR) << "Error " << err.err << " creating array (pos " << err.pos << ")";
+        return false;
+    }
+    if (!cborMapPutStringValue(map.get(), "Request", array)) {
+        return false;
+    }
+
+    for (const auto& i : docTypeAndNameSpaceAndDataItems) {
+        const string& docType = i.first;
+        cn_cbor* dataReqMap = cn_cbor_map_create(&err);
+        if (dataReqMap == nullptr) {
+            LOG(ERROR) << "Error " << err.err << " creating map (pos " << err.pos << ")";
+            return false;
+        }
+        if (!cborArrayAppendValue(array, dataReqMap)) {
+            cn_cbor_free(dataReqMap);
+            return false;
+        }
+        if (!docType.empty()) {
+            if (!cborMapPutStringString(dataReqMap, "DocType", docType.c_str())) {
+                return false;
+            }
+        }
+        for (const auto& j : i.second) {
+            const string& nameSpace = j.first;
+            const vector<string>& dataItems = j.second;
+
+            if (nameSpace == "DocType") {
+                LOG(ERROR) << "Invalid namespace 'DocType'. Don't do that.";
+                return false;
+            }
+
+            cn_cbor* dataItemsArray = cn_cbor_array_create(&err);
+            if (dataItemsArray == nullptr) {
+                LOG(ERROR) << "Error " << err.err << " creating array (pos " << err.pos << ")";
+                return false;
+            }
+            if (!cborMapPutStringValue(dataReqMap, nameSpace.c_str(), dataItemsArray)) {
+                cn_cbor_free(dataItemsArray);
+                return false;
+            }
+            for (const auto& dataItem : dataItems) {
+                cborArrayAppendString(dataItemsArray, dataItem.c_str());
+            }
+        }
+    }
+    if (!cborEncode(map.get(), requestDataCbor)) {
+        return false;
+    }
+    return true;
+}
+
+}  // namespace support
+}  // namespace identity_credential
+}  // namespace hardware
+}  // namespace android
