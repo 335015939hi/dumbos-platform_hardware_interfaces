@@ -20,7 +20,6 @@ hidl_interface {
         "AuditLogEntry",
         "DirectAccessSigningKeyStatus",
         "EntryValue",
-        "KeyType",
         "ResultCode",
         "SecureAccessControlProfile",
         "StartRetrievalArguments",
