@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "1ac5a9e6_f0c906ee",
+        "filename": "identity_credential/1.0/IIdentityCredential.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1403755
+      },
+      "writtenOn": "2019-01-03T19:06:17Z",
+      "side": 1,
+      "message": "Should there be a ResultCode?",
+      "revId": "bd8e611bd6ae10a8c0aae2dcfce4c67105a26998",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "50bda3d7_31588f9d",
         "filename": "identity_credential/1.0/IIdentityCredential.hal",
         "patchSetId": 11
