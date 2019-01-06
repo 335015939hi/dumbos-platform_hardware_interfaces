@@ -19,6 +19,29 @@
     },
     {
       "key": {
+        "uuid": "b4dca81c_9a489bcc",
+        "filename": "identity_credential/1.0/IWritableIdentityCredential.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1403755
+      },
+      "writtenOn": "2019-01-06T09:30:37Z",
+      "side": 1,
+      "message": "\"accessControlProfileIds\" -- for consistency with AdditionalData field",
+      "range": {
+        "startLine": 217,
+        "startChar": 21,
+        "endLine": 217,
+        "endChar": 42
+      },
+      "revId": "b5a1c682ecb3992db09e8c34f2c4a1dcf5942633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1a6acf32_50cac7d6",
         "filename": "identity_credential/1.0/IWritableIdentityCredential.hal",
         "patchSetId": 13
