@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa63a2de_5c508475",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1009,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2019-01-07T19:32:27Z",
+      "side": 1,
+      "message": "how about defining and using a const var?",
+      "range": {
+        "startLine": 1009,
+        "startChar": 60,
+        "endLine": 1009,
+        "endChar": 64
+      },
+      "revId": "3f127ca4d117a9dc94e208f9d69f07bb73b776f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
