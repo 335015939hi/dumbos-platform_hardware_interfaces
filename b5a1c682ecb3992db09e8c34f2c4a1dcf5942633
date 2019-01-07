@@ -79,6 +79,30 @@
       "revId": "b5a1c682ecb3992db09e8c34f2c4a1dcf5942633",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee44f7d1_8542f74d",
+        "filename": "identity_credential/1.0/types.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-01-07T20:46:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15cec54c_1764b4ee",
+      "range": {
+        "startLine": 160,
+        "startChar": 21,
+        "endLine": 161,
+        "endChar": 34
+      },
+      "revId": "b5a1c682ecb3992db09e8c34f2c4a1dcf5942633",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
