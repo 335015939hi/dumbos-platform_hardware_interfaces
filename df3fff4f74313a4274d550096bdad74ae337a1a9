@@ -22,6 +22,30 @@
       "revId": "df3fff4f74313a4274d550096bdad74ae337a1a9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e31ddb6_fddc8db0",
+        "filename": "radio/1.4/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1236374
+      },
+      "writtenOn": "2019-01-08T03:04:04Z",
+      "side": 1,
+      "message": "Do you expect the following \"history\" is used for forwarded number, and it is notified to Dialer as TelephonyManagerCompat.EVENT_CALL_FORWARDED?\nhttps://android.googlesource.com/platform/frameworks/opt/telephony/+/master/src/java/com/android/internal/telephony/gsm/SuppServiceNotification.java#39\nhttps://android.googlesource.com/platform/frameworks/base/+/master/telephony/java/android/telephony/ims/ImsSuppServiceNotification.java#47\n\nWe considered and discussed it with our Modem teams, but we think it\u0027s not recommended due to following two reasons.\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n1) Radio hal interface of SuppSvcNotification does not support the \"history\". We need to add it newly.\nhttps://android.googlesource.com/platform/hardware/interfaces/+/master/radio/1.0/types.hal#1879\n\n2) Basically, the history(forwardedNumber) should be shown on InCallUI at the same time when receiving new MT call.\nIf we use separate notifications to receive incoming call(by UNSOL_RESPONSE_CALL_STATE_CHANGED and GET_CURRENT_CALLS) and forwarded number(by UNSOL_SUPP_SVC_NOTIFICATION), it might cause some \"time lag\".\n\nAnd for your reference, as far as we know, Qualcomm modem has never used(notified) UNSOL_SUPP_SVC_NOTIFICATION for both gsm/ims until now. Current Qualcomm modem includes the history info in Call Info to notify these information together.\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nFrom above point of view, we\u0027d like to suggest to add this forwardedNumber in Call Info.",
+      "parentUuid": "fd4678be_a9946aae",
+      "range": {
+        "startLine": 245,
+        "startChar": 4,
+        "endLine": 245,
+        "endChar": 27
+      },
+      "revId": "df3fff4f74313a4274d550096bdad74ae337a1a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
