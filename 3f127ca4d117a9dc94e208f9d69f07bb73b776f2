@@ -22,6 +22,30 @@
       "revId": "3f127ca4d117a9dc94e208f9d69f07bb73b776f2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b0910dd_9ec4d871",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1009,
+      "author": {
+        "id": 1394071
+      },
+      "writtenOn": "2019-01-08T19:18:08Z",
+      "side": 1,
+      "message": "Hi Keun Soo Yim,\n\nThis is merged into master branch and we just cherrypicked the fix to pie-dev branch. I agree that using constant is better, but since I am not the author of this code, I cannot make that change.\n\nPhani",
+      "parentUuid": "fa63a2de_5c508475",
+      "range": {
+        "startLine": 1009,
+        "startChar": 60,
+        "endLine": 1009,
+        "endChar": 64
+      },
+      "revId": "3f127ca4d117a9dc94e208f9d69f07bb73b776f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
