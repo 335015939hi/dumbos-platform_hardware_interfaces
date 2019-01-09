@@ -4,6 +4,7 @@ cc_library_headers {
     vendor_available: true,
     vndk: {
         enabled: true,
+        must_use_vendor_variant: true,
     },
 
     export_include_dirs: ["include"],
