@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "bf8166b5_193d1a26",
+        "filename": "identity_credential/1.0/IIdentityCredential.hal",
+        "patchSetId": 14
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1403755
+      },
+      "writtenOn": "2019-01-11T09:27:05Z",
+      "side": 1,
+      "message": "Remove",
+      "range": {
+        "startLine": 66,
+        "startChar": 6,
+        "endLine": 67,
+        "endChar": 87
+      },
+      "revId": "db58f7440e938b1d9449594b80e3f68f35df451a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "515e152e_e02d2642",
         "filename": "identity_credential/1.0/IWritableIdentityCredential.hal",
         "patchSetId": 14
@@ -18,6 +41,29 @@
         "startChar": 0,
         "endLine": 70,
         "endChar": 69
+      },
+      "revId": "db58f7440e938b1d9449594b80e3f68f35df451a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ab6c258_76be7032",
+        "filename": "identity_credential/1.0/IWritableIdentityCredential.hal",
+        "patchSetId": 14
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1403755
+      },
+      "writtenOn": "2019-01-11T09:27:05Z",
+      "side": 1,
+      "message": "vec\u003cuint16_t\u003e",
+      "range": {
+        "startLine": 74,
+        "startChar": 25,
+        "endLine": 74,
+        "endChar": 33
       },
       "revId": "db58f7440e938b1d9449594b80e3f68f35df451a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -64,6 +110,75 @@
         "startChar": 54,
         "endLine": 223,
         "endChar": 64
+      },
+      "revId": "db58f7440e938b1d9449594b80e3f68f35df451a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de7b163b_6cd42dd9",
+        "filename": "identity_credential/1.0/types.hal",
+        "patchSetId": 14
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1403755
+      },
+      "writtenOn": "2019-01-11T09:27:05Z",
+      "side": 1,
+      "message": "in StartRetrievalArguments",
+      "range": {
+        "startLine": 128,
+        "startChar": 51,
+        "endLine": 128,
+        "endChar": 78
+      },
+      "revId": "db58f7440e938b1d9449594b80e3f68f35df451a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d394e709_5235842c",
+        "filename": "identity_credential/1.0/types.hal",
+        "patchSetId": 14
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1403755
+      },
+      "writtenOn": "2019-01-11T09:27:05Z",
+      "side": 1,
+      "message": "Remove",
+      "range": {
+        "startLine": 140,
+        "startChar": 68,
+        "endLine": 143,
+        "endChar": 45
+      },
+      "revId": "db58f7440e938b1d9449594b80e3f68f35df451a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21e7068a_f5ca9233",
+        "filename": "identity_credential/1.0/types.hal",
+        "patchSetId": 14
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1403755
+      },
+      "writtenOn": "2019-01-11T09:27:05Z",
+      "side": 1,
+      "message": "capabilityType\ncapabilityId",
+      "range": {
+        "startLine": 160,
+        "startChar": 21,
+        "endLine": 161,
+        "endChar": 34
       },
       "revId": "db58f7440e938b1d9449594b80e3f68f35df451a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
