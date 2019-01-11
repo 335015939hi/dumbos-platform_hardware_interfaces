@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b97df546_dbaef897",
+        "filename": "keymaster/4.0/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1362721
+      },
+      "writtenOn": "2019-01-11T21:13:56Z",
+      "side": 1,
+      "message": "I agree. Wouldn\u0027t compile without it, not sure why:\n\nIn file included from hardware/interfaces/keymaster/4.0/default/service.cpp:22:\nsystem/keymaster/ng/include/AndroidKeymaster4Device.h:22:10: fatal error: \u0027android/hardware/keymaster/4.1/IKeymasterDevice.h\u0027 file not found\n#include \u003candroid/hardware/keymaster/4.1/IKeymasterDevice.h\u003e\n\nI\u0027ll get this fixed eventually.",
+      "parentUuid": "b7f7416a_a0e330aa",
+      "range": {
+        "startLine": 27,
+        "startChar": 9,
+        "endLine": 27,
+        "endChar": 40
+      },
+      "revId": "83c8a01b3aa08a4e3817b456d766c3f04c575729",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3e520239_5d8a9a6c",
         "filename": "keymaster/4.0/default/service.cpp",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2019-01-11T20:48:29Z",
       "side": 1,
       "message": "I think this should be 4_0.  The 4.0 default implementation should be precisely a 4.0 implementation.",
+      "range": {
+        "startLine": 28,
+        "startChar": 22,
+        "endLine": 28,
+        "endChar": 40
+      },
+      "revId": "83c8a01b3aa08a4e3817b456d766c3f04c575729",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "326aed15_19603cf5",
+        "filename": "keymaster/4.0/default/service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1362721
+      },
+      "writtenOn": "2019-01-11T21:13:56Z",
+      "side": 1,
+      "message": "You probably shouldn\u0027t +2 aosp/869511 then ;) \n\nWe\u0027ll need to create a new 4_1 ng keymaster and manually wrap each method of 4_0. It\u0027s just not very dry.",
+      "parentUuid": "3e520239_5d8a9a6c",
       "range": {
         "startLine": 28,
         "startChar": 22,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "a9f9d880_6a09d12c",
+        "filename": "keymaster/4.1/IKeymasterDevice.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1362721
+      },
+      "writtenOn": "2019-01-11T21:13:56Z",
+      "side": 1,
+      "message": "Yeah, it\u0027s the convention recommended here: https://source.android.com/devices/architecture/hidl/versioning#conventions",
+      "parentUuid": "2e7cf108_ce63aebb",
+      "range": {
+        "startLine": 36,
+        "startChar": 4,
+        "endLine": 36,
+        "endChar": 23
+      },
+      "revId": "83c8a01b3aa08a4e3817b456d766c3f04c575729",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4aa6bc02_99719bf6",
         "filename": "keymaster/4.1/IKeymasterDevice.hal",
         "patchSetId": 1
@@ -91,6 +163,30 @@
       "revId": "83c8a01b3aa08a4e3817b456d766c3f04c575729",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab40acdb_cb09f492",
+        "filename": "keymaster/4.1/IKeymasterDevice.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1362721
+      },
+      "writtenOn": "2019-01-11T21:13:56Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4aa6bc02_99719bf6",
+      "range": {
+        "startLine": 37,
+        "startChar": 7,
+        "endLine": 37,
+        "endChar": 137
+      },
+      "revId": "83c8a01b3aa08a4e3817b456d766c3f04c575729",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -140,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "fed569ac_d512def2",
+        "filename": "keymaster/4.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1362721
+      },
+      "writtenOn": "2019-01-11T21:13:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f1c9159b_af6becf6",
+      "range": {
+        "startLine": 23,
+        "startChar": 3,
+        "endLine": 23,
+        "endChar": 42
+      },
+      "revId": "83c8a01b3aa08a4e3817b456d766c3f04c575729",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5abf85fc_c828885b",
         "filename": "keymaster/4.1/types.hal",
         "patchSetId": 1
@@ -151,6 +271,30 @@
       "writtenOn": "2019-01-11T20:48:29Z",
       "side": 1,
       "message": "Interestingly, HIDL now supports the safe_union type, which is exactly a discriminated union.  I\u0027m not sure how deep the changes required to use it would go (deep, I suspect), but it may be worth a try. I guess you can\u0027t just extend a struct, right?\n\nAll of these issues argue for inserting the CertificationLevel somewhere else in the attestation schema, rather than adding it to the authorization list.  Probably in the KeyDescription SEQUENCE (see https://developer.android.com/training/articles/security-key-attestation).",
+      "range": {
+        "startLine": 32,
+        "startChar": 1,
+        "endLine": 32,
+        "endChar": 25
+      },
+      "revId": "83c8a01b3aa08a4e3817b456d766c3f04c575729",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd6157e1_836f8b8a",
+        "filename": "keymaster/4.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1362721
+      },
+      "writtenOn": "2019-01-11T21:13:56Z",
+      "side": 1,
+      "message": "Sort of, you can do this: \nstruct ExtendedStructA {\n    StructA base;\n    // … additional members\n};\n\nStill, I think putting it in the KeyDescription makes sense.",
+      "parentUuid": "5abf85fc_c828885b",
       "range": {
         "startLine": 32,
         "startChar": 1,
@@ -183,6 +327,30 @@
       "revId": "83c8a01b3aa08a4e3817b456d766c3f04c575729",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "209249fd_e8e5fb10",
+        "filename": "keymaster/4.1/vts/functional/VtsHalKeymasterV4_1TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1362721
+      },
+      "writtenOn": "2019-01-11T21:13:56Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2a576a84_79bc79bc",
+      "range": {
+        "startLine": 63,
+        "startChar": 6,
+        "endLine": 63,
+        "endChar": 23
+      },
+      "revId": "83c8a01b3aa08a4e3817b456d766c3f04c575729",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
