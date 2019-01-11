@@ -14,6 +14,9 @@
  * limitations under the License.
  */
 
+#ifndef HARDWARE_INTERFACES_KEYMASTER_40_VTS_FUNCTIONAL_KEY_PARAM_OUTPUT_H_
+#define HARDWARE_INTERFACES_KEYMASTER_40_VTS_FUNCTIONAL_KEY_PARAM_OUTPUT_H_
+
 #include <iostream>
 
 #include <android/hardware/keymaster/4.0/types.h>
@@ -87,3 +90,5 @@ inline ::std::ostream& operator<<(::std::ostream& os, Tag tag) {
 }  // namespace keymaster
 }  // namespace hardware
 }  // namespace android
+
+#endif  // HARDWARE_INTERFACES_KEYMASTER_40_VTS_FUNCTIONAL_KEY_PARAM_OUTPUT_H_
