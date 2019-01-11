@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b7f7416a_a0e330aa",
+        "filename": "keymaster/4.0/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-01-11T20:48:29Z",
+      "side": 1,
+      "message": "I don\u0027t think 4.0 can/should depend on 4.1.",
+      "range": {
+        "startLine": 27,
+        "startChar": 9,
+        "endLine": 27,
+        "endChar": 40
+      },
+      "revId": "83c8a01b3aa08a4e3817b456d766c3f04c575729",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e520239_5d8a9a6c",
+        "filename": "keymaster/4.0/default/service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-01-11T20:48:29Z",
+      "side": 1,
+      "message": "I think this should be 4_0.  The 4.0 default implementation should be precisely a 4.0 implementation.",
+      "range": {
+        "startLine": 28,
+        "startChar": 22,
+        "endLine": 28,
+        "endChar": 40
+      },
+      "revId": "83c8a01b3aa08a4e3817b456d766c3f04c575729",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e7cf108_ce63aebb",
+        "filename": "keymaster/4.1/IKeymasterDevice.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-01-11T20:48:29Z",
+      "side": 1,
+      "message": "Yuck.  But... yeah, it\u0027s what you have to do.",
+      "range": {
+        "startLine": 36,
+        "startChar": 4,
+        "endLine": 36,
+        "endChar": 23
+      },
+      "revId": "83c8a01b3aa08a4e3817b456d766c3f04c575729",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4aa6bc02_99719bf6",
+        "filename": "keymaster/4.1/IKeymasterDevice.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-01-11T20:48:29Z",
+      "side": 1,
+      "message": "Nit: wrap at 100 cols",
+      "range": {
+        "startLine": 37,
+        "startChar": 7,
+        "endLine": 37,
+        "endChar": 137
+      },
+      "revId": "83c8a01b3aa08a4e3817b456d766c3f04c575729",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73bfda1e_28542cf9",
+        "filename": "keymaster/4.1/default/service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-01-11T20:48:29Z",
+      "side": 1,
+      "message": "Again, I think 4_1.",
+      "range": {
+        "startLine": 29,
+        "startChar": 32,
+        "endLine": 29,
+        "endChar": 42
+      },
+      "revId": "83c8a01b3aa08a4e3817b456d766c3f04c575729",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1c9159b_af6becf6",
+        "filename": "keymaster/4.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-01-11T20:48:29Z",
+      "side": 1,
+      "message": "Good idea.",
+      "range": {
+        "startLine": 23,
+        "startChar": 3,
+        "endLine": 23,
+        "endChar": 42
+      },
+      "revId": "83c8a01b3aa08a4e3817b456d766c3f04c575729",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5abf85fc_c828885b",
+        "filename": "keymaster/4.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-01-11T20:48:29Z",
+      "side": 1,
+      "message": "Interestingly, HIDL now supports the safe_union type, which is exactly a discriminated union.  I\u0027m not sure how deep the changes required to use it would go (deep, I suspect), but it may be worth a try. I guess you can\u0027t just extend a struct, right?\n\nAll of these issues argue for inserting the CertificationLevel somewhere else in the attestation schema, rather than adding it to the authorization list.  Probably in the KeyDescription SEQUENCE (see https://developer.android.com/training/articles/security-key-attestation).",
+      "range": {
+        "startLine": 32,
+        "startChar": 1,
+        "endLine": 32,
+        "endChar": 25
+      },
+      "revId": "83c8a01b3aa08a4e3817b456d766c3f04c575729",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a576a84_79bc79bc",
+        "filename": "keymaster/4.1/vts/functional/VtsHalKeymasterV4_1TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-01-11T20:48:29Z",
+      "side": 1,
+      "message": "I think you should be able to extend the 4.0 test class and reuse all of its infrastructure. Note that it\u0027s not necessary to replicate all of the 4.0 test cases; a 4.1 is-a 4.0, so the 4.0 tests will run on it -- and must pass. I think we may have to tweak the 4.0 tests in a couple of places, but that\u0027s okay.",
+      "range": {
+        "startLine": 63,
+        "startChar": 6,
+        "endLine": 63,
+        "endChar": 23
+      },
+      "revId": "83c8a01b3aa08a4e3817b456d766c3f04c575729",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
