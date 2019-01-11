@@ -41,6 +41,7 @@ hidl_interface {
         "RadioAccessFamily",
         "RadioCapability",
         "RadioFrequencyInfo",
+        "RadioResponseInfo",
         "RadioTechnology",
         "NrIndicators",
         "SetupDataCallResult",

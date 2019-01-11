@@ -26,6 +26,7 @@ import @1.0::RadioAccessFamily;
 import @1.0::RadioCapabilityPhase;
 import @1.0::RadioCapabilityStatus ;
 import @1.0::RadioError;
+import @1.0::RadioResponseInfo;
 import @1.0::RadioTechnology;
 import @1.0::RegState;
 import @1.0::TimeStampType;
@@ -1456,6 +1457,16 @@ struct NrIndicators {
      *            3GPP TS 36.331 v15.2.2 section 6.2.2 SystemInformationBlockType1 message.
      */
     bool isNrAvailable;
+};
+
+/** Add an extra errorDescription to RadioResponseInfo. */
+struct RadioResponseInfo {
+    @1.0::RadioResponseInfo base;
+    /**
+     * The errorDescription is an additional field, combining with the error code, that used to
+     * provide the OEMs sufficient details for investigating errors.
+     */
+    string errorDescription;
 };
 
 struct DataRegStateResult {
