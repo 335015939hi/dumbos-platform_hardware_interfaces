@@ -315,15 +315,15 @@ bool CameraProvider::initialize() {
 
     mNumberOfLegacyCameras = mModule->getNumberOfCameras();
     for (int i = 0; i < mNumberOfLegacyCameras; i++) {
-        struct camera_info info;
-        auto rc = mModule->getCameraInfo(i, &info);
+        uint32_t device_version;
+        auto rc = mModule->getCameraDeviceVersion(i, &device_version);
         if (rc != NO_ERROR) {
-            ALOGE("%s: Camera info query failed!", __func__);
+            ALOGE("%s: Camera device version query failed!", __func__);
             mModule.clear();
             return true;
         }
 
-        if (checkCameraVersion(i, info) != OK) {
+        if (checkCameraVersion(i, device_version) != OK) {
             ALOGE("%s: Camera version check failed!", __func__);
             mModule.clear();
             return true;
@@ -343,7 +343,7 @@ bool CameraProvider::initialize() {
 /**
  * Check that the device HAL version is still in supported.
  */
-int CameraProvider::checkCameraVersion(int id, camera_info info) {
+int CameraProvider::checkCameraVersion(int id, uint32_t device_version) {
     if (mModule == nullptr) {
         return NO_INIT;
     }
@@ -352,7 +352,7 @@ int CameraProvider::checkCameraVersion(int id, camera_info info) {
     // All CAMERA_MODULE_API_VERSION_1_0 devices are backward-compatible
     if (mModule->getModuleApiVersion() >= CAMERA_MODULE_API_VERSION_2_0) {
         // Verify the device version is in the supported range
-        switch (info.device_version) {
+        switch (device_version) {
             case CAMERA_DEVICE_API_VERSION_1_0:
             case CAMERA_DEVICE_API_VERSION_3_2:
             case CAMERA_DEVICE_API_VERSION_3_3:
@@ -366,8 +366,8 @@ int CameraProvider::checkCameraVersion(int id, camera_info info) {
             case CAMERA_DEVICE_API_VERSION_3_1:
                 // no longer supported
             default:
-                ALOGE("%s: Device %d has HAL version %x, which is not supported",
-                        __FUNCTION__, id, info.device_version);
+                ALOGE("%s: Device %d has HAL version %x, which is not supported", __FUNCTION__, id,
+                      device_version);
                 return NO_INIT;
         }
     }
