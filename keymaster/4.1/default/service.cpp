@@ -1,6 +1,6 @@
 /*
 **
-** Copyright 2017, The Android Open Source Project
+** Copyright 2019, The Android Open Source Project
 **
 ** Licensed under the Apache License, Version 2.0 (the "License");
 ** you may not use this file except in compliance with the License.
@@ -16,19 +16,21 @@
 */
 
 #include <android-base/logging.h>
-#include <android/hardware/keymaster/4.0/IKeymasterDevice.h>
+#include <android/hardware/keymaster/4.1/IKeymasterDevice.h>
 #include <hidl/HidlTransportSupport.h>
 
 #include <AndroidKeymaster4Device.h>
 
 using android::hardware::keymaster::V4_0::SecurityLevel;
+using android::hardware::keymaster::V4_1::CertificationLevel;
 
 int main() {
     ::android::hardware::configureRpcThreadpool(1, true /* willJoinThreadpool */);
-    auto keymaster = ::keymaster::V4::ng::CreateKeymasterDevice(SecurityLevel::SOFTWARE);
+    auto keymaster = ::keymaster::V4::ng::CreateKeymasterDevice(SecurityLevel::SOFTWARE,
+                                                                CertificationLevel::UNCERTIFIED);
     auto status = keymaster->registerAsService();
     if (status != android::OK) {
-        LOG(FATAL) << "Could not register service for Keymaster 4.0 (" << status << ")";
+        LOG(FATAL) << "Could not register service for Keymaster 4.1 (" << status << ")";
     }
 
     android::hardware::joinRpcThreadpool();
