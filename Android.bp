@@ -18,7 +18,7 @@ cc_defaults {
         "vts_target_tests_defaults",
         "hidl_defaults",
     ],
-
+    vendor: true,
     // Lists all dependencies that can *not* be expected on the device.
     static_libs: [
         "VtsHalHidlTargetTestBase",

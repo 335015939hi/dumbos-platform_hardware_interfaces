@@ -16,6 +16,7 @@
 
 cc_library_static {
     name: "android.hardware.graphics.mapper@2.1-vts",
+    vendor: true,
     defaults: ["hidl_defaults"],
     srcs: ["MapperVts.cpp"],
     cflags: [
