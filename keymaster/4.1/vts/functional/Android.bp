@@ -1,5 +1,5 @@
 //
-// Copyright (C) 2017 The Android Open Source Project
+// Copyright (C) 2019 The Android Open Source Project
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,37 +14,19 @@
 // limitations under the License.
 //
 
-cc_library_static {
-    name: "VtsHalKeymasterV4_0TargetTestUtils",
-    defaults: ["VtsHalTargetTestDefaults"],
-    srcs: [
-        "KeymasterHidlTest.cpp",
-        "KeymasterHidlTestUtils.cpp"
-    ],
-    export_include_dirs: [
-        "."
-    ],
-    static_libs: [
-        "android.hardware.keymaster@4.0",
-        "libcrypto",
-        "libkeymaster4support",
-        "libsoftkeymasterdevice",
-    ],
-}
-
 cc_test {
-    name: "VtsHalKeymasterV4_0TargetTest",
+    name: "VtsHalKeymasterV4_1TargetTest",
     defaults: ["VtsHalTargetTestDefaults"],
     srcs: [
-        "HmacKeySharingTest.cpp",
-        "VerificationTokenTest.cpp",
-        "keymaster_hidl_hal_test.cpp",
+        "VtsHalKeymasterV4_1TargetTest.cpp",
     ],
     static_libs: [
-        "VtsHalKeymasterV4_0TargetTestUtils",
+        "VtsHalKeymasterV4_0TargetTestUtils",    
         "android.hardware.keymaster@4.0",
+        "android.hardware.keymaster@4.1",
         "libcrypto",
         "libkeymaster4support",
+        "libkeymaster41support",
         "libsoftkeymasterdevice",
     ],
     test_suites: ["general-tests"],
