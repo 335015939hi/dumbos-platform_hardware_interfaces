@@ -24,7 +24,7 @@
 
 #include <keymaster/keymaster_configuration.h>
 
-#include <keymasterV4_0/authorization_set.h>
+#include "KeymasterHidlTestUtils.h"
 
 namespace android {
 namespace hardware {
@@ -37,36 +37,6 @@ namespace test {
 
 using ::android::sp;
 using ::std::string;
-
-class HidlBuf : public hidl_vec<uint8_t> {
-    typedef hidl_vec<uint8_t> super;
-
-   public:
-    HidlBuf() {}
-    HidlBuf(const super& other) : super(other) {}
-    HidlBuf(super&& other) : super(std::move(other)) {}
-    explicit HidlBuf(const std::string& other) : HidlBuf() { *this = other; }
-
-    HidlBuf& operator=(const super& other) {
-        super::operator=(other);
-        return *this;
-    }
-
-    HidlBuf& operator=(super&& other) {
-        super::operator=(std::move(other));
-        return *this;
-    }
-
-    HidlBuf& operator=(const string& other) {
-        resize(other.size());
-        std::copy(other.begin(), other.end(), begin());
-        return *this;
-    }
-
-    string to_string() const { return string(reinterpret_cast<const char*>(data()), size()); }
-};
-
-constexpr uint64_t kOpHandleSentinel = 0xFFFFFFFFFFFFFFFF;
 
 class KeymasterHidlEnvironment : public ::testing::VtsHalHidlTargetTestEnvBase {
    public:
