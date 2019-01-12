@@ -3743,7 +3743,13 @@ TEST_F(CameraHidlTest, processCaptureRequestBurstISO) {
 
             // Disable all 3A routines
             uint8_t mode = static_cast<uint8_t>(ANDROID_CONTROL_MODE_OFF);
+            uint8_t aemode = static_cast<uint8_t>(ANDROID_CONTROL_AE_MODE_OFF);
+            uint8_t afmode = static_cast<uint8_t>(ANDROID_CONTROL_AF_MODE_OFF);
+            uint8_t awbmode = static_cast<uint8_t>(ANDROID_CONTROL_AWB_MODE_OFF);
             ASSERT_EQ(::android::OK, requestMeta.update(ANDROID_CONTROL_MODE, &mode, 1));
+            ASSERT_EQ(::android::OK, requestMeta.update(ANDROID_CONTROL_AE_MODE, &aemode, 1));
+            ASSERT_EQ(::android::OK, requestMeta.update(ANDROID_CONTROL_AF_MODE, &afmode, 1));
+            ASSERT_EQ(::android::OK, requestMeta.update(ANDROID_CONTROL_AWB_MODE, &awbmode, 1));
             ASSERT_EQ(::android::OK, requestMeta.update(ANDROID_SENSOR_SENSITIVITY, &isoValues[i],
                         1));
             camera_metadata_t *metaBuffer = requestMeta.release();
