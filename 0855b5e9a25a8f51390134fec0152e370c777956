@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f858678b_120c7de8",
+        "filename": "radio/1.4/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 1469,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2019-01-12T01:05:19Z",
+      "side": 1,
+      "message": "I suggest putting some reasonable limits on this. A String is very abuse-able and also not particularly easy for us to log in things like metrics. Suggest to talk to hallliu@ to see if there\u0027s something we can do (perhaps in addition) that\u0027s metrics-friendly. Strings also aren\u0027t going to be very performant... I\u0027m not sure if that\u0027s actually a concern here though this is on every single response message.",
+      "range": {
+        "startLine": 1469,
+        "startChar": 11,
+        "endLine": 1469,
+        "endChar": 27
+      },
+      "revId": "0855b5e9a25a8f51390134fec0152e370c777956",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
