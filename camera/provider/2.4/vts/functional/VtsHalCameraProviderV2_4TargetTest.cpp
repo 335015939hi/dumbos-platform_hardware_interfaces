@@ -2885,6 +2885,7 @@ TEST_F(CameraHidlTest, configureStreamsWithSessionParameters) {
             continue;
         }
 
+        outputPreviewStreams.clear();
         android::hardware::camera::common::V1_0::helper::CameraMetadata previewRequestSettings;
         android::hardware::camera::common::V1_0::helper::CameraMetadata sessionParams;
         constructFilteredSettings(session, availableSessionKeys, RequestTemplate::PREVIEW,
