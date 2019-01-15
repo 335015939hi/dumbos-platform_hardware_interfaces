@@ -1,0 +1,176 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f67bce7_465af19e",
+        "filename": "camera/device/3.4/default/ExternalCameraDevice.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2019-01-15T21:25:34Z",
+      "side": 1,
+      "message": "Use camel style to match nearby code",
+      "range": {
+        "startLine": 581,
+        "startChar": 43,
+        "endLine": 581,
+        "endChar": 67
+      },
+      "revId": "1a14dc9201f94dec4803dea7e142fe6a741a27c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90630ef7_89ad1686",
+        "filename": "camera/device/3.4/default/ExternalCameraDevice.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 669,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2019-01-15T21:25:34Z",
+      "side": 1,
+      "message": "This is tricky as we require all FPS range being supported. What if a device support different set of framerates for different V4L2 foramt",
+      "range": {
+        "startLine": 666,
+        "startChar": 0,
+        "endLine": 669,
+        "endChar": 73
+      },
+      "revId": "1a14dc9201f94dec4803dea7e142fe6a741a27c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2fc4523_cdd9ca46",
+        "filename": "camera/device/3.4/default/ExternalCameraDevice.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 688,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2019-01-15T21:25:34Z",
+      "side": 1,
+      "message": "unused?",
+      "range": {
+        "startLine": 685,
+        "startChar": 5,
+        "endLine": 688,
+        "endChar": 0
+      },
+      "revId": "1a14dc9201f94dec4803dea7e142fe6a741a27c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "033b5ae8_741f4abc",
+        "filename": "camera/device/3.4/default/ExternalCameraDeviceSession.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1761,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2019-01-15T21:25:34Z",
+      "side": 1,
+      "message": "Enabling UYVY itself is probably as easy as these lines, but this can create some more complications in determining external_camera_config.xml... The speed to decode MJPEG and the speed to decode UYVY to YU12 is different. Also UYVY buffers can take more USB bandwidth. These problems make setting up the minFrameDuration stuffs hard. This is why I didn\u0027t include UYVY support before.",
+      "revId": "1a14dc9201f94dec4803dea7e142fe6a741a27c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38eeca92_8f95a56e",
+        "filename": "camera/device/3.4/default/ExternalCameraDeviceSession.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1817,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2019-01-15T21:25:34Z",
+      "side": 1,
+      "message": "There should be some checking on whether inData is Y16 and if its size is the same as output size.\n\nAlso since we can only get depth or color data out of V4L2, I think we need some proper check in configureStreams to check for the output streams are either all depth or all color.",
+      "revId": "1a14dc9201f94dec4803dea7e142fe6a741a27c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db7d40c1_74d38d79",
+        "filename": "camera/provider/2.4/vts/functional/VtsHalCameraProviderV2_4TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2959,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2019-01-15T21:25:34Z",
+      "side": 1,
+      "message": "This is not acceptable. A device can support depth doesn\u0027t mean it cannot support color output.\nAt minimum you will need to modify isDepth to isDepthOnly",
+      "range": {
+        "startLine": 2959,
+        "startChar": 12,
+        "endLine": 2959,
+        "endChar": 20
+      },
+      "revId": "1a14dc9201f94dec4803dea7e142fe6a741a27c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4243f72d_f0fd59c0",
+        "filename": "camera/provider/2.4/vts/functional/VtsHalCameraProviderV2_4TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 4576,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2019-01-15T21:25:34Z",
+      "side": 1,
+      "message": "Maybe just have the caller pass staticMetadata into this method, instead of open/close camera here",
+      "range": {
+        "startLine": 4576,
+        "startChar": 21,
+        "endLine": 4576,
+        "endChar": 28
+      },
+      "revId": "1a14dc9201f94dec4803dea7e142fe6a741a27c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "76219c15_587e7971",
+        "filename": "camera/provider/2.4/vts/functional/VtsHalCameraProviderV2_4TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 4582,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2019-01-15T21:25:34Z",
+      "side": 1,
+      "message": "This seems redundant?",
+      "range": {
+        "startLine": 4582,
+        "startChar": 0,
+        "endLine": 4582,
+        "endChar": 66
+      },
+      "revId": "1a14dc9201f94dec4803dea7e142fe6a741a27c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
