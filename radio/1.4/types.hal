@@ -39,6 +39,7 @@ import @1.2::CellInfoTdscdma;
 import @1.2::CellInfoWcdma;
 import @1.2::CardStatus;
 import @1.2::CellIdentity;
+import @1.2::CellConnectionStatus;
 import @1.2::DataRegStateResult;
 import @1.2::PhysicalChannelConfig;
 
@@ -1508,6 +1509,9 @@ struct CellInfo {
      * this cell is being used or would be used for network signaling.
      */
     bool isRegistered;
+
+    /** Connection status for the cell. */
+    CellConnectionStatus connectionStatus;
 
     /** CellInfo details, cellInfoType can tell which cell info should be used. */
     safe_union Info {
