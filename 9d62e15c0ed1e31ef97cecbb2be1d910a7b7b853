@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3133012e_f6d6d0d3",
+        "filename": "radio/1.4/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 1505,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2019-01-15T18:01:20Z",
+      "side": 1,
+      "message": "Is this needed? I thought the safe_union would take care of it for us?",
+      "range": {
+        "startLine": 1505,
+        "startChar": 4,
+        "endLine": 1505,
+        "endChar": 16
+      },
+      "revId": "9d62e15c0ed1e31ef97cecbb2be1d910a7b7b853",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
