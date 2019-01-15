@@ -48,6 +48,52 @@
     },
     {
       "key": {
+        "uuid": "12c8a4bc_bc4a43a3",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1220282
+      },
+      "writtenOn": "2019-01-15T00:58:21Z",
+      "side": 1,
+      "message": "nit: Prefer use \"using\"",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 7
+      },
+      "revId": "f43dcd1bfc8bf277e6a30ef80ecafd902d6faacf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "222ea1b8_7ba17c83",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1220282
+      },
+      "writtenOn": "2019-01-15T00:58:21Z",
+      "side": 1,
+      "message": "nit: I think in a unnamed namespace, this is not needed. Same below.",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 6
+      },
+      "revId": "f43dcd1bfc8bf277e6a30ef80ecafd902d6faacf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f27e0e5b_ea30720e",
         "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
         "patchSetId": 19
@@ -392,6 +438,23 @@
         "endLine": 150,
         "endChar": 67
       },
+      "revId": "f43dcd1bfc8bf277e6a30ef80ecafd902d6faacf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac43487d_33edb181",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1220282
+      },
+      "writtenOn": "2019-01-15T00:58:21Z",
+      "side": 1,
+      "message": "nit: add _ in the end of data member.",
       "revId": "f43dcd1bfc8bf277e6a30ef80ecafd902d6faacf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
