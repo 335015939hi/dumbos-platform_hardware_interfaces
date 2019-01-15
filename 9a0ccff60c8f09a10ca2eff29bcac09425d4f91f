@@ -16,6 +16,24 @@
       "revId": "9a0ccff60c8f09a10ca2eff29bcac09425d4f91f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25b4503f_5b568a19",
+        "filename": "keymaster/4.1/IKeymasterDevice.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1362721
+      },
+      "writtenOn": "2019-01-15T17:41:47Z",
+      "side": 1,
+      "message": "I don\u0027t see many references to getHardwareInfo, maybe adding certification level here isn\u0027t needed. The one reference I found after a very brief code search is https://cs.corp.google.com/android/hardware/interfaces/keymaster/4.0/support/Keymaster4.cpp?q\u003dgethardwareinfo+package:%5Eandroid$\u0026dr\u003dC\u0026l\u003d32.",
+      "parentUuid": "0594cb44_65022217",
+      "revId": "9a0ccff60c8f09a10ca2eff29bcac09425d4f91f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
