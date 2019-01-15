@@ -10,7 +10,7 @@ if [ ! -d $ANDROID_BUILD_TOP/system/libhidl/transport ] ; then
   exit 1;
 fi
 
-echo "WARNING: This script changes files in many places."
+echo "Changing files in:"
 
 # These files only exist to facilitate the easy transition to hidl.
 
@@ -18,18 +18,18 @@ options="-Lexport-header \
         -randroid.hardware:hardware/interfaces \
         -randroid.hidl:system/libhidl/transport"
 
-# hardware/libhardware
+echo hardware/libhardware
 hidl-gen $options \
-         -o $ANDROID_BUILD_TOP/hardware/libhardware/include/hardware/sensors-base.h \
+         -o $ANDROID_BUILD_TOP/hardware/libhardware/include_all/hardware/sensors-base.h \
          android.hardware.sensors@1.0
 hidl-gen $options \
-         -o $ANDROID_BUILD_TOP/hardware/libhardware/include/hardware/nfc-base.h \
+         -o $ANDROID_BUILD_TOP/hardware/libhardware/include_all/hardware/nfc-base.h \
          android.hardware.nfc@1.0
 hidl-gen $options \
-         -o $ANDROID_BUILD_TOP/hardware/libhardware/include/hardware/gnss-base.h \
+         -o $ANDROID_BUILD_TOP/hardware/libhardware/include_all/hardware/gnss-base.h \
          android.hardware.gnss@1.0
 
-# system/core
+echo system/core
 hidl-gen $options \
          -o $ANDROID_BUILD_TOP/system/core/include/system/graphics-base-v1.0.h \
          android.hardware.graphics.common@1.0
@@ -37,7 +37,7 @@ hidl-gen $options \
          -o $ANDROID_BUILD_TOP/system/core/include/system/graphics-base-v1.1.h \
          android.hardware.graphics.common@1.1
 
-# system/media
+echo system/media
 hidl-gen $options \
          -o $ANDROID_BUILD_TOP/system/media/audio/include/system/audio-base.h \
          android.hardware.audio.common@2.0
