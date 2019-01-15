@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "88eb6925_1ee6ecc3",
+        "filename": "keymaster/4.0/vts/functional/KeymasterHidlTestUtils.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2019-01-15T21:20:43Z",
+      "side": 1,
+      "message": "Nit: 2019",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "9a0ccff60c8f09a10ca2eff29bcac09425d4f91f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d093fc9b_d3dd4c31",
+        "filename": "keymaster/4.1/IKeymasterDevice.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2019-01-15T21:20:43Z",
+      "side": 1,
+      "message": "Nit: extra space here",
+      "range": {
+        "startLine": 41,
+        "startChar": 97,
+        "endLine": 41,
+        "endChar": 98
+      },
+      "revId": "9a0ccff60c8f09a10ca2eff29bcac09425d4f91f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0594cb44_65022217",
         "filename": "keymaster/4.1/IKeymasterDevice.hal",
         "patchSetId": 3
@@ -31,6 +77,144 @@
       "side": 1,
       "message": "I don\u0027t see many references to getHardwareInfo, maybe adding certification level here isn\u0027t needed. The one reference I found after a very brief code search is https://cs.corp.google.com/android/hardware/interfaces/keymaster/4.0/support/Keymaster4.cpp?q\u003dgethardwareinfo+package:%5Eandroid$\u0026dr\u003dC\u0026l\u003d32.",
       "parentUuid": "0594cb44_65022217",
+      "revId": "9a0ccff60c8f09a10ca2eff29bcac09425d4f91f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19778169_2d78c0cb",
+        "filename": "keymaster/4.1/IKeymasterDevice.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2019-01-15T21:20:43Z",
+      "side": 1,
+      "message": "Extra spaces",
+      "range": {
+        "startLine": 202,
+        "startChar": 7,
+        "endLine": 202,
+        "endChar": 12
+      },
+      "revId": "9a0ccff60c8f09a10ca2eff29bcac09425d4f91f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b18819c_0e0c8374",
+        "filename": "keymaster/4.1/support/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2019-01-15T21:20:43Z",
+      "side": 1,
+      "message": "Nit: 2019",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "9a0ccff60c8f09a10ca2eff29bcac09425d4f91f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "496eb47f_f5f4c54b",
+        "filename": "keymaster/4.1/support/attestation_record.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2019-01-15T21:20:43Z",
+      "side": 1,
+      "message": "Nit: 2019",
+      "range": {
+        "startLine": 2,
+        "startChar": 13,
+        "endLine": 2,
+        "endChar": 17
+      },
+      "revId": "9a0ccff60c8f09a10ca2eff29bcac09425d4f91f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "880ac87e_24883b5f",
+        "filename": "keymaster/4.1/support/include/keymasterV4_1/attestation_record.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2019-01-15T21:20:43Z",
+      "side": 1,
+      "message": "Nit: 2019",
+      "range": {
+        "startLine": 2,
+        "startChar": 13,
+        "endLine": 2,
+        "endChar": 17
+      },
+      "revId": "9a0ccff60c8f09a10ca2eff29bcac09425d4f91f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aab52297_322fda75",
+        "filename": "keymaster/4.1/support/include/keymasterV4_1/attestation_record.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2019-01-15T21:20:43Z",
+      "side": 1,
+      "message": "Intentional? No issue here, just wanted to make sure",
+      "range": {
+        "startLine": 37,
+        "startChar": 11,
+        "endLine": 37,
+        "endChar": 33
+      },
+      "revId": "9a0ccff60c8f09a10ca2eff29bcac09425d4f91f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79f13c91_53d22869",
+        "filename": "keymaster/4.1/vts/functional/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2019-01-15T21:20:43Z",
+      "side": 1,
+      "message": "Nit: space",
+      "range": {
+        "startLine": 24,
+        "startChar": 45,
+        "endLine": 24,
+        "endChar": 49
+      },
       "revId": "9a0ccff60c8f09a10ca2eff29bcac09425d4f91f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
