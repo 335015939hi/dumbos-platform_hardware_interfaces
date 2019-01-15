@@ -213,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "d64caf44_6f8148e5",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-15T18:26:05Z",
+      "side": 1,
+      "message": "I am not sure which type of session is mandatory and is it possible that Hearing Aid is supported only by OEM / ODM?",
+      "parentUuid": "f27e0e5b_ea30720e",
+      "range": {
+        "startLine": 55,
+        "startChar": 17,
+        "endLine": 55,
+        "endChar": 47
+      },
+      "revId": "f43dcd1bfc8bf277e6a30ef80ecafd902d6faacf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f1aa4c1b_7e8c403f",
         "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
         "patchSetId": 19
@@ -718,6 +742,24 @@
     },
     {
       "key": {
+        "uuid": "c0b5c567_83109780",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-15T18:26:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fef7035b_a768e7f5",
+      "revId": "f43dcd1bfc8bf277e6a30ef80ecafd902d6faacf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4179e7ab_bd149969",
         "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
         "patchSetId": 19
@@ -861,6 +903,30 @@
       "revId": "f43dcd1bfc8bf277e6a30ef80ecafd902d6faacf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "354d5b1c_4ea8a52a",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-15T18:26:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85564def_8a7bf667",
+      "range": {
+        "startLine": 150,
+        "startChar": 33,
+        "endLine": 150,
+        "endChar": 67
+      },
+      "revId": "f43dcd1bfc8bf277e6a30ef80ecafd902d6faacf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
