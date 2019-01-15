@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0594cb44_65022217",
+        "filename": "keymaster/4.1/IKeymasterDevice.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1098493
+      },
+      "writtenOn": "2019-01-15T16:48:42Z",
+      "side": 1,
+      "message": "What\u0027s the purpose of returning the certificationLevel?  That\u0027s not something we can verify in VTS?",
+      "revId": "9a0ccff60c8f09a10ca2eff29bcac09425d4f91f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
