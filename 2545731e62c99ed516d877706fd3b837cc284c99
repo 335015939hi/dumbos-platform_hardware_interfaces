@@ -1,0 +1,320 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "00c5c083_1b7b40da",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 33
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-16T01:15:17Z",
+      "side": 1,
+      "message": ",",
+      "range": {
+        "startLine": 9,
+        "startChar": 60,
+        "endLine": 9,
+        "endChar": 61
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2693070_ec8a03cd",
+        "filename": "bluetooth/audio/2.0/default/A2dpLegacyAudioProvider.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-16T01:15:17Z",
+      "side": 1,
+      "message": "can we put these checks in BluetoothAudioProvider?",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 33
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37561c14_2b93c874",
+        "filename": "bluetooth/audio/2.0/default/A2dpLegacyAudioProvider.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-16T01:15:17Z",
+      "side": 1,
+      "message": "break;\n\nThe FALLTHROUGH_INTENDED makes it hard to read the rest of the logic.\n\nAnother way to do it would be to make sure that FALLTHROUGH_INTENDED is defined.",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 33
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27e4afeb_d83ba38a",
+        "filename": "bluetooth/audio/2.0/default/A2dpLegacyAudioProvider.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-16T01:15:17Z",
+      "side": 1,
+      "message": "same.",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 33
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "09e91c88_1db31c09",
+        "filename": "bluetooth/audio/2.0/default/A2dpLegacyAudioProvider.h",
+        "patchSetId": 33
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-16T01:15:17Z",
+      "side": 1,
+      "message": "I prefer \"#pragma once\" (no need for the #endif at the end of the file)",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 0
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9aae6d1a_40c2ccee",
+        "filename": "bluetooth/audio/2.0/default/A2dpOffloadAudioProvider.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-16T01:15:17Z",
+      "side": 1,
+      "message": "Remove.  This is set to false in the base class.",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 23
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e14fc95_dbdbd47d",
+        "filename": "bluetooth/audio/2.0/default/A2dpOffloadAudioProvider.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-16T01:15:17Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 20
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0658fc2_2eed6fc1",
+        "filename": "bluetooth/audio/2.0/default/A2dpOffloadAudioProvider.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-16T01:15:17Z",
+      "side": 1,
+      "message": "?",
+      "range": {
+        "startLine": 93,
+        "startChar": 2,
+        "endLine": 93,
+        "endChar": 58
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "614623b4_c3cbe7e7",
+        "filename": "bluetooth/audio/2.0/default/A2dpOffloadAudioProvider.h",
+        "patchSetId": 33
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-16T01:15:17Z",
+      "side": 1,
+      "message": "A2dpOffloadAudioProvider shouldn\u0027t inherit from Legacy, since that usually means there is an \"is a\" relationship.",
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "286f4496_2cc3bc2f",
+        "filename": "bluetooth/audio/2.0/default/BluetoothAudioProvider.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-16T01:15:17Z",
+      "side": 1,
+      "message": "I would prefer constexpr here, without the unused ones.",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 45
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d980a0e4_d2c6c690",
+        "filename": "bluetooth/audio/2.0/default/BluetoothAudioProvider.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-16T01:15:17Z",
+      "side": 1,
+      "message": "I would not have it support any types.  I would make it return false, and override the method in the derived class to return true.",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 59
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "458a8658_5af72560",
+        "filename": "bluetooth/audio/2.0/default/BluetoothAudioProvider.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-16T01:15:17Z",
+      "side": 1,
+      "message": "nit: Clean up",
+      "range": {
+        "startLine": 195,
+        "startChar": 5,
+        "endLine": 195,
+        "endChar": 12
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca86356b_168bbb55",
+        "filename": "bluetooth/audio/2.0/default/BluetoothAudioProvider.h",
+        "patchSetId": 33
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-16T01:15:17Z",
+      "side": 1,
+      "message": "Let\u0027s just put this in the file where it\u0027s used.",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 34
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d88fb3c3_f2211f7b",
+        "filename": "bluetooth/audio/2.0/default/BluetoothAudioProvider.h",
+        "patchSetId": 33
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-16T01:15:17Z",
+      "side": 1,
+      "message": "?",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 20
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
