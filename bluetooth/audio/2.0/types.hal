@@ -168,3 +168,23 @@ struct CodecConfiguration {
         } codecSpecific;
     } encodedDataConfiguration;
 };
+
+struct CodecCapability {
+    /** Bluetooth A2DP codec */
+    CodecType codecType;
+
+    /** Audio PCM data capabilities */
+    struct PcmDataCapability {
+        /** Sampling rate for encoder */
+        SampleRate sampleRateBitMask;
+        /** Bits per sample for encoder */
+        BitsPerSample bitsPerSampleBitMask;
+        /** Channel mode for encoder */
+        ChannelMode channelModeBitMask;
+    } pcmDataCapability;
+
+    uint64_t codec_specific_1;
+    uint64_t codec_specific_2;
+    uint64_t codec_specific_3;
+    uint64_t codec_specific_4;
+};
