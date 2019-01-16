@@ -1,0 +1,485 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e2bf80ea_7f720c37",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-16T00:02:32Z",
+      "side": 1,
+      "message": "For now, let\u0027s make all software encoding paths mandatory. Hardware offload can be optional.",
+      "range": {
+        "startLine": 55,
+        "startChar": 17,
+        "endLine": 55,
+        "endChar": 47
+      },
+      "revId": "41d0ded31332015f3d4ea75b216ec33f50d687fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25af9e17_ad42bffa",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-16T00:02:32Z",
+      "side": 1,
+      "message": "nit: could we try to reduce the number of nesting layers of this code? \nE.g.\n- Use a variable to hold the return value of providers_factory_-\u003eopenProvider() and check .isOK() in the next line. \n- Move the lambda into a separate variable before the  openProvider() call.",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 21
+      },
+      "revId": "41d0ded31332015f3d4ea75b216ec33f50d687fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5fd3e0ef_77ee8133",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-16T00:02:32Z",
+      "side": 1,
+      "message": "Since the callback is invoked asynchronously, is the lambda guaranteed to be executed? \n\nMaybe we need something to make sure that the lambda is executed within a given amount of time.   Something like STL promise/future or something in VTS test base like what was done in VtsHalBluetoothV1_0TargetTest.cpp",
+      "revId": "41d0ded31332015f3d4ea75b216ec33f50d687fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d634ccd3_9dbd8fd2",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-16T00:02:32Z",
+      "side": 1,
+      "message": "Same comment about async callback checking.",
+      "range": {
+        "startLine": 141,
+        "startChar": 27,
+        "endLine": 141,
+        "endChar": 69
+      },
+      "revId": "41d0ded31332015f3d4ea75b216ec33f50d687fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "649fc5b0_2aff8394",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-16T00:02:32Z",
+      "side": 1,
+      "message": "This Status must be SUCCESS for A2DP software encoding.",
+      "revId": "41d0ded31332015f3d4ea75b216ec33f50d687fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38e747ab_48750955",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-16T00:02:32Z",
+      "side": 1,
+      "message": "Software encoding is mandatory, we shouldn\u0027t allow audio_provider to ever to nullptr",
+      "revId": "41d0ded31332015f3d4ea75b216ec33f50d687fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4cb8c17_b512ab75",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-16T00:02:32Z",
+      "side": 1,
+      "message": "This should be called last",
+      "revId": "41d0ded31332015f3d4ea75b216ec33f50d687fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d5c54e2_296dcde0",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-16T00:02:32Z",
+      "side": 1,
+      "message": "Is is possible to test how the audio HAL is handling replies from startStream()? \n\nA multi-HAL test where AudioHAL is the control interface and BluetoothAudioHAL is the interface being tested could be possible. We can explore this in a future patch.",
+      "range": {
+        "startLine": 177,
+        "startChar": 44,
+        "endLine": 177,
+        "endChar": 62
+      },
+      "revId": "41d0ded31332015f3d4ea75b216ec33f50d687fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4614b201_e2ac46f4",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-16T00:02:32Z",
+      "side": 1,
+      "message": "Same as above",
+      "range": {
+        "startLine": 182,
+        "startChar": 6,
+        "endLine": 182,
+        "endChar": 64
+      },
+      "revId": "41d0ded31332015f3d4ea75b216ec33f50d687fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1896c46_a30ca745",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-16T00:02:32Z",
+      "side": 1,
+      "message": "Same as above",
+      "revId": "41d0ded31332015f3d4ea75b216ec33f50d687fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc02fbe8_8d015fcc",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-16T00:02:32Z",
+      "side": 1,
+      "message": "Software encoding should be mandatory, we shouldn\u0027t skip here",
+      "range": {
+        "startLine": 211,
+        "startChar": 0,
+        "endLine": 213,
+        "endChar": 0
+      },
+      "revId": "41d0ded31332015f3d4ea75b216ec33f50d687fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e50840ae_4d5d43a4",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-16T00:02:32Z",
+      "side": 1,
+      "message": "Please remove",
+      "range": {
+        "startLine": 238,
+        "startChar": 0,
+        "endLine": 239,
+        "endChar": 41
+      },
+      "revId": "41d0ded31332015f3d4ea75b216ec33f50d687fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b419b88_339c8cff",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-16T00:02:32Z",
+      "side": 1,
+      "message": "This can also be asynchronous.",
+      "range": {
+        "startLine": 258,
+        "startChar": 20,
+        "endLine": 262,
+        "endChar": 22
+      },
+      "revId": "41d0ded31332015f3d4ea75b216ec33f50d687fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d101748c_64667504",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-16T00:02:32Z",
+      "side": 1,
+      "message": "Could we add a helper function in the BluetoothAudioProvidersFactoryHidlTest base class?\n\nSuch as:\n\nvoid OpenProvider(SessionType sessionType, bool is_mandatory);",
+      "range": {
+        "startLine": 282,
+        "startChar": 27,
+        "endLine": 282,
+        "endChar": 71
+      },
+      "revId": "41d0ded31332015f3d4ea75b216ec33f50d687fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05057ee0_defe0377",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-16T00:02:32Z",
+      "side": 1,
+      "message": "This can be defined in the base class",
+      "range": {
+        "startLine": 308,
+        "startChar": 2,
+        "endLine": 308,
+        "endChar": 26
+      },
+      "revId": "41d0ded31332015f3d4ea75b216ec33f50d687fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "176fe9c3_81fa8be1",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-16T00:02:32Z",
+      "side": 1,
+      "message": "These all can be in the base class",
+      "range": {
+        "startLine": 340,
+        "startChar": 0,
+        "endLine": 346,
+        "endChar": 46
+      },
+      "revId": "41d0ded31332015f3d4ea75b216ec33f50d687fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72cab357_3c6bd721",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-16T00:02:32Z",
+      "side": 1,
+      "message": "Also need to handle the async case",
+      "range": {
+        "startLine": 377,
+        "startChar": 25,
+        "endLine": 380,
+        "endChar": 27
+      },
+      "revId": "41d0ded31332015f3d4ea75b216ec33f50d687fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1263762a_7b9871d6",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-16T00:02:32Z",
+      "side": 1,
+      "message": "Status should always be SUCCESS",
+      "revId": "41d0ded31332015f3d4ea75b216ec33f50d687fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc994807_bed77cbb",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-16T00:02:32Z",
+      "side": 1,
+      "message": "Shouldn\u0027t be needed since software encoding is required",
+      "revId": "41d0ded31332015f3d4ea75b216ec33f50d687fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1e1ad48_12b10e5e",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-16T00:02:32Z",
+      "side": 1,
+      "message": "Can also be defined in the base class",
+      "revId": "41d0ded31332015f3d4ea75b216ec33f50d687fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4d14c01_ae8d6fd8",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-16T00:02:32Z",
+      "side": 1,
+      "message": "Can be moved to base class",
+      "range": {
+        "startLine": 530,
+        "startChar": 0,
+        "endLine": 537,
+        "endChar": 2
+      },
+      "revId": "41d0ded31332015f3d4ea75b216ec33f50d687fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70119ba0_58e19726",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 545,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-16T00:02:32Z",
+      "side": 1,
+      "message": "Please remove",
+      "range": {
+        "startLine": 544,
+        "startChar": 2,
+        "endLine": 545,
+        "endChar": 41
+      },
+      "revId": "41d0ded31332015f3d4ea75b216ec33f50d687fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37f80ef7_1a58ca63",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-16T00:02:32Z",
+      "side": 1,
+      "message": "Please remove",
+      "range": {
+        "startLine": 571,
+        "startChar": 0,
+        "endLine": 572,
+        "endChar": 41
+      },
+      "revId": "41d0ded31332015f3d4ea75b216ec33f50d687fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
