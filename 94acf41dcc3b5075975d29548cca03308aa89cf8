@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d83c6482_8473901b",
+        "filename": "radio/1.4/IRadioResponse.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-01-16T23:51:54Z",
+      "side": 0,
+      "message": "btw, shouldn\u0027t this come with a test change?",
+      "range": {
+        "startLine": 36,
+        "startChar": 9,
+        "endLine": 36,
+        "endChar": 29
+      },
+      "revId": "94acf41dcc3b5075975d29548cca03308aa89cf8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
