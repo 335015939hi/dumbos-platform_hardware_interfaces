@@ -315,6 +315,753 @@
       "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ef65ddc_3bf45c31",
+        "filename": "bluetooth/audio/2.0/default/BluetoothAudioProvidersFactory.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-16T20:41:04Z",
+      "side": 1,
+      "message": "Is this needed?  I thought if they were static, you didn\u0027t have to instantiate them here.",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 62
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1cdbcbf7_7b696347",
+        "filename": "bluetooth/audio/2.0/default/BluetoothAudioProvidersFactory.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-16T20:41:04Z",
+      "side": 1,
+      "message": "I thought this was only needed if there is no service.  I\u0027d rather remove it if we can.",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 1
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e58e8e77_a9be40d5",
+        "filename": "bluetooth/audio/2.0/default/BluetoothAudioProvidersFactory.h",
+        "patchSetId": 33
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-16T20:41:04Z",
+      "side": 1,
+      "message": "? \nCan there be more than one of each type?\nIs a hash_map the right data structure here?  There are very few types, and I\u0027m expecting there to only be a few providers.",
+      "range": {
+        "startLine": 44,
+        "startChar": 2,
+        "endLine": 44,
+        "endChar": 63
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9996fa54_eaef5b25",
+        "filename": "bluetooth/audio/2.0/default/BluetoothAudioProvidersFactory.h",
+        "patchSetId": 33
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-16T20:41:04Z",
+      "side": 1,
+      "message": "Why Cache?",
+      "range": {
+        "startLine": 45,
+        "startChar": 42,
+        "endLine": 45,
+        "endChar": 47
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "191dfbd3_cffbafba",
+        "filename": "bluetooth/audio/2.0/default/HearingAidAudioProvider.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-16T20:41:04Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 67
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f2331e8_74066b72",
+        "filename": "bluetooth/audio/2.0/default/HearingAidAudioProvider.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-16T20:41:04Z",
+      "side": 1,
+      "message": "can we put this in the constructor?",
+      "range": {
+        "startLine": 41,
+        "startChar": 2,
+        "endLine": 41,
+        "endChar": 15
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9870a58d_36c9f9cc",
+        "filename": "bluetooth/audio/2.0/default/HearingAidAudioProvider.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-16T20:41:04Z",
+      "side": 1,
+      "message": "session_type_ ?",
+      "range": {
+        "startLine": 42,
+        "startChar": 25,
+        "endLine": 42,
+        "endChar": 76
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3352865_f7b0d13d",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-16T20:41:04Z",
+      "side": 1,
+      "message": "c++ style comments and constants please",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 0
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a405504d_c4901aad",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-16T20:41:04Z",
+      "side": 1,
+      "message": "ReportSessionStatus (and session_changed_cb_) only gets called if there is no error, right?  Let\u0027s simplify the comments to make them more accurate or remove them.",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 66
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "064e027b_e3f872a3",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-16T20:41:04Z",
+      "side": 1,
+      "message": "UpdateCtrlPath always returns true.\n\nI\u0027m not sure what else is going on here.  Will UpdateCtrlPath return false in the future?\n\nIt seems like it would be much simpler not to use a function here, since it\u0027s just one line\nstack_iface_ \u003d stack_iface;",
+      "range": {
+        "startLine": 75,
+        "startChar": 5,
+        "endLine": 75,
+        "endChar": 35
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c892b915_d8fe1819",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-16T20:41:04Z",
+      "side": 1,
+      "message": "same comment as UpdateCtrlPath",
+      "range": {
+        "startLine": 80,
+        "startChar": 14,
+        "endLine": 80,
+        "endChar": 33
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e93b82f7_a0f2837f",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-16T20:41:04Z",
+      "side": 1,
+      "message": "this",
+      "range": {
+        "startLine": 107,
+        "startChar": 5,
+        "endLine": 107,
+        "endChar": 10
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5d9c810_e2779860",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-16T20:41:04Z",
+      "side": 1,
+      "message": "How many observers will there normally be?",
+      "range": {
+        "startLine": 191,
+        "startChar": 0,
+        "endLine": 192,
+        "endChar": 74
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aee15654_7b4ed252",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-16T20:41:04Z",
+      "side": 1,
+      "message": "if (index \u003d\u003d OBSERVERS_SIZE_) {    \n  LOG(ERROR) \u003c\u003c __func__ \u003c\u003c \" - SessionType\u003d\" \u003c\u003c toString(session_type_)\n             \u003c\u003c \" has \" \u003c\u003c OBSERVERS_SIZE_\n             \u003c\u003c \" port state observers already\";\n  return OBSERVERS_COOKIES_UNDEF;\n}",
+      "range": {
+        "startLine": 205,
+        "startChar": 0,
+        "endLine": 210,
+        "endChar": 3
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b07d3b4_9d298f75",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-16T20:41:04Z",
+      "side": 1,
+      "message": "if (observers_.erase(cookie) !\u003d 1) {",
+      "range": {
+        "startLine": 222,
+        "startChar": 0,
+        "endLine": 224,
+        "endChar": 10
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3d5e374_3f5f931b",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-16T20:41:04Z",
+      "side": 1,
+      "message": "To reduce nesting, we usually return from errors as early as possible:\n\n  std::lock_guard\u003cstd::recursive_mutex\u003e guard(mutex_);\t\n  if (!IsSessionReady()) {\n    LOG(DEBUG) \u003c\u003c __func__ \u003c\u003c \" - SessionType\u003d\" \u003c\u003c toString(session_type_)\t\n               \u003c\u003c \" has NO session\";\n    return false;\n  }\n\n  auto hal_retval \u003d stack_iface_-\u003estartStream();\t\n  if (!hal_retval.isOk()) {\n    LOG(WARNING) \u003c\u003c __func__ \u003c\u003c \" - IBluetoothAudioPort SessionType\u003d\"\n                 \u003c\u003c toString(session_type_) \u003c\u003c \" corrupted\";\n    return false\n  }\n\t\n  return true;",
+      "range": {
+        "startLine": 244,
+        "startChar": 0,
+        "endLine": 257,
+        "endChar": 15
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5bbf94c_c99fd5f9",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-16T20:41:04Z",
+      "side": 1,
+      "message": "std::lock_guard\u003cstd::recursive_mutex\u003e guard(mutex_);\n  if (!IsSessionReady()) {\n    LOG(DEBUG) \u003c\u003c __func__ \u003c\u003c \" - SessionType\u003d\" \u003c\u003c toString(session_type_)\n               \u003c\u003c \" has NO session\";\n    return false;\n  }\n\n  auto hal_retval \u003d stack_iface_-\u003esuspendStream();\n  if (hal_retval.isOk()) {\n    LOG(WARNING) \u003c\u003c __func__ \u003c\u003c \" - IBluetoothAudioPort SessionType\u003d\"\n                 \u003c\u003c toString(session_type_) \u003c\u003c \" corrupted\";\n    return false;\n  }\n\n  return true;",
+      "range": {
+        "startLine": 261,
+        "startChar": 0,
+        "endLine": 274,
+        "endChar": 15
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad3302f7_913c9707",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-16T20:41:04Z",
+      "side": 1,
+      "message": "?\n\nDo you mean \"call failed\", or is there something else that could be corrupted?",
+      "range": {
+        "startLine": 283,
+        "startChar": 49,
+        "endLine": 283,
+        "endChar": 61
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ffdc008_edaed442",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-16T20:41:04Z",
+      "side": 1,
+      "message": "if (!IsSessionReady()) {\t\n  LOG(DEBUG) \u003c\u003c __func__ \u003c\u003c \" - SessionType\u003d\" \u003c\u003c toString(session_type_)\t\n             \u003c\u003c \" has NO session\";\n  return false;\n}",
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a7af1c2_dc3c823d",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-16T20:41:04Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 318,
+        "startChar": 0,
+        "endLine": 322,
+        "endChar": 3
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1db48985_2e9958a6",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-16T20:41:04Z",
+      "side": 1,
+      "message": "same thing",
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96efb1f9_9a7ad957",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-16T20:41:04Z",
+      "side": 1,
+      "message": "return totalWritten; ?",
+      "range": {
+        "startLine": 387,
+        "startChar": 8,
+        "endLine": 387,
+        "endChar": 14
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd582903_51316587",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-16T20:41:04Z",
+      "side": 1,
+      "message": "No need for the else, since there\u0027s a break.",
+      "range": {
+        "startLine": 388,
+        "startChar": 8,
+        "endLine": 388,
+        "endChar": 14
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "09014ce1_0ed816c4",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-16T20:41:04Z",
+      "side": 1,
+      "message": "return totalWritten; ?",
+      "range": {
+        "startLine": 398,
+        "startChar": 6,
+        "endLine": 398,
+        "endChar": 12
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "420efd1e_0d5e99ad",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-16T20:41:04Z",
+      "side": 1,
+      "message": "I would prefer this to be a static variable in the class.\n\nCould you help me understand why it\u0027s here?",
+      "range": {
+        "startLine": 408,
+        "startChar": 2,
+        "endLine": 408,
+        "endChar": 8
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "482a79f8_75b51fcc",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.h",
+        "patchSetId": 33
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-16T20:41:04Z",
+      "side": 1,
+      "message": "cookie?",
+      "range": {
+        "startLine": 66,
+        "startChar": 12,
+        "endLine": 66,
+        "endChar": 19
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96ccded2_76d76de5",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.h",
+        "patchSetId": 33
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-16T20:41:04Z",
+      "side": 1,
+      "message": "uint16_t cookie",
+      "range": {
+        "startLine": 69,
+        "startChar": 21,
+        "endLine": 69,
+        "endChar": 44
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5170180_3787de76",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.h",
+        "patchSetId": 33
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-16T20:41:04Z",
+      "side": 1,
+      "message": "uint16_t cookie\n\nConst reference doesn\u0027t save anything for small data types",
+      "range": {
+        "startLine": 76,
+        "startChar": 21,
+        "endLine": 76,
+        "endChar": 44
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5629a99_bc155e95",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.h",
+        "patchSetId": 33
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-16T20:41:04Z",
+      "side": 1,
+      "message": "The Bluetooth stack",
+      "range": {
+        "startLine": 83,
+        "startChar": 5,
+        "endLine": 83,
+        "endChar": 32
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a21970cb_ca18640d",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.h",
+        "patchSetId": 33
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-16T20:41:04Z",
+      "side": 1,
+      "message": "The",
+      "range": {
+        "startLine": 89,
+        "startChar": 5,
+        "endLine": 89,
+        "endChar": 17
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4220560_4fd522e7",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.h",
+        "patchSetId": 33
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-16T20:41:04Z",
+      "side": 1,
+      "message": "cookie",
+      "range": {
+        "startLine": 100,
+        "startChar": 13,
+        "endLine": 100,
+        "endChar": 20
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1734b780_d2d6db53",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.h",
+        "patchSetId": 33
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-16T20:41:04Z",
+      "side": 1,
+      "message": "re-enter",
+      "range": {
+        "startLine": 127,
+        "startChar": 48,
+        "endLine": 127,
+        "endChar": 62
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e75848b7_ae8cf1f1",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.h",
+        "patchSetId": 33
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-16T20:41:04Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 131,
+        "startChar": 39,
+        "endLine": 131,
+        "endChar": 42
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
