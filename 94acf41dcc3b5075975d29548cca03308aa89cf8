@@ -22,6 +22,30 @@
       "revId": "94acf41dcc3b5075975d29548cca03308aa89cf8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b818bc52_1945fafe",
+        "filename": "radio/1.4/IRadioResponse.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1351305
+      },
+      "writtenOn": "2019-01-16T23:54:29Z",
+      "side": 0,
+      "message": "Yes. But I don\u0027t think test cases for these new APIs are written/ready yet.",
+      "parentUuid": "d83c6482_8473901b",
+      "range": {
+        "startLine": 36,
+        "startChar": 9,
+        "endLine": 36,
+        "endChar": 29
+      },
+      "revId": "94acf41dcc3b5075975d29548cca03308aa89cf8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
