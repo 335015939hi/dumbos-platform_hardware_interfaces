@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8d00cc0f_4a1831b7",
+        "filename": "power/stats/1.0/default/PowerStats.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1241955
+      },
+      "writtenOn": "2019-01-16T18:40:46Z",
+      "side": 1,
+      "message": "So sorry I failed to catch this in the pixelpowerstats library (where it also says \"Subsystem\").  Since not all entities are subsystems, should this be \"Entity\" instead (in both places)?",
+      "range": {
+        "startLine": 433,
+        "startChar": 60,
+        "endLine": 433,
+        "endChar": 69
+      },
+      "revId": "768fea407b38e875a53da04d387973f797fd701a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1b8ba9b_9738b6f3",
+        "filename": "power/stats/1.0/default/service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1241955
+      },
+      "writtenOn": "2019-01-16T18:40:46Z",
+      "side": 1,
+      "message": "nit: spaces inside braces",
+      "range": {
+        "startLine": 47,
+        "startChar": 49,
+        "endLine": 47,
+        "endChar": 82
+      },
+      "revId": "768fea407b38e875a53da04d387973f797fd701a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afaeb94a_9b5aa417",
+        "filename": "power/stats/1.0/default/service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1241955
+      },
+      "writtenOn": "2019-01-16T18:40:46Z",
+      "side": 1,
+      "message": "I\u0027m not sure if this is the right thing to do or not, but would it be worth adding a comment noting that the numbers in this section would come from actual tracked stats in a \"real\" implementation?",
+      "range": {
+        "startLine": 49,
+        "startChar": 8,
+        "endLine": 49,
+        "endChar": 77
+      },
+      "revId": "768fea407b38e875a53da04d387973f797fd701a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d44ca6b_d65ea77d",
+        "filename": "power/stats/1.0/default/service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1241955
+      },
+      "writtenOn": "2019-01-16T18:40:46Z",
+      "side": 1,
+      "message": "nit: format consistently (e.g. break up line 49 and move all of the \".*\" initializers for stateResidencyData[0] to the same indentation as lines 54 - 57)",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 10
+      },
+      "revId": "768fea407b38e875a53da04d387973f797fd701a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a3365d8_d1e98fab",
+        "filename": "power/stats/1.0/default/service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1241955
+      },
+      "writtenOn": "2019-01-16T18:40:46Z",
+      "side": 1,
+      "message": "nit: space after the brace",
+      "range": {
+        "startLine": 64,
+        "startChar": 16,
+        "endLine": 64,
+        "endChar": 18
+      },
+      "revId": "768fea407b38e875a53da04d387973f797fd701a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9488b922_43247912",
+        "filename": "power/stats/1.0/default/service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1241955
+      },
+      "writtenOn": "2019-01-16T18:40:46Z",
+      "side": 1,
+      "message": "nit: space inside each inner-most brace (although I think that\u0027s going to push the last line past 100, so you could optionally also move a few of the stacked-up closing braces to a new line?  I\u0027m not honestly confident about what the most relevant coding style spec would want to see here.",
+      "range": {
+        "startLine": 66,
+        "startChar": 25,
+        "endLine": 67,
+        "endChar": 98
+      },
+      "revId": "768fea407b38e875a53da04d387973f797fd701a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
