@@ -22,6 +22,30 @@
       "revId": "0855b5e9a25a8f51390134fec0152e370c777956",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93160ff0_307246c8",
+        "filename": "radio/1.4/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 1469,
+      "author": {
+        "id": 1351305
+      },
+      "writtenOn": "2019-01-16T22:06:07Z",
+      "side": 1,
+      "message": "Got it. Removed the errorDescription change since there\u0027s no pressure for adding new error codes/categories, and OEM can log on their end for debugging.\n\nWould put suitable subcategories/descriptions enum, if found, in a different CL.",
+      "parentUuid": "f858678b_120c7de8",
+      "range": {
+        "startLine": 1469,
+        "startChar": 11,
+        "endLine": 1469,
+        "endChar": 27
+      },
+      "revId": "0855b5e9a25a8f51390134fec0152e370c777956",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
