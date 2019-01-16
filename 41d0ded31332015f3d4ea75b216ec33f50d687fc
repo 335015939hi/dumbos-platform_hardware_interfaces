@@ -65,6 +65,24 @@
     },
     {
       "key": {
+        "uuid": "cee56378_420ec1fd",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-16T03:18:54Z",
+      "side": 1,
+      "message": "I forgot it could be returned without running openProvider_cb and thanks for remainder.",
+      "parentUuid": "5fd3e0ef_77ee8133",
+      "revId": "41d0ded31332015f3d4ea75b216ec33f50d687fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d634ccd3_9dbd8fd2",
         "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
         "patchSetId": 20
