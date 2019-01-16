@@ -48,7 +48,7 @@ interface IBluetoothAudioProvider {
      * @return dataMQ The fast message queue for audio data from this provider.
      *    Audio data will be in PCM format as specified by the
      *    codecConfig.pcmDataConfiguration parameter.
-     *    nullptr if streaming is offloaded to hardware or on failure.
+     *    Invalid if streaming is offloaded to hardware or on failure.
      */
     startSession(IBluetoothAudioPort hostIf, CodecConfiguration codecConfig)
                 generates (Status status, fmq_sync<uint8_t> dataMQ);
