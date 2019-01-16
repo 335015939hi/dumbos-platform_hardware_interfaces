@@ -25,6 +25,9 @@ import IBluetoothAudioProvider;
  * When the Bluetooth stack is ready to create an audio session, it must first
  * obtain the IBluetoothAudioProvider for that session type by calling
  * openProvider().
+ *
+ * Note: For HIDL APIs with a "generates" statement, the callback parameter used
+ * for return value must be invoked synchronously before the API call returns.
  */
 interface IBluetoothAudioProvidersFactory {
 
@@ -43,4 +46,18 @@ interface IBluetoothAudioProvidersFactory {
      */
     openProvider(SessionType sessionType)
         generates (Status status, IBluetoothAudioProvider provider);
+
+    /**
+     * Queries the codec capability of the given session type
+     *
+     * @param sessionType The session type (e.g.
+     *    A2DP_SOFTWARE_ENCODING_DATAPATH).
+     *
+     * @return status One of the following
+     *    SUCCESS if the Audio HAL successfully shares the capabilities of codec
+     *        with the given session type
+     *    FAILURE if the provider of the given session type is not supported by
+     *        hardware offload or any failure
+     */
+    getOffloadCodecCapabilities(SessionType sessionType) generates (Status status, vec<CodecCapability> codecCapabilities);
 };
