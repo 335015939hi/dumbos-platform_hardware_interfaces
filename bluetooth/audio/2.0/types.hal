@@ -161,10 +161,50 @@ struct CodecConfiguration {
                  * 0x00 - High
                  * 0x01 - Mid
                  * 0x02 - Low
-                 * 0x7F - ABR (Adaptive Bit Rate)
+                 * 0x7F - ABR (Adaptive Bit Rate) Offload
                  */
                 uint8_t bitrateIndex;
             } ldacData;
         } codecSpecific;
     } encodedDataConfiguration;
+};
+
+struct CodecCapability {
+    /** Bluetooth A2DP codec */
+    CodecType codecType;
+
+    /** Audio PCM data capabilities */
+    struct PcmDataCapability {
+        /** Sampling rate for encoder */
+        SampleRate sampleRateBitmask;
+        /** Bits per sample for encoder */
+        BitsPerSample bitsPerSampleBitmask;
+        /** Channel mode for encoder */
+        ChannelMode channelModeBitmask;
+    } pcmDataCapability;
+
+    /** Content protection by SCMS-T */
+    bool isScmstSupported;
+    safe_union CodecSpecific {
+        struct SbcDataCapability {
+            /** Reserved: 4 bits | Channel Mode: 4 bits */
+            SbcChannelMode channelModeBitmask;
+            /** Block length: 4 bits | Subbands: 2 bits | Allocation Method: 2 bits */
+            uint8_t codecParametersBitmask;
+            /** Minimum bitpool value */
+            uint8_t minBitpool;
+            /** Maximum bitpool value */
+            uint8_t maxBitpool;
+        } sbcDataCapability;
+        struct AacDataCapability {
+            /** AAC Object Type */
+            AacObjectType aacObjectTypeBitmask;
+            /** True if Variable Bit Rate is supported */
+            bool isVariableBitRateSupported;
+        } aacDataCapability;
+        struct LdacDataCapability {
+            /** Reserved: 5 bits | Channel Mode: 3 bits */
+            LdacChannelMode channelModeBitmask;
+        } ldacDataCapability;
+    } codecSpecific;
 };
