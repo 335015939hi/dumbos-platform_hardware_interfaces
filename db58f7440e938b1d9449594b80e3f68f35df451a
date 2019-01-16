@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "30499cac_ffca3cb0",
+        "filename": "identity_credential/1.0/IIdentityCredential.hal",
+        "patchSetId": 14
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-01-16T14:48:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf8166b5_193d1a26",
+      "range": {
+        "startLine": 66,
+        "startChar": 6,
+        "endLine": 67,
+        "endChar": 87
+      },
+      "revId": "db58f7440e938b1d9449594b80e3f68f35df451a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "515e152e_e02d2642",
         "filename": "identity_credential/1.0/IWritableIdentityCredential.hal",
         "patchSetId": 14
@@ -45,6 +69,30 @@
       "revId": "db58f7440e938b1d9449594b80e3f68f35df451a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "049979f1_3b75f442",
+        "filename": "identity_credential/1.0/IWritableIdentityCredential.hal",
+        "patchSetId": 14
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-01-16T14:48:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "515e152e_e02d2642",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 69
+      },
+      "revId": "db58f7440e938b1d9449594b80e3f68f35df451a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "9b4cd326_0d3f113c",
+        "filename": "identity_credential/1.0/IWritableIdentityCredential.hal",
+        "patchSetId": 14
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-01-16T14:48:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ab6c258_76be7032",
+      "range": {
+        "startLine": 74,
+        "startChar": 25,
+        "endLine": 74,
+        "endChar": 33
+      },
+      "revId": "db58f7440e938b1d9449594b80e3f68f35df451a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a3a7ea4_a1c03358",
         "filename": "identity_credential/1.0/IWritableIdentityCredential.hal",
         "patchSetId": 14
@@ -91,6 +163,30 @@
       "revId": "db58f7440e938b1d9449594b80e3f68f35df451a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b8d4e65_b718e254",
+        "filename": "identity_credential/1.0/IWritableIdentityCredential.hal",
+        "patchSetId": 14
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-01-16T14:48:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a3a7ea4_a1c03358",
+      "range": {
+        "startLine": 222,
+        "startChar": 4,
+        "endLine": 222,
+        "endChar": 24
+      },
+      "revId": "db58f7440e938b1d9449594b80e3f68f35df451a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "61d2277b_574ce463",
+        "filename": "identity_credential/1.0/IWritableIdentityCredential.hal",
+        "patchSetId": 14
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-01-16T14:48:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a57aad9c_9cc07218",
+      "range": {
+        "startLine": 223,
+        "startChar": 54,
+        "endLine": 223,
+        "endChar": 64
+      },
+      "revId": "db58f7440e938b1d9449594b80e3f68f35df451a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "de7b163b_6cd42dd9",
         "filename": "identity_credential/1.0/types.hal",
         "patchSetId": 14
@@ -137,6 +257,30 @@
       "revId": "db58f7440e938b1d9449594b80e3f68f35df451a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c874768_26161f87",
+        "filename": "identity_credential/1.0/types.hal",
+        "patchSetId": 14
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-01-16T14:48:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de7b163b_6cd42dd9",
+      "range": {
+        "startLine": 128,
+        "startChar": 51,
+        "endLine": 128,
+        "endChar": 78
+      },
+      "revId": "db58f7440e938b1d9449594b80e3f68f35df451a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "77b8171b_04c1f828",
+        "filename": "identity_credential/1.0/types.hal",
+        "patchSetId": 14
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-01-16T14:48:32Z",
+      "side": 1,
+      "message": "Actually, I think this is a desirable feature, though the way it\u0027s written is ambiguous.  I tried to fix the ambiguity.",
+      "parentUuid": "d394e709_5235842c",
+      "range": {
+        "startLine": 140,
+        "startChar": 68,
+        "endLine": 143,
+        "endChar": 45
+      },
+      "revId": "db58f7440e938b1d9449594b80e3f68f35df451a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "21e7068a_f5ca9233",
         "filename": "identity_credential/1.0/types.hal",
         "patchSetId": 14
@@ -183,6 +351,30 @@
       "revId": "db58f7440e938b1d9449594b80e3f68f35df451a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40e55d64_dd6c4ef1",
+        "filename": "identity_credential/1.0/types.hal",
+        "patchSetId": 14
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-01-16T14:48:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21e7068a_f5ca9233",
+      "range": {
+        "startLine": 160,
+        "startChar": 21,
+        "endLine": 161,
+        "endChar": 34
+      },
+      "revId": "db58f7440e938b1d9449594b80e3f68f35df451a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
