@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "9fe2cd82_5cbcc0ac",
+        "filename": "camera/device/3.4/default/ExternalCameraDevice.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 669,
+      "author": {
+        "id": 1406219
+      },
+      "writtenOn": "2019-01-17T12:46:44Z",
+      "side": 1,
+      "message": "How about adding an optional tag in the xml file called \u0027DepthFpsList\u0027, if the tag exists then we can support different fps lists in the External Provider for MJPG and Depth.\nis this solution acceptable?",
+      "parentUuid": "90630ef7_89ad1686",
+      "range": {
+        "startLine": 666,
+        "startChar": 0,
+        "endLine": 669,
+        "endChar": 73
+      },
+      "revId": "1a14dc9201f94dec4803dea7e142fe6a741a27c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f2fc4523_cdd9ca46",
         "filename": "camera/device/3.4/default/ExternalCameraDevice.cpp",
         "patchSetId": 3
