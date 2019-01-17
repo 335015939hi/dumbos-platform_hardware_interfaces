@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b9a9afd9_03918d99",
+        "filename": "radio/1.4/vts/OWNERS",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1072728
+      },
+      "writtenOn": "2019-01-17T01:50:17Z",
+      "side": 1,
+      "message": "there\u0027s a way to create one using regex so that all current and future vts dirs can be covered.",
+      "range": {
+        "startLine": 2,
+        "startChar": 12,
+        "endLine": 2,
+        "endChar": 18
+      },
+      "revId": "f01b91895ac02f757bc0700c32bc5b8800d885ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
