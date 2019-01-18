@@ -1,0 +1,274 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "85c15bce_45a8cd03",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-18T02:58:15Z",
+      "side": 1,
+      "message": "OpenProviderHelper()",
+      "range": {
+        "startLine": 135,
+        "startChar": 7,
+        "endLine": 135,
+        "endChar": 19
+      },
+      "revId": "d83e35c294b42043bed94d52913ef627e6ad1373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aed80d31_b83c4c83",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-18T02:58:15Z",
+      "side": 1,
+      "message": "Can we replace default values with a flag to check if callback is invoked?\n\nlike: \n\nbool callback_is_executed \u003d false;",
+      "revId": "d83e35c294b42043bed94d52913ef627e6ad1373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14155b76_676d21c6",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-18T02:58:15Z",
+      "side": 1,
+      "message": "Let\u0027s add a comment on top of our API definitions:\n/*\nFor HIDL APIs with a \"generates\" statement, the return value callback function must be invoked synchronously before the API call returns.\n*/",
+      "range": {
+        "startLine": 152,
+        "startChar": 43,
+        "endLine": 152,
+        "endChar": 55
+      },
+      "revId": "d83e35c294b42043bed94d52913ef627e6ad1373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6db67157_4e86f561",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-18T02:58:15Z",
+      "side": 1,
+      "message": "Not needed",
+      "range": {
+        "startLine": 159,
+        "startChar": 6,
+        "endLine": 159,
+        "endChar": 38
+      },
+      "revId": "d83e35c294b42043bed94d52913ef627e6ad1373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aaba61d9_856f09cd",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-18T02:58:15Z",
+      "side": 1,
+      "message": "Not needed",
+      "range": {
+        "startLine": 165,
+        "startChar": 6,
+        "endLine": 165,
+        "endChar": 38
+      },
+      "revId": "d83e35c294b42043bed94d52913ef627e6ad1373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa6116b5_caa6b7f0",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-18T02:58:15Z",
+      "side": 1,
+      "message": "Please remove",
+      "range": {
+        "startLine": 171,
+        "startChar": 4,
+        "endLine": 171,
+        "endChar": 35
+      },
+      "revId": "d83e35c294b42043bed94d52913ef627e6ad1373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bcd2e589_61692aca",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-18T02:58:15Z",
+      "side": 1,
+      "message": "Let\u0027s use a flag",
+      "range": {
+        "startLine": 188,
+        "startChar": 23,
+        "endLine": 188,
+        "endChar": 36
+      },
+      "revId": "d83e35c294b42043bed94d52913ef627e6ad1373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0954b69_693f8447",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-18T02:58:15Z",
+      "side": 1,
+      "message": "Could we replace the content of this loop with a OpenProvider() call?",
+      "range": {
+        "startLine": 196,
+        "startChar": 4,
+        "endLine": 220,
+        "endChar": 5
+      },
+      "revId": "d83e35c294b42043bed94d52913ef627e6ad1373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60d4b410_0f2043fc",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-18T02:58:15Z",
+      "side": 1,
+      "message": "TODO: Let\u0027s check if we can find out supported codec through VTS and verify every codec supported by offload\n\nIn software encoding: we should verify if all of our local capabilities are supported.\n\nAlso, maybe we should do some fuzzy test by passing in invalid parameters to codec config for software encoding and verify that it is always ignored by the software HAL.",
+      "range": {
+        "startLine": 248,
+        "startChar": 2,
+        "endLine": 249,
+        "endChar": 73
+      },
+      "revId": "d83e35c294b42043bed94d52913ef627e6ad1373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee6abd27_a4c3b06f",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-18T02:58:15Z",
+      "side": 1,
+      "message": "TODO: Let\u0027s find ways to tell if there is any HW offload supported codecs. If there is, then this is required.",
+      "range": {
+        "startLine": 331,
+        "startChar": 0,
+        "endLine": 332,
+        "endChar": 41
+      },
+      "revId": "d83e35c294b42043bed94d52913ef627e6ad1373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb10c005_65b1c621",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-18T02:58:15Z",
+      "side": 1,
+      "message": "Let\u0027s use a flag for this as well",
+      "range": {
+        "startLine": 384,
+        "startChar": 23,
+        "endLine": 384,
+        "endChar": 36
+      },
+      "revId": "d83e35c294b42043bed94d52913ef627e6ad1373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2a22f99_0c9cdd28",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-18T02:58:15Z",
+      "side": 1,
+      "message": "use a flag",
+      "range": {
+        "startLine": 425,
+        "startChar": 23,
+        "endLine": 425,
+        "endChar": 36
+      },
+      "revId": "d83e35c294b42043bed94d52913ef627e6ad1373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
