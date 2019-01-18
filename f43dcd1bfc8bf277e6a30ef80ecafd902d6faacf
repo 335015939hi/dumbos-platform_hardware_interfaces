@@ -1664,6 +1664,30 @@
     },
     {
       "key": {
+        "uuid": "f1628013_2576fbb1",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-18T20:26:29Z",
+      "side": 1,
+      "message": "There is a case before that some carkits sends abnormal MTU and caused AAC glitch. If we limit the value here for such case, the Audio encoder has no chance to correct it but Bluetooth stack needs to reject carkits and more IOP may be encountered.\nWhat I prefer is to check the configuration what we use in each codecs currently (but not aptX since it is not builid-in by default).",
+      "parentUuid": "d44b4264_44339bb6",
+      "range": {
+        "startLine": 304,
+        "startChar": 0,
+        "endLine": 308,
+        "endChar": 65
+      },
+      "revId": "f43dcd1bfc8bf277e6a30ef80ecafd902d6faacf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5ac3584e_bfab7e84",
         "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
         "patchSetId": 19

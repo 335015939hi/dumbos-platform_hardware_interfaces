@@ -250,6 +250,30 @@
     },
     {
       "key": {
+        "uuid": "a08cc4f5_00b14772",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-18T20:26:29Z",
+      "side": 1,
+      "message": "I am worry in case if Audio HAL supports an AOSP unknown codec, should we reject it?\nShould we allow vendor to add extra codec and Android GSI just ignore it?",
+      "parentUuid": "ee6abd27_a4c3b06f",
+      "range": {
+        "startLine": 331,
+        "startChar": 0,
+        "endLine": 332,
+        "endChar": 41
+      },
+      "revId": "d83e35c294b42043bed94d52913ef627e6ad1373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bb10c005_65b1c621",
         "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
         "patchSetId": 21
