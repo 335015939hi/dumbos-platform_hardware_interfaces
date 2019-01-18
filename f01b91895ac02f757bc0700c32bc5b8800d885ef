@@ -22,6 +22,30 @@
       "revId": "f01b91895ac02f757bc0700c32bc5b8800d885ef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c407b82_df50b85c",
+        "filename": "radio/1.4/vts/OWNERS",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1351305
+      },
+      "writtenOn": "2019-01-18T17:52:43Z",
+      "side": 1,
+      "message": "I see. I didn\u0027t know that. Where I can find more details?",
+      "parentUuid": "b9a9afd9_03918d99",
+      "range": {
+        "startLine": 2,
+        "startChar": 12,
+        "endLine": 2,
+        "endChar": 18
+      },
+      "revId": "f01b91895ac02f757bc0700c32bc5b8800d885ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
