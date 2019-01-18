@@ -203,6 +203,30 @@
     },
     {
       "key": {
+        "uuid": "97d82161_6f58763f",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-18T03:24:33Z",
+      "side": 1,
+      "message": "e.g.\n\nstruct CodecCapability {\n  CodecType codec_type;\n  // A bit field of supported SampleRate\n  uint32_t supported_sample_rates;\n  // OR\n  vec\u003cSampleRate\u003e supported_sample_rates;\n  // A bit field of supported BitsPerSample\n  uint8_t supported_bit_per_sample;\n  // OR\n  vec\u003cBitsPerSample\u003e supported_bit_per_sample;\n  // A bit field of supported ChannelMode\n  uint8_t supported_channel_modes;\n  // OR\n  vec\u003cChannelMode\u003e supported_channel_modes;\n  // TBD for other fields\n}\n\nIBluetoothAudioProvidersFactory::getSupportedOffloadCodecs(SessionType session_type) generates (Status status, hidl::vec\u003cCodecCapability\u003e supported_codecs)",
+      "parentUuid": "60d4b410_0f2043fc",
+      "range": {
+        "startLine": 248,
+        "startChar": 2,
+        "endLine": 249,
+        "endChar": 73
+      },
+      "revId": "d83e35c294b42043bed94d52913ef627e6ad1373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ee6abd27_a4c3b06f",
         "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
         "patchSetId": 21
