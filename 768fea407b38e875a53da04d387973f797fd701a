@@ -213,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "2b88c4a2_e3347fb0",
+        "filename": "power/stats/1.0/default/service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1432798
+      },
+      "writtenOn": "2019-01-18T23:46:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a3365d8_d1e98fab",
+      "range": {
+        "startLine": 64,
+        "startChar": 16,
+        "endLine": 64,
+        "endChar": 18
+      },
+      "revId": "768fea407b38e875a53da04d387973f797fd701a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9488b922_43247912",
         "filename": "power/stats/1.0/default/service.cpp",
         "patchSetId": 1
