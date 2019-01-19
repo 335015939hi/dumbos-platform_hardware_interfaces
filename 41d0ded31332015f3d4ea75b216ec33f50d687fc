@@ -149,6 +149,24 @@
     },
     {
       "key": {
+        "uuid": "d75ad30e_815d02fd",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-19T08:07:20Z",
+      "side": 1,
+      "message": "After tried, it has to be invoked synchronously before returned, or Audio HAL is aborted.\nF android.hardware.bluetooth.audio@2.0::BluetoothAudioProvider: startSession: _hidl_cb not called, but must be called once.\nF libc    : Fatal signal 6 (SIGABRT), code -1 (SI_QUEUE) in tid 7303 (audio@2.0-servi), pid 7303 (audio@2.0-servi)",
+      "parentUuid": "d1152414_6e524841",
+      "revId": "41d0ded31332015f3d4ea75b216ec33f50d687fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d634ccd3_9dbd8fd2",
         "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
         "patchSetId": 20
@@ -184,6 +202,30 @@
       "side": 1,
       "message": "Verify the value after the API returned. I think it has to be a requirement for this API and VTS can help on it.",
       "parentUuid": "d634ccd3_9dbd8fd2",
+      "range": {
+        "startLine": 141,
+        "startChar": 27,
+        "endLine": 141,
+        "endChar": 69
+      },
+      "revId": "41d0ded31332015f3d4ea75b216ec33f50d687fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9bba5b07_22ac6353",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-19T08:07:20Z",
+      "side": 1,
+      "message": "After tried, it has to be invoked synchronously before returned, or Audio HAL is aborted.\nF android.hardware.bluetooth.audio@2.0::BluetoothAudioProvider: startSession: _hidl_cb not called, but must be called once.\nF libc    : Fatal signal 6 (SIGABRT), code -1 (SI_QUEUE) in tid 7303 (audio@2.0-servi), pid 7303 (audio@2.0-servi)",
+      "parentUuid": "247c4d95_e67be304",
       "range": {
         "startLine": 141,
         "startChar": 27,
@@ -505,6 +547,30 @@
     },
     {
       "key": {
+        "uuid": "c5a7c980_98d44c10",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-19T08:07:20Z",
+      "side": 1,
+      "message": "After tried, it has to be invoked synchronously before returned, or Audio HAL is aborted.\nF android.hardware.bluetooth.audio@2.0::BluetoothAudioProvider: startSession: _hidl_cb not called, but must be called once.\nF libc    : Fatal signal 6 (SIGABRT), code -1 (SI_QUEUE) in tid 7303 (audio@2.0-servi), pid 7303 (audio@2.0-servi)",
+      "parentUuid": "63c2b474_79a8649d",
+      "range": {
+        "startLine": 258,
+        "startChar": 20,
+        "endLine": 262,
+        "endChar": 22
+      },
+      "revId": "41d0ded31332015f3d4ea75b216ec33f50d687fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d101748c_64667504",
         "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
         "patchSetId": 20
@@ -681,6 +747,30 @@
       "side": 1,
       "message": "Verify the value after the API returned and HAL must setup the value before the API returned. I think this should be a requirement and the VTS can help on it.",
       "parentUuid": "72cab357_3c6bd721",
+      "range": {
+        "startLine": 377,
+        "startChar": 25,
+        "endLine": 380,
+        "endChar": 27
+      },
+      "revId": "41d0ded31332015f3d4ea75b216ec33f50d687fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bf0dd4f6_ebe8eee5",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-19T08:07:20Z",
+      "side": 1,
+      "message": "After tried, it has to be invoked synchronously before returned, or Audio HAL is aborted.\nF android.hardware.bluetooth.audio@2.0::BluetoothAudioProvider: startSession: _hidl_cb not called, but must be called once.\nF libc    : Fatal signal 6 (SIGABRT), code -1 (SI_QUEUE) in tid 7303 (audio@2.0-servi), pid 7303 (audio@2.0-servi)",
+      "parentUuid": "ca79fc07_27dcc958",
       "range": {
         "startLine": 377,
         "startChar": 25,
