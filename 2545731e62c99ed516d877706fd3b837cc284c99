@@ -693,6 +693,30 @@
     },
     {
       "key": {
+        "uuid": "0853d8a0_eb6bf766",
+        "filename": "bluetooth/audio/2.0/default/BluetoothAudioProvidersFactory.h",
+        "patchSetId": 33
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-19T15:36:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e58e8e77_a9be40d5",
+      "range": {
+        "startLine": 44,
+        "startChar": 2,
+        "endLine": 44,
+        "endChar": 63
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9996fa54_eaef5b25",
         "filename": "bluetooth/audio/2.0/default/BluetoothAudioProvidersFactory.h",
         "patchSetId": 33
@@ -1020,6 +1044,30 @@
     },
     {
       "key": {
+        "uuid": "d6c2792a_cd264a2b",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-19T15:36:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e93b82f7_a0f2837f",
+      "range": {
+        "startLine": 107,
+        "startChar": 5,
+        "endLine": 107,
+        "endChar": 10
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f5d9c810_e2779860",
         "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
         "patchSetId": 33
@@ -1286,6 +1334,30 @@
     },
     {
       "key": {
+        "uuid": "aa7cd119_fbb9815d",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-19T15:36:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96efb1f9_9a7ad957",
+      "range": {
+        "startLine": 387,
+        "startChar": 8,
+        "endLine": 387,
+        "endChar": 14
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dd582903_51316587",
         "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
         "patchSetId": 33
@@ -1309,6 +1381,30 @@
     },
     {
       "key": {
+        "uuid": "34ce882c_2aa899f7",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-19T15:36:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd582903_51316587",
+      "range": {
+        "startLine": 388,
+        "startChar": 8,
+        "endLine": 388,
+        "endChar": 14
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "09014ce1_0ed816c4",
         "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
         "patchSetId": 33
@@ -1329,6 +1425,30 @@
       "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fea9aaf6_11d1a78d",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-19T15:36:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09014ce1_0ed816c4",
+      "range": {
+        "startLine": 398,
+        "startChar": 6,
+        "endLine": 398,
+        "endChar": 12
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
