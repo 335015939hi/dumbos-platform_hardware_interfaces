@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b05eccff_2f1b661c",
+        "filename": "identity_credential/1.0/IIdentityCredential.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1403755
+      },
+      "writtenOn": "2019-01-20T14:29:54Z",
+      "side": 1,
+      "message": "credentialData",
+      "range": {
+        "startLine": 91,
+        "startChar": 62,
+        "endLine": 91,
+        "endChar": 76
+      },
+      "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "021ecac4_6f75e30f",
+        "filename": "identity_credential/1.0/IWritableIdentityCredential.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1403755
+      },
+      "writtenOn": "2019-01-20T14:29:54Z",
+      "side": 1,
+      "message": "credentialData",
+      "range": {
+        "startLine": 232,
+        "startChar": 54,
+        "endLine": 232,
+        "endChar": 68
+      },
+      "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
