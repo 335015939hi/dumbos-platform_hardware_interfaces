@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "99f7ece3_dcb2210d",
+        "filename": "bluetooth/audio/2.0/default/A2dpLegacyAudioProvider.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-21T17:29:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5be98373_5575f35a",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 33
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "37561c14_2b93c874",
         "filename": "bluetooth/audio/2.0/default/A2dpLegacyAudioProvider.cpp",
         "patchSetId": 33
@@ -107,6 +131,30 @@
       "writtenOn": "2019-01-16T01:15:17Z",
       "side": 1,
       "message": "break;\n\nThe FALLTHROUGH_INTENDED makes it hard to read the rest of the logic.\n\nAnother way to do it would be to make sure that FALLTHROUGH_INTENDED is defined.",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 33
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6540a6ce_1710d1fc",
+        "filename": "bluetooth/audio/2.0/default/A2dpLegacyAudioProvider.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-21T17:29:23Z",
+      "side": 1,
+      "message": "I think Software encoding is no need to check by codec and rewrite this part with \"if\" only.",
+      "parentUuid": "37561c14_2b93c874",
       "range": {
         "startLine": 66,
         "startChar": 0,
@@ -139,6 +187,30 @@
       "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "324c4602_7ac8cdaa",
+        "filename": "bluetooth/audio/2.0/default/A2dpLegacyAudioProvider.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-21T17:29:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27e4afeb_d83ba38a",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 33
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -327,6 +399,30 @@
       "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b7f9026_3d69bae9",
+        "filename": "bluetooth/audio/2.0/default/A2dpOffloadAudioProvider.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-21T17:29:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0521cf8b_6ad2f6cb",
+      "range": {
+        "startLine": 93,
+        "startChar": 2,
+        "endLine": 93,
+        "endChar": 58
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -1501,6 +1597,30 @@
       "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d682d3f_0cab3c64",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-21T17:29:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a7af1c2_dc3c823d",
+      "range": {
+        "startLine": 318,
+        "startChar": 0,
+        "endLine": 322,
+        "endChar": 3
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
