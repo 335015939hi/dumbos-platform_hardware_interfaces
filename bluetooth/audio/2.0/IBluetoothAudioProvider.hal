@@ -50,7 +50,7 @@ interface IBluetoothAudioProvider {
      *    codecConfig.pcmDataConfiguration parameter.
      *    nullptr if streaming is offloaded to hardware or on failure.
      */
-    startSession(IBluetoothAudioPort hostIf, CodecConfiguration codecConfig)
+    startSession(IBluetoothAudioPort hostIf, AudioConfiguration audioConfig)
                 generates (Status status, fmq_sync<uint8_t> dataMQ);
 
     /**
