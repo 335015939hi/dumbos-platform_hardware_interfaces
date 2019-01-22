@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b793511d_d9422b92",
+        "filename": "bluetooth/audio/2.0/IBluetoothAudioProvidersFactory.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1077498
+      },
+      "writtenOn": "2019-01-22T21:42:45Z",
+      "side": 1,
+      "message": "We shouldn\u0027t as this could be a mechanism for vendors to support more codecs in the future IMO.",
+      "parentUuid": "a1ef1f65_1a89d37f",
+      "range": {
+        "startLine": 59,
+        "startChar": 20,
+        "endLine": 59,
+        "endChar": 49
+      },
+      "revId": "1ec1423204902d09290006e389aa11a3f85583f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a799de8_42fa5e14",
         "filename": "bluetooth/audio/2.0/types.hal",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "1ec1423204902d09290006e389aa11a3f85583f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af33eed0_43e5aa4f",
+        "filename": "bluetooth/audio/2.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1077498
+      },
+      "writtenOn": "2019-01-22T21:42:45Z",
+      "side": 1,
+      "message": "I\u0027ll remove the offload parameter as the ABR parameter should imply offload.",
+      "parentUuid": "1a799de8_42fa5e14",
+      "range": {
+        "startLine": 138,
+        "startChar": 0,
+        "endLine": 141,
+        "endChar": 29
+      },
+      "revId": "1ec1423204902d09290006e389aa11a3f85583f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "3f5b1f10_9368c399",
+        "filename": "bluetooth/audio/2.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1077498
+      },
+      "writtenOn": "2019-01-22T21:42:45Z",
+      "side": 1,
+      "message": "Nope, removed.",
+      "parentUuid": "2baffa3d_f6ee5fa9",
+      "range": {
+        "startLine": 182,
+        "startChar": 0,
+        "endLine": 183,
+        "endChar": 19
+      },
+      "revId": "1ec1423204902d09290006e389aa11a3f85583f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "54a6caf5_6201de70",
         "filename": "bluetooth/audio/2.0/types.hal",
         "patchSetId": 2
@@ -91,6 +163,30 @@
       "revId": "1ec1423204902d09290006e389aa11a3f85583f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "277966df_dd87e9b0",
+        "filename": "bluetooth/audio/2.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1077498
+      },
+      "writtenOn": "2019-01-22T21:42:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "54a6caf5_6201de70",
+      "range": {
+        "startLine": 214,
+        "startChar": 0,
+        "endLine": 219,
+        "endChar": 2
+      },
+      "revId": "1ec1423204902d09290006e389aa11a3f85583f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -129,6 +225,30 @@
       "side": 1,
       "message": "No, for Hearing Aid, there is no such info to Audio, and here are about A2DP parts.\n1) SBC - The Bitrate can be calculated from other SBC parameters (A2DP v1.3 chapter 12.9)\n2) AAC (MPEG-2) - The value is in Codec Specific Information when AVDTP_Get_Capabilities.\n3) aptX / aptX HD - fixed data rate 352000 / 576000.\n4) LDAC - refer to LDAC\u0027s bitrate table",
       "parentUuid": "d0fcbbb2_d6fe372c",
+      "range": {
+        "startLine": 230,
+        "startChar": 13,
+        "endLine": 230,
+        "endChar": 32
+      },
+      "revId": "1ec1423204902d09290006e389aa11a3f85583f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "def38481_c3574e5b",
+        "filename": "bluetooth/audio/2.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1077498
+      },
+      "writtenOn": "2019-01-22T21:42:45Z",
+      "side": 1,
+      "message": "Does that mean this value can be removed now that the bitrate has been added to each of the Parameter fields?",
+      "parentUuid": "62f58591_1dfaa6d1",
       "range": {
         "startLine": 230,
         "startChar": 13,
@@ -185,6 +305,30 @@
       "revId": "1ec1423204902d09290006e389aa11a3f85583f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c86f411_c1335620",
+        "filename": "bluetooth/audio/2.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1077498
+      },
+      "writtenOn": "2019-01-22T21:42:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0be4c7ca_1acb5349",
+      "range": {
+        "startLine": 244,
+        "startChar": 0,
+        "endLine": 244,
+        "endChar": 5
+      },
+      "revId": "1ec1423204902d09290006e389aa11a3f85583f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
