@@ -43,4 +43,18 @@ interface IBluetoothAudioProvidersFactory {
      */
     openProvider(SessionType sessionType)
         generates (Status status, IBluetoothAudioProvider provider);
+
+    /**
+     * Gets a list of supported codecs and their capabilites for a session type.
+     * It is mandatory for A2DP_SOFTWARE_ENCODING_DATAPATH to support SBC. All
+     * other support is optional.
+     *
+     * @param sessionType The session type (e.g.
+     *    A2DP_SOFTWARE_ENCODING_DATAPATH).
+     * @return codecs A list containing all the codecs supported by the session
+     *    as well as all of their capabilities. The capabilities is a list of
+     *    available options when configuring the codec for the session.
+     */
+     getCodecCapabilities(SessionType sessionType)
+         generates (vec<CodecCapabilities> codecs);
 };
