@@ -35,8 +35,10 @@ interface IBluetoothAudioProvider {
      * Note: endSession() must be called to unregister this IBluetoothAudioPort
      *
      * @param hostIf An instance of IBluetoothAudioPort for stream control
-     * @param codecConfig The codec configuration negotiated with the remote
-     *    device
+     * @param audioConfig The audio configuration negotiated with the remote
+     *    device. The PCM parameters are set if software based encoding,
+     *    otherwise the correct codec configuration is used for hardware
+     *    encoding.
      *
      * @return status One of the following
      *    SUCCESS if this IBluetoothAudioPort was successfully registered with
@@ -47,10 +49,10 @@ interface IBluetoothAudioProvider {
      *        any other reason
      * @return dataMQ The fast message queue for audio data from this provider.
      *    Audio data will be in PCM format as specified by the
-     *    codecConfig.pcmDataConfiguration parameter.
+     *    audioConfig.pcmConfig parameter.
      *    nullptr if streaming is offloaded to hardware or on failure.
      */
-    startSession(IBluetoothAudioPort hostIf, CodecConfiguration codecConfig)
+    startSession(IBluetoothAudioPort hostIf, AudioConfiguration audioConfig)
                 generates (Status status, fmq_sync<uint8_t> dataMQ);
 
     /**
