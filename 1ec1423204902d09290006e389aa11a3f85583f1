@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "1a799de8_42fa5e14",
+        "filename": "bluetooth/audio/2.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-22T09:50:02Z",
+      "side": 1,
+      "message": "I thank there is no different since this is for offload only and it takes AudioConfiguration::PcmParameters for software encoding.",
+      "range": {
+        "startLine": 138,
+        "startChar": 0,
+        "endLine": 141,
+        "endChar": 29
+      },
+      "revId": "1ec1423204902d09290006e389aa11a3f85583f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2baffa3d_f6ee5fa9",
         "filename": "bluetooth/audio/2.0/types.hal",
         "patchSetId": 2
