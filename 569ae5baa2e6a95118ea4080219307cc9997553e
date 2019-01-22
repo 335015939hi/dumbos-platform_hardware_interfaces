@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "45f24b63_7babd989",
+        "filename": "keymaster/capability/1.0/types.hal",
+        "patchSetId": 16
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2019-01-22T22:12:41Z",
+      "side": 1,
+      "message": "Should be secureToken (rest of the struct uses camelCase).",
+      "range": {
+        "startLine": 77,
+        "startChar": 17,
+        "endLine": 77,
+        "endChar": 29
+      },
+      "revId": "569ae5baa2e6a95118ea4080219307cc9997553e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
