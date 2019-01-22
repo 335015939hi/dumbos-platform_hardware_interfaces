@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eb7745af_81903da9",
+        "filename": "radio/1.4/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 1391,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-01-22T20:49:44Z",
+      "side": 1,
+      "message": "actually, wait, how does this work?",
+      "range": {
+        "startLine": 1388,
+        "startChar": 3,
+        "endLine": 1391,
+        "endChar": 21
+      },
+      "revId": "14e4d765025ae1dde8e4f8a0ef0a2f75c83d3111",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
