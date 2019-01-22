@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "2baffa3d_f6ee5fa9",
+        "filename": "bluetooth/audio/2.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-22T09:39:38Z",
+      "side": 1,
+      "message": "Do we need vendor / codec ID in LDAC parameters?",
+      "range": {
+        "startLine": 182,
+        "startChar": 0,
+        "endLine": 183,
+        "endChar": 19
+      },
+      "revId": "1ec1423204902d09290006e389aa11a3f85583f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "54a6caf5_6201de70",
         "filename": "bluetooth/audio/2.0/types.hal",
         "patchSetId": 2
@@ -36,6 +59,30 @@
       "writtenOn": "2019-01-22T07:50:37Z",
       "side": 1,
       "message": "Cheney, is this always configured for every codec today and in the future?",
+      "range": {
+        "startLine": 230,
+        "startChar": 13,
+        "endLine": 230,
+        "endChar": 32
+      },
+      "revId": "1ec1423204902d09290006e389aa11a3f85583f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62f58591_1dfaa6d1",
+        "filename": "bluetooth/audio/2.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-22T09:39:38Z",
+      "side": 1,
+      "message": "No, for Hearing Aid, there is no such info to Audio, and here are about A2DP parts.\n1) SBC - The Bitrate can be calculated from other SBC parameters (A2DP v1.3 chapter 12.9)\n2) AAC (MPEG-2) - The value is in Codec Specific Information when AVDTP_Get_Capabilities.\n3) aptX / aptX HD - fixed data rate 352000 / 576000.\n4) LDAC - refer to LDAC\u0027s bitrate table",
+      "parentUuid": "d0fcbbb2_d6fe372c",
       "range": {
         "startLine": 230,
         "startChar": 13,
