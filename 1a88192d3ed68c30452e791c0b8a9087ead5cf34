@@ -22,6 +22,30 @@
       "revId": "1a88192d3ed68c30452e791c0b8a9087ead5cf34",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eceddefb_c3b1caf3",
+        "filename": "camera/provider/2.4/vts/functional/VtsHalCameraProviderV2_4TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2888,
+      "author": {
+        "id": 1248931
+      },
+      "writtenOn": "2019-01-22T03:05:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0cdb111c_027a2267",
+      "range": {
+        "startLine": 2888,
+        "startChar": 8,
+        "endLine": 2888,
+        "endChar": 37
+      },
+      "revId": "1a88192d3ed68c30452e791c0b8a9087ead5cf34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
