@@ -43,4 +43,23 @@ interface IBluetoothAudioProvidersFactory {
      */
     openProvider(SessionType sessionType)
         generates (Status status, IBluetoothAudioProvider provider);
+
+    /**
+     * Gets a list of supported codecs and their capabilites bitmask for a
+     * session type.
+     *
+     * For software encoding, the PCM capabilities are returned.
+     * For hardware encoding, the supported codecs and their capabilities are
+     * returned.
+     *
+     * @param sessionType The session type (e.g.
+     *    A2DP_SOFTWARE_ENCODING_DATAPATH).
+     * @return codecs A list containing all the codecs supported by the session
+     *    as well as all of their capabilities. The capabilities is a list of
+     *    available options when configuring the codec for the session.
+     *    Note, only one entry should exist per codec when using hardware
+     *    encoding.
+     */
+     getCodecCapabilities(SessionType sessionType)
+         generates (vec<AudioCapabilities> audioCapabilities);
 };
