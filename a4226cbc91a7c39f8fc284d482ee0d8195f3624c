@@ -25,6 +25,207 @@
     },
     {
       "key": {
+        "uuid": "6181a94f_fa68b89f",
+        "filename": "identity_credential/1.0/IIdentityCredential.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1403755
+      },
+      "writtenOn": "2019-01-22T19:13:10Z",
+      "side": 1,
+      "message": "retrieveEntryValue",
+      "range": {
+        "startLine": 187,
+        "startChar": 7,
+        "endLine": 187,
+        "endChar": 20
+      },
+      "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ece0ecc7_7164c9d2",
+        "filename": "identity_credential/1.0/IIdentityCredentialStore.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1403755
+      },
+      "writtenOn": "2019-01-22T19:13:10Z",
+      "side": 1,
+      "message": "StorageKey",
+      "range": {
+        "startLine": 109,
+        "startChar": 25,
+        "endLine": 109,
+        "endChar": 41
+      },
+      "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "648906c0_ddd36aa0",
+        "filename": "identity_credential/1.0/IIdentityCredentialStore.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1403755
+      },
+      "writtenOn": "2019-01-22T19:13:10Z",
+      "side": 1,
+      "message": "provision signature (see IWritableIdentityCredential.finishAddingEntries)",
+      "range": {
+        "startLine": 122,
+        "startChar": 11,
+        "endLine": 122,
+        "endChar": 32
+      },
+      "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3f9eb45_5529927f",
+        "filename": "identity_credential/1.0/IIdentityCredentialStore.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1403755
+      },
+      "writtenOn": "2019-01-22T19:13:10Z",
+      "side": 1,
+      "message": "Remove. Change to @return resultCode and \"@return  writeableCredential is an IIdentityCredential HIDL interface that provides operations to provision a credential\".",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 92
+      },
+      "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ed2b317_9e0d942f",
+        "filename": "identity_credential/1.0/IWritableIdentityCredential.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1403755
+      },
+      "writtenOn": "2019-01-22T19:13:10Z",
+      "side": 1,
+      "message": "IKeymasterDevice)",
+      "range": {
+        "startLine": 38,
+        "startChar": 11,
+        "endLine": 38,
+        "endChar": 27
+      },
+      "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9dd8cc61_21bf0d4c",
+        "filename": "identity_credential/1.0/IWritableIdentityCredential.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1403755
+      },
+      "writtenOn": "2019-01-22T19:13:10Z",
+      "side": 1,
+      "message": "timeout",
+      "range": {
+        "startLine": 85,
+        "startChar": 91,
+        "endLine": 85,
+        "endChar": 97
+      },
+      "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f986e9bf_8e71ade7",
+        "filename": "identity_credential/1.0/IWritableIdentityCredential.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1403755
+      },
+      "writtenOn": "2019-01-22T19:13:10Z",
+      "side": 1,
+      "message": "in StartRetrievalArguments",
+      "range": {
+        "startLine": 87,
+        "startChar": 11,
+        "endLine": 87,
+        "endChar": 35
+      },
+      "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2cb4de6_63c53f2f",
+        "filename": "identity_credential/1.0/IWritableIdentityCredential.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1403755
+      },
+      "writtenOn": "2019-01-22T19:13:10Z",
+      "side": 1,
+      "message": "IIdentityCredential.startRetrieval",
+      "range": {
+        "startLine": 87,
+        "startChar": 95,
+        "endLine": 88,
+        "endChar": 65
+      },
+      "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12a3ca83_ca949ca4",
+        "filename": "identity_credential/1.0/IWritableIdentityCredential.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1403755
+      },
+      "writtenOn": "2019-01-22T19:13:10Z",
+      "side": 1,
+      "message": "remove? Secure hardware is not mandatory.",
+      "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "021ecac4_6f75e30f",
         "filename": "identity_credential/1.0/IWritableIdentityCredential.hal",
         "patchSetId": 19
@@ -41,6 +242,247 @@
         "startChar": 54,
         "endLine": 232,
         "endChar": 68
+      },
+      "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a742745_4774d4c6",
+        "filename": "identity_credential/1.0/types.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1403755
+      },
+      "writtenOn": "2019-01-22T19:13:10Z",
+      "side": 1,
+      "message": "IIdentityCredential.startRetrieval",
+      "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b77da701_73542bce",
+        "filename": "identity_credential/1.0/types.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1403755
+      },
+      "writtenOn": "2019-01-22T19:13:10Z",
+      "side": 1,
+      "message": "StartRetrievalArguments in IIdentityCredential.startRetrieval",
+      "range": {
+        "startLine": 122,
+        "startChar": 33,
+        "endLine": 122,
+        "endChar": 91
+      },
+      "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ba1316c_e9c5ee38",
+        "filename": "identity_credential/1.0/types.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1403755
+      },
+      "writtenOn": "2019-01-22T19:13:10Z",
+      "side": 1,
+      "message": "provided in StartRetrievalArguments",
+      "range": {
+        "startLine": 142,
+        "startChar": 17,
+        "endLine": 142,
+        "endChar": 41
+      },
+      "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "caf9a371_dc8a23bc",
+        "filename": "identity_credential/1.0/types.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1403755
+      },
+      "writtenOn": "2019-01-22T19:13:10Z",
+      "side": 1,
+      "message": "IIdentityCredential.startRetrieval",
+      "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8ccfd71_536e37f7",
+        "filename": "identity_credential/1.0/types.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1403755
+      },
+      "writtenOn": "2019-01-22T19:13:10Z",
+      "side": 1,
+      "message": "retrieveEntryValue",
+      "range": {
+        "startLine": 177,
+        "startChar": 42,
+        "endLine": 177,
+        "endChar": 50
+      },
+      "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ecb7aab1_2465c069",
+        "filename": "identity_credential/1.0/types.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1403755
+      },
+      "writtenOn": "2019-01-22T19:13:10Z",
+      "side": 1,
+      "message": "Shouldn\u0027t it be possible to have multiple SACP with the same readerAuthPubKey (e.g. one profile that is only allowed if user is also authenticated)?",
+      "range": {
+        "startLine": 180,
+        "startChar": 0,
+        "endLine": 182,
+        "endChar": 23
+      },
+      "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2098ae8_377fd770",
+        "filename": "identity_credential/1.0/types.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1403755
+      },
+      "writtenOn": "2019-01-22T19:13:10Z",
+      "side": 1,
+      "message": "readerAuthPrivKey?",
+      "range": {
+        "startLine": 226,
+        "startChar": 57,
+        "endLine": 226,
+        "endChar": 73
+      },
+      "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a0eb4c9_7a943cb0",
+        "filename": "identity_credential/1.0/types.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1403755
+      },
+      "writtenOn": "2019-01-22T19:13:10Z",
+      "side": 1,
+      "message": "retrieveEntryValue",
+      "range": {
+        "startLine": 234,
+        "startChar": 39,
+        "endLine": 234,
+        "endChar": 52
+      },
+      "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7d3d890_e33d3d49",
+        "filename": "identity_credential/1.0/types.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1403755
+      },
+      "writtenOn": "2019-01-22T19:13:10Z",
+      "side": 1,
+      "message": "retrieveEntryValue",
+      "range": {
+        "startLine": 235,
+        "startChar": 84,
+        "endLine": 235,
+        "endChar": 97
+      },
+      "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17eded90_43791562",
+        "filename": "identity_credential/1.0/types.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1403755
+      },
+      "writtenOn": "2019-01-22T19:13:10Z",
+      "side": 1,
+      "message": "retrieveEntryValue",
+      "range": {
+        "startLine": 239,
+        "startChar": 7,
+        "endLine": 239,
+        "endChar": 20
+      },
+      "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fbec1122_654abe9a",
+        "filename": "identity_credential/1.0/types.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1403755
+      },
+      "writtenOn": "2019-01-22T19:13:10Z",
+      "side": 1,
+      "message": "retrieveEntryValue",
+      "range": {
+        "startLine": 239,
+        "startChar": 63,
+        "endLine": 239,
+        "endChar": 76
       },
       "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
