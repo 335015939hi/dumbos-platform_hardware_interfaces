@@ -18,7 +18,7 @@ LOCAL_PATH := $(call my-dir)
 
 BUILD_FRAMEWORK_COMPATIBILITY_MATRIX := $(LOCAL_PATH)/compatibility_matrix.mk
 
-# Framework Compatibility Matrix (common to all FCM versions)
+# Device Framework Compatibility Matrix (common to all FCM versions)
 
 include $(CLEAR_VARS)
 include $(LOCAL_PATH)/clear_vars.mk
@@ -26,6 +26,14 @@ LOCAL_MODULE := framework_compatibility_matrix.device.xml
 LOCAL_MODULE_STEM := compatibility_matrix.device.xml
 # define LOCAL_MODULE_CLASS for local-generated-sources-dir.
 LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_RELATIVE_PATH := vintf
+
+ifeq (true, $(PRODUCT_USE_PRODUCT_COMPATIBILITY_MATRIX))
+LOCAL_PRODUCT_MODULE := true
+my_product_matrix_deps := $(LOCAL_MODULE)
+else
+my_system_matrix_deps := $(LOCAL_MODULE)
+endif
 
 ifndef DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE
 LOCAL_SRC_FILES := compatibility_matrix.empty.xml
@@ -61,18 +69,34 @@ LOCAL_ASSEMBLE_VINTF_ENV_VARS := \
 
 include $(BUILD_FRAMEWORK_COMPATIBILITY_MATRIX)
 
-my_system_matrix_deps := \
+my_system_matrix_deps += \
     framework_compatibility_matrix.legacy.xml \
     framework_compatibility_matrix.1.xml \
     framework_compatibility_matrix.2.xml \
     framework_compatibility_matrix.3.xml \
     framework_compatibility_matrix.current.xml \
-    framework_compatibility_matrix.device.xml
 
-# Phony target that installs all framework compatibility matrix files
+# Phony target that installs all system compatibility matrix files
+include $(CLEAR_VARS)
+LOCAL_MODULE := system_compatibility_matrix.xml
+LOCAL_REQUIRED_MODULES := $(my_system_matrix_deps)
+include $(BUILD_PHONY_PACKAGE)
+
+# Phony target that installs all product compatibility matrix files
+include $(CLEAR_VARS)
+LOCAL_MODULE := product_compatibility_matrix.xml
+LOCAL_REQUIRED_MODULES := $(my_product_matrix_deps)
+include $(BUILD_PHONY_PACKAGE)
+
+# All dependencies for building framework compatibility matrix.
+my_framework_matrix_deps := \
+    $(my_system_matrix_deps) \
+    $(my_product_matrix_deps) \
+
+# Phony target that installs all framework compatibility matrix files (system + product)
 include $(CLEAR_VARS)
 LOCAL_MODULE := framework_compatibility_matrix.xml
-LOCAL_REQUIRED_MODULES := $(my_system_matrix_deps)
+LOCAL_REQUIRED_MODULES := $(my_framework_matrix_deps)
 include $(BUILD_PHONY_PACKAGE)
 
 # Final Framework Compatibility Matrix for OTA
@@ -80,7 +104,7 @@ include $(CLEAR_VARS)
 include $(LOCAL_PATH)/clear_vars.mk
 LOCAL_MODULE := verified_assembled_system_matrix.xml
 LOCAL_MODULE_PATH := $(PRODUCT_OUT)
-LOCAL_REQUIRED_MODULES := $(my_system_matrix_deps)
+LOCAL_REQUIRED_MODULES := $(my_framework_matrix_deps)
 LOCAL_GENERATED_SOURCES := $(call module-installed-files,$(LOCAL_REQUIRED_MODULES))
 LOCAL_ADD_VBMETA_VERSION_OVERRIDE := true
 
@@ -97,4 +121,6 @@ include $(BUILD_FRAMEWORK_COMPATIBILITY_MATRIX)
 BUILT_SYSTEM_MATRIX := $(LOCAL_BUILT_MODULE)
 
 my_system_matrix_deps :=
+my_product_matrix_deps :=
+my_framework_matrix_deps :=
 BUILD_FRAMEWORK_COMPATIBILITY_MATRIX :=
