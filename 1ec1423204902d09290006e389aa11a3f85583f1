@@ -68,6 +68,30 @@
       "revId": "1ec1423204902d09290006e389aa11a3f85583f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0be4c7ca_1acb5349",
+        "filename": "bluetooth/audio/2.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-22T07:55:47Z",
+      "side": 1,
+      "message": "safe_union is what treble member suggests.",
+      "parentUuid": "446f66f6_78edc44c",
+      "range": {
+        "startLine": 244,
+        "startChar": 0,
+        "endLine": 244,
+        "endChar": 5
+      },
+      "revId": "1ec1423204902d09290006e389aa11a3f85583f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
