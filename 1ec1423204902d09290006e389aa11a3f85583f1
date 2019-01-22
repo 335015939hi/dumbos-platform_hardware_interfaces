@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "54a6caf5_6201de70",
+        "filename": "bluetooth/audio/2.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-22T07:50:37Z",
+      "side": 1,
+      "message": "An union should be sufficient.",
+      "range": {
+        "startLine": 214,
+        "startChar": 0,
+        "endLine": 219,
+        "endChar": 2
+      },
+      "revId": "1ec1423204902d09290006e389aa11a3f85583f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0fcbbb2_d6fe372c",
+        "filename": "bluetooth/audio/2.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-22T07:50:37Z",
+      "side": 1,
+      "message": "Cheney, is this always configured for every codec today and in the future?",
+      "range": {
+        "startLine": 230,
+        "startChar": 13,
+        "endLine": 230,
+        "endChar": 32
+      },
+      "revId": "1ec1423204902d09290006e389aa11a3f85583f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "446f66f6_78edc44c",
+        "filename": "bluetooth/audio/2.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-22T07:50:37Z",
+      "side": 1,
+      "message": "what is the difference between safe_union and union?",
+      "range": {
+        "startLine": 244,
+        "startChar": 0,
+        "endLine": 244,
+        "endChar": 5
+      },
+      "revId": "1ec1423204902d09290006e389aa11a3f85583f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
