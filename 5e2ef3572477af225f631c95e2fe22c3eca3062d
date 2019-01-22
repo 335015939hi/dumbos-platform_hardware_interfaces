@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e92ef55f_6a5be71b",
+        "filename": "bluetooth/audio/2.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-22T07:25:58Z",
+      "side": 1,
+      "message": "struct AudioStreamCapabilties {\n   struct SoftwareEncodingCapablities {\n        /** Sampling rate for encoder */\n        SampleRate sampleRate;\n        /** Bits per sample for encoder */\n        BitsPerSample bitsPerSample;\n        /** Channel mode for encoder */\n        ChannelMode channelMode;\n   } softwareEncodingCapabilities;\n   struct OffloadEncodingCapabilities {\n      CodecType codecType;\n      safe_union Capabilities {\n          SbcParameters sbcCapabilities;\n          AacParameters aacCapabilites;\n          LdacParameters ldacCapabilites;\n          AptxParameters aptxCapabilites;\n      } capabilites;\n   } offloadEncodingCapabilities;\n};",
+      "range": {
+        "startLine": 189,
+        "startChar": 0,
+        "endLine": 199,
+        "endChar": 0
+      },
+      "revId": "5e2ef3572477af225f631c95e2fe22c3eca3062d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9e325bc_a8a52f5e",
+        "filename": "bluetooth/audio/2.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-22T07:25:58Z",
+      "side": 1,
+      "message": "struct AudioStreamConfiguration {\n  union {\n    struct SoftwareEncodingConfiguration {\n        /** Sampling rate for encoder */\n        SampleRate sampleRate;\n        /** Bits per sample for encoder */\n        BitsPerSample bitsPerSample;\n        /** Channel mode for encoder */\n        ChannelMode channelMode;\n    } softwareEncodingConfiguration;\n    struct OffloadEncodingConfiguration {\n       CodecType codecType;\n       /**\n        * The encoded audio bitrate in bits / second.\n        * 0x00000000 - The audio bitrate is not specified / unused\n        * 0x00000001 - 0x00FFFFFF - Encoded audio bitrate in bits/second\n        * 0x01000000 - 0xFFFFFFFF - Reserved\n        */\n        uint32_t encodedAudioBitrate;\n        /** Peer MTU (in octets) */\n        uint16_t peerMtu;\n        /** Content protection by SCMS-T */\n        bool isScmstEnabled;\n        safe_union CodecSpecific {\n           SbcParameters sbcData;\n           AacParameters aacData;\n           LdacParameters ldacData;\n           AptxParameters aptxData;\n        } codecSpecific;\n    } offloadEncodingConfiguration;\n};",
+      "range": {
+        "startLine": 200,
+        "startChar": 0,
+        "endLine": 219,
+        "endChar": 2
+      },
+      "revId": "5e2ef3572477af225f631c95e2fe22c3eca3062d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
