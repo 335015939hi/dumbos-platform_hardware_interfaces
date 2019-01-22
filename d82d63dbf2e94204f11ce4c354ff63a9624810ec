@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "53d088e7_c27b841b",
+        "filename": "bluetooth/audio/2.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-22T21:48:19Z",
+      "side": 1,
+      "message": "safe_union ?",
+      "range": {
+        "startLine": 238,
+        "startChar": 2,
+        "endLine": 238,
+        "endChar": 3
+      },
+      "revId": "d82d63dbf2e94204f11ce4c354ff63a9624810ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
