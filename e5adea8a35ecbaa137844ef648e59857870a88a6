@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1d8059f7_c67bf669",
+        "filename": "bluetooth/audio/2.0/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-23T08:45:05Z",
+      "side": 1,
+      "message": "May we have a data member to be this \"safe_union Capabilities\"? There seems to be type definition only but is no such data member.",
+      "range": {
+        "startLine": 207,
+        "startChar": 4,
+        "endLine": 212,
+        "endChar": 6
+      },
+      "revId": "e5adea8a35ecbaa137844ef648e59857870a88a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2a58b9e_765ea050",
+        "filename": "bluetooth/audio/2.0/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-23T08:45:05Z",
+      "side": 1,
+      "message": "May we have a data member to be this \"safe_union CodecSpecific\"? There seems to be type definition only but is no such data member.",
+      "range": {
+        "startLine": 240,
+        "startChar": 0,
+        "endLine": 245,
+        "endChar": 6
+      },
+      "revId": "e5adea8a35ecbaa137844ef648e59857870a88a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
