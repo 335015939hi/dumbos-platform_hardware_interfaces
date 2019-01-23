@@ -309,6 +309,30 @@
     },
     {
       "key": {
+        "uuid": "441b3727_abc78ca0",
+        "filename": "bluetooth/audio/2.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1077498
+      },
+      "writtenOn": "2019-01-23T23:24:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e16583f_c611b26d",
+      "range": {
+        "startLine": 230,
+        "startChar": 13,
+        "endLine": 230,
+        "endChar": 32
+      },
+      "revId": "1ec1423204902d09290006e389aa11a3f85583f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "446f66f6_78edc44c",
         "filename": "bluetooth/audio/2.0/types.hal",
         "patchSetId": 2
