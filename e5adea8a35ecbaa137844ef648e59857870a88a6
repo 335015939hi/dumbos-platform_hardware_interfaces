@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8186a929_4a03ace4",
+        "filename": "bluetooth/audio/2.0/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-23T09:23:13Z",
+      "side": 1,
+      "message": "Please see below for \"anonymous unions\"",
+      "parentUuid": "1d8059f7_c67bf669",
+      "range": {
+        "startLine": 207,
+        "startChar": 4,
+        "endLine": 212,
+        "endChar": 6
+      },
+      "revId": "e5adea8a35ecbaa137844ef648e59857870a88a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e2a58b9e_765ea050",
         "filename": "bluetooth/audio/2.0/types.hal",
         "patchSetId": 8
@@ -36,6 +60,30 @@
       "writtenOn": "2019-01-23T08:45:05Z",
       "side": 1,
       "message": "May we have a data member to be this \"safe_union CodecSpecific\"? There seems to be type definition only but is no such data member.",
+      "range": {
+        "startLine": 240,
+        "startChar": 0,
+        "endLine": 245,
+        "endChar": 6
+      },
+      "revId": "e5adea8a35ecbaa137844ef648e59857870a88a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0f66954_bc0437e8",
+        "filename": "bluetooth/audio/2.0/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-23T09:23:13Z",
+      "side": 1,
+      "message": "These are anonymous unions and you should be able to access them directly through CodecConfiguration.sbcConfig or CodecConfiguration.aacConfig. Could we access such unions in generated code?",
+      "parentUuid": "e2a58b9e_765ea050",
       "range": {
         "startLine": 240,
         "startChar": 0,
