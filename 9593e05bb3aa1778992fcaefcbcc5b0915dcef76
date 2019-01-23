@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da720d35_493df21f",
+        "filename": "compatibility_matrices/Android.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-01-23T22:52:08Z",
+      "side": 1,
+      "message": "nit: why have a variable for this?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 23
+      },
+      "revId": "9593e05bb3aa1778992fcaefcbcc5b0915dcef76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef1180e5_aa9ad564",
+        "filename": "compatibility_matrices/Android.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-01-23T22:52:08Z",
+      "side": 1,
+      "message": "is this moved? I don\u0027t see the code in libvintf that reflects the change (and is backwards compatible)",
+      "range": {
+        "startLine": 30,
+        "startChar": 30,
+        "endLine": 30,
+        "endChar": 35
+      },
+      "revId": "9593e05bb3aa1778992fcaefcbcc5b0915dcef76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
