@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "b21229eb_eca12222",
+        "filename": "bluetooth/audio/2.0/IBluetoothAudioProvidersFactory.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-23T12:44:00Z",
+      "side": 1,
+      "message": "NIT: how about getProviderCapability()? It only returns the capability of this specified session type so I think \"provider\" is more readable?",
+      "range": {
+        "startLine": 68,
+        "startChar": 8,
+        "endLine": 68,
+        "endChar": 13
+      },
+      "revId": "e5adea8a35ecbaa137844ef648e59857870a88a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1d8059f7_c67bf669",
         "filename": "bluetooth/audio/2.0/types.hal",
         "patchSetId": 8
