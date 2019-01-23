@@ -22,6 +22,30 @@
       "revId": "14e4d765025ae1dde8e4f8a0ef0a2f75c83d3111",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "754e961e_5ebaceae",
+        "filename": "radio/1.4/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 1391,
+      "author": {
+        "id": 1308473
+      },
+      "writtenOn": "2019-01-23T01:34:08Z",
+      "side": 1,
+      "message": "It\u0027s for 5G usage. Please refer to TS 23.501.",
+      "parentUuid": "eb7745af_81903da9",
+      "range": {
+        "startLine": 1388,
+        "startChar": 3,
+        "endLine": 1391,
+        "endChar": 21
+      },
+      "revId": "14e4d765025ae1dde8e4f8a0ef0a2f75c83d3111",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
