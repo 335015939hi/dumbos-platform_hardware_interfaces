@@ -116,6 +116,30 @@
       "revId": "e5adea8a35ecbaa137844ef648e59857870a88a6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8948ac0_d86c1ac6",
+        "filename": "bluetooth/audio/2.0/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-23T13:15:41Z",
+      "side": 1,
+      "message": "No, safe_union hides them within private session and I can\u0027t access directly.\nHere is the source after build:\nout/soong/.intermediates/hardware/interfaces/bluetooth/audio/2.0/android.hardware.bluetooth.audio@2.0_genc++_headers/gen/android/hardware/bluetooth/audio/2.0/types.h",
+      "parentUuid": "f0f66954_bc0437e8",
+      "range": {
+        "startLine": 240,
+        "startChar": 0,
+        "endLine": 245,
+        "endChar": 6
+      },
+      "revId": "e5adea8a35ecbaa137844ef648e59857870a88a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
