@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e46b4db6_07a21bc2",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-23T00:29:34Z",
+      "side": 1,
+      "message": "This parameter is no longer needed if we can check the audio capability of HW offload before running this method. The general logic should be like:\nif (factory_.getCapabilities(HW_OFFLOAD).size() \u003e 0) {\n  for (codec : codecs) { // Test open provider, if the codec is specified as supported in HW offload, then we must be able to open the provider and start session with that codec }\n}",
+      "range": {
+        "startLine": 174,
+        "startChar": 59,
+        "endLine": 174,
+        "endChar": 76
+      },
+      "revId": "0d57e716e8a008baa19b93d8e02e7d14c4d441cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d037cb2_50bc8929",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-23T00:29:34Z",
+      "side": 1,
+      "message": "Could we also verify that each codec appears at most once?",
+      "range": {
+        "startLine": 238,
+        "startChar": 4,
+        "endLine": 238,
+        "endChar": 54
+      },
+      "revId": "0d57e716e8a008baa19b93d8e02e7d14c4d441cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "09e132fa_c2696cd4",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-23T00:29:34Z",
+      "side": 1,
+      "message": "Let\u0027s figure out supported session types through getAudioCapabilities()",
+      "range": {
+        "startLine": 259,
+        "startChar": 4,
+        "endLine": 259,
+        "endChar": 70
+      },
+      "revId": "0d57e716e8a008baa19b93d8e02e7d14c4d441cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb93e9e2_eb55f954",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-23T00:29:34Z",
+      "side": 1,
+      "message": "Instead we should check if getAudioCapabilities(HW_OFFLOAD) returns a list that contains SBC, we should only test SBC if SBC is supported.",
+      "range": {
+        "startLine": 476,
+        "startChar": 0,
+        "endLine": 477,
+        "endChar": 41
+      },
+      "revId": "0d57e716e8a008baa19b93d8e02e7d14c4d441cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc5cec0c_b0f554f3",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-23T00:29:34Z",
+      "side": 1,
+      "message": "Similar to above, we should check if the returned capabilities contains AAC for HW_OFFLOAD session type",
+      "range": {
+        "startLine": 512,
+        "startChar": 2,
+        "endLine": 513,
+        "endChar": 41
+      },
+      "revId": "0d57e716e8a008baa19b93d8e02e7d14c4d441cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e1cd7b4_e62d045d",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-23T00:29:34Z",
+      "side": 1,
+      "message": "Similar to above, we should check if the returned capabilities contains APTX for HW_OFFLOAD session type",
+      "range": {
+        "startLine": 548,
+        "startChar": 0,
+        "endLine": 549,
+        "endChar": 41
+      },
+      "revId": "0d57e716e8a008baa19b93d8e02e7d14c4d441cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f725b938_ac1960d4",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 582,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-23T00:29:34Z",
+      "side": 1,
+      "message": "Similar to above, we should check if the returned capabilities contains LDAC for HW_OFFLOAD session type",
+      "range": {
+        "startLine": 581,
+        "startChar": 0,
+        "endLine": 582,
+        "endChar": 41
+      },
+      "revId": "0d57e716e8a008baa19b93d8e02e7d14c4d441cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2bf2df22_79cdb5ae",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-23T00:29:34Z",
+      "side": 1,
+      "message": "This test should be merged together with other tests since there is no more general PCM configs in the updated HW offload codec config parameter structs.",
+      "range": {
+        "startLine": 617,
+        "startChar": 0,
+        "endLine": 618,
+        "endChar": 41
+      },
+      "revId": "0d57e716e8a008baa19b93d8e02e7d14c4d441cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f9ff180_a83a0dca",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 640,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-23T00:29:34Z",
+      "side": 1,
+      "message": "We should be able to get these capabilities from getAudioCapabilities() and do for-loop on that",
+      "range": {
+        "startLine": 636,
+        "startChar": 26,
+        "endLine": 640,
+        "endChar": 51
+      },
+      "revId": "0d57e716e8a008baa19b93d8e02e7d14c4d441cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35c8c59e_7c13e5cf",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 661,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-23T00:29:34Z",
+      "side": 1,
+      "message": "Same as above",
+      "range": {
+        "startLine": 660,
+        "startChar": 0,
+        "endLine": 661,
+        "endChar": 41
+      },
+      "revId": "0d57e716e8a008baa19b93d8e02e7d14c4d441cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
