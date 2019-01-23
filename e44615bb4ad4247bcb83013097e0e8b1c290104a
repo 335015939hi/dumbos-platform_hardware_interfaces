@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "acffc4f9_1e496ee8",
+        "filename": "bluetooth/audio/2.0/default/A2dpSoftwareAudioProvider.cpp",
+        "patchSetId": 38
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-23T01:04:06Z",
+      "side": 1,
+      "message": "nit: remove or match comment style",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 79
+      },
+      "revId": "e44615bb4ad4247bcb83013097e0e8b1c290104a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
