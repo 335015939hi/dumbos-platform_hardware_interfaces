@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0fd847cb_46f1e1fa",
+        "filename": "power/stats/1.0/default/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-01-23T22:34:37Z",
+      "side": 1,
+      "message": "nit: .mock here as well",
+      "range": {
+        "startLine": 34,
+        "startChar": 56,
+        "endLine": 34,
+        "endChar": 63
+      },
+      "revId": "736ff5e4d87a5406a25ef230ebe8fc61051fe3b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
