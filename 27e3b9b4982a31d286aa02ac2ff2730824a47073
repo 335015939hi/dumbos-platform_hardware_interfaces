@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f34a22c1_5a4edddf",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
+        "patchSetId": 40
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-24T17:35:43Z",
+      "side": 1,
+      "message": "It is wrong. I should check (UNKNOWN || (SW \u0026\u0026 pcmConfig) || (HW \u0026\u0026 codecConfig)).",
+      "range": {
+        "startLine": 170,
+        "startChar": 6,
+        "endLine": 173,
+        "endChar": 60
+      },
+      "revId": "27e3b9b4982a31d286aa02ac2ff2730824a47073",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
