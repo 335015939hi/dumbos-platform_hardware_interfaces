@@ -69,6 +69,23 @@
       "revId": "9593e05bb3aa1778992fcaefcbcc5b0915dcef76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a03965db_90319000",
+        "filename": "compatibility_matrices/Android.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1060959
+      },
+      "writtenOn": "2019-01-24T08:47:56Z",
+      "side": 1,
+      "message": "can\u0027t we do this unconditionally? I commented on the bug too.",
+      "revId": "9593e05bb3aa1778992fcaefcbcc5b0915dcef76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
