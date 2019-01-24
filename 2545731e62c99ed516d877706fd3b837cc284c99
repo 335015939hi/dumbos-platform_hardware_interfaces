@@ -167,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "41b54b74_17f73ca6",
+        "filename": "bluetooth/audio/2.0/default/A2dpLegacyAudioProvider.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-24T15:31:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6540a6ce_1710d1fc",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 33
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "27e4afeb_d83ba38a",
         "filename": "bluetooth/audio/2.0/default/A2dpLegacyAudioProvider.cpp",
         "patchSetId": 33
@@ -1190,6 +1214,30 @@
     },
     {
       "key": {
+        "uuid": "e76d92ee_2a4e55dd",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-24T15:31:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "064e027b_e3f872a3",
+      "range": {
+        "startLine": 75,
+        "startChar": 5,
+        "endLine": 75,
+        "endChar": 35
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c892b915_d8fe1819",
         "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
         "patchSetId": 33
@@ -1201,6 +1249,30 @@
       "writtenOn": "2019-01-16T20:41:04Z",
       "side": 1,
       "message": "same comment as UpdateCtrlPath",
+      "range": {
+        "startLine": 80,
+        "startChar": 14,
+        "endLine": 80,
+        "endChar": 33
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85da87e2_3c07ed1c",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-24T15:31:34Z",
+      "side": 1,
+      "message": "Because AudioConfiguration is added, I have to check the value whether it is valid.",
+      "parentUuid": "c892b915_d8fe1819",
       "range": {
         "startLine": 80,
         "startChar": 14,
@@ -1401,6 +1473,30 @@
     },
     {
       "key": {
+        "uuid": "4b51efd0_ac8aecdb",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-24T15:31:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b07d3b4_9d298f75",
+      "range": {
+        "startLine": 222,
+        "startChar": 0,
+        "endLine": 224,
+        "endChar": 10
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b3d5e374_3f5f931b",
         "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
         "patchSetId": 33
@@ -1539,6 +1635,30 @@
       "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "516c39bb_733f492a",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-24T15:31:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9bbdf352_2d34cef1",
+      "range": {
+        "startLine": 283,
+        "startChar": 49,
+        "endLine": 283,
+        "endChar": 61
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
