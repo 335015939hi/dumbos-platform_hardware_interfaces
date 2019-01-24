@@ -45,6 +45,30 @@
       "revId": "9593e05bb3aa1778992fcaefcbcc5b0915dcef76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a960fee_924a4447",
+        "filename": "compatibility_matrices/Android.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2019-01-24T01:02:45Z",
+      "side": 1,
+      "message": "No. It was implied in compatibility_matrix.mk (using LOCAL_MODULE_PATH), but not now.",
+      "parentUuid": "ef1180e5_aa9ad564",
+      "range": {
+        "startLine": 30,
+        "startChar": 30,
+        "endLine": 30,
+        "endChar": 35
+      },
+      "revId": "9593e05bb3aa1778992fcaefcbcc5b0915dcef76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
