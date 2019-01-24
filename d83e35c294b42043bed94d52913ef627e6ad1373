@@ -484,6 +484,30 @@
     },
     {
       "key": {
+        "uuid": "42f33db7_85e15474",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-24T15:06:32Z",
+      "side": 1,
+      "message": "I check the capability and audio_provider_ to make sure the offload is supported within IsOffloadSupported().",
+      "parentUuid": "a08cc4f5_00b14772",
+      "range": {
+        "startLine": 331,
+        "startChar": 0,
+        "endLine": 332,
+        "endChar": 41
+      },
+      "revId": "d83e35c294b42043bed94d52913ef627e6ad1373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bb10c005_65b1c621",
         "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
         "patchSetId": 21

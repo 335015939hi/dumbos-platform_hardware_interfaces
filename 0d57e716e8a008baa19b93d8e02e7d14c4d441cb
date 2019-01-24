@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b1a28b7f_e102a44b",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-24T15:06:32Z",
+      "side": 1,
+      "message": "Now I have 2 possible conditions only because document does not say whether provider is nullptr or not when capability is 0.\n  (success, valid provider): software encoding must go here, and offload is optional\n  (failure, provider has to be nullptr): unknown session must go here, offload is possible.\nAbout the provider and capability of offloading, I test at BluetoothAudioProviderA2dpHardwareHidlTest.",
+      "parentUuid": "e46b4db6_07a21bc2",
+      "range": {
+        "startLine": 174,
+        "startChar": 59,
+        "endLine": 174,
+        "endChar": 76
+      },
+      "revId": "0d57e716e8a008baa19b93d8e02e7d14c4d441cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5d037cb2_50bc8929",
         "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
         "patchSetId": 25
@@ -45,6 +69,30 @@
       "revId": "0d57e716e8a008baa19b93d8e02e7d14c4d441cb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec571821_3b817b38",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-24T15:06:32Z",
+      "side": 1,
+      "message": "DONE",
+      "parentUuid": "5d037cb2_50bc8929",
+      "range": {
+        "startLine": 238,
+        "startChar": 4,
+        "endLine": 238,
+        "endChar": 54
+      },
+      "revId": "0d57e716e8a008baa19b93d8e02e7d14c4d441cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "6e0b3cb7_2df77f3c",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-24T15:06:32Z",
+      "side": 1,
+      "message": "This test is for openProvider API only, and now I do not check whether the provider is nullptr when capabilities is 0 because the document dose not define.\nAbout the relationship between provider and capability of offloading, I test at BluetoothAudioProviderA2dpHardwareHidlTest.",
+      "parentUuid": "09e132fa_c2696cd4",
+      "range": {
+        "startLine": 259,
+        "startChar": 4,
+        "endLine": 259,
+        "endChar": 70
+      },
+      "revId": "0d57e716e8a008baa19b93d8e02e7d14c4d441cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bb93e9e2_eb55f954",
         "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
         "patchSetId": 25
@@ -91,6 +163,30 @@
       "revId": "0d57e716e8a008baa19b93d8e02e7d14c4d441cb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ec0ca7b_edca5fbb",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-24T15:06:32Z",
+      "side": 1,
+      "message": "GetOffloadCodecCapabilitiesHelper(CodecType::SBC) or GetSbcCodecSpecificSupportedList(true) extracts SBC capability and creates test list.\nAnd, IsOffloadSupported() checks those capabilities.",
+      "parentUuid": "bb93e9e2_eb55f954",
+      "range": {
+        "startLine": 476,
+        "startChar": 0,
+        "endLine": 477,
+        "endChar": 41
+      },
+      "revId": "0d57e716e8a008baa19b93d8e02e7d14c4d441cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "5c7cdbcf_65d152f9",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-24T15:06:32Z",
+      "side": 1,
+      "message": "GatXXXCodecSpecificSupportedList(true) creates the codec support list and IsOffloadSupported() checks the size of capabilities.",
+      "parentUuid": "dc5cec0c_b0f554f3",
+      "range": {
+        "startLine": 512,
+        "startChar": 2,
+        "endLine": 513,
+        "endChar": 41
+      },
+      "revId": "0d57e716e8a008baa19b93d8e02e7d14c4d441cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0e1cd7b4_e62d045d",
         "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
         "patchSetId": 25
@@ -137,6 +257,30 @@
       "revId": "0d57e716e8a008baa19b93d8e02e7d14c4d441cb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c090498_b00cd819",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-24T15:06:32Z",
+      "side": 1,
+      "message": "IsOffloadSupported() will check the capabilities.\nBtw, I follow the codec sequences at HIDL definition so move aptX test after LDAC.",
+      "parentUuid": "0e1cd7b4_e62d045d",
+      "range": {
+        "startLine": 548,
+        "startChar": 0,
+        "endLine": 549,
+        "endChar": 41
+      },
+      "revId": "0d57e716e8a008baa19b93d8e02e7d14c4d441cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "172b346a_48e017ba",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 582,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-24T15:06:32Z",
+      "side": 1,
+      "message": "IsOffloadSupported() will check the capabilities.\nBtw, I changed the test sequence to follow the sequences at HIDL definition, and aptX will test after LDAC.",
+      "parentUuid": "f725b938_ac1960d4",
+      "range": {
+        "startLine": 581,
+        "startChar": 0,
+        "endLine": 582,
+        "endChar": 41
+      },
+      "revId": "0d57e716e8a008baa19b93d8e02e7d14c4d441cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2bf2df22_79cdb5ae",
         "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
         "patchSetId": 25
@@ -183,6 +351,30 @@
       "revId": "0d57e716e8a008baa19b93d8e02e7d14c4d441cb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d9f2172_a2249c7d",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-24T15:06:32Z",
+      "side": 1,
+      "message": "merged into testcase of each codecs and the StartAndEndA2dpHardwareSessionInvalidCodecConfig test.",
+      "parentUuid": "2bf2df22_79cdb5ae",
+      "range": {
+        "startLine": 617,
+        "startChar": 0,
+        "endLine": 618,
+        "endChar": 41
+      },
+      "revId": "0d57e716e8a008baa19b93d8e02e7d14c4d441cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "fc0912e7_c8220053",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 640,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-24T15:06:32Z",
+      "side": 1,
+      "message": "DONE.\nGet???CodecSpecificSupportedList( true / false ) will create the test data.",
+      "parentUuid": "5f9ff180_a83a0dca",
+      "range": {
+        "startLine": 636,
+        "startChar": 26,
+        "endLine": 640,
+        "endChar": 51
+      },
+      "revId": "0d57e716e8a008baa19b93d8e02e7d14c4d441cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "35c8c59e_7c13e5cf",
         "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
         "patchSetId": 25
@@ -229,6 +445,30 @@
       "revId": "0d57e716e8a008baa19b93d8e02e7d14c4d441cb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5dad3fe7_09808287",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 661,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-24T15:06:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35c8c59e_7c13e5cf",
+      "range": {
+        "startLine": 660,
+        "startChar": 0,
+        "endLine": 661,
+        "endChar": 41
+      },
+      "revId": "0d57e716e8a008baa19b93d8e02e7d14c4d441cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
