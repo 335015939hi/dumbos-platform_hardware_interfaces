@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e884c73f_dff31064",
+        "filename": "identity_credential/1.0/IIdentityCredential.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2019-01-24T17:49:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b05eccff_2f1b661c",
+      "range": {
+        "startLine": 91,
+        "startChar": 62,
+        "endLine": 91,
+        "endChar": 76
+      },
+      "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6181a94f_fa68b89f",
         "filename": "identity_credential/1.0/IIdentityCredential.hal",
         "patchSetId": 19
@@ -45,6 +69,30 @@
       "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fedcdd75_e25bf124",
+        "filename": "identity_credential/1.0/IIdentityCredential.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2019-01-24T17:49:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6181a94f_fa68b89f",
+      "range": {
+        "startLine": 187,
+        "startChar": 7,
+        "endLine": 187,
+        "endChar": 20
+      },
+      "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "6a2a5b16_adef1b0a",
+        "filename": "identity_credential/1.0/IIdentityCredentialStore.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2019-01-24T17:49:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ece0ecc7_7164c9d2",
+      "range": {
+        "startLine": 109,
+        "startChar": 25,
+        "endLine": 109,
+        "endChar": 41
+      },
+      "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "648906c0_ddd36aa0",
         "filename": "identity_credential/1.0/IIdentityCredentialStore.hal",
         "patchSetId": 19
@@ -91,6 +163,30 @@
       "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6490f11f_3305c339",
+        "filename": "identity_credential/1.0/IIdentityCredentialStore.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2019-01-24T17:49:37Z",
+      "side": 1,
+      "message": "I think Shawn wanted to go with the word \"personalizationReceipt\" so doing that.",
+      "parentUuid": "648906c0_ddd36aa0",
+      "range": {
+        "startLine": 122,
+        "startChar": 11,
+        "endLine": 122,
+        "endChar": 32
+      },
+      "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "77a755a8_ea1986b9",
+        "filename": "identity_credential/1.0/IIdentityCredentialStore.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2019-01-24T17:49:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3f9eb45_5529927f",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 92
+      },
+      "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ed2b317_9e0d942f",
         "filename": "identity_credential/1.0/IWritableIdentityCredential.hal",
         "patchSetId": 19
@@ -137,6 +257,30 @@
       "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fddd5872_df79dfeb",
+        "filename": "identity_credential/1.0/IWritableIdentityCredential.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2019-01-24T17:49:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ed2b317_9e0d942f",
+      "range": {
+        "startLine": 38,
+        "startChar": 11,
+        "endLine": 38,
+        "endChar": 27
+      },
+      "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "41d66523_0e6253b8",
+        "filename": "identity_credential/1.0/IWritableIdentityCredential.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2019-01-24T17:49:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9dd8cc61_21bf0d4c",
+      "range": {
+        "startLine": 85,
+        "startChar": 91,
+        "endLine": 85,
+        "endChar": 97
+      },
+      "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f986e9bf_8e71ade7",
         "filename": "identity_credential/1.0/IWritableIdentityCredential.hal",
         "patchSetId": 19
@@ -183,6 +351,30 @@
       "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d417c40_e43016d4",
+        "filename": "identity_credential/1.0/IWritableIdentityCredential.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2019-01-24T17:49:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f986e9bf_8e71ade7",
+      "range": {
+        "startLine": 87,
+        "startChar": 11,
+        "endLine": 87,
+        "endChar": 35
+      },
+      "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "b41a9707_bb3ef6e7",
+        "filename": "identity_credential/1.0/IWritableIdentityCredential.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2019-01-24T17:49:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b2cb4de6_63c53f2f",
+      "range": {
+        "startLine": 87,
+        "startChar": 95,
+        "endLine": 88,
+        "endChar": 65
+      },
+      "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "12a3ca83_ca949ca4",
         "filename": "identity_credential/1.0/IWritableIdentityCredential.hal",
         "patchSetId": 19
@@ -220,6 +436,24 @@
       "writtenOn": "2019-01-22T19:13:10Z",
       "side": 1,
       "message": "remove? Secure hardware is not mandatory.",
+      "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0afca6ed_48ded862",
+        "filename": "identity_credential/1.0/IWritableIdentityCredential.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2019-01-24T17:49:37Z",
+      "side": 1,
+      "message": "Leaving this in for now... FWIW, the word \"secure\" is used throughout the .hal definitions, in particular in the intro in IIdentityCredentialStore.",
+      "parentUuid": "12a3ca83_ca949ca4",
       "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -246,6 +480,53 @@
       "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c7781c9_8eb9e5e8",
+        "filename": "identity_credential/1.0/IWritableIdentityCredential.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2019-01-24T17:49:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "021ecac4_6f75e30f",
+      "range": {
+        "startLine": 232,
+        "startChar": 54,
+        "endLine": 232,
+        "endChar": 68
+      },
+      "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a0e1a543_9912098c",
+        "filename": "identity_credential/1.0/types.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2019-01-24T17:49:37Z",
+      "side": 1,
+      "message": "Removed.",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 2
+      },
+      "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -289,6 +570,48 @@
     },
     {
       "key": {
+        "uuid": "94354b68_15904b7c",
+        "filename": "identity_credential/1.0/types.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2019-01-24T17:49:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a742745_4774d4c6",
+      "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cc99c2a2_07d13ad2",
+        "filename": "identity_credential/1.0/types.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2019-01-24T17:49:37Z",
+      "side": 1,
+      "message": "I\u0027m just going to go with \"see the readerSignature field in StartRetrievalArguments\"",
+      "parentUuid": "b77da701_73542bce",
+      "range": {
+        "startLine": 122,
+        "startChar": 33,
+        "endLine": 122,
+        "endChar": 91
+      },
+      "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6ba1316c_e9c5ee38",
         "filename": "identity_credential/1.0/types.hal",
         "patchSetId": 19
@@ -312,6 +635,30 @@
     },
     {
       "key": {
+        "uuid": "8dee7279_1fc4f9c4",
+        "filename": "identity_credential/1.0/types.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2019-01-24T17:49:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ba1316c_e9c5ee38",
+      "range": {
+        "startLine": 142,
+        "startChar": 17,
+        "endLine": 142,
+        "endChar": 41
+      },
+      "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "caf9a371_dc8a23bc",
         "filename": "identity_credential/1.0/types.hal",
         "patchSetId": 19
@@ -326,6 +673,24 @@
       "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "479b2364_2285bb88",
+        "filename": "identity_credential/1.0/types.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2019-01-24T17:49:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "caf9a371_dc8a23bc",
+      "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -352,6 +717,30 @@
     },
     {
       "key": {
+        "uuid": "8a803149_f44cae6f",
+        "filename": "identity_credential/1.0/types.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2019-01-24T17:49:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d8ccfd71_536e37f7",
+      "range": {
+        "startLine": 177,
+        "startChar": 42,
+        "endLine": 177,
+        "endChar": 50
+      },
+      "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ecb7aab1_2465c069",
         "filename": "identity_credential/1.0/types.hal",
         "patchSetId": 19
@@ -363,6 +752,30 @@
       "writtenOn": "2019-01-22T19:13:10Z",
       "side": 1,
       "message": "Shouldn\u0027t it be possible to have multiple SACP with the same readerAuthPubKey (e.g. one profile that is only allowed if user is also authenticated)?",
+      "range": {
+        "startLine": 180,
+        "startChar": 0,
+        "endLine": 182,
+        "endChar": 23
+      },
+      "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9587664_cce02526",
+        "filename": "identity_credential/1.0/types.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2019-01-24T17:49:37Z",
+      "side": 1,
+      "message": "Shawn?",
+      "parentUuid": "ecb7aab1_2465c069",
       "range": {
         "startLine": 180,
         "startChar": 0,
@@ -398,6 +811,30 @@
     },
     {
       "key": {
+        "uuid": "0087eedd_296992c5",
+        "filename": "identity_credential/1.0/types.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2019-01-24T17:49:37Z",
+      "side": 1,
+      "message": "Yes, fixing. We also use certificates for reader public key so changing it to read \"is either empty or contains ECDSA(readerKey, requestData) where the public key for readerKey is available in readerCertificate from one of the access control profiles.\"",
+      "parentUuid": "e2098ae8_377fd770",
+      "range": {
+        "startLine": 226,
+        "startChar": 57,
+        "endLine": 226,
+        "endChar": 73
+      },
+      "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a0eb4c9_7a943cb0",
         "filename": "identity_credential/1.0/types.hal",
         "patchSetId": 19
@@ -421,6 +858,30 @@
     },
     {
       "key": {
+        "uuid": "605c5d71_18174612",
+        "filename": "identity_credential/1.0/types.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2019-01-24T17:49:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a0eb4c9_7a943cb0",
+      "range": {
+        "startLine": 234,
+        "startChar": 39,
+        "endLine": 234,
+        "endChar": 52
+      },
+      "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d7d3d890_e33d3d49",
         "filename": "identity_credential/1.0/types.hal",
         "patchSetId": 19
@@ -441,6 +902,30 @@
       "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1042539_8d21655d",
+        "filename": "identity_credential/1.0/types.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2019-01-24T17:49:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7d3d890_e33d3d49",
+      "range": {
+        "startLine": 235,
+        "startChar": 84,
+        "endLine": 235,
+        "endChar": 97
+      },
+      "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -487,6 +972,54 @@
       "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c62478b2_f553e058",
+        "filename": "identity_credential/1.0/types.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2019-01-24T17:49:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fbec1122_654abe9a",
+      "range": {
+        "startLine": 239,
+        "startChar": 63,
+        "endLine": 239,
+        "endChar": 76
+      },
+      "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af4ae103_fc828b39",
+        "filename": "identity_credential/1.0/types.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2019-01-24T17:49:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17eded90_43791562",
+      "range": {
+        "startLine": 239,
+        "startChar": 7,
+        "endLine": 239,
+        "endChar": 20
+      },
+      "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
