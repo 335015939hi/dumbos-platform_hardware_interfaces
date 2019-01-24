@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "46ab83c0_d3c246bc",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1220282
+      },
+      "writtenOn": "2019-01-24T23:08:46Z",
+      "side": 1,
+      "message": "Until here, it\u0027s always false?",
+      "range": {
+        "startLine": 345,
+        "startChar": 4,
+        "endLine": 348,
+        "endChar": 43
+      },
+      "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c1f7b75_28269f83",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 619,
+      "author": {
+        "id": 1220282
+      },
+      "writtenOn": "2019-01-24T23:08:46Z",
+      "side": 1,
+      "message": "NIT: We can combine these two.",
+      "range": {
+        "startLine": 616,
+        "startChar": 4,
+        "endLine": 619,
+        "endChar": 36
+      },
+      "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cef30028_d3d85b40",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 645,
+      "author": {
+        "id": 1220282
+      },
+      "writtenOn": "2019-01-24T23:08:46Z",
+      "side": 1,
+      "message": "NIT: We can combine these two.",
+      "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9df5849e_e79064eb",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 800,
+      "author": {
+        "id": 1220282
+      },
+      "writtenOn": "2019-01-24T23:08:46Z",
+      "side": 1,
+      "message": "I think it\u0027s always false.",
+      "range": {
+        "startLine": 797,
+        "startChar": 5,
+        "endLine": 800,
+        "endChar": 43
+      },
+      "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
