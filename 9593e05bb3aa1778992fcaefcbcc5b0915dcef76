@@ -86,6 +86,24 @@
       "revId": "9593e05bb3aa1778992fcaefcbcc5b0915dcef76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6f0b5c7_3f1a7c93",
+        "filename": "compatibility_matrices/Android.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2019-01-25T18:54:32Z",
+      "side": 1,
+      "message": "The conditional says that \"if product compatibility matrix file is not defined, just don\u0027t generate /product/etc/vintf/compatibility_matrix.xml at all\". It is possible to keep both files (this file and the one in /system).",
+      "parentUuid": "a03965db_90319000",
+      "revId": "9593e05bb3aa1778992fcaefcbcc5b0915dcef76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
