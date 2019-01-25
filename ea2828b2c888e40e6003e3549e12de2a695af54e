@@ -2,6 +2,98 @@
   "comments": [
     {
       "key": {
+        "uuid": "6af6a4cb_7e9b4b19",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-25T00:22:27Z",
+      "side": 1,
+      "message": "A2DP_HARDWARE_OFFLOAD_DATAPATH is required if  providers_factory_-\u003egetProviderCapabilities(A2DP_HARDWARE_OFFLOAD_DATAPATH, hidl_cb) returns a non-empty list.",
+      "range": {
+        "startLine": 266,
+        "startChar": 0,
+        "endLine": 266,
+        "endChar": 79
+      },
+      "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5aca2a33_2ae642cf",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-25T00:22:27Z",
+      "side": 1,
+      "message": "nit: explicit {} would be more readable",
+      "range": {
+        "startLine": 276,
+        "startChar": 0,
+        "endLine": 276,
+        "endChar": 19
+      },
+      "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "605c690c_1d2a5705",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-25T00:22:27Z",
+      "side": 1,
+      "message": "nit (readability improvement):\nreturn (pcm_parameters.sampleRate !\u003d SampleRate::RATE_UNKNOWN \u0026\u0026\n         pcm_parameters.channelMode !\u003d ChannelMode::UNKNOWN \u0026\u0026\n         pcm_parameters.bitsPerSample !\u003d BitsPerSample::BITS_UNKNOWN) \u0026\u0026\n        (pcm_capability.sampleRate \u0026 pcm_parameters.sampleRate) \u0026\u0026\n        (pcm_capability.channelMode \u0026 pcm_parameters.channelMode) \u0026\u0026\n        (pcm_capability.bitsPerSample \u0026 pcm_parameters.bitsPerSample));\n\nor \n\nbool areParametersUnknown \u003d pcm_parameters.sampleRate \u003d\u003d SampleRate::RATE_UNKNOWN ||\n         pcm_parameters.channelMode \u003d\u003d ChannelMode::UNKNOWN ||\n         pcm_parameters.bitsPerSample \u003d\u003d BitsPerSample::BITS_UNKNOWN;\nbool areParametersWithinCapability \u003d (pcm_capability.sampleRate \u0026 pcm_parameters.sampleRate) \u0026\u0026\n        (pcm_capability.channelMode \u0026 pcm_parameters.channelMode) \u0026\u0026\n        (pcm_capability.bitsPerSample \u0026 pcm_parameters.bitsPerSample);\nreturn !areParametersUnknown \u0026\u0026 areParametersWithinCapability;",
+      "range": {
+        "startLine": 278,
+        "startChar": 0,
+        "endLine": 286,
+        "endChar": 17
+      },
+      "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34e2b2d8_8fb7adbb",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-25T00:22:27Z",
+      "side": 1,
+      "message": "Whether a provider can be open or not depends on whether the return value providers_factory_-\u003egetProviderCapabilities(A2DP_HARDWARE_OFFLOAD_DATAPATH, hidl_cb) is an empty list.",
+      "range": {
+        "startLine": 311,
+        "startChar": 47,
+        "endLine": 311,
+        "endChar": 68
+      },
+      "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "46ab83c0_d3c246bc",
         "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
         "patchSetId": 28
@@ -18,6 +110,236 @@
         "startChar": 4,
         "endLine": 348,
         "endChar": 43
+      },
+      "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afea8739_02606a22",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-25T00:22:27Z",
+      "side": 1,
+      "message": "nit: explicit {} is preferred",
+      "range": {
+        "startLine": 401,
+        "startChar": 8,
+        "endLine": 401,
+        "endChar": 17
+      },
+      "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ddd64b4e_3a1c57df",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-25T00:22:27Z",
+      "side": 1,
+      "message": "nit: explicit {} is preferred",
+      "range": {
+        "startLine": 416,
+        "startChar": 6,
+        "endLine": 416,
+        "endChar": 33
+      },
+      "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64e7d928_49472645",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-25T00:22:27Z",
+      "side": 1,
+      "message": "since this is not assigned later, it should be initialized with {}",
+      "range": {
+        "startLine": 436,
+        "startChar": 24,
+        "endLine": 436,
+        "endChar": 38
+      },
+      "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5ae64f0_2447c47c",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-25T00:22:27Z",
+      "side": 1,
+      "message": "nit: explicit {} is preferred",
+      "range": {
+        "startLine": 468,
+        "startChar": 6,
+        "endLine": 468,
+        "endChar": 33
+      },
+      "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3d1eff0_79b9964e",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-25T00:22:27Z",
+      "side": 1,
+      "message": "nit: explicit {} is preferred",
+      "range": {
+        "startLine": 483,
+        "startChar": 6,
+        "endLine": 483,
+        "endChar": 72
+      },
+      "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75d3414d_971f46f9",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-25T00:22:27Z",
+      "side": 1,
+      "message": "since this is not assigned later, it should be initialized to {}",
+      "range": {
+        "startLine": 489,
+        "startChar": 24,
+        "endLine": 489,
+        "endChar": 38
+      },
+      "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d1e692f_47da6319",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 516,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-25T00:22:27Z",
+      "side": 1,
+      "message": "nit: explicit {} is preferred",
+      "range": {
+        "startLine": 516,
+        "startChar": 5,
+        "endLine": 516,
+        "endChar": 34
+      },
+      "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9fa1e6b_abcdbfcb",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-25T00:22:27Z",
+      "side": 1,
+      "message": "same as above",
+      "range": {
+        "startLine": 533,
+        "startChar": 24,
+        "endLine": 533,
+        "endChar": 38
+      },
+      "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cda1a23f_35938cb9",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-25T00:22:27Z",
+      "side": 1,
+      "message": "same as above",
+      "range": {
+        "startLine": 574,
+        "startChar": 24,
+        "endLine": 574,
+        "endChar": 38
+      },
+      "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97b1b2be_1ef2e02e",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-25T00:22:27Z",
+      "side": 1,
+      "message": "Another condition gating this test is whether SBC is supported on Hardware Offload. If the audio capabilities do not contain SBC, LDAC, or any codec, its test should not run.",
+      "range": {
+        "startLine": 597,
+        "startChar": 2,
+        "endLine": 597,
+        "endChar": 36
       },
       "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -59,6 +381,23 @@
       "writtenOn": "2019-01-24T23:08:46Z",
       "side": 1,
       "message": "NIT: We can combine these two.",
+      "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "512fc1db_82b52faf",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 742,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-25T00:22:27Z",
+      "side": 1,
+      "message": "nit: codec_specifics.empty()\n\nalso explicit {} is preferred",
       "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
