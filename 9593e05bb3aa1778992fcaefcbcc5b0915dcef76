@@ -104,6 +104,24 @@
       "revId": "9593e05bb3aa1778992fcaefcbcc5b0915dcef76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ab4c762_167641a8",
+        "filename": "compatibility_matrices/Android.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1060959
+      },
+      "writtenOn": "2019-01-25T19:46:29Z",
+      "side": 1,
+      "message": "ah I see why.. it would be nice if things could be set up so that the files were auto-generated based on the contents on the various partitions instead of having to manually provide them.",
+      "parentUuid": "e6f0b5c7_3f1a7c93",
+      "revId": "9593e05bb3aa1778992fcaefcbcc5b0915dcef76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
