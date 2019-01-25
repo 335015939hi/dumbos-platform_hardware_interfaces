@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "f4210759_613b9dda",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-25T19:22:07Z",
+      "side": 1,
+      "message": "I agree.  I think this should be addressed after this is merged.  Thanks for pointing out the TotT.",
+      "parentUuid": "27ea527c_312bbdbc",
+      "range": {
+        "startLine": 266,
+        "startChar": 0,
+        "endLine": 266,
+        "endChar": 79
+      },
+      "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5aca2a33_2ae642cf",
         "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
         "patchSetId": 28
