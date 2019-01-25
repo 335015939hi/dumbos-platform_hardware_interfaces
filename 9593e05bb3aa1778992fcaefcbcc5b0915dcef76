@@ -122,6 +122,24 @@
       "revId": "9593e05bb3aa1778992fcaefcbcc5b0915dcef76",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bdb9e0e7_bb7e43b3",
+        "filename": "compatibility_matrices/Android.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2019-01-25T20:52:26Z",
+      "side": 1,
+      "message": "I agree. For manifests, we already have vintf_fragments that supports this.\n\nHowever, it doesn\u0027t apply in this case; the compatibility matrix declares what HALs the code in the partition \"uses\". For example:\n\n    # /product/bin/foo_client\n    IFoo.getService();\n    # Now, /product/etc/vintf/compatibility_matrix.xml should declare IFoo\n    # There can be multiple clients that uses IFoo.\n\n    # /vendor/bin/vendor.foo.bar-service\n    # module declares vintf_fragment that installs to /vendor/etc/vintf/manifest/vendor.foo.bar.xml\n    main() {\n        sp\u003cIFoo\u003e foo \u003d new Foo();\n        foo-\u003eregisterService();\n        // ...\n    }\n\nSteven, do you think it makes sense to add vintf_fragment for compatibility matrices to foo_client above? Any client that uses a HAL should declare a vintf_fragment with a correct matrix fragment.",
+      "parentUuid": "0ab4c762_167641a8",
+      "revId": "9593e05bb3aa1778992fcaefcbcc5b0915dcef76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
