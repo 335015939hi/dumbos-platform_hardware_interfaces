@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "27ea527c_312bbdbc",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1220282
+      },
+      "writtenOn": "2019-01-25T17:22:07Z",
+      "side": 1,
+      "message": "Yes. We want to test the behavior for user, not necessarily the function unit (Please see TotT 555). If getProviderCapabilities() returns non-empty list for a provider, then we must be able to open it.",
+      "parentUuid": "4db82277_f465de84",
+      "range": {
+        "startLine": 266,
+        "startChar": 0,
+        "endLine": 266,
+        "endChar": 79
+      },
+      "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5aca2a33_2ae642cf",
         "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
         "patchSetId": 28
