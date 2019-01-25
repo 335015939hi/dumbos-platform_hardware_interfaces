@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4db82277_f465de84",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-25T12:39:16Z",
+      "side": 1,
+      "message": "I want to keep this function as simple as possible, so will check the relationship between provider and capabilities at the SetUp of each tests.\n- GetProviderCapabilitiesHelper: checks PCM and codec capability for SW and HW respectively.\n- OpenProviderHelper: checks status and provider are on the same page.\n- BluetoothAudioProviderA2dpSoftwareHidlTest: checks the provider must be valid.\n- BluetoothAudioProviderA2dpHardwareHidlTest: checks the provider must be valid when capability is not empty (LINE#386).\n- BluetoothAudioProvidersFactoryHidlTest: checks the provider must be valid.\nOr, do you think I should merge OpenProviderBySession and getProviderCapabilitiesBySession into one test case? \n  TEST_F(OpenProviderBySession + getProviderCapabilitiesBySession) {\n    for all sessions {\n      GetProviderCapabilitiesHelper + OpenProviderHelper\n      ASSERT when capability is not empty and provider is nullptr\n    }\n  }",
+      "parentUuid": "6af6a4cb_7e9b4b19",
+      "range": {
+        "startLine": 266,
+        "startChar": 0,
+        "endLine": 266,
+        "endChar": 79
+      },
+      "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5aca2a33_2ae642cf",
         "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
         "patchSetId": 28
@@ -45,6 +69,30 @@
       "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fdf56808_0da1dc34",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-25T12:39:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5aca2a33_2ae642cf",
+      "range": {
+        "startLine": 276,
+        "startChar": 0,
+        "endLine": 276,
+        "endChar": 19
+      },
+      "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e17e081b_f9daae07",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-25T12:39:16Z",
+      "side": 1,
+      "message": "I choose (2) because I think it is more clear. Thanks.",
+      "parentUuid": "605c690c_1d2a5705",
+      "range": {
+        "startLine": 278,
+        "startChar": 0,
+        "endLine": 286,
+        "endChar": 17
+      },
+      "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "34e2b2d8_8fb7adbb",
         "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
         "patchSetId": 28
@@ -82,6 +154,30 @@
       "writtenOn": "2019-01-25T00:22:27Z",
       "side": 1,
       "message": "Whether a provider can be open or not depends on whether the return value providers_factory_-\u003egetProviderCapabilities(A2DP_HARDWARE_OFFLOAD_DATAPATH, hidl_cb) is an empty list.",
+      "range": {
+        "startLine": 311,
+        "startChar": 47,
+        "endLine": 311,
+        "endChar": 68
+      },
+      "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b413c32_20166196",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-25T12:39:16Z",
+      "side": 1,
+      "message": "Do you think I should merge OpenProviderBySession and getProviderCapabilitiesBySession into one test case? \n  TEST_F(OpenProviderBySession + getProviderCapabilitiesBySession) {\n    for all sessions {\n      GetProviderCapabilitiesHelper + OpenProviderHelper\n      ASSERT when capability is not empty and provider is nullptr\n    }\n  }",
+      "parentUuid": "34e2b2d8_8fb7adbb",
       "range": {
         "startLine": 311,
         "startChar": 47,
@@ -164,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "e66a060a_adf0f5a6",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-25T12:39:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "afea8739_02606a22",
+      "range": {
+        "startLine": 401,
+        "startChar": 8,
+        "endLine": 401,
+        "endChar": 17
+      },
+      "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ddd64b4e_3a1c57df",
         "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
         "patchSetId": 28
@@ -184,6 +304,30 @@
       "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "638dc5e4_090a6858",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-25T12:39:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ddd64b4e_3a1c57df",
+      "range": {
+        "startLine": 416,
+        "startChar": 6,
+        "endLine": 416,
+        "endChar": 33
+      },
+      "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -210,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "0e43bc9e_7d40b5dd",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-25T12:39:16Z",
+      "side": 1,
+      "message": "Add. Btw, it is a safe_union and the sbcConfig(SbcParamters) is similar to assign.",
+      "parentUuid": "64e7d928_49472645",
+      "range": {
+        "startLine": 436,
+        "startChar": 24,
+        "endLine": 436,
+        "endChar": 38
+      },
+      "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f5ae64f0_2447c47c",
         "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
         "patchSetId": 28
@@ -230,6 +398,30 @@
       "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "355ccac7_309c14db",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-25T12:39:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5ae64f0_2447c47c",
+      "range": {
+        "startLine": 468,
+        "startChar": 6,
+        "endLine": 468,
+        "endChar": 33
+      },
+      "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -256,6 +448,30 @@
     },
     {
       "key": {
+        "uuid": "2c85b5a5_61229645",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-25T12:39:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3d1eff0_79b9964e",
+      "range": {
+        "startLine": 483,
+        "startChar": 6,
+        "endLine": 483,
+        "endChar": 72
+      },
+      "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "75d3414d_971f46f9",
         "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
         "patchSetId": 28
@@ -276,6 +492,30 @@
       "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cbaa3faa_97009874",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-25T12:39:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75d3414d_971f46f9",
+      "range": {
+        "startLine": 489,
+        "startChar": 24,
+        "endLine": 489,
+        "endChar": 38
+      },
+      "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -302,6 +542,30 @@
     },
     {
       "key": {
+        "uuid": "e0ad344e_94d2bea7",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 516,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-25T12:39:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1d1e692f_47da6319",
+      "range": {
+        "startLine": 516,
+        "startChar": 5,
+        "endLine": 516,
+        "endChar": 34
+      },
+      "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b9fa1e6b_abcdbfcb",
         "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
         "patchSetId": 28
@@ -322,6 +586,30 @@
       "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e101569e_1e5d147f",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-25T12:39:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9fa1e6b_abcdbfcb",
+      "range": {
+        "startLine": 533,
+        "startChar": 24,
+        "endLine": 533,
+        "endChar": 38
+      },
+      "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -348,6 +636,30 @@
     },
     {
       "key": {
+        "uuid": "939671b9_e84e233a",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-25T12:39:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cda1a23f_35938cb9",
+      "range": {
+        "startLine": 574,
+        "startChar": 24,
+        "endLine": 574,
+        "endChar": 38
+      },
+      "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97b1b2be_1ef2e02e",
         "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
         "patchSetId": 28
@@ -359,6 +671,30 @@
       "writtenOn": "2019-01-25T00:22:27Z",
       "side": 1,
       "message": "Another condition gating this test is whether SBC is supported on Hardware Offload. If the audio capabilities do not contain SBC, LDAC, or any codec, its test should not run.",
+      "range": {
+        "startLine": 597,
+        "startChar": 2,
+        "endLine": 597,
+        "endChar": 36
+      },
+      "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7db8787b_0abc4c74",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-25T12:39:16Z",
+      "side": 1,
+      "message": "If SBC is not supported, the test just goes through without any test because the test data is 0 size from GetSbcCodecSpecificSupportedList(). It takes about 2ms in my machine.",
+      "parentUuid": "97b1b2be_1ef2e02e",
       "range": {
         "startLine": 597,
         "startChar": 2,
@@ -394,6 +730,30 @@
     },
     {
       "key": {
+        "uuid": "60d0a0a6_0d5f64dc",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 619,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-25T12:39:16Z",
+      "side": 1,
+      "message": "In my previous PS, I did so and the code crosses many lines as below. I think current is more clear.\n+    ASSERT_TRUE(\n+        audio_provider_-\u003estartSession(audio_port_, audio_config, hidl_cb)\n+            .isOk());",
+      "parentUuid": "5c1f7b75_28269f83",
+      "range": {
+        "startLine": 616,
+        "startChar": 4,
+        "endLine": 619,
+        "endChar": 36
+      },
+      "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cef30028_d3d85b40",
         "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
         "patchSetId": 28
@@ -405,6 +765,24 @@
       "writtenOn": "2019-01-24T23:08:46Z",
       "side": 1,
       "message": "NIT: We can combine these two.",
+      "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9f3cdfa_48148ec8",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 645,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-25T12:39:16Z",
+      "side": 1,
+      "message": "As reply at LINE#619 of PS#28, I prefer current code because it will cross 3 lines after combined. How about you?",
+      "parentUuid": "cef30028_d3d85b40",
       "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -425,6 +803,24 @@
       "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3aae4f5_0677b278",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 742,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-25T12:39:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "512fc1db_82b52faf",
+      "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
