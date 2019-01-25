@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5bc961e8_020ce82d",
+        "filename": "bluetooth/audio/2.0/default/A2dpOffloadAudioProvider.cpp",
+        "patchSetId": 40
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-25T13:02:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ddb60b9d_6c3e1b0e",
+      "range": {
+        "startLine": 54,
+        "startChar": 38,
+        "endLine": 54,
+        "endChar": 56
+      },
+      "revId": "27e3b9b4982a31d286aa02ac2ff2730824a47073",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0241faf4_9573754c",
         "filename": "bluetooth/audio/2.0/default/A2dpSoftwareAudioProvider.cpp",
         "patchSetId": 40
@@ -45,6 +69,30 @@
       "revId": "27e3b9b4982a31d286aa02ac2ff2730824a47073",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9cebbea6_db40e2dd",
+        "filename": "bluetooth/audio/2.0/default/A2dpSoftwareAudioProvider.cpp",
+        "patchSetId": 40
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-25T13:02:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0241faf4_9573754c",
+      "range": {
+        "startLine": 69,
+        "startChar": 38,
+        "endLine": 69,
+        "endChar": 56
+      },
+      "revId": "27e3b9b4982a31d286aa02ac2ff2730824a47073",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "8c1d240e_bdd4c3aa",
+        "filename": "bluetooth/audio/2.0/default/A2dpSoftwareAudioProvider.cpp",
+        "patchSetId": 40
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-25T13:02:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53f49611_66f429ba",
+      "range": {
+        "startLine": 83,
+        "startChar": 1,
+        "endLine": 91,
+        "endChar": 5
+      },
+      "revId": "27e3b9b4982a31d286aa02ac2ff2730824a47073",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "262e46fa_09de2b8f",
         "filename": "bluetooth/audio/2.0/default/Android.bp",
         "patchSetId": 40
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "4434dc34_02d229a9",
+        "filename": "bluetooth/audio/2.0/default/Android.bp",
+        "patchSetId": 40
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-25T13:02:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "262e46fa_09de2b8f",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 1
+      },
+      "revId": "27e3b9b4982a31d286aa02ac2ff2730824a47073",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "05834050_36dd3d0d",
         "filename": "bluetooth/audio/2.0/default/BluetoothAudioProvider.cpp",
         "patchSetId": 40
@@ -108,6 +204,24 @@
       "revId": "27e3b9b4982a31d286aa02ac2ff2730824a47073",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a08605d_0df548a5",
+        "filename": "bluetooth/audio/2.0/default/BluetoothAudioProvider.cpp",
+        "patchSetId": 40
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-25T13:02:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05834050_36dd3d0d",
+      "revId": "27e3b9b4982a31d286aa02ac2ff2730824a47073",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -134,6 +248,30 @@
     },
     {
       "key": {
+        "uuid": "0e9d330f_79b33eee",
+        "filename": "bluetooth/audio/2.0/default/BluetoothAudioProvider.h",
+        "patchSetId": 40
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-25T13:02:47Z",
+      "side": 1,
+      "message": "Thanks and I also remove other parts.",
+      "parentUuid": "c9ed9f0b_53fd0d2c",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 22
+      },
+      "revId": "27e3b9b4982a31d286aa02ac2ff2730824a47073",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9f407bb0_4be346df",
         "filename": "bluetooth/audio/2.0/default/BluetoothAudioProvider.h",
         "patchSetId": 40
@@ -154,6 +292,30 @@
       "revId": "27e3b9b4982a31d286aa02ac2ff2730824a47073",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e90cdd3_22520c21",
+        "filename": "bluetooth/audio/2.0/default/BluetoothAudioProvider.h",
+        "patchSetId": 40
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-25T13:02:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f407bb0_4be346df",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 40
+      },
+      "revId": "27e3b9b4982a31d286aa02ac2ff2730824a47073",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -180,6 +342,30 @@
     },
     {
       "key": {
+        "uuid": "d1d41c33_20cec209",
+        "filename": "bluetooth/audio/2.0/default/BluetoothAudioProvidersFactory.cpp",
+        "patchSetId": 40
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-25T13:02:47Z",
+      "side": 1,
+      "message": "It will log at LINE#62 now.",
+      "parentUuid": "ea21db3d_5bd9e376",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 45
+      },
+      "revId": "27e3b9b4982a31d286aa02ac2ff2730824a47073",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c8d9ba55_e9470946",
         "filename": "bluetooth/audio/2.0/default/HearingAidAudioProvider.cpp",
         "patchSetId": 40
@@ -200,6 +386,30 @@
       "revId": "27e3b9b4982a31d286aa02ac2ff2730824a47073",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb5f70c9_277032d1",
+        "filename": "bluetooth/audio/2.0/default/HearingAidAudioProvider.cpp",
+        "patchSetId": 40
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-25T13:02:47Z",
+      "side": 1,
+      "message": "Thanks and done.",
+      "parentUuid": "c8d9ba55_e9470946",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 62
+      },
+      "revId": "27e3b9b4982a31d286aa02ac2ff2730824a47073",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -226,6 +436,30 @@
     },
     {
       "key": {
+        "uuid": "81d35ec0_2dff436d",
+        "filename": "bluetooth/audio/2.0/default/HearingAidAudioProvider.cpp",
+        "patchSetId": 40
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-25T13:02:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "edac9a00_c381e260",
+      "range": {
+        "startLine": 69,
+        "startChar": 38,
+        "endLine": 69,
+        "endChar": 56
+      },
+      "revId": "27e3b9b4982a31d286aa02ac2ff2730824a47073",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "58e74b39_396c0ada",
         "filename": "bluetooth/audio/2.0/default/HearingAidAudioProvider.cpp",
         "patchSetId": 40
@@ -246,6 +480,30 @@
       "revId": "27e3b9b4982a31d286aa02ac2ff2730824a47073",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "854ec566_2ca7d709",
+        "filename": "bluetooth/audio/2.0/default/HearingAidAudioProvider.cpp",
+        "patchSetId": 40
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-25T13:02:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "58e74b39_396c0ada",
+      "range": {
+        "startLine": 83,
+        "startChar": 1,
+        "endLine": 86,
+        "endChar": 5
+      },
+      "revId": "27e3b9b4982a31d286aa02ac2ff2730824a47073",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -272,6 +530,30 @@
     },
     {
       "key": {
+        "uuid": "16eab29e_9726b3c6",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
+        "patchSetId": 40
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-25T13:02:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96dd8c9a_2e22965a",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 62
+      },
+      "revId": "27e3b9b4982a31d286aa02ac2ff2730824a47073",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c488f2a_66059ae2",
         "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
         "patchSetId": 40
@@ -295,6 +577,30 @@
     },
     {
       "key": {
+        "uuid": "61d06d6a_76afc2dc",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
+        "patchSetId": 40
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-25T13:02:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c488f2a_66059ae2",
+      "range": {
+        "startLine": 88,
+        "startChar": 7,
+        "endLine": 88,
+        "endChar": 22
+      },
+      "revId": "27e3b9b4982a31d286aa02ac2ff2730824a47073",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ca32a3f_798303ee",
         "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
         "patchSetId": 40
@@ -306,6 +612,30 @@
       "writtenOn": "2019-01-24T23:57:41Z",
       "side": 1,
       "message": "why not {}; like line 75?\n\nShould line 75 and line 92 be consistent?",
+      "range": {
+        "startLine": 92,
+        "startChar": 18,
+        "endLine": 94,
+        "endChar": 61
+      },
+      "revId": "27e3b9b4982a31d286aa02ac2ff2730824a47073",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca97cbc1_fc5b01b1",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
+        "patchSetId": 40
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-25T13:02:47Z",
+      "side": 1,
+      "message": "It is because I want to keep the audio_config is consistent with the session_type for safety reason.\nIf I use {} in a HW audio_config union, it will become pcmConfig ({} is one of pcmConfig).\nOr, should I just use {} to be more simply?",
+      "parentUuid": "1ca32a3f_798303ee",
       "range": {
         "startLine": 92,
         "startChar": 18,
@@ -365,6 +695,30 @@
     },
     {
       "key": {
+        "uuid": "3c1f6903_46ebb6ae",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
+        "patchSetId": 40
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-25T13:02:47Z",
+      "side": 1,
+      "message": "I use more variables to separate the check into 4 parts and hope it is more clear.",
+      "parentUuid": "498ee58d_1b288f45",
+      "range": {
+        "startLine": 170,
+        "startChar": 6,
+        "endLine": 173,
+        "endChar": 60
+      },
+      "revId": "27e3b9b4982a31d286aa02ac2ff2730824a47073",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "60a7d500_b98faa48",
         "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
         "patchSetId": 40
@@ -388,6 +742,30 @@
     },
     {
       "key": {
+        "uuid": "31cf9349_525b5b5d",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
+        "patchSetId": 40
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-25T13:02:47Z",
+      "side": 1,
+      "message": "Thanks for remaindering again. I focus on reducing the nesting and now I will return early for error.",
+      "parentUuid": "60a7d500_b98faa48",
+      "range": {
+        "startLine": 257,
+        "startChar": 2,
+        "endLine": 259,
+        "endChar": 55
+      },
+      "revId": "27e3b9b4982a31d286aa02ac2ff2730824a47073",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5e891930_390a5209",
         "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
         "patchSetId": 40
@@ -402,6 +780,24 @@
       "revId": "27e3b9b4982a31d286aa02ac2ff2730824a47073",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e62b551_d6a4d4d9",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
+        "patchSetId": 40
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-25T13:02:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e891930_390a5209",
+      "revId": "27e3b9b4982a31d286aa02ac2ff2730824a47073",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -422,6 +818,24 @@
     },
     {
       "key": {
+        "uuid": "1636725a_888baeb5",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
+        "patchSetId": 40
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-25T13:02:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45c8a148_c4c060e9",
+      "revId": "27e3b9b4982a31d286aa02ac2ff2730824a47073",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f8ebbae2_69ab6c55",
         "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
         "patchSetId": 40
@@ -433,6 +847,30 @@
       "writtenOn": "2019-01-24T23:57:41Z",
       "side": 1,
       "message": "Is this only for HEARING_AID?",
+      "range": {
+        "startLine": 316,
+        "startChar": 2,
+        "endLine": 320,
+        "endChar": 0
+      },
+      "revId": "27e3b9b4982a31d286aa02ac2ff2730824a47073",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0fa6563f_3610e41c",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
+        "patchSetId": 40
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-25T13:02:47Z",
+      "side": 1,
+      "message": "Yes, metadata is for Hearing Aid only because Hearing Aid wants to fine-tune the stream quality between voice and music, and this can provide such information.",
+      "parentUuid": "f8ebbae2_69ab6c55",
       "range": {
         "startLine": 316,
         "startChar": 2,
