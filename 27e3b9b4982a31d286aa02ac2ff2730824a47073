@@ -880,6 +880,75 @@
       "revId": "27e3b9b4982a31d286aa02ac2ff2730824a47073",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7508afd_1138e9a5",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.h",
+        "patchSetId": 40
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1077498
+      },
+      "writtenOn": "2019-01-25T19:12:11Z",
+      "side": 1,
+      "message": "Please remove here and above.",
+      "range": {
+        "startLine": 108,
+        "startChar": 5,
+        "endLine": 108,
+        "endChar": 34
+      },
+      "revId": "27e3b9b4982a31d286aa02ac2ff2730824a47073",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7231a69_12a496e7",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.h",
+        "patchSetId": 40
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1077498
+      },
+      "writtenOn": "2019-01-25T19:12:11Z",
+      "side": 1,
+      "message": "that the",
+      "range": {
+        "startLine": 118,
+        "startChar": 21,
+        "endLine": 118,
+        "endChar": 24
+      },
+      "revId": "27e3b9b4982a31d286aa02ac2ff2730824a47073",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f2133aa_13e07386",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.h",
+        "patchSetId": 40
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1077498
+      },
+      "writtenOn": "2019-01-25T19:12:11Z",
+      "side": 1,
+      "message": "Can you remove the mention of API from the comments here?",
+      "range": {
+        "startLine": 124,
+        "startChar": 5,
+        "endLine": 124,
+        "endChar": 12
+      },
+      "revId": "27e3b9b4982a31d286aa02ac2ff2730824a47073",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
