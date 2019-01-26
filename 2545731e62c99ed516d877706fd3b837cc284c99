@@ -1191,6 +1191,30 @@
     },
     {
       "key": {
+        "uuid": "5de16054_5dc60dc8",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-26T21:20:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a405504d_c4901aad",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 66
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "064e027b_e3f872a3",
         "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
         "patchSetId": 33
@@ -1282,6 +1306,30 @@
       "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb36be9e_f56f31fe",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-26T21:20:28Z",
+      "side": 1,
+      "message": "UpdatePcmDataConfig() is changed to UpdateAudioConfig(), and will check whether the config is valid or not.",
+      "parentUuid": "85da87e2_3c07ed1c",
+      "range": {
+        "startLine": 80,
+        "startChar": 14,
+        "endLine": 80,
+        "endChar": 33
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {

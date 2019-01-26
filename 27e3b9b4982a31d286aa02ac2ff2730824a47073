@@ -1062,6 +1062,30 @@
     },
     {
       "key": {
+        "uuid": "5100ef2a_135193b2",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.h",
+        "patchSetId": 40
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-26T21:20:28Z",
+      "side": 1,
+      "message": "Modified by PS#42 and thanks.",
+      "parentUuid": "ba964eba_b1ff1402",
+      "range": {
+        "startLine": 108,
+        "startChar": 5,
+        "endLine": 108,
+        "endChar": 34
+      },
+      "revId": "27e3b9b4982a31d286aa02ac2ff2730824a47073",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f7231a69_12a496e7",
         "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.h",
         "patchSetId": 40
@@ -1097,6 +1121,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "f7231a69_12a496e7",
+      "range": {
+        "startLine": 118,
+        "startChar": 21,
+        "endLine": 118,
+        "endChar": 24
+      },
+      "revId": "27e3b9b4982a31d286aa02ac2ff2730824a47073",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bd052c05_b6cad2f1",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.h",
+        "patchSetId": 40
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-26T21:20:28Z",
+      "side": 1,
+      "message": "I modified to be \"that the\" at PS#42 and thanks.",
+      "parentUuid": "3cfb9104_15625cc0",
       "range": {
         "startLine": 118,
         "startChar": 21,
