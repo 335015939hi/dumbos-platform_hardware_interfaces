@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "436ef955_dea1ead6",
+        "filename": "identity_credential/1.0/vts/functional/VtsHalIdentityCredentialV1_0TargetTest.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1403755
+      },
+      "writtenOn": "2019-01-26T14:24:14Z",
+      "side": 1,
+      "message": "According to the HAL, only the private key should be returned. I think that you are doing that already, but the naming here is misleading... the HAL method name is actually also misleading, should we change that?",
+      "range": {
+        "startLine": 357,
+        "startChar": 0,
+        "endLine": 363,
+        "endChar": 11
+      },
+      "revId": "db7bd7f9a230c76cb3ca43c9fd7287b3ae4376c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c22cd3d0_e35685a9",
+        "filename": "identity_credential/1.0/vts/functional/VtsHalIdentityCredentialV1_0TargetTest.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1403755
+      },
+      "writtenOn": "2019-01-26T14:24:14Z",
+      "side": 1,
+      "message": "This should already be done before entries are retrieved so that the certificate can be signed by the IA (the applet implementation potentially does not support interleaving calls).",
+      "range": {
+        "startLine": 501,
+        "startChar": 4,
+        "endLine": 509,
+        "endChar": 7
+      },
+      "revId": "db7bd7f9a230c76cb3ca43c9fd7287b3ae4376c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
