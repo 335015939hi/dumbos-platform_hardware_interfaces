@@ -366,6 +366,30 @@
     },
     {
       "key": {
+        "uuid": "76da324a_26f96486",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-26T21:09:51Z",
+      "side": 1,
+      "message": "If we want to do such test, we will need an Audio HW module like https://android-review.googlesource.com/#/c/804453\nIt is because our Bluetooth Audio HAL is a very special case that is the bridge between Audio frameworks and the Bluetooth stack, and what I think is we will need to get another server, IDevicesFactory::getService(), and do the test.",
+      "parentUuid": "8d5c54e2_296dcde0",
+      "range": {
+        "startLine": 177,
+        "startChar": 44,
+        "endLine": 177,
+        "endChar": 62
+      },
+      "revId": "41d0ded31332015f3d4ea75b216ec33f50d687fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4614b201_e2ac46f4",
         "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
         "patchSetId": 20

@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "1e346db1_5f0e60fc",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-26T21:09:51Z",
+      "side": 1,
+      "message": "I combined both tests of OpenProviderBySession and getProviderCapabilitiesBySession into one test. It first trys to open the provider (to make sure that the returned provider and status are consist), and then checks provider is not nullptr when its capability is non-empty.",
+      "parentUuid": "f4210759_613b9dda",
+      "range": {
+        "startLine": 266,
+        "startChar": 0,
+        "endLine": 266,
+        "endChar": 79
+      },
+      "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5aca2a33_2ae642cf",
         "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
         "patchSetId": 28
@@ -235,6 +259,30 @@
       "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03259060_1428305b",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2019-01-26T21:09:51Z",
+      "side": 1,
+      "message": "Thanks for comments at LINE#266 and I combined them into one test which will make sure the provider is not nullptr if it has non-empty capability.",
+      "parentUuid": "1b413c32_20166196",
+      "range": {
+        "startLine": 311,
+        "startChar": 47,
+        "endLine": 311,
+        "endChar": 68
+      },
+      "revId": "ea2828b2c888e40e6003e3549e12de2a695af54e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
