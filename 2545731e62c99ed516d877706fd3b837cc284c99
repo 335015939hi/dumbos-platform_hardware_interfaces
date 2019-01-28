@@ -1333,6 +1333,30 @@
     },
     {
       "key": {
+        "uuid": "d3ac928e_08ad6e81",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-28T19:15:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "cb36be9e_f56f31fe",
+      "range": {
+        "startLine": 80,
+        "startChar": 14,
+        "endLine": 80,
+        "endChar": 33
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e93b82f7_a0f2837f",
         "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
         "patchSetId": 33
@@ -1424,6 +1448,30 @@
       "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6d2957c_d40f30f6",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-28T19:15:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5fdf3f7a_f4ff2c4c",
+      "range": {
+        "startLine": 191,
+        "startChar": 0,
+        "endLine": 192,
+        "endChar": 74
+      },
+      "revId": "2545731e62c99ed516d877706fd3b837cc284c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
