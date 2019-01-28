@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb9f328c_2f15da53",
+        "filename": "camera/device/3.4/default/ExternalCameraDeviceSession.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 2090,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2019-01-28T19:01:12Z",
+      "side": 1,
+      "message": "There should be some logic to look into ExternalCameraConfig to decide if current device supports Y16.",
+      "revId": "6ac5887e61a2bc98a98fca06983984c39b1a77a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8486f9b_22a16e79",
+        "filename": "camera/device/3.4/default/ExternalCameraUtils.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2019-01-28T19:01:12Z",
+      "side": 1,
+      "message": "this method is now shared between MJPEG and DEPTH.",
+      "range": {
+        "startLine": 300,
+        "startChar": 21,
+        "endLine": 300,
+        "endChar": 26
+      },
+      "revId": "6ac5887e61a2bc98a98fca06983984c39b1a77a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2fb7ce4_3ab9a894",
+        "filename": "camera/device/3.4/default/ExternalCameraUtils.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2019-01-28T19:01:12Z",
+      "side": 1,
+      "message": "The default value must not include DEPTH output since not all gralloc implementation will support Y16 buffer format",
+      "range": {
+        "startLine": 320,
+        "startChar": 0,
+        "endLine": 322,
+        "endChar": 79
+      },
+      "revId": "6ac5887e61a2bc98a98fca06983984c39b1a77a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
