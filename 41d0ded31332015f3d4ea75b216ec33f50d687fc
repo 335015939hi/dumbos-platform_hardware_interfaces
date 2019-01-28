@@ -414,6 +414,30 @@
     },
     {
       "key": {
+        "uuid": "6ffea6aa_abbdc26a",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-28T19:19:23Z",
+      "side": 1,
+      "message": "Sure. Let\u0027s leave this as a future item.",
+      "parentUuid": "006cf047_19976292",
+      "range": {
+        "startLine": 177,
+        "startChar": 44,
+        "endLine": 177,
+        "endChar": 62
+      },
+      "revId": "41d0ded31332015f3d4ea75b216ec33f50d687fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4614b201_e2ac46f4",
         "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
         "patchSetId": 20
@@ -437,6 +461,30 @@
     },
     {
       "key": {
+        "uuid": "bddeddff_2e143ad6",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-28T19:19:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4614b201_e2ac46f4",
+      "range": {
+        "startLine": 182,
+        "startChar": 6,
+        "endLine": 182,
+        "endChar": 64
+      },
+      "revId": "41d0ded31332015f3d4ea75b216ec33f50d687fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b1896c46_a30ca745",
         "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
         "patchSetId": 20
@@ -451,6 +499,24 @@
       "revId": "41d0ded31332015f3d4ea75b216ec33f50d687fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f96272ae_5c4fcfb5",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2019-01-28T19:19:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b1896c46_a30ca745",
+      "revId": "41d0ded31332015f3d4ea75b216ec33f50d687fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
