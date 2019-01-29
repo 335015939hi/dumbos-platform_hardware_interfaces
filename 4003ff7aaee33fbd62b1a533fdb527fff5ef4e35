@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2e9367ca_3b9ac466",
+        "filename": "current.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-01-29T02:18:59Z",
+      "side": 1,
+      "message": "alphabetic order within this",
+      "range": {
+        "startLine": 387,
+        "startChar": 48,
+        "endLine": 387,
+        "endChar": 49
+      },
+      "revId": "4003ff7aaee33fbd62b1a533fdb527fff5ef4e35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
