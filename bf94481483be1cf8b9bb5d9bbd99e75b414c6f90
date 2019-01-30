@@ -22,6 +22,30 @@
       "revId": "bf94481483be1cf8b9bb5d9bbd99e75b414c6f90",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d6ec753_ebfcc673",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2019-01-30T22:46:44Z",
+      "side": 1,
+      "message": "Sorry, that wouldn\u0027t work; maybe `adb shell sm idle-maint run` instead.",
+      "parentUuid": "75ff64af_70fe3634",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 16
+      },
+      "revId": "bf94481483be1cf8b9bb5d9bbd99e75b414c6f90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
