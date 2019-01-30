@@ -3,5 +3,9 @@ service vendor.hwcomposer-2-1 /vendor/bin/hw/android.hardware.graphics.composer@
     user system
     group graphics drmrpc
     capabilities SYS_NICE
+    # The service is not updatable, but currently relies on libraries offered by the runtime
+    # module.
+    # TODO(b/123275379): we should clean this up.
+    updatable
     onrestart restart surfaceflinger
     writepid /dev/cpuset/system-background/tasks
