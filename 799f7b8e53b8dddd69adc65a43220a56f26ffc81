@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "122d08f3_915bead1",
+        "filename": "radio/1.4/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 1889,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2019-01-30T19:06:02Z",
+      "side": 1,
+      "message": "Can you document the proper way to populate these structs? I just linked you to another CL from which you can probably copy+paste the language.",
+      "range": {
+        "startLine": 1889,
+        "startChar": 4,
+        "endLine": 1889,
+        "endChar": 21
+      },
+      "revId": "799f7b8e53b8dddd69adc65a43220a56f26ffc81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
