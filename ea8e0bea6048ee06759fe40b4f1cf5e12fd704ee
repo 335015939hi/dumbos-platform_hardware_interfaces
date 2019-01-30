@@ -46,6 +46,29 @@
       "revId": "ea8e0bea6048ee06759fe40b4f1cf5e12fd704ee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8779ed2_4e60c990",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 30
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1132849
+      },
+      "writtenOn": "2019-01-30T18:40:49Z",
+      "side": 1,
+      "message": "one line docstring explaining which api is tested in what way is recommended for each of the test cases",
+      "range": {
+        "startLine": 336,
+        "startChar": 0,
+        "endLine": 336,
+        "endChar": 6
+      },
+      "revId": "ea8e0bea6048ee06759fe40b4f1cf5e12fd704ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
