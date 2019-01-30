@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "75ff64af_70fe3634",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2019-01-30T22:42:20Z",
+      "side": 1,
+      "message": "nit: can you test with\n\n    adb shell lshal debug android.hardware.health.storage@1.0::IStorage/default\n\nand examine logcat?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 16
+      },
+      "revId": "bf94481483be1cf8b9bb5d9bbd99e75b414c6f90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
