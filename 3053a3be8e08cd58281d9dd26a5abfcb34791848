@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b9f56815_a6e580f9",
+        "filename": "identity_credential/1.0/IIdentityCredential.hal",
+        "patchSetId": 22
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-01-30T23:44:23Z",
+      "side": 1,
+      "message": "Not quite accurate, since only accessControlProfiles that use user authentication are checked against the auth token.",
+      "range": {
+        "startLine": 45,
+        "startChar": 7,
+        "endLine": 45,
+        "endChar": 92
+      },
+      "revId": "3053a3be8e08cd58281d9dd26a5abfcb34791848",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
