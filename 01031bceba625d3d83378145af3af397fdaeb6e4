@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1f52b6d5_8ed1861a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-01-30T14:41:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d7c1e22_7a75cf95",
+      "revId": "01031bceba625d3d83378145af3af397fdaeb6e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "89b717bf_19c4d0e0",
         "filename": "graphics/composer/2.1/default/android.hardware.graphics.composer@2.1-service.rc",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "01031bceba625d3d83378145af3af397fdaeb6e4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8b6aa29_228ab25c",
+        "filename": "graphics/composer/2.1/default/android.hardware.graphics.composer@2.1-service.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2019-01-30T14:41:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89b717bf_19c4d0e0",
+      "revId": "01031bceba625d3d83378145af3af397fdaeb6e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
