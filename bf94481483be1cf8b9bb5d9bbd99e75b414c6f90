@@ -70,6 +70,30 @@
       "revId": "bf94481483be1cf8b9bb5d9bbd99e75b414c6f90",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51017b0e_da06a400",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1064128
+      },
+      "writtenOn": "2019-01-31T17:06:36Z",
+      "side": 1,
+      "message": "No such luck finding healthd in the first place with walleye either...",
+      "parentUuid": "872206c6_fdb6299e",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 16
+      },
+      "revId": "bf94481483be1cf8b9bb5d9bbd99e75b414c6f90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
