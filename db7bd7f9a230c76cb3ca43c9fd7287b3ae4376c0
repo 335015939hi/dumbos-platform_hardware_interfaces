@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "70814b6d_d0ab8bf2",
+        "filename": "identity_credential/1.0/vts/functional/VtsHalIdentityCredentialV1_0TargetTest.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2019-01-31T20:15:45Z",
+      "side": 1,
+      "message": "Discussed with Shawn, we\u0027ll change the HAL to say the keypair will be returned (not just the private key).",
+      "parentUuid": "436ef955_dea1ead6",
+      "range": {
+        "startLine": 357,
+        "startChar": 0,
+        "endLine": 363,
+        "endChar": 11
+      },
+      "revId": "db7bd7f9a230c76cb3ca43c9fd7287b3ae4376c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c22cd3d0_e35685a9",
         "filename": "identity_credential/1.0/vts/functional/VtsHalIdentityCredentialV1_0TargetTest.cpp",
         "patchSetId": 18
@@ -36,6 +60,30 @@
       "writtenOn": "2019-01-26T14:24:14Z",
       "side": 1,
       "message": "This should already be done before entries are retrieved so that the certificate can be signed by the IA (the applet implementation potentially does not support interleaving calls).",
+      "range": {
+        "startLine": 501,
+        "startChar": 4,
+        "endLine": 509,
+        "endChar": 7
+      },
+      "revId": "db7bd7f9a230c76cb3ca43c9fd7287b3ae4376c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e41447f_f6fc62c0",
+        "filename": "identity_credential/1.0/vts/functional/VtsHalIdentityCredentialV1_0TargetTest.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2019-01-31T20:15:45Z",
+      "side": 1,
+      "message": "Well... the returned signingKeyBlob is not used until finishRetrieval()... but I guess your point is that we should be passing it to startRetrieval() so an implementation can use it to incrementally build the value... let\u0027s make this change when we do the signingKeyPair -\u003e authenticationKeyPair.",
+      "parentUuid": "c22cd3d0_e35685a9",
       "range": {
         "startLine": 501,
         "startChar": 4,
