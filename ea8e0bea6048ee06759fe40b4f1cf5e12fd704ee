@@ -66,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "877c3974_54e56ad0",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 30
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1220282
+      },
+      "writtenOn": "2019-01-31T00:58:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b39da27f_b5cccf67",
+      "revId": "ea8e0bea6048ee06759fe40b4f1cf5e12fd704ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "249a5101_4dd6eae3",
         "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
         "patchSetId": 30
@@ -89,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "a6ca0f03_f3f49255",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 30
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1220282
+      },
+      "writtenOn": "2019-01-31T00:58:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "249a5101_4dd6eae3",
+      "range": {
+        "startLine": 302,
+        "startChar": 0,
+        "endLine": 302,
+        "endChar": 6
+      },
+      "revId": "ea8e0bea6048ee06759fe40b4f1cf5e12fd704ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c92f7eb5_0b02e1c6",
         "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
         "patchSetId": 30
@@ -109,6 +151,30 @@
       "revId": "ea8e0bea6048ee06759fe40b4f1cf5e12fd704ee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee6f57f1_b12c8446",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 30
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1220282
+      },
+      "writtenOn": "2019-01-31T00:58:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c92f7eb5_0b02e1c6",
+      "range": {
+        "startLine": 334,
+        "startChar": 0,
+        "endLine": 334,
+        "endChar": 6
+      },
+      "revId": "ea8e0bea6048ee06759fe40b4f1cf5e12fd704ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -155,6 +221,54 @@
       "revId": "ea8e0bea6048ee06759fe40b4f1cf5e12fd704ee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b67c4f8_c625d4cc",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 30
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1220282
+      },
+      "writtenOn": "2019-01-31T00:58:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8779ed2_4e60c990",
+      "range": {
+        "startLine": 336,
+        "startChar": 0,
+        "endLine": 336,
+        "endChar": 6
+      },
+      "revId": "ea8e0bea6048ee06759fe40b4f1cf5e12fd704ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ec603e04_337cd0d7",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 30
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1220282
+      },
+      "writtenOn": "2019-01-31T00:58:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1378f84_acff2eb2",
+      "range": {
+        "startLine": 336,
+        "startChar": 0,
+        "endLine": 336,
+        "endChar": 6
+      },
+      "revId": "ea8e0bea6048ee06759fe40b4f1cf5e12fd704ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
