@@ -22,6 +22,69 @@
       "revId": "3053a3be8e08cd58281d9dd26a5abfcb34791848",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72e8a6d1_8d80664a",
+        "filename": "identity_credential/1.0/IIdentityCredential.hal",
+        "patchSetId": 22
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1403755
+      },
+      "writtenOn": "2019-01-31T09:26:54Z",
+      "side": 1,
+      "message": "Missing description of INVALID_AUTH_TOKEN.",
+      "revId": "3053a3be8e08cd58281d9dd26a5abfcb34791848",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31d8e5f6_8052d5b3",
+        "filename": "identity_credential/1.0/IWritableIdentityCredential.hal",
+        "patchSetId": 22
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1403755
+      },
+      "writtenOn": "2019-01-31T09:26:54Z",
+      "side": 1,
+      "message": "Upper case \"Id\"",
+      "range": {
+        "startLine": 225,
+        "startChar": 21,
+        "endLine": 225,
+        "endChar": 23
+      },
+      "revId": "3053a3be8e08cd58281d9dd26a5abfcb34791848",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9fa3f05_948c38b2",
+        "filename": "identity_credential/1.0/types.hal",
+        "patchSetId": 22
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1403755
+      },
+      "writtenOn": "2019-01-31T09:26:54Z",
+      "side": 1,
+      "message": "Can we also define the position of the reader ephemeral key here? Is there something in the mDL?",
+      "range": {
+        "startLine": 304,
+        "startChar": 10,
+        "endLine": 306,
+        "endChar": 48
+      },
+      "revId": "3053a3be8e08cd58281d9dd26a5abfcb34791848",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }

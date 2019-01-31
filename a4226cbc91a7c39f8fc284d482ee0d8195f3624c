@@ -460,6 +460,24 @@
     },
     {
       "key": {
+        "uuid": "b55d11f9_ae3aee20",
+        "filename": "identity_credential/1.0/IWritableIdentityCredential.hal",
+        "patchSetId": 19
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1403755
+      },
+      "writtenOn": "2019-01-31T09:26:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0afca6ed_48ded862",
+      "revId": "a4226cbc91a7c39f8fc284d482ee0d8195f3624c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "021ecac4_6f75e30f",
         "filename": "identity_credential/1.0/IWritableIdentityCredential.hal",
         "patchSetId": 19
