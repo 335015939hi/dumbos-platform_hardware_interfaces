@@ -49,6 +49,69 @@
     },
     {
       "key": {
+        "uuid": "b39da27f_b5cccf67",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 30
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-31T00:39:36Z",
+      "side": 1,
+      "message": "Test whether we can get the FactoryService from HIDL",
+      "revId": "ea8e0bea6048ee06759fe40b4f1cf5e12fd704ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "249a5101_4dd6eae3",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 30
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-31T00:39:36Z",
+      "side": 1,
+      "message": "Test whether we can open a provider for each capability returned by getProviderCapabilities()",
+      "range": {
+        "startLine": 302,
+        "startChar": 0,
+        "endLine": 302,
+        "endChar": 6
+      },
+      "revId": "ea8e0bea6048ee06759fe40b4f1cf5e12fd704ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c92f7eb5_0b02e1c6",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 30
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-31T00:39:36Z",
+      "side": 1,
+      "message": "Test whether we can open a provider of type SessionType::A2DP_SOFTWARE_ENCODING_DATAPATH",
+      "range": {
+        "startLine": 334,
+        "startChar": 0,
+        "endLine": 334,
+        "endChar": 6
+      },
+      "revId": "ea8e0bea6048ee06759fe40b4f1cf5e12fd704ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f8779ed2_4e60c990",
         "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
         "patchSetId": 30
@@ -60,6 +123,29 @@
       "writtenOn": "2019-01-30T18:40:49Z",
       "side": 1,
       "message": "one line docstring explaining which api is tested in what way is recommended for each of the test cases",
+      "range": {
+        "startLine": 336,
+        "startChar": 0,
+        "endLine": 336,
+        "endChar": 6
+      },
+      "revId": "ea8e0bea6048ee06759fe40b4f1cf5e12fd704ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1378f84_acff2eb2",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 30
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2019-01-31T00:39:36Z",
+      "side": 1,
+      "message": "Test whether each provider of type SessionType::A2DP_SOFTWARE_ENCODING_DATAPATH can be started and stopped.",
       "range": {
         "startLine": 336,
         "startChar": 0,
