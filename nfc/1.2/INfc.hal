@@ -15,6 +15,7 @@
  */
 package android.hardware.nfc@1.2;
 
+import @1.0::NfcData;
 import @1.1::INfc;
 import @1.2::NfcConfig;
 
@@ -25,4 +26,13 @@ interface INfc extends @1.1::INfc {
      *     populates the vendor specific configs
      */
     getConfig_1_2() generates (NfcConfig config);
+
+    /**
+     * Performs write for Mifare Tags
+     *
+     * This method may queue writes and return immediately.
+     *
+     * @return number of bytes written to the NFCC
+     */
+    mifareWrite(NfcData data) generates (uint32_t retval);
 };
