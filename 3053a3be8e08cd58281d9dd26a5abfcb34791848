@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "18319f21_03faea93",
+        "filename": "identity_credential/1.0/IIdentityCredential.hal",
+        "patchSetId": 22
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2019-01-31T20:15:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9f56815_a6e580f9",
+      "range": {
+        "startLine": 45,
+        "startChar": 7,
+        "endLine": 45,
+        "endChar": 92
+      },
+      "revId": "3053a3be8e08cd58281d9dd26a5abfcb34791848",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "72e8a6d1_8d80664a",
         "filename": "identity_credential/1.0/IIdentityCredential.hal",
         "patchSetId": 22
@@ -39,6 +63,24 @@
       "revId": "3053a3be8e08cd58281d9dd26a5abfcb34791848",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c094d99_9c63250e",
+        "filename": "identity_credential/1.0/IIdentityCredential.hal",
+        "patchSetId": 22
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2019-01-31T20:15:34Z",
+      "side": 1,
+      "message": "It\u0027s described in StartRetrievalArguments. I\u0027ll move it here.",
+      "parentUuid": "72e8a6d1_8d80664a",
+      "revId": "3053a3be8e08cd58281d9dd26a5abfcb34791848",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "c2dbde67_eeeeeb69",
+        "filename": "identity_credential/1.0/IWritableIdentityCredential.hal",
+        "patchSetId": 22
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2019-01-31T20:15:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31d8e5f6_8052d5b3",
+      "range": {
+        "startLine": 225,
+        "startChar": 21,
+        "endLine": 225,
+        "endChar": 23
+      },
+      "revId": "3053a3be8e08cd58281d9dd26a5abfcb34791848",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f9fa3f05_948c38b2",
         "filename": "identity_credential/1.0/types.hal",
         "patchSetId": 22
@@ -76,6 +142,30 @@
       "writtenOn": "2019-01-31T09:26:54Z",
       "side": 1,
       "message": "Can we also define the position of the reader ephemeral key here? Is there something in the mDL?",
+      "range": {
+        "startLine": 304,
+        "startChar": 10,
+        "endLine": 306,
+        "endChar": 48
+      },
+      "revId": "3053a3be8e08cd58281d9dd26a5abfcb34791848",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe527405_e85c7ba1",
+        "filename": "identity_credential/1.0/types.hal",
+        "patchSetId": 22
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2019-01-31T20:15:34Z",
+      "side": 1,
+      "message": "I don\u0027t think we can... Shawn?",
+      "parentUuid": "f9fa3f05_948c38b2",
       "range": {
         "startLine": 304,
         "startChar": 10,
