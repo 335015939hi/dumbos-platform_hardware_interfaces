@@ -22,6 +22,30 @@
       "revId": "890716cb77a74574f49b26e051dc77cc7dbb2e56",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9f8a788_2e6b3a39",
+        "filename": "gnss/1.0/default/GnssBatching.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1344584
+      },
+      "writtenOn": "2019-02-01T02:34:12Z",
+      "side": 1,
+      "message": "It builds for me. At the moment. But if you think it\u0027s safer, just say so.",
+      "parentUuid": "ceb42833_e4cc42c9",
+      "range": {
+        "startLine": 23,
+        "startChar": 10,
+        "endLine": 23,
+        "endChar": 17
+      },
+      "revId": "890716cb77a74574f49b26e051dc77cc7dbb2e56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
