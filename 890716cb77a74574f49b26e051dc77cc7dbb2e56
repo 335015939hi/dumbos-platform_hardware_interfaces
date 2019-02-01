@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ceb42833_e4cc42c9",
+        "filename": "gnss/1.0/default/GnssBatching.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-02-01T01:42:06Z",
+      "side": 1,
+      "message": "shouldn\u0027t this be log/log.h? There could be compilation errors.",
+      "range": {
+        "startLine": 23,
+        "startChar": 10,
+        "endLine": 23,
+        "endChar": 17
+      },
+      "revId": "890716cb77a74574f49b26e051dc77cc7dbb2e56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
