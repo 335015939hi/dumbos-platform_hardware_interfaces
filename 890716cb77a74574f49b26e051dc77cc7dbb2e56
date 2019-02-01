@@ -46,6 +46,30 @@
       "revId": "890716cb77a74574f49b26e051dc77cc7dbb2e56",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61becc54_561cc037",
+        "filename": "gnss/1.0/default/GnssBatching.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-02-01T19:12:13Z",
+      "side": 1,
+      "message": "hmmm, I mean, if it works, it works. I was surprised you managed to restrict these (since log/log.h includes slightly more), but I see now in other places you are using it. If it builds here and breaks breaks something downstream, it\u0027ll be a from something relying on a transitive dependency.",
+      "parentUuid": "d9f8a788_2e6b3a39",
+      "range": {
+        "startLine": 23,
+        "startChar": 10,
+        "endLine": 23,
+        "endChar": 17
+      },
+      "revId": "890716cb77a74574f49b26e051dc77cc7dbb2e56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
