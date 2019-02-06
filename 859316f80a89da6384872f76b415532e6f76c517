@@ -34,6 +34,24 @@
       "revId": "859316f80a89da6384872f76b415532e6f76c517",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e47b6deb_5c40bf8a",
+        "filename": "configstore/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1267775
+      },
+      "writtenOn": "2019-02-06T05:12:04Z",
+      "side": 1,
+      "message": "hmmmm, by taking a look at the bug. I think what you want is to have something like \"HIDL API Review +1\", and when a .hal file is touched, the patch needs to have that +1.",
+      "parentUuid": "a96ca242_2ae3af8d",
+      "revId": "859316f80a89da6384872f76b415532e6f76c517",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
