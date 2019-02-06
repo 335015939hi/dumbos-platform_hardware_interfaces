@@ -52,6 +52,24 @@
       "revId": "859316f80a89da6384872f76b415532e6f76c517",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c27aa339_d7bf9d40",
+        "filename": "configstore/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-02-06T18:24:52Z",
+      "side": 1,
+      "message": "Sorry, this is because we rely on OWNERS for HIDL API changes",
+      "parentUuid": "e47b6deb_5c40bf8a",
+      "revId": "859316f80a89da6384872f76b415532e6f76c517",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
