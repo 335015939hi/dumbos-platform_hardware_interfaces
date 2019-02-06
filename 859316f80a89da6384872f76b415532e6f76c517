@@ -16,6 +16,24 @@
       "revId": "859316f80a89da6384872f76b415532e6f76c517",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a96ca242_2ae3af8d",
+        "filename": "configstore/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1267775
+      },
+      "writtenOn": "2019-02-06T05:06:33Z",
+      "side": 1,
+      "message": "May I ask why is that?",
+      "parentUuid": "0549cd3a_28a0b436",
+      "revId": "859316f80a89da6384872f76b415532e6f76c517",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
