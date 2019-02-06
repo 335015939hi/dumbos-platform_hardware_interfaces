@@ -70,6 +70,24 @@
       "revId": "859316f80a89da6384872f76b415532e6f76c517",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f38e3c3c_5bd5499a",
+        "filename": "configstore/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1267775
+      },
+      "writtenOn": "2019-02-06T18:45:11Z",
+      "side": 1,
+      "message": "It doesn\u0027t make sense to me our ownership is taken away because the review tool hasn\u0027t had the necessary mechanism, I will wait until that bug is resolved.",
+      "parentUuid": "c27aa339_d7bf9d40",
+      "revId": "859316f80a89da6384872f76b415532e6f76c517",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
