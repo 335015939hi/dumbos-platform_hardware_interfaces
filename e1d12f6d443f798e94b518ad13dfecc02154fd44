@@ -46,6 +46,53 @@
       "revId": "e1d12f6d443f798e94b518ad13dfecc02154fd44",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b130a7e3_b164f404",
+        "filename": "nfc/1.2/INfc.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-02-07T23:16:44Z",
+      "side": 1,
+      "message": "I see now, but I can\u0027t seem to find a reference to this standard on the internet. Can you specify more information here?\n\nAlso, how should the client know when to use this versus the standard API? How will data be returned?",
+      "parentUuid": "00ee6b0e_1dbbab9a",
+      "range": {
+        "startLine": 31,
+        "startChar": 26,
+        "endLine": 31,
+        "endChar": 32
+      },
+      "revId": "e1d12f6d443f798e94b518ad13dfecc02154fd44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb1783aa_56dc60c1",
+        "filename": "nfc/1.2/INfc.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-02-07T23:16:44Z",
+      "side": 1,
+      "message": "nit: bytes or similar",
+      "range": {
+        "startLine": 37,
+        "startChar": 50,
+        "endLine": 37,
+        "endChar": 56
+      },
+      "revId": "e1d12f6d443f798e94b518ad13dfecc02154fd44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
