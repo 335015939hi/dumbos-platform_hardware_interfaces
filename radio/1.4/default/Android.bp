@@ -1,0 +1,34 @@
+// FIXME: your file license if you have one
+
+cc_library {
+    // FIXED: this should only be -impl for a passthrough hal.
+    // [O] In most cases, to convert this to a binderized implementation, you should:
+    // [O] - change '-impl' to '-service' here and make it a cc_binary instead of a
+    //   cc_library_shared.
+    // [O] - add a *.rc file for this module.
+    // [O] - delete HIDL_FETCH_I* functions.
+    // [O] - call configureRpcThreadpool and registerAsService on the instance.
+    // [X] You may also want to append '-impl/-service' with a specific identifier like
+    // '-vendor' or '-<hardware identifier>' etc to distinguish it.
+    init_rc: ["android.hardware.radio@1.4-mock-service.rc"],
+    name: "android.hardware.radio@1.4-mock-service",
+    relative_install_path: "hw",
+    vendor: true,
+    vintf_fragments: ["manifest_foo.xml"],
+    srcs: [
+        "Radio.cpp",
+        "radio-mock-service.cpp",
+    ],
+    shared_libs: [
+        "libhidlbase",
+        "libhidltransport",
+        "liblog",
+        "libutils",
+        "android.hardware.radio@1.4",
+        "android.hardware.radio@1.0",
+        "android.hardware.radio@1.1",
+        "android.hardware.radio@1.2",
+        "android.hardware.radio@1.3",
+        "android.hidl.safe_union@1.0",
+    ],
+}
