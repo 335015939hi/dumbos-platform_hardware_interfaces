@@ -22,6 +22,30 @@
       "revId": "e1d12f6d443f798e94b518ad13dfecc02154fd44",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00ee6b0e_1dbbab9a",
+        "filename": "nfc/1.2/INfc.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1041663
+      },
+      "writtenOn": "2019-02-07T17:53:34Z",
+      "side": 1,
+      "message": "There is a standard for Mifare Tags, which defines the data format and the protocol.\n\nCurrent data type is still valid for that.",
+      "parentUuid": "dcbd2311_93960cee",
+      "range": {
+        "startLine": 31,
+        "startChar": 26,
+        "endLine": 31,
+        "endChar": 32
+      },
+      "revId": "e1d12f6d443f798e94b518ad13dfecc02154fd44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
