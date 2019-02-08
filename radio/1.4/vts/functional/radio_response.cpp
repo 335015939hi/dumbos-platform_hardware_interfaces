@@ -823,8 +823,8 @@ Return<void> RadioResponse_v1_4::getCellInfoListResponse_1_4(
 Return<void> RadioResponse_v1_4::getIccCardStatusResponse_1_4(
         const RadioResponseInfo& info,
         const ::android::hardware::radio::V1_4::CardStatus& card_status) {
-    rspInfo = info;
     cardStatus = card_status;
+    rspInfo = info;
     parent_v1_4.notify(info.serial);
     return Void();
 }
