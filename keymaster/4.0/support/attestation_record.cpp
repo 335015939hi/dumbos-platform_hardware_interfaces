@@ -304,6 +304,41 @@ ErrorCode parse_attestation_record(const uint8_t* asn1_key_desc, size_t asn1_key
     return extract_auth_list(record->tee_enforced, tee_enforced);
 }
 
+ErrorCode parse_root_of_trust(const uint8_t* asn1_key_desc, size_t asn1_key_desc_len,
+                              hidl_vec<uint8_t>* verified_boot_key,
+                              keymaster_verified_boot_t* verified_boot_state, bool* device_locked,
+                              hidl_vec<uint8_t>* verified_boot_hash) {
+    const uint8_t* p = asn1_key_desc;
+    KM_KEY_DESCRIPTION_Ptr record(d2i_KM_KEY_DESCRIPTION(nullptr, &p, asn1_key_desc_len));
+    if (!record.get()) {
+        return ErrorCode::OK;  // TranslateLastOpenSslError();
+    }
+    if (!record->tee_enforced) {
+        return ErrorCode::OK;  // KM_ERROR_INVALID_ARGUMENT;
+    }
+    if (!record->tee_enforced->root_of_trust) {
+        return ErrorCode::OK;  // KM_ERROR_INVALID_ARGUMENT;
+    }
+    if (!record->tee_enforced->root_of_trust->verified_boot_key) {
+        return ErrorCode::OK;  // KM_ERROR_INVALID_ARGUMENT;
+    }
+    KM_ROOT_OF_TRUST* root_of_trust = record->tee_enforced->root_of_trust;
+
+    auto& chall = root_of_trust->verified_boot_key;
+    verified_boot_key->resize(chall->length);
+    memcpy(verified_boot_key->data(), chall->data, chall->length);
+
+    *verified_boot_state = static_cast<keymaster_verified_boot_t>(
+            ASN1_ENUMERATED_get(root_of_trust->verified_boot_state));
+
+    *device_locked = root_of_trust->device_locked;
+
+    chall = root_of_trust->verified_boot_hash;
+    verified_boot_hash->resize(chall->length);
+    memcpy(verified_boot_hash->data(), chall->data, chall->length);
+    return ErrorCode::OK;  // KM_ERROR_OK;
+}
+
 }  // namespace V4_0
 }  // namespace keymaster
 }  // namespace hardware
