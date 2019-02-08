@@ -206,6 +206,30 @@ void KeymasterHidlTest::CheckedDeleteKey() {
     CheckedDeleteKey(&key_blob_);
 }
 
+void KeymasterHidlTest::CheckGetCharacteristics(const HidlBuf& key_blob, const HidlBuf& client_id,
+                                                const HidlBuf& app_data,
+                                                KeyCharacteristics* key_characteristics) {
+    EXPECT_EQ(ErrorCode::OK,
+              GetCharacteristics(key_blob, client_id, app_data, key_characteristics));
+    EXPECT_GT(key_characteristics->hardwareEnforced.size(), 0);
+    EXPECT_GT(key_characteristics->softwareEnforced.size(), 0);
+
+    EXPECT_EQ(ErrorCode::INVALID_KEY_BLOB,
+              GetCharacteristics(key_blob, HidlBuf(), app_data, key_characteristics));
+    EXPECT_EQ(key_characteristics->hardwareEnforced.size(), 0);
+    EXPECT_EQ(key_characteristics->softwareEnforced.size(), 0);
+
+    EXPECT_EQ(ErrorCode::INVALID_KEY_BLOB,
+              GetCharacteristics(key_blob, client_id, HidlBuf(), key_characteristics));
+    EXPECT_EQ(key_characteristics->hardwareEnforced.size(), 0);
+    EXPECT_EQ(key_characteristics->softwareEnforced.size(), 0);
+
+    EXPECT_EQ(ErrorCode::INVALID_KEY_BLOB,
+              GetCharacteristics(key_blob, HidlBuf(), HidlBuf(), key_characteristics));
+    EXPECT_EQ(key_characteristics->hardwareEnforced.size(), 0);
+    EXPECT_EQ(key_characteristics->softwareEnforced.size(), 0);
+}
+
 ErrorCode KeymasterHidlTest::GetCharacteristics(const HidlBuf& key_blob, const HidlBuf& client_id,
                                                 const HidlBuf& app_data,
                                                 KeyCharacteristics* key_characteristics) {

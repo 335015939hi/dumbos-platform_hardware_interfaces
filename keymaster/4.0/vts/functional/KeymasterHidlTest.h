@@ -131,6 +131,8 @@ class KeymasterHidlTest : public ::testing::VtsHalHidlTargetTestBase {
     void CheckedDeleteKey(HidlBuf* key_blob, bool keep_key_blob = false);
     void CheckedDeleteKey();
 
+    void CheckGetCharacteristics(const HidlBuf& key_blob, const HidlBuf& client_id,
+                                 const HidlBuf& app_data, KeyCharacteristics* key_characteristics);
     ErrorCode GetCharacteristics(const HidlBuf& key_blob, const HidlBuf& client_id,
                                  const HidlBuf& app_data, KeyCharacteristics* key_characteristics);
     ErrorCode GetCharacteristics(const HidlBuf& key_blob, KeyCharacteristics* key_characteristics);

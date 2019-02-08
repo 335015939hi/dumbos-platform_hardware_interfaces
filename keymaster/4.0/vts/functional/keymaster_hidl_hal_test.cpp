@@ -17,6 +17,7 @@
 #define LOG_TAG "keymaster_hidl_hal_test"
 #include <cutils/log.h>
 
+#include <chrono>
 #include <iostream>
 
 #include <openssl/evp.h>
@@ -315,6 +316,11 @@ bool verify_attestation_record(const string& challenge, const string& app_id,
     EXPECT_EQ(challenge.length(), att_challenge.size());
     EXPECT_EQ(0, memcmp(challenge.data(), att_challenge.data(), challenge.length()));
 
+    // Check to make sure boolean values are properly encoded
+    if (expected_tee_enforced.Contains(TAG_NO_AUTH_REQUIRED)) {
+        EXPECT_TRUE(att_tee_enforced.Contains(TAG_NO_AUTH_REQUIRED));
+    }
+
     att_sw_enforced.Sort();
     expected_sw_enforced.Sort();
     EXPECT_EQ(filter_tags(expected_sw_enforced), filter_tags(att_sw_enforced));
@@ -400,6 +406,34 @@ TEST_F(NewKeyGenerationTest, Rsa) {
         EXPECT_TRUE(crypto_params.Contains(TAG_RSA_PUBLIC_EXPONENT, 3U));
 
         CheckedDeleteKey(&key_blob);
+    }
+}
+
+/*
+ * NewKeyGenerationTest.RsaCheckCreationDateTime
+ *
+ * Verifies that creation date time is correct.
+ */
+TEST_F(NewKeyGenerationTest, RsaCheckCreationDateTime) {
+    // HidlBuf key_blob;
+    KeyCharacteristics key_characteristics;
+    ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
+                                                 .Authorization(TAG_NO_AUTH_REQUIRED)
+                                                 .RsaSigningKey(2048, 3)
+                                                 .Digest(Digest::NONE)
+                                                 .Padding(PaddingMode::NONE)));
+    GetCharacteristics(key_blob_, &key_characteristics);
+    AuthorizationSet sw_enforced = key_characteristics.softwareEnforced;
+    EXPECT_TRUE(sw_enforced.Contains(TAG_CREATION_DATETIME));
+    for (int i = 0; i < key_characteristics.softwareEnforced.size(); i++) {
+        if (key_characteristics.softwareEnforced[i].tag == TAG_CREATION_DATETIME) {
+            auto now = std::chrono::system_clock::now().time_since_epoch();
+            auto reported_time =
+                    std::chrono::milliseconds(key_characteristics.softwareEnforced[i].f.dateTime);
+            auto time_dif =
+                    std::chrono::duration_cast<std::chrono::milliseconds>(now - reported_time);
+            ASSERT_LE(time_dif, 10s);
+        }
     }
 }
 
@@ -559,7 +593,8 @@ TEST_F(NewKeyGenerationTest, EcdsaAllValidCurves) {
  * characteristics.
  */
 TEST_F(NewKeyGenerationTest, Hmac) {
-    for (auto digest : ValidDigests(false /* withNone */, true /* withMD5 */)) {
+    hardware / interfaces / keymaster / 4.0 / vts /
+            functional for (auto digest : ValidDigests(false /* withNone */, true /* withMD5 */)) {
         HidlBuf key_blob;
         KeyCharacteristics key_characteristics;
         constexpr size_t key_size = 128;
@@ -703,6 +738,69 @@ TEST_F(SigningOperationsTest, RsaSuccess) {
     string message = "12345678901234567890123456789012";
     string signature = SignMessage(
         message, AuthorizationSetBuilder().Digest(Digest::NONE).Padding(PaddingMode::NONE));
+}
+
+/*
+ * SigningOperationsTest.RsaGetKeyCharacteristicsRequiresCorrectAppIdAppData
+ *
+ * Verifies that getting RSA key characteristics requires the correct app ID/data.
+ */
+TEST_F(SigningOperationsTest, RsaGetKeyCharacteristicsRequiresCorrectAppIdAppData) {
+    HidlBuf key_blob;
+    KeyCharacteristics key_characteristics;
+    ASSERT_EQ(ErrorCode::OK,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .Authorization(TAG_NO_AUTH_REQUIRED)
+                                  .RsaSigningKey(2048, 65537)
+                                  .Digest(Digest::NONE)
+                                  .Padding(PaddingMode::NONE)
+                                  .Authorization(TAG_APPLICATION_ID, HidlBuf("clientid"))
+                                  .Authorization(TAG_APPLICATION_DATA, HidlBuf("appdata")),
+                          &key_blob, &key_characteristics));
+    CheckGetCharacteristics(key_blob, HidlBuf("clientid"), HidlBuf("appdata"),
+                            &key_characteristics);
+}
+
+/*
+ * SigningOperationsTest.RsaUseRequiresCorrectAppIdAppData
+ *
+ * Verifies that using an RSA key requires the correct app ID/data.
+ */
+TEST_F(SigningOperationsTest, RsaUseRequiresCorrectAppIdAppData) {
+    ASSERT_EQ(ErrorCode::OK,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .Authorization(TAG_NO_AUTH_REQUIRED)
+                                  .RsaSigningKey(2048, 65537)
+                                  .Digest(Digest::NONE)
+                                  .Padding(PaddingMode::NONE)
+                                  .Authorization(TAG_APPLICATION_ID, HidlBuf("clientid"))
+                                  .Authorization(TAG_APPLICATION_DATA, HidlBuf("appdata"))));
+    EXPECT_EQ(ErrorCode::INVALID_KEY_BLOB,
+              Begin(KeyPurpose::SIGN,
+                    AuthorizationSetBuilder().Digest(Digest::NONE).Padding(PaddingMode::NONE)));
+    AbortIfNeeded();
+    EXPECT_EQ(ErrorCode::INVALID_KEY_BLOB,
+              Begin(KeyPurpose::SIGN,
+                    AuthorizationSetBuilder()
+                            .Digest(Digest::NONE)
+                            .Padding(PaddingMode::NONE)
+                            .Authorization(TAG_APPLICATION_ID, HidlBuf("clientid"))));
+    AbortIfNeeded();
+    EXPECT_EQ(ErrorCode::INVALID_KEY_BLOB,
+              Begin(KeyPurpose::SIGN,
+                    AuthorizationSetBuilder()
+                            .Digest(Digest::NONE)
+                            .Padding(PaddingMode::NONE)
+                            .Authorization(TAG_APPLICATION_DATA, HidlBuf("appdata"))));
+    AbortIfNeeded();
+    EXPECT_EQ(ErrorCode::OK,
+              Begin(KeyPurpose::SIGN,
+                    AuthorizationSetBuilder()
+                            .Digest(Digest::NONE)
+                            .Padding(PaddingMode::NONE)
+                            .Authorization(TAG_APPLICATION_DATA, HidlBuf("appdata"))
+                            .Authorization(TAG_APPLICATION_ID, HidlBuf("clientid"))));
+    AbortIfNeeded();
 }
 
 /*
@@ -1079,6 +1177,63 @@ TEST_F(SigningOperationsTest, EcdsaNoDigestHugeData) {
                                              .Digest(Digest::NONE)));
     string message(1 * 1024, 'a');
     SignMessage(message, AuthorizationSetBuilder().Digest(Digest::NONE));
+}
+
+/*
+ * SigningOperationsTest.EcGetKeyCharacteristicsRequiresCorrectAppIdAppData
+ *
+ * Verifies that getting EC key characteristics requires the correct app ID/data.
+ */
+TEST_F(SigningOperationsTest, EcGetKeyCharacteristicsRequiresCorrectAppIdAppData) {
+    HidlBuf key_blob;
+    KeyCharacteristics key_characteristics;
+    ASSERT_EQ(ErrorCode::OK,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .Authorization(TAG_NO_AUTH_REQUIRED)
+                                  .EcdsaSigningKey(256)
+                                  .Digest(Digest::NONE)
+                                  .Authorization(TAG_APPLICATION_ID, HidlBuf("clientid"))
+                                  .Authorization(TAG_APPLICATION_DATA, HidlBuf("appdata")),
+                          &key_blob, &key_characteristics));
+    CheckGetCharacteristics(key_blob, HidlBuf("clientid"), HidlBuf("appdata"),
+                            &key_characteristics);
+}
+
+/*
+ * SigningOperationsTest.EcUseRequiresCorrectAppIdAppData
+ *
+ * Verifies that using an EC key requires the correct app ID/data.
+ */
+TEST_F(SigningOperationsTest, EcUseRequiresCorrectAppIdAppData) {
+    ASSERT_EQ(ErrorCode::OK,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .Authorization(TAG_NO_AUTH_REQUIRED)
+                                  .EcdsaSigningKey(256)
+                                  .Digest(Digest::NONE)
+                                  .Authorization(TAG_APPLICATION_ID, HidlBuf("clientid"))
+                                  .Authorization(TAG_APPLICATION_DATA, HidlBuf("appdata"))));
+    EXPECT_EQ(ErrorCode::INVALID_KEY_BLOB,
+              Begin(KeyPurpose::SIGN, AuthorizationSetBuilder().Digest(Digest::NONE)));
+    AbortIfNeeded();
+    EXPECT_EQ(ErrorCode::INVALID_KEY_BLOB,
+              Begin(KeyPurpose::SIGN,
+                    AuthorizationSetBuilder()
+                            .Digest(Digest::NONE)
+                            .Authorization(TAG_APPLICATION_ID, HidlBuf("clientid"))));
+    AbortIfNeeded();
+    EXPECT_EQ(ErrorCode::INVALID_KEY_BLOB,
+              Begin(KeyPurpose::SIGN,
+                    AuthorizationSetBuilder()
+                            .Digest(Digest::NONE)
+                            .Authorization(TAG_APPLICATION_DATA, HidlBuf("appdata"))));
+    AbortIfNeeded();
+    EXPECT_EQ(ErrorCode::OK,
+              Begin(KeyPurpose::SIGN,
+                    AuthorizationSetBuilder()
+                            .Digest(Digest::NONE)
+                            .Authorization(TAG_APPLICATION_DATA, HidlBuf("appdata"))
+                            .Authorization(TAG_APPLICATION_ID, HidlBuf("clientid"))));
+    AbortIfNeeded();
 }
 
 /*
@@ -3868,6 +4023,28 @@ TEST_F(AttestationTest, RsaAttestationRequiresAppId) {
     EXPECT_EQ(ErrorCode::ATTESTATION_APPLICATION_ID_MISSING,
               AttestKey(AuthorizationSetBuilder().Authorization(TAG_ATTESTATION_CHALLENGE,
                                                                 HidlBuf("challenge")),
+                        &cert_chain));
+}
+
+/*
+ * AttestationTest.RsaAttestationRequiresCorrectAppId
+ *
+ * Verifies that attesting to RSA requires the correct app ID.
+ */
+TEST_F(AttestationTest, RsaAttestationRequiresCorrectAppId) {
+    ASSERT_EQ(ErrorCode::OK,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .Authorization(TAG_NO_AUTH_REQUIRED)
+                                  .RsaSigningKey(2048, 65537)
+                                  .Digest(Digest::NONE)
+                                  .Padding(PaddingMode::NONE)
+                                  .Authorization(TAG_APPLICATION_ID, HidlBuf("lol"))));
+
+    hidl_vec<hidl_vec<uint8_t>> cert_chain;
+    EXPECT_EQ(ErrorCode::ATTESTATION_APPLICATION_ID_MISSING,
+              AttestKey(AuthorizationSetBuilder()
+                                .Authorization(TAG_ATTESTATION_CHALLENGE, HidlBuf("challenge"))
+                                .Authorization(TAG_APPLICATION_ID, HidlBuf("heh")),
                         &cert_chain));
 }
 
