@@ -22,8 +22,13 @@ RadioResponse_v1_4::RadioResponse_v1_4(RadioHidlTest_v1_4& parent) : parent_v1_4
 
 /* 1.0 Apis */
 Return<void> RadioResponse_v1_4::getIccCardStatusResponse(
-        const RadioResponseInfo& /*info*/,
-        const ::android::hardware::radio::V1_0::CardStatus& /*card_status*/) {
+        const RadioResponseInfo& info,
+        const ::android::hardware::radio::V1_0::CardStatus& card_status) {
+    ::android::hardware::radio::V1_2::CardStatus cardStatus2;
+    cardStatus2.base = card_status;
+    cardStatus.base = cardStatus2;
+    rspInfo = info;
+    parent_v1_4.notify(info.serial);
     return Void();
 }
 
