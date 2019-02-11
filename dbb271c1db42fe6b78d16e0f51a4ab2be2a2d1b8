@@ -22,6 +22,30 @@
       "revId": "dbb271c1db42fe6b78d16e0f51a4ab2be2a2d1b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31d9b7a3_ac58bfc9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2019-02-11T23:35:06Z",
+      "side": 1,
+      "message": "This is just a fixup for mpq@\u0027s new structures. I believe he\u0027s on the hook to write the VTS tests, of which this will be a trivial part. I don\u0027t see the bulk of the VTS tests written (yet) or I would have just incremented.",
+      "parentUuid": "d4859d8c_65304a65",
+      "range": {
+        "startLine": 13,
+        "startChar": 6,
+        "endLine": 13,
+        "endChar": 9
+      },
+      "revId": "dbb271c1db42fe6b78d16e0f51a4ab2be2a2d1b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
