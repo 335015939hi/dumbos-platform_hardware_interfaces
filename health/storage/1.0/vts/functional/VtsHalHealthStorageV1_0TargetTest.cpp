@@ -34,9 +34,12 @@ using ::std::literals::chrono_literals::operator""ms;
 
 // Dev GC timeout. This is the timeout used by vold.
 const uint64_t kDevGcTimeoutSec = 120;
+// We use a smaller timeout for a null callback since the results cannot be
+// verified by the test.
+const uint64_t kDevGcNullCbTimeoutSec = 10;
 const std::chrono::seconds kDevGcTimeout{kDevGcTimeoutSec};
 // Time accounted for RPC calls.
-const std::chrono::milliseconds kRpcTime{100};
+const std::chrono::milliseconds kRpcTime{1000};
 
 template <typename R>
 std::string toString(std::chrono::duration<R, std::milli> time) {
@@ -90,11 +93,8 @@ class GcCallback : public IGarbageCollectCallback, public Flag {
     template <typename R, typename P>
     void waitForResult(std::chrono::duration<R, P> timeout, Result expected) {
         std::unique_lock<std::mutex> lock(mMutex);
-        if (waitLocked(&lock, timeout)) {
-            EXPECT_EQ(expected, mResult);
-        } else {
-            LOG(INFO) << "timeout after " << toString(timeout);
-        }
+        ASSERT_TRUE(waitLocked(&lock, timeout)) << "timeout after " << toString(timeout);
+        EXPECT_EQ(expected, mResult);
     }
 
    private:
@@ -120,31 +120,8 @@ class HealthStorageHidlTest : public ::testing::VtsHalHidlTargetTestBase {
     virtual void SetUp() override {
         fs = ::testing::VtsHalHidlTargetTestBase::getService<IStorage>(
             HealthStorageHidlEnvironment::Instance()->getServiceName<IStorage>());
-
         ASSERT_NE(fs, nullptr);
-        LOG(INFO) << "Service is remote " << fs->isRemote();
-    }
-
-    virtual void TearDown() override {
-        EXPECT_TRUE(ping(kRpcTime))
-            << "Service is not responsive; expect subsequent tests to fail.";
-    }
-
-    /**
-     * Ping the service and expect it to return after "timeout". Return true
-     * iff the service is responsive within "timeout".
-     */
-    template <typename R, typename P>
-    bool ping(std::chrono::duration<R, P> timeout) {
-        // Ensure the service is responsive after the test.
-        sp<IStorage> service = fs;
-        auto pingFlag = std::make_shared<Flag>();
-        std::thread([service, pingFlag] {
-            service->ping();
-            pingFlag->onFinish();
-        })
-            .detach();
-        return pingFlag->wait(timeout);
+        LOG(ERROR) << "Service is remote " << fs->isRemote();
     }
 
     sp<IStorage> fs;
@@ -154,13 +131,9 @@ class HealthStorageHidlTest : public ::testing::VtsHalHidlTargetTestBase {
  * Ensure garbage collection works on null callback.
  */
 TEST_F(HealthStorageHidlTest, GcNullCallback) {
-    auto ret = fs->garbageCollect(kDevGcTimeoutSec, nullptr);
-
+    auto ret = fs->garbageCollect(kDevGcNullCbTimeoutSec, nullptr);
+    sleep(kDevGcNullCbTimeoutSec);
     ASSERT_OK(ret);
-
-    // Hold test process because HAL can be single-threaded and doing GC.
-    ASSERT_TRUE(ping(kDevGcTimeout + kRpcTime))
-        << "Service must be available after " << toString(kDevGcTimeout + kRpcTime);
 }
 
 /**
