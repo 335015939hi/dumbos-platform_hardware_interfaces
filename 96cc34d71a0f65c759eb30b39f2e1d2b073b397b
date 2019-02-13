@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a6905ab7_71f74760",
+        "filename": "radio/1.4/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2019-02-13T18:21:12Z",
+      "side": 1,
+      "message": "We were told recently not to use any carrier specific settings for VTS tests. Can we use a generic params? The data connection won\u0027t be setup anyway without a specific SIM/network, so generic params should be fine.",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 28
+      },
+      "revId": "96cc34d71a0f65c759eb30b39f2e1d2b073b397b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
