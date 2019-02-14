@@ -22,6 +22,30 @@
       "revId": "96cc34d71a0f65c759eb30b39f2e1d2b073b397b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f8e1ea6_dc4b0768",
+        "filename": "radio/1.4/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1308473
+      },
+      "writtenOn": "2019-02-14T07:29:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6905ab7_71f74760",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 28
+      },
+      "revId": "96cc34d71a0f65c759eb30b39f2e1d2b073b397b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
