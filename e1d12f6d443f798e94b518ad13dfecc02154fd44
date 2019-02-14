@@ -2,6 +2,46 @@
   "comments": [
     {
       "key": {
+        "uuid": "d7dcda5c_f4432843",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-02-14T17:39:29Z",
+      "side": 1,
+      "message": "Can you add/run VTS tests?",
+      "revId": "e1d12f6d443f798e94b518ad13dfecc02154fd44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe753275_aa0f1d94",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-02-14T17:39:29Z",
+      "side": 1,
+      "message": "you\u0027ll also need to update the hashes for this interface now",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 4
+      },
+      "revId": "e1d12f6d443f798e94b518ad13dfecc02154fd44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dcbd2311_93960cee",
         "filename": "nfc/1.2/INfc.hal",
         "patchSetId": 1
@@ -85,6 +125,30 @@
       "side": 1,
       "message": "Reference docs: https://www.nxp.com/docs/en/data-sheet/MF1S50YYX_V1.pdf\nIt will be used when mifare technology is detected.",
       "parentUuid": "b130a7e3_b164f404",
+      "range": {
+        "startLine": 31,
+        "startChar": 26,
+        "endLine": 31,
+        "endChar": 32
+      },
+      "revId": "e1d12f6d443f798e94b518ad13dfecc02154fd44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b4e0113_9a7487c6",
+        "filename": "nfc/1.2/INfc.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-02-14T17:39:29Z",
+      "side": 1,
+      "message": "Can you add the reference to this standard in the HAL document itself? Otherwise, lg.",
+      "parentUuid": "0c5c622c_0a88875d",
       "range": {
         "startLine": 31,
         "startChar": 26,
