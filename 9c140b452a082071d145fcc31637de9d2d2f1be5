@@ -46,6 +46,30 @@
       "revId": "9c140b452a082071d145fcc31637de9d2d2f1be5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13c4e577_59be4deb",
+        "filename": "audio/common/5.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 626,
+      "author": {
+        "id": 1136369
+      },
+      "writtenOn": "2019-02-15T23:49:13Z",
+      "side": 1,
+      "message": "Done in follow-up patch.",
+      "parentUuid": "446ff42c_f7336f06",
+      "range": {
+        "startLine": 625,
+        "startChar": 0,
+        "endLine": 626,
+        "endChar": 53
+      },
+      "revId": "9c140b452a082071d145fcc31637de9d2d2f1be5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
