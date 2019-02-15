@@ -22,6 +22,30 @@
       "revId": "9c140b452a082071d145fcc31637de9d2d2f1be5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "446ff42c_f7336f06",
+        "filename": "audio/common/5.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 626,
+      "author": {
+        "id": 1136369
+      },
+      "writtenOn": "2019-02-15T23:26:27Z",
+      "side": 1,
+      "message": "rSubmixAddress is set by the framework on creation and is obscure to the HAL (rSubmix is a loopback audio card that is in AOSP and vendor are not expected to modify although the can, eg Nvidia shield).\nbusAddress is not interpreted by the framework its some id arbitrary chosen by the vendor to identify its front-ends.",
+      "parentUuid": "ff8d9382_d48461fd",
+      "range": {
+        "startLine": 625,
+        "startChar": 0,
+        "endLine": 626,
+        "endChar": 53
+      },
+      "revId": "9c140b452a082071d145fcc31637de9d2d2f1be5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
