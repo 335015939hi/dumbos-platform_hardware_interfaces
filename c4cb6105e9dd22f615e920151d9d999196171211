@@ -52,6 +52,24 @@
       "revId": "c4cb6105e9dd22f615e920151d9d999196171211",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de11f14f_6d4b4c1a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1136369
+      },
+      "writtenOn": "2019-02-15T01:52:42Z",
+      "side": 1,
+      "message": "Done, added Merged-In",
+      "parentUuid": "3a86bbb3_25e065ec",
+      "revId": "c4cb6105e9dd22f615e920151d9d999196171211",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
