@@ -16,6 +16,24 @@
       "revId": "c4cb6105e9dd22f615e920151d9d999196171211",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c3bcea0_1de28e7f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1136369
+      },
+      "writtenOn": "2019-02-15T01:47:26Z",
+      "side": 1,
+      "message": "no, forgot about that. I probably want though. Otherwise there will be merge conflict in master.\nI always forget that Change-Id: X does not imply Merged-In: X",
+      "parentUuid": "e70365d3_a16374e1",
+      "revId": "c4cb6105e9dd22f615e920151d9d999196171211",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
