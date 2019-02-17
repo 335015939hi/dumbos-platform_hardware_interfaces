@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "01d3efca_a43cbf8e",
+        "filename": "radio/1.4/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2019-02-17T20:37:18Z",
+      "side": 1,
+      "message": "911 is US specific, should we use 112, which is standard emergency number defined in 3GPP spec?",
+      "range": {
+        "startLine": 53,
+        "startChar": 36,
+        "endLine": 53,
+        "endChar": 39
+      },
+      "revId": "28f71421003be751da43dca51722a5341fcebced",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
