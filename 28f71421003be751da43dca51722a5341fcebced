@@ -22,6 +22,30 @@
       "revId": "28f71421003be751da43dca51722a5341fcebced",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "656cb335_1b022594",
+        "filename": "radio/1.4/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1308473
+      },
+      "writtenOn": "2019-02-18T08:26:58Z",
+      "side": 1,
+      "message": "According to TS 22.101 section 10.1.1, 911 is also the standard emergency number defined in 3GPP spec. \n\na) 112 and 911 shall always be available. These numbers shall be stored on the ME. \nhttps://www.etsi.org/deliver/etsi_ts/122100_122199/122101/15.06.00_60/ts_122101v150600p.pdf",
+      "parentUuid": "01d3efca_a43cbf8e",
+      "range": {
+        "startLine": 53,
+        "startChar": 36,
+        "endLine": 53,
+        "endChar": 39
+      },
+      "revId": "28f71421003be751da43dca51722a5341fcebced",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
