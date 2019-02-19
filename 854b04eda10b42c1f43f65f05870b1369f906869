@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f662b5a_7e953f4a",
+        "filename": "camera/provider/2.4/vts/functional/VtsHalCameraProviderV2_4TargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 2518,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2019-02-19T18:51:59Z",
+      "side": 1,
+      "message": "This method probably should not return depth outputs as it checks android.scaler.available.stream.configurations key, not android.depth.availableDepthStreamConfiguration.\n\nIf you are using android.scaler.available.stream.configurations to advertise your depth Y16 output, it\u0027s a bug needs to be fixed.",
+      "range": {
+        "startLine": 2518,
+        "startChar": 30,
+        "endLine": 2518,
+        "endChar": 55
+      },
+      "revId": "854b04eda10b42c1f43f65f05870b1369f906869",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c978f9f_63052247",
+        "filename": "camera/provider/2.4/vts/functional/VtsHalCameraProviderV2_4TargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 4633,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2019-02-19T18:51:59Z",
+      "side": 1,
+      "message": "Probably leave a comment saying only depth16 is supported now",
+      "range": {
+        "startLine": 4633,
+        "startChar": 74,
+        "endLine": 4633,
+        "endChar": 90
+      },
+      "revId": "854b04eda10b42c1f43f65f05870b1369f906869",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
