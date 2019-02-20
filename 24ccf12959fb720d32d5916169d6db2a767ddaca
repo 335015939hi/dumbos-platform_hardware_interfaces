@@ -1,0 +1,233 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "742d0fff_3ba7fa51",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1451494
+      },
+      "writtenOn": "2019-02-20T13:10:54Z",
+      "side": 1,
+      "message": "Please add a test for UniqueID.\n\nIf VTS run as PrivApp a UniqueID should exist with the expected size: https://source.android.com/security/keystore/attestation#unique-id\n\nIf VTS run as normal App the UniqueID must be empty:\nhttps://developer.android.com/training/articles/security-key-attestation#certificate_schema_keydescription",
+      "range": {
+        "startLine": 291,
+        "startChar": 0,
+        "endLine": 291,
+        "endChar": 4
+      },
+      "revId": "24ccf12959fb720d32d5916169d6db2a767ddaca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff84e646_cd362c02",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1451494
+      },
+      "writtenOn": "2019-02-20T13:10:54Z",
+      "side": 1,
+      "message": "Make this consistent (EXPECT_EQ) with the test for att_keymaster_version.",
+      "revId": "24ccf12959fb720d32d5916169d6db2a767ddaca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "09dd6328_b2d82eed",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1451494
+      },
+      "writtenOn": "2019-02-20T13:10:54Z",
+      "side": 1,
+      "message": "These fields should also be a tests for:\n- Tag::VENDOR_PATCHLEVEL (see b/119549677).\n- Tag::OS_VERSION\n- Tag::PATCHLEVEL\n\nThe value of this fields should be cross checked with related system properties.",
+      "revId": "24ccf12959fb720d32d5916169d6db2a767ddaca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10c04808_7e9a8c9e",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1451494
+      },
+      "writtenOn": "2019-02-20T13:10:54Z",
+      "side": 1,
+      "message": "Couldn\u0027t this be done in similar way as with VBMeta further down by cross-checking against a system property?",
+      "revId": "24ccf12959fb720d32d5916169d6db2a767ddaca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8127516b_0789ad83",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1451494
+      },
+      "writtenOn": "2019-02-20T13:10:54Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be a if-block just like in the test for TAG_NO_AUTH_REQUIRED?",
+      "range": {
+        "startLine": 336,
+        "startChar": 4,
+        "endLine": 336,
+        "endChar": 16
+      },
+      "revId": "24ccf12959fb720d32d5916169d6db2a767ddaca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cedec286_62c8b406",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1451494
+      },
+      "writtenOn": "2019-02-20T13:10:54Z",
+      "side": 1,
+      "message": "Can you also add checks for other fields in the AuthorizationList like purpose, algorithm, etc. by comparing against the KeyGenParameterSpec that was used for generating the key pair?",
+      "range": {
+        "startLine": 345,
+        "startChar": 0,
+        "endLine": 345,
+        "endChar": 5
+      },
+      "revId": "24ccf12959fb720d32d5916169d6db2a767ddaca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ccfc8225_4f1d6365",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1451494
+      },
+      "writtenOn": "2019-02-20T13:10:54Z",
+      "side": 1,
+      "message": "Please add test for verified_boot_key: If device is locked it should report a hash; if device unlocked it is 0. See b/119547503.",
+      "range": {
+        "startLine": 348,
+        "startChar": 0,
+        "endLine": 348,
+        "endChar": 4
+      },
+      "revId": "24ccf12959fb720d32d5916169d6db2a767ddaca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "720ed00e_f64db943",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1451494
+      },
+      "writtenOn": "2019-02-20T13:10:54Z",
+      "side": 1,
+      "message": "Please add test for verified_boot_state by cross-checking with reported state in system properties.",
+      "range": {
+        "startLine": 349,
+        "startChar": 31,
+        "endLine": 349,
+        "endChar": 50
+      },
+      "revId": "24ccf12959fb720d32d5916169d6db2a767ddaca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9dec082_71749a79",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1451494
+      },
+      "writtenOn": "2019-02-20T13:10:54Z",
+      "side": 1,
+      "message": "Please add test for device_locked, which cross-checks with reported state in system properties.",
+      "range": {
+        "startLine": 350,
+        "startChar": 0,
+        "endLine": 350,
+        "endChar": 4
+      },
+      "revId": "24ccf12959fb720d32d5916169d6db2a767ddaca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae8aba02_452bfa3f",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1451494
+      },
+      "writtenOn": "2019-02-20T13:10:54Z",
+      "side": 1,
+      "message": "Leftover or looks unfinished?",
+      "revId": "24ccf12959fb720d32d5916169d6db2a767ddaca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81188392_cbd86973",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1451494
+      },
+      "writtenOn": "2019-02-20T13:10:54Z",
+      "side": 1,
+      "message": "Is it comparing existence of tag IDs in both structures or does it actually compare values?\n\nIf the former, I would like to see the values actually being validated similar to what is done in for look for checking values in att_hw_enforced.",
+      "range": {
+        "startLine": 363,
+        "startChar": 0,
+        "endLine": 363,
+        "endChar": 79
+      },
+      "revId": "24ccf12959fb720d32d5916169d6db2a767ddaca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
