@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e1866f51_4fde13a0",
+        "filename": "radio/1.4/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1351305
+      },
+      "writtenOn": "2019-02-20T23:27:25Z",
+      "side": 1,
+      "message": "Got it. Will change.",
+      "parentUuid": "9a52f8c2_dadc0644",
+      "range": {
+        "startLine": 122,
+        "startChar": 8,
+        "endLine": 123,
+        "endChar": 98
+      },
+      "revId": "e02069a0cfd0a9d0c2ca9c458dbede34a1a3423f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "862625de_6bd8bc6a",
         "filename": "radio/1.4/vts/functional/radio_response.cpp",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2019-02-20T23:22:16Z",
       "side": 1,
       "message": "Why use 1.2 cardStatus and why not cardStatus \u003d card_status; ?",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 34
+      },
+      "revId": "e02069a0cfd0a9d0c2ca9c458dbede34a1a3423f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba960d09_7a708640",
+        "filename": "radio/1.4/vts/functional/radio_response.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1351305
+      },
+      "writtenOn": "2019-02-20T23:27:25Z",
+      "side": 1,
+      "message": "cardStatus is 1.4, and card_status is 1.0. Thought 1.0 cannot be directly assigned to a 1.4 ref. Basically I\u0027m trying to pass 1.0 result to 1.4, since the cuttlefish still has 1.0 iccCardStatusResponse impl. \n\nThis will eventually be changed when iccCardStatusResponse_1_4 is implemented.",
+      "parentUuid": "862625de_6bd8bc6a",
       "range": {
         "startLine": 27,
         "startChar": 0,
