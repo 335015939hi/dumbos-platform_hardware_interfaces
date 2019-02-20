@@ -69,6 +69,30 @@
       "revId": "28f71421003be751da43dca51722a5341fcebced",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59c2f194_f743340b",
+        "filename": "radio/1.4/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1308473
+      },
+      "writtenOn": "2019-02-20T07:23:19Z",
+      "side": 1,
+      "message": "Suppose that REQUEST_NOT_SUPPORTED, INVALID_ARGUMENTS should not be allowed to return. Radio 1.4 have to support all parameters which list in VTS. Will remove these two RadioErrors.",
+      "parentUuid": "177f0440_1013d715",
+      "range": {
+        "startLine": 142,
+        "startChar": 0,
+        "endLine": 153,
+        "endChar": 5
+      },
+      "revId": "28f71421003be751da43dca51722a5341fcebced",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
