@@ -93,6 +93,30 @@
       "revId": "e02069a0cfd0a9d0c2ca9c458dbede34a1a3423f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0b8167b_3985559f",
+        "filename": "radio/1.4/vts/functional/radio_response.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2019-02-20T23:29:47Z",
+      "side": 1,
+      "message": "I think getIccCardStatusResponse is not need to be implemented here. Similar to 1.2",
+      "parentUuid": "ba960d09_7a708640",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 34
+      },
+      "revId": "e02069a0cfd0a9d0c2ca9c458dbede34a1a3423f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
