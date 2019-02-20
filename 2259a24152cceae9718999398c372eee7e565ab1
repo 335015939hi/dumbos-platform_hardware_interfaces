@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0acbef43_b4904cb3",
+        "filename": "camera/device/3.4/default/ExternalCameraDevice.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2019-02-20T18:10:13Z",
+      "side": 1,
+      "message": "Hmm... I thought not having a default might trigger compilation error (we set the flag that convert warnings to error)\nCan you add a default?",
+      "range": {
+        "startLine": 259,
+        "startChar": 12,
+        "endLine": 259,
+        "endChar": 16
+      },
+      "revId": "2259a24152cceae9718999398c372eee7e565ab1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07603a18_ecd7ae80",
+        "filename": "camera/device/3.4/default/ExternalCameraUtils.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2019-02-20T18:10:13Z",
+      "side": 1,
+      "message": "Did you update the wrong place (I think you mean to update line 250?)",
+      "range": {
+        "startLine": 259,
+        "startChar": 65,
+        "endLine": 259,
+        "endChar": 81
+      },
+      "revId": "2259a24152cceae9718999398c372eee7e565ab1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
