@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d505d623_e9122028",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2019-02-21T23:12:47Z",
+      "side": 1,
+      "message": "That\u0027s interesting; VTS runs as root. \"In all other apps, uniqueId is empty.\" I wonder what that would mean for a non-app domain..",
+      "parentUuid": "742d0fff_3ba7fa51",
+      "range": {
+        "startLine": 291,
+        "startChar": 0,
+        "endLine": 291,
+        "endChar": 4
+      },
+      "revId": "24ccf12959fb720d32d5916169d6db2a767ddaca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ff84e646_cd362c02",
         "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
         "patchSetId": 5
@@ -39,6 +63,24 @@
       "revId": "24ccf12959fb720d32d5916169d6db2a767ddaca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ec55566_26fcc3bf",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2019-02-21T23:12:47Z",
+      "side": 1,
+      "message": "attestation_version and keymaster_version are different values\n\nhttps://cs.corp.google.com/android/hardware/interfaces/keymaster/4.0/IKeymasterDevice.hal?g\u003d0\u0026l\u003d685 specifies that the value for attestation_version should be 3.",
+      "parentUuid": "ff84e646_cd362c02",
+      "revId": "24ccf12959fb720d32d5916169d6db2a767ddaca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "3e6a7fd0_3628d65d",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2019-02-21T23:12:47Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "09dd6328_b2d82eed",
+      "revId": "24ccf12959fb720d32d5916169d6db2a767ddaca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "10c04808_7e9a8c9e",
         "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
         "patchSetId": 5
@@ -70,6 +130,24 @@
       "writtenOn": "2019-02-20T13:10:54Z",
       "side": 1,
       "message": "Couldn\u0027t this be done in similar way as with VBMeta further down by cross-checking against a system property?",
+      "revId": "24ccf12959fb720d32d5916169d6db2a767ddaca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b5c9623_c756d4e9",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2019-02-21T23:12:47Z",
+      "side": 1,
+      "message": "Ah right, that\u0027s a much easier way to do it. Though I guess it should be done both ways - both to check that the values match, and to check that the system property is a valid value?",
+      "parentUuid": "10c04808_7e9a8c9e",
       "revId": "24ccf12959fb720d32d5916169d6db2a767ddaca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -99,6 +177,30 @@
     },
     {
       "key": {
+        "uuid": "df2cf155_03b73166",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2019-02-21T23:12:47Z",
+      "side": 1,
+      "message": "Yes, though currently there are no keys in VTS that include this tag since there\u0027s no real way to handle keys that require auth in VTS.",
+      "parentUuid": "8127516b_0789ad83",
+      "range": {
+        "startLine": 336,
+        "startChar": 4,
+        "endLine": 336,
+        "endChar": 16
+      },
+      "revId": "24ccf12959fb720d32d5916169d6db2a767ddaca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cedec286_62c8b406",
         "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
         "patchSetId": 5
@@ -110,6 +212,30 @@
       "writtenOn": "2019-02-20T13:10:54Z",
       "side": 1,
       "message": "Can you also add checks for other fields in the AuthorizationList like purpose, algorithm, etc. by comparing against the KeyGenParameterSpec that was used for generating the key pair?",
+      "range": {
+        "startLine": 345,
+        "startChar": 0,
+        "endLine": 345,
+        "endChar": 5
+      },
+      "revId": "24ccf12959fb720d32d5916169d6db2a767ddaca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1c3237e_94663895",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2019-02-21T23:12:47Z",
+      "side": 1,
+      "message": "this might be handled by the expected vs actual tag checking below. Will add if it\u0027s not.",
+      "parentUuid": "cedec286_62c8b406",
       "range": {
         "startLine": 345,
         "startChar": 0,
@@ -145,6 +271,30 @@
     },
     {
       "key": {
+        "uuid": "2cd9e795_9fe365f0",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2019-02-21T23:12:47Z",
+      "side": 1,
+      "message": "Done. Double checking the spec, it looks like it should be empty if boot state is unverified, regardless of if the device is locked. I may be reading an out of date or conflicting doc though.",
+      "parentUuid": "ccfc8225_4f1d6365",
+      "range": {
+        "startLine": 348,
+        "startChar": 0,
+        "endLine": 348,
+        "endChar": 4
+      },
+      "revId": "24ccf12959fb720d32d5916169d6db2a767ddaca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "720ed00e_f64db943",
         "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
         "patchSetId": 5
@@ -165,6 +315,30 @@
       "revId": "24ccf12959fb720d32d5916169d6db2a767ddaca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7366b0e3_b3a9d80f",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2019-02-21T23:12:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "720ed00e_f64db943",
+      "range": {
+        "startLine": 349,
+        "startChar": 31,
+        "endLine": 349,
+        "endChar": 50
+      },
+      "revId": "24ccf12959fb720d32d5916169d6db2a767ddaca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -191,6 +365,30 @@
     },
     {
       "key": {
+        "uuid": "fb2d05a0_ed49991d",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2019-02-21T23:12:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9dec082_71749a79",
+      "range": {
+        "startLine": 350,
+        "startChar": 0,
+        "endLine": 350,
+        "endChar": 4
+      },
+      "revId": "24ccf12959fb720d32d5916169d6db2a767ddaca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ae8aba02_452bfa3f",
         "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
         "patchSetId": 5
@@ -208,6 +406,24 @@
     },
     {
       "key": {
+        "uuid": "4d09bb0c_e359c99d",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2019-02-21T23:12:47Z",
+      "side": 1,
+      "message": "unfinished",
+      "parentUuid": "ae8aba02_452bfa3f",
+      "revId": "24ccf12959fb720d32d5916169d6db2a767ddaca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "81188392_cbd86973",
         "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
         "patchSetId": 5
@@ -219,6 +435,30 @@
       "writtenOn": "2019-02-20T13:10:54Z",
       "side": 1,
       "message": "Is it comparing existence of tag IDs in both structures or does it actually compare values?\n\nIf the former, I would like to see the values actually being validated similar to what is done in for look for checking values in att_hw_enforced.",
+      "range": {
+        "startLine": 363,
+        "startChar": 0,
+        "endLine": 363,
+        "endChar": 79
+      },
+      "revId": "24ccf12959fb720d32d5916169d6db2a767ddaca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d38da41_07c57e1d",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2019-02-21T23:12:47Z",
+      "side": 1,
+      "message": "I\u0027ll need to check this, for some reason I\u0027m having difficulty finding where the equality operator is being defined",
+      "parentUuid": "81188392_cbd86973",
       "range": {
         "startLine": 363,
         "startChar": 0,
