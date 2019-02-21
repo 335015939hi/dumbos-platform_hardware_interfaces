@@ -96,6 +96,58 @@ TEST_F(RadioHidlTest_v1_4, emergencyDial_withEmergencyRouting) {
 }
 
 /*
+ * Test IRadio.getPreferredNetworkTypeBitmap() for the response returned.
+ */
+TEST_F(RadioHidlTest_v1_4, getPreferredNetworkTypeBitmap) {
+    serial = GetRandomSerialNumber();
+
+    Return<void> res = radio_v1_4->getPreferredNetworkTypeBitmap(serial);
+
+    ASSERT_OK(res);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_v1_4->rspInfo.type);
+    EXPECT_EQ(serial, radioRsp_v1_4->rspInfo.serial);
+    ALOGI("getPreferredNetworkTypeBitmap, rspInfo.error = %s\n",
+          toString(radioRsp_v1_4->rspInfo.error).c_str());
+    EXPECT_EQ(RadioError::NONE, radioRsp_v1_4->rspInfo.error);
+}
+
+TEST_F(RadioHidlTest_v1_4, setPreferredNetworkTypeBitmap) {
+    serial = GetRandomSerialNumber();
+    bool responseToggle = radioRsp_v1_4->setPreferredNetworkResponseToggle;
+    ::android::hardware::hidl_bitfield<::android::hardware::radio::V1_4::RadioAccessFamily>
+            network_type_bitmap{};
+
+    network_type_bitmap |= ::android::hardware::radio::V1_4::RadioAccessFamily::LTE;
+
+    Return<void> res = radio_v1_4->setPreferredNetworkTypeBitmap(serial, network_type_bitmap);
+
+    ASSERT_OK(res);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_v1_4->rspInfo.type);
+    EXPECT_EQ(serial, radioRsp_v1_4->rspInfo.serial);
+    ALOGI("setPreferredNetworkTypeBitmap, rspInfo.error = %s\n",
+          toString(radioRsp_v1_4->rspInfo.error).c_str());
+    EXPECT_EQ(RadioError::NONE, radioRsp_v1_4->rspInfo.error);
+    if (radioRsp_v1_4->rspInfo.error == RadioError::NONE) {
+         // wait until set preferred network is finished
+        while (responseToggle == radioRsp_v1_4->setPreferredNetworkResponseToggle) {
+            sleep(1);
+        }
+        Return<void> res = radio_v1_4->getPreferredNetworkTypeBitmap(serial);
+
+        ASSERT_OK(res);
+        EXPECT_EQ(std::cv_status::no_timeout, wait());
+        EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_v1_4->rspInfo.type);
+        EXPECT_EQ(serial, radioRsp_v1_4->rspInfo.serial);
+        ALOGI("getPreferredNetworkTypeBitmap, rspInfo.error = %s\n",
+              toString(radioRsp_v1_4->rspInfo.error).c_str());
+        EXPECT_EQ(RadioError::NONE, radioRsp_v1_4->rspInfo.error);
+        EXPECT_EQ(network_type_bitmap, radioRsp_v1_4->networkTypeBitmapResponse);
+    }
+}
+
+/*
  * Test IRadio.startNetworkScan() for the response returned.
  */
 TEST_F(RadioHidlTest_v1_4, startNetworkScan) {
