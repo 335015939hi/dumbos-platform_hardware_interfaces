@@ -834,7 +834,6 @@ Return<void> RadioResponse_v1_4::getPreferredNetworkTypeBitmapResponse(
                                                ::android::hardware::radio::V1_4::RadioAccessFamily>
         /*networkTypeBitmap*/) {
     rspInfo = info;
-    // TODO: may need a new member for bitfield networkTypeBitmap.
     parent_v1_4.notify(info.serial);
     return Void();
 }
