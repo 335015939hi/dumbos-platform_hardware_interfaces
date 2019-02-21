@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4c3dc3df_565f9bcf",
+        "filename": "camera/device/3.4/default/ExternalCameraDevice.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1406219
+      },
+      "writtenOn": "2019-02-21T06:20:56Z",
+      "side": 1,
+      "message": "it compiled at my end, i\u0027ll add the flag.\nin that case i don\u0027t think the default should do anything, because at that point mSupportedFormats has to have at-least one Z16 or MJPEG.\nis adding an empty default ok?",
+      "parentUuid": "0acbef43_b4904cb3",
+      "range": {
+        "startLine": 259,
+        "startChar": 12,
+        "endLine": 259,
+        "endChar": 16
+      },
+      "revId": "2259a24152cceae9718999398c372eee7e565ab1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "07603a18_ecd7ae80",
         "filename": "camera/device/3.4/default/ExternalCameraUtils.cpp",
         "patchSetId": 14
@@ -36,6 +60,30 @@
       "writtenOn": "2019-02-20T18:10:13Z",
       "side": 1,
       "message": "Did you update the wrong place (I think you mean to update line 250?)",
+      "range": {
+        "startLine": 259,
+        "startChar": 65,
+        "endLine": 259,
+        "endChar": 81
+      },
+      "revId": "2259a24152cceae9718999398c372eee7e565ab1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31bc5a32_379184b9",
+        "filename": "camera/device/3.4/default/ExternalCameraUtils.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1406219
+      },
+      "writtenOn": "2019-02-21T06:20:56Z",
+      "side": 1,
+      "message": "yes my bad, i was working on a local branch and merged it in the wrong place",
+      "parentUuid": "07603a18_ecd7ae80",
       "range": {
         "startLine": 259,
         "startChar": 65,
