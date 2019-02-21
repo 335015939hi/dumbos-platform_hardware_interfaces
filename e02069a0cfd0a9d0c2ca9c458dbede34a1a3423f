@@ -117,6 +117,30 @@
       "revId": "e02069a0cfd0a9d0c2ca9c458dbede34a1a3423f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27438b93_0a959835",
+        "filename": "radio/1.4/vts/functional/radio_response.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1351305
+      },
+      "writtenOn": "2019-02-21T18:21:36Z",
+      "side": 1,
+      "message": "Correct. This is a walk around before iccCardStatusResponse_1_4 implemented.",
+      "parentUuid": "a0b8167b_3985559f",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 34
+      },
+      "revId": "e02069a0cfd0a9d0c2ca9c458dbede34a1a3423f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
