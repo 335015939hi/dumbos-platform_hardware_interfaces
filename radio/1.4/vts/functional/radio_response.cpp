@@ -831,10 +831,10 @@ Return<void> RadioResponse_v1_4::getIccCardStatusResponse_1_4(
 
 Return<void> RadioResponse_v1_4::getPreferredNetworkTypeBitmapResponse(
         const RadioResponseInfo& info, const ::android::hardware::hidl_bitfield<
-                                               ::android::hardware::radio::V1_4::RadioAccessFamily>
-        /*networkTypeBitmap*/) {
+                                               ::android::hardware::radio::V1_4::RadioAccessFamily>&
+                                               networkTypeBitmap) {
     rspInfo = info;
-    // TODO: may need a new member for bitfield networkTypeBitmap.
+    networkTypeBitmapResponse = networkTypeBitmap;
     parent_v1_4.notify(info.serial);
     return Void();
 }
@@ -842,6 +842,7 @@ Return<void> RadioResponse_v1_4::getPreferredNetworkTypeBitmapResponse(
 Return<void> RadioResponse_v1_4::setPreferredNetworkTypeBitmapResponse(
         const RadioResponseInfo& info) {
     rspInfo = info;
+    setPreferredNetworkResponseToggle = true;
     parent_v1_4.notify(info.serial);
     return Void();
 }
