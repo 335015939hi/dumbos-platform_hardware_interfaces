@@ -116,7 +116,8 @@ TEST_F(RadioHidlTest_v1_2, startNetworkScan_InvalidInterval1) {
     } else if (cardStatus.base.cardState == CardState::PRESENT) {
         ASSERT_TRUE(
             CheckAnyOfErrors(radioRsp_v1_2->rspInfo.error,
-                             {RadioError::INVALID_ARGUMENTS, RadioError::REQUEST_NOT_SUPPORTED}));
+                             {RadioError::INVALID_ARGUMENTS, RadioError::REQUEST_NOT_SUPPORTED,
+                              RadioError::OPERATION_NOT_ALLOWED}));
     }
 }
 
@@ -153,7 +154,8 @@ TEST_F(RadioHidlTest_v1_2, startNetworkScan_InvalidInterval2) {
     } else if (cardStatus.base.cardState == CardState::PRESENT) {
         ASSERT_TRUE(
             CheckAnyOfErrors(radioRsp_v1_2->rspInfo.error,
-                             {RadioError::INVALID_ARGUMENTS, RadioError::REQUEST_NOT_SUPPORTED}));
+                             {RadioError::INVALID_ARGUMENTS, RadioError::REQUEST_NOT_SUPPORTED,
+                              RadioError::OPERATION_NOT_ALLOWED}));
     }
 }
 
@@ -190,7 +192,8 @@ TEST_F(RadioHidlTest_v1_2, startNetworkScan_InvalidMaxSearchTime1) {
     } else if (cardStatus.base.cardState == CardState::PRESENT) {
         ASSERT_TRUE(
             CheckAnyOfErrors(radioRsp_v1_2->rspInfo.error,
-                             {RadioError::INVALID_ARGUMENTS, RadioError::REQUEST_NOT_SUPPORTED}));
+                             {RadioError::INVALID_ARGUMENTS, RadioError::REQUEST_NOT_SUPPORTED,
+                              RadioError::OPERATION_NOT_ALLOWED}));
     }
 }
 
@@ -227,7 +230,8 @@ TEST_F(RadioHidlTest_v1_2, startNetworkScan_InvalidMaxSearchTime2) {
     } else if (cardStatus.base.cardState == CardState::PRESENT) {
         ASSERT_TRUE(
             CheckAnyOfErrors(radioRsp_v1_2->rspInfo.error,
-                             {RadioError::INVALID_ARGUMENTS, RadioError::REQUEST_NOT_SUPPORTED}));
+                             {RadioError::INVALID_ARGUMENTS, RadioError::REQUEST_NOT_SUPPORTED,
+                              RadioError::OPERATION_NOT_ALLOWED}));
     }
 }
 
@@ -264,7 +268,8 @@ TEST_F(RadioHidlTest_v1_2, startNetworkScan_InvalidPeriodicity1) {
     } else if (cardStatus.base.cardState == CardState::PRESENT) {
         ASSERT_TRUE(
             CheckAnyOfErrors(radioRsp_v1_2->rspInfo.error,
-                             {RadioError::INVALID_ARGUMENTS, RadioError::REQUEST_NOT_SUPPORTED}));
+                             {RadioError::INVALID_ARGUMENTS, RadioError::REQUEST_NOT_SUPPORTED,
+                              RadioError::OPERATION_NOT_ALLOWED}));
     }
 }
 
@@ -301,7 +306,8 @@ TEST_F(RadioHidlTest_v1_2, startNetworkScan_InvalidPeriodicity2) {
     } else if (cardStatus.base.cardState == CardState::PRESENT) {
         ASSERT_TRUE(
             CheckAnyOfErrors(radioRsp_v1_2->rspInfo.error,
-                             {RadioError::INVALID_ARGUMENTS, RadioError::REQUEST_NOT_SUPPORTED}));
+                             {RadioError::INVALID_ARGUMENTS, RadioError::REQUEST_NOT_SUPPORTED,
+                              RadioError::OPERATION_NOT_ALLOWED}));
     }
 }
 
@@ -340,7 +346,7 @@ TEST_F(RadioHidlTest_v1_2, startNetworkScan_GoodRequest1) {
     } else if (cardStatus.base.cardState == CardState::PRESENT) {
         ASSERT_TRUE(CheckAnyOfErrors(
             radioRsp_v1_2->rspInfo.error,
-            {RadioError::NONE, RadioError::REQUEST_NOT_SUPPORTED}));
+            {RadioError::NONE, RadioError::REQUEST_NOT_SUPPORTED, RadioError::OPERATION_NOT_ALLOWED}));
     }
 }
 
@@ -380,7 +386,7 @@ TEST_F(RadioHidlTest_v1_2, startNetworkScan_GoodRequest2) {
     } else if (cardStatus.base.cardState == CardState::PRESENT) {
         ASSERT_TRUE(CheckAnyOfErrors(
             radioRsp_v1_2->rspInfo.error,
-            {RadioError::NONE, RadioError::REQUEST_NOT_SUPPORTED}));
+            {RadioError::NONE, RadioError::REQUEST_NOT_SUPPORTED, RadioError::OPERATION_NOT_ALLOWED}));
     }
 }
 
