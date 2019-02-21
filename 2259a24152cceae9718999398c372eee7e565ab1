@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "040a744d_827560ec",
+        "filename": "camera/device/3.4/default/ExternalCameraDevice.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2019-02-21T18:59:08Z",
+      "side": 1,
+      "message": "empty default with error log print should be fine. It will save future readers some time wondering what might happen... also makes it clear if someone adds a new format but didn\u0027t update here.",
+      "parentUuid": "4c3dc3df_565f9bcf",
+      "range": {
+        "startLine": 259,
+        "startChar": 12,
+        "endLine": 259,
+        "endChar": 16
+      },
+      "revId": "2259a24152cceae9718999398c372eee7e565ab1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "07603a18_ecd7ae80",
         "filename": "camera/device/3.4/default/ExternalCameraUtils.cpp",
         "patchSetId": 14
