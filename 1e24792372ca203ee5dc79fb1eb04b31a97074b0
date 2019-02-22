@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ddbf193b_124cd9e6",
+        "filename": "keymaster/4.0/vts/functional/KeymasterHidlTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1362721
+      },
+      "writtenOn": "2019-02-22T18:43:59Z",
+      "side": 1,
+      "message": "No valid chance of reported_time being a few milliseconds in the future?",
+      "revId": "1e24792372ca203ee5dc79fb1eb04b31a97074b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e60251e7_6e106d3a",
+        "filename": "keymaster/4.0/vts/functional/KeymasterHidlTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1362721
+      },
+      "writtenOn": "2019-02-22T18:43:59Z",
+      "side": 1,
+      "message": "Took a minute to figure out what was being tested here. Maybe change HidlBuf to a local variable called something like empty_buf to make it more clear.",
+      "revId": "1e24792372ca203ee5dc79fb1eb04b31a97074b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "829a0aab_924d555f",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 874,
+      "author": {
+        "id": 1362721
+      },
+      "writtenOn": "2019-02-22T18:43:59Z",
+      "side": 1,
+      "message": "Why CheckGetCharateristics but not CheckSign?",
+      "revId": "1e24792372ca203ee5dc79fb1eb04b31a97074b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1798b84e_a12d225c",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1318,
+      "author": {
+        "id": 1362721
+      },
+      "writtenOn": "2019-02-22T18:43:59Z",
+      "side": 1,
+      "message": "This tests missing appdata, but what about present but invalid appdata or empty appdata?",
+      "revId": "1e24792372ca203ee5dc79fb1eb04b31a97074b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
