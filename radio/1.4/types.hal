@@ -1934,3 +1934,30 @@ struct SignalStrength {
      */
     NrSignalStrength nr;
 };
+
+/**
+ * Defining signal strength type.
+ */
+enum SignalMeasurementType : int32_t {
+    /** Received Signal Strength Indication */
+    RSSI = 1,
+    /** Received Signal Code Power */
+    RSCP = 2,
+    /** Reference Signal Received Power */
+    RSRP = 3,
+    /** Reference Signal Received Quality */
+    RSRQ = 4,
+    /** Reference Signal Signal to Noise Ratio */
+    RSSNR = 5
+};
+
+/**
+ * Contains the threshold values of each signal measurement type.
+ */
+struct SignalThresholdInfo {
+    /** Signal Measurement Type */
+    SignalMeasurementType signalMeasurement;
+
+    /** List of threshold value */
+    vec<int32_t> thresholds;
+};
