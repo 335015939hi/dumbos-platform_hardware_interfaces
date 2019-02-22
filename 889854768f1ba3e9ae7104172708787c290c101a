@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "71907bcb_d2dfa1cb",
+        "filename": "radio/1.4/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1351305
+      },
+      "writtenOn": "2019-02-22T19:33:35Z",
+      "side": 1,
+      "message": "Another way to test getter and setter is probably call the setter first and then try the result of getter. And wondering if network type allows multiple type at the same time.",
+      "range": {
+        "startLine": 118,
+        "startChar": 4,
+        "endLine": 118,
+        "endChar": 84
+      },
+      "revId": "889854768f1ba3e9ae7104172708787c290c101a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
