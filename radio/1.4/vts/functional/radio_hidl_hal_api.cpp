@@ -493,3 +493,60 @@ TEST_F(RadioHidlTest_v1_4, setupDataCall_1_4) {
                                       RadioError::OP_NOT_ALLOWED_BEFORE_REG_TO_NW}));
     }
 }
+
+/*
+ * Test IRadio.enableMddem() for the response returned.
+ */
+TEST_F(RadioHidlTest_v1_4, enableModem) {
+    serial = GetRandomSerialNumber();
+
+    bool responseToggle = radioRsp_v1_4->enableModemResponseToggle;
+    Return<void> res = radio_v1_4->enableModem(serial, true);
+    ASSERT_OK(res);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_v1_4->rspInfo.type);
+    EXPECT_EQ(serial, radioRsp_v1_4->rspInfo.serial);
+    ALOGI("getModemStackStatus, rspInfo.error = %s\n",
+          toString(radioRsp_v1_4->rspInfo.error).c_str());
+    ASSERT_TRUE(CheckAnyOfErrors(
+            radioRsp_v1_4->rspInfo.error,
+            {RadioError::NONE, RadioError::RADIO_NOT_AVAILABLE, RadioError::MODEM_ERR}));
+
+    // checking if getModemStackStatus returns true, as modem was enabled above
+    if (RadioError::NONE == radioRsp_v1_4->rspInfo.error) {
+        // wait until modem enabling is finished
+        while (responseToggle == radioRsp_v1_4->enableModemResponseToggle) {
+            sleep(1);
+        }
+        Return<void> resEnabled = radio_v1_4->getModemStackStatus(serial);
+        ASSERT_OK(resEnabled);
+        EXPECT_EQ(std::cv_status::no_timeout, wait());
+        EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_v1_4->rspInfo.type);
+        EXPECT_EQ(serial, radioRsp_v1_4->rspInfo.serial);
+        ALOGI("getModemStackStatus, rspInfo.error = %s\n",
+              toString(radioRsp_v1_4->rspInfo.error).c_str());
+        ASSERT_TRUE(CheckAnyOfErrors(
+                radioRsp_v1_4->rspInfo.error,
+                {RadioError::NONE, RadioError::RADIO_NOT_AVAILABLE, RadioError::MODEM_ERR}));
+        // verify that enableModem did set isEnabled correctly
+        EXPECT_EQ(true, radioRsp_v1_4->isModemEnabled);
+    }
+}
+
+/*
+ * Test IRadio.getModemStackStatus() for the response returned.
+ */
+TEST_F(RadioHidlTest_v1_4, getModemStackStatus) {
+    serial = GetRandomSerialNumber();
+
+    Return<void> res = radio_v1_4->getModemStackStatus(serial);
+    ASSERT_OK(res);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_v1_4->rspInfo.type);
+    EXPECT_EQ(serial, radioRsp_v1_4->rspInfo.serial);
+    ALOGI("getModemStackStatus, rspInfo.error = %s\n",
+          toString(radioRsp_v1_4->rspInfo.error).c_str());
+    ASSERT_TRUE(CheckAnyOfErrors(
+            radioRsp_v1_4->rspInfo.error,
+            {RadioError::NONE, RadioError::RADIO_NOT_AVAILABLE, RadioError::MODEM_ERR}));
+}
