@@ -64,6 +64,12 @@ TEST_F(NeuralnetworksHidlTest, GetDeviceSupportedExtensionsTest) {
                 for (auto& extension : extensions) {
                     std::string extensionName = extension.name;
                     EXPECT_FALSE(extensionName.empty());
+                    for (char c : extensionName) {
+                        EXPECT_NE(
+                                std::string_view("_.abcdefghijklmnopqrstuvwxyz0123456789").find(c),
+                                std::string::npos)
+                                << "Extension name contains an illegal character: " << c;
+                    }
                     EXPECT_NE(extensionName.find("."), std::string::npos)
                             << "Extension name must start with the reverse domain name of the "
                                "vendor";
