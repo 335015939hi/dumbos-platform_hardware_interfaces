@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7be16e79_99d8e765",
+        "filename": "neuralnetworks/1.2/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 5081,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-02-25T20:00:55Z",
+      "side": 1,
+      "message": "nit: require this (it\u0027s pretty common in SDK APIs to do so)",
+      "range": {
+        "startLine": 5081,
+        "startChar": 7,
+        "endLine": 5081,
+        "endChar": 16
+      },
+      "revId": "508ab78ab8119c177713794fc19e4006849e879f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f236945b_f52068a3",
+        "filename": "neuralnetworks/1.2/vts/functional/BasicTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-02-25T20:00:55Z",
+      "side": 1,
+      "message": "is there a bug for this btw?",
+      "revId": "508ab78ab8119c177713794fc19e4006849e879f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
