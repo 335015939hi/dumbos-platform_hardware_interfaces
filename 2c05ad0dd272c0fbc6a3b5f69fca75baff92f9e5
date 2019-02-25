@@ -46,6 +46,30 @@
       "revId": "2c05ad0dd272c0fbc6a3b5f69fca75baff92f9e5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a56a4bac_749b281e",
+        "filename": "radio/1.4/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2019-02-25T23:39:37Z",
+      "side": 1,
+      "message": "RadioHidlTest_v1_1, setSimCardPower_1_1\nRadioHidlTest_v1_3, enableModem \nare examples to use another \u0027get\u0027 API to test and verify the \u0027set\u0027 API. \n\nRadioHidlTest_v1_2, getAvailableBandModes is a good example to check the extra fields in the response.",
+      "parentUuid": "47a2bdef_a1cb25de",
+      "range": {
+        "startLine": 131,
+        "startChar": 4,
+        "endLine": 131,
+        "endChar": 62
+      },
+      "revId": "2c05ad0dd272c0fbc6a3b5f69fca75baff92f9e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
