@@ -439,6 +439,23 @@ TEST_F(RadioHidlTest_v1_4, startNetworkScan_GoodRequest2) {
                                      {RadioError::NONE, RadioError::INVALID_ARGUMENTS}));
     }
 }
+
+/*
+ * Test IRadio.getSignalStrength_1_4() for the response returned.
+ */
+TEST_F(RadioHidlTest_v1_4, getSignalStrength_1_4) {
+    serial = GetRandomSerialNumber();
+
+    radio_v1_4->getSignalStrength_1_4(serial);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_v1_4->rspInfo.type);
+    EXPECT_EQ(serial, radioRsp_v1_4->rspInfo.serial);
+
+    if (cardStatus.base.base.cardState == CardState::ABSENT) {
+        EXPECT_EQ(RadioError::NONE, radioRsp_v1_4->rspInfo.error);
+    }
+}
+
 /*
  * Test IRadio.setupDataCall_1_4() for the response returned.
  */
