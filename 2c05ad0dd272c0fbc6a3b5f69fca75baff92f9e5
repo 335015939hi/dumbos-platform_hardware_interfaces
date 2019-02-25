@@ -22,6 +22,30 @@
       "revId": "2c05ad0dd272c0fbc6a3b5f69fca75baff92f9e5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47a2bdef_a1cb25de",
+        "filename": "radio/1.4/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1121193
+      },
+      "writtenOn": "2019-02-25T23:20:22Z",
+      "side": 1,
+      "message": "Do you have an example VTS that I can follow? take a glance of existing tests they all seems to validate no error scenario.",
+      "parentUuid": "43f86c49_a906e1c1",
+      "range": {
+        "startLine": 131,
+        "startChar": 4,
+        "endLine": 131,
+        "endChar": 62
+      },
+      "revId": "2c05ad0dd272c0fbc6a3b5f69fca75baff92f9e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
