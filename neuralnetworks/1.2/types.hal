@@ -4789,7 +4789,7 @@ struct Model {
         /**
          * The extension name.
          *
-         * See {@link Extension::name}.
+         * See {@link Extension::name} for the format specification.
          */
         string name;
 
@@ -5073,7 +5073,12 @@ struct Extension {
     /**
      * The extension name.
      *
-     * The name must start with the reverse domain name of the vendor.
+     * The name must consist of lowercase latin letters, numbers, periods, and
+     * underscore signs. The name must contain at least one period.
+     *
+     * The name should start with the reverse domain name of the
+     * developer.
+     *
      * Example: com.google.test_extension
      */
     string name;
