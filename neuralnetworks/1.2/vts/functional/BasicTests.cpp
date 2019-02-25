@@ -67,6 +67,7 @@ TEST_F(NeuralnetworksHidlTest, GetDeviceSupportedExtensionsTest) {
                     EXPECT_NE(extensionName.find("."), std::string::npos)
                             << "Extension name must start with the reverse domain name of the "
                                "vendor";
+                    // TODO: More name format validation.
                 }
             });
     EXPECT_TRUE(ret.isOk());
