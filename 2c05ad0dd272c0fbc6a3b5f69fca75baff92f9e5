@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "43f86c49_a906e1c1",
+        "filename": "radio/1.4/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2019-02-25T23:01:57Z",
+      "side": 1,
+      "message": "I think it is needed to check with getPreferredNetworkTypeBitmap to see if LTE is set successfully by setPreferredNetworkTypeBitmap. \n\nif (setPreferredNetworkTypeBitmap\u0027s error is NONE) {\n    wait for a while\n    radio-\u003egetPreferredNetworkTypeBitmap\n    verify the response of getPreferredNetworkTypeBitmap is LTE\n}",
+      "range": {
+        "startLine": 131,
+        "startChar": 4,
+        "endLine": 131,
+        "endChar": 62
+      },
+      "revId": "2c05ad0dd272c0fbc6a3b5f69fca75baff92f9e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
