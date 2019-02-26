@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1d51222d_c20a82a5",
+        "filename": "neuralnetworks/1.2/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 5081,
+      "author": {
+        "id": 1361908
+      },
+      "writtenOn": "2019-02-26T14:38:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7be16e79_99d8e765",
+      "range": {
+        "startLine": 5081,
+        "startChar": 7,
+        "endLine": 5081,
+        "endChar": 16
+      },
+      "revId": "508ab78ab8119c177713794fc19e4006849e879f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f236945b_f52068a3",
         "filename": "neuralnetworks/1.2/vts/functional/BasicTests.cpp",
         "patchSetId": 1
@@ -39,6 +63,24 @@
       "revId": "508ab78ab8119c177713794fc19e4006849e879f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7cf5265_1408811c",
+        "filename": "neuralnetworks/1.2/vts/functional/BasicTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1361908
+      },
+      "writtenOn": "2019-02-26T14:38:40Z",
+      "side": 1,
+      "message": "I meant to do this before submit. Done.",
+      "parentUuid": "f236945b_f52068a3",
+      "revId": "508ab78ab8119c177713794fc19e4006849e879f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
