@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b25ca1b8_6425bf55",
+        "filename": "radio/config/1.1/vts/functional/radio_config_hidl_hal_api.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1351305
+      },
+      "writtenOn": "2019-02-26T19:17:10Z",
+      "side": 1,
+      "message": "Error says error: no member named \u0027phoneCapability\u0027 in \u0027RadioConfigResponse\u0027, perhaps V1_1 is different from V1_0, such as different members defined in types.hal",
+      "range": {
+        "startLine": 92,
+        "startChar": 32,
+        "endLine": 92,
+        "endChar": 47
+      },
+      "revId": "d613ecaae7b0040bd35e05b1c6f48a5efc4a3bff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49f1a8f2_f135dd25",
+        "filename": "radio/config/1.1/vts/functional/radio_config_hidl_hal_api.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1351305
+      },
+      "writtenOn": "2019-02-26T19:17:10Z",
+      "side": 1,
+      "message": "::",
+      "range": {
+        "startLine": 118,
+        "startChar": 51,
+        "endLine": 118,
+        "endChar": 53
+      },
+      "revId": "d613ecaae7b0040bd35e05b1c6f48a5efc4a3bff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f29a40a0_f46ed6df",
+        "filename": "radio/config/1.1/vts/functional/radio_config_hidl_hal_api.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1351305
+      },
+      "writtenOn": "2019-02-26T19:17:10Z",
+      "side": 1,
+      "message": "Same member error here. Try build radio config vts suite to see other errors.",
+      "range": {
+        "startLine": 123,
+        "startChar": 12,
+        "endLine": 123,
+        "endChar": 43
+      },
+      "revId": "d613ecaae7b0040bd35e05b1c6f48a5efc4a3bff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
