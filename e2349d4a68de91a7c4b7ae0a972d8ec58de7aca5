@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0022f6f1_11435d81",
+        "filename": "radio/1.4/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2019-02-26T23:11:02Z",
+      "side": 1,
+      "message": "Can you please remove INTERNAL_ERR or explain why this is returned. Otherwise LGTM.",
+      "range": {
+        "startLine": 459,
+        "startChar": 68,
+        "endLine": 459,
+        "endChar": 92
+      },
+      "revId": "e2349d4a68de91a7c4b7ae0a972d8ec58de7aca5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
