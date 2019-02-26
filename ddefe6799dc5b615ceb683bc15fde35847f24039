@@ -22,6 +22,30 @@
       "revId": "ddefe6799dc5b615ceb683bc15fde35847f24039",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78297ee7_8d013ed1",
+        "filename": "radio/1.4/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1351305
+      },
+      "writtenOn": "2019-02-26T21:39:50Z",
+      "side": 1,
+      "message": "Done. Guess 1.0 test isn\u0027t perfect but we would just leave 1.0 as it is for now.",
+      "parentUuid": "f3faaf75_ffc9d40b",
+      "range": {
+        "startLine": 454,
+        "startChar": 0,
+        "endLine": 456,
+        "endChar": 5
+      },
+      "revId": "ddefe6799dc5b615ceb683bc15fde35847f24039",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
