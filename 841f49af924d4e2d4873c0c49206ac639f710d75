@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "55afa0a6_bc701bcc",
+        "filename": "radio/1.4/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2019-02-27T02:32:05Z",
+      "side": 1,
+      "message": "This is not needed. the response of the set method must be received when \n    EXPECT_EQ(std::cv_status::no_timeout, wait());\nis passed.\n\nAfter EXPECT_EQ(std::cv_status::no_timeout, wait());, the \u0027toggle\u0027 must be true, the while loop condition is not useful.",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 75
+      },
+      "revId": "841f49af924d4e2d4873c0c49206ac639f710d75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f2d8c0d_2d998363",
+        "filename": "radio/1.4/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2019-02-27T02:32:05Z",
+      "side": 1,
+      "message": "the wait we want is to give modem some time to set value in their side after the \u0027set\u0027 method is triggered; the \u0027toggle\u0027 here is to indicate modem has received the \u0027set\u0027 request, doesn\u0027t mean they have finished the \u0027set\u0027 task in their place.\n\nSo I would recommend to remove the \u0027toggle\u0027 thing, and remove the \u0027while\u0027, sleep for 1-3 sec.",
+      "range": {
+        "startLine": 134,
+        "startChar": 0,
+        "endLine": 134,
+        "endChar": 84
+      },
+      "revId": "841f49af924d4e2d4873c0c49206ac639f710d75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc075d13_079b8e08",
+        "filename": "radio/1.4/vts/functional/radio_hidl_hal_utils_v1_4.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2019-02-27T02:32:05Z",
+      "side": 1,
+      "message": "line exceed nit.",
+      "range": {
+        "startLine": 65,
+        "startChar": 92,
+        "endLine": 66,
+        "endChar": 0
+      },
+      "revId": "841f49af924d4e2d4873c0c49206ac639f710d75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "443ef23d_c8783567",
+        "filename": "radio/1.4/vts/functional/radio_response.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 845,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2019-02-27T02:32:05Z",
+      "side": 1,
+      "message": "no need to do this.",
+      "range": {
+        "startLine": 845,
+        "startChar": 4,
+        "endLine": 845,
+        "endChar": 45
+      },
+      "revId": "841f49af924d4e2d4873c0c49206ac639f710d75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
