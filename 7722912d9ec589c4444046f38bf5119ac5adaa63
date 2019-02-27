@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f44f7fd9_7dbac17b",
+        "filename": "neuralnetworks/1.2/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 5103,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2019-02-27T19:58:08Z",
+      "side": 1,
+      "message": "Is this following some existing naming convention (applied to a different space of names)?",
+      "range": {
+        "startLine": 5101,
+        "startChar": 0,
+        "endLine": 5103,
+        "endChar": 0
+      },
+      "revId": "7722912d9ec589c4444046f38bf5119ac5adaa63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f75d5e14_c0808b5d",
+        "filename": "neuralnetworks/1.2/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 5104,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2019-02-27T19:58:08Z",
+      "side": 1,
+      "message": "Why \"should\" rather than \"must\"? (Note that error message in VTS test says \"must\".)",
+      "range": {
+        "startLine": 5104,
+        "startChar": 16,
+        "endLine": 5104,
+        "endChar": 22
+      },
+      "revId": "7722912d9ec589c4444046f38bf5119ac5adaa63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62a9a91a_ce789470",
+        "filename": "neuralnetworks/1.2/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 5105,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2019-02-27T19:58:08Z",
+      "side": 1,
+      "message": "Why \"developer\" rather than \"vendor\"?",
+      "range": {
+        "startLine": 5105,
+        "startChar": 7,
+        "endLine": 5105,
+        "endChar": 16
+      },
+      "revId": "7722912d9ec589c4444046f38bf5119ac5adaa63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d372ac9e_6ac4704e",
+        "filename": "neuralnetworks/1.2/vts/functional/BasicTests.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2019-02-27T19:58:08Z",
+      "side": 1,
+      "message": "IMO the following is more readable (and less error prone than listing all characters):\n\n EXPECT_TRUE(std::islower(c) || std::isdigit(c) || c\u003d\u003d\u0027_\u0027 || c\u003d\u003d\u0027.\u0027)\n         \u003c\u003c \"Extension name contains an illegal character: \" \u003c\u003c c;",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 89
+      },
+      "revId": "7722912d9ec589c4444046f38bf5119ac5adaa63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
