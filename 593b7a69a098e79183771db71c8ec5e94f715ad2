@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ce1382ea_a89c5e51",
+        "filename": "keymaster/4.0/support/attestation_record.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-02-28T15:34:30Z",
+      "side": 1,
+      "message": "vb_key?",
+      "range": {
+        "startLine": 327,
+        "startChar": 10,
+        "endLine": 327,
+        "endChar": 15
+      },
+      "revId": "593b7a69a098e79183771db71c8ec5e94f715ad2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c76ab0e9_ab45e82d",
+        "filename": "keymaster/4.0/support/attestation_record.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-02-28T15:34:30Z",
+      "side": 1,
+      "message": "nit: some slightly nicer options are\n\nverified_boot_hash-\u003esetToExternal(chall-\u003edata, chall-\u003elength, true /* shouldOwn */);\n\nor\n\n*verified_boot_hash \u003d hidl_vec\u003cuint8_t\u003e(chall-\u003edata, chall-\u003edata + chall-\u003elength);",
+      "range": {
+        "startLine": 337,
+        "startChar": 4,
+        "endLine": 338,
+        "endChar": 66
+      },
+      "revId": "593b7a69a098e79183771db71c8ec5e94f715ad2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf24e960_03d2f40d",
+        "filename": "keymaster/4.0/vts/functional/KeymasterHidlTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-02-28T15:34:30Z",
+      "side": 1,
+      "message": "I\u0027d say very generous, but okay.\n\nActually, maybe the best way would be to pass in a pair of time bounds.  Grab the time just before generation and again just after, an then verify that the tag has a time between those two (inclusive).",
+      "range": {
+        "startLine": 219,
+        "startChar": 46,
+        "endLine": 219,
+        "endChar": 56
+      },
+      "revId": "593b7a69a098e79183771db71c8ec5e94f715ad2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ed740e2_bbf00a03",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-02-28T15:34:30Z",
+      "side": 1,
+      "message": "Is this what you want?  \\x30\\x30\\x30...\\x30?  Don\u0027t you want \\x00\\x00\\x00...\\x00?\n\nI\u0027d probably construct it with:\n\nstring empty_unique_id(16, \u0027\\0\u0027);",
+      "range": {
+        "startLine": 307,
+        "startChar": 28,
+        "endLine": 307,
+        "endChar": 44
+      },
+      "revId": "593b7a69a098e79183771db71c8ec5e94f715ad2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55b4de1b_bb3e09dc",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-02-28T15:34:30Z",
+      "side": 1,
+      "message": "Why do you expect it to contain ASCII zeros?  Shouldn\u0027t you expect it to look random?",
+      "range": {
+        "startLine": 308,
+        "startChar": 11,
+        "endLine": 308,
+        "endChar": 13
+      },
+      "revId": "593b7a69a098e79183771db71c8ec5e94f715ad2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a47e51f8_fc966c91",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-02-28T15:34:30Z",
+      "side": 1,
+      "message": "These numbers seem wrong.",
+      "range": {
+        "startLine": 339,
+        "startChar": 12,
+        "endLine": 340,
+        "endChar": 41
+      },
+      "revId": "593b7a69a098e79183771db71c8ec5e94f715ad2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f226fcb_c3365fe3",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-02-28T15:34:30Z",
+      "side": 1,
+      "message": "Again, this is a bunch of ASCII zeroes, meaning character value 0x30.  Not what you want, I think.",
+      "range": {
+        "startLine": 390,
+        "startChar": 31,
+        "endLine": 390,
+        "endChar": 66
+      },
+      "revId": "593b7a69a098e79183771db71c8ec5e94f715ad2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06259892_abe039bc",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-02-28T15:34:30Z",
+      "side": 1,
+      "message": "The original design (IIRC -- and it was a long time ago) is that creation time was to be supplied by the caller during keygen.  QC decided to add the time themselves if the caller didn\u0027t provide it, which I let go because I hadn\u0027t explicitly specified that the time should be omitted if the caller didn\u0027t provide it.  I think the behavior you\u0027re trying to catch is a HAL that chooses to set a wrong time, which makes sense.  For KM5 we should probably be explicit about whether HALs should or should not add a creation time if the caller doesn\u0027t provide it (IMO, the HAL should never add a creation time, and we should make sure that the caller always provides it -- I think that will provide more consistency).  For now, we should probably allow HALs to set no creation time, but if they choose to add one require that it be in agreement with the system clock.",
+      "range": {
+        "startLine": 589,
+        "startChar": 7,
+        "endLine": 589,
+        "endChar": 52
+      },
+      "revId": "593b7a69a098e79183771db71c8ec5e94f715ad2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
