@@ -526,6 +526,13 @@ void CameraDeviceSession::sProcessCaptureResult_3_4(
     std::vector<const camera_metadata_t*> physCamMdArray;
     sShrinkCaptureResult(&shadowResult, hal_result, &compactMds, &physCamMdArray, handlePhysCam);
 
+    for (uint32_t i = 0; i < hal_result->num_output_buffers; i++) {
+        if (hal_result->output_buffers && hal_result->output_buffers[i].acquire_fence > 0) {
+            V3_2::implementation::CameraDeviceSession::sHandleImporter.closeFence(
+                    hal_result->output_buffers[i].acquire_fence);
+        }
+    }
+
     status_t ret = d->constructCaptureResult(result.v3_2, &shadowResult);
     if (ret != OK) {
         return;
