@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bb169a92_a267091f",
+        "filename": "camera/device/3.4/default/CameraDeviceSession.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 1141048
+      },
+      "writtenOn": "2019-02-28T16:22:08Z",
+      "side": 1,
+      "message": "I guess this might be somewhat unexpected, according to the documentation:\nhttps://android.googlesource.com/platform/hardware/libhardware/+/master/include/hardware/camera3.h#1857\n\"\nWhen the HAL returns an output buffer to the framework with\nprocess_capture_result(), the acquire_fence must be set to -1.\n\"\nAny possibility that Hal didn\u0027t wait on the acquired fence?",
+      "range": {
+        "startLine": 530,
+        "startChar": 42,
+        "endLine": 530,
+        "endChar": 89
+      },
+      "revId": "df688013300856e31db1db76abf7255215241f50",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
