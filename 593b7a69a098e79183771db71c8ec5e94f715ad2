@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e038576d_03bbb715",
+        "filename": "keymaster/4.0/support/attestation_record.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2019-03-01T22:39:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce1382ea_a89c5e51",
+      "range": {
+        "startLine": 327,
+        "startChar": 10,
+        "endLine": 327,
+        "endChar": 15
+      },
+      "revId": "593b7a69a098e79183771db71c8ec5e94f715ad2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c76ab0e9_ab45e82d",
         "filename": "keymaster/4.0/support/attestation_record.cpp",
         "patchSetId": 8
@@ -45,6 +69,30 @@
       "revId": "593b7a69a098e79183771db71c8ec5e94f715ad2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df5c7261_783f900c",
+        "filename": "keymaster/4.0/support/attestation_record.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2019-03-01T22:39:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c76ab0e9_ab45e82d",
+      "range": {
+        "startLine": 337,
+        "startChar": 4,
+        "endLine": 338,
+        "endChar": 66
+      },
+      "revId": "593b7a69a098e79183771db71c8ec5e94f715ad2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "03007a38_72057564",
+        "filename": "keymaster/4.0/vts/functional/KeymasterHidlTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2019-03-01T22:39:25Z",
+      "side": 1,
+      "message": "Sounds good.",
+      "parentUuid": "bf24e960_03d2f40d",
+      "range": {
+        "startLine": 219,
+        "startChar": 46,
+        "endLine": 219,
+        "endChar": 56
+      },
+      "revId": "593b7a69a098e79183771db71c8ec5e94f715ad2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ed740e2_bbf00a03",
         "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
         "patchSetId": 8
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "32ffd23d_69211430",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2019-03-01T22:39:25Z",
+      "side": 1,
+      "message": "embarassing",
+      "parentUuid": "1ed740e2_bbf00a03",
+      "range": {
+        "startLine": 307,
+        "startChar": 28,
+        "endLine": 307,
+        "endChar": 44
+      },
+      "revId": "593b7a69a098e79183771db71c8ec5e94f715ad2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "55b4de1b_bb3e09dc",
         "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
         "patchSetId": 8
@@ -105,6 +201,30 @@
       "writtenOn": "2019-02-28T15:34:30Z",
       "side": 1,
       "message": "Why do you expect it to contain ASCII zeros?  Shouldn\u0027t you expect it to look random?",
+      "range": {
+        "startLine": 308,
+        "startChar": 11,
+        "endLine": 308,
+        "endChar": 13
+      },
+      "revId": "593b7a69a098e79183771db71c8ec5e94f715ad2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2403c8c_56c34839",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2019-03-01T22:39:25Z",
+      "side": 1,
+      "message": "This was confusion from what the spec states. I wasn\u0027t sure if in this case it should be empty or it should be populated after jpm@ pointed out the following documentation:\n\nhttps://developer.android.com/training/articles/security-key-attestation#certificate_schema_keydescription\n\n\"This value identifies the device—but only for a limited period of time. It is computed and is only used by system apps. In all other apps, uniqueId is empty.\"\n\nSince VTS is not any kind of app, I wasn\u0027t sure what the expectation was.",
+      "parentUuid": "55b4de1b_bb3e09dc",
       "range": {
         "startLine": 308,
         "startChar": 11,
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "6c845f76_6aca541d",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2019-03-01T22:39:25Z",
+      "side": 1,
+      "message": "tm is one of the least intuitive ways to do time unfortunately. tm_year is equivalent to \"years since 1900\" so I\u0027m just doing 2010 to 2100",
+      "parentUuid": "a47e51f8_fc966c91",
+      "range": {
+        "startLine": 339,
+        "startChar": 12,
+        "endLine": 340,
+        "endChar": 41
+      },
+      "revId": "593b7a69a098e79183771db71c8ec5e94f715ad2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f226fcb_c3365fe3",
         "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
         "patchSetId": 8
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "d18e265a_783d2ccb",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2019-03-01T22:39:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f226fcb_c3365fe3",
+      "range": {
+        "startLine": 390,
+        "startChar": 31,
+        "endLine": 390,
+        "endChar": 66
+      },
+      "revId": "593b7a69a098e79183771db71c8ec5e94f715ad2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "06259892_abe039bc",
         "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
         "patchSetId": 8
@@ -183,6 +351,30 @@
       "revId": "593b7a69a098e79183771db71c8ec5e94f715ad2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f19aa863_cf180f86",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2019-03-01T22:39:25Z",
+      "side": 1,
+      "message": "That makes sense, I\u0027ll just remove the assertion that TAG_CREATION_DATETIME must exist then.",
+      "parentUuid": "06259892_abe039bc",
+      "range": {
+        "startLine": 589,
+        "startChar": 7,
+        "endLine": 589,
+        "endChar": 52
+      },
+      "revId": "593b7a69a098e79183771db71c8ec5e94f715ad2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
