@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "80945c7f_b1a4df52",
+        "filename": "radio/1.4/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-03-04T17:58:20Z",
+      "side": 1,
+      "message": "nit: would it be cleaner to copy old values?",
+      "range": {
+        "startLine": 69,
+        "startChar": 56,
+        "endLine": 69,
+        "endChar": 59
+      },
+      "revId": "f72bb5d5568fdb6817a016158b38f02efaa4088e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
