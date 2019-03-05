@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f6b32ffc_a7aa93f6",
+        "filename": "neuralnetworks/1.2/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 5103,
+      "author": {
+        "id": 1361908
+      },
+      "writtenOn": "2019-03-05T17:32:22Z",
+      "side": 1,
+      "message": "This is loosely following the Java package naming format.\n\nThe current specification does not mention any corner cases and thus names like \u00270strange._package..name\u0027 are allowed. Does it make sense spend time and make the specification follow the Java conventions more closely?",
+      "parentUuid": "f44f7fd9_7dbac17b",
+      "range": {
+        "startLine": 5101,
+        "startChar": 0,
+        "endLine": 5103,
+        "endChar": 0
+      },
+      "revId": "7722912d9ec589c4444046f38bf5119ac5adaa63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f75d5e14_c0808b5d",
         "filename": "neuralnetworks/1.2/types.hal",
         "patchSetId": 5
