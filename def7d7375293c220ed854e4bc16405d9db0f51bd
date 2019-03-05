@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "019bfba2_1e9eabc0",
+        "filename": "fastboot/1.0/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-03-05T21:40:08Z",
+      "side": 1,
+      "message": "\"-impl-mock\" or \"-impl-example\" so people aren\u0027t confused",
+      "range": {
+        "startLine": 17,
+        "startChar": 41,
+        "endLine": 17,
+        "endChar": 45
+      },
+      "revId": "def7d7375293c220ed854e4bc16405d9db0f51bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
