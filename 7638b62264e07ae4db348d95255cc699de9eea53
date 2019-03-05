@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ea12a7b9_9bbe37dd",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1451494
+      },
+      "writtenOn": "2019-03-05T08:22:25Z",
+      "side": 1,
+      "message": "Tag::OS_VERSION is still missing.",
+      "revId": "7638b62264e07ae4db348d95255cc699de9eea53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d7836f7_f2a4b529",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1451494
+      },
+      "writtenOn": "2019-03-05T08:22:25Z",
+      "side": 1,
+      "message": "Tag::PATCHLEVEL is also missing.",
+      "revId": "7638b62264e07ae4db348d95255cc699de9eea53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

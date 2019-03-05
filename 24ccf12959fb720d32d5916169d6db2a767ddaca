@@ -154,6 +154,24 @@
     },
     {
       "key": {
+        "uuid": "f9b9ee63_ce698c6d",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1451494
+      },
+      "writtenOn": "2019-03-05T08:22:25Z",
+      "side": 1,
+      "message": "Yes, I think what I am really looking for here is beyond plausibility but that the values attested are accurately matching the underlying platform.",
+      "parentUuid": "1b5c9623_c756d4e9",
+      "revId": "24ccf12959fb720d32d5916169d6db2a767ddaca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8127516b_0789ad83",
         "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
         "patchSetId": 5
@@ -236,6 +254,30 @@
       "side": 1,
       "message": "this might be handled by the expected vs actual tag checking below. Will add if it\u0027s not.",
       "parentUuid": "cedec286_62c8b406",
+      "range": {
+        "startLine": 345,
+        "startChar": 0,
+        "endLine": 345,
+        "endChar": 5
+      },
+      "revId": "24ccf12959fb720d32d5916169d6db2a767ddaca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7932331_a9f993d0",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1451494
+      },
+      "writtenOn": "2019-03-05T08:22:25Z",
+      "side": 1,
+      "message": "Ping",
+      "parentUuid": "c1c3237e_94663895",
       "range": {
         "startLine": 345,
         "startChar": 0,
@@ -459,6 +501,30 @@
       "side": 1,
       "message": "I\u0027ll need to check this, for some reason I\u0027m having difficulty finding where the equality operator is being defined",
       "parentUuid": "81188392_cbd86973",
+      "range": {
+        "startLine": 363,
+        "startChar": 0,
+        "endLine": 363,
+        "endChar": 79
+      },
+      "revId": "24ccf12959fb720d32d5916169d6db2a767ddaca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d5f273d_18a4b9a5",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1451494
+      },
+      "writtenOn": "2019-03-05T08:22:25Z",
+      "side": 1,
+      "message": "Ping.",
+      "parentUuid": "7d38da41_07c57e1d",
       "range": {
         "startLine": 363,
         "startChar": 0,
