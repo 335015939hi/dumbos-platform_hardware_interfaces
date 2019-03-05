@@ -172,6 +172,24 @@
     },
     {
       "key": {
+        "uuid": "1bf0c5a1_236a92a0",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2019-03-05T20:58:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9b9ee63_ce698c6d",
+      "revId": "24ccf12959fb720d32d5916169d6db2a767ddaca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8127516b_0789ad83",
         "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
         "patchSetId": 5
@@ -287,6 +305,30 @@
       "revId": "24ccf12959fb720d32d5916169d6db2a767ddaca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12817d20_3cc033ad",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2019-03-05T20:58:58Z",
+      "side": 1,
+      "message": "It is handled below.",
+      "parentUuid": "c7932331_a9f993d0",
+      "range": {
+        "startLine": 345,
+        "startChar": 0,
+        "endLine": 345,
+        "endChar": 5
+      },
+      "revId": "24ccf12959fb720d32d5916169d6db2a767ddaca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -534,6 +576,30 @@
       "revId": "24ccf12959fb720d32d5916169d6db2a767ddaca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7cd18c6_d30acf03",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2019-03-05T20:58:58Z",
+      "side": 1,
+      "message": "It compares values and existence.",
+      "parentUuid": "0d5f273d_18a4b9a5",
+      "range": {
+        "startLine": 363,
+        "startChar": 0,
+        "endLine": 363,
+        "endChar": 79
+      },
+      "revId": "24ccf12959fb720d32d5916169d6db2a767ddaca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
