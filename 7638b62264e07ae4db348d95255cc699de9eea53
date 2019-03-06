@@ -106,6 +106,24 @@
     },
     {
       "key": {
+        "uuid": "934204c9_dad57726",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1451494
+      },
+      "writtenOn": "2019-03-06T12:23:10Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "15d89343_ea467eed",
+      "revId": "7638b62264e07ae4db348d95255cc699de9eea53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0d7836f7_f2a4b529",
         "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
         "patchSetId": 9
@@ -135,6 +153,24 @@
       "side": 1,
       "message": "There is a test for this in NewKeyGenerationTest.",
       "parentUuid": "0d7836f7_f2a4b529",
+      "revId": "7638b62264e07ae4db348d95255cc699de9eea53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a649c62c_4140d66a",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1451494
+      },
+      "writtenOn": "2019-03-06T12:23:10Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7daae35c_c86cd59b",
       "revId": "7638b62264e07ae4db348d95255cc699de9eea53",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
