@@ -22,6 +22,30 @@
       "revId": "b8524954e6c0ac4dae2083c8778426a406cdc1fe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a0483c1_4db45606",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1406219
+      },
+      "writtenOn": "2019-03-06T06:16:24Z",
+      "side": 1,
+      "message": "Yes, along with other depth only cameras, but the other cameras are not available for purchase",
+      "parentUuid": "c4841f7a_8e4286b0",
+      "range": {
+        "startLine": 12,
+        "startChar": 43,
+        "endLine": 12,
+        "endChar": 47
+      },
+      "revId": "b8524954e6c0ac4dae2083c8778426a406cdc1fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
