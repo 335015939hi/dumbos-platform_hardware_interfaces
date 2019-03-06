@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2f3ff2e1_6dc5a629",
+        "filename": "keymaster/4.0/support/attestation_record.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2019-03-06T17:31:45Z",
+      "side": 1,
+      "message": "Artifacts, forgot to clean them up.",
+      "parentUuid": "82f92f1f_f15f5998",
+      "range": {
+        "startLine": 317,
+        "startChar": 31,
+        "endLine": 317,
+        "endChar": 60
+      },
+      "revId": "7638b62264e07ae4db348d95255cc699de9eea53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0595ad66_7e10125b",
         "filename": "keymaster/4.0/support/include/keymasterV4_0/attestation_record.h",
         "patchSetId": 9
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "bc4ea630_aa481cfe",
+        "filename": "keymaster/4.0/support/include/keymasterV4_0/attestation_record.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2019-03-06T17:31:45Z",
+      "side": 1,
+      "message": "old habits",
+      "parentUuid": "0595ad66_7e10125b",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 7
+      },
+      "revId": "7638b62264e07ae4db348d95255cc699de9eea53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dd88f6e2_9bfad430",
         "filename": "keymaster/4.0/vts/functional/KeymasterHidlTest.cpp",
         "patchSetId": 9
@@ -68,6 +116,30 @@
       "revId": "7638b62264e07ae4db348d95255cc699de9eea53",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4227a769_e9fe012b",
+        "filename": "keymaster/4.0/vts/functional/KeymasterHidlTest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2019-03-06T17:31:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd88f6e2_9bfad430",
+      "range": {
+        "startLine": 220,
+        "startChar": 11,
+        "endLine": 224,
+        "endChar": 68
+      },
+      "revId": "7638b62264e07ae4db348d95255cc699de9eea53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -197,6 +269,30 @@
       "revId": "7638b62264e07ae4db348d95255cc699de9eea53",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b907312_55970c45",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2019-03-06T17:31:45Z",
+      "side": 1,
+      "message": "Yes, the filtering handles any mismatching. Although that would mean this is actually a nop as is. I\u0027ll change it to explicitly require the boolean tag to show up and just check it in expected since the two lists have to match. (since essentially every key is using it, it seems like a good test tag for booleans)",
+      "parentUuid": "073b2410_da0cf7bc",
+      "range": {
+        "startLine": 348,
+        "startChar": 4,
+        "endLine": 350,
+        "endChar": 5
+      },
+      "revId": "7638b62264e07ae4db348d95255cc699de9eea53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
