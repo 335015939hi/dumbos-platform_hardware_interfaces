@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "82b93ce8_80e411a4",
+        "filename": "neuralnetworks/1.2/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 5104,
+      "author": {
+        "id": 1361908
+      },
+      "writtenOn": "2019-03-06T14:33:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f75d5e14_c0808b5d",
+      "range": {
+        "startLine": 5104,
+        "startChar": 16,
+        "endLine": 5104,
+        "endChar": 22
+      },
+      "revId": "7722912d9ec589c4444046f38bf5119ac5adaa63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "62a9a91a_ce789470",
         "filename": "neuralnetworks/1.2/types.hal",
         "patchSetId": 5
@@ -95,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "f7e00cf5_cf486e76",
+        "filename": "neuralnetworks/1.2/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 5105,
+      "author": {
+        "id": 1361908
+      },
+      "writtenOn": "2019-03-06T14:33:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62a9a91a_ce789470",
+      "range": {
+        "startLine": 5105,
+        "startChar": 7,
+        "endLine": 5105,
+        "endChar": 16
+      },
+      "revId": "7722912d9ec589c4444046f38bf5119ac5adaa63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d372ac9e_6ac4704e",
         "filename": "neuralnetworks/1.2/vts/functional/BasicTests.cpp",
         "patchSetId": 5
@@ -115,6 +163,30 @@
       "revId": "7722912d9ec589c4444046f38bf5119ac5adaa63",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7cf507b7_68ca1e75",
+        "filename": "neuralnetworks/1.2/vts/functional/BasicTests.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1361908
+      },
+      "writtenOn": "2019-03-06T14:33:49Z",
+      "side": 1,
+      "message": "The output of islower depends on the current locale. Changed to of a disjunction of range checks.",
+      "parentUuid": "d372ac9e_6ac4704e",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 89
+      },
+      "revId": "7722912d9ec589c4444046f38bf5119ac5adaa63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
