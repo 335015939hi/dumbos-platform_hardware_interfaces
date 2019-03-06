@@ -46,6 +46,30 @@
       "revId": "b8524954e6c0ac4dae2083c8778426a406cdc1fe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62bb6887_41643202",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2019-03-06T18:27:22Z",
+      "side": 1,
+      "message": "so other cameras in this page may not work (or not purchasable?)\nhttps://click.intel.com/realsense.html",
+      "parentUuid": "2a0483c1_4db45606",
+      "range": {
+        "startLine": 12,
+        "startChar": 43,
+        "endLine": 12,
+        "endChar": 47
+      },
+      "revId": "b8524954e6c0ac4dae2083c8778426a406cdc1fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
