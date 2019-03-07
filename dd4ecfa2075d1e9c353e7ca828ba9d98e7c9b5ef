@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2a20320a_3c76617a",
+        "filename": "neuralnetworks/1.2/vts/functional/BasicTests.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2019-03-07T19:58:39Z",
+      "side": 1,
+      "message": "std::isdigit() is unaffected by the current locale (but perhaps you want a digit range check for consistency with the alpha range check)",
+      "revId": "dd4ecfa2075d1e9c353e7ca828ba9d98e7c9b5ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6b85a24_4ef44a9e",
+        "filename": "neuralnetworks/1.2/vts/functional/BasicTests.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2019-03-07T19:58:39Z",
+      "side": 1,
+      "message": "Pedantic: Character range checks are not portable in C/C++. I don\u0027t know if they\u0027re portable in android.\n\nPer\n\n https://en.cppreference.com/w/cpp/string/byte/islower\n\nand\n\n https://en.cppreference.com/w/cpp/locale/islower\n\nit looks like we could check\n\n std::islower(c, std::locale(\"C\"))\n\n(actually, probably want to instantiate the locale once, instead of in every islower() call)",
+      "range": {
+        "startLine": 68,
+        "startChar": 37,
+        "endLine": 68,
+        "endChar": 57
+      },
+      "revId": "dd4ecfa2075d1e9c353e7ca828ba9d98e7c9b5ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

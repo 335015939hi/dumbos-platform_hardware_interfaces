@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "a894ad4f_b198cd38",
+        "filename": "neuralnetworks/1.2/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 5103,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2019-03-07T19:58:39Z",
+      "side": 1,
+      "message": "I\u0027m not clear why a convention needs to be enforced, so I don\u0027t have a strong feel for what the convention ought to be.\n\nsmoreland@ recommended starting with reverse domain name. Is there a restriction on the format of a domain name?",
+      "parentUuid": "f6b32ffc_a7aa93f6",
+      "range": {
+        "startLine": 5101,
+        "startChar": 0,
+        "endLine": 5103,
+        "endChar": 0
+      },
+      "revId": "7722912d9ec589c4444046f38bf5119ac5adaa63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f75d5e14_c0808b5d",
         "filename": "neuralnetworks/1.2/types.hal",
         "patchSetId": 5
