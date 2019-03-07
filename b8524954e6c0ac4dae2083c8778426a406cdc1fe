@@ -70,6 +70,30 @@
       "revId": "b8524954e6c0ac4dae2083c8778426a406cdc1fe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3b02e6a_cccbc40a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1406219
+      },
+      "writtenOn": "2019-03-07T06:27:33Z",
+      "side": 1,
+      "message": "I tested the patch on these cameras (the D4* which are depth capable) and on cameras that are not in this page (internal). Any camera on that page which start with \u0027D4\u0027 should work. but I mainly tested the D415.",
+      "parentUuid": "62bb6887_41643202",
+      "range": {
+        "startLine": 12,
+        "startChar": 43,
+        "endLine": 12,
+        "endChar": 47
+      },
+      "revId": "b8524954e6c0ac4dae2083c8778426a406cdc1fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
