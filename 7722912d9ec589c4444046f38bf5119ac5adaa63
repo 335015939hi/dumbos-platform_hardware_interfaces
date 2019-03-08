@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "dc908076_0a1c7598",
+        "filename": "neuralnetworks/1.2/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 5103,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2019-03-08T19:57:26Z",
+      "side": 1,
+      "message": "smoreland@, can you comment on why this is important? What are we trying to accomplish, and how tightly ought this to be specified?",
+      "parentUuid": "e725ccae_633ec8bb",
+      "range": {
+        "startLine": 5101,
+        "startChar": 0,
+        "endLine": 5103,
+        "endChar": 0
+      },
+      "revId": "7722912d9ec589c4444046f38bf5119ac5adaa63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f75d5e14_c0808b5d",
         "filename": "neuralnetworks/1.2/types.hal",
         "patchSetId": 5

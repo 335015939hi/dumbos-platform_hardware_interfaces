@@ -81,6 +81,30 @@
       "revId": "dd4ecfa2075d1e9c353e7ca828ba9d98e7c9b5ef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "812e3ace_a637f6fe",
+        "filename": "neuralnetworks/1.2/vts/functional/BasicTests.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2019-03-08T19:57:26Z",
+      "side": 1,
+      "message": "Ugh. Ack.",
+      "parentUuid": "77753ad6_264fc71b",
+      "range": {
+        "startLine": 68,
+        "startChar": 37,
+        "endLine": 68,
+        "endChar": 57
+      },
+      "revId": "dd4ecfa2075d1e9c353e7ca828ba9d98e7c9b5ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
