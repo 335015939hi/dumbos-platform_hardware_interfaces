@@ -26,6 +26,8 @@ TEST_F(SapHidlTest, connectReq) {
     sap->connectReq(token, maxMsgSize);
     EXPECT_EQ(std::cv_status::no_timeout, wait());
     EXPECT_EQ(sapCb->sapResponseToken, token);
+
+    sleep(1);
 }
 
 /*
