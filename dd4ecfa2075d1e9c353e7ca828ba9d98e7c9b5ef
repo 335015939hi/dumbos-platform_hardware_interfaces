@@ -39,6 +39,48 @@
       "revId": "dd4ecfa2075d1e9c353e7ca828ba9d98e7c9b5ef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "936f8390_9e4932b4",
+        "filename": "neuralnetworks/1.2/vts/functional/BasicTests.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1361908
+      },
+      "writtenOn": "2019-03-08T11:42:45Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2a20320a_3c76617a",
+      "revId": "dd4ecfa2075d1e9c353e7ca828ba9d98e7c9b5ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "77753ad6_264fc71b",
+        "filename": "neuralnetworks/1.2/vts/functional/BasicTests.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1361908
+      },
+      "writtenOn": "2019-03-08T11:42:45Z",
+      "side": 1,
+      "message": "Ack. Looks like similar checks are used in a variety of places in Android:\nhttp://cs/search/?q\u003d%22%27a%27+%3C%22+lang:cc+\u0026sq\u003dpackage:(android)+-file:google3/experimental\u0026type\u003dcs",
+      "parentUuid": "d6b85a24_4ef44a9e",
+      "range": {
+        "startLine": 68,
+        "startChar": 37,
+        "endLine": 68,
+        "endChar": 57
+      },
+      "revId": "dd4ecfa2075d1e9c353e7ca828ba9d98e7c9b5ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
