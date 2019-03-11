@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eb272ef5_ec788956",
+        "filename": "radio/1.0/vts/functional/sap_hidl_hal_api.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1121198
+      },
+      "writtenOn": "2019-03-11T23:05:45Z",
+      "side": 1,
+      "message": "as discussed offline, add a comment explaining that we wait here to give the modem time to connect before asking it to disconnect again so that the modem stays in a consistent state during tests",
+      "revId": "1cc7d4318b5778f555228f55563a815cf6e75c95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
