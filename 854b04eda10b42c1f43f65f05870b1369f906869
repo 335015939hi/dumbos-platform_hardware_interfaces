@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "82bf2314_364a074b",
+        "filename": "camera/provider/2.4/vts/functional/VtsHalCameraProviderV2_4TargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 2518,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2019-03-12T21:24:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f662b5a_7e953f4a",
+      "range": {
+        "startLine": 2518,
+        "startChar": 30,
+        "endLine": 2518,
+        "endChar": 55
+      },
+      "revId": "854b04eda10b42c1f43f65f05870b1369f906869",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c978f9f_63052247",
         "filename": "camera/provider/2.4/vts/functional/VtsHalCameraProviderV2_4TargetTest.cpp",
         "patchSetId": 5
@@ -45,6 +69,30 @@
       "revId": "854b04eda10b42c1f43f65f05870b1369f906869",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2fe75fe9_0b9007e1",
+        "filename": "camera/provider/2.4/vts/functional/VtsHalCameraProviderV2_4TargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 4633,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2019-03-12T21:24:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c978f9f_63052247",
+      "range": {
+        "startLine": 4633,
+        "startChar": 74,
+        "endLine": 4633,
+        "endChar": 90
+      },
+      "revId": "854b04eda10b42c1f43f65f05870b1369f906869",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
