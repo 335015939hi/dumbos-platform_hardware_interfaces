@@ -16,6 +16,24 @@
       "revId": "1cc7d4318b5778f555228f55563a815cf6e75c95",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "137410b2_6ab4430d",
+        "filename": "radio/1.0/vts/functional/sap_hidl_hal_api.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2019-03-13T16:52:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb272ef5_ec788956",
+      "revId": "1cc7d4318b5778f555228f55563a815cf6e75c95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
