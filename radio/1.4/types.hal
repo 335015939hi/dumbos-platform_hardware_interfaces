@@ -485,9 +485,9 @@ enum DataCallFailCause : @1.0::DataCallFailCause {
      */
     APN_DISABLED = 0x7FD,
     /**
-     * Maximum PPP inactivity timer expired.
+     * PPP inactivity timer expired.
      */
-    MAX_PPP_INACTIVITY_TIMER_EXPIRED = 0x7FE,
+    PPP_INACTIVITY_TIMER_EXPIRED = 0x7FE,
     /**
      * IPv6 address transfer failed.
      */
@@ -513,12 +513,12 @@ enum DataCallFailCause : @1.0::DataCallFailCause {
      * IPv4 data call bring up is rejected because the UE already maintains the allotted maximum
      * number of IPv4 data connections.
      */
-    MAX_IPV4_CONNECTIONS = 0x804,
+    IPV4_CONNECTIONS_LIMIT_REACHED = 0x804,
     /**
      * IPv6 data call bring up is rejected because the UE already maintains the allotted maximum
      * number of IPv6 data connections.
      */
-    MAX_IPV6_CONNECTIONS = 0x805,
+    IPV6_CONNECTIONS_LIMIT_REACHED = 0x805,
     /**
      * New PDN bring up is rejected during interface selection because the UE has already allotted
      * the available interfaces for other PDNs.
@@ -628,7 +628,7 @@ enum DataCallFailCause : @1.0::DataCallFailCause {
     /**
      * Maximum access probes transmitted.
      */
-    MAX_ACCESS_PROBE = 0x81F,
+    ACCESS_PROBE_LIMIT_REACHED = 0x81F,
     /**
      * Concurrent service is not supported by base station.
      */
