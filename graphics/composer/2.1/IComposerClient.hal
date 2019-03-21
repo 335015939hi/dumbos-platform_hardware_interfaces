@@ -867,8 +867,8 @@ interface IComposerClient {
      * virtual displays, into the output buffer).
      *
      * Prior to calling this function, the display must be successfully
-     * validated with validateDisplay. Note that setLayerBuffer and
-     * setLayerSurfaceDamage specifically do not count as layer state, so if
+     * validated with validateDisplay. Note that setLayerBuffer
+     * specifically does not count as layer state, so if
      * there are no other changes to the layer state (or to the buffer's
      * properties as described in setLayerBuffer), then it is safe to call
      * this function without first validating the display.
@@ -934,8 +934,7 @@ interface IComposerClient {
      *   setLayerSurfaceDamage(vec<Rect> damage);
      *
      * Provides the region of the source buffer which has been modified since
-     * the last frame. This region does not need to be validated before
-     * calling presentDisplay.
+     * the last frame.
      *
      * Once set through this function, the damage region remains the same
      * until a subsequent call to this function.
