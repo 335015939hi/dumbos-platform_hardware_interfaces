@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aa447232_d15e139c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-03-21T22:27:17Z",
+      "side": 1,
+      "message": "can you add the change-id from gerrit? Some tooling gets confused if it is missing\n\n\u003e Change-Id: I4ee3f6d684df13cc745e6f91c25447f550d2c72e",
+      "revId": "a532df13e41060c47e947e6b5b169f82ec4d1083",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

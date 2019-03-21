@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e3aebdd8_6ae83e10",
+        "filename": "graphics/composer/2.1/IComposerClient.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 871,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-03-21T22:27:17Z",
+      "side": 0,
+      "message": "is this a change in behavior (does setLayerSurfaceDamage now count as layer state?)",
+      "range": {
+        "startLine": 871,
+        "startChar": 7,
+        "endLine": 871,
+        "endChar": 28
+      },
+      "revId": "c8b3d162c286f121b5bad0b0306692756c4bfb8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7300930c_3912ecf9",
+        "filename": "graphics/composer/2.1/IComposerClient.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 938,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-03-21T22:27:17Z",
+      "side": 0,
+      "message": "does removing this mean that it does need to be validated now? Old implementations of this won\u0027t be able to satisfy this constraint",
+      "range": {
+        "startLine": 937,
+        "startChar": 22,
+        "endLine": 938,
+        "endChar": 30
+      },
+      "revId": "c8b3d162c286f121b5bad0b0306692756c4bfb8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
