@@ -93,6 +93,30 @@
       "revId": "c8b3d162c286f121b5bad0b0306692756c4bfb8e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f062de34_5d6fbdd6",
+        "filename": "graphics/composer/2.1/IComposerClient.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 938,
+      "author": {
+        "id": 1370682
+      },
+      "writtenOn": "2019-03-21T22:46:35Z",
+      "side": 0,
+      "message": "My only concern is that if a client is not aware of the change, and the underlying implementation changes to require validate, then this will fail.  We\u0027ve been discussing best paths forward and if this is something we need to discuss more thoroughly, we may simply file an exception for Pixel2 (which is failing the new tests testing the old hild spec)",
+      "parentUuid": "b19d2603_db04ec01",
+      "range": {
+        "startLine": 937,
+        "startChar": 22,
+        "endLine": 938,
+        "endChar": 30
+      },
+      "revId": "c8b3d162c286f121b5bad0b0306692756c4bfb8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
