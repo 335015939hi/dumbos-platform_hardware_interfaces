@@ -261,6 +261,30 @@
       "revId": "c8b3d162c286f121b5bad0b0306692756c4bfb8e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3b852cd_eb0069dd",
+        "filename": "graphics/composer/2.1/IComposerClient.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 938,
+      "author": {
+        "id": 1370682
+      },
+      "writtenOn": "2019-03-22T14:00:14Z",
+      "side": 0,
+      "message": "I think I will do more digging today - but seems like the best path forward won\u0027t be modifying the 2.1 interface",
+      "parentUuid": "4c96d19e_2d3bc1f5",
+      "range": {
+        "startLine": 937,
+        "startChar": 22,
+        "endLine": 938,
+        "endChar": 30
+      },
+      "revId": "c8b3d162c286f121b5bad0b0306692756c4bfb8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
