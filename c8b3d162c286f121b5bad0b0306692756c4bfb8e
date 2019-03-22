@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "732c366f_c830018b",
+        "filename": "graphics/composer/2.1/IComposerClient.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 871,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-03-22T00:31:07Z",
+      "side": 0,
+      "message": "(ping)",
+      "parentUuid": "e3aebdd8_6ae83e10",
+      "range": {
+        "startLine": 871,
+        "startChar": 7,
+        "endLine": 871,
+        "endChar": 28
+      },
+      "revId": "c8b3d162c286f121b5bad0b0306692756c4bfb8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7300930c_3912ecf9",
         "filename": "graphics/composer/2.1/IComposerClient.hal",
         "patchSetId": 1
@@ -108,6 +132,30 @@
       "side": 0,
       "message": "My only concern is that if a client is not aware of the change, and the underlying implementation changes to require validate, then this will fail.  We\u0027ve been discussing best paths forward and if this is something we need to discuss more thoroughly, we may simply file an exception for Pixel2 (which is failing the new tests testing the old hild spec)",
       "parentUuid": "b19d2603_db04ec01",
+      "range": {
+        "startLine": 937,
+        "startChar": 22,
+        "endLine": 938,
+        "endChar": 30
+      },
+      "revId": "c8b3d162c286f121b5bad0b0306692756c4bfb8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6c8d426_2b163a3d",
+        "filename": "graphics/composer/2.1/IComposerClient.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 938,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-03-22T00:31:07Z",
+      "side": 0,
+      "message": "Hmmm. It might be slightly better if we only require the new behavior for those that implement the 2.3 interface (as long as this doesn\u0027t break 2.1 clients). Would you be interested in this path?",
+      "parentUuid": "f062de34_5d6fbdd6",
       "range": {
         "startLine": 937,
         "startChar": 22,
