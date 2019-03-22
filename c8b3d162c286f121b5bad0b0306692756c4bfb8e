@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "f0ffc9f1_b6561180",
+        "filename": "graphics/composer/2.1/IComposerClient.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 871,
+      "author": {
+        "id": 1370682
+      },
+      "writtenOn": "2019-03-22T00:38:45Z",
+      "side": 0,
+      "message": "I believe so - basically with surface damage changes qcom is requiring a revalidation to calculate the region of interest.",
+      "parentUuid": "732c366f_c830018b",
+      "range": {
+        "startLine": 871,
+        "startChar": 7,
+        "endLine": 871,
+        "endChar": 28
+      },
+      "revId": "c8b3d162c286f121b5bad0b0306692756c4bfb8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7300930c_3912ecf9",
         "filename": "graphics/composer/2.1/IComposerClient.hal",
         "patchSetId": 1
@@ -156,6 +180,30 @@
       "side": 0,
       "message": "Hmmm. It might be slightly better if we only require the new behavior for those that implement the 2.3 interface (as long as this doesn\u0027t break 2.1 clients). Would you be interested in this path?",
       "parentUuid": "f062de34_5d6fbdd6",
+      "range": {
+        "startLine": 937,
+        "startChar": 22,
+        "endLine": 938,
+        "endChar": 30
+      },
+      "revId": "c8b3d162c286f121b5bad0b0306692756c4bfb8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a273325_7567dfaa",
+        "filename": "graphics/composer/2.1/IComposerClient.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 938,
+      "author": {
+        "id": 1370682
+      },
+      "writtenOn": "2019-03-22T00:38:45Z",
+      "side": 0,
+      "message": "I think regardless the msm8998 impl will fail the Vts 2_1 test that tests the old hild interface.  I\u0027ve been digging through qcom\u0027s code to figure out why Pixel 1 and 3 phones pass the test but only Pixel 2 fails.  This might require more thorough thinking...",
+      "parentUuid": "e6c8d426_2b163a3d",
       "range": {
         "startLine": 937,
         "startChar": 22,
