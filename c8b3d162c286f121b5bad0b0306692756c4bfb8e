@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "39203b08_e3f5eb1c",
+        "filename": "graphics/composer/2.1/IComposerClient.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 871,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-03-22T02:05:46Z",
+      "side": 0,
+      "message": "If this is in the current version of the interface, I think we should put the comments there and the tests there rather than changing the old interface. We shouldn\u0027t restrict 2.1 implementations.",
+      "parentUuid": "f0ffc9f1_b6561180",
+      "range": {
+        "startLine": 871,
+        "startChar": 7,
+        "endLine": 871,
+        "endChar": 28
+      },
+      "revId": "c8b3d162c286f121b5bad0b0306692756c4bfb8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7300930c_3912ecf9",
         "filename": "graphics/composer/2.1/IComposerClient.hal",
         "patchSetId": 1
