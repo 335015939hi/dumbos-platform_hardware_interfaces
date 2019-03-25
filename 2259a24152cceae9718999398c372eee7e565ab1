@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "0c30c85a_458f955c",
+        "filename": "camera/device/3.4/default/ExternalCameraDevice.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2019-03-25T18:43:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "040a744d_827560ec",
+      "range": {
+        "startLine": 259,
+        "startChar": 12,
+        "endLine": 259,
+        "endChar": 16
+      },
+      "revId": "2259a24152cceae9718999398c372eee7e565ab1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "07603a18_ecd7ae80",
         "filename": "camera/device/3.4/default/ExternalCameraUtils.cpp",
         "patchSetId": 14
@@ -117,6 +141,30 @@
       "revId": "2259a24152cceae9718999398c372eee7e565ab1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8d32da1_c8e2f86b",
+        "filename": "camera/device/3.4/default/ExternalCameraUtils.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2019-03-25T18:43:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31bc5a32_379184b9",
+      "range": {
+        "startLine": 259,
+        "startChar": 65,
+        "endLine": 259,
+        "endChar": 81
+      },
+      "revId": "2259a24152cceae9718999398c372eee7e565ab1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

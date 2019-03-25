@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5967e467_f2ef001b",
+        "filename": "camera/device/3.4/default/ExternalCameraDevice.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2019-03-25T18:43:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91650c73_db043aae",
+      "range": {
+        "startLine": 259,
+        "startChar": 12,
+        "endLine": 259,
+        "endChar": 19
+      },
+      "revId": "82ffd272993c7b674dd7b097ba0ef61e5a26ebdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "df13ccb6_22b98e2e",
         "filename": "camera/device/3.4/default/ExternalCameraDevice.cpp",
         "patchSetId": 13
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "fee077f3_2f40547b",
+        "filename": "camera/device/3.4/default/ExternalCameraDevice.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2019-03-25T18:43:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df13ccb6_22b98e2e",
+      "range": {
+        "startLine": 270,
+        "startChar": 8,
+        "endLine": 270,
+        "endChar": 14
+      },
+      "revId": "82ffd272993c7b674dd7b097ba0ef61e5a26ebdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a1e61bea_52bc6aec",
         "filename": "camera/device/3.4/default/ExternalCameraUtils.cpp",
         "patchSetId": 13
@@ -68,6 +116,30 @@
       "revId": "82ffd272993c7b674dd7b097ba0ef61e5a26ebdc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a133bd69_1c132b72",
+        "filename": "camera/device/3.4/default/ExternalCameraUtils.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2019-03-25T18:43:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1e61bea_52bc6aec",
+      "range": {
+        "startLine": 250,
+        "startChar": 59,
+        "endLine": 250,
+        "endChar": 66
+      },
+      "revId": "82ffd272993c7b674dd7b097ba0ef61e5a26ebdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

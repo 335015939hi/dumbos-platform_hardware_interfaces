@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e47c024f_115ab848",
+        "filename": "camera/device/3.4/default/ExternalCameraDevice.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2019-03-25T18:43:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f67bce7_465af19e",
+      "range": {
+        "startLine": 581,
+        "startChar": 43,
+        "endLine": 581,
+        "endChar": 67
+      },
+      "revId": "1a14dc9201f94dec4803dea7e142fe6a741a27c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90630ef7_89ad1686",
         "filename": "camera/device/3.4/default/ExternalCameraDevice.cpp",
         "patchSetId": 3
@@ -96,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "ef62091d_052250a8",
+        "filename": "camera/device/3.4/default/ExternalCameraDevice.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 669,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2019-03-25T18:43:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f03092ed_ed8c699d",
+      "range": {
+        "startLine": 666,
+        "startChar": 0,
+        "endLine": 669,
+        "endChar": 73
+      },
+      "revId": "1a14dc9201f94dec4803dea7e142fe6a741a27c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f2fc4523_cdd9ca46",
         "filename": "camera/device/3.4/default/ExternalCameraDevice.cpp",
         "patchSetId": 3
@@ -119,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "b5100a7f_03b88c8c",
+        "filename": "camera/device/3.4/default/ExternalCameraDevice.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 688,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2019-03-25T18:43:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f2fc4523_cdd9ca46",
+      "range": {
+        "startLine": 685,
+        "startChar": 5,
+        "endLine": 688,
+        "endChar": 0
+      },
+      "revId": "1a14dc9201f94dec4803dea7e142fe6a741a27c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "033b5ae8_741f4abc",
         "filename": "camera/device/3.4/default/ExternalCameraDeviceSession.cpp",
         "patchSetId": 3
@@ -136,6 +208,24 @@
     },
     {
       "key": {
+        "uuid": "5168a92c_7df69bd6",
+        "filename": "camera/device/3.4/default/ExternalCameraDeviceSession.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1761,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2019-03-25T18:43:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "033b5ae8_741f4abc",
+      "revId": "1a14dc9201f94dec4803dea7e142fe6a741a27c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "38eeca92_8f95a56e",
         "filename": "camera/device/3.4/default/ExternalCameraDeviceSession.cpp",
         "patchSetId": 3
@@ -150,6 +240,24 @@
       "revId": "1a14dc9201f94dec4803dea7e142fe6a741a27c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c4c75f2_e6cf7c43",
+        "filename": "camera/device/3.4/default/ExternalCameraDeviceSession.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1817,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2019-03-25T18:43:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38eeca92_8f95a56e",
+      "revId": "1a14dc9201f94dec4803dea7e142fe6a741a27c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -176,6 +284,30 @@
     },
     {
       "key": {
+        "uuid": "108eda6e_af553002",
+        "filename": "camera/provider/2.4/vts/functional/VtsHalCameraProviderV2_4TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2959,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2019-03-25T18:43:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db7d40c1_74d38d79",
+      "range": {
+        "startLine": 2959,
+        "startChar": 12,
+        "endLine": 2959,
+        "endChar": 20
+      },
+      "revId": "1a14dc9201f94dec4803dea7e142fe6a741a27c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4243f72d_f0fd59c0",
         "filename": "camera/provider/2.4/vts/functional/VtsHalCameraProviderV2_4TargetTest.cpp",
         "patchSetId": 3
@@ -199,6 +331,30 @@
     },
     {
       "key": {
+        "uuid": "96e95c8b_e1485d2f",
+        "filename": "camera/provider/2.4/vts/functional/VtsHalCameraProviderV2_4TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 4576,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2019-03-25T18:43:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4243f72d_f0fd59c0",
+      "range": {
+        "startLine": 4576,
+        "startChar": 21,
+        "endLine": 4576,
+        "endChar": 28
+      },
+      "revId": "1a14dc9201f94dec4803dea7e142fe6a741a27c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "76219c15_587e7971",
         "filename": "camera/provider/2.4/vts/functional/VtsHalCameraProviderV2_4TargetTest.cpp",
         "patchSetId": 3
@@ -219,6 +375,30 @@
       "revId": "1a14dc9201f94dec4803dea7e142fe6a741a27c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a9cc1ee_db830bc3",
+        "filename": "camera/provider/2.4/vts/functional/VtsHalCameraProviderV2_4TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 4582,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2019-03-25T18:43:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76219c15_587e7971",
+      "range": {
+        "startLine": 4582,
+        "startChar": 0,
+        "endLine": 4582,
+        "endChar": 66
+      },
+      "revId": "1a14dc9201f94dec4803dea7e142fe6a741a27c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
