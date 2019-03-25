@@ -113,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "136c1795_66bd249d",
+        "filename": "keymaster/4.0/support/include/keymasterV4_0/keymaster_tags.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2019-03-25T20:02:01Z",
+      "side": 1,
+      "message": "The reason is probably that we use tagged dispatch which is hard to do with values. But I would have to look into this again to be sure the we could not get rid of the TypedTag.",
+      "parentUuid": "c52e44c5_e1339c7e",
+      "revId": "bfe7c0e3fc2c63fa1550876fe10008aba169e201",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c06e5cbc_e03ec1b9",
         "filename": "keymaster/4.0/support/include/keymasterV4_0/keymaster_tags.h",
         "patchSetId": 1
