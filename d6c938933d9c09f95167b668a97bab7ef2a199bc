@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ad53c46_125ae87f",
+        "filename": "keymaster/4.0/vts/functional/KeymasterHidlTest.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1098493
+      },
+      "writtenOn": "2019-03-27T06:50:46Z",
+      "side": 1,
+      "message": "This comparison block doesn\u0027t seem quite right per the HAL.  The (integer) value returned by the HAL is denominated in ms since the epoch.  I suggest a fix along the following lines:\n\n            uint64_t now \u003d\n                std::chrono::duration_cast\u003cstd::chrono::milliseconds\u003e(\n                    std::chrono::system_clock::now().time_since_epoch()).count();\n            uint64_t reported_time \u003d sw_enforced[i].f.dateTime;\n            EXPECT_LE(std::chrono::duration_cast\u003cstd::chrono::milliseconds\u003e(\n              creation.time_since_epoch()).count(), reported_time);\n            EXPECT_LE(reported_time, now);",
+      "revId": "d6c938933d9c09f95167b668a97bab7ef2a199bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
