@@ -70,6 +70,24 @@
       "revId": "d6c938933d9c09f95167b668a97bab7ef2a199bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee695e5c_18dfbb42",
+        "filename": "keymaster/4.0/vts/functional/KeymasterHidlTest.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1098493
+      },
+      "writtenOn": "2019-03-27T09:14:37Z",
+      "side": 1,
+      "message": "I\u0027ll upload some timestamps from strongbox that are failing when I get back to my desk.\n\n(tests pass for me with the patch I suggested above though)",
+      "parentUuid": "ae524223_332006ca",
+      "revId": "d6c938933d9c09f95167b668a97bab7ef2a199bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
