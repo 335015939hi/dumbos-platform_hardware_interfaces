@@ -34,6 +34,24 @@
       "revId": "d6c938933d9c09f95167b668a97bab7ef2a199bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2500c847_fbfc2112",
+        "filename": "keymaster/4.0/vts/functional/KeymasterHidlTest.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1098493
+      },
+      "writtenOn": "2019-03-27T08:39:47Z",
+      "side": 1,
+      "message": "I think the problem is that creation has the (presumably higher) resolution of the system_clock, whereas reported_time is upcast from a millisecond resolution timer.  So based on rounding errors, the corresponding comparison can fail.\n\n(I did see issues)",
+      "parentUuid": "abe81a5e_082e6a7a",
+      "revId": "d6c938933d9c09f95167b668a97bab7ef2a199bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
