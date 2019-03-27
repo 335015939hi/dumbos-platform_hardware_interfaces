@@ -16,6 +16,24 @@
       "revId": "d6c938933d9c09f95167b668a97bab7ef2a199bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "abe81a5e_082e6a7a",
+        "filename": "keymaster/4.0/vts/functional/KeymasterHidlTest.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2019-03-27T08:28:31Z",
+      "side": 1,
+      "message": "Why go the extra step of turning time points back into uint64_t\u0027s? Interpreting sw_enforced[i].f.dateTime into a time_point should be fine since time_points are durations passed since the epoch. This currently passes the associated tests. Is there another reason I\u0027m missing?",
+      "parentUuid": "9ad53c46_125ae87f",
+      "revId": "d6c938933d9c09f95167b668a97bab7ef2a199bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
