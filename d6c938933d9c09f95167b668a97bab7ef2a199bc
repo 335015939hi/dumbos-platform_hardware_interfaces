@@ -52,6 +52,24 @@
       "revId": "d6c938933d9c09f95167b668a97bab7ef2a199bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae524223_332006ca",
+        "filename": "keymaster/4.0/vts/functional/KeymasterHidlTest.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2019-03-27T09:05:47Z",
+      "side": 1,
+      "message": "I can just subtract a buffer of some handful of milliseconds off of creation time to account for any clock resolution rounding error fuzziness, if that\u0027s fine?\n\nIf there is a rounding error going from higher resolution to milliseconds, that should only account for a 1 ms difference. I added the second to the \u0027now\u0027 time_point for likely the same issue, just to add some wiggle room since occasionally the test was failing on the second LT comparison.",
+      "parentUuid": "2500c847_fbfc2112",
+      "revId": "d6c938933d9c09f95167b668a97bab7ef2a199bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
