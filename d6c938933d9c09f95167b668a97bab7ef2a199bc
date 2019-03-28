@@ -88,6 +88,24 @@
       "revId": "d6c938933d9c09f95167b668a97bab7ef2a199bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5222d0ce_b2b01d14",
+        "filename": "keymaster/4.0/vts/functional/KeymasterHidlTest.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1098493
+      },
+      "writtenOn": "2019-03-28T19:35:25Z",
+      "side": 1,
+      "message": "Hey Max, here\u0027s a program that demonstrates the issue:\n\n$ cat ex.cpp\n#include \u003cunistd.h\u003e                                                             \n                                                                                \n#include \u003cchrono\u003e                                                               \n#include \u003ciostream\u003e                                                             \n                                                                                \nint main(void) {                                                                \n    std::chrono::time_point\u003cstd::chrono::system_clock\u003e creation \u003d               \n        std::chrono::system_clock::now();                                       \n    ::usleep(100);  // Let\u0027s say keygen takes 100us.                            \n    std::chrono::time_point\u003cstd::chrono::system_clock\u003e reported_time \u003d          \n        std::chrono::system_clock::now();                                       \n                                                                                \n    // Round off reported_time to ms, and then upcast back to a time_point.     \n    uint64_t reported_time_ms \u003d                                                 \n        std::chrono::duration_cast\u003cstd::chrono::milliseconds\u003e(                  \n            reported_time.time_since_epoch()).count();                          \n    reported_time \u003d std::chrono::time_point\u003cstd::chrono::system_clock\u003e(         \n        std::chrono::milliseconds(reported_time_ms));                           \n                                                                                \n    std::cout \u003c\u003c ((creation \u003c reported_time) ? \"PASS\" : \"FAIL\") \u003c\u003c std::endl;\n    return 0;\n}\n\n$ g++ ex.cpp\n$ for i in `seq 1 100`; do ./a.out; done | grep PASS | wc -l\n23",
+      "parentUuid": "ee695e5c_18dfbb42",
+      "revId": "d6c938933d9c09f95167b668a97bab7ef2a199bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
