@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "43abe2bc_f159832e",
+        "filename": "atrace/1.0/default/AtraceDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-03-29T02:17:25Z",
+      "side": 1,
+      "message": "nit: create another struct for this here (or comment) for readability",
+      "range": {
+        "startLine": 33,
+        "startChar": 39,
+        "endLine": 33,
+        "endChar": 43
+      },
+      "revId": "6fa381b768e7338f2f377c7ee35b8355b1e77e56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
