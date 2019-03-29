@@ -106,6 +106,24 @@
       "revId": "d6c938933d9c09f95167b668a97bab7ef2a199bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd9e9279_9005f77e",
+        "filename": "keymaster/4.0/vts/functional/KeymasterHidlTest.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2019-03-29T03:35:57Z",
+      "side": 1,
+      "message": "It actually appears like there might be another issue going on here. When I check the actual count for the TEE reported time attestation, it gives me an accurate time passed in milliseconds since epoch, and the TEE passes these tests fine - provided the small amount of buffer room.\n\nWhen I check the count for citadel (sw_enforced[i].f.dateTime) before using any of the chrono library stuff, I get a number that\u0027s 7 order of magnitudes larger, and I can\u0027t actually figure out what time scheme it\u0027s corresponding to. How does citadel report back time in these certificates? I would have guessed nanoseconds, but then the leading values don\u0027t make sense.\n\nTEE: 1553830070933\nCitadel: 18446744073708587104",
+      "parentUuid": "5222d0ce_b2b01d14",
+      "revId": "d6c938933d9c09f95167b668a97bab7ef2a199bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
