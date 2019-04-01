@@ -269,6 +269,17 @@ bool verifyHealthInfo(const HealthInfo& health_info) {
     return true;
 }
 
+bool checkBatteryState(const HealthInfo& health_info) {
+    using V1_0::BatteryHealth;
+    using V1_0::BatteryStatus;
+
+    if (health_info.legacy.batteryStatus == BatteryStatus::UNKNOWN) {
+        return false;
+    }
+
+    return true;
+}
+
 /*
  * Tests the values returned by getChargeCounter() from interface IHealth.
  */
@@ -356,6 +367,18 @@ TEST_F(HealthHidlTest, getDiskStats) {
  */
 TEST_F(HealthHidlTest, getHealthInfo) {
     SKIP_IF_SKIPPED();
+    static bool hasBattery = true;
+    mHealth->getHealthInfo([](auto result, auto& value) {
+        UNUSED(result);
+        hasBattery = checkBatteryState(value);
+    });
+    if (!hasBattery) {
+        LOG(INFO) << "Skipping Properties test on batteryless devices. "
+                  << "Use --force if you really want to test this case.";
+        GTEST_SKIP();
+        SKIP_IF_SKIPPED();
+    }
+
     EXPECT_OK(mHealth->getHealthInfo([](auto result, auto& value) {
         EXPECT_VALID_OR_UNSUPPORTED_PROP(result, toString(value), verifyHealthInfo(value));
     }));
