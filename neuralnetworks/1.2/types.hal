@@ -3513,7 +3513,7 @@ enum OperationType : int32_t {
      *      with input0.
      *
      * Outputs:
-     * * 0: The sum, a tensor of the same {@link OperandType} as input0.
+     * * 0: A tensor of the same {@link OperandType} as input0.
      *
      * Available since API level 29.
      */
@@ -3534,7 +3534,7 @@ enum OperationType : int32_t {
      *      with input0.
      *
      * Outputs:
-     * * 0: The sum, a tensor of the same {@link OperandType} as input0.
+     * * 0: A tensor of the same {@link OperandType} as input0.
      *
      * Available since API level 29.
      */
