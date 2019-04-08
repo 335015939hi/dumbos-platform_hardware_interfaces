@@ -22,6 +22,30 @@
       "revId": "09f6e253a0d740e7aabbc5844a4ed84bff8fb373",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a03bb90_85eb514b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1136369
+      },
+      "writtenOn": "2019-04-08T21:16:25Z",
+      "side": 1,
+      "message": "Correct, was thinking of IN_HDMI_ARC which has the same issue in 5.0.",
+      "parentUuid": "e9fde1c5_d4cdbe0d",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 7
+      },
+      "revId": "09f6e253a0d740e7aabbc5844a4ed84bff8fb373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
