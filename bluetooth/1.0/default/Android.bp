@@ -114,13 +114,11 @@ cc_test_host {
     ],
 }
 
-cc_binary {
-    name: "android.hardware.bluetooth@1.0-service",
+cc_defaults {
+    name: "bluetooth_service_defaults",
     defaults: ["hidl_defaults"],
     relative_install_path: "hw",
     vendor: true,
-    init_rc: ["android.hardware.bluetooth@1.0-service.rc"],
-    srcs: ["service.cpp"],
 
     shared_libs: [
         "liblog",
@@ -133,4 +131,19 @@ cc_binary {
         "libhidltransport",
         "android.hardware.bluetooth@1.0",
     ],
+}
+
+cc_binary {
+    name: "android.hardware.bluetooth@1.0-service",
+    defaults: ["bluetooth_service_defaults"],
+    init_rc: ["android.hardware.bluetooth@1.0-service.rc"],
+    srcs: ["service.cpp"],
+}
+
+cc_binary {
+    name: "android.hardware.bluetooth@1.0-service-lazy",
+    defaults: ["bluetooth_service_defaults"],
+    overrides: ["android.hardware.bluetooth@1.0-service"],
+    init_rc: ["android.hardware.bluetooth@1.0-service-lazy.rc"],
+    srcs: ["serviceLazy.cpp"],
 }
