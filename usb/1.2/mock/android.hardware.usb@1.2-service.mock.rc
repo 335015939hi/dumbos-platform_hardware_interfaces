@@ -1,0 +1,4 @@
+service vendor.usb-hal-1-2.mock /vendor/bin/hw/android.hardware.usb@1.2-service.mock
+    class hal
+    user root
+    group root system shell
