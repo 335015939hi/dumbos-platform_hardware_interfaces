@@ -624,7 +624,7 @@ interface IKeymasterDevice {
     /**
      * Exports a public key, returning the key in the specified format.
      *
-     * @parm keyFormat The format used for export.  See KeyFormat in types.hal.
+     * @parm keyFormat The format used for export.  Must be KeyFormat::X509.
      *
      * @param keyBlob The opaque descriptor returned by generateKey() or importKey().  The
      *        referenced key must be asymmetric.
@@ -639,7 +639,7 @@ interface IKeymasterDevice {
      *        value, it must be computationally infeasible for the secure hardware to obtain the key
      *        material.
      *
-     * @return keyMaterial The public key material in PKCS#8 format.
+     * @return keyMaterial The public key material in X.509 format.
      */
     exportKey(KeyFormat keyFormat, vec<uint8_t> keyBlob, vec<uint8_t> clientId,
               vec<uint8_t> appData) generates (ErrorCode error, vec<uint8_t> keyMaterial);
