@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b010ff58_acf24f39",
+        "filename": "wifi/1.0/vts/functional/wifi_sta_iface_hidl_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-04-16T23:14:58Z",
+      "side": 1,
+      "message": "expect NOT_SUPPORTED here instead?",
+      "range": {
+        "startLine": 259,
+        "startChar": 30,
+        "endLine": 259,
+        "endChar": 37
+      },
+      "revId": "53cb09b9dac3955e9327405f7f37235c091ba5bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
