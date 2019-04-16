@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "74a2db4b_187e8415",
+        "filename": "keymaster/4.0/IKeymasterDevice.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 642,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-04-16T22:47:46Z",
+      "side": 0,
+      "message": "making sure I understand correctly, these keys should have always been in the other format, right?",
+      "range": {
+        "startLine": 642,
+        "startChar": 54,
+        "endLine": 642,
+        "endChar": 58
+      },
+      "revId": "23c3f75a1237c0766c2d02424d9f304436b133fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
