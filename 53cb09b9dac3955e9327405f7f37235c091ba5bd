@@ -22,6 +22,30 @@
       "revId": "53cb09b9dac3955e9327405f7f37235c091ba5bd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "84e133bb_dba843e1",
+        "filename": "wifi/1.0/vts/functional/wifi_sta_iface_hidl_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-04-19T00:58:37Z",
+      "side": 1,
+      "message": "or consider on ToT, might not be best in P",
+      "parentUuid": "b010ff58_acf24f39",
+      "range": {
+        "startLine": 259,
+        "startChar": 30,
+        "endLine": 259,
+        "endChar": 37
+      },
+      "revId": "53cb09b9dac3955e9327405f7f37235c091ba5bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
