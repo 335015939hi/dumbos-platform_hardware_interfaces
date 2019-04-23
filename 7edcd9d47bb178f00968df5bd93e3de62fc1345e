@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e0b4fc43_c70fb484",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-04-23T19:35:28Z",
+      "side": 1,
+      "message": "We can\u0027t add this until we add this internally (since there are more HALs there). Also, I\u0027m waiting for a couple last minute changes to the Q comp matrix.",
+      "revId": "7edcd9d47bb178f00968df5bd93e3de62fc1345e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
