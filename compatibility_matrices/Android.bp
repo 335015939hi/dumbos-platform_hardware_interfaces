@@ -75,3 +75,14 @@ vintf_compatibility_matrix {
         "kernel_config_q_4.19",
     ]
 }
+
+phony {
+    name: "generic_system_compatibility_matrix",
+    required: [
+        "framework_compatibility_matrix.legacy.xml",
+        "framework_compatibility_matrix.1.xml",
+        "framework_compatibility_matrix.2.xml",
+        "framework_compatibility_matrix.3.xml",
+        "framework_compatibility_matrix.4.xml",
+    ],
+}
