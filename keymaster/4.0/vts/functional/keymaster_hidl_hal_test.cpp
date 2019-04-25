@@ -1973,36 +1973,64 @@ string masking_key = hex2str("D796B02C370F1FA4CC0124F14EC8CBEBE987E825246265050F
 
 class ImportWrappedKeyTest : public KeymasterHidlTest {};
 
+void sha1_wrapped_key_message() {
+    std::cout << "Keymaster imported a wrapped key with a SHA-1 digest. "
+              << "This is forbidden by spec, but was allowed in the initial version of VTS. "
+              << "It may become an error in the future.";
+}
+
 TEST_F(ImportWrappedKeyTest, Success) {
-    auto wrapping_key_desc = AuthorizationSetBuilder()
-                                 .RsaEncryptionKey(2048, 65537)
-                                 .Digest(Digest::SHA1)
-                                 .Padding(PaddingMode::RSA_OAEP)
-                                 .Authorization(TAG_PURPOSE, KeyPurpose::WRAP_KEY);
+    bool either_digest_worked = false;
+    for (auto digest : {Digest::SHA1, Digest::SHA_2_256}) {
+        auto wrapping_key_desc = AuthorizationSetBuilder()
+                                         .RsaEncryptionKey(2048, 65537)
+                                         .Digest(digest)
+                                         .Padding(PaddingMode::RSA_OAEP)
+                                         .Authorization(TAG_PURPOSE, KeyPurpose::WRAP_KEY);
 
-    ASSERT_EQ(ErrorCode::OK,
-              ImportWrappedKey(
-                  wrapped_key, wrapping_key, wrapping_key_desc, zero_masking_key,
-                  AuthorizationSetBuilder().Digest(Digest::SHA1).Padding(PaddingMode::RSA_OAEP)));
+        auto import_err = ImportWrappedKey(
+                wrapped_key, wrapping_key, wrapping_key_desc, zero_masking_key,
+                AuthorizationSetBuilder().Digest(digest).Padding(PaddingMode::RSA_OAEP));
+        if (import_err != ErrorCode::OK) {
+            continue;
+        }
+        if (digest == Digest::SHA1) {
+            sha1_wrapped_key_message();
+        }
 
-    string message = "Hello World!";
-    auto params = AuthorizationSetBuilder().BlockMode(BlockMode::ECB).Padding(PaddingMode::PKCS7);
-    string ciphertext = EncryptMessage(message, params);
-    string plaintext = DecryptMessage(ciphertext, params);
-    EXPECT_EQ(message, plaintext);
+        string message = "Hello World!";
+        auto params =
+                AuthorizationSetBuilder().BlockMode(BlockMode::ECB).Padding(PaddingMode::PKCS7);
+        string ciphertext = EncryptMessage(message, params);
+        string plaintext = DecryptMessage(ciphertext, params);
+        EXPECT_EQ(message, plaintext);
+        either_digest_worked = true;
+    }
+    ASSERT_EQ(true, either_digest_worked);
 }
 
 TEST_F(ImportWrappedKeyTest, SuccessMasked) {
-    auto wrapping_key_desc = AuthorizationSetBuilder()
-                                 .RsaEncryptionKey(2048, 65537)
-                                 .Digest(Digest::SHA1)
-                                 .Padding(PaddingMode::RSA_OAEP)
-                                 .Authorization(TAG_PURPOSE, KeyPurpose::WRAP_KEY);
+    bool either_digest_worked = false;
+    for (auto digest : {Digest::SHA1, Digest::SHA_2_256}) {
+        auto wrapping_key_desc = AuthorizationSetBuilder()
+                                         .RsaEncryptionKey(2048, 65537)
+                                         .Digest(digest)
+                                         .Padding(PaddingMode::RSA_OAEP)
+                                         .Authorization(TAG_PURPOSE, KeyPurpose::WRAP_KEY);
 
-    ASSERT_EQ(ErrorCode::OK,
-              ImportWrappedKey(
-                  wrapped_key_masked, wrapping_key, wrapping_key_desc, masking_key,
-                  AuthorizationSetBuilder().Digest(Digest::SHA1).Padding(PaddingMode::RSA_OAEP)));
+        auto import_error = ImportWrappedKey(
+                wrapped_key_masked, wrapping_key, wrapping_key_desc, masking_key,
+                AuthorizationSetBuilder().Digest(Digest::SHA1).Padding(PaddingMode::RSA_OAEP));
+
+        if (import_error == ErrorCode::OK) {
+            either_digest_worked = true;
+            if (digest == Digest::SHA1) {
+                sha1_wrapped_key_message();
+            }
+        }
+    }
+
+    ASSERT_EQ(true, either_digest_worked);
 }
 
 TEST_F(ImportWrappedKeyTest, WrongMask) {
