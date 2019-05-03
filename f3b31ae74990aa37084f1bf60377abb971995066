@@ -1,0 +1,313 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "904afc65_a2ab93d6",
+        "filename": "usb/1.2/mock/Usb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-05-03T19:55:35Z",
+      "side": 1,
+      "message": "static, gDestroyThread",
+      "revId": "f3b31ae74990aa37084f1bf60377abb971995066",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f979dd8_a6fb1f3e",
+        "filename": "usb/1.2/mock/Usb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-05-03T19:55:35Z",
+      "side": 1,
+      "message": "use well-maintained ReadFileToString/WriteStringToFile from libbase?",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 1
+      },
+      "revId": "f3b31ae74990aa37084f1bf60377abb971995066",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "236378ab_4a2d6af0",
+        "filename": "usb/1.2/mock/Usb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-05-03T19:55:35Z",
+      "side": 1,
+      "message": "unused variables",
+      "revId": "f3b31ae74990aa37084f1bf60377abb971995066",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "84b1a281_5063086a",
+        "filename": "usb/1.2/mock/Usb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-05-03T19:55:35Z",
+      "side": 1,
+      "message": "CHECK size, since this is only updating a single member, consider passing PortStatus* instead?",
+      "range": {
+        "startLine": 96,
+        "startChar": 28,
+        "endLine": 96,
+        "endChar": 31
+      },
+      "revId": "f3b31ae74990aa37084f1bf60377abb971995066",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4cbae839_b6d7771a",
+        "filename": "usb/1.2/mock/Usb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-05-03T19:55:35Z",
+      "side": 1,
+      "message": "nit: declare where used",
+      "revId": "f3b31ae74990aa37084f1bf60377abb971995066",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7a6037b_0adf7ba4",
+        "filename": "usb/1.2/mock/Usb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-05-03T19:55:35Z",
+      "side": 1,
+      "message": "unnecessary copy",
+      "range": {
+        "startLine": 169,
+        "startChar": 48,
+        "endLine": 169,
+        "endChar": 77
+      },
+      "revId": "f3b31ae74990aa37084f1bf60377abb971995066",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4bbcfdf2_f6adfcdf",
+        "filename": "usb/1.2/mock/Usb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-05-03T19:55:35Z",
+      "side": 1,
+      "message": "declare where used etc",
+      "revId": "f3b31ae74990aa37084f1bf60377abb971995066",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee84222a_d0c458c4",
+        "filename": "usb/1.2/mock/Usb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-05-03T19:55:35Z",
+      "side": 1,
+      "message": "nit: nullptr everywhere",
+      "range": {
+        "startLine": 174,
+        "startChar": 18,
+        "endLine": 174,
+        "endChar": 22
+      },
+      "revId": "f3b31ae74990aa37084f1bf60377abb971995066",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e76a72ef_310730e5",
+        "filename": "usb/1.2/mock/Usb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-05-03T19:55:35Z",
+      "side": 1,
+      "message": "FATAL?",
+      "range": {
+        "startLine": 183,
+        "startChar": 15,
+        "endLine": 183,
+        "endChar": 20
+      },
+      "revId": "f3b31ae74990aa37084f1bf60377abb971995066",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "701ec206_a435b859",
+        "filename": "usb/1.2/mock/Usb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-05-03T19:55:35Z",
+      "side": 1,
+      "message": "nit: use C++ types w/ RAII and elsewhere",
+      "range": {
+        "startLine": 203,
+        "startChar": 8,
+        "endLine": 203,
+        "endChar": 26
+      },
+      "revId": "f3b31ae74990aa37084f1bf60377abb971995066",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b046963_7431b184",
+        "filename": "usb/1.2/mock/Usb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-05-03T19:55:35Z",
+      "side": 1,
+      "message": "is \"none\" here valid? should this function return false instead?",
+      "range": {
+        "startLine": 205,
+        "startChar": 24,
+        "endLine": 205,
+        "endChar": 60
+      },
+      "revId": "f3b31ae74990aa37084f1bf60377abb971995066",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1be7d3e9_690d6e0a",
+        "filename": "usb/1.2/mock/Usb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-05-03T19:55:35Z",
+      "side": 1,
+      "message": "prefer LOG_ALWAYS_FATAL",
+      "range": {
+        "startLine": 247,
+        "startChar": 0,
+        "endLine": 248,
+        "endChar": 16
+      },
+      "revId": "f3b31ae74990aa37084f1bf60377abb971995066",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47ba9351_c4302d13",
+        "filename": "usb/1.2/mock/Usb.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-05-03T19:55:35Z",
+      "side": 1,
+      "message": "license header",
+      "revId": "f3b31ae74990aa37084f1bf60377abb971995066",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63d814c5_f2e8b226",
+        "filename": "usb/1.2/mock/Usb.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-05-03T19:55:35Z",
+      "side": 1,
+      "message": "why public?",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 20
+      },
+      "revId": "f3b31ae74990aa37084f1bf60377abb971995066",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1219d807_5eea59af",
+        "filename": "usb/1.2/mock/android.hardware.usb@1.2-service.mock.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-05-03T19:55:35Z",
+      "side": 1,
+      "message": "is this necessary?",
+      "revId": "f3b31ae74990aa37084f1bf60377abb971995066",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
