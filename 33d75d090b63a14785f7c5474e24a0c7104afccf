@@ -22,6 +22,30 @@
       "revId": "33d75d090b63a14785f7c5474e24a0c7104afccf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6bc5d14_34ce15f7",
+        "filename": "keymaster/4.0/vts/functional/VerificationTokenTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2019-05-09T20:37:19Z",
+      "side": 1,
+      "message": "It just checks that its greater than zero. No harm in that. This test is almost identical to the one above. The only difference is that both invocations get a challenge of 0.",
+      "parentUuid": "7efff5ff_6f84b9a7",
+      "range": {
+        "startLine": 155,
+        "startChar": 39,
+        "endLine": 155,
+        "endChar": 41
+      },
+      "revId": "33d75d090b63a14785f7c5474e24a0c7104afccf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
