@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7efff5ff_6f84b9a7",
+        "filename": "keymaster/4.0/vts/functional/VerificationTokenTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1098493
+      },
+      "writtenOn": "2019-05-09T19:57:40Z",
+      "side": 1,
+      "message": "Isn\u0027t this time since boot?  Why would it be zero?",
+      "range": {
+        "startLine": 155,
+        "startChar": 39,
+        "endLine": 155,
+        "endChar": 41
+      },
+      "revId": "33d75d090b63a14785f7c5474e24a0c7104afccf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
