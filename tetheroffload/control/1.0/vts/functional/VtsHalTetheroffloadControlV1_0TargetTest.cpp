@@ -209,6 +209,7 @@ class OffloadControlHidlTestBase : public testing::VtsHalHidlTargetTestBase {
                     break;
             }
         };
+        ASSERT_NE(nullptr, control.get()) << "OffloadControl is null";
         const Return<void> ret = control->stopOffload(cb);
         ASSERT_TRUE(ret.isOk());
     }
