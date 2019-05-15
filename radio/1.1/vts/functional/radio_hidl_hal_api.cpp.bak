@@ -24,7 +24,7 @@ TEST_F(RadioHidlTest_v1_1, setSimCardPower_1_1) {
     /* Record the sim card state for the testing environment */
     CardState cardStateForTest = cardStatus.cardState;
 
-#if defined REMOVE_FOR_JAPAN_MODEL
+#ifdef REMOVE_FOR_JAPAN_MODEL
     // This test has to be removed for Japan Model.
     // After "setSimCardPower power down", Japan model can not "setSimCardPower power up"
     /* Test setSimCardPower power down */
