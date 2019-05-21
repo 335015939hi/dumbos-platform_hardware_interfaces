@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "ce5275ea_85d1263b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-05-21T22:07:01Z",
+      "side": 1,
+      "message": "Alright, I understand now. Thanks!",
+      "parentUuid": "a6f67128_7e27b06d",
+      "range": {
+        "startLine": 10,
+        "startChar": 32,
+        "endLine": 11,
+        "endChar": 55
+      },
+      "revId": "e9ffd05c1cf0a26c09cc25b3f6ba08a898c387bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b755e0e9_d40afe30",
         "filename": "current.txt",
         "patchSetId": 2
@@ -107,6 +131,30 @@
       "writtenOn": "2019-05-21T22:06:26Z",
       "side": 1,
       "message": "VTS... not CTS.",
+      "parentUuid": "69e70798_51208ef3",
+      "range": {
+        "startLine": 478,
+        "startChar": 0,
+        "endLine": 478,
+        "endChar": 49
+      },
+      "revId": "e9ffd05c1cf0a26c09cc25b3f6ba08a898c387bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05582862_ddd2b142",
+        "filename": "current.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-05-21T22:07:01Z",
+      "side": 1,
+      "message": "Is it possible to do it in the release branch first?",
       "parentUuid": "69e70798_51208ef3",
       "range": {
         "startLine": 478,
