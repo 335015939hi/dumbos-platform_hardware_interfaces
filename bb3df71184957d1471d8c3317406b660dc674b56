@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "744858f4_e47d5ad0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-05-21T00:29:14Z",
+      "side": 1,
+      "message": "fyi, there is no compatibility matrix for R checked in yet, if you need one, I can check it in, but I was waiting for the last changes to trickle into Q",
+      "revId": "bb3df71184957d1471d8c3317406b660dc674b56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
