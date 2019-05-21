@@ -93,6 +93,30 @@
       "revId": "e9ffd05c1cf0a26c09cc25b3f6ba08a898c387bb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e10a98d2_9543e067",
+        "filename": "current.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2019-05-21T22:06:26Z",
+      "side": 1,
+      "message": "VTS... not CTS.",
+      "parentUuid": "69e70798_51208ef3",
+      "range": {
+        "startLine": 478,
+        "startChar": 0,
+        "endLine": 478,
+        "endChar": 49
+      },
+      "revId": "e9ffd05c1cf0a26c09cc25b3f6ba08a898c387bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
