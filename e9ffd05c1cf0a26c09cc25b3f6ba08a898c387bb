@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "48261605_73108617",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-05-21T22:01:54Z",
+      "side": 1,
+      "message": "is this a new behavior?",
+      "range": {
+        "startLine": 10,
+        "startChar": 32,
+        "endLine": 11,
+        "endChar": 55
+      },
+      "revId": "e9ffd05c1cf0a26c09cc25b3f6ba08a898c387bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b755e0e9_d40afe30",
+        "filename": "current.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-05-21T22:01:54Z",
+      "side": 1,
+      "message": "can you move it to here?",
+      "range": {
+        "startLine": 478,
+        "startChar": 0,
+        "endLine": 478,
+        "endChar": 49
+      },
+      "revId": "e9ffd05c1cf0a26c09cc25b3f6ba08a898c387bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
