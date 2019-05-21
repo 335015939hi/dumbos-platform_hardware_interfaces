@@ -34,6 +34,24 @@
       "revId": "bb3df71184957d1471d8c3317406b660dc674b56",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fcd5de7a_c29d79fa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-05-21T16:47:36Z",
+      "side": 1,
+      "message": "No, not necessarily. Although, do note that for Android R interfaces, VTS tests and a default implementation must be checked in at the time the interface is checked in. The interface itself LGTM (I have no comments).",
+      "parentUuid": "80cd3e8f_f5310525",
+      "revId": "bb3df71184957d1471d8c3317406b660dc674b56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
