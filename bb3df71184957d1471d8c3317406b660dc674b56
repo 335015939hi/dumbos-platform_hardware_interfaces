@@ -16,6 +16,24 @@
       "revId": "bb3df71184957d1471d8c3317406b660dc674b56",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80cd3e8f_f5310525",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1087703
+      },
+      "writtenOn": "2019-05-21T01:19:11Z",
+      "side": 1,
+      "message": "Does the lack of the compatibility matrix block this change? I don\u0027t actually need it working on any devices yet -- just need the symbols to refer to from the Java side",
+      "parentUuid": "744858f4_e47d5ad0",
+      "revId": "bb3df71184957d1471d8c3317406b660dc674b56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
