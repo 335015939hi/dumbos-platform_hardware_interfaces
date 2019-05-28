@@ -79,6 +79,8 @@ enum CameraMetadataSection : uint32_t {
 
     ANDROID_DEPTH,
 
+    ANDROID_OEM,
+
     ANDROID_SECTION_COUNT,
 
     VENDOR_SECTION = 0x8000,
@@ -141,6 +143,8 @@ enum CameraMetadataSectionStart : uint32_t {
     ANDROID_REPROCESS_START = CameraMetadataSection:ANDROID_REPROCESS << 16,
 
     ANDROID_DEPTH_START = CameraMetadataSection:ANDROID_DEPTH << 16,
+
+    ANDROID_OEM_START = CameraMetadataSection:ANDROID_OEM << 16,
 
     VENDOR_SECTION_START = CameraMetadataSection:VENDOR_SECTION << 16,
 
@@ -1854,6 +1858,14 @@ enum CameraMetadataTag : uint32_t {
     ANDROID_DEPTH_DEPTH_IS_EXCLUSIVE,
 
     ANDROID_DEPTH_END,
+
+    /** android.oem.cameraModule [static, byte, ndk_public]
+     *
+     * <p>String for camera module vendor information.</p>
+     */
+    ANDROID_OEM_CAMERA_MODULE = CameraMetadataSectionStart:ANDROID_OEM_START,
+
+    ANDROID_OEM_END,
 
 };
 
