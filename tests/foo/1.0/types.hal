@@ -65,3 +65,38 @@ struct EnumIterators {
         D = 7,
     };
 };
+
+enum Enum : uint32_t {
+    FIRST = 1,
+    SECOND = 2
+};
+
+struct ComparableStruct {
+    Enum e;
+    int8_t i8;
+    uint64_t u64;
+    string str;
+    int8_t[2][2] intArray;
+    vec<vec<string>> stringVector;
+};
+
+safe_union ComparableSafeUnion {
+    Enum e;
+    int8_t i8;
+    uint64_t u64;
+    string str;
+    int8_t[2][2] intArray;
+    vec<vec<string>> stringVector;
+};
+
+struct AnotherComparableStruct {
+    ComparableStruct s;
+    ComparableSafeUnion u;
+};
+
+safe_union AnotherComparableSafeUnion {
+    ComparableStruct s;
+    ComparableSafeUnion u;
+};
+
+struct EmptyStruct {};
