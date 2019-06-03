@@ -22,6 +22,30 @@
       "revId": "53d71e559ab1978d4052854e0ff559b75b8f5965",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d815e760_72aa311f",
+        "filename": "keymaster/4.0/IKeymasterDevice.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1098493
+      },
+      "writtenOn": "2019-06-03T14:53:11Z",
+      "side": 1,
+      "message": "Are you in the process of removing unused code?\n\nWe use this comparator in vendor code, so this a base implementation for all vendors.",
+      "parentUuid": "3d1cec04_f341c915",
+      "range": {
+        "startLine": 247,
+        "startChar": 38,
+        "endLine": 248,
+        "endChar": 40
+      },
+      "revId": "53d71e559ab1978d4052854e0ff559b75b8f5965",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
