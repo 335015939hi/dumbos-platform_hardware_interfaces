@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3d1cec04_f341c915",
+        "filename": "keymaster/4.0/IKeymasterDevice.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2019-06-03T09:22:47Z",
+      "side": 1,
+      "message": "Should I delete this? Doesn\u0027t look extremely important though...",
+      "range": {
+        "startLine": 247,
+        "startChar": 38,
+        "endLine": 248,
+        "endChar": 40
+      },
+      "revId": "53d71e559ab1978d4052854e0ff559b75b8f5965",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
