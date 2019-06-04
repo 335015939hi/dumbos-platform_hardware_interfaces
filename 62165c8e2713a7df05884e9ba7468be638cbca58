@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "15e6cac8_04fed7d5",
+        "filename": "keymaster/4.0/support/keymaster_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-06-04T16:44:06Z",
+      "side": 0,
+      "message": "I think I might have seen this for another bug that was focusing on comparison for hidl_vec only. Too much code defining this might be a blocker.\n\nAre we sure that the ordering isn\u0027t breaking anything?",
+      "revId": "62165c8e2713a7df05884e9ba7468be638cbca58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
