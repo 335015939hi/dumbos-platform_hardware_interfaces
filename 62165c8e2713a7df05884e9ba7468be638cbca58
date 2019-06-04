@@ -16,6 +16,47 @@
       "revId": "62165c8e2713a7df05884e9ba7468be638cbca58",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e04272d6_b6d7dd43",
+        "filename": "keymaster/4.0/support/keymaster_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2019-06-04T20:26:05Z",
+      "side": 0,
+      "message": "So long as the default implementation implements strict weak ordering, equivalent to this implementation, I am okay with removing this.",
+      "parentUuid": "15e6cac8_04fed7d5",
+      "revId": "62165c8e2713a7df05884e9ba7468be638cbca58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "916458ca_ce945290",
+        "filename": "keymaster/4.0/support/keymaster_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2019-06-04T20:26:05Z",
+      "side": 0,
+      "message": "This ordering of the parameters is actually part of the HAL definition. If this changes (e.g. because the generic implementation chooses to compare nonce before seed) things may break.",
+      "range": {
+        "startLine": 39,
+        "startChar": 11,
+        "endLine": 39,
+        "endChar": 65
+      },
+      "revId": "62165c8e2713a7df05884e9ba7468be638cbca58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
