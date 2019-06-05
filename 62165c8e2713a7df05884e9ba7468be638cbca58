@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "3a4a4c12_fdb16f08",
+        "filename": "keymaster/4.0/support/keymaster_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2019-06-05T04:58:26Z",
+      "side": 0,
+      "message": "Thanks for the clarification. The implementation in hidl_vec is the same as this one:\n\nhttps://android-review.googlesource.com/c/platform/system/libhidl/+/945453/11/base/include/hidl/HidlInternal.h#229\n\nAlso, back to Steven\u0027s question, is there a lot of vendor code defining this? (i.e. other keymaster hal implementations)",
+      "parentUuid": "e04272d6_b6d7dd43",
+      "revId": "62165c8e2713a7df05884e9ba7468be638cbca58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "916458ca_ce945290",
         "filename": "keymaster/4.0/support/keymaster_utils.cpp",
         "patchSetId": 1
@@ -57,6 +75,30 @@
       "revId": "62165c8e2713a7df05884e9ba7468be638cbca58",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac65cc52_5be72a87",
+        "filename": "keymaster/4.0/support/keymaster_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2019-06-05T04:58:26Z",
+      "side": 0,
+      "message": "I don\u0027t think we are going to change the HAL definition because it is frozen already, right?\n\nThe generated implementation of operator\u003c for HmacSharingParameters is the same as this one (i.e. it compares seed before nonce). It uses std::tie as well. See https://android-review.googlesource.com/c/platform/system/tools/hidl/+/945452/7/CompoundType.cpp#950",
+      "parentUuid": "916458ca_ce945290",
+      "range": {
+        "startLine": 39,
+        "startChar": 11,
+        "endLine": 39,
+        "endChar": 65
+      },
+      "revId": "62165c8e2713a7df05884e9ba7468be638cbca58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

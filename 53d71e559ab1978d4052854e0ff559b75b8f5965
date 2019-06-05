@@ -46,6 +46,30 @@
       "revId": "53d71e559ab1978d4052854e0ff559b75b8f5965",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0fe7e90_1070e661",
+        "filename": "keymaster/4.0/IKeymasterDevice.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2019-06-05T04:58:26Z",
+      "side": 1,
+      "message": "Right. Or I can change this to an explicit definition of the ordering.",
+      "parentUuid": "d815e760_72aa311f",
+      "range": {
+        "startLine": 247,
+        "startChar": 38,
+        "endLine": 248,
+        "endChar": 40
+      },
+      "revId": "53d71e559ab1978d4052854e0ff559b75b8f5965",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
