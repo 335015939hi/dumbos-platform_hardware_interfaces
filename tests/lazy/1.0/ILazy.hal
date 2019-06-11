@@ -1,0 +1,5 @@
+package android.hardware.tests.lazy@1.0;
+
+interface ILazy {
+    sayHello() generates (string str);
+};
