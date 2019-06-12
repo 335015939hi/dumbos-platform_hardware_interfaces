@@ -1,5 +1,6 @@
 #include "Lazy.h"
 
+#include <hidl/HidlLazyUtils.h>
 #include <hidl/HidlTransportSupport.h>
 
 namespace android {
@@ -31,7 +32,8 @@ int main(int /* argc */, char* /* argv */ []) {
     ::android::hardware::configureRpcThreadpool(1 /*threads*/, true /*willJoin*/);
 
     ::android::sp lazy = new ::android::hardware::tests::lazy::V1_0::implementation::Lazy();
-    const ::android::status_t status = lazy->registerAsService();
+    auto serviceRegistrar = std::make_shared<::android::hardware::LazyServiceRegistrar>();
+    const ::android::status_t status = serviceRegistrar->registerService(lazy);
     if (status != ::android::OK) {
         return 1;  // or handle error
     }
