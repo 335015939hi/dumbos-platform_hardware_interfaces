@@ -2,9 +2,11 @@ cc_test {
     name: "lazy_test",
     srcs: ["lazy_test.cpp"],
     shared_libs: [
+        "libbinder",
         "libbase",
 	"libhidlbase",
 	"libhidltransport",
+	"libhwbinder",
 	"liblog",
 	"libutils",
 	"android.hardware.tests.lazy@1.0",

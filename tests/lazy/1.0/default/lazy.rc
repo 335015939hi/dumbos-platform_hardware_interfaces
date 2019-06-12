@@ -1,5 +1,7 @@
 service lazy /system/bin/hw/android.hardware.tests.lazy@1.0-service
     interface android.hardware.tests.lazy@1.0::ILazy default
+    oneshot
+    disabled
     class hal
     user system
     group system
