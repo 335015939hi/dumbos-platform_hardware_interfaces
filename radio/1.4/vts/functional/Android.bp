@@ -32,6 +32,10 @@ cc_test {
         "android.hardware.radio@1.1",
         "android.hardware.radio@1.0",
     ],
-    header_libs: ["radio.util.header@1.0"],
+    header_libs: [
+        // links to hardware/interfaces/radio/1.0/vts/functional/Android.bp?l=65
+        // which includes all src files in that directory
+        "radio.util.header@1.0"
+    ],
     test_suites: ["general-tests"]
 }
