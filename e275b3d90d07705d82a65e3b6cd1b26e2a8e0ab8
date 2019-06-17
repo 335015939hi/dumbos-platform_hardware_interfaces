@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "668dcef5_9de4730a",
+        "filename": "current.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-06-17T17:38:45Z",
+      "side": 1,
+      "message": "you\u0027ll also need a change here:\nhttps://source.android.com/devices/architecture/hidl/hashing",
+      "range": {
+        "startLine": 477,
+        "startChar": 0,
+        "endLine": 477,
+        "endChar": 49
+      },
+      "revId": "e275b3d90d07705d82a65e3b6cd1b26e2a8e0ab8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
