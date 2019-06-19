@@ -16,6 +16,24 @@
       "revId": "ec26444345d3b0f29d2adf96fdabb8f9ff586925",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9dd0bcfb_e0ec83f0",
+        "filename": "radio/1.1/vts/functional/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1121198
+      },
+      "writtenOn": "2019-06-19T18:05:56Z",
+      "side": 1,
+      "message": "The benefit of this comment for us is as a way to disseminate knowledge -- whenever someone new on Telephony works on a feature they almost inevitably have to affect the HAL, which means they will have to write new VTS tests, but the process of creating new tests is not very clear.\n\nFor example I created the RadioConfig 1.2 tests by copying the 1.0 tests, but I didn\u0027t know what I would have to change from the bp, and in the other tests.\n\nThis can easily go wrong, like the original authors of the 1.1 tests didn\u0027t realize they had to modify a build file and another file which listed vts modules, and as a result, for a whole year the 1.1 tests failed and nobody noticed because they never even ran.\n\nFor reasons like that, I think it would be a worthwhile tradeoff to leave comments like this, even if they may become out of date. They still serve as useful breadcrumbs.",
+      "parentUuid": "ac28c23b_27f377c7",
+      "revId": "ec26444345d3b0f29d2adf96fdabb8f9ff586925",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
