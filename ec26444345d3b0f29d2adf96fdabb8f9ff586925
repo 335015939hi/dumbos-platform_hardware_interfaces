@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ac28c23b_27f377c7",
+        "filename": "radio/1.1/vts/functional/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-06-19T00:11:37Z",
+      "side": 1,
+      "message": "I would recommend against adding comments like this since they are very easy to make out of date.\n\nDo you know about gomod/pathmod in envsetup.sh? They are new, but you can use them to jump to any module.",
+      "revId": "ec26444345d3b0f29d2adf96fdabb8f9ff586925",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
