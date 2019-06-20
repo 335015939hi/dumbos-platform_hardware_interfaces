@@ -34,6 +34,24 @@
       "revId": "315f30b1b677744069e2b223bd34947ff519f933",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c844d26e_fea88a16",
+        "filename": "neuralnetworks/1.2/IPreparedModel.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2019-06-20T19:12:52Z",
+      "side": 1,
+      "message": "Correct, it\u0027s a clarification of intent.",
+      "parentUuid": "332bb1b8_3fb9a2b1",
+      "revId": "315f30b1b677744069e2b223bd34947ff519f933",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
