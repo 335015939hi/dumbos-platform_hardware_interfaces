@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e2a2530a_333b32ec",
+        "filename": "identity_credential/1.0/IIdentityCredential.hal",
+        "patchSetId": 24
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1286848
+      },
+      "writtenOn": "2019-06-21T18:50:15Z",
+      "side": 1,
+      "message": "doesn\u0027t perform the?",
+      "range": {
+        "startLine": 50,
+        "startChar": 54,
+        "endLine": 50,
+        "endChar": 65
+      },
+      "revId": "feacf02b6cb3fe540282ca18d93d9b5b5bf4513d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9803a64_dc98a674",
+        "filename": "identity_credential/1.0/types.hal",
+        "patchSetId": 24
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1286848
+      },
+      "writtenOn": "2019-06-21T18:50:15Z",
+      "side": 1,
+      "message": "This may change in future hardware implementations, and we may need to adapt the wording when such implementations become available.",
+      "range": {
+        "startLine": 51,
+        "startChar": 29,
+        "endLine": 53,
+        "endChar": 24
+      },
+      "revId": "feacf02b6cb3fe540282ca18d93d9b5b5bf4513d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
