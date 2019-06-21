@@ -117,6 +117,30 @@
       "revId": "af44b549221826079a519cd62c1e088a11be2de9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f0883ab_c1371447",
+        "filename": "current.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1063563
+      },
+      "writtenOn": "2019-06-21T18:39:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4099a650_853dc5ef",
+      "range": {
+        "startLine": 479,
+        "startChar": 0,
+        "endLine": 479,
+        "endChar": 49
+      },
+      "revId": "af44b549221826079a519cd62c1e088a11be2de9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
