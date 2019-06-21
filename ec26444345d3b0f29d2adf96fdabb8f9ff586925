@@ -34,6 +34,24 @@
       "revId": "ec26444345d3b0f29d2adf96fdabb8f9ff586925",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27381b80_6805bf3f",
+        "filename": "radio/1.1/vts/functional/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-06-21T03:40:59Z",
+      "side": 1,
+      "message": "When writing a test, one should *always* make sure that the test can fail. Otherwise, it might not be running. If comments are out of date, they could be just as leading as misleading (especially line number).\n\nWhy not refactor the test to be more clear?\n\nAnyway, happy to +1 owners for this directory if you want it.",
+      "parentUuid": "9dd0bcfb_e0ec83f0",
+      "revId": "ec26444345d3b0f29d2adf96fdabb8f9ff586925",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
