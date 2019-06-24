@@ -52,6 +52,24 @@
       "revId": "f33efe9e72e9e2560f9badd67b2f57c60717234c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ef446fc_7c51ed28",
+        "filename": "keymaster/3.0/default/android.hardware.keymaster@3.0-service.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-06-24T22:42:50Z",
+      "side": 1,
+      "message": "Ok, will add it back then",
+      "parentUuid": "829329d1_e377bcfa",
+      "revId": "f33efe9e72e9e2560f9badd67b2f57c60717234c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
