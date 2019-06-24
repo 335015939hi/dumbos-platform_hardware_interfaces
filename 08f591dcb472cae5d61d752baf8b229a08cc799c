@@ -16,6 +16,24 @@
       "revId": "08f591dcb472cae5d61d752baf8b229a08cc799c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0b55f98_7216cd3e",
+        "filename": "radio/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1121198
+      },
+      "writtenOn": "2019-06-24T22:18:49Z",
+      "side": 1,
+      "message": "Does this OWNERS file not apply to all subdirectories?",
+      "parentUuid": "c1977cb0_8865be10",
+      "revId": "08f591dcb472cae5d61d752baf8b229a08cc799c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
