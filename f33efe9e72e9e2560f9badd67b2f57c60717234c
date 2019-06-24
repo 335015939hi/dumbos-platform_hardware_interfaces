@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "443de494_5c82e60d",
+        "filename": "keymaster/3.0/default/android.hardware.keymaster@3.0-service.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1098493
+      },
+      "writtenOn": "2019-06-24T13:23:49Z",
+      "side": 1,
+      "message": "This file can be removed; we no longer ship keymaster 3.0 (we are at version 4.0).",
+      "revId": "f33efe9e72e9e2560f9badd67b2f57c60717234c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
