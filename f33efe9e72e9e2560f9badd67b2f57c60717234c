@@ -34,6 +34,24 @@
       "revId": "f33efe9e72e9e2560f9badd67b2f57c60717234c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "829329d1_e377bcfa",
+        "filename": "keymaster/3.0/default/android.hardware.keymaster@3.0-service.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-06-24T22:04:45Z",
+      "side": 1,
+      "message": "Old devices may use it...",
+      "parentUuid": "cf5b4cff_c9292e71",
+      "revId": "f33efe9e72e9e2560f9badd67b2f57c60717234c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

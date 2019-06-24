@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c9f7dad0_9cd351c1",
+        "filename": "broadcastradio/1.1/default/android.hardware.broadcastradio@1.1-service.rc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-06-24T22:04:45Z",
+      "side": 1,
+      "message": "should have a separate line with 1.0 as well (same for other interfaces which inherit)",
+      "range": {
+        "startLine": 2,
+        "startChar": 46,
+        "endLine": 2,
+        "endChar": 49
+      },
+      "revId": "9c14f4fbfe26d984dfcd37a8f36dcce0de7c7d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
