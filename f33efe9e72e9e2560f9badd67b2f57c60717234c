@@ -16,6 +16,24 @@
       "revId": "f33efe9e72e9e2560f9badd67b2f57c60717234c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf5b4cff_c9292e71",
+        "filename": "keymaster/3.0/default/android.hardware.keymaster@3.0-service.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-06-24T20:16:28Z",
+      "side": 1,
+      "message": "Updated to not touch this, I\u0027ll leave it to you Google guys to remove the @3.0 impl.",
+      "parentUuid": "443de494_5c82e60d",
+      "revId": "f33efe9e72e9e2560f9badd67b2f57c60717234c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
