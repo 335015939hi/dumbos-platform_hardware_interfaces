@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c1977cb0_8865be10",
+        "filename": "radio/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-06-24T21:58:28Z",
+      "side": 1,
+      "message": "hey sorry, we do need per-VTS-directory owners for ACL on the hal files (ref b/122953945 for future direction)",
+      "revId": "08f591dcb472cae5d61d752baf8b229a08cc799c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
