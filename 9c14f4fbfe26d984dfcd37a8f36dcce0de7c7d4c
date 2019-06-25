@@ -169,6 +169,30 @@
     },
     {
       "key": {
+        "uuid": "52e0e06b_6e3abff6",
+        "filename": "broadcastradio/1.1/default/android.hardware.broadcastradio@1.1-service.rc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-06-25T20:40:15Z",
+      "side": 1,
+      "message": "I had a look at your topic, but from what I can see, you are only verifying that the interface line is syntactically correct and references a known HIDL interface.\nIt does not verify that the program started indeed provides the interface(s) listed in the init file, so a manual review is still needed, or a runtime check.",
+      "parentUuid": "1c3ae537_d2e175b0",
+      "range": {
+        "startLine": 2,
+        "startChar": 46,
+        "endLine": 2,
+        "endChar": 49
+      },
+      "revId": "9c14f4fbfe26d984dfcd37a8f36dcce0de7c7d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "93ca6b9e_1fa6329d",
         "filename": "radio/1.2/default/android.hardware.radio@1.2-radio-service.rc",
         "patchSetId": 2
