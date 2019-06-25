@@ -171,6 +171,24 @@
       "revId": "9c14f4fbfe26d984dfcd37a8f36dcce0de7c7d4c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b2cfe38_40bbf616",
+        "filename": "radio/1.2/default/android.hardware.radio@1.2-radio-service.rc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-06-25T17:26:22Z",
+      "side": 1,
+      "message": "Yes, that\u0027s what\u0027s needed as of now.\n\nThere is another reference implementation (wip I think?) for 1.4:\nhttps://android.googlesource.com/device/google/cuttlefish_common/+/refs/heads/master/guest/hals/ril/libril/ril_service.cpp#130",
+      "parentUuid": "86191105_82a0c750",
+      "revId": "9c14f4fbfe26d984dfcd37a8f36dcce0de7c7d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
