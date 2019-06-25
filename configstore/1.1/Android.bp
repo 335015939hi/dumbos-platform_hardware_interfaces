@@ -8,6 +8,7 @@ hidl_interface {
     },
     srcs: [
         "types.hal",
+        "IChargerConfigs.hal",
         "ISurfaceFlingerConfigs.hal",
     ],
     interfaces: [

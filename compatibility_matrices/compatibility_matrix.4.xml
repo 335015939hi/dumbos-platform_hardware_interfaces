@@ -118,6 +118,10 @@
             <name>ISurfaceFlingerConfigs</name>
             <instance>default</instance>
         </interface>
+        <interface>
+            <name>IChargerConfigs</name>
+            <instance>default</instance>
+        </interface>
     </hal>
     <hal format="hidl" optional="true">
         <name>android.hardware.confirmationui</name>
