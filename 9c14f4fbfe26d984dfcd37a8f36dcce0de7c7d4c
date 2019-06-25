@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "2257dc3d_f76da23b",
+        "filename": "broadcastradio/1.1/default/android.hardware.broadcastradio@1.1-service.rc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-06-25T00:37:43Z",
+      "side": 1,
+      "message": "Yes, they are all technically needed (otherwise a 1.0 client won\u0027t wake up a 1.3 service).\n\ndanielnorman@ added is working on some tooling for verifying some of this stuff as build time",
+      "parentUuid": "a7ab963b_feb72216",
+      "range": {
+        "startLine": 2,
+        "startChar": 46,
+        "endLine": 2,
+        "endChar": 49
+      },
+      "revId": "9c14f4fbfe26d984dfcd37a8f36dcce0de7c7d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "93ca6b9e_1fa6329d",
         "filename": "radio/1.2/default/android.hardware.radio@1.2-radio-service.rc",
         "patchSetId": 2
@@ -84,6 +108,24 @@
       "writtenOn": "2019-06-24T22:42:50Z",
       "side": 1,
       "message": "@smoreland Should I add all three slots here? And all supported versions?\nThen we\u0027d end up with 3x4\u003d12 interface stanzas here...\n\nOh and another thing, I know this is only a reference implementation, but the framework expects @1.3-4 here.",
+      "revId": "9c14f4fbfe26d984dfcd37a8f36dcce0de7c7d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55f88360_63e29598",
+        "filename": "radio/1.2/default/android.hardware.radio@1.2-radio-service.rc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-06-25T00:37:43Z",
+      "side": 1,
+      "message": "It does? RIL.java should still support these. What do you mean?",
+      "parentUuid": "93ca6b9e_1fa6329d",
       "revId": "9c14f4fbfe26d984dfcd37a8f36dcce0de7c7d4c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
