@@ -145,6 +145,30 @@
     },
     {
       "key": {
+        "uuid": "1c3ae537_d2e175b0",
+        "filename": "broadcastradio/1.1/default/android.hardware.broadcastradio@1.1-service.rc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1455782
+      },
+      "writtenOn": "2019-06-25T20:16:42Z",
+      "side": 1,
+      "message": "Everything built for me!\n\nI cherrypicked this change into my in-progress topic http://r.android.com/q/topic:%22known_hidl_interfaces%22+(status:open%20OR%20status:merged),\n`m clean` \u0026\u0026 `m`.\n\nIt would have given a build error if any of the new interfaces referenced a non-existing hidl_interface (assuming my topic works as expected).",
+      "parentUuid": "b6ce0835_5d231e9f",
+      "range": {
+        "startLine": 2,
+        "startChar": 46,
+        "endLine": 2,
+        "endChar": 49
+      },
+      "revId": "9c14f4fbfe26d984dfcd37a8f36dcce0de7c7d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "93ca6b9e_1fa6329d",
         "filename": "radio/1.2/default/android.hardware.radio@1.2-radio-service.rc",
         "patchSetId": 2
