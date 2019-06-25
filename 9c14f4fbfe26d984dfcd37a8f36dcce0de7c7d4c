@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "becb5873_fbd99d34",
+        "filename": "broadcastradio/1.1/default/android.hardware.broadcastradio@1.1-service.rc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-06-25T04:32:00Z",
+      "side": 1,
+      "message": "@Yifan Yes, you\u0027re right.\n@smoreland That is great to hear. I will add the previous versions manually for now and then we can confirm with Daniel\u0027s tool.",
+      "parentUuid": "2257dc3d_f76da23b",
+      "range": {
+        "startLine": 2,
+        "startChar": 46,
+        "endLine": 2,
+        "endChar": 49
+      },
+      "revId": "9c14f4fbfe26d984dfcd37a8f36dcce0de7c7d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "93ca6b9e_1fa6329d",
         "filename": "radio/1.2/default/android.hardware.radio@1.2-radio-service.rc",
         "patchSetId": 2
@@ -126,6 +150,24 @@
       "side": 1,
       "message": "It does? RIL.java should still support these. What do you mean?",
       "parentUuid": "93ca6b9e_1fa6329d",
+      "revId": "9c14f4fbfe26d984dfcd37a8f36dcce0de7c7d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86191105_82a0c750",
+        "filename": "radio/1.2/default/android.hardware.radio@1.2-radio-service.rc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1421169
+      },
+      "writtenOn": "2019-06-25T04:32:00Z",
+      "side": 1,
+      "message": "I meant that the reference implementation only provides @1.0-2, whereas the framework wants at least @1.3, see https://android.googlesource.com/platform/hardware/interfaces/+/refs/tags/android-q-preview-4/compatibility_matrices/compatibility_matrix.current.xml#325\n\nSo should I do it like this?\ninterface android.hardware.radio@1.0,::IRadio slot1\ninterface android.hardware.radio@1.0,::IRadio slot2\ninterface android.hardware.radio@1.0,::IRadio slot3\ninterface android.hardware.radio@1.1,::IRadio slot1\ninterface android.hardware.radio@1.1,::IRadio slot1\n[...]\nIn essence:\ninterface android.hardware.radio@1.{0,1,2,3,4}::IRadio slot{1,2,3}",
+      "parentUuid": "55f88360_63e29598",
       "revId": "9c14f4fbfe26d984dfcd37a8f36dcce0de7c7d4c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
