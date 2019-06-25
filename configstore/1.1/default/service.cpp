@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 The Android Open Source Project
+ * Copyright (C) 2019 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.1 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,15 +17,19 @@
 #define LOG_TAG "android.hardware.configstore@1.1-service"
 
 #include <android/hardware/configstore/1.1/ISurfaceFlingerConfigs.h>
+#include <android/hardware/configstore/1.1/IChargerConfigs.h>
 #include <hidl/HidlTransportSupport.h>
 #include <hwminijail/HardwareMinijail.h>
 
 #include "SurfaceFlingerConfigs.h"
+#include "ChargerConfigs.h"
 
 using android::hardware::configureRpcThreadpool;
 using android::hardware::joinRpcThreadpool;
 using android::hardware::configstore::V1_1::ISurfaceFlingerConfigs;
+using android::hardware::configstore::V1_1::IChargerConfigs;
 using android::hardware::configstore::V1_1::implementation::SurfaceFlingerConfigs;
+using android::hardware::configstore::V1_1::implementation::ChargerConfigs;
 using android::hardware::SetupMinijail;
 using android::sp;
 using android::status_t;
@@ -36,9 +40,15 @@ int main() {
 
     SetupMinijail("/vendor/etc/seccomp_policy/configstore@1.1.policy");
 
+    status_t status = 0;
+
     sp<ISurfaceFlingerConfigs> surfaceFlingerConfigs = new SurfaceFlingerConfigs;
-    status_t status = surfaceFlingerConfigs->registerAsService();
+    status = surfaceFlingerConfigs->registerAsService();
     LOG_ALWAYS_FATAL_IF(status != OK, "Could not register ISurfaceFlingerConfigs");
+
+    sp<IChargerConfigs> chargerConfigs = new ChargerConfigs;
+    status = chargerConfigs->registerAsService();
+    LOG_ALWAYS_FATAL_IF(status != OK, "Could not register ChargerConfigs");
 
     // other interface registration comes here
     joinRpcThreadpool();
