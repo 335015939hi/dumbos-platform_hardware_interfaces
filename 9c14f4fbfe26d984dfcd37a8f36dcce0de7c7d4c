@@ -193,6 +193,30 @@
     },
     {
       "key": {
+        "uuid": "bc717d32_8cfb5b0f",
+        "filename": "broadcastradio/1.1/default/android.hardware.broadcastradio@1.1-service.rc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-06-26T17:13:52Z",
+      "side": 1,
+      "message": "Yep, that\u0027s all we can do for now.",
+      "parentUuid": "52e0e06b_6e3abff6",
+      "range": {
+        "startLine": 2,
+        "startChar": 46,
+        "endLine": 2,
+        "endChar": 49
+      },
+      "revId": "9c14f4fbfe26d984dfcd37a8f36dcce0de7c7d4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "93ca6b9e_1fa6329d",
         "filename": "radio/1.2/default/android.hardware.radio@1.2-radio-service.rc",
         "patchSetId": 2
