@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "88f2ccf6_7cfbd632",
+        "filename": "gatekeeper/1.0/software/service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1080889
+      },
+      "writtenOn": "2019-06-27T18:04:32Z",
+      "side": 1,
+      "message": "May I ask some questions please?\n\n1. If there\u0027s only a single gatekeeper service, it must be registered as the \u0027default\u0027 instance?\n2. If there\u0027s already a \u0027default\u0027 instance of the gatekeeper service registered, and this is registered as the \u0027software\u0027 instance, the \u0027software\u0027 instance has priority over the \u0027default\u0027?\n3. If there 3 or more instances, e.g. \u0027default\u0027, \u0027software\u0027, \u0027hardware\u0027, how is priority determined?\n4. We found that with the keymaster service, when there are 2 instances running, the \u0027default\u0027 instance (https://android.googlesource.com/platform/hardware/interfaces/+/master/keymaster/3.0/default/service.cpp) and a vendor implementation registered instance, say \u0027foo\u0027, VtsHalKeymasterV3_0TargetTest will always take the default. Is this expected?\n\nSorry if this is not the right place to ask. Tried asking @ https://issuetracker.google.com/issues/133638045 first about a month ago but no reply so far.\n\nThanks!",
+      "revId": "43773f6c42191841fbd030e298e223e3e27206e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
