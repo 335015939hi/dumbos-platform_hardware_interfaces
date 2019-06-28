@@ -34,6 +34,24 @@
       "revId": "43773f6c42191841fbd030e298e223e3e27206e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59e4059d_97c30169",
+        "filename": "gatekeeper/1.0/software/service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1080889
+      },
+      "writtenOn": "2019-06-28T13:45:33Z",
+      "side": 1,
+      "message": "Sorry for the inappropriate post, and thanks for picking up the ticket!\n\n@JD thanks for moving the questions over to the ticket and the answers as well!",
+      "parentUuid": "c3d66909_c150faf6",
+      "revId": "43773f6c42191841fbd030e298e223e3e27206e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
