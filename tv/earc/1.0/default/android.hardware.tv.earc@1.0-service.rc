@@ -1,0 +1,4 @@
+service vendor.earc-hal-1-0 /vendor/bin/hw/android.hardware.tv.earc@1.0-service
+    class hal
+    user system
+    group system
