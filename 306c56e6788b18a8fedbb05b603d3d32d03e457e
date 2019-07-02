@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "faf6c72c_119f9f69",
+        "filename": "radio/config/1.2/vts/functional/radio_config_hidl_hal_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-07-02T00:32:10Z",
+      "side": 1,
+      "message": "since there is no 1.2 IRadioConfig, does this test make sure to not apply additional requirements on 1.1 interfaces?",
+      "range": {
+        "startLine": 40,
+        "startChar": 42,
+        "endLine": 40,
+        "endChar": 46
+      },
+      "revId": "306c56e6788b18a8fedbb05b603d3d32d03e457e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
