@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e270682e_23bc265f",
+        "filename": "radio/1.2/default/android.hardware.radio@1.2-radio-service.rc",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-07-08T21:14:34Z",
+      "side": 1,
+      "message": "although, after further consideration, we may want to remove these that aren\u0027t guaranteed to be served. Otherwise, services might be started when they shouldn\u0027t be.",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 54
+      },
+      "revId": "551b8d15ce56661f012a37772ffd611c0fa4915a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
