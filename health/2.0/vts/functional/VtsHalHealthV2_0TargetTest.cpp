@@ -272,7 +272,11 @@ bool verifyHealthInfo(const HealthInfo& health_info) {
 /*
  * Tests the values returned by getChargeCounter() from interface IHealth.
  */
+<<<<<<< HEAD   (98d0f4 Merge "Add interface info to .rc files")
 TEST_F(HealthHidlTest, getChargeCounter) {
+=======
+TEST_F(HealthHidlTest, Properties) {
+>>>>>>> BRANCH (0ef08c Snap for 5622519 from b095226d9286245c7d05088a441c2cff43d2ae)
     SKIP_IF_SKIPPED();
     EXPECT_OK(mHealth->getChargeCounter([](auto result, auto value) {
         EXPECT_VALID_OR_UNSUPPORTED_PROP(result, std::to_string(value), value > 0);
