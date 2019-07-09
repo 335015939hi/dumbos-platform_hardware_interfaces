@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "14bac962_0899046c",
+        "filename": "ir/1.0/default/android.hardware.ir@1.0-service.rc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1045544
+      },
+      "writtenOn": "2019-07-09T09:09:12Z",
+      "side": 1,
+      "message": "Reckon this was supposed to be \"default\" as well, or do I miss something?\n\n  $ ./out/host/linux-x86/bin/host_init_verifier\n      -p out/target/product/franklin/obj/ETC/passwd_intermediates/passwd\n      -k out/soong/.intermediates/known_hidl_interfaces.txt\n    hardware/interfaces/ir/1.0/default/android.hardware.ir@1.0-service.rc\n\n  \u003e\u003e host_init_verifier: hardware/interfaces/ir/1.0/default/android.hardware.ir@1.0-service.rc:\n  \u003e\u003e\u003e\u003e 2: interface requires 2 arguments\n  \u003e\u003e host_init_verifier: Failed to parse init script \n  \u003e\u003e \u0027hardware/interfaces/ir/1.0/default/android.hardware.ir@1.0-service.rc\u0027 with 1 errors\n\nUploaded https://android-review.googlesource.com/c/platform/hardware/interfaces/+/1011013",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 50
+      },
+      "revId": "551b8d15ce56661f012a37772ffd611c0fa4915a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e270682e_23bc265f",
         "filename": "radio/1.2/default/android.hardware.radio@1.2-radio-service.rc",
         "patchSetId": 3
