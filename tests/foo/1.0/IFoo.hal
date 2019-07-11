@@ -21,10 +21,13 @@ import IMyTypes.SomeStruct;
 import ISimple;
 import ITheirTypes.FloatArray;
 
+import types;
+
 interface IFoo {
 
     enum SomeBaseEnum : uint8_t {
-        bar = 66
+        bar = 66,
+        MAX = 1111,
     };
 
     enum SomeEnum : SomeBaseEnum {
