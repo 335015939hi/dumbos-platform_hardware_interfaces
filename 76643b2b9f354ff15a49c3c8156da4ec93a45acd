@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6407cdd0_ba436029",
+        "filename": "tests/foo/1.0/IFoo.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-07-11T20:30:40Z",
+      "side": 1,
+      "message": "shouldn\u0027t it also lint at these being lowercase?",
+      "range": {
+        "startLine": 29,
+        "startChar": 8,
+        "endLine": 29,
+        "endChar": 11
+      },
+      "revId": "76643b2b9f354ff15a49c3c8156da4ec93a45acd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
