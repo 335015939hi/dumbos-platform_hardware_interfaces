@@ -22,6 +22,30 @@
       "revId": "76643b2b9f354ff15a49c3c8156da4ec93a45acd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2bd8cfc9_ce8f5932",
+        "filename": "tests/foo/1.0/IFoo.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1494267
+      },
+      "writtenOn": "2019-07-11T20:36:29Z",
+      "side": 1,
+      "message": "I don\u0027t think I added that lint.",
+      "parentUuid": "6407cdd0_ba436029",
+      "range": {
+        "startLine": 29,
+        "startChar": 8,
+        "endLine": 29,
+        "endChar": 11
+      },
+      "revId": "76643b2b9f354ff15a49c3c8156da4ec93a45acd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
