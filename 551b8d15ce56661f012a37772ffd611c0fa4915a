@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "df80c19c_deb1e3c7",
+        "filename": "ir/1.0/default/android.hardware.ir@1.0-service.rc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-07-15T16:54:41Z",
+      "side": 1,
+      "message": "It\u0027s because we were missing a checkbuild. Most targets don\u0027t build this service (or IR at all).",
+      "parentUuid": "1c5ffd74_b528dd64",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 50
+      },
+      "revId": "551b8d15ce56661f012a37772ffd611c0fa4915a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e270682e_23bc265f",
         "filename": "radio/1.2/default/android.hardware.radio@1.2-radio-service.rc",
         "patchSetId": 3
