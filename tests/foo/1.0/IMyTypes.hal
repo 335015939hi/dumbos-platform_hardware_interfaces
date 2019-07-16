@@ -16,9 +16,9 @@
 
 package android.hardware.tests.foo@1.0;
 
-
 interface IMyTypes {
     struct SomeStruct {
     };
+
     typedef float[30] FloatArray;
 };

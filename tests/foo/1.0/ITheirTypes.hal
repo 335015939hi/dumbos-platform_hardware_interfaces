@@ -16,9 +16,9 @@
 
 package android.hardware.tests.foo@1.0;
 
-
 interface ITheirTypes {
     struct SomeStruct {
     };
+
     typedef float[10] FloatArray;
 };
