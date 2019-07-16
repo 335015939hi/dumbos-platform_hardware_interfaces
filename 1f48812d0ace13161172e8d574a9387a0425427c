@@ -1,0 +1,228 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "24f0454b_5a43cd39",
+        "filename": "tv/cec/1.0/default/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-07-16T20:03:50Z",
+      "side": 1,
+      "message": "delete? is this needed?",
+      "range": {
+        "startLine": 57,
+        "startChar": 9,
+        "endLine": 57,
+        "endChar": 14
+      },
+      "revId": "1f48812d0ace13161172e8d574a9387a0425427c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58ff1296_d3389173",
+        "filename": "tv/cec/1.0/default/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-07-16T20:03:50Z",
+      "side": 1,
+      "message": "are both of these needed? I would expect only one",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 21
+      },
+      "revId": "1f48812d0ace13161172e8d574a9387a0425427c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41007875_5aa6e18f",
+        "filename": "tv/cec/1.0/default/HdmiCecMock.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-07-16T20:03:50Z",
+      "side": 1,
+      "message": "nit: you may consider using std::vector to store this list since it will be easier to work with",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 39
+      },
+      "revId": "1f48812d0ace13161172e8d574a9387a0425427c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56d8daa4_c6a79a73",
+        "filename": "tv/cec/1.0/default/HdmiCecMock.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-07-16T20:03:50Z",
+      "side": 1,
+      "message": "you could say:\nlogical_addresses \u003d {};\n\nI think that should compile",
+      "range": {
+        "startLine": 64,
+        "startChar": 4,
+        "endLine": 64,
+        "endChar": 43
+      },
+      "revId": "1f48812d0ace13161172e8d574a9387a0425427c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c08c32a_b4df6060",
+        "filename": "tv/cec/1.0/default/HdmiCecMock.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-07-16T20:03:50Z",
+      "side": 1,
+      "message": "nit: declare and assign at the same time (why not just \u0027_hidl_cb(..., physical_addr);\u0027)?",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 28
+      },
+      "revId": "1f48812d0ace13161172e8d574a9387a0425427c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2329ca2f_ff24bffd",
+        "filename": "tv/cec/1.0/default/HdmiCecMock.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-07-16T20:03:50Z",
+      "side": 1,
+      "message": "FYI, this shouldn\u0027t be required anymore (as of R)",
+      "range": {
+        "startLine": 86,
+        "startChar": 19,
+        "endLine": 86,
+        "endChar": 32
+      },
+      "revId": "1f48812d0ace13161172e8d574a9387a0425427c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "71f0c5af_e6ea3d47",
+        "filename": "tv/cec/1.0/default/HdmiCecMock.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-07-16T20:03:50Z",
+      "side": 1,
+      "message": "nit: comment should be validated for a non-mock impl? should this be validated here?",
+      "range": {
+        "startLine": 133,
+        "startChar": 8,
+        "endLine": 133,
+        "endChar": 25
+      },
+      "revId": "1f48812d0ace13161172e8d574a9387a0425427c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2288eb7e_fdd3e566",
+        "filename": "tv/cec/1.0/default/HdmiCecMock.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-07-16T20:03:50Z",
+      "side": 1,
+      "message": "fyi, this nullptr set is implicit",
+      "revId": "1f48812d0ace13161172e8d574a9387a0425427c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "35cf32c4_5b3f2815",
+        "filename": "tv/cec/1.0/default/HdmiCecMock.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-07-16T20:03:50Z",
+      "side": 1,
+      "message": "nit: mFoo everywhere (like mCallback above)",
+      "range": {
+        "startLine": 76,
+        "startChar": 13,
+        "endLine": 76,
+        "endChar": 29
+      },
+      "revId": "1f48812d0ace13161172e8d574a9387a0425427c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ac8a812_b05f38ee",
+        "filename": "tv/cec/1.0/default/serviceMock.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-07-16T20:03:50Z",
+      "side": 1,
+      "message": "probably should use 1 to avoid needing to deal with locks? Does this need multiple concurrent accesses?",
+      "range": {
+        "startLine": 29,
+        "startChar": 27,
+        "endLine": 29,
+        "endChar": 28
+      },
+      "revId": "1f48812d0ace13161172e8d574a9387a0425427c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
