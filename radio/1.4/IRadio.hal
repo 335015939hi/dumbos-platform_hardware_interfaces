@@ -20,13 +20,13 @@ import @1.0::Dial;
 import @1.2::DataRequestReason;
 import @1.2::NetworkScanRequest;
 import @1.3::IRadio;
-import @1.4::AccessNetwork;
-import @1.4::CarrierRestrictionsWithPriority;
-import @1.4::DataProfileInfo;
-import @1.4::EmergencyCallRouting;
-import @1.4::EmergencyServiceCategory;
-import @1.4::RadioAccessFamily;
-import @1.4::SimLockMultiSimPolicy;
+import AccessNetwork;
+import CarrierRestrictionsWithPriority;
+import DataProfileInfo;
+import EmergencyCallRouting;
+import EmergencyServiceCategory;
+import RadioAccessFamily;
+import SimLockMultiSimPolicy;
 
 /**
  * This interface is used by telephony and telecom to talk to cellular radio.
@@ -80,9 +80,9 @@ interface IRadio extends @1.3::IRadio {
      *
      * Note this API is same as 1.2 version except using the 1.4 AccessNetwork as the input param.
      */
-    oneway setupDataCall_1_4(int32_t serial, AccessNetwork accessNetwork,
-            DataProfileInfo dataProfileInfo, bool roamingAllowed,
-            DataRequestReason reason, vec<string> addresses, vec<string> dnses);
+    oneway setupDataCall_1_4(int32_t serial, AccessNetwork accessNetwork, 
+        DataProfileInfo dataProfileInfo, bool roamingAllowed, 
+        DataRequestReason reason, vec<string> addresses, vec<string> dnses);
 
     /**
      * Set an apn to initial attach network
@@ -92,7 +92,8 @@ interface IRadio extends @1.3::IRadio {
      *
      * Response callback is IRadioResponse.setInitialAttachApnResponse()
      */
-    oneway setInitialAttachApn_1_4(int32_t serial, DataProfileInfo dataProfileInfo);
+    oneway setInitialAttachApn_1_4(
+        int32_t serial, DataProfileInfo dataProfileInfo);
 
     /**
      * Send data profiles of the current carrier to the modem.
@@ -156,9 +157,10 @@ interface IRadio extends @1.3::IRadio {
      *
      * Response function is IRadioResponse.emergencyDialResponse()
      */
-    oneway emergencyDial(int32_t serial, Dial dialInfo,
-            bitfield<EmergencyServiceCategory> categories, vec<string> urns,
-            EmergencyCallRouting routing, bool hasKnownUserIntentEmergency, bool isTesting);
+    oneway emergencyDial(int32_t serial, Dial dialInfo, 
+        bitfield<EmergencyServiceCategory> categories, vec<string> urns, 
+        EmergencyCallRouting routing, bool hasKnownUserIntentEmergency, 
+        bool isTesting);
 
     /**
      * Starts a network scan
@@ -189,7 +191,7 @@ interface IRadio extends @1.3::IRadio {
      * Response callback is IRadioResponse.setPreferredNetworkTypeBitmapResponse()
      */
     oneway setPreferredNetworkTypeBitmap(
-            int32_t serial, bitfield<RadioAccessFamily> networkTypeBitmap);
+        int32_t serial, bitfield<RadioAccessFamily> networkTypeBitmap);
 
     /**
      * Set carrier restrictions. Expected modem behavior:
@@ -209,8 +211,9 @@ interface IRadio extends @1.3::IRadio {
      *
      * Response callback is IRadioResponse.setAllowedCarriersResponse_1_4()
      */
-    oneway setAllowedCarriers_1_4(int32_t serial, CarrierRestrictionsWithPriority carriers,
-            SimLockMultiSimPolicy multiSimPolicy);
+    oneway setAllowedCarriers_1_4(int32_t serial, 
+        CarrierRestrictionsWithPriority carriers, 
+        SimLockMultiSimPolicy multiSimPolicy);
 
     /**
      * Get carrier restrictions.
