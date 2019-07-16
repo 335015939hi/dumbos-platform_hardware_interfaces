@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a51300f_19c245f5",
+        "filename": "tests/foo/1.0/IFoo.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-07-16T22:10:36Z",
+      "side": 1,
+      "message": "we would want to remove these",
+      "range": {
+        "startLine": 36,
+        "startChar": 13,
+        "endLine": 36,
+        "endChar": 14
+      },
+      "revId": "baa1f26acba878a1cc62885d046f9b010a55db17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0ea560e_656687d2",
+        "filename": "tests/foo/1.0/IFoo.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-07-16T22:10:36Z",
+      "side": 1,
+      "message": "I think we definitely will want to fix this case (it is in a lot of places). We can talk about solutions",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 12
+      },
+      "revId": "baa1f26acba878a1cc62885d046f9b010a55db17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e4dbb69_c2fa885b",
+        "filename": "tests/foo/1.0/IFoo.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-07-16T22:10:36Z",
+      "side": 1,
+      "message": "missing type name?",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 13
+      },
+      "revId": "baa1f26acba878a1cc62885d046f9b010a55db17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7f4de8e_587d77ca",
+        "filename": "tests/foo/1.0/IFoo.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-07-16T22:10:36Z",
+      "side": 1,
+      "message": "should we special case this?",
+      "range": {
+        "startLine": 146,
+        "startChar": 27,
+        "endLine": 147,
+        "endChar": 6
+      },
+      "revId": "baa1f26acba878a1cc62885d046f9b010a55db17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
