@@ -16,22 +16,9 @@
 
 package android.hardware.renderscript@1.0;
 
-import android.hardware.renderscript@1.0::types;
-
-// TODO: is there any way to keep this documentation in sync with the
-// corresponding Java doc?
-//
-// TODO: Some of the documentation was taken from Java docs, whereas others were
-// undocumented. Because of this, there's somewhat two different styles of
-// comments. Look into having a consistent convention.
-//
-// TODO: There was some confusion as to why some paramters use vec<> and others
-// use Ptr/Size. The convention is that vec<> is used whenever the paramter is
-// only an input parameter. HIDL is not supposed to include any output
-// parameters, so a more explicit Ptr/Size is used.
+import types;
 
 interface IContext {
-
     /**
      * TODO: Do we need to define "selectors"? It may be a property of the
      * "adapted allocation" that's returned.
@@ -52,9 +39,9 @@ interface IContext {
      * @param baseAlloc Allocation
      * @return subAlloc AllocationAdapter
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     allocationAdapterCreate(Type type, Allocation baseAlloc)
-                 generates (AllocationAdapter subAlloc);
+        generates (AllocationAdapter subAlloc);
 
     /**
      * TODO: Need to relate "offset" back to the terminology in
@@ -69,7 +56,7 @@ interface IContext {
      * @param alloc AllocationAdapter
      * @param offsets Collection of offsets
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     allocationAdapterOffset(AllocationAdapter alloc, vec<uint32_t> offsets);
 
     /**
@@ -80,7 +67,7 @@ interface IContext {
      * @param allocation Allocation
      * @return type Allocation's Type
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     allocationGetType(Allocation allocation) generates (Type type);
 
     /**
@@ -97,10 +84,10 @@ interface IContext {
      * @param ptr Pointer to client-side data
      * @return allocation Created Allocation
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     allocationCreateTyped(Type type, AllocationMipmapControl mips,
-                          bitfield<AllocationUsageType> usage, Ptr ptr)
-               generates (Allocation allocation);
+        bitfield<AllocationUsageType> usage, Ptr ptr)
+        generates (Allocation allocation);
 
     /**
      * Creates an Allocation from a Bitmap.
@@ -112,11 +99,10 @@ interface IContext {
      * @param usage Bit field specifying how the Allocation is utilized
      * @return allocation Created Allocation containing bitmap data
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     allocationCreateFromBitmap(Type type, AllocationMipmapControl mips,
-                               vec<uint8_t> bitmap,
-                               bitfield<AllocationUsageType> usage)
-                    generates (Allocation allocation);
+        vec<uint8_t> bitmap, bitfield<AllocationUsageType> usage)
+        generates (Allocation allocation);
 
     /**
      * Creates a Cubemapped Allocation from a Bitmap.
@@ -129,11 +115,10 @@ interface IContext {
      * @param usage Bit field specifying how the Allocation is used
      * @return allocation Created Allocation containing cubemap data
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     allocationCubeCreateFromBitmap(Type type, AllocationMipmapControl mips,
-                                   vec<uint8_t> bitmap,
-                                   bitfield<AllocationUsageType> usage)
-                        generates (Allocation allocation);
+        vec<uint8_t> bitmap, bitfield<AllocationUsageType> usage)
+        generates (Allocation allocation);
 
     /**
      * Returns the handle to a raw buffer that is being managed by the screen
@@ -143,9 +128,9 @@ interface IContext {
      * @param allocation Allocation
      * @return nativeWindow NativeWindow object associated with allocation
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     allocationGetNativeWindow(Allocation allocation)
-                   generates (NativeWindow nativeWindow);
+        generates (NativeWindow nativeWindow);
 
     /**
      * TODO: more clarification needed
@@ -156,8 +141,9 @@ interface IContext {
      * @param allocation Allocation to be modified
      * @pram nativeWindow NativeWindow to associate with allocation
      */
-    @callflow(next={"*"})
-    allocationSetNativeWindow(Allocation allocation, NativeWindow nativewindow);
+    @callflow(next = "*")
+    allocationSetNativeWindow(Allocation allocation, NativeWindow nativewindow
+        );
 
     /**
      * Initialize BufferQueue with specified max number of buffers.
@@ -165,7 +151,7 @@ interface IContext {
      * @param alloc Allocation
      * @param numBuffer Maximum number of buffers
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     allocationSetupBufferQueue(Allocation alloc, uint32_t numBuffer);
 
     /**
@@ -178,7 +164,7 @@ interface IContext {
      * @param subAlloc Allocation to use the same buffer queue as the Base
      *                 Allocation
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     allocationShareBufferQueue(Allocation baseAlloc, Allocation subAlloc);
 
     /**
@@ -192,7 +178,7 @@ interface IContext {
      * @param data Buffer to be copied into
      * @param sizeBytes Size of the buffer pointed to by "data"
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     allocationCopyToBitmap(Allocation allocation, Ptr data, Size sizeBytes);
 
     /**
@@ -215,9 +201,9 @@ interface IContext {
      * @param count Number of elements to be copied
      * @param data Source data to be copied to Allocation
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     allocation1DWrite(Allocation allocation, uint32_t offset, uint32_t lod,
-                      uint32_t count, vec<uint8_t> data);
+        uint32_t count, vec<uint8_t> data);
 
     /**
      * Copies a value into a single sub-Element of this Allocation.
@@ -232,10 +218,9 @@ interface IContext {
      * @param data Data to be copied from
      * @param compIdx Component number to identify which sub-Element is updated
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     allocationElementWrite(Allocation allocation, uint32_t x, uint32_t y,
-                           uint32_t z, uint32_t lod, vec<uint8_t> data,
-                           Size compIdx);
+        uint32_t z, uint32_t lod, vec<uint8_t> data, Size compIdx);
 
     /**
      * Copies from an array into a rectangular region in this Allocation.
@@ -257,10 +242,10 @@ interface IContext {
      *               of this Allocation. For 2D and 3D Allocations, the stride
      *               must be the stride in X dimension measuring in bytes.
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     allocation2DWrite(Allocation allocation, uint32_t xoff, uint32_t yoff,
-                      uint32_t lod, AllocationCubemapFace face, uint32_t w,
-                      uint32_t h, vec<uint8_t> data, Size stride);
+        uint32_t lod, AllocationCubemapFace face, uint32_t w, uint32_t h,
+        vec<uint8_t> data, Size stride);
 
     /**
      * Copies from an array into a 3D region in this Allocation.
@@ -283,10 +268,10 @@ interface IContext {
      *               of this Allocation. For 2D and 3D Allocations, the stride
      *               must be the stride in X dimension measuring in bytes.
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     allocation3DWrite(Allocation allocation, uint32_t xoff, uint32_t yoff,
-                      uint32_t zoff, uint32_t lod, uint32_t w, uint32_t h,
-                      uint32_t d, vec<uint8_t> data, Size stride);
+        uint32_t zoff, uint32_t lod, uint32_t w, uint32_t h, uint32_t d,
+        vec<uint8_t> data, Size stride);
 
     /**
      * Generates a mipmap chain. This is only valid if the Type of the
@@ -301,7 +286,7 @@ interface IContext {
      * @param allocation Allocation which has its top LOD read and lower LOD
      *                   written to
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     allocationGenerateMipmaps(Allocation allocation);
 
     /**
@@ -317,7 +302,7 @@ interface IContext {
      * @param data Buffer to be copied into
      * @param sizeBytes Size of the buffer pointed to by "data"
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     allocationRead(Allocation allocation, Ptr data, Size sizeBytes);
 
     /**
@@ -338,9 +323,9 @@ interface IContext {
      * @param data Buffer to be copied into
      * @param sizeBytes Size of the buffer pointed to by "data"
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     allocation1DRead(Allocation allocation, uint32_t xoff, uint32_t lod,
-                     uint32_t count, Ptr data, Size sizeBytes);
+        uint32_t count, Ptr data, Size sizeBytes);
 
     /**
      * Returns the value of a single sub-Element of this Allocation.
@@ -357,10 +342,9 @@ interface IContext {
      * @param sizeBytes Size of the buffer pointed to by "data"
      * @param compIdx Component number to identify which sub-Element is updated
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     allocationElementRead(Allocation allocation, uint32_t x, uint32_t y,
-                          uint32_t z, uint32_t lod, Ptr data, Size sizeBytes,
-                          Size compIdx);
+        uint32_t z, uint32_t lod, Ptr data, Size sizeBytes, Size compIdx);
 
     /**
      * Copies from a rectangular region in this Allocation to an array.
@@ -386,10 +370,10 @@ interface IContext {
      *               of this Allocation. For 2D and 3D Allocations, the stride
      *               must be the stride in X dimension measuring in bytes.
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     allocation2DRead(Allocation allocation, uint32_t xoff, uint32_t yoff,
-                     uint32_t lod, AllocationCubemapFace face, uint32_t w,
-                     uint32_t h, Ptr data, Size sizeBytes, Size stride);
+        uint32_t lod, AllocationCubemapFace face, uint32_t w, uint32_t h,
+        Ptr data, Size sizeBytes, Size stride);
 
     /**
      * Copies from a rectangular cuboid region in this Allocation to an array.
@@ -416,10 +400,10 @@ interface IContext {
      *               of this Allocation. For 2D and 3D Allocations, the stride
      *               must be the stride in X dimension measuring in bytes.
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     allocation3DRead(Allocation allocation, uint32_t xoff, uint32_t yoff,
-                     uint32_t zoff, uint32_t lod, uint32_t w, uint32_t h,
-                     uint32_t d, Ptr data, Size sizeBytes, Size stride);
+        uint32_t zoff, uint32_t lod, uint32_t w, uint32_t h, uint32_t d,
+        Ptr data, Size sizeBytes, Size stride);
 
     /**
      * Propagates changes from one usage of the Allocation to the other usages
@@ -428,7 +412,7 @@ interface IContext {
      * @param allocation First usage of the Allocation
      * @param usageType Allocation usage type
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     allocationSyncAll(Allocation allocation, AllocationUsageType usageType);
 
     /**
@@ -452,7 +436,7 @@ interface IContext {
      * @param allocation Allocation to be resized
      * @param dimX New size along the x dimension of the Allocation
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     allocationResize1D(Allocation allocation, uint32_t dimX);
 
     /**
@@ -475,13 +459,11 @@ interface IContext {
      * @param srcMip Selected mipmap level of the source Allocation
      * @param srcFace Source AllocationCubemapFace
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     allocationCopy2DRange(Allocation dstAlloc, uint32_t dstXoff,
-                          uint32_t dstYoff, uint32_t dstMip,
-                          AllocationCubemapFace dstFace, uint32_t width,
-                          uint32_t height, Allocation srcAlloc,
-                          uint32_t srcXoff, uint32_t srcYoff, uint32_t srcMip,
-                          AllocationCubemapFace srcFace);
+        uint32_t dstYoff, uint32_t dstMip, AllocationCubemapFace dstFace,
+        uint32_t width, uint32_t height, Allocation srcAlloc, uint32_t srcXoff,
+        uint32_t srcYoff, uint32_t srcMip, AllocationCubemapFace srcFace);
 
     /**
      * Copies a rectangular cuboid region into the allocation from another
@@ -501,12 +483,11 @@ interface IContext {
      * @param srcZoff Source Z offset of the region in the souce Allocation
      * @param srcMip Selected mipmap level of the Allocation to read
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     allocationCopy3DRange(Allocation dstAlloc, uint32_t dstXoff,
-                          uint32_t dstYoff, uint32_t dstZoff, uint32_t dstMip,
-                          uint32_t width, uint32_t height, uint32_t depth,
-                          Allocation srcAlloc, uint32_t srcXoff,
-                          uint32_t srcYoff, uint32_t srcZoff, uint32_t srcMip);
+        uint32_t dstYoff, uint32_t dstZoff, uint32_t dstMip, uint32_t width,
+        uint32_t height, uint32_t depth, Allocation srcAlloc, uint32_t srcXoff,
+        uint32_t srcYoff, uint32_t srcZoff, uint32_t srcMip);
 
     /**
      * TODO: define buffer and output stream
@@ -517,7 +498,7 @@ interface IContext {
      *
      * @param allocation Allocation to be sent
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     allocationIoSend(Allocation allocation);
 
     /**
@@ -527,7 +508,7 @@ interface IContext {
      *
      * @param allocation Allocation to be updated
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     allocationIoReceive(Allocation allocation);
 
     /**
@@ -555,10 +536,10 @@ interface IContext {
      *                of this Allocation. For 2D and 3D Allocations, the stride
      *                must be the stride in X dimension measuring in bytes.
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     allocationGetPointer(Allocation allocation, uint32_t lod,
-                         AllocationCubemapFace face, uint32_t z)
-              generates (Ptr dataPtr, Size stride);
+        AllocationCubemapFace face, uint32_t z)
+        generates (Ptr dataPtr, Size stride);
 
     /**
      * Retrieves an Element's metadata from native code.
@@ -566,9 +547,9 @@ interface IContext {
      * @param element Element to be read
      * @return elemData Element data
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     elementGetNativeMetadata(Element element)
-                  generates (vec<uint32_t> elemData);
+        generates (vec<uint32_t> elemData);
 
     /**
      * TODO: define Sub-Element handles better.
@@ -582,10 +563,9 @@ interface IContext {
      * @return names Sub-Element Names
      * @return arraySizes Sizes of sub-Element arrays
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     elementGetSubElements(Element element, Size numSubElem)
-               generates (vec<Element> ids, vec<string> names,
-                          vec<Size> arraySizes);
+        generates (vec<Element> ids, vec<string> names, vec<Size> arraySizes);
 
     /**
      * TODO: can normalization flag be removed?
@@ -598,9 +578,9 @@ interface IContext {
      * @param size Vector length, with scalar = 1
      * @return element Created Element
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     elementCreate(DataType dt, DataKind dk, bool norm, uint32_t size)
-       generates (Element element);
+        generates (Element element);
 
     /**
      * Creates a complex Element.
@@ -610,10 +590,10 @@ interface IContext {
      * @param arraySizesPtr Container of array sizes
      * @return element Created Element
      */
-    @callflow(next={"*"})
-    elementComplexCreate(vec<Element> einsPtr, vec<string> names,
-                         vec<Size> arraySizesPtr)
-              generates (Element element);
+    @callflow(next = "*")
+    elementComplexCreate(
+        vec<Element> einsPtr, vec<string> names, vec<Size> arraySizesPtr)
+        generates (Element element);
 
     /**
      * Retrives a Type's metadata from native code.
@@ -621,7 +601,7 @@ interface IContext {
      * @param type Type describing data layout
      * @return metadata Type's native metadata
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     typeGetNativeMetadata(Type type) generates (vec<OpaqueHandle> metadata);
 
     /**
@@ -639,10 +619,9 @@ interface IContext {
      *            uses
      * @return type Created Type
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     typeCreate(Element element, uint32_t dimX, uint32_t dimY, uint32_t dimZ,
-               bool mipmaps, bool faces, YuvFormat yuv)
-    generates (Type type);
+        bool mipmaps, bool faces, YuvFormat yuv) generates (Type type);
 
     /**
      * Destroys provided RenderScript context, including all objects created in
@@ -667,9 +646,9 @@ interface IContext {
      * @return messageType Type of message sent to the client
      * @return receiveLen Length of the message in bytes
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     contextGetMessage(Ptr data, Size size)
-           generates (MessageToClientType messageType, Size receiveLen);
+        generates (MessageToClientType messageType, Size receiveLen);
 
     /**
      * TODO: define subID better.
@@ -682,10 +661,9 @@ interface IContext {
      * @return receiveLen Length of message
      * @return subID Message sub identifier
      */
-    @callflow(next={"*"})
-    contextPeekMessage()
-            generates (MessageToClientType messageType, Size receiveLen,
-                       uint32_t subID);
+    @callflow(next = "*")
+    contextPeekMessage() generates (MessageToClientType messageType,
+        Size receiveLen, uint32_t subID);
 
     /**
      * TODO: Define "previous commands" better
@@ -699,7 +677,7 @@ interface IContext {
      * @param id Message identifier
      * @param data Message data
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     contextSendMessage(uint32_t id, vec<uint8_t> data);
 
     /**
@@ -710,7 +688,7 @@ interface IContext {
      * messages from the driver. This call also waits for the messaging FIFO to
      * start up.
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     contextInitToClient();
 
     /**
@@ -719,7 +697,7 @@ interface IContext {
      *
      * Deinitializes a the messaging thread. Shuts down the FIFO.
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     contextDeinitToClient();
 
     /**
@@ -729,14 +707,14 @@ interface IContext {
      * Waits for any pending asynchronous operations (such as copies to a RS
      * allocation or RS script executions) to complete.
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     contextFinish();
 
     /**
      * Prints the currently available debugging information about the state of
      * the RS context to the logcat.
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     contextLog();
 
     /**
@@ -746,7 +724,7 @@ interface IContext {
      *
      * @param cacheDir Name of the application's cache directory
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     contextSetCacheDir(string cacheDir);
 
     /**
@@ -756,7 +734,7 @@ interface IContext {
      *
      * @param priority Priority of the thread
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     contextSetPriority(ThreadPriorities priority);
 
     /**
@@ -768,7 +746,7 @@ interface IContext {
      * @param obj Object to be named
      * @param name Assigned name
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     assignName(ObjectBase obj, string name);
 
     /**
@@ -779,7 +757,7 @@ interface IContext {
      * @param obj Object to be read
      * @return name Name of the object
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     getName(ObjectBase obj) generates (string name);
 
     /**
@@ -803,12 +781,11 @@ interface IContext {
      * @param depFieldIDS Collection of Script's dependent Field identifiers
      * @return closure Created Closure
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     closureCreate(ScriptKernelID kernelID, Allocation returnValue,
-                  vec<ScriptFieldID> fieldIDS, vec<int64_t> values,
-                  vec<int32_t> sizes, vec<Closure> depClosures,
-                  vec<ScriptFieldID> depFieldIDS)
-       generates (Closure closure);
+        vec<ScriptFieldID> fieldIDS, vec<int64_t> values, vec<int32_t> sizes,
+        vec<Closure> depClosures, vec<ScriptFieldID> depFieldIDS)
+        generates (Closure closure);
 
     /**
      * Creates a Closure which represents a function call to a invocable
@@ -821,11 +798,10 @@ interface IContext {
      * @param sizes Collection of sizes
      * @return closure Created Closure
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     invokeClosureCreate(ScriptInvokeID invokeID, vec<uint8_t> params,
-                        vec<ScriptFieldID> fieldIDS, vec<int64_t> values,
-                        vec<int32_t> sizes)
-             generates (Closure closure);
+        vec<ScriptFieldID> fieldIDS, vec<int64_t> values, vec<int32_t> sizes)
+        generates (Closure closure);
 
     /**
      * Sets the argument of a Closure at specified index and size to provided
@@ -836,7 +812,7 @@ interface IContext {
      * @param value Value
      * @param size Size
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     closureSetArg(Closure closure, uint32_t index, Ptr value, int32_t size);
 
     /**
@@ -847,9 +823,9 @@ interface IContext {
      * @param value Value
      * @param size Size
      */
-    @callflow(next={"*"})
-    closureSetGlobal(Closure closure, ScriptFieldID fieldID, int64_t value,
-                     int32_t size);
+    @callflow(next = "*")
+    closureSetGlobal(
+        Closure closure, ScriptFieldID fieldID, int64_t value, int32_t size);
 
     /**
      * TODO: should slot be unsigned? (applies to other two ID interfaces, too)
@@ -861,10 +837,10 @@ interface IContext {
      * @param sig Bitfield describing Kernel signature and operation
      * @return scriptKernelID Script's Kernel identifier
      */
-    @callflow(next={"*"})
-    scriptKernelIDCreate(Script script, int32_t slot,
-                         bitfield<MetadataSignatureBitval> sig)
-              generates (ScriptKernelID scriptKernelID);
+    @callflow(next = "*")
+    scriptKernelIDCreate(
+        Script script, int32_t slot, bitfield<MetadataSignatureBitval> sig)
+        generates (ScriptKernelID scriptKernelID);
 
     /**
      * Creates a Script Invoke ID.
@@ -873,9 +849,9 @@ interface IContext {
      * @param slot Slot
      * @return scriptInvokeID Invoke Script's identifier
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     scriptInvokeIDCreate(Script script, int32_t slot)
-              generates (ScriptInvokeID scriptInvokeID);
+        generates (ScriptInvokeID scriptInvokeID);
 
     /**
      * TODO: describe the return value better. What is it?
@@ -886,9 +862,9 @@ interface IContext {
      * @param slot Slot
      * @return scriptFieldID Script's Field identifier
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     scriptFieldIDCreate(Script script, int32_t slot)
-             generates (ScriptFieldID scriptFieldID);
+        generates (ScriptFieldID scriptFieldID);
 
     /**
      * TODO: add more description
@@ -902,11 +878,10 @@ interface IContext {
      * @param types Collection of Types describing data layout
      * @return scriptGroup Created Script Group
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     scriptGroupCreate(vec<ScriptKernelID> kernels, vec<ScriptKernelID> srcK,
-                      vec<ScriptKernelID> dstK, vec<ScriptFieldID> dstF,
-                      vec<Type> types)
-           generates (ScriptGroup scriptGroup);
+        vec<ScriptKernelID> dstK, vec<ScriptFieldID> dstF, vec<Type> types)
+        generates (ScriptGroup scriptGroup);
 
     /**
      * Creates a Script Group.
@@ -916,9 +891,9 @@ interface IContext {
      * @param closures Collection of Closures
      * @return scriptGroup2 Created Script Group
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     scriptGroup2Create(string name, string cacheDir, vec<Closure> closures)
-            generates (ScriptGroup2 scriptGroup2);
+        generates (ScriptGroup2 scriptGroup2);
 
     /**
      * TODO: if SetInput/Output corresponds to the Java API setInput() and
@@ -934,8 +909,9 @@ interface IContext {
      * @param kid Script's Kernel identifier to be changed
      * @param alloc Allocation to be filled by output
      */
-    @callflow(next={"*"})
-    scriptGroupSetOutput(ScriptGroup sg, ScriptKernelID kid, Allocation alloc);
+    @callflow(next = "*")
+    scriptGroupSetOutput(ScriptGroup sg, ScriptKernelID kid, Allocation alloc
+        );
 
     /**
      * Sets an input of the Script Group. This specifies an Allocation to be
@@ -946,7 +922,7 @@ interface IContext {
      * @param kid Script's Kernel identifier to be changed
      * @param alloc Allocation to be read as input
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     scriptGroupSetInput(ScriptGroup sg, ScriptKernelID kid, Allocation alloc);
 
     /**
@@ -954,8 +930,8 @@ interface IContext {
      *
      * @param sg Script Group to be executed.
      */
-    @callflow(next={"*"})
-    scriptGroupExecute( ScriptGroup sg);
+    @callflow(next = "*")
+    scriptGroupExecute(ScriptGroup sg);
 
     /**
      * Frees any native resources associated with this object. The primary use
@@ -964,7 +940,7 @@ interface IContext {
      *
      * @param handle Opaque handle to the server-side object to be destroyed
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     objDestroy(ObjectBase obj);
 
     /**
@@ -978,11 +954,10 @@ interface IContext {
      * @param aniso Anisotropy setting for the sampler
      * @return sampler Created Sampler
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     samplerCreate(SamplerValue magFilter, SamplerValue minFilter,
-                  SamplerValue wrapS, SamplerValue wrapT, SamplerValue wrapR,
-                  float aniso)
-       generates (Sampler sampler);
+        SamplerValue wrapS, SamplerValue wrapT, SamplerValue wrapR, float aniso
+        ) generates (Sampler sampler);
 
     /**
      * Binds an Allocation to a global pointer in the Script.
@@ -991,7 +966,7 @@ interface IContext {
      * @param allocation Allocation to be bound
      * @param slot Slot of a global variable
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     scriptBindAllocation(Script script, Allocation allocation, uint32_t slot);
 
     /**
@@ -1002,7 +977,7 @@ interface IContext {
      * @param script Script to be altered
      * @param timeZone Time Zone value as text
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     scriptSetTimeZone(Script script, string timeZone);
 
     /**
@@ -1013,7 +988,7 @@ interface IContext {
      * @param vs Script to be invoked
      * @param slot Slot of invokable function
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     scriptInvoke(Script vs, uint32_t slot);
 
     /**
@@ -1023,7 +998,7 @@ interface IContext {
      * @param slot Slot
      * @param data Data buffer of packed arguments
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     scriptInvokeV(Script vs, uint32_t slot, vec<uint8_t> data);
 
     /**
@@ -1039,9 +1014,9 @@ interface IContext {
      * @param params Collection of parameters
      * @param sc Pointer to a ScriptCall, nullptr if unused
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     scriptForEach(Script vs, uint32_t slot, vec<Allocation> vains,
-                  Allocation vaout, vec<uint8_t> params, Ptr sc);
+        Allocation vaout, vec<uint8_t> params, Ptr sc);
 
     /**
      * Launches a Reduction kernel.
@@ -1052,9 +1027,9 @@ interface IContext {
      * @param vaout Output Allocation
      * @param sc Pointer to a ScriptCall, nullptr if unused
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     scriptReduce(Script vs, uint32_t slot, vec<Allocation> vains,
-                 Allocation vaout, Ptr sc);
+        Allocation vaout, Ptr sc);
 
     /**
      * Sets a Script's integer variable to a value.
@@ -1063,7 +1038,7 @@ interface IContext {
      * @param slot Slot number of variable to be updated
      * @param value Value to be pushed to variable
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     scriptSetVarI(Script vs, uint32_t slot, int32_t value);
 
     /**
@@ -1073,8 +1048,8 @@ interface IContext {
      * @param slot Slot number of variable to be updated
      * @param obj ObjectBase
      */
-    @callflow(next={"*"})
-    scriptSetVarObj( Script vs,  uint32_t slot, ObjectBase obj);
+    @callflow(next = "*")
+    scriptSetVarObj(Script vs, uint32_t slot, ObjectBase obj);
 
     /**
      * Sets a Script's long variable to a value.
@@ -1083,7 +1058,7 @@ interface IContext {
      * @param slot Slot number of variable to be updated
      * @param value Value to be pushed to variable
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     scriptSetVarJ(Script vs, uint32_t slot, int64_t value);
 
     /**
@@ -1093,7 +1068,7 @@ interface IContext {
      * @param slot Slot number of variable to be updated
      * @param value Value to be pushed to variable
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     scriptSetVarF(Script vs, uint32_t slot, float value);
 
     /**
@@ -1103,7 +1078,7 @@ interface IContext {
      * @param slot Slot number of variable to be updated
      * @param value Value to be pushed to variable
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     scriptSetVarD(Script vs, uint32_t slot, double value);
 
     /**
@@ -1113,7 +1088,7 @@ interface IContext {
      * @param slot Slot number of variable to be updated
      * @param data Data to be pushed to variable
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     scriptSetVarV(Script vs, uint32_t slot, vec<uint8_t> data);
 
     /**
@@ -1126,9 +1101,9 @@ interface IContext {
      * @param len Size of data to be filled
      * @return data Data to be updated
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     scriptGetVarV(Script vs, uint32_t slot, Size len)
-       generates (vec<uint8_t> data);
+        generates (vec<uint8_t> data);
 
     /**
      * TODO: Is this a value to be replicated for each member of the array? Or
@@ -1143,9 +1118,9 @@ interface IContext {
      * @param ve Element
      * @param dims Collection of dimensions
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     scriptSetVarVE(Script vs, uint32_t slot, vec<uint8_t> data, Element ve,
-                   vec<uint32_t> dims);
+        vec<uint32_t> dims);
 
     /**
      * TODO: is cacheDir redundant with createCache() function? Can we remove
@@ -1159,9 +1134,9 @@ interface IContext {
      * @param text The kernel's bitcode as a uint8_t vector
      * @return script Created Script
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     scriptCCreate(string resName, string cacheDir, vec<uint8_t> text)
-       generates (Script script);
+        generates (Script script);
 
     /**
      * Creates a RenderScript Intrinsic script.
@@ -1170,8 +1145,7 @@ interface IContext {
      * @param elem Element
      * @return script Created Script
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     scriptIntrinsicCreate(ScriptIntrinsicID id, Element elem)
-               generates (Script script);
-
+        generates (Script script);
 };

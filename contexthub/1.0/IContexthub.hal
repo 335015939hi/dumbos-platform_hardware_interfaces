@@ -47,7 +47,8 @@ interface IContexthub {
      *                BAD_VALUE if parameters are not sane
      *
      */
-     registerCallback(uint32_t hubId, IContexthubCallback cb) generates (Result result);
+    registerCallback(uint32_t hubId, IContexthubCallback cb)
+        generates (Result result);
 
     /**
      * Send a message to a hub
@@ -60,7 +61,7 @@ interface IContexthub {
      *                TRANSACTION_FAILED if message send failed
      */
     sendMessageToHub(uint32_t hubId, ContextHubMsg msg)
-            generates (Result result);
+        generates (Result result);
 
     /**
      * Loads a nanoApp. After loading, the nanoApp's init method must be called.
@@ -88,10 +89,8 @@ interface IContexthub {
      *                TRANSACTION_FAILED if load failed synchronously
      *
      */
-    loadNanoApp(uint32_t hubId,
-                NanoAppBinary appBinary,
-                uint32_t transactionId)
-            generates (Result result);
+    loadNanoApp(uint32_t hubId, NanoAppBinary appBinary, uint32_t transactionId
+        ) generates (Result result);
 
     /**
      * Unloads a nanoApp. Before the unload, the apps deinit method is called.
@@ -112,7 +111,7 @@ interface IContexthub {
      *
      */
     unloadNanoApp(uint32_t hubId, uint64_t appId, uint32_t transactionId)
-            generates (Result result);
+        generates (Result result);
 
     /**
      * Enables a nanoApp. The app's init method is called.
@@ -133,7 +132,7 @@ interface IContexthub {
      *
      */
     enableNanoApp(uint32_t hubId, uint64_t appId, uint32_t transactionId)
-            generates (Result result);
+        generates (Result result);
 
     /**
      * Disables a nanoApp. The app's deinit method is called.
@@ -154,7 +153,7 @@ interface IContexthub {
      *
      */
     disableNanoApp(uint32_t hubId, uint64_t appId, uint32_t transactionId)
-            generates (Result result);
+        generates (Result result);
 
     /**
      * Queries for Loaded apps on the hub

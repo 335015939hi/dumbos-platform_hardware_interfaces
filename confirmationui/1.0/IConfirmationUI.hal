@@ -51,9 +51,9 @@ interface IConfirmationUI {
      *                - UIError: The confirmation provider encountered an issue with displaying
      *                      the prompt text to the user.
      */
-    promptUserConfirmation(IConfirmationResultCallback resultCB, string promptText,
-                           vec<uint8_t> extraData, string locale, vec<UIOption> uiOptions)
-        generates(ResponseCode error);
+    promptUserConfirmation(IConfirmationResultCallback resultCB,
+        string promptText, vec<uint8_t> extraData, string locale,
+        vec<UIOption> uiOptions) generates (ResponseCode error);
 
     /**
      * DeliverSecureInput is used by the framework to deliver a secure input event to the
@@ -69,7 +69,7 @@ interface IConfirmationUI {
      * @return error - Ignored: Unless used for testing (See TestModeCommands).
      */
     deliverSecureInputEvent(HardwareAuthToken secureInputToken)
-        generates(ResponseCode error);
+        generates (ResponseCode error);
 
     /**
      * Aborts a pending user prompt. This allows the framework to gracefully end a TUI dialog.
@@ -78,4 +78,3 @@ interface IConfirmationUI {
      */
     abort();
 };
-

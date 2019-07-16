@@ -29,7 +29,6 @@ import @3.2::BufferCache;
  * configure and request captures from an active camera device.
  */
 interface ICameraDeviceSession extends @3.3::ICameraDeviceSession {
-
     /**
      * configureStreams_3_4:
      *
@@ -69,9 +68,9 @@ interface ICameraDeviceSession extends @3.3::ICameraDeviceSession {
      *     each stream, including maximum buffers, the usage flags, and the
      *     override format.
      */
-    configureStreams_3_4(@3.4::StreamConfiguration requestedConfiguration)
-            generates (Status status,
-                       @3.4::HalStreamConfiguration halConfiguration);
+    configureStreams_3_4(@3.4::StreamConfiguration requestedConfiguration) 
+        generates (Status status, @3.4::HalStreamConfiguration halConfiguration
+        );
 
     /**
      * processCaptureRequest_3_4:
@@ -104,6 +103,7 @@ interface ICameraDeviceSession extends @3.3::ICameraDeviceSession {
      *     that HAL processed successfully before HAL runs into an error.
      *
      */
-    processCaptureRequest_3_4(vec<CaptureRequest> requests, vec<BufferCache> cachesToRemove)
-            generates (Status status, uint32_t numRequestProcessed);
+    processCaptureRequest_3_4(
+        vec<CaptureRequest> requests, vec<BufferCache> cachesToRemove)
+        generates (Status status, uint32_t numRequestProcessed);
 };

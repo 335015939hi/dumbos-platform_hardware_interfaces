@@ -20,10 +20,8 @@ import android.hardware.media@1.0::Fence;
 import android.hardware.media@1.0::AnwBuffer;
 import android.hardware.media@1.0::Rect;
 import android.hardware.media@1.0::Region;
-
 import android.hardware.graphics.common@1.0::Dataspace;
 import android.hardware.graphics.common@1.0::PixelFormat;
-
 import IProducerListener;
 
 /**
@@ -32,10 +30,6 @@ import IProducerListener;
  * This is a wrapper/wrapped HAL interface for the actual binder interface.
  */
 interface IGraphicBufferProducer {
-
-    /**
-     * Type for return values of functions in IGraphicBufferProducer.
-     */
     typedef int32_t Status;
 
     /**
@@ -107,35 +101,57 @@ interface IGraphicBufferProducer {
      * Modes for disconnection.
      */
     enum DisconnectMode : int32_t {
-        /** Disconnect only the specified API. */
+        /**
+         * Disconnect only the specified API.
+         */
         API,
-        /** Disconnect any API originally connected from the process calling
-         *  disconnect. */
-        ALL_LOCAL
+        /**
+         * Disconnect any API originally connected from the process calling
+         *  disconnect.
+         */
+        ALL_LOCAL,
     };
 
     struct QueueBufferInput {
-        /** A monotonically increasing value in nanoseconds. */
+        /**
+         * A monotonically increasing value in nanoseconds.
+         */
         int64_t timestamp;
-        /** Whether the timestamp was synthesized at queue time. */
+        /**
+         * Whether the timestamp was synthesized at queue time.
+         */
         int32_t isAutoTimestamp;
-        /** Description of the contents, interpretation depends on format. */
+        /**
+         * Description of the contents, interpretation depends on format.
+         */
         Dataspace dataSpace;
-        /** A crop rectangle that's used as a hint to the consumer. */
+        /**
+         * A crop rectangle that's used as a hint to the consumer.
+         */
         Rect crop;
-        /** A set of flags from NATIVE_WINDOW_SCALING_* in <window.h>. */
+        /**
+         * A set of flags from NATIVE_WINDOW_SCALING_* in <window.h>.
+         */
         int32_t scalingMode;
-        /** A set of flags from NATIVE_WINDOW_TRANSFORM_* in <window.h>. */
+        /**
+         * A set of flags from NATIVE_WINDOW_TRANSFORM_* in <window.h>.
+         */
         uint32_t transform;
-        /** The sticky transform set in Surface (only used by the LEGACY camera
-         *  mode). */
+        /**
+         * The sticky transform set in Surface (only used by the LEGACY camera
+         *  mode).
+         */
         uint32_t stickyTransform;
-        /** A fence that the consumer must wait on before reading the buffer;
-         *  set this to Fence::NO_FENCE if the buffer is ready immediately. */
+        /**
+         * A fence that the consumer must wait on before reading the buffer;
+         *  set this to Fence::NO_FENCE if the buffer is ready immediately.
+         */
         Fence fence;
         Region surfaceDamage;
-        /** Whether or not the latest frame timestamps should be retrieved from
-         *  the consumer. */
+        /**
+         * Whether or not the latest frame timestamps should be retrieved from
+         *  the consumer.
+         */
         bool getFrameTimestamps;
     };
 
@@ -165,12 +181,7 @@ interface IGraphicBufferProducer {
      *              * slot was out of range (see above)
      *              * buffer specified by the slot is not dequeued
      */
-    requestBuffer(
-            int32_t slot
-        ) generates (
-            Status status,
-            AnwBuffer buffer
-        );
+    requestBuffer(int32_t slot) generates (Status status, AnwBuffer buffer);
 
     /**
      * setMaxDequeuedBufferCount sets the maximum number of buffers that can be
@@ -199,11 +210,8 @@ interface IGraphicBufferProducer {
      *     * this call would cause the maxBufferCount value to be exceeded.
      *     * failure to adjust the number of available slots.
      */
-    setMaxDequeuedBufferCount(
-            int32_t maxDequeuedBuffers
-        ) generates (
-            Status status
-        );
+    setMaxDequeuedBufferCount(int32_t maxDequeuedBuffers)
+        generates (Status status);
 
     /**
      * Set the async flag if the producer intends to asynchronously queue
@@ -221,11 +229,7 @@ interface IGraphicBufferProducer {
      *               exceeded
      *             * failure to adjust the number of available slots.
      */
-    setAsyncMode(
-            bool async
-        ) generates (
-            Status status
-        );
+    setAsyncMode(bool async) generates (Status status);
 
     /**
      * dequeueBuffer requests a new buffer slot for the client to use. Ownership
@@ -292,18 +296,9 @@ interface IGraphicBufferProducer {
      * All other negative values are an unknown error returned downstream
      * from the graphics allocator (typically errno).
      */
-    dequeueBuffer(
-            uint32_t width,
-            uint32_t height,
-            PixelFormat format,
-            uint32_t usage,
-            bool getFrameTimestamps
-        ) generates (
-            Status status,
-            int32_t slot,
-            Fence fence,
-            FrameEventHistoryDelta outTimestamps
-        );
+    dequeueBuffer(uint32_t width, uint32_t height, PixelFormat format,
+        uint32_t usage, bool getFrameTimestamps) generates (Status status,
+        int32_t slot, Fence fence, FrameEventHistoryDelta outTimestamps);
 
     /**
      * detachBuffer attempts to remove all ownership of the buffer in the given
@@ -322,11 +317,7 @@ interface IGraphicBufferProducer {
      *               out of the range [0, NUM_BUFFER_SLOTS), or because the slot
      *               it refers to is not currently dequeued and requested.
      */
-    detachBuffer(
-            int32_t slot
-        ) generates (
-            Status status
-        );
+    detachBuffer(int32_t slot) generates (Status status);
 
     /**
      * detachNextBuffer is equivalent to calling dequeueBuffer, requestBuffer,
@@ -349,12 +340,8 @@ interface IGraphicBufferProducer {
      * * NO_MEMORY - no slots were found that were both free and contained a
      *               AnwBuffer.
      */
-    detachNextBuffer(
-        ) generates (
-            Status status,
-            AnwBuffer buffer,
-            Fence fence
-        );
+    detachNextBuffer() generates (Status status, AnwBuffer buffer, Fence fence)
+        ;
 
     /**
      * attachBuffer attempts to transfer ownership of a buffer to the buffer
@@ -386,12 +373,7 @@ interface IGraphicBufferProducer {
      * * TIMED_OUT - the timeout set by setDequeueTimeout was exceeded while
      *               waiting for a slot to become available.
      */
-    attachBuffer(
-            AnwBuffer buffer
-        ) generates (
-            Status status,
-            int32_t slot
-        );
+    attachBuffer(AnwBuffer buffer) generates (Status status, int32_t slot);
 
     /**
      * queueBuffer indicates that the client has finished filling in the
@@ -424,13 +406,8 @@ interface IGraphicBufferProducer {
      *              * the slot was enqueued without requesting a buffer
      *              * crop rect is out of bounds of the buffer dimensions
      */
-    queueBuffer(
-            int32_t slot,
-            QueueBufferInput input
-        ) generates (
-            Status status,
-            QueueBufferOutput output
-        );
+    queueBuffer(int32_t slot, QueueBufferInput input)
+        generates (Status status, QueueBufferOutput output);
 
     /**
      * cancelBuffer indicates that the client does not wish to fill in the
@@ -452,12 +429,7 @@ interface IGraphicBufferProducer {
      *              * slot index was out of range (see above).
      *              * the slot was not in the dequeued state
      */
-    cancelBuffer(
-            int32_t slot,
-            Fence fence
-        ) generates (
-            Status status
-        );
+    cancelBuffer(int32_t slot, Fence fence) generates (Status status);
 
     /**
      * query retrieves some information for this surface
@@ -467,12 +439,7 @@ interface IGraphicBufferProducer {
      * * NO_INIT - the buffer queue has been abandoned.
      * * BAD_VALUE - what was out of range
      */
-    query(
-            int32_t what
-        ) generates (
-            int32_t result,
-            int32_t value
-        );
+    query(int32_t what) generates (int32_t result, int32_t value);
 
     /**
      * connect attempts to connect a client API to the IGraphicBufferProducer.
@@ -515,13 +482,8 @@ interface IGraphicBufferProducer {
      * should be treated as opaque fatal unrecoverable errors.
      */
     connect(
-            IProducerListener listener,
-            int32_t api,
-            bool producerControlledByApp
-        ) generates (
-            Status status,
-            QueueBufferOutput output
-        );
+        IProducerListener listener, int32_t api, bool producerControlledByApp)
+        generates (Status status, QueueBufferOutput output);
 
     /**
      * disconnect attempts to disconnect a client API from the
@@ -544,12 +506,7 @@ interface IGraphicBufferProducer {
      *             * api was out of range (see above).
      * * DEAD_OBJECT - the token is hosted by an already-dead process
      */
-    disconnect(
-            int32_t api,
-            DisconnectMode mode
-        ) generates (
-            Status status
-        );
+    disconnect(int32_t api, DisconnectMode mode) generates (Status status);
 
     /**
      * Attaches a sideband buffer stream to the IGraphicBufferProducer.
@@ -563,11 +520,7 @@ interface IGraphicBufferProducer {
      * Passing NULL or a different stream handle will detach the previous
      * handle if any.
      */
-    setSidebandStream(
-            handle stream
-        ) generates (
-            Status status
-        );
+    setSidebandStream(handle stream) generates (Status status);
 
     /**
      * Allocates buffers based on the given dimensions/format.
@@ -582,11 +535,7 @@ interface IGraphicBufferProducer {
      * allocated, this function has no effect.
      */
     allocateBuffers(
-            uint32_t width,
-            uint32_t height,
-            PixelFormat format,
-            uint32_t usage
-        );
+        uint32_t width, uint32_t height, PixelFormat format, uint32_t usage);
 
     /**
      * Sets whether dequeueBuffer is allowed to allocate new buffers.
@@ -600,11 +549,7 @@ interface IGraphicBufferProducer {
      * eligible slot is available, dequeueBuffer will block or return an error
      * as usual.
      */
-    allowAllocation(
-            bool allow
-        ) generates (
-            Status status
-        );
+    allowAllocation(bool allow) generates (Status status);
 
     /**
      * Sets the current generation number of the BufferQueue.
@@ -615,19 +560,12 @@ interface IGraphicBufferProducer {
      * affected and will retain their current generation number. The generation
      * number defaults to 0.
      */
-    setGenerationNumber(
-            uint32_t generationNumber
-        ) generates (
-            Status status
-        );
+    setGenerationNumber(uint32_t generationNumber) generates (Status status);
 
     /**
      * Returns the name of the connected consumer.
      */
-    getConsumerName(
-        ) generates (
-            string name
-        );
+    getConsumerName() generates (string name);
 
     /**
      * Used to enable/disable shared buffer mode.
@@ -637,11 +575,7 @@ interface IGraphicBufferProducer {
      * dequeueBuffer and acquireBuffer. This allows the producer and consumer to
      * simultaneously access the same buffer.
      */
-    setSharedBufferMode(
-            bool sharedBufferMode
-        ) generates (
-            Status status
-        );
+    setSharedBufferMode(bool sharedBufferMode) generates (Status status);
 
     /**
      * Used to enable/disable auto-refresh.
@@ -651,11 +585,7 @@ interface IGraphicBufferProducer {
      * attempt to acquire buffers even if it is not aware of any being
      * available.
      */
-    setAutoRefresh(
-            bool autoRefresh
-        ) generates (
-            Status status
-        );
+    setAutoRefresh(bool autoRefresh) generates (Status status);
 
     /**
      * Sets how long dequeueBuffer will wait for a buffer to become available
@@ -675,11 +605,7 @@ interface IGraphicBufferProducer {
      *               happen because of trying to allocate/deallocate the async
      *               buffer.
      */
-    setDequeueTimeout(
-            int64_t timeoutNs
-        ) generates (
-            Status status
-        );
+    setDequeueTimeout(int64_t timeoutNs) generates (Status status);
 
     /**
      * Returns the last queued buffer along with a fence which must signal
@@ -688,31 +614,16 @@ interface IGraphicBufferProducer {
      *
      * transformMatrix is meaningless if buffer.nativeHandle is null.
      */
-    getLastQueuedBuffer(
-        ) generates (
-            Status status,
-            AnwBuffer buffer,
-            Fence fence,
-            float[16] transformMatrix
-        );
+    getLastQueuedBuffer() generates (Status status, AnwBuffer buffer,
+        Fence fence, float[16] transformMatrix);
 
     /**
      * Gets the frame events that haven't already been retrieved.
      */
-    getFrameTimestamps(
-        ) generates (
-            FrameEventHistoryDelta timeStamps
-        );
+    getFrameTimestamps() generates (FrameEventHistoryDelta timeStamps);
 
     /**
      * Returns a unique id for this BufferQueue.
      */
-    getUniqueId(
-        ) generates (
-            Status status,
-            uint64_t outId
-        );
-
+    getUniqueId() generates (Status status, uint64_t outId);
 };
-
-

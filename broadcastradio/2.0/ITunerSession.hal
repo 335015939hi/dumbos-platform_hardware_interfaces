@@ -1,4 +1,5 @@
-/* Copyright (C) 2017 The Android Open Source Project
+/*
+ * Copyright (C) 2017 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -182,7 +183,8 @@ interface ITunerSession {
      * @param keys Parameter keys to fetch.
      * @return parameters Vendor-specific key-value pairs.
      */
-    getParameters(vec<string> keys) generates (vec<VendorKeyValue> parameters);
+    getParameters(vec<string> keys) generates (vec<VendorKeyValue> parameters)
+        ;
 
     /**
      * Closes the session.

@@ -23,7 +23,6 @@ import android.hardware.graphics.common@1.0::types;
  * Camera device HAL@1.0 preview stream operation interface.
  */
 interface ICameraDevicePreviewCallback {
-
     /**
      * Acquire a buffer to write a preview buffer into.
      *
@@ -35,7 +34,8 @@ interface ICameraDevicePreviewCallback {
      *     of the bufferId to actual buffer handle mapping.
      * @return stride The stride between two rows of pixels in this buffer.
      */
-    dequeueBuffer() generates (Status status, uint64_t bufferId, handle buffer, uint32_t stride);
+    dequeueBuffer() generates (Status status, uint64_t bufferId, handle buffer,
+        uint32_t stride);
 
     /**
      * Send a filled preview buffer to its consumer.
@@ -72,8 +72,8 @@ interface ICameraDevicePreviewCallback {
      * @return Status The status code for this operation.
      */
     setBuffersGeometry(uint32_t w, uint32_t h,
-            android.hardware.graphics.common@1.0::PixelFormat format)
-            generates (Status status);
+        android.hardware.graphics.common@1.0::PixelFormat format)
+        generates (Status status);
 
     /**
      * Set the valid region of image data for the next buffer(s) to be enqueued.
@@ -81,7 +81,7 @@ interface ICameraDevicePreviewCallback {
      * @return Status The status code for this operation.
      */
     setCrop(int32_t left, int32_t top, int32_t right, int32_t bottom)
-            generates (Status status);
+        generates (Status status);
 
     /**
      * Set the producer usage flags for the next buffer(s) to be enqueued.
@@ -116,5 +116,4 @@ interface ICameraDevicePreviewCallback {
      * @return Status The status code for this operation.
      */
     setTimestamp(int64_t timestamp) generates (Status status);
-
 };

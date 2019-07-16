@@ -1,9 +1,13 @@
 package android.hardware.gnss@1.0;
 
-/** Extended interface for DEBUG support. */
+/**
+ * Extended interface for DEBUG support.
+ */
 interface IGnssDebug {
     enum SatelliteEphemerisType : uint8_t {
-        /** Ephemeris is known for this satellite. */
+        /**
+         * Ephemeris is known for this satellite.
+         */
         EPHEMERIS,
         /**
          * Ephemeris is not known, but Almanac (approximate location) is known.
@@ -13,7 +17,7 @@ interface IGnssDebug {
          * Both ephemeris & almanac are not known (e.g. during a cold start
          * blind search.)
          */
-        NOT_AVAILABLE
+        NOT_AVAILABLE,
     };
 
     enum SatelliteEphemerisSource : uint8_t {
@@ -38,16 +42,22 @@ interface IGnssDebug {
          * (e.g. almanac), or is from a satellite
          * with SatelliteEphemerisType::NOT_AVAILABLE.
          */
-        OTHER
+        OTHER,
     };
 
     enum SatelliteEphemerisHealth : uint8_t {
-        /** The ephemeris is known good. */
+        /**
+         * The ephemeris is known good.
+         */
         GOOD,
-        /** The ephemeris is known bad. */
+        /**
+         * The ephemeris is known bad.
+         */
         BAD,
-        /** The ephemeris is unknown to be good or bad. */
-        UNKNOWN
+        /**
+         * The ephemeris is unknown to be good or bad.
+         */
+        UNKNOWN,
     };
 
     /**
@@ -60,15 +70,25 @@ interface IGnssDebug {
          * latitude/longitude information is known.
          */
         bool valid;
-        /** Latitude expressed in degrees */
+        /**
+         * Latitude expressed in degrees
+         */
         double latitudeDegrees;
-        /** Longitude expressed in degrees */
+        /**
+         * Longitude expressed in degrees
+         */
         double longitudeDegrees;
-        /** Altitude above ellipsoid expressed in meters */
+        /**
+         * Altitude above ellipsoid expressed in meters
+         */
         float altitudeMeters;
-        /** Represents horizontal speed in meters per second. */
+        /**
+         * Represents horizontal speed in meters per second.
+         */
         float speedMetersPerSec;
-        /** Represents heading in degrees. */
+        /**
+         * Represents heading in degrees.
+         */
         float bearingDegrees;
         /**
          * Estimated horizontal accuracy of position expressed in meters,
@@ -106,9 +126,13 @@ interface IGnssDebug {
      * in the specified units.
      */
     struct TimeDebug {
-        /** UTC time estimate. */
+        /**
+         * UTC time estimate.
+         */
         GnssUtcTime timeEstimate;
-        /** 68% error estimate in time. */
+        /**
+         * 68% error estimate in time.
+         */
         float timeUncertaintyNs;
         /**
          * 68% error estimate in local clock drift,
@@ -121,18 +145,23 @@ interface IGnssDebug {
      * Provides a single satellite info that has decoded navigation data.
      */
     struct SatelliteData {
-        /** Satellite vehicle ID number */
+        /**
+         * Satellite vehicle ID number
+         */
         int16_t svid;
-        /** Defines the constellation type of the given SV. */
+        /**
+         * Defines the constellation type of the given SV.
+         */
         GnssConstellationType constellation;
-
         /**
          * Defines the standard broadcast ephemeris or almanac availability for
          * the satellite.  To report status of predicted orbit and clock
          * information, see the serverPrediction fields below.
          */
         SatelliteEphemerisType ephemerisType;
-        /** Defines the ephemeris source of the satellite. */
+        /**
+         * Defines the ephemeris source of the satellite.
+         */
         SatelliteEphemerisSource ephemerisSource;
         /**
          * Defines whether the satellite is known healthy
@@ -145,7 +174,6 @@ interface IGnssDebug {
          * Set to 0 when ephemerisType is NOT_AVAILABLE.
          */
         float ephemerisAgeSeconds;
-
         /**
          * True if a server has provided a predicted orbit and clock model for
          * this satellite.
@@ -164,9 +192,13 @@ interface IGnssDebug {
      * when the method getDebugData() is invoked.
      */
     struct DebugData {
-        /** Current best known position. */
+        /**
+         * Current best known position.
+         */
         PositionDebug position;
-        /** Current best know time estimate */
+        /**
+         * Current best know time estimate
+         */
         TimeDebug time;
         /**
          * Provides a list of the available satellite data, for all

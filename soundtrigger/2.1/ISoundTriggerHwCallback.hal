@@ -22,17 +22,19 @@ import @2.0::PhraseRecognitionExtra;
 /**
  * SoundTrigger HAL Callback interface. Obtained during SoundTrigger setup.
  */
-@hidl_callback
 interface ISoundTriggerHwCallback extends @2.0::ISoundTriggerHwCallback {
-
     /**
      * Generic recognition event sent via recognition callback.
      */
     struct RecognitionEvent {
-        /** Event header. Any data contained in the 'header.data' field
-         * is ignored */
+        /**
+         * Event header. Any data contained in the 'header.data' field
+         * is ignored
+         */
         @2.0::ISoundTriggerHwCallback.RecognitionEvent header;
-        /** Opaque event data */
+        /**
+         * Opaque event data
+         */
         memory data;
     };
 
@@ -40,9 +42,13 @@ interface ISoundTriggerHwCallback extends @2.0::ISoundTriggerHwCallback {
      * Specialized recognition event for key phrase recognitions.
      */
     struct PhraseRecognitionEvent {
-        /** Common part of the recognition event */
+        /**
+         * Common part of the recognition event
+         */
         RecognitionEvent common;
-        /** List of descriptors for each recognized key phrase */
+        /**
+         * List of descriptors for each recognized key phrase
+         */
         vec<PhraseRecognitionExtra> phraseExtras;
     };
 
@@ -50,10 +56,14 @@ interface ISoundTriggerHwCallback extends @2.0::ISoundTriggerHwCallback {
      * Event sent via load sound model callback.
      */
     struct ModelEvent {
-        /** Event header. Any data contained in the 'header.data' field
-         * is ignored */
+        /**
+         * Event header. Any data contained in the 'header.data' field
+         * is ignored
+         */
         @2.0::ISoundTriggerHwCallback.ModelEvent header;
-        /** Opaque event data, passed transparently by the framework */
+        /**
+         * Opaque event data, passed transparently by the framework
+         */
         memory data;
     };
 
@@ -76,8 +86,8 @@ interface ISoundTriggerHwCallback extends @2.0::ISoundTriggerHwCallback {
      * @param cookie The cookie passed by the framework when recognition was
      *     started (see ISoundtriggerHw.startRecognition*())
      */
-    phraseRecognitionCallback_2_1(PhraseRecognitionEvent event,
-                                  CallbackCookie cookie);
+    phraseRecognitionCallback_2_1(
+        PhraseRecognitionEvent event, CallbackCookie cookie);
 
     /**
      * Callback method called by the HAL when the sound model loading completes.

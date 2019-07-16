@@ -36,7 +36,8 @@ interface IDevice extends @1.0::IDevice {
      *                - GENERAL_FAILURE if there is an unspecified error
      * @return capabilities Capabilities of the driver.
      */
-    getCapabilities_1_1() generates (ErrorStatus status, Capabilities capabilities);
+    getCapabilities_1_1()
+        generates (ErrorStatus status, Capabilities capabilities);
 
     /**
      * Gets the supported operations in a model.
@@ -60,7 +61,7 @@ interface IDevice extends @1.0::IDevice {
      *                             it is describing.
      */
     getSupportedOperations_1_1(Model model)
-            generates (ErrorStatus status, vec<bool> supportedOperations);
+        generates (ErrorStatus status, vec<bool> supportedOperations);
 
     /**
      * Creates a prepared model for execution.
@@ -118,6 +119,5 @@ interface IDevice extends @1.0::IDevice {
      *                  invalid
      */
     prepareModel_1_1(Model model, ExecutionPreference preference,
-                     IPreparedModelCallback callback)
-          generates (ErrorStatus status);
+        IPreparedModelCallback callback) generates (ErrorStatus status);
 };

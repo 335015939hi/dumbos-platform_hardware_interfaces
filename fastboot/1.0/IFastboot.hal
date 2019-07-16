@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package android.hardware.fastboot@1.0;
 
 /**
@@ -28,7 +29,8 @@ interface IFastboot {
      *     FAILURE_UNKNOWN if the partition is invalid or does not require
      *     reformatting.
      */
-    getPartitionType(string partitionName) generates (FileSystemType type, Result result);
+    getPartitionType(string partitionName)
+        generates (FileSystemType type, Result result);
 
     /**
      * Executes a fastboot OEM command.
@@ -68,5 +70,6 @@ interface IFastboot {
      * @return result Returns the status SUCCESS if the operation is successful,
      *     FAILURE_UNKNOWN otherwise.
      */
-    getBatteryVoltageFlashingThreshold() generates (int32_t batteryVoltage, Result result);
+    getBatteryVoltageFlashingThreshold()
+        generates (int32_t batteryVoltage, Result result);
 };

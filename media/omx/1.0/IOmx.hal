@@ -18,7 +18,6 @@ package android.hardware.media.omx@1.0;
 
 import android.hardware.graphics.bufferqueue@1.0::IGraphicBufferProducer;
 import android.hardware.media@1.0::types;
-
 import IOmxNode;
 import IOmxObserver;
 import IGraphicBufferSource;
@@ -29,7 +28,6 @@ import IGraphicBufferSource;
  * IOmx has the ability to create OMX nodes.
  */
 interface IOmx {
-
     /**
      * Information for an IOmxNode component.
      */
@@ -44,12 +42,7 @@ interface IOmx {
      * @return status The status of the call.
      * @return nodeList The list of ComponentInfo.
      */
-    listNodes(
-        ) generates (
-            Status status,
-            vec<ComponentInfo> nodeList
-        );
-
+    listNodes() generates (Status status, vec<ComponentInfo> nodeList);
 
     /**
      * Allocate an IOmxNode instance with the specified node name.
@@ -60,13 +53,8 @@ interface IOmx {
      * @return status The status of the call.
      * @return omxNode The allocated instance of `IOmxNode`.
      */
-    allocateNode(
-            string name,
-            IOmxObserver observer
-        ) generates (
-            Status status,
-            IOmxNode omxNode
-        );
+    allocateNode(string name, IOmxObserver observer)
+        generates (Status status, IOmxNode omxNode);
 
     /**
      * Create an input surface for recording.
@@ -75,11 +63,6 @@ interface IOmx {
      * @return producer The associated producer end of the buffer queue.
      * @return source The associated `IGraphicBufferSource`.
      */
-    createInputSurface(
-        ) generates (
-            Status status,
-            IGraphicBufferProducer producer,
-            IGraphicBufferSource source
-        );
+    createInputSurface() generates (Status status,
+        IGraphicBufferProducer producer, IGraphicBufferSource source);
 };
-

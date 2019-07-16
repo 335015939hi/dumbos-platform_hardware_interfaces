@@ -22,11 +22,11 @@ import IGnssNavigationMessageCallback;
  * Extended interface for GNSS navigation message reporting support.
  */
 interface IGnssNavigationMessage {
-    @export(name="", value_prefix="GPS_NAVIGATION_MESSAGE_")
+    @export(name = "", value_prefix = "GPS_NAVIGATION_MESSAGE_")
     enum GnssNavigationMessageStatus : int32_t {
         SUCCESS = 0,
         ERROR_ALREADY_INIT = -100,
-        ERROR_GENERIC = -101
+        ERROR_GENERIC = -101,
     };
 
     /**
@@ -43,7 +43,8 @@ interface IGnssNavigationMessage {
      * expected that the HAL will not generate any updates upon returning
      * this error code.
      */
-     setCallback(IGnssNavigationMessageCallback callback) generates (GnssNavigationMessageStatus initRet);
+    setCallback(IGnssNavigationMessageCallback callback)
+        generates (GnssNavigationMessageStatus initRet);
 
     /**
      * Stops updates from the HAL, and unregisters the callback routines.

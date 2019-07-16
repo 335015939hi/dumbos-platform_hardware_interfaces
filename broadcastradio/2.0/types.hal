@@ -1,4 +1,5 @@
-/* Copyright (C) 2017 The Android Open Source Project
+/*
+ * Copyright (C) 2017 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,17 +16,19 @@
 
 package android.hardware.broadcastradio@2.0;
 
-/** Constants used by broadcast radio HAL. */
+/**
+ * Constants used by broadcast radio HAL.
+ */
 enum Constants : int32_t {
-    /** Invalid identifier for IBroadcastRadio::getImage. */
+    /**
+     * Invalid identifier for IBroadcastRadio::getImage.
+     */
     INVALID_IMAGE = 0,
-
     /**
      * If the antenna is disconnected from the beginning, the
      * onAntennaStateChange callback must be called within this time.
      */
     ANTENNA_DISCONNECTED_TIMEOUT_MS = 100,
-
     LIST_COMPLETE_TIMEOUT_MS = 300000,
 };
 
@@ -51,7 +54,6 @@ enum ConfigFlag : uint32_t {
      * stereo channels into one. Mainly for, but not limited to AM/FM.
      */
     FORCE_MONO = 1,
-
     /**
      * Forces the analog playback for the supporting radio technology.
      *
@@ -62,7 +64,6 @@ enum ConfigFlag : uint32_t {
      * Some radio technologies may not support this, ie. DAB.
      */
     FORCE_ANALOG,
-
     /**
      * Forces the digital playback for the supporting radio technology.
      *
@@ -72,7 +73,6 @@ enum ConfigFlag : uint32_t {
      * user choice, it does not reflect the actual state of handover.
      */
     FORCE_DIGITAL,
-
     /**
      * RDS Alternative Frequencies.
      *
@@ -81,7 +81,6 @@ enum ConfigFlag : uint32_t {
      * alternative.
      */
     RDS_AF,
-
     /**
      * RDS region-specific program lock-down.
      *
@@ -89,17 +88,21 @@ enum ConfigFlag : uint32_t {
      * other region.
      */
     RDS_REG,
-
-    /** Enables DAB-DAB hard- and implicit-linking (the same content). */
+    /**
+     * Enables DAB-DAB hard- and implicit-linking (the same content).
+     */
     DAB_DAB_LINKING,
-
-    /** Enables DAB-FM hard- and implicit-linking (the same content). */
+    /**
+     * Enables DAB-FM hard- and implicit-linking (the same content).
+     */
     DAB_FM_LINKING,
-
-    /** Enables DAB-DAB soft-linking (related content). */
+    /**
+     * Enables DAB-DAB soft-linking (related content).
+     */
     DAB_DAB_SOFT_LINKING,
-
-    /** Enables DAB-FM soft-linking (related content). */
+    /**
+     * Enables DAB-FM soft-linking (related content).
+     */
     DAB_FM_SOFT_LINKING,
 };
 
@@ -113,7 +116,6 @@ struct VendorKeyValue {
      * eg. 'com.somecompany.parameter1'.
      */
     string key;
-
     /**
      * Value must be passed through the framework without any changes.
      * Format of this string can vary across vendors.
@@ -129,10 +131,13 @@ struct VendorKeyValue {
  * region settings.
  */
 enum Rds : uint8_t {
-    /** Standard variant, used everywhere except North America. */
+    /**
+     * Standard variant, used everywhere except North America.
+     */
     RDS = 1 << 0,
-
-    /** Variant used in North America. */
+    /**
+     * Variant used in North America.
+     */
     RBDS = 1 << 1,
 };
 
@@ -169,11 +174,13 @@ struct AmFmRegionConfig {
      * configuration (AM LW, AM MW, AM SW, FM).
      */
     vec<AmFmBandRange> ranges;
-
-    /** De-emphasis filter supported/configured. */
+    /**
+     * De-emphasis filter supported/configured.
+     */
     bitfield<Deemphasis> fmDeemphasis;
-
-    /** RDS/RBDS variant supported/configured. */
+    /**
+     * RDS/RBDS variant supported/configured.
+     */
     bitfield<Rds> fmRds;
 };
 
@@ -184,15 +191,18 @@ struct AmFmRegionConfig {
  * lowerBound + channelNumber * spacing, up to upperBound.
  */
 struct AmFmBandRange {
-    /** The frequency (in kHz) of the first channel within the range. */
+    /**
+     * The frequency (in kHz) of the first channel within the range.
+     */
     uint32_t lowerBound;
-
-    /** The frequency (in kHz) of the last channel within the range. */
+    /**
+     * The frequency (in kHz) of the last channel within the range.
+     */
     uint32_t upperBound;
-
-    /** Channel grid resolution (in kHz), how far apart are the channels. */
+    /**
+     * Channel grid resolution (in kHz), how far apart are the channels.
+     */
     uint32_t spacing;
-
     /**
      * Channel spacing (in kHz) used to speed up seeking to the next station
      * via the ITunerSession::scan() operation.
@@ -222,8 +232,9 @@ struct DabTableEntry {
      * without spaces allowed at the beginning nor end).
      */
     string label;
-
-    /** Frequency, in kHz. */
+    /**
+     * Frequency, in kHz.
+     */
     uint32_t frequency;
 };
 
@@ -238,28 +249,24 @@ struct Properties {
      * It must be opaque to the Android framework.
      */
     string maker;
-
     /**
      * A product name. Must be unique within the company.
      *
      * It must be opaque to the Android framework.
      */
     string product;
-
     /**
      * Version of the hardware module.
      *
      * It must be opaque to the Android framework.
      */
     string version;
-
     /**
      * Hardware serial number (for subscription services).
      *
      * It must be opaque to the Android framework.
      */
     string serial;
-
     /**
      * A list of supported IdentifierType values.
      *
@@ -271,7 +278,6 @@ struct Properties {
      * other module properties (implementor, product, version) must be checked.
      */
     vec<uint32_t> supportedIdentifierTypes;
-
     /**
      * Vendor-specific information.
      *
@@ -295,7 +301,6 @@ struct ProgramInfo {
      * IdentifierType::INVALID.
      */
     ProgramSelector selector;
-
     /**
      * Identifier currently used for program selection.
      *
@@ -322,7 +327,6 @@ struct ProgramInfo {
      *  - more might come in next minor versions of this HAL.
      */
     ProgramIdentifier logicallyTunedTo;
-
     /**
      * Identifier currently used by hardware to physically tune to a channel.
      *
@@ -345,7 +349,6 @@ struct ProgramInfo {
      *  - more might come in next minor versions of this HAL.
      */
     ProgramIdentifier physicallyTunedTo;
-
     /**
      * Primary identifiers of related contents.
      *
@@ -365,9 +368,7 @@ struct ProgramInfo {
      * This field is optional (can be empty).
      */
     vec<ProgramIdentifier> relatedContent;
-
     bitfield<ProgramInfoFlags> infoFlags;
-
     /**
      * Signal quality measured in 0% to 100% range to be shown in the UI.
      *
@@ -375,12 +376,10 @@ struct ProgramInfo {
      * determine to which frequency should it tune to.
      */
     uint32_t signalQuality;
-
     /**
      * Program metadata (station name, PTY, song title).
      */
     vec<Metadata> metadata;
-
     /**
      * Vendor-specific information.
      *
@@ -397,25 +396,21 @@ enum ProgramInfoFlags : uint32_t {
      * usually targetted at reduced latency.
      */
     LIVE = 1 << 0,
-
     /**
      * Radio stream is not playing, ie. due to bad reception conditions or
      * buffering. In this state volume knob MAY be disabled to prevent user
      * increasing volume too much.
      */
     MUTED = 1 << 1,
-
     /**
      * Station broadcasts traffic information regularly,
      * but not necessarily right now.
      */
     TRAFFIC_PROGRAM = 1 << 2,
-
     /**
      * Station is broadcasting traffic information at the very moment.
      */
     TRAFFIC_ANNOUNCEMENT = 1 << 3,
-
     /**
      * Tuned to a program (not playing static).
      *
@@ -425,7 +420,6 @@ enum ProgramInfoFlags : uint32_t {
      * By definition, this flag must be set for all items on the program list.
      */
     TUNED = 1 << 4,
-
     /**
      * Audio stream is MONO if this bit is not set.
      */
@@ -455,12 +449,11 @@ enum IdentifierType : uint32_t {
      * ProgramSelector description.
      */
     VENDOR_START = 1000,
-
-    /** See VENDOR_START */
+    /**
+     * See VENDOR_START
+     */
     VENDOR_END = 1999,
-
     INVALID = 0,
-
     /**
      * Primary identifier for analogue (without RDS) AM/FM stations:
      * frequency in kHz.
@@ -472,12 +465,10 @@ enum IdentifierType : uint32_t {
      *  - >60MHz: FM.
      */
     AMFM_FREQUENCY,
-
     /**
      * 16bit primary identifier for FM RDS station.
      */
     RDS_PI,
-
     /**
      * 64bit compound primary identifier for HD Radio.
      *
@@ -499,7 +490,6 @@ enum IdentifierType : uint32_t {
      * and ignored when read.
      */
     HD_STATION_ID_EXT,
-
     /**
      * 64bit additional identifier for HD Radio.
      *
@@ -515,7 +505,6 @@ enum IdentifierType : uint32_t {
      * For example: "Abc" is encoded as 0x434241.
      */
     HD_STATION_NAME,
-
     /**
      * 28bit compound primary identifier for Digital Audio Broadcasting.
      *
@@ -532,30 +521,33 @@ enum IdentifierType : uint32_t {
      * and ignored when read.
      */
     DAB_SID_EXT,
-
-    /** 16bit */
+    /**
+     * 16bit
+     */
     DAB_ENSEMBLE,
-
-    /** 12bit */
+    /**
+     * 12bit
+     */
     DAB_SCID,
-
-    /** kHz (see AMFM_FREQUENCY) */
+    /**
+     * kHz (see AMFM_FREQUENCY)
+     */
     DAB_FREQUENCY,
-
     /**
      * 24bit primary identifier for Digital Radio Mondiale.
      */
     DRMO_SERVICE_ID,
-
-    /** kHz (see AMFM_FREQUENCY) */
+    /**
+     * kHz (see AMFM_FREQUENCY)
+     */
     DRMO_FREQUENCY,
-
     /**
      * 32bit primary identifier for SiriusXM Satellite Radio.
      */
     SXM_SERVICE_ID = DRMO_FREQUENCY + 2,
-
-    /** 0-999 range */
+    /**
+     * 0-999 range
+     */
     SXM_CHANNEL,
 };
 
@@ -569,7 +561,6 @@ struct ProgramIdentifier {
      * and ignored when reading.
      */
     uint32_t type;
-
     /**
      * The uint64_t value field holds the value in format described in comments
      * for IdentifierType enum.
@@ -617,7 +608,6 @@ struct ProgramSelector {
      * but not rely on it.
      */
     ProgramIdentifier primaryId;
-
     /**
      * Secondary program identifiers.
      *
@@ -634,33 +624,42 @@ struct ProgramSelector {
 };
 
 enum MetadataKey : int32_t {
-    /** RDS PS (string) */
+    /**
+     * RDS PS (string)
+     */
     RDS_PS = 1,
-
-    /** RDS PTY (uint8_t) */
+    /**
+     * RDS PTY (uint8_t)
+     */
     RDS_PTY,
-
-    /** RBDS PTY (uint8_t) */
+    /**
+     * RBDS PTY (uint8_t)
+     */
     RBDS_PTY,
-
-    /** RDS RT (string) */
+    /**
+     * RDS RT (string)
+     */
     RDS_RT,
-
-    /** Song title (string) */
+    /**
+     * Song title (string)
+     */
     SONG_TITLE,
-
-    /** Artist name (string) */
+    /**
+     * Artist name (string)
+     */
     SONG_ARTIST,
-
-    /** Album name (string) */
+    /**
+     * Album name (string)
+     */
     SONG_ALBUM,
-
-    /** Station icon (uint32_t, see IBroadcastRadio::getImage) */
+    /**
+     * Station icon (uint32_t, see IBroadcastRadio::getImage)
+     */
     STATION_ICON,
-
-    /** Album art (uint32_t, see IBroadcastRadio::getImage) */
+    /**
+     * Album art (uint32_t, see IBroadcastRadio::getImage)
+     */
     ALBUM_ART,
-
     /**
      * Station name.
      *
@@ -671,10 +670,10 @@ enum MetadataKey : int32_t {
      * it on the client side.
      */
     PROGRAM_NAME,
-
-    /** DAB ensemble name (string) */
+    /**
+     * DAB ensemble name (string)
+     */
     DAB_ENSEMBLE_NAME,
-
     /**
      * DAB ensemble name abbreviated (string).
      *
@@ -684,17 +683,21 @@ enum MetadataKey : int32_t {
      * present as well.
      */
     DAB_ENSEMBLE_NAME_SHORT,
-
-    /** DAB service name (string) */
+    /**
+     * DAB service name (string)
+     */
     DAB_SERVICE_NAME,
-
-    /** DAB service name abbreviated (see DAB_ENSEMBLE_NAME_SHORT) (string) */
+    /**
+     * DAB service name abbreviated (see DAB_ENSEMBLE_NAME_SHORT) (string)
+     */
     DAB_SERVICE_NAME_SHORT,
-
-    /** DAB component name (string) */
+    /**
+     * DAB component name (string)
+     */
     DAB_COMPONENT_NAME,
-
-    /** DAB component name abbreviated (see DAB_ENSEMBLE_NAME_SHORT) (string) */
+    /**
+     * DAB component name abbreviated (see DAB_ENSEMBLE_NAME_SHORT) (string)
+     */
     DAB_COMPONENT_NAME_SHORT,
 };
 
@@ -713,7 +716,6 @@ struct Metadata {
      * and ignored when reading.
      */
     uint32_t key;
-
     int64_t intValue;
     string stringValue;
 };
@@ -737,7 +739,6 @@ struct ProgramListChunk {
      * disappearing from the list).
      */
     bool purge;
-
     /**
      * If false, it means there are still programs not transmitted,
      * due for transmission in following updates.
@@ -752,7 +753,6 @@ struct ProgramListChunk {
      * came into a bad state and display error message.
      */
     bool complete;
-
     /**
      * Added or modified program list entries.
      *
@@ -760,7 +760,6 @@ struct ProgramListChunk {
      * are considered the same.
      */
     vec<ProgramInfo> modified;
-
     /**
      * Removed program list entries.
      *
@@ -790,7 +789,6 @@ struct ProgramFilter {
      * Empty list means no filtering on identifier type.
      */
     vec<uint32_t> identifierTypes;
-
     /**
      * List of identifiers that satisfy the filter.
      *
@@ -800,13 +798,11 @@ struct ProgramFilter {
      * Empty list means no filtering on identifier.
      */
     vec<ProgramIdentifier> identifiers;
-
     /**
      * Includes non-tunable entries that define tree structure on the
      * program list (i.e. DAB ensembles).
      */
     bool includeCategories;
-
     /**
      * Disable updates on entry modifications.
      *
@@ -823,28 +819,37 @@ struct ProgramFilter {
  * It maps to different announcement types per each radio technology.
  */
 enum AnnouncementType : uint8_t {
-    /** DAB alarm, RDS emergency program type (PTY 31). */
+    /**
+     * DAB alarm, RDS emergency program type (PTY 31).
+     */
     EMERGENCY = 1,
-
-    /** DAB warning. */
+    /**
+     * DAB warning.
+     */
     WARNING,
-
-    /** DAB road traffic, RDS TA, HD Radio transportation. */
+    /**
+     * DAB road traffic, RDS TA, HD Radio transportation.
+     */
     TRAFFIC,
-
-    /** Weather. */
+    /**
+     * Weather.
+     */
     WEATHER,
-
-    /** News. */
+    /**
+     * News.
+     */
     NEWS,
-
-    /** DAB event, special event. */
+    /**
+     * DAB event, special event.
+     */
     EVENT,
-
-    /** DAB sport report, RDS sports. */
+    /**
+     * DAB sport report, RDS sports.
+     */
     SPORT,
-
-    /** All others. */
+    /**
+     * All others.
+     */
     MISC,
 };
 
@@ -856,10 +861,10 @@ struct Announcement {
      * Program selector to tune to the announcement.
      */
     ProgramSelector selector;
-
-    /** Announcement type. */
+    /**
+     * Announcement type.
+     */
     AnnouncementType type;
-
     /**
      * Vendor-specific information.
      *

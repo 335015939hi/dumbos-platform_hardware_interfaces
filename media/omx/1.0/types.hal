@@ -18,7 +18,6 @@ package android.hardware.media.omx@1.0;
 
 import android.hardware.media@1.0::types;
 
-// Aliases
 typedef uint32_t BufferId;
 
 /**
@@ -29,23 +28,21 @@ typedef uint32_t BufferId;
  * Ref: frameworks/av/media/libstagefright/omx/OMXUtils.cpp: StatusFromOMXError
  */
 enum Status : int32_t {
-    OK                      = 0,
-    NO_ERROR                = 0,
-
-    NAME_NOT_FOUND          = -2,
-    WOULD_BLOCK             = -11,
-    NO_MEMORY               = -12,
-    ALREADY_EXISTS          = -17,
-    NO_INIT                 = -19,
-    BAD_VALUE               = -22,
-    DEAD_OBJECT             = -32,
-    INVALID_OPERATION       = -38,
-    TIMED_OUT               = -110,
-    ERROR_UNSUPPORTED       = -1010,
-    UNKNOWN_ERROR           = -2147483648,
-
+    OK = 0,
+    NO_ERROR = 0,
+    NAME_NOT_FOUND = -2,
+    WOULD_BLOCK = -11,
+    NO_MEMORY = -12,
+    ALREADY_EXISTS = -17,
+    NO_INIT = -19,
+    BAD_VALUE = -22,
+    DEAD_OBJECT = -32,
+    INVALID_OPERATION = -38,
+    TIMED_OUT = -110,
+    ERROR_UNSUPPORTED = -1010,
+    UNKNOWN_ERROR = -2147483648,
     BUFFER_NEEDS_REALLOCATION = 0x1,
-    RELEASE_ALL_BUFFERS       = 0x2,
+    RELEASE_ALL_BUFFERS = 0x2,
 };
 
 /**
@@ -55,69 +52,47 @@ enum Status : int32_t {
  * message types.
  */
 struct Message {
-
-    /**
-     * There are four main types of messages.
-     */
     enum Type : uint32_t {
         EVENT,
         EMPTY_BUFFER_DONE,
         FILL_BUFFER_DONE,
         FRAME_RENDERED,
     };
-
-    /**
-     * @see OMX_EVENTTYPE in the OpenMax IL standard.
-     */
     struct EventData {
-        uint32_t event; // TODO: if there are common core events, convert to an enum or point to std
+        uint32_t event;
         uint32_t data1;
         uint32_t data2;
         uint32_t data3;
         uint32_t data4;
     };
-
     struct BufferData {
         BufferId buffer;
     };
-
     struct ExtendedBufferData {
         BufferId buffer;
         uint32_t rangeOffset;
         uint32_t rangeLength;
-        uint32_t flags; // TODO: if common flags exist, define an enum of point to std
+        uint32_t flags;
         uint64_t timestampUs;
     };
-
     struct RenderData {
         uint64_t timestampUs;
         int64_t systemTimeNs;
     };
-
     union Data {
-        // if type == EVENT
         EventData eventData;
-
-        // if type == EMPTY_BUFFER_DONE
         BufferData bufferData;
-
-        // if type == FILL_BUFFER_DONE
         ExtendedBufferData extendedBufferData;
-
-        // if type == FRAME_RENDERED
         RenderData renderData;
     };
-
     /**
      * The type of the message.
      */
     Type type;
-
     /**
      * The fence associated with the message.
      */
     Fence fence;
-
     /**
      * The union of data, discriminated by type.
      */
@@ -135,10 +110,6 @@ struct Message {
  * different buffer types.
  */
 struct CodecBuffer {
-
-    /**
-     * There are four main types of buffers.
-     */
     enum Type : int32_t {
         INVALID = 0,
         PRESET,
@@ -146,36 +117,22 @@ struct CodecBuffer {
         ANW_BUFFER,
         NATIVE_HANDLE,
     };
-
     struct PresetAttributes {
         uint32_t rangeOffset;
         uint32_t rangeLength;
     };
-
     union Attributes {
-        // if bufferType == PRESET
         PresetAttributes preset;
-
-        // if bufferType == SHARED_MEM
-        // No additional attributes.
-
-        // if bufferType == ANW_BUFFER
         AnwBufferAttributes anwBuffer;
-
-        // if bufferType == NATIVE_HANDLE
-        // No additional attributes.
     };
-
     /**
      * Type of the buffer.
      */
     Type type;
-
     /**
      * Attributes that can be put into a union.
      */
     Attributes attr;
-
     /**
      * Used only for types ANW_BUFFER and NATIVE_HANDLE.
      *
@@ -183,12 +140,10 @@ struct CodecBuffer {
      * support discriminated unions.)
      */
     handle nativeHandle;
-
     /**
      * Used only for type SHARED_MEM.
      */
     memory sharedMemory;
-
 };
 
 /**
@@ -205,7 +160,7 @@ enum PortMode : int32_t {
     DYNAMIC_START = 100,
     DYNAMIC_ANW_BUFFER,
     DYNAMIC_NATIVE_HANDLE,
-    DYNAMIC_END
+    DYNAMIC_END,
 };
 
 /**
@@ -217,62 +172,48 @@ enum PortMode : int32_t {
  */
 struct ColorAspects {
     enum Range : uint32_t {
-        UNSPECIFIED,  // Unspecified
-        FULL,         // Full range
-        LIMITED,      // Limited range (if defined), or not full range
-
-        OTHER = 0xff, // Not one of the above values
+        UNSPECIFIED,
+        FULL,
+        LIMITED,
+        OTHER = 0xff,
     };
-
-    // Color primaries
     enum Primaries : uint32_t {
-        UNSPECIFIED,  // Unspecified
-        BT709_5,      // Rec.ITU-R BT.709-5 or equivalent
-        BT470_6M,     // Rec.ITU-R BT.470-6 System M or equivalent
-        BT601_6_625,  // Rec.ITU-R BT.601-6 625 or equivalent
-        BT601_6_525,  // Rec.ITU-R BT.601-6 525 or equivalent
-        GENERIC_FILM, // Generic Film
-        BT2020,       // Rec.ITU-R BT.2020 or equivalent
-
-        OTHER = 0xff, // Not one of the above values
+        UNSPECIFIED,
+        BT709_5,
+        BT470_6M,
+        BT601_6_625,
+        BT601_6_525,
+        GENERIC_FILM,
+        BT2020,
+        OTHER = 0xff,
     };
-
-    // Transfer characteristics
     enum Transfer : uint32_t {
-        UNSPECIFIED,  // Unspecified
-        LINEAR,       // Linear transfer characteristics
-        SRGB,         // sRGB or equivalent
-        SMPTE170M,    // SMPTE 170M or equivalent (e.g. BT.601/709/2020)
-        GAMMA22,      // Assumed display gamma 2.2
-        GAMMA28,      // Assumed display gamma 2.8
-        ST2084,       // SMPTE ST 2084 for 10/12/14/16 bit systems
-        HLG,          // ARIB STD-B67 hybrid-log-gamma
-
-        // values unlikely to be required by Android follow here
-        SMPTE240M = 0x40, // SMPTE 240M
-        XVYCC,        // IEC 61966-2-4
-        BT1361,       // Rec.ITU-R BT.1361 extended gamut
-        ST428,        // SMPTE ST 428-1
-
-        OTHER = 0xff, // Not one of the above values
+        UNSPECIFIED,
+        LINEAR,
+        SRGB,
+        SMPTE170M,
+        GAMMA22,
+        GAMMA28,
+        ST2084,
+        HLG,
+        SMPTE240M = 0x40,
+        XVYCC,
+        BT1361,
+        ST428,
+        OTHER = 0xff,
     };
-
-    // YUV <-> RGB conversion
     enum MatrixCoeffs : uint32_t {
-        UNSPECIFIED,    // Unspecified
-        BT709_5,        // Rec.ITU-R BT.709-5 or equivalent
-        BT470_6M,       // KR=0.30, KB=0.11 or equivalent
-        BT601_6,        // Rec.ITU-R BT.601-6 625 or equivalent
-        SMPTE240M,      // SMPTE 240M or equivalent
-        BT2020,         // Rec.ITU-R BT.2020 non-constant luminance
-        BT2020CONSTANT, // Rec.ITU-R BT.2020 constant luminance
-
-        OTHER = 0xff,   // Not one of the above values
+        UNSPECIFIED,
+        BT709_5,
+        BT470_6M,
+        BT601_6,
+        SMPTE240M,
+        BT2020,
+        BT2020CONSTANT,
+        OTHER = 0xff,
     };
-
     Range range;
     Primaries primaries;
     Transfer transfer;
     MatrixCoeffs matrixCoeffs;
 };
-

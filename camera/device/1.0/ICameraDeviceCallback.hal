@@ -17,7 +17,6 @@
 package android.hardware.camera.device@1.0;
 
 interface ICameraDeviceCallback {
-
     /**
      * Notify the camera service of a particular event occurring
      * The meaning of each parameter is defined by the value of msgType, and
@@ -45,8 +44,8 @@ interface ICameraDeviceCallback {
      *     in case of error, such as if the descriptor does not contain exactly
      *     one FD.
      */
-    registerMemory(handle descriptor, uint32_t bufferSize, uint32_t bufferCount)
-            generates (MemoryId memId);
+    registerMemory(handle descriptor, uint32_t bufferSize, uint32_t bufferCount
+        ) generates (MemoryId memId);
 
     /**
      * Unregister a previously registered memory buffer
@@ -63,7 +62,7 @@ interface ICameraDeviceCallback {
      *
      */
     dataCallback(DataCallbackMsg msgType, MemoryId data, uint32_t bufferIndex,
-            CameraFrameMetadata metadata);
+        CameraFrameMetadata metadata);
 
     /**
      * Send a buffer of image data to the camera service, with a timestamp
@@ -76,8 +75,8 @@ interface ICameraDeviceCallback {
      *     nanoseconds.
      *
      */
-    dataCallbackTimestamp(DataCallbackMsg msgType, MemoryId data, uint32_t bufferIndex,
-            int64_t timestamp);
+    dataCallbackTimestamp(DataCallbackMsg msgType, MemoryId data,
+        uint32_t bufferIndex, int64_t timestamp);
 
     /**
      * Send a buffer of image data to the camera service, with a timestamp
@@ -91,8 +90,8 @@ interface ICameraDeviceCallback {
      *     nanoseconds.
      *
      */
-    handleCallbackTimestamp(DataCallbackMsg msgType, handle frameData, MemoryId data,
-            uint32_t bufferIndex, int64_t timestamp);
+    handleCallbackTimestamp(DataCallbackMsg msgType, handle frameData,
+        MemoryId data, uint32_t bufferIndex, int64_t timestamp);
 
     /**
      * Send a batch of image data buffer to the camera service, with timestamps
@@ -108,6 +107,6 @@ interface ICameraDeviceCallback {
      *     i-th message is always smaller than i+1-th message.
      *
      */
-    handleCallbackTimestampBatch(DataCallbackMsg msgType, vec<HandleTimestampMessage> batch);
-
+    handleCallbackTimestampBatch(
+        DataCallbackMsg msgType, vec<HandleTimestampMessage> batch);
 };

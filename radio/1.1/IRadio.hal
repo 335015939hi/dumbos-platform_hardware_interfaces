@@ -40,7 +40,8 @@ interface IRadio extends @1.0::IRadio {
      * Response callback is
      * IRadioResponse.setCarrierInfoForImsiEncryptionResponse()
      */
-     oneway setCarrierInfoForImsiEncryption(int32_t serial, ImsiEncryptionInfo imsiEncryptionInfo);
+    oneway setCarrierInfoForImsiEncryption(
+        int32_t serial, ImsiEncryptionInfo imsiEncryptionInfo);
 
     /**
      * Set SIM card power state.

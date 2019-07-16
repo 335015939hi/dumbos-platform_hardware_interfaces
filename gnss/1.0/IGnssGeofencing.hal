@@ -18,7 +18,9 @@ package android.hardware.gnss@1.0;
 
 import IGnssGeofenceCallback;
 
-/** Extended interface for GNSS Geofencing support */
+/**
+ * Extended interface for GNSS Geofencing support
+ */
 interface IGnssGeofencing {
     /**
      * Opens the geofence interface and provides the callback routines
@@ -53,11 +55,11 @@ interface IGnssGeofencing {
      * @param unknownTimerMs - The time limit after which the UNCERTAIN transition
      * must be triggered. This parameter is defined in milliseconds.
      */
-    addGeofence(int32_t geofenceId, double latitudeDegrees, double longitudeDegrees,
-            double radiusMeters, GeofenceTransition lastTransition,
-            bitfield<IGnssGeofenceCallback.GeofenceTransition> monitorTransitions,
-            uint32_t notificationResponsivenessMs,
-            uint32_t unknownTimerMs);
+    addGeofence(int32_t geofenceId, double latitudeDegrees,
+        double longitudeDegrees, double radiusMeters,
+        GeofenceTransition lastTransition,
+        bitfield<IGnssGeofenceCallback.GeofenceTransition> monitorTransitions,
+        uint32_t notificationResponsivenessMs, uint32_t unknownTimerMs);
 
     /**
      * Pause monitoring a particular geofence.
@@ -76,7 +78,8 @@ interface IGnssGeofencing {
      * provided in the addGeofenceArea call.
      */
     resumeGeofence(int32_t geofenceId,
-            bitfield<IGnssGeofenceCallback.GeofenceTransition> monitorTransitions);
+        bitfield<IGnssGeofenceCallback.GeofenceTransition> monitorTransitions
+        );
 
     /**
      * Remove a geofence area. After the function returns, no notifications

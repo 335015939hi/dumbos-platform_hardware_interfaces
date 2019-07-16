@@ -96,7 +96,7 @@ interface IDevice {
      * @return bufferSize input buffer size in bytes.
      */
     getInputBufferSize(AudioConfig config)
-            generates (Result retval, uint64_t bufferSize);
+        generates (Result retval, uint64_t bufferSize);
 
     /**
      * This method creates and opens the audio hardware output stream.
@@ -108,20 +108,15 @@ interface IDevice {
      * @param config stream configuration.
      * @param flags additional flags.
      * @param sourceMetadata Description of the audio that will be played.
-                             May be used by implementations to configure hardware effects.
+     * May be used by implementations to configure hardware effects.
      * @return retval operation completion status.
      * @return outStream created output stream.
      * @return suggestedConfig in case of invalid parameters, suggested config.
      */
-    openOutputStream(
-            AudioIoHandle ioHandle,
-            DeviceAddress device,
-            AudioConfig config,
-            bitfield<AudioOutputFlag> flags,
-            SourceMetadata sourceMetadata) generates (
-                    Result retval,
-                    IStreamOut outStream,
-                    AudioConfig suggestedConfig);
+    openOutputStream(AudioIoHandle ioHandle, DeviceAddress device,
+        AudioConfig config, bitfield<AudioOutputFlag> flags,
+        SourceMetadata sourceMetadata) generates (Result retval,
+        IStreamOut outStream, AudioConfig suggestedConfig);
 
     /**
      * This method creates and opens the audio hardware input stream.
@@ -138,15 +133,10 @@ interface IDevice {
      * @return inStream in case of success, created input stream.
      * @return suggestedConfig in case of invalid parameters, suggested config.
      */
-    openInputStream(
-            AudioIoHandle ioHandle,
-            DeviceAddress device,
-            AudioConfig config,
-            bitfield<AudioInputFlag> flags,
-            SinkMetadata sinkMetadata) generates (
-                    Result retval,
-                    IStreamIn inStream,
-                    AudioConfig suggestedConfig);
+    openInputStream(AudioIoHandle ioHandle, DeviceAddress device,
+        AudioConfig config, bitfield<AudioInputFlag> flags,
+        SinkMetadata sinkMetadata) generates (Result retval, IStreamIn inStream
+        , AudioConfig suggestedConfig);
 
     /**
      * Returns whether HAL supports audio patches.
@@ -165,7 +155,7 @@ interface IDevice {
      * @return patch created patch handle.
      */
     createAudioPatch(vec<AudioPortConfig> sources, vec<AudioPortConfig> sinks)
-            generates (Result retval, AudioPatchHandle patch);
+        generates (Result retval, AudioPatchHandle patch);
 
     /**
      * Release an audio patch.
@@ -189,7 +179,7 @@ interface IDevice {
      * @return resultPort port descriptor with all parameters filled up.
      */
     getAudioPort(AudioPort port)
-            generates (Result retval, AudioPort resultPort);
+        generates (Result retval, AudioPort resultPort);
 
     /**
      * Set audio port configuration.
@@ -237,7 +227,7 @@ interface IDevice {
      *         Must contain the value of all requested keys if retval == OK
      */
     getParameters(vec<ParameterValue> context, vec<string> keys)
-            generates (Result retval, vec<ParameterValue> parameters);
+        generates (Result retval, vec<ParameterValue> parameters);
 
     /**
      * Generic method for setting vendor-specific parameter values.
@@ -255,7 +245,7 @@ interface IDevice {
      *         All parameters must be successfully set for OK to be returned
      */
     setParameters(vec<ParameterValue> context, vec<ParameterValue> parameters)
-            generates (Result retval);
+        generates (Result retval);
 
     /**
      * Returns an array with available microphones in device.
@@ -265,8 +255,8 @@ interface IDevice {
      *
      * @return microphones array with microphones info
      */
-    getMicrophones()
-         generates(Result retval, vec<MicrophoneInfo> microphones);
+    getMicrophones() generates (Result retval, vec<MicrophoneInfo> microphones)
+        ;
 
     /**
      * Notifies the device module about the connection state of an input/output
@@ -278,5 +268,5 @@ interface IDevice {
      * @return retval operation completion status.
      */
     setConnectedState(DeviceAddress address, bool connected)
-            generates (Result retval);
+        generates (Result retval);
 };

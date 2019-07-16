@@ -128,8 +128,8 @@ interface IStream {
      * @return mask channel mask.
      * @return format audio format.
      */
-    getAudioProperties() generates (
-            uint32_t sampleRateHz, AudioChannelMask mask, AudioFormat format);
+    getAudioProperties() generates (uint32_t sampleRateHz,
+        AudioChannelMask mask, AudioFormat format);
 
     /**
      * Applies audio effect to the stream.
@@ -187,7 +187,7 @@ interface IStream {
      * @return retval operation completion status.
      */
     setConnectedState(DeviceAddress address, bool connected)
-            generates (Result retval);
+        generates (Result retval);
 
     /**
      * Sets the HW synchronization source. Calling this method is equivalent to
@@ -208,7 +208,7 @@ interface IStream {
      * @return parameters parameter key value pairs.
      */
     getParameters(vec<string> keys)
-            generates (Result retval, vec<ParameterValue> parameters);
+        generates (Result retval, vec<ParameterValue> parameters);
 
     /**
      * Generic method for setting vendor-specific parameter values.
@@ -247,7 +247,7 @@ interface IStream {
      *                NOT_SUPPORTED on non mmap mode streams
      *                INVALID_STATE if called out of sequence
      */
-    stop() generates (Result retval) ;
+    stop() generates (Result retval);
 
     /**
      * Called by the framework to retrieve information on the mmap buffer used for audio
@@ -264,7 +264,7 @@ interface IStream {
      * @return info    a MmapBufferInfo struct containing information on the MMMAP buffer created.
      */
     createMmapBuffer(int32_t minSizeFrames)
-            generates (Result retval, MmapBufferInfo info);
+        generates (Result retval, MmapBufferInfo info);
 
     /**
      * Called by the framework to read current read/write position in the mmap buffer
@@ -277,8 +277,7 @@ interface IStream {
      * @return position a MmapPosition struct containing current HW read/write position in frames
      *                  with associated time stamp.
      */
-    getMmapPosition()
-            generates (Result retval, MmapPosition position);
+    getMmapPosition() generates (Result retval, MmapPosition position);
 
     /**
      * Called by the framework to deinitialize the stream and free up

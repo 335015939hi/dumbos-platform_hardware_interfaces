@@ -16,9 +16,7 @@
 
 package android.hardware.broadcastradio@1.0;
 
-
 interface ITunerCallback {
-
     /**
      * Method called by the HAL when a HW failure occurs.
      * The framework MUST close the ITuner interface and open a new one.
@@ -76,5 +74,6 @@ interface ITunerCallback {
      * @param subChannel The sub channel the metadata is associated with.
      * @param metadata A list of all updated metada.
      */
-    oneway newMetadata(uint32_t channel, uint32_t subChannel, vec<MetaData>  metadata);
+    oneway newMetadata(
+        uint32_t channel, uint32_t subChannel, vec<MetaData> metadata);
 };

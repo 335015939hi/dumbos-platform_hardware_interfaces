@@ -69,7 +69,7 @@ interface IStream {
      * @return sampleRateHz supported sample rates.
      */
     getSupportedSampleRates(AudioFormat format)
-            generates (Result retval, vec<uint32_t> sampleRates);
+        generates (Result retval, vec<uint32_t> sampleRates);
 
     /**
      * Sets the sampling rate of the stream. Calling this method is equivalent
@@ -99,7 +99,7 @@ interface IStream {
      * @return masks supported audio masks.
      */
     getSupportedChannelMasks(AudioFormat format)
-            generates (Result retval, vec<bitfield<AudioChannelMask>> masks);
+        generates (Result retval, vec<bitfield<AudioChannelMask>> masks);
 
     /**
      * Sets the channel mask of the stream. Calling this method is equivalent to
@@ -145,8 +145,8 @@ interface IStream {
      * @return mask channel mask.
      * @return format audio format.
      */
-    getAudioProperties() generates (
-            uint32_t sampleRateHz, bitfield<AudioChannelMask> mask, AudioFormat format);
+    getAudioProperties() generates (uint32_t sampleRateHz,
+        bitfield<AudioChannelMask> mask, AudioFormat format);
 
     /**
      * Applies audio effect to the stream.
@@ -224,7 +224,7 @@ interface IStream {
      *         Must contain the value of all requested keys if retval == OK
      */
     getParameters(vec<ParameterValue> context, vec<string> keys)
-            generates (Result retval, vec<ParameterValue> parameters);
+        generates (Result retval, vec<ParameterValue> parameters);
 
     /**
      * Generic method for setting vendor-specific parameter values.
@@ -242,7 +242,7 @@ interface IStream {
      *         All parameters must be successfully set for OK to be returned
      */
     setParameters(vec<ParameterValue> context, vec<ParameterValue> parameters)
-            generates (Result retval);
+        generates (Result retval);
 
     /**
      * Called by the framework to start a stream operating in mmap mode.
@@ -263,7 +263,7 @@ interface IStream {
      *                NOT_SUPPORTED on non mmap mode streams
      *                INVALID_STATE if called out of sequence
      */
-    stop() generates (Result retval) ;
+    stop() generates (Result retval);
 
     /**
      * Called by the framework to retrieve information on the mmap buffer used for audio
@@ -280,7 +280,7 @@ interface IStream {
      * @return info    a MmapBufferInfo struct containing information on the MMMAP buffer created.
      */
     createMmapBuffer(int32_t minSizeFrames)
-            generates (Result retval, MmapBufferInfo info);
+        generates (Result retval, MmapBufferInfo info);
 
     /**
      * Called by the framework to read current read/write position in the mmap buffer
@@ -293,8 +293,7 @@ interface IStream {
      * @return position a MmapPosition struct containing current HW read/write position in frames
      *                  with associated time stamp.
      */
-    getMmapPosition()
-            generates (Result retval, MmapPosition position);
+    getMmapPosition() generates (Result retval, MmapPosition position);
 
     /**
      * Called by the framework to deinitialize the stream and free up

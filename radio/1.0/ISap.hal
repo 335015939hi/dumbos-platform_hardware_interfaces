@@ -85,5 +85,6 @@ interface ISap {
      * @param token Id to match req-resp. Resp must include same token.
      * @param transferProtocol Transport Protocol
      */
-    oneway setTransferProtocolReq(int32_t token, SapTransferProtocol transferProtocol);
+    oneway setTransferProtocolReq(
+        int32_t token, SapTransferProtocol transferProtocol);
 };

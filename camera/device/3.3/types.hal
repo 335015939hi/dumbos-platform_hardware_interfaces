@@ -16,8 +16,8 @@
 
 package android.hardware.camera.device@3.3;
 
-import android.hardware.camera.device@3.2::DataspaceFlags;
-import android.hardware.camera.device@3.2::HalStream;
+import @3.2::DataspaceFlags;
+import @3.2::HalStream;
 
 /**
  * HalStream:
@@ -32,7 +32,6 @@ struct HalStream {
      * The definition of HalStream from the prior version.
      */
     @3.2::HalStream v3_2;
-
     /**
      * An override dataSpace for the buffers in this stream.
      *

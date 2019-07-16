@@ -17,14 +17,12 @@
 package android.hardware.health@2.0;
 
 import @1.0::BatteryStatus;
-
 import IHealthInfoCallback;
 
 /**
  * IHealth manages health info and posts events on registered callbacks.
  */
 interface IHealth {
-
     /**
      * Register a callback for any health info events.
      *
@@ -48,7 +46,8 @@ interface IHealth {
      *                NOT_FOUND if callback is not registered previously,
      *                UNKNOWN for other errors.
      */
-    unregisterCallback(IHealthInfoCallback callback) generates (Result result);
+    unregisterCallback(IHealthInfoCallback callback) generates (Result result)
+        ;
 
     /**
      * Schedule update.

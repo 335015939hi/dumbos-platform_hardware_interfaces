@@ -20,25 +20,25 @@ package android.hardware.wifi@1.0;
  * Interface used to represent a single iface.
  */
 interface IWifiIface {
-  /**
-   * Get the type of this iface.
-   *
-   * @return status WifiStatus of the operation.
-   *         Possible status codes:
-   *         |WifiStatusCode.SUCCESS|,
-   *         |WifiStatusCode.ERROR_WIFI_IFACE_INVALID|
-   * @return type One of the supported iface types.
-   */
-  getType() generates (WifiStatus status, IfaceType type);
+    /**
+     * Get the type of this iface.
+     *
+     * @return status WifiStatus of the operation.
+     *         Possible status codes:
+     *         |WifiStatusCode.SUCCESS|,
+     *         |WifiStatusCode.ERROR_WIFI_IFACE_INVALID|
+     * @return type One of the supported iface types.
+     */
+    getType() generates (WifiStatus status, IfaceType type);
 
-  /**
-   * Get the name of this iface.
-   *
-   * @return status WifiStatus of the operation.
-   *         Possible status codes:
-   *         |WifiStatusCode.SUCCESS|,
-   *         |WifiStatusCode.ERROR_WIFI_IFACE_INVALID|
-   * @return name Name of the iface.
-   */
-  getName() generates (WifiStatus status, string name);
+    /**
+     * Get the name of this iface.
+     *
+     * @return status WifiStatus of the operation.
+     *         Possible status codes:
+     *         |WifiStatusCode.SUCCESS|,
+     *         |WifiStatusCode.ERROR_WIFI_IFACE_INVALID|
+     * @return name Name of the iface.
+     */
+    getName() generates (WifiStatus status, string name);
 };

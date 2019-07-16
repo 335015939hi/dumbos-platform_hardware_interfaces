@@ -16,60 +16,94 @@
 
 package android.hardware.gnss@1.0;
 
-/** The callback interface to report measurements from the HAL. */
+/**
+ * The callback interface to report measurements from the HAL.
+ */
 interface IGnssMeasurementCallback {
     /**
      * Flags to indicate what fields in GnssClock are valid.
      */
-    @export(name="", value_prefix="GNSS_CLOCK_")
+    @export(name = "", value_prefix = "GNSS_CLOCK_")
     enum GnssClockFlags : uint16_t {
-        /** A valid 'leap second' is stored in the data structure. */
-        HAS_LEAP_SECOND        = 1 << 0,
-        /** A valid 'time uncertainty' is stored in the data structure. */
-        HAS_TIME_UNCERTAINTY   = 1 << 1,
-        /** A valid 'full bias' is stored in the data structure. */
-        HAS_FULL_BIAS          = 1 << 2,
-        /** A valid 'bias' is stored in the data structure. */
-        HAS_BIAS               = 1 << 3,
-        /** A valid 'bias uncertainty' is stored in the data structure. */
-        HAS_BIAS_UNCERTAINTY   = 1 << 4,
-        /** A valid 'drift' is stored in the data structure. */
-        HAS_DRIFT              = 1 << 5,
-        /** A valid 'drift uncertainty' is stored in the data structure. */
-        HAS_DRIFT_UNCERTAINTY  = 1 << 6
+        /**
+         * A valid 'leap second' is stored in the data structure.
+         */
+        HAS_LEAP_SECOND = 1 << 0,
+        /**
+         * A valid 'time uncertainty' is stored in the data structure.
+         */
+        HAS_TIME_UNCERTAINTY = 1 << 1,
+        /**
+         * A valid 'full bias' is stored in the data structure.
+         */
+        HAS_FULL_BIAS = 1 << 2,
+        /**
+         * A valid 'bias' is stored in the data structure.
+         */
+        HAS_BIAS = 1 << 3,
+        /**
+         * A valid 'bias uncertainty' is stored in the data structure.
+         */
+        HAS_BIAS_UNCERTAINTY = 1 << 4,
+        /**
+         * A valid 'drift' is stored in the data structure.
+         */
+        HAS_DRIFT = 1 << 5,
+        /**
+         * A valid 'drift uncertainty' is stored in the data structure.
+         */
+        HAS_DRIFT_UNCERTAINTY = 1 << 6,
     };
 
     /**
      * Flags to indicate what fields in GnssMeasurement are valid.
      */
-    @export(name="", value_prefix="GNSS_MEASUREMENT_")
+    @export(name = "", value_prefix = "GNSS_MEASUREMENT_")
     enum GnssMeasurementFlags : uint32_t {
-        /** A valid 'snr' is stored in the data structure. */
-        HAS_SNR                        = 1 << 0,
-        /** A valid 'carrier frequency' is stored in the data structure. */
-        HAS_CARRIER_FREQUENCY          = 1 << 9,
-        /** A valid 'carrier cycles' is stored in the data structure. */
-        HAS_CARRIER_CYCLES             = 1 << 10,
-        /** A valid 'carrier phase' is stored in the data structure. */
-        HAS_CARRIER_PHASE              = 1 << 11,
-        /** A valid 'carrier phase uncertainty' is stored in the data structure. */
-        HAS_CARRIER_PHASE_UNCERTAINTY  = 1 << 12,
-        /** A valid automatic gain control is stored in the data structure. */
-        HAS_AUTOMATIC_GAIN_CONTROL     = 1 << 13
+        /**
+         * A valid 'snr' is stored in the data structure.
+         */
+        HAS_SNR = 1 << 0,
+        /**
+         * A valid 'carrier frequency' is stored in the data structure.
+         */
+        HAS_CARRIER_FREQUENCY = 1 << 9,
+        /**
+         * A valid 'carrier cycles' is stored in the data structure.
+         */
+        HAS_CARRIER_CYCLES = 1 << 10,
+        /**
+         * A valid 'carrier phase' is stored in the data structure.
+         */
+        HAS_CARRIER_PHASE = 1 << 11,
+        /**
+         * A valid 'carrier phase uncertainty' is stored in the data structure.
+         */
+        HAS_CARRIER_PHASE_UNCERTAINTY = 1 << 12,
+        /**
+         * A valid automatic gain control is stored in the data structure.
+         */
+        HAS_AUTOMATIC_GAIN_CONTROL = 1 << 13,
     };
 
     /**
      * Enumeration of available values for the GNSS Measurement's multipath
      * indicator.
      */
-    @export(name="", value_prefix="GNSS_MULTIPATH_")
+    @export(name = "", value_prefix = "GNSS_MULTIPATH_")
     enum GnssMultipathIndicator : uint8_t {
-        /** The indicator is not available or unknown. */
-        INDICATOR_UNKNOWN      = 0,
-        /** The measurement is indicated to be affected by multipath. */
-        INDICATOR_PRESENT      = 1,
-        /** The measurement is indicated to be not affected by multipath. */
-        INDICATIOR_NOT_PRESENT = 2
+        /**
+         * The indicator is not available or unknown.
+         */
+        INDICATOR_UNKNOWN = 0,
+        /**
+         * The measurement is indicated to be affected by multipath.
+         */
+        INDICATOR_PRESENT = 1,
+        /**
+         * The measurement is indicated to be not affected by multipath.
+         */
+        INDICATIOR_NOT_PRESENT = 2,
     };
 
     /**
@@ -85,35 +119,35 @@ interface IGnssMeasurementCallback {
      * If GNSS is still searching for a satellite, the corresponding state must be
      * set to STATE_UNKNOWN(0).
      */
-    @export(name="", value_prefix="GNSS_MEASUREMENT_")
+    @export(name = "", value_prefix = "GNSS_MEASUREMENT_")
     enum GnssMeasurementState : uint32_t {
-        STATE_UNKNOWN                = 0,
-        STATE_CODE_LOCK              = 1 << 0,
-        STATE_BIT_SYNC               = 1 << 1,
-        STATE_SUBFRAME_SYNC          = 1 << 2,
-        STATE_TOW_DECODED            = 1 << 3,
-        STATE_MSEC_AMBIGUOUS         = 1 << 4,
-        STATE_SYMBOL_SYNC            = 1 << 5,
-        STATE_GLO_STRING_SYNC        = 1 << 6,
-        STATE_GLO_TOD_DECODED        = 1 << 7,
-        STATE_BDS_D2_BIT_SYNC        = 1 << 8,
-        STATE_BDS_D2_SUBFRAME_SYNC   = 1 << 9,
-        STATE_GAL_E1BC_CODE_LOCK     = 1 << 10,
-        STATE_GAL_E1C_2ND_CODE_LOCK  = 1 << 11,
-        STATE_GAL_E1B_PAGE_SYNC      = 1 << 12,
-        STATE_SBAS_SYNC              = 1 << 13,
-        STATE_TOW_KNOWN              = 1 << 14,
-        STATE_GLO_TOD_KNOWN          = 1 << 15,
+        STATE_UNKNOWN = 0,
+        STATE_CODE_LOCK = 1 << 0,
+        STATE_BIT_SYNC = 1 << 1,
+        STATE_SUBFRAME_SYNC = 1 << 2,
+        STATE_TOW_DECODED = 1 << 3,
+        STATE_MSEC_AMBIGUOUS = 1 << 4,
+        STATE_SYMBOL_SYNC = 1 << 5,
+        STATE_GLO_STRING_SYNC = 1 << 6,
+        STATE_GLO_TOD_DECODED = 1 << 7,
+        STATE_BDS_D2_BIT_SYNC = 1 << 8,
+        STATE_BDS_D2_SUBFRAME_SYNC = 1 << 9,
+        STATE_GAL_E1BC_CODE_LOCK = 1 << 10,
+        STATE_GAL_E1C_2ND_CODE_LOCK = 1 << 11,
+        STATE_GAL_E1B_PAGE_SYNC = 1 << 12,
+        STATE_SBAS_SYNC = 1 << 13,
+        STATE_TOW_KNOWN = 1 << 14,
+        STATE_GLO_TOD_KNOWN = 1 << 15,
     };
 
     /**
      * Flags indicating the Accumulated Delta Range's states.
      */
-    @export(name="", value_prefix="GNSS_")
+    @export(name = "", value_prefix = "GNSS_")
     enum GnssAccumulatedDeltaRangeState : uint16_t {
-        ADR_STATE_UNKNOWN    = 0,
-        ADR_STATE_VALID      = 1 << 0,
-        ADR_STATE_RESET      = 1 << 1,
+        ADR_STATE_UNKNOWN = 0,
+        ADR_STATE_VALID = 1 << 0,
+        ADR_STATE_RESET = 1 << 1,
         ADR_STATE_CYCLE_SLIP = 1 << 2,
     };
 
@@ -132,7 +166,6 @@ interface IGnssMeasurementCallback {
          * valid by the corresponding bit in gnssClockFlags.
          */
         bitfield<GnssClockFlags> gnssClockFlags;
-
         /**
          * Leap second data.
          * The sign of the value is defined by the following equation:
@@ -143,7 +176,6 @@ interface IGnssMeasurementCallback {
          * HAS_LEAP_SECOND.
          */
         int16_t leapSecond;
-
         /**
          * The GNSS receiver internal clock value. This is the local hardware clock
          * value.
@@ -164,7 +196,6 @@ interface IGnssMeasurementCallback {
          * This value is mandatory.
          */
         int64_t timeNs;
-
         /**
          * 1-Sigma uncertainty associated with the clock's time in nanoseconds.
          * The uncertainty is represented as an absolute (single sided) value.
@@ -175,7 +206,6 @@ interface IGnssMeasurementCallback {
          * other times (and corresponding uncertainties) are measured.
          */
         double timeUncertaintyNs;
-
         /**
          * The difference between hardware clock ('time' field) inside GNSS receiver
          * and the true GPS time since 0000Z, January 6, 1980, in nanoseconds.
@@ -193,7 +223,6 @@ interface IGnssMeasurementCallback {
          * This value is mandatory if the receiver has estimated GPS time.
          */
         int64_t fullBiasNs;
-
         /**
          * Sub-nanosecond bias - used with fullBiasNS, see fullBiasNs for details.
          *
@@ -205,7 +234,6 @@ interface IGnssMeasurementCallback {
          * This value is mandatory if the receiver has estimated GPS time.
          */
         double biasNs;
-
         /**
          * 1-Sigma uncertainty associated with the local estimate of GNSS time (clock
          * bias) in nanoseconds. The uncertainty is represented as an absolute
@@ -219,7 +247,6 @@ interface IGnssMeasurementCallback {
          * This value is mandatory if the receiver has estimated GPS time.
          */
         double biasUncertaintyNs;
-
         /**
          * The clock's drift in nanoseconds (per second).
          *
@@ -232,7 +259,6 @@ interface IGnssMeasurementCallback {
          * This value is mandatory if the receiver has estimated GPS time.
          */
         double driftNsps;
-
         /**
          * 1-Sigma uncertainty associated with the clock's drift in nanoseconds (per
          * second).
@@ -243,7 +269,6 @@ interface IGnssMeasurementCallback {
          * This value is mandatory if the receiver has estimated GPS time.
          */
         double driftUncertaintyNsps;
-
         /**
          * This field must be incremented, when there are discontinuities in the
          * hardware clock.
@@ -276,7 +301,6 @@ interface IGnssMeasurementCallback {
          * This value is mandatory.
          */
         uint32_t hwClockDiscontinuityCount;
-
     };
 
     /**
@@ -288,7 +312,7 @@ interface IGnssMeasurementCallback {
      * by calculating or reporting expected measurements based on known or estimated
      * position, velocity, or time.
      */
-    struct GnssMeasurement{
+    struct GnssMeasurement {
         /**
          * A set of flags indicating the validity of the fields in this data
          * structure.
@@ -300,21 +324,18 @@ interface IGnssMeasurementCallback {
          * valid by the corresponding bit in flags.
          */
         bitfield<GnssMeasurementFlags> flags;
-
         /**
          * Satellite vehicle ID number, as defined in GnssSvInfo::svid
          *
          * This value is mandatory.
          */
         int16_t svid;
-
         /**
          * Defines the constellation of the given SV.
          *
          * This value is mandatory.
          */
         GnssConstellationType constellation;
-
         /**
          * Time offset at which the measurement was taken in nanoseconds.
          * The reference receiver's time is specified by GnssData::clock::timeNs.
@@ -329,7 +350,6 @@ interface IGnssMeasurementCallback {
          * This value is mandatory.
          */
         double timeOffsetNs;
-
         /**
          * Per satellite sync state. It represents the current sync state for the
          * associated satellite.
@@ -339,7 +359,6 @@ interface IGnssMeasurementCallback {
          * This value is mandatory.
          */
         bitfield<GnssMeasurementState> state;
-
         /**
          * The received GNSS Time-of-Week at the measurement time, in nanoseconds.
          * For GNSS & QZSS, this is the received GNSS Time-of-Week at the
@@ -424,14 +443,12 @@ interface IGnssMeasurementCallback {
          * Message      : [ 0  1s ] : STATE_SBAS_SYNC is set
          */
         int64_t receivedSvTimeInNs;
-
         /**
          * 1-Sigma uncertainty of the Received GNSS Time-of-Week in nanoseconds.
          *
          * This value must be populated if 'state' != STATE_UNKNOWN.
          */
         int64_t receivedSvTimeUncertaintyInNs;
-
         /**
          * Carrier-to-noise density in dB-Hz, typically in the range [0, 63].
          * It contains the measured C/N0 value for the signal at the antenna port.
@@ -443,7 +460,6 @@ interface IGnssMeasurementCallback {
          * This value is mandatory.
          */
         double cN0DbHz;
-
         /**
          * Pseudorange rate at the timestamp in m/s. The correction of a given
          * Pseudorange Rate value includes corrections for receiver and satellite
@@ -471,7 +487,6 @@ interface IGnssMeasurementCallback {
          * 35 dB-Hz.
          */
         double pseudorangeRateMps;
-
         /**
          * 1-Sigma uncertainty of the pseudorangeRateMps.
          * The uncertainty is represented as an absolute (single sided) value.
@@ -479,7 +494,6 @@ interface IGnssMeasurementCallback {
          * This value is mandatory.
          */
         double pseudorangeRateUncertaintyMps;
-
         /**
          * Accumulated delta range's state. It indicates whether ADR is reset or
          * there is a cycle slip(indicating loss of lock).
@@ -487,7 +501,6 @@ interface IGnssMeasurementCallback {
          * This value is mandatory.
          */
         bitfield<GnssAccumulatedDeltaRangeState> accumulatedDeltaRangeState;
-
         /**
          * Accumulated delta range since the last channel reset in meters.
          * A positive value indicates that the SV is moving away from the receiver.
@@ -502,14 +515,12 @@ interface IGnssMeasurementCallback {
          *      'accumulated delta range state' == ADR_STATE_VALID.
          */
         double accumulatedDeltaRangeM;
-
         /**
          * 1-Sigma uncertainty of the accumulated delta range in meters.
          * This value must be populated if 'accumulated delta range state' !=
          * ADR_STATE_UNKNOWN.
          */
         double accumulatedDeltaRangeUncertaintyM;
-
         /**
          * Carrier frequency of the signal tracked, for example it can be the
          * GPS central frequency for L1 = 1575.45 MHz, or L2 = 1227.60 MHz, L5 =
@@ -527,7 +538,6 @@ interface IGnssMeasurementCallback {
          * HAS_CARRIER_FREQUENCY.
          */
         float carrierFrequencyHz;
-
         /**
          * The number of full carrier cycles between the satellite and the
          * receiver. The reference frequency is given by the field
@@ -539,7 +549,6 @@ interface IGnssMeasurementCallback {
          * HAS_CARRIER_CYCLES.
          */
         int64_t carrierCycles;
-
         /**
          * The RF phase detected by the receiver, in the range [0.0, 1.0].
          * This is usually the fractional part of the complete carrier phase
@@ -552,14 +561,12 @@ interface IGnssMeasurementCallback {
          * HAS_CARRIER_PHASE.
          */
         double carrierPhase;
-
         /**
          * 1-Sigma uncertainty of the carrier-phase.
          * If the data is available, gnssMeasurementFlags must contain
          * HAS_CARRIER_PHASE_UNCERTAINTY.
          */
         double carrierPhaseUncertainty;
-
         /**
          * An enumeration that indicates the 'multipath' state of the event.
          *
@@ -580,7 +587,6 @@ interface IGnssMeasurementCallback {
          * signals that are tracked and do not contain multipath.
          */
         GnssMultipathIndicator multipathIndicator;
-
         /**
          * Signal-to-noise ratio at correlator output in dB.
          * If the data is available, GnssMeasurementFlags must contain HAS_SNR.
@@ -588,7 +594,6 @@ interface IGnssMeasurementCallback {
          * observed noise floor" to "the noise RMS".
          */
         double snrDb;
-
         /**
          * Automatic gain control (AGC) level. AGC acts as a variable gain
          * amplifier adjusting the power of the incoming signal. The AGC level
@@ -617,13 +622,17 @@ interface IGnssMeasurementCallback {
      * - Reporting of all tracked constellations are encouraged.
      */
     struct GnssData {
-        /** Number of GnssMeasurement elements. */
+        /**
+         * Number of GnssMeasurement elements.
+         */
         uint32_t measurementCount;
-
-        /** The array of measurements. */
+        /**
+         * The array of measurements.
+         */
         GnssMeasurement[GnssMax:SVS_COUNT] measurements;
-
-        /** The GNSS clock time reading. */
+        /**
+         * The GNSS clock time reading.
+         */
         GnssClock clock;
     };
 

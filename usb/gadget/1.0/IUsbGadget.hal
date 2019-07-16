@@ -32,8 +32,7 @@ interface IUsbGadget {
      *                IUsbGadgetCallback needs to be returned.
      */
     oneway setCurrentUsbFunctions(bitfield<GadgetFunction> functions,
-                                  IUsbGadgetCallback callback,
-                                  uint64_t timeout);
+        IUsbGadgetCallback callback, uint64_t timeout);
 
     /**
      * This function is used to query the USB functions included in the
@@ -43,5 +42,4 @@ interface IUsbGadget {
      *                 propagate the current functions list.
      */
     oneway getCurrentUsbFunctions(IUsbGadgetCallback callback);
-
 };

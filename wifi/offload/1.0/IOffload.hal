@@ -31,8 +31,9 @@ interface IOffload {
      * If OffloadStatusCode::ERROR is returned, requested operation could not be completed
      */
     @entry
-    @callflow(next={"setEventCallback", "subscribeScanResults"})
-    configureScans(ScanParam param, ScanFilter filter) generates (OffloadStatus status);
+    @callflow(next = {"setEventCallback", "subscribeScanResults"})
+    configureScans(ScanParam param, ScanFilter filter)
+        generates (OffloadStatus status);
 
     /**
      * Get scan statistics
@@ -45,7 +46,7 @@ interface IOffload {
      * If OffloadStatusCode::TIMEOUT is returned, time out waiting for the requested data
      */
     @exit
-    @callflow(next={"subscribeScanResults", "unsubscribeScanResults", "getScanStats"})
+    @callflow(next = {"subscribeScanResults", "unsubscribeScanResults", "getScanStats"})
     getScanStats() generates (OffloadStatus status, ScanStats scanStats);
 
     /**
@@ -62,7 +63,7 @@ interface IOffload {
      * If OffloadStatusCode::NO_CONNECTION is returned, connection to the hardware is lost
      * If OffloadStatusCode::ERROR is returned, requested operation could not be completed
      */
-    @callflow(next={"unsubscribeScanResults", "getScanStats"})
+    @callflow(next = {"unsubscribeScanResults", "getScanStats"})
     subscribeScanResults(uint32_t delayMs) generates (OffloadStatus status);
 
     /**
@@ -70,7 +71,7 @@ interface IOffload {
      * If the client is already unsubscribed, a call to this API will be a no-op.
      */
     @exit
-    @callflow(next={"*"})
+    @callflow(next = "*")
     unsubscribeScanResults();
 
     /**
@@ -82,6 +83,6 @@ interface IOffload {
      * @param cb An instance of the |IOffloadCallback| HIDL interface object
      */
     @entry
-    @callflow(next={"subscribeScanStats", "configureScans"})
+    @callflow(next = {"subscribeScanStats", "configureScans"})
     setEventCallback(IOffloadCallback cb);
 };

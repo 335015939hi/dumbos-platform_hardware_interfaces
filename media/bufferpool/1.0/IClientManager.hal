@@ -17,6 +17,7 @@
 package android.hardware.media.bufferpool@1.0;
 
 import IAccessor;
+
 /**
  * IClientManager manages IConnection(s) inside a process. A locally
  * created IConnection represents a communication node(receiver) with the
@@ -25,7 +26,6 @@ import IAccessor;
  * IClientManager instance must be unique within a process.
  */
 interface IClientManager {
-
     /**
      * Sets up a buffer receiving communication node for the specified
      * buffer pool. A manager must create a IConnection to the buffer
@@ -42,6 +42,6 @@ interface IClientManager {
      *     This id is used in FMQ to notify IAccessor that a buffer has been
      *     sent to that connection during transfers.
      */
-    registerSender(IAccessor bufferPool) generates
-        (ResultStatus status, int64_t connectionId);
+    registerSender(IAccessor bufferPool)
+        generates (ResultStatus status, int64_t connectionId);
 };

@@ -84,7 +84,8 @@ interface IDevice extends @1.1::IDevice {
      *                - GENERAL_FAILURE if there is an unspecified error
      * @return capabilities Capabilities of the driver.
      */
-    getCapabilities_1_2() generates (ErrorStatus status, Capabilities capabilities);
+    getCapabilities_1_2()
+        generates (ErrorStatus status, Capabilities capabilities);
 
     /**
      * Gets information about extensions supported by the driver implementation.
@@ -121,7 +122,7 @@ interface IDevice extends @1.1::IDevice {
      *     the index of the operation it is describing.
      */
     getSupportedOperations_1_2(Model model)
-            generates (ErrorStatus status, vec<bool> supportedOperations);
+        generates (ErrorStatus status, vec<bool> supportedOperations);
 
     /**
      * Gets the caching requirements of the driver implementation.
@@ -161,8 +162,8 @@ interface IDevice extends @1.1::IDevice {
      *                      the driver needs to cache a single prepared model. It must
      *                      be less than or equal to Constant::MAX_NUMBER_OF_CACHE_FILES.
      */
-    getNumberOfCacheFilesNeeded()
-            generates (ErrorStatus status, uint32_t numModelCache, uint32_t numDataCache);
+    getNumberOfCacheFilesNeeded() generates (ErrorStatus status,
+        uint32_t numModelCache, uint32_t numDataCache);
 
     /**
      * Asynchronously creates a prepared model for execution and optionally saves it
@@ -264,10 +265,9 @@ interface IDevice extends @1.1::IDevice {
      *       model is invalid
      */
     prepareModel_1_2(Model model, ExecutionPreference preference,
-                     vec<handle> modelCache, vec<handle> dataCache,
-                     uint8_t[Constant:BYTE_SIZE_OF_CACHE_TOKEN] token,
-                     IPreparedModelCallback callback)
-          generates (ErrorStatus status);
+        vec<handle> modelCache, vec<handle> dataCache,
+        uint8_t[Constant:BYTE_SIZE_OF_CACHE_TOKEN] token,
+        IPreparedModelCallback callback) generates (ErrorStatus status);
 
     /**
      * Creates a prepared model from cache files for execution.
@@ -344,7 +344,6 @@ interface IDevice extends @1.1::IDevice {
      *     - INVALID_ARGUMENT if one of the input arguments is invalid
      */
     prepareModelFromCache(vec<handle> modelCache, vec<handle> dataCache,
-                          uint8_t[Constant:BYTE_SIZE_OF_CACHE_TOKEN] token,
-                          IPreparedModelCallback callback)
-            generates (ErrorStatus status);
+        uint8_t[Constant:BYTE_SIZE_OF_CACHE_TOKEN] token,
+        IPreparedModelCallback callback) generates (ErrorStatus status);
 };

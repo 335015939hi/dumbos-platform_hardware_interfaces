@@ -20,8 +20,8 @@ import @1.0::RadioResponseType;
 import @1.0::RadioError;
 
 struct RadioResponseInfoModem {
-    RadioResponseType type;               // Response type
-    int32_t serial;                       // Serial number of the request
-    RadioError error;                     // Response error
-    bool isEnabled;                       // whether modem is enabled or not
+    RadioResponseType type;
+    int32_t serial;
+    RadioError error;
+    bool isEnabled;
 };

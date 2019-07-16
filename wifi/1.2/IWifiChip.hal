@@ -33,7 +33,7 @@ interface IWifiChip extends @1.1::IWifiChip {
         /**
          * Set/Reset Tx Power limits.
          */
-         USE_BODY_HEAD_SAR = 1 << 11
+        USE_BODY_HEAD_SAR = 1 << 11,
     };
 
     /**
@@ -45,9 +45,9 @@ interface IWifiChip extends @1.1::IWifiChip {
      */
     enum TxPowerScenario : @1.1::IWifiChip.TxPowerScenario {
         ON_HEAD_CELL_OFF = 1,
-        ON_HEAD_CELL_ON  = 2,
+        ON_HEAD_CELL_ON = 2,
         ON_BODY_CELL_OFF = 3,
-        ON_BODY_CELL_ON  = 4
+        ON_BODY_CELL_ON = 4,
     };
 
     /**
@@ -68,7 +68,8 @@ interface IWifiChip extends @1.1::IWifiChip {
      *         |WifiStatusCode.NOT_AVAILABLE|,
      *         |WifiStatusCode.UNKNOWN|
      */
-    selectTxPowerScenario_1_2(TxPowerScenario scenario) generates (WifiStatus status);
+    selectTxPowerScenario_1_2(TxPowerScenario scenario)
+        generates (WifiStatus status);
 
     /**
      * Requests notifications of significant events on this chip. Multiple calls

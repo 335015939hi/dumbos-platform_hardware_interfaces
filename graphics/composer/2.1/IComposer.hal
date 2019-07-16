@@ -26,7 +26,6 @@ interface IComposer {
      */
     enum Capability : int32_t {
         INVALID = 0,
-
         /**
          * Specifies that the device supports sideband stream layers, for
          * which buffer content updates and other synchronization will not be
@@ -36,7 +35,6 @@ interface IComposer {
          * performed through the validate/present cycle.
          */
         SIDEBAND_STREAM = 1,
-
         /**
          * Specifies that the device will apply a color transform even when
          * either the client or the device has chosen that all layers should
@@ -44,7 +42,6 @@ interface IComposer {
          * applying the color transform during its composition step.
          */
         SKIP_CLIENT_COLOR_TRANSFORM = 2,
-
         /**
          * Specifies that the present fence must not be used as an accurate
          * representation of the actual present time of a frame.
@@ -61,7 +58,7 @@ interface IComposer {
      */
     @entry
     @exit
-    @callflow(next="*")
+    @callflow(next = "*")
     getCapabilities() generates (vec<Capability> capabilities);
 
     /**
@@ -72,7 +69,7 @@ interface IComposer {
      */
     @entry
     @exit
-    @callflow(next="*")
+    @callflow(next = "*")
     dumpDebugInfo() generates (string debugInfo);
 
     /**
@@ -86,6 +83,6 @@ interface IComposer {
      * @return client is the newly created client.
      */
     @entry
-    @callflow(next="*")
+    @callflow(next = "*")
     createClient() generates (Error error, IComposerClient client);
 };

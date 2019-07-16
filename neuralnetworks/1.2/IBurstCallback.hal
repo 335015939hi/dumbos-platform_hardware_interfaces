@@ -37,5 +37,6 @@ interface IBurstCallback {
      *                 error occurs, an empty vector must be returned for
      *                 buffers, otherwise slots.size() == buffers.size().
      */
-    getMemories(vec<int32_t> slots) generates (ErrorStatus status, vec<memory> buffers);
+    getMemories(vec<int32_t> slots)
+        generates (ErrorStatus status, vec<memory> buffers);
 };

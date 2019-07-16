@@ -30,7 +30,6 @@ import @1.0::RadioTechnology;
  * setResponseFunctions must work with @1.1::IRadioResponse and @1.1::IRadioIndication.
  */
 interface IRadio extends @1.1::IRadio {
-
     /**
      * Starts a network scan
      *
@@ -54,7 +53,8 @@ interface IRadio extends @1.1::IRadio {
      *
      * Response callback is IRadioResponse.setIndicationFilterResponse()
      */
-    oneway setIndicationFilter_1_2(int32_t serial, bitfield<IndicationFilter> indicationFilter);
+    oneway setIndicationFilter_1_2(
+        int32_t serial, bitfield<IndicationFilter> indicationFilter);
 
     /**
      * Sets the signal strength reporting criteria.
@@ -87,8 +87,9 @@ interface IRadio extends @1.1::IRadio {
      *     use of thresholds for reporting.
      * @param accessNetwork The type of network for which to apply these thresholds.
      */
-    oneway setSignalStrengthReportingCriteria(int32_t serial, int32_t hysteresisMs,
-            int32_t hysteresisDb, vec<int32_t> thresholdsDbm, AccessNetwork accessNetwork);
+    oneway setSignalStrengthReportingCriteria(int32_t serial,
+        int32_t hysteresisMs, int32_t hysteresisDb, vec<int32_t> thresholdsDbm,
+        AccessNetwork accessNetwork);
 
     /**
      * Sets the link capacity reporting criteria.
@@ -115,9 +116,10 @@ interface IRadio extends @1.1::IRadio {
      *     vector size of 0 disables the use of UL thresholds for reporting.
      * @param accessNetwork The type of network for which to apply these thresholds.
      */
-    oneway setLinkCapacityReportingCriteria(int32_t serial, int32_t hysteresisMs,
-            int32_t hysteresisDlKbps, int32_t hysteresisUlKbps, vec<int32_t> thresholdsDownlinkKbps,
-            vec<int32_t> thresholdsUplinkKbps, AccessNetwork accessNetwork);
+    oneway setLinkCapacityReportingCriteria(int32_t serial,
+        int32_t hysteresisMs, int32_t hysteresisDlKbps,
+        int32_t hysteresisUlKbps, vec<int32_t> thresholdsDownlinkKbps,
+        vec<int32_t> thresholdsUplinkKbps, AccessNetwork accessNetwork);
 
     /**
      * Setup a packet data connection. If DataCallResponse.status returns DataCallFailCause:NONE,
@@ -167,8 +169,9 @@ interface IRadio extends @1.1::IRadio {
      * Response function is IRadioResponse.setupDataCallResponse()
      */
     oneway setupDataCall_1_2(int32_t serial, AccessNetwork accessNetwork,
-            DataProfileInfo dataProfileInfo, bool modemCognitive, bool roamingAllowed,
-            bool isRoaming, DataRequestReason reason, vec<string> addresses, vec<string> dnses);
+        DataProfileInfo dataProfileInfo, bool modemCognitive,
+        bool roamingAllowed, bool isRoaming, DataRequestReason reason,
+        vec<string> addresses, vec<string> dnses);
 
     /**
      * Deactivate packet data connection and remove from the data call list. An
@@ -180,5 +183,6 @@ interface IRadio extends @1.1::IRadio {
      *
      * Response function is IRadioResponse.deactivateDataCallResponse()
      */
-    oneway deactivateDataCall_1_2(int32_t serial, int32_t cid, DataRequestReason reason);
+    oneway deactivateDataCall_1_2(
+        int32_t serial, int32_t cid, DataRequestReason reason);
 };

@@ -23,11 +23,11 @@ import @1.1::IRadioIndication;
  * Interface declaring unsolicited radio indications.
  */
 interface IRadioIndication extends @1.1::IRadioIndication {
-
     /**
      * Incremental network scan results
      */
-    oneway networkScanResult_1_2(RadioIndicationType type, NetworkScanResult result);
+    oneway networkScanResult_1_2(
+        RadioIndicationType type, NetworkScanResult result);
 
     /**
      * Request all of the current cell information known to the radio.
@@ -36,7 +36,7 @@ interface IRadioIndication extends @1.1::IRadioIndication {
      * @param type Type of radio indication
      * @param records Current cell information
      */
-     oneway cellInfoList_1_2(RadioIndicationType type, vec<CellInfo> records);
+    oneway cellInfoList_1_2(RadioIndicationType type, vec<CellInfo> records);
 
     /**
      * Indicates current link capacity estimate.
@@ -52,7 +52,8 @@ interface IRadioIndication extends @1.1::IRadioIndication {
      * @param type Type of radio indication
      * @param lce LinkCapacityEstimate
      */
-    oneway currentLinkCapacityEstimate(RadioIndicationType type, LinkCapacityEstimate lce);
+    oneway currentLinkCapacityEstimate(
+        RadioIndicationType type, LinkCapacityEstimate lce);
 
     /**
      * Indicates physical channel configurations.
@@ -62,8 +63,8 @@ interface IRadioIndication extends @1.1::IRadioIndication {
      * @param type Type of radio indication
      * @param configs Vector of PhysicalChannelConfigs
      */
-    oneway currentPhysicalChannelConfigs(RadioIndicationType type,
-            vec<PhysicalChannelConfig> configs);
+    oneway currentPhysicalChannelConfigs(
+        RadioIndicationType type, vec<PhysicalChannelConfig> configs);
 
     /**
      * Indicates current signal strength of the radio.
@@ -71,5 +72,6 @@ interface IRadioIndication extends @1.1::IRadioIndication {
      * @param type Type of radio indication
      * @param signalStrength SignalStrength information
      */
-    oneway currentSignalStrength_1_2(RadioIndicationType type, SignalStrength signalStrength);
+    oneway currentSignalStrength_1_2(
+        RadioIndicationType type, SignalStrength signalStrength);
 };

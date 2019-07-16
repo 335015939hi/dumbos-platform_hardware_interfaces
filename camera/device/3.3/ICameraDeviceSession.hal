@@ -17,8 +17,8 @@
 package android.hardware.camera.device@3.3;
 
 import android.hardware.camera.common@1.0::Status;
-import android.hardware.camera.device@3.2::ICameraDeviceSession;
-import android.hardware.camera.device@3.2::StreamConfiguration;
+import @3.2::ICameraDeviceSession;
+import @3.2::StreamConfiguration;
 
 /**
  * Camera device active session interface.
@@ -28,7 +28,6 @@ import android.hardware.camera.device@3.2::StreamConfiguration;
  *
  */
 interface ICameraDeviceSession extends @3.2::ICameraDeviceSession {
-
     /**
      * configureStreams_3_3:
      *
@@ -43,8 +42,7 @@ interface ICameraDeviceSession extends @3.2::ICameraDeviceSession {
      * This method is recommended for clients to use since it provides more
      * flexibility.
      */
-    configureStreams_3_3(StreamConfiguration requestedConfiguration)
-            generates (Status status,
-                    @3.3::HalStreamConfiguration halConfiguration);
-
+    configureStreams_3_3(StreamConfiguration requestedConfiguration) 
+        generates (Status status, @3.3::HalStreamConfiguration halConfiguration
+        );
 };

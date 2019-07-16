@@ -17,7 +17,7 @@
 package android.hardware.wifi.supplicant@1.1;
 
 import @1.0::ISupplicantStaIface;
-import @1.1::ISupplicantStaIfaceCallback;
+import ISupplicantStaIfaceCallback;
 import @1.0::SupplicantStatus;
 
 /**
@@ -25,7 +25,6 @@ import @1.0::SupplicantStatus;
  * interface (e.g wlan0) it controls.
  */
 interface ISupplicantStaIface extends @1.0::ISupplicantStaIface {
-
     /**
      * Register for callbacks from this interface.
      *
@@ -45,4 +44,3 @@ interface ISupplicantStaIface extends @1.0::ISupplicantStaIface {
     registerCallback_1_1(ISupplicantStaIfaceCallback callback)
         generates (SupplicantStatus status);
 };
-

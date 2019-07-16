@@ -17,7 +17,6 @@
 package android.hardware.thermal@1.0;
 
 interface IThermal {
-
     /**
      * Retrieves temperatures in Celsius.
      *
@@ -32,7 +31,7 @@ interface IThermal {
      *         always returns and never removes such temperatures.
      *
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     @entry
     @exit
     getTemperatures()
@@ -50,7 +49,7 @@ interface IThermal {
      *         the same regardless the number of calls to this method.
      *
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     @entry
     @exit
     getCpuUsages() generates (ThermalStatus status, vec<CpuUsage> cpuUsages);
@@ -69,10 +68,9 @@ interface IThermal {
      *         the list such cooling devices.
      *
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     @entry
     @exit
     getCoolingDevices()
         generates (ThermalStatus status, vec<CoolingDevice> devices);
-
 };

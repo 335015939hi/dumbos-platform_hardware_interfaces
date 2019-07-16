@@ -24,7 +24,7 @@ enum Result : int32_t {
     INVALID_ARGUMENTS,
     INVALID_STATE,
     NOT_SUPPORTED,
-    RESULT_TOO_BIG
+    RESULT_TOO_BIG,
 };
 
 /**
@@ -110,91 +110,70 @@ enum Result : int32_t {
  * |                |        |   have to implement a process function.
  * +----------------+--------+--------------------------------------------------
  */
-@export(name="", value_prefix="EFFECT_FLAG_")
+@export(name = "", value_prefix = "EFFECT_FLAG_")
 enum EffectFlags : int32_t {
-    // Insert mode
     TYPE_SHIFT = 0,
     TYPE_SIZE = 3,
-    TYPE_MASK = ((1 << TYPE_SIZE) -1) << TYPE_SHIFT,
+    TYPE_MASK = 1 << TYPE_SIZE - 1 << TYPE_SHIFT,
     TYPE_INSERT = 0 << TYPE_SHIFT,
     TYPE_AUXILIARY = 1 << TYPE_SHIFT,
     TYPE_REPLACE = 2 << TYPE_SHIFT,
     TYPE_PRE_PROC = 3 << TYPE_SHIFT,
     TYPE_POST_PROC = 4 << TYPE_SHIFT,
-
-    // Insert preference
     INSERT_SHIFT = TYPE_SHIFT + TYPE_SIZE,
     INSERT_SIZE = 3,
-    INSERT_MASK = ((1 << INSERT_SIZE) -1) << INSERT_SHIFT,
+    INSERT_MASK = 1 << INSERT_SIZE - 1 << INSERT_SHIFT,
     INSERT_ANY = 0 << INSERT_SHIFT,
     INSERT_FIRST = 1 << INSERT_SHIFT,
     INSERT_LAST = 2 << INSERT_SHIFT,
     INSERT_EXCLUSIVE = 3 << INSERT_SHIFT,
-
-    // Volume control
     VOLUME_SHIFT = INSERT_SHIFT + INSERT_SIZE,
     VOLUME_SIZE = 3,
-    VOLUME_MASK = ((1 << VOLUME_SIZE) -1) << VOLUME_SHIFT,
+    VOLUME_MASK = 1 << VOLUME_SIZE - 1 << VOLUME_SHIFT,
     VOLUME_CTRL = 1 << VOLUME_SHIFT,
     VOLUME_IND = 2 << VOLUME_SHIFT,
     VOLUME_MONITOR = 3 << VOLUME_SHIFT,
     VOLUME_NONE = 0 << VOLUME_SHIFT,
-
-    // Device indication
     DEVICE_SHIFT = VOLUME_SHIFT + VOLUME_SIZE,
     DEVICE_SIZE = 3,
-    DEVICE_MASK = ((1 << DEVICE_SIZE) -1) << DEVICE_SHIFT,
+    DEVICE_MASK = 1 << DEVICE_SIZE - 1 << DEVICE_SHIFT,
     DEVICE_IND = 1 << DEVICE_SHIFT,
     DEVICE_NONE = 0 << DEVICE_SHIFT,
-
-    // Sample input modes
     INPUT_SHIFT = DEVICE_SHIFT + DEVICE_SIZE,
     INPUT_SIZE = 2,
-    INPUT_MASK = ((1 << INPUT_SIZE) -1) << INPUT_SHIFT,
+    INPUT_MASK = 1 << INPUT_SIZE - 1 << INPUT_SHIFT,
     INPUT_DIRECT = 1 << INPUT_SHIFT,
     INPUT_PROVIDER = 2 << INPUT_SHIFT,
     INPUT_BOTH = 3 << INPUT_SHIFT,
-
-    // Sample output modes
     OUTPUT_SHIFT = INPUT_SHIFT + INPUT_SIZE,
     OUTPUT_SIZE = 2,
-    OUTPUT_MASK = ((1 << OUTPUT_SIZE) -1) << OUTPUT_SHIFT,
+    OUTPUT_MASK = 1 << OUTPUT_SIZE - 1 << OUTPUT_SHIFT,
     OUTPUT_DIRECT = 1 << OUTPUT_SHIFT,
     OUTPUT_PROVIDER = 2 << OUTPUT_SHIFT,
     OUTPUT_BOTH = 3 << OUTPUT_SHIFT,
-
-    // Hardware acceleration mode
     HW_ACC_SHIFT = OUTPUT_SHIFT + OUTPUT_SIZE,
     HW_ACC_SIZE = 2,
-    HW_ACC_MASK = ((1 << HW_ACC_SIZE) -1) << HW_ACC_SHIFT,
+    HW_ACC_MASK = 1 << HW_ACC_SIZE - 1 << HW_ACC_SHIFT,
     HW_ACC_SIMPLE = 1 << HW_ACC_SHIFT,
     HW_ACC_TUNNEL = 2 << HW_ACC_SHIFT,
-
-    // Audio mode indication
     AUDIO_MODE_SHIFT = HW_ACC_SHIFT + HW_ACC_SIZE,
     AUDIO_MODE_SIZE = 2,
-    AUDIO_MODE_MASK = ((1 << AUDIO_MODE_SIZE) -1) << AUDIO_MODE_SHIFT,
+    AUDIO_MODE_MASK = 1 << AUDIO_MODE_SIZE - 1 << AUDIO_MODE_SHIFT,
     AUDIO_MODE_IND = 1 << AUDIO_MODE_SHIFT,
     AUDIO_MODE_NONE = 0 << AUDIO_MODE_SHIFT,
-
-    // Audio source indication
     AUDIO_SOURCE_SHIFT = AUDIO_MODE_SHIFT + AUDIO_MODE_SIZE,
     AUDIO_SOURCE_SIZE = 2,
-    AUDIO_SOURCE_MASK = ((1 << AUDIO_SOURCE_SIZE) -1) << AUDIO_SOURCE_SHIFT,
+    AUDIO_SOURCE_MASK = 1 << AUDIO_SOURCE_SIZE - 1 << AUDIO_SOURCE_SHIFT,
     AUDIO_SOURCE_IND = 1 << AUDIO_SOURCE_SHIFT,
     AUDIO_SOURCE_NONE = 0 << AUDIO_SOURCE_SHIFT,
-
-    // Effect offload indication
     OFFLOAD_SHIFT = AUDIO_SOURCE_SHIFT + AUDIO_SOURCE_SIZE,
     OFFLOAD_SIZE = 1,
-    OFFLOAD_MASK = ((1 << OFFLOAD_SIZE) -1) << OFFLOAD_SHIFT,
+    OFFLOAD_MASK = 1 << OFFLOAD_SIZE - 1 << OFFLOAD_SHIFT,
     OFFLOAD_SUPPORTED = 1 << OFFLOAD_SHIFT,
-
-    // Effect has no process indication
     NO_PROCESS_SHIFT = OFFLOAD_SHIFT + OFFLOAD_SIZE,
     NO_PROCESS_SIZE = 1,
-    NO_PROCESS_MASK = ((1 << NO_PROCESS_SIZE) -1) << NO_PROCESS_SHIFT,
-    NO_PROCESS = 1 << NO_PROCESS_SHIFT
+    NO_PROCESS_MASK = 1 << NO_PROCESS_SIZE - 1 << NO_PROCESS_SHIFT,
+    NO_PROCESS = 1 << NO_PROCESS_SHIFT,
 };
 
 /**
@@ -202,16 +181,13 @@ enum EffectFlags : int32_t {
  * enumeration of the effect engines present in a library.
  */
 struct EffectDescriptor {
-    Uuid type;                   // UUID of to the OpenSL ES interface implemented
-                                 // by this effect
-    Uuid uuid;                   // UUID for this particular implementation
-    bitfield<EffectFlags> flags; // effect engine capabilities/requirements flags
-    uint16_t cpuLoad;            // CPU load indication expressed in 0.1 MIPS units
-                                 // as estimated on an ARM9E core (ARMv5TE) with 0 WS
-    uint16_t memoryUsage;        // data memory usage expressed in KB and includes
-                                 // only dynamically allocated memory
-    uint8_t[64] name;            // human readable effect name
-    uint8_t[64] implementor;     // human readable effect implementor name
+    Uuid type;
+    Uuid uuid;
+    bitfield<EffectFlags> flags;
+    uint16_t cpuLoad;
+    uint16_t memoryUsage;
+    uint8_t[64] name;
+    uint8_t[64] implementor;
 };
 
 /**
@@ -230,24 +206,23 @@ struct AudioBuffer {
     memory data;
 };
 
-@export(name="effect_buffer_access_e", value_prefix="EFFECT_BUFFER_")
+@export(name = "effect_buffer_access_e", value_prefix = "EFFECT_BUFFER_")
 enum EffectBufferAccess : int32_t {
     ACCESS_WRITE,
     ACCESS_READ,
-    ACCESS_ACCUMULATE
+    ACCESS_ACCUMULATE,
 };
 
 /**
  * Determines what fields of EffectBufferConfig need to be considered.
  */
-@export(name="", value_prefix="EFFECT_CONFIG_")
+@export(name = "", value_prefix = "EFFECT_CONFIG_")
 enum EffectConfigParameters : int32_t {
-    BUFFER = 0x0001,    // buffer field
-    SMP_RATE = 0x0002,  // samplingRate
-    CHANNELS = 0x0004,  // channels
-    FORMAT = 0x0008,    // format
-    ACC_MODE = 0x0010,  // accessMode
-    // Note that the 2.0 ALL have been moved to an helper function
+    BUFFER = 0x0001,
+    SMP_RATE = 0x0002,
+    CHANNELS = 0x0004,
+    FORMAT = 0x0008,
+    ACC_MODE = 0x0010,
 };
 
 /**
@@ -268,23 +243,20 @@ struct EffectConfig {
     EffectBufferConfig outputCfg;
 };
 
-@export(name="effect_feature_e", value_prefix="EFFECT_FEATURE_")
+@export(name = "effect_feature_e", value_prefix = "EFFECT_FEATURE_")
 enum EffectFeature : int32_t {
-    AUX_CHANNELS, // supports auxiliary channels
-                  // (e.g. dual mic noise suppressor)
-    CNT
+    AUX_CHANNELS,
+    CNT,
 };
 
 struct EffectAuxChannelsConfig {
-    bitfield<AudioChannelMask> mainChannels;  // channel mask for main channels
-    bitfield<AudioChannelMask> auxChannels;   // channel mask for auxiliary channels
+    bitfield<AudioChannelMask> mainChannels;
+    bitfield<AudioChannelMask> auxChannels;
 };
 
 struct EffectOffloadParameter {
-    bool isOffload;          // true if the playback thread the effect
-                             // is attached to is offloaded
-    AudioIoHandle ioHandle;  // io handle of the playback thread
-                             // the effect is attached to
+    bool isOffload;
+    AudioIoHandle ioHandle;
 };
 
 /**
@@ -296,6 +268,5 @@ enum MessageQueueFlagBits : uint32_t {
     REQUEST_PROCESS = 1 << 1,
     REQUEST_PROCESS_REVERSE = 1 << 2,
     REQUEST_QUIT = 1 << 3,
-    REQUEST_PROCESS_ALL =
-        REQUEST_PROCESS | REQUEST_PROCESS_REVERSE | REQUEST_QUIT
+    REQUEST_PROCESS_ALL = REQUEST_PROCESS | REQUEST_PROCESS_REVERSE | REQUEST_QUIT,
 };

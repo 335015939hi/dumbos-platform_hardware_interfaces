@@ -16,12 +16,6 @@
 
 package android.hardware.keymaster@4.0;
 
-/**
- * Time in milliseconds since some arbitrary point in time.  Time must be monotonically increasing,
- * and a secure environment's notion of "current time" must not repeat until the Android device
- * reboots, or until at least 50 million years have elapsed (note that this requirement is satisfied
- * by setting the clock to zero during each boot, and then counting time accurately).
- */
 typedef uint64_t Timestamp;
 
 /**
@@ -32,33 +26,54 @@ enum Constants : uint32_t {
 };
 
 enum TagType : uint32_t {
-    /** Invalid type, used to designate a tag as uninitialized. */
+    /**
+     * Invalid type, used to designate a tag as uninitialized.
+     */
     INVALID = 0 << 28,
-    /** Enumeration value. */
+    /**
+     * Enumeration value.
+     */
     ENUM = 1 << 28,
-    /** Repeatable enumeration value. */
+    /**
+     * Repeatable enumeration value.
+     */
     ENUM_REP = 2 << 28,
-    /** 32-bit unsigned integer. */
+    /**
+     * 32-bit unsigned integer.
+     */
     UINT = 3 << 28,
-    /** Repeatable 32-bit unsigned integer. */
+    /**
+     * Repeatable 32-bit unsigned integer.
+     */
     UINT_REP = 4 << 28,
-    /** 64-bit unsigned integer. */
+    /**
+     * 64-bit unsigned integer.
+     */
     ULONG = 5 << 28,
-    /** 64-bit unsigned integer representing a date and time, in milliseconds since 1 Jan 1970. */
+    /**
+     * 64-bit unsigned integer representing a date and time, in milliseconds since 1 Jan 1970.
+     */
     DATE = 6 << 28,
-    /** Boolean.  If a tag with this type is present, the value is "true".  If absent, "false". */
+    /**
+     * Boolean.  If a tag with this type is present, the value is "true".  If absent, "false".
+     */
     BOOL = 7 << 28,
-    /** Byte string containing an arbitrary-length integer, big-endian ordering. */
+    /**
+     * Byte string containing an arbitrary-length integer, big-endian ordering.
+     */
     BIGNUM = 8 << 28,
-    /** Byte string */
+    /**
+     * Byte string
+     */
     BYTES = 9 << 28,
-    /** Repeatable 64-bit unsigned integer */
+    /**
+     * Repeatable 64-bit unsigned integer
+     */
     ULONG_REP = 10 << 28,
 };
 
 enum Tag : uint32_t {
     INVALID = TagType:INVALID | 0,
-
     /**
      * Tag::PURPOSE specifies the set of purposes for which the key may be used.  Possible values
      * are defined in the KeyPurpose enumeration.
@@ -72,7 +87,6 @@ enum Tag : uint32_t {
      * Must be hardware-enforced.
      */
     PURPOSE = TagType:ENUM_REP | 1,
-
     /**
      * Tag::ALGORITHM specifies the cryptographic algorithm with which the key is used.  This tag
      * must be provided to generateKey and importKey, and must be specified in the wrapped key
@@ -81,7 +95,6 @@ enum Tag : uint32_t {
      * Must be hardware-enforced.
      */
     ALGORITHM = TagType:ENUM | 2,
-
     /**
      * Tag::KEY_SIZE pecifies the size, in bits, of the key, measuring in the normal way for the
      * key's algorithm.  For example, for RSA keys, Tag::KEY_SIZE specifies the size of the public
@@ -93,7 +106,6 @@ enum Tag : uint32_t {
      * Must be hardware-enforced.
      */
     KEY_SIZE = TagType:UINT | 3,
-
     /**
      * Tag::BLOCK_MODE specifies the block cipher mode(s) with which the key may be used.  This tag
      * is only relevant to AES and 3DES keys.  Possible values are defined by the BlockMode enum.
@@ -105,9 +117,11 @@ enum Tag : uint32_t {
      *
      * Must be hardware-enforced.
      */
-    BLOCK_MODE = TagType:ENUM_REP | 4, /* BlockMode. */
-
+    BLOCK_MODE = TagType:ENUM_REP | 4,
     /**
+     * BlockMode.
+     *
+     *
      * Tag::DIGEST specifies the digest algorithms that may be used with the key to perform signing
      * and verification operations.  This tag is relevant to RSA, ECDSA and HMAC keys.  Possible
      * values are defined by the Digest enum.
@@ -120,7 +134,6 @@ enum Tag : uint32_t {
      * Must be hardware-enforced.
      */
     DIGEST = TagType:ENUM_REP | 5,
-
     /**
      * Tag::PADDING specifies the padding modes that may be used with the key.  This tag is relevant
      * to RSA, AES and 3DES keys.  Possible values are defined by the PaddingMode enum.
@@ -148,7 +161,6 @@ enum Tag : uint32_t {
      * Must be hardware-enforced.
      */
     PADDING = TagType:ENUM_REP | 6,
-
     /**
      * Tag::CALLER_NONCE specifies that the caller can provide a nonce for nonce-requiring
      * operations.  This tag is boolean, so the possible values are true (if the tag is present) and
@@ -161,7 +173,6 @@ enum Tag : uint32_t {
      * Must be hardware-enforced.
      */
     CALLER_NONCE = TagType:BOOL | 7,
-
     /**
      * Tag::MIN_MAC_LENGTH specifies the minimum length of MAC that can be requested or verified
      * with this key for HMAC keys and AES keys that support GCM mode.
@@ -174,9 +185,6 @@ enum Tag : uint32_t {
      * Must be hardware-enforced.
      */
     MIN_MAC_LENGTH = TagType:UINT | 8,
-
-    // Tag 9 reserved
-
     /**
      * Tag::EC_CURVE specifies the elliptic curve.  EC key generation requests may have
      * Tag:EC_CURVE, Tag::KEY_SIZE, or both.  If both are provided and the size and curve do not
@@ -185,7 +193,6 @@ enum Tag : uint32_t {
      * Must be hardware-enforced.
      */
     EC_CURVE = TagType:ENUM | 10,
-
     /**
      * Tag::RSA_PUBLIC_EXPONENT specifies the value of the public exponent for an RSA key pair.
      * This tag is relevant only to RSA keys, and is required for all RSA keys.
@@ -199,9 +206,6 @@ enum Tag : uint32_t {
      * Must be hardware-enforced.
      */
     RSA_PUBLIC_EXPONENT = TagType:ULONG | 200,
-
-    // Tag 201 reserved
-
     /**
      * Tag::INCLUDE_UNIQUE_ID is specified during key generation to indicate that an attestation
      * certificate for the generated key should contain an application-scoped and time-bounded
@@ -210,7 +214,6 @@ enum Tag : uint32_t {
      * Must be hardware-enforced.
      */
     INCLUDE_UNIQUE_ID = TagType:BOOL | 202,
-
     /**
      * Tag::BLOB_USAGE_REQUIREMENTS specifies the necessary system environment conditions for the
      * generated key to be used.  Possible values are defined by the KeyBlobUsageRequirements enum.
@@ -225,7 +228,6 @@ enum Tag : uint32_t {
      * Must be hardware-enforced.
      */
     BLOB_USAGE_REQUIREMENTS = TagType:ENUM | 301,
-
     /**
      * Tag::BOOTLOADER_ONLY specifies only the bootloader can use the key.
      *
@@ -235,7 +237,6 @@ enum Tag : uint32_t {
      * Must be hardware-enforced.
      */
     BOOTLOADER_ONLY = TagType:BOOL | 302,
-
     /**
      * Tag::ROLLBACK_RESISTANCE specifies that the key has rollback resistance, meaning that when
      * deleted with deleteKey() or deleteAllKeys(), the key is guaranteed to be permanently deleted
@@ -250,10 +251,7 @@ enum Tag : uint32_t {
      * Must be hardwared-enforced.
      */
     ROLLBACK_RESISTANCE = TagType:BOOL | 303,
-
-    // Reserved for future use.
     HARDWARE_TYPE = TagType:ENUM | 304,
-
     /**
      * Tag::ACTIVE_DATETIME specifies the date and time at which the key becomes active, in
      * milliseconds since Jan 1, 1970.  If a key with this tag is used prior to the specified date
@@ -261,9 +259,11 @@ enum Tag : uint32_t {
      *
      * Need not be hardware-enforced.
      */
-    ACTIVE_DATETIME = TagType:DATE | 400, /* Start of validity. */
-
+    ACTIVE_DATETIME = TagType:DATE | 400,
     /**
+     * Start of validity.
+     *
+     *
      * Tag::ORIGINATION_EXPIRE_DATETIME specifies the date and time at which the key expires for
      * signing and encryption purposes.  After this time, any attempt to use a key with
      * KeyPurpose::SIGN or KeyPurpose::ENCRYPT provided to begin() must fail with
@@ -274,7 +274,6 @@ enum Tag : uint32_t {
      * Need not be hardware-enforced.
      */
     ORIGINATION_EXPIRE_DATETIME = TagType:DATE | 401,
-
     /**
      * Tag::USAGE_EXPIRE_DATETIME specifies the date and time at which the key expires for
      * verification and decryption purposes.  After this time, any attempt to use a key with
@@ -286,7 +285,6 @@ enum Tag : uint32_t {
      * Need not be hardware-enforced.
      */
     USAGE_EXPIRE_DATETIME = TagType:DATE | 402,
-
     /**
      * Tag::MIN_SECONDS_BETWEEN_OPS specifies the minimum amount of time that elapses between
      * allowed operations using a key.  This can be used to rate-limit uses of keys in contexts
@@ -307,7 +305,6 @@ enum Tag : uint32_t {
      * Must be hardware-enforced.
      */
     MIN_SECONDS_BETWEEN_OPS = TagType:UINT | 403,
-
     /**
      * Tag::MAX_USES_PER_BOOT specifies the maximum number of times that a key may be used between
      * system reboots.  This is another mechanism to rate-limit key use.
@@ -327,14 +324,12 @@ enum Tag : uint32_t {
      * Must be hardware-enforced.
      */
     MAX_USES_PER_BOOT = TagType:UINT | 404,
-
     /**
      * Tag::USER_ID specifies the ID of the Android user that is permitted to use the key.
      *
      * Must not be hardware-enforced.
      */
     USER_ID = TagType:UINT | 501,
-
     /**
      * Tag::USER_SECURE_ID specifies that a key may only be used under a particular secure user
      * authentication state.  This tag is mutually exclusive with Tag::NO_AUTH_REQUIRED.
@@ -366,18 +361,22 @@ enum Tag : uint32_t {
      *
      * Must be hardware-enforced.
      */
-    USER_SECURE_ID = TagType:ULONG_REP | 502, /* Secure ID of authorized user or authenticator(s).
-                                                 * Disallowed if NO_AUTH_REQUIRED is present. */
-
+    USER_SECURE_ID = TagType:ULONG_REP | 502,
     /**
+     * Secure ID of authorized user or authenticator(s).
+     * Disallowed if NO_AUTH_REQUIRED is present.
+     *
+     *
      * Tag::NO_AUTH_REQUIRED specifies that no authentication is required to use this key.  This tag
      * is mutually exclusive with Tag::USER_SECURE_ID.
      *
      * Must be hardware-enforced.
      */
-    NO_AUTH_REQUIRED = TagType:BOOL | 503, /* If key is usable without authentication. */
-
+    NO_AUTH_REQUIRED = TagType:BOOL | 503,
     /**
+     * If key is usable without authentication.
+     *
+     *
      * Tag::USER_AUTH_TYPE specifies the types of user authenticators that may be used to authorize
      * this key.
      *
@@ -395,7 +394,6 @@ enum Tag : uint32_t {
      * Must be hardware-enforced.
      */
     USER_AUTH_TYPE = TagType:ENUM | 504,
-
     /**
      * Tag::AUTH_TIMEOUT specifies the time in seconds for which the key is authorized for use,
      * after user authentication.  If
@@ -409,7 +407,6 @@ enum Tag : uint32_t {
      * Must be hardware-enforced.
      */
     AUTH_TIMEOUT = TagType:UINT | 505,
-
     /**
      * Tag::ALLOW_WHILE_ON_BODY specifies that the key may be used after authentication timeout if
      * device is still on-body (requires on-body sensor).
@@ -417,7 +414,6 @@ enum Tag : uint32_t {
      * Cannot be hardware-enforced.
      */
     ALLOW_WHILE_ON_BODY = TagType:BOOL | 506,
-
     /**
      * TRUSTED_USER_PRESENCE_REQUIRED is an optional feature that specifies that this key must be
      * unusable except when the user has provided proof of physical presence.  Proof of physical
@@ -464,8 +460,8 @@ enum Tag : uint32_t {
      * Must be hardware-enforced.
      */
     TRUSTED_USER_PRESENCE_REQUIRED = TagType:BOOL | 507,
-
-    /** Tag::TRUSTED_CONFIRMATION_REQUIRED is only applicable to keys with KeyPurpose SIGN, and
+    /**
+     * Tag::TRUSTED_CONFIRMATION_REQUIRED is only applicable to keys with KeyPurpose SIGN, and
      *  specifies that this key must not be usable unless the user provides confirmation of the data
      *  to be signed.  Confirmation is proven to keymaster via an approval token.  See
      *  CONFIRMATION_TOKEN, as well as the ConfirmatinUI HAL.
@@ -477,7 +473,6 @@ enum Tag : uint32_t {
      * Must be hardware-enforced.
      */
     TRUSTED_CONFIRMATION_REQUIRED = TagType:BOOL | 508,
-
     /**
      * Tag::UNLOCKED_DEVICE_REQUIRED specifies that the key may only be used when the device is
      * unlocked.
@@ -485,7 +480,6 @@ enum Tag : uint32_t {
      * Must be software-enforced.
      */
     UNLOCKED_DEVICE_REQUIRED = TagType:BOOL | 509,
-
     /**
      * Tag::APPLICATION_ID.  When provided to generateKey or importKey, this tag specifies data
      * that is necessary during all uses of the key.  In particular, calls to exportKey() and
@@ -501,13 +495,11 @@ enum Tag : uint32_t {
      * Must never appear in KeyCharacteristics.
      */
     APPLICATION_ID = TagType:BYTES | 601,
-
-    /*
+    /**
      * Semantically unenforceable tags, either because they have no specific meaning or because
      * they're informational only.
-     */
-
-    /**
+     *
+     *
      * Tag::APPLICATION_DATA.  When provided to generateKey or importKey, this tag specifies data
      * that is necessary during all uses of the key.  In particular, calls to exportKey() and
      * getKeyCharacteristics() must provide the same value to the appData parameter, and calls to
@@ -522,7 +514,6 @@ enum Tag : uint32_t {
      * Must never appear in KeyCharacteristics.
      */
     APPLICATION_DATA = TagType:BYTES | 700,
-
     /**
      * Tag::CREATION_DATETIME specifies the date and time the key was created, in milliseconds since
      * January 1, 1970.  This tag is optional and informational only.
@@ -531,7 +522,6 @@ enum Tag : uint32_t {
      * software-enforced list, if provided.
      */
     CREATION_DATETIME = TagType:DATE | 701,
-
     /**
      * Tag::ORIGIN specifies where the key was created, if known.  This tag must not be specified
      * during key generation or import, and must be added to the key characteristics by the
@@ -540,9 +530,6 @@ enum Tag : uint32_t {
      * Must be hardware-enforced.
      */
     ORIGIN = TagType:ENUM | 702,
-
-    // 703 is unused.
-
     /**
      * Tag::ROOT_OF_TRUST specifies the root of trust, the key used by verified boot to validate the
      * operating system booted (if any).  This tag is never provided to or returned from Keymaster
@@ -552,7 +539,6 @@ enum Tag : uint32_t {
      * Must never appear in KeyCharacteristics.
      */
     ROOT_OF_TRUST = TagType:BYTES | 704,
-
     /**
      * Tag::OS_VERSION specifies the system OS version with which the key may be used.  This tag is
      * never sent to the IKeymasterDevice, but is added to the hardware-enforced authorization list
@@ -575,7 +561,6 @@ enum Tag : uint32_t {
      * Must be hardware-enforced.
      */
     OS_VERSION = TagType:UINT | 705,
-
     /**
      * Tag::OS_PATCHLEVEL specifies the system security patch level with which the key may be used.
      * This tag is never sent to the keymaster TA, but is added to the hardware-enforced
@@ -596,7 +581,6 @@ enum Tag : uint32_t {
      * Must be hardware-enforced.
      */
     OS_PATCHLEVEL = TagType:UINT | 706,
-
     /**
      * Tag::UNIQUE_ID specifies a unique, time-based identifier.  This tag is never provided to or
      * returned from Keymaster in the key characteristics.  It exists only to define the tag for use
@@ -630,7 +614,6 @@ enum Tag : uint32_t {
      * Must be hardware-enforced.
      */
     UNIQUE_ID = TagType:BYTES | 707,
-
     /**
      * Tag::ATTESTATION_CHALLENGE is used to deliver a "challenge" value to the attestKey() method,
      * which must place the value in the KeyDescription SEQUENCE of the attestation extension.  See
@@ -638,9 +621,11 @@ enum Tag : uint32_t {
      *
      * Must never appear in KeyCharacteristics.
      */
-    ATTESTATION_CHALLENGE = TagType:BYTES | 708, /* Used to provide challenge in attestation */
-
+    ATTESTATION_CHALLENGE = TagType:BYTES | 708,
     /**
+     * Used to provide challenge in attestation
+     *
+     *
      * Tag::ATTESTATION_APPLICATION_ID identifies the set of applications which may use a key, used
      * only with attestKey().
      *
@@ -665,7 +650,6 @@ enum Tag : uint32_t {
      * Cannot be hardware-enforced.
      */
     ATTESTATION_APPLICATION_ID = TagType:BYTES | 709,
-
     /**
      * Tag::ATTESTATION_ID_BRAND provides the device's brand name, as returned by Build.BRAND in
      * Android, to attestKey().  This field must be set only when requesting attestation of the
@@ -678,7 +662,6 @@ enum Tag : uint32_t {
      * Must never appear in KeyCharacteristics.
      */
     ATTESTATION_ID_BRAND = TagType:BYTES | 710,
-
     /**
      * Tag::ATTESTATION_ID_DEVICE provides the device's device name, as returned by Build.DEVICE in
      * Android, to attestKey().  This field must be set only when requesting attestation of the
@@ -691,7 +674,6 @@ enum Tag : uint32_t {
      * Must never appear in KeyCharacteristics.
      */
     ATTESTATION_ID_DEVICE = TagType:BYTES | 711,
-
     /**
      * Tag::ATTESTATION_ID_PRODUCT provides the device's product name, as returned by Build.PRODUCT
      * in Android, to attestKey().  This field must be set only when requesting attestation of the
@@ -704,7 +686,6 @@ enum Tag : uint32_t {
      * Must never appear in KeyCharacteristics.
      */
     ATTESTATION_ID_PRODUCT = TagType:BYTES | 712,
-
     /**
      * Tag::ATTESTATION_ID_SERIAL the device's serial number.  This field must be set only when
      * requesting attestation of the device's identifiers.
@@ -716,7 +697,6 @@ enum Tag : uint32_t {
      * Must never appear in KeyCharacteristics.
      */
     ATTESTATION_ID_SERIAL = TagType:BYTES | 713,
-
     /**
      * Tag::ATTESTATION_ID_IMEI provides the IMEIs for all radios on the device to attestKey().
      * This field must be set only when requesting attestation of the device's identifiers.
@@ -727,10 +707,12 @@ enum Tag : uint32_t {
      *
      * Must never appear in KeyCharacteristics.
      */
-    ATTESTATION_ID_IMEI = TagType:BYTES | 714, /* Used to provide the device's IMEI to be included
-                                                  * in attestation */
-
+    ATTESTATION_ID_IMEI = TagType:BYTES | 714,
     /**
+     * Used to provide the device's IMEI to be included
+     * in attestation
+     *
+     *
      * Tag::ATTESTATION_ID_MEID provides the MEIDs for all radios on the device to attestKey().
      * This field must be set only when requesting attestation of the device's identifiers.
      *
@@ -740,10 +722,12 @@ enum Tag : uint32_t {
      *
      * Must never appear in KeyCharacteristics.
      */
-    ATTESTATION_ID_MEID = TagType:BYTES | 715, /* Used to provide the device's MEID to be included
-                                                  * in attestation */
-
+    ATTESTATION_ID_MEID = TagType:BYTES | 715,
     /**
+     * Used to provide the device's MEID to be included
+     * in attestation
+     *
+     *
      * Tag::ATTESTATION_ID_MANUFACTURER provides the device's manufacturer name, as returned by
      * Build.MANUFACTURER in Android, to attstKey().  This field must be set only when requesting
      * attestation of the device's identifiers.
@@ -755,7 +739,6 @@ enum Tag : uint32_t {
      * Must never appear in KeyCharacteristics.
      */
     ATTESTATION_ID_MANUFACTURER = TagType:BYTES | 716,
-
     /**
      * Tag::ATTESTATION_ID_MODEL provides the device's model name, as returned by Build.MODEL in
      * Android, to attestKey().  This field must be set only when requesting attestation of the
@@ -768,7 +751,6 @@ enum Tag : uint32_t {
      * Must never appear in KeyCharacteristics.
      */
     ATTESTATION_ID_MODEL = TagType:BYTES | 717,
-
     /**
      * Tag::VENDOR_PATCHLEVEL specifies the vendor image security patch level with which the key may
      * be used.  This tag is never sent to the keymaster TA, but is added to the hardware-enforced
@@ -790,7 +772,6 @@ enum Tag : uint32_t {
      * Must be hardware-enforced.
      */
     VENDOR_PATCHLEVEL = TagType:UINT | 718,
-
     /**
      * Tag::BOOT_PATCHLEVEL specifies the boot image (kernel) security patch level with which the
      * key may be used.  This tag is never sent to the keymaster TA, but is added to the
@@ -810,7 +791,6 @@ enum Tag : uint32_t {
      * Must be hardware-enforced.
      */
     BOOT_PATCHLEVEL = TagType:UINT | 719,
-
     /**
      * Tag::ASSOCIATED_DATA Provides "associated data" for AES-GCM encryption or decryption.  This
      * tag is provided to update and specifies data that is not encrypted/decrypted, but is used in
@@ -819,7 +799,6 @@ enum Tag : uint32_t {
      * Must never appear KeyCharacteristics.
      */
     ASSOCIATED_DATA = TagType:BYTES | 1000,
-
     /**
      * Tag::NONCE is used to provide or return a nonce or Initialization Vector (IV) for AES-GCM,
      * AES-CBC, AES-CTR, or 3DES-CBC encryption or decryption.  This tag is provided to begin during
@@ -834,7 +813,6 @@ enum Tag : uint32_t {
      * Must never appear in KeyCharacteristics.
      */
     NONCE = TagType:BYTES | 1001,
-
     /**
      * Tag::MAC_LENGTH provides the requested length of a MAC or GCM authentication tag, in bits.
      *
@@ -845,7 +823,6 @@ enum Tag : uint32_t {
      * Must never appear in KeyCharacteristics.
      */
     MAC_LENGTH = TagType:UINT | 1003,
-
     /**
      * Tag::RESET_SINCE_ID_ROTATION specifies whether the device has been factory reset since the
      * last unique ID rotation.  Used for key attestation.
@@ -853,7 +830,6 @@ enum Tag : uint32_t {
      * Must never appear in KeyCharacteristics.
      */
     RESET_SINCE_ID_ROTATION = TagType:BOOL | 1004,
-
     /**
      * Tag::CONFIRMATION_TOKEN is used to deliver a cryptographic token proving that the user
      * confirmed a signing request.  The content is a full-length HMAC-SHA256 value.  See the
@@ -868,16 +844,19 @@ enum Tag : uint32_t {
  * Algorithms provided by IKeymasterDevice implementations.
  */
 enum Algorithm : uint32_t {
-    /** Asymmetric algorithms. */
+    /**
+     * Asymmetric algorithms.
+     */
     RSA = 1,
-    // 2 removed, do not reuse.
     EC = 3,
-
-    /** Block cipher algorithms */
+    /**
+     * Block cipher algorithms
+     */
     AES = 32,
     TRIPLE_DES = 33,
-
-    /** MAC algorithms */
+    /**
+     * MAC algorithms
+     */
     HMAC = 128,
 };
 
@@ -885,15 +864,14 @@ enum Algorithm : uint32_t {
  * Symmetric block cipher modes provided by keymaster implementations.
  */
 enum BlockMode : uint32_t {
-    /*
+    /**
      * Unauthenticated modes, usable only for encryption/decryption and not generally recommended
      * except for compatibility with existing other protocols.
      */
     ECB = 1,
     CBC = 2,
     CTR = 3,
-
-    /*
+    /**
      * Authenticated modes, usable for encryption/decryption and signing/verification.  Recommended
      * over unauthenticated modes for all purposes.
      */
@@ -907,7 +885,10 @@ enum BlockMode : uint32_t {
  * cryptographically-appropriate pairs.
  */
 enum PaddingMode : uint32_t {
-    NONE = 1, /* deprecated */
+    NONE = 1,
+    /**
+     * deprecated
+     */
     RSA_OAEP = 2,
     RSA_PSS = 3,
     RSA_PKCS1_1_5_ENCRYPT = 4,
@@ -945,22 +926,24 @@ enum EcCurve : uint32_t {
  * must be guaranteed never to have existed outide the secure hardware.
  */
 enum KeyOrigin : uint32_t {
-    /** Generated in keymaster.  Should not exist outside the TEE. */
+    /**
+     * Generated in keymaster.  Should not exist outside the TEE.
+     */
     GENERATED = 0,
-
-    /** Derived inside keymaster.  Likely exists off-device. */
+    /**
+     * Derived inside keymaster.  Likely exists off-device.
+     */
     DERIVED = 1,
-
-    /** Imported into keymaster.  Existed as cleartext in Android. */
+    /**
+     * Imported into keymaster.  Existed as cleartext in Android.
+     */
     IMPORTED = 2,
-
     /**
      * Keymaster did not record origin.  This value can only be seen on keys in a keymaster0
      * implementation.  The keymaster0 adapter uses this value to document the fact that it is
      * unkown whether the key was generated inside or imported into keymaster.
      */
     UNKNOWN = 3,
-
     /**
      * Securely imported into Keymaster.  Was created elsewhere, and passed securely through Android
      * to secure hardware.
@@ -983,12 +966,26 @@ enum KeyBlobUsageRequirements : uint32_t {
  * Possible purposes of a key (or pair).
  */
 enum KeyPurpose : uint32_t {
-    ENCRYPT = 0, /* Usable with RSA, EC and AES keys. */
-    DECRYPT = 1, /* Usable with RSA, EC and AES keys. */
-    SIGN = 2,    /* Usable with RSA, EC and HMAC keys. */
-    VERIFY = 3,  /* Usable with RSA, EC and HMAC keys. */
-    /* 4 is reserved */
-    WRAP_KEY = 5, /* Usable with wrapping keys. */
+    ENCRYPT = 0,
+    /**
+     * Usable with RSA, EC and AES keys.
+     */
+    DECRYPT = 1,
+    /**
+     * Usable with RSA, EC and AES keys.
+     */
+    SIGN = 2,
+    /**
+     * Usable with RSA, EC and HMAC keys.
+     */
+    VERIFY = 3,
+    /**
+     * Usable with RSA, EC and HMAC keys.
+     *
+     *
+     * 4 is reserved
+     */
+    WRAP_KEY = 5,
 };
 
 /**
@@ -1014,8 +1011,14 @@ enum ErrorCode : int32_t {
     INVALID_AUTHORIZATION_TIMEOUT = -16,
     UNSUPPORTED_KEY_FORMAT = -17,
     INCOMPATIBLE_KEY_FORMAT = -18,
-    UNSUPPORTED_KEY_ENCRYPTION_ALGORITHM = -19,   /** For PKCS8 & PKCS12 */
-    UNSUPPORTED_KEY_VERIFICATION_ALGORITHM = -20, /** For PKCS8 & PKCS12 */
+    UNSUPPORTED_KEY_ENCRYPTION_ALGORITHM = -19,
+    /**
+     * For PKCS8 & PKCS12
+     */
+    UNSUPPORTED_KEY_VERIFICATION_ALGORITHM = -20,
+    /**
+     * For PKCS8 & PKCS12
+     */
     INVALID_INPUT_LENGTH = -21,
     KEY_EXPORT_OPTIONS_INVALID = -22,
     DELEGATION_NOT_ALLOWED = -23,
@@ -1066,30 +1069,38 @@ enum ErrorCode : int32_t {
     CONCURRENT_PROOF_OF_PRESENCE_REQUESTED = -70,
     NO_USER_CONFIRMATION = -71,
     DEVICE_LOCKED = -72,
-
     UNIMPLEMENTED = -100,
     VERSION_MISMATCH = -101,
-
     UNKNOWN_ERROR = -1000,
-
-    // Implementer's namespace for error codes starts at -10000.
 };
 
 /**
  * Key derivation functions, mostly used in ECIES.
  */
 enum KeyDerivationFunction : uint32_t {
-    /** Do not apply a key derivation function; use the raw agreed key */
+    /**
+     * Do not apply a key derivation function; use the raw agreed key
+     */
     NONE = 0,
-    /** HKDF defined in RFC 5869 with SHA256 */
+    /**
+     * HKDF defined in RFC 5869 with SHA256
+     */
     RFC5869_SHA256 = 1,
-    /** KDF1 defined in ISO 18033-2 with SHA1 */
+    /**
+     * KDF1 defined in ISO 18033-2 with SHA1
+     */
     ISO18033_2_KDF1_SHA1 = 2,
-    /** KDF1 defined in ISO 18033-2 with SHA256 */
+    /**
+     * KDF1 defined in ISO 18033-2 with SHA256
+     */
     ISO18033_2_KDF1_SHA256 = 3,
-    /** KDF2 defined in ISO 18033-2 with SHA1 */
+    /**
+     * KDF2 defined in ISO 18033-2 with SHA1
+     */
     ISO18033_2_KDF2_SHA1 = 4,
-    /** KDF2 defined in ISO 18033-2 with SHA256 */
+    /**
+     * KDF2 defined in ISO 18033-2 with SHA256
+     */
     ISO18033_2_KDF2_SHA256 = 5,
 };
 
@@ -1102,7 +1113,6 @@ enum HardwareAuthenticatorType : uint32_t {
     NONE = 0,
     PASSWORD = 1 << 0,
     FINGERPRINT = 1 << 1,
-    // Additional entries must be powers of 2.
     ANY = 0xFFFFFFFF,
 };
 
@@ -1123,23 +1133,25 @@ enum SecurityLevel : uint32_t {
  * Formats for key import and export.
  */
 enum KeyFormat : uint32_t {
-    /** X.509 certificate format, for public key export. */
+    /**
+     * X.509 certificate format, for public key export.
+     */
     X509 = 0,
-    /** PCKS#8 format, asymmetric key pair import. */
+    /**
+     * PCKS#8 format, asymmetric key pair import.
+     */
     PKCS8 = 1,
-    /** Raw bytes, for symmetric key import. */
+    /**
+     * Raw bytes, for symmetric key import.
+     */
     RAW = 3,
 };
 
 struct KeyParameter {
-    /**
-     * Discriminates the union/blob field used.  The blob cannot be placed in the union, but only
-     * one of "f" and "blob" may ever be used at a time.
-     */
-    Tag tag;
-
     union IntegerParams {
-        /* Enum types */
+        /**
+         * Enum types
+         */
         Algorithm algorithm;
         BlockMode blockMode;
         PaddingMode paddingMode;
@@ -1151,14 +1163,20 @@ struct KeyParameter {
         KeyDerivationFunction keyDerivationFunction;
         HardwareAuthenticatorType hardwareAuthenticatorType;
         SecurityLevel hardwareType;
-
-        /* Other types */
-        bool boolValue;  // Always true, if a boolean tag is present.
+        /**
+         * Other types
+         */
+        bool boolValue;
         uint32_t integer;
         uint64_t longInteger;
         uint64_t dateTime;
     };
-    IntegerParams f;  // Hidl does not support anonymous unions, so we have to name it.
+    /**
+     * Discriminates the union/blob field used.  The blob cannot be placed in the union, but only
+     * one of "f" and "blob" may ever be used at a time.
+     */
+    Tag tag;
+    IntegerParams f;
     vec<uint8_t> blob;
 };
 
@@ -1196,26 +1214,22 @@ struct HardwareAuthToken {
      * operation, for keys that require authentication per operation. See begin() for details.
      */
     uint64_t challenge;
-
     /**
      *  userId is the a "secure" user ID.  It is not related to any Android user ID or UID, but is
      *  created in the Gatekeeper application in the secure environment.
      */
     uint64_t userId;
-
     /**
      *  authenticatorId is the a "secure" user ID.  It is not related to any Android user ID or UID,
      *  but is created in an authentication application in the secure environment, such as the
      *  Fingerprint application.
      */
-    uint64_t authenticatorId;  // Secure authenticator ID.
-
+    uint64_t authenticatorId;
     /**
      * authenticatorType describes the type of authentication that took place, e.g. password or
      * fingerprint.
      */
     HardwareAuthenticatorType authenticatorType;
-
     /**
      * timestamp indicates when the user authentication took place, in milliseconds since some
      * starting point (generally the most recent device boot) which all of the applications within
@@ -1223,7 +1237,6 @@ struct HardwareAuthToken {
      * the authentication occurred recently enough to unlock a key (see Tag::AUTH_TIMEOUT).
      */
     Timestamp timestamp;
-
     /**
      * MACs are computed with a backward-compatible method, used by Keymaster 3.0, Gatekeeper 1.0
      * and Fingerprint 1.0, as well as pre-treble HALs.
@@ -1262,7 +1275,6 @@ struct HmacSharingParameters {
      * empty or 32 bytes in length.
      */
     vec<uint8_t> seed;
-
     /**
      * A 32-byte value which is guaranteed to be different each time
      * getHmacSharingParameters() is called.  Probabilistic uniqueness (i.e. random) is acceptable,
@@ -1280,25 +1292,21 @@ struct VerificationToken {
      * The operation handle, used to ensure freshness.
      */
     uint64_t challenge;
-
     /**
      * The current time of the secure environment that generates the VerificationToken.  This can be
      * checked against auth tokens generated by the same secure environment, which avoids needing to
      * synchronize clocks.
      */
     Timestamp timestamp;
-
     /**
      * A list of the parameters verified.  Empty if the only parameters verified are time-related.
      * In that case the timestamp is the payload.
      */
     vec<KeyParameter> parametersVerified;
-
     /**
      * SecurityLevel of the secure environment that generated the token.
      */
     SecurityLevel securityLevel;
-
     /**
      * 32-byte HMAC-SHA256 of the above values, computed as:
      *

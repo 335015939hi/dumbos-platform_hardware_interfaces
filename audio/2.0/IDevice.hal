@@ -98,7 +98,7 @@ interface IDevice {
      * @return bufferSize input buffer size in bytes.
      */
     getInputBufferSize(AudioConfig config)
-            generates (Result retval, uint64_t bufferSize);
+        generates (Result retval, uint64_t bufferSize);
 
     /**
      * This method creates and opens the audio hardware output stream.
@@ -113,14 +113,9 @@ interface IDevice {
      * @return outStream created output stream.
      * @return suggestedConfig in case of invalid parameters, suggested config.
      */
-    openOutputStream(
-            AudioIoHandle ioHandle,
-            DeviceAddress device,
-            AudioConfig config,
-            AudioOutputFlag flags) generates (
-                    Result retval,
-                    IStreamOut outStream,
-                    AudioConfig suggestedConfig);
+    openOutputStream(AudioIoHandle ioHandle, DeviceAddress device,
+        AudioConfig config, AudioOutputFlag flags) generates (Result retval,
+        IStreamOut outStream, AudioConfig suggestedConfig);
 
     /**
      * This method creates and opens the audio hardware input stream.
@@ -136,15 +131,10 @@ interface IDevice {
      * @return inStream in case of success, created input stream.
      * @return suggestedConfig in case of invalid parameters, suggested config.
      */
-    openInputStream(
-            AudioIoHandle ioHandle,
-            DeviceAddress device,
-            AudioConfig config,
-            AudioInputFlag flags,
-            AudioSource source) generates (
-                    Result retval,
-                    IStreamIn inStream,
-                    AudioConfig suggestedConfig);
+    openInputStream(AudioIoHandle ioHandle, DeviceAddress device,
+        AudioConfig config, AudioInputFlag flags, AudioSource source) 
+        generates (Result retval, IStreamIn inStream,
+        AudioConfig suggestedConfig);
 
     /**
      * Returns whether HAL supports audio patches.
@@ -163,7 +153,7 @@ interface IDevice {
      * @return patch created patch handle.
      */
     createAudioPatch(vec<AudioPortConfig> sources, vec<AudioPortConfig> sinks)
-            generates (Result retval, AudioPatchHandle patch);
+        generates (Result retval, AudioPatchHandle patch);
 
     /**
      * Release an audio patch.
@@ -187,7 +177,7 @@ interface IDevice {
      * @return resultPort port descriptor with all parameters filled up.
      */
     getAudioPort(AudioPort port)
-            generates (Result retval, AudioPort resultPort);
+        generates (Result retval, AudioPort resultPort);
 
     /**
      * Set audio port configuration.
@@ -224,7 +214,7 @@ interface IDevice {
      * @return parameters parameter key value pairs.
      */
     getParameters(vec<string> keys)
-            generates (Result retval, vec<ParameterValue> parameters);
+        generates (Result retval, vec<ParameterValue> parameters);
 
     /**
      * Generic method for setting vendor-specific parameter values.

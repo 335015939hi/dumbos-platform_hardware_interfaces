@@ -22,15 +22,14 @@ import ISimple;
 import ITheirTypes.FloatArray;
 
 interface IFoo {
-
     enum SomeBaseEnum : uint8_t {
-        bar = 66
+        bar = 66,
     };
 
     enum SomeEnum : SomeBaseEnum {
         quux = 33,
         goober = 192,
-        blah = goober
+        blah = goober,
     };
 
     enum BitField : uint8_t {
@@ -54,11 +53,10 @@ interface IFoo {
         double[10] numbers;
         Fumble fumble;
         Gumble gumble;
-        // vec<double> lotsOfFumbles;
-        // handle loveHandle;
     };
 
     typedef float[3] ThreeFloats;
+
     typedef float[5] FiveFloats;
 
     struct Quux {
@@ -73,6 +71,7 @@ interface IFoo {
     };
 
     typedef string[3] ThreeStrings;
+
     typedef string[5] FiveStrings;
 
     struct StringMatrix3x5 {
@@ -105,8 +104,8 @@ interface IFoo {
             int8_t[1][2] multidimArray;
             Fumble anotherStruct;
             bitfield<BitField> bf;
-        } u;
-
+        };
+        U u;
         int8_t number;
         handle h;
         fmq_sync<uint8_t> descSync;
@@ -124,45 +123,56 @@ interface IFoo {
     struct WithFmq {
         struct ScatterGather {
             fmq_sync<uint8_t> descSync;
-        } scatterGathered;
-
+        };
         struct ContainsPointer {
             fmq_sync<uint8_t> descSync;
             interface foo;
-        } containsPointer;
+        };
+        ScatterGather scatterGathered;
+        ContainsPointer containsPointer;
     };
 
     enum Discriminator : uint8_t {
         BOOL,
         INT,
     };
+
     union Union {
         bool boolValue;
         int64_t intValue;
     };
+
     struct ContainsUnion {
         Discriminator discriminator;
         Union value;
     };
 
     typedef int32_t[5][6][7] multidimArrayOne;
+
     typedef multidimArrayOne[8][9][10] multidimArrayTwo;
+
     typedef multidimArrayTwo[2][3][4] multidimArrayThree;
 
-    struct InnerTestStruct {};
+    struct InnerTestStruct {
+    };
+
     typedef InnerTestStruct InnerTestStructTypedef;
+
     struct S1 {
-        struct InnerTestStruct {};
+        struct InnerTestStruct {
+        };
         InnerTestStructTypedef foo;
     };
 
     enum InnerTestEnum : int32_t {
-        VALUE = 0
+        VALUE = 0,
     };
+
     typedef InnerTestEnum InnerTestEnumTypedef;
+
     struct S2 {
         enum InnerTestEnum : int32_t {
-            VALUE = 1
+            VALUE = 1,
         };
         InnerTestEnumTypedef foo;
     };
@@ -175,30 +185,44 @@ interface IFoo {
      * @param u values to be expanded
      * @return c must have same length as u unless there is an error in which case it will be empty.
      */
-    convertToBoolIfSmall(Discriminator d, vec<Union> u) generates (vec<ContainsUnion> c);
+    convertToBoolIfSmall(Discriminator d, vec<Union> u)
+        generates (vec<ContainsUnion> c);
 
     doThis(float param);
+
     doThatAndReturnSomething(int64_t param) generates (int32_t result);
-    doQuiteABit(int32_t a, int64_t b, float c, double d) generates (double something);
+
+    doQuiteABit(int32_t a, int64_t b, float c, double d)
+        generates (double something);
+
     doSomethingElse(int32_t[15] param) generates (int32_t[32] something);
+
     doStuffAndReturnAString() generates (string something);
+
     mapThisVector(vec<int32_t> param) generates (vec<int32_t> something);
+
     oneway callMe(IFooCallback cb);
+
     useAnEnum(SomeEnum zzz) generates (SomeEnum sleepy);
 
     haveAGooberVec(vec<Goober> param);
+
     haveAGoober(Goober g);
+
     haveAGooberArray(Goober[20] lots);
 
     haveATypeFromAnotherFile(Abc def);
 
     haveSomeStrings(string[3] array) generates (string[2] result);
+
     haveAStringVec(vec<string> vector) generates (vec<string> result);
 
     transposeMe(FiveFloats[3] in) generates (ThreeFloats[5] out);
+
     callingDrWho(MultiDimensional in) generates (MultiDimensional out);
 
     transpose(StringMatrix5x3 in) generates (StringMatrix3x5 out);
+
     transpose2(ThreeStrings[5] in) generates (FiveStrings[3] out);
 
     sendVec(vec<uint8_t> data) generates (vec<uint8_t> data);
@@ -210,10 +234,13 @@ interface IFoo {
     haveAVectorOfGenericInterfaces(vec<interface> in)
         generates (vec<interface> out);
 
-    echoNullInterface(IFooCallback cb) generates (bool receivedNull, IFooCallback cb);
+    echoNullInterface(IFooCallback cb)
+        generates (bool receivedNull, IFooCallback cb);
 
     createMyHandle() generates (MyHandle h);
+
     createHandles(uint32_t size) generates (vec<handle> handles);
+
     closeHandles();
 
     repeatWithFmq(WithFmq withFmq) generates (WithFmq withFmq);

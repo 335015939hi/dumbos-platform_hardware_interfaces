@@ -51,7 +51,8 @@ interface IWifiStaIface extends @1.0::IWifiStaIface {
      * @see getApfPacketFilterCapabilities()
      * @see installApfPacketFilter()
      */
-    readApfPacketFilterData() generates (WifiStatus status, vec<uint8_t> data);
+    readApfPacketFilterData() generates (WifiStatus status, vec<uint8_t> data)
+        ;
 
     /**
      * Changes the MAC address of the Sta Interface to the given

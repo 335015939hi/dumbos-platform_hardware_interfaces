@@ -13,17 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package android.hardware.cas@1.0;
 
-import android.hardware.cas@1.0::types;
+import types;
 
 /**
-  * ICas is the API to control the cas system and is accessible from both
+ * ICas is the API to control the cas system and is accessible from both
  * Java and native level. It is used to manage sessions, provision/refresh
  * the cas system, and process the EMM/ECM messages. It also allows bi-directional,
  * scheme-specific communications between the client and the cas system.
  */
-
 interface ICas {
     /**
      * Provide the CA private data from a CA_descriptor in the conditional
@@ -42,7 +42,7 @@ interface ICas {
      * @return status the status of the call.
      * @return sessionId the id of the newly opened session.
      */
-    openSession() generates(Status status, HidlCasSessionId sessionId);
+    openSession() generates (Status status, HidlCasSessionId sessionId);
 
     /**
      * Close a session.

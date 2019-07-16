@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (C) 2016 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package android.hardware.drm@1.0;
 
 import IDrmPluginListener;
@@ -26,7 +27,6 @@ import IDrmPluginListener;
  * video content.
  */
 interface IDrmPlugin {
-
     /**
      * Open a new session with the DrmPlugin object. A session ID is returned
      * in the sessionId parameter.
@@ -93,10 +93,10 @@ interface IDrmPlugin {
      * provided by the drm HAL. The app may choose to override this
      * URL.
      */
-    getKeyRequest(vec<uint8_t> scope, vec<uint8_t> initData,
-            string mimeType, KeyType keyType, KeyedVector optionalParameters)
-        generates (Status status, vec<uint8_t> request,
-                KeyRequestType requestType, string defaultUrl);
+    getKeyRequest(vec<uint8_t> scope, vec<uint8_t> initData, string mimeType,
+        KeyType keyType, KeyedVector optionalParameters) generates (
+        Status status, vec<uint8_t> request, KeyRequestType requestType,
+        string defaultUrl);
 
     /**
      * After a key response is received by the app, it is provided to the
@@ -148,8 +148,8 @@ interface IDrmPlugin {
      * opened, BAD_VALUE if any parameters are invalid or ERROR_DRM_INVALID_STATE
      * if the HAL is in a state where keys cannot be restored.
      */
-    restoreKeys(SessionId sessionId,
-            vec<uint8_t> keySetId) generates (Status status);
+    restoreKeys(SessionId sessionId, vec<uint8_t> keySetId)
+        generates (Status status);
 
     /**
      * Request an informative description of the license for the session. The
@@ -199,7 +199,7 @@ interface IDrmPlugin {
      *
      * @param response the opaque provisioning response received by the
      * app from a provisioning server.
-
+     *
      * @return status the status of the call. The status must be OK or one of
      * the following errors: ERROR_DRM_DEVICE_REVOKED if the device has been
      * disabled by the license policy, BAD_VALUE if any parameters are invalid
@@ -213,7 +213,7 @@ interface IDrmPlugin {
      * message, see the signRSA method.
      */
     provideProvisionResponse(vec<uint8_t> response) generates (Status status,
-            vec<uint8_t> certificate, vec<uint8_t> wrappedKey);
+        vec<uint8_t> certificate, vec<uint8_t> wrappedKey);
 
     /**
      * SecureStop is a way of enforcing the concurrent stream limit per
@@ -232,9 +232,8 @@ interface IDrmPlugin {
      * session and its keys have been removed from the device. The persisted
      * record on the device is removed after receiving and verifying the
      * signed response from the server.
-     */
-
-    /**
+     *
+     *
      * Get all secure stops on the device
      *
      * @return status the status of the call. The status must be OK or
@@ -242,8 +241,7 @@ interface IDrmPlugin {
      * cannot be returned.
      * @return secureStops a list of the secure stop opaque objects
      */
-    getSecureStops() generates
-        (Status status, vec<SecureStop> secureStops);
+    getSecureStops() generates (Status status, vec<SecureStop> secureStops);
 
     /**
      * Get all secure stops by secure stop ID
@@ -258,7 +256,6 @@ interface IDrmPlugin {
      * cannot be returned.
      * @return secureStop the secure stop opaque object
      */
-
     getSecureStop(SecureStopId secureStopId)
         generates (Status status, SecureStop secureStop);
 
@@ -301,9 +298,8 @@ interface IDrmPlugin {
      * Since drm scheme properties may vary, additional field names may be
      * defined by each DRM vendor. Refer to your DRM provider documentation
      * for definitions of its additional field names.
-     */
-
-    /**
+     *
+     *
      * Read a string property value given the property name.
      *
      * @param propertyName the name of the property
@@ -356,16 +352,15 @@ interface IDrmPlugin {
      * ERROR_DRM_INVALID_STATE if the HAL is in a state where the property
      * cannot be set.
      */
-    setPropertyByteArray(string propertyName, vec<uint8_t> value )
+    setPropertyByteArray(string propertyName, vec<uint8_t> value)
         generates (Status status);
 
     /**
      * The following methods implement operations on a CryptoSession to support
      * encrypt, decrypt, sign verify operations on operator-provided
      * session keys.
-     */
-
-    /**
+     *
+     *
      * Set the cipher algorithm to be used for the specified session.
      *
      * @param sessionId the session id the call applies to
@@ -411,7 +406,7 @@ interface IDrmPlugin {
      * @return output the decrypted data
      */
     encrypt(SessionId sessionId, vec<uint8_t> keyId, vec<uint8_t> input,
-            vec<uint8_t> iv) generates (Status status, vec<uint8_t> output);
+        vec<uint8_t> iv) generates (Status status, vec<uint8_t> output);
 
     /**
      * Decrypt the provided input buffer with the cipher algorithm
@@ -430,7 +425,7 @@ interface IDrmPlugin {
      * @return output the decrypted data
      */
     decrypt(SessionId sessionId, vec<uint8_t> keyId, vec<uint8_t> input,
-            vec<uint8_t> iv) generates (Status status, vec<uint8_t> output);
+        vec<uint8_t> iv) generates (Status status, vec<uint8_t> output);
 
     /**
      * Compute a signature over the provided message using the mac algorithm
@@ -468,7 +463,7 @@ interface IDrmPlugin {
      * false otherwise.
      */
     verify(SessionId sessionId, vec<uint8_t> keyId, vec<uint8_t> message,
-            vec<uint8_t> signature) generates (Status status, bool match);
+        vec<uint8_t> signature) generates (Status status, bool match);
 
     /**
      * Compute an RSA signature on the provided message using the specified
@@ -494,9 +489,8 @@ interface IDrmPlugin {
     /**
      * Plugins call the following methods to deliver events to the
      * java app.
-     */
-
-    /**
+     *
+     *
      * Set a listener for a drm session. This allows the drm HAL to
      * make asynchronous calls back to the client of IDrm.
      *
@@ -524,7 +518,7 @@ interface IDrmPlugin {
      * The time is in milliseconds, relative to the Unix epoch. A time of 0
      * indicates that the keys never expire.
      */
-     sendExpirationUpdate(SessionId sessionId, int64_t expiryTimeInMS);
+    sendExpirationUpdate(SessionId sessionId, int64_t expiryTimeInMS);
 
     /**
      * Send a keys change event to the listener. The keys change event
@@ -537,6 +531,7 @@ interface IDrmPlugin {
      * @param hasNewUsableKey indicates if the event includes at least one
      * key that has become usable.
      */
-    sendKeysChange(SessionId sessionId, vec<KeyStatus> keyStatusList,
-            bool hasNewUsableKey);
+    sendKeysChange(
+        SessionId sessionId, vec<KeyStatus> keyStatusList, bool hasNewUsableKey
+        );
 };

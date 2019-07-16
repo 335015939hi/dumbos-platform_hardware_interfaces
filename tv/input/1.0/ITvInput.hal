@@ -30,7 +30,7 @@ interface ITvInput {
      */
     @entry
     @exit
-    @callflow(next={"getStreamConfigurations"})
+    @callflow(next = "getStreamConfigurations")
     setCallback(ITvInputCallback callback);
 
     /**
@@ -44,9 +44,9 @@ interface ITvInput {
      *         INVALID_ARGUMENTS if the given device ID is not valid.
      * @return configurations An array of available configurations.
      */
-    @callflow(next={"openStream", "getStreamConfigurations", "closeStream"})
+    @callflow(next = {"openStream", "getStreamConfigurations", "closeStream"})
     getStreamConfigurations(int32_t deviceId)
-            generates (Result result, vec<TvStreamConfig> configurations);
+        generates (Result result, vec<TvStreamConfig> configurations);
 
     /**
      * Opens a specific stream in a device.
@@ -61,9 +61,9 @@ interface ITvInput {
      *                 stream.
      * @return sidebandStream handle for sideband stream.
      */
-    @callflow(next={"closeStream", "getStreamConfigurations", "openStream"})
+    @callflow(next = {"closeStream", "getStreamConfigurations", "openStream"})
     openStream(int32_t deviceId, int32_t streamId)
-            generates (Result result, handle sidebandStream);
+        generates (Result result, handle sidebandStream);
 
     /**
      * Closes a specific stream in a device.
@@ -74,6 +74,6 @@ interface ITvInput {
      *         INVALID_ARGUMENTS if any of given IDs are not valid;
      *         INVALID_STATE if the stream with the given ID is not open.
      */
-    @callflow(next={"getStreamConfigurations", "openStream", "closeStream"})
+    @callflow(next = {"getStreamConfigurations", "openStream", "closeStream"})
     closeStream(int32_t deviceId, int32_t streamId) generates (Result result);
 };

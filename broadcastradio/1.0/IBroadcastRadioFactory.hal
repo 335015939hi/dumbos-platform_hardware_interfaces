@@ -19,7 +19,6 @@ package android.hardware.broadcastradio@1.0;
 import IBroadcastRadio;
 
 interface IBroadcastRadioFactory {
-
     /**
      * Connects to a broadcast radio HAL module for a given class
      * (AM/FM, Satellite, DAB).
@@ -32,5 +31,5 @@ interface IBroadcastRadioFactory {
      * @return result the interface for the created module.
      */
     connectModule(Class classId)
-      generates (Result retval, IBroadcastRadio result);
+        generates (Result retval, IBroadcastRadio result);
 };

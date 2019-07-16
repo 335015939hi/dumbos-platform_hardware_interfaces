@@ -58,5 +58,6 @@ interface IRadioResponse extends @1.2::IRadioResponse {
      *   RadioError:RADIO_NOT_AVAILABLE
      *   RadioError:MODEM_ERR
      */
-    oneway getModemStackStatusResponse(RadioResponseInfo info, bool isEnabled);
+    oneway getModemStackStatusResponse(RadioResponseInfo info, bool isEnabled
+        );
 };

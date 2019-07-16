@@ -83,7 +83,8 @@ interface IPreparedModel extends @1.0::IPreparedModel {
      *                - INVALID_ARGUMENT if one of the input arguments is
      *                  invalid
      */
-    execute_1_2(Request request, MeasureTiming measure, IExecutionCallback callback)
+    execute_1_2(
+        Request request, MeasureTiming measure, IExecutionCallback callback)
         generates (ErrorStatus status);
 
     /**
@@ -138,8 +139,8 @@ interface IPreparedModel extends @1.0::IPreparedModel {
      *                choose to report any time as UINT64_MAX, indicating that
      *                measurement is not available.
      */
-    executeSynchronously(Request request, MeasureTiming measure)
-            generates (ErrorStatus status, vec<OutputShape> outputShapes, Timing timing);
+    executeSynchronously(Request request, MeasureTiming measure) generates (
+        ErrorStatus status, vec<OutputShape> outputShapes, Timing timing);
 
     /**
      * Configure a Burst object used to execute multiple inferences on a
@@ -173,7 +174,7 @@ interface IPreparedModel extends @1.0::IPreparedModel {
      *                 nullptr.
      */
     configureExecutionBurst(IBurstCallback callback,
-                            fmq_sync<FmqRequestDatum> requestChannel,
-                            fmq_sync<FmqResultDatum> resultChannel)
-                 generates (ErrorStatus status, IBurstContext context);
+        fmq_sync<FmqRequestDatum> requestChannel,
+        fmq_sync<FmqResultDatum> resultChannel)
+        generates (ErrorStatus status, IBurstContext context);
 };

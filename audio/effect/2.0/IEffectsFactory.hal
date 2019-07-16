@@ -26,7 +26,8 @@ interface IEffectsFactory {
      * @return retval operation completion status.
      * @return result list of effect descriptors.
      */
-    getAllDescriptors() generates(Result retval, vec<EffectDescriptor> result);
+    getAllDescriptors() generates (Result retval, vec<EffectDescriptor> result)
+        ;
 
     /**
      * Returns a descriptor of a particular effect.
@@ -34,7 +35,8 @@ interface IEffectsFactory {
      * @return retval operation completion status.
      * @return result effect descriptor.
      */
-    getDescriptor(Uuid uid) generates(Result retval, EffectDescriptor result);
+    getDescriptor(Uuid uid) generates (Result retval, EffectDescriptor result)
+        ;
 
     /**
      * Creates an effect engine of the specified type.  To release the effect

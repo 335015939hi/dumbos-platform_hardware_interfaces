@@ -23,7 +23,6 @@ import @1.1::IRadioConfigIndication;
  * Interface declaring unsolicited radio config indications.
  */
 interface IRadioConfigIndication extends @1.1::IRadioConfigIndication {
-
     /**
      * Indicates SIM slot status change.
      *
@@ -35,5 +34,6 @@ interface IRadioConfigIndication extends @1.1::IRadioConfigIndication {
      * @param slotStatus new slot status info with size equals to the number of physical slots on
      *        the device
      */
-    oneway simSlotsStatusChanged_1_2(RadioIndicationType type, vec<SimSlotStatus> slotStatus);
+    oneway simSlotsStatusChanged_1_2(
+        RadioIndicationType type, vec<SimSlotStatus> slotStatus);
 };

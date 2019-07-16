@@ -16,18 +16,16 @@
 
 package android.hardware.drm@1.0;
 
-import android.hardware.drm@1.0::types;
+import types;
 
 /**
  * Ref: frameworks/native/include/media/drm/DrmAPI.h:DrmPluginListener
- */
-
-/**
+ *
+ *
  * IDrmPluginListener is a listener interface for Drm events sent from an
  * IDrmPlugin instance.
  */
 interface IDrmPluginListener {
-
     /**
      * Legacy event sending method, it sends events of various types using a
      * single overloaded set of parameters. This form is deprecated.
@@ -36,8 +34,8 @@ interface IDrmPluginListener {
      * @param sessionId identifies the session the event originated from
      * @param data event-specific data blob
      */
-    oneway sendEvent(EventType eventType, SessionId sessionId,
-            vec<uint8_t> data);
+    oneway sendEvent(
+        EventType eventType, SessionId sessionId, vec<uint8_t> data);
 
     /**
      * Send a license expiration update to the listener. The expiration
@@ -62,6 +60,7 @@ interface IDrmPluginListener {
      * @param hasNewUsableKey indicates if the event includes at least one
      * key that has become usable.
      */
-    oneway sendKeysChange(SessionId sessionId, vec<KeyStatus> keyStatusList,
-            bool hasNewUsableKey);
+    oneway sendKeysChange(
+        SessionId sessionId, vec<KeyStatus> keyStatusList, bool hasNewUsableKey
+        );
 };

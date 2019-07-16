@@ -26,7 +26,6 @@ import android.hardware.camera.common@1.0::types;
  *
  */
 interface ICameraDeviceSession {
-
     /**
      * constructDefaultRequestSettings:
      *
@@ -60,8 +59,8 @@ interface ICameraDeviceSession {
      *     use case, or an empty metadata structure if status is not OK.
      *
      */
-    constructDefaultRequestSettings(RequestTemplate type) generates
-            (Status status, CameraMetadata requestTemplate);
+    constructDefaultRequestSettings(RequestTemplate type)
+        generates (Status status, CameraMetadata requestTemplate);
 
     /**
      * configureStreams:
@@ -165,8 +164,7 @@ interface ICameraDeviceSession {
      *
      */
     configureStreams(StreamConfiguration requestedConfiguration)
-            generates (Status status,
-                    HalStreamConfiguration halConfiguration);
+        generates (Status status, HalStreamConfiguration halConfiguration);
 
     /**
      * processCaptureRequest:
@@ -242,9 +240,9 @@ interface ICameraDeviceSession {
      *     that HAL processed successfully before HAL runs into an error.
      *
      */
-    processCaptureRequest(vec<CaptureRequest> requests,
-            vec<BufferCache> cachesToRemove)
-            generates (Status status, uint32_t numRequestProcessed);
+    processCaptureRequest(
+        vec<CaptureRequest> requests, vec<BufferCache> cachesToRemove)
+        generates (Status status, uint32_t numRequestProcessed);
 
     /**
      * getCaptureRequestMetadataQueue:

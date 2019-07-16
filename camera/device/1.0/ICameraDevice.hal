@@ -32,7 +32,6 @@ import ICameraDevicePreviewCallback;
  * Will be removed in the Android P release.
  */
 interface ICameraDevice {
-
     /**
      * Get camera device resource cost information.
      *
@@ -54,7 +53,8 @@ interface ICameraDevice {
      *     The resources required to open this camera device, or unspecified
      *     values if status is not OK.
      */
-    getResourceCost() generates (Status status, CameraResourceCost resourceCost);
+    getResourceCost()
+        generates (Status status, CameraResourceCost resourceCost);
 
     /**
      * Get basic camera information.
@@ -178,15 +178,15 @@ interface ICameraDevice {
      */
     open(ICameraDeviceCallback callback) generates (Status status);
 
-
-    /*****
+    /**
      * All methods below this point must only be called between a successful
      * open() call and a close() call.
+     *
+     *
+     * Set the callback interface through which preview frames are sent
      */
-
-    /** Set the callback interface through which preview frames are sent */
     setPreviewWindow(ICameraDevicePreviewCallback window)
-            generates (Status status);
+        generates (Status status);
 
     /**
      * Enable a message, or set of messages.
@@ -325,7 +325,8 @@ interface ICameraDevice {
      * @param bufferIndex The specific buffer index to return to the HAL.
      * @param frame The handle for a released video frame
      */
-    releaseRecordingFrameHandle(MemoryId memId, uint32_t bufferIndex, handle frame);
+    releaseRecordingFrameHandle(
+        MemoryId memId, uint32_t bufferIndex, handle frame);
 
     /**
      * Release a batch of record frames previously returned by CAMERA_MSG_VIDEO_FRAME
@@ -408,12 +409,11 @@ interface ICameraDevice {
      * @return status The status code for this operation.
      */
     sendCommand(CommandType cmd, int32_t arg1, int32_t arg2)
-            generates (Status status);
+        generates (Status status);
 
     /**
      * Release the hardware resources owned by this object, shutting down the
      * camera device.
      */
     close();
-
 };

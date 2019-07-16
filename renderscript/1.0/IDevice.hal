@@ -16,11 +16,10 @@
 
 package android.hardware.renderscript@1.0;
 
-import android.hardware.renderscript@1.0::types;
+import types;
 import IContext;
 
 interface IDevice {
-
     /**
      * Creates a RenderScript context.
      *
@@ -30,9 +29,8 @@ interface IDevice {
      * @return context Created context
      */
     @entry
-    @callflow(next={"*"})
-    contextCreate(uint32_t sdkVersion, ContextType ct,
-                  bitfield<ContextFlags> flags)
-       generates (IContext context);
-
+    @callflow(next = "*")
+    contextCreate(
+        uint32_t sdkVersion, ContextType ct, bitfield<ContextFlags> flags)
+        generates (IContext context);
 };

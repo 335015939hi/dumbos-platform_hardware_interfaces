@@ -20,11 +20,11 @@ package android.hardware.wifi@1.0;
  * RTT Response and Event Callbacks.
  */
 interface IWifiRttControllerEventCallback {
-  /**
-   * Invoked when an RTT result is available.
-   *
-   * @param cmdId command Id corresponding to the original request.
-   * @param results Vector of |RttResult| instances.
-   */
-  oneway onResults(CommandId cmdId, vec<RttResult> results);
+    /**
+     * Invoked when an RTT result is available.
+     *
+     * @param cmdId command Id corresponding to the original request.
+     * @param results Vector of |RttResult| instances.
+     */
+    oneway onResults(CommandId cmdId, vec<RttResult> results);
 };

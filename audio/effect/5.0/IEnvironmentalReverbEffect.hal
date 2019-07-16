@@ -20,16 +20,6 @@ import android.hardware.audio.common@5.0;
 import IEffect;
 
 interface IEnvironmentalReverbEffect extends IEffect {
-    /**
-     * Sets whether the effect should be bypassed.
-     */
-    setBypass(bool bypass) generates (Result retval);
-
-    /**
-     * Gets whether the effect should be bypassed.
-     */
-    getBypass() generates (Result retval, bool bypass);
-
     enum ParamRange : int16_t {
         ROOM_LEVEL_MIN = -6000,
         ROOM_LEVEL_MAX = 0,
@@ -50,8 +40,31 @@ interface IEnvironmentalReverbEffect extends IEffect {
         DIFFUSION_MIN = 0,
         DIFFUSION_MAX = 1000,
         DENSITY_MIN = 0,
-        DENSITY_MAX = 1000
+        DENSITY_MAX = 1000,
     };
+
+    struct AllProperties {
+        int16_t roomLevel;
+        int16_t roomHfLevel;
+        uint32_t decayTime;
+        int16_t decayHfRatio;
+        int16_t reflectionsLevel;
+        uint32_t reflectionsDelay;
+        int16_t reverbLevel;
+        uint32_t reverbDelay;
+        int16_t diffusion;
+        int16_t density;
+    };
+
+    /**
+     * Sets whether the effect should be bypassed.
+     */
+    setBypass(bool bypass) generates (Result retval);
+
+    /**
+     * Gets whether the effect should be bypassed.
+     */
+    getBypass() generates (Result retval, bool bypass);
 
     /**
      * Sets the room level.
@@ -111,7 +124,8 @@ interface IEnvironmentalReverbEffect extends IEffect {
     /**
      * Gets the reflections delay in the room.
      */
-    getReflectionsDelay() generates (Result retval, uint32_t reflectionsDelay);
+    getReflectionsDelay() generates (Result retval, uint32_t reflectionsDelay)
+        ;
 
     /**
      * Sets the reverb level of the room.
@@ -152,19 +166,6 @@ interface IEnvironmentalReverbEffect extends IEffect {
      * Gets room wall density.
      */
     getDensity() generates (Result retval, int16_t density);
-
-    struct AllProperties {
-        int16_t  roomLevel;         // in millibels,    range -6000 to 0
-        int16_t  roomHfLevel;       // in millibels,    range -4000 to 0
-        uint32_t decayTime;         // in milliseconds, range 100 to 20000
-        int16_t  decayHfRatio;      // in permilles,    range 100 to 1000
-        int16_t  reflectionsLevel;  // in millibels,    range -6000 to 0
-        uint32_t reflectionsDelay;  // in milliseconds, range 0 to 65
-        int16_t  reverbLevel;       // in millibels,    range -6000 to 0
-        uint32_t reverbDelay;       // in milliseconds, range 0 to 65
-        int16_t  diffusion;         // in permilles,    range 0 to 1000
-        int16_t  density;           // in permilles,    range 0 to 1000
-    };
 
     /**
      * Sets all properties at once.

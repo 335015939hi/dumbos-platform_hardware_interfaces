@@ -30,7 +30,6 @@ import IOmx;
  * instance name.
  */
 interface IOmxStore {
-
     /**
      * Attribute is a key-value pair of strings. The `value` member is generally
      * a stringified value of the following:
@@ -47,79 +46,8 @@ interface IOmxStore {
         string value;
     };
 
-    /**
-     * Service attribute
-     *
-     * Optional service attributes:
-     *   key: 'max-video-encoder-input-buffers', value-type: num
-     *   key: 'supports-multiple-secure-codecs', value-type: enum<0,1>
-     *   key: 'supports-secure-with-non-secure-codec', value-type: enum<0,1>
-     *
-     * For keys with prefix 'supports-', the value of 0 means "no" (not
-     * supported) while the value of 1 means "yes" (supported).
-     */
     typedef Attribute ServiceAttribute;
 
-    /**
-     * List attributes that are service-specific (not node-specific).
-     *
-     * @return attributes The list of `Attribute`s that are specific to this
-     *                    service.
-     */
-    listServiceAttributes(
-        ) generates (
-            Status status,
-            vec<ServiceAttribute> attributes
-        );
-
-    /**
-     * Node attribute
-     *
-     * Optional node attributes to describe supported values:
-     *   key: 'bitrate-range', value-type: range<num>
-     *   key: 'max-concurrent-instances', value-type: num
-     *   key: 'max-supported-instances', value-type: num
-     *
-     * Optional node attributes for audio nodes to describe supported values:
-     *   key: 'max-channel-count', value-type: num
-     *   key: 'sample-rate-ranges', value-type: list<range<num>>
-     *
-     * Optional node attributes for video nodes to describe supported values:
-     *   key: 'alignment', value-type: size
-     *   key: 'block-aspect-ratio-range', value-type: range<ratio>
-     *   key: 'block-count-range', value-type: range<num>
-     *   key: 'block-size', value-type: size
-     *   key: 'blocks-per-second-range', value-type: range<num>
-     *   key: 'feature-can-swap-width-height', value-type: enum<0,1>
-     *   key: 'frame-rate-range', value-type: range<num>
-     *   key: 'pixel-aspect-ratio-range', value-type: range<ratio>
-     *   key: 'size-range', value-type: range<size>
-     *
-     * Required node attributes for video nodes that are required by Android to
-     * describe measured values for this device:
-     *   key: 'measured-frame-rate-<width>x<height>-range',
-     *     value-type: range<num>; where width: num, height: num
-     *
-     * Optional node attributes for decoders to describe supported values:
-     *   key: 'feature-adaptive-playback', value: enum<0,1>
-     *   key: 'feature-secure-playback', value: enum<0,1>
-     *   key: 'feature-tunneled-playback', value: enum<0,1>
-     *
-     * Optional node attributes for video decoders to describe supported values:
-     *   key: 'feature-partial-frame', value: enum<0,1>
-     *
-     * Optional node attributes for encoders to describe supported values:
-     *   key: 'complexity-default', value-type: num
-     *   key: 'complexity-range', value-type: range<num>
-     *   key: 'feature-bitrate-modes', value-type: list<enum<VBR,CBR,CQ>>
-     *   key: 'feature-intra-refresh', value-type: enum<0,1>
-     *   key: 'quality-default', value-type: num
-     *   key: 'quality-range', value-type: range<num>
-     *   key: 'quality-scale', value-type: string
-     *
-     * For keys with prefix 'feature-' and value type enum<0,1>, the value of 0
-     * means "optional", while the value of 1 means "required".
-     */
     typedef Attribute NodeAttribute;
 
     /**
@@ -173,15 +101,21 @@ interface IOmxStore {
     };
 
     /**
+     * List attributes that are service-specific (not node-specific).
+     *
+     * @return attributes The list of `Attribute`s that are specific to this
+     *                    service.
+     */
+    listServiceAttributes()
+        generates (Status status, vec<ServiceAttribute> attributes);
+
+    /**
      * Return the prefix of names of supported nodes.
      *
      * @return prefix The prefix of the names of all nodes supported by this
      *                service.
      */
-    getNodePrefix(
-        ) generates (
-            string prefix
-        );
+    getNodePrefix() generates (string prefix);
 
     /**
      * List roles of supported nodes.
@@ -193,10 +127,7 @@ interface IOmxStore {
      *
      * @see RoleInfo
      */
-    listRoles(
-        ) generates (
-            vec<RoleInfo> roleList
-        );
+    listRoles() generates (vec<RoleInfo> roleList);
 
     /**
      * Obtain an `IOmx` instance with a specified name.
@@ -205,11 +136,5 @@ interface IOmxStore {
      * @return omx The `IOmx` interface associated with `name`. This must be
      * null if the name is not found.
      */
-    getOmx(
-            string name
-        ) generates (
-            IOmx omx
-        );
-
+    getOmx(string name) generates (IOmx omx);
 };
-

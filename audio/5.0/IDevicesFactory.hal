@@ -20,7 +20,8 @@ import android.hardware.audio.common@5.0;
 import IDevice;
 import IPrimaryDevice;
 
-/** This factory allows a HAL implementation to be split in multiple independent
+/**
+ * This factory allows a HAL implementation to be split in multiple independent
  *  devices (called module in the pre-treble API).
  *  Note that this division is arbitrary and implementation are free
  *  to only have a Primary.
@@ -38,7 +39,6 @@ import IPrimaryDevice;
  *  due to limitations with the Bluetooth framework.
  */
 interface IDevicesFactory {
-
     /**
      * Opens an audio device. To close the device, it is necessary to release
      * references to the returned device object.

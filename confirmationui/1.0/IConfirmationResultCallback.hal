@@ -57,5 +57,6 @@ interface IConfirmationResultCallback {
      *                          which is shared with Keymaster. In test mode the test key MUST be
      *                          used (see types.hal TestModeCommands and TestKeyBits).
      */
-    result(ResponseCode error, vec<uint8_t> formattedMessage, vec<uint8_t> confirmationToken);
+    result(ResponseCode error, vec<uint8_t> formattedMessage,
+        vec<uint8_t> confirmationToken);
 };

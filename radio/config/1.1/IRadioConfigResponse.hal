@@ -17,9 +17,9 @@
 package android.hardware.radio.config@1.1;
 
 import @1.0::IRadioConfigResponse;
-import @1.1::PhoneCapability;
+import PhoneCapability;
 import android.hardware.radio@1.0::RadioResponseInfo;
-import @1.1::ModemsConfig;
+import ModemsConfig;
 
 /**
  * Note: IRadioConfig 1.1 is an intermediate layer between Android P and Android Q.
@@ -39,7 +39,8 @@ interface IRadioConfigResponse extends @1.0::IRadioConfigResponse {
      *   RadioError:RADIO_NOT_AVAILABLE
      *   RadioError:INTERNAL_ERR
      */
-    oneway getPhoneCapabilityResponse(RadioResponseInfo info, PhoneCapability phoneCapability);
+    oneway getPhoneCapabilityResponse(
+        RadioResponseInfo info, PhoneCapability phoneCapability);
 
     /**
      * @param info Response info struct containing response type, serial no. and error
@@ -73,5 +74,6 @@ interface IRadioConfigResponse extends @1.0::IRadioConfigResponse {
      *   RadioError:RADIO_NOT_AVAILABLE
      *   RadioError:REQUEST_NOT_SUPPORTED
      */
-    oneway getModemsConfigResponse(RadioResponseInfo info, ModemsConfig modemsConfig);
+    oneway getModemsConfigResponse(
+        RadioResponseInfo info, ModemsConfig modemsConfig);
 };

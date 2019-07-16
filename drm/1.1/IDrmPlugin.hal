@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (C) 2017 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package android.hardware.drm@1.1;
 
 import @1.0::IDrmPlugin;
@@ -20,12 +21,12 @@ import @1.0::IDrmPluginListener;
 import @1.0::KeyedVector;
 import @1.0::KeyType;
 import @1.0::Status;
-import @1.1::DrmMetricGroup;
-import @1.1::HdcpLevel;
-import @1.1::KeyRequestType;
+import DrmMetricGroup;
+import HdcpLevel;
+import KeyRequestType;
 import @1.0::SecureStopId;
-import @1.1::SecureStopRelease;
-import @1.1::SecurityLevel;
+import SecureStopRelease;
+import SecurityLevel;
 import @1.0::SessionId;
 
 /**
@@ -59,8 +60,8 @@ interface IDrmPlugin extends @1.0::IDrmPlugin {
      * @param level the requested security level
      * @return sessionId the session ID for the newly opened session
      */
-    openSession_1_1(SecurityLevel securityLevel) generates (Status status,
-            SessionId sessionId);
+    openSession_1_1(SecurityLevel securityLevel)
+        generates (Status status, SessionId sessionId);
 
     /**
      * A key request/response exchange occurs between the app and a License
@@ -111,9 +112,9 @@ interface IDrmPlugin extends @1.0::IDrmPlugin {
      *         provided by the drm HAL. The app may choose to override this URL.
      */
     getKeyRequest_1_1(vec<uint8_t> scope, vec<uint8_t> initData,
-            string mimeType, KeyType keyType, KeyedVector optionalParameters)
+        string mimeType, KeyType keyType, KeyedVector optionalParameters) 
         generates (Status status, vec<uint8_t> request,
-                KeyRequestType requestType, string defaultUrl);
+        KeyRequestType requestType, string defaultUrl);
 
     /**
      * Return the currently negotiated and max supported HDCP levels.
@@ -143,8 +144,9 @@ interface IDrmPlugin extends @1.0::IDrmPlugin {
      * @return maxLevel the highest HDCP level that can be supported
      *         by the device
      */
-    getHdcpLevels() generates (Status status, HdcpLevel connectedLevel,
-            HdcpLevel maxLevel);
+    getHdcpLevels()
+        generates (Status status, HdcpLevel connectedLevel, HdcpLevel maxLevel)
+        ;
 
     /**
      * Return the current number of open sessions and the maximum number of
@@ -159,7 +161,7 @@ interface IDrmPlugin extends @1.0::IDrmPlugin {
      *         can support
      */
     getNumberOfSessions() generates (Status status, uint32_t currentSessions,
-             uint32_t maxSessions);
+        uint32_t maxSessions);
 
     /**
      * Return the current security level of a session. A session has an initial
@@ -174,8 +176,8 @@ interface IDrmPlugin extends @1.0::IDrmPlugin {
      *         security level cannot be queried.
      * @return level the current security level for the session
      */
-    getSecurityLevel(vec<uint8_t> sessionId) generates(Status status,
-            SecurityLevel level);
+    getSecurityLevel(vec<uint8_t> sessionId)
+        generates (Status status, SecurityLevel level);
 
     /**
      * Returns the plugin-specific metrics. Multiple metric groups may be
@@ -198,8 +200,8 @@ interface IDrmPlugin extends @1.0::IDrmPlugin {
      * IDs cannot be returned.
      * @return secureStopIds a list of the IDs
      */
-    getSecureStopIds() generates
-        (Status status, vec<SecureStopId> secureStopIds);
+    getSecureStopIds()
+        generates (Status status, vec<SecureStopId> secureStopIds);
 
     /**
      * Release secure stops given a release message from the key server

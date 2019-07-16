@@ -44,6 +44,6 @@ interface IStorage {
      *     does not need to receive any callbacks.
      *
      */
-    oneway garbageCollect(uint64_t timeoutSeconds,
-                          IGarbageCollectCallback callback);
+    oneway garbageCollect(
+        uint64_t timeoutSeconds, IGarbageCollectCallback callback);
 };

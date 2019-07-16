@@ -13,15 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package android.hardware.power@1.1;
 
-import android.hardware.power@1.0;
+import @1.0;
 
 /**
  * Interface to collect subsystem level sleep information
  */
-interface IPower extends android.hardware.power@1.0::IPower {
-
+interface IPower extends @1.0::IPower {
     /**
      * Subsystem-level sleep state stats:
      * Report cumulative info on the statistics on subsystem-level sleep states
@@ -32,7 +32,7 @@ interface IPower extends android.hardware.power@1.0::IPower {
      * nodes access error.
      */
     getSubsystemLowPowerStats()
-            generates (vec<PowerStateSubsystem> subsystems, Status retval);
+        generates (vec<PowerStateSubsystem> subsystems, Status retval);
 
     /**
      * powerHintAsync() is called to pass hints on power requirements which
@@ -46,5 +46,4 @@ interface IPower extends android.hardware.power@1.0::IPower {
      * and is described along with the comments for each of the hints.
      */
     oneway powerHintAsync(PowerHint hint, int32_t data);
-
 };

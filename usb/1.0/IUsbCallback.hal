@@ -32,7 +32,8 @@ interface IUsbCallback {
      * @param retval SUCCESS when query was done successfully.
      * ERROR otherwise.
      */
-    oneway notifyPortStatusChange(vec<PortStatus> currentPortStatus, Status retval);
+    oneway notifyPortStatusChange(
+        vec<PortStatus> currentPortStatus, Status retval);
 
     /**
      * Used to notify the result of the switchRole call to the caller.
@@ -41,5 +42,6 @@ interface IUsbCallback {
      * @param newRole the new role requested by the caller.
      * @param retval SUCCESS if the role switch succeeded. FAILURE otherwise.
      */
-    oneway notifyRoleSwitchStatus(string portName, PortRole newRole, Status retval);
+    oneway notifyRoleSwitchStatus(
+        string portName, PortRole newRole, Status retval);
 };
