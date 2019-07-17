@@ -331,6 +331,30 @@
     },
     {
       "key": {
+        "uuid": "fff6efc8_2bf3977c",
+        "filename": "tv/cec/1.0/default/HdmiCecMock.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-07-17T17:03:36Z",
+      "side": 1,
+      "message": "e.g. what if language is \"☺\" (size is 3)",
+      "parentUuid": "f62dcd1c_c566da4d",
+      "range": {
+        "startLine": 133,
+        "startChar": 8,
+        "endLine": 133,
+        "endChar": 25
+      },
+      "revId": "1f48812d0ace13161172e8d574a9387a0425427c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2288eb7e_fdd3e566",
         "filename": "tv/cec/1.0/default/HdmiCecMock.cpp",
         "patchSetId": 2
