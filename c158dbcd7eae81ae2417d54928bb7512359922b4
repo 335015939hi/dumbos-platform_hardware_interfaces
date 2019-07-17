@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "c365cfaf_3d799672",
+        "filename": "radio/1.4/IRadio.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-07-17T23:27:49Z",
+      "side": 0,
+      "message": "I\u0027m more worried about the ambiguous case. I\u0027m not sure if it matters for imports. Does it?",
+      "parentUuid": "71e60084_4d0aa0d3",
+      "range": {
+        "startLine": 23,
+        "startChar": 7,
+        "endLine": 23,
+        "endChar": 13
+      },
+      "revId": "c158dbcd7eae81ae2417d54928bb7512359922b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "65b79a86_ecaae309",
         "filename": "tests/foo/1.0/IFoo.hal",
         "patchSetId": 1
