@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+#include <android-base/logging.h>
+#include <cutils/properties.h>
 #include <radio_hidl_hal_utils_v1_1.h>
 #include <vector>
 
@@ -47,6 +49,10 @@ TEST_F(RadioHidlTest_v1_1, setSimCardPower_1_1) {
         EXPECT_EQ(CardState::ABSENT, cardStatus.cardState);
     }
 
+    int32_t firstApiLevel = property_get_int32("ro.product.first_api_level", 0);
+    if ((firstApiLevel < 28) && (firstApiLevel > 0)) {
+        return;
+    }
     /* Test setSimCardPower power up */
     serial = GetRandomSerialNumber();
     radio_v1_1->setSimCardPower_1_1(serial, CardPowerState::POWER_UP);
