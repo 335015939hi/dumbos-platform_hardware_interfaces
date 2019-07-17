@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+#include <cutils/properties.h>
 #include <radio_hidl_hal_utils_v1_2.h>
 
 void RadioHidlTest_v1_2::SetUp() {
@@ -48,7 +49,12 @@ void RadioHidlTest_v1_2::SetUp() {
     EXPECT_EQ(RadioError::NONE, radioRsp_v1_2->rspInfo.error);
 
     /* Enforce Vts Testing with Sim Status Present only. */
-    EXPECT_EQ(CardState::PRESENT, cardStatus.base.cardState);
+    int32_t firstApiLevel = property_get_int32("ro.product.first_api_level", 0);
+    if ((firstApiLevel < 28) && (firstApiLevel > 0)) {
+        EXPECT_EQ(CardState::ABSENT, cardStatus.base.cardState);
+    } else {
+        EXPECT_EQ(CardState::PRESENT, cardStatus.base.cardState);
+    }
 }
 
 /*

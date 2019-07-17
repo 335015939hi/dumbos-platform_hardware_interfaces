@@ -24,7 +24,7 @@
 #include <VtsHalHidlTargetCallbackBase.h>
 #include <VtsHalHidlTargetTestBase.h>
 #include <VtsHalHidlTargetTestEnvBase.h>
-
+#include <cutils/properties.h>
 using ::android::hardware::secure_element::V1_0::ISecureElement;
 using ::android::hardware::secure_element::V1_0::ISecureElementHalCallback;
 using ::android::hardware::secure_element::V1_0::SecureElementStatus;
@@ -88,7 +88,12 @@ class SecureElementHidlTest : public ::testing::VtsHalHidlTargetTestBase {
         ASSERT_FALSE(serviceName.empty());
         se_ = ::testing::VtsHalHidlTargetTestBase::getService<ISecureElement>(serviceName);
         ASSERT_NE(se_, nullptr);
-
+        int32_t firstApiLevel = property_get_int32("ro.product.first_api_level", 0);
+        if ((firstApiLevel < 28) && (firstApiLevel > 0)) {
+            LOG(INFO) << "SetUp:--upgrade to P ，should not test,firstApiLevel:" << firstApiLevel;
+            EXPECT_TRUE(true);
+            return;
+        }
         se_cb_ = new SecureElementHalCallback();
         ASSERT_NE(se_cb_, nullptr);
         se_->init(se_cb_);
@@ -106,6 +111,13 @@ class SecureElementHidlTest : public ::testing::VtsHalHidlTargetTestBase {
  * Expects the card to be present
  */
 TEST_F(SecureElementHidlTest, isCardPresent) {
+    int32_t firstApiLevel = property_get_int32("ro.product.first_api_level", 0);
+    if ((firstApiLevel < 28) && (firstApiLevel > 0)) {
+        LOG(INFO) << "isCardPresent:--upgrade to P ，should not test,firstApiLevel:"
+                  << firstApiLevel;
+        EXPECT_TRUE(true);
+        return;
+    }
     EXPECT_TRUE(se_->isCardPresent());
 }
 
@@ -117,6 +129,13 @@ TEST_F(SecureElementHidlTest, transmit) {
     std::vector<uint8_t> aid = ANDROID_TEST_AID;
     SecureElementStatus statusReturned;
     LogicalChannelResponse response;
+    int32_t firstApiLevel = property_get_int32("ro.product.first_api_level", 0);
+    if ((firstApiLevel < 28) && (firstApiLevel > 0)) {
+        LOG(INFO) << "openLogicalChannel:--upgrade to P ，should not test,firstApiLevel:"
+                  << firstApiLevel;
+        EXPECT_TRUE(true);
+        return;
+    }
     se_->openLogicalChannel(
         aid, 0x00,
         [&statusReturned, &response](LogicalChannelResponse channelResponse,
@@ -157,6 +176,13 @@ TEST_F(SecureElementHidlTest, openBasicChannel) {
     std::vector<uint8_t> aid = ANDROID_TEST_AID;
     SecureElementStatus statusReturned;
     std::vector<uint8_t> response;
+    int32_t firstApiLevel = property_get_int32("ro.product.first_api_level", 0);
+    if ((firstApiLevel < 28) && (firstApiLevel > 0)) {
+        LOG(INFO) << "OpenCloseBasicChannel:--upgrade to P ，should not test,firstApiLevel:"
+                  << firstApiLevel;
+        EXPECT_TRUE(true);
+        return;
+    }
     se_->openBasicChannel(aid, 0x00,
                           [&statusReturned, &response](std::vector<uint8_t> selectResponse,
                                                        SecureElementStatus status) {
@@ -181,6 +207,12 @@ TEST_F(SecureElementHidlTest, openBasicChannel) {
  */
 TEST_F(SecureElementHidlTest, getAtr) {
     std::vector<uint8_t> atr;
+    int32_t firstApiLevel = property_get_int32("ro.product.first_api_level", 0);
+    if ((firstApiLevel < 28) && (firstApiLevel > 0)) {
+        LOG(INFO) << "GetATR:--upgrade to P ，should not test,firstApiLevel:" << firstApiLevel;
+        EXPECT_TRUE(true);
+        return;
+    }
     se_->getAtr([&atr](std::vector<uint8_t> atrReturned) {
         atr.resize(atrReturned.size());
         for (size_t i = 0; i < atrReturned.size(); i++) {
@@ -204,6 +236,13 @@ TEST_F(SecureElementHidlTest, openCloseLogicalChannel) {
     std::vector<uint8_t> aid = ANDROID_TEST_AID;
     SecureElementStatus statusReturned;
     LogicalChannelResponse response;
+    int32_t firstApiLevel = property_get_int32("ro.product.first_api_level", 0);
+    if ((firstApiLevel < 28) && (firstApiLevel > 0)) {
+        LOG(INFO) << "openLogicalChannel:--upgrade to P ，should not test,firstApiLevel:"
+                  << firstApiLevel;
+        EXPECT_TRUE(true);
+        return;
+    }
     se_->openLogicalChannel(
         aid, 0x00,
         [&statusReturned, &response](LogicalChannelResponse channelResponse,

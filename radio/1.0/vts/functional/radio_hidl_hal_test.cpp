@@ -16,6 +16,11 @@
 
 #include <radio_hidl_hal_utils_v1_0.h>
 
+#include <android-base/logging.h>
+#include <cutils/properties.h>
+#ifndef LOG_TAG
+#define LOG_TAG "radio_hidl_hal_test"
+#endif
 void RadioHidlTest::SetUp() {
     radio = ::testing::VtsHalHidlTargetTestBase::getService<IRadio>(
         RadioHidlEnvironment::Instance()->getServiceName<IRadio>(hidl_string(RADIO_SERVICE_NAME)));
@@ -43,7 +48,12 @@ void RadioHidlTest::SetUp() {
     EXPECT_EQ(RadioError::NONE, radioRsp->rspInfo.error);
 
     /* Enforce Vts Testing with Sim Status Present only. */
-    EXPECT_EQ(CardState::PRESENT, cardStatus.cardState);
+    int32_t firstApiLevel = property_get_int32("ro.product.first_api_level", 0);
+    if ((firstApiLevel < 28) && (firstApiLevel > 0)) {
+        EXPECT_EQ(CardState::ABSENT, cardStatus.cardState);
+    } else {
+        EXPECT_EQ(CardState::PRESENT, cardStatus.cardState);
+    }
 }
 
 void RadioHidlTest::notify(int receivedSerial) {

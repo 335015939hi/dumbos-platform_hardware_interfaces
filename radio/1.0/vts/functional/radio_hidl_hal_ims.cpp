@@ -179,7 +179,7 @@ TEST_F(RadioHidlTest, requestIsimAuthentication) {
             radioRsp->rspInfo.error,
             {RadioError::SIM_ABSENT, RadioError::INVALID_ARGUMENTS, RadioError::RADIO_NOT_AVAILABLE,
              RadioError::NO_MEMORY, RadioError::SYSTEM_ERR, RadioError::REQUEST_NOT_SUPPORTED,
-             RadioError::CANCELLED}));
+             RadioError::CANCELLED, RadioError::INTERNAL_ERR}));
     }
 }
 
