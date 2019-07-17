@@ -355,6 +355,30 @@
     },
     {
       "key": {
+        "uuid": "9de4f04b_a5af1ce0",
+        "filename": "tv/cec/1.0/default/HdmiCecMock.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1345588
+      },
+      "writtenOn": "2019-07-17T18:12:12Z",
+      "side": 1,
+      "message": "I see what you mean.\n\nLet me add a TODO here for the validation. \nWhen working with a non-mock impl, the client side is handling the validation of the language code. Not sure how the mock impl should handle this for now.\n\nThank you!",
+      "parentUuid": "fff6efc8_2bf3977c",
+      "range": {
+        "startLine": 133,
+        "startChar": 8,
+        "endLine": 133,
+        "endChar": 25
+      },
+      "revId": "1f48812d0ace13161172e8d574a9387a0425427c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2288eb7e_fdd3e566",
         "filename": "tv/cec/1.0/default/HdmiCecMock.cpp",
         "patchSetId": 2

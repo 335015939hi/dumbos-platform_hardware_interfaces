@@ -22,6 +22,30 @@
       "revId": "f55ba19478ee05b24201e8f3e0bf336214fccaf4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a07ea5f_6f2f2b1a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1345588
+      },
+      "writtenOn": "2019-07-17T18:12:12Z",
+      "side": 1,
+      "message": "Not yet. We are planning to. \n\nI just manually brought up the service on Cuttlefish and checked with some input/output handling of the interface.",
+      "parentUuid": "f2486dd0_a948b0b6",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 4
+      },
+      "revId": "f55ba19478ee05b24201e8f3e0bf336214fccaf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
