@@ -505,6 +505,30 @@
       "revId": "1f48812d0ace13161172e8d574a9387a0425427c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b957ac00_d1d2a364",
+        "filename": "tv/cec/1.0/default/serviceMock.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1345588
+      },
+      "writtenOn": "2019-07-18T21:00:18Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f2ebe04d_42661583",
+      "range": {
+        "startLine": 29,
+        "startChar": 27,
+        "endLine": 29,
+        "endChar": 28
+      },
+      "revId": "1f48812d0ace13161172e8d574a9387a0425427c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
