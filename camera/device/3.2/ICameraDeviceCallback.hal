@@ -19,7 +19,6 @@ package android.hardware.camera.device@3.2;
 import android.hardware.camera.common@1.0::types;
 
 /**
- *
  * Callback methods for the HAL to call into the framework.
  *
  * These methods are used to return metadata and image buffers for a completed
@@ -31,7 +30,6 @@ import android.hardware.camera.common@1.0::types;
  *
  */
 interface ICameraDeviceCallback {
-
     /**
      * processCaptureResult:
      *
@@ -131,5 +129,4 @@ interface ICameraDeviceCallback {
      * This is a non-blocking call. The framework must handle each message in 5ms.
      */
     notify(vec<NotifyMsg> msgs);
-
 };

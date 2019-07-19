@@ -20,7 +20,6 @@ import ITunerCallback;
 import ITuner;
 
 interface IBroadcastRadio {
-
     /**
      * Retrieve implementation properties.
      * @return result Operation completion status: OK in case of success,
@@ -47,5 +46,5 @@ interface IBroadcastRadio {
      * configuration is applied or a failure occurs or after a time out.
      */
     openTuner(BandConfig config, bool audio, ITunerCallback callback)
-                generates (Result result, ITuner tuner);
+        generates (Result result, ITuner tuner);
 };

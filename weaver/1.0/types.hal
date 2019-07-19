@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package android.hardware.weaver@1.0;
 
 enum WeaverStatus : uint32_t {
@@ -21,11 +22,17 @@ enum WeaverStatus : uint32_t {
 };
 
 struct WeaverConfig {
-    /** The number of slots available. */
+    /**
+     * The number of slots available.
+     */
     uint32_t slots;
-    /** The number of bytes used for a key. */
+    /**
+     * The number of bytes used for a key.
+     */
     uint32_t keySize;
-    /** The number of bytes used for a value. */
+    /**
+     * The number of bytes used for a value.
+     */
     uint32_t valueSize;
 };
 
@@ -35,8 +42,12 @@ enum WeaverReadStatus : WeaverStatus {
 };
 
 struct WeaverReadResponse {
-    /** The time to wait, in milliseconds, before making the next request. */
+    /**
+     * The time to wait, in milliseconds, before making the next request.
+     */
     uint32_t timeout;
-    /** The value read from the slot or empty if the value was not read. */
+    /**
+     * The value read from the slot or empty if the value was not read.
+     */
     vec<uint8_t> value;
 };

@@ -21,4 +21,5 @@ import @1.1::ISap;
 /**
  * Empty top level interface.
  */
-interface ISap extends @1.1::ISap {};
+interface ISap extends @1.1::ISap {
+};

@@ -13,16 +13,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package android.hardware.oemlock@1.0;
 
 enum OemLockStatus : uint32_t {
-    /** The operation completed successfully. */
+    /**
+     * The operation completed successfully.
+     */
     OK,
-    /** The operation encountered a problem. */
+    /**
+     * The operation encountered a problem.
+     */
     FAILED,
 };
 
 enum OemLockSecureStatus : OemLockStatus {
-    /** An invalid signature was provided so the operation was not performed. */
+    /**
+     * An invalid signature was provided so the operation was not performed.
+     */
     INVALID_SIGNATURE,
 };

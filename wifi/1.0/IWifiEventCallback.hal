@@ -17,26 +17,26 @@
 package android.hardware.wifi@1.0;
 
 interface IWifiEventCallback {
-  /**
-   * Called in response to a call to start indicating that the operation
-   * completed. After this callback the HAL must be fully operational.
-   */
-  oneway onStart();
+    /**
+     * Called in response to a call to start indicating that the operation
+     * completed. After this callback the HAL must be fully operational.
+     */
+    oneway onStart();
 
-  /**
-   * Called in response to a call to stop indicating that the operation
-   * completed. When this event is received all IWifiChip objects retrieved
-   * after the last call to start will be considered invalid.
-   */
-  oneway onStop();
+    /**
+     * Called in response to a call to stop indicating that the operation
+     * completed. When this event is received all IWifiChip objects retrieved
+     * after the last call to start will be considered invalid.
+     */
+    oneway onStop();
 
-  /**
-   * Called when the Wi-Fi system failed in a way that caused it be disabled.
-   * Calling start again must restart Wi-Fi as if stop then start was called
-   * (full state reset). When this event is received all IWifiChip & IWifiIface
-   * objects retrieved after the last call to start will be considered invalid.
-   *
-   * @param status Failure reason code.
-   */
-  oneway onFailure(WifiStatus status);
+    /**
+     * Called when the Wi-Fi system failed in a way that caused it be disabled.
+     * Calling start again must restart Wi-Fi as if stop then start was called
+     * (full state reset). When this event is received all IWifiChip & IWifiIface
+     * objects retrieved after the last call to start will be considered invalid.
+     *
+     * @param status Failure reason code.
+     */
+    oneway onFailure(WifiStatus status);
 };

@@ -37,12 +37,11 @@ import IGnssBatchingCallback;
  * relative motion filtering. No additional absolute positioning information,
  * such as WiFi derived location, may be mixed with the GNSS information.
  */
-
 interface IGnssBatching {
     /**
      * Enum which holds the bit masks for batching control.
      */
-    @export(name="", value_prefix="FLP_BATCH_")
+    @export(name = "", value_prefix = "FLP_BATCH_")
     enum Flag : uint8_t {
         /**
          * If this flag is set, the hardware implementation
@@ -52,7 +51,7 @@ interface IGnssBatching {
          * If the flag is not set, the hardware implementation must drop
          * the oldest data when the FIFO is full.
          */
-        WAKEUP_ON_FIFO_FULL = 0x01
+        WAKEUP_ON_FIFO_FULL = 0x01,
     };
 
     struct Options {
@@ -61,7 +60,6 @@ interface IGnssBatching {
          * seconds.
          */
         int64_t periodNanos;
-
         /**
          * Flags controlling how batching should behave.
          */
@@ -142,5 +140,4 @@ interface IGnssBatching {
      * init() may be called again, after this, if the interface is to be restored
      */
     cleanup();
-
 };

@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package android.hardware.drm@1.0;
 
 import IDrmPlugin;
@@ -25,7 +26,6 @@ import IDrmPlugin;
  * creates drm sessions which are used to obtain keys for a crypto
  * session so it can decrypt* protected video content.
  */
-
 interface IDrmFactory {
     /**
      * Determine if a crypto scheme is supported by this HAL
@@ -33,7 +33,7 @@ interface IDrmFactory {
      * @param uuid identifies the crypto scheme in question
      * @return isSupported must be true only if the scheme is supported
      */
-    isCryptoSchemeSupported(uint8_t[16] uuid) generates(bool isSupported);
+    isCryptoSchemeSupported(uint8_t[16] uuid) generates (bool isSupported);
 
     /**
      * Determine if the HAL factory is able to construct plugins that support a
@@ -42,7 +42,7 @@ interface IDrmFactory {
      * @param mimeType identifies the mime type in question
      * @return isSupported must be true only if the scheme is supported
      */
-    isContentTypeSupported(string mimeType) generates(bool isSupported);
+    isContentTypeSupported(string mimeType) generates (bool isSupported);
 
     /**
      * Create a drm plugin instance for the specified uuid and scheme-specific
@@ -57,5 +57,5 @@ interface IDrmFactory {
      * cannot be created.
      */
     createPlugin(uint8_t[16] uuid, string appPackageName)
-            generates (Status status, IDrmPlugin drmPlugin);
+        generates (Status status, IDrmPlugin drmPlugin);
 };

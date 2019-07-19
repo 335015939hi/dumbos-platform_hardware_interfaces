@@ -20,6 +20,12 @@ import android.hardware.audio.common@5.0;
 import IEffect;
 
 interface IAutomaticGainControlEffect extends IEffect {
+    struct AllProperties {
+        int16_t targetLevelMb;
+        int16_t compGainMb;
+        bool limiterEnabled;
+    };
+
     /**
      * Sets target level in millibels.
      */
@@ -49,12 +55,6 @@ interface IAutomaticGainControlEffect extends IEffect {
      * Returns whether limiter is enabled.
      */
     isLimiterEnabled() generates (Result retval, bool enabled);
-
-    struct AllProperties {
-        int16_t targetLevelMb;
-        int16_t compGainMb;
-        bool limiterEnabled;
-    };
 
     /**
      * Sets all properties at once.

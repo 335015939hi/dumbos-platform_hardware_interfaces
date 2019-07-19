@@ -22,7 +22,6 @@ import @1.0::OperandLifeTime;
 import @1.0::OperandType;
 import @1.0::PerformanceInfo;
 import @1.1::OperationType;
-
 import android.hidl.safe_union@1.0::Monostate;
 
 enum Constant : uint32_t {
@@ -30,7 +29,6 @@ enum Constant : uint32_t {
      * The byte size of the cache token.
      */
     BYTE_SIZE_OF_CACHE_TOKEN = 32,
-
     /**
      * The maximum number of files for each type of cache in compilation caching.
      */
@@ -126,38 +124,18 @@ enum OperandType : @1.0::OperandType {
      * Available since API level 29.
      */
     TENSOR_QUANT8_SYMM = 13,
-    /*
-     * DEPRECATED. Since NNAPI 1.2, extensions are the preferred alternative to
-     * OEM operation and data types.
-     *
-     * OEM specific scalar value.
-     * OEM                 = 10000,
-     */
-    /*
-     * DEPRECATED. Since NNAPI 1.2, extensions are the preferred alternative to
-     * OEM operation and data types.
-     *
-     * A tensor of OEM specific values.
-     * TENSOR_OEM_BYTE     = 10001,
-     */
-    /* ADDING A NEW FUNDAMENTAL TYPE REQUIRES UPDATING THE VALUE OF
-     * OperandTypeRange::FUNDAMENTAL_MAX.
-     */
-    /* ADDING A NEW OEM TYPE REQUIRES UPDATING THE VALUE OF
-     * OperandTypeRange::OEM_MAX.
-     */
 };
 
 /**
  * The range of operand values in the OperandType enum.
  */
 enum OperandTypeRange : uint32_t {
-    BASE_MIN        = 0,
+    BASE_MIN = 0,
     FUNDAMENTAL_MIN = 0,
     FUNDAMENTAL_MAX = 13,
-    OEM_MIN         = 10000,
-    OEM_MAX         = 10001,
-    BASE_MAX        = 0xFFFF,
+    OEM_MIN = 10000,
+    OEM_MAX = 10001,
+    BASE_MAX = 0xFFFF,
 };
 
 /**
@@ -212,7 +190,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     ADD = @1.1::OperationType:ADD,
-
     /**
      * Performs a 2-D average pooling operation.
      *
@@ -294,7 +271,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     AVERAGE_POOL_2D = @1.1::OperationType:AVERAGE_POOL_2D,
-
     /**
      * Concatenates the input tensors along the given dimension.
      *
@@ -326,7 +302,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     CONCATENATION = @1.1::OperationType:CONCATENATION,
-
     /**
      * Performs an 2-D convolution operation.
      *
@@ -472,7 +447,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     CONV_2D = @1.1::OperationType:CONV_2D,
-
     /**
      * Performs a depthwise 2-D convolution operation.
      *
@@ -609,7 +583,7 @@ enum OperationType : int32_t {
      *      cells between each filter element on height dimension. If this input is set,
      *      input 9 (dilation factor for width) must be specified as well.
      *      Available since API level 29.
-
+     *
      *
      * Outputs:
      * * 0: The output 4-D tensor, of shape
@@ -621,7 +595,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     DEPTHWISE_CONV_2D = @1.1::OperationType:DEPTHWISE_CONV_2D,
-
     /**
      * Rearranges data from depth into blocks of spatial data.
      *
@@ -664,7 +637,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     DEPTH_TO_SPACE = @1.1::OperationType:DEPTH_TO_SPACE,
-
     /**
      * Dequantizes the input tensor.
      *
@@ -692,7 +664,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     DEQUANTIZE = @1.1::OperationType:DEQUANTIZE,
-
     /**
      * Looks up sub-tensors in the input tensor.
      *
@@ -734,7 +705,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     EMBEDDING_LOOKUP = @1.1::OperationType:EMBEDDING_LOOKUP,
-
     /**
      * Computes element-wise floor() on the input tensor.
      *
@@ -754,7 +724,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     FLOOR = @1.1::OperationType:FLOOR,
-
     /**
      * Denotes a fully (densely) connected layer, which connects all elements
      * in the input tensor with each element in the output tensor.
@@ -801,7 +770,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     FULLY_CONNECTED = @1.1::OperationType:FULLY_CONNECTED,
-
     /**
      * Looks up sub-tensors in the input tensor using a key-value map.
      *
@@ -858,7 +826,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     HASHTABLE_LOOKUP = @1.1::OperationType:HASHTABLE_LOOKUP,
-
     /**
      * Applies L2 normalization along the depth dimension.
      *
@@ -895,7 +862,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     L2_NORMALIZATION = @1.1::OperationType:L2_NORMALIZATION,
-
     /**
      * Performs an 2-D L2 pooling operation.
      *
@@ -975,7 +941,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     L2_POOL_2D = @1.1::OperationType:L2_POOL_2D,
-
     /**
      * Applies Local Response Normalization along the depth dimension.
      *
@@ -1032,7 +997,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     LOCAL_RESPONSE_NORMALIZATION = @1.1::OperationType:LOCAL_RESPONSE_NORMALIZATION,
-
     /**
      * Computes sigmoid activation on the input tensor element-wise.
      *
@@ -1059,7 +1023,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     LOGISTIC = @1.1::OperationType:LOGISTIC,
-
     /**
      * Projects an input to a bit vector via locality senstive hashing.
      *
@@ -1117,7 +1080,6 @@ enum OperationType : int32_t {
      * The offset value for sparse projections was added in API level 29.
      */
     LSH_PROJECTION = @1.1::OperationType:LSH_PROJECTION,
-
     /**
      * Performs a single time step in a Long Short-Term Memory (LSTM) layer
      *
@@ -1337,7 +1299,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     LSTM = @1.1::OperationType:LSTM,
-
     /**
      * Performs an 2-D max pooling operation.
      *
@@ -1419,7 +1380,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     MAX_POOL_2D = @1.1::OperationType:MAX_POOL_2D,
-
     /**
      * Multiplies two tensors, element-wise.
      *
@@ -1463,7 +1423,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     MUL = @1.1::OperationType:MUL,
-
     /**
      * Computes rectified linear activation on the input tensor element-wise.
      *
@@ -1488,7 +1447,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     RELU = @1.1::OperationType:RELU,
-
     /**
      * Computes rectified linear 1 activation on the input tensor element-wise.
      *
@@ -1513,7 +1471,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     RELU1 = @1.1::OperationType:RELU1,
-
     /**
      * Computes rectified linear 6 activation on the input tensor element-wise.
      *
@@ -1538,7 +1495,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     RELU6 = @1.1::OperationType:RELU6,
-
     /**
      * Reshapes a tensor.
      *
@@ -1569,7 +1525,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     RESHAPE = @1.1::OperationType:RESHAPE,
-
     /**
      * Resizes images to given size using the bilinear interpretation.
      *
@@ -1626,7 +1581,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     RESIZE_BILINEAR = @1.1::OperationType:RESIZE_BILINEAR,
-
     /**
      * A basic recurrent neural network layer.
      *
@@ -1680,7 +1634,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     RNN = @1.1::OperationType:RNN,
-
     /**
      * Computes the softmax activation on the input tensor element-wise, per
      * batch, by normalizing the input vector so the maximum coefficient is
@@ -1726,7 +1679,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     SOFTMAX = @1.1::OperationType:SOFTMAX,
-
     /**
      * Rearranges blocks of spatial data, into depth.
      *
@@ -1768,7 +1720,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     SPACE_TO_DEPTH = @1.1::OperationType:SPACE_TO_DEPTH,
-
     /**
      * SVDF op is a kind of stateful layer derived from the notion that a
      * densely connected layer that's processing a sequence of input frames can
@@ -1847,7 +1798,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     SVDF = @1.1::OperationType:SVDF,
-
     /**
      * Computes hyperbolic tangent of input tensor element-wise.
      *
@@ -1874,7 +1824,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     TANH = @1.1::OperationType:TANH,
-
     /**
      * BatchToSpace for N-dimensional tensors.
      *
@@ -1910,7 +1859,6 @@ enum OperationType : int32_t {
      * Available since API level 28.
      */
     BATCH_TO_SPACE_ND = @1.1::OperationType:BATCH_TO_SPACE_ND,
-
     /**
      * Element-wise division of two tensors.
      *
@@ -1955,7 +1903,6 @@ enum OperationType : int32_t {
      * Available since API level 28.
      */
     DIV = @1.1::OperationType:DIV,
-
     /**
      * Computes the mean of elements across dimensions of a tensor.
      *
@@ -1991,7 +1938,6 @@ enum OperationType : int32_t {
      * Available since API level 28.
      */
     MEAN = @1.1::OperationType:MEAN,
-
     /**
      * Pads a tensor with zeros.
      *
@@ -2031,7 +1977,6 @@ enum OperationType : int32_t {
      * Available since API level 28.
      */
     PAD = @1.1::OperationType:PAD,
-
     /**
      * SpaceToBatch for N-Dimensional tensors.
      *
@@ -2076,7 +2021,6 @@ enum OperationType : int32_t {
      * Available since API level 28.
      */
     SPACE_TO_BATCH_ND = @1.1::OperationType:SPACE_TO_BATCH_ND,
-
     /**
      * Removes dimensions of size 1 from the shape of a tensor.
      *
@@ -2108,7 +2052,6 @@ enum OperationType : int32_t {
      * Available since API level 28.
      */
     SQUEEZE = @1.1::OperationType:SQUEEZE,
-
     /**
      * Extracts a strided slice of a tensor.
      *
@@ -2155,7 +2098,6 @@ enum OperationType : int32_t {
      * Available since API level 28.
      */
     STRIDED_SLICE = @1.1::OperationType:STRIDED_SLICE,
-
     /**
      * Element-wise subtraction of two tensors.
      *
@@ -2201,7 +2143,6 @@ enum OperationType : int32_t {
      * Available since API level 28.
      */
     SUB = @1.1::OperationType:SUB,
-
     /**
      * Transposes the input tensor, permuting the dimensions according to the
      * perm tensor.
@@ -2230,7 +2171,6 @@ enum OperationType : int32_t {
      * Available since API level 28.
      */
     TRANSPOSE = @1.1::OperationType:TRANSPOSE,
-
     /**
      * Computes the absolute value of a tensor, element-wise.
      *
@@ -2249,7 +2189,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     ABS = 38,
-
     /**
      * Returns the index of the largest element along an axis.
      *
@@ -2272,10 +2211,7 @@ enum OperationType : int32_t {
      *
      * Available since API level 29.
      */
-    // There is no underscore in ARG_MAX to avoid name conflict with
-    // the macro defined in libc/kernel/uapi/linux/limits.h.
     ARGMAX = 39,
-
     /**
      * Returns the index of the smallest element along an axis.
      *
@@ -2298,8 +2234,7 @@ enum OperationType : int32_t {
      *
      * Available since API level 29.
      */
-    ARGMIN = 40,  // See ARGMAX for naming discussion.
-
+    ARGMIN = 40,
     /**
      * Transform axis-aligned bounding box proposals using bounding box deltas.
      *
@@ -2345,7 +2280,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     AXIS_ALIGNED_BBOX_TRANSFORM = 41,
-
     /**
      * Performs a forward LSTM on the input followed by a backward LSTM.
      *
@@ -2543,7 +2477,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     BIDIRECTIONAL_SEQUENCE_LSTM = 42,
-
     /**
      * A recurrent neural network layer that applies a basic RNN cell to a
      * sequence of inputs in forward and backward directions.
@@ -2662,7 +2595,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     BIDIRECTIONAL_SEQUENCE_RNN = 43,
-
     /**
      * Greedily selects a subset of bounding boxes in descending order of score.
      *
@@ -2741,7 +2673,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     BOX_WITH_NMS_LIMIT = 44,
-
     /**
      * Casts a tensor to a new type.
      *
@@ -2766,7 +2697,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     CAST = 45,
-
     /**
      * Shuffle the channels of the input tensor.
      *
@@ -2804,7 +2734,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     CHANNEL_SHUFFLE = 46,
-
     /**
      * Apply postprocessing steps to bounding box detections.
      *
@@ -2886,7 +2815,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     DETECTION_POSTPROCESSING = 47,
-
     /**
      * For input tensors x and y, computes x == y elementwise.
      *
@@ -2912,7 +2840,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     EQUAL = 48,
-
     /**
      * Computes exponential of x element-wise.
      *
@@ -2931,7 +2858,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     EXP = 49,
-
     /**
      * Inserts a dimension of 1 into a tensor's shape.
      *
@@ -2960,7 +2886,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     EXPAND_DIMS = 50,
-
     /**
      * Gathers values along an axis.
      *
@@ -2998,7 +2923,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     GATHER = 51,
-
     /**
      * Generate aixs-aligned bounding box proposals.
      *
@@ -3078,7 +3002,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     GENERATE_PROPOSALS = 52,
-
     /**
      * For input tensors x and y, computes x > y elementwise.
      *
@@ -3129,7 +3052,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     GREATER_EQUAL = 54,
-
     /**
      * Performs a grouped 2-D convolution operation.
      *
@@ -3215,7 +3137,7 @@ enum OperationType : int32_t {
      * * 8: An {@link OperandType::INT32} scalar, specifying the stride when
      *      walking through input in the ‘height’ dimension.
      * * 9: An {@link OperandType::INT32} scalar, specifying the number of
-            groups.
+     * groups.
      * * 10: An {@link OperandType::INT32} scalar, and has to be one of the
      *       {@link FusedActivationFunc} values. Specifies the activation to
      *       invoke on the result.
@@ -3262,7 +3184,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     GROUPED_CONV_2D = 55,
-
     /**
      * Localize the maximum keypoints from heatmaps.
      *
@@ -3308,7 +3229,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     HEATMAP_MAX_KEYPOINT = 56,
-
     /**
      * Applies instance normalization to the input tensor.
      *
@@ -3361,7 +3281,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     INSTANCE_NORMALIZATION = 57,
-
     /**
      * For input tensors x and y, computes x < y elementwise.
      *
@@ -3387,7 +3306,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     LESS = 58,
-
     /**
      * For input tensors x and y, computes x <= y elementwise.
      *
@@ -3413,7 +3331,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     LESS_EQUAL = 59,
-
     /**
      * Computes natural logarithm of x element-wise.
      *
@@ -3432,7 +3349,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     LOG = 60,
-
     /**
      * Returns the truth value of x AND y element-wise.
      *
@@ -3454,7 +3370,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     LOGICAL_AND = 61,
-
     /**
      * Computes the truth value of NOT x element-wise.
      *
@@ -3472,7 +3387,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     LOGICAL_NOT = 62,
-
     /**
      * Returns the truth value of x OR y element-wise.
      *
@@ -3494,7 +3408,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     LOGICAL_OR = 63,
-
     /**
      * Computes the log softmax activations given logits.
      *
@@ -3527,7 +3440,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     LOG_SOFTMAX = 64,
-
     /**
      * Returns the element-wise maximum of two tensors.
      *
@@ -3550,7 +3462,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     MAXIMUM = 65,
-
     /**
      * Returns the element-wise minimum of two tensors.
      *
@@ -3573,7 +3484,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     MINIMUM = 66,
-
     /**
      * Computes numerical negative value element-wise.
      *
@@ -3593,7 +3503,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     NEG = 67,
-
     /**
      * For input tensors x and y, computes x != y elementwise.
      *
@@ -3619,7 +3528,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     NOT_EQUAL = 68,
-
     /**
      * Pads a tensor with the given constant value according to the specified
      * paddings.
@@ -3661,7 +3569,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     PAD_V2 = 69,
-
     /**
      * Computes the power of one value to another.
      *
@@ -3693,7 +3600,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     POW = 70,
-
     /**
      * Parametric Rectified Linear Unit.
      *
@@ -3732,7 +3638,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     PRELU = 71,
-
     /**
      * Quantizes the input tensor.
      *
@@ -3756,7 +3661,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     QUANTIZE = 72,
-
     /**
      * A version of quantized LSTM, using 16 bit quantization for internal
      * state.
@@ -3861,7 +3765,6 @@ enum OperationType : int32_t {
      *      (scale = 1/128, zeroPoint = 128).
      */
     QUANTIZED_16BIT_LSTM = 73,
-
     /**
      * Draws samples from a multinomial distribution.
      *
@@ -3883,7 +3786,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     RANDOM_MULTINOMIAL = 74,
-
     /**
      * Reduces a tensor by computing the "logical and" of elements along given
      * dimensions.
@@ -3910,7 +3812,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     REDUCE_ALL = 75,
-
     /**
      * Reduces a tensor by computing the "logical or" of elements along given
      * dimensions.
@@ -3937,7 +3838,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     REDUCE_ANY = 76,
-
     /**
      * Reduces a tensor by computing the maximum of elements along given
      * dimensions.
@@ -3966,7 +3866,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     REDUCE_MAX = 77,
-
     /**
      * Reduces a tensor by computing the minimum of elements along given
      * dimensions.
@@ -3995,7 +3894,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     REDUCE_MIN = 78,
-
     /**
      * Reduces a tensor by multiplying elements along given dimensions.
      *
@@ -4022,7 +3920,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     REDUCE_PROD = 79,
-
     /**
      * Reduces a tensor by summing elements along given dimensions.
      *
@@ -4049,7 +3946,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     REDUCE_SUM = 80,
-
     /**
      * Select and scale the feature map of each region of interest to a unified
      * output size by average pooling sampling points from bilinear interpolation.
@@ -4109,7 +4005,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     ROI_ALIGN = 81,
-
     /**
      * Select and scale the feature map of each region of interest to a unified
      * output size by max-pooling.
@@ -4160,7 +4055,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     ROI_POOLING = 82,
-
     /**
      * Computes reciprocal of square root of x element-wise.
      *
@@ -4179,7 +4073,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     RSQRT = 83,
-
     /**
      * Using a tensor of booleans c and input tensors x and y select values
      * elementwise from both input tensors:
@@ -4207,7 +4100,6 @@ enum OperationType : int32_t {
      *
      */
     SELECT = 84,
-
     /**
      * Computes sin of x element-wise.
      *
@@ -4226,7 +4118,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     SIN = 85,
-
     /**
      * Extracts a slice of specified size from the input tensor starting at a
      * specified location.
@@ -4261,7 +4152,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     SLICE = 86,
-
     /**
      * Splits a tensor along a given axis into num_splits subtensors.
      *
@@ -4286,7 +4176,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     SPLIT = 87,
-
     /**
      * Computes square root of x element-wise.
      *
@@ -4305,7 +4194,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     SQRT = 88,
-
     /**
      * Constructs a tensor by tiling a given tensor.
      *
@@ -4334,7 +4222,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     TILE = 89,
-
     /**
      * Finds values and indices of the k largest entries for the last dimension.
      *
@@ -4363,7 +4250,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     TOPK_V2 = 90,
-
     /**
      * Performs the transpose of 2-D convolution operation.
      *
@@ -4477,7 +4363,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     TRANSPOSE_CONV_2D = 91,
-
     /**
      * A recurrent neural network specified by an LSTM cell.
      *
@@ -4588,7 +4473,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     UNIDIRECTIONAL_SEQUENCE_LSTM = 92,
-
     /**
      * A recurrent neural network layer that applies a basic RNN cell to a
      * sequence of inputs.
@@ -4645,7 +4529,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     UNIDIRECTIONAL_SEQUENCE_RNN = 93,
-
     /**
      * Resizes images to given size using the nearest neighbor interpretation.
      *
@@ -4700,7 +4583,6 @@ enum OperationType : int32_t {
      * Available since API level 29.
      */
     RESIZE_NEAREST_NEIGHBOR = 94,
-
     /**
      * DEPRECATED. Since NNAPI 1.2, extensions are the preferred alternative to
      * OEM operation and data types.
@@ -4709,24 +4591,18 @@ enum OperationType : int32_t {
      * applications.
      */
     OEM_OPERATION = @1.1::OperationType:OEM_OPERATION,
-    /* ADDING A NEW FUNDAMENTAL OPERATION REQUIRES UPDATING THE VALUE OF
-     * OperationTypeRange::FUNDAMENTAL_MAX.
-     */
-    /* ADDING A NEW OEM OPERATION REQUIRES UPDATING THE VALUE OF
-     * OperationTypeRange::OEM_MAX.
-     */
 };
 
 /**
  * The range of values in the OperationType enum.
  */
 enum OperationTypeRange : uint32_t {
-    BASE_MIN        = 0,
+    BASE_MIN = 0,
     FUNDAMENTAL_MIN = 0,
     FUNDAMENTAL_MAX = 94,
-    OEM_MIN         = 10000,
-    OEM_MAX         = 10000,
-    BASE_MAX        = 0xFFFF,
+    OEM_MIN = 10000,
+    OEM_MAX = 10000,
+    BASE_MAX = 0xFFFF,
 };
 
 /**
@@ -4735,18 +4611,23 @@ enum OperationTypeRange : uint32_t {
  * The type of NNAPI device.
  */
 enum DeviceType : int32_t {
-    // Leaving 0 unused as it means unknown type in NDK NNAPI. There is no
-    // HAL equivalent of unknown type and a 1.2 HAL implementation must belong
-    // to one of the categories below.
-    /** The device does not fall into any category below. */
-    OTHER             = 1,
-    /** The device runs NNAPI models on single or multi-core CPU. */
-    CPU               = 2,
-    /** The device can run NNAPI models and also accelerate graphics APIs such
-      * as OpenGL ES and Vulkan. */
-    GPU               = 3,
-    /** Dedicated accelerator for Machine Learning workloads. */
-    ACCELERATOR       = 4,
+    /**
+     * The device does not fall into any category below.
+     */
+    OTHER = 1,
+    /**
+     * The device runs NNAPI models on single or multi-core CPU.
+     */
+    CPU = 2,
+    /**
+     * The device can run NNAPI models and also accelerate graphics APIs such
+     * as OpenGL ES and Vulkan.
+     */
+    GPU = 3,
+    /**
+     * Dedicated accelerator for Machine Learning workloads.
+     */
+    ACCELERATOR = 4,
 };
 
 /**
@@ -4756,6 +4637,10 @@ enum DeviceType : int32_t {
  * This represents performance for non extension operand types.
  */
 struct Capabilities {
+    struct OperandPerformance {
+        OperandType type;
+        PerformanceInfo info;
+    };
     /**
      * Driver performance when operating on float32 data but performing
      * calculations with range and/or precision as low as that of the IEEE
@@ -4763,17 +4648,6 @@ struct Capabilities {
      */
     PerformanceInfo relaxedFloat32toFloat16PerformanceScalar;
     PerformanceInfo relaxedFloat32toFloat16PerformanceTensor;
-
-    /**
-     * Driver performance when operating on a particular data type.
-     * In the case of float32 data, this is used when the calculations
-     * are not relaxed.
-     */
-    struct OperandPerformance {
-        OperandType type;
-        PerformanceInfo info;
-    };
-
     /**
      * Performance by operand type. Must be sorted by OperandType.
      * If a particular OperandType is not present in operandPerformance,
@@ -4794,13 +4668,11 @@ struct Operation {
      * as an extension type according to {@link Model::extensionNameToPrefix}.
      */
     OperationType type;
-
     /**
      * Describes the table that contains the indexes of the inputs of the
      * operation. The offset is the index in the operandIndexes table.
      */
     vec<uint32_t> inputs;
-
     /**
      * Describes the table that contains the indexes of the outputs of the
      * operation. The offset is the index in the operandIndexes table.
@@ -4812,9 +4684,13 @@ struct Operation {
  * Parameters for TENSOR_QUANT8_SYMM_PER_CHANNEL operand.
  */
 struct SymmPerChannelQuantParams {
-    /** Array of scaling values for each channel. Each value must be greater than zero. */
+    /**
+     * Array of scaling values for each channel. Each value must be greater than zero.
+     */
     vec<float> scales;
-    /** Index of the channel dimension */
+    /**
+     * Index of the channel dimension
+     */
     uint32_t channelDim;
 };
 
@@ -4822,6 +4698,25 @@ struct SymmPerChannelQuantParams {
  * Describes one operand of the model's graph.
  */
 struct Operand {
+    safe_union ExtraParams {
+        /**
+         * No additional parameters.
+         */
+        Monostate none;
+        /**
+         * Symmetric per-channel quantization parameters.
+         *
+         * Only applicable to operands of type TENSOR_QUANT8_SYMM_PER_CHANNEL.
+         */
+        SymmPerChannelQuantParams channelQuant;
+        /**
+         * Extension operand parameters.
+         *
+         * The framework treats this as an opaque data blob.
+         * The format is up to individual extensions.
+         */
+        vec<uint8_t> extension;
+    };
     /**
      * The data type.
      *
@@ -4830,7 +4725,6 @@ struct Operand {
      * as an extension type according to {@link Model::extensionNameToPrefix}.
      */
     OperandType type;
-
     /**
      * Dimensions of the operand.
      *
@@ -4870,7 +4764,6 @@ struct Operand {
      * an empty dimensions vector.
      */
     vec<uint32_t> dimensions;
-
     /**
      * The number of times this operand appears as an operation input.
      *
@@ -4879,7 +4772,6 @@ struct Operand {
      * then numberOfConsumers = 4.)
      */
     uint32_t numberOfConsumers;
-
     /**
      * Quantized scale of the operand.
      *
@@ -4887,19 +4779,16 @@ struct Operand {
      * TENSOR_INT32.
      */
     float scale;
-
     /**
      * Quantized zero-point offset of the operand.
      *
      * Only applicable if the operand is of type TENSOR_QUANT8_ASYMM.
      */
     int32_t zeroPoint;
-
     /**
      * How the operand is used.
      */
     OperandLifeTime lifetime;
-
     /**
      * Where to find the data for this operand.
      * If the lifetime is TEMPORARY_VARIABLE, MODEL_INPUT, MODEL_OUTPUT, or
@@ -4915,31 +4804,10 @@ struct Operand {
      * - location.length is set.
      */
     DataLocation location;
-
     /**
      * Additional parameters specific to a particular operand type.
      */
-    safe_union ExtraParams {
-       /**
-        * No additional parameters.
-        */
-       Monostate none;
-
-       /**
-        * Symmetric per-channel quantization parameters.
-        *
-        * Only applicable to operands of type TENSOR_QUANT8_SYMM_PER_CHANNEL.
-        */
-       SymmPerChannelQuantParams channelQuant;
-
-       /**
-        * Extension operand parameters.
-        *
-        * The framework treats this as an opaque data blob.
-        * The format is up to individual extensions.
-        */
-       vec<uint8_t> extension;
-    } extraParams;
+    ExtraParams extraParams;
 };
 
 /**
@@ -4950,11 +4818,28 @@ struct Operand {
  * may not be known is the shape of the input tensors.
  */
 struct Model {
+    struct ExtensionNameAndPrefix {
+        /**
+         * The extension name.
+         *
+         * See {@link Extension::name} for the format specification.
+         */
+        string name;
+        /**
+         * The unique extension identifier within the model.
+         *
+         * See {@link Model::extensionNameToPrefix}.
+         */
+        uint16_t prefix;
+    };
+    enum ExtensionTypeEncoding : uint8_t {
+        HIGH_BITS_PREFIX = 16,
+        LOW_BITS_TYPE = 16,
+    };
     /**
      * All operands included in the model.
      */
     vec<Operand> operands;
-
     /**
      * All operations included in the model.
      *
@@ -4963,21 +4848,18 @@ struct Model {
      * written before it is read.
      */
     vec<Operation> operations;
-
     /**
      * Input indexes of the model. There must be at least one.
      *
      * Each value corresponds to the index of the operand in "operands".
      */
     vec<uint32_t> inputIndexes;
-
     /**
      * Output indexes of the model. There must be at least one.
      *
      * Each value corresponds to the index of the operand in "operands".
      */
     vec<uint32_t> outputIndexes;
-
     /**
      * A byte buffer containing operand data that were copied into the model.
      *
@@ -4985,7 +4867,6 @@ struct Model {
      * equals OperandLifeTime::CONSTANT_COPY.
      */
     vec<uint8_t> operandValues;
-
     /**
      * A collection of shared memory pools containing operand values.
      *
@@ -4993,7 +4874,6 @@ struct Model {
      * equals OperandLifeTime::CONSTANT_REFERENCE.
      */
     vec<memory> pools;
-
     /**
      * 'true' indicates TENSOR_FLOAT32 may be calculated with range and/or
      * precision as low as that of the IEEE 754 16-bit floating-point format.
@@ -5001,7 +4881,6 @@ struct Model {
      * range and precision of the IEEE 754 32-bit floating-point format.
      */
     bool relaxComputationFloat32toFloat16;
-
     /**
      * The mapping between extension names and prefixes of operand and
      * operation type values.
@@ -5026,38 +4905,6 @@ struct Model {
      * name corresponding to each prefix.
      */
     vec<ExtensionNameAndPrefix> extensionNameToPrefix;
-
-    /**
-     * A correspondence between an extension name and a prefix of operand and
-     * operation type values.
-     */
-    struct ExtensionNameAndPrefix {
-        /**
-         * The extension name.
-         *
-         * See {@link Extension::name} for the format specification.
-         */
-        string name;
-
-        /**
-         * The unique extension identifier within the model.
-         *
-         * See {@link Model::extensionNameToPrefix}.
-         */
-        uint16_t prefix;
-    };
-
-    /**
-     * Numeric values of extension operand and operation types have the
-     * following structure:
-     * - 16 high bits represent the "prefix", which corresponds uniquely to the
-     *   extension name.
-     * - 16 low bits represent the type ID within the extension.
-     */
-    enum ExtensionTypeEncoding : uint8_t {
-        HIGH_BITS_PREFIX = 16,
-        LOW_BITS_TYPE = 16,
-    };
 };
 
 /**
@@ -5068,7 +4915,6 @@ struct OutputShape {
      * Dimensions of the operand.
      */
     vec<uint32_t> dimensions;
-
     /**
      * Whether the provided buffer size is sufficient for the output.
      */
@@ -5079,12 +4925,11 @@ struct OutputShape {
  * Specifies whether or not to measure timing information during execution.
  */
 enum MeasureTiming : int32_t {
-    NO  = 0,
+    NO = 0,
     YES = 1,
 };
 
 /**
-
  * Timing information measured during execution. Each time is a duration from
  * the beginning of some task to the end of that task, including time when that
  * task is not active (for example, preempted by some other task, or
@@ -5094,9 +4939,13 @@ enum MeasureTiming : int32_t {
  * When a time is not available, it must be reported as UINT64_MAX.
  */
 struct Timing {
-    /** Execution time on device (not driver, which runs on host processor). */
+    /**
+     * Execution time on device (not driver, which runs on host processor).
+     */
     uint64_t timeOnDevice;
-    /** Execution time in driver (including time on device). */
+    /**
+     * Execution time in driver (including time on device).
+     */
     uint64_t timeInDriver;
 };
 
@@ -5126,35 +4975,25 @@ struct Timing {
  * 5) 'measureTiming'
  */
 safe_union FmqRequestDatum {
-    /**
-     * Type to describe the high-level layout of the packet.
-     */
     struct PacketInformation {
         /**
          * How many elements the packet contains, including the
          * "packetInformation" datum.
          */
         uint32_t packetSize;
-
         /**
          * Number of input operands.
          */
         uint32_t numberOfInputOperands;
-
         /**
          * Number of output operands.
          */
         uint32_t numberOfOutputOperands;
-
         /**
          * Number of pool identifiers.
          */
         uint32_t numberOfPools;
     };
-
-    /**
-     * Type representing the information for each operand.
-     */
     struct OperandInformation {
         /**
          * If true, the argument does not have a value. This can be used for
@@ -5163,44 +5002,36 @@ safe_union FmqRequestDatum {
          * dimensions information is omitted from the serialization.
          */
         bool hasNoValue;
-
         /**
          * The location within one of the memory pools passed in the Request.
          */
         DataLocation location;
-
         /**
          * Number of subsequent elements that belong to the dimensions vector.
          */
         uint32_t numberOfDimensions;
     };
-
     /**
      * packetInformation is the first element of the packet and describes the
      * remainder of the packet.
      */
     PacketInformation packetInformation;
-
     /**
      * Information for each input operand.
      */
     OperandInformation inputOperandInformation;
-
     /**
      * Element of the dimensions vector.
      */
     uint32_t inputOperandDimensionValue;
-
     /**
      * Information for each output operand.
      */
     OperandInformation outputOperandInformation;
-
     /**
      * Element of the dimensions vector.
      */
     uint32_t outputOperandDimensionValue;
-
     /**
      * Unique identifier for a pool.
      *
@@ -5217,7 +5048,6 @@ safe_union FmqRequestDatum {
      * identifier.
      */
     int32_t poolIdentifier;
-
     /**
      * Specifies whether or not to measure duration of the execution. The
      * duration runs from the time the driver dequeues the request from a
@@ -5249,60 +5079,46 @@ safe_union FmqRequestDatum {
  * 3) 'executionTiming'
  */
 safe_union FmqResultDatum {
-    /**
-     * Type to describe the high-level layout of the packet.
-     */
     struct PacketInformation {
         /**
          * How many elements the packet contains, including the
          * "packetInformation" datum.
          */
         uint32_t packetSize;
-
         /**
          * Status of the execution.
          */
         ErrorStatus errorStatus;
-
         /**
          * Number of returned operands.
          */
         uint32_t numberOfOperands;
     };
-
-    /**
-     * Type representing the information for each operand.
-     */
     struct OperandInformation {
         /**
          * Indicates whether the operand's output buffer is large enough to
          * store the operand's result data.
          */
         bool isSufficient;
-
         /**
          * Number of subsequent elements that belong to the dimensions vector.
          */
         uint32_t numberOfDimensions;
     };
-
     /**
      * packetInformation is the first element of the packet and describes the
      * remainder of the packet. It additionally includes the status of the
      * execution.
      */
     PacketInformation packetInformation;
-
     /**
      * Information for each returned operand.
      */
     OperandInformation operandInformation;
-
     /**
      * Element of the dimensions vector.
      */
     uint32_t operandDimensionValue;
-
     /**
      * Duration of execution. Unless measurement was requested and execution
      * succeeds, all times must be reported as UINT64_MAX. A driver may choose
@@ -5316,6 +5132,22 @@ safe_union FmqResultDatum {
  * Information about an extension.
  */
 struct Extension {
+    struct OperandTypeInformation {
+        /**
+         * The extension operand type.
+         */
+        uint16_t type;
+        /**
+         * Indicates whether the extension operand type represents a tensor or
+         * a scalar.
+         */
+        bool isTensor;
+        /**
+         * The byte size of the operand (if scalar) or of a single element (if
+         * tensor).
+         */
+        uint32_t byteSize;
+    };
     /**
      * The extension name.
      *
@@ -5327,29 +5159,6 @@ struct Extension {
      * Example: com.google.test_extension
      */
     string name;
-
-    /**
-     * Information about an extension operand type.
-     */
-    struct OperandTypeInformation {
-        /**
-         * The extension operand type.
-         */
-        uint16_t type;
-
-        /**
-         * Indicates whether the extension operand type represents a tensor or
-         * a scalar.
-         */
-        bool isTensor;
-
-        /**
-         * The byte size of the operand (if scalar) or of a single element (if
-         * tensor).
-         */
-        uint32_t byteSize;
-    };
-
     /**
      * Information about operand types defined by the extension.
      */

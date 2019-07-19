@@ -22,7 +22,6 @@ package android.hardware.media.bufferpool@1.0;
  * other buffer pool clients.
  */
 interface IConnection {
-
     /**
      * Retrieves a buffer using bufferId. The method must be called from
      * receiving side of buffer during transferring only when the specified
@@ -38,6 +37,6 @@ interface IConnection {
      *     CRITICAL_ERROR   - Other errors.
      * @return buffer The actual buffer which is specified with bufferId.
      */
-    fetch(uint64_t transactionId, uint32_t bufferId) generates
-        (ResultStatus status, Buffer buffer);
+    fetch(uint64_t transactionId, uint32_t bufferId) generates (ResultStatus status, Buffer buffer)
+        ;
 };

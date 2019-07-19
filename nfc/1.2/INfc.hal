@@ -13,10 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package android.hardware.nfc@1.2;
 
 import @1.1::INfc;
-import @1.2::NfcConfig;
+import NfcConfig;
 
 interface INfc extends @1.1::INfc {
     /**

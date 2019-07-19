@@ -28,12 +28,10 @@ enum Flash : int32_t {
      * Keep the light steady on or off.
      */
     NONE,
-
     /**
      * Flash the light at specified rate.
      */
     TIMED,
-
     /**
      * Flash the light using hardware assist.
      */
@@ -45,12 +43,10 @@ enum Brightness : int32_t {
      * Light brightness is managed by a user setting.
      */
     USER,
-
     /**
      * Light brightness is managed by a light sensor.
      */
     SENSOR,
-
     /**
      * Use a low-persistence mode for display backlights.
      *
@@ -92,7 +88,6 @@ enum Type : int32_t {
     ATTENTION,
     BLUETOOTH,
     WIFI,
-
     COUNT,
 };
 
@@ -118,7 +113,6 @@ struct LightState {
      * would correspond to 255 alpha).
      */
     uint32_t color;
-
     /**
      * To flash the light at a given rate, set flashMode to LIGHT_FLASH_TIMED,
      * and then flashOnMS should be set to the number of milliseconds to turn
@@ -126,9 +120,7 @@ struct LightState {
      * off.
      */
     Flash flashMode;
-
     int32_t flashOnMs;
     int32_t flashOffMs;
-
     Brightness brightnessMode;
 };

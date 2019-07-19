@@ -24,22 +24,22 @@ package android.hardware.wifi.supplicant@1.0;
  * |ISupplicant.registerCallback| method.
  */
 interface ISupplicantCallback {
-  /**
-   * Used to indicate that a new interface has been created.
-   *
-   * @param ifName Name of the network interface, e.g., wlan0
-   */
-  oneway onInterfaceCreated(string ifName);
+    /**
+     * Used to indicate that a new interface has been created.
+     *
+     * @param ifName Name of the network interface, e.g., wlan0
+     */
+    oneway onInterfaceCreated(string ifName);
 
-  /**
-   * Used to indicate that an interface has been removed.
-   *
-   * @param ifName Name of the network interface, e.g., wlan0
-   */
-  oneway onInterfaceRemoved(string ifName);
+    /**
+     * Used to indicate that an interface has been removed.
+     *
+     * @param ifName Name of the network interface, e.g., wlan0
+     */
+    oneway onInterfaceRemoved(string ifName);
 
-  /**
-   * Used to indicate that the supplicant daemon is terminating.
-   */
-  oneway onTerminating();
+    /**
+     * Used to indicate that the supplicant daemon is terminating.
+     */
+    oneway onTerminating();
 };

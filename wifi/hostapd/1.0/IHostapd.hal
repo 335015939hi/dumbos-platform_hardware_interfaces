@@ -26,21 +26,27 @@ interface IHostapd {
      * Size limits for some of the params used in this interface.
      */
     enum ParamSizeLimits : uint32_t {
-        /** Max length of SSID param. */
+        /**
+         * Max length of SSID param.
+         */
         SSID_MAX_LEN_IN_BYTES = 32,
-
-        /** Min length of PSK passphrase param. */
+        /**
+         * Min length of PSK passphrase param.
+         */
         WPA2_PSK_PASSPHRASE_MIN_LEN_IN_BYTES = 8,
-
-        /** Max length of PSK passphrase param. */
+        /**
+         * Max length of PSK passphrase param.
+         */
         WPA2_PSK_PASSPHRASE_MAX_LEN_IN_BYTES = 63,
     };
 
-    /** Possble Security types. */
+    /**
+     * Possble Security types.
+     */
     enum EncryptionType : uint32_t {
         NONE,
         WPA,
-        WPA2
+        WPA2,
     };
 
     /**
@@ -53,7 +59,7 @@ interface IHostapd {
     enum Band : uint32_t {
         BAND_2_4_GHZ,
         BAND_5_GHZ,
-        BAND_ANY
+        BAND_ANY,
     };
 
     /**
@@ -66,10 +72,10 @@ interface IHostapd {
          * the band.
          */
         bool enable80211N;
-         /**
-          * Whether IEEE 802.11ac (VHT) is enabled or not.
-          * Note: hw_mode=a is used to specify that 5 GHz band is used with VHT.
-          */
+        /**
+         * Whether IEEE 802.11ac (VHT) is enabled or not.
+         * Note: hw_mode=a is used to specify that 5 GHz band is used with VHT.
+         */
         bool enable80211AC;
     };
 
@@ -86,7 +92,7 @@ interface IHostapd {
         /**
          * This option can be used to exclude all DFS channels from the ACS
          * channel list in cases where the driver supports DFS channels.
-         **/
+         */
         bool acsShouldExcludeDfs;
         /**
          * Channel number (IEEE 802.11) to use for the interface.
@@ -103,11 +109,17 @@ interface IHostapd {
      * Parameters to use for setting up the access point interface.
      */
     struct IfaceParams {
-        /** Name of the interface */
+        /**
+         * Name of the interface
+         */
         string ifaceName;
-        /** Hw mode params for the interface */
+        /**
+         * Hw mode params for the interface
+         */
         HwModeParams hwModeParams;
-        /** Chanel params for the interface */
+        /**
+         * Chanel params for the interface
+         */
         ChannelParams channelParams;
     };
 
@@ -115,13 +127,21 @@ interface IHostapd {
      * Parameters to use for setting up the access point network.
      */
     struct NetworkParams {
-        /** SSID to set for the network */
+        /**
+         * SSID to set for the network
+         */
         Ssid ssid;
-        /** Whether the network needs to be hidden or not. */
+        /**
+         * Whether the network needs to be hidden or not.
+         */
         bool isHidden;
-        /** Key management mask for the network. */
+        /**
+         * Key management mask for the network.
+         */
         EncryptionType encryptionType;
-        /** Passphrase for WPA_PSK network. */
+        /**
+         * Passphrase for WPA_PSK network.
+         */
         string pskPassphrase;
     };
 
@@ -141,7 +161,7 @@ interface IHostapd {
      *         |HostapdStatusCode.FAILURE_IFACE_EXISTS|
      */
     addAccessPoint(IfaceParams ifaceParams, NetworkParams nwParams)
-        generates(HostapdStatus status);
+        generates (HostapdStatus status);
 
     /**
      * Removes an existing access point from hostapd.
@@ -156,7 +176,7 @@ interface IHostapd {
      *         |HostapdStatusCode.FAILURE_UNKNOWN|,
      *         |HostapdStatusCode.FAILURE_IFACE_UNKNOWN|
      */
-    removeAccessPoint(string ifaceName) generates(HostapdStatus status);
+    removeAccessPoint(string ifaceName) generates (HostapdStatus status);
 
     /**
      * Terminate the service.

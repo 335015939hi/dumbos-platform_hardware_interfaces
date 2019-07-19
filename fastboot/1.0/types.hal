@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (C) 2018 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -32,7 +32,7 @@ enum Status : uint32_t {
     /**
      * Operation failed due to unknown reason.
      */
-    FAILURE_UNKNOWN
+    FAILURE_UNKNOWN,
 };
 
 enum FileSystemType : uint8_t {
@@ -47,7 +47,7 @@ enum FileSystemType : uint8_t {
     /**
      * Raw file system.
      */
-    RAW
+    RAW,
 };
 
 struct Result {

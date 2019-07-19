@@ -26,18 +26,20 @@ enum Result : int32_t {
     INVALID_STATE,
 };
 
-/** Type of physical TV input. */
-@export(name="", value_prefix="TV_INPUT_TYPE_")
+/**
+ * Type of physical TV input.
+ */
+@export(name = "", value_prefix = "TV_INPUT_TYPE_")
 enum TvInputType : int32_t {
-    OTHER = 1,         // Generic hardware.
-    TUNER = 2,         // Tuner. e.g. built-in terrestrial tuner
+    OTHER = 1,
+    TUNER = 2,
     COMPOSITE = 3,
     SVIDEO = 4,
     SCART = 5,
     COMPONENT = 6,
     VGA = 7,
     DVI = 8,
-    HDMI = 9,          // Physical HDMI port. e.g. HDMI 1
+    HDMI = 9,
     DISPLAY_PORT = 10,
 };
 
@@ -47,7 +49,7 @@ enum TvInputType : int32_t {
  * regardless of whether the connected external device is electrically on or not.
  * If the device does not have such capability, you must use UNKNOWN.
  */
-@export(name="", value_prefix="CABLE_CONNECTION_STATUS_")
+@export(name = "", value_prefix = "CABLE_CONNECTION_STATUS_")
 enum CableConnectionStatus : int32_t {
     UNKNOWN = 0,
     CONNECTED = 1,
@@ -57,15 +59,13 @@ enum CableConnectionStatus : int32_t {
 struct TvInputDeviceInfo {
     int32_t deviceId;
     TvInputType type;
-    uint32_t portId;                             // HDMI port ID number. e.g. 2 for HDMI 2
-    CableConnectionStatus cableConnectionStatus; // Cable connection status.
-    AudioDevice audioType;                       // Audio device type. e.g AudioDevice::IN_HDMI
-    uint8_t[32] audioAddress;                    // Audio device address. "" if N/A. If the text
-                                                 // length is less than 32, the remaining part
-                                                 // must be filled with 0s.
+    uint32_t portId;
+    CableConnectionStatus cableConnectionStatus;
+    AudioDevice audioType;
+    uint8_t[32] audioAddress;
 };
 
-@export(name="", value_prefix="EVENT_")
+@export(name = "", value_prefix = "EVENT_")
 enum TvInputEventType : int32_t {
     /**
      * Hardware notifies the framework that a device is available.
@@ -88,7 +88,6 @@ enum TvInputEventType : int32_t {
      * event only.
      */
     DEVICE_AVAILABLE = 1,
-
     /**
      * Hardware notifies the framework that a device is unavailable.
      *
@@ -103,7 +102,6 @@ enum TvInputEventType : int32_t {
      * being no longer available.
      */
     DEVICE_UNAVAILABLE = 2,
-
     /**
      * Stream configurations are changed. Client must regard all open streams
      * at the specific device are closed, and must call
@@ -136,6 +134,6 @@ struct TvInputEvent {
 
 struct TvStreamConfig {
     int32_t streamId;
-    uint32_t maxVideoWidth;  // Max width of the stream.
-    uint32_t maxVideoHeight; // Max height of the stream.
+    uint32_t maxVideoWidth;
+    uint32_t maxVideoHeight;
 };

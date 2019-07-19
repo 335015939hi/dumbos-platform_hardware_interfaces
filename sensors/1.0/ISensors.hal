@@ -72,10 +72,7 @@ interface ISensors {
      *         in data.
      */
     poll(int32_t maxCount)
-        generates (
-                Result result,
-                vec<Event> data,
-                vec<SensorInfo> dynamicSensorsAdded);
+        generates (Result result, vec<Event> data, vec<SensorInfo> dynamicSensorsAdded);
 
     /**
      * Sets a sensor’s parameters, including sampling frequency and maximum
@@ -93,9 +90,8 @@ interface ISensors {
      *         to time of report.
      * @return result OK on success, BAD_VALUE if any parameters are invalid.
      */
-    batch(int32_t sensorHandle,
-          int64_t samplingPeriodNs,
-          int64_t maxReportLatencyNs) generates (Result result);
+    batch(int32_t sensorHandle, int64_t samplingPeriodNs, int64_t maxReportLatencyNs)
+        generates (Result result);
 
     /**
      * Trigger a flush of internal FIFO.
@@ -154,8 +150,7 @@ interface ISensors {
      *          direct channel (>0) in configureDirectReport and
      *          unregisterDirectChannel if result is OK, -1 otherwise.
      */
-    registerDirectChannel(SharedMemInfo mem)
-            generates (Result result, int32_t channelHandle);
+    registerDirectChannel(SharedMemInfo mem) generates (Result result, int32_t channelHandle);
 
     /**
      * Unregister direct report channel.
@@ -190,7 +185,6 @@ interface ISensors {
      *          the same type in a single direct channel. Ignored if rate is
      *          STOP. See SharedMemFormat.
      */
-    configDirectReport(
-            int32_t sensorHandle, int32_t channelHandle, RateLevel rate)
-            generates (Result result, int32_t reportToken);
+    configDirectReport(int32_t sensorHandle, int32_t channelHandle, RateLevel rate)
+        generates (Result result, int32_t reportToken);
 };

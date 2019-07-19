@@ -18,7 +18,9 @@ package android.hardware.secure_element@1.0;
 
 import ISecureElementHalCallback;
 
-/** According to ISO/IEC 7816 */
+/**
+ * According to ISO/IEC 7816
+ */
 interface ISecureElement {
     /**
      * Initializes the Secure Element. This may include updating the applet
@@ -58,7 +60,7 @@ interface ISecureElement {
      * @return response to the command. In case of error in communicating with
      *                  the secure element, an empty vector is returned.
      */
-     transmit(vec<uint8_t> data) generates (vec<uint8_t> response);
+    transmit(vec<uint8_t> data) generates (vec<uint8_t> response);
 
     /**
      * Opens a logical channel with the Secure Element, selecting the applet
@@ -82,7 +84,6 @@ interface ISecureElement {
      */
     openLogicalChannel(vec<uint8_t> aid, uint8_t p2)
         generates (LogicalChannelResponse response, SecureElementStatus status);
-
 
     /**
      * Opens a basic channel with the Secure Element, selecting the applet

@@ -35,6 +35,5 @@ interface IUsbCallback extends @1.0::IUsbCallback {
      *               kernel and the PortStatus_1_1 object was built.
      *               ERROR otherwise.
      */
-    oneway notifyPortStatusChange_1_1(vec<PortStatus_1_1> currentPortStatus,
-        Status retval);
+    oneway notifyPortStatusChange_1_1(vec<PortStatus_1_1> currentPortStatus, Status retval);
 };

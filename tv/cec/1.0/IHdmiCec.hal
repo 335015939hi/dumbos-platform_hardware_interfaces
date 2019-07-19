@@ -36,7 +36,7 @@ interface IHdmiCec {
      *         FAILURE_INVALID_ARGS if the given logical address is invalid,
      *         FAILURE_BUSY if device or resource is busy
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     addLogicalAddress(CecLogicalAddress addr) generates (Result result);
 
     /**
@@ -46,7 +46,7 @@ interface IHdmiCec {
      * hence to tell HAL to stop receiving commands from the CEC bus, and change
      * the state back to the beginning.
      */
-    @callflow(next="addLogicalAddress")
+    @callflow(next = "addLogicalAddress")
     @exit
     clearLogicalAddress();
 
@@ -63,7 +63,7 @@ interface IHdmiCec {
      *         address.
      * @return addr Physical address of this device.
      */
-    @callflow(next="*")
+    @callflow(next = "*")
     getPhysicalAddress() generates (Result result, uint16_t addr);
 
     /**
@@ -81,7 +81,7 @@ interface IHdmiCec {
      *         NACK if the sent message is not acknowledged,
      *         BUSY if the CEC bus is busy.
      */
-    @callflow(next="*")
+    @callflow(next = "*")
     sendMessage(CecMessage message) generates (SendMessageResult result);
 
     /**
@@ -91,7 +91,7 @@ interface IHdmiCec {
      * @param callback Callback object to pass hdmi events to the system. The
      *        previously registered callback must be replaced with this one.
      */
-    @callflow(next={"addLogicalAddress"})
+    @callflow(next = "addLogicalAddress")
     @entry
     setCallback(IHdmiCecCallback callback);
 
@@ -100,7 +100,7 @@ interface IHdmiCec {
      *
      * @return version the CEC version supported by underlying hardware.
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     getCecVersion() generates (int32_t version);
 
     /**
@@ -110,7 +110,7 @@ interface IHdmiCec {
      *         company ID obtained from the IEEE Registration Authority
      *         Committee (RAC). The upper 8 bits must be 0.
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     getVendorId() generates (uint32_t vendorId);
 
     /**
@@ -118,7 +118,7 @@ interface IHdmiCec {
      *
      * @return infos The list of HDMI port information
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     getPortInfo() generates (vec<HdmiPortInfo> infos);
 
     /**
@@ -129,7 +129,7 @@ interface IHdmiCec {
      * @param key The key of the option to be updated with a new value.
      * @param value Value to be set.
      */
-    @callflow(next="*")
+    @callflow(next = "*")
     setOption(OptionKey key, bool value);
 
     /**
@@ -140,7 +140,7 @@ interface IHdmiCec {
      * @param language Three-letter code defined in ISO/FDIS 639-2. Must be
      *        lowercase letters. (e.g., eng for English)
      */
-    @callflow(next="*")
+    @callflow(next = "*")
     setLanguage(string language);
 
     /**
@@ -151,7 +151,7 @@ interface IHdmiCec {
      * @param enable Flag must be either true to start the feature or false to
      *        stop it.
      */
-    @callflow(next="*")
+    @callflow(next = "*")
     enableAudioReturnChannel(int32_t portId, bool enable);
 
     /**
@@ -161,6 +161,6 @@ interface IHdmiCec {
      * @return status True if a device is connected, otherwise false. The HAL
      *         must watch for +5V power signal to determine the status.
      */
-    @callflow(next="*")
+    @callflow(next = "*")
     isConnected(int32_t portId) generates (bool status);
 };

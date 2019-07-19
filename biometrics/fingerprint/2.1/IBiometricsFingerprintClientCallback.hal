@@ -16,9 +16,10 @@
 
 package android.hardware.biometrics.fingerprint@2.1;
 
-/* This HAL interface communicates asynchronous results from the
-   fingerprint driver in response to user actions on the fingerprint sensor
-*/
+/**
+ * This HAL interface communicates asynchronous results from the
+ * fingerprint driver in response to user actions on the fingerprint sensor
+ */
 interface IBiometricsFingerprintClientCallback {
     /**
      * Sent when one enrollment step is complete.
@@ -27,7 +28,8 @@ interface IBiometricsFingerprintClientCallback {
      * @param groupId the groupid for the template being enrolled
      * @param remaining the number of remaining steps before enrolllment is complete
      */
-    oneway onEnrollResult(uint64_t deviceId, uint32_t fingerId, uint32_t groupId, uint32_t remaining);
+    oneway onEnrollResult(
+        uint64_t deviceId, uint32_t fingerId, uint32_t groupId, uint32_t remaining);
 
     /**
      * Sent when a fingerprint image is acquired by the sensor
@@ -36,7 +38,8 @@ interface IBiometricsFingerprintClientCallback {
      * @param vendorCode a vendor-specific message about the quality of the image. Only
      *        valid when acquiredInfo == ACQUIRED_VENDOR
      */
-    oneway onAcquired(uint64_t deviceId, FingerprintAcquiredInfo acquiredInfo, int32_t vendorCode);
+    oneway onAcquired(uint64_t deviceId, FingerprintAcquiredInfo acquiredInfo, int32_t vendorCode
+        );
 
     /**
      * Sent when a fingerprint is authenticated
@@ -45,7 +48,8 @@ interface IBiometricsFingerprintClientCallback {
      * @param groupId the groupid for the template that was authenticated
      * @param token the hardware authentication token to pass to Keystore.addAuthToken()
      */
-    oneway onAuthenticated(uint64_t deviceId, uint32_t fingerId, uint32_t groupId, vec<uint8_t> token);
+    oneway onAuthenticated(
+        uint64_t deviceId, uint32_t fingerId, uint32_t groupId, vec<uint8_t> token);
 
     /**
      * Sent when a fingerprint error occurs
@@ -72,5 +76,6 @@ interface IBiometricsFingerprintClientCallback {
      * @param groupId the groupid for this template
      * @param remaining the number of remaining steps before enumeration is complete
      */
-    oneway onEnumerate(uint64_t deviceId, uint32_t fingerId, uint32_t groupId, uint32_t remaining);
+    oneway onEnumerate(uint64_t deviceId, uint32_t fingerId, uint32_t groupId, uint32_t remaining
+        );
 };

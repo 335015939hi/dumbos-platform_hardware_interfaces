@@ -22,10 +22,9 @@ import android.hardware.radio@1.0::RadioIndicationType;
  * Interface declaring unsolicited radio config indications.
  */
 interface IRadioConfigIndication {
-
     /**
      * Indicates SIM slot status change.
-
+     *
      * This indication must be sent by the modem whenever there is any slot status change, even the
      * slot is inactive. For example, this indication must be triggered if a SIM card is inserted
      * into an inactive slot.
