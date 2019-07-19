@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "74e9399c_810d01f1",
+        "filename": "camera/metadata/3.3/types.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1494267
+      },
+      "writtenOn": "2019-07-19T18:26:46Z",
+      "side": 0,
+      "message": "Need to fix this.",
+      "revId": "c158dbcd7eae81ae2417d54928bb7512359922b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9a39f438_218ea645",
         "filename": "neuralnetworks/1.2/types.hal",
         "patchSetId": 9
