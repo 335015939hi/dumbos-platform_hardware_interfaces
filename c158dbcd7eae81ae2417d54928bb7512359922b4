@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "6fd0ecc3_50ada672",
+        "filename": "radio/1.4/IRadio.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1494267
+      },
+      "writtenOn": "2019-07-19T01:36:04Z",
+      "side": 0,
+      "message": "I don\u0027t think it does.",
+      "parentUuid": "c365cfaf_3d799672",
+      "range": {
+        "startLine": 23,
+        "startChar": 7,
+        "endLine": 23,
+        "endChar": 13
+      },
+      "revId": "c158dbcd7eae81ae2417d54928bb7512359922b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "65b79a86_ecaae309",
         "filename": "tests/foo/1.0/IFoo.hal",
         "patchSetId": 1
