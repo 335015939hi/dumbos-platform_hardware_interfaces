@@ -56,9 +56,7 @@ interface ISapCallback {
      * @param apduRsp APDU Response. Valid only if command was processed correctly and no error
      *        occurred.
      */
-    oneway apduResponse(int32_t token,
-                        SapResultCode resultCode,
-                        vec<uint8_t> apduRsp);
+    oneway apduResponse(int32_t token, SapResultCode resultCode, vec<uint8_t> apduRsp);
 
     /**
      * TRANSFER_ATR_RESP from SAP 1.1 spec 5.1.9
@@ -125,9 +123,8 @@ interface ISapCallback {
      * @param cardReaderStatus Card Reader Status coded as described in 3GPP TS 11.14 Section 12.33
      *        and TS 31.111 Section 8.33
      */
-    oneway transferCardReaderStatusResponse(int32_t token,
-                                            SapResultCode resultCode,
-                                            int32_t cardReaderStatus);
+    oneway transferCardReaderStatusResponse(
+        int32_t token, SapResultCode resultCode, int32_t cardReaderStatus);
 
     /**
      * ERROR_RESP from SAP 1.1 spec 5.1.19

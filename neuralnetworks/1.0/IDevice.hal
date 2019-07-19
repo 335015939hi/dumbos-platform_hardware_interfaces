@@ -55,7 +55,7 @@ interface IDevice {
      *                             it is describing.
      */
     getSupportedOperations(Model model)
-                generates (ErrorStatus status, vec<bool> supportedOperations);
+        generates (ErrorStatus status, vec<bool> supportedOperations);
 
     /**
      * Creates a prepared model for execution.
@@ -110,8 +110,7 @@ interface IDevice {
      *                - INVALID_ARGUMENT if one of the input arguments is
      *                  invalid
      */
-    prepareModel(Model model, IPreparedModelCallback callback)
-      generates (ErrorStatus status);
+    prepareModel(Model model, IPreparedModelCallback callback) generates (ErrorStatus status);
 
     /**
      * Returns the current status of a driver.

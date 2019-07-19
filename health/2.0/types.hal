@@ -27,7 +27,7 @@ enum Result : @1.0::Result {
     CALLBACK_DIED,
 };
 
-/*
+/**
  * Identification attributes for a storage device.
  */
 struct StorageAttribute {
@@ -45,7 +45,7 @@ struct StorageAttribute {
     string name;
 };
 
-/*
+/**
  * Information on storage device including life time estimates, end of life
  * information and other attributes.
  */
@@ -71,7 +71,8 @@ struct StorageInfo {
      */
     string version;
 };
-/*
+
+/**
  * Disk statistics since boot.
  */
 struct DiskStats {

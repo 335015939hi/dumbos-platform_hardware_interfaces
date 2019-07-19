@@ -1,4 +1,5 @@
-/* Copyright (C) 2017 The Android Open Source Project
+/*
+ * Copyright (C) 2017 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,8 +45,7 @@ interface IBroadcastRadio {
      * @return config Hardware capabilities (full=true) or
      *                current configuration (full=false).
      */
-    getAmFmRegionConfig(bool full)
-            generates (Result result, AmFmRegionConfig config);
+    getAmFmRegionConfig(bool full) generates (Result result, AmFmRegionConfig config);
 
     /**
      * Fetches current DAB region configuration.
@@ -67,8 +67,7 @@ interface IBroadcastRadio {
      * @return result OK in case of success.
      * @return session The session interface.
      */
-    openSession(ITunerCallback callback)
-        generates (Result result, ITunerSession session);
+    openSession(ITunerCallback callback) generates (Result result, ITunerSession session);
 
     /**
      * Fetch image from radio module cache.
@@ -119,11 +118,6 @@ interface IBroadcastRadio {
      * @return closeHandle A handle to unregister observer,
      *                     nullptr if result was not OK.
      */
-    registerAnnouncementListener(
-            vec<AnnouncementType> enabled,
-            IAnnouncementListener listener
-        ) generates (
-            Result result,
-            ICloseHandle closeHandle
-        );
+    registerAnnouncementListener(vec<AnnouncementType> enabled, IAnnouncementListener listener)
+        generates (Result result, ICloseHandle closeHandle);
 };

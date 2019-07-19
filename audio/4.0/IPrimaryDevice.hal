@@ -20,6 +20,20 @@ import android.hardware.audio.common@4.0;
 import IDevice;
 
 interface IPrimaryDevice extends IDevice {
+    enum TtyMode : int32_t {
+        OFF,
+        VCO,
+        HCO,
+        FULL,
+    };
+
+    enum Rotation : int32_t {
+        DEG_0,
+        DEG_90,
+        DEG_180,
+        DEG_270,
+    };
+
     /**
      * Sets the audio volume of a voice call.
      *
@@ -129,13 +143,6 @@ interface IPrimaryDevice extends IDevice {
      */
     setBtHfpVolume(float volume) generates (Result retval);
 
-    enum TtyMode : int32_t {
-        OFF,
-        VCO,
-        HCO,
-        FULL
-    };
-
     /**
      * Gets current TTY mode selection. Calling this method is equivalent to
      * getting AUDIO_PARAMETER_KEY_TTY_MODE on the legacy HAL.
@@ -174,13 +181,6 @@ interface IPrimaryDevice extends IDevice {
      * @return retval operation completion status.
      */
     setHacEnabled(bool enabled) generates (Result retval);
-
-    enum Rotation : int32_t {
-        DEG_0,
-        DEG_90,
-        DEG_180,
-        DEG_270
-    };
 
     /**
      * Updates HAL on the current rotation of the device relative to natural

@@ -13,10 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package android.hardware.power.stats@1.0;
 
 interface IPowerStats {
-
     /**
      * Rail information:
      * Reports information related to the rails being monitored.
@@ -26,8 +26,7 @@ interface IPowerStats {
      *     feature is not enabled or FILESYSTEM_ERROR on filesystem nodes
      *     access error.
      */
-    getRailInfo()
-        generates(vec<RailInfo> rails, Status status);
+    getRailInfo() generates (vec<RailInfo> rails, Status status);
 
     /**
      * Rail level energy measurements for low frequency clients:
@@ -41,8 +40,7 @@ interface IPowerStats {
      *     feature is not enabled or FILESYSTEM_ERROR on filesystem nodes
      *     access error.
      */
-    getEnergyData(vec<uint32_t> railIndices)
-        generates(vec<EnergyData> data, Status status);
+    getEnergyData(vec<uint32_t> railIndices) generates (vec<EnergyData> data, Status status);
 
     /**
      * Stream rail level power measurements for high frequency clients:
@@ -93,9 +91,8 @@ interface IPowerStats {
      *     nodes access or NOT_SUPPORTED if feature is not enabled or
      *     INSUFFICIENT_RESOURCES if there are not enough resources.
      */
-    streamEnergyData(uint32_t timeMs, uint32_t samplingRate)
-        generates(fmq_sync<EnergyData> mqDesc, uint32_t numSamples,
-                uint32_t railsPerSample, Status status);
+    streamEnergyData(uint32_t timeMs, uint32_t samplingRate) generates (fmq_sync<EnergyData> mqDesc
+        , uint32_t numSamples, uint32_t railsPerSample, Status status);
 
     /**
      * PowerEntity information:
@@ -109,8 +106,7 @@ interface IPowerStats {
      *     enabled, FILESYSTEM_ERROR if there was an error accessing the
      *     filesystem.
      */
-    getPowerEntityInfo()
-        generates(vec<PowerEntityInfo> powerEntityInfos, Status status);
+    getPowerEntityInfo() generates (vec<PowerEntityInfo> powerEntityInfos, Status status);
 
     /**
      * PowerEntity state information:
@@ -130,8 +126,7 @@ interface IPowerStats {
      *     provide state space information and there was not a filesystem error.
      */
     getPowerEntityStateInfo(vec<uint32_t> powerEntityIds)
-        generates(vec<PowerEntityStateSpace> powerEntityStateSpaces,
-                  Status status);
+        generates (vec<PowerEntityStateSpace> powerEntityStateSpaces, Status status);
 
     /**
      * PowerEntity residencies for low frequency clients:
@@ -155,6 +150,5 @@ interface IPowerStats {
      *     provide state residency data and there was not a filesystem error.
      */
     getPowerEntityStateResidencyData(vec<uint32_t> powerEntityIds)
-        generates(vec<PowerEntityStateResidencyResult> stateResidencyResults,
-                  Status status);
+        generates (vec<PowerEntityStateResidencyResult> stateResidencyResults, Status status);
 };

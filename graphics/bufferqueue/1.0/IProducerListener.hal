@@ -22,6 +22,6 @@ package android.hardware.graphics.bufferqueue@1.0;
  */
 interface IProducerListener {
     oneway onBufferReleased();
+
     needsReleaseNotify() generates (bool result);
 };
-

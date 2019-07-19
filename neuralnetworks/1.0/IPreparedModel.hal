@@ -73,6 +73,5 @@ interface IPreparedModel {
      *                - INVALID_ARGUMENT if one of the input arguments is
      *                  invalid
      */
-    execute(Request request, IExecutionCallback callback)
-        generates (ErrorStatus status);
+    execute(Request request, IExecutionCallback callback) generates (ErrorStatus status);
 };

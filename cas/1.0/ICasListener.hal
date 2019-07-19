@@ -13,16 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package android.hardware.cas@1.0;
 
 interface ICasListener {
     /**
-      * Notify the listener of a scheme-specific event from the CA system.
-      *
-      * @param event an integer whose meaning is scheme-specific.
-      * @param arg an integer whose meaning is scheme-specific.
-      * @param data a byte array of data whose format and meaning are
-      * scheme-specific.
-      */
+     * Notify the listener of a scheme-specific event from the CA system.
+     *
+     * @param event an integer whose meaning is scheme-specific.
+     * @param arg an integer whose meaning is scheme-specific.
+     * @param data a byte array of data whose format and meaning are
+     * scheme-specific.
+     */
     onEvent(int32_t event, int32_t arg, vec<uint8_t> data);
 };

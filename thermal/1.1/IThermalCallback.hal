@@ -16,7 +16,7 @@
 
 package android.hardware.thermal@1.1;
 
-import android.hardware.thermal@1.0::Temperature;
+import @1.0::Temperature;
 
 /**
  * IThermalCallback connects vendor code to the framework binder ThermalService.

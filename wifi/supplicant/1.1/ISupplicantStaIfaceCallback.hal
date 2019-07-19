@@ -27,8 +27,9 @@ import @1.0::ISupplicantStaIfaceCallback;
  * corresponding |ISupplicantStaIface.registerCallback_1_1| method.
  */
 interface ISupplicantStaIfaceCallback extends @1.0::ISupplicantStaIfaceCallback {
-
-    /* EapErrorCode: Error code for EAP or EAP Method as per RFC-4186 */
+    /**
+     * EapErrorCode: Error code for EAP or EAP Method as per RFC-4186
+     */
     enum EapErrorCode : uint32_t {
         SIM_GENERAL_FAILURE_AFTER_AUTH = 0,
         SIM_TEMPORARILY_DENIED = 1026,
@@ -42,4 +43,3 @@ interface ISupplicantStaIfaceCallback extends @1.0::ISupplicantStaIfaceCallback 
      */
     oneway onEapFailure_1_1(EapErrorCode errorCode);
 };
-

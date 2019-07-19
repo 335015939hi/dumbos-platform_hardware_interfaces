@@ -64,5 +64,5 @@ interface IMemtrack {
      * supported.
      */
     getMemory(int32_t pid, MemtrackType type)
-            generates (MemtrackStatus retval, vec<MemtrackRecord> records);
+        generates (MemtrackStatus retval, vec<MemtrackRecord> records);
 };

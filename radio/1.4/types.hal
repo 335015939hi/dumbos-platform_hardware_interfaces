@@ -54,7 +54,6 @@ import @1.2::DataRegStateResult;
 import @1.2::PhysicalChannelConfig;
 import @1.2::TdscdmaSignalStrength;
 import @1.2::WcdmaSignalStrength;
-
 import android.hidl.safe_union@1.0::Monostate;
 
 enum AccessNetwork : @1.2::AccessNetwork {
@@ -69,8 +68,7 @@ enum ApnTypes : @1.0::ApnTypes {
      * Due to the addition of this new value, the value ALL defined in 1.0::ApnTypes is now
      * deprecated and should not be used.
      */
-    MCX = 1 << 10,            // APN type for Mission Critical Service
-                              // Reference: 3GPP TS 22.280 V15.3.0
+    MCX = 1 << 10,
 };
 
 /**
@@ -96,7 +94,7 @@ enum ApnTypes : @1.0::ApnTypes {
  *            3gpp 24.503, Section 5.1.6.8.1 - General;
  *            RFC 5031
  */
-struct EmergencyNumber{
+struct EmergencyNumber {
     /**
      * The emergency number. The character in the number string should only be the dial pad
      * character('0'-'9', '*', or '#'). For example: 911.
@@ -208,27 +206,38 @@ enum EmergencyCallRouting : int32_t {
 };
 
 enum RadioTechnology : @1.0::RadioTechnology {
-    /** 5G NR. This is only use in 5G Standalone mode. */
+    /**
+     * 5G NR. This is only use in 5G Standalone mode.
+     */
     NR = 20,
 };
 
 enum RadioAccessFamily : @1.0::RadioAccessFamily {
-    /** 5G NR. This is only use in 5G Standalone mode. */
+    /**
+     * 5G NR. This is only use in 5G Standalone mode.
+     */
     NR = 1 << RadioTechnology:NR,
 };
 
-/** Mapping the frequency to a rough range. */
+/**
+ * Mapping the frequency to a rough range.
+ */
 enum FrequencyRange : int32_t {
-    /** Indicates the frequency range is below 1GHz. */
+    /**
+     * Indicates the frequency range is below 1GHz.
+     */
     LOW = 1,
-
-    /** Indicates the frequency range is between 1GHz and 3GHz. */
+    /**
+     * Indicates the frequency range is between 1GHz and 3GHz.
+     */
     MID = 2,
-
-    /** Indicates the frequency range is between 3GHz and 6GHz. */
+    /**
+     * Indicates the frequency range is between 3GHz and 6GHz.
+     */
     HIGH = 3,
-
-    /** Indicates the frequency range is above 6GHz (millimeter wave frequency). */
+    /**
+     * Indicates the frequency range is above 6GHz (millimeter wave frequency).
+     */
     MMWAVE = 4,
 };
 
@@ -287,7 +296,6 @@ enum DataCallFailCause : @1.0::DataCallFailCause {
      * UE performs a detach or disconnect PDN action based on TE requirements.
      */
     UE_INITIATED_DETACH_OR_DISCONNECT = 0x80,
-
     /**
      * Reason unspecified for foreign agent rejected MIP (Mobile IP) registration.
      */
@@ -1423,29 +1431,32 @@ enum PdpProtocolType : int32_t {
 };
 
 safe_union RadioFrequencyInfo {
-    /** A rough frequency range. */
+    /**
+     * A rough frequency range.
+     */
     FrequencyRange range;
-
-    /** The Absolute Radio Frequency Channel Number. */
+    /**
+     * The Absolute Radio Frequency Channel Number.
+     */
     int32_t channelNumber;
 };
 
 struct PhysicalChannelConfig {
     @1.2::PhysicalChannelConfig base;
-
-    /** The radio technology for this physical channel. */
+    /**
+     * The radio technology for this physical channel.
+     */
     RadioTechnology rat;
-
-    /** The radio frequency info. */
+    /**
+     * The radio frequency info.
+     */
     RadioFrequencyInfo rfInfo;
-
     /**
      * A list of data calls mapped to this physical channel. The context id must match the cid of
      * @1.4::SetupDataCallResult. An empty list means the physical channel has no data call mapped
      * to it.
      */
     vec<int32_t> contextIds;
-
     /**
      * The physical cell identifier for this cell.
      *
@@ -1485,7 +1496,9 @@ struct LteVopsInfo {
     bool isEmcBearerSupported;
 };
 
-/** The parameters of NR 5G Non-Standalone. */
+/**
+ * The parameters of NR 5G Non-Standalone.
+ */
 struct NrIndicators {
     /**
      * Indicates that if E-UTRA-NR Dual Connectivity (EN-DC) is supported by the primary serving
@@ -1497,13 +1510,11 @@ struct NrIndicators {
      * Reference: 3GPP TS 36.331 v15.2.2 6.3.1 System information blocks.
      */
     bool isEndcAvailable;
-
     /**
      * True if use of dual connectivity with NR is restricted.
      * Reference: 3GPP TS 24.301 v15.03 section 9.3.3.12A.
      */
     bool isDcNrRestricted;
-
     /**
      * True if the bit N is in the PLMN-InfoList-r15 is true and the selected PLMN is present in
      * plmn-IdentityList at position N.
@@ -1514,19 +1525,17 @@ struct NrIndicators {
 };
 
 struct DataRegStateResult {
+    safe_union VopsInfo {
+        Monostate noinit;
+        LteVopsInfo lteVopsInfo;
+    };
     @1.2::DataRegStateResult base;
-
     /**
      * Network capabilities for voice over PS services. This info is valid only on LTE network and
      * must be present when device is camped on LTE. vopsInfo must be empty when device is camped
      * only on 2G/3G.
      */
-    safe_union VopsInfo {
-        Monostate noinit;
-
-        LteVopsInfo lteVopsInfo; // LTE network capability
-    } vopsInfo;
-
+    VopsInfo vopsInfo;
     /**
      * The parameters of NR 5G Non-Standalone. This value is only valid on E-UTRAN, otherwise
      * must be empty.
@@ -1534,7 +1543,9 @@ struct DataRegStateResult {
     NrIndicators nrIndicators;
 };
 
-/** Contains the configuration of the LTE cell tower. */
+/**
+ * Contains the configuration of the LTE cell tower.
+ */
 struct CellConfigLte {
     /**
      * Indicates that if E-UTRA-NR Dual Connectivity (EN-DC) is supported by the LTE cell.
@@ -1547,24 +1558,18 @@ struct CellConfigLte {
     bool isEndcAvailable;
 };
 
-/** Inherits from @1.2::CellInfoLte, in order to add the LTE configuration. */
+/**
+ * Inherits from @1.2::CellInfoLte, in order to add the LTE configuration.
+ */
 struct CellInfoLte {
     @1.2::CellInfoLte base;
     CellConfigLte cellConfig;
 };
 
-/** Overwritten from @1.2::CellInfo in order to update the CellInfoLte to 1.4 version. */
+/**
+ * Overwritten from @1.2::CellInfo in order to update the CellInfoLte to 1.4 version.
+ */
 struct CellInfo {
-    /**
-     * True if the phone is registered to a mobile network that provides service on this cell and
-     * this cell is being used or would be used for network signaling.
-     */
-    bool isRegistered;
-
-    /** Connection status for the cell. */
-    CellConnectionStatus connectionStatus;
-
-    /** CellInfo details, cellInfoType can tell which cell info should be used. */
     safe_union Info {
         CellInfoGsm gsm;
         CellInfoCdma cdma;
@@ -1572,7 +1577,20 @@ struct CellInfo {
         CellInfoTdscdma tdscdma;
         CellInfoLte lte;
         CellInfoNr nr;
-    } info;
+    };
+    /**
+     * True if the phone is registered to a mobile network that provides service on this cell and
+     * this cell is being used or would be used for network signaling.
+     */
+    bool isRegistered;
+    /**
+     * Connection status for the cell.
+     */
+    CellConnectionStatus connectionStatus;
+    /**
+     * CellInfo details, cellInfoType can tell which cell info should be used.
+     */
+    Info info;
 };
 
 struct CellInfoNr {
@@ -1580,18 +1598,18 @@ struct CellInfoNr {
     CellIdentityNr cellidentity;
 };
 
-/** Overwritten from @1.2::NetworkScanResult in order to update the CellInfo to 1.4 version. */
+/**
+ * Overwritten from @1.2::NetworkScanResult in order to update the CellInfo to 1.4 version.
+ */
 struct NetworkScanResult {
     /**
      * The status of the scan.
      */
     ScanStatus status;
-
     /**
      * The error code of the incremental result.
      */
     RadioError error;
-
     /**
      * List of network information as CellInfo.
      */
@@ -1604,60 +1622,72 @@ struct NetworkScanResult {
  * Also added 'preferred' and 'persistent' in this version.
  */
 struct DataProfileInfo {
-    /** id of the data profile */
+    /**
+     * id of the data profile
+     */
     DataProfileId profileId;
-
-    /** The APN name */
+    /**
+     * The APN name
+     */
     string apn;
-
-    /** PDP_type values */
+    /**
+     * PDP_type values
+     */
     PdpProtocolType protocol;
-
-    /** PDP_type values used on roaming network */
+    /**
+     * PDP_type values used on roaming network
+     */
     PdpProtocolType roamingProtocol;
-
-    /** APN authentication type */
+    /**
+     * APN authentication type
+     */
     ApnAuthType authType;
-
-    /** The username for APN, or empty string */
+    /**
+     * The username for APN, or empty string
+     */
     string user;
-
-    /** The password for APN, or empty string */
+    /**
+     * The password for APN, or empty string
+     */
     string password;
-
-    /** Data profile technology type */
+    /**
+     * Data profile technology type
+     */
     DataProfileInfoType type;
-
-    /** The period in seconds to limit the maximum connections */
+    /**
+     * The period in seconds to limit the maximum connections
+     */
     int32_t maxConnsTime;
-
-    /** The maximum connections during maxConnsTime */
+    /**
+     * The maximum connections during maxConnsTime
+     */
     int32_t maxConns;
-
     /**
      * The required wait time in seconds after a successful UE initiated disconnect of a given PDN
      * connection before the device can send a new PDN connection request for that given PDN.
      */
     int32_t waitTime;
-
-    /** True to enable the profile, false to disable */
+    /**
+     * True to enable the profile, false to disable
+     */
     bool enabled;
-
-    /** Supported APN types bitmap. See ApnTypes for the value of each bit. */
+    /**
+     * Supported APN types bitmap. See ApnTypes for the value of each bit.
+     */
     bitfield<ApnTypes> supportedApnTypesBitmap;
-
-    /** The bearer bitmap. See RadioAccessFamily for the value of each bit. */
+    /**
+     * The bearer bitmap. See RadioAccessFamily for the value of each bit.
+     */
     bitfield<RadioAccessFamily> bearerBitmap;
-
-    /** Maximum transmission unit (MTU) size in bytes */
+    /**
+     * Maximum transmission unit (MTU) size in bytes
+     */
     int32_t mtu;
-
     /**
      * True if this data profile was used to bring up the last default (i.e internet) data
      * connection successfully.
      */
     bool preferred;
-
     /**
      * If true, modem must persist this data profile and profileId must not be
      * set to DataProfileId.INVALID. If the same data profile exists, this data profile must
@@ -1678,22 +1708,24 @@ struct CardStatus {
     string eid;
 };
 
-/** Overwritten from @1.0::RadioCapability in order to use the latest RadioAccessFamily. */
+/**
+ * Overwritten from @1.0::RadioCapability in order to use the latest RadioAccessFamily.
+ */
 struct RadioCapability {
-    /** Unique session value defined by fr amework returned in all "responses/unslo". */
+    /**
+     * Unique session value defined by fr amework returned in all "responses/unslo".
+     */
     int32_t session;
-
     RadioCapabilityPhase phase;
-
-    /** 32-bit bitmap of RadioAccessFamily. */
+    /**
+     * 32-bit bitmap of RadioAccessFamily.
+     */
     bitfield<RadioAccessFamily> raf;
-
     /**
      * A UUID typically "com.xxxx.lmX" where X is the logical modem.
      * RadioConst:MAX_UUID_LENGTH is the max length.
      */
     string logicalModemUuid;
-
     RadioCapabilityStatus status;
 };
 
@@ -1702,9 +1734,10 @@ struct RadioCapability {
  * version.
  */
 struct SetupDataCallResult {
-    /** Data call fail cause. DataCallFailCause.NONE if no error. */
+    /**
+     * Data call fail cause. DataCallFailCause.NONE if no error.
+     */
     DataCallFailCause cause;
-
     /**
      * If status != DataCallFailCause.NONE, this field indicates the suggested retry back-off timer
      * value RIL wants to override the one pre-configured in FW. The unit is milliseconds.
@@ -1713,22 +1746,23 @@ struct SetupDataCallResult {
      * The value of INT_MAX(0x7fffffff) means no retry.
      */
     int32_t suggestedRetryTime;
-
-    /** Context ID, uniquely identifies this call. */
+    /**
+     * Context ID, uniquely identifies this call.
+     */
     int32_t cid;
-
-    /** Data connection active status. */
+    /**
+     * Data connection active status.
+     */
     DataConnActiveStatus active;
-
     /**
      * PDP_type values. If cause is DataCallFailCause.ONLY_SINGLE_BEARER_ALLOWED, this is the type
      * supported such as "IP" or "IPV6".
      */
     PdpProtocolType type;
-
-    /** The network interface name. */
+    /**
+     * The network interface name.
+     */
     string ifname;
-
     /**
      * List of addresses with optional "/" prefix length, e.g., "192.0.1.3" or
      * "192.0.1.11/16 2001:db8::1/64".  Typically one IPv4 or one IPv6 or one of each. If the
@@ -1736,25 +1770,21 @@ struct SetupDataCallResult {
      * prefix length of 32 and IPv6 128.
      */
     vec<string> addresses;
-
     /**
      * List of DNS server addresses, e.g., "192.0.1.3" or "192.0.1.11 2001:db8::1". Empty if no dns
      * server addresses returned.
      */
     vec<string> dnses;
-
     /**
      * List of default gateway addresses, e.g., "192.0.1.3" or "192.0.1.11 2001:db8::1".
      * When empty, the addresses represent point to point connections.
      */
     vec<string> gateways;
-
     /**
      * List of P-CSCF(Proxy Call State Control Function) addresses via PCO(Protocol Configuration
      * Option), e.g., "2001:db8::1 2001:db8::2 2001:db8::3". Empty if not IMS client.
      */
     vec<string> pcscf;
-
     /**
      * MTU received from network. Value <= 0 means network has either not sent a value or sent an
      * invalid value.
@@ -1798,39 +1828,36 @@ struct CarrierRestrictionsWithPriority {
 };
 
 struct CellIdentityNr {
-    /** 3-digit Mobile Country Code, in range[0, 999]; This value must be valid for registered or
+    /**
+     * 3-digit Mobile Country Code, in range[0, 999]; This value must be valid for registered or
      *  camped cells; INT_MAX means invalid/unreported.
      */
     string mcc;
-
     /**
      * 2 or 3-digit Mobile Network Code, in range [0, 999], This value must be valid for
      * registered or camped cells; INT_MAX means invalid/unreported.
      */
     string mnc;
-
     /**
      * NR Cell Identity in range [0, 68719476735] (36 bits) described in 3GPP TS 38.331, which
      * unambiguously identifies a cell within a PLMN. This value must be valid for registered or
      * camped cells; LONG_MAX (2^63-1) means invalid/unreported.
      */
     uint64_t nci;
-
     /**
      * Physical cell id in range [0, 1007] described in 3GPP TS 38.331. This value must be valid.
      */
     uint32_t pci;
-
-    /** 16-bit tracking area code, INT_MAX means invalid/unreported. */
+    /**
+     * 16-bit tracking area code, INT_MAX means invalid/unreported.
+     */
     int32_t tac;
-
     /**
      * NR Absolute Radio Frequency Channel Number, in range [0, 3279165].
      * Reference: 3GPP TS 38.101-1 and 3GPP TS 38.101-2 section 5.4.2.1.
      * This value must be valid.
      */
     int32_t nrarfcn;
-
     CellIdentityOperatorNames operatorNames;
 };
 
@@ -1843,7 +1870,6 @@ struct NrSignalStrength {
      * Range [44, 140], INT_MAX means invalid/unreported.
      */
     int32_t ssRsrp;
-
     /**
      * SS reference signal received quality, multipled by -1.
      *
@@ -1852,7 +1878,6 @@ struct NrSignalStrength {
      * Range [3, 20], INT_MAX means invalid/unreported.
      */
     int32_t ssRsrq;
-
     /**
      * SS signal-to-noise and interference ratio.
      *
@@ -1861,7 +1886,6 @@ struct NrSignalStrength {
      * Range [-23, 40], INT_MAX means invalid/unreported.
      */
     int32_t ssSinr;
-
     /**
      * CSI reference signal received power, multipled by -1.
      *
@@ -1870,7 +1894,6 @@ struct NrSignalStrength {
      * Range [44, 140], INT_MAX means invalid/unreported.
      */
     int32_t csiRsrp;
-
     /**
      * CSI reference signal received quality, multipled by -1.
      *
@@ -1879,7 +1902,6 @@ struct NrSignalStrength {
      * Range [3, 20], INT_MAX means invalid/unreported.
      */
     int32_t csiRsrq;
-
     /**
      * CSI signal-to-noise and interference ratio.
      *
@@ -1890,44 +1912,40 @@ struct NrSignalStrength {
     int32_t csiSinr;
 };
 
-/** Overwritten from @1.2::SignalStrength in order to add signal strength for NR.  */
+/**
+ * Overwritten from @1.2::SignalStrength in order to add signal strength for NR.
+ */
 struct SignalStrength {
     /**
      * If GSM measurements are provided, this structure must contain valid measurements; otherwise
      * all fields should be set to INT_MAX to mark them as invalid.
      */
     GsmSignalStrength gsm;
-
     /**
      * If CDMA measurements are provided, this structure must contain valid measurements; otherwise
      * all fields should be set to INT_MAX to mark them as invalid.
      */
     CdmaSignalStrength cdma;
-
     /**
      * If EvDO measurements are provided, this structure must contain valid measurements; otherwise
      * all fields should be set to INT_MAX to mark them as invalid.
      */
     EvdoSignalStrength evdo;
-
     /**
      * If LTE measurements are provided, this structure must contain valid measurements; otherwise
      * all fields should be set to INT_MAX to mark them as invalid.
      */
     LteSignalStrength lte;
-
     /**
      * If TD-SCDMA measurements are provided, this structure must contain valid measurements;
      * otherwise all fields should be set to INT_MAX to mark them as invalid.
      */
     TdscdmaSignalStrength tdscdma;
-
     /**
      * If WCDMA measurements are provided, this structure must contain valid measurements; otherwise
      * all fields should be set to INT_MAX to mark them as invalid.
      */
     WcdmaSignalStrength wcdma;
-
     /**
      * If NR 5G measurements are provided, this structure must contain valid measurements; otherwise
      * all fields should be set to INT_MAX to mark them as invalid.

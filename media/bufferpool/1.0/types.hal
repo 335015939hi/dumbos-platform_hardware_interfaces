@@ -17,12 +17,11 @@
 package android.hardware.media.bufferpool@1.0;
 
 enum ResultStatus : int32_t {
-    OK                  = 0,
-
-    NO_MEMORY           = 1,
-    ALREADY_EXISTS      = 2,
-    NOT_FOUND           = 3,
-    CRITICAL_ERROR      = 4,
+    OK = 0,
+    NO_MEMORY = 1,
+    ALREADY_EXISTS = 2,
+    NOT_FOUND = 3,
+    CRITICAL_ERROR = 4,
 };
 
 /**
@@ -47,24 +46,42 @@ struct Buffer {
  * the buffer pool for synchronization after status change.
  */
 enum BufferStatus : int32_t {
-    /** No longer used by the specified client. */
-    NOT_USED            = 0,
-    /** Buffer is acquired by the specified client. */
-    USED                = 1,
-    /** Buffer is sent by the specified client. */
-    TRANSFER_TO         = 2,
-    /** Buffer transfer is acked by the receiver client. */
-    TRANSFER_FROM       = 3,
-    /** Buffer transfer is timed out by receiver client. */
-    TRANSFER_TIMEOUT    = 4,
-    /** Buffer transfer is not acked by the receiver. */
-    TRANSFER_LOST       = 5,
-    /** Buffer fetch request from the client. */
-    TRANSFER_FETCH      = 6,
-    /** Buffer transaction succeeded. */
-    TRANSFER_OK         = 7,
-    /** Buffer transaction failure. */
-    TRANSFER_ERROR      = 8,
+    /**
+     * No longer used by the specified client.
+     */
+    NOT_USED = 0,
+    /**
+     * Buffer is acquired by the specified client.
+     */
+    USED = 1,
+    /**
+     * Buffer is sent by the specified client.
+     */
+    TRANSFER_TO = 2,
+    /**
+     * Buffer transfer is acked by the receiver client.
+     */
+    TRANSFER_FROM = 3,
+    /**
+     * Buffer transfer is timed out by receiver client.
+     */
+    TRANSFER_TIMEOUT = 4,
+    /**
+     * Buffer transfer is not acked by the receiver.
+     */
+    TRANSFER_LOST = 5,
+    /**
+     * Buffer fetch request from the client.
+     */
+    TRANSFER_FETCH = 6,
+    /**
+     * Buffer transaction succeeded.
+     */
+    TRANSFER_OK = 7,
+    /**
+     * Buffer transaction failure.
+     */
+    TRANSFER_ERROR = 8,
 };
 
 /**
@@ -80,9 +97,13 @@ struct BufferStatusMessage {
     uint64_t transactionId;
     uint32_t bufferId;
     BufferStatus newStatus;
-    /** Used by the buffer pool. not by client. */
+    /**
+     * Used by the buffer pool. not by client.
+     */
     int64_t connectionId;
-    /** Valid only when TRANSFER_TO is posted. */
+    /**
+     * Valid only when TRANSFER_TO is posted.
+     */
     int64_t targetConnectionId;
     /**
      * Used by the buffer pool, not by client.

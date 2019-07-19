@@ -28,7 +28,6 @@ import ICameraDeviceCallback;
  *
  */
 interface ICameraDevice {
-
     /**
      * Get camera device resource cost information.
      *
@@ -79,8 +78,7 @@ interface ICameraDevice {
      *     structure if status is not OK.
      *
      */
-    getCameraCharacteristics() generates
-            (Status status, CameraMetadata cameraCharacteristics);
+    getCameraCharacteristics() generates (Status status, CameraMetadata cameraCharacteristics);
 
     /**
      * setTorchMode:
@@ -172,8 +170,7 @@ interface ICameraDevice {
      * @return session The interface to the newly-opened camera session,
      *     or null if status is not OK.
      */
-    open(ICameraDeviceCallback callback) generates
-            (Status status, ICameraDeviceSession session);
+    open(ICameraDeviceCallback callback) generates (Status status, ICameraDeviceSession session);
 
     /**
      * dumpState:
@@ -197,5 +194,4 @@ interface ICameraDevice {
      * must be acquired with a timeout.
      */
     dumpState(handle fd);
-
 };

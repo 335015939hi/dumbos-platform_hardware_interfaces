@@ -45,32 +45,32 @@ interface IRadio extends @1.2::IRadio {
      *
      * Response callback is IRadioResponse.setSystemSelectionChannelsResponse()
      */
-    oneway setSystemSelectionChannels(int32_t serial, bool specifyChannels,
-            vec<RadioAccessSpecifier> specifiers);
+    oneway setSystemSelectionChannels(
+        int32_t serial, bool specifyChannels, vec<RadioAccessSpecifier> specifiers);
 
-   /**
-    * Toggle logical modem on/off. This is similar to @1.0::IRadio.setRadioPower(), however that
-    * does not enforce that radio power is toggled only for the corresponding radio and certain
-    * vendor implementations do it for all radios. This new API should affect only the modem for
-    * which it is called. A modem stack must be on/active only when both setRadioPower() and
-    * enableModem() are set to on for it.
-    *
-    * SIM must be read if available even if modem is off/inactive.
-    *
-    * @param serial Serial number of request.
-    * @param on True to turn on the logical modem, otherwise turn it off.
-    *
-    * Response function is IRadioResponse.enableModemResponse()
-    */
+    /**
+     * Toggle logical modem on/off. This is similar to @1.0::IRadio.setRadioPower(), however that
+     * does not enforce that radio power is toggled only for the corresponding radio and certain
+     * vendor implementations do it for all radios. This new API should affect only the modem for
+     * which it is called. A modem stack must be on/active only when both setRadioPower() and
+     * enableModem() are set to on for it.
+     *
+     * SIM must be read if available even if modem is off/inactive.
+     *
+     * @param serial Serial number of request.
+     * @param on True to turn on the logical modem, otherwise turn it off.
+     *
+     * Response function is IRadioResponse.enableModemResponse()
+     */
     oneway enableModem(int32_t serial, bool on);
 
-   /**
-    * Request status of logical modem. It returns isEnabled=true if the logical modem is on.
-    * This method is the getter method for enableModem.
-    *
-    * @param serial Serial number of request.
-    *
-    * Response function is IRadioResponse.getModemStackStatusResponse()
-    */
+    /**
+     * Request status of logical modem. It returns isEnabled=true if the logical modem is on.
+     * This method is the getter method for enableModem.
+     *
+     * @param serial Serial number of request.
+     *
+     * Response function is IRadioResponse.getModemStackStatusResponse()
+     */
     oneway getModemStackStatus(int32_t serial);
 };

@@ -22,31 +22,40 @@ package android.hardware.bluetooth.audio@2.0;
  * fields are bitfields unless specified. If used as a configuration, only one
  * bit may be enabled. If used for Capabilities, enable all bits corresponding to
  * supported features.
- */
-
-/**
+ *
+ *
  * POSIX timespec.
  */
 struct TimeSpec {
-    uint64_t tvSec;   // seconds
-    uint64_t tvNSec;  // nanoseconds
+    uint64_t tvSec;
+    uint64_t tvNSec;
 };
 
 enum Status : uint8_t {
     SUCCESS = 0x00,
-    /** Codec configuration not supported by the audio platform */
+    /**
+     * Codec configuration not supported by the audio platform
+     */
     UNSUPPORTED_CODEC_CONFIGURATION,
-    /** Any other failure */
+    /**
+     * Any other failure
+     */
     FAILURE,
 };
 
 enum SessionType : uint8_t {
     UNKNOWN,
-    /** A2DP legacy that AVDTP media is encoded by Bluetooth Stack */
+    /**
+     * A2DP legacy that AVDTP media is encoded by Bluetooth Stack
+     */
     A2DP_SOFTWARE_ENCODING_DATAPATH,
-    /** The encoding of AVDTP media is done by HW and there is control only */
+    /**
+     * The encoding of AVDTP media is done by HW and there is control only
+     */
     A2DP_HARDWARE_OFFLOAD_DATAPATH,
-    /** Used when encoded by Bluetooth Stack and streaming to Hearing Aid */
+    /**
+     * Used when encoded by Bluetooth Stack and streaming to Hearing Aid
+     */
     HEARING_AID_SOFTWARE_ENCODING_DATAPATH,
 };
 
@@ -85,7 +94,9 @@ enum ChannelMode : uint8_t {
 };
 
 enum SbcChannelMode : uint8_t {
-    /** Channel Mode: 4 bits */
+    /**
+     * Channel Mode: 4 bits
+     */
     UNKNOWN = 0x00,
     JOINT_STEREO = 0x01,
     STEREO = 0x02,
@@ -106,20 +117,32 @@ enum SbcNumSubbands : uint8_t {
 };
 
 enum SbcAllocMethod : uint8_t {
-    /** SNR */
+    /**
+     * SNR
+     */
     ALLOC_MD_S = 0x02,
-    /** Loudness */
+    /**
+     * Loudness
+     */
     ALLOC_MD_L = 0x01,
 };
 
 enum AacObjectType : uint8_t {
-    /** MPEG-2 Low Complexity. Support is Mandatory. */
+    /**
+     * MPEG-2 Low Complexity. Support is Mandatory.
+     */
     MPEG2_LC = 0x80,
-    /** MPEG-4 Low Complexity. Support is Optional. */
+    /**
+     * MPEG-4 Low Complexity. Support is Optional.
+     */
     MPEG4_LC = 0x40,
-    /** MPEG-4 Long Term Prediction. Support is Optional. */
+    /**
+     * MPEG-4 Long Term Prediction. Support is Optional.
+     */
     MPEG4_LTP = 0x20,
-    /** MPEG-4 Scalable. Support is Optional. */
+    /**
+     * MPEG-4 Scalable. Support is Optional.
+     */
     MPEG4_SCALABLE = 0x10,
 };
 
@@ -129,7 +152,9 @@ enum AacVariableBitRate : uint8_t {
 };
 
 enum LdacChannelMode : uint8_t {
-    /** Channel Mode: 3 bits */
+    /**
+     * Channel Mode: 3 bits
+     */
     UNKNOWN = 0x00,
     STEREO = 0x01,
     DUAL = 0x02,
@@ -137,17 +162,15 @@ enum LdacChannelMode : uint8_t {
 };
 
 enum LdacQualityIndex : uint8_t {
-    // 990kbps
     QUALITY_HIGH = 0x00,
-    // 660kbps
     QUALITY_MID = 0x01,
-    // 330kbps
     QUALITY_LOW = 0x02,
-    // Adaptive Bit Rate mode
     QUALITY_ABR = 0x7F,
 };
 
-/** Used for Software Encoding audio feed parameters */
+/**
+ * Used for Software Encoding audio feed parameters
+ */
 struct PcmParameters {
     SampleRate sampleRate;
     ChannelMode channelMode;
@@ -169,7 +192,9 @@ struct SbcParameters {
     uint8_t maxBitpool;
 };
 
-/** Used for Hardware Encoding AAC codec parameters */
+/**
+ * Used for Hardware Encoding AAC codec parameters
+ */
 struct AacParameters {
     AacObjectType objectType;
     SampleRate sampleRate;
@@ -190,7 +215,9 @@ struct LdacParameters {
     BitsPerSample bitsPerSample;
 };
 
-/** Used for Hardware Encoding AptX and AptX-HD codec parameters */
+/**
+ * Used for Hardware Encoding AptX and AptX-HD codec parameters
+ */
 struct AptxParameters {
     SampleRate sampleRate;
     ChannelMode channelMode;
@@ -202,17 +229,19 @@ struct AptxParameters {
  * AptX and AptX-HD both use the AptxParameters field.
  */
 struct CodecCapabilities {
-    CodecType codecType;
-
     safe_union Capabilities {
-      SbcParameters sbcCapabilities;
-      AacParameters aacCapabilities;
-      LdacParameters ldacCapabilities;
-      AptxParameters aptxCapabilities;
-    } capabilities;
+        SbcParameters sbcCapabilities;
+        AacParameters aacCapabilities;
+        LdacParameters ldacCapabilities;
+        AptxParameters aptxCapabilities;
+    };
+    CodecType codecType;
+    Capabilities capabilities;
 };
 
-/** Used to specify the capabilities of the different session types. */
+/**
+ * Used to specify the capabilities of the different session types.
+ */
 safe_union AudioCapabilities {
     PcmParameters pcmCapabilities;
     CodecCapabilities codecCapabilities;
@@ -223,6 +252,12 @@ safe_union AudioCapabilities {
  * AptX and AptX-HD both use the AptxParameters field.
  */
 struct CodecConfiguration {
+    safe_union CodecSpecific {
+        SbcParameters sbcConfig;
+        AacParameters aacConfig;
+        LdacParameters ldacConfig;
+        AptxParameters aptxConfig;
+    };
     CodecType codecType;
     /**
      * The encoded audio bitrate in bits / second.
@@ -233,19 +268,20 @@ struct CodecConfiguration {
      * The HAL needs to support all legal bitrates for the selected codec.
      */
     uint32_t encodedAudioBitrate;
-    /** Peer MTU (in octets) */
+    /**
+     * Peer MTU (in octets)
+     */
     uint16_t peerMtu;
-    /** Content protection by SCMS-T */
+    /**
+     * Content protection by SCMS-T
+     */
     bool isScmstEnabled;
-    safe_union CodecSpecific {
-        SbcParameters sbcConfig;
-        AacParameters aacConfig;
-        LdacParameters ldacConfig;
-        AptxParameters aptxConfig;
-    } config;
+    CodecSpecific config;
 };
 
-/** Used to configure either a Hardware or Software Encoding session based on session type */
+/**
+ * Used to configure either a Hardware or Software Encoding session based on session type
+ */
 safe_union AudioConfiguration {
     PcmParameters pcmConfig;
     CodecConfiguration codecConfig;

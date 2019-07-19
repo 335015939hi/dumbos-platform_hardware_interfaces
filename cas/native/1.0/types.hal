@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (C) 2017 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -21,9 +21,9 @@ package android.hardware.cas.native@1.0;
  */
 enum ScramblingControl : uint32_t {
     UNSCRAMBLED = 0,
-    RESERVED    = 1,
-    EVENKEY     = 2,
-    ODDKEY      = 3,
+    RESERVED = 1,
+    EVENKEY = 2,
+    ODDKEY = 3,
 };
 
 /**
@@ -45,12 +45,10 @@ struct SharedBuffer {
      * The shared memory base handle
      */
     memory heapBase;
-
     /**
      * The offset from the shared memory base
      */
     uint64_t offset;
-
     /**
      * The size of the shared buffer in bytes
      */
@@ -73,13 +71,11 @@ struct DestinationBuffer {
      * The type of the buffer
      */
     BufferType type;
-
     /**
      * If type == SHARED_MEMORY, the descrambled data must be written
      * to user-space non-secure shared memory.
      */
     SharedBuffer nonsecureMemory;
-
     /**
      * If type == NATIVE_HANDLE, the descrambled data must be written
      * to secure memory referenced by the vendor's buffer allocator.

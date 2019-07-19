@@ -19,7 +19,6 @@ package android.hardware.broadcastradio@1.1;
 import @1.0::ITuner;
 
 interface ITuner extends @1.0::ITuner {
-
     /**
      * Tune to a specified program.
      *

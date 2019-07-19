@@ -23,7 +23,6 @@ import IPreparedModel;
  * asynchronous task launched from IDevice::prepareModel.
  */
 interface IPreparedModelCallback {
-
     /**
      * notify must be invoked immediately after the asynchronous task holding
      * this callback has finished preparing the model. If the model was

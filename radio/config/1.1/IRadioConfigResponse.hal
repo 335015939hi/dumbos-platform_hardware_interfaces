@@ -17,9 +17,9 @@
 package android.hardware.radio.config@1.1;
 
 import @1.0::IRadioConfigResponse;
-import @1.1::PhoneCapability;
+import PhoneCapability;
 import android.hardware.radio@1.0::RadioResponseInfo;
-import @1.1::ModemsConfig;
+import ModemsConfig;
 
 /**
  * Note: IRadioConfig 1.1 is an intermediate layer between Android P and Android Q.

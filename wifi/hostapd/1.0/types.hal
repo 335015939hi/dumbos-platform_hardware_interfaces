@@ -15,31 +15,42 @@
  */
 
 package android.hardware.wifi.hostapd@1.0;
+
 /**
  * Enum values indicating the status of any hostapd operation.
  */
 enum HostapdStatusCode : uint32_t {
-  /** No errors. */
-  SUCCESS,
-  /** Unknown failure occured. */
-  FAILURE_UNKNOWN,
-  /** One or more of the incoming args is invalid. */
-  FAILURE_ARGS_INVALID,
-  /** Iface with the provided name does not exist. */
-  FAILURE_IFACE_UNKNOWN,
-  /** Iface with the provided name already exists. */
-  FAILURE_IFACE_EXISTS
+    /**
+     * No errors.
+     */
+    SUCCESS,
+    /**
+     * Unknown failure occured.
+     */
+    FAILURE_UNKNOWN,
+    /**
+     * One or more of the incoming args is invalid.
+     */
+    FAILURE_ARGS_INVALID,
+    /**
+     * Iface with the provided name does not exist.
+     */
+    FAILURE_IFACE_UNKNOWN,
+    /**
+     * Iface with the provided name already exists.
+     */
+    FAILURE_IFACE_EXISTS,
 };
 
 /**
  * Generic structure to return the status of any hostapd operation.
  */
 struct HostapdStatus {
-  HostapdStatusCode code;
-  /**
-   * A vendor-specific error message to provide more information beyond the
-   * status code.
-   * This must be used for debugging purposes only.
-   */
-  string debugMessage;
+    HostapdStatusCode code;
+    /**
+     * A vendor-specific error message to provide more information beyond the
+     * status code.
+     * This must be used for debugging purposes only.
+     */
+    string debugMessage;
 };

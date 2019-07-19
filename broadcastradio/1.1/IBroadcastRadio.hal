@@ -19,7 +19,6 @@ package android.hardware.broadcastradio@1.1;
 import @1.0::IBroadcastRadio;
 
 interface IBroadcastRadio extends @1.0::IBroadcastRadio {
-
     /**
      * Retrieve implementation properties.
      * @return properties A Properties structure containing implementation

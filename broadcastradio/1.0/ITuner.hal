@@ -19,7 +19,6 @@ package android.hardware.broadcastradio@1.0;
 import ITunerCallback;
 
 interface ITuner {
-
     /**
      * Apply current radio band configuration (band, range, channel spacing...).
      * Automatically cancels pending scan, step or tune.
@@ -31,7 +30,7 @@ interface ITuner {
      *                INVALID_ARGUMENTS if configuration requested is invalid
      *
      */
-    setConfiguration(BandConfig config) generates(Result result);
+    setConfiguration(BandConfig config) generates (Result result);
 
     /**
      * Retrieve current radio band configuration.
@@ -39,7 +38,7 @@ interface ITuner {
      *                NOT_INITIALIZED in case of initialization error.
      * @param config Current band configuration
      */
-    getConfiguration() generates(Result result, BandConfig config);
+    getConfiguration() generates (Result result, BandConfig config);
 
     /**
      * Start scanning up to next valid station.
@@ -55,7 +54,7 @@ interface ITuner {
      *                INVALID_STATE if called out of sequence
      *                NOT_INITIALIZED if another error occurs
      */
-    scan(Direction direction, bool skipSubChannel) generates(Result result);
+    scan(Direction direction, bool skipSubChannel) generates (Result result);
 
     /**
      * Move one channel spacing up or down.
@@ -71,7 +70,7 @@ interface ITuner {
      *                INVALID_STATE if called out of sequence
      *                NOT_INITIALIZED if another error occurs
      */
-    step(Direction direction, bool skipSubChannel) generates(Result result);
+    step(Direction direction, bool skipSubChannel) generates (Result result);
 
     /**
      * Tune to specified channel.
@@ -89,7 +88,7 @@ interface ITuner {
      *                INVALID_STATE if called out of sequence
      *                NOT_INITIALIZED if another error occurs
      */
-    tune(uint32_t channel, uint32_t subChannel) generates(Result result);
+    tune(uint32_t channel, uint32_t subChannel) generates (Result result);
 
     /**
      * Cancel a scan, step or tune operation.
@@ -99,7 +98,7 @@ interface ITuner {
      *                INVALID_STATE if called out of sequence
      *                NOT_INITIALIZED if another error occurs
      */
-    cancel() generates(Result result);
+    cancel() generates (Result result);
 
     /**
      * Retrieve current station information.
@@ -107,5 +106,5 @@ interface ITuner {
      *                NOT_INITIALIZED if another error occurs
      * @return info Current program information.
      */
-    getProgramInformation() generates(Result result, ProgramInfo info);
+    getProgramInformation() generates (Result result, ProgramInfo info);
 };
