@@ -19,6 +19,125 @@
     },
     {
       "key": {
+        "uuid": "10f57b3c_27a54608",
+        "filename": "neuralnetworks/1.2/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 2275,
+      "author": {
+        "id": 1361908
+      },
+      "writtenOn": "2019-07-19T14:58:58Z",
+      "side": 0,
+      "message": "Why are these comments removed?",
+      "revId": "c158dbcd7eae81ae2417d54928bb7512359922b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cfb9fa7b_87b5404f",
+        "filename": "neuralnetworks/1.2/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 4712,
+      "author": {
+        "id": 1361908
+      },
+      "writtenOn": "2019-07-19T14:58:58Z",
+      "side": 0,
+      "message": "I believe these comments are useful and should not be removed.",
+      "revId": "c158dbcd7eae81ae2417d54928bb7512359922b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a5a216c_9d01a414",
+        "filename": "neuralnetworks/1.2/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 4767,
+      "author": {
+        "id": 1361908
+      },
+      "writtenOn": "2019-07-19T14:58:58Z",
+      "side": 0,
+      "message": "This comment should be preserved.",
+      "revId": "c158dbcd7eae81ae2417d54928bb7512359922b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3bf5413b_92cd3a4c",
+        "filename": "neuralnetworks/1.2/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 5030,
+      "author": {
+        "id": 1361908
+      },
+      "writtenOn": "2019-07-19T14:58:58Z",
+      "side": 0,
+      "message": "This comment needs to be preserved.",
+      "revId": "c158dbcd7eae81ae2417d54928bb7512359922b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a68fa16f_fc12e500",
+        "filename": "neuralnetworks/1.2/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 5053,
+      "author": {
+        "id": 1361908
+      },
+      "writtenOn": "2019-07-19T14:58:58Z",
+      "side": 0,
+      "message": "This comment needs to be preserved.",
+      "revId": "c158dbcd7eae81ae2417d54928bb7512359922b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3bf7ce3_d0279ee4",
+        "filename": "neuralnetworks/1.2/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 5129,
+      "author": {
+        "id": 1361908
+      },
+      "writtenOn": "2019-07-19T14:58:58Z",
+      "side": 0,
+      "message": "This comment needs to be preserved.",
+      "revId": "c158dbcd7eae81ae2417d54928bb7512359922b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e9621d7_94df3179",
+        "filename": "neuralnetworks/1.2/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 5155,
+      "author": {
+        "id": 1361908
+      },
+      "writtenOn": "2019-07-19T14:58:58Z",
+      "side": 0,
+      "message": "This comment needs to be preserved.",
+      "revId": "c158dbcd7eae81ae2417d54928bb7512359922b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ddbdc223_ec7bc3bc",
         "filename": "radio/1.4/IRadio.hal",
         "patchSetId": 2

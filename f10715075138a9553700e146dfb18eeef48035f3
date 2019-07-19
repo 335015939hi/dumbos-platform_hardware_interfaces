@@ -16,6 +16,40 @@
       "revId": "f10715075138a9553700e146dfb18eeef48035f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1bafd0da_b8747d16",
+        "filename": "neuralnetworks/1.2/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 3140,
+      "author": {
+        "id": 1361908
+      },
+      "writtenOn": "2019-07-19T14:58:58Z",
+      "side": 1,
+      "message": "While we are at it, could you fix this minor bug in our docs by indenting \"groups\"?",
+      "revId": "f10715075138a9553700e146dfb18eeef48035f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4ea504a_4d793bf0",
+        "filename": "neuralnetworks/1.2/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 4701,
+      "author": {
+        "id": 1361908
+      },
+      "writtenOn": "2019-07-19T14:58:58Z",
+      "side": 1,
+      "message": "Do we need a comment explaining what this is?",
+      "revId": "f10715075138a9553700e146dfb18eeef48035f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
