@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f493049_ec1cf1ce",
+        "filename": "neuralnetworks/1.2/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1361908
+      },
+      "writtenOn": "2019-07-19T12:40:28Z",
+      "side": 1,
+      "message": "Why is this empty line added here but not in other similar cases?",
+      "revId": "f10715075138a9553700e146dfb18eeef48035f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

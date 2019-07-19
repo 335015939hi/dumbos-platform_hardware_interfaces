@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "9a39f438_218ea645",
+        "filename": "neuralnetworks/1.2/types.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1361908
+      },
+      "writtenOn": "2019-07-19T12:40:28Z",
+      "side": 0,
+      "message": "These comments should not be removed.",
+      "revId": "c158dbcd7eae81ae2417d54928bb7512359922b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ddbdc223_ec7bc3bc",
         "filename": "radio/1.4/IRadio.hal",
         "patchSetId": 2
