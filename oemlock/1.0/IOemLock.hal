@@ -13,9 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package android.hardware.oemlock@1.0;
 
-/*
+/**
  * The OEM lock prevents the bootloader from allowing the device to be flashed.
  *
  * Both the carrier and the device itself have a say as to whether OEM unlock is
@@ -49,7 +50,7 @@ interface IOemLock {
      *         was provided or FAILED if the update was otherwise unsuccessful.
      */
     setOemUnlockAllowedByCarrier(bool allowed, vec<uint8_t> signature)
-            generates (OemLockSecureStatus status);
+        generates (OemLockSecureStatus status);
 
     /**
      * Returns whether OEM unlock is allowed by the carrier.

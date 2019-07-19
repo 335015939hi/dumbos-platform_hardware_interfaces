@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package android.hardware.drm@1.0;
 
 import ICryptoPlugin;
@@ -31,7 +32,7 @@ interface ICryptoFactory {
      * @param uuid identifies the crypto scheme in question
      * @return isSupported must be true only if the scheme is supported
      */
-    isCryptoSchemeSupported(uint8_t[16] uuid) generates(bool isSupported);
+    isCryptoSchemeSupported(uint8_t[16] uuid) generates (bool isSupported);
 
     /**
      * Create a crypto plugin for the specified uuid and scheme-specific

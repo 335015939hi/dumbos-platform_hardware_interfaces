@@ -28,7 +28,6 @@ import IBluetoothAudioPort;
  * for return value must be invoked synchronously before the API call returns.
  */
 interface IBluetoothAudioProvider {
-
     /**
      * This method indicates that the Bluetooth stack is ready to stream audio.
      * It registers an instance of IBluetoothAudioPort with and provides the
@@ -56,7 +55,7 @@ interface IBluetoothAudioProvider {
      *    Invalid if streaming is offloaded to hardware or on failure.
      */
     startSession(IBluetoothAudioPort hostIf, AudioConfiguration audioConfig)
-                generates (Status status, fmq_sync<uint8_t> dataMQ);
+        generates (Status status, fmq_sync<uint8_t> dataMQ);
 
     /**
      * Callback for IBluetoothAudioPort.startStream()

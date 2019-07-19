@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package android.hardware.drm@1.1;
 
 import @1.0::IDrmFactory;
@@ -30,6 +31,5 @@ import @1.0::IDrmPlugin;
  * To use 1.1 features the caller must cast the returned interface to a
  * 1.1 HAL, using V1_1::IDrmPlugin::castFrom().
  */
-
 interface IDrmFactory extends @1.0::IDrmFactory {
 };

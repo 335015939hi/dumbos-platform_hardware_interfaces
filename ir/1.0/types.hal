@@ -18,7 +18,5 @@ package android.hardware.ir@1.0;
 
 struct ConsumerIrFreqRange {
     uint32_t min;
-
     uint32_t max;
-
 };

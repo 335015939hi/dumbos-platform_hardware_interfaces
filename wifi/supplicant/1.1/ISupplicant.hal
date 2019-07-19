@@ -39,8 +39,7 @@ interface ISupplicant extends @1.0::ISupplicant {
      * @return iface HIDL interface object representing the interface if
      *         successful, null otherwise.
      */
-    addInterface(IfaceInfo ifaceInfo)
-        generates (SupplicantStatus status, ISupplicantIface iface);
+    addInterface(IfaceInfo ifaceInfo) generates (SupplicantStatus status, ISupplicantIface iface);
 
     /**
      * Deregisters a wireless interface from supplicant.

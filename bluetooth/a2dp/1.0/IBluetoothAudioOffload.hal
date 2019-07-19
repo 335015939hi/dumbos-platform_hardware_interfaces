@@ -35,7 +35,6 @@ import IBluetoothAudioHost;
  * call the endSession to terminate the session with the HAL server.
  */
 interface IBluetoothAudioOffload {
-
     /**
      * Indicates that the HAL client is connected to an A2DP Sink device
      * and is ready to stream audio. This function is also used to register
@@ -55,7 +54,8 @@ interface IBluetoothAudioOffload {
      *    FAILURE if HAL server cannot initialize the platform for any other
      *        reason
      */
-    startSession(IBluetoothAudioHost hostIf, CodecConfiguration codecConfig) generates (Status status);
+    startSession(IBluetoothAudioHost hostIf, CodecConfiguration codecConfig)
+        generates (Status status);
 
     /**
      * Updates status for start stream request. The HAL client may need

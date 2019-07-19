@@ -22,56 +22,84 @@ package android.hardware.gnss@1.0;
  * the interfaces and passes a handle to the HAL.
  */
 interface IGnssCallback {
-    /** Flags for the gnssSetCapabilities callback. */
-    @export(name="", value_prefix="GPS_CAPABILITY_")
+    /**
+     * Flags for the gnssSetCapabilities callback.
+     */
+    @export(name = "", value_prefix = "GPS_CAPABILITY_")
     enum Capabilities : uint32_t {
         /**
          * GNSS HAL schedules fixes for RECURRENCE_PERIODIC mode.
          * If this is not set, then the framework will use 1000ms for
          * minInterval and will call start() and stop() to schedule the GNSS.
          */
-        SCHEDULING                      = 1 << 0,
-        /** GNSS supports MS-Based AGNSS mode */
-        MSB                             = 1 << 1,
-        /** GNSS supports MS-Assisted AGNSS mode */
-        MSA                             = 1 << 2,
-        /** GNSS supports single-shot fixes */
-        SINGLE_SHOT                     = 1 << 3,
-        /** GNSS supports on demand time injection */
-        ON_DEMAND_TIME                  = 1 << 4,
-        /** GNSS supports Geofencing  */
-        GEOFENCING                      = 1 << 5,
-        /** GNSS supports Measurements for at least GPS. */
-        MEASUREMENTS                    = 1 << 6,
-        /** GNSS supports Navigation Messages */
-        NAV_MESSAGES                    = 1 << 7
+        SCHEDULING = 1 << 0,
+        /**
+         * GNSS supports MS-Based AGNSS mode
+         */
+        MSB = 1 << 1,
+        /**
+         * GNSS supports MS-Assisted AGNSS mode
+         */
+        MSA = 1 << 2,
+        /**
+         * GNSS supports single-shot fixes
+         */
+        SINGLE_SHOT = 1 << 3,
+        /**
+         * GNSS supports on demand time injection
+         */
+        ON_DEMAND_TIME = 1 << 4,
+        /**
+         * GNSS supports Geofencing
+         */
+        GEOFENCING = 1 << 5,
+        /**
+         * GNSS supports Measurements for at least GPS.
+         */
+        MEASUREMENTS = 1 << 6,
+        /**
+         * GNSS supports Navigation Messages
+         */
+        NAV_MESSAGES = 1 << 7,
     };
 
-    /** GNSS status event values. */
-    @export(name="", value_prefix="GPS_STATUS_")
+    /**
+     * GNSS status event values.
+     */
+    @export(name = "", value_prefix = "GPS_STATUS_")
     enum GnssStatusValue : uint8_t {
-        /** GNSS status unknown. */
-        NONE           = 0,
-        /** GNSS has begun navigating. */
-        SESSION_BEGIN  = 1,
-        /** GNSS has stopped navigating. */
-        SESSION_END    = 2,
-        /** GNSS has powered on but is not navigating. */
-        ENGINE_ON      = 3,
-        /** GNSS is powered off. */
-        ENGINE_OFF     = 4
+        /**
+         * GNSS status unknown.
+         */
+        NONE = 0,
+        /**
+         * GNSS has begun navigating.
+         */
+        SESSION_BEGIN = 1,
+        /**
+         * GNSS has stopped navigating.
+         */
+        SESSION_END = 2,
+        /**
+         * GNSS has powered on but is not navigating.
+         */
+        ENGINE_ON = 3,
+        /**
+         * GNSS is powered off.
+         */
+        ENGINE_OFF = 4,
     };
 
     /**
      * Flags that indicate information about the satellite
      */
-    @export(name="", value_prefix="GNSS_SV_FLAGS_")
+    @export(name = "", value_prefix = "GNSS_SV_FLAGS_")
     enum GnssSvFlags : uint8_t {
-        NONE                  = 0,
-        HAS_EPHEMERIS_DATA    = 1 << 0,
-        HAS_ALMANAC_DATA      = 1 << 1,
-        USED_IN_FIX           = 1 << 2,
-        HAS_CARRIER_FREQUENCY = 1 << 3
+        NONE = 0,
+        HAS_EPHEMERIS_DATA = 1 << 0,
+        HAS_ALMANAC_DATA = 1 << 1,
+        USED_IN_FIX = 1 << 2,
+        HAS_CARRIER_FREQUENCY = 1 << 3,
     };
 
     struct GnssSvInfo {
@@ -92,12 +120,10 @@ interface IGnssCallback {
          * - Beidou:  1-37
          */
         int16_t svid;
-
         /**
          * Defines the constellation of the given SV.
          */
         GnssConstellationType constellation;
-
         /**
          * Carrier-to-noise density in dB-Hz, typically in the range [0, 63].
          * It contains the measured C/N0 value for the signal at the antenna port.
@@ -105,13 +131,14 @@ interface IGnssCallback {
          * This is a mandatory value.
          */
         float cN0Dbhz;
-
-        /** Elevation of SV in degrees. */
+        /**
+         * Elevation of SV in degrees.
+         */
         float elevationDegrees;
-
-        /** Azimuth of SV in degrees. */
+        /**
+         * Azimuth of SV in degrees.
+         */
         float azimuthDegrees;
-
         /**
          * Carrier frequency of the signal tracked, for example it can be the
          * GPS central frequency for L1 = 1575.45 MHz, or L2 = 1227.60 MHz, L5 =
@@ -128,7 +155,6 @@ interface IGnssCallback {
          * If the data is available, svFlag must contain HAS_CARRIER_FREQUENCY.
          */
         float carrierFrequencyHz;
-
         /**
          * Contains additional data about the given SV.
          */
@@ -143,13 +169,31 @@ interface IGnssCallback {
          * Number of GNSS SVs currently visible, refers to the SVs stored in sv_list
          */
         uint32_t numSvs;
-
         /**
          * Pointer to an array of SVs information for all GNSS constellations,
          * except GNSS, which is reported using svList
          */
         GnssSvInfo[GnssMax:SVS_COUNT] gnssSvList;
+    };
 
+    /**
+     * Provides information about how new the underlying GPS/GNSS hardware and
+     * software is.
+     *
+     * This information will be available for Android Test Applications. If a GNSS
+     * HAL does not provide this information, it will be considered "2015 or
+     * earlier".
+     *
+     * If a GNSS HAL does provide this information, then newer years will need to
+     * meet newer CTS standards. E.g. if the date are 2016 or above, then N+ level
+     * GnssMeasurement support will be verified.
+     */
+    struct GnssSystemInfo {
+        /**
+         * year in which the last update was made to the underlying hardware/firmware
+         * used to capture GNSS signals, e.g. 2016
+         */
+        uint16_t yearOfHw;
     };
 
     /**
@@ -208,31 +252,15 @@ interface IGnssCallback {
      */
     gnssAcquireWakelockCb();
 
-    /** Callback utility for releasing the GNSS wakelock. */
+    /**
+     * Callback utility for releasing the GNSS wakelock.
+     */
     gnssReleaseWakelockCb();
 
-    /** Callback for requesting NTP time */
-    gnssRequestTimeCb();
-
     /**
-     * Provides information about how new the underlying GPS/GNSS hardware and
-     * software is.
-     *
-     * This information will be available for Android Test Applications. If a GNSS
-     * HAL does not provide this information, it will be considered "2015 or
-     * earlier".
-     *
-     * If a GNSS HAL does provide this information, then newer years will need to
-     * meet newer CTS standards. E.g. if the date are 2016 or above, then N+ level
-     * GnssMeasurement support will be verified.
+     * Callback for requesting NTP time
      */
-    struct GnssSystemInfo{
-        /**
-         * year in which the last update was made to the underlying hardware/firmware
-         * used to capture GNSS signals, e.g. 2016
-         */
-        uint16_t yearOfHw;
-    };
+    gnssRequestTimeCb();
 
     /**
      * Callback to inform framework of the engine's hardware version information.

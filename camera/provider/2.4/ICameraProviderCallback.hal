@@ -23,7 +23,6 @@ import android.hardware.camera.common@1.0::types;
  * service of changes to the camera subsystem.
  */
 interface ICameraProviderCallback {
-
     /**
      * cameraDeviceStatusChange:
      *
@@ -44,8 +43,7 @@ interface ICameraProviderCallback {
      * @param newStatus The new status that device is in.
      *
      */
-    cameraDeviceStatusChange(string cameraDeviceName,
-            CameraDeviceStatus newStatus);
+    cameraDeviceStatusChange(string cameraDeviceName, CameraDeviceStatus newStatus);
 
     /**
      * torchModeStatusChange:
@@ -62,7 +60,5 @@ interface ICameraProviderCallback {
      * @param newStatus The new status that device is in.
      *
      */
-    torchModeStatusChange(string cameraDeviceName,
-            TorchModeStatus newStatus);
-
+    torchModeStatusChange(string cameraDeviceName, TorchModeStatus newStatus);
 };

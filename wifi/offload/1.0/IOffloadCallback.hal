@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package android.hardware.wifi.offload@1.0;
 
 interface IOffloadCallback {
@@ -22,6 +23,7 @@ interface IOffloadCallback {
      * @param scanResult a vector of scan result objects
      */
     oneway onScanResult(vec<ScanResult> scanResult);
+
     /**
      * Interface for the Offload HAL to inform the client of error conditions
      * see OffloadStatus for the error conditions to be reported

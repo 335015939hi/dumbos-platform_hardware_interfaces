@@ -21,7 +21,6 @@ package android.hardware.neuralnetworks@1.0;
  * execution asynchronously launched from IPreparedModel::execute.
  */
 interface IExecutionCallback {
-
     /**
      * notify must be invoked immediately after the asynchronous task has
      * finished performing the execution. notify must be provided with the

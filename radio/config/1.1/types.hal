@@ -20,9 +20,8 @@ package android.hardware.radio.config@1.1;
  * Note: IRadioConfig 1.1 is an intermediate layer between Android P and Android Q.
  * It's specifically designed for CBRS related interfaces. All other interfaces
  * for Q are be added in IRadioConfig 1.2.
- */
-
-/**
+ *
+ *
  * A field in PhoneCapability that has information of each logical modem.
  */
 struct ModemInfo {

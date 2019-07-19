@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package android.hardware.power@1.0;
 
 /**
@@ -84,6 +85,6 @@ interface IPower {
      * @return retval SUCCESS on success or FILESYSTEM_ERROR on filesystem
      * nodes access error.
      */
-    getPlatformLowPowerStats()
-            generates (vec<PowerStatePlatformSleepState> states, Status retval);
+    getPlatformLowPowerStats() generates (vec<PowerStatePlatformSleepState> states, Status retval)
+        ;
 };

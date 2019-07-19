@@ -23,7 +23,6 @@ import @1.1::IRadioConfigIndication;
  * Interface declaring unsolicited radio config indications.
  */
 interface IRadioConfigIndication extends @1.1::IRadioConfigIndication {
-
     /**
      * Indicates SIM slot status change.
      *

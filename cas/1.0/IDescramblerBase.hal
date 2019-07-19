@@ -13,15 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package android.hardware.cas@1.0;
 
-import android.hardware.cas@1.0::types;
+import types;
 
 /**
  * IDescramblerBase is the API to control the descrambler and is accessible
  * from both Java and native level.
  */
-
 interface IDescramblerBase {
     /**
      * Associate a MediaCas session with this MediaDescrambler instance.

@@ -25,39 +25,39 @@ package android.hardware.wifi.supplicant@1.0;
  * credentials, bssid, etc.
  */
 interface ISupplicantNetwork {
-  /**
-   * Retrieves the ID allocated to this network by the supplicant.
-   *
-   * This is not the |SSID| of the network, but an internal identifier for
-   * this network used by the supplicant.
-   *
-   * @return status Status of the operation.
-   *         Possible status codes:
-   *         |SupplicantStatusCode.SUCCESS|,
-   *         |SupplicantStatusCode.FAILURE_NETWORK_INVALID|
-   * @return id Network ID.
-   */
-  getId() generates (SupplicantStatus status, SupplicantNetworkId id);
+    /**
+     * Retrieves the ID allocated to this network by the supplicant.
+     *
+     * This is not the |SSID| of the network, but an internal identifier for
+     * this network used by the supplicant.
+     *
+     * @return status Status of the operation.
+     *         Possible status codes:
+     *         |SupplicantStatusCode.SUCCESS|,
+     *         |SupplicantStatusCode.FAILURE_NETWORK_INVALID|
+     * @return id Network ID.
+     */
+    getId() generates (SupplicantStatus status, SupplicantNetworkId id);
 
-  /**
-   * Retrieves the name of the interface this network belongs to.
-   *
-   * @return status Status of the operation.
-   *         Possible status codes:
-   *         |SupplicantStatusCode.SUCCESS|,
-   *         |SupplicantStatusCode.FAILURE_NETWORK_INVALID|
-   * @return Name of the network interface, e.g., wlan0
-   */
-  getInterfaceName() generates (SupplicantStatus status, string name);
+    /**
+     * Retrieves the name of the interface this network belongs to.
+     *
+     * @return status Status of the operation.
+     *         Possible status codes:
+     *         |SupplicantStatusCode.SUCCESS|,
+     *         |SupplicantStatusCode.FAILURE_NETWORK_INVALID|
+     * @return Name of the network interface, e.g., wlan0
+     */
+    getInterfaceName() generates (SupplicantStatus status, string name);
 
-  /**
-   * Retrieves the type of the interface this network belongs to.
-   *
-   * @return status Status of the operation.
-   *         Possible status codes:
-   *         |SupplicantStatusCode.SUCCESS|,
-   *         |SupplicantStatusCode.FAILURE_IFACE_INVALID|
-   * @return type Type of the network interface, e.g., STA.
-   */
-  getType() generates (SupplicantStatus status, IfaceType type);
+    /**
+     * Retrieves the type of the interface this network belongs to.
+     *
+     * @return status Status of the operation.
+     *         Possible status codes:
+     *         |SupplicantStatusCode.SUCCESS|,
+     *         |SupplicantStatusCode.FAILURE_IFACE_INVALID|
+     * @return type Type of the network interface, e.g., STA.
+     */
+    getType() generates (SupplicantStatus status, IfaceType type);
 };

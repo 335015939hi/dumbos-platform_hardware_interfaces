@@ -56,7 +56,9 @@ enum MemtrackFlag : uint32_t {
     SECURE = 1 << 9,
 };
 
-/** Tags which define the usage of the memory buffers. */
+/**
+ * Tags which define the usage of the memory buffers.
+ */
 enum MemtrackType : uint32_t {
     OTHER = 0,
     GL = 1,
@@ -72,7 +74,8 @@ enum MemtrackStatus : uint32_t {
     TYPE_NOT_SUPPORTED = 2,
 };
 
-/* A vector of MemtrackRecord is returned by the function getMemory().
+/**
+ * A vector of MemtrackRecord is returned by the function getMemory().
  * Each record consists of the size of the memory used by the process and
  * flags indicate the all the MemtrackFlag that are valid for this record.
  * see getMemory() comments for further details.

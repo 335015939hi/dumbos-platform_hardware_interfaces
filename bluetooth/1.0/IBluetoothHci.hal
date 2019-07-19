@@ -26,7 +26,6 @@ import IBluetoothHciCallbacks;
  * the stack and abstracts away power management, initialization, and other
  * implementation-specific details related to the hardware.
  */
-
 interface IBluetoothHci {
     /**
      * Initialize the underlying HCI interface.
@@ -45,7 +44,7 @@ interface IBluetoothHci {
      *    from the controller to be sent to the host.
      */
     @entry
-    @callflow(next={"sendHciCommand", "sendAclData", "sendScoData", "close"})
+    @callflow(next = {"sendHciCommand", "sendAclData", "sendScoData", "close"})
     initialize(IBluetoothHciCallbacks callback);
 
     /**
@@ -55,7 +54,7 @@ interface IBluetoothHci {
      *
      * @param command is the HCI command to be sent
      */
-    @callflow(next={"sendHciCommand", "sendAclData", "sendScoData", "close"})
+    @callflow(next = {"sendHciCommand", "sendAclData", "sendScoData", "close"})
     sendHciCommand(HciPacket command);
 
     /**
@@ -64,7 +63,7 @@ interface IBluetoothHci {
      * Packets must be processed in order.
      * @param data HCI data packet to be sent
      */
-    @callflow(next={"sendHciCommand", "sendAclData", "sendScoData", "close"})
+    @callflow(next = {"sendHciCommand", "sendAclData", "sendScoData", "close"})
     sendAclData(HciPacket data);
 
     /**
@@ -73,7 +72,7 @@ interface IBluetoothHci {
      * Packets must be processed in order.
      * @param data HCI data packet to be sent
      */
-    @callflow(next={"sendHciCommand", "sendAclData", "sendScoData", "close"})
+    @callflow(next = {"sendHciCommand", "sendAclData", "sendScoData", "close"})
     sendScoData(HciPacket data);
 
     /**

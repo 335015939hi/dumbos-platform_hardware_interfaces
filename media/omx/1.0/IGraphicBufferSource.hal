@@ -17,9 +17,7 @@
 package android.hardware.media.omx@1.0;
 
 import android.hardware.graphics.common@1.0::Dataspace;
-
 import android.hardware.media@1.0::types;
-
 import IOmxNode;
 
 /**
@@ -28,7 +26,6 @@ import IOmxNode;
  * TODO: Add documentations.
  */
 interface IGraphicBufferSource {
-
     configure(IOmxNode omxNode, Dataspace dataspace) generates (Status status);
 
     setSuspend(bool suspend, int64_t timeUs) generates (Status status);
@@ -50,6 +47,4 @@ interface IGraphicBufferSource {
     setTimeOffsetUs(int64_t timeOffsetUs) generates (Status status);
 
     signalEndOfInputStream() generates (Status status);
-
 };
-

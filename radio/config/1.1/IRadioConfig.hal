@@ -17,9 +17,9 @@
 package android.hardware.radio.config@1.1;
 
 import @1.0::IRadioConfig;
-import @1.1::IRadioConfigResponse;
-import @1.1::PhoneCapability;
-import @1.1::ModemsConfig;
+import IRadioConfigResponse;
+import PhoneCapability;
+import ModemsConfig;
 
 /**
  * Note: IRadioConfig 1.1 is an intermediate layer between Android P and Android Q.
@@ -34,7 +34,7 @@ import @1.1::ModemsConfig;
  * serial to different methods), multiple responses (one for each method call) must still be served.
  */
 interface IRadioConfig extends @1.0::IRadioConfig {
-   /**
+    /**
      * Request current phone capability.
      *
      * @param serial Serial number of request.
@@ -44,7 +44,7 @@ interface IRadioConfig extends @1.0::IRadioConfig {
      */
     oneway getPhoneCapability(int32_t serial);
 
-   /**
+    /**
      * Set preferred data modem Id.
      * In a multi-SIM device, notify modem layer which logical modem will be used primarily
      * for data. It helps modem with resource optimization and decisions of what data connections
@@ -58,7 +58,7 @@ interface IRadioConfig extends @1.0::IRadioConfig {
      */
     oneway setPreferredDataModem(int32_t serial, uint8_t modemId);
 
-   /**
+    /**
      * Set modems configurations by specifying the number of live modems (i.e modems that are
      * enabled and actively working as part of a working telephony stack).
      *
@@ -75,7 +75,7 @@ interface IRadioConfig extends @1.0::IRadioConfig {
      */
     oneway setModemsConfig(int32_t serial, ModemsConfig modemsConfig);
 
-   /**
+    /**
      * Get modems configurations. This interface is used to get modem configurations
      * which includes the number of live modems (i.e modems that are
      * enabled and actively working as part of a working telephony stack)

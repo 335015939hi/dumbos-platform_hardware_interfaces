@@ -19,9 +19,8 @@ package android.hardware.camera.common@1.0;
 /**
  * Common enumeration and structure definitions for all HALs under
  * android.hardware.camera
- */
-
-/**
+ *
+ *
  * Status codes for camera HAL method calls.
  *
  */
@@ -30,43 +29,36 @@ enum Status : uint32_t {
      * Method call succeeded
      */
     OK = 0,
-
     /**
      * One of the arguments to the method call is invalid. For example,
      * the camera ID is unknown.
      */
     ILLEGAL_ARGUMENT = 1,
-
     /**
      * The specified camera device is already in use
      */
     CAMERA_IN_USE = 2,
-
     /**
      * The HAL cannot support more simultaneous cameras in use.
      */
     MAX_CAMERAS_IN_USE = 3,
-
     /**
      * This HAL does not support this method.
      */
     METHOD_NOT_SUPPORTED = 4,
-
     /**
      * The specified camera device does not support this operation.
      */
     OPERATION_NOT_SUPPORTED = 5,
-
     /**
      * This camera device is no longer connected or otherwise available for use
      */
     CAMERA_DISCONNECTED = 6,
-
     /**
      * The HAL has encountered an internal error and cannot complete the
      * request.
      */
-    INTERNAL_ERROR = 7
+    INTERNAL_ERROR = 7,
 };
 
 /**
@@ -74,8 +66,8 @@ enum Status : uint32_t {
  * via the ICameraProvider::setTorchMode() method.
  */
 enum TorchMode : uint32_t {
-    OFF = 0, // Turn off the flash
-    ON  = 1  // Turn on the flash to torch mode
+    OFF = 0,
+    ON = 1,
 };
 
 /**
@@ -83,18 +75,12 @@ enum TorchMode : uint32_t {
  * definitions.
  */
 enum CameraMetadataType : uint32_t {
-    // Unsigned 8-bit integer (uint8_t)
     BYTE = 0,
-    // Signed 32-bit integer (int32_t)
     INT32 = 1,
-    // 32-bit float (float)
     FLOAT = 2,
-    // Signed 64-bit integer (int64_t)
     INT64 = 3,
-    // 64-bit float (double)
     DOUBLE = 4,
-    // A 64-bit fraction (camera_metadata_rational_t)
-    RATIONAL = 5
+    RATIONAL = 5,
 };
 
 /**
@@ -102,8 +88,8 @@ enum CameraMetadataType : uint32_t {
  * The full name of the tag is <sectionName>.<tagName>
  */
 struct VendorTag {
-    uint32_t tagId; // Tag identifier, must be >= TagBoundaryId::VENDOR
-    string tagName; // Name of tag, not including section name
+    uint32_t tagId;
+    string tagName;
     CameraMetadataType tagType;
 };
 
@@ -111,13 +97,13 @@ struct VendorTag {
  * A set of related vendor tags.
  */
 struct VendorTagSection {
-    string sectionName; // Section name; must be namespaced within vendor's name
-    vec<VendorTag> tags; // List of tags in this section
+    string sectionName;
+    vec<VendorTag> tags;
 };
 
 enum TagBoundaryId : uint32_t {
-    AOSP    = 0x0,         // First valid tag id for android-defined tags
-    VENDOR  = 0x80000000u  // First valid tag id for vendor extension tags
+    AOSP = 0x0,
+    VENDOR = 0x80000000u,
 };
 
 /**
@@ -147,7 +133,6 @@ enum CameraDeviceStatus : uint32_t {
      *
      */
     NOT_PRESENT = 0,
-
     /**
      * The camera device is connected, and opening it is possible, as long as
      * sufficient resources are available.
@@ -156,7 +141,6 @@ enum CameraDeviceStatus : uint32_t {
      * ICameraProvider::getCameraIdList() are in this state.
      */
     PRESENT = 1,
-
     /**
      * The camera device is connected, but it is undergoing enumeration and
      * startup, and so opening the device must return CAMERA_IN_USE.
@@ -165,7 +149,6 @@ enum CameraDeviceStatus : uint32_t {
      * succeed, however.
      */
     ENUMERATING = 2,
-
 };
 
 /**
@@ -232,7 +215,6 @@ enum TorchModeStatus : uint32_t {
      * HAL calls torchModeStatusChange().
      */
     NOT_AVAILABLE = 0,
-
     /**
      * A torch mode has become off and is available to be turned on via
      * ICameraProvider::setTorchMode(). This may happen in the following
@@ -246,14 +228,12 @@ enum TorchModeStatus : uint32_t {
      *      resources to keep them all on.
      */
     AVAILABLE_OFF = 1,
-
     /**
      * A torch mode has become on and is available to be turned off via
      * ICameraProvider::setTorchMode(). This can happen only after
      * ICameraProvider::setTorchMode() has been called to turn on the torch mode.
      */
     AVAILABLE_ON = 2,
-
 };
 
 /**
@@ -394,7 +374,6 @@ struct CameraResourceCost {
      *   device 1 or 2).
      */
     uint32_t resourceCost;
-
     /**
      * An array of camera device IDs indicating other devices that cannot be
      * simultaneously opened while this camera device is in use.
@@ -409,5 +388,4 @@ struct CameraResourceCost {
      *
      */
     vec<string> conflictingDevices;
-
 };

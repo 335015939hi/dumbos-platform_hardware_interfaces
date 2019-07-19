@@ -25,45 +25,45 @@ package android.hardware.wifi.supplicant@1.0;
  * corresponding |ISupplicantStaNetwork.registerCallback| method.
  */
 interface ISupplicantStaNetworkCallback {
-  /** Params of |onNetworkEapSimGsmAuthRequest| request. (Refer RFC 4186) */
-  typedef uint8_t[16] GsmRand;
-  struct NetworkRequestEapSimGsmAuthParams {
-    vec<GsmRand> rands;
-  };
+    typedef uint8_t[16] GsmRand;
 
-  /** Params of |onNetworkEapSimUmtsAuthRequest| request. (Refer RFC 4187) */
-  struct NetworkRequestEapSimUmtsAuthParams {
-    uint8_t[16] rand;
-    uint8_t[16] autn;
-  };
+    struct NetworkRequestEapSimGsmAuthParams {
+        vec<GsmRand> rands;
+    };
 
-  /**
-   * Used to request EAP GSM SIM authentication for this particular network.
-   *
-   * The response for the request must be sent using the corresponding
-   * |ISupplicantNetwork.sendNetworkEapSimGsmAuthResponse| call.
-   *
-   * @param params Params associated with the request.
-   */
-  oneway onNetworkEapSimGsmAuthRequest(
-      NetworkRequestEapSimGsmAuthParams params);
+    /**
+     * Params of |onNetworkEapSimUmtsAuthRequest| request. (Refer RFC 4187)
+     */
+    struct NetworkRequestEapSimUmtsAuthParams {
+        uint8_t[16] rand;
+        uint8_t[16] autn;
+    };
 
-  /**
-   * Used to request EAP UMTS SIM authentication for this particular network.
-   *
-   * The response for the request must be sent using the corresponding
-   * |ISupplicantNetwork.sendNetworkEapSimUmtsAuthResponse| call.
-   *
-   * @param params Params associated with the request.
-   */
-  oneway onNetworkEapSimUmtsAuthRequest(
-      NetworkRequestEapSimUmtsAuthParams params);
+    /**
+     * Used to request EAP GSM SIM authentication for this particular network.
+     *
+     * The response for the request must be sent using the corresponding
+     * |ISupplicantNetwork.sendNetworkEapSimGsmAuthResponse| call.
+     *
+     * @param params Params associated with the request.
+     */
+    oneway onNetworkEapSimGsmAuthRequest(NetworkRequestEapSimGsmAuthParams params);
 
-  /**
-   * Used to request EAP Identity for this particular network.
-   *
-   * The response for the request must be sent using the corresponding
-   * |ISupplicantNetwork.sendNetworkEapIdentityResponse| call.
-   */
-  oneway onNetworkEapIdentityRequest();
+    /**
+     * Used to request EAP UMTS SIM authentication for this particular network.
+     *
+     * The response for the request must be sent using the corresponding
+     * |ISupplicantNetwork.sendNetworkEapSimUmtsAuthResponse| call.
+     *
+     * @param params Params associated with the request.
+     */
+    oneway onNetworkEapSimUmtsAuthRequest(NetworkRequestEapSimUmtsAuthParams params);
+
+    /**
+     * Used to request EAP Identity for this particular network.
+     *
+     * The response for the request must be sent using the corresponding
+     * |ISupplicantNetwork.sendNetworkEapIdentityResponse| call.
+     */
+    oneway onNetworkEapIdentityRequest();
 };

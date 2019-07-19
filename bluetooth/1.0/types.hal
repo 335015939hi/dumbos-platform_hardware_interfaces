@@ -17,13 +17,10 @@
 package android.hardware.bluetooth@1.0;
 
 enum Status : int32_t {
-  SUCCESS,
-  TRANSPORT_ERROR,
-  INITIALIZATION_ERROR,
-  UNKNOWN
+    SUCCESS,
+    TRANSPORT_ERROR,
+    INITIALIZATION_ERROR,
+    UNKNOWN,
 };
 
-/**
- * HCI packets are transmitted as a vector of type uint8_t.
- */
 typedef vec<uint8_t> HciPacket;

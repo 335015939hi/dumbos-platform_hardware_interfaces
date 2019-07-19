@@ -28,15 +28,14 @@ import IRadioConfigIndication;
  * serial to different methods), multiple responses (one for each method call) must still be served.
  */
 interface IRadioConfig {
-
     /**
      * Set response functions for radio config requests & radio config indications.
      *
      * @param radioConfigResponse Object containing radio config response functions
      * @param radioConfigIndication Object containing radio config indications
      */
-    setResponseFunctions(IRadioConfigResponse radioConfigResponse,
-            IRadioConfigIndication radioConfigIndication);
+    setResponseFunctions(
+        IRadioConfigResponse radioConfigResponse, IRadioConfigIndication radioConfigIndication);
 
     /**
      * Get SIM Slot status.
@@ -52,7 +51,7 @@ interface IRadioConfig {
 
     /**
      * Set SIM Slot mapping.
-
+     *
      * Maps the logical slots to the physical slots. Logical slot is the slot that is seen by modem.
      * Physical slot is the actual physical slot. Request maps the physical slot to logical slot.
      * Logical slots that are already mapped to the requested physical slot are not impacted.
