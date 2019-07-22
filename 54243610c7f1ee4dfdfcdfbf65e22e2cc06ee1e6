@@ -22,6 +22,30 @@
       "revId": "54243610c7f1ee4dfdfcdfbf65e22e2cc06ee1e6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94001d42_86e10986",
+        "filename": "confirmationui/support/test/ConfirmationUITranslations-test.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1163,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2019-07-22T20:00:38Z",
+      "side": 1,
+      "message": "It is a generated file. And clang-format massacres the file because it cannot deal with some of the characters. I don\u0027t know exactly what the problem is but for some languages it break just one character and it will do so over and over until the whole phrase is spread out across one line per character. Maybe we will fix the generator script to produce nicer output eventually.",
+      "parentUuid": "4e343e9c_73083d09",
+      "range": {
+        "startLine": 1163,
+        "startChar": 97,
+        "endLine": 1163,
+        "endChar": 105
+      },
+      "revId": "54243610c7f1ee4dfdfcdfbf65e22e2cc06ee1e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
