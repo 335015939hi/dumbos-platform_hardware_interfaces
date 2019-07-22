@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e343e9c_73083d09",
+        "filename": "confirmationui/support/test/ConfirmationUITranslations-test.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1163,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2019-07-22T19:33:10Z",
+      "side": 1,
+      "message": "Is it fine for all of these to be running over the column limit?",
+      "range": {
+        "startLine": 1163,
+        "startChar": 97,
+        "endLine": 1163,
+        "endChar": 105
+      },
+      "revId": "54243610c7f1ee4dfdfcdfbf65e22e2cc06ee1e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
