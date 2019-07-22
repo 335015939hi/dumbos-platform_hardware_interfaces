@@ -46,6 +46,30 @@
       "revId": "54243610c7f1ee4dfdfcdfbf65e22e2cc06ee1e6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3c0b6fb_01c3f1ab",
+        "filename": "confirmationui/support/test/ConfirmationUITranslations-test.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1163,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2019-07-22T20:06:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94001d42_86e10986",
+      "range": {
+        "startLine": 1163,
+        "startChar": 97,
+        "endLine": 1163,
+        "endChar": 105
+      },
+      "revId": "54243610c7f1ee4dfdfcdfbf65e22e2cc06ee1e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
