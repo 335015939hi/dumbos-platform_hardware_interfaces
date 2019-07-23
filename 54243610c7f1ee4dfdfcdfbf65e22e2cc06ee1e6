@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "0c3dfe23_fc2de9a6",
+        "filename": "confirmationui/support/src/ConfirmationUITranslations.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1068,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2019-07-23T02:51:40Z",
+      "side": 1,
+      "message": "Any reason the word \"Protected\" is not translated only in zh-TW? \nIt\u0027s been translated to \"保護\" -\u003e zh-HK and \"保护\" -\u003e zh-CN.",
+      "range": {
+        "startLine": 1068,
+        "startChar": 0,
+        "endLine": 1068,
+        "endChar": 41
+      },
+      "revId": "54243610c7f1ee4dfdfcdfbf65e22e2cc06ee1e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4e343e9c_73083d09",
         "filename": "confirmationui/support/test/ConfirmationUITranslations-test.c",
         "patchSetId": 2
