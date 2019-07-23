@@ -28,7 +28,6 @@ import android.hardware.media@1.0::types;
  * @see OMX_STATETYPE in the OpenMax IL standard.
  */
 interface IOmxBufferSource {
-
     /**
      * onOmxExecuting() is invoked when the node state changes to
      * OMX_StateExecuting state.
@@ -65,4 +64,3 @@ interface IOmxBufferSource {
      */
     oneway onInputBufferEmptied(BufferId buffer, Fence fence);
 };
-

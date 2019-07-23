@@ -16,8 +16,8 @@
 
 package android.hardware.keymaster@4.0;
 
-import android.hardware.keymaster@3.0::ErrorCode;
-import android.hardware.keymaster@3.0::KeyFormat;
+import @3.0::ErrorCode;
+import @3.0::KeyFormat;
 
 /**
  * Keymaster device definition.
@@ -98,7 +98,7 @@ import android.hardware.keymaster@3.0::KeyFormat;
  *
  *      - 168-bit keys.
  *      - CBC and ECB mode.
-
+ *
  *      - CBC and ECB modes must support unpadded and PKCS7 padding modes.  With no padding CBC and
  *        ECB-mode operations must fail with ErrorCode::INVALID_INPUT_LENGTH if the input isn't a
  *        multiple of the DES block size.
@@ -195,9 +195,7 @@ import android.hardware.keymaster@3.0::KeyFormat;
  * Tag::VENDOR_PATCHLEVEL, and Tag::BOOT_PATCHLEVEL must be cryptographically bound to every
  * IKeymasterDevice key, as described in the Key Access Control section above.
  */
-
 interface IKeymasterDevice {
-
     /**
      * Returns information about the underlying IKeymasterDevice hardware.
      *
@@ -361,9 +359,7 @@ interface IKeymasterDevice {
      * @return token the verification token.  See VerificationToken in types.hal for details.
      */
     verifyAuthorization(uint64_t operationHandle, vec<KeyParameter> parametersToVerify,
-                        HardwareAuthToken authToken)
-        generates (ErrorCode error, VerificationToken token);
-
+        HardwareAuthToken authToken) generates (ErrorCode error, VerificationToken token);
 
     /**
      * Adds entropy to the RNG used by Keymaster.  Entropy added through this method must not be the
@@ -587,9 +583,9 @@ interface IKeymasterDevice {
      *         hardware.
      */
     importWrappedKey(vec<uint8_t> wrappedKeyData, vec<uint8_t> wrappingKeyBlob,
-                     vec<uint8_t> maskingKey, vec<KeyParameter> unwrappingParams,
-                     uint64_t passwordSid, uint64_t biometricSid)
-        generates(ErrorCode error, vec<uint8_t> keyBlob, KeyCharacteristics keyCharacteristics);
+        vec<uint8_t> maskingKey, vec<KeyParameter> unwrappingParams, uint64_t passwordSid,
+        uint64_t biometricSid)
+        generates (ErrorCode error, vec<uint8_t> keyBlob, KeyCharacteristics keyCharacteristics);
 
     /**
      * Returns parameters associated with the provided key, divided into two sets: hardware-enforced
@@ -642,7 +638,7 @@ interface IKeymasterDevice {
      * @return keyMaterial The public key material in X.509 format.
      */
     exportKey(KeyFormat keyFormat, vec<uint8_t> keyBlob, vec<uint8_t> clientId,
-              vec<uint8_t> appData) generates (ErrorCode error, vec<uint8_t> keyMaterial);
+        vec<uint8_t> appData) generates (ErrorCode error, vec<uint8_t> keyMaterial);
 
     /**
      * Generates a signed X.509 certificate chain attesting to the presence of keyToAttest in
@@ -914,12 +910,12 @@ interface IKeymasterDevice {
      * o Tag::USAGE_EXPIRE_DATETIME can only be enforced if a trusted UTC time source is
      *   available.  If the current date and time is later than the tag value and the purpose is
      *   KeyPurpose::DECRYPT or KeyPurpose::VERIFY, begin() must return ErrorCode::KEY_EXPIRED.
-
+     *
      * o Tag::MIN_SECONDS_BETWEEN_OPS must be compared with a trusted relative timer indicating the
      *   last use of the key.  If the last use time plus the tag value is less than the current
      *   time, begin() must return ErrorCode::KEY_RATE_LIMIT_EXCEEDED.  See the tag description for
      *   important implementation details.
-
+     *
      * o Tag::MAX_USES_PER_BOOT must be compared against a secure counter that tracks the uses of
      *   the key since boot time.  If the count of previous uses exceeds the tag value, begin() must
      *   return ErrorCode::KEY_MAX_OPS_EXCEEDED.
@@ -1075,7 +1071,7 @@ interface IKeymasterDevice {
      *         finish() or abort().
      */
     begin(KeyPurpose purpose, vec<uint8_t> keyBlob, vec<KeyParameter> inParams,
-          HardwareAuthToken authToken)
+        HardwareAuthToken authToken)
         generates (ErrorCode error, vec<KeyParameter> outParams, OperationHandle operationHandle);
 
     /**
@@ -1104,7 +1100,7 @@ interface IKeymasterDevice {
      *
      * Key authorization enforcement is performed primarily in begin().  The one exception is the
      * case where the key has:
-
+     *
      * o One or more Tag::USER_SECURE_IDs, and
      *
      * o Does not have a Tag::AUTH_TIMEOUT
@@ -1192,9 +1188,9 @@ interface IKeymasterDevice {
      * @return output The output data, if any.
      */
     update(OperationHandle operationHandle, vec<KeyParameter> inParams, vec<uint8_t> input,
-           HardwareAuthToken authToken, VerificationToken verificationToken)
-        generates (ErrorCode error, uint32_t inputConsumed, vec<KeyParameter> outParams,
-                   vec<uint8_t> output);
+        HardwareAuthToken authToken, VerificationToken verificationToken) generates (
+        ErrorCode error, uint32_t inputConsumed, vec<KeyParameter> outParams,
+        vec<uint8_t> output);
 
     /**
      * Finalizes a cryptographic operation begun with begin() and invalidates operationHandle.
@@ -1303,7 +1299,7 @@ interface IKeymasterDevice {
      * @return output The output data, if any.
      */
     finish(OperationHandle operationHandle, vec<KeyParameter> inParams, vec<uint8_t> input,
-           vec<uint8_t> signature, HardwareAuthToken authToken, VerificationToken verificationToken)
+        vec<uint8_t> signature, HardwareAuthToken authToken, VerificationToken verificationToken)
         generates (ErrorCode error, vec<KeyParameter> outParams, vec<uint8_t> output);
 
     /**

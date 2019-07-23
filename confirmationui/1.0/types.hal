@@ -20,9 +20,13 @@ package android.hardware.confirmationui@1.0;
  * UI modification options.
  */
 enum UIOption : uint32_t {
-    /** Accessibility: Requests color inverted style. */
+    /**
+     * Accessibility: Requests color inverted style.
+     */
     AccessibilityInverted = 0,
-    /** Accessibility: Requests magnified style. */
+    /**
+     * Accessibility: Requests magnified style.
+     */
     AccessibilityMagnified = 1,
 };
 
@@ -30,26 +34,42 @@ enum UIOption : uint32_t {
  * Codes returned by ConfirmationUI API calls.
  */
 enum ResponseCode : uint32_t {
-    /** API call succeeded or the user gave approval (result callback). */
+    /**
+     * API call succeeded or the user gave approval (result callback).
+     */
     OK = 0,
-    /** The user canceled the TUI (result callback). */
+    /**
+     * The user canceled the TUI (result callback).
+     */
     Canceled = 1,
-    /** IConfirmationUI::abort() was called. (result callback). */
+    /**
+     * IConfirmationUI::abort() was called. (result callback).
+     */
     Aborted = 2,
-    /** Cannot start another prompt. */
+    /**
+     * Cannot start another prompt.
+     */
     OperationPending = 3,
-    /** IConfirmationUI::deliverSecureInputEvent call was ingored. */
+    /**
+     * IConfirmationUI::deliverSecureInputEvent call was ingored.
+     */
     Ignored = 4,
-    /** An unexpected system error occured. */
+    /**
+     * An unexpected system error occured.
+     */
     SystemError = 5,
-    /** Returned by an unimplemented API call. */
+    /**
+     * Returned by an unimplemented API call.
+     */
     Unimplemented = 6,
-     /**
-       * This is returned when an error is diagnosed that should have been
-       * caught by earlier input sanitization. Should never be seen in production.
-       */
+    /**
+     * This is returned when an error is diagnosed that should have been
+     * caught by earlier input sanitization. Should never be seen in production.
+     */
     Unexpected = 7,
-    /** General UI error. */
+    /**
+     * General UI error.
+     */
     UIError = 0x10000,
     UIErrorMissingGlyph,
     /**
@@ -67,12 +87,16 @@ enum ResponseCode : uint32_t {
  * and the extra data that can be passed to the confirmation UI. The prompt text and extra data
  * must fit in to this size including CBOR header information.
  */
-enum MessageSize : uint32_t { MAX = 0x1800 };
+enum MessageSize : uint32_t {
+    MAX = 0x1800,
+};
 
 /**
  * The test key is 32byte word with all bytes set to TestKeyBits::BYTE.
  */
-enum TestKeyBits: uint8_t { BYTE = 0xA5 };
+enum TestKeyBits : uint8_t {
+    BYTE = 0xA5,
+};
 
 /**
  * Test mode commands.
@@ -87,7 +111,7 @@ enum TestKeyBits: uint8_t { BYTE = 0xA5 };
  *
  * See command code for individual test command descriptions.
  */
-enum TestModeCommands: uint64_t {
+enum TestModeCommands : uint64_t {
     /**
      * Simulates the user pressing the OK button on the UI. If no operation is pending
      * ResponseCode::Ignored must be returned. A pending operation is finalized successfully

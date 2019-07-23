@@ -38,7 +38,6 @@ struct Stream {
      * The definition of Stream from the prior version
      */
     @3.2::Stream v3_2;
-
     /**
      * The physical camera id this stream belongs to.
      *
@@ -60,7 +59,6 @@ struct Stream {
      * instance names returned by getCameraIdList().
      */
     string physicalCameraId;
-
     /**
      * The size of a buffer from this Stream, in bytes.
      *
@@ -89,13 +87,11 @@ struct StreamConfiguration {
      * configuration for the camera HAL device.
      */
     vec<Stream> streams;
-
     /**
      * The definition of operation mode from prior version.
      *
      */
     StreamConfigurationMode operationMode;
-
     /**
      * Session wide camera parameters.
      *
@@ -124,7 +120,6 @@ struct HalStream {
      * The definition of HalStream from the prior version.
      */
     @3.3::HalStream v3_3;
-
     /**
      * The physical camera id the current Hal stream belongs to.
      *
@@ -169,7 +164,6 @@ struct PhysicalCameraSetting {
      * the physical cameras' settings metadata starting from index 0.
      */
     uint64_t fmqSettingsSize;
-
     /**
      * Contains the physical device camera id. Any settings passed by client here
      * should be applied for this physical device. In case the physical id is invalid or
@@ -177,7 +171,6 @@ struct PhysicalCameraSetting {
      * request and return Status::ILLEGAL_ARGUMENT.
      */
     string physicalCameraId;
-
     /**
      * If fmqSettingsSize is zero, the settings buffer contains the capture and
      * processing parameters for the physical device with id 'physicalCameraId'.
@@ -278,7 +271,6 @@ struct CaptureRequest {
      * The definition of CaptureRequest from prior version.
      */
     @3.2::CaptureRequest v3_2;
-
     /**
      * A vector containing individual camera settings for logical camera backed by multiple physical
      * devices. In case the vector is empty, Hal should use the settings field in 'v3_2'. The
@@ -308,14 +300,13 @@ struct PhysicalCameraMetadata {
      * the physical cameras' metadata starting from index 0.
      */
     uint64_t fmqMetadataSize;
-
     /**
      * Contains the physical device camera id. As long as the corresponding
      * processCaptureRequest requests on a particular physical camera stream,
      * the metadata for that physical camera should be generated for the capture
-     * result. */
+     * result.
+     */
     string physicalCameraId;
-
     /**
      * If fmqMetadataSize is zero, the metadata buffer contains the metadata
      * for the physical device with physicalCameraId.
@@ -347,7 +338,6 @@ struct CaptureResult {
      * The definition of CaptureResult from the prior version.
      */
     @3.2::CaptureResult v3_2;
-
     /**
      * The physical metadata for logical multi-camera.
      */

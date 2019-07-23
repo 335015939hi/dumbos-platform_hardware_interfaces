@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package android.hardware.configstore@1.0;
 
 interface ISurfaceFlingerConfigs {
@@ -38,13 +39,14 @@ interface ISurfaceFlingerConfigs {
      * [2] https://developer.android.com/training/testing/performance.html
      */
     vsyncEventPhaseOffsetNs() generates (OptionalInt64 value);
+
     vsyncSfEventPhaseOffsetNs() generates (OptionalInt64 value);
 
     /**
      * Instruct the Render Engine to use EGL_IMG_context_priority hint if
      * availabe.
      */
-    useContextPriority() generates(OptionalBool value);
+    useContextPriority() generates (OptionalBool value);
 
     /**
      * hasWideColorDisplay indicates that the device has
@@ -78,7 +80,7 @@ interface ISurfaceFlingerConfigs {
      * Specify the offset in nanoseconds to add to vsync time when timestamping
      * present fences.
      */
-    presentTimeOffsetFromVSyncNs() generates(OptionalInt64 value);
+    presentTimeOffsetFromVSyncNs() generates (OptionalInt64 value);
 
     /**
      * Some hardware can do RGB->YUV conversion more efficiently in hardware
@@ -86,7 +88,7 @@ interface ISurfaceFlingerConfigs {
      * This instruct VirtualDisplaySurface to use HWC for such conversion on
      * GL composition.
      */
-    useHwcForRGBtoYUV() generates(OptionalBool value);
+    useHwcForRGBtoYUV() generates (OptionalBool value);
 
     /**
      *  Maximum dimension supported by HWC for virtual display.
@@ -98,7 +100,7 @@ interface ISurfaceFlingerConfigs {
      * Indicates if Sync framework is available. Sync framework provides fence
      * mechanism which significantly reduces buffer processing latency.
      */
-    hasSyncFramework() generates(OptionalBool value);
+    hasSyncFramework() generates (OptionalBool value);
 
     /**
      * Return true if surface flinger should use vr flinger for compatible vr
@@ -112,11 +114,11 @@ interface ISurfaceFlingerConfigs {
      * Controls the number of buffers SurfaceFlinger will allocate for use in
      * FramebufferSurface.
      */
-    maxFrameBufferAcquiredBuffers() generates(OptionalInt64 value);
+    maxFrameBufferAcquiredBuffers() generates (OptionalInt64 value);
 
     /**
      * Returns true if surface flinger should start
      * hardware.graphics.allocator@2.0::IAllocator service.
      */
-    startGraphicsAllocatorService() generates(OptionalBool value);
+    startGraphicsAllocatorService() generates (OptionalBool value);
 };

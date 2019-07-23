@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package android.hardware.cas.native@1.0;
 
 import android.hardware.cas@1.0::IDescramblerBase;
@@ -21,8 +22,7 @@ import android.hardware.cas@1.0::Status;
 /**
  * IDescrambler is the native plugin API for descrambling operations.
  */
-
-interface IDescrambler extends IDescramblerBase {
+interface IDescrambler extends android.hardware.cas@1.0::IDescramblerBase {
     /**
      * Descramble the data in a source SharedBuffer, described by an array of
      * SubSample structures.
@@ -41,6 +41,7 @@ interface IDescrambler extends IDescramblerBase {
      * @return detailedError a detailed message describing the error (if any).
      */
     descramble(ScramblingControl scramblingControl, vec<SubSample> subSamples,
-        SharedBuffer srcBuffer, uint64_t srcOffset, DestinationBuffer dstBuffer, uint64_t dstOffset)
-        generates(Status status, uint32_t bytesWritten, string detailedError);
+        SharedBuffer srcBuffer, uint64_t srcOffset, DestinationBuffer dstBuffer,
+        uint64_t dstOffset)
+        generates (Status status, uint32_t bytesWritten, string detailedError);
 };

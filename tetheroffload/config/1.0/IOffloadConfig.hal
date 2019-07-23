@@ -16,21 +16,20 @@
 
 package android.hardware.tetheroffload.config@1.0;
 
-
 /**
  * Interface used for configuring the hardware management process
  */
 interface IOffloadConfig {
-  /**
-   * Provides bound netlink file descriptors for use in the management process
-   *
-   * @param fd1   A file descriptor bound to the following netlink groups
-   *              (NF_NETLINK_CONNTRACK_NEW | NF_NETLINK_CONNTRACK_DESTROY).
-   * @param fd2   A file descriptor bound to the following netlink groups
-   *              (NF_NETLINK_CONNTRACK_UPDATE | NF_NETLINK_CONNTRACK_DESTROY).
-   *
-   * @return success true if successful, false otherwise
-   * @return errMsg a human readable string if eror has occured.
-   */
-  setHandles(handle fd1, handle fd2) generates (bool success, string errMsg);
+    /**
+     * Provides bound netlink file descriptors for use in the management process
+     *
+     * @param fd1   A file descriptor bound to the following netlink groups
+     *              (NF_NETLINK_CONNTRACK_NEW | NF_NETLINK_CONNTRACK_DESTROY).
+     * @param fd2   A file descriptor bound to the following netlink groups
+     *              (NF_NETLINK_CONNTRACK_UPDATE | NF_NETLINK_CONNTRACK_DESTROY).
+     *
+     * @return success true if successful, false otherwise
+     * @return errMsg a human readable string if eror has occured.
+     */
+    setHandles(handle fd1, handle fd2) generates (bool success, string errMsg);
 };

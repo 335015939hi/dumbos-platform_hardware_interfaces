@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package android.hardware.power@1.1;
 
 /**
@@ -27,22 +28,18 @@ struct PowerStateSubsystemSleepState {
      * Subsystem-level Sleep state name.
      */
     string name;
-
     /**
      * Time spent in msec at this subsystem-level sleep state since boot.
      */
     uint64_t residencyInMsecSinceBoot;
-
     /**
      * Total number of times sub-system entered this state.
      */
     uint64_t totalTransitions;
-
     /**
      * Timestamp of last entry of this state measured in MSec
      */
     uint64_t lastEntryTimestampMs;
-
     /**
      * This subsystem-level sleep state can only be reached during system suspend
      */
@@ -61,7 +58,6 @@ struct PowerStateSubsystem {
      * Subsystem name (e.g. wifi, bt etc.)
      */
     string name;
-
     /**
      * states represents the list of sleep states supported by this susbsystem.
      * Higher the index in the returned <states> vector deeper the state is

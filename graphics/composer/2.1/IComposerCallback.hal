@@ -19,10 +19,13 @@ package android.hardware.graphics.composer@2.1;
 interface IComposerCallback {
     enum Connection : int32_t {
         INVALID = 0,
-
-        /** The display has been connected */
+        /**
+         * The display has been connected
+         */
         CONNECTED = 1,
-        /** The display has been disconnected */
+        /**
+         * The display has been disconnected
+         */
         DISCONNECTED = 2,
     };
 
@@ -44,21 +47,21 @@ interface IComposerCallback {
      * @param connected indicates whether the display is connected or
      *        disconnected.
      */
-    @callflow(next="*")
+    @callflow(next = "*")
     onHotplug(Display display, Connection connected);
 
     /**
      * Notifies the client to trigger a screen refresh. This forces all layer
      * state for this display to be resent, and the display to be validated
      * and presented, even if there have been no changes.
-
+     *
      * This refresh will occur some time after the callback is initiated, but
      * not necessarily before it returns.  It is safe to trigger this callback
      * from other functions which call into the device.
      *
      * @param display is the display to refresh.
      */
-    @callflow(next="*")
+    @callflow(next = "*")
     oneway onRefresh(Display display);
 
     /**
@@ -70,6 +73,6 @@ interface IComposerCallback {
      * @param timestamp is the CLOCK_MONOTONIC time at which the vsync event
      *        occurred, in nanoseconds.
      */
-    @callflow(next="*")
+    @callflow(next = "*")
     oneway onVsync(Display display, int64_t timestamp);
 };

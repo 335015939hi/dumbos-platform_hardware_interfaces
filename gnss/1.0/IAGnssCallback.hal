@@ -16,33 +16,46 @@
 
 package android.hardware.gnss@1.0;
 
-/** Callback structure for the AGNSS interface. */
+/**
+ * Callback structure for the AGNSS interface.
+ */
 interface IAGnssCallback {
-    /** AGNSS type **/
-    @export(name="", value_prefix="AGPS_")
+    /**
+     * AGNSS type
+     */
+    @export(name = "", value_prefix = "AGPS_")
     enum AGnssType : uint8_t {
-        TYPE_SUPL         = 1,
-        TYPE_C2K          = 2
+        TYPE_SUPL = 1,
+        TYPE_C2K = 2,
     };
 
-    @export(name="", value_prefix="GNSS_")
+    @export(name = "", value_prefix = "GNSS_")
     enum AGnssStatusValue : uint8_t {
-        /** GNSS requests data connection for AGNSS. */
-        REQUEST_AGNSS_DATA_CONN  = 1,
-        /** GNSS releases the AGNSS data connection. */
-        RELEASE_AGNSS_DATA_CONN  = 2,
-        /** AGNSS data connection initiated */
-        AGNSS_DATA_CONNECTED     = 3,
-        /** AGNSS data connection completed */
-        AGNSS_DATA_CONN_DONE     = 4,
-        /** AGNSS data connection failed */
-        AGNSS_DATA_CONN_FAILED   = 5
+        /**
+         * GNSS requests data connection for AGNSS.
+         */
+        REQUEST_AGNSS_DATA_CONN = 1,
+        /**
+         * GNSS releases the AGNSS data connection.
+         */
+        RELEASE_AGNSS_DATA_CONN = 2,
+        /**
+         * AGNSS data connection initiated
+         */
+        AGNSS_DATA_CONNECTED = 3,
+        /**
+         * AGNSS data connection completed
+         */
+        AGNSS_DATA_CONN_DONE = 4,
+        /**
+         * AGNSS data connection failed
+         */
+        AGNSS_DATA_CONN_FAILED = 5,
     };
 
     /**
      * Represents the status of AGNSS augmented to support IPv4.
      */
-    @export(name="", value_prefix="GPS_")
     struct AGnssStatusIpV4 {
         AGnssType type;
         AGnssStatusValue status;
@@ -77,5 +90,4 @@ interface IAGnssCallback {
      * @param status Will be of type AGnssStatusIpV6.
      */
     agnssStatusIpV6Cb(AGnssStatusIpV6 status);
-
 };

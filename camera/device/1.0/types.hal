@@ -17,15 +17,19 @@
 package android.hardware.camera.device@1.0;
 
 enum CameraFacing : uint32_t {
-    /** The facing of the camera is opposite to that of the screen. */
+    /**
+     * The facing of the camera is opposite to that of the screen.
+     */
     BACK = 0,
-    /** The facing of the camera is the same as that of the screen. */
+    /**
+     * The facing of the camera is the same as that of the screen.
+     */
     FRONT = 1,
     /**
      * The facing of the camera is not fixed relative to the screen.
      * The cameras with this facing are external cameras, e.g. USB cameras.
      */
-    EXTERNAL = 2
+    EXTERNAL = 2,
 };
 
 /**
@@ -37,7 +41,6 @@ struct CameraInfo {
      * The direction that this device faces.
      */
     CameraFacing facing;
-
     /**
      * The orientation of the camera image. The value is the angle that the
      * camera image needs to be rotated clockwise so it shows correctly on the
@@ -54,7 +57,6 @@ struct CameraInfo {
      *
      */
     uint32_t orientation;
-
 };
 
 /**
@@ -93,11 +95,13 @@ enum FrameCallbackFlag : uint32_t {
     ENABLE_MASK = 0x01,
     ONE_SHOT_MASK = 0x02,
     COPY_OUT_MASK = 0x04,
-    /** Typical use cases */
+    /**
+     * Typical use cases
+     */
     NOOP = 0x00,
     CAMCORDER = 0x01,
     CAMERA = 0x05,
-    BARCODE_SCANNER = 0x07
+    BARCODE_SCANNER = 0x07,
 };
 
 typedef bitfield<FrameCallbackFlag> FrameCallbackFlags;
@@ -109,7 +113,6 @@ typedef bitfield<FrameCallbackFlag> FrameCallbackFlags;
 enum CommandType : uint32_t {
     START_SMOOTH_ZOOM = 1,
     STOP_SMOOTH_ZOOM = 2,
-
     /**
      * Start the face detection. This must be called only after preview is
      * started.  The camera must notify the listener of CAMERA_MSG_FACE and the
@@ -129,18 +132,15 @@ enum CommandType : uint32_t {
      * supported, the HAL must return BAD_VALUE.
      */
     START_FACE_DETECTION = 6,
-
     /**
      * Stop the face detection.
      */
     STOP_FACE_DETECTION = 7,
-
     /**
      * Enable/disable focus move callback (CAMERA_MSG_FOCUS_MOVE). Passing
      * arg1 = 0 must disable, while passing arg1 = 1 must enable the callback.
      */
     ENABLE_FOCUS_MOVE_MSG = 8,
-
     /**
      * Configure an explicit format to use for video recording metadata mode.
      * This can be used to switch the format from the
@@ -155,7 +155,7 @@ enum CommandType : uint32_t {
      * IMPLEMENTATION_DEFINED, then HALv3 devices must use gralloc usage flags
      * of SW_READ_OFTEN.
      */
-    SET_VIDEO_FORMAT = 11
+    SET_VIDEO_FORMAT = 11,
 };
 
 /**
@@ -166,9 +166,7 @@ enum NotifyCallbackMsg : uint32_t {
     SHUTTER = 0x0002,
     FOCUS = 0x0004,
     ZOOM = 0x0008,
-    // Notify on autofocus start and stop. This is useful in continuous
-    // autofocus - FOCUS_MODE_CONTINUOUS_VIDEO and FOCUS_MODE_CONTINUOUS_PICTURE.
-    FOCUS_MOVE = 0x0800
+    FOCUS_MOVE = 0x0800,
 };
 
 /**
@@ -182,17 +180,13 @@ enum DataCallbackMsg : uint32_t {
     RAW_IMAGE = 0x0080,
     COMPRESSED_IMAGE = 0x0100,
     RAW_IMAGE_NOTIFY = 0x0200,
-    // Preview frame metadata. This can be combined with
-    // CAMERA_MSG_PREVIEW_FRAME in dataCallback. For example, the apps can
-    // request FRAME and METADATA. Or the apps can request only FRAME or only
-    // METADATA.
-    PREVIEW_METADATA = 0x0400
+    PREVIEW_METADATA = 0x0400,
 };
 
 /**
  * Information for a single detected face.
  */
- struct CameraFace {
+struct CameraFace {
     /**
      * Bounds of the face [left, top, right, bottom]. (-1000, -1000) represents
      * the top-left of the camera field of view, and (1000, 1000) represents the
@@ -204,39 +198,33 @@ enum DataCallbackMsg : uint32_t {
      * of CAMERA_CMD_SET_DISPLAY_ORIENTATION.
      */
     int32_t[4] rect;
-
     /**
      * The confidence level of the face. The range is 1 to 100. 100 is the
      * highest confidence. This is supported by both hardware and software
      * face detection.
      */
     int32_t score;
-
     /**
      * An unique id per face while the face is visible to the tracker. If
      * the face leaves the field-of-view and comes back, it will get a new
      * id. If the value is 0, id is not supported.
      */
     int32_t id;
-
     /**
      * The coordinates of the center of the left eye. The range is -1000 to
      * 1000. -2000, -2000 if this is not supported.
      */
     int32_t[2] leftEye;
-
     /**
      * The coordinates of the center of the right eye. The range is -1000 to
      * 1000. -2000, -2000 if this is not supported.
      */
     int32_t[2] rightEye;
-
     /**
      * The coordinates of the center of the mouth. The range is -1000 to 1000.
      * -2000, -2000 if this is not supported.
      */
     int32_t[2] mouth;
-
 };
 
 /**
@@ -249,41 +237,25 @@ struct CameraFrameMetadata {
     vec<CameraFace> faces;
 };
 
-/**
- * A simple integer handle to use to reference a particular memory buffer
- * between the HAL and the framework.
- */
 typedef uint32_t MemoryId;
 
-/*
+/**
  * Struct containing arguments of ICameraDeviceCallback::handleCallbackTimestamp.
  * Used to send a batch of messages in ICameraDeviceCallback::handleCallbackTimestampBatch.
  */
 struct HandleTimestampMessage {
-    // The handle of image buffer data.
     handle frameData;
-
-    // A memory handle to the buffer containing the data
     MemoryId data;
-
-    // The offset into the memory handle where the buffer starts.
     uint32_t bufferIndex;
-
-    // The time this buffer was captured by the camera, in nanoseconds
     int64_t timestamp;
 };
 
-/*
+/**
  * Struct containing arguments of ICameraDevice::releaseRecordingFrameHandle.
  * Used by camera framework to send a batch of recording frames back to camera HAL.
  */
 struct VideoFrameMessage {
-    // The handle of image buffer data.
     handle frameData;
-
-    // A memory handle to the buffer containing the data
     MemoryId data;
-
-    // The offset into the memory handle where the buffer starts.
     uint32_t bufferIndex;
 };

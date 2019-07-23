@@ -20,17 +20,20 @@ import android.hardware.graphics.common@1.0;
 import IComposerCallback;
 
 interface IComposerClient {
-    /** Display attributes queryable through getDisplayAttribute. */
+    /**
+     * Display attributes queryable through getDisplayAttribute.
+     */
     enum Attribute : int32_t {
         INVALID = 0,
-
-        /** Dimensions in pixels */
+        /**
+         * Dimensions in pixels
+         */
         WIDTH = 1,
         HEIGHT = 2,
-
-        /** Vsync period in nanoseconds */
+        /**
+         * Vsync period in nanoseconds
+         */
         VSYNC_PERIOD = 3,
-
         /**
          * Dots per thousand inches (DPI * 1000). Scaling by 1000 allows these
          * numbers to be stored in an int32_t without losing too much
@@ -41,14 +44,15 @@ interface IComposerClient {
         DPI_Y = 5,
     };
 
-    /** Display requests returned by getDisplayRequests. */
+    /**
+     * Display requests returned by getDisplayRequests.
+     */
     enum DisplayRequest : uint32_t {
         /**
          * Instructs the client to provide a new client target buffer, even if
          * no layers are marked for client composition.
          */
         FLIP_CLIENT_TARGET = 1 << 0,
-
         /**
          * Instructs the client to write the result of client composition
          * directly into the virtual display output buffer. If any of the
@@ -58,7 +62,9 @@ interface IComposerClient {
         WRITE_CLIENT_TARGET_TO_OUTPUT = 1 << 1,
     };
 
-    /** Layer requests returned from getDisplayRequests. */
+    /**
+     * Layer requests returned from getDisplayRequests.
+     */
     enum LayerRequest : uint32_t {
         /**
          * The client must clear its target with transparent pixels where
@@ -68,23 +74,24 @@ interface IComposerClient {
         CLEAR_CLIENT_TARGET = 1 << 0,
     };
 
-    /** Power modes for use with setPowerMode. */
+    /**
+     * Power modes for use with setPowerMode.
+     */
     enum PowerMode : int32_t {
-        /** The display is fully off (blanked). */
+        /**
+         * The display is fully off (blanked).
+         */
         OFF = 0,
-
         /**
          * These are optional low power modes. getDozeSupport may be called to
          * determine whether a given display supports these modes.
-         */
-
-        /**
+         *
+         *
          * The display is turned on and configured in a low power state that
          * is suitable for presenting ambient information to the user,
          * possibly with lower fidelity than ON, but with greater efficiency.
          */
         DOZE = 1,
-
         /**
          * The display is configured as in DOZE but may stop applying display
          * updates from the client. This is effectively a hint to the device
@@ -99,40 +106,51 @@ interface IComposerClient {
          * always-on display.
          */
         DOZE_SUSPEND = 3,
-
-        /** The display is fully on. */
+        /**
+         * The display is fully on.
+         */
         ON = 2,
     };
 
-    /** Vsync values passed to setVsyncEnabled. */
+    /**
+     * Vsync values passed to setVsyncEnabled.
+     */
     enum Vsync : int32_t {
         INVALID = 0,
-
-        /** Enable vsync. */
+        /**
+         * Enable vsync.
+         */
         ENABLE = 1,
-
-        /** Disable vsync. */
+        /**
+         * Disable vsync.
+         */
         DISABLE = 2,
     };
 
-    /** Blend modes, settable per layer. */
+    /**
+     * Blend modes, settable per layer.
+     */
     enum BlendMode : int32_t {
         INVALID = 0,
-
-        /** colorOut = colorSrc */
+        /**
+         * colorOut = colorSrc
+         */
         NONE = 1,
-
-        /** colorOut = colorSrc + colorDst * (1 - alphaSrc) */
+        /**
+         * colorOut = colorSrc + colorDst * (1 - alphaSrc)
+         */
         PREMULTIPLIED = 2,
-
-        /** colorOut = colorSrc * alphaSrc + colorDst * (1 - alphaSrc) */
+        /**
+         * colorOut = colorSrc * alphaSrc + colorDst * (1 - alphaSrc)
+         */
         COVERAGE = 3,
     };
 
-    /** Possible composition types for a given layer. */
+    /**
+     * Possible composition types for a given layer.
+     */
     enum Composition : int32_t {
         INVALID = 0,
-
         /**
          * The client must composite this layer into the client target buffer
          * (provided to the device through setClientTarget).
@@ -141,7 +159,6 @@ interface IComposerClient {
          * of this type.
          */
         CLIENT = 1,
-
         /**
          * The device must handle the composition of this layer through a
          * hardware overlay or other similar means.
@@ -150,7 +167,6 @@ interface IComposerClient {
          * type to CLIENT.
          */
         DEVICE = 2,
-
         /**
          * The device must render this layer using the color set through
          * setLayerColor. If this functionality is not supported on a layer
@@ -162,7 +178,6 @@ interface IComposerClient {
          * type to CLIENT.
          */
         SOLID_COLOR = 3,
-
         /**
          * Similar to DEVICE, but the position of this layer may also be set
          * asynchronously through setCursorPosition. If this functionality is
@@ -176,7 +191,6 @@ interface IComposerClient {
          * composite the layer.
          */
         CURSOR = 4,
-
         /**
          * The device must handle the composition of this layer, as well as
          * its buffer updates and content synchronization. Only supported on
@@ -189,26 +203,33 @@ interface IComposerClient {
         SIDEBAND = 5,
     };
 
-    /** Display types returned by getDisplayType. */
+    /**
+     * Display types returned by getDisplayType.
+     */
     enum DisplayType : int32_t {
         INVALID = 0,
-
         /**
          * All physical displays, including both internal displays and
          * hotpluggable external displays.
          */
         PHYSICAL = 1,
-
-        /** Virtual displays created by createVirtualDisplay. */
+        /**
+         * Virtual displays created by createVirtualDisplay.
+         */
         VIRTUAL = 2,
     };
 
-    /** Special index values (always negative) for command queue commands. */
+    /**
+     * Special index values (always negative) for command queue commands.
+     */
     enum HandleIndex : int32_t {
-        /** No handle */
+        /**
+         * No handle
+         */
         EMPTY = -1,
-
-        /** Use cached handle */
+        /**
+         * Use cached handle
+         */
         CACHED = -2,
     };
 
@@ -232,393 +253,6 @@ interface IComposerClient {
         uint8_t b;
         uint8_t a;
     };
-
-    /**
-     * Provides a IComposerCallback object for the device to call.
-     *
-     * This function must be called only once.
-     *
-     * @param callback is the IComposerCallback object.
-     */
-    @entry
-    @callflow(next="*")
-    registerCallback(IComposerCallback callback);
-
-    /**
-     * Returns the maximum number of virtual displays supported by this device
-     * (which may be 0). The client must not attempt to create more than this
-     * many virtual displays on this device. This number must not change for
-     * the lifetime of the device.
-     *
-     * @return count is the maximum number of virtual displays supported.
-     */
-    @callflow(next="*")
-    getMaxVirtualDisplayCount() generates (uint32_t count);
-
-    /**
-     * Creates a new virtual display with the given width and height. The
-     * format passed into this function is the default format requested by the
-     * consumer of the virtual display output buffers.
-     *
-     * The display must be assumed to be on from the time the first frame is
-     * presented until the display is destroyed.
-     *
-     * @param width is the width in pixels.
-     * @param height is the height in pixels.
-     * @param formatHint is the default output buffer format selected by
-     *        the consumer.
-     * @param outputBufferSlotCount is the number of output buffer slots to be
-     *        reserved.
-     * @return error is NONE upon success. Otherwise,
-     *         UNSUPPORTED when the width or height is too large for the
-     *                     device to be able to create a virtual display.
-     *         NO_RESOURCES when the device is unable to create a new virtual
-     *                      display at this time.
-     * @return display is the newly-created virtual display.
-     * @return format is the format of the buffer the device will produce.
-     */
-    @callflow(next="*")
-    createVirtualDisplay(uint32_t width,
-                         uint32_t height,
-                         PixelFormat formatHint,
-                         uint32_t outputBufferSlotCount)
-              generates (Error error,
-                         Display display,
-                         PixelFormat format);
-
-    /**
-     * Destroys a virtual display. After this call all resources consumed by
-     * this display may be freed by the device and any operations performed on
-     * this display must fail.
-     *
-     * @param display is the virtual display to destroy.
-     * @return error is NONE upon success. Otherwise,
-     *         BAD_DISPLAY when an invalid display handle was passed in.
-     *         BAD_PARAMETER when the display handle which was passed in does
-     *                       not refer to a virtual display.
-     */
-    @callflow(next="*")
-    destroyVirtualDisplay(Display display) generates (Error error);
-
-    /**
-     * Creates a new layer on the given display.
-     *
-     * @param display is the display on which to create the layer.
-     * @param bufferSlotCount is the number of buffer slot to be reserved.
-     * @return error is NONE upon success. Otherwise,
-     *         BAD_DISPLAY when an invalid display handle was passed in.
-     *         NO_RESOURCES when the device was unable to create a layer this
-     *                      time.
-     * @return layer is the handle of the new layer.
-     */
-    @callflow(next="*")
-    createLayer(Display display,
-                uint32_t bufferSlotCount)
-     generates (Error error,
-                Layer layer);
-
-    /**
-     * Destroys the given layer.
-     *
-     * @param display is the display on which the layer was created.
-     * @param layer is the layer to destroy.
-     * @return error is NONE upon success. Otherwise,
-     *         BAD_DISPLAY when an invalid display handle was passed in.
-     *         BAD_LAYER when an invalid layer handle was passed in.
-     */
-    @callflow(next="*")
-    destroyLayer(Display display, Layer layer) generates (Error error);
-
-    /**
-     * Retrieves which display configuration is currently active.
-     *
-     * If no display configuration is currently active, this function must
-     * return BAD_CONFIG. It is the responsibility of the client to call
-     * setActiveConfig with a valid configuration before attempting to present
-     * anything on the display.
-     *
-     * @param display is the display to which the active config is queried.
-     * @return error is NONE upon success. Otherwise,
-     *         BAD_DISPLAY when an invalid display handle was passed in.
-     *         BAD_CONFIG when no configuration is currently active.
-     * @return config is the currently active display configuration.
-     */
-    @callflow(next="*")
-    getActiveConfig(Display display) generates (Error error, Config config);
-
-    /**
-     * Returns whether a client target with the given properties can be
-     * handled by the device.
-     *
-     * This function must return true for a client target with width and
-     * height equal to the active display configuration dimensions,
-     * PixelFormat::RGBA_8888, and Dataspace::UNKNOWN. It is not required to
-     * return true for any other configuration.
-     *
-     * @param display is the display to query.
-     * @param width is the client target width in pixels.
-     * @param height is the client target height in pixels.
-     * @param format is the client target format.
-     * @param dataspace is the client target dataspace, as described in
-     *        setLayerDataspace.
-     * @return error is NONE upon success. Otherwise,
-     *         BAD_DISPLAY when an invalid display handle was passed in.
-     *         UNSUPPORTED when the given configuration is not supported.
-     */
-    @callflow(next="*")
-    getClientTargetSupport(Display display,
-                           uint32_t width,
-                           uint32_t height,
-                           PixelFormat format,
-                           Dataspace dataspace)
-                generates (Error error);
-
-    /**
-     * Returns the color modes supported on this display.
-     *
-     * All devices must support at least ColorMode::NATIVE.
-     *
-     * @param display is the display to query.
-     * @return error is NONE upon success. Otherwise,
-     *         BAD_DISPLAY when an invalid display handle was passed in.
-     * @return modes is an array of color modes.
-     */
-    @callflow(next="*")
-    getColorModes(Display display)
-       generates (Error error,
-                  vec<ColorMode> modes);
-
-    /**
-     * Returns a display attribute value for a particular display
-     * configuration.
-     *
-     * @param display is the display to query.
-     * @param config is the display configuration for which to return
-     *        attribute values.
-     * @return error is NONE upon success. Otherwise,
-     *         BAD_DISPLAY when an invalid display handle was passed in.
-     *         BAD_CONFIG when config does not name a valid configuration for
-     *                    this display.
-     *         BAD_PARAMETER when attribute is unrecognized.
-     *         UNSUPPORTED when attribute cannot be queried for the config.
-     * @return value is the value of the attribute.
-     */
-    @callflow(next="*")
-    getDisplayAttribute(Display display,
-                        Config config,
-                        Attribute attribute)
-             generates (Error error,
-                        int32_t value);
-
-    /**
-     * Returns handles for all of the valid display configurations on this
-     * display.
-     *
-     * @param display is the display to query.
-     * @return error is NONE upon success. Otherwise,
-     *         BAD_DISPLAY when an invalid display handle was passed in.
-     * @return configs is an array of configuration handles.
-     */
-    @callflow(next="*")
-    getDisplayConfigs(Display display)
-           generates (Error error,
-                      vec<Config> configs);
-
-    /**
-     * Returns a human-readable version of the display's name.
-     *
-     * @return error is NONE upon success. Otherwise,
-     *         BAD_DISPLAY when an invalid display handle was passed in.
-     * @return name is the name of the display.
-     */
-    @callflow(next="*")
-    getDisplayName(Display display) generates (Error error, string name);
-
-    /**
-     * Returns whether the given display is a physical or virtual display.
-     *
-     * @param display is the display to query.
-     * @return error is NONE upon success. Otherwise,
-     *         BAD_DISPLAY when an invalid display handle was passed in.
-     * @return type is the type of the display.
-     */
-    @callflow(next="*")
-    getDisplayType(Display display) generates (Error error, DisplayType type);
-
-    /**
-     * Returns whether the given display supports PowerMode::DOZE and
-     * PowerMode::DOZE_SUSPEND. DOZE_SUSPEND may not provide any benefit over
-     * DOZE (see the definition of PowerMode for more information), but if
-     * both DOZE and DOZE_SUSPEND are no different from PowerMode::ON, the
-     * device must not claim support.
-     *
-     * @param display is the display to query.
-     * @return error is NONE upon success. Otherwise,
-     *         BAD_DISPLAY when an invalid display handle was passed in.
-     * @return support is true only when the display supports doze modes.
-     */
-    @callflow(next="*")
-    getDozeSupport(Display display) generates (Error error, bool support);
-
-    /**
-     * Returns the high dynamic range (HDR) capabilities of the given display,
-     * which are invariant with regard to the active configuration.
-     *
-     * Displays which are not HDR-capable must return no types.
-     *
-     * @param display is the display to query.
-     * @return error is NONE upon success. Otherwise,
-     *         BAD_DISPLAY when an invalid display handle was passed in.
-     * @return types is an array of HDR types, may have 0 elements if the
-     *         display is not HDR-capable.
-     * @return maxLuminance is the desired content maximum luminance for this
-     *         display in cd/m^2.
-     * @return maxAverageLuminance - the desired content maximum frame-average
-     *         luminance for this display in cd/m^2.
-     * @return minLuminance is the desired content minimum luminance for this
-     *         display in cd/m^2.
-     */
-    @callflow(next="*")
-    getHdrCapabilities(Display display)
-            generates (Error error,
-                       vec<Hdr> types,
-                       float maxLuminance,
-                       float maxAverageLuminance,
-                       float minLuminance);
-
-    /**
-     * Set the number of client target slots to be reserved.
-     *
-     * @param display is the display to which the slots are reserved.
-     * @param clientTargetSlotCount is the slot count for client targets.
-     * @return error is NONE upon success. Otherwise,
-     *         BAD_DISPLAY when an invalid display handle was passed in.
-     *         NO_RESOURCES when unable to reserve the slots.
-     */
-    @callflow(next="*")
-    setClientTargetSlotCount(Display display,
-                             uint32_t clientTargetSlotCount)
-                  generates (Error error);
-
-    /**
-     * Sets the active configuration for this display. Upon returning, the
-     * given display configuration must be active and remain so until either
-     * this function is called again or the display is disconnected.
-     *
-     * @param display is the display to which the active config is set.
-     * @param config is the new display configuration.
-     * @return error is NONE upon success. Otherwise,
-     *         BAD_DISPLAY when an invalid display handle was passed in.
-     *         BAD_CONFIG when the configuration handle passed in is not valid
-     *                    for this display.
-     */
-    @callflow(next="*")
-    setActiveConfig(Display display, Config config) generates (Error error);
-
-    /**
-     * Sets the color mode of the given display.
-     *
-     * Upon returning from this function, the color mode change must have
-     * fully taken effect.
-     *
-     * All devices must support at least ColorMode::NATIVE, and displays are
-     * assumed to be in this mode upon hotplug.
-     *
-     * @param display is the display to which the color mode is set.
-     * @param mode is the mode to set to.
-     * @return error is NONE upon success. Otherwise,
-     *         BAD_DISPLAY when an invalid display handle was passed in.
-     *         BAD_PARAMETER when mode is not a valid color mode.
-     *         UNSUPPORTED when mode is not supported on this display.
-     */
-    @callflow(next="*")
-    setColorMode(Display display, ColorMode mode) generates (Error error);
-
-    /**
-     * Sets the power mode of the given display. The transition must be
-     * complete when this function returns. It is valid to call this function
-     * multiple times with the same power mode.
-     *
-     * All displays must support PowerMode::ON and PowerMode::OFF.  Whether a
-     * display supports PowerMode::DOZE or PowerMode::DOZE_SUSPEND may be
-     * queried using getDozeSupport.
-     *
-     * @param display is the display to which the power mode is set.
-     * @param mode is the new power mode.
-     * @return error is NONE upon success. Otherwise,
-     *         BAD_DISPLAY when an invalid display handle was passed in.
-     *         BAD_PARAMETER when mode was not a valid power mode.
-     *         UNSUPPORTED when mode is not supported on this display.
-     */
-    @callflow(next="*")
-    setPowerMode(Display display, PowerMode mode) generates (Error error);
-
-    /**
-     * Enables or disables the vsync signal for the given display. Virtual
-     * displays never generate vsync callbacks, and any attempt to enable
-     * vsync for a virtual display though this function must succeed and have
-     * no other effect.
-     *
-     * @param display is the display to which the vsync mode is set.
-     * @param enabled indicates whether to enable or disable vsync
-     * @return error is NONE upon success. Otherwise,
-     *         BAD_DISPLAY when an invalid display handle was passed in.
-     *         BAD_PARAMETER when enabled was an invalid value.
-     */
-    @callflow(next="*")
-    setVsyncEnabled(Display display, Vsync enabled) generates (Error error);
-
-    /**
-     * Sets the input command message queue.
-     *
-     * @param descriptor is the descriptor of the input command message queue.
-     * @return error is NONE upon success. Otherwise,
-     *         NO_RESOURCES when failed to set the queue temporarily.
-     */
-    @callflow(next="*")
-    setInputCommandQueue(fmq_sync<uint32_t> descriptor)
-              generates (Error error);
-
-    /**
-     * Gets the output command message queue.
-     *
-     * This function must only be called inside executeCommands closure.
-     *
-     * @return error is NONE upon success. Otherwise,
-     *         NO_RESOURCES when failed to get the queue temporarily.
-     * @return descriptor is the descriptor of the output command queue.
-     */
-    @callflow(next="*")
-    getOutputCommandQueue()
-              generates (Error error,
-                         fmq_sync<uint32_t> descriptor);
-
-    /**
-     * Executes commands from the input command message queue. Return values
-     * generated by the input commands are written to the output command
-     * message queue in the form of value commands.
-     *
-     * @param inLength is the length of input commands.
-     * @param inHandles is an array of handles referenced by the input
-     *        commands.
-     * @return error is NONE upon success. Otherwise,
-     *         BAD_PARAMETER when inLength is not equal to the length of
-     *                       commands in the input command message queue.
-     *         NO_RESOURCES when the output command message queue was not
-     *                      properly drained.
-     * @param outQueueChanged indicates whether the output command message
-     *        queue has changed.
-     * @param outLength is the length of output commands.
-     * @param outHandles is an array of handles referenced by the output
-     *        commands.
-     */
-    @callflow(next="*")
-    executeCommands(uint32_t inLength,
-                    vec<handle> inHandles)
-         generates (Error error,
-                    bool outQueueChanged,
-                    uint32_t outLength,
-                    vec<handle> outHandles);
 
     /**
      * SELECT_DISPLAY has this pseudo prototype
@@ -1095,50 +729,409 @@ interface IComposerClient {
      * @param z is the new Z order.
      */
     enum Command : int32_t {
-        LENGTH_MASK                        = 0xffff,
-        OPCODE_SHIFT                       = 16,
-        OPCODE_MASK                        = 0xffff << OPCODE_SHIFT,
-
-        /** special commands */
-        SELECT_DISPLAY                     = 0x000 << OPCODE_SHIFT,
-        SELECT_LAYER                       = 0x001 << OPCODE_SHIFT,
-
-        /** value commands (for return values) */
-        SET_ERROR                          = 0x100 << OPCODE_SHIFT,
-        SET_CHANGED_COMPOSITION_TYPES      = 0x101 << OPCODE_SHIFT,
-        SET_DISPLAY_REQUESTS               = 0x102 << OPCODE_SHIFT,
-        SET_PRESENT_FENCE                  = 0x103 << OPCODE_SHIFT,
-        SET_RELEASE_FENCES                 = 0x104 << OPCODE_SHIFT,
-
-        /** display commands */
-        SET_COLOR_TRANSFORM                = 0x200 << OPCODE_SHIFT,
-        SET_CLIENT_TARGET                  = 0x201 << OPCODE_SHIFT,
-        SET_OUTPUT_BUFFER                  = 0x202 << OPCODE_SHIFT,
-        VALIDATE_DISPLAY                   = 0x203 << OPCODE_SHIFT,
-        ACCEPT_DISPLAY_CHANGES             = 0x204 << OPCODE_SHIFT,
-        PRESENT_DISPLAY                    = 0x205 << OPCODE_SHIFT,
-        PRESENT_OR_VALIDATE_DISPLAY        = 0x206 << OPCODE_SHIFT,
-
-        /** layer commands (VALIDATE_DISPLAY not required) */
-        SET_LAYER_CURSOR_POSITION          = 0x300 << OPCODE_SHIFT,
-        SET_LAYER_BUFFER                   = 0x301 << OPCODE_SHIFT,
-        SET_LAYER_SURFACE_DAMAGE           = 0x302 << OPCODE_SHIFT,
-
-        /** layer state commands (VALIDATE_DISPLAY required) */
-        SET_LAYER_BLEND_MODE               = 0x400 << OPCODE_SHIFT,
-        SET_LAYER_COLOR                    = 0x401 << OPCODE_SHIFT,
-        SET_LAYER_COMPOSITION_TYPE         = 0x402 << OPCODE_SHIFT,
-        SET_LAYER_DATASPACE                = 0x403 << OPCODE_SHIFT,
-        SET_LAYER_DISPLAY_FRAME            = 0x404 << OPCODE_SHIFT,
-        SET_LAYER_PLANE_ALPHA              = 0x405 << OPCODE_SHIFT,
-        SET_LAYER_SIDEBAND_STREAM          = 0x406 << OPCODE_SHIFT,
-        SET_LAYER_SOURCE_CROP              = 0x407 << OPCODE_SHIFT,
-        SET_LAYER_TRANSFORM                = 0x408 << OPCODE_SHIFT,
-        SET_LAYER_VISIBLE_REGION           = 0x409 << OPCODE_SHIFT,
-        SET_LAYER_Z_ORDER                  = 0x40a << OPCODE_SHIFT,
+        LENGTH_MASK = 0xffff,
+        OPCODE_SHIFT = 16,
+        OPCODE_MASK = 0xffff << OPCODE_SHIFT,
+        /**
+         * special commands
+         */
+        SELECT_DISPLAY = 0x000 << OPCODE_SHIFT,
+        SELECT_LAYER = 0x001 << OPCODE_SHIFT,
+        /**
+         * value commands (for return values)
+         */
+        SET_ERROR = 0x100 << OPCODE_SHIFT,
+        SET_CHANGED_COMPOSITION_TYPES = 0x101 << OPCODE_SHIFT,
+        SET_DISPLAY_REQUESTS = 0x102 << OPCODE_SHIFT,
+        SET_PRESENT_FENCE = 0x103 << OPCODE_SHIFT,
+        SET_RELEASE_FENCES = 0x104 << OPCODE_SHIFT,
+        /**
+         * display commands
+         */
+        SET_COLOR_TRANSFORM = 0x200 << OPCODE_SHIFT,
+        SET_CLIENT_TARGET = 0x201 << OPCODE_SHIFT,
+        SET_OUTPUT_BUFFER = 0x202 << OPCODE_SHIFT,
+        VALIDATE_DISPLAY = 0x203 << OPCODE_SHIFT,
+        ACCEPT_DISPLAY_CHANGES = 0x204 << OPCODE_SHIFT,
+        PRESENT_DISPLAY = 0x205 << OPCODE_SHIFT,
+        PRESENT_OR_VALIDATE_DISPLAY = 0x206 << OPCODE_SHIFT,
+        /**
+         * layer commands (VALIDATE_DISPLAY not required)
+         */
+        SET_LAYER_CURSOR_POSITION = 0x300 << OPCODE_SHIFT,
+        SET_LAYER_BUFFER = 0x301 << OPCODE_SHIFT,
+        SET_LAYER_SURFACE_DAMAGE = 0x302 << OPCODE_SHIFT,
+        /**
+         * layer state commands (VALIDATE_DISPLAY required)
+         */
+        SET_LAYER_BLEND_MODE = 0x400 << OPCODE_SHIFT,
+        SET_LAYER_COLOR = 0x401 << OPCODE_SHIFT,
+        SET_LAYER_COMPOSITION_TYPE = 0x402 << OPCODE_SHIFT,
+        SET_LAYER_DATASPACE = 0x403 << OPCODE_SHIFT,
+        SET_LAYER_DISPLAY_FRAME = 0x404 << OPCODE_SHIFT,
+        SET_LAYER_PLANE_ALPHA = 0x405 << OPCODE_SHIFT,
+        SET_LAYER_SIDEBAND_STREAM = 0x406 << OPCODE_SHIFT,
+        SET_LAYER_SOURCE_CROP = 0x407 << OPCODE_SHIFT,
+        SET_LAYER_TRANSFORM = 0x408 << OPCODE_SHIFT,
+        SET_LAYER_VISIBLE_REGION = 0x409 << OPCODE_SHIFT,
+        SET_LAYER_Z_ORDER = 0x40a << OPCODE_SHIFT,
         SET_PRESENT_OR_VALIDATE_DISPLAY_RESULT = 0x40b << OPCODE_SHIFT,
-
-        /* 0x800 - 0xfff are reserved for vendor extensions */
-        /* 0x1000 - 0xffff are reserved */
     };
+
+    /**
+     * Provides a IComposerCallback object for the device to call.
+     *
+     * This function must be called only once.
+     *
+     * @param callback is the IComposerCallback object.
+     */
+    @entry
+    @callflow(next = "*")
+    registerCallback(IComposerCallback callback);
+
+    /**
+     * Returns the maximum number of virtual displays supported by this device
+     * (which may be 0). The client must not attempt to create more than this
+     * many virtual displays on this device. This number must not change for
+     * the lifetime of the device.
+     *
+     * @return count is the maximum number of virtual displays supported.
+     */
+    @callflow(next = "*")
+    getMaxVirtualDisplayCount() generates (uint32_t count);
+
+    /**
+     * Creates a new virtual display with the given width and height. The
+     * format passed into this function is the default format requested by the
+     * consumer of the virtual display output buffers.
+     *
+     * The display must be assumed to be on from the time the first frame is
+     * presented until the display is destroyed.
+     *
+     * @param width is the width in pixels.
+     * @param height is the height in pixels.
+     * @param formatHint is the default output buffer format selected by
+     *        the consumer.
+     * @param outputBufferSlotCount is the number of output buffer slots to be
+     *        reserved.
+     * @return error is NONE upon success. Otherwise,
+     *         UNSUPPORTED when the width or height is too large for the
+     *                     device to be able to create a virtual display.
+     *         NO_RESOURCES when the device is unable to create a new virtual
+     *                      display at this time.
+     * @return display is the newly-created virtual display.
+     * @return format is the format of the buffer the device will produce.
+     */
+    @callflow(next = "*")
+    createVirtualDisplay(uint32_t width, uint32_t height, PixelFormat formatHint,
+        uint32_t outputBufferSlotCount)
+        generates (Error error, Display display, PixelFormat format);
+
+    /**
+     * Destroys a virtual display. After this call all resources consumed by
+     * this display may be freed by the device and any operations performed on
+     * this display must fail.
+     *
+     * @param display is the virtual display to destroy.
+     * @return error is NONE upon success. Otherwise,
+     *         BAD_DISPLAY when an invalid display handle was passed in.
+     *         BAD_PARAMETER when the display handle which was passed in does
+     *                       not refer to a virtual display.
+     */
+    @callflow(next = "*")
+    destroyVirtualDisplay(Display display) generates (Error error);
+
+    /**
+     * Creates a new layer on the given display.
+     *
+     * @param display is the display on which to create the layer.
+     * @param bufferSlotCount is the number of buffer slot to be reserved.
+     * @return error is NONE upon success. Otherwise,
+     *         BAD_DISPLAY when an invalid display handle was passed in.
+     *         NO_RESOURCES when the device was unable to create a layer this
+     *                      time.
+     * @return layer is the handle of the new layer.
+     */
+    @callflow(next = "*")
+    createLayer(Display display, uint32_t bufferSlotCount) generates (Error error, Layer layer);
+
+    /**
+     * Destroys the given layer.
+     *
+     * @param display is the display on which the layer was created.
+     * @param layer is the layer to destroy.
+     * @return error is NONE upon success. Otherwise,
+     *         BAD_DISPLAY when an invalid display handle was passed in.
+     *         BAD_LAYER when an invalid layer handle was passed in.
+     */
+    @callflow(next = "*")
+    destroyLayer(Display display, Layer layer) generates (Error error);
+
+    /**
+     * Retrieves which display configuration is currently active.
+     *
+     * If no display configuration is currently active, this function must
+     * return BAD_CONFIG. It is the responsibility of the client to call
+     * setActiveConfig with a valid configuration before attempting to present
+     * anything on the display.
+     *
+     * @param display is the display to which the active config is queried.
+     * @return error is NONE upon success. Otherwise,
+     *         BAD_DISPLAY when an invalid display handle was passed in.
+     *         BAD_CONFIG when no configuration is currently active.
+     * @return config is the currently active display configuration.
+     */
+    @callflow(next = "*")
+    getActiveConfig(Display display) generates (Error error, Config config);
+
+    /**
+     * Returns whether a client target with the given properties can be
+     * handled by the device.
+     *
+     * This function must return true for a client target with width and
+     * height equal to the active display configuration dimensions,
+     * PixelFormat::RGBA_8888, and Dataspace::UNKNOWN. It is not required to
+     * return true for any other configuration.
+     *
+     * @param display is the display to query.
+     * @param width is the client target width in pixels.
+     * @param height is the client target height in pixels.
+     * @param format is the client target format.
+     * @param dataspace is the client target dataspace, as described in
+     *        setLayerDataspace.
+     * @return error is NONE upon success. Otherwise,
+     *         BAD_DISPLAY when an invalid display handle was passed in.
+     *         UNSUPPORTED when the given configuration is not supported.
+     */
+    @callflow(next = "*")
+    getClientTargetSupport(Display display, uint32_t width, uint32_t height, PixelFormat format,
+        Dataspace dataspace) generates (Error error);
+
+    /**
+     * Returns the color modes supported on this display.
+     *
+     * All devices must support at least ColorMode::NATIVE.
+     *
+     * @param display is the display to query.
+     * @return error is NONE upon success. Otherwise,
+     *         BAD_DISPLAY when an invalid display handle was passed in.
+     * @return modes is an array of color modes.
+     */
+    @callflow(next = "*")
+    getColorModes(Display display) generates (Error error, vec<ColorMode> modes);
+
+    /**
+     * Returns a display attribute value for a particular display
+     * configuration.
+     *
+     * @param display is the display to query.
+     * @param config is the display configuration for which to return
+     *        attribute values.
+     * @return error is NONE upon success. Otherwise,
+     *         BAD_DISPLAY when an invalid display handle was passed in.
+     *         BAD_CONFIG when config does not name a valid configuration for
+     *                    this display.
+     *         BAD_PARAMETER when attribute is unrecognized.
+     *         UNSUPPORTED when attribute cannot be queried for the config.
+     * @return value is the value of the attribute.
+     */
+    @callflow(next = "*")
+    getDisplayAttribute(Display display, Config config, Attribute attribute)
+        generates (Error error, int32_t value);
+
+    /**
+     * Returns handles for all of the valid display configurations on this
+     * display.
+     *
+     * @param display is the display to query.
+     * @return error is NONE upon success. Otherwise,
+     *         BAD_DISPLAY when an invalid display handle was passed in.
+     * @return configs is an array of configuration handles.
+     */
+    @callflow(next = "*")
+    getDisplayConfigs(Display display) generates (Error error, vec<Config> configs);
+
+    /**
+     * Returns a human-readable version of the display's name.
+     *
+     * @return error is NONE upon success. Otherwise,
+     *         BAD_DISPLAY when an invalid display handle was passed in.
+     * @return name is the name of the display.
+     */
+    @callflow(next = "*")
+    getDisplayName(Display display) generates (Error error, string name);
+
+    /**
+     * Returns whether the given display is a physical or virtual display.
+     *
+     * @param display is the display to query.
+     * @return error is NONE upon success. Otherwise,
+     *         BAD_DISPLAY when an invalid display handle was passed in.
+     * @return type is the type of the display.
+     */
+    @callflow(next = "*")
+    getDisplayType(Display display) generates (Error error, DisplayType type);
+
+    /**
+     * Returns whether the given display supports PowerMode::DOZE and
+     * PowerMode::DOZE_SUSPEND. DOZE_SUSPEND may not provide any benefit over
+     * DOZE (see the definition of PowerMode for more information), but if
+     * both DOZE and DOZE_SUSPEND are no different from PowerMode::ON, the
+     * device must not claim support.
+     *
+     * @param display is the display to query.
+     * @return error is NONE upon success. Otherwise,
+     *         BAD_DISPLAY when an invalid display handle was passed in.
+     * @return support is true only when the display supports doze modes.
+     */
+    @callflow(next = "*")
+    getDozeSupport(Display display) generates (Error error, bool support);
+
+    /**
+     * Returns the high dynamic range (HDR) capabilities of the given display,
+     * which are invariant with regard to the active configuration.
+     *
+     * Displays which are not HDR-capable must return no types.
+     *
+     * @param display is the display to query.
+     * @return error is NONE upon success. Otherwise,
+     *         BAD_DISPLAY when an invalid display handle was passed in.
+     * @return types is an array of HDR types, may have 0 elements if the
+     *         display is not HDR-capable.
+     * @return maxLuminance is the desired content maximum luminance for this
+     *         display in cd/m^2.
+     * @return maxAverageLuminance - the desired content maximum frame-average
+     *         luminance for this display in cd/m^2.
+     * @return minLuminance is the desired content minimum luminance for this
+     *         display in cd/m^2.
+     */
+    @callflow(next = "*")
+    getHdrCapabilities(Display display) generates (Error error, vec<Hdr> types, float maxLuminance,
+        float maxAverageLuminance, float minLuminance);
+
+    /**
+     * Set the number of client target slots to be reserved.
+     *
+     * @param display is the display to which the slots are reserved.
+     * @param clientTargetSlotCount is the slot count for client targets.
+     * @return error is NONE upon success. Otherwise,
+     *         BAD_DISPLAY when an invalid display handle was passed in.
+     *         NO_RESOURCES when unable to reserve the slots.
+     */
+    @callflow(next = "*")
+    setClientTargetSlotCount(Display display, uint32_t clientTargetSlotCount)
+        generates (Error error);
+
+    /**
+     * Sets the active configuration for this display. Upon returning, the
+     * given display configuration must be active and remain so until either
+     * this function is called again or the display is disconnected.
+     *
+     * @param display is the display to which the active config is set.
+     * @param config is the new display configuration.
+     * @return error is NONE upon success. Otherwise,
+     *         BAD_DISPLAY when an invalid display handle was passed in.
+     *         BAD_CONFIG when the configuration handle passed in is not valid
+     *                    for this display.
+     */
+    @callflow(next = "*")
+    setActiveConfig(Display display, Config config) generates (Error error);
+
+    /**
+     * Sets the color mode of the given display.
+     *
+     * Upon returning from this function, the color mode change must have
+     * fully taken effect.
+     *
+     * All devices must support at least ColorMode::NATIVE, and displays are
+     * assumed to be in this mode upon hotplug.
+     *
+     * @param display is the display to which the color mode is set.
+     * @param mode is the mode to set to.
+     * @return error is NONE upon success. Otherwise,
+     *         BAD_DISPLAY when an invalid display handle was passed in.
+     *         BAD_PARAMETER when mode is not a valid color mode.
+     *         UNSUPPORTED when mode is not supported on this display.
+     */
+    @callflow(next = "*")
+    setColorMode(Display display, ColorMode mode) generates (Error error);
+
+    /**
+     * Sets the power mode of the given display. The transition must be
+     * complete when this function returns. It is valid to call this function
+     * multiple times with the same power mode.
+     *
+     * All displays must support PowerMode::ON and PowerMode::OFF.  Whether a
+     * display supports PowerMode::DOZE or PowerMode::DOZE_SUSPEND may be
+     * queried using getDozeSupport.
+     *
+     * @param display is the display to which the power mode is set.
+     * @param mode is the new power mode.
+     * @return error is NONE upon success. Otherwise,
+     *         BAD_DISPLAY when an invalid display handle was passed in.
+     *         BAD_PARAMETER when mode was not a valid power mode.
+     *         UNSUPPORTED when mode is not supported on this display.
+     */
+    @callflow(next = "*")
+    setPowerMode(Display display, PowerMode mode) generates (Error error);
+
+    /**
+     * Enables or disables the vsync signal for the given display. Virtual
+     * displays never generate vsync callbacks, and any attempt to enable
+     * vsync for a virtual display though this function must succeed and have
+     * no other effect.
+     *
+     * @param display is the display to which the vsync mode is set.
+     * @param enabled indicates whether to enable or disable vsync
+     * @return error is NONE upon success. Otherwise,
+     *         BAD_DISPLAY when an invalid display handle was passed in.
+     *         BAD_PARAMETER when enabled was an invalid value.
+     */
+    @callflow(next = "*")
+    setVsyncEnabled(Display display, Vsync enabled) generates (Error error);
+
+    /**
+     * Sets the input command message queue.
+     *
+     * @param descriptor is the descriptor of the input command message queue.
+     * @return error is NONE upon success. Otherwise,
+     *         NO_RESOURCES when failed to set the queue temporarily.
+     */
+    @callflow(next = "*")
+    setInputCommandQueue(fmq_sync<uint32_t> descriptor) generates (Error error);
+
+    /**
+     * Gets the output command message queue.
+     *
+     * This function must only be called inside executeCommands closure.
+     *
+     * @return error is NONE upon success. Otherwise,
+     *         NO_RESOURCES when failed to get the queue temporarily.
+     * @return descriptor is the descriptor of the output command queue.
+     */
+    @callflow(next = "*")
+    getOutputCommandQueue() generates (Error error, fmq_sync<uint32_t> descriptor);
+
+    /**
+     * Executes commands from the input command message queue. Return values
+     * generated by the input commands are written to the output command
+     * message queue in the form of value commands.
+     *
+     * @param inLength is the length of input commands.
+     * @param inHandles is an array of handles referenced by the input
+     *        commands.
+     * @return error is NONE upon success. Otherwise,
+     *         BAD_PARAMETER when inLength is not equal to the length of
+     *                       commands in the input command message queue.
+     *         NO_RESOURCES when the output command message queue was not
+     *                      properly drained.
+     * @param outQueueChanged indicates whether the output command message
+     *        queue has changed.
+     * @param outLength is the length of output commands.
+     * @param outHandles is an array of handles referenced by the output
+     *        commands.
+     */
+    @callflow(next = "*")
+    executeCommands(uint32_t inLength, vec<handle> inHandles)
+        generates (Error error, bool outQueueChanged, uint32_t outLength, vec<handle> outHandles);
 };

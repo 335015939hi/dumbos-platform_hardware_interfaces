@@ -31,17 +31,26 @@ package android.hardware.neuralnetworks@1.0;
  * and {@link OperandType::INT32}.
  */
 enum OperandType : int32_t {
-    /** A 32 bit floating point scalar value. */
-    FLOAT32             = 0,
-    /** A signed 32 bit integer scalar value. */
-    INT32               = 1,
-    /** An unsigned 32 bit integer scalar value. */
-    UINT32              = 2,
-
-    /** A tensor of 32 bit floating point values. */
-    TENSOR_FLOAT32      = 3,
-    /** A tensor of 32 bit integer values. */
-    TENSOR_INT32        = 4,
+    /**
+     * A 32 bit floating point scalar value.
+     */
+    FLOAT32 = 0,
+    /**
+     * A signed 32 bit integer scalar value.
+     */
+    INT32 = 1,
+    /**
+     * An unsigned 32 bit integer scalar value.
+     */
+    UINT32 = 2,
+    /**
+     * A tensor of 32 bit floating point values.
+     */
+    TENSOR_FLOAT32 = 3,
+    /**
+     * A tensor of 32 bit integer values.
+     */
+    TENSOR_INT32 = 4,
     /**
      * A tensor of 8 bit integers that represent real numbers.
      *
@@ -54,22 +63,20 @@ enum OperandType : int32_t {
      * real_value = (integer_value - zeroPoint) * scale.
      */
     TENSOR_QUANT8_ASYMM = 5,
-
     /**
      * DEPRECATED. Since NNAPI 1.2, extensions are the preferred alternative to
      * OEM operation and data types.
      *
      * OEM specific scalar value.
      */
-    OEM                 = 10000,
-
+    OEM = 10000,
     /**
      * DEPRECATED. Since NNAPI 1.2, extensions are the preferred alternative to
      * OEM operation and data types.
      *
      * A tensor of OEM specific values.
      */
-    TENSOR_OEM_BYTE     = 10001,
+    TENSOR_OEM_BYTE = 10001,
 };
 
 /**
@@ -78,7 +85,6 @@ enum OperandType : int32_t {
  * The type of an operation in a model.
  */
 enum OperationType : int32_t {
-
     /**
      * Adds two tensors, element-wise.
      *
@@ -120,7 +126,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     ADD = 0,
-
     /**
      * Performs a 2-D average pooling operation.
      *
@@ -191,7 +196,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     AVERAGE_POOL_2D = 1,
-
     /**
      * Concatenates the input tensors along the given dimension.
      *
@@ -219,7 +223,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     CONCATENATION = 2,
-
     /**
      * Performs an 2-D convolution operation.
      *
@@ -306,7 +309,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     CONV_2D = 3,
-
     /**
      * Performs a depthwise 2-D convolution operation.
      *
@@ -399,7 +401,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     DEPTHWISE_CONV_2D = 4,
-
     /**
      * Rearranges data from depth into blocks of spatial data.
      *
@@ -435,7 +436,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     DEPTH_TO_SPACE = 5,
-
     /**
      * Dequantizes the input tensor.
      *
@@ -458,7 +458,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     DEQUANTIZE = 6,
-
     /**
      * Looks up sub-tensors in the input tensor.
      *
@@ -493,7 +492,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     EMBEDDING_LOOKUP = 7,
-
     /**
      * Computes element-wise floor() on the input tensor.
      *
@@ -512,7 +510,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     FLOOR = 8,
-
     /**
      * Denotes a fully (densely) connected layer, which connects all elements
      * in the input tensor with each element in the output tensor.
@@ -557,7 +554,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     FULLY_CONNECTED = 9,
-
     /**
      * Looks up sub-tensors in the input tensor using a key-value map.
      *
@@ -607,7 +603,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     HASHTABLE_LOOKUP = 10,
-
     /**
      * Applies L2 normalization along the depth dimension.
      *
@@ -636,7 +631,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     L2_NORMALIZATION = 11,
-
     /**
      * Performs an 2-D L2 pooling operation.
      *
@@ -704,7 +698,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     L2_POOL_2D = 12,
-
     /**
      * Applies Local Response Normalization along the depth dimension.
      *
@@ -742,7 +735,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     LOCAL_RESPONSE_NORMALIZATION = 13,
-
     /**
      * Computes sigmoid activation on the input tensor element-wise.
      *
@@ -767,7 +759,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     LOGISTIC = 14,
-
     /**
      * Projects an input to a bit vector via locality senstive hashing.
      *
@@ -804,7 +795,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     LSH_PROJECTION = 15,
-
     /**
      * Performs a single time step in a Long Short-Term Memory (LSTM) layer
      *
@@ -1001,7 +991,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     LSTM = 16,
-
     /**
      * Performs an 2-D max pooling operation.
      *
@@ -1071,7 +1060,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     MAX_POOL_2D = 17,
-
     /**
      * Multiplies two tensors, element-wise.
      *
@@ -1110,7 +1098,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     MUL = 18,
-
     /**
      * Computes rectified linear activation on the input tensor element-wise.
      *
@@ -1133,7 +1120,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     RELU = 19,
-
     /**
      * Computes rectified linear 1 activation on the input tensor element-wise.
      *
@@ -1156,7 +1142,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     RELU1 = 20,
-
     /**
      * Computes rectified linear 6 activation on the input tensor element-wise.
      *
@@ -1179,7 +1164,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     RELU6 = 21,
-
     /**
      * Reshapes a tensor.
      *
@@ -1209,7 +1193,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     RESHAPE = 22,
-
     /**
      * Resizes images to given size using the bilinear interpretation.
      *
@@ -1237,7 +1220,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     RESIZE_BILINEAR = 23,
-
     /**
      * A basic recurrent neural network layer.
      *
@@ -1294,7 +1276,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     RNN = 24,
-
     /**
      * Computes the softmax activation on the input tensor element-wise, per
      * batch, by normalizing the input vector so the maximum coefficient is
@@ -1325,7 +1306,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     SOFTMAX = 25,
-
     /**
      * Rearranges blocks of spatial data, into depth.
      *
@@ -1360,7 +1340,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     SPACE_TO_DEPTH = 26,
-
     /**
      * SVDF op is a kind of stateful layer derived from the notion that a
      * densely connected layer that's processing a sequence of input frames can
@@ -1440,7 +1419,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     SVDF = 27,
-
     /**
      * Computes hyperbolic tangent of input tensor element-wise.
      *
@@ -1462,7 +1440,6 @@ enum OperationType : int32_t {
      * Available since API level 27.
      */
     TANH = 28,
-
     /**
      * DEPRECATED. Since NNAPI 1.2, extensions are the preferred alternative to
      * OEM operation and data types.
@@ -1477,8 +1454,8 @@ enum OperationType : int32_t {
  * Fused activation function types.
  */
 enum FusedActivationFunc : int32_t {
-    NONE  = 0,
-    RELU  = 1,
+    NONE = 0,
+    RELU = 1,
     RELU1 = 2,
     RELU6 = 3,
 };
@@ -1493,7 +1470,6 @@ enum OperandLifeTime : int32_t {
      * exactly one operation.
      */
     TEMPORARY_VARIABLE,
-
     /**
      * The operand is an input of the model. It must not be an output
      * operand of any operation.
@@ -1501,7 +1477,6 @@ enum OperandLifeTime : int32_t {
      * An operand can't be both input and output of a model.
      */
     MODEL_INPUT,
-
     /**
      * The operand is an output of the model. It must be an output
      * operand of exactly one operation.
@@ -1509,19 +1484,16 @@ enum OperandLifeTime : int32_t {
      * An operand can't be both input and output of a model.
      */
     MODEL_OUTPUT,
-
     /**
      * The operand is a constant found in Model.operandValues. It must
      * not be an output operand of any operation.
      */
     CONSTANT_COPY,
-
     /**
      * The operand is a constant that was specified via a Memory
      * object. It must not be an output operand of any operation.
      */
     CONSTANT_REFERENCE,
-
     /**
      * The operand does not have a value. This is valid only for optional
      * arguments of operations.
@@ -1551,7 +1523,6 @@ struct PerformanceInfo {
      * same workload. A lower number is better.
      */
     float execTime;
-
     /**
      * Ratio of the energy used by the driver compared to what
      * the CPU would use for doing the same workload. A lower number
@@ -1568,7 +1539,6 @@ struct Capabilities {
      * Driver performance when operating on float32 data.
      */
     PerformanceInfo float32Performance;
-
     /**
      * Driver performance when operating on asymmetric 8-bit quantized data.
      */
@@ -1583,12 +1553,10 @@ struct DataLocation {
      * The index of the memory pool where this location is found.
      */
     uint32_t poolIndex;
-
     /**
      * Offset in bytes from the start of the pool.
      */
     uint32_t offset;
-
     /**
      * The length of the data in bytes.
      */
@@ -1603,7 +1571,6 @@ struct Operand {
      * Data type of the operand.
      */
     OperandType type;
-
     /**
      * Dimensions of the operand.
      *
@@ -1643,7 +1610,6 @@ struct Operand {
      * represented by setting each unspecified dimension to 0.
      */
     vec<uint32_t> dimensions;
-
     /**
      * The number of times this operand appears as an operation input.
      *
@@ -1652,7 +1618,6 @@ struct Operand {
      * then numberOfConsumers = 4.)
      */
     uint32_t numberOfConsumers;
-
     /**
      * Quantized scale of the operand.
      *
@@ -1660,19 +1625,16 @@ struct Operand {
      * TENSOR_INT32.
      */
     float scale;
-
     /**
      * Quantized zero-point offset of the operand.
      *
      * Only applicable if the operand is of type TENSOR_QUANT8_ASYMM.
      */
     int32_t zeroPoint;
-
     /**
      * How the operand is used.
      */
     OperandLifeTime lifetime;
-
     /**
      * Where to find the data for this operand.
      * If the lifetime is TEMPORARY_VARIABLE, MODEL_INPUT, MODEL_OUTPUT, or
@@ -1698,13 +1660,11 @@ struct Operation {
      * The operation type.
      */
     OperationType type;
-
     /**
      * Describes the table that contains the indexes of the inputs of the
      * operation. The offset is the index in the operandIndexes table.
      */
     vec<uint32_t> inputs;
-
     /**
      * Describes the table that contains the indexes of the outputs of the
      * operation. The offset is the index in the operandIndexes table.
@@ -1724,7 +1684,6 @@ struct Model {
      * All operands included in the model.
      */
     vec<Operand> operands;
-
     /**
      * All operations included in the model.
      *
@@ -1733,21 +1692,18 @@ struct Model {
      * written before it is read.
      */
     vec<Operation> operations;
-
     /**
      * Input indexes of the model. There must be at least one.
      *
      * Each value corresponds to the index of the operand in "operands".
      */
     vec<uint32_t> inputIndexes;
-
     /**
      * Output indexes of the model. There must be at least one.
      *
      * Each value corresponds to the index of the operand in "operands".
      */
     vec<uint32_t> outputIndexes;
-
     /**
      * A byte buffer containing operand data that were copied into the model.
      *
@@ -1755,7 +1711,6 @@ struct Model {
      * equals OperandLifeTime::CONSTANT_COPY.
      */
     vec<uint8_t> operandValues;
-
     /**
      * A collection of shared memory pools containing operand values.
      *
@@ -1776,12 +1731,10 @@ struct RequestArgument {
      * are set to 0 and the dimensions vector is left empty.
      */
     bool hasNoValue;
-
     /**
      * The location within one of the memory pools passed in the Request.
      */
     DataLocation location;
-
     /**
      * Updated dimension information.
      *
@@ -1822,7 +1775,6 @@ struct Request {
      *   E.g., input[i] corresponds to Model.inputIndexes[i].
      */
     vec<RequestArgument> inputs;
-
     /**
      * Output data and information to be used in the execution of a prepared
      * model.
@@ -1831,7 +1783,6 @@ struct Request {
      *   E.g., output[i] corresponds to Model.outputIndexes[i].
      */
     vec<RequestArgument> outputs;
-
     /**
      * A collection of shared memory pools containing operand data for both the
      * inputs and the outputs to a model.

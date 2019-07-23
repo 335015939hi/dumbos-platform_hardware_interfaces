@@ -33,8 +33,7 @@ interface IRadio {
      * @param radioResponse Object containing response functions
      * @param radioIndication Object containing radio indications
      */
-    setResponseFunctions(IRadioResponse radioResponse,
-            IRadioIndication radioIndication);
+    setResponseFunctions(IRadioResponse radioResponse, IRadioIndication radioIndication);
 
     /**
      * Requests status of the ICC card
@@ -95,8 +94,7 @@ interface IRadio {
      * Response function is IRadioResponse.supplyIccPuk2ForAppResponse()
      *
      */
-    oneway supplyIccPuk2ForApp(int32_t serial, string puk2, string pin2,
-            string aid);
+    oneway supplyIccPuk2ForApp(int32_t serial, string puk2, string pin2, string aid);
 
     /**
      * Supplies old ICC PIN and new PIN.
@@ -109,8 +107,7 @@ interface IRadio {
      * Response function is IRadioResponse.changeIccPinForAppResponse()
      *
      */
-    oneway changeIccPinForApp(int32_t serial, string oldPin, string newPin,
-            string aid);
+    oneway changeIccPinForApp(int32_t serial, string oldPin, string newPin, string aid);
 
     /**
      * Supplies old ICC PIN2 and new PIN2.
@@ -123,8 +120,7 @@ interface IRadio {
      * Response function is IRadioResponse.changeIccPin2ForAppResponse()
      *
      */
-    oneway changeIccPin2ForApp(int32_t serial, string oldPin2, string newPin2,
-            string aid);
+    oneway changeIccPin2ForApp(int32_t serial, string oldPin2, string newPin2, string aid);
 
     /**
      * Requests that network personalization be deactivated
@@ -388,8 +384,8 @@ interface IRadio {
      * Response function is IRadioResponse.setupDataCallResponse()
      */
     oneway setupDataCall(int32_t serial, RadioTechnology radioTechnology,
-            DataProfileInfo dataProfileInfo, bool modemCognitive, bool roamingAllowed,
-            bool isRoaming);
+        DataProfileInfo dataProfileInfo, bool modemCognitive, bool roamingAllowed,
+        bool isRoaming);
 
     /**
      * Request ICC I/O operation.
@@ -470,8 +466,7 @@ interface IRadio {
      *
      * Response function is IRadioResponse.getCallForwardStatusResponse()
      */
-    oneway getCallForwardStatus(int32_t serial,
-            CallForwardInfo callInfo);
+    oneway getCallForwardStatus(int32_t serial, CallForwardInfo callInfo);
 
     /**
      * Configure call forward rule
@@ -502,8 +497,7 @@ interface IRadio {
      *
      * Response function is IRadioResponse.setCallWaitingResponse()
      */
-    oneway setCallWaiting(int32_t serial, bool enable,
-            int32_t serviceClass);
+    oneway setCallWaiting(int32_t serial, bool enable, int32_t serviceClass);
 
     /**
      * Acknowledge successful or failed receipt of SMS previously indicated
@@ -519,7 +513,7 @@ interface IRadio {
      * Response function is IRadioResponse.acknowledgeLastIncomingGsmSmsResponse()
      */
     oneway acknowledgeLastIncomingGsmSms(int32_t serial, bool success,
-            SmsAcknowledgeFailCause cause);
+        SmsAcknowledgeFailCause cause);
 
     /**
      * Answer incoming call
@@ -548,8 +542,7 @@ interface IRadio {
      *
      * Response function is IRadioResponse.deactivateDataCallResponse()
      */
-    oneway deactivateDataCall(int32_t serial, int32_t cid,
-            bool reasonRadioShutDown);
+    oneway deactivateDataCall(int32_t serial, int32_t cid, bool reasonRadioShutDown);
 
     /**
      * Query the status of a facility lock state
@@ -564,8 +557,8 @@ interface IRadio {
      *
      * Response function is IRadioResponse.getFacilityLockForAppResponse()
      */
-    oneway getFacilityLockForApp(int32_t serial, string facility,
-            string password, int32_t serviceClass, string appId);
+    oneway getFacilityLockForApp(int32_t serial, string facility, string password,
+        int32_t serviceClass, string appId);
 
     /**
      * Enable/disable one facility lock
@@ -582,8 +575,8 @@ interface IRadio {
      *
      * Response function is IRadioResponse.setFacilityLockForAppResponse()
      */
-    oneway setFacilityLockForApp(int32_t serial, string facility, bool lockState,
-            string password, int32_t serviceClass, string appId);
+    oneway setFacilityLockForApp(int32_t serial, string facility, bool lockState, string password,
+        int32_t serviceClass, string appId);
 
     /**
      * Change call barring facility password
@@ -595,8 +588,8 @@ interface IRadio {
      *
      * Response function is IRadioResponse.setBarringPasswordResponse()
      */
-    oneway setBarringPassword(int32_t serial, string facility,
-            string oldPassword, string newPassword);
+    oneway setBarringPassword(int32_t serial, string facility, string oldPassword,
+        string newPassword);
 
     /**
      * Query current network selection mode
@@ -812,8 +805,7 @@ interface IRadio {
      *
      * Response callback is IRadioResponse.handleStkCallSetupRequestFromSimResponse()
      */
-    oneway handleStkCallSetupRequestFromSim(int32_t serial,
-            bool accept);
+    oneway handleStkCallSetupRequestFromSim(int32_t serial, bool accept);
 
     /**
      * Connects the two calls and disconnects the subscriber from both calls.
@@ -833,8 +825,7 @@ interface IRadio {
      *
      * Response callback is IRadioResponse.setPreferredNetworkTypeResponse()
      */
-    oneway setPreferredNetworkType(int32_t serial,
-            PreferredNetworkType nwType);
+    oneway setPreferredNetworkType(int32_t serial, PreferredNetworkType nwType);
 
     /**
      * Query the preferred network type (CS/PS domain, RAT, and operation mode)
@@ -878,8 +869,7 @@ interface IRadio {
      *
      * Response callback is IRadioResponse.setCdmaSubscriptionSourceResponse()
      */
-    oneway setCdmaSubscriptionSource(int32_t serial,
-            CdmaSubscriptionSource cdmaSub);
+    oneway setCdmaSubscriptionSource(int32_t serial, CdmaSubscriptionSource cdmaSub);
 
     /**
      * Request to set the roaming preferences in CDMA
@@ -889,8 +879,7 @@ interface IRadio {
      *
      * Response callback is IRadioResponse.setCdmaRoamingPreferenceResponse()
      */
-    oneway setCdmaRoamingPreference(int32_t serial,
-            CdmaRoamingType type);
+    oneway setCdmaRoamingPreference(int32_t serial, CdmaRoamingType type);
 
     /**
      * Request the actual setting of the roaming preferences in CDMA in the modem
@@ -1241,7 +1230,7 @@ interface IRadio {
      * Response callback is IRadioResponse.setInitialAttachApnResponse()
      */
     oneway setInitialAttachApn(int32_t serial, DataProfileInfo dataProfileInfo,
-            bool modemCognitive, bool isRoaming);
+        bool modemCognitive, bool isRoaming);
 
     /**
      * Request current IMS registration state
@@ -1400,7 +1389,7 @@ interface IRadio {
      * Response callback is IRadioResponse.requestIccSimAuthenticationResponse()
      */
     oneway requestIccSimAuthentication(int32_t serial, int32_t authContext, string authData,
-            string aid);
+        string aid);
 
     /**
      * Set data profile in modem.

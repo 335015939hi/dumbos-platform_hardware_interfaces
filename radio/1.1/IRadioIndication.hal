@@ -22,15 +22,15 @@ import @1.0::types;
 /**
  * Interface declaring unsolicited radio indications.
  */
-interface IRadioIndication extends @1.0::IRadioIndication{
-   /*
-    * Indicates that the modem requires the Carrier info for IMSI/IMPI encryption.
-    * This might happen when the modem restarts or for some reason it's cache
-    * has been invalidated.
-    *
-    * @param type Type of radio indication
-    */
-   oneway carrierInfoForImsiEncryption(RadioIndicationType info);
+interface IRadioIndication extends @1.0::IRadioIndication {
+    /**
+     * Indicates that the modem requires the Carrier info for IMSI/IMPI encryption.
+     * This might happen when the modem restarts or for some reason it's cache
+     * has been invalidated.
+     *
+     * @param type Type of radio indication
+     */
+    oneway carrierInfoForImsiEncryption(RadioIndicationType info);
 
     /**
      * Incremental network scan results

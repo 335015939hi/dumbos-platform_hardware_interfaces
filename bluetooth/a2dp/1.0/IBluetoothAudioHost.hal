@@ -29,7 +29,6 @@ package android.hardware.bluetooth.a2dp@1.0;
  * calls return immediately and the results, if any, are send over
  * the IBluetoothAudioOffload interface.
  */
-
 interface IBluetoothAudioHost {
     /**
      * Invoked when the start stream is requested from HAL server
@@ -57,5 +56,4 @@ interface IBluetoothAudioHost {
      * provided by the HAL client for this call.
      */
     oneway stopStream();
-
 };

@@ -54,4 +54,3 @@ interface IUsb {
      */
     oneway queryPortStatus();
 };
-

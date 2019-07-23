@@ -23,7 +23,6 @@ import @1.1::IRadioResponse;
  * Interface declaring response functions to solicited radio requests.
  */
 interface IRadioResponse extends @1.1::IRadioResponse {
-
     /**
      * @param info Response info struct containing response type, serial no. and error
      * @param cellInfo List of current cell information known to radio
@@ -110,7 +109,7 @@ interface IRadioResponse extends @1.1::IRadioResponse {
      *   RadioError:INTERNAL_ERR
      */
     oneway getVoiceRegistrationStateResponse_1_2(RadioResponseInfo info,
-            VoiceRegStateResult voiceRegResponse);
+        VoiceRegStateResult voiceRegResponse);
 
     /**
      * @param info Response info struct containing response type, serial no. and error
@@ -124,5 +123,5 @@ interface IRadioResponse extends @1.1::IRadioResponse {
      *   RadioError:NOT_PROVISIONED
      */
     oneway getDataRegistrationStateResponse_1_2(RadioResponseInfo info,
-            DataRegStateResult dataRegResponse);
+        DataRegStateResult dataRegResponse);
 };

@@ -17,7 +17,6 @@
 package android.hardware.light@2.0;
 
 interface ILight {
-
     /**
      * Set the provided lights to the provided values.
      *
@@ -33,5 +32,4 @@ interface ILight {
      * @return types list of available lights
      */
     getSupportedTypes() generates (vec<Type> types);
-
 };

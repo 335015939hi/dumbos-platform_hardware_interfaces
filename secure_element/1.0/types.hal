@@ -17,17 +17,21 @@
 package android.hardware.secure_element@1.0;
 
 enum SecureElementStatus : uint8_t {
-    SUCCESS               = 0,
-    FAILED                = 1,
+    SUCCESS = 0,
+    FAILED = 1,
     CHANNEL_NOT_AVAILABLE = 2,
     NO_SUCH_ELEMENT_ERROR = 3,
     UNSUPPORTED_OPERATION = 4,
-    IOERROR = 5
+    IOERROR = 5,
 };
 
 struct LogicalChannelResponse {
-    /** Channel number to uniquely identify the channel */
+    /**
+     * Channel number to uniquely identify the channel
+     */
     uint8_t channelNumber;
-    /** Response to SELECT command as per ISO/IEC 7816 */
+    /**
+     * Response to SELECT command as per ISO/IEC 7816
+     */
     vec<uint8_t> selectResponse;
 };

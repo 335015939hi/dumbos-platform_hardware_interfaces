@@ -18,43 +18,35 @@ package android.hardware.usb@1.1;
 
 import android.hardware.usb@1.0;
 
-// NOTE: suffix '_1_1' is for legacy ABI compatibility. It cannot be
-// changed to 'PortMode' which the convention dictates.
 @export
 enum PortMode_1_1 : PortMode {
-    /*
+    /**
      * Indicates that the port supports Audio Accessory mode.
      */
     AUDIO_ACCESSORY = 1 << 2,
-
-    /*
+    /**
      * Indicates that the port supports Debug Accessory mode.
      */
     DEBUG_ACCESSORY = 1 << 3,
-
     NUM_MODES_1_1 = 1 << 4,
 };
 
-/*
+/**
  * Used as the container to report data back to the caller.
  * Represents the current connection status of a single USB port.
  */
-// NOTE: suffix '_1_1' is for legacy ABI compatibility. It cannot be
-// changed to 'PortStatus' which the convention dictates.
 struct PortStatus_1_1 {
-    /*
+    /**
      * The supportedModes and the currentMode fields of the status
      * object should be set to NONE.
      */
     PortStatus status;
-
-    /*
+    /**
      * Identifies the modes supported by the port.
      * Refer to PortMode_1_1 for the significance of the individual bits.
      */
     bitfield<PortMode_1_1> supportedModes;
-
-    /*
+    /**
      * Indicates the current mode in which the port is operating.
      */
     PortMode_1_1 currentMode;

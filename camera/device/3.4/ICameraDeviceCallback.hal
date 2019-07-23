@@ -19,7 +19,6 @@ package android.hardware.camera.device@3.4;
 import @3.2::ICameraDeviceCallback;
 
 /**
- *
  * Callback methods for the HAL to call into the framework.
  *
  * These methods are used to return metadata and image buffers for a completed

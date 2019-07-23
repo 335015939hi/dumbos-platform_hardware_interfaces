@@ -18,12 +18,11 @@ package android.hardware.graphics.common@1.0;
 
 /**
  * Common enumeration and structure definitions for all graphics HALs.
- */
-
-/**
+ *
+ *
  * Pixel formats for graphics buffers.
  */
-@export(name="android_pixel_format_t", value_prefix="HAL_PIXEL_FORMAT_")
+@export(name = "android_pixel_format_t", value_prefix = "HAL_PIXEL_FORMAT_")
 enum PixelFormat : int32_t {
     /**
      * 32-bit format that has 8-bit R, G, B, and A components, in that order,
@@ -32,8 +31,7 @@ enum PixelFormat : int32_t {
      * The component values are unsigned normalized to the range [0, 1], whose
      * interpretation is defined by the dataspace.
      */
-    RGBA_8888          = 0x1,
-
+    RGBA_8888 = 0x1,
     /**
      * 32-bit format that has 8-bit R, G, B, and unused components, in that
      * order, from the lowest memory address to the highest memory address.
@@ -41,8 +39,7 @@ enum PixelFormat : int32_t {
      * The component values are unsigned normalized to the range [0, 1], whose
      * interpretation is defined by the dataspace.
      */
-    RGBX_8888          = 0x2,
-
+    RGBX_8888 = 0x2,
     /**
      * 24-bit format that has 8-bit R, G, and B components, in that order,
      * from the lowest memory address to the highest memory address.
@@ -50,8 +47,7 @@ enum PixelFormat : int32_t {
      * The component values are unsigned normalized to the range [0, 1], whose
      * interpretation is defined by the dataspace.
      */
-    RGB_888            = 0x3,
-
+    RGB_888 = 0x3,
     /**
      * 16-bit packed format that has 5-bit R, 6-bit G, and 5-bit B components,
      * in that order, from the most-sigfinicant bits to the least-significant
@@ -60,8 +56,7 @@ enum PixelFormat : int32_t {
      * The component values are unsigned normalized to the range [0, 1], whose
      * interpretation is defined by the dataspace.
      */
-    RGB_565            = 0x4,
-
+    RGB_565 = 0x4,
     /**
      * 32-bit format that has 8-bit B, G, R, and A components, in that order,
      * from the lowest memory address to the highest memory address.
@@ -69,15 +64,13 @@ enum PixelFormat : int32_t {
      * The component values are unsigned normalized to the range [0, 1], whose
      * interpretation is defined by the dataspace.
      */
-    BGRA_8888          = 0x5,
-
+    BGRA_8888 = 0x5,
     /**
      * Legacy formats deprecated in favor of YCBCR_420_888.
      */
-    YCBCR_422_SP       = 0x10,  // NV16
-    YCRCB_420_SP       = 0x11,  // NV21
-    YCBCR_422_I        = 0x14,  // YUY2
-
+    YCBCR_422_SP = 0x10,
+    YCRCB_420_SP = 0x11,
+    YCBCR_422_I = 0x14,
     /**
      * 64-bit format that has 16-bit R, G, B, and A components, in that order,
      * from the lowest memory address to the highest memory address.
@@ -85,8 +78,7 @@ enum PixelFormat : int32_t {
      * The component values are signed floats, whose interpretation is defined
      * by the dataspace.
      */
-    RGBA_FP16          = 0x16,
-
+    RGBA_FP16 = 0x16,
     /**
      * RAW16 is a single-channel, 16-bit, little endian format, typically
      * representing raw Bayer-pattern images from an image sensor, with minimal
@@ -128,8 +120,7 @@ enum PixelFormat : int32_t {
      *                                | samples.
      *  Other                         | Unsupported
      */
-    RAW16              = 0x20,
-
+    RAW16 = 0x20,
     /**
      * BLOB is used to carry task-specific data which does not have a standard
      * image structure. The details of the format are left to the two
@@ -151,8 +142,7 @@ enum PixelFormat : int32_t {
      *  Dataspace::SENSOR             | Sensor event data.
      *  Other                         | Unsupported
      */
-    BLOB               = 0x21,
-
+    BLOB = 0x21,
     /**
      * A format indicating that the choice of format is entirely up to the
      * allocator.
@@ -168,7 +158,6 @@ enum PixelFormat : int32_t {
      * The interpretation of the component values is defined by the dataspace.
      */
     IMPLEMENTATION_DEFINED = 0x22,
-
     /**
      * This format allows platforms to use an efficient YCbCr/YCrCb 4:2:0
      * buffer layout, while still describing the general format in a
@@ -184,8 +173,7 @@ enum PixelFormat : int32_t {
      *
      * The interpretation of the component values is defined by the dataspace.
      */
-    YCBCR_420_888      = 0x23,
-
+    YCBCR_420_888 = 0x23,
     /**
      * RAW_OPAQUE is a format for unprocessed raw image buffers coming from an
      * image sensor. The actual structure of buffers of this format is
@@ -206,8 +194,7 @@ enum PixelFormat : int32_t {
      *  Dataspace::ARBITRARY          | Raw image sensor data.
      *  Other                         | Unsupported
      */
-    RAW_OPAQUE         = 0x24,
-
+    RAW_OPAQUE = 0x24,
     /**
      * RAW10 is a single-channel, 10-bit per pixel, densely packed in each row,
      * unprocessed format, usually representing raw Bayer-pattern images coming from
@@ -261,8 +248,7 @@ enum PixelFormat : int32_t {
      *  Dataspace::ARBITRARY          | Raw image sensor data.
      *  Other                         | Unsupported
      */
-    RAW10              = 0x25,
-
+    RAW10 = 0x25,
     /**
      * RAW12 is a single-channel, 12-bit per pixel, densely packed in each row,
      * unprocessed format, usually representing raw Bayer-pattern images coming from
@@ -312,11 +298,11 @@ enum PixelFormat : int32_t {
      *  Dataspace::ARBITRARY          | Raw image sensor data.
      *  Other                         | Unsupported
      */
-    RAW12              = 0x26,
-
-    /** 0x27 to 0x2A are reserved for flexible formats */
-
+    RAW12 = 0x26,
     /**
+     * 0x27 to 0x2A are reserved for flexible formats
+     *
+     *
      * 32-bit packed format that has 2-bit A, 10-bit B, G, and R components,
      * in that order, from the most-sigfinicant bits to the least-significant
      * bits.
@@ -324,17 +310,15 @@ enum PixelFormat : int32_t {
      * The component values are unsigned normalized to the range [0, 1], whose
      * interpretation is defined by the dataspace.
      */
-    RGBA_1010102       = 0x2B,
-
+    RGBA_1010102 = 0x2B,
     /**
      * 0x100 - 0x1FF
      *
      * This range is reserved for vendor extensions. Formats in this range
      * must support BufferUsage::GPU_TEXTURE. Clients must assume they do not
      * have an alpha component.
-     */
-
-    /**
+     *
+     *
      * Y8 is a YUV planar format comprised of a WxH Y plane, with each pixel
      * being represented by 8 bits. It is equivalent to just the Y plane from
      * YV12.
@@ -356,8 +340,7 @@ enum PixelFormat : int32_t {
      * The component values are unsigned normalized to the range [0, 1], whose
      * interpretation is defined by the dataspace.
      */
-    Y8                 = 0x20203859,
-
+    Y8 = 0x20203859,
     /**
      * Y16 is a YUV planar format comprised of a WxH Y plane, with each pixel
      * being represented by 16 bits. It is just like Y8, but has double the
@@ -383,8 +366,7 @@ enum PixelFormat : int32_t {
      * Dataspace::DEPTH, each pixel is a distance value measured by a depth
      * camera, plus an associated confidence value.
      */
-    Y16                = 0x20363159,
-
+    Y16 = 0x20363159,
     /**
      * YV12 is a 4:2:0 YCrCb planar format comprised of a WxH Y plane followed
      * by (W/2) x (H/2) Cr and Cb planes.
@@ -416,118 +398,150 @@ enum PixelFormat : int32_t {
      * The component values are unsigned normalized to the range [0, 1], whose
      * interpretation is defined by the dataspace.
      */
-    YV12               = 0x32315659, // YCrCb 4:2:0 Planar
+    YV12 = 0x32315659,
 };
 
 /**
  * Buffer usage definitions.
  */
 enum BufferUsage : uint64_t {
-    /** bit 0-3 is an enum */
-    CPU_READ_MASK   = 0xfULL,
-    /** buffer is never read by CPU */
-    CPU_READ_NEVER  = 0,
-    /** buffer is rarely read by CPU */
-    CPU_READ_RARELY = 2,
-    /** buffer is often read by CPU */
-    CPU_READ_OFTEN  = 3,
-
-    /** bit 4-7 is an enum */
-    CPU_WRITE_MASK   = 0xfULL << 4,
-    /** buffer is never written by CPU */
-    CPU_WRITE_NEVER  = 0 << 4,
-    /** buffer is rarely written by CPU */
-    CPU_WRITE_RARELY = 2 << 4,
-    /** buffer is often written by CPU */
-    CPU_WRITE_OFTEN  = 3 << 4,
-
-    /** buffer is used as a GPU texture */
-    GPU_TEXTURE       = 1ULL << 8,
-
-    /** buffer is used as a GPU render target */
-    GPU_RENDER_TARGET = 1ULL << 9,
-
-    /** bit 10 must be zero */
-
-    /** buffer is used as a composer HAL overlay layer */
-    COMPOSER_OVERLAY  = 1ULL << 11,
-    /** buffer is used as a composer HAL client target */
-    COMPOSER_CLIENT_TARGET = 1ULL << 12,
-
-    /** bit 13 must be zero */
-
     /**
+     * bit 0-3 is an enum
+     */
+    CPU_READ_MASK = 0xfULL,
+    /**
+     * buffer is never read by CPU
+     */
+    CPU_READ_NEVER = 0,
+    /**
+     * buffer is rarely read by CPU
+     */
+    CPU_READ_RARELY = 2,
+    /**
+     * buffer is often read by CPU
+     */
+    CPU_READ_OFTEN = 3,
+    /**
+     * bit 4-7 is an enum
+     */
+    CPU_WRITE_MASK = 0xfULL << 4,
+    /**
+     * buffer is never written by CPU
+     */
+    CPU_WRITE_NEVER = 0 << 4,
+    /**
+     * buffer is rarely written by CPU
+     */
+    CPU_WRITE_RARELY = 2 << 4,
+    /**
+     * buffer is often written by CPU
+     */
+    CPU_WRITE_OFTEN = 3 << 4,
+    /**
+     * buffer is used as a GPU texture
+     */
+    GPU_TEXTURE = 1ULL << 8,
+    /**
+     * buffer is used as a GPU render target
+     */
+    GPU_RENDER_TARGET = 1ULL << 9,
+    /**
+     * bit 10 must be zero
+     *
+     *
+     * buffer is used as a composer HAL overlay layer
+     */
+    COMPOSER_OVERLAY = 1ULL << 11,
+    /**
+     * buffer is used as a composer HAL client target
+     */
+    COMPOSER_CLIENT_TARGET = 1ULL << 12,
+    /**
+     * bit 13 must be zero
+     *
+     *
      * Buffer is allocated with hardware-level protection against copying the
      * contents (or information derived from the contents) into unprotected
      * memory.
      */
-    PROTECTED         = 1ULL << 14,
-
-    /** buffer is used as a hwcomposer HAL cursor layer */
-    COMPOSER_CURSOR   = 1ULL << 15,
-
-    /** buffer is used as a video encoder input */
-    VIDEO_ENCODER     = 1ULL << 16,
-
-    /** buffer is used as a camera HAL output */
-    CAMERA_OUTPUT     = 1ULL << 17,
-
-    /** buffer is used as a camera HAL input */
-    CAMERA_INPUT      = 1ULL << 18,
-
-    /** bit 19 must be zero */
-
-    /** buffer is used as a renderscript allocation */
-    RENDERSCRIPT      = 1ULL << 20,
-
-    /** bit 21 must be zero */
-
-    /** buffer is used as a video decoder output */
-    VIDEO_DECODER     = 1ULL << 22,
-
-    /** buffer is used as a sensor direct report output */
+    PROTECTED = 1ULL << 14,
+    /**
+     * buffer is used as a hwcomposer HAL cursor layer
+     */
+    COMPOSER_CURSOR = 1ULL << 15,
+    /**
+     * buffer is used as a video encoder input
+     */
+    VIDEO_ENCODER = 1ULL << 16,
+    /**
+     * buffer is used as a camera HAL output
+     */
+    CAMERA_OUTPUT = 1ULL << 17,
+    /**
+     * buffer is used as a camera HAL input
+     */
+    CAMERA_INPUT = 1ULL << 18,
+    /**
+     * bit 19 must be zero
+     *
+     *
+     * buffer is used as a renderscript allocation
+     */
+    RENDERSCRIPT = 1ULL << 20,
+    /**
+     * bit 21 must be zero
+     *
+     *
+     * buffer is used as a video decoder output
+     */
+    VIDEO_DECODER = 1ULL << 22,
+    /**
+     * buffer is used as a sensor direct report output
+     */
     SENSOR_DIRECT_DATA = 1ULL << 23,
-
     /**
      * buffer is used as as an OpenGL shader storage or uniform
      * buffer object
      */
-    GPU_DATA_BUFFER   = 1ULL << 24,
-
-    /** bits 25-27 must be zero and are reserved for future versions */
-    /** bits 28-31 are reserved for vendor extensions */
-    VENDOR_MASK       = 0xfULL << 28,
-
-    /** bits 32-47 must be zero and are reserved for future versions */
-    /** bits 48-63 are reserved for vendor extensions */
-    VENDOR_MASK_HI    = 0xffffULL << 48,
+    GPU_DATA_BUFFER = 1ULL << 24,
+    /**
+     * bits 25-27 must be zero and are reserved for future versions
+     *
+     *
+     * bits 28-31 are reserved for vendor extensions
+     */
+    VENDOR_MASK = 0xfULL << 28,
+    /**
+     * bits 32-47 must be zero and are reserved for future versions
+     *
+     *
+     * bits 48-63 are reserved for vendor extensions
+     */
+    VENDOR_MASK_HI = 0xffffULL << 48,
 };
 
 /**
  * Transformation definitions
  */
-@export(name="android_transform_t", value_prefix="HAL_TRANSFORM_")
+@export(name = "android_transform_t", value_prefix = "HAL_TRANSFORM_")
 enum Transform : int32_t {
     /**
      * Horizontal flip. FLIP_H/FLIP_V is applied before ROT_90.
      */
-    FLIP_H    = 1 << 0,
-
+    FLIP_H = 1 << 0,
     /**
      * Vertical flip. FLIP_H/FLIP_V is applied before ROT_90.
      */
-    FLIP_V    = 1 << 1,
-
+    FLIP_V = 1 << 1,
     /**
      * 90 degree clockwise rotation. FLIP_H/FLIP_V is applied before ROT_90.
      */
-    ROT_90    = 1 << 2,
-
+    ROT_90 = 1 << 2,
     /**
      * Commonly used combinations.
      */
-    ROT_180   = FLIP_H | FLIP_V,
-    ROT_270   = FLIP_H | FLIP_V | ROT_90,
+    ROT_180 = FLIP_H | FLIP_V,
+    ROT_270 = FLIP_H | FLIP_V | ROT_90,
 };
 
 /**
@@ -573,7 +587,7 @@ enum Transform : int32_t {
  * all zeroes), the bottom 16 bits contain either a legacy dataspace value,
  * or a custom value.
  */
-@export(name="android_dataspace_t", value_prefix="HAL_DATASPACE_")
+@export(name = "android_dataspace_t", value_prefix = "HAL_DATASPACE_")
 enum Dataspace : int32_t {
     /**
      * Default-assumption data space, when not explicitly specified.
@@ -585,7 +599,6 @@ enum Dataspace : int32_t {
      * screen.
      */
     UNKNOWN = 0x0,
-
     /**
      * Arbitrary dataspace with manually defined characteristics.  Definition
      * for colorspaces or other meaning must be communicated separately.
@@ -598,7 +611,6 @@ enum Dataspace : int32_t {
      * characteristics, etc.
      */
     ARBITRARY = 0x1,
-
     /**
      * Color-description aspects
      *
@@ -606,17 +618,14 @@ enum Dataspace : int32_t {
      * specification. These represent bitfields, so that a data space value
      * can specify each of them independently.
      */
-
     STANDARD_SHIFT = 16,
-
     /**
      * Standard aspect
      *
      * Defines the chromaticity coordinates of the source primaries in terms of
      * the CIE 1931 definition of x and y specified in ISO 11664-1.
      */
-    STANDARD_MASK = 63 << STANDARD_SHIFT,  // 0x3F
-
+    STANDARD_MASK = 63 << STANDARD_SHIFT,
     /**
      * Chromacity coordinates are unknown or are determined by the application.
      * Implementations shall use the following suggested standards:
@@ -631,7 +640,6 @@ enum Dataspace : int32_t {
      * an appropriate standard for the data represented.
      */
     STANDARD_UNSPECIFIED = 0 << STANDARD_SHIFT,
-
     /**
      * Primaries:       x       y
      *  green           0.300   0.600
@@ -643,7 +651,6 @@ enum Dataspace : int32_t {
      * for RGB conversion.
      */
     STANDARD_BT709 = 1 << STANDARD_SHIFT,
-
     /**
      * Primaries:       x       y
      *  green           0.290   0.600
@@ -657,7 +664,6 @@ enum Dataspace : int32_t {
      *  primaries.
      */
     STANDARD_BT601_625 = 2 << STANDARD_SHIFT,
-
     /**
      * Primaries:       x       y
      *  green           0.290   0.600
@@ -669,7 +675,6 @@ enum Dataspace : int32_t {
      * for RGB conversion.
      */
     STANDARD_BT601_625_UNADJUSTED = 3 << STANDARD_SHIFT,
-
     /**
      * Primaries:       x       y
      *  green           0.310   0.595
@@ -683,7 +688,6 @@ enum Dataspace : int32_t {
      *  primaries.
      */
     STANDARD_BT601_525 = 4 << STANDARD_SHIFT,
-
     /**
      * Primaries:       x       y
      *  green           0.310   0.595
@@ -695,7 +699,6 @@ enum Dataspace : int32_t {
      * for RGB conversion (as in SMPTE 240M).
      */
     STANDARD_BT601_525_UNADJUSTED = 5 << STANDARD_SHIFT,
-
     /**
      * Primaries:       x       y
      *  green           0.170   0.797
@@ -707,7 +710,6 @@ enum Dataspace : int32_t {
      * for RGB conversion.
      */
     STANDARD_BT2020 = 6 << STANDARD_SHIFT,
-
     /**
      * Primaries:       x       y
      *  green           0.170   0.797
@@ -719,7 +721,6 @@ enum Dataspace : int32_t {
      * for RGB conversion using the linear domain.
      */
     STANDARD_BT2020_CONSTANT_LUMINANCE = 7 << STANDARD_SHIFT,
-
     /**
      * Primaries:       x      y
      *  green           0.21   0.71
@@ -731,7 +732,6 @@ enum Dataspace : int32_t {
      * for RGB conversion.
      */
     STANDARD_BT470M = 8 << STANDARD_SHIFT,
-
     /**
      * Primaries:       x       y
      *  green           0.243   0.692
@@ -743,7 +743,6 @@ enum Dataspace : int32_t {
      * for RGB conversion.
      */
     STANDARD_FILM = 9 << STANDARD_SHIFT,
-
     /**
      * SMPTE EG 432-1 and SMPTE RP 431-2. (DCI-P3)
      * Primaries:       x       y
@@ -753,7 +752,6 @@ enum Dataspace : int32_t {
      *  white (D65)     0.3127  0.3290
      */
     STANDARD_DCI_P3 = 10 << STANDARD_SHIFT,
-
     /**
      * Adobe RGB
      * Primaries:       x       y
@@ -763,11 +761,7 @@ enum Dataspace : int32_t {
      *  white (D65)     0.3127  0.3290
      */
     STANDARD_ADOBE_RGB = 11 << STANDARD_SHIFT,
-
-
-
     TRANSFER_SHIFT = 22,
-
     /**
      * Transfer aspect
      *
@@ -781,9 +775,7 @@ enum Dataspace : int32_t {
      * component. Implementation may apply the transfer function in RGB space
      * for all pixel formats if desired.
      */
-
-    TRANSFER_MASK = 31 << TRANSFER_SHIFT,  // 0x1F
-
+    TRANSFER_MASK = 31 << TRANSFER_SHIFT,
     /**
      * Transfer characteristics are unknown or are determined by the
      * application.
@@ -797,7 +789,6 @@ enum Dataspace : int32_t {
      * should use an appropriate standard for the data represented.
      */
     TRANSFER_UNSPECIFIED = 0 << TRANSFER_SHIFT,
-
     /**
      * Transfer characteristic curve:
      *  E = L
@@ -805,7 +796,6 @@ enum Dataspace : int32_t {
      *      E - corresponding electrical signal
      */
     TRANSFER_LINEAR = 1 << TRANSFER_SHIFT,
-
     /**
      * Transfer characteristic curve:
      *
@@ -815,7 +805,6 @@ enum Dataspace : int32_t {
      *     E - corresponding electrical signal
      */
     TRANSFER_SRGB = 2 << TRANSFER_SHIFT,
-
     /**
      * BT.601 525, BT.601 625, BT.709, BT.2020
      *
@@ -826,7 +815,6 @@ enum Dataspace : int32_t {
      *      E - corresponding electrical signal
      */
     TRANSFER_SMPTE_170M = 3 << TRANSFER_SHIFT,
-
     /**
      * Assumed display gamma 2.2.
      *
@@ -836,7 +824,6 @@ enum Dataspace : int32_t {
      *      E - corresponding electrical signal
      */
     TRANSFER_GAMMA2_2 = 4 << TRANSFER_SHIFT,
-
     /**
      *  display gamma 2.6.
      *
@@ -846,7 +833,6 @@ enum Dataspace : int32_t {
      *      E - corresponding electrical signal
      */
     TRANSFER_GAMMA2_6 = 5 << TRANSFER_SHIFT,
-
     /**
      *  display gamma 2.8.
      *
@@ -856,7 +842,6 @@ enum Dataspace : int32_t {
      *      E - corresponding electrical signal
      */
     TRANSFER_GAMMA2_8 = 6 << TRANSFER_SHIFT,
-
     /**
      * SMPTE ST 2084 (Dolby Perceptual Quantizer)
      *
@@ -872,7 +857,6 @@ enum Dataspace : int32_t {
      *      E - corresponding electrical signal
      */
     TRANSFER_ST2084 = 7 << TRANSFER_SHIFT,
-
     /**
      * ARIB STD-B67 Hybrid Log Gamma
      *
@@ -888,17 +872,14 @@ enum Dataspace : int32_t {
      *      E - corresponding electrical signal
      */
     TRANSFER_HLG = 8 << TRANSFER_SHIFT,
-
     RANGE_SHIFT = 27,
-
     /**
      * Range aspect
      *
      * Defines the range of values corresponding to the unit range of 0-1.
      * This is defined for YCbCr only, but can be expanded to RGB space.
      */
-    RANGE_MASK = 7 << RANGE_SHIFT,  // 0x7
-
+    RANGE_MASK = 7 << RANGE_SHIFT,
     /**
      * Range is unknown or are determined by the application.  Implementations
      * shall use the following suggested ranges:
@@ -911,13 +892,11 @@ enum Dataspace : int32_t {
      * an appropriate range for the data represented.
      */
     RANGE_UNSPECIFIED = 0 << RANGE_SHIFT,
-
     /**
      * Full range uses all values for Y, Cb and Cr from
      * 0 to 2^b-1, where b is the bit depth of the color format.
      */
     RANGE_FULL = 1 << RANGE_SHIFT,
-
     /**
      * Limited range uses values 16/256*2^b to 235/256*2^b for Y, and
      * 1/16*2^b to 15/16*2^b for Cb, Cr, R, G and B, where b is the bit depth of
@@ -932,7 +911,6 @@ enum Dataspace : int32_t {
      * Chroma (Cb, Cr) samples should range from 64 to 960, inclusive
      */
     RANGE_LIMITED = 2 << RANGE_SHIFT,
-
     /**
      * Extended range is used for scRGB. Intended for use with
      * floating point pixel formats. [0.0 - 1.0] is the standard
@@ -941,12 +919,10 @@ enum Dataspace : int32_t {
      * Used to blend / merge multiple dataspaces on a single display.
      */
     RANGE_EXTENDED = 3 << RANGE_SHIFT,
-
     /**
      * Legacy dataspaces
-     */
-
-    /**
+     *
+     *
      * sRGB linear encoding:
      *
      * The red, green, and blue components are stored in sRGB space, but
@@ -956,11 +932,8 @@ enum Dataspace : int32_t {
      * The values are encoded using the full range ([0,255] for 8-bit) for all
      * components.
      */
-    SRGB_LINEAR = 0x200, // deprecated, use V0_SRGB_LINEAR
-
+    SRGB_LINEAR = 0x200,
     V0_SRGB_LINEAR = STANDARD_BT709 | TRANSFER_LINEAR | RANGE_FULL,
-
-
     /**
      * scRGB linear encoding:
      *
@@ -974,8 +947,6 @@ enum Dataspace : int32_t {
      * spaces and/or HDR content.
      */
     V0_SCRGB_LINEAR = STANDARD_BT709 | TRANSFER_LINEAR | RANGE_EXTENDED,
-
-
     /**
      * sRGB gamma encoding:
      *
@@ -989,11 +960,8 @@ enum Dataspace : int32_t {
      *
      * Use full range and BT.709 standard.
      */
-    SRGB = 0x201, // deprecated, use V0_SRGB
-
+    SRGB = 0x201,
     V0_SRGB = STANDARD_BT709 | TRANSFER_SRGB | RANGE_FULL,
-
-
     /**
      * scRGB:
      *
@@ -1007,7 +975,6 @@ enum Dataspace : int32_t {
      * spaces and/or HDR content.
      */
     V0_SCRGB = STANDARD_BT709 | TRANSFER_SRGB | RANGE_EXTENDED,
-
     /**
      * YCbCr Colorspaces
      * -----------------
@@ -1017,19 +984,16 @@ enum Dataspace : int32_t {
      *
      * Transfer characteristics are the opto-electronic transfer characteristic
      * at the source as a function of linear optical intensity (luminance).
-     */
-
-    /**
+     *
+     *
      * JPEG File Interchange Format (JFIF)
      *
      * Same model as BT.601-625, but all values (Y, Cb, Cr) range from 0 to 255
      *
      * Use full range, BT.601 transfer and BT.601_625 standard.
      */
-    JFIF = 0x101, // deprecated, use V0_JFIF
-
+    JFIF = 0x101,
     V0_JFIF = STANDARD_BT601_625 | TRANSFER_SMPTE_170M | RANGE_FULL,
-
     /**
      * ITU-R Recommendation 601 (BT.601) - 625-line
      *
@@ -1037,11 +1001,8 @@ enum Dataspace : int32_t {
      *
      * Use limited range, BT.601 transfer and BT.601_625 standard.
      */
-    BT601_625 = 0x102, // deprecated, use V0_BT601_625
-
+    BT601_625 = 0x102,
     V0_BT601_625 = STANDARD_BT601_625 | TRANSFER_SMPTE_170M | RANGE_LIMITED,
-
-
     /**
      * ITU-R Recommendation 601 (BT.601) - 525-line
      *
@@ -1049,10 +1010,8 @@ enum Dataspace : int32_t {
      *
      * Use limited range, BT.601 transfer and BT.601_525 standard.
      */
-    BT601_525 = 0x103, // deprecated, use V0_BT601_525
-
+    BT601_525 = 0x103,
     V0_BT601_525 = STANDARD_BT601_525 | TRANSFER_SMPTE_170M | RANGE_LIMITED,
-
     /**
      * ITU-R Recommendation 709 (BT.709)
      *
@@ -1060,11 +1019,8 @@ enum Dataspace : int32_t {
      *
      * Use limited range, BT.709 transfer and BT.709 standard.
      */
-    BT709 = 0x104, // deprecated, use V0_BT709
-
+    BT709 = 0x104,
     V0_BT709 = STANDARD_BT709 | TRANSFER_SMPTE_170M | RANGE_LIMITED,
-
-
     /**
      * SMPTE EG 432-1 and SMPTE RP 431-2.
      *
@@ -1073,8 +1029,6 @@ enum Dataspace : int32_t {
      * Use full range, linear transfer and D65 DCI-P3 standard
      */
     DCI_P3_LINEAR = STANDARD_DCI_P3 | TRANSFER_LINEAR | RANGE_FULL,
-
-
     /**
      * SMPTE EG 432-1 and SMPTE RP 431-2.
      *
@@ -1085,8 +1039,6 @@ enum Dataspace : int32_t {
      * a 2.6 gamma encoding is not supported in HW.
      */
     DCI_P3 = STANDARD_DCI_P3 | TRANSFER_GAMMA2_6 | RANGE_FULL,
-
-
     /**
      * Display P3
      *
@@ -1094,8 +1046,6 @@ enum Dataspace : int32_t {
      * linear transfer function makes this the same as DCI_P3_LINEAR.
      */
     DISPLAY_P3_LINEAR = STANDARD_DCI_P3 | TRANSFER_LINEAR | RANGE_FULL,
-
-
     /**
      * Display P3
      *
@@ -1103,8 +1053,6 @@ enum Dataspace : int32_t {
      * but sRGB transfer function.
      */
     DISPLAY_P3 = STANDARD_DCI_P3 | TRANSFER_SRGB | RANGE_FULL,
-
-
     /**
      * Adobe RGB
      *
@@ -1113,8 +1061,6 @@ enum Dataspace : int32_t {
      * a 2.2 gamma encoding is not supported in HW.
      */
     ADOBE_RGB = STANDARD_ADOBE_RGB | TRANSFER_GAMMA2_2 | RANGE_FULL,
-
-
     /**
      * ITU-R Recommendation 2020 (BT.2020)
      *
@@ -1123,8 +1069,6 @@ enum Dataspace : int32_t {
      * Use full range, linear transfer and BT2020 standard
      */
     BT2020_LINEAR = STANDARD_BT2020 | TRANSFER_LINEAR | RANGE_FULL,
-
-
     /**
      * ITU-R Recommendation 2020 (BT.2020)
      *
@@ -1133,7 +1077,6 @@ enum Dataspace : int32_t {
      * Use full range, BT.709 transfer and BT2020 standard
      */
     BT2020 = STANDARD_BT2020 | TRANSFER_SMPTE_170M | RANGE_FULL,
-
     /**
      * ITU-R Recommendation 2020 (BT.2020)
      *
@@ -1142,13 +1085,10 @@ enum Dataspace : int32_t {
      * Use full range, SMPTE 2084 (PQ) transfer and BT2020 standard
      */
     BT2020_PQ = STANDARD_BT2020 | TRANSFER_ST2084 | RANGE_FULL,
-
-
     /**
      * Data spaces for non-color formats
-     */
-
-    /**
+     *
+     *
      * The buffer contains depth ranging measurements from a depth camera.
      * This value is valid with formats:
      *    HAL_PIXEL_FORMAT_Y16: 16-bit samples, consisting of a depth measurement
@@ -1167,8 +1107,6 @@ enum Dataspace : int32_t {
      *       structure.
      */
     DEPTH = 0x1000,
-
-
     /**
      * The buffer contains sensor events from sensor direct report.
      * This value is valid with formats:
@@ -1176,7 +1114,7 @@ enum Dataspace : int32_t {
      *       a lock free queue. Format of sensor event structure is specified
      *       in Sensors HAL.
      */
-    SENSOR = 0x1001
+    SENSOR = 0x1001,
 };
 
 /**
@@ -1223,7 +1161,7 @@ enum Dataspace : int32_t {
  *  enhancement; it would be defined within a flexible color mode.
  *
  */
-@export(name="android_color_mode_t", value_prefix="HAL_COLOR_MODE_")
+@export(name = "android_color_mode_t", value_prefix = "HAL_COLOR_MODE_")
 enum ColorMode : int32_t {
     /**
      * DEFAULT is the "native" gamut of the display.
@@ -1232,7 +1170,6 @@ enum ColorMode : int32_t {
      * Rendering Intent: Vendor/OEM defined (typically 'enhanced')
      */
     NATIVE = 0,
-
     /**
      * STANDARD_BT601_625 corresponds with display
      * settings that implement the ITU-R Recommendation BT.601
@@ -1258,7 +1195,6 @@ enum ColorMode : int32_t {
      *    Vnonlinear = 1.099 * (Vlinear)^(0.45) – 0.099
      */
     STANDARD_BT601_625 = 1,
-
     /**
      * Primaries:
      *                  x       y
@@ -1278,7 +1214,6 @@ enum ColorMode : int32_t {
      *    Vnonlinear = 1.099 * (Vlinear)^(0.45) – 0.099
      */
     STANDARD_BT601_625_UNADJUSTED = 2,
-
     /**
      * Primaries:
      *                  x       y
@@ -1300,7 +1235,6 @@ enum ColorMode : int32_t {
      *    Vnonlinear = 1.099 * (Vlinear)^(0.45) – 0.099
      */
     STANDARD_BT601_525 = 3,
-
     /**
      * Primaries:
      *                  x       y
@@ -1320,7 +1254,6 @@ enum ColorMode : int32_t {
      *    Vnonlinear = 1.099 * (Vlinear)^(0.45) – 0.099
      */
     STANDARD_BT601_525_UNADJUSTED = 4,
-
     /**
      * REC709 corresponds with display settings that implement
      * the ITU-R Recommendation BT.709 / Rec. 709 for high-definition television.
@@ -1348,7 +1281,6 @@ enum ColorMode : int32_t {
      *    Vnonlinear = 1.099 * (Vlinear) ^ 0.45 – 0.099
      */
     STANDARD_BT709 = 5,
-
     /**
      * DCI_P3 corresponds with display settings that implement
      * SMPTE EG 432-1 and SMPTE RP 431-2
@@ -1363,7 +1295,6 @@ enum ColorMode : int32_t {
      * Gamma: 2.6
      */
     DCI_P3 = 6,
-
     /**
      * SRGB corresponds with display settings that implement
      * the sRGB color space. Uses the same primaries as ITU-R Recommendation
@@ -1391,7 +1322,6 @@ enum ColorMode : int32_t {
      *    Vnonlinear = 1.055 * (Vlinear)^(1/2.4) – 0.055
      */
     SRGB = 7,
-
     /**
      * ADOBE_RGB corresponds with the RGB color space developed
      * by Adobe Systems, Inc. in 1998.
@@ -1406,7 +1336,6 @@ enum ColorMode : int32_t {
      * Gamma: 2.2
      */
     ADOBE_RGB = 8,
-
     /**
      * DISPLAY_P3 is a color space that uses the DCI_P3 primaries,
      * the D65 white point and the SRGB transfer functions.
@@ -1427,50 +1356,61 @@ enum ColorMode : int32_t {
      *
      * Note: In most cases sRGB transfer function will be fine.
      */
-    DISPLAY_P3 = 9
+    DISPLAY_P3 = 9,
 };
 
 /**
  * Color transforms that may be applied by hardware composer to the whole
  * display.
  */
-@export(name="android_color_transform_t", value_prefix="HAL_COLOR_TRANSFORM_")
+@export(name = "android_color_transform_t", value_prefix = "HAL_COLOR_TRANSFORM_")
 enum ColorTransform : int32_t {
-    /** Applies no transform to the output color */
+    /**
+     * Applies no transform to the output color
+     */
     IDENTITY = 0,
-
-    /** Applies an arbitrary transform defined by a 4x4 affine matrix */
+    /**
+     * Applies an arbitrary transform defined by a 4x4 affine matrix
+     */
     ARBITRARY_MATRIX = 1,
-
     /**
      * Applies a transform that inverts the value or luminance of the color, but
-     * does not modify hue or saturation */
+     * does not modify hue or saturation
+     */
     VALUE_INVERSE = 2,
-
-    /** Applies a transform that maps all colors to shades of gray */
+    /**
+     * Applies a transform that maps all colors to shades of gray
+     */
     GRAYSCALE = 3,
-
-    /** Applies a transform which corrects for protanopic color blindness */
+    /**
+     * Applies a transform which corrects for protanopic color blindness
+     */
     CORRECT_PROTANOPIA = 4,
-
-    /** Applies a transform which corrects for deuteranopic color blindness */
+    /**
+     * Applies a transform which corrects for deuteranopic color blindness
+     */
     CORRECT_DEUTERANOPIA = 5,
-
-    /** Applies a transform which corrects for tritanopic color blindness */
-    CORRECT_TRITANOPIA = 6
+    /**
+     * Applies a transform which corrects for tritanopic color blindness
+     */
+    CORRECT_TRITANOPIA = 6,
 };
 
 /**
  * Supported HDR formats. Must be kept in sync with equivalents in Display.java.
  */
-@export(name="android_hdr_t", value_prefix="HAL_HDR_")
+@export(name = "android_hdr_t", value_prefix = "HAL_HDR_")
 enum Hdr : int32_t {
-    /** Device supports Dolby Vision HDR */
+    /**
+     * Device supports Dolby Vision HDR
+     */
     DOLBY_VISION = 1,
-
-    /** Device supports HDR10 */
+    /**
+     * Device supports HDR10
+     */
     HDR10 = 2,
-
-    /** Device supports hybrid log-gamma HDR */
-    HLG = 3
+    /**
+     * Device supports hybrid log-gamma HDR
+     */
+    HLG = 3,
 };

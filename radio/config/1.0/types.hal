@@ -22,11 +22,11 @@ enum SlotState : int32_t {
     /**
      * Physical slot is inactive
      */
-    INACTIVE  = 0x00,
+    INACTIVE = 0x00,
     /**
      * Physical slot is active
      */
-    ACTIVE    = 0x01,
+    ACTIVE = 0x01,
 };
 
 struct SimSlotStatus {

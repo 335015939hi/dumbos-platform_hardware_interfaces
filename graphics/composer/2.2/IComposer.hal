@@ -19,7 +19,4 @@ package android.hardware.graphics.composer@2.2;
 import @2.1::IComposer;
 
 interface IComposer extends @2.1::IComposer {
-
-    /* createClient from @2.1::IComposer must return an instance of @2.2::IComposerClient */
-
 };

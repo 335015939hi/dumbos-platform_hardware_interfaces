@@ -25,9 +25,6 @@ struct CommandResult {
     string errMsg;
 };
 
-/**
- * An identifier for a slot number.
- */
 typedef uint32_t Slot;
 
 /**
@@ -37,5 +34,5 @@ typedef uint32_t Slot;
 enum BoolResult : int32_t {
     FALSE = 0,
     TRUE = 1,
-    INVALID_SLOT = -1
+    INVALID_SLOT = -1,
 };

@@ -26,7 +26,7 @@ interface IEffect {
      * @return retval operation completion status.
      */
     @entry
-    @callflow(next={"*"})
+    @callflow(next = "*")
     init() generates (Result retval);
 
     /**
@@ -39,11 +39,9 @@ interface IEffect {
      * @param outputBufferProvider optional buffer provider reference.
      * @return retval operation completion status.
      */
-    @callflow(next={"*"})
-    setConfig(EffectConfig config,
-            IEffectBufferProviderCallback inputBufferProvider,
-            IEffectBufferProviderCallback outputBufferProvider)
-            generates (Result retval);
+    @callflow(next = "*")
+    setConfig(EffectConfig config, IEffectBufferProviderCallback inputBufferProvider,
+        IEffectBufferProviderCallback outputBufferProvider) generates (Result retval);
 
     /**
      * Reset the effect engine. Keep configuration but resets state and buffer
@@ -51,7 +49,7 @@ interface IEffect {
      *
      * @return retval operation completion status.
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     reset() generates (Result retval);
 
     /**
@@ -59,7 +57,7 @@ interface IEffect {
      *
      * @return retval operation completion status.
      */
-    @callflow(next={"prepareForProcessing"})
+    @callflow(next = "prepareForProcessing")
     enable() generates (Result retval);
 
     /**
@@ -67,7 +65,7 @@ interface IEffect {
      *
      * @return retval operation completion status.
      */
-    @callflow(next={"close"})
+    @callflow(next = "close")
     disable() generates (Result retval);
 
     /**
@@ -81,7 +79,7 @@ interface IEffect {
      * @param device output device specification.
      * @return retval operation completion status.
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     setDevice(AudioDevice device) generates (Result retval);
 
     /**
@@ -99,9 +97,8 @@ interface IEffect {
      * @return result updated volume values.
      * @return retval operation completion status.
      */
-    @callflow(next={"*"})
-    setAndGetVolume(vec<uint32_t> volumes)
-            generates (Result retval, vec<uint32_t> result);
+    @callflow(next = "*")
+    setAndGetVolume(vec<uint32_t> volumes) generates (Result retval, vec<uint32_t> result);
 
     /**
      * Notify the effect of the volume change. The effect implementation must
@@ -113,8 +110,7 @@ interface IEffect {
      *                point format.
      * @return retval operation completion status.
      */
-    volumeChangeNotification(vec<uint32_t> volumes)
-            generates (Result retval);
+    volumeChangeNotification(vec<uint32_t> volumes) generates (Result retval);
 
     /**
      * Set the audio mode. The effect implementation must set
@@ -124,7 +120,7 @@ interface IEffect {
      * @param mode desired audio mode.
      * @return retval operation completion status.
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     setAudioMode(AudioMode mode) generates (Result retval);
 
     /**
@@ -137,11 +133,9 @@ interface IEffect {
      * @param outputBufferProvider optional buffer provider reference.
      * @return retval operation completion status.
      */
-    @callflow(next={"*"})
-    setConfigReverse(EffectConfig config,
-            IEffectBufferProviderCallback inputBufferProvider,
-            IEffectBufferProviderCallback outputBufferProvider)
-            generates (Result retval);
+    @callflow(next = "*")
+    setConfigReverse(EffectConfig config, IEffectBufferProviderCallback inputBufferProvider,
+        IEffectBufferProviderCallback outputBufferProvider) generates (Result retval);
 
     /**
      * Set the capture device the audio input path is connected to. The effect
@@ -154,7 +148,7 @@ interface IEffect {
      * @param device input device specification.
      * @return retval operation completion status.
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     setInputDevice(AudioDevice device) generates (Result retval);
 
     /**
@@ -163,7 +157,7 @@ interface IEffect {
      * @return retval operation completion status.
      * @return config configuration descriptor.
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     getConfig() generates (Result retval, EffectConfig config);
 
     /**
@@ -173,7 +167,7 @@ interface IEffect {
      * @return retval operation completion status.
      * @return config configuration descriptor.
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     getConfigReverse() generates (Result retval, EffectConfig config);
 
     /**
@@ -186,9 +180,9 @@ interface IEffect {
      *                the number of supported combinations exceeds 'maxConfigs'.
      * @return result list of configuration descriptors.
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     getSupportedAuxChannelsConfigs(uint32_t maxConfigs)
-            generates (Result retval, vec<EffectAuxChannelsConfig> result);
+        generates (Result retval, vec<EffectAuxChannelsConfig> result);
 
     /**
      * Retrieves the current configuration of main and auxiliary channels.
@@ -197,9 +191,8 @@ interface IEffect {
      *                NOT_SUPPORTED code.
      * @return result configuration descriptor.
      */
-    @callflow(next={"*"})
-    getAuxChannelsConfig()
-            generates (Result retval, EffectAuxChannelsConfig result);
+    @callflow(next = "*")
+    getAuxChannelsConfig() generates (Result retval, EffectAuxChannelsConfig result);
 
     /**
      * Sets the current configuration of main and auxiliary channels.
@@ -207,9 +200,8 @@ interface IEffect {
      * @return retval operation completion status; absence of the feature
      *                support is indicated using NOT_SUPPORTED code.
      */
-    @callflow(next={"*"})
-    setAuxChannelsConfig(EffectAuxChannelsConfig config)
-            generates (Result retval);
+    @callflow(next = "*")
+    setAuxChannelsConfig(EffectAuxChannelsConfig config) generates (Result retval);
 
     /**
      * Set the audio source the capture path is configured for (Camcorder, voice
@@ -221,7 +213,7 @@ interface IEffect {
      * @param source source descriptor.
      * @return retval operation completion status.
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     setAudioSource(AudioSource source) generates (Result retval);
 
     /**
@@ -232,7 +224,7 @@ interface IEffect {
      * @param param effect offload descriptor.
      * @return retval operation completion status.
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     offload(EffectOffloadParameter param) generates (Result retval);
 
     /**
@@ -241,7 +233,7 @@ interface IEffect {
      * @return retval operation completion status.
      * @return descriptor effect descriptor.
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     getDescriptor() generates (Result retval, EffectDescriptor descriptor);
 
     /**
@@ -267,7 +259,7 @@ interface IEffect {
      *                                  the queue.
      * @return statusMQ a message queue used for passing status from the effect.
      */
-    @callflow(next={"setProcessBuffers"})
+    @callflow(next = "setProcessBuffers")
     prepareForProcessing() generates (Result retval, fmq_sync<Result> statusMQ);
 
     /**
@@ -285,9 +277,8 @@ interface IEffect {
      *                INVALID_ARGUMENTS if there was a problem with mapping
      *                                  any of the buffers.
      */
-    @callflow(next={"*"})
-    setProcessBuffers(AudioBuffer inBuffer, AudioBuffer outBuffer) generates (
-            Result retval);
+    @callflow(next = "*")
+    setProcessBuffers(AudioBuffer inBuffer, AudioBuffer outBuffer) generates (Result retval);
 
     /**
      * Execute a vendor specific command on the effect. The command code
@@ -308,7 +299,7 @@ interface IEffect {
      * @return result result data.
      */
     command(uint32_t commandId, vec<uint8_t> data, uint32_t resultMaxSize)
-            generates (int32_t status, vec<uint8_t> result);
+        generates (int32_t status, vec<uint8_t> result);
 
     /**
      * Set a vendor-specific parameter and apply it immediately. The parameter
@@ -327,9 +318,8 @@ interface IEffect {
      * @param value the value of the parameter.
      * @return retval operation completion status.
      */
-    @callflow(next={"*"})
-    setParameter(vec<uint8_t> parameter, vec<uint8_t> value)
-            generates (Result retval);
+    @callflow(next = "*")
+    setParameter(vec<uint8_t> parameter, vec<uint8_t> value) generates (Result retval);
 
     /**
      * Get a vendor-specific parameter value. The parameter code and returned
@@ -349,9 +339,9 @@ interface IEffect {
      * @return retval operation completion status.
      * @return result the value of the parameter.
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     getParameter(vec<uint8_t> parameter, uint32_t valueMaxSize)
-            generates (Result retval, vec<uint8_t> value);
+        generates (Result retval, vec<uint8_t> value);
 
     /**
      * Get supported configs for a vendor-specific feature. The configs returned
@@ -375,14 +365,9 @@ interface IEffect {
      * @return configsCount number of configs returned.
      * @return configsData data for all the configs returned.
      */
-    @callflow(next={"*"})
-    getSupportedConfigsForFeature(
-            uint32_t featureId,
-            uint32_t maxConfigs,
-            uint32_t configSize) generates (
-                    Result retval,
-                    uint32_t configsCount,
-                    vec<uint8_t> configsData);
+    @callflow(next = "*")
+    getSupportedConfigsForFeature(uint32_t featureId, uint32_t maxConfigs, uint32_t configSize)
+        generates (Result retval, uint32_t configsCount, vec<uint8_t> configsData);
 
     /**
      * Get the current config for a vendor-specific feature. The config returned
@@ -402,9 +387,9 @@ interface IEffect {
      * @return retval operation completion status.
      * @return configData config data.
      */
-    @callflow(next={"*"})
+    @callflow(next = "*")
     getCurrentConfigForFeature(uint32_t featureId, uint32_t configSize)
-            generates (Result retval, vec<uint8_t> configData);
+        generates (Result retval, vec<uint8_t> configData);
 
     /**
      * Set the current config for a vendor-specific feature. The config data
@@ -424,7 +409,7 @@ interface IEffect {
      * @return retval operation completion status.
      */
     setCurrentConfigForFeature(uint32_t featureId, vec<uint8_t> configData)
-            generates (Result retval);
+        generates (Result retval);
 
     /**
      * Called by the framework to deinitialize the effect and free up

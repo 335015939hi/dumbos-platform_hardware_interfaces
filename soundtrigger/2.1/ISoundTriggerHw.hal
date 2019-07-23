@@ -19,24 +19,26 @@ package android.hardware.soundtrigger@2.1;
 import @2.0::ISoundTriggerHw;
 import @2.0::ISoundTriggerHwCallback.CallbackCookie;
 import @2.0::SoundModelHandle;
-
 import ISoundTriggerHwCallback;
 
 /**
  * SoundTrigger HAL interface. Used for hardware recognition of hotwords.
  */
 interface ISoundTriggerHw extends @2.0::ISoundTriggerHw {
-
     /**
      * Base sound model descriptor. This struct is the header of a larger block
      * passed to loadSoundModel_2_1() and contains the binary data of the
      * sound model.
      */
     struct SoundModel {
-        /** Sound model header. Any data contained in the 'header.data' field
-         * is ignored */
+        /**
+         * Sound model header. Any data contained in the 'header.data' field
+         * is ignored
+         */
         @2.0::ISoundTriggerHw.SoundModel header;
-        /** Opaque data transparent to Android framework */
+        /**
+         * Opaque data transparent to Android framework
+         */
         memory data;
     };
 
@@ -46,9 +48,13 @@ interface ISoundTriggerHw extends @2.0::ISoundTriggerHw {
      * information indicated by phrases field.
      */
     struct PhraseSoundModel {
-        /** Common part of sound model descriptor */
-        SoundModel  common;
-        /** List of descriptors for key phrases supported by this sound model */
+        /**
+         * Common part of sound model descriptor
+         */
+        SoundModel common;
+        /**
+         * List of descriptors for key phrases supported by this sound model
+         */
         vec<Phrase> phrases;
     };
 
@@ -57,10 +63,14 @@ interface ISoundTriggerHw extends @2.0::ISoundTriggerHw {
      * startRecognition_2_1() method.
      */
     struct RecognitionConfig {
-        /** Configuration header. Any data contained in the 'header.data' field
-         * is ignored */
+        /**
+         * Configuration header. Any data contained in the 'header.data' field
+         * is ignored
+         */
         @2.0::ISoundTriggerHw.RecognitionConfig header;
-        /** Opaque capture configuration data transparent to the framework */
+        /**
+         * Opaque capture configuration data transparent to the framework
+         */
         memory data;
     };
 
@@ -92,11 +102,9 @@ interface ISoundTriggerHw extends @2.0::ISoundTriggerHw {
      * @return modelHandle A unique handle assigned by the HAL for use by the
      *     framework when controlling activity for this sound model.
      */
-    @callflow(next={"startRecognition_2_1", "unloadSoundModel"})
-    loadSoundModel_2_1(SoundModel soundModel,
-                   ISoundTriggerHwCallback callback,
-                   CallbackCookie cookie)
-            generates (int32_t retval, SoundModelHandle modelHandle);
+    @callflow(next = {"startRecognition_2_1", "unloadSoundModel"})
+    loadSoundModel_2_1(SoundModel soundModel, ISoundTriggerHwCallback callback,
+        CallbackCookie cookie) generates (int32_t retval, SoundModelHandle modelHandle);
 
     /**
      * Load a key phrase sound model. Once loaded, recognition of this model can
@@ -126,11 +134,9 @@ interface ISoundTriggerHw extends @2.0::ISoundTriggerHw {
      * @return modelHandle A unique handle assigned by the HAL for use by the
      *     framework when controlling activity for this sound model.
      */
-    @callflow(next={"startRecognition_2_1", "unloadSoundModel"})
-    loadPhraseSoundModel_2_1(PhraseSoundModel soundModel,
-                   ISoundTriggerHwCallback callback,
-                   CallbackCookie cookie)
-            generates (int32_t retval, SoundModelHandle modelHandle);
+    @callflow(next = {"startRecognition_2_1", "unloadSoundModel"})
+    loadPhraseSoundModel_2_1(PhraseSoundModel soundModel, ISoundTriggerHwCallback callback,
+        CallbackCookie cookie) generates (int32_t retval, SoundModelHandle modelHandle);
 
     /**
      * Start recognition on a given model. Only one recognition active
@@ -155,10 +161,7 @@ interface ISoundTriggerHw extends @2.0::ISoundTriggerHw {
      *     -ENOMEM in case of memory allocation failure,
      *     -ENODEV in case of initialization error.
      */
-    @callflow(next={"stopRecognition", "stopAllRecognitions"})
-    startRecognition_2_1(SoundModelHandle modelHandle,
-                     RecognitionConfig config,
-                     ISoundTriggerHwCallback callback,
-                     CallbackCookie cookie)
-            generates (int32_t retval);
+    @callflow(next = {"stopRecognition", "stopAllRecognitions"})
+    startRecognition_2_1(SoundModelHandle modelHandle, RecognitionConfig config,
+        ISoundTriggerHwCallback callback, CallbackCookie cookie) generates (int32_t retval);
 };

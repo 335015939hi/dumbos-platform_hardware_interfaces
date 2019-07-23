@@ -13,9 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package android.hardware.drm@1.0;
 
-import android.hardware.drm@1.0::types;
+import types;
 
 /**
  * Ref: frameworks/native/include/media/hardware/CryptoAPI.h:CryptoPlugin
@@ -33,8 +34,7 @@ interface ICryptoPlugin {
      * @return secureRequired must be true only if a secure decoder is required
      * for the specified mime-type
      */
-    requiresSecureDecoderComponent(string mime)
-        generates(bool secureRequired);
+    requiresSecureDecoderComponent(string mime) generates (bool secureRequired);
 
     /**
      * Notify a plugin of the currently configured resolution
@@ -54,7 +54,7 @@ interface ICryptoPlugin {
      * ERROR_DRM_CANNOT_HANDLE if the operation is not supported by the drm
      * scheme.
      */
-    setMediaDrmSession(vec<uint8_t> sessionId) generates(Status status);
+    setMediaDrmSession(vec<uint8_t> sessionId) generates (Status status);
 
     /**
      * Set a shared memory base for subsequent decrypt operations. The buffer
@@ -107,8 +107,8 @@ interface ICryptoPlugin {
      * vendor's crypto HAL may provide a detailed error string to help
      * describe the error.
      */
-    decrypt(bool secure, uint8_t[16] keyId, uint8_t[16] iv, Mode mode,
-        Pattern pattern, vec<SubSample> subSamples,
-            SharedBuffer source, uint64_t offset, DestinationBuffer destination)
-        generates(Status status, uint32_t bytesWritten, string detailedError);
+    decrypt(bool secure, uint8_t[16] keyId, uint8_t[16] iv, Mode mode, Pattern pattern,
+        vec<SubSample> subSamples, SharedBuffer source, uint64_t offset,
+        DestinationBuffer destination)
+        generates (Status status, uint32_t bytesWritten, string detailedError);
 };

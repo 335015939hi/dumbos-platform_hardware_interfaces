@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright 2017 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -36,20 +36,17 @@ enum ProgramInfoFlags : uint32_t {
      * usually targetted at reduced latency.
      */
     LIVE = 1 << 0,
-
     /**
      * Radio stream is not playing, ie. due to bad reception conditions or
      * buffering. In this state volume knob MAY be disabled to prevent user
      * increasing volume too much.
      */
     MUTED = 1 << 1,
-
     /**
      * Station broadcasts traffic information regularly,
      * but not necessarily right now.
      */
     TRAFFIC_PROGRAM = 1 << 2,
-
     /**
      * Station is broadcasting traffic information at the very moment.
      */
@@ -66,7 +63,6 @@ struct VendorKeyValue {
      * eg. 'com.somecompany.parameter1'.
      */
     string key;
-
     /**
      * Value must be passed through the framework without any changes.
      * Format of this string can vary across vendors.
@@ -76,13 +72,11 @@ struct VendorKeyValue {
 
 struct Properties {
     @1.0::Properties base;
-
     /**
      * The hardware supports background scanning in general. At the given time
      * it may not be available though, see startBackgroundScan.
      */
     bool supportsBackgroundScanning;
-
     /**
      * A list of supported ProgramType values.
      *
@@ -93,7 +87,6 @@ struct Properties {
      * other module properties (implementor, product, version) must be checked.
      */
     vec<uint32_t> supportedProgramTypes;
-
     /**
      * A list of supported IdentifierType values.
      *
@@ -105,7 +98,6 @@ struct Properties {
      * other module properties (implementor, product, version) must be checked.
      */
     vec<uint32_t> supportedIdentifierTypes;
-
     /**
      * Vendor-specific information.
      *
@@ -138,15 +130,13 @@ enum Modulation : uint32_t {
  * Values not matching any enumerated constant must be ignored.
  */
 enum ProgramType : uint32_t {
-    AM = 1,  // analogue AM radio (with or without RDS)
-    FM,      // analogue FM radio (with or without RDS)
-    AM_HD,   // AM HD Radio
-    FM_HD,   // FM HD Radio
-    DAB,     // Digital audio broadcasting
-    DRMO,    // Digital Radio Mondiale
-    SXM,     // SiriusXM Satellite Radio
-
-    // Vendor-specific, not synced across devices.
+    AM = 1,
+    FM,
+    AM_HD,
+    FM_HD,
+    DAB,
+    DRMO,
+    SXM,
     VENDOR_START = 1000,
     VENDOR_END = 1999,
 };
@@ -167,9 +157,8 @@ enum ProgramType : uint32_t {
  * Values not matching any enumerated constant must be ignored.
  */
 enum IdentifierType : uint32_t {
-    AMFM_FREQUENCY = 1,  // kHz
-    RDS_PI,              // 16bit
-
+    AMFM_FREQUENCY = 1,
+    RDS_PI,
     /**
      * 64bit compound primary identifier for HD Radio.
      *
@@ -181,7 +170,6 @@ enum IdentifierType : uint32_t {
      * and ignored when read.
      */
     HD_STATION_ID_EXT,
-
     /**
      * HD Radio subchannel - a value of range 0-7.
      *
@@ -189,7 +177,6 @@ enum IdentifierType : uint32_t {
      * as opposed to HD Radio standard (where it's 1-based).
      */
     HD_SUBCHANNEL,
-
     /**
      * 24bit compound primary identifier for DAB.
      *
@@ -200,16 +187,14 @@ enum IdentifierType : uint32_t {
      * and ignored when read.
      */
     DAB_SIDECC,
-
-    DAB_ENSEMBLE,     // 16bit
-    DAB_SCID,         // 12bit
-    DAB_FREQUENCY,    // kHz
-    DRMO_SERVICE_ID,  // 24bit
-    DRMO_FREQUENCY,   // kHz
-    DRMO_MODULATION,  // Modulation enum
-    SXM_SERVICE_ID,   // 32bit
-    SXM_CHANNEL,      // 0-999 range
-
+    DAB_ENSEMBLE,
+    DAB_SCID,
+    DAB_FREQUENCY,
+    DRMO_SERVICE_ID,
+    DRMO_FREQUENCY,
+    DRMO_MODULATION,
+    SXM_SERVICE_ID,
+    SXM_CHANNEL,
     /**
      * Primary identifier for vendor-specific radio technology.
      * The value format is determined by a vendor.
@@ -233,7 +218,7 @@ enum IdentifierType : uint32_t {
  * IdentifierType enum.
  */
 struct ProgramIdentifier {
-    uint32_t type;  // IdentifierType
+    uint32_t type;
     uint64_t value;
 };
 
@@ -267,10 +252,9 @@ struct ProgramIdentifier {
  * - VENDOR: VENDOR_PRIMARY.
  */
 struct ProgramSelector {
-    uint32_t programType;  // ProgramType
-    ProgramIdentifier primaryId;  // uniquely identifies a station
+    uint32_t programType;
+    ProgramIdentifier primaryId;
     vec<ProgramIdentifier> secondaryIds;
-
     /**
      * Opaque vendor-specific identifiers, to be passed to front-end
      * without changes.
@@ -290,11 +274,8 @@ struct ProgramSelector {
  */
 struct ProgramInfo {
     @1.0::ProgramInfo base;
-
     ProgramSelector selector;
-
     bitfield<ProgramInfoFlags> flags;
-
     /**
      * Vendor-specific information.
      *

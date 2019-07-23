@@ -20,15 +20,24 @@ import android.hardware.audio.common@5.0;
 import IEffect;
 
 interface IVirtualizerEffect extends IEffect {
+    enum StrengthRange : uint16_t {
+        MIN = 0,
+        MAX = 1000,
+    };
+
+    struct SpeakerAngle {
+        /**
+         * Speaker channel mask
+         */
+        bitfield<AudioChannelMask> mask;
+        int16_t azimuth;
+        int16_t elevation;
+    };
+
     /**
      * Returns whether setting virtualization strength is supported.
      */
     isStrengthSupported() generates (bool strengthSupported);
-
-    enum StrengthRange : uint16_t {
-        MIN = 0,
-        MAX = 1000
-    };
 
     /**
      * Sets virtualization strength.
@@ -46,23 +55,12 @@ interface IVirtualizerEffect extends IEffect {
      */
     getStrength() generates (Result retval, uint16_t strength);
 
-    struct SpeakerAngle {
-        /** Speaker channel mask */
-        bitfield<AudioChannelMask> mask;
-        // all angles are expressed in degrees and
-        // are relative to the listener.
-        int16_t azimuth; // 0 is the direction the listener faces
-                         // 180 is behind the listener
-                         // -90 is to their left
-        int16_t elevation; // 0 is the horizontal plane
-                           // +90 is above the listener, -90 is below
-    };
     /**
      * Retrieves virtual speaker angles for the given channel mask on the
      * specified device.
      */
     getVirtualSpeakerAngles(bitfield<AudioChannelMask> mask, AudioDevice device)
-            generates (Result retval, vec<SpeakerAngle> speakerAngles);
+        generates (Result retval, vec<SpeakerAngle> speakerAngles);
 
     /**
      * Forces the virtualizer effect for the given output device.

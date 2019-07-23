@@ -26,7 +26,6 @@ import @1.0::PerformanceInfo;
  * The type of an operation in a model.
  */
 enum OperationType : @1.0::OperationType {
-
     /**
      * BatchToSpace for N-dimensional tensors.
      *
@@ -55,7 +54,6 @@ enum OperationType : @1.0::OperationType {
      * Available since API level 28.
      */
     BATCH_TO_SPACE_ND = 29,
-
     /**
      * Element-wise division of two tensors.
      *
@@ -95,7 +93,6 @@ enum OperationType : @1.0::OperationType {
      * Available since API level 28.
      */
     DIV = 30,
-
     /**
      * Computes the mean of elements across dimensions of a tensor.
      *
@@ -130,7 +127,6 @@ enum OperationType : @1.0::OperationType {
      * Available since API level 28.
      */
     MEAN = 31,
-
     /**
      * Pads a tensor.
      *
@@ -167,7 +163,6 @@ enum OperationType : @1.0::OperationType {
      * Available since API level 28.
      */
     PAD = 32,
-
     /**
      * SpaceToBatch for N-Dimensional tensors.
      *
@@ -205,7 +200,6 @@ enum OperationType : @1.0::OperationType {
      * Available since API level 28.
      */
     SPACE_TO_BATCH_ND = 33,
-
     /**
      * Removes dimensions of size 1 from the shape of a tensor.
      *
@@ -236,7 +230,6 @@ enum OperationType : @1.0::OperationType {
      * Available since API level 28.
      */
     SQUEEZE = 34,
-
     /**
      * Extracts a strided slice of a tensor.
      *
@@ -282,7 +275,6 @@ enum OperationType : @1.0::OperationType {
      * Available since API level 28.
      */
     STRIDED_SLICE = 35,
-
     /**
      * Element-wise subtraction of two tensors.
      *
@@ -322,7 +314,6 @@ enum OperationType : @1.0::OperationType {
      * Available since API level 28.
      */
     SUB = 36,
-
     /**
      * Transposes the input tensor, permuting the dimensions according to the
      * perm tensor.
@@ -349,7 +340,6 @@ enum OperationType : @1.0::OperationType {
      * Available since API level 28.
      */
     TRANSPOSE = 37,
-
 };
 
 /**
@@ -360,12 +350,10 @@ struct Capabilities {
      * Driver performance when operating on float32 data.
      */
     PerformanceInfo float32Performance;
-
     /**
      * Driver performance when operating on asymmetric 8-bit quantized data.
      */
     PerformanceInfo quantized8Performance;
-
     /**
      * Driver performance when operating on float32 data but performing
      * calculations with range and/or precision as low as that of the IEEE
@@ -382,13 +370,11 @@ struct Operation {
      * The operation type.
      */
     OperationType type;
-
     /**
      * Describes the table that contains the indexes of the inputs of the
      * operation. The offset is the index in the operandIndexes table.
      */
     vec<uint32_t> inputs;
-
     /**
      * Describes the table that contains the indexes of the outputs of the
      * operation. The offset is the index in the operandIndexes table.
@@ -408,7 +394,6 @@ struct Model {
      * All operands included in the model.
      */
     vec<Operand> operands;
-
     /**
      * All operations included in the model.
      *
@@ -417,21 +402,18 @@ struct Model {
      * written before it is read.
      */
     vec<Operation> operations;
-
     /**
      * Input indexes of the model. There must be at least one.
      *
      * Each value corresponds to the index of the operand in "operands".
      */
     vec<uint32_t> inputIndexes;
-
     /**
      * Output indexes of the model. There must be at least one.
      *
      * Each value corresponds to the index of the operand in "operands".
      */
     vec<uint32_t> outputIndexes;
-
     /**
      * A byte buffer containing operand data that were copied into the model.
      *
@@ -439,7 +421,6 @@ struct Model {
      * equals OperandLifeTime::CONSTANT_COPY.
      */
     vec<uint8_t> operandValues;
-
     /**
      * A collection of shared memory pools containing operand values.
      *
@@ -447,7 +428,6 @@ struct Model {
      * equals OperandLifeTime::CONSTANT_REFERENCE.
      */
     vec<memory> pools;
-
     /**
      * 'true' indicates TENSOR_FLOAT32 may be calculated with range and/or
      * precision as low as that of the IEEE 754 16-bit floating-point format.

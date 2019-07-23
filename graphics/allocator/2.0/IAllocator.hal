@@ -27,7 +27,7 @@ interface IAllocator {
      */
     @entry
     @exit
-    @callflow(next="*")
+    @callflow(next = "*")
     dumpDebugInfo() generates (string debugInfo);
 
     /**
@@ -49,9 +49,7 @@ interface IAllocator {
      */
     @entry
     @exit
-    @callflow(next="*")
+    @callflow(next = "*")
     allocate(BufferDescriptor descriptor, uint32_t count)
-        generates (Error error,
-                   uint32_t stride,
-                   vec<handle> buffers);
+        generates (Error error, uint32_t stride, vec<handle> buffers);
 };

@@ -23,7 +23,6 @@ import @1.1::IRadioIndication;
  * Interface declaring unsolicited radio indications.
  */
 interface IRadioIndication extends @1.1::IRadioIndication {
-
     /**
      * Incremental network scan results
      */
@@ -36,7 +35,7 @@ interface IRadioIndication extends @1.1::IRadioIndication {
      * @param type Type of radio indication
      * @param records Current cell information
      */
-     oneway cellInfoList_1_2(RadioIndicationType type, vec<CellInfo> records);
+    oneway cellInfoList_1_2(RadioIndicationType type, vec<CellInfo> records);
 
     /**
      * Indicates current link capacity estimate.
@@ -63,7 +62,7 @@ interface IRadioIndication extends @1.1::IRadioIndication {
      * @param configs Vector of PhysicalChannelConfigs
      */
     oneway currentPhysicalChannelConfigs(RadioIndicationType type,
-            vec<PhysicalChannelConfig> configs);
+        vec<PhysicalChannelConfig> configs);
 
     /**
      * Indicates current signal strength of the radio.

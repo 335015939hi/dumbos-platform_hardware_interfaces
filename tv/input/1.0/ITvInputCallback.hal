@@ -22,6 +22,7 @@ interface ITvInputCallback {
      * check TvInputEventType.
      *
      * @param event Event passed to the client.
-     */
+     *     
+     */
     notify(TvInputEvent event);
 };

@@ -21,7 +21,6 @@ package android.hardware.keymaster@3.0;
  * https://source.android.com/security/keystore/implementer-ref.html
  */
 interface IKeymasterDevice {
-
     /**
      * Returns information about the underlying keymaster hardware.
      *
@@ -53,10 +52,9 @@ interface IKeymasterDevice {
      * @return keymasterAuthorName is the name of the author of the keymaster implementation
      *             (generally this should be the name of an organization, not an individual.)
      */
-    getHardwareFeatures()
-        generates(bool isSecure, bool supportsEllipticCurve, bool supportsSymmetricCryptography,
-                  bool supportsAttestation, bool supportsAllDigests, string keymasterName,
-                  string keymasterAuthorName);
+    getHardwareFeatures() generates (bool isSecure, bool supportsEllipticCurve,
+        bool supportsSymmetricCryptography, bool supportsAttestation, bool supportsAllDigests,
+        string keymasterName, string keymasterAuthorName);
 
     /**
      * Adds entropy to the RNG used by keymaster. Entropy added through this method is guaranteed
@@ -69,7 +67,7 @@ interface IKeymasterDevice {
      *
      * @return error See the ErrorCode enum in types.hal.
      */
-    addRngEntropy(vec<uint8_t> data) generates(ErrorCode error);
+    addRngEntropy(vec<uint8_t> data) generates (ErrorCode error);
 
     /**
      * Generates a key, or key pair, returning a key blob and/or a description of the key.
@@ -86,7 +84,7 @@ interface IKeymasterDevice {
      *             types.hal.
      */
     generateKey(vec<KeyParameter> keyParams)
-        generates(ErrorCode error, vec<uint8_t> keyBlob, KeyCharacteristics keyCharacteristics);
+        generates (ErrorCode error, vec<uint8_t> keyBlob, KeyCharacteristics keyCharacteristics);
 
     /**
      * Imports a key, or key pair, returning a key blob and/or a description of the key.
@@ -109,7 +107,7 @@ interface IKeymasterDevice {
      * @return error See the ErrorCode enum.
      */
     importKey(vec<KeyParameter> params, KeyFormat keyFormat, vec<uint8_t> keyData)
-        generates(ErrorCode error, vec<uint8_t> keyBlob, KeyCharacteristics keyCharacteristics);
+        generates (ErrorCode error, vec<uint8_t> keyBlob, KeyCharacteristics keyCharacteristics);
 
     /**
      * Returns the characteristics of the specified key, if the keyBlob is valid (implementations
@@ -133,7 +131,7 @@ interface IKeymasterDevice {
      *             types.hal.
      */
     getKeyCharacteristics(vec<uint8_t> keyBlob, vec<uint8_t> clientId, vec<uint8_t> appData)
-        generates(ErrorCode error, KeyCharacteristics keyCharacteristics);
+        generates (ErrorCode error, KeyCharacteristics keyCharacteristics);
 
     /**
      * Exports a public key, returning the key in the specified format.
@@ -158,7 +156,7 @@ interface IKeymasterDevice {
      * @return keyMaterial The public key material in PKCS#8 format.
      */
     exportKey(KeyFormat keyFormat, vec<uint8_t> keyBlob, vec<uint8_t> clientId,
-              vec<uint8_t> appData) generates(ErrorCode error, vec<uint8_t> keyMaterial);
+        vec<uint8_t> appData) generates (ErrorCode error, vec<uint8_t> keyMaterial);
 
     /**
      * Generates a signed X.509 certificate chain attesting to the presence of keyToAttest in
@@ -175,7 +173,7 @@ interface IKeymasterDevice {
      * @return error See the ErrorCode enum in types.hal.
      */
     attestKey(vec<uint8_t> keyToAttest, vec<KeyParameter> attestParams)
-        generates(ErrorCode error, vec<vec<uint8_t>> certChain);
+        generates (ErrorCode error, vec<vec<uint8_t>> certChain);
 
     /**
      * Upgrades an old key. Keys can become "old" in two ways: Keymaster can be upgraded to a new
@@ -192,7 +190,7 @@ interface IKeymasterDevice {
      * @return error See the ErrorCode enum.
      */
     upgradeKey(vec<uint8_t> keyBlobToUpgrade, vec<KeyParameter> upgradeParams)
-        generates(ErrorCode error, vec<uint8_t> upgradedKeyBlob);
+        generates (ErrorCode error, vec<uint8_t> upgradedKeyBlob);
 
     /**
      * Deletes the key, or key pair, associated with the key blob. After calling this function it
@@ -205,7 +203,7 @@ interface IKeymasterDevice {
      *
      * @return error See the ErrorCode enum.
      */
-    deleteKey(vec<uint8_t> keyBlob) generates(ErrorCode error);
+    deleteKey(vec<uint8_t> keyBlob) generates (ErrorCode error);
 
     /**
      * Deletes all keys in the hardware keystore. Used when keystore is reset completely. After
@@ -216,7 +214,7 @@ interface IKeymasterDevice {
      *
      * @return error See the ErrorCode enum.
      */
-    deleteAllKeys() generates(ErrorCode error);
+    deleteAllKeys() generates (ErrorCode error);
 
     /**
      * Destroys knowledge of the device's ids. This prevents all device id attestation in the
@@ -231,7 +229,7 @@ interface IKeymasterDevice {
      *
      * @return error See the ErrorCode enum.
      */
-    destroyAttestationIds() generates(ErrorCode error);
+    destroyAttestationIds() generates (ErrorCode error);
 
     /**
      * Begins a cryptographic operation using the specified key. If all is well, begin() will return
@@ -272,7 +270,7 @@ interface IKeymasterDevice {
      *             finish() or abort().
      */
     begin(KeyPurpose purpose, vec<uint8_t> key, vec<KeyParameter> inParams)
-        generates(ErrorCode error, vec<KeyParameter> outParams, OperationHandle operationHandle);
+        generates (ErrorCode error, vec<KeyParameter> outParams, OperationHandle operationHandle);
 
     /**
      * Provides data to, and possibly receives output from, an ongoing cryptographic operation begun
@@ -306,9 +304,9 @@ interface IKeymasterDevice {
      *
      * @return output The output data, if any.
      */
-    update(OperationHandle operationHandle, vec<KeyParameter> inParams, vec<uint8_t> input)
-        generates(ErrorCode error, uint32_t inputConsumed, vec<KeyParameter> outParams,
-                  vec<uint8_t> output);
+    update(OperationHandle operationHandle, vec<KeyParameter> inParams, vec<uint8_t> input) 
+        generates (ErrorCode error, uint32_t inputConsumed, vec<KeyParameter> outParams,
+        vec<uint8_t> output);
 
     /**
      * Finalizes a cryptographic operation begun with begin() and invalidates operationHandle.
@@ -333,8 +331,8 @@ interface IKeymasterDevice {
      * @return output The output data, if any.
      */
     finish(OperationHandle operationHandle, vec<KeyParameter> inParams, vec<uint8_t> input,
-           vec<uint8_t> signature)
-        generates(ErrorCode error, vec<KeyParameter> outParams, vec<uint8_t> output);
+        vec<uint8_t> signature)
+        generates (ErrorCode error, vec<KeyParameter> outParams, vec<uint8_t> output);
 
     /**
      * Aborts a cryptographic operation begun with begin(), freeing all internal resources and
@@ -345,5 +343,5 @@ interface IKeymasterDevice {
      *
      * @return error See the ErrorCode enum in types.hal.
      */
-    abort(OperationHandle operationHandle) generates(ErrorCode error);
+    abort(OperationHandle operationHandle) generates (ErrorCode error);
 };

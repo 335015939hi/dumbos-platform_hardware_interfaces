@@ -28,7 +28,6 @@ interface IGnssConfiguration extends @1.0::IGnssConfiguration {
          * Defines the constellation of the given satellite(s).
          */
         GnssConstellationType constellation;
-
         /**
          * Satellite (space vehicle) ID number, as defined in GnssSvInfo::svid
          *

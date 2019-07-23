@@ -16,7 +16,9 @@
 
 package android.hardware.gnss@1.0;
 
-/** Represents a GNSS navigation message (or a fragment of it). */
+/**
+ * Represents a GNSS navigation message (or a fragment of it).
+ */
 interface IGnssNavigationMessageCallback {
     /**
      * Enumeration of available values to indicate the GNSS Navigation message
@@ -25,27 +27,45 @@ interface IGnssNavigationMessageCallback {
      * For convenience, first byte is the GnssConstellationType on which that signal
      * is typically transmitted.
      */
-    @export(name="", value_prefix="GNSS_NAVIGATION_MESSAGE_TYPE_")
+    @export(name = "", value_prefix = "GNSS_NAVIGATION_MESSAGE_TYPE_")
     enum GnssNavigationMessageType : int16_t {
-        UNKNOWN    = 0,
-        /** GPS L1 C/A message contained in the structure.  */
-        GPS_L1CA       = 0x0101,
-        /** GPS L2-CNAV message contained in the structure. */
-        GPS_L2CNAV     = 0x0102,
-        /** GPS L5-CNAV message contained in the structure. */
-        GPS_L5CNAV     = 0x0103,
-        /** GPS CNAV-2 message contained in the structure. */
-        GPS_CNAV2      = 0x0104,
-        /** Glonass L1 CA message contained in the structure. */
-        GLO_L1CA        = 0x0301,
-        /** Beidou D1 message contained in the structure. */
-        BDS_D1          = 0x0501,
-        /** Beidou D2 message contained in the structure. */
-        BDS_D2          = 0x0502,
-        /** Galileo I/NAV message contained in the structure. */
-        GAL_I           = 0x0601,
-        /** Galileo F/NAV message contained in the structure. */
-        GAL_F           = 0x0602
+        UNKNOWN = 0,
+        /**
+         * GPS L1 C/A message contained in the structure.
+         */
+        GPS_L1CA = 0x0101,
+        /**
+         * GPS L2-CNAV message contained in the structure.
+         */
+        GPS_L2CNAV = 0x0102,
+        /**
+         * GPS L5-CNAV message contained in the structure.
+         */
+        GPS_L5CNAV = 0x0103,
+        /**
+         * GPS CNAV-2 message contained in the structure.
+         */
+        GPS_CNAV2 = 0x0104,
+        /**
+         * Glonass L1 CA message contained in the structure.
+         */
+        GLO_L1CA = 0x0301,
+        /**
+         * Beidou D1 message contained in the structure.
+         */
+        BDS_D1 = 0x0501,
+        /**
+         * Beidou D2 message contained in the structure.
+         */
+        BDS_D2 = 0x0502,
+        /**
+         * Galileo I/NAV message contained in the structure.
+         */
+        GAL_I = 0x0601,
+        /**
+         * Galileo F/NAV message contained in the structure.
+         */
+        GAL_F = 0x0602,
     };
 
     /**
@@ -57,11 +77,11 @@ interface IGnssNavigationMessageCallback {
      * Do not send any navigation message that contains words with parity errors
      * that cannot be corrected.
      */
-    @export(name="navigation_message_status", value_prefix="NAV_MESSAGE_STATUS_")
+    @export(name = "navigation_message_status", value_prefix = "NAV_MESSAGE_STATUS_")
     enum NavigationMessageStatus : uint16_t {
-        PARITY_PASSED  = (1 << 0),
+        PARITY_PASSED = (1 << 0),
         PARITY_REBUILT = (1 << 1),
-        UNKNOWN  = 0
+        UNKNOWN = 0,
     };
 
     struct GnssNavigationMessage {
@@ -70,20 +90,17 @@ interface IGnssNavigationMessageCallback {
          * This is a mandatory value.
          */
         int16_t svid;
-
         /**
          * The type of message contained in the structure.
          * This is a mandatory value.
          */
         GnssNavigationMessageType type;
-
         /**
          * The status of the received navigation message.
          * No need to send any navigation message that contains words with parity
          * errors that cannot be corrected.
          */
         bitfield<NavigationMessageStatus> status;
-
         /**
          * Message identifier. It provides an index so the complete Navigation
          * Message can be assembled.
@@ -105,7 +122,6 @@ interface IGnssNavigationMessageCallback {
          *   number in the range of 1-24
          */
         int16_t messageId;
-
         /**
          * Sub-message identifier. If required by the message 'type', this value
          * contains a sub-index within the current message (or frame) that is being
@@ -123,7 +139,6 @@ interface IGnssNavigationMessageCallback {
          * A value of 0 is only allowed if the Satellite is transmiting a Spare Word.
          */
         int16_t submessageId;
-
         /**
          * The data of the reported GNSS message. The bytes (or words) are specified
          * using big endian format (MSB first).
@@ -163,5 +178,5 @@ interface IGnssNavigationMessageCallback {
      *
      * @param message - The GNSS navigation submessage/subframe representation.
      */
-     gnssNavigationMessageCb(GnssNavigationMessage message);
+    gnssNavigationMessageCb(GnssNavigationMessage message);
 };

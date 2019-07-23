@@ -17,12 +17,12 @@
 package android.hardware.media.bufferpool@1.0;
 
 import IConnection;
+
 /**
  * IAccessor creates IConnection which is used from IClientManager in order to
  * use functionality of the specified buffer pool.
  */
 interface IAccessor {
-
     /**
      * Registers a new client and creates IConnection to the buffer pool for
      * the client. IConnection and FMQ are used by IClientManager in order to
@@ -62,7 +62,6 @@ interface IAccessor {
      * @return mqDesc FMQ descriptor. The descriptor can be used to
      *     send/receive FMQ messages.
      */
-    connect()
-        generates (ResultStatus status, IConnection connection,
-                   int64_t connectionId, fmq_sync<BufferStatusMessage> mqDesc);
+    connect() generates (ResultStatus status, IConnection connection, int64_t connectionId,
+        fmq_sync<BufferStatusMessage> mqDesc);
 };

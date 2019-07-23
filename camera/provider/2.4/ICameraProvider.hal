@@ -55,7 +55,6 @@ import android.hardware.camera.device@3.2::ICameraDevice;
  * Multiple providers must not enumerate the same device ID.
  */
 interface ICameraProvider {
-
     /**
      * setCallback:
      *
@@ -118,8 +117,7 @@ interface ICameraProvider {
      * @return cameraDeviceServiceNames The vector of internal camera device
      *     names known to this provider.
      */
-    getCameraIdList()
-            generates (Status status, vec<string> cameraDeviceNames);
+    getCameraIdList() generates (Status status, vec<string> cameraDeviceNames);
 
     /**
      * isSetTorchModeSupported:
@@ -180,11 +178,9 @@ interface ICameraProvider {
      * @return device The inteface to this camera device, or null in case of
      *     error.
      */
-    getCameraDeviceInterface_V1_x(string cameraDeviceName) generates
-            (Status status,
-             android.hardware.camera.device@1.0::ICameraDevice device);
-    getCameraDeviceInterface_V3_x(string cameraDeviceName) generates
-            (Status status,
-             android.hardware.camera.device@3.2::ICameraDevice device);
+    getCameraDeviceInterface_V1_x(string cameraDeviceName)
+        generates (Status status, android.hardware.camera.device@1.0::ICameraDevice device);
 
+    getCameraDeviceInterface_V3_x(string cameraDeviceName)
+        generates (Status status, android.hardware.camera.device@3.2::ICameraDevice device);
 };
