@@ -32,7 +32,6 @@ import ICameraDevicePreviewCallback;
  * Will be removed in the Android P release.
  */
 interface ICameraDevice {
-
     /**
      * Get camera device resource cost information.
      *
@@ -178,15 +177,14 @@ interface ICameraDevice {
      */
     open(ICameraDeviceCallback callback) generates (Status status);
 
-
-    /*****
+    /**
      * All methods below this point must only be called between a successful
      * open() call and a close() call.
+     *
+     *
+     * Set the callback interface through which preview frames are sent
      */
-
-    /** Set the callback interface through which preview frames are sent */
-    setPreviewWindow(ICameraDevicePreviewCallback window)
-            generates (Status status);
+    setPreviewWindow(ICameraDevicePreviewCallback window) generates (Status status);
 
     /**
      * Enable a message, or set of messages.
@@ -407,13 +405,11 @@ interface ICameraDevice {
      *
      * @return status The status code for this operation.
      */
-    sendCommand(CommandType cmd, int32_t arg1, int32_t arg2)
-            generates (Status status);
+    sendCommand(CommandType cmd, int32_t arg1, int32_t arg2) generates (Status status);
 
     /**
      * Release the hardware resources owned by this object, shutting down the
      * camera device.
      */
     close();
-
 };

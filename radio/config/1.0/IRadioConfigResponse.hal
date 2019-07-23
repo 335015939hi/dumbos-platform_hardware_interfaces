@@ -22,11 +22,10 @@ import android.hardware.radio@1.0::RadioResponseInfo;
  * Interface declaring response functions to solicited radio config requests.
  */
 interface IRadioConfigResponse {
-
     /**
      * @param info Response info struct containing response type, serial no. and error
      * @param slotStatus Sim slot struct containing all the physical SIM slots info with size
-      *       equals to the number of physical slots on the device
+     *       equals to the number of physical slots on the device
      *
      * Valid errors returned:
      *   RadioError:NONE

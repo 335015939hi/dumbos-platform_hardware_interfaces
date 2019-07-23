@@ -17,30 +17,24 @@
 package android.hardware.media.omx@1.0;
 
 import IOmxBufferSource;
-
 import android.hardware.media@1.0::types;
 
 /**
  * Ref: frameworks/av/include/media/IOMX.h: IOMXNode
  * Ref: https://www.khronos.org/registry/omxil/specs/OpenMAX_IL_1_1_2_Specification.pdf
- */
-
-/**
+ *
+ *
  * IOmxNode is an interface for communicating with an OMX component (called
  * "node" here) that has been previously obtained by calling
  * IOmx::allocateNode().
  */
 interface IOmxNode {
-
     /**
      * Free the node.
      *
      * @return status Status of the call.
      */
-    freeNode(
-        ) generates (
-            Status status
-        );
+    freeNode() generates (Status status);
 
     /**
      * Invoke a command on the node.
@@ -51,12 +45,7 @@ interface IOmxNode {
      *
      * @see OMX_SendCommand() in the OpenMax IL standard.
      */
-    sendCommand(
-            uint32_t cmd,
-            int32_t param
-        ) generates (
-            Status status
-        );
+    sendCommand(uint32_t cmd, int32_t param) generates (Status status);
 
     /**
      * Retrieve a parameter setting from the node.
@@ -68,13 +57,7 @@ interface IOmxNode {
      *
      * @see OMX_GetParameter() in the OpenMax IL standard.
      */
-    getParameter(
-            uint32_t index,
-            Bytes inParams
-        ) generates (
-            Status status,
-            Bytes outParams
-        );
+    getParameter(uint32_t index, Bytes inParams) generates (Status status, Bytes outParams);
 
     /**
      * Change a parameter setting of the node.
@@ -85,12 +68,7 @@ interface IOmxNode {
      *
      * @see OMX_SetParameter() in the OpenMax IL standard.
      */
-    setParameter(
-            uint32_t index,
-            Bytes params
-        ) generates (
-            Status status
-        );
+    setParameter(uint32_t index, Bytes params) generates (Status status);
 
     /**
      * Retrieve a configuration from the node.
@@ -102,13 +80,7 @@ interface IOmxNode {
      *
      * @see OMX_GetConfig() in the OpenMax IL standard.
      */
-    getConfig(
-            uint32_t index,
-            Bytes inConfig
-        ) generates (
-            Status status,
-            Bytes outConfig
-        );
+    getConfig(uint32_t index, Bytes inConfig) generates (Status status, Bytes outConfig);
 
     /**
      * Change a configuration of the node.
@@ -119,12 +91,7 @@ interface IOmxNode {
      *
      * @see OMX_SetConfig() in the OpenMax IL standard.
      */
-    setConfig(
-            uint32_t index,
-            Bytes config
-        ) generates (
-            Status status
-        );
+    setConfig(uint32_t index, Bytes config) generates (Status status);
 
     /**
      * Set the mode of a port on the node.
@@ -133,12 +100,7 @@ interface IOmxNode {
      * @param mode Target mode on the specified port.
      * @return status Status of the call.
      */
-    setPortMode(
-            uint32_t portIndex,
-            PortMode mode
-        ) generates (
-            Status status
-        );
+    setPortMode(uint32_t portIndex, PortMode mode) generates (Status status);
 
     /**
      * Prepare a port for adaptive playback. This is based on the extension
@@ -151,13 +113,8 @@ interface IOmxNode {
      * @return status Status of the call.
      */
     prepareForAdaptivePlayback(
-            uint32_t portIndex,
-            bool enable,
-            uint32_t maxFrameWidth,
-            uint32_t maxFrameHeight
-        ) generates (
-            Status status
-        );
+        uint32_t portIndex, bool enable, uint32_t maxFrameWidth, uint32_t maxFrameHeight)
+        generates (Status status);
 
     /**
      * Configure a port for a tunneled playback mode. This is based on the
@@ -170,14 +127,8 @@ interface IOmxNode {
      * @return status Status of the call.
      * @return sidebandHandle Codec-allocated sideband window handle.
      */
-    configureVideoTunnelMode(
-            uint32_t portIndex,
-            bool tunneled,
-            uint32_t audioHwSync
-        ) generates (
-            Status status,
-            handle sidebandHandle
-        );
+    configureVideoTunnelMode(uint32_t portIndex, bool tunneled, uint32_t audioHwSync)
+        generates (Status status, handle sidebandHandle);
 
     /**
      * Retrieve the buffer usage on a port. This is based on the extension
@@ -187,12 +138,7 @@ interface IOmxNode {
      * @return status Status of the call.
      * @return usage Current graphic buffer usage.
      */
-    getGraphicBufferUsage(
-            uint32_t portIndex
-        ) generates (
-            Status status,
-            uint32_t usage
-        );
+    getGraphicBufferUsage(uint32_t portIndex) generates (Status status, uint32_t usage);
 
     /**
      * Set up a listener to events related to the input surface.
@@ -203,11 +149,7 @@ interface IOmxNode {
      *
      * @see IOmxBufferSource.
      */
-    setInputSurface(
-            IOmxBufferSource bufferSource
-        ) generates (
-            Status status
-        );
+    setInputSurface(IOmxBufferSource bufferSource) generates (Status status);
 
     /**
      * Allocate an opaque buffer on a port as a native handle.
@@ -221,14 +163,8 @@ interface IOmxNode {
      *
      * @see OMX_AllocateBuffer() in the OpenMax IL standard.
      */
-    allocateSecureBuffer(
-            uint32_t portIndex,
-            uint64_t size
-        ) generates (
-            Status status,
-            BufferId buffer,
-            handle nativeHandle
-        );
+    allocateSecureBuffer(uint32_t portIndex, uint64_t size)
+        generates (Status status, BufferId buffer, handle nativeHandle);
 
     /**
      * Assign a buffer to a port.
@@ -241,13 +177,8 @@ interface IOmxNode {
      *
      * @see OMX_UseBuffer() in the OpenMax IL standard.
      */
-    useBuffer(
-            uint32_t portIndex,
-            CodecBuffer omxBuffer
-        ) generates (
-            Status status,
-            BufferId buffer
-        );
+    useBuffer(uint32_t portIndex, CodecBuffer omxBuffer) generates (Status status, BufferId buffer)
+        ;
 
     /**
      * Free a buffer previously assigned to a port by allocateSecureBuffer() or
@@ -259,12 +190,7 @@ interface IOmxNode {
      *
      * @see OMX_FreeBuffer() in the OpenMax IL standard.
      */
-    freeBuffer(
-            uint32_t portIndex,
-            BufferId buffer
-        ) generates (
-            Status status
-        );
+    freeBuffer(uint32_t portIndex, BufferId buffer) generates (Status status);
 
     /**
      * Pass \p fence to the node if it supports fences. Otherwise, it waits on
@@ -282,13 +208,7 @@ interface IOmxNode {
      *
      * @see OMX_FillThisBuffer() in the OpenMax IL standard.
      */
-    fillBuffer(
-            BufferId buffer,
-            CodecBuffer omxBuffer,
-            Fence fence
-        ) generates (
-            Status status
-        );
+    fillBuffer(BufferId buffer, CodecBuffer omxBuffer, Fence fence) generates (Status status);
 
     /**
      * Pass \p fence to the node if it supports fences. Otherwise, wait on
@@ -309,14 +229,8 @@ interface IOmxNode {
      * @see OMX_EmptyThisBuffer() in the OpenMax IL standard.
      */
     emptyBuffer(
-            BufferId buffer,
-            CodecBuffer omxBuffer,
-            uint32_t flags,
-            uint64_t timestampUs,
-            Fence fence
-        ) generates (
-            Status status
-        );
+        BufferId buffer, CodecBuffer omxBuffer, uint32_t flags, uint64_t timestampUs, Fence fence)
+        generates (Status status);
 
     /**
      * Request the node to translate an extension string to an index.
@@ -327,12 +241,7 @@ interface IOmxNode {
      *
      * @see OMX_GetExtensionIndex() in the OpenMax IL standard.
      */
-    getExtensionIndex(
-            string parameterName
-        ) generates (
-            Status status,
-            uint32_t index
-        );
+    getExtensionIndex(string parameterName) generates (Status status, uint32_t index);
 
     /**
      * Add an OMX message on the node's message queue. The instance of
@@ -345,10 +254,5 @@ interface IOmxNode {
      *
      * @see IOmxObserver::onMessages().
      */
-    dispatchMessage(
-            Message msg
-        ) generates (
-            Status status
-        );
+    dispatchMessage(Message msg) generates (Status status);
 };
-

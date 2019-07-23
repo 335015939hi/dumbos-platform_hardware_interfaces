@@ -13,47 +13,46 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package android.hardware.power@1.2;
 
 import @1.0::PowerHint;
 
-/** Power hint identifiers passed to powerHintAsync_1_2() */
+/**
+ * Power hint identifiers passed to powerHintAsync_1_2()
+ */
 enum PowerHint : @1.0::PowerHint {
-   /**
-    * This hint indicates that audio stream is being started. Can be used
-    * for device specific optimizations during starting audio stream. The
-    * data parameter is non-zero when stream starts and zero when audio
-    * stream setup is complete.
-    */
+    /**
+     * This hint indicates that audio stream is being started. Can be used
+     * for device specific optimizations during starting audio stream. The
+     * data parameter is non-zero when stream starts and zero when audio
+     * stream setup is complete.
+     */
     AUDIO_STREAMING,
-
-   /**
-    * This hint indicates that low latency audio is active. Can be used
-    * for device specific optimizations towards low latency audio. The
-    * data parameter is non-zero when low latency audio starts and
-    * zero when ends.
-    */
+    /**
+     * This hint indicates that low latency audio is active. Can be used
+     * for device specific optimizations towards low latency audio. The
+     * data parameter is non-zero when low latency audio starts and
+     * zero when ends.
+     */
     AUDIO_LOW_LATENCY,
-
-   /**
-    * These hint indicates that camera is being launched. Can be used
-    * for device specific optimizations during camera launch. The data
-    * parameter is non-zero when camera launch starts and zero when launch
-    * is complete.
-    */
+    /**
+     * These hint indicates that camera is being launched. Can be used
+     * for device specific optimizations during camera launch. The data
+     * parameter is non-zero when camera launch starts and zero when launch
+     * is complete.
+     */
     CAMERA_LAUNCH,
-
-   /**
-    * This hint indicates that camera stream is being started. Can be used
-    * for device specific optimizations during starting camera stream. The
-    * data parameter is non-zero when stream starts and zero when ends.
-    */
+    /**
+     * This hint indicates that camera stream is being started. Can be used
+     * for device specific optimizations during starting camera stream. The
+     * data parameter is non-zero when stream starts and zero when ends.
+     */
     CAMERA_STREAMING,
-
-   /**
-    * This hint indicates that camera shot is being taken. Can be used
-    * for device specific optimizations during taking camera shot. The
-    * data parameter is non-zero when camera shot starts and zero when ends.
-    */
+    /**
+     * This hint indicates that camera shot is being taken. Can be used
+     * for device specific optimizations during taking camera shot. The
+     * data parameter is non-zero when camera shot starts and zero when ends.
+     */
     CAMERA_SHOT,
 };

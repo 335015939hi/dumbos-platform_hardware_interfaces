@@ -135,51 +135,67 @@ enum IndicationFilter : int32_t {
  * to the Android framework. Only for display.
  */
 enum AudioQuality : int32_t {
-    /** Unspecified audio codec */
+    /**
+     * Unspecified audio codec
+     */
     UNSPECIFIED,
-    /** AMR (Narrowband) audio codec */
+    /**
+     * AMR (Narrowband) audio codec
+     */
     AMR,
-    /** AMR (Wideband) audio codec */
+    /**
+     * AMR (Wideband) audio codec
+     */
     AMR_WB,
-    /** GSM Enhanced Full-Rate audio codec */
+    /**
+     * GSM Enhanced Full-Rate audio codec
+     */
     GSM_EFR,
-    /** GSM Full-Rate audio codec */
+    /**
+     * GSM Full-Rate audio codec
+     */
     GSM_FR,
-    /** GSM Half-Rate audio codec */
+    /**
+     * GSM Half-Rate audio codec
+     */
     GSM_HR,
-    /** Enhanced Variable rate codec */
+    /**
+     * Enhanced Variable rate codec
+     */
     EVRC,
-    /** Enhanced Variable rate codec revision B */
+    /**
+     * Enhanced Variable rate codec revision B
+     */
     EVRC_B,
-    /** Enhanced Variable rate codec (Wideband) */
+    /**
+     * Enhanced Variable rate codec (Wideband)
+     */
     EVRC_WB,
-    /** Enhanced Variable rate codec (Narrowband) */
+    /**
+     * Enhanced Variable rate codec (Narrowband)
+     */
     EVRC_NW,
 };
 
 struct NetworkScanRequest {
     ScanType type;
-
     /**
      * Time interval in seconds between periodic scans, only valid when type = PERIODIC
      * Range: ScanIntervalRange:MIN to ScanIntervalRange:MAX
      */
     int32_t interval;
-
     /**
      * Networks with bands/channels to scan
      * Maximum length of the vector is
      * RadioConst:RADIO_ACCESS_SPECIFIER_MAX_SIZE
      */
     vec<RadioAccessSpecifier> specifiers;
-
     /**
      * Maximum duration of the periodic search (in seconds).
      * Expected range for the input is [MaxSearchTimeRange:MIN - MaxSearchTimeRange:MAX]
      * If the search lasts maxSearchTime, it must be terminated.
      */
     int32_t maxSearchTime;
-
     /**
      * Indicates whether the modem must report incremental results of the network scan
      * to the client.
@@ -187,7 +203,6 @@ struct NetworkScanRequest {
      * TRUE  – Incremental must be reported.
      */
     bool incrementalResults;
-
     /**
      * Indicates the periodicity with which the modem must report incremental results to
      * the client (in seconds).
@@ -197,7 +212,6 @@ struct NetworkScanRequest {
      * not requested, implementations may ignore this value.
      */
     int32_t incrementalResultsPeriodicity;
-
     /**
      * Describes the List of PLMN ids (MCC-MNC)
      * If any PLMN of this list is found, search must end at that point and results with all
@@ -213,12 +227,10 @@ struct NetworkScanResult {
      * The status of the scan.
      */
     ScanStatus status;
-
     /**
      * The error code of the incremental result.
      */
     RadioError error;
-
     /**
      * List of network information as CellInfo.
      */
@@ -230,7 +242,6 @@ struct CellIdentityOperatorNames {
      * Long alpha Operator Name String or Enhanced Operator Name String.
      */
     string alphaLong;
-
     /**
      * Short alpha Operator Name String or Enhanced Operator Name String
      */
@@ -390,32 +401,42 @@ struct PhysicalChannelConfig {
 };
 
 enum AccessNetwork : int32_t {
-    /** GSM EDGE Radio Access Network */
-    GERAN       = 1,
-    /** Universal Terrestrial Radio Access Network */
-    UTRAN       = 2,
-    /** Evolved Universal Terrestrial Radio Access Network */
-    EUTRAN      = 3,
-    /** CDMA 2000 network */
-    CDMA2000    = 4,
-    /** Interworking Wireless LAN */
-    IWLAN       = 5
+    /**
+     * GSM EDGE Radio Access Network
+     */
+    GERAN = 1,
+    /**
+     * Universal Terrestrial Radio Access Network
+     */
+    UTRAN = 2,
+    /**
+     * Evolved Universal Terrestrial Radio Access Network
+     */
+    EUTRAN = 3,
+    /**
+     * CDMA 2000 network
+     */
+    CDMA2000 = 4,
+    /**
+     * Interworking Wireless LAN
+     */
+    IWLAN = 5,
 };
 
 enum DataRequestReason : int32_t {
     /**
      * The reason of the data request is normal
      */
-    NORMAL    = 0x01,
+    NORMAL = 0x01,
     /**
      * The reason of the data request is device shutdown
      */
-    SHUTDOWN  = 0x02,
+    SHUTDOWN = 0x02,
     /**
      * The reason of the data request is IWLAN data handover to another transport
      * (e.g. from cellular to wifi or vise versa)
      */
-    HANDOVER  = 0x03,
+    HANDOVER = 0x03,
 };
 
 struct Call {
@@ -437,7 +458,6 @@ struct WcdmaSignalStrength {
      * INT_MAX denotes that the value is invalid/unreported.
      */
     uint32_t ecno;
-
 };
 
 struct TdscdmaSignalStrength {
@@ -583,7 +603,6 @@ struct VoiceRegStateResult {
      * 111 - Protocol error, unspecified
      */
     int32_t reasonForDenial;
-
     CellIdentity cellIdentity;
 };
 

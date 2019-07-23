@@ -13,20 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package android.hardware.nfc@1.2;
 
 import @1.1::NfcConfig;
 
 struct NfcConfig {
     @1.1::NfcConfig v1_1;
-
-    /*
+    /**
      * NFCEE ID for offhost UICC & eSE secure element.
      * 0x00 if there aren't any. Refer NCI specification
      */
     vec<uint8_t> offHostRouteUicc;
     vec<uint8_t> offHostRouteEse;
-
-    /** Default IsoDep route. 0x00 if there aren't any. Refer NCI spec */
+    /**
+     * Default IsoDep route. 0x00 if there aren't any. Refer NCI spec
+     */
     uint8_t defaultIsoDepRoute;
 };

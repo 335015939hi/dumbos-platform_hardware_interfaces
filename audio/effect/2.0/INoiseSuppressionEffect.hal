@@ -23,7 +23,17 @@ interface INoiseSuppressionEffect extends IEffect {
     enum Level : int32_t {
         LOW,
         MEDIUM,
-        HIGH
+        HIGH,
+    };
+
+    enum Type : int32_t {
+        SINGLE_CHANNEL,
+        MULTI_CHANNEL,
+    };
+
+    struct AllProperties {
+        Level level;
+        Type type;
     };
 
     /**
@@ -36,11 +46,6 @@ interface INoiseSuppressionEffect extends IEffect {
      */
     getSuppressionLevel() generates (Result retval, Level level);
 
-    enum Type : int32_t {
-        SINGLE_CHANNEL,
-        MULTI_CHANNEL
-    };
-
     /**
      * Set suppression type.
      */
@@ -50,11 +55,6 @@ interface INoiseSuppressionEffect extends IEffect {
      * Get suppression type.
      */
     getSuppressionType() generates (Result retval, Type type);
-
-    struct AllProperties {
-        Level level;
-        Type type;
-    };
 
     /**
      * Sets all properties at once.

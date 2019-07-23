@@ -139,7 +139,7 @@ interface IPreparedModel extends @1.0::IPreparedModel {
      *                measurement is not available.
      */
     executeSynchronously(Request request, MeasureTiming measure)
-            generates (ErrorStatus status, vec<OutputShape> outputShapes, Timing timing);
+        generates (ErrorStatus status, vec<OutputShape> outputShapes, Timing timing);
 
     /**
      * Configure a Burst object used to execute multiple inferences on a
@@ -172,8 +172,7 @@ interface IPreparedModel extends @1.0::IPreparedModel {
      *                 hidl_memory) related to a Burst if successful, otherwise
      *                 nullptr.
      */
-    configureExecutionBurst(IBurstCallback callback,
-                            fmq_sync<FmqRequestDatum> requestChannel,
-                            fmq_sync<FmqResultDatum> resultChannel)
-                 generates (ErrorStatus status, IBurstContext context);
+    configureExecutionBurst(IBurstCallback callback, fmq_sync<FmqRequestDatum> requestChannel,
+        fmq_sync<FmqResultDatum> resultChannel)
+        generates (ErrorStatus status, IBurstContext context);
 };

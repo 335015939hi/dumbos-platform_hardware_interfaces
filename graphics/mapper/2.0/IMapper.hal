@@ -27,21 +27,19 @@ interface IMapper {
          * padded.
          */
         uint32_t width;
-
-       /**
-        * The height specifies how many rows of pixels must be in the
-        * allocated buffer.
-        */
+        /**
+         * The height specifies how many rows of pixels must be in the
+         * allocated buffer.
+         */
         uint32_t height;
-
-       /**
-        * The number of image layers that must be in the allocated buffer.
-        */
+        /**
+         * The number of image layers that must be in the allocated buffer.
+         */
         uint32_t layerCount;
-
-        /** Buffer pixel format. */
+        /**
+         * Buffer pixel format.
+         */
         PixelFormat format;
-
         /**
          * Buffer usage mask; valid flags can be found in the definition of
          * BufferUsage.
@@ -76,10 +74,9 @@ interface IMapper {
      * @return descriptor is the newly created buffer descriptor.
      */
     @entry
-    @callflow(next="*")
+    @callflow(next = "*")
     createDescriptor(BufferDescriptorInfo descriptorInfo)
-          generates (Error error,
-                     BufferDescriptor descriptor);
+        generates (Error error, BufferDescriptor descriptor);
 
     /**
      * Imports a raw buffer handle to create an imported buffer handle for use
@@ -112,7 +109,7 @@ interface IMapper {
      *         buffer_handle_t.
      */
     @entry
-    @callflow(next="*")
+    @callflow(next = "*")
     importBuffer(handle rawHandle) generates (Error error, pointer buffer);
 
     /**
@@ -128,7 +125,7 @@ interface IMapper {
      *                  BAD_BUFFER when the buffer is invalid.
      */
     @exit
-    @callflow(next="*")
+    @callflow(next = "*")
     freeBuffer(pointer buffer) generates (Error error);
 
     /**
@@ -169,13 +166,9 @@ interface IMapper {
      *                               time.
      * @return data is a CPU-accessible pointer to the buffer data.
      */
-    @callflow(next="unlock")
-    lock(pointer buffer,
-         bitfield<BufferUsage> cpuUsage,
-         Rect accessRegion,
-         handle acquireFence)
-        generates (Error error,
-                   pointer data);
+    @callflow(next = "unlock")
+    lock(pointer buffer, bitfield<BufferUsage> cpuUsage, Rect accessRegion, handle acquireFence)
+        generates (Error error, pointer data);
 
     /**
      * This is largely the same as lock(), except that instead of returning a
@@ -205,13 +198,10 @@ interface IMapper {
      *                               time.
      * @return layout is the data layout of the buffer.
      */
-    @callflow(next="unlock")
-    lockYCbCr(pointer buffer,
-              bitfield<BufferUsage> cpuUsage,
-              Rect accessRegion,
-              handle acquireFence)
-        generates (Error error,
-                   YCbCrLayout layout);
+    @callflow(next = "unlock")
+    lockYCbCr(
+        pointer buffer, bitfield<BufferUsage> cpuUsage, Rect accessRegion, handle acquireFence)
+        generates (Error error, YCbCrLayout layout);
 
     /**
      * Unlocks a buffer to indicate all CPU accesses to the buffer have
@@ -225,8 +215,6 @@ interface IMapper {
      *         object will be signaled when the mapper has completed any
      *         pending work.
      */
-    @callflow(next="*")
-    unlock(pointer buffer)
-        generates (Error error,
-                   handle releaseFence);
+    @callflow(next = "*")
+    unlock(pointer buffer) generates (Error error, handle releaseFence);
 };

@@ -19,9 +19,13 @@ package android.hardware.bluetooth.a2dp@1.0;
 enum Status : uint8_t {
     SUCCESS,
     FAILURE,
-    /** codec configuration not supported by the audio platform */
-    UNSUPPORTED_CODEC_CONFIGURATION ,
-    /** operation is pending */
+    /**
+     * codec configuration not supported by the audio platform
+     */
+    UNSUPPORTED_CODEC_CONFIGURATION,
+    /**
+     * operation is pending
+     */
     PENDING,
 };
 
@@ -33,6 +37,7 @@ enum CodecType : uint32_t {
     APTX_HD = 0x08,
     LDAC = 0x10,
 };
+
 enum SampleRate : uint32_t {
     RATE_UNKNOWN = 0x00,
     RATE_44100 = 0x01,
@@ -42,49 +47,36 @@ enum SampleRate : uint32_t {
     RATE_176400 = 0x10,
     RATE_192000 = 0x20,
 };
+
 enum BitsPerSample : uint8_t {
     BITS_UNKNOWN = 0x00,
     BITS_16 = 0x01,
     BITS_24 = 0x02,
     BITS_32 = 0x04,
 };
+
 enum ChannelMode : uint8_t {
     UNKNOWN = 0x00,
     MONO = 0x01,
     STEREO = 0x02,
 };
+
 struct CodecConfiguration {
-    /** Bluetooth A2DP codec */
-    CodecType codecType;
-    /** Sampling rate for encoder */
-    SampleRate sampleRate;
-    /** Bits per sample for encoder */
-    BitsPerSample bitsPerSample;
-    /** Channel mode for encoder */
-    ChannelMode channelMode;
-    /**
-     * The encoded audio bitrate in bits / second.
-     * 0x00000000 - The audio bitrate is not specified / unused
-     * 0x00000001 - 0x00FFFFFF - Encoded audio bitrate in bits/second
-     * 0x01000000 - 0xFFFFFFFF - Reserved
-     */
-    uint32_t encodedAudioBitrate;
-    /** Peer MTU (in octets) */
-    uint16_t peerMtu;
     union CodecSpecific {
-        /**
-         * SBC Codec specific information
-         * Refer to SBC Codec specific information elements in A2DP v1.3
-         * Profile Specification.
-         */
         struct SbcData {
-            /** Block length: 4 bits | Subbands: 2 bits | Allocation Method: 2 bits */
+            /**
+             * Block length: 4 bits | Subbands: 2 bits | Allocation Method: 2 bits
+             */
             uint8_t codecParameters;
-            /** Minimum bitpool value */
+            /**
+             * Minimum bitpool value
+             */
             uint8_t minBitpool;
-            /** Maximum bitpool value */
+            /**
+             * Maximum bitpool value
+             */
             uint8_t maxBitpool;
-        } sbcData;
+        };
         struct LdacData {
             /**
              * LDAC bitrate index value:
@@ -94,6 +86,41 @@ struct CodecConfiguration {
              * 0x7F - ABR (Adaptive Bit Rate)
              */
             uint8_t bitrateIndex;
-        } ldacData;
-    } codecSpecific;
+        };
+        /**
+         * SBC Codec specific information
+         * Refer to SBC Codec specific information elements in A2DP v1.3
+         * Profile Specification.
+         */
+        SbcData sbcData;
+        LdacData ldacData;
+    };
+    /**
+     * Bluetooth A2DP codec
+     */
+    CodecType codecType;
+    /**
+     * Sampling rate for encoder
+     */
+    SampleRate sampleRate;
+    /**
+     * Bits per sample for encoder
+     */
+    BitsPerSample bitsPerSample;
+    /**
+     * Channel mode for encoder
+     */
+    ChannelMode channelMode;
+    /**
+     * The encoded audio bitrate in bits / second.
+     * 0x00000000 - The audio bitrate is not specified / unused
+     * 0x00000001 - 0x00FFFFFF - Encoded audio bitrate in bits/second
+     * 0x01000000 - 0xFFFFFFFF - Reserved
+     */
+    uint32_t encodedAudioBitrate;
+    /**
+     * Peer MTU (in octets)
+     */
+    uint16_t peerMtu;
+    CodecSpecific codecSpecific;
 };

@@ -18,19 +18,17 @@ package android.hardware.media@1.0;
 
 import android.hardware.graphics.common@1.0::PixelFormat;
 
-/**
- * Aliases
- */
-typedef handle FileDescriptor; // This must have no more than one fd.
+typedef handle FileDescriptor;
+
 typedef FileDescriptor Fence;
+
 typedef vec<uint8_t> Bytes;
 
 /**
  * Ref: frameworks/native/include/ui/GraphicBuffer.h
  * Ref: system/core/include/system/window.h: ANativeWindowBuffer
- */
-
-/**
+ *
+ *
  * This struct contains attributes for a gralloc buffer that can be put into a
  * union.
  */
@@ -39,7 +37,7 @@ struct AnwBufferAttributes {
     uint32_t height;
     uint32_t stride;
     PixelFormat format;
-    uint32_t usage; // TODO: convert to an enum
+    uint32_t usage;
     uint32_t generationNumber;
     uint64_t layerCount;
     uint64_t id;
@@ -64,8 +62,4 @@ struct Rect {
     int32_t bottom;
 };
 
-/**
- * Ref: frameworks/native/include/ui/Region.h
- */
 typedef vec<Rect> Region;
-

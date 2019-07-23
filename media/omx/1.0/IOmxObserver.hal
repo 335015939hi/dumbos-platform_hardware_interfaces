@@ -18,18 +18,15 @@ package android.hardware.media.omx@1.0;
 
 /**
  * Ref: frameworks/av/include/media/IOMX.h: IOMXObserver
- */
-
-/**
+ *
+ *
  * IOmxObserver is a listener interface for OMX messages sent from an IOmxNode
  * stance.
  */
 interface IOmxObserver {
-
     /**
      * Invoked to process messages from an IOmxNode instance. Note that messages
      * come in batches.
      */
     oneway onMessages(vec<Message> messages);
 };
-

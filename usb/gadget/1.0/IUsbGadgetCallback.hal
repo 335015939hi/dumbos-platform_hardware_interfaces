@@ -28,8 +28,7 @@ interface IUsbGadgetCallback {
      *                                       not supported.
      *               ERROR otherwise.
      */
-    oneway setCurrentUsbFunctionsCb(bitfield<GadgetFunction> functions,
-                                    Status status);
+    oneway setCurrentUsbFunctionsCb(bitfield<GadgetFunction> functions, Status status);
 
     /**
      * Callback function used to propagate the current USB gadget
@@ -42,6 +41,5 @@ interface IUsbGadgetCallback {
      *                                     been applied.
      *               ERROR otherwise.
      */
-    oneway getCurrentUsbFunctionsCb(bitfield<GadgetFunction> functions,
-                                    Status status);
+    oneway getCurrentUsbFunctionsCb(bitfield<GadgetFunction> functions, Status status);
 };

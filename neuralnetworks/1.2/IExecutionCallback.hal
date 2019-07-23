@@ -24,7 +24,6 @@ import @1.0::IExecutionCallback;
  * execution asynchronously launched from IPreparedModel::execute.
  */
 interface IExecutionCallback extends @1.0::IExecutionCallback {
-
     /**
      * Either notify_1_2 or notify must be invoked immediately after the asynchronous
      * task has finished performing the execution. Either notify_1_2 or notify must be
@@ -55,5 +54,5 @@ interface IExecutionCallback extends @1.0::IExecutionCallback {
      *                any time as UINT64_MAX, indicating that particular measurement is
      *                not available.
      */
-  oneway notify_1_2(ErrorStatus status, vec<OutputShape> outputShapes, Timing timing);
+    oneway notify_1_2(ErrorStatus status, vec<OutputShape> outputShapes, Timing timing);
 };

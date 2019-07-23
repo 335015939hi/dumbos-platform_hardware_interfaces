@@ -51,18 +51,20 @@ enum OffloadCallbackEvent : uint32_t {
      * setDataLimit, has expired.  It is recommended that the client query for
      * statistics immediately after receiving this event.
      */
-    OFFLOAD_STOPPED_LIMIT_REACHED = 5
+    OFFLOAD_STOPPED_LIMIT_REACHED = 5,
 };
 
 enum NetworkProtocol : uint32_t {
     TCP = 6,
-    UDP = 17
+    UDP = 17,
 };
 
 struct IPv4AddrPortPair {
-    /** IPv4 Address and Port */
-    string addr; // for e.g. 192.168.1.12
-    uint16_t port; // for e.g. 8080
+    /**
+     * IPv4 Address and Port
+     */
+    string addr;
+    uint16_t port;
 };
 
 struct NatTimeoutUpdate {

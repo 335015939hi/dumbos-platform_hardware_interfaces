@@ -71,9 +71,8 @@ interface IBluetoothAudioPort {
      *    corresponding to transmittedOctets. If the software data path is
      *    unused (e.g., for A2DP Hardware Offload), the value is set to zero.
      */
-    getPresentationPosition() generates (Status status,
-        uint64_t remoteDeviceAudioDelayNanos, uint64_t transmittedOctets,
-        TimeSpec transmittedOctetsTimeStamp);
+    getPresentationPosition() generates (Status status, uint64_t remoteDeviceAudioDelayNanos,
+        uint64_t transmittedOctets, TimeSpec transmittedOctetsTimeStamp);
 
     /**
      * Called when the metadata of the stream's source has been changed.

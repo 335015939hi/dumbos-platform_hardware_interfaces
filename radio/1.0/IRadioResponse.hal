@@ -165,7 +165,8 @@ interface IRadioResponse {
      *   RadioError:REQUEST_NOT_SUPPORTED
      *   RadioError:SIM_ABSENT
      */
-    oneway supplyNetworkDepersonalizationResponse(RadioResponseInfo info, int32_t remainingRetries);
+    oneway supplyNetworkDepersonalizationResponse(RadioResponseInfo info, int32_t remainingRetries
+        );
 
     /**
      * @param info Response info struct containing response type, serial no. and error
@@ -403,8 +404,8 @@ interface IRadioResponse {
      *   RadioError:NO_RESOURCES
      *   RadioError:CANCELLED
      */
-    oneway getLastCallFailCauseResponse(RadioResponseInfo info,
-            LastCallFailCauseInfo failCauseinfo);
+    oneway getLastCallFailCauseResponse(RadioResponseInfo info, LastCallFailCauseInfo failCauseinfo
+        );
 
     /**
      * @param info Response info struct containing response type, serial no. and error
@@ -438,8 +439,8 @@ interface IRadioResponse {
      *   RadioError:CANCELLED
      *   RadioError:REQUEST_NOT_SUPPORTED
      */
-    oneway getVoiceRegistrationStateResponse(RadioResponseInfo info,
-            VoiceRegStateResult voiceRegResponse);
+    oneway getVoiceRegistrationStateResponse(
+        RadioResponseInfo info, VoiceRegStateResult voiceRegResponse);
 
     /**
      * @param info Response info struct containing response type, serial no. and error
@@ -458,8 +459,8 @@ interface IRadioResponse {
      *   RadioError:NO_RESOURCES
      *   RadioError:CANCELLED
      */
-    oneway getDataRegistrationStateResponse(RadioResponseInfo info,
-            DataRegStateResult dataRegResponse);
+    oneway getDataRegistrationStateResponse(
+        RadioResponseInfo info, DataRegStateResult dataRegResponse);
 
     /**
      * @param info Response info struct containing response type, serial no. and error
@@ -477,8 +478,8 @@ interface IRadioResponse {
      *   RadioError:NO_RESOURCES
      *   RadioError:CANCELLED
      */
-    oneway getOperatorResponse(RadioResponseInfo info, string longName, string shortName,
-            string numeric);
+    oneway getOperatorResponse(
+        RadioResponseInfo info, string longName, string shortName, string numeric);
 
     /**
      * @param info Response info struct containing response type, serial no. and error
@@ -740,8 +741,8 @@ interface IRadioResponse {
      *   RadioError:NO_RESOURCES
      *   RadioError:CANCELLED
      */
-    oneway getCallForwardStatusResponse(RadioResponseInfo info,
-            vec<CallForwardInfo> callForwardInfos);
+    oneway getCallForwardStatusResponse(
+        RadioResponseInfo info, vec<CallForwardInfo> callForwardInfos);
 
     /**
      * @param info Response info struct containing response type, serial no. and error
@@ -1021,8 +1022,7 @@ interface IRadioResponse {
      *   RadioError:NO_RESOURCES
      *   RadioError:INTERNAL_ERR
      */
-    oneway getAvailableNetworksResponse(RadioResponseInfo info,
-            vec<OperatorInfo> networkInfos);
+    oneway getAvailableNetworksResponse(RadioResponseInfo info, vec<OperatorInfo> networkInfos);
 
     /**
      * @param info Response info struct containing response type, serial no. and error
@@ -1395,8 +1395,7 @@ interface IRadioResponse {
      *   RadioError:NO_RESOURCES
      *   RadioError:CANCELLED
      */
-    oneway getPreferredNetworkTypeResponse(RadioResponseInfo info,
-            PreferredNetworkType nwType);
+    oneway getPreferredNetworkTypeResponse(RadioResponseInfo info, PreferredNetworkType nwType);
 
     /**
      * @param info Response info struct containing response type, serial no. and error
@@ -1679,8 +1678,8 @@ interface IRadioResponse {
      *   RadioError:CANCELLED
      *   RadioError:INVALID_MODEM_STATE
      */
-    oneway getGsmBroadcastConfigResponse(RadioResponseInfo info,
-            vec<GsmBroadcastSmsConfigInfo> configs);
+    oneway getGsmBroadcastConfigResponse(
+        RadioResponseInfo info, vec<GsmBroadcastSmsConfigInfo> configs);
 
     /**
      * @param info Response info struct containing response type, serial no. and error
@@ -1743,8 +1742,8 @@ interface IRadioResponse {
      *   RadioError:CANCELLED
      *   RadioError:INVALID_MODEM_STATE
      */
-    oneway getCdmaBroadcastConfigResponse(RadioResponseInfo info,
-            vec<CdmaBroadcastSmsConfigInfo> configs);
+    oneway getCdmaBroadcastConfigResponse(
+        RadioResponseInfo info, vec<CdmaBroadcastSmsConfigInfo> configs);
 
     /**
      * @param info Response info struct containing response type, serial no. and error
@@ -1812,8 +1811,8 @@ interface IRadioResponse {
      *   RadioError:CANCELLED
      *   RadioError:SIM_ABSENT
      */
-    oneway getCDMASubscriptionResponse(RadioResponseInfo info, string mdn, string hSid,
-            string hNid, string min, string prl);
+    oneway getCDMASubscriptionResponse(
+        RadioResponseInfo info, string mdn, string hSid, string hNid, string min, string prl);
 
     /**
      * @param info Response info struct containing response type, serial no. and error
@@ -1888,8 +1887,8 @@ interface IRadioResponse {
      * accessing the device.
      *
      */
-    oneway getDeviceIdentityResponse(RadioResponseInfo info, string imei, string imeisv,
-            string esn, string meid);
+    oneway getDeviceIdentityResponse(
+        RadioResponseInfo info, string imei, string imeisv, string esn, string meid);
 
     /**
      * @param info Response info struct containing response type, serial no. and error
@@ -2004,7 +2003,8 @@ interface IRadioResponse {
      *   RadioError:REQUEST_NOT_SUPPORTED
      *   RadioError:SIM_ABSENT
      */
-    oneway getCdmaSubscriptionSourceResponse(RadioResponseInfo info, CdmaSubscriptionSource source);
+    oneway getCdmaSubscriptionSourceResponse(RadioResponseInfo info, CdmaSubscriptionSource source
+        );
 
     /**
      * @param info Response info struct containing response type, serial no. and error
@@ -2140,8 +2140,8 @@ interface IRadioResponse {
      *   RadioError:INVALID_MODEM_STATE
      *   RadioError:REQUEST_NOT_SUPPORTED
      */
-    oneway getImsRegistrationStateResponse(RadioResponseInfo info, bool isRegistered,
-            RadioTechnologyFamily ratFamily);
+    oneway getImsRegistrationStateResponse(
+        RadioResponseInfo info, bool isRegistered, RadioTechnologyFamily ratFamily);
 
     /**
      * @param info Response info struct containing response type, serial no. and error
@@ -2206,8 +2206,8 @@ interface IRadioResponse {
      *   RadioError:MISSING_RESOURCE
      *   RadioError:REQUEST_NOT_SUPPORTED
      */
-    oneway iccOpenLogicalChannelResponse(RadioResponseInfo info, int32_t channelId,
-            vec<int8_t> selectResponse);
+    oneway iccOpenLogicalChannelResponse(
+        RadioResponseInfo info, int32_t channelId, vec<int8_t> selectResponse);
 
     /**
      * @param info Response info struct containing response type, serial no. and error
@@ -2511,8 +2511,8 @@ interface IRadioResponse {
      *   RadioError:RADIO_NOT_AVAILABLE
      *   RadioError:REQUEST_NOT_SUPPORTED
      */
-    oneway getAllowedCarriersResponse(RadioResponseInfo info, bool allAllowed,
-            CarrierRestrictions carriers);
+    oneway getAllowedCarriersResponse(
+        RadioResponseInfo info, bool allAllowed, CarrierRestrictions carriers);
 
     /**
      * @param info Response info struct containing response type, serial no. and error

@@ -20,15 +20,15 @@ import android.hardware.audio.common@4.0;
 import IEffect;
 
 interface IBassBoostEffect extends IEffect {
+    enum StrengthRange : uint16_t {
+        MIN = 0,
+        MAX = 1000,
+    };
+
     /**
      * Returns whether setting bass boost strength is supported.
      */
     isStrengthSupported() generates (Result retval, bool strengthSupported);
-
-    enum StrengthRange : uint16_t {
-        MIN = 0,
-        MAX = 1000
-    };
 
     /**
      * Sets bass boost strength.

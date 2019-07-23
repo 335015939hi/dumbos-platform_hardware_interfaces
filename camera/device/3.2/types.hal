@@ -19,7 +19,9 @@ package android.hardware.camera.device@3.2;
 import android.hardware.graphics.common@1.0::types;
 
 typedef vec<uint8_t> CameraMetadata;
+
 typedef bitfield<BufferUsage> BufferUsageFlags;
+
 typedef bitfield<Dataspace> DataspaceFlags;
 
 /**
@@ -35,7 +37,6 @@ enum StreamType : uint32_t {
      * from this stream with newly captured or reprocessed image data.
      */
     OUTPUT = 0,
-
     /**
      * This stream is an input stream; the camera HAL device must read buffers
      * from this stream and send them through the camera processing pipeline,
@@ -56,8 +57,7 @@ enum StreamType : uint32_t {
      * The typical use cases are OPAQUE (typically ZSL) and YUV reprocessing,
      * see S8.2, S8.3 and S10 for more details.
      */
-    INPUT = 1
-
+    INPUT = 1,
 };
 
 /**
@@ -65,19 +65,23 @@ enum StreamType : uint32_t {
  *
  * The required counterclockwise rotation of camera stream.
  */
-enum StreamRotation : uint32_t  {
-    /** No rotation */
+enum StreamRotation : uint32_t {
+    /**
+     * No rotation
+     */
     ROTATION_0 = 0,
-
-    /** Rotate by 90 degree counterclockwise */
+    /**
+     * Rotate by 90 degree counterclockwise
+     */
     ROTATION_90 = 1,
-
-    /** Rotate by 180 degree counterclockwise */
+    /**
+     * Rotate by 180 degree counterclockwise
+     */
     ROTATION_180 = 2,
-
-    /** Rotate by 270 degree counterclockwise */
-    ROTATION_270 = 3
-
+    /**
+     * Rotate by 270 degree counterclockwise
+     */
+    ROTATION_270 = 3,
 };
 
 /**
@@ -95,7 +99,6 @@ enum StreamConfigurationMode : uint32_t {
      * apply.
      */
     NORMAL_MODE = 0,
-
     /**
      * Special constrained high speed operation mode for devices that can not
      * support high speed output in NORMAL mode. All streams in this
@@ -167,7 +170,6 @@ enum StreamConfigurationMode : uint32_t {
      * static metadata.
      */
     CONSTRAINED_HIGH_SPEED_MODE = 1,
-
     /**
      * A set of vendor-defined operating modes, for custom default camera
      * application features that can't be implemented in the fully flexible fashion
@@ -180,7 +182,7 @@ enum StreamConfigurationMode : uint32_t {
     VENDOR_MODE_4,
     VENDOR_MODE_5,
     VENDOR_MODE_6,
-    VENDOR_MODE_7
+    VENDOR_MODE_7,
 };
 
 /**
@@ -208,22 +210,18 @@ struct Stream {
      *
      */
     int32_t id;
-
     /**
      * The type of the stream (input vs output, etc).
      */
     StreamType streamType;
-
     /**
      * The width in pixels of the buffers in this stream
      */
     uint32_t width;
-
     /**
      * The height in pixels of the buffers in this stream
      */
     uint32_t height;
-
     /**
      * The pixel format for the buffers in this stream.
      *
@@ -233,7 +231,6 @@ struct Stream {
      *
      */
     android.hardware.graphics.common@1.0::PixelFormat format;
-
     /**
      * The gralloc usage flags for this stream, as needed by the consumer of
      * the stream.
@@ -254,7 +251,6 @@ struct Stream {
      * imcompatible buffer format, dataSpace, or other hardware limitations.
      */
     BufferUsageFlags usage;
-
     /**
      * A field that describes the contents of the buffer. The format and buffer
      * dimensions define the memory layout and structure of the stream buffers,
@@ -272,7 +268,6 @@ struct Stream {
      * definitions.
      */
     DataspaceFlags dataSpace;
-
     /**
      * The required output rotation of the stream.
      *
@@ -290,7 +285,6 @@ struct Stream {
      *
      */
     StreamRotation rotation;
-
 };
 
 /**
@@ -309,7 +303,6 @@ struct StreamConfiguration {
      * At least one output-capable stream must be defined.
      */
     vec<Stream> streams;
-
     /**
      * The operation mode of streams in this configuration. The HAL can use this
      * mode as an indicator to set the stream property (e.g.,
@@ -322,7 +315,6 @@ struct StreamConfiguration {
      *
      */
     StreamConfigurationMode operationMode;
-
 };
 
 /**
@@ -341,7 +333,6 @@ struct HalStream {
      * The ID must be one of the stream IDs passed into configureStreams.
      */
     int32_t id;
-
     /**
      * An override pixel format for the buffers in this stream.
      *
@@ -357,7 +348,6 @@ struct HalStream {
      * the camera device and the other endpoint of the stream.
      */
     android.hardware.graphics.common@1.0::PixelFormat overrideFormat;
-
     /**
      * The gralloc usage flags for this stream, as needed by the HAL.
      *
@@ -373,14 +363,12 @@ struct HalStream {
      */
     BufferUsageFlags producerUsage;
     BufferUsageFlags consumerUsage;
-
     /**
      * The maximum number of buffers the HAL device may need to have dequeued at
      * the same time. The HAL device may not have more buffers in-flight from
      * this stream than this value.
      */
     uint32_t maxBuffers;
-
 };
 
 /**
@@ -407,12 +395,11 @@ enum BufferStatus : uint32_t {
      * sync fence.
      */
     OK = 0,
-
     /**
      * The buffer does not contain valid data, and the data in it must not be
      * used. The sync fence must still be waited on before reusing the buffer.
      */
-    ERROR = 1
+    ERROR = 1,
 };
 
 /**
@@ -432,7 +419,6 @@ struct StreamBuffer {
      * null and bufferId must be 0.
      */
     int32_t streamId;
-
     /**
      * The unique ID of the buffer within this StreamBuffer. 0 indicates this
      * StreamBuffer contains no buffer.
@@ -446,7 +432,6 @@ struct StreamBuffer {
      * only bufferId, and keep the buffer handle null.
      */
     uint64_t bufferId;
-
     /**
      * The graphics buffer handle to the buffer.
      *
@@ -463,7 +448,6 @@ struct StreamBuffer {
      * by the combination of frame number and stream ID.
      */
     handle buffer;
-
     /**
      * Current state of the buffer. The framework must not pass buffers to the
      * HAL that are in an error state. In case a buffer could not be filled by
@@ -471,7 +455,6 @@ struct StreamBuffer {
      * framework with processCaptureResult().
      */
     BufferStatus status;
-
     /**
      * The acquire sync fence for this buffer. The HAL must wait on this fence
      * fd before attempting to read from or write to this buffer.
@@ -488,7 +471,6 @@ struct StreamBuffer {
      * buffer.
      */
     handle acquireFence;
-
     /**
      * The release sync fence for this buffer. The HAL must set this to a valid
      * fence fd when returning the input buffer or output buffers to the client
@@ -506,7 +488,6 @@ struct StreamBuffer {
      * immediately upon the call of processCaptureResult.
      */
     handle releaseFence;
-
 };
 
 /**
@@ -536,7 +517,6 @@ enum CameraBlobId : uint16_t {
 
 struct CameraBlob {
     CameraBlobId blobId;
-
     uint32_t blobSize;
 };
 
@@ -553,13 +533,12 @@ enum MsgType : uint32_t {
      * error information.
      */
     ERROR = 1,
-
     /**
      * The exposure of a given request or processing a reprocess request has
      * begun. NotifyMsg::Message::Shutter contains the information
      * the capture.
      */
-    SHUTTER = 2
+    SHUTTER = 2,
 };
 
 /**
@@ -573,7 +552,6 @@ enum ErrorCode : uint32_t {
      * is unused.
      */
     ERROR_DEVICE = 1,
-
     /**
      * An error has occurred in processing a request. No output (metadata or
      * buffers) must be produced for this request. The frameNumber field
@@ -581,7 +559,6 @@ enum ErrorCode : uint32_t {
      * unaffected, and the device remains operational.
      */
     ERROR_REQUEST = 2,
-
     /**
      * An error has occurred in producing an output result metadata buffer
      * for a request, but output stream buffers for it must still be
@@ -590,7 +567,6 @@ enum ErrorCode : uint32_t {
      * result metadata won't be available.
      */
     ERROR_RESULT = 3,
-
     /**
      * An error has occurred in placing an output buffer into a stream for a
      * request. The frame metadata and other buffers may still be
@@ -613,18 +589,15 @@ struct ErrorMsg {
      * isn't applicable to the error.
      */
     uint32_t frameNumber;
-
     /**
      * Pointer to the stream that had a failure. -1 if the stream isn't
      * applicable to the error.
      */
     int32_t errorStreamId;
-
     /**
      * The code for this error.
      */
     ErrorCode errorCode;
-
 };
 
 /**
@@ -637,14 +610,12 @@ struct ShutterMsg {
      * Frame number of the request that has begun exposure or reprocessing.
      */
     uint32_t frameNumber;
-
     /**
      * Timestamp for the start of capture. For a reprocess request, this must
      * be input image's start of capture. This must match the capture result
      * metadata's sensor exposure start timestamp.
      */
     uint64_t timestamp;
-
 };
 
 /**
@@ -653,23 +624,21 @@ struct ShutterMsg {
  * The message structure sent to ICameraDevice3Callback::notify()
  */
 struct NotifyMsg {
-    /**
-     * The message type.
-     */
-    MsgType type;
-
     union Message {
         /**
          * Error message contents. Valid if type is MsgType::ERROR
          */
         ErrorMsg error;
-
         /**
          * Shutter message contents. Valid if type is MsgType::SHUTTER
          */
         ShutterMsg shutter;
-    } msg;
-
+    };
+    /**
+     * The message type.
+     */
+    MsgType type;
+    Message msg;
 };
 
 /**
@@ -683,24 +652,20 @@ enum RequestTemplate : uint32_t {
      * Standard camera preview operation with 3A on auto.
      */
     PREVIEW = 1,
-
     /**
      * Standard camera high-quality still capture with 3A and flash on auto.
      */
     STILL_CAPTURE = 2,
-
     /**
      * Standard video recording plus preview with 3A on auto, torch off.
      */
     VIDEO_RECORD = 3,
-
     /**
      * High-quality still capture while recording video. Applications typically
      * include preview, video record, and full-resolution YUV or JPEG streams in
      * request. Must not cause stuttering on video stream. 3A on auto.
      */
     VIDEO_SNAPSHOT = 4,
-
     /**
      * Zero-shutter-lag mode. Application typically request preview and
      * full-resolution data for each frame, and reprocess it to JPEG when a
@@ -709,7 +674,6 @@ enum RequestTemplate : uint32_t {
      * auto.
      */
     ZERO_SHUTTER_LAG = 5,
-
     /**
      * A basic template for direct application control of capture
      * parameters. All automatic control is disabled (auto-exposure, auto-white
@@ -719,12 +683,10 @@ enum RequestTemplate : uint32_t {
      * application depending on the intended use case.
      */
     MANUAL = 6,
-
     /**
      * First value for vendor-defined request templates
      */
     VENDOR_TEMPLATE_START = 0x40000000,
-
 };
 
 /**
@@ -751,14 +713,12 @@ struct CaptureRequest {
      * notifications sent to ICameraDevice3Callback::notify().
      */
     uint32_t frameNumber;
-
     /**
      * If non-zero, read settings from request queue instead
      * (see ICameraDeviceSession.getCaptureRequestMetadataQueue).
      * If zero, read settings from .settings field.
      */
     uint64_t fmqSettingsSize;
-
     /**
      * If fmqSettingsSize is zero,
      * the settings buffer contains the capture and processing parameters for
@@ -771,7 +731,6 @@ struct CaptureRequest {
      * if fmqSettingsSize is non-zero.
      */
     CameraMetadata settings;
-
     /**
      * The input stream buffer to use for this request, if any.
      *
@@ -788,7 +747,6 @@ struct CaptureRequest {
      *
      */
     StreamBuffer inputBuffer;
-
     /**
      * An array of at least 1 stream buffers, to be filled with image
      * data from this capture/reprocess. The HAL must wait on the acquire fences
@@ -801,7 +759,6 @@ struct CaptureRequest {
      * request (having never before seen by the HAL).
      */
     vec<StreamBuffer> outputBuffers;
-
 };
 
 /**
@@ -851,14 +808,12 @@ struct CaptureResult {
      * ICameraDevice3Callback::notify().
      */
     uint32_t frameNumber;
-
     /**
      * If non-zero, read result from result queue instead
      * (see ICameraDeviceSession.getCaptureResultMetadataQueue).
      * If zero, read result from .result field.
      */
     uint64_t fmqResultSize;
-
     /**
      * The result metadata for this capture. This contains information about the
      * final capture parameters, the state of the capture and post-processing
@@ -880,7 +835,6 @@ struct CaptureResult {
      * partial results for that frame are ignored by the framework.
      */
     CameraMetadata result;
-
     /**
      * The completed output stream buffers for this capture.
      *
@@ -929,7 +883,6 @@ struct CaptureResult {
      * dispatch that call as early as possible.
      */
     vec<StreamBuffer> outputBuffers;
-
     /**
      * The handle for the input stream buffer for this capture, if any.
      *
@@ -954,7 +907,6 @@ struct CaptureResult {
      * the buffer return sooner.
      */
     StreamBuffer inputBuffer;
-
     /**
      * In order to take advantage of partial results, the HAL must set the
      * static metadata android.request.partialResultCount to the number of
@@ -972,7 +924,6 @@ struct CaptureResult {
      * and no metadata.
      */
     uint32_t partialResult;
-
 };
 
 /**
@@ -990,7 +941,6 @@ struct BufferCache {
      * The ID of the stream this list is associated with.
      */
     int32_t streamId;
-
     /**
      * A cached buffer ID associated with streamId.
      */

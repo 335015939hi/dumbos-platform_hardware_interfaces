@@ -27,26 +27,28 @@ enum Result : int32_t {
      * Methods marked as "Optional method" must return this result value
      * if the operation is not supported by HAL.
      */
-    NOT_SUPPORTED
+    NOT_SUPPORTED,
 };
 
-@export(name="audio_drain_type_t", value_prefix="AUDIO_DRAIN_")
+@export(name = "audio_drain_type_t", value_prefix = "AUDIO_DRAIN_")
 enum AudioDrain : int32_t {
-    /** drain() returns when all data has been played. */
+    /**
+     * drain() returns when all data has been played.
+     */
     ALL,
     /**
      * drain() returns a short time before all data from the current track has
      * been played to give time for gapless track switch.
      */
-    EARLY_NOTIFY
+    EARLY_NOTIFY,
 };
 
 /**
  * A substitute for POSIX timespec.
  */
 struct TimeSpec {
-    uint64_t tvSec;   // seconds
-    uint64_t tvNSec;  // nanoseconds
+    uint64_t tvSec;
+    uint64_t tvNSec;
 };
 
 struct ParameterValue {
@@ -55,7 +57,7 @@ struct ParameterValue {
 };
 
 enum MmapBufferFlag : uint32_t {
-    NONE    = 0x0,
+    NONE = 0x0,
     /**
      * If the buffer can be securely shared to untrusted applications
      * through the AAudio exclusive mode.
@@ -63,7 +65,7 @@ enum MmapBufferFlag : uint32_t {
      * memory surrounding the audio data buffer by a kernel mechanism.
      * See Linux kernel's dma_buf.
      */
-    APPLICATION_SHAREABLE    = 0x1,
+    APPLICATION_SHAREABLE = 0x1,
 };
 
 /**
@@ -71,13 +73,21 @@ enum MmapBufferFlag : uint32_t {
  * Used by streams opened in mmap mode.
  */
 struct MmapBufferInfo {
-    /** Mmap memory buffer */
-    memory  sharedMemory;
-    /** Total buffer size in frames */
+    /**
+     * Mmap memory buffer
+     */
+    memory sharedMemory;
+    /**
+     * Total buffer size in frames
+     */
     uint32_t bufferSizeFrames;
-    /** Transfer size granularity in frames */
+    /**
+     * Transfer size granularity in frames
+     */
     uint32_t burstSizeFrames;
-    /** Attributes describing the buffer. */
+    /**
+     * Attributes describing the buffer.
+     */
     bitfield<MmapBufferFlag> flags;
 };
 
@@ -86,8 +96,8 @@ struct MmapBufferInfo {
  * Used by streams opened in mmap mode.
  */
 struct MmapPosition {
-    int64_t  timeNanoseconds; // time stamp in ns, CLOCK_MONOTONIC
-    int32_t  positionFrames;  // increasing 32 bit frame count reset when IStream.stop() is called
+    int64_t timeNanoseconds;
+    int32_t positionFrames;
 };
 
 /**
@@ -96,15 +106,14 @@ struct MmapPosition {
  */
 enum MessageQueueFlagBits : uint32_t {
     NOT_EMPTY = 1 << 0,
-    NOT_FULL = 1 << 1
+    NOT_FULL = 1 << 1,
 };
 
-/*
+/**
  * Microphone information
  *
- */
-
-/**
+ *
+ *
  * A 3D point used to represent position or orientation of a microphone.
  *
  * Position: Coordinates of the microphone's capsule, in meters, from the
@@ -128,9 +137,15 @@ struct AudioMicrophoneCoordinate {
  * Simple processing as constant gain adjustment must be DIRECT.
  */
 enum AudioMicrophoneChannelMapping : uint32_t {
-    UNUSED      = 0, /* Channel not used */
-    DIRECT      = 1, /* Channel used and signal not processed */
-    PROCESSED   = 2, /* Channel used and signal has some process */
+    UNUSED = 0,
+    /**
+     * Channel not used
+     */
+    DIRECT = 1,
+    /**
+     * Channel used and signal not processed
+     */
+    PROCESSED = 2,
 };
 
 /**
@@ -138,37 +153,37 @@ enum AudioMicrophoneChannelMapping : uint32_t {
  * android device.
  */
 enum AudioMicrophoneLocation : uint32_t {
-    UNKNOWN             = 0,
-    MAINBODY            = 1,
-    MAINBODY_MOVABLE    = 2,
-    PERIPHERAL          = 3,
+    UNKNOWN = 0,
+    MAINBODY = 1,
+    MAINBODY_MOVABLE = 2,
+    PERIPHERAL = 3,
 };
 
-/**
- * Identifier to help group related microphones together
- * e.g. microphone arrays should belong to the same group
- */
 typedef int32_t AudioMicrophoneGroup;
 
 /**
  * Enum with standard polar patterns of microphones
  */
 enum AudioMicrophoneDirectionality : uint32_t {
-    UNKNOWN         = 0,
-    OMNI            = 1,
-    BI_DIRECTIONAL  = 2,
-    CARDIOID        = 3,
-    HYPER_CARDIOID  = 4,
-    SUPER_CARDIOID  = 5,
+    UNKNOWN = 0,
+    OMNI = 1,
+    BI_DIRECTIONAL = 2,
+    CARDIOID = 3,
+    HYPER_CARDIOID = 4,
+    SUPER_CARDIOID = 5,
 };
 
 /**
  * A (frequency, level) pair. Used to represent frequency response.
  */
 struct AudioFrequencyResponsePoint {
-    /** In Hz */
+    /**
+     * In Hz
+     */
     float frequency;
-    /** In dB */
+    /**
+     * In dB
+     */
     float level;
 };
 
@@ -177,49 +192,66 @@ struct AudioFrequencyResponsePoint {
  * Used by StreamIn and Device
  */
 struct MicrophoneInfo {
-    /** Unique alphanumeric id for microphone. Guaranteed to be the same
+    /**
+     * Unique alphanumeric id for microphone. Guaranteed to be the same
      * even after rebooting.
      */
-    string                                  deviceId;
+    string deviceId;
     /**
      * Device specific information
      */
-    DeviceAddress                           deviceAddress;
-    /** Each element of the vector must describe the channel with the same
+    DeviceAddress deviceAddress;
+    /**
+     * Each element of the vector must describe the channel with the same
      *  index.
      */
-    vec<AudioMicrophoneChannelMapping>      channelMapping;
-    /** Location of the microphone in regard to the body of the device */
-    AudioMicrophoneLocation                 location;
-    /** Identifier to help group related microphones together
+    vec<AudioMicrophoneChannelMapping> channelMapping;
+    /**
+     * Location of the microphone in regard to the body of the device
+     */
+    AudioMicrophoneLocation location;
+    /**
+     * Identifier to help group related microphones together
      *  e.g. microphone arrays should belong to the same group
      */
-    AudioMicrophoneGroup                    group;
-    /** Index of this microphone within the group.
+    AudioMicrophoneGroup group;
+    /**
+     * Index of this microphone within the group.
      *  (group, index) must be unique within the same device.
      */
-    uint32_t                                indexInTheGroup;
-    /** Level in dBFS produced by a 1000 Hz tone at 94 dB SPL */
-    float                                   sensitivity;
-    /** Level in dB of the max SPL supported at 1000 Hz */
-    float                                   maxSpl;
-    /** Level in dB of the min SPL supported at 1000 Hz */
-    float                                   minSpl;
-    /** Standard polar pattern of the microphone */
-    AudioMicrophoneDirectionality           directionality;
-    /** Vector with ordered frequency responses (from low to high frequencies)
+    uint32_t indexInTheGroup;
+    /**
+     * Level in dBFS produced by a 1000 Hz tone at 94 dB SPL
+     */
+    float sensitivity;
+    /**
+     * Level in dB of the max SPL supported at 1000 Hz
+     */
+    float maxSpl;
+    /**
+     * Level in dB of the min SPL supported at 1000 Hz
+     */
+    float minSpl;
+    /**
+     * Standard polar pattern of the microphone
+     */
+    AudioMicrophoneDirectionality directionality;
+    /**
+     * Vector with ordered frequency responses (from low to high frequencies)
      *  with the frequency response of the microphone.
      *  Levels are in dB, relative to level at 1000 Hz
      */
-    vec<AudioFrequencyResponsePoint>        frequencyResponse;
-    /** Position of the microphone's capsule in meters, from the
+    vec<AudioFrequencyResponsePoint> frequencyResponse;
+    /**
+     * Position of the microphone's capsule in meters, from the
      *  bottom-left-back corner of the bounding box of device.
      */
-    AudioMicrophoneCoordinate               position;
-    /** Normalized point to signal the main orientation of the microphone's
+    AudioMicrophoneCoordinate position;
+    /**
+     * Normalized point to signal the main orientation of the microphone's
      *  capsule. sqrt(x^2 + y^2 + z^2) = 1
      */
-    AudioMicrophoneCoordinate               orientation;
+    AudioMicrophoneCoordinate orientation;
 };
 
 /**
@@ -228,7 +260,7 @@ struct MicrophoneInfo {
  *
  * MicrophoneDirection Constants are defined in MicrophoneDirection.java.
  */
-@export(name="audio_microphone_direction_t", value_prefix="MIC_DIRECTION_")
+@export(name = "audio_microphone_direction_t", value_prefix = "MIC_DIRECTION_")
 enum MicrophoneDirection : int32_t {
     /**
      * Don't do any directionality processing of the activated microphone(s).

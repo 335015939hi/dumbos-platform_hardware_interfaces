@@ -45,8 +45,7 @@ interface IWifiNanIface extends @1.0::IWifiNanIface {
      *         |WifiStatusCode.SUCCESS|,
      *         |WifiStatusCode.ERROR_WIFI_IFACE_INVALID|
      */
-    registerEventCallback_1_2(IWifiNanIfaceEventCallback callback)
-        generates (WifiStatus status);
+    registerEventCallback_1_2(IWifiNanIfaceEventCallback callback) generates (WifiStatus status);
 
     /**
      * Enable NAN: configures and activates NAN clustering (does not start
@@ -68,8 +67,8 @@ interface IWifiNanIface extends @1.0::IWifiNanIface {
      *         |WifiStatusCode.ERROR_INVALID_ARGS|,
      *         |WifiStatusCode.ERROR_UNKNOWN|
      */
-    enableRequest_1_2(CommandIdShort cmdId, NanEnableRequest msg1,
-                      NanConfigRequestSupplemental msg2)
+    enableRequest_1_2(
+        CommandIdShort cmdId, NanEnableRequest msg1, NanConfigRequestSupplemental msg2)
         generates (WifiStatus status);
 
     /**
@@ -90,7 +89,7 @@ interface IWifiNanIface extends @1.0::IWifiNanIface {
      *         |WifiStatusCode.ERROR_INVALID_ARGS|,
      *         |WifiStatusCode.ERROR_UNKNOWN|
      */
-    configRequest_1_2(CommandIdShort cmdId, NanConfigRequest msg1,
-                      NanConfigRequestSupplemental msg2)
+    configRequest_1_2(
+        CommandIdShort cmdId, NanConfigRequest msg1, NanConfigRequestSupplemental msg2)
         generates (WifiStatus status);
 };

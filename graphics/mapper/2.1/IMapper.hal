@@ -35,21 +35,19 @@ interface IMapper extends @2.0::IMapper {
          * padded.
          */
         uint32_t width;
-
-       /**
-        * The height specifies how many rows of pixels must be in the
-        * allocated buffer.
-        */
+        /**
+         * The height specifies how many rows of pixels must be in the
+         * allocated buffer.
+         */
         uint32_t height;
-
-       /**
-        * The number of image layers that must be in the allocated buffer.
-        */
+        /**
+         * The number of image layers that must be in the allocated buffer.
+         */
         uint32_t layerCount;
-
-        /** Buffer pixel format. */
+        /**
+         * Buffer pixel format.
+         */
         PixelFormat format;
-
         /**
          * Buffer usage mask; valid flags can be found in the definition of
          * BufferUsage.
@@ -70,10 +68,8 @@ interface IMapper extends @2.0::IMapper {
      *                  BAD_BUFFER when the buffer is invalid.
      *                  BAD_VALUE when buffer cannot be safely accessed
      */
-    validateBufferSize(pointer buffer,
-                       BufferDescriptorInfo descriptorInfo,
-                       uint32_t stride)
-            generates (Error error);
+    validateBufferSize(pointer buffer, BufferDescriptorInfo descriptorInfo, uint32_t stride)
+        generates (Error error);
 
     /**
      * Get the transport size of a buffer. An imported buffer handle is a raw
@@ -91,10 +87,7 @@ interface IMapper extends @2.0::IMapper {
      * @return numFds is the number of file descriptors needed for transport.
      * @return numInts is the number of integers needed for transport.
      */
-    getTransportSize(pointer buffer)
-            generates (Error error,
-                       uint32_t numFds,
-                       uint32_t numInts);
+    getTransportSize(pointer buffer) generates (Error error, uint32_t numFds, uint32_t numInts);
 
     /**
      * This is the same as @2.0::IMapper::createDescriptor except that it
@@ -119,6 +112,5 @@ interface IMapper extends @2.0::IMapper {
      * @return descriptor is the newly created buffer descriptor.
      */
     createDescriptor_2_1(BufferDescriptorInfo descriptorInfo)
-              generates (Error error,
-                         BufferDescriptor descriptor);
+        generates (Error error, BufferDescriptor descriptor);
 };

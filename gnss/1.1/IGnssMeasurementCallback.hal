@@ -18,14 +18,15 @@ package android.hardware.gnss@1.1;
 
 import @1.0::IGnssMeasurementCallback;
 
-/** The callback interface to report measurements from the HAL. */
+/**
+ * The callback interface to report measurements from the HAL.
+ */
 interface IGnssMeasurementCallback extends @1.0::IGnssMeasurementCallback {
     /**
      * Flags indicating the Accumulated Delta Range's states.
      */
-    enum GnssAccumulatedDeltaRangeState
-            : @1.0::IGnssMeasurementCallback.GnssAccumulatedDeltaRangeState {
-        ADR_STATE_HALF_CYCLE_RESOLVED = 1 << 3, // Carrier-phase half-cycle ambiguity resolved
+    enum GnssAccumulatedDeltaRangeState : @1.0::IGnssMeasurementCallback.GnssAccumulatedDeltaRangeState {
+        ADR_STATE_HALF_CYCLE_RESOLVED = 1 << 3,
     };
 
     /**
@@ -49,7 +50,6 @@ interface IGnssMeasurementCallback extends @1.0::IGnssMeasurementCallback {
          *   accumulatedDeltaRangeUncertaintyM
          */
         @1.0::IGnssMeasurementCallback.GnssMeasurement v1_0;
-
         /**
          * Provides the state of Accumulated Delta Range values, including additional information
          * beyond version 1.0 of the HAL.  See GnssAccumulatedDeltaRangeState.
@@ -64,10 +64,13 @@ interface IGnssMeasurementCallback extends @1.0::IGnssMeasurementCallback {
      * Complete set of GNSS Measurement data, same as 1.0 with additional enum in measurements.
      */
     struct GnssData {
-        /** The full set of satellite measurement observations. */
+        /**
+         * The full set of satellite measurement observations.
+         */
         vec<GnssMeasurement> measurements;
-
-        /** The GNSS clock time reading. */
+        /**
+         * The GNSS clock time reading.
+         */
         GnssClock clock;
     };
 

@@ -16,16 +16,16 @@
 
 package android.hardware.thermal@1.1;
 
-import android.hardware.thermal@1.0::IThermal;
+import @1.0::IThermal;
 import IThermalCallback;
 
 interface IThermal extends @1.0::IThermal {
-   /**
-    * Register an IThermalCallback, used by the Thermal HAL
-    * to send thermal events to the framework thermal service.
-    *
-    * @param callback the IThermalCallback to use for sending
-    *        thermal events, or nullptr to set no callback
-    */
+    /**
+     * Register an IThermalCallback, used by the Thermal HAL
+     * to send thermal events to the framework thermal service.
+     *
+     * @param callback the IThermalCallback to use for sending
+     *        thermal events, or nullptr to set no callback
+     */
     registerThermalCallback(IThermalCallback callback);
 };

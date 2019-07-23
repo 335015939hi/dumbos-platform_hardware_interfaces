@@ -44,8 +44,8 @@ enum CecLogicalAddress : int32_t {
     TUNER_4 = 10,
     PLAYBACK_3 = 11,
     FREE_USE = 14,
-    UNREGISTERED = 15, // as Initiator address
-    BROADCAST = 15, // as Destination address
+    UNREGISTERED = 15,
+    BROADCAST = 15,
 };
 
 /**
@@ -149,8 +149,8 @@ enum Result : int32_t {
  */
 enum SendMessageResult : int32_t {
     SUCCESS = 0,
-    NACK = 1, // not acknowledged
-    BUSY = 2, // bus is busy
+    NACK = 1,
+    BUSY = 2,
     FAIL = 3,
 };
 
@@ -173,14 +173,12 @@ enum OptionKey : int32_t {
      * True by default.
      */
     WAKEUP = 1,
-
     /**
      * When set to false, all the CEC commands are discarded. Used when user
      * changes the TV settings to disable CEC functionality.
      * True by default.
      */
     ENABLE_CEC = 2,
-
     /**
      * Setting this flag to false means Android system must stop handling CEC
      * service and yield the control over to the microprocessor that is powered
@@ -192,20 +190,21 @@ enum OptionKey : int32_t {
      * False by default.
      */
     SYSTEM_CEC_CONTROL = 3,
-
-    /* Option 4 not used */
 };
 
 struct CecMessage {
-    /** logical address of sender */
+    /**
+     * logical address of sender
+     */
     CecLogicalAddress initiator;
-
-    /** logical address of receiver */
+    /**
+     * logical address of receiver
+     */
     CecLogicalAddress destination;
-
     /**
      * The maximum size of body is 15 (MaxLength::MESSAGE_BODY) as specified in
-     * the section 6 of the CEC Spec 1.4b. Overflowed data must be ignored. */
+     * the section 6 of the CEC Spec 1.4b. Overflowed data must be ignored.
+     */
     vec<uint8_t> body;
 };
 
@@ -219,7 +218,7 @@ struct HotplugEvent {
  */
 struct HdmiPortInfo {
     HdmiPortType type;
-    uint32_t portId; // Should start from 1 which corresponds to HDMI "port 1".
+    uint32_t portId;
     bool cecSupported;
     bool arcSupported;
     uint16_t physicalAddress;
