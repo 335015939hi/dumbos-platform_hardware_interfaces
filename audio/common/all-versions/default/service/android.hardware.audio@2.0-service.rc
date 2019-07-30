@@ -6,9 +6,21 @@ service vendor.audio-hal-2-0 /vendor/bin/hw/android.hardware.audio@2.0-service
     capabilities BLOCK_SUSPEND
     ioprio rt 4
     writepid /dev/cpuset/foreground/tasks /dev/stune/foreground/tasks
-    # audioflinger restarts itself when it loses connection with the hal
-    # and its .rc file has an "onrestart restart audio-hal" rule, thus
-    # an additional auto-restart from the init process isn't needed.
-    oneshot
-    interface android.hardware.audio@4.0::IDevicesFactory default
-    interface android.hardware.audio@2.0::IDevicesFactory default
+    onrestart restart audioserver
+    # When replacing this default service implementation with a device-specific
+    # implementation, uncomment the specific interface lines corresponding to the
+    # exact interfaces that your implementation provides.
+    # These interface lines allow audioserver init interface_restart rules to restart
+    # this service on audioserver restart.
+    #
+    # interface android.hardware.audio@2.0::IDevicesFactory default
+    # interface android.hardware.audio@4.0::IDevicesFactory default
+    # interface android.hardware.audio@5.0::IDevicesFactory default
+    # interface android.hardware.audio.effect@2.0::IEffectsFactory default
+    # interface android.hardware.audio.effect@4.0::IEffectsFactory default
+    # interface android.hardware.audio.effect@5.0::IEffectsFactory default
+    # interface android.hardware.soundtrigger@2.0::ISoundTriggerHw default
+    # interface android.hardware.soundtrigger@2.1::ISoundTriggerHw default
+    # interface android.hardware.soundtrigger@2.2::ISoundTriggerHw default
+    # interface android.hardware.bluetooth.audio@2.0::IBluetoothAudioProvidersFactory default
+    # interface android.hardware.bluetooth.a2dp@1.0::IBluetoothAudioOffload default
