@@ -22,6 +22,30 @@
       "revId": "01b3c8d264d327b802ec17bc1accab1e8a0ea15b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3160c5d0_fbfdbf34",
+        "filename": "audio/common/all-versions/default/service/android.hardware.audio@2.0-service.rc",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1455782
+      },
+      "writtenOn": "2019-07-31T17:16:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fae61126_9020b520",
+      "range": {
+        "startLine": 10,
+        "startChar": 4,
+        "endLine": 26,
+        "endChar": 83
+      },
+      "revId": "01b3c8d264d327b802ec17bc1accab1e8a0ea15b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
