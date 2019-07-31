@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fae61126_9020b520",
+        "filename": "audio/common/all-versions/default/service/android.hardware.audio@2.0-service.rc",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2019-07-31T17:04:04Z",
+      "side": 1,
+      "message": "As I understand, interface declarations are not needed as they were added to work around b/80227481 which doesn\u0027t happen with your change. So I think we can remove this comment block entirely.",
+      "range": {
+        "startLine": 10,
+        "startChar": 4,
+        "endLine": 26,
+        "endChar": 83
+      },
+      "revId": "01b3c8d264d327b802ec17bc1accab1e8a0ea15b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
