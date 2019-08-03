@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "406bb08f_1cd20243",
+        "filename": "current.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-08-03T03:20:36Z",
+      "side": 1,
+      "message": "should add a new line in this section",
+      "range": {
+        "startLine": 479,
+        "startChar": 0,
+        "endLine": 479,
+        "endChar": 49
+      },
+      "revId": "740418f099858bae7d89cc39d1e6a5b2c696fc5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
