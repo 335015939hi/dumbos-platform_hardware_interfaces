@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a46f0778_b3d6ca65",
+        "filename": "current.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-08-05T21:54:34Z",
+      "side": 1,
+      "message": "sorry, and also do not change here",
+      "range": {
+        "startLine": 162,
+        "startChar": 0,
+        "endLine": 162,
+        "endChar": 64
+      },
+      "revId": "e1a77ecad5fbba4c33882c5c2d6a9db729f2f983",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
