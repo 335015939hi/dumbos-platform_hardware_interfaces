@@ -43,3 +43,14 @@ cc_defaults {
     ],
 
 }
+
+genrule {
+    name: "hardware_interfaces_current",
+    srcs: [
+        "current.txt",
+    ],
+    out: [
+        "hardware_interfaces_current.txt",
+    ],
+    cmd: "cp -f $(in) $(genDir)/hardware_interfaces_current.txt",
+}
