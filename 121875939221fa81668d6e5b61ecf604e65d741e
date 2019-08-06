@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "e83ffc99_15ded8a1",
+        "filename": "neuralnetworks/1.0/vts/functional/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2019-08-06T17:46:20Z",
+      "side": 1,
+      "message": "Ack\n\nI also didn\u0027t realize this was a cherry-pick change. Are we even able to make fixes in cherry-pick changes? Generally I just +2 myself for simple cherry-picks.\n\nFor simplicity/safety, we might want to revert this back to PS1 and merge it as it appears in internal master.",
+      "parentUuid": "acce7259_ffd017b4",
+      "range": {
+        "startLine": 79,
+        "startChar": 9,
+        "endLine": 79,
+        "endChar": 10
+      },
+      "revId": "121875939221fa81668d6e5b61ecf604e65d741e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5cfd7042_83fa5728",
         "filename": "neuralnetworks/1.0/vts/functional/GeneratedTests.h",
         "patchSetId": 1
@@ -190,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "48a0bc22_2ec3dd18",
+        "filename": "neuralnetworks/1.2/vts/functional/CompilationCachingTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2019-08-06T17:46:20Z",
+      "side": 1,
+      "message": "We might want to file a bug to the LLVM team about this.\n\nAndroid \u003e Android OS \u0026 Apps \u003e Toolchain \u003e LLVM\n\nDoes what\u0027s currently on line 41 pass presubmit repohook checks? If so, I say we leave it as-is. If not, you might want to break up the namespace into:\n\nnamespace android::hardware::neuralnetworks::V1_2 {\nnamespace generated_tests::mobilenet_224_gender_basic_fixed {\nModel createTestModel();\n}  // namespace generated_tests::mobilenet_224_gender_basic_fixed\n}  // namespace android::hardware::neuralnetworks::V1_2",
+      "parentUuid": "91ac0845_f89a6b51",
+      "range": {
+        "startLine": 41,
+        "startChar": 91,
+        "endLine": 41,
+        "endChar": 106
+      },
+      "revId": "121875939221fa81668d6e5b61ecf604e65d741e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3347d6ba_260c8310",
         "filename": "neuralnetworks/1.2/vts/functional/CompilationCachingTests.cpp",
         "patchSetId": 1
@@ -234,6 +282,30 @@
       "revId": "121875939221fa81668d6e5b61ecf604e65d741e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06e4281f_86fd617c",
+        "filename": "neuralnetworks/1.2/vts/functional/CompilationCachingTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1125923
+      },
+      "writtenOn": "2019-08-06T17:46:20Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "aa95ade1_d7350249",
+      "range": {
+        "startLine": 43,
+        "startChar": 10,
+        "endLine": 43,
+        "endChar": 59
+      },
+      "revId": "121875939221fa81668d6e5b61ecf604e65d741e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
