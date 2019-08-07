@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "afa4c789_e557ed6b",
+        "filename": "neuralnetworks/1.0/vts/functional/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1361908
+      },
+      "writtenOn": "2019-08-07T11:22:07Z",
+      "side": 1,
+      "message": "Reverted to PS1.\n\nI didn\u0027t realize I could +2 a cherry-pick CL myself.",
+      "parentUuid": "e83ffc99_15ded8a1",
+      "range": {
+        "startLine": 79,
+        "startChar": 9,
+        "endLine": 79,
+        "endChar": 10
+      },
+      "revId": "121875939221fa81668d6e5b61ecf604e65d741e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5cfd7042_83fa5728",
         "filename": "neuralnetworks/1.0/vts/functional/GeneratedTests.h",
         "patchSetId": 1
