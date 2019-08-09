@@ -58,7 +58,7 @@ Return<void> DumpstateDevice::dumpstateBoard(const hidl_handle& handle) {
 
     // Shows some examples on how to use the libdumpstateutil API.
     RunCommandToFd(fd, "DATE", {"/vendor/bin/date"});
-    DumpFileToFd(fd, "HOSTS", "/system/etc/hosts");
+    // DumpFileToFd(fd, "HOSTS", "/system/etc/hosts");
 
     return Void();
 }
