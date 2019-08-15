@@ -4066,41 +4066,27 @@ typedef KeymasterHidlTest KeyDeletionTest;
  *
  * This test checks that if rollback protection is implemented, DeleteKey invalidates a formerly
  * valid key blob.
- *
- * TODO(swillden):  Update to incorporate changes in rollback resistance semantics.
  */
 TEST_F(KeyDeletionTest, DeleteKey) {
     ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
-                                             .RsaSigningKey(2048, 65537)
-                                             .Digest(Digest::NONE)
-                                             .Padding(PaddingMode::NONE)
-                                             .Authorization(TAG_NO_AUTH_REQUIRED)));
+                                                 .RsaSigningKey(2048, 65537)
+                                                 .Digest(Digest::NONE)
+                                                 .Padding(PaddingMode::NONE)
+                                                 .Authorization(TAG_NO_AUTH_REQUIRED)
+                                                 .Authorization(TAG_ROLLBACK_RESISTANCE)));
 
     // Delete must work if rollback protection is implemented
     AuthorizationSet hardwareEnforced(key_characteristics_.hardwareEnforced);
-    bool rollback_protected = hardwareEnforced.Contains(TAG_ROLLBACK_RESISTANCE);
+    ASSERT_TRUE(hardwareEnforced.Contains(TAG_ROLLBACK_RESISTANCE));
 
-    if (rollback_protected) {
-        ASSERT_EQ(ErrorCode::OK, DeleteKey(true /* keep key blob */));
-    } else {
-        auto delete_result = DeleteKey(true /* keep key blob */);
-        ASSERT_TRUE(delete_result == ErrorCode::OK | delete_result == ErrorCode::UNIMPLEMENTED);
-    }
+    ASSERT_EQ(ErrorCode::OK, DeleteKey(true /* keep key blob */));
 
     string message = "12345678901234567890123456789012";
     AuthorizationSet begin_out_params;
-
-    if (rollback_protected) {
-        EXPECT_EQ(ErrorCode::INVALID_KEY_BLOB,
-                  Begin(KeyPurpose::SIGN, key_blob_,
-                        AuthorizationSetBuilder().Digest(Digest::NONE).Padding(PaddingMode::NONE),
-                        &begin_out_params, &op_handle_));
-    } else {
-        EXPECT_EQ(ErrorCode::OK,
-                  Begin(KeyPurpose::SIGN, key_blob_,
-                        AuthorizationSetBuilder().Digest(Digest::NONE).Padding(PaddingMode::NONE),
-                        &begin_out_params, &op_handle_));
-    }
+    EXPECT_EQ(ErrorCode::INVALID_KEY_BLOB,
+              Begin(KeyPurpose::SIGN, key_blob_,
+                    AuthorizationSetBuilder().Digest(Digest::NONE).Padding(PaddingMode::NONE),
+                    &begin_out_params, &op_handle_));
     AbortIfNeeded();
     key_blob_ = HidlBuf();
 }
@@ -4108,21 +4094,20 @@ TEST_F(KeyDeletionTest, DeleteKey) {
 /**
  * KeyDeletionTest.DeleteInvalidKey
  *
- * This test checks that the HAL excepts invalid key blobs.
- *
- * TODO(swillden):  Update to incorporate changes in rollback resistance semantics.
+ * This test checks that the HAL excepts invalid key blobs..
  */
 TEST_F(KeyDeletionTest, DeleteInvalidKey) {
     // Generate key just to check if rollback protection is implemented
     ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
-                                             .RsaSigningKey(2048, 65537)
-                                             .Digest(Digest::NONE)
-                                             .Padding(PaddingMode::NONE)
-                                             .Authorization(TAG_NO_AUTH_REQUIRED)));
+                                                 .RsaSigningKey(2048, 65537)
+                                                 .Digest(Digest::NONE)
+                                                 .Padding(PaddingMode::NONE)
+                                                 .Authorization(TAG_NO_AUTH_REQUIRED)
+                                                 .Authorization(TAG_ROLLBACK_RESISTANCE)));
 
     // Delete must work if rollback protection is implemented
     AuthorizationSet hardwareEnforced(key_characteristics_.hardwareEnforced);
-    bool rollback_protected = hardwareEnforced.Contains(TAG_ROLLBACK_RESISTANCE);
+    ASSERT_TRUE(hardwareEnforced.Contains(TAG_ROLLBACK_RESISTANCE));
 
     // Delete the key we don't care about the result at this point.
     DeleteKey();
@@ -4130,12 +4115,7 @@ TEST_F(KeyDeletionTest, DeleteInvalidKey) {
     // Now create an invalid key blob and delete it.
     key_blob_ = HidlBuf("just some garbage data which is not a valid key blob");
 
-    if (rollback_protected) {
-        ASSERT_EQ(ErrorCode::OK, DeleteKey());
-    } else {
-        auto delete_result = DeleteKey();
-        ASSERT_TRUE(delete_result == ErrorCode::OK | delete_result == ErrorCode::UNIMPLEMENTED);
-    }
+    ASSERT_EQ(ErrorCode::OK, DeleteKey());
 }
 
 /**
@@ -4148,37 +4128,29 @@ TEST_F(KeyDeletionTest, DeleteInvalidKey) {
  * device has been wiped manually (e.g., fastboot flashall -w), and new FBE/FDE keys have
  * been provisioned. Use this test only on dedicated testing devices that have no valuable
  * credentials stored in Keystore/Keymaster.
- *
- * TODO(swillden):  Update to incorporate changes in rollback resistance semantics.
  */
 TEST_F(KeyDeletionTest, DeleteAllKeys) {
     if (!arm_deleteAllKeys) return;
     ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
-                                             .RsaSigningKey(2048, 65537)
-                                             .Digest(Digest::NONE)
-                                             .Padding(PaddingMode::NONE)
-                                             .Authorization(TAG_NO_AUTH_REQUIRED)));
+                                                 .RsaSigningKey(2048, 65537)
+                                                 .Digest(Digest::NONE)
+                                                 .Padding(PaddingMode::NONE)
+                                                 .Authorization(TAG_NO_AUTH_REQUIRED)
+                                                 .Authorization(TAG_ROLLBACK_RESISTANCE)));
 
     // Delete must work if rollback protection is implemented
     AuthorizationSet hardwareEnforced(key_characteristics_.hardwareEnforced);
-    bool rollback_protected = hardwareEnforced.Contains(TAG_ROLLBACK_RESISTANCE);
+    ASSERT_TRUE(hardwareEnforced.Contains(TAG_ROLLBACK_RESISTANCE));
 
     ASSERT_EQ(ErrorCode::OK, DeleteAllKeys());
 
     string message = "12345678901234567890123456789012";
     AuthorizationSet begin_out_params;
 
-    if (rollback_protected) {
-        EXPECT_EQ(ErrorCode::INVALID_KEY_BLOB,
-                  Begin(KeyPurpose::SIGN, key_blob_,
-                        AuthorizationSetBuilder().Digest(Digest::NONE).Padding(PaddingMode::NONE),
-                        &begin_out_params, &op_handle_));
-    } else {
-        EXPECT_EQ(ErrorCode::OK,
-                  Begin(KeyPurpose::SIGN, key_blob_,
-                        AuthorizationSetBuilder().Digest(Digest::NONE).Padding(PaddingMode::NONE),
-                        &begin_out_params, &op_handle_));
-    }
+    EXPECT_EQ(ErrorCode::INVALID_KEY_BLOB,
+              Begin(KeyPurpose::SIGN, key_blob_,
+                    AuthorizationSetBuilder().Digest(Digest::NONE).Padding(PaddingMode::NONE),
+                    &begin_out_params, &op_handle_));
     AbortIfNeeded();
     key_blob_ = HidlBuf();
 }
