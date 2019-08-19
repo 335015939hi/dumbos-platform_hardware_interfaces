@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f61189a5_20b5b1f9",
+        "filename": "tv/earc/1.0/IHdmiEarc.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1238642
+      },
+      "writtenOn": "2019-08-19T06:27:47Z",
+      "side": 1,
+      "message": "Yes.\nThere is the timing in which we cannot get notification. eg. in boot sequence.\nand There is the cases that would like to know eARC status from TV side.",
+      "parentUuid": "0885de3f_5423473a",
+      "range": {
+        "startLine": 34,
+        "startChar": 34,
+        "endLine": 34,
+        "endChar": 42
+      },
+      "revId": "116d64b4d1b9ba6de8775c9d240462c8ce8ae3ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "539bcd8e_caa3f4af",
         "filename": "tv/earc/1.0/types.hal",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2019-08-14T01:00:26Z",
       "side": 1,
       "message": "In waiting status, should the ARC init be stopped?",
+      "range": {
+        "startLine": 25,
+        "startChar": 4,
+        "endLine": 25,
+        "endChar": 27
+      },
+      "revId": "116d64b4d1b9ba6de8775c9d240462c8ce8ae3ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49c90edd_ff5335fe",
+        "filename": "tv/earc/1.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1238642
+      },
+      "writtenOn": "2019-08-19T06:27:47Z",
+      "side": 1,
+      "message": "Yes, ARC and eARC should be exclusive.\nIf eARC is enabled, ARC should not be initiated.",
+      "parentUuid": "539bcd8e_caa3f4af",
       "range": {
         "startLine": 25,
         "startChar": 4,
