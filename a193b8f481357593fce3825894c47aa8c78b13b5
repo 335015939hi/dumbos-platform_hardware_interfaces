@@ -22,6 +22,30 @@
       "revId": "a193b8f481357593fce3825894c47aa8c78b13b5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe13033e_c63ec332",
+        "filename": "camera/common/1.0/default/CameraModule.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1321491
+      },
+      "writtenOn": "2019-08-20T21:08:26Z",
+      "side": 1,
+      "message": "Good catch. That\u0027s because I cherry-picked this from master. I suppose for AOSP, we would just check if \u003e\u003d CAMERA_MODULE_API_VERSION_2_4 then?",
+      "parentUuid": "e7afd144_4e4e1fe5",
+      "range": {
+        "startLine": 274,
+        "startChar": 33,
+        "endLine": 274,
+        "endChar": 62
+      },
+      "revId": "a193b8f481357593fce3825894c47aa8c78b13b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
