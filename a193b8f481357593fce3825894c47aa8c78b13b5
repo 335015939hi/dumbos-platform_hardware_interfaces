@@ -46,6 +46,30 @@
       "revId": "a193b8f481357593fce3825894c47aa8c78b13b5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98bb29e3_74199044",
+        "filename": "camera/common/1.0/default/CameraModule.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1321491
+      },
+      "writtenOn": "2019-08-20T21:15:28Z",
+      "side": 1,
+      "message": "I don\u0027t necessarily want to change this, because anyone cherry-picking this for Q should compare against CAMERA_MODULE_API_VERSION_2_5.",
+      "parentUuid": "fe13033e_c63ec332",
+      "range": {
+        "startLine": 274,
+        "startChar": 33,
+        "endLine": 274,
+        "endChar": 62
+      },
+      "revId": "a193b8f481357593fce3825894c47aa8c78b13b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
