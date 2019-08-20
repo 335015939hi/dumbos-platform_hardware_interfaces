@@ -94,6 +94,30 @@
       "revId": "a193b8f481357593fce3825894c47aa8c78b13b5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03f41a70_3fc0546b",
+        "filename": "camera/common/1.0/default/CameraModule.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1321491
+      },
+      "writtenOn": "2019-08-20T21:26:40Z",
+      "side": 1,
+      "message": "Alright, sounds good. So to recap - our plan is not to merge this, but to keep it hosted on AOSP where vendors who need it can cherry-pick it.\n\nThis patch is useful to improve the torch start time when using the lazy camera HAL. This improves start times if the vendor\u0027s implementation of get_camera_info is slow, but getting just the device version (e.g. the new call which this patch adds, get_camera_device_version) can be made fast.",
+      "parentUuid": "174cc5d3_0a37c076",
+      "range": {
+        "startLine": 274,
+        "startChar": 33,
+        "endLine": 274,
+        "endChar": 62
+      },
+      "revId": "a193b8f481357593fce3825894c47aa8c78b13b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
