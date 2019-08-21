@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0a070d91_625fc96b",
+        "filename": "Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-08-21T22:57:47Z",
+      "side": 1,
+      "message": "we could remove this later (and delete things like vts_testability_checker)",
+      "range": {
+        "startLine": 24,
+        "startChar": 9,
+        "endLine": 24,
+        "endChar": 33
+      },
+      "revId": "022cda0236096724a9b1801d25d1983eb6930025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
