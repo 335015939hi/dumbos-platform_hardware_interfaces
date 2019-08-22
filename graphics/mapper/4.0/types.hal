@@ -51,9 +51,14 @@ enum Error : int32_t {
  * createDescriptor(). It describes the properties of a buffer and is consumed
  * by the allocator.
  */
-typedef vec<uint32_t> BufferDescriptor;
+typedef vec<uint8_t> BufferDescriptor;
 
 struct BufferDescriptorInfo {
+   /**
+    * The name of the buffer. Useful for debugging/tracing.
+    */
+    string name;
+
    /**
     * The width specifies how many columns of pixels must be in the
     * allocated buffer, but does not necessarily represent the offset in
@@ -90,6 +95,113 @@ struct Rect {
     int32_t top;
     int32_t width;
     int32_t height;
+};
+
+// Defined by ARM in a separate patch
+struct PlaneLayout;
+
+/**
+ * BufferMetadata is an enum used to in getting and setting buffer metadata.
+ * The comments for each enum type include a description of the metadata
+ * that can be get or set with the enum.
+ */
+enum BufferMetadata : uint32_t {
+   /**
+    * Can be used to get the random ID of the buffer.
+    *
+    * This ID should only be used for debugging purposes. It cannot be used as a basis for any
+    * control flows (eg. caching).
+    *
+    * The buffer ID is a uint64_t.
+    */
+    BUFFER_ID,
+
+   /**
+    * Can be used to get the name passed in by the client at allocation time in the
+    * BufferDescriptorInfo.
+    *
+    * The buffer name is a C style string. It is an array of chars followed by a null terminator.
+    */
+    NAME,
+
+   /**
+    * Can be used to get the number of elements per buffer row requested at allocation time in
+    * the BufferDescriptorInfo.
+    *
+    * The width is a uint32_t.
+    */
+    WIDTH,
+
+   /**
+    * Can be used to get the number of elements per buffer column requested at allocation time in
+    * the BufferDescriptorInfo.
+    *
+    * The height is a uint32_t.
+    */
+    HEIGHT,
+
+   /**
+    * Can be used to get the buffer format requested at allocation time in the
+    * BufferDescriptorInfo.
+    *
+    * The requested pixel format is a uint32_t.
+    */
+    REQUESTED_PIXEL_FORMAT,
+
+   /**
+    * Can be used to get the actual implementation dependent buffer format
+    *
+    * The actual pixel format is represented by a uint32_t.
+    */
+    ACTUAL_PIXEL_FORMAT,
+
+   /**
+    * Can be used to get the usage requested at allocation time in the BufferDescriptorInfo.
+    *
+    * The usage is a uint64_t bit field of android.hardware.graphics.common@1.2::BufferUsage.
+    */
+    USAGE,
+
+   /**
+    * Can be used to get the total size in bytes of any memory used by the buffer including its
+    * metadata and extra padding. This is the total number of bytes used by the buffer allocation.
+    *
+    * The allocation size is a uint64_t.
+    */
+    ALLOCATION_SIZE,
+
+   /**
+    * Can be used to get the PlaneLayout(s) of the buffer. There should be one PlaneLayout per
+    * plane in the buffer. For example if the buffer only has one plance, only one PlaneLayout
+    * should be returned.
+    *
+    * The plane layout is an array of uint8_t's. The first byte is a uint8_t that represents the
+    * number of PlaneLayout structs. The second byte begins the array of word-aligned PlaneLayout
+    * structs.
+    */
+    PLANE_LAYOUTS,
+
+   /**
+    * Can be used to get or set the dataspace of the buffer. The default dataspace is
+    * Dataspace::UNKNOWN.
+    *
+    * The dataspace is android.hardware.graphics.common@1.2::Dataspace.
+    */
+    DATASPACE,
+
+   /**
+    * Can be used to get or set the PerFrameMetadataBlob.
+    *
+    * The per frame metadata blob is android.hardware.graphics.composer@2.3::PerFrameMetadataBlob.
+    */
+    PER_FRAME_METADATA,
+
+   /**
+    * Can be used to get or set the BlendMode.
+    *
+    * The blend mode is android.hardware.graphics.composer@2.1::BlendMode.
+    */
+    BLEND_MODE
 };
 
 /**
