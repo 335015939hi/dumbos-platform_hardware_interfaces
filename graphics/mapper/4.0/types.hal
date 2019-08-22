@@ -51,27 +51,32 @@ enum Error : int32_t {
  * createDescriptor(). It describes the properties of a buffer and is consumed
  * by the allocator.
  */
-typedef vec<uint32_t> BufferDescriptor;
+typedef vec<uint8_t> BufferDescriptor;
 
 struct BufferDescriptorInfo {
+    /**
+     * The name of the buffer. Useful for debugging/tracing.
+     */
+    string name;
+
     /**
      * The width specifies how many columns of pixels must be in the
      * allocated buffer, but does not necessarily represent the offset in
      * columns between the same column in adjacent rows. The rows may be
      * padded.
      */
-    uint32_t width;
+    uint64_t width;
 
     /**
      * The height specifies how many rows of pixels must be in the
      * allocated buffer.
      */
-    uint32_t height;
+    uint64_t height;
 
     /**
      * The number of image layers that must be in the allocated buffer.
      */
-    uint32_t layerCount;
+    uint64_t layerCount;
 
     /**
      * Buffer pixel format.
@@ -90,6 +95,259 @@ struct Rect {
     int32_t top;
     int32_t width;
     int32_t height;
+};
+
+/**
+ * Enum that describes the compression strategy of the buffer. This enum will contain
+ * standard compression strategies. This enum should be extended by devices that use
+ * a proprietary or non-standard compression strategy.
+ */
+enum CompressionStrategy : uint64_t {
+    /* Represents all uncompressed buffers */
+    UNCOMPRESSED,
+
+    /* VESA Display Stream Compression (DSC) */
+    DISPLAY_STREAM_COMPRESSION,
+};
+
+/**
+ * Bitfield that describes the protected content strategy. Vendors can add additional values
+ * to further the type of protected content.
+ */
+enum ProtectedContentStrategy : uint64_t {
+    /* The buffer is protected. Set this bit if the buffer was allocated BufferUsage::PROTECTED */
+    PROTECTED = 1 << 0,
+
+    /* bits 1-31 are reserved for future versions and must be set to zero. */
+
+    /* bits 32-64 are reserved for vendor extensions. */
+};
+
+/**
+ * Enum that describes how the buffer's planes are interlaced. This field is used when
+ * the planes inside a buffer are interlaced. This field is not used to describe interlacing
+ * between seperate buffers.
+ */
+enum InterlacedStrategy : uint64_t {
+    /* The buffer is not interlaced. */
+    NONE,
+
+    /* The buffer's planes are interlaced horizontally. The height of each interlaced plane is
+     * 1/2 the height of the buffer's height. */
+    TOP_BOTTOM,
+
+    /* The buffer's planes are interlaced vertically. The width of each interlaced plane is
+     * 1/2 the width of the buffer's width. */
+    RIGHT_LEFT,
+};
+
+/**
+ * Enum that descrives chroma siting. This is field is useful when a format can have multiple
+ * valid chroma sitings. This field can be used to differentiate between them.
+ */
+enum ChromaSiting : uint64_t {
+    /* This format does not have chroma siting. */
+    NOT_APPLICABLE,
+
+    /* This format has chroma siting but the type being used is unknown. */
+    UNKNOWN,
+
+    /* Cb and Cr are sited interstitially, halfway between alternate luma samples.
+     * This is used by 4:2:0 for JPEG/JFIF, H.261, MPEG-1.
+    SITED_INTERSTITIAL,
+
+    /* Cb and Cr are horizontally sited coincident with a luma sample.
+     * Cb and Cr are vertically sited interstitially.
+     * This is used by 4:2:0 for MPEG-2 frame pictures.
+    COSITED_HORIZONTAL,
+};
+
+// Defined by ARM in a separate patch
+struct PlaneLayout;
+
+/**
+ * BufferMetadata is an enum used to in getting and setting buffer metadata.
+ * The comments for each enum type include a description of the metadata
+ * that can be get or set with the enum.
+ *
+ * Buffer metadata can be changed after allocation so users should avoid "caching"
+ * the BufferMetadata. For example, if the video resolution changes and the buffers
+ * are not reallocated, several buffer metadata values may change without warning.
+ * Users should not expect the values to be static. They should requery them every
+ * frame. The only exceptions are the BufferMetadata that are statically determined at
+ * runtime (BUFFER_ID and the metadata values gotten from the BufferDescriptorInfo).
+ */
+enum BufferMetadata : uint32_t {
+    /**
+     * Can be used to get the random ID of the buffer. This static ID is created at allocation
+     * time and does not change through out the life of the buffer.
+     *
+     * This ID should be psuedorandom with sufficient entropy.
+     *
+     * This ID should only be used for debugging purposes. It cannot be used as a basis for any
+     * control flows.
+     *
+     * The buffer ID is a uint64_t.
+     */
+    BUFFER_ID,
+
+    /**
+     * Can be used to get the name passed in by the client at allocation time in the
+     * BufferDescriptorInfo.
+     *
+     * The buffer name is a C style string. It is an array of chars followed by a null terminator.
+     */
+    NAME,
+
+    /**
+     * Can be used to get the number of elements per buffer row requested at allocation time in
+     * the BufferDescriptorInfo.
+     *
+     * The width is a uint64_t.
+     */
+    WIDTH,
+
+    /**
+     * Can be used to get the number of elements per buffer column requested at allocation time in
+     * the BufferDescriptorInfo.
+     *
+     * The height is a uint64_t.
+     */
+    HEIGHT,
+
+    /**
+     * Can be used to get the number of layers requested at allocation time in the
+     * BufferDescriptorInfo.
+     *
+     * The layer count is a uint64_t.
+     */
+    LAYER_COUNT,
+
+    /**
+     * Can be used to get the buffer format requested at allocation time in the
+     * BufferDescriptorInfo.
+     *
+     * The requested pixel format is a uint64_t.
+     */
+    PIXEL_FORMAT_REQUESTED,
+
+    /**
+     * Can be used to get the fourcc code for the format. Fourcc codes are standard across all
+     * devices of the same kernel version. Fourcc codes must follow the Linux definition of a
+     * modifier found in: include/uapi/drm/drm_fourcc.h.
+     *
+     * The pixel format fourcc code is represented by a uint32_t.
+     */
+    PIXEL_FORMAT_FOURCC,
+
+    /**
+     * Can be used to get the modifier for the format. Together fourcc and modifier describe the real
+     * pixel format. Each fourcc and modifier pair is unique and must fully define the format and
+     * layout of the buffer. Modifiers can change any property of the buffer. Modifiers must follow
+     * the Linux definiton of a modifier found in: include/uapi/drm/drm_fourcc.h.
+     *
+     * The pixel format modifier is represented by a uint64_t.
+     */
+    PIXEL_FORMAT_MODIFIER,
+
+    /**
+     * Can be used to get the usage requested at allocation time in the BufferDescriptorInfo.
+     *
+     * The usage is a uint64_t bit field of android.hardware.graphics.common@1.2::BufferUsage.
+     */
+    USAGE,
+
+    /**
+     * Can be used to get the total size in bytes of any memory used by the buffer including its
+     * metadata and extra padding. This is the total number of bytes used by the buffer allocation.
+     *
+     * The allocation size is a uint64_t.
+     */
+    ALLOCATION_SIZE,
+
+    /**
+     * Can be used to get the compression strategy of the buffer. If the device has more than one
+     * compression strategy, they should return different unique values for each compression
+     * strategy.
+     *
+     * The compression strategy is a CompressionStrategy.
+     */
+    COMPRESSION_STRATEGY,
+
+    /**
+     * Can be used to get if a buffer's protected content strategy.
+     *
+     * The protected is a bitfield<ProtectedContentStrategy>.
+     */
+    PROTECTED_CONTENT_STRATEGY,
+
+    /**
+     * Can be used to get how the buffer's planes are interlaced.
+     *
+     * The interlaced strategy is a InterlacedStrategy.
+     */
+    INTERLACED_STRATEGY,
+
+    /**
+     * Can be used to get the chroma siting of a buffer.
+     *
+     * The chroma siting is a ChromaSiting.
+     */
+    CHROMA_SITING,
+
+    /**
+     * Can be used to get the PlaneLayout(s) of the buffer. There should be one PlaneLayout per
+     * plane in the buffer. For example if the buffer only has one place, only one PlaneLayout
+     * should be returned.
+     *
+     * The plane layout is an array of uint8_t's. The first byte is a uint8_t that represents the
+     * number of PlaneLayout structs. The second byte begins the array of word-aligned PlaneLayout
+     * structs.
+     */
+    PLANE_LAYOUTS,
+
+    /**
+     * Can be used to get or set the dataspace of the buffer. The framework may attempt to set
+     * this value.
+     *
+     * The default dataspace is Dataspace::UNKNOWN. If this dataspace is set to any valid value
+     * other than Dataspace::UNKNOWN, this dataspace overrides all other dataspaces. For example,
+     * if the buffer has Dataspace::DISPLAY_P3 and it is being displayed on a composer Layer that
+     * is Dataspace::sRGB, the buffer should be treated as a DISPLAY_P3 buffer.
+     *
+     * The dataspace is a android.hardware.graphics.common@1.2::Dataspace.
+     */
+    DATASPACE,
+
+    /**
+     * Can be used to get or set the PerFrameMetadata or PerFrameMetadataBlob. The framework may
+     * attempt to set these values.
+     *
+     * The default values of PerFrameMetadata and PerFrameMetadataBlob are an empty vec<uint8_t>.
+     * In the default case, the get()/getFromBufferDescriptorInfo() calls should generate an empty
+     * vec<uint8_t> and return Error::NONE. Calling set() with an empty vec<uint8_t> resets these
+     * fields back to their default values.
+     *
+     * If either of the PerFrameMetadata and PerFrameMetadataBlob are set to non-default values,
+     * they override all other PerFrameMetadata and PerFrameMetadataBlobs. For a longer
+     * description of this behavior see BufferMetadata::DATASPACE.
+     *
+     * The per frame metadata is a android.hardware.graphics.composer@2.2::PerFrameMetadata.
+     * The per frame metadata blob a is android.hardware.graphics.composer@2.3::PerFrameMetadataBlob.
+     */
+    PER_FRAME_METADATA,
+    PER_FRAME_METADATA_BLOB,
+
+    /**
+     * Can be used to get or set the BlendMode. The framework may attempt to set this value.
+     *
+     * The default blend mode is BlendMode::INVALID. If the BlendMode is set to any valid value
+     * other than BlendMode::INVALID, this BlendMode overrides all other dataspaces. For a longer
+     * description of this behavior see BufferMetadata::DATASPACE.
+     *
+     * The blend mode is a android.hardware.graphics.composer@2.1::BlendMode.
+     */
+    BLEND_MODE
 };
 
 /**
