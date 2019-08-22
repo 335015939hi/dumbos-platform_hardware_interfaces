@@ -51,9 +51,14 @@ enum Error : int32_t {
  * createDescriptor(). It describes the properties of a buffer and is consumed
  * by the allocator.
  */
-typedef vec<uint32_t> BufferDescriptor;
+typedef vec<uint8_t> BufferDescriptor;
 
 struct BufferDescriptorInfo {
+    /**
+     * The name of the buffer. Useful for debugging/tracing.
+     */
+    string name;
+
     /**
      * The width specifies how many columns of pixels must be in the
      * allocated buffer, but does not necessarily represent the offset in
@@ -90,6 +95,207 @@ struct Rect {
     int32_t top;
     int32_t width;
     int32_t height;
+};
+
+/**
+ * Enum that describes if the format and layout of the buffer can be understood by generic Android
+ * software
+ */
+enum SoftwareUnderstandableHint : uint32_t {
+    NOT_UNDERSTANDABLE,
+    UNDERSTANDABLE,
+};
+
+/**
+ * Enum that describes the compression strategy of the buffer. This enum will contain
+ * standard compression strategies. This enum should be extended by devices that use
+ * a proprietary or non-standard compression strategy.
+ */
+enum CompressionStrategy : uint64_t {
+    /* Represents all uncompressed buffers */
+    UNCOMPRESSED,
+
+    /* VESA Display Stream Compression (DSC) */
+    DISPLAY_STREAM_COMPRESSION,
+};
+
+// Defined by ARM in a separate patch
+struct PlaneLayout;
+
+/**
+ * BufferMetadata is an enum used to in getting and setting buffer metadata.
+ * The comments for each enum type include a description of the metadata
+ * that can be get or set with the enum.
+ */
+enum BufferMetadata : uint32_t {
+    /**
+     * Can be used to get the random ID of the buffer.
+     *
+     * This ID should only be used for debugging purposes. It cannot be used as a basis for any
+     * control flows (eg. caching).
+     *
+     * The buffer ID is a uint64_t.
+     */
+    BUFFER_ID,
+
+    /**
+     * Can be used to get the name passed in by the client at allocation time in the
+     * BufferDescriptorInfo.
+     *
+     * The buffer name is a C style string. It is an array of chars followed by a null terminator.
+     */
+    NAME,
+
+    /**
+     * Can be used to get the number of elements per buffer row requested at allocation time in
+     * the BufferDescriptorInfo.
+     *
+     * The width is a uint32_t.
+     */
+    WIDTH,
+
+    /**
+     * Can be used to get the number of elements per buffer column requested at allocation time in
+     * the BufferDescriptorInfo.
+     *
+     * The height is a uint32_t.
+     */
+    HEIGHT,
+
+    /**
+     * Can be used to get the number of layers requested at allocation time in the
+     * BufferDescriptorInfo.
+     *
+     * The layer count is a uint32_t.
+     */
+    LAYER_COUNT,
+
+    /**
+     * Can be used to get the buffer format requested at allocation time in the
+     * BufferDescriptorInfo.
+     *
+     * The requested pixel format is a uint32_t.
+     */
+    PIXEL_FORMAT_REQUESTED,
+
+    /**
+     * Can be used to get the fourcc code for the format. Fourcc codes are standard across all
+     * devices of the same kernel version. Fourcc codes must follow the Linux definition of a
+     * modifier found in: include/uapi/drm/drm_fourcc.h.
+     *
+     * The pixel format fourcc code is represented by a uint32_t.
+     */
+    PIXEL_FORMAT_FOURCC,
+
+    /**
+     * Can be used to get the modifier for the format. Together fourcc and modifier describe the real
+     * pixel format. Each fourcc and modifier pair is unique and must fully define the format and
+     * layout of the buffer. Modifiers can change any property of the buffer. Modifiers must follow
+     * the Linux definiton of a modifier found in: include/uapi/drm/drm_fourcc.h.
+     *
+     * The pixel format modifier is represented by a uint64_t.
+     */
+    PIXEL_FORMAT_MODIFIER,
+
+    /**
+     * Can be used to get the usage requested at allocation time in the BufferDescriptorInfo.
+     *
+     * The usage is a uint64_t bit field of android.hardware.graphics.common@1.2::BufferUsage.
+     */
+    USAGE,
+
+    /**
+     * Can be used to get the total size in bytes of any memory used by the buffer including its
+     * metadata and extra padding. This is the total number of bytes used by the buffer allocation.
+     *
+     * The allocation size is a uint64_t.
+     */
+    ALLOCATION_SIZE,
+
+    /**
+     * Can be used to get a hint that the buffer can be understood by software. This hint
+     * will be used to help decide if this buffer should be manipulated by generic Android code
+     * running on the CPU such as a software codec.
+     *
+     * It is too difficult to adequately describe the layout and format of all buffers on all
+     * Android devices. If buffer is compressed, swizzled, packed, tiled, etc. in a way
+     * that isn't currently defined by or expressible through IMapper, generic Android code will
+     * likely not be able to understand or modify the contents of the buffer.
+     *
+     * This field is necessary because the presence of a PIXEL_FORMAT_MODIFIER does not mean that
+     * the buffer cannot be understood by software. For example, it is possible that there are
+     * different PIXEL_FORMAT_MODIFIERS that represent different stride lengths. Since the stride
+     * can be expressed through the PlaneLayout, the buffer could still be understood by software.
+     *
+     * This field is only a hint. If the buffer was allocated with CPU usage bits, it can be
+     * be accessed by the CPU according to those bits regardless of this hint.
+     *
+     * The software understandable hint is a SoftwareUnderstandableHint.
+     */
+    SOFTWARE_UNDERSTANDABLE_HINT
+
+    /**
+     * Can be used to get the compression strategy of the buffer. A value of 0 is used to represent
+     * an uncompressed buffer. A value of > 0 is used to represent a compressed buffer. If the
+     * implementer of IMapper has more than one compression strategy, they should different unique
+     * values for each compression strategy.
+     *
+     * The compression strategy is a CompressionStrategy.
+     */
+    COMPRESSION_STRATEGY,
+
+    /**
+     * ?
+     */
+    PROTECTED_CONTENT,
+
+    /**
+     * ?
+     */
+    TILED,
+
+    /**
+     * ?
+     */
+    INTERLEAVED,
+
+    /**
+     * ?
+     */
+    CHROMA_SITING,
+
+    /**
+     * Can be used to get the PlaneLayout(s) of the buffer. There should be one PlaneLayout per
+     * plane in the buffer. For example if the buffer only has one plance, only one PlaneLayout
+     * should be returned.
+     *
+     * The plane layout is an array of uint8_t's. The first byte is a uint8_t that represents the
+     * number of PlaneLayout structs. The second byte begins the array of word-aligned PlaneLayout
+     * structs.
+     */
+    PLANE_LAYOUTS,
+
+    /**
+     * Can be used to get or set the dataspace of the buffer. The default dataspace is
+     * Dataspace::UNKNOWN.
+     *
+     * The dataspace is android.hardware.graphics.common@1.2::Dataspace.
+     */
+    DATASPACE,
+
+    /**
+     * Can be used to get or set the PerFrameMetadataBlob.
+     *
+     * The per frame metadata blob is android.hardware.graphics.composer@2.3::PerFrameMetadataBlob.
+     */
+    PER_FRAME_METADATA,
+
+    /**
+     * Can be used to get or set the BlendMode.
+     *
+     * The blend mode is android.hardware.graphics.composer@2.1::BlendMode.
+     */
+    BLEND_MODE
 };
 
 /**

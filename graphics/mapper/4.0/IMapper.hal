@@ -22,6 +22,60 @@ import android.hardware.graphics.common@1.2::Rect;
 
 interface IMapper {
     /**
+     * Returns the global value for a given BufferMetadata.
+     *
+     * @param description Attributes of the descriptor.
+     * @param fieldName BufferMetadata enum for the metadata value being queried
+     * @return error Error status of the call, which may be
+     *     - `NONE` upon success.
+     *     - `BAD_VALUE` if any of the specified BufferDescriptorInfo attributes
+     *       are invalid or inconsistent, or if the fieldName is not a valid
+     *       valid BufferMetadata enum.
+     *     - `NO_RESOURCES` if the get cannot be fullfilled due to
+     *       unavailability of resources.
+     *     - `UNSUPPORTED` when any of the specified BufferDescriptorInfo attributes
+     *       are not supported, or if the requested metadata is not defined until
+     *       a buffer has been allocated.
+     * @return metadata Vector of bytes representing the value associated with
+     * the BufferMetadata enum value.
+     */
+    getFromBufferDescriptorInfo(BufferDescriptorInfo description, BufferMetadata fieldName)
+            generates (Error error,
+                       vec<uint8_t> metadata);
+    /**
+     * Returns the global value for a given BufferMetadata.
+     *
+     * @param buffer Buffer containing desired metadata
+     * @param fieldName BufferMetadata enum for the metadata value being queried
+     * @return error Error status of the call, which may be
+     *     - `NONE` upon success.
+     *     - `BAD_BUFFER` if the raw handle is invalid.
+     *     - `BAD_VALUE` when fieldName is not a valid BufferMetadata enum.
+     *     - `NO_RESOURCES` if the get cannot be fullfilled due to
+     *       unavailability of resources.
+     * @return metadata Vector of bytes representing the value associated with
+     * the BufferMetadata enum value.
+     */
+    get(pointer buffer, BufferMetadata fieldName)
+            generates (Error error,
+                       vec<uint8_t> metadata);
+
+    /**
+     * Sets the global value for a given piece of BufferMetadata.
+     *
+     * @param buffer Buffer receiving desired metadata
+     * @param fieldName BufferMetadata enum for the metadata value being set
+     * @param metadata Vector of bytes representing the value associated with
+     * @return error Error status of the call, which may be
+     *     - `NONE` upon success.
+     *     - `BAD_BUFFER` if the raw handle is invalid.
+     *     - `BAD_VALUE` when fieldName is not a valid BufferMetadata enum.
+     *     - `UNSUPPORTED` when setting fieldName is not supported.
+     */
+    set(pointer buffer, BufferMetadata fieldName, vec<uint8_t> metadata)
+            generates (Error error);
+
+    /**
      * Creates a buffer descriptor. The descriptor can be used with IAllocator
      * to allocate buffers.
      *
