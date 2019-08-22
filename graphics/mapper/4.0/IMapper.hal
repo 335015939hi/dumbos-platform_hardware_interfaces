@@ -23,6 +23,11 @@ import android.hardware.graphics.common@1.2::Rect;
 interface IMapper {
     struct BufferDescriptorInfo {
         /**
+         * The name of the buffer. Useful for debugging/tracing.
+         */
+        string name;
+
+        /**
          * The width specifies how many columns of pixels must be in the
          * allocated buffer, but does not necessarily represent the offset in
          * columns between the same column in adjacent rows. The rows may be
@@ -194,15 +199,19 @@ interface IMapper {
      * outside of @p accessRegion is undefined, except that it must not cause
      * process termination.
      *
+     * This function can lock both single-planar and multi-planar formats. The caller
+     * should use get() to get information about the buffer they are locking.
+     * get() can be used to get information about the planes, offsets, stride,
+     * etc.
+     *
+     * This function must also work on buffers with
+     * `AHARDWAREBUFFER_FORMAT_Y8Cb8Cr8_*` if supported by the device, as well
+     * as with any other formats requested by multimedia codecs when they are
+     * configured with a flexible-YUV-compatible color format.
+     *
      * On success, @p data must be filled with a pointer to the locked buffer
      * memory. This address will represent the top-left corner of the entire
      * buffer, even if @p accessRegion does not begin at the top-left corner.
-     *
-     * On success, bytesPerPixel must contain the number of bytes per pixel in
-     * the buffer. If the bytesPerPixel is unknown or variable, a value of -1
-     * should be returned. bytesPerStride must contain the bytes per stride of
-     * the buffer. If the bytesPerStride is unknown or variable, a value of -1
-     * should be returned.
      *
      * @param buffer Buffer to lock.
      * @param cpuUsage CPU usage flags to request. See +ndk
@@ -222,55 +231,13 @@ interface IMapper {
      *     - `NO_RESOURCES` if the buffer cannot be locked at this time. Note
      *       that locking may succeed at a later time.
      * @return data CPU-accessible pointer to the buffer data.
-     * @return bytesPerPixel the number of bytes per pixel in the buffer
-     * @return bytesPerStride the number of bytes per stride of the buffer
      */
     lock(pointer buffer,
          uint64_t cpuUsage,
          Rect accessRegion,
          handle acquireFence)
             generates (Error error,
-                       pointer data,
-                       int32_t bytesPerPixel,
-                       int32_t bytesPerStride);
-
-    /**
-     * Locks a YCbCr buffer for the specified CPU usage.
-     *
-     * This is largely the same as lock(), except that instead of returning a
-     * pointer directly to the buffer data, it returns a `YCbCrLayout` struct
-     * describing how to access the data planes.
-     *
-     * This function must work on buffers with
-     * `AHARDWAREBUFFER_FORMAT_Y8Cb8Cr8_*` if supported by the device, as well
-     * as with any other formats requested by multimedia codecs when they are
-     * configured with a flexible-YUV-compatible color format.
-     *
-     * @param buffer Buffer to lock.
-     * @param cpuUsage CPU usage flags to request. See +ndk
-     *     libnativewindow#AHardwareBuffer_UsageFlags for possible values.
-     * @param accessRegion Portion of the buffer that the client intends to
-     *     access.
-     * @param acquireFence Handle containing a file descriptor referring to a
-     *     sync fence object, which will be signaled when it is safe for the
-     *     mapper to lock the buffer. @p acquireFence may be empty if it is
-     *     already safe to lock.
-     * @return error Error status of the call, which may be
-     *     - `NONE` upon success.
-     *     - `BAD_BUFFER` if the buffer is invalid or is incompatible with this
-     *       function.
-     *     - `BAD_VALUE` if @p cpuUsage is 0, contains non-CPU usage flags, or
-     *       is incompatible with the buffer.
-     *     - `NO_RESOURCES` if the buffer cannot be locked at this time. Note
-     *       that locking may succeed at a later time.
-     * @return layout Data layout of the locked buffer.
-     */
-    lockYCbCr(pointer buffer,
-              uint64_t cpuUsage,
-              Rect accessRegion,
-              handle acquireFence)
-            generates (Error error,
-                       YCbCrLayout layout);
+                       pointer data);
 
     /**
      * Unlocks a buffer to indicate all CPU accesses to the buffer have
@@ -302,5 +269,200 @@ interface IMapper {
             generates (Error error,
                        bool supported);
 
+
+    /**
+     * Description for get(...), set(...) and getFromBufferDescriptorInfo(...)
+     *
+     * ------------ Overview -----------------------------------
+     * Gralloc 4 adds support for getting and setting buffer metadata on a buffer.
+     *
+     * To get buffer metadata, the client passes in a buffer handle and a token that
+     * represents the type of buffer metadata they would like to get. IMapper returns
+     * a byte stream that contains the buffer metadata. To set the buffer metadata, the
+     * client passes in a buffer handle and a token that represents the type of buffer
+     * metadata they would like to set and a byte stream that contains the buffer metadata
+     * they are setting.
+     *
+     * Buffer metadata is global for a buffer. When the metadata is set on the buffer
+     * in a process, the updated metadata should be available to all other processes.
+     * Please see "Storing and Propagating Metadata" below for more details.
+     *
+     * The getter and setter functions have been optimized for easy vendor extension.
+     * They do not require a formal HIDL extension to add support for getting and setting
+     * vendor defined buffer metadata. In order to allow easy extension, the types used
+     * here are not typical HIDL types. See "Buffer Metadata Token" and
+     * "Buffer Metadata Stream" below for more details.
+     *
+     * ------------ Storing and Propagating Metadata -----------
+     * Buffer metadata must be global. Any changes to the metadata must be propagated
+     * to all other processes immediately. Vendors may chose how they would like support
+     * this functionality.
+     *
+     * We recommend supporting this functionality by allocating an extra page of shared
+     * memory and storing it in the buffer's native_handle_t. The buffer metadata can
+     * be stored in the extra page of shared memory. Set operations are automatically
+     * propagated to all other processes.
+     *
+     * ------------ Buffer Metadata Synchronization ------------
+     * There are no explicit buffer metadata synchronization primitives. Many devices
+     * before gralloc 4 already support getting and setting of global buffer metadata
+     * with no explicit synchronization primitives. Adding synchronization primitives
+     * would just add unnecessary complexity.
+     *
+     * The general rule is if a process has permission to write to a buffer, they
+     * have permission to write to the buffer's metadata. If a process has permission
+     * to read from a buffer, they have permission to read the buffer's metadata.
+     *
+     * There is one exception to this rule. Fences CANNOT be used to protect a buffer's
+     * metadata. A process should finish writing to a buffer's metadata before sending
+     * sending the buffer to another process that will read or write to the buffer.
+     * This exception is needed because sometimes userspace needs to read the
+     * buffer's metadata before the buffer's contents are ready.
+     *
+     * As a simple example: an app renders to a buffer and then displays the buffer.
+     * In this example when the app renders to the buffer, both the buffer and its
+     * metadata need to be updated. The app's process queues up its work on the GPU
+     * and gets back an acquire fence. The app's process must update the buffer's
+     * metadata before enqueuing the buffer to SurfaceFlinger. The app CANNOT update
+     * the buffer's metadata after enqueuing the buffer. When HardwareComposer
+     * receives the buffer, it is immediately safe to read the buffer's metadata
+     * and use it to program the display driver. To read the buffer's contents,
+     * display driver must still wait on the acquire fence.
+     *
+     * ------------ Buffer Metadata Token ----------------------
+     * In order to allow arbitrary vendor defined metadata, we could not use a
+     * HIDL enum as the buffer metadata token. Extending a HIDL enum requires a full
+     * HIDL extension. We also could not use a simple non-HIDL enum because vendor
+     * defined enums from different vendors could collide. Instead we have defined
+     * a struct that has an enum value and a string representing the company that is
+     * adding the enum. The string protects different enum values from colliding.
+     *
+     * The token struct (BufferMetadataType) is defined as a HIDL struct since it
+     * is passed into a HIDL function. The common buffer metadata types are NOT
+     * defined as a HIDL enum because it would have required a new IMapper version
+     * just to add future common buffer metadata types. By putting the enum in the
+     * LL-NDK, (frameworks/native/libs/gralloc/types/include/gralloctypes/Gralloc4.h)
+     * vendors will be able to optionally choose to support future common
+     * buffer metadata types without upgrading versions. For more information see the
+     * description of "struct BufferMetadataType".
+     *
+     * ------------ Buffer Metadata Stream ---------------------
+     * The buffer metadata is get and set as a byte stream (vec<uint8_t>). By getting
+     * and setting buffer metadata as a byte stream, vendors can use the standard
+     * getters and setter functions defined here. They do NOT need to add their own
+     * getters and setter functions for each new type of buffer metadata.
+     *
+     * Turning buffer metadata into a byte stream can be non-trivial. For the common
+     * buffer metadata we have defined, we have also added support functions that will
+     * write the buffer metadata into a byte stream and read the buffer metadata from
+     * a byte stream. We highly recommend useing these support functions. The support
+     * functions are defined in frameworks/native/libs/gralloc/types/Gralloc4.cpp.
+     */
+
+    /**
+     * BufferMetadataType represents the different types of buffer metadata that could be
+     * associated with a buffer. It is used by IMapper to help get and set buffer metadata
+     * on the buffer's native handle.
+     *
+     * Common buffer metadata will have the company name set to "Gralloc4Common" and will
+     * contain values from gralloc4::BufferMetadataTypeCommon which is defined in
+     * frameworks/native/libs/gralloc/types/include/gralloctypes/Gralloc4.h.
+     *
+     * This struct should be "extended" by devices that use a proprietary or non-standard
+     * buffer metadata. To extend the struct, the company name should be set to the name
+     * of the company who is adding the new compression strategy. Each company should
+     * define and version its own values. The company name field prevents values from
+     * different companies from colliding.
+     */
+    struct BufferMetadataType {
+        string company;
+        uint64_t value;
+    };
+
+    /**
+     * Gets the buffer metadata for a given BufferMetadataType.
+     *
+     * Buffer metadata can be changed after allocation so clients should avoid "caching"
+     * the buffer metadata. For example, if the video resolution changes and the buffers
+     * are not reallocated, several buffer metadata values may change without warning.
+     * Clients should not expect the values to be constant. They should requery them every
+     * frame. The only exception is buffer metadata that is determined at allocation
+     * time. For gralloc4::BufferMetadataTypeCommon, only BUFFER_ID, NAME, WIDTH,
+     * HEIGHT, LAYER_COUNT, PIXEL_FORMAT_REQUESTED and USAGE are safe to cache because
+     * they are determined at allocation time.
+     *
+     * @param buffer Buffer containing desired metadata
+     * @param bufferMetadataType BufferMetadataType for the metadata value being queried
+     * @return error Error status of the call, which may be
+     *     - `NONE` upon success.
+     *     - `BAD_BUFFER` if the raw handle is invalid.
+     *     - `NO_RESOURCES` if the get cannot be fullfilled due to unavailability of
+     *        resources.
+     *     - `UNSUPPORTED` when bufferMetadataType is unknown/unsupported.
+              IMapper must support getting all gralloc 4 common metadata.
+     * @return metadata Vector of bytes representing the buffer metadata associated with
+     *  the BufferMetadataType.
+     */
+    get(pointer buffer, BufferMetadataType bufferMetadataType)
+            generates (Error error,
+                       vec<uint8_t> metadata);
+
+    /**
+     * Sets the global value for a given BufferMetadataType.
+     *
+     * BufferMetadata fields are not required to be settable. This function can
+     * return Error::UNSUPPORTED whenever it doesn't support setting a
+     * particular BufferMetadata field.
+     *
+     * The framework may attempt to set the following gralloc4::BufferMetadataTypeCommon
+     * values: DATASPACE, PER_FRAME_METADATA, PER_FRAME_METADATA_BLOB and BLEND_MODE.
+     * We strongly encourage everyone to support setting as many of those fields as
+     * possible. If a device's Composer implementation supports a field, it should be
+     * supported here. Over time these metadata fields will be moved out of
+     * Composer/BufferQueue/etc. and into the buffer's BufferMetadata fields.
+     * If a device's IMapper doesn't support setting those BufferMetadata fields,
+     * eventually the device may not longer be able to support these fields.
+     *
+     * @param buffer Buffer receiving desired metadata
+     * @param bufferMetadataType BufferMetadataType for the metadata value being set
+     * @param metadata Vector of bytes representing the value associated with
+     * @return error Error status of the call, which may be
+     *     - `NONE` upon success.
+     *     - `BAD_BUFFER` if the raw handle is invalid.
+     *     - `BAD_VALUE` when the field is constant and can never be set (such as
+     *       BUFFER_ID, NAME, WIDTH, HEIGHT, LAYER_COUNT, PIXEL_FORMAT_REQUESTED and
+     *       USAGE)
+     *     - `NO_RESOURCES` if the set cannot be fullfilled due to unavailability of
+     *        resources.
+     *     - `UNSUPPORTED` when bufferMetadataType is unknown/unsupported or setting
+     *       it is unsupported.
+     */
+    set(pointer buffer, BufferMetadataType bufferMetadataType, vec<uint8_t> metadata)
+            generates (Error error);
+
+    /**
+     * Given a BufferDescriptorInfo, gets the starting value of a given
+     * BufferMetadataType. This can be used to query basic information about a buffer
+     * before the buffer is allocated.
+     *
+     * @param description Attributes of the descriptor.
+     * @param bufferMetadataType BufferMetadataType for the metadata value being queried
+     * @return error Error status of the call, which may be
+     *     - `NONE` upon success.
+     *     - `BAD_VALUE` if any of the specified BufferDescriptorInfo attributes
+     *       are invalid.
+     *     - `NO_RESOURCES` if the get cannot be fullfilled due to unavailability of
+     *       resources.
+     *     - `UNSUPPORTED` when any of the description attributes are unsupported or
+     *       if the bufferMetadataType is unknown/unsupported. This should also be
+     *       returned if the requested metadata is not defined until a buffer has been
+     *       allocated.
+     * @return metadata Vector of bytes representing the value associated with
+     *  the BufferMetadataType value.
+     */
+    getFromBufferDescriptorInfo(BufferDescriptorInfo description,
+                                BufferMetadataType bufferMetadataType)
+            generates (Error error,
+                       vec<uint8_t> metadata);
 };
 
