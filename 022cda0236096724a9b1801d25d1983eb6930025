@@ -22,6 +22,30 @@
       "revId": "022cda0236096724a9b1801d25d1983eb6930025",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ec10983e_48190e32",
+        "filename": "Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2019-08-26T17:32:19Z",
+      "side": 1,
+      "message": "just curious, does the test build without this static lib now?",
+      "parentUuid": "0a070d91_625fc96b",
+      "range": {
+        "startLine": 24,
+        "startChar": 9,
+        "endLine": 24,
+        "endChar": 33
+      },
+      "revId": "022cda0236096724a9b1801d25d1983eb6930025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
