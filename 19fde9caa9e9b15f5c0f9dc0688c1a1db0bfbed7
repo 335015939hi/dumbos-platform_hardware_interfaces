@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "50e69895_8e3ef19a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-08-27T23:31:28Z",
+      "side": 1,
+      "message": "info/bug?",
+      "revId": "19fde9caa9e9b15f5c0f9dc0688c1a1db0bfbed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c4a1681_aef5440b",
+        "filename": "boot/1.1/IBootControl.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-08-27T23:31:28Z",
+      "side": 1,
+      "message": "would it make sense to explain what this is here as well?",
+      "range": {
+        "startLine": 23,
+        "startChar": 22,
+        "endLine": 23,
+        "endChar": 37
+      },
+      "revId": "19fde9caa9e9b15f5c0f9dc0688c1a1db0bfbed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16a8e91b_36457f0e",
+        "filename": "boot/1.1/IBootControl.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-08-27T23:31:28Z",
+      "side": 1,
+      "message": "nit: do we need both of these? It does require a synchronous callback. Would MergeStatus::UNKNOWN/ERROR be easier?",
+      "range": {
+        "startLine": 58,
+        "startChar": 40,
+        "endLine": 58,
+        "endChar": 72
+      },
+      "revId": "19fde9caa9e9b15f5c0f9dc0688c1a1db0bfbed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
