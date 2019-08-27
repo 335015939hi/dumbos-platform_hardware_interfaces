@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "9cccdba7_bb87f703",
+        "filename": "dumpstate/1.0/default/DumpstateDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-08-27T17:56:04Z",
+      "side": 1,
+      "message": "mock implementation",
+      "parentUuid": "27bd75cc_f5cf963c",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 53
+      },
+      "revId": "e08e6d0a55063b989f369ee1e298283b6947bff7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "523e5c23_b3133393",
         "filename": "dumpstate/1.0/default/DumpstateDevice.cpp",
         "patchSetId": 1
@@ -60,6 +84,30 @@
       "writtenOn": "2019-08-27T08:33:38Z",
       "side": 1,
       "message": "just delete.",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 54
+      },
+      "revId": "e08e6d0a55063b989f369ee1e298283b6947bff7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1326d6d_6cb2cb9f",
+        "filename": "dumpstate/1.0/default/DumpstateDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-08-27T17:56:04Z",
+      "side": 1,
+      "message": "I might be tempted to just abandon this CL btw. If someone notices the sepolicy denial, they should prefer to remove this service entirely from their device",
+      "parentUuid": "523e5c23_b3133393",
       "range": {
         "startLine": 61,
         "startChar": 0,
