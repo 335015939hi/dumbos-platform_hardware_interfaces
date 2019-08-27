@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "27bd75cc_f5cf963c",
+        "filename": "dumpstate/1.0/default/DumpstateDevice.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-08-27T17:55:18Z",
+      "side": 1,
+      "message": "This is a mock interface, see above:\n\u003e  dprintf(fd, \"Dumpstate HIDL not provided by device; providing bogus data.\\n\");",
+      "parentUuid": "c44c79d7_8a1b1343",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 53
+      },
+      "revId": "e08e6d0a55063b989f369ee1e298283b6947bff7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "523e5c23_b3133393",
         "filename": "dumpstate/1.0/default/DumpstateDevice.cpp",
         "patchSetId": 1
