@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "e42a8f0c_bc7bcce8",
+        "filename": "graphics/mapper/4.0/IMapper.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1468456
+      },
+      "writtenOn": "2019-08-27T22:33:30Z",
+      "side": 1,
+      "message": "What is the mechanism for OEMs to extend these get/set calls with our own metadata?",
+      "range": {
+        "startLine": 36,
+        "startChar": 24,
+        "endLine": 36,
+        "endChar": 38
+      },
+      "revId": "4e8054dac6e39851a1ac9d205424d3496ed29029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4a28b41a_09a6c250",
         "filename": "graphics/mapper/4.0/types.hal",
         "patchSetId": 3
