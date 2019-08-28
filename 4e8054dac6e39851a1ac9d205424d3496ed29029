@@ -25,6 +25,53 @@
     },
     {
       "key": {
+        "uuid": "07352b2c_7ed90640",
+        "filename": "graphics/mapper/4.0/IMapper.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-08-28T16:49:24Z",
+      "side": 1,
+      "message": "The normal HIDL extension process allows types to be extended. A vendor extension to a HIDL extension looks exactly the same as when Google does a minor rev on an interface. So a good example of how it would look is android.hardware.graphics.common@1.1\u0027s PixelFormat which extends the 1.0 PixelFormat.",
+      "parentUuid": "e42a8f0c_bc7bcce8",
+      "range": {
+        "startLine": 36,
+        "startChar": 24,
+        "endLine": 36,
+        "endChar": 38
+      },
+      "revId": "4e8054dac6e39851a1ac9d205424d3496ed29029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6447d825_d6f363ec",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-08-28T16:49:24Z",
+      "side": 1,
+      "message": "Can we require it be fourcc? Are there any situations where fourcc isn\u0027t sufficient?",
+      "range": {
+        "startLine": 156,
+        "startChar": 4,
+        "endLine": 156,
+        "endChar": 23
+      },
+      "revId": "4e8054dac6e39851a1ac9d205424d3496ed29029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4a28b41a_09a6c250",
         "filename": "graphics/mapper/4.0/types.hal",
         "patchSetId": 3
@@ -48,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "589b960d_a03016ff",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-08-28T16:49:24Z",
+      "side": 1,
+      "message": "We can put a copy of it in android.hardware.graphics.common but we can\u0027t remove it from  android.hardware.graphics.common unless we do a major rev of composer. We weren\u0027t planning on doing a major rev for composer this year.\n\nI am concerned that having a copy in two places will make it even more confusing and it could be hard to convert between the two types.",
+      "parentUuid": "4a28b41a_09a6c250",
+      "range": {
+        "startLine": 195,
+        "startChar": 37,
+        "endLine": 195,
+        "endChar": 97
+      },
+      "revId": "4e8054dac6e39851a1ac9d205424d3496ed29029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8b7c1ec5_d4a3c9a1",
         "filename": "graphics/mapper/4.0/types.hal",
         "patchSetId": 3
@@ -59,6 +130,30 @@
       "writtenOn": "2019-08-27T22:32:13Z",
       "side": 1,
       "message": "Attributes that can be added for query:\nIf the buffer is Content Protected (L1)\nIf the buffer is compressed",
+      "range": {
+        "startLine": 205,
+        "startChar": 0,
+        "endLine": 205,
+        "endChar": 2
+      },
+      "revId": "4e8054dac6e39851a1ac9d205424d3496ed29029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "038a0821_10156ef9",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-08-28T16:49:24Z",
+      "side": 1,
+      "message": "Both of those can be added. For both, were you thinking a bool or an enum? Would you ever want to communicate different levels or different types? \n\nAlso, would this ever make sense to specify these on a per plane basis or will they always be on a per buffer basis?",
+      "parentUuid": "8b7c1ec5_d4a3c9a1",
       "range": {
         "startLine": 205,
         "startChar": 0,
