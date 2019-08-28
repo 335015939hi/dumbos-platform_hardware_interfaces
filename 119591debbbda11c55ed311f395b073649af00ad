@@ -111,6 +111,30 @@
     },
     {
       "key": {
+        "uuid": "4cb60a2b_210f052e",
+        "filename": "boot/1.1/vts/functional/VtsHalBootV1_1TargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2019-08-28T22:20:29Z",
+      "side": 1,
+      "message": "This is particularly important for boot control HAL because we would expect both the passthrough and binder implementation of it on the device. The passthrough implementation is installed in recovery image, and I don\u0027t think we will continuously test it, but I want to have this information in the test in case we are running it there.",
+      "parentUuid": "72ac01a0_1f1e91de",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 59
+      },
+      "revId": "119591debbbda11c55ed311f395b073649af00ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "49a8b362_57e1023a",
         "filename": "boot/1.1/vts/functional/VtsHalBootV1_1TargetTest.cpp",
         "patchSetId": 5
