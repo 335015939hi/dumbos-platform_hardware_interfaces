@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "b972d4f2_cd5237b4",
+        "filename": "graphics/mapper/4.0/IMapper.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1468456
+      },
+      "writtenOn": "2019-08-28T21:17:32Z",
+      "side": 1,
+      "message": "that mechanism is a hassle to work with when all you need to pass in is an int :(\n\nfor RenderIntents -  we can use a vendor specific range - http://androidxref.com/9.0.0_r3/xref/hardware/interfaces/graphics/common/1.1/types.hal#291\n\ncan we use the same thing here?",
+      "parentUuid": "07352b2c_7ed90640",
+      "range": {
+        "startLine": 36,
+        "startChar": 24,
+        "endLine": 36,
+        "endChar": 38
+      },
+      "revId": "4e8054dac6e39851a1ac9d205424d3496ed29029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6447d825_d6f363ec",
         "filename": "graphics/mapper/4.0/types.hal",
         "patchSetId": 3
@@ -107,6 +131,30 @@
       "side": 1,
       "message": "We can put a copy of it in android.hardware.graphics.common but we can\u0027t remove it from  android.hardware.graphics.common unless we do a major rev of composer. We weren\u0027t planning on doing a major rev for composer this year.\n\nI am concerned that having a copy in two places will make it even more confusing and it could be hard to convert between the two types.",
       "parentUuid": "4a28b41a_09a6c250",
+      "range": {
+        "startLine": 195,
+        "startChar": 37,
+        "endLine": 195,
+        "endChar": 97
+      },
+      "revId": "4e8054dac6e39851a1ac9d205424d3496ed29029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ae8b174_73b9e964",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1468456
+      },
+      "writtenOn": "2019-08-28T21:17:32Z",
+      "side": 1,
+      "message": "an enum would be good for content protection ( for L1/L3 widevine levels for example)\nfor compression - bool is okay for us.",
+      "parentUuid": "589b960d_a03016ff",
       "range": {
         "startLine": 195,
         "startChar": 37,
