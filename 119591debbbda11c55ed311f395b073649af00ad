@@ -159,6 +159,30 @@
     },
     {
       "key": {
+        "uuid": "d8389651_f988e94f",
+        "filename": "boot/1.1/vts/functional/VtsHalBootV1_1TargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-08-28T22:51:07Z",
+      "side": 1,
+      "message": "Err, must be according to the manifest in a normal boot. All bets are off if it is not enforced.",
+      "parentUuid": "e10a0006_e4a6aea2",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 59
+      },
+      "revId": "119591debbbda11c55ed311f395b073649af00ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "49a8b362_57e1023a",
         "filename": "boot/1.1/vts/functional/VtsHalBootV1_1TargetTest.cpp",
         "patchSetId": 5
