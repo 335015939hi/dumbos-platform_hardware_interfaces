@@ -119,8 +119,45 @@ enum CompressionStrategy : uint64_t {
     DISPLAY_STREAM_COMPRESSION,
 };
 
-// Defined by ARM in a separate patch
-struct PlaneLayout;
+/*
+ * Plane information of a buffer.
+ * Multiple planes can be described as a vector (e.g. vec<PlaneLayout>)
+ */
+struct PlaneLayout {
+    /*
+     * Offset to plane (in bytes), from the start of the allocation.
+     */
+    uint32_t offset;
+
+    /*
+     * Byte Stride: number of bytes between two vertically adjacent
+     * pixels in given plane. This can be mathematically described by:
+     *
+     * byteStride = ALIGN(allocWidth * bpp / 8, alignment)
+     *
+     * where,
+     *
+     * allocWidth: width of plane in pixels
+     * bpp: average bits per pixel
+     * alignment (in bytes): dependent upon pixel format and usage
+     *
+     * For uncompressed allocations, byteStride might contain additional
+     * padding beyond the allocWidth.
+     */
+    uint32_t byteStride;
+
+    /*
+     * Dimensions of plane (in pixels).
+     *
+     * For single plane formats, pixels equates to luma samples.
+     * For multi-plane formats, pixels equates to the number of sample sites
+     * for the corresponding plane, even if subsampled.
+     *
+     * See 'byteStride' for relationship between byteStride and allocWidth.
+     */
+    uint32_t allocWidth;
+    uint32_t allocHeight;
+};
 
 /**
  * BufferMetadata is an enum used to in getting and setting buffer metadata.
