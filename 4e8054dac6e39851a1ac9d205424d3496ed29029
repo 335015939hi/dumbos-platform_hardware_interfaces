@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "91812cc2_71dabee7",
+        "filename": "graphics/mapper/4.0/IMapper.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1468456
+      },
+      "writtenOn": "2019-08-29T22:00:32Z",
+      "side": 1,
+      "message": "Sorry - I don\u0027t know what that hidl export call entails - in the render intent example, any client of IComposer can get custom render intents.\n\nWith that export call - can any client of IMapper do a get(buffer, CUSTOM_ENUM) ?",
+      "parentUuid": "f1784a04_caa5eb02",
+      "range": {
+        "startLine": 36,
+        "startChar": 24,
+        "endLine": 36,
+        "endChar": 38
+      },
+      "revId": "4e8054dac6e39851a1ac9d205424d3496ed29029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6447d825_d6f363ec",
         "filename": "graphics/mapper/4.0/types.hal",
         "patchSetId": 3
@@ -250,6 +274,30 @@
       "side": 1,
       "message": "\u003e Naseer:\n\u003e an enum would be good for content protection (for L1/3 widevine levels for example)\n\u003e for compression - bool is okay for us\n\nThanks! This is very helpful. And these are always are/will be per buffer as far as you are aware?",
       "parentUuid": "038a0821_10156ef9",
+      "range": {
+        "startLine": 205,
+        "startChar": 0,
+        "endLine": 205,
+        "endChar": 2
+      },
+      "revId": "4e8054dac6e39851a1ac9d205424d3496ed29029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33504f6c_fa7db663",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1468456
+      },
+      "writtenOn": "2019-08-29T22:00:32Z",
+      "side": 1,
+      "message": "Yes - this will be per buffer",
+      "parentUuid": "c6149508_14d4aa5f",
       "range": {
         "startLine": 205,
         "startChar": 0,
