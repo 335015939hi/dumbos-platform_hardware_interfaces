@@ -1,0 +1,95 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "71d6f6c7_04cd4905",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-08-30T22:33:54Z",
+      "side": 1,
+      "message": "Would it be possible/useful for getting subsampling information per plane?",
+      "revId": "fd57a8232f51b61dc62ec447eb8302d79d7b8980",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e69dcf1b_bdf7e34f",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-08-30T22:33:54Z",
+      "side": 1,
+      "message": "We would like a field for the bits per element in the plane",
+      "revId": "fd57a8232f51b61dc62ec447eb8302d79d7b8980",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a7bdc3f_9e9e3178",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-08-30T22:33:54Z",
+      "side": 1,
+      "message": "We would like a way to tell which plane is which (eg. Y vs CbCR vs R). \n\nWe were thinking of having a bit field which has bits for each potential type of data could be in the buffer.",
+      "revId": "fd57a8232f51b61dc62ec447eb8302d79d7b8980",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9109cde_1bafa440",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-08-30T22:33:54Z",
+      "side": 1,
+      "message": "nit: we have a similar variable called bytesPerStride in Mapper 3.0. It would be consistent to call this bytesPerStride as well.",
+      "revId": "fd57a8232f51b61dc62ec447eb8302d79d7b8980",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22e6c238_144f5c8c",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-08-30T22:33:54Z",
+      "side": 1,
+      "message": "Previously for any buffer with a variable bytesPerStride, we had gralloc return a -1. \n\nWhat is the advantage of return in a \u003e\u003d0 value for a compressed buffer? Is there any use case for it?",
+      "range": {
+        "startLine": 125,
+        "startChar": 3,
+        "endLine": 125,
+        "endChar": 12
+      },
+      "revId": "fd57a8232f51b61dc62ec447eb8302d79d7b8980",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
