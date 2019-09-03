@@ -234,6 +234,30 @@
       "revId": "44ad60100eaff65e8f98b9aaaa9b86f44ca0697b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bbda041d_4af4fcec",
+        "filename": "tv/cec/1.1/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1060286
+      },
+      "writtenOn": "2019-09-03T21:22:06Z",
+      "side": 1,
+      "message": "My understanding is you need to add a new setOption() method that accepts a optionKey_1_1",
+      "parentUuid": "e5359ff6_0bb665e0",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 30
+      },
+      "revId": "44ad60100eaff65e8f98b9aaaa9b86f44ca0697b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
