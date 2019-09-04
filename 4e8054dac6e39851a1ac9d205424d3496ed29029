@@ -121,6 +121,52 @@
     },
     {
       "key": {
+        "uuid": "42a04f07_e0210046",
+        "filename": "graphics/mapper/4.0/IMapper.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1468456
+      },
+      "writtenOn": "2019-09-04T23:46:50Z",
+      "side": 1,
+      "message": "How is the set protected?  - can a consumer of the buffer set metadata accidentally?",
+      "range": {
+        "startLine": 52,
+        "startChar": 4,
+        "endLine": 52,
+        "endChar": 7
+      },
+      "revId": "4e8054dac6e39851a1ac9d205424d3496ed29029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60610f72_858c4aea",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1468456
+      },
+      "writtenOn": "2019-09-04T23:46:50Z",
+      "side": 1,
+      "message": "From Sushil: Can we add dynamic (slice) width/height as well - for \"views\" into buffers that are full sized but use a smaller dimensions.",
+      "range": {
+        "startLine": 133,
+        "startChar": 4,
+        "endLine": 133,
+        "endChar": 9
+      },
+      "revId": "4e8054dac6e39851a1ac9d205424d3496ed29029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6447d825_d6f363ec",
         "filename": "graphics/mapper/4.0/types.hal",
         "patchSetId": 3
@@ -132,6 +178,30 @@
       "writtenOn": "2019-08-28T16:49:24Z",
       "side": 1,
       "message": "Can we require it be fourcc? Are there any situations where fourcc isn\u0027t sufficient?",
+      "range": {
+        "startLine": 156,
+        "startChar": 4,
+        "endLine": 156,
+        "endChar": 23
+      },
+      "revId": "4e8054dac6e39851a1ac9d205424d3496ed29029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1154a60_3fc4c1dc",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1468456
+      },
+      "writtenOn": "2019-09-04T23:46:50Z",
+      "side": 1,
+      "message": "Are custom fourcc codes covered?",
+      "parentUuid": "6447d825_d6f363ec",
       "range": {
         "startLine": 156,
         "startChar": 4,
@@ -298,6 +368,30 @@
       "side": 1,
       "message": "Yes - this will be per buffer",
       "parentUuid": "c6149508_14d4aa5f",
+      "range": {
+        "startLine": 205,
+        "startChar": 0,
+        "endLine": 205,
+        "endChar": 2
+      },
+      "revId": "4e8054dac6e39851a1ac9d205424d3496ed29029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3cc608d2_f5b6ddd1",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1468456
+      },
+      "writtenOn": "2019-09-04T23:46:50Z",
+      "side": 1,
+      "message": "Can you add layer count as well ?",
+      "parentUuid": "33504f6c_fa7db663",
       "range": {
         "startLine": 205,
         "startChar": 0,
