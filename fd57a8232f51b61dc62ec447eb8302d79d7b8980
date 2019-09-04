@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "5e9ff367_b0f0d9b8",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1029699
+      },
+      "writtenOn": "2019-09-04T17:55:47Z",
+      "side": 1,
+      "message": "Does\u0027element\u0027 here refer to \u0027sample\u0027 or \u0027component\u0027? \nAn rgba_8 plane, bit per element can be either 32bits per sample or 8bits per component.",
+      "parentUuid": "e69dcf1b_bdf7e34f",
+      "revId": "fd57a8232f51b61dc62ec447eb8302d79d7b8980",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4a7bdc3f_9e9e3178",
         "filename": "graphics/mapper/4.0/types.hal",
         "patchSetId": 3
@@ -47,6 +65,24 @@
       "writtenOn": "2019-08-30T22:33:54Z",
       "side": 1,
       "message": "We would like a way to tell which plane is which (eg. Y vs CbCR vs R). \n\nWe were thinking of having a bit field which has bits for each potential type of data could be in the buffer.",
+      "revId": "fd57a8232f51b61dc62ec447eb8302d79d7b8980",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "932c1af8_6cce98c4",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1029699
+      },
+      "writtenOn": "2019-09-04T17:55:47Z",
+      "side": 1,
+      "message": "I agree it is good idea, for now, we use plane index to implicitly infer which plane is which.",
+      "parentUuid": "4a7bdc3f_9e9e3178",
       "revId": "fd57a8232f51b61dc62ec447eb8302d79d7b8980",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -87,6 +123,48 @@
         "endLine": 125,
         "endChar": 12
       },
+      "revId": "fd57a8232f51b61dc62ec447eb8302d79d7b8980",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bdd15b25_820aa812",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1029699
+      },
+      "writtenOn": "2019-09-04T17:55:47Z",
+      "side": 1,
+      "message": "hmm... negative stride means pixels are bottom up. If we allow negative stride in plane descriptor (as use int32 instead of uint32), I don\u0027t think it is good practice to repurpose -1 as an indication that stride is not applicable. We could use 0 instead. \nwe use uint32 here because we don\u0027t want negative stride to be used.",
+      "parentUuid": "22e6c238_144f5c8c",
+      "range": {
+        "startLine": 125,
+        "startChar": 3,
+        "endLine": 125,
+        "endChar": 12
+      },
+      "revId": "fd57a8232f51b61dc62ec447eb8302d79d7b8980",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afc30ace_8dfcff62",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1029699
+      },
+      "writtenOn": "2019-09-04T17:55:47Z",
+      "side": 1,
+      "message": "Good point.",
+      "parentUuid": "e9109cde_1bafa440",
       "revId": "fd57a8232f51b61dc62ec447eb8302d79d7b8980",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
