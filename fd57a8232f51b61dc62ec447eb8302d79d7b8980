@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "35a90066_93490b9d",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-09-05T16:56:40Z",
+      "side": 1,
+      "message": "Per component. So in that case 8 bits. However, we realize that this won\u0027t work for every format and every layout but it seems to be more useful on average than the bits per sample.",
+      "parentUuid": "5e9ff367_b0f0d9b8",
+      "revId": "fd57a8232f51b61dc62ec447eb8302d79d7b8980",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4a7bdc3f_9e9e3178",
         "filename": "graphics/mapper/4.0/types.hal",
         "patchSetId": 3
@@ -165,6 +183,30 @@
       "side": 1,
       "message": "Good point.",
       "parentUuid": "e9109cde_1bafa440",
+      "revId": "fd57a8232f51b61dc62ec447eb8302d79d7b8980",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d96eb38_f7f28575",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-09-05T16:56:40Z",
+      "side": 1,
+      "message": "I hadn\u0027t considered the bottom up case. Is there ever a time when a stride of 0 could reasonably be used?",
+      "parentUuid": "bdd15b25_820aa812",
+      "range": {
+        "startLine": 125,
+        "startChar": 3,
+        "endLine": 125,
+        "endChar": 12
+      },
       "revId": "fd57a8232f51b61dc62ec447eb8302d79d7b8980",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
