@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "137dcd5b_475d0c10",
+        "filename": "graphics/mapper/4.0/IMapper.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-09-05T19:46:48Z",
+      "side": 1,
+      "message": "I believe it should be enough. I will check with the treble team and ensure that it will be easy to extend like RenderIntents.",
+      "parentUuid": "91812cc2_71dabee7",
+      "range": {
+        "startLine": 36,
+        "startChar": 24,
+        "endLine": 36,
+        "endChar": 38
+      },
+      "revId": "4e8054dac6e39851a1ac9d205424d3496ed29029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "42a04f07_e0210046",
         "filename": "graphics/mapper/4.0/IMapper.hal",
         "patchSetId": 3
@@ -144,6 +168,30 @@
     },
     {
       "key": {
+        "uuid": "4aa0460f_faa5778d",
+        "filename": "graphics/mapper/4.0/IMapper.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-09-05T19:46:48Z",
+      "side": 1,
+      "message": "We aren\u0027t planning on having any more protection than the buffer itself. Right now consumers can modify the buffer as well.\n\nWe could add protections for the buffer and its metadata if you have a good, light-weight proposal.",
+      "parentUuid": "42a04f07_e0210046",
+      "range": {
+        "startLine": 52,
+        "startChar": 4,
+        "endLine": 52,
+        "endChar": 7
+      },
+      "revId": "4e8054dac6e39851a1ac9d205424d3496ed29029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "60610f72_858c4aea",
         "filename": "graphics/mapper/4.0/types.hal",
         "patchSetId": 3
@@ -155,6 +203,30 @@
       "writtenOn": "2019-09-04T23:46:50Z",
       "side": 1,
       "message": "From Sushil: Can we add dynamic (slice) width/height as well - for \"views\" into buffers that are full sized but use a smaller dimensions.",
+      "range": {
+        "startLine": 133,
+        "startChar": 4,
+        "endLine": 133,
+        "endChar": 9
+      },
+      "revId": "4e8054dac6e39851a1ac9d205424d3496ed29029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb9be0e8_4bcf2ab5",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-09-05T19:46:48Z",
+      "side": 1,
+      "message": "Can you explain what you mean? Would the PlaneLayout struct defined in ARM\u0027s patch be sufficient? It gives per plane width, height, stride, etc.\n\nhttps://android-review.googlesource.com/c/platform/hardware/interfaces/+/1109946/3",
+      "parentUuid": "60610f72_858c4aea",
       "range": {
         "startLine": 133,
         "startChar": 4,
@@ -202,6 +274,30 @@
       "side": 1,
       "message": "Are custom fourcc codes covered?",
       "parentUuid": "6447d825_d6f363ec",
+      "range": {
+        "startLine": 156,
+        "startChar": 4,
+        "endLine": 156,
+        "endChar": 23
+      },
+      "revId": "4e8054dac6e39851a1ac9d205424d3496ed29029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a4f2e42_77d7d4cb",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-09-05T19:46:48Z",
+      "side": 1,
+      "message": "ARM proposed yesterday that we should make this fourcc (uint32_t) + modifier (uint64_t). The fourcc would need to be in accordance with the Linux defined fourcc formats. The modifier would be entirely vendor defined although it would benefit everyone to add their modifiers to Linux.\n\nhttps://elixir.bootlin.com/linux/latest/source/include/uapi/drm/drm_fourcc.h#L41\n\nWould that work for you?",
+      "parentUuid": "d1154a60_3fc4c1dc",
       "range": {
         "startLine": 156,
         "startChar": 4,
@@ -392,6 +488,30 @@
       "side": 1,
       "message": "Can you add layer count as well ?",
       "parentUuid": "33504f6c_fa7db663",
+      "range": {
+        "startLine": 205,
+        "startChar": 0,
+        "endLine": 205,
+        "endChar": 2
+      },
+      "revId": "4e8054dac6e39851a1ac9d205424d3496ed29029",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c89b9a2d_a08d657b",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-09-05T19:46:48Z",
+      "side": 1,
+      "message": "Yes, it should be in here. Thank you for catching that",
+      "parentUuid": "3cc608d2_f5b6ddd1",
       "range": {
         "startLine": 205,
         "startChar": 0,
