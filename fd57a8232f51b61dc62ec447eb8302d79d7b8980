@@ -210,6 +210,30 @@
       "revId": "fd57a8232f51b61dc62ec447eb8302d79d7b8980",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "702bf9f6_8da512ab",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1558734
+      },
+      "writtenOn": "2019-09-05T17:17:30Z",
+      "side": 1,
+      "message": "we use 0 for any cases that a line stride doesn\u0027t apply",
+      "parentUuid": "3d96eb38_f7f28575",
+      "range": {
+        "startLine": 125,
+        "startChar": 3,
+        "endLine": 125,
+        "endChar": 12
+      },
+      "revId": "fd57a8232f51b61dc62ec447eb8302d79d7b8980",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
