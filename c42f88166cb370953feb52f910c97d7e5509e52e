@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d303416f_eeb334aa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-09-05T21:51:49Z",
+      "side": 1,
+      "message": "nit: please c/p w/ \u0027-x\u0027",
+      "revId": "c42f88166cb370953feb52f910c97d7e5509e52e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b21509c_1ae42bf8",
+        "filename": "tv/tuner/1.0/IDemux.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-09-05T21:51:49Z",
+      "side": 1,
+      "message": "consider follow-up: remove extra newlines",
+      "revId": "c42f88166cb370953feb52f910c97d7e5509e52e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ab74188_40f5d847",
+        "filename": "tv/tuner/1.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-09-05T21:51:49Z",
+      "side": 1,
+      "message": "consider follow-up: removing this. I think I talked to Henry about this in a later change",
+      "range": {
+        "startLine": 150,
+        "startChar": 1,
+        "endLine": 150,
+        "endChar": 7
+      },
+      "revId": "c42f88166cb370953feb52f910c97d7e5509e52e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
