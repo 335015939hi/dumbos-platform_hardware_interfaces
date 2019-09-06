@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d3d50078_e5cd4055",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1345588
+      },
+      "writtenOn": "2019-09-06T02:58:42Z",
+      "side": 1,
+      "message": "Don\u0027t think I used -x. I used something like: \ngit fetch \"sso://googleplex-android/platform/hardware/interfaces\" refs/changes/61/9260661/11 \u0026\u0026 git cherry-pick FETCH_HEAD\n\nDo you have recommended way?",
+      "parentUuid": "d303416f_eeb334aa",
+      "revId": "c42f88166cb370953feb52f910c97d7e5509e52e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9b21509c_1ae42bf8",
         "filename": "tv/tuner/1.0/IDemux.hal",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "c42f88166cb370953feb52f910c97d7e5509e52e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7db0822_8df047c9",
+        "filename": "tv/tuner/1.0/IDemux.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1345588
+      },
+      "writtenOn": "2019-09-06T02:58:42Z",
+      "side": 1,
+      "message": "Next cp might have similar issue. Will follow up after next one",
+      "parentUuid": "9b21509c_1ae42bf8",
+      "revId": "c42f88166cb370953feb52f910c97d7e5509e52e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -56,6 +92,30 @@
       "revId": "c42f88166cb370953feb52f910c97d7e5509e52e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dcaed16f_ed4aaf9a",
+        "filename": "tv/tuner/1.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1345588
+      },
+      "writtenOn": "2019-09-06T02:58:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ab74188_40f5d847",
+      "range": {
+        "startLine": 150,
+        "startChar": 1,
+        "endLine": 150,
+        "endChar": 7
+      },
+      "revId": "c42f88166cb370953feb52f910c97d7e5509e52e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
