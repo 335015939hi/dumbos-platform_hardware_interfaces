@@ -48,7 +48,7 @@ SecurityLevel KeymasterHidlTest::securityLevel_;
 hidl_string KeymasterHidlTest::name_;
 hidl_string KeymasterHidlTest::author_;
 
-void KeymasterHidlTest::SetUpTestCase() {
+void KeymasterHidlTest::InitalizeKeymaster() {
     string service_name = KeymasterHidlEnvironment::Instance()->getServiceName<IKeymasterDevice>();
     keymaster_ = ::testing::VtsHalHidlTargetTestBase::getService<IKeymasterDevice>(service_name);
     ASSERT_NE(keymaster_, nullptr);
@@ -61,18 +61,23 @@ void KeymasterHidlTest::SetUpTestCase() {
                         author_ = author;
                     })
                     .isOk());
+}
+
+void KeymasterHidlTest::SetUpTestCase() {
+
+    InitalizeKeymaster();
 
     os_version_ = ::keymaster::GetOsVersion();
     os_patch_level_ = ::keymaster::GetOsPatchlevel();
 
     auto service_manager = android::hidl::manager::V1_0::IServiceManager::getService();
     ASSERT_NE(nullptr, service_manager.get());
-
+    string service_name = KeymasterHidlEnvironment::Instance()->getServiceName<IKeymasterDevice>();
     all_keymasters_.push_back(keymaster_);
     service_manager->listByInterface(
         IKeymasterDevice::descriptor, [&](const hidl_vec<hidl_string>& names) {
-            for (auto& name : names) {
-                if (name == service_name) continue;
+            for (auto& name : service_name) {
+                if (name == name_) continue;
                 auto keymaster =
                     ::testing::VtsHalHidlTargetTestBase::getService<IKeymasterDevice>(name);
                 ASSERT_NE(keymaster, nullptr);
@@ -80,6 +85,8 @@ void KeymasterHidlTest::SetUpTestCase() {
             }
         });
 }
+
+
 
 ErrorCode KeymasterHidlTest::GenerateKey(const AuthorizationSet& key_desc, HidlBuf* key_blob,
                                          KeyCharacteristics* key_characteristics) {
@@ -225,6 +232,13 @@ ErrorCode KeymasterHidlTest::GetCharacteristics(const HidlBuf& key_blob,
                                                 KeyCharacteristics* key_characteristics) {
     HidlBuf client_id, app_data;
     return GetCharacteristics(key_blob, client_id, app_data, key_characteristics);
+}
+
+ErrorCode KeymasterHidlTest::GetDebugInfo(DebugInfo* debug_info) {
+    EXPECT_TRUE(keymaster_->getDebugInfo([&](const DebugInfo& hidl_debug_info) {
+      *debug_info = hidl_debug_info;
+    }).isOk());
+    return ErrorCode::OK;
 }
 
 ErrorCode KeymasterHidlTest::Begin(KeyPurpose purpose, const HidlBuf& key_blob,
