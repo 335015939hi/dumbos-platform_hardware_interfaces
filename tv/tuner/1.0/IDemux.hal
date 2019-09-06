@@ -34,4 +34,3 @@ interface IDemux {
      */
     close() generates (Result result);
 };
-

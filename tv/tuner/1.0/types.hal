@@ -147,7 +147,6 @@ typedef uint32_t DemuxFilterId;
 /**
  * Filter Type according to ISO/IEC 13818-1
  */
-@export
 enum DemuxFilterType : uint32_t {
     /**
      * A filter to filter section data out from input stream.
