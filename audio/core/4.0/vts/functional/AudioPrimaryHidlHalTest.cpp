@@ -148,6 +148,18 @@ class AudioHidlTest : public HidlTest {
             environment->registerTearDown([] { devicesFactory.clear(); });
             devicesFactory = ::testing::VtsHalHidlTargetTestBase::getService<IDevicesFactory>(
                 environment->getServiceName<IDevicesFactory>("default"));
+
+            /* Check whether this HAL supports a primary device, if not then attempt with default */
+            if (devicesFactory != nullptr) {
+                Result result;
+                sp<IDevice> device;
+                Return<void> ret = devicesFactory->openPrimaryDevice(returnIn(result, device));
+                if (!(ret.isOk() && (result == Result::OK) && (device != nullptr))) {
+                    devicesFactory = ::testing::VtsHalHidlTargetTestBase::getService<IDevicesFactory>();
+                    ALOGW("HAL %s did not support primary device, hence trying with default",
+                          environment->getServiceName<IDevicesFactory>("default").c_str());
+                }
+            }
         }
         ASSERT_TRUE(devicesFactory != nullptr);
     }
