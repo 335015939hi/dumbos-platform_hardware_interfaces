@@ -1,4 +1,7 @@
 package android.hardware.tv.tuner@1.0;
+
+import android.hardware.cas@1.0::IDescramblerBase;
+
 /**
  * Descrambler is used to descramble input data.
  *
@@ -75,5 +78,18 @@ interface IDescrambler {
      *         UNKNOWN_ERROR if failed for other reasons.
      */
     close() generates (Result result);
+
+     /**
+     * Connect to a MediaCAS descrambling instance
+     *
+     * It is used by a client who already successfully instantiated a MediaCAS descrambler
+     * Client will still need to feed ECMs to MediaCAS Session
+     *
+     * @return result Result status of the operation.
+     *         SUCCESS if successful,
+     *         INVALID_ARGUMENT if descrambler is not connectable
+     *         UNKNOWN_ERROR if failed for other reasons.
+     */
+     connect(android.hardware.cas@1.0::IDescramblerBase cas) generates (Result result);
 };
 
