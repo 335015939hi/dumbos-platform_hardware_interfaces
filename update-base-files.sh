@@ -47,3 +47,4 @@ hidl-gen $options \
 hidl-gen $options \
          -o $ANDROID_BUILD_TOP/system/media/audio/include/system/audio_effect-base.h \
          android.hardware.audio.effect@2.0
+# for audio 4.0 and 5.0, see bug 122858783 available internally only
