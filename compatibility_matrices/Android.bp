@@ -73,6 +73,7 @@ vintf_compatibility_matrix {
         "kernel_config_q_4.9",
         "kernel_config_q_4.14",
         "kernel_config_q_4.19",
+        "kernel_config_q_5.3",
     ]
 }
 
