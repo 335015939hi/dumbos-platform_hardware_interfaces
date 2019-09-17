@@ -129,34 +129,23 @@ public:
         ALOGD("DrmHalClearkeyTest: Running test %s.%s", test_info->test_case_name(),
                 test_info->name());
 
-        auto manager = android::hardware::defaultServiceManager();
-        ASSERT_NE(nullptr, manager.get());
-        manager->listByInterface(IDrmFactory::descriptor,
-                [&](const hidl_vec<hidl_string> &registered) {
-                    for (const auto &instance : registered) {
-                        sp<IDrmFactory> drmFactory =
-                                ::testing::VtsHalHidlTargetTestBase::getService<IDrmFactory>(instance);
-                        drmPlugin = createDrmPlugin(drmFactory);
-                        if (drmPlugin != nullptr) {
-                            break;
-                        }
-                    }
-                }
-            );
+        sp<IDrmFactory> drmFactory =
+                                ::testing::VtsHalHidlTargetTestBase::getService<IDrmFactory>("clearkey");
+        if (drmFactory == nullptr) {
+            drmFactory = VtsHalHidlTargetTestBase::getService<IDrmFactory>();
+        }
+        if (drmFactory != nullptr) {
+            drmPlugin = createDrmPlugin(drmFactory);
+        }
 
-        manager->listByInterface(ICryptoFactory::descriptor,
-                [&](const hidl_vec<hidl_string> &registered) {
-                    for (const auto &instance : registered) {
-                        sp<ICryptoFactory> cryptoFactory =
-                                ::testing::VtsHalHidlTargetTestBase::getService<ICryptoFactory>(instance);
-                        cryptoPlugin = createCryptoPlugin(cryptoFactory);
-                        if (cryptoPlugin != nullptr) {
-                            break;
-                        }
-                    }
-                }
-            );
-
+        sp<ICryptoFactory> cryptoFactory =
+                                ::testing::VtsHalHidlTargetTestBase::getService<ICryptoFactory>("clearkey");
+        if (cryptoFactory == nullptr) {
+            cryptoFactory = VtsHalHidlTargetTestBase::getService<ICryptoFactory>();
+        }
+        if (cryptoFactory != nullptr) {
+            cryptoPlugin = createCryptoPlugin(cryptoFactory);
+        }
         ASSERT_NE(nullptr, drmPlugin.get()) << "Can't find clearkey drm@1.1 plugin";
         ASSERT_NE(nullptr, cryptoPlugin.get()) << "Can't find clearkey crypto@1.1 plugin";
     }
