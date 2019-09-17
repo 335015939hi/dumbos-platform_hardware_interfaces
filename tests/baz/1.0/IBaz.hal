@@ -29,6 +29,11 @@ interface IBaz extends IBase {
         VALL = V0 | V1 | V2 | V3,
     };
 
+    struct BitFieldTester {
+      bitfield<BitField> scalar;
+      vec<bitfield<BitField>> vector;
+     };
+
     enum SomeOtherEnum : uint8_t {
         bar = 66
     };
