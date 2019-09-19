@@ -22,6 +22,30 @@
       "revId": "19e716771cd7cbe31f3f3a8545a8e3394747f787",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "953bf850_f61eef81",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3294,
+      "author": {
+        "id": 1362721
+      },
+      "writtenOn": "2019-09-19T16:01:01Z",
+      "side": 1,
+      "message": "Nope. This should be after the begin, before finish. Will fix.",
+      "parentUuid": "030bcc18_c2a85b7f",
+      "range": {
+        "startLine": 3294,
+        "startChar": 4,
+        "endLine": 3294,
+        "endChar": 13
+      },
+      "revId": "19e716771cd7cbe31f3f3a8545a8e3394747f787",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
