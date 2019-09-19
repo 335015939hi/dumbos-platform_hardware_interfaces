@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "030bcc18_c2a85b7f",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3294,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2019-09-19T00:10:14Z",
+      "side": 1,
+      "message": "Is there a reason to have this sleep after calling finish, but before calling the next begin?",
+      "range": {
+        "startLine": 3294,
+        "startChar": 4,
+        "endLine": 3294,
+        "endChar": 13
+      },
+      "revId": "19e716771cd7cbe31f3f3a8545a8e3394747f787",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
