@@ -120,13 +120,8 @@ static auto okOrInvalidStateOrNotSupported = {Result::OK, Result::INVALID_STATE,
 static auto invalidArgsOrNotSupported = {Result::INVALID_ARGUMENTS, Result::NOT_SUPPORTED};
 static auto invalidStateOrNotSupported = {Result::INVALID_STATE, Result::NOT_SUPPORTED};
 
-class AudioHidlTestEnvironment : public ::Environment {
-   public:
-    virtual void registerTestServices() override { registerTestService<IDevicesFactory>(); }
-};
-
 // Instance to register global tearDown
-static AudioHidlTestEnvironment* environment;
+static Environment* environment;
 
 class HidlTest : public ::testing::VtsHalHidlTargetTestBase {
    protected:
@@ -146,8 +141,7 @@ class AudioHidlTest : public HidlTest {
 
         if (devicesFactory == nullptr) {
             environment->registerTearDown([] { devicesFactory.clear(); });
-            devicesFactory = ::testing::VtsHalHidlTargetTestBase::getService<IDevicesFactory>(
-                environment->getServiceName<IDevicesFactory>("default"));
+            devicesFactory = ::testing::VtsHalHidlTargetTestBase::getService<IDevicesFactory>();
         }
         ASSERT_TRUE(devicesFactory != nullptr);
     }
@@ -1545,10 +1539,9 @@ TEST_F(BoolAccessorPrimaryHidlTest, setGetHac) {
 //////////////////////////////////////////////////////////////////////////////
 
 int main(int argc, char** argv) {
-    environment = new AudioHidlTestEnvironment;
+    environment = new Environment;
     ::testing::AddGlobalTestEnvironment(environment);
     ::testing::InitGoogleTest(&argc, argv);
-    environment->init(&argc, argv);
     int status = RUN_ALL_TESTS();
     return status;
 }
