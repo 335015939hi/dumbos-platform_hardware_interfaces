@@ -119,21 +119,83 @@ enum CompressionStrategy : uint64_t {
     DISPLAY_STREAM_COMPRESSION,
 };
 
+/**
+ * Bitfield that describes the Components in a given PlaneLayout.
+ *
+ * For example, a CbCr plane is represented by PLANE_LAYOUT_COMPONENT_Cb | PLANE_LAYOUT_COMPONENT_Cr
+ */
+enum PlaneLayoutComponent : uint64_t {
+    /* Luma */
+    PLANE_LAYOUT_COMPONENT_Y = 1 << 0,
+    /* Chroma blue */
+    PLANE_LAYOUT_COMPONENT_Cb = 1 << 1,
+    /* Chroma red */
+    PLANE_LAYOUT_COMPONENT_Cr = 1 << 2,
+
+    /* Bits 3-10 must be 0 and are reserved for future versions */
+
+    /* Red */
+    PLANE_LAYOUT_COMPONENT_R = 1 << 10,
+    /* Green */
+    PLANE_LAYOUT_COMPONENT_G = 1 << 11,
+    /* Blue */
+    PLANE_LAYOUT_COMPONENT_B = 1 << 12,
+
+    /* Bits 13-19 must be 0 and are reserved for future versions */
+
+    /* Metadata */
+    PLANE_LAYOUT_COMPONENT_METADATA = 1 << 20,
+    /* Raw */
+    PLANE_LAYOUT_COMPONENT_RAW = 1 << 21,
+
+    /* Bits 22-29 must be 0 and are reserved for future versions */
+
+    /* Alpha */
+    PLANE_LAYOUT_COMPONENT_A = 1 << 30,
+
+    /* Bit 31 must be 0 and is reserved for future versions */
+};
+
 /*
  * Plane information of a buffer.
  * Multiple planes can be described as a vector (e.g. vec<PlaneLayout>)
  */
 struct PlaneLayout {
-    /*
+    /**
      * Offset to plane (in bytes), from the start of the allocation.
      */
     uint32_t offset;
 
-    /*
-     * Byte Stride: number of bytes between two vertically adjacent
+    /**
+     * A bitfield containing PlaneLayoutComponent(s) that describe the component(s)
+     * in this PlaneLayout.
+     */
+    uint64_t components;
+
+    /**
+     * The number of bits used per component in the plane.
+     *
+     * If the plane cannot be described using bitsPerComponent, this should be set to -1.
+     * For example, if the plane has multiple components with different number of bits per
+     * component (eg. RGB_565), return -1.
+     *
+     */
+    int32_t bitsPerComponent;
+
+    /**
+     * Bytes per pixel increment (aka column increment or vertical stride): describes the distance
+     * in bytes from one pixel to the next pixel (to the right) on the same row for the
+     * the component plane.
+     *
+     * This can be negative.
+     */
+    uint32_t bytesPerPixelIncrement;
+
+    /**
+     * Bytes per Stride: number of bytes between two vertically adjacent
      * pixels in given plane. This can be mathematically described by:
      *
-     * byteStride = ALIGN(allocWidth * bpp / 8, alignment)
+     * bytesPerStride = ALIGN(allocWidth * bpp / 8, alignment)
      *
      * where,
      *
@@ -141,12 +203,14 @@ struct PlaneLayout {
      * bpp: average bits per pixel
      * alignment (in bytes): dependent upon pixel format and usage
      *
-     * For uncompressed allocations, byteStride might contain additional
+     * For uncompressed allocations, bytesPerStride might contain additional
      * padding beyond the allocWidth.
+     *
+     * This can be negative.
      */
-    uint32_t byteStride;
+    uint32_t bytesPerStride;
 
-    /*
+    /**
      * Dimensions of plane (in pixels).
      *
      * For single plane formats, pixels equates to luma samples.
@@ -157,6 +221,18 @@ struct PlaneLayout {
      */
     uint32_t allocWidth;
     uint32_t allocHeight;
+
+    /**
+     * Can be used to get the total size in bytes of any memory used by the plane
+     * including metadata and extra padding.
+     */
+    uint64_t allocationSize
+
+    /**
+     * Horizontal and vertical subsampling. Must be a positive power of 2.
+     */
+    int32_t horizontalSubsampling;
+    int32_t verticalSubsampling;
 };
 
 /**
@@ -345,34 +421,4 @@ enum BufferMetadata : uint32_t {
      * read by consumers.
      */
     CROP_RECTANGLE,
-};
-
-/**
- * Structure for describing YCbCr formats for consumption by applications.
- * This is used with PixelFormat::YCBCR_*_888.
- *
- * Buffer chroma subsampling is defined in the format.
- * e.g. PixelFormat::YCBCR_420_888 has subsampling 4:2:0.
- *
- * Buffers must have a 8 bit depth.
- *
- * y, cb, and cr point to the first byte of their respective planes.
- *
- * Stride describes the distance in bytes from the first value of one row of
- * the image to the first value of the next row. It includes the width of the
- * image plus padding.
- * yStride is the stride of the luma plane.
- * cStride is the stride of the chroma planes.
- *
- * chromaStep is the distance in bytes from one chroma pixel value to the
- * next. This is 2 bytes for semiplanar (because chroma values are interleaved
- * and each chroma value is one byte) and 1 for planar.
- */
-struct YCbCrLayout {
-    pointer y;
-    pointer cb;
-    pointer cr;
-    uint32_t yStride;
-    uint32_t cStride;
-    uint32_t chromaStep;
 };
