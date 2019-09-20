@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f15e1f84_0333afd8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-09-20T01:34:48Z",
+      "side": 1,
+      "message": "please cherry-pick w/ -x",
+      "revId": "00c63bb59c0d0266d08c122506c9ae33efd0d466",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
