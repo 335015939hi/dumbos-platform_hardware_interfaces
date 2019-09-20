@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a6baac32_2449dbb5",
+        "filename": "audio/core/4.0/vts/functional/AudioPrimaryHidlHalTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1136369
+      },
+      "writtenOn": "2019-09-20T15:26:26Z",
+      "side": 1,
+      "message": "I do not like this approach, the VTS infrastructure thinks it tests the MSD HAL, but the test actually tests the default HAL instead.\n\nInstead, I would rather have the test only test the default HAL. See: aosp/1125854",
+      "revId": "877340d33379f74ba68b8313bb31adfed81607fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
