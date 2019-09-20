@@ -162,44 +162,162 @@ enum ChromaSiting : uint64_t {
     COSITED_HORIZONTAL,
 };
 
-/*
+/**
+ * Enum that describes the type of a given PlaneLayoutComponent.
+ */
+enum PlaneLayoutComponentType : uint64_t {
+    /* Luma */
+    PLANE_LAYOUT_COMPONENT_Y,
+    /* Chroma blue */
+    PLANE_LAYOUT_COMPONENT_Cb,
+    /* Chroma red */
+    PLANE_LAYOUT_COMPONENT_Cr,
+
+    /* Red */
+    PLANE_LAYOUT_COMPONENT_R,
+    /* Green */
+    PLANE_LAYOUT_COMPONENT_G,
+    /* Blue */
+    PLANE_LAYOUT_COMPONENT_B,
+    /* Alpha */
+    PLANE_LAYOUT_COMPONENT_A,
+
+    /* Metadata */
+    PLANE_LAYOUT_COMPONENT_METADATA,
+    /* Raw */
+    PLANE_LAYOUT_COMPONENT_RAW,
+};
+
+/**
+ * Describes the type and location of a component in a plane.
+ */
+struct PlaneLayoutComponent {
+    /**
+     * The type of this plane layout component.
+     */
+    PlaneLayoutComponentType type;
+
+    /**
+     * Offset in bits to the first instance of this component in the plane.
+     * This is relative to the plane's offset (PlaneLayout::offset).
+     *
+     * If the offset cannot be described using a int64_t, this should be set to -1.
+     * For example, if the plane is compressed and the offset is not defined or
+     * relevant, return -1.
+     */
+    int64_t offset;
+
+    /**
+     * The number of bits used per component in the plane.
+     *
+     * If the plane layout component cannot be described using bitsPerComponent, this
+     * should be set to -1. For example, if the component varies in size throughout
+     * the plane, return -1.
+     */
+    int64_t bitsPerComponent;
+};
+
+/**
  * Plane information of a buffer.
  * Multiple planes can be described as a vector (e.g. vec<PlaneLayout>)
+ *
+ * PlaneLayout uses the following terms and definitions:
+ *
+ * - Component - a component is one channel of a pixel. For example, an RGBA format has
+ *      four components: R, G, B and A.
+ * - Sample - a sample is comprised of all the components in a given plane. For example,
+ *      a buffer with one Y plane and one CbCr plane has one plane with a sample of Y
+ *      and one plane with a sample of CbCr.
+ * - Pixel - a pixel is comprised of all the (non-metadata/raw) components in buffer across
+ *      all planes. For example, a buffer with a plane of Y and a plane of CbCr has a pixel
+ *      of YCbCr.
  */
 struct PlaneLayout {
-    /*
-     * Offset to plane (in bytes), from the start of the allocation.
+    /**
+     * Offset to the first byte of the plane (in bytes), from the start of the allocation.
      */
-    uint32_t offset;
+    uint64_t offset;
 
-    /*
-     * Byte Stride: number of bytes between two vertically adjacent
-     * pixels in given plane. This can be mathematically described by:
+    /**
+     * A vector of plane layout components. This list of components should include
+     * every component in this plane. For example, a CbCr plane should return a
+     * vector of size two with one PlaneLayoutComponent for Cb and one for Cr.
+     */
+    vec<PlaneLayoutComponent> components;
+
+    /**
+     * Bits per sample increment (aka column increment or row stride): describes the distance
+     * in bits from one sample to the next sample (to the right) on the same row for the
+     * the component plane.
      *
-     * byteStride = ALIGN(allocWidth * bpp / 8, alignment)
+     * The default value is 0. Return the default value if the increment is undefined, unknown,
+     * or variable.
+     *
+     * This can be negative. A negative increment indicates that the samples are read from
+     * right to left.
+     */
+    int64_t bitsPerSampleIncrement;
+
+    /**
+     * Bytes per Stride: number of bytes between two vertically adjacent
+     * samples in given plane. This can be mathematically described by:
+     *
+     * bytesPerStride = ALIGN(allocationWidth * bps / 8, alignment)
      *
      * where,
      *
-     * allocWidth: width of plane in pixels
-     * bpp: average bits per pixel
+     * allocationWidth: width of plane in samples
+     * bps: average bits per sample
      * alignment (in bytes): dependent upon pixel format and usage
      *
-     * For uncompressed allocations, byteStride might contain additional
-     * padding beyond the allocWidth.
+     * bytesPerStride can contain additional padding beyond the allocationWidth.
+     *
+     * The default value is 0. Return the default value if the stride is undefined, unknown,
+     * or variable.
+     *
+     * This can be negative. A negative stride indicates that the rows are read from
+     * bottom to top.
      */
-    uint32_t byteStride;
+    int64_t bytesPerStride;
 
-    /*
-     * Dimensions of plane (in pixels).
+    /**
+     * Dimensions of plane (in samples).
      *
-     * For single plane formats, pixels equates to luma samples.
-     * For multi-plane formats, pixels equates to the number of sample sites
-     * for the corresponding plane, even if subsampled.
+     * This is the number of samples in the plane, even if subsampled.
      *
-     * See 'byteStride' for relationship between byteStride and allocWidth.
+     * See 'bytesPerStride' for relationship between bytesPerStride and allocationWidth.
      */
-    uint32_t allocWidth;
-    uint32_t allocHeight;
+    uint64_t allocationWidth;
+    uint64_t allocationHeight;
+
+    /**
+     * Can be used to get the total size in bytes of any memory used by the plane
+     * including metadata and extra padding.
+     */
+    uint64_t allocationSize
+
+    /**
+     * Horizontal and vertical subsampling. Must be a positive power of 2.
+     */
+    int64_t horizontalSubsampling;
+    int64_t verticalSubsampling;
+
+    /**
+     * Some buffer producers require extra padding to their output buffer; therefore the
+     * physical size of the native buffer will be larger than its logical size.
+     * The crop rectangle determines the offset and logical size of the buffer that should be
+     * read by consumers.
+     *
+     * The crop rectangle is measured in samples and is relative to the offset of the
+     * plane. Valid crop rectangles are within the boundaries of the plane:
+     * [0, 0, allocationWidth, allocationHeight].
+     *
+     * The framework will NOT try to set this value.
+     *
+     * The default crop rectangle is a rectangle the same size as the plane:
+     * [0, 0, allocationWidth, allocationHeight].
+     */
+    Rect cropRectangle;
 };
 
 /**
@@ -383,46 +501,4 @@ enum BufferMetadata : uint32_t {
      * The blend mode is a android.hardware.graphics.composer@2.1::BlendMode.
      */
     BLEND_MODE,
-
-    /**
-     * Can be used to get or set the crop Rectangle.
-     *
-     * The Rectangle is android.hardware.graphics.mapper@4.0::Rect.
-     *
-     * Some buffer producers require extra padding to their output buffer; therefore the
-     * physical size of the native buffer will be larger than its logical size.
-     * The crop rectangle determines the offset and logical size of the buffer that should be
-     * read by consumers.
-     */
-    CROP_RECTANGLE,
-};
-
-/**
- * Structure for describing YCbCr formats for consumption by applications.
- * This is used with PixelFormat::YCBCR_*_888.
- *
- * Buffer chroma subsampling is defined in the format.
- * e.g. PixelFormat::YCBCR_420_888 has subsampling 4:2:0.
- *
- * Buffers must have a 8 bit depth.
- *
- * y, cb, and cr point to the first byte of their respective planes.
- *
- * Stride describes the distance in bytes from the first value of one row of
- * the image to the first value of the next row. It includes the width of the
- * image plus padding.
- * yStride is the stride of the luma plane.
- * cStride is the stride of the chroma planes.
- *
- * chromaStep is the distance in bytes from one chroma pixel value to the
- * next. This is 2 bytes for semiplanar (because chroma values are interleaved
- * and each chroma value is one byte) and 1 for planar.
- */
-struct YCbCrLayout {
-    pointer y;
-    pointer cb;
-    pointer cr;
-    uint32_t yStride;
-    uint32_t cStride;
-    uint32_t chromaStep;
 };
