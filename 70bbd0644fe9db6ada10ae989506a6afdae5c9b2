@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0f935332_552c0710",
+        "filename": "README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-09-21T00:07:21Z",
+      "side": 1,
+      "message": "this sounds like \u0027any edit to any .hal file\u0027",
+      "range": {
+        "startLine": 1,
+        "startChar": 52,
+        "endLine": 1,
+        "endChar": 71
+      },
+      "revId": "70bbd0644fe9db6ada10ae989506a6afdae5c9b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4252fe1d_25264f6c",
+        "filename": "README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-09-21T00:07:21Z",
+      "side": 1,
+      "message": "also, move this explanation to the script itself? it isn\u0027t clear that this readme is coupled with the script",
+      "revId": "70bbd0644fe9db6ada10ae989506a6afdae5c9b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7144063b_418e9fcf",
+        "filename": "README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-09-21T00:07:21Z",
+      "side": 1,
+      "message": "which are these?",
+      "range": {
+        "startLine": 2,
+        "startChar": 28,
+        "endLine": 3,
+        "endChar": 27
+      },
+      "revId": "70bbd0644fe9db6ada10ae989506a6afdae5c9b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc818a23_3f0c82bb",
+        "filename": "README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-09-21T00:07:21Z",
+      "side": 1,
+      "message": "why not just explain here? nothing confidential here",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 66
+      },
+      "revId": "70bbd0644fe9db6ada10ae989506a6afdae5c9b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f3a2590_5755888f",
+        "filename": "update-base-files.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-09-21T00:07:21Z",
+      "side": 1,
+      "message": "running this will break the build, I thought, right? Should we remove this as well?",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 42
+      },
+      "revId": "70bbd0644fe9db6ada10ae989506a6afdae5c9b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
