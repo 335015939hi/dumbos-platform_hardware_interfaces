@@ -281,9 +281,20 @@ class Gralloc1HalImpl : public Hal {
             }
         }
 
-        if (flex.planes[0].component != FLEX_COMPONENT_Y ||
-            flex.planes[1].component != FLEX_COMPONENT_Cb ||
-            flex.planes[2].component != FLEX_COMPONENT_Cr) {
+        if (flex.planes[0].component == FLEX_COMPONENT_Y &&
+            flex.planes[1].component == FLEX_COMPONENT_Cb &&
+            flex.planes[2].component == FLEX_COMPONENT_Cr) {
+            y = flex.planes[0];
+            cb = flex.planes[1];
+            cr = flex.planes[2];
+
+        } else if (flex.planes[0].component == FLEX_COMPONENT_Y &&
+            flex.planes[2].component == FLEX_COMPONENT_Cb &&
+            flex.planes[1].component == FLEX_COMPONENT_Cr) {
+            y = flex.planes[0];
+            cb = flex.planes[2];
+            cr = flex.planes[1];
+        } else {
             return false;
         }
 
