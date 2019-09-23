@@ -1369,6 +1369,9 @@ int main(int argc, char** argv) {
     ::testing::AddGlobalTestEnvironment(environment);
     ::testing::InitGoogleTest(&argc, argv);
     environment->init(&argc, argv);
-    int status = RUN_ALL_TESTS();
-    return status;
+    if (!environment->getServiceName<IDevicesFactory>("default").compare(
+        AUDIO_HAL_SERVICE_NAME_MSD)) {
+        ::testing::GTEST_FLAG(filter) = "AudioPolicyConfigTest*";
+    }
+    return RUN_ALL_TESTS();
 }
