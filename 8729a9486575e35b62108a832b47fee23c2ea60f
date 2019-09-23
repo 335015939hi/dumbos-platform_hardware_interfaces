@@ -16,6 +16,29 @@
       "revId": "8729a9486575e35b62108a832b47fee23c2ea60f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ba5fc07_918711d9",
+        "filename": "keymaster/4.1/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2019-09-23T09:47:24Z",
+      "side": 1,
+      "message": "Can we have this be ErrorCode::CANNOT_ATTEST_IDS, similar to other attestation functions?",
+      "range": {
+        "startLine": 36,
+        "startChar": 57,
+        "endLine": 36,
+        "endChar": 81
+      },
+      "revId": "8729a9486575e35b62108a832b47fee23c2ea60f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
