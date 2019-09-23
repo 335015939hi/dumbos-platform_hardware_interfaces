@@ -281,15 +281,25 @@ class Gralloc1HalImpl : public Hal {
             }
         }
 
-        if (flex.planes[0].component != FLEX_COMPONENT_Y ||
-            flex.planes[1].component != FLEX_COMPONENT_Cb ||
-            flex.planes[2].component != FLEX_COMPONENT_Cr) {
+        const auto& y;
+        const auto& cb;
+        const auto& cr;
+
+        if (flex.planes[0].component == FLEX_COMPONENT_Y &&
+            flex.planes[1].component == FLEX_COMPONENT_Cb &&
+            flex.planes[2].component == FLEX_COMPONENT_Cr) {
+            y = flex.planes[0];
+            cb = flex.planes[1];
+            cr = flex.planes[2];
+        } else if (flex.planes[0].component == FLEX_COMPONENT_Y &&
+            flex.planes[2].component == FLEX_COMPONENT_Cb &&
+            flex.planes[1].component == FLEX_COMPONENT_Cr) {
+            y = flex.planes[0];
+            cb = flex.planes[2];
+            cr = flex.planes[1];
+        } else {
             return false;
         }
-
-        const auto& y = flex.planes[0];
-        const auto& cb = flex.planes[1];
-        const auto& cr = flex.planes[2];
 
         if (cb.h_increment != cr.h_increment || cb.v_increment != cr.v_increment) {
             return false;
