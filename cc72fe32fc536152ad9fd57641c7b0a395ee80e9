@@ -81,6 +81,24 @@
       "revId": "cc72fe32fc536152ad9fd57641c7b0a395ee80e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc0792b5_9b995810",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1468456
+      },
+      "writtenOn": "2019-09-23T21:11:56Z",
+      "side": 1,
+      "message": "That should work for setting it. Does it reflect in the plane layout when a sw consumer queries it?",
+      "parentUuid": "aea6bf01_c6157f1c",
+      "revId": "cc72fe32fc536152ad9fd57641c7b0a395ee80e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
