@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a4bc659c_dda89df7",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1468456
+      },
+      "writtenOn": "2019-09-23T18:07:29Z",
+      "side": 1,
+      "message": "I don\u0027t think I understood the motivation for this - if the buffer will be accessed in android software, a sw usage bit is set at allocation time, due to which gralloc decides to allocate a buffer amenable to SW. If it will not be accessed, why is this hint necessary? Would there be cases where the SW usage flag is never set at allocation but the buffer is still accessed?",
+      "range": {
+        "startLine": 235,
+        "startChar": 4,
+        "endLine": 235,
+        "endChar": 32
+      },
+      "revId": "cc72fe32fc536152ad9fd57641c7b0a395ee80e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dfd0fd29_17e029c2",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1468456
+      },
+      "writtenOn": "2019-09-23T18:07:29Z",
+      "side": 1,
+      "message": "As discussed before - can you also add setters for dynamic width/height for buffers that are not reallocated? (smooth streaming use case)",
+      "revId": "cc72fe32fc536152ad9fd57641c7b0a395ee80e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
