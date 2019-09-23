@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2eb83e36_bd14897a",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-09-23T18:42:18Z",
+      "side": 1,
+      "message": "We will never try to access a buffer on the CPU that didn\u0027t have the CPU flags set. \n\nWe added this because we thought that there could be times when a buffer was allocated with the CPU flags set but the format definition was too vague for generic android code to operate on the buffer.\n\nHowever, as I am going through the formats it looks like that may not be the case. Is there ever a time when CPU flags are set but the buffer could be in an unexpected/un-generically-defined way?",
+      "parentUuid": "a4bc659c_dda89df7",
+      "range": {
+        "startLine": 235,
+        "startChar": 4,
+        "endLine": 235,
+        "endChar": 32
+      },
+      "revId": "cc72fe32fc536152ad9fd57641c7b0a395ee80e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dfd0fd29_17e029c2",
         "filename": "graphics/mapper/4.0/types.hal",
         "patchSetId": 4
@@ -36,6 +60,24 @@
       "writtenOn": "2019-09-23T18:07:29Z",
       "side": 1,
       "message": "As discussed before - can you also add setters for dynamic width/height for buffers that are not reallocated? (smooth streaming use case)",
+      "revId": "cc72fe32fc536152ad9fd57641c7b0a395ee80e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aea6bf01_c6157f1c",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-09-23T18:42:18Z",
+      "side": 1,
+      "message": "ARM proposed a solution for it in ag/1124857. Does fit your needs? If not please put a comment on that patch.",
+      "parentUuid": "dfd0fd29_17e029c2",
       "revId": "cc72fe32fc536152ad9fd57641c7b0a395ee80e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
