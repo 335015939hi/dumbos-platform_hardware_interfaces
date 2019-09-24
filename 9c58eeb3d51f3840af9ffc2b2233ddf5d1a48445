@@ -22,6 +22,30 @@
       "revId": "9c58eeb3d51f3840af9ffc2b2233ddf5d1a48445",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94878c88_8729cf08",
+        "filename": "graphics/mapper/2.0/utils/passthrough/include/mapper-passthrough/2.0/Gralloc1Hal.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1498329
+      },
+      "writtenOn": "2019-09-24T03:07:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "638ec110_ac858345",
+      "range": {
+        "startLine": 287,
+        "startChar": 12,
+        "endLine": 287,
+        "endChar": 13
+      },
+      "revId": "9c58eeb3d51f3840af9ffc2b2233ddf5d1a48445",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
