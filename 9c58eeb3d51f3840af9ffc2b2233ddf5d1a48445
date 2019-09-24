@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "638ec110_ac858345",
+        "filename": "graphics/mapper/2.0/utils/passthrough/include/mapper-passthrough/2.0/Gralloc1Hal.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1000414
+      },
+      "writtenOn": "2019-09-24T00:03:41Z",
+      "side": 1,
+      "message": "It is defined in line #301",
+      "range": {
+        "startLine": 287,
+        "startChar": 12,
+        "endLine": 287,
+        "endChar": 13
+      },
+      "revId": "9c58eeb3d51f3840af9ffc2b2233ddf5d1a48445",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
