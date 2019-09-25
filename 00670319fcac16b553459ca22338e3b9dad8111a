@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "87474f5d_e8788b85",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-09-25T18:27:20Z",
+      "side": 1,
+      "message": "is there a bug open to do this?",
+      "range": {
+        "startLine": 11,
+        "startChar": 17,
+        "endLine": 11,
+        "endChar": 67
+      },
+      "revId": "00670319fcac16b553459ca22338e3b9dad8111a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5046501_e401e8a5",
+        "filename": "audio/core/all-versions/vts/functional/AudioPrimaryHidlHalTest.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1374,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-09-25T18:27:20Z",
+      "side": 1,
+      "message": "will this override the filter if it is already specified, sorry, not familiar",
+      "range": {
+        "startLine": 1374,
+        "startChar": 8,
+        "endLine": 1374,
+        "endChar": 37
+      },
+      "revId": "00670319fcac16b553459ca22338e3b9dad8111a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
