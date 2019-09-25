@@ -16,6 +16,24 @@
       "revId": "eca50336c343b4d11cb245759193414138205bc2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4b76bad_e1b72d6c",
+        "filename": "tv/tuner/1.0/ITuner.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1345588
+      },
+      "writtenOn": "2019-09-25T22:48:05Z",
+      "side": 1,
+      "message": "Thank you Pierre. Updating soon!",
+      "parentUuid": "00f1d22d_5e1b9af5",
+      "revId": "eca50336c343b4d11cb245759193414138205bc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
