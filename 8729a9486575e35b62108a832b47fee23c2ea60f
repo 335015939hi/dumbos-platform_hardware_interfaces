@@ -39,6 +39,29 @@
       "revId": "8729a9486575e35b62108a832b47fee23c2ea60f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "716d275b_04c025b4",
+        "filename": "keymaster/4.1/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1098493
+      },
+      "writtenOn": "2019-09-25T18:44:45Z",
+      "side": 1,
+      "message": "Should this tag be included in the Attestation certificate authorization list?  It would be a good idea I think, just even as a sniff test to ensure that implementations are actually making the right attestation certificate selection - note that the check can be done without looking at the request parameters.",
+      "range": {
+        "startLine": 39,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 29
+      },
+      "revId": "8729a9486575e35b62108a832b47fee23c2ea60f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
