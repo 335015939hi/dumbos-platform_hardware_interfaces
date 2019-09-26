@@ -22,6 +22,30 @@
       "revId": "73d0034f0e49a632f222e83b9d15d366cb64202c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5bcea887_6f70920c",
+        "filename": "automotive/vehicle/2.0/default/impl/vhal_v2_0/DefaultConfig.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 674,
+      "author": {
+        "id": 1043346
+      },
+      "writtenOn": "2019-09-26T23:11:28Z",
+      "side": 1,
+      "message": "Could you describe more information about potential issue?\nIn my understand, AP_POWER_STATE_REPORT sent after the AP_POWER_STATE_REQ.\nIf, vehicle hal (or other place) send AP_POWER_STATE_REPORT without current CPMS state(Not after AP_POWER_STATE_REQ), I think potential issue also occurs.\nIs possible that read property propagate to self? \nYour worry is subscribe AP_POWER_STATE_REPORT in car service?",
+      "parentUuid": "60609f64_20455c34",
+      "range": {
+        "startLine": 674,
+        "startChar": 17,
+        "endLine": 674,
+        "endChar": 60
+      },
+      "revId": "73d0034f0e49a632f222e83b9d15d366cb64202c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
