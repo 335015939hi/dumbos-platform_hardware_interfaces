@@ -45,6 +45,30 @@
       "revId": "00670319fcac16b553459ca22338e3b9dad8111a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e7bc61f_16f8378a",
+        "filename": "audio/core/all-versions/vts/functional/AudioPrimaryHidlHalTest.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1374,
+      "author": {
+        "id": 1133568
+      },
+      "writtenOn": "2019-09-26T19:23:05Z",
+      "side": 1,
+      "message": "Yes it will override if the filter is already specified.\n\nTested by running with:\n\n     if (!environment-\u003egetServiceName\u003cIDevicesFactory\u003e(\"default\").compare(\n         AUDIO_HAL_SERVICE_NAME_MSD)) {\n+        ::testing::GTEST_FLAG(filter) \u003d \"ABCDEFG*\";\n         ::testing::GTEST_FLAG(filter) \u003d \"AudioPolicyConfigTest*\";\n     }",
+      "parentUuid": "d5046501_e401e8a5",
+      "range": {
+        "startLine": 1374,
+        "startChar": 8,
+        "endLine": 1374,
+        "endChar": 37
+      },
+      "revId": "00670319fcac16b553459ca22338e3b9dad8111a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
