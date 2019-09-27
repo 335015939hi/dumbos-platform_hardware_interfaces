@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "92ae5ea3_8973f69a",
+        "filename": "graphics/mapper/4.0/IMapper.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1468456
+      },
+      "writtenOn": "2019-09-27T19:48:14Z",
+      "side": 1,
+      "message": "Thanks for clarifying - We haven\u0027t run into requiring this right now - 1 has been  working fine for us.",
+      "parentUuid": "1a50609e_8c407502",
+      "revId": "cc72fe32fc536152ad9fd57641c7b0a395ee80e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "55417433_2bef9183",
         "filename": "graphics/mapper/4.0/types.hal",
         "patchSetId": 4
