@@ -70,6 +70,30 @@
       "revId": "73d0034f0e49a632f222e83b9d15d366cb64202c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9187d12c_728a831a",
+        "filename": "automotive/vehicle/2.0/default/impl/vhal_v2_0/DefaultConfig.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 674,
+      "author": {
+        "id": 1043346
+      },
+      "writtenOn": "2019-09-27T00:32:33Z",
+      "side": 1,
+      "message": "Tanks for your reply.\nI understand your opinion.\nIn my short investigate, it already ignored.\nBut I think that to avoid confusion, it need change comment.\n(In https://android-review.googlesource.com/c/platform/packages/services/Car/+/1128941)",
+      "parentUuid": "13d31f78_7389470e",
+      "range": {
+        "startLine": 674,
+        "startChar": 17,
+        "endLine": 674,
+        "endChar": 60
+      },
+      "revId": "73d0034f0e49a632f222e83b9d15d366cb64202c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
