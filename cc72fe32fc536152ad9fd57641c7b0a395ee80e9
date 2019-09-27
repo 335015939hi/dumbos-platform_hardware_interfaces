@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "1a50609e_8c407502",
+        "filename": "graphics/mapper/4.0/IMapper.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-09-27T19:33:15Z",
+      "side": 1,
+      "message": "Yes, it would need to work across process so a producer could lock the buffer metadata and unlock when it is done. The consumer would try to lock the metadata before reading it.",
+      "parentUuid": "1ce70df5_23ff4578",
+      "revId": "cc72fe32fc536152ad9fd57641c7b0a395ee80e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "55417433_2bef9183",
         "filename": "graphics/mapper/4.0/types.hal",
         "patchSetId": 4
