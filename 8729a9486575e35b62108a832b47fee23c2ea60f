@@ -2,6 +2,46 @@
   "comments": [
     {
       "key": {
+        "uuid": "007cb950_dd5c8a10",
+        "filename": "keymaster/4.1/IKeymasterDevice.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1071728
+      },
+      "writtenOn": "2019-09-27T20:19:00Z",
+      "side": 1,
+      "message": "Should key creation and encryption operation be restricted when device is locked ? I thought we wanted to restrict only decrypt operations or possibly signature ?\n\nIf key creation and encryption is restricted then applications wouldnt be able to use keyguard bound keys to protect any data that is downloaded (e.g. email) when the device is locked ?",
+      "range": {
+        "startLine": 40,
+        "startChar": 79,
+        "endLine": 40,
+        "endChar": 92
+      },
+      "revId": "8729a9486575e35b62108a832b47fee23c2ea60f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7998eef2_83b477e3",
+        "filename": "keymaster/4.1/IKeymasterDevice.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1071728
+      },
+      "writtenOn": "2019-09-27T20:19:00Z",
+      "side": 1,
+      "message": "Android devices typically can be unlocked either using a credential (pin, pattern or password) or a biometric (fingerprint, face, etc) but there are certain scenarios where the credential (Gatekeeper) is the only authenticator that can be used such as first unlock after a device boot, biometric timeout (every 72 hours) and lockdown mode (user can disable the use of biometrics for unlock). While biometrics provide ease of access, credentials provide knowledge-based authentication which is stronger especially for storage encryption.\n\nCan we bind keyguard bound keys (keys bound to UNLOCKED_DEVICE_REQUIRED) to this property and enforce this in keymaster. Keymaster can maintain the state and will allow the appropriate authenticator to unlock keyguard bound keys.\n\nAn input parameter to this API that denotes *Gatekeeper only* would be required to achieve this ?",
+      "revId": "8729a9486575e35b62108a832b47fee23c2ea60f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e77e7f99_f3fe82cd",
         "filename": "keymaster/4.1/IKeymasterDevice.hal",
         "patchSetId": 2
