@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1ce70df5_23ff4578",
+        "filename": "graphics/mapper/4.0/IMapper.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1468456
+      },
+      "writtenOn": "2019-09-27T19:11:28Z",
+      "side": 1,
+      "message": "the proposed lock/unlock would be across processes?",
+      "parentUuid": "ade15aa9_5e37ee28",
+      "revId": "cc72fe32fc536152ad9fd57641c7b0a395ee80e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "55417433_2bef9183",
         "filename": "graphics/mapper/4.0/types.hal",
         "patchSetId": 4
