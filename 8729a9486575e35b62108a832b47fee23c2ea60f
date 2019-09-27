@@ -59,6 +59,29 @@
     },
     {
       "key": {
+        "uuid": "8eda22d3_1d870eb0",
+        "filename": "keymaster/4.1/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1071728
+      },
+      "writtenOn": "2019-09-27T20:29:28Z",
+      "side": 1,
+      "message": "If this is supported then Strongbox KM will have a batch key and a device-unique key provisioned for RSA and ECC ?",
+      "range": {
+        "startLine": 32,
+        "startChar": 27,
+        "endLine": 32,
+        "endChar": 44
+      },
+      "revId": "8729a9486575e35b62108a832b47fee23c2ea60f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9ba5fc07_918711d9",
         "filename": "keymaster/4.1/types.hal",
         "patchSetId": 2
