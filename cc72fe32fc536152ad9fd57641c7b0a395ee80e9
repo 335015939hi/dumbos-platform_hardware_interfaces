@@ -2,6 +2,143 @@
   "comments": [
     {
       "key": {
+        "uuid": "ade15aa9_5e37ee28",
+        "filename": "graphics/mapper/4.0/IMapper.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-09-27T18:45:43Z",
+      "side": 1,
+      "message": "Needs clarification about access semantics.\n\nSometimes the metadata needs to be read before a fence has signaled. Eg. The display driver may need metadata information. Userspace wants to send that info to the kernel before the fence has signaled for performance reasons.\n\nTwo current proposals:\n1) Clarify when a buffer \"leaves\" a producer process, the producer should no longer attempt to write to the metadata. This needs to be carefully defined because buffers rarely actually leave a producer process. The leave is more logical (eg. queueBuffer in BufferQueue).\n\n2) [ARM proposal] \"lock()\" and \"unlock()\" functions for the metadata. In this case lock and unlock are meant as access control operations similar to a mutex not Mapper\u0027s usual lock and unlock operations. It would be on the vendor to implement probably through shared memory atomic primitives. Although c++ might not require the shared atomic primitives work.\n\nMaybe we can do a hybrid where we supply the \"lock()\" and \"unlock()\" and also add the option 1 clarification so vendors can use either?",
+      "revId": "cc72fe32fc536152ad9fd57641c7b0a395ee80e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "55417433_2bef9183",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-09-27T18:45:43Z",
+      "side": 1,
+      "message": "uint64_t/int64_t in wherever possible in these patches. This shouldn\u0027t affect vendor storage as long as we don\u0027t reserve higher order bits for ourselves.",
+      "revId": "cc72fe32fc536152ad9fd57641c7b0a395ee80e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc203a22_3ef5c088",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-09-27T18:45:43Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 2
+      },
+      "revId": "cc72fe32fc536152ad9fd57641c7b0a395ee80e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35de40c5_448b3443",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-09-27T18:45:43Z",
+      "side": 1,
+      "message": "uint64_t with reserved ranges or structs with company string + uint64_t?",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 37
+      },
+      "revId": "cc72fe32fc536152ad9fd57641c7b0a395ee80e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b5bdfc6_6f816b78",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-09-27T18:45:43Z",
+      "side": 1,
+      "message": "Not useful without the modifier",
+      "revId": "cc72fe32fc536152ad9fd57641c7b0a395ee80e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3a3d82c_52e2dc11",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-09-27T18:45:43Z",
+      "side": 1,
+      "message": "Clarify that these aren\u0027t generally safe to store. The exceptions are the values that are from the BufferDescriptorInfo.",
+      "revId": "cc72fe32fc536152ad9fd57641c7b0a395ee80e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3fb82548_54ed7b79",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-09-27T18:45:43Z",
+      "side": 1,
+      "message": "structs with company string + uint64_t in LLNDK",
+      "range": {
+        "startLine": 130,
+        "startChar": 0,
+        "endLine": 130,
+        "endChar": 30
+      },
+      "revId": "cc72fe32fc536152ad9fd57641c7b0a395ee80e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a4bc659c_dda89df7",
         "filename": "graphics/mapper/4.0/types.hal",
         "patchSetId": 4
@@ -43,6 +180,150 @@
         "endLine": 235,
         "endChar": 32
       },
+      "revId": "cc72fe32fc536152ad9fd57641c7b0a395ee80e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c42f9e1a_b966adf5",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-09-27T18:45:43Z",
+      "side": 1,
+      "message": "Remove and maybe enable smarter allocation (eg. standard tiling) in a future release.",
+      "parentUuid": "2eb83e36_bd14897a",
+      "range": {
+        "startLine": 235,
+        "startChar": 4,
+        "endLine": 235,
+        "endChar": 32
+      },
+      "revId": "cc72fe32fc536152ad9fd57641c7b0a395ee80e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b827b6f7_648ca058",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-09-27T18:45:43Z",
+      "side": 1,
+      "message": "There isn\u0027t any agreement on how to define this. Maybe uint64_t bit field with reserved ranges? Would allow a buffer to be capable of multiple protected contexts.",
+      "revId": "cc72fe32fc536152ad9fd57641c7b0a395ee80e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01238070_436df63d",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-09-27T18:45:43Z",
+      "side": 1,
+      "message": "Not this year because there aren\u0027t any standard tiling formats that are software readable and also supported by other hardware blocks. \n\nWe should consider adding support eventual to improve software codec performance.",
+      "range": {
+        "startLine": 255,
+        "startChar": 0,
+        "endLine": 255,
+        "endChar": 10
+      },
+      "revId": "cc72fe32fc536152ad9fd57641c7b0a395ee80e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7ce58dd_c2ead974",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-09-27T18:45:43Z",
+      "side": 1,
+      "message": "INTERLACED - none, top/bottom, right/left",
+      "range": {
+        "startLine": 260,
+        "startChar": 4,
+        "endLine": 260,
+        "endChar": 15
+      },
+      "revId": "cc72fe32fc536152ad9fd57641c7b0a395ee80e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1687115a_c8f32a37",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-09-27T18:45:43Z",
+      "side": 1,
+      "message": "Worth adding",
+      "revId": "cc72fe32fc536152ad9fd57641c7b0a395ee80e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "253aaad1_b3f2b614",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-09-27T18:45:43Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 269,
+        "startChar": 67,
+        "endLine": 269,
+        "endChar": 73
+      },
+      "revId": "cc72fe32fc536152ad9fd57641c7b0a395ee80e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b97c9f1d_f7f82ccf",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-09-27T18:45:43Z",
+      "side": 1,
+      "message": "define default",
       "revId": "cc72fe32fc536152ad9fd57641c7b0a395ee80e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -96,6 +377,24 @@
       "side": 1,
       "message": "That should work for setting it. Does it reflect in the plane layout when a sw consumer queries it?",
       "parentUuid": "aea6bf01_c6157f1c",
+      "revId": "cc72fe32fc536152ad9fd57641c7b0a395ee80e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c3354d2_41739ea9",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-09-27T18:45:43Z",
+      "side": 1,
+      "message": "Yes it does",
+      "parentUuid": "bc0792b5_9b995810",
       "revId": "cc72fe32fc536152ad9fd57641c7b0a395ee80e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
