@@ -46,6 +46,30 @@
       "revId": "73d0034f0e49a632f222e83b9d15d366cb64202c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13d31f78_7389470e",
+        "filename": "automotive/vehicle/2.0/default/impl/vhal_v2_0/DefaultConfig.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 674,
+      "author": {
+        "id": 1010465
+      },
+      "writtenOn": "2019-09-27T00:04:25Z",
+      "side": 1,
+      "message": "Yes, car service is batch subscribing all readable events and that can potentially send the write event back to car service. Most likely car service will not do anything with that event but better to skip subscription at all with as a companion CL.",
+      "parentUuid": "5bcea887_6f70920c",
+      "range": {
+        "startLine": 674,
+        "startChar": 17,
+        "endLine": 674,
+        "endChar": 60
+      },
+      "revId": "73d0034f0e49a632f222e83b9d15d366cb64202c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
