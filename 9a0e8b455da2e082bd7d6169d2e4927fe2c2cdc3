@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "00778e82_a123f0a3",
+        "filename": "radio/1.1/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1002609
+      },
+      "writtenOn": "2019-09-27T18:44:17Z",
+      "side": 1,
+      "message": "isn\u0027t this backward?  if you define REMOVE_FOR_JAPAN_MODEL it will include the code you want removed?\n\nRegardless, we don\u0027t want this conditionally removed..  everyone must have the same tests.  Please just #if 0 or something to remove this for all.  Also add a reference to the bug.",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 34
+      },
+      "revId": "9a0e8b455da2e082bd7d6169d2e4927fe2c2cdc3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
