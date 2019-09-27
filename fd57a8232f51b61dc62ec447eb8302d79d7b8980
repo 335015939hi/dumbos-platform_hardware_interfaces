@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "8927d86b_0dc3c6ac",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-09-27T18:45:50Z",
+      "side": 1,
+      "message": "- Alignment height (Vertical stride)\n- Plane size",
+      "revId": "fd57a8232f51b61dc62ec447eb8302d79d7b8980",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "71d6f6c7_04cd4905",
         "filename": "graphics/mapper/4.0/types.hal",
         "patchSetId": 3
