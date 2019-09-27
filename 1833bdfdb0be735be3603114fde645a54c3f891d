@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b0b7a71d_33766200",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-09-27T18:46:13Z",
+      "side": 1,
+      "message": "This solution for changes in video resolution won\u0027t work for everyone. However it is worth supporting as an option for vendors that need it. Vendors that don\u0027t need it can set it to the default value. \n\nAdd a default value.",
+      "range": {
+        "startLine": 337,
+        "startChar": 0,
+        "endLine": 337,
+        "endChar": 7
+      },
+      "revId": "1833bdfdb0be735be3603114fde645a54c3f891d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "201b0167_78072f20",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-09-27T18:46:13Z",
+      "side": 1,
+      "message": "Add to the per plane definition.\n\nAlso update to clarify:\n- This is measured in pixels,\n- The Crop is relative to the offset of the plane and in the [0, 0, allocWidth, allocHeight] of the plane.",
+      "revId": "1833bdfdb0be735be3603114fde645a54c3f891d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
