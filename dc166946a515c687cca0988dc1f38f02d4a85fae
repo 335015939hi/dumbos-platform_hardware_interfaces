@@ -22,6 +22,30 @@
       "revId": "dc166946a515c687cca0988dc1f38f02d4a85fae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87a5956a_2464abea",
+        "filename": "current.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2019-09-30T23:12:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8271a78_89344cb4",
+      "range": {
+        "startLine": 580,
+        "startChar": 82,
+        "endLine": 580,
+        "endChar": 87
+      },
+      "revId": "dc166946a515c687cca0988dc1f38f02d4a85fae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
