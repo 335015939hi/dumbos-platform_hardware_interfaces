@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7b5d92b6_e9cdcf8c",
+        "filename": "graphics/mapper/4.0/IMapper.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-10-01T22:07:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5d8385f_d667bd36",
+      "range": {
+        "startLine": 226,
+        "startChar": 0,
+        "endLine": 230,
+        "endChar": 26
+      },
+      "revId": "a139d29422596ddb6a1b4b1c23f70b151169ae2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d413665b_a4b4a4d5",
         "filename": "graphics/mapper/4.0/IMapper.hal",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "620ad624_5ec55fe3",
+        "filename": "graphics/mapper/4.0/IMapper.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-10-01T22:07:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d413665b_a4b4a4d5",
+      "range": {
+        "startLine": 250,
+        "startChar": 0,
+        "endLine": 251,
+        "endChar": 74
+      },
+      "revId": "a139d29422596ddb6a1b4b1c23f70b151169ae2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0903d0de_309b9b2b",
         "filename": "graphics/mapper/4.0/types.hal",
         "patchSetId": 1
@@ -62,6 +110,41 @@
       "revId": "a139d29422596ddb6a1b4b1c23f70b151169ae2b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2a909cd_ebc3529e",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-10-01T22:07:24Z",
+      "side": 1,
+      "message": "We will wait until someone is using this.",
+      "parentUuid": "0903d0de_309b9b2b",
+      "revId": "a139d29422596ddb6a1b4b1c23f70b151169ae2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "17229523_21bde3e8",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-10-01T22:07:24Z",
+      "side": 1,
+      "message": "Define Component, Sample, Pixel",
+      "revId": "a139d29422596ddb6a1b4b1c23f70b151169ae2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -82,6 +165,24 @@
     },
     {
       "key": {
+        "uuid": "64979b67_6729b4e3",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-10-01T22:07:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57629d93_6b206cf9",
+      "revId": "a139d29422596ddb6a1b4b1c23f70b151169ae2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f120c741_17ad5919",
         "filename": "graphics/mapper/4.0/types.hal",
         "patchSetId": 1
@@ -93,6 +194,58 @@
       "writtenOn": "2019-09-27T18:46:20Z",
       "side": 1,
       "message": "Offset to the first byte",
+      "revId": "a139d29422596ddb6a1b4b1c23f70b151169ae2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b269b8bf_a642124a",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-10-01T22:07:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f120c741_17ad5919",
+      "revId": "a139d29422596ddb6a1b4b1c23f70b151169ae2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37982e19_d883d3ff",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-10-01T22:07:24Z",
+      "side": 1,
+      "message": "Replace with vector of components at the request of media",
+      "revId": "a139d29422596ddb6a1b4b1c23f70b151169ae2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5d525e5_ac3912af",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-10-01T22:07:24Z",
+      "side": 1,
+      "message": "Clarify endianess at the request of media.",
       "revId": "a139d29422596ddb6a1b4b1c23f70b151169ae2b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -113,6 +266,24 @@
       "revId": "a139d29422596ddb6a1b4b1c23f70b151169ae2b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "efbdcf64_f5634c08",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-10-01T22:07:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f82e7348_1d8c222a",
+      "revId": "a139d29422596ddb6a1b4b1c23f70b151169ae2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -139,6 +310,30 @@
     },
     {
       "key": {
+        "uuid": "022c816c_942031e9",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-10-01T22:07:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10b4d88a_f18bbe8e",
+      "range": {
+        "startLine": 186,
+        "startChar": 58,
+        "endLine": 186,
+        "endChar": 66
+      },
+      "revId": "a139d29422596ddb6a1b4b1c23f70b151169ae2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "61a79b54_f30a430d",
         "filename": "graphics/mapper/4.0/types.hal",
         "patchSetId": 1
@@ -153,6 +348,24 @@
       "revId": "a139d29422596ddb6a1b4b1c23f70b151169ae2b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf4c3883_213c775b",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-10-01T22:07:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "61a79b54_f30a430d",
+      "revId": "a139d29422596ddb6a1b4b1c23f70b151169ae2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -225,6 +438,78 @@
     },
     {
       "key": {
+        "uuid": "07460a86_6dea89ca",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-10-01T22:07:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b869354c_8e879755",
+      "range": {
+        "startLine": 192,
+        "startChar": 21,
+        "endLine": 192,
+        "endChar": 26
+      },
+      "revId": "a139d29422596ddb6a1b4b1c23f70b151169ae2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "15054bed_44de63c6",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-10-01T22:07:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91429bce_9ce7a043",
+      "range": {
+        "startLine": 192,
+        "startChar": 13,
+        "endLine": 192,
+        "endChar": 18
+      },
+      "revId": "a139d29422596ddb6a1b4b1c23f70b151169ae2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e93d580e_aa265ee7",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-10-01T22:07:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "939603db_9a41053c",
+      "range": {
+        "startLine": 192,
+        "startChar": 4,
+        "endLine": 192,
+        "endChar": 5
+      },
+      "revId": "a139d29422596ddb6a1b4b1c23f70b151169ae2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4070cd55_031eea19",
         "filename": "graphics/mapper/4.0/types.hal",
         "patchSetId": 1
@@ -245,6 +530,30 @@
       "revId": "a139d29422596ddb6a1b4b1c23f70b151169ae2b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f06e2043_f78c1cfe",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-10-01T22:07:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4070cd55_031eea19",
+      "range": {
+        "startLine": 211,
+        "startChar": 4,
+        "endLine": 211,
+        "endChar": 5
+      },
+      "revId": "a139d29422596ddb6a1b4b1c23f70b151169ae2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
