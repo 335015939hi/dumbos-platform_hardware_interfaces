@@ -90,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "19ff4b4b_dcf94989",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-10-01T22:07:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55417433_2bef9183",
+      "revId": "cc72fe32fc536152ad9fd57641c7b0a395ee80e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dc203a22_3ef5c088",
         "filename": "graphics/mapper/4.0/types.hal",
         "patchSetId": 4
@@ -110,6 +128,30 @@
       "revId": "cc72fe32fc536152ad9fd57641c7b0a395ee80e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2602bd3e_1fb66c8f",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-10-01T22:07:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc203a22_3ef5c088",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 2
+      },
+      "revId": "cc72fe32fc536152ad9fd57641c7b0a395ee80e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -153,6 +195,24 @@
     },
     {
       "key": {
+        "uuid": "7bcb62d5_253c1217",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-10-01T22:07:20Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2b5bdfc6_6f816b78",
+      "revId": "cc72fe32fc536152ad9fd57641c7b0a395ee80e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f3a3d82c_52e2dc11",
         "filename": "graphics/mapper/4.0/types.hal",
         "patchSetId": 4
@@ -167,6 +227,24 @@
       "revId": "cc72fe32fc536152ad9fd57641c7b0a395ee80e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0881e00_93c7e03f",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-10-01T22:07:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f3a3d82c_52e2dc11",
+      "revId": "cc72fe32fc536152ad9fd57641c7b0a395ee80e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -264,6 +342,30 @@
     },
     {
       "key": {
+        "uuid": "8b0e151a_0f7672aa",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-10-01T22:07:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c42f9e1a_b966adf5",
+      "range": {
+        "startLine": 235,
+        "startChar": 4,
+        "endLine": 235,
+        "endChar": 32
+      },
+      "revId": "cc72fe32fc536152ad9fd57641c7b0a395ee80e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b827b6f7_648ca058",
         "filename": "graphics/mapper/4.0/types.hal",
         "patchSetId": 4
@@ -278,6 +380,24 @@
       "revId": "cc72fe32fc536152ad9fd57641c7b0a395ee80e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26d0122a_249077fd",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-10-01T22:07:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b827b6f7_648ca058",
+      "revId": "cc72fe32fc536152ad9fd57641c7b0a395ee80e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -304,6 +424,30 @@
     },
     {
       "key": {
+        "uuid": "e07844ec_8d2da266",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-10-01T22:07:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01238070_436df63d",
+      "range": {
+        "startLine": 255,
+        "startChar": 0,
+        "endLine": 255,
+        "endChar": 10
+      },
+      "revId": "cc72fe32fc536152ad9fd57641c7b0a395ee80e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7ce58dd_c2ead974",
         "filename": "graphics/mapper/4.0/types.hal",
         "patchSetId": 4
@@ -315,6 +459,30 @@
       "writtenOn": "2019-09-27T18:45:43Z",
       "side": 1,
       "message": "INTERLACED - none, top/bottom, right/left",
+      "range": {
+        "startLine": 260,
+        "startChar": 4,
+        "endLine": 260,
+        "endChar": 15
+      },
+      "revId": "cc72fe32fc536152ad9fd57641c7b0a395ee80e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8501a7f_a804e82a",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-10-01T22:07:20Z",
+      "side": 1,
+      "message": "Can this vary per plane?\n\nIf there can be multiple planes with the same component, how can we tell the difference? Should we require the planes be organized in time/frame number by the planelayout vector? We definitely can\u0027t require ordering of the offsets.",
+      "parentUuid": "b7ce58dd_c2ead974",
       "range": {
         "startLine": 260,
         "startChar": 4,
@@ -344,6 +512,24 @@
     },
     {
       "key": {
+        "uuid": "0bd4dee1_245068d2",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-10-01T22:07:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1687115a_c8f32a37",
+      "revId": "cc72fe32fc536152ad9fd57641c7b0a395ee80e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "253aaad1_b3f2b614",
         "filename": "graphics/mapper/4.0/types.hal",
         "patchSetId": 4
@@ -367,6 +553,64 @@
     },
     {
       "key": {
+        "uuid": "01b2ae25_f33ebece",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-10-01T22:07:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "253aaad1_b3f2b614",
+      "range": {
+        "startLine": 269,
+        "startChar": 67,
+        "endLine": 269,
+        "endChar": 73
+      },
+      "revId": "cc72fe32fc536152ad9fd57641c7b0a395ee80e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e6b00621_13b4edb4",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-10-01T22:07:20Z",
+      "side": 1,
+      "message": "For here and below, the value on the buffer (if set) overrides the value on the layer.",
+      "revId": "cc72fe32fc536152ad9fd57641c7b0a395ee80e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "61890f16_42ac7959",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-10-01T22:07:20Z",
+      "side": 1,
+      "message": "Have both PER_FRAME_METADATA and PER_FRAME_METADATA_BLOB. Clarify how setting one affects the other.",
+      "revId": "cc72fe32fc536152ad9fd57641c7b0a395ee80e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b97c9f1d_f7f82ccf",
         "filename": "graphics/mapper/4.0/types.hal",
         "patchSetId": 4
@@ -381,6 +625,24 @@
       "revId": "cc72fe32fc536152ad9fd57641c7b0a395ee80e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee484fea_358be128",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-10-01T22:07:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b97c9f1d_f7f82ccf",
+      "revId": "cc72fe32fc536152ad9fd57641c7b0a395ee80e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -452,6 +714,24 @@
       "revId": "cc72fe32fc536152ad9fd57641c7b0a395ee80e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac63ea7f_05842dd5",
+        "filename": "graphics/mapper/4.0/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-10-01T22:07:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c3354d2_41739ea9",
+      "revId": "cc72fe32fc536152ad9fd57641c7b0a395ee80e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
