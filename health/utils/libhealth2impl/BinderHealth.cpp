@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#include <health2impl/BinderHealthLoop.h>
+#include <health2impl/BinderHealth.h>
 
 #include <android-base/logging.h>
 #include <hidl/HidlTransportSupport.h>
@@ -27,6 +27,8 @@ using android::hardware::configureRpcThreadpool;
 using android::hardware::handleTransportPoll;
 using android::hardware::IPCThreadState;
 using android::hardware::setupTransportPolling;
+
+using android::hardware::health::V2_0::Result;
 
 namespace android {
 namespace hardware {
@@ -41,14 +43,17 @@ bool IsDeadObjectLogged(const Return<void>& ret) {
     return false;
 }
 
-void BinderHealth::onFirstRef() {
-    set_service(this);
+BinderHealth::BinderHealth(const std::string& name, const sp<IHealth>& impl)
+    : HalHealthLoop(name, impl) {
+    CHECK_NE(this, impl.get());
+    CHECK(!impl->isRemote());
 }
+
 //
 // Methods that handle callbacks.
 //
 
-Return<Result> BinderHealth::registerCallback(const sp<IHealthInfoCallback_2_0>& callback) {
+Return<Result> BinderHealth::registerCallback(const sp<V2_0::IHealthInfoCallback>& callback) {
     if (callback == nullptr) {
         return Result::SUCCESS;
     }
@@ -107,15 +112,35 @@ bool BinderHealth::unregisterCallbackInternal(const sp<IBase>& callback) {
     return removed;
 }
 
-// The passthrough service() has |this| as a registered callback. Calling
-// update() here will call this->healthInfoChanged() to be called on a background
-// thread (because )
+// The passthrough service() has BinderHealthCallback as a registered callback. Calling
+// update() here will call this->OnHealthInfoChanged() to be called on a background
+// thread (because OnHealthInfoChanged() is a oneway method).
 Return<Result> BinderHealth::update() {
     return service()->update();
 }
 
-Return<Result> BinderHealth::unregisterCallback(const sp<IHealthInfoCallback_2_0>& callback) {
+Return<Result> BinderHealth::unregisterCallback(const sp<V2_0::IHealthInfoCallback>& callback) {
     return unregisterCallbackInternal(callback) ? Result::SUCCESS : Result::NOT_FOUND;
+}
+
+void BinderHealth::OnHealthInfoChanged(const HealthInfo& health_info) {
+    // Notify all callbacks
+    std::unique_lock<decltype(callbacks_lock_)> lock(callbacks_lock_);
+    for (auto it = callbacks_.begin(); it != callbacks_.end();) {
+        auto ret = (*it)->Notify(health_info);
+        if (IsDeadObjectLogged(ret)) {
+            it = callbacks_.erase(it);
+        } else {
+            ++it;
+        }
+    }
+    lock.unlock();
+
+    // adjusts uevent / wakealarm periods
+    const V1_0::HealthInfo& props = health_info.legacy.legacy;
+    bool charger_online =
+            props.chargerAcOnline | props.chargerUsbOnline | props.chargerWirelessOnline;
+    SetChargerOnline(charger_online);
 }
 
 void BinderHealth::serviceDied(uint64_t /* cookie */, const wp<IBase>& who) {
@@ -129,9 +154,12 @@ void BinderHealth::BinderEvent(uint32_t /*epevents*/) {
 }
 
 void BinderHealth::Init(struct healthd_config* config) {
+    // Set up epoll and get uevent / wake alarm periods
+    HalHealthLoop::Init(config);
+
     LOG(INFO) << instance_name() << " instance initializing with healthd_config...";
 
-    binder_fd_.reset(setupTransportPolling());
+    binder_fd_ = setupTransportPolling();
 
     if (binder_fd_ >= 0) {
         auto binder_event = [](auto* health_loop, uint32_t epevents) {
@@ -142,36 +170,30 @@ void BinderHealth::Init(struct healthd_config* config) {
         }
     }
 
-    // Get uevent / wake alarm periods
-    HalHealthLoop::Init(config);
+    // Register itself as a proxy of all health info callbacks. Note that
+    // BinderHealthCallback calls OnHealthInfoChaged when there is a health info update.
+    service()->registerCallback(sp<IHealthInfoCallback>(new BinderHealthCallback(this)));
 
-    service()->registerCallback(this);
-}
+    // Ready to receive calls from this point. Register |this| against service manager.
+    CHECK_EQ(IHealth::registerAsService(instance_name()), android::OK)
+            << instance_name() << ": Failed to register HAL";
 
-Return<void> BinderHealth::healthInfoChanged(const V2_0::HealthInfo& health_info) {
-    {
-        // Notify all callbacks
-        std::lock_guard<decltype(callbacks_lock_)> lock(callbacks_lock_);
-        for (auto it = callbacks_.begin(); it != callbacks_.end();) {
-            auto ret = (*it)->Notify(health_info);
-            if (IsDeadObjectLogged(ret)) {
-                it = callbacks_.erase(it);
-            } else {
-                ++it;
-            }
-        }
-        // unlock
-    }
-
-    const V1_0::HealthInfo& props = health_info.legacy;
-    bool charger_online = props.chargerAcOnline | props.chargerUsbOnline |
-            props.chargerWirelessOnline;
-    SetChargerOnline(charger_online);
+    LOG(INFO) << instance_name() << ": Hal init done";
 }
 
 int BinderHealth::PrepareToWait(void) {
     IPCThreadState::self()->flushCommands();
     return HalHealthLoop::PrepareToWait();
+}
+
+Return<void> BinderHealthCallback::healthInfoChanged(const V2_0::HealthInfo& health_info) {
+    LOG(ERROR) << "2.0 healthInfoChanged called";
+    return Void();
+}
+
+Return<void> BinderHealthCallback::healthInfoChanged_2_1(const HealthInfo& health_info) {
+    service_->OnHealthInfoChanged(health_info);
+    return Void();
 }
 
 }  // namespace implementation
