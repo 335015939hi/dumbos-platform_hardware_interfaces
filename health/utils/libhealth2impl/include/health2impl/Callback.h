@@ -16,6 +16,7 @@
 #pragma once
 
 #include <android/hardware/health/2.1/IHealth.h>
+#include <android/hardware/health/2.1/IHealthInfoCallback.h>
 
 using ::android::sp;
 using ::android::hardware::Return;
@@ -27,6 +28,7 @@ namespace health {
 namespace V2_1 {
 namespace implementation {
 
+// Wraps an IHealthInfoCallback.
 class Callback {
   public:
     virtual ~Callback() {}
