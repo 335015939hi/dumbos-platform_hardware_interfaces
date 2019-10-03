@@ -19,6 +19,8 @@
 #include <android/hardware/health/2.1/IHealth.h>
 #include <android-base/unique_fd.h>
 #include <healthd/healthd.h>
+
+#include <health2impl/Callback.h>
 #include <health2impl/HalHealthLoop.h>
 
 namespace android {
@@ -27,14 +29,11 @@ namespace health {
 namespace V2_1 {
 namespace implementation {
 
-
-class BinderHealthLoop : public HalHealthLoop, public IHealth, public hidl_death_recipient,
-                         public V2_0::IHealthInfoCallback {
+// binderized health HAL implementation.
+class BinderHealth : public HalHealthLoop, public IHealth, public hidl_death_recipient {
    public:
-    // inherit constructors.
-    using HalHealthLoop::HalHealthLoop;
-
-    void onFirstRef() override;
+    // |impl| should be the passthrough implementation.
+    BinderHealth(const std::string& name, const sp<IHealth>& impl);
 
     // Methods from ::android::hardware::health::V2_0::IHealth follow.
     Return<::android::hardware::health::V2_0::Result> registerCallback(
@@ -82,27 +81,37 @@ class BinderHealthLoop : public HalHealthLoop, public IHealth, public hidl_death
     }
 
     // Methods from ::android::hidl::base::V1_0::IBase follow.
-    Return<void> debug(const hidl_handle& fd, const hidl_vec<hidl_string>& args) override;
+    Return<void> debug(const hidl_handle& fd, const hidl_vec<hidl_string>& args) override {
+      return service()->debug(fd, args);
+    }
 
     // hidl_death_recipient implementation.
     void serviceDied(uint64_t cookie, const wp<IBase>& who) override;
 
-    // Methods from IHealthInfoCallback follow
-    Return<void> healthInfoChanged(const V2_0::HealthInfo& health_info) override;
+    // Called by BinderHealthCallback.
+    Return<void> OnHealthInfoChanged(const HealthInfo& health_info);
 
    protected:
-
     virtual void Init(struct healthd_config* config) override;
     virtual int PrepareToWait() override;
     // A subclass may override this if it wants to handle binder events differently.
     virtual void BinderEvent(uint32_t epevents);
    private:
     bool unregisterCallbackInternal(const sp<IBase>& callback);
-    android::base::unique_fd binder_fd_;
+    int binder_fd_ = -1;
     std::mutex callbacks_lock_;
     std::vector<std::unique_ptr<Callback>> callbacks_;
 };
 
+class BinderHealthCallback : public IHealthInfoCallback {
+   public:
+    BinderHealthCallback(const sp<BinderHealth>& service) : service_(service) {}
+    // Methods from IHealthInfoCallback follow.
+    Return<void> healthInfoChanged(const V2_0::HealthInfo& health_info) override;
+    Return<void> healthInfoChanged_2_1(const HealthInfo& health_info) override;
+   private:
+    sp<BinderHealth> service_;
+};
 
 }  // namespace implementation
 }  // namespace V2_1
