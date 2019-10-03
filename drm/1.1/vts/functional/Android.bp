@@ -30,5 +30,4 @@ cc_test {
         "libnativehelper",
         "libssl",
     ],
-    test_suites: ["general-tests"],
 }
