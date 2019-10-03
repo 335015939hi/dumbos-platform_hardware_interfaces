@@ -36,5 +36,4 @@ cc_test {
         "libssl",
         "libcrypto_static",
     ],
-    test_suites: ["general-tests"],
 }
