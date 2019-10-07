@@ -117,6 +117,30 @@
       "revId": "e383cbf5f006c8d219cb5c46de53459f900ed2ec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e69fc660_728cfcfb",
+        "filename": "light/utils/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000414
+      },
+      "writtenOn": "2019-10-07T23:20:33Z",
+      "side": 1,
+      "message": "I just don\u0027t want to break accidentally existing behavior. I am using it to turn on and off power and notification LEDs.",
+      "parentUuid": "be257c19_ec523ce8",
+      "range": {
+        "startLine": 55,
+        "startChar": 29,
+        "endLine": 55,
+        "endChar": 40
+      },
+      "revId": "e383cbf5f006c8d219cb5c46de53459f900ed2ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
