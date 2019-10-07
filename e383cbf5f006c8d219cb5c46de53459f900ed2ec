@@ -93,6 +93,30 @@
       "revId": "e383cbf5f006c8d219cb5c46de53459f900ed2ec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be257c19_ec523ce8",
+        "filename": "light/utils/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-10-07T23:17:07Z",
+      "side": 1,
+      "message": "This is only a service to turn off the screen when the device is shutting down, but regardless of whether its a service or not, we should consider bad input an error so that it will visibly fail and we can fix a bug in the caller.\n\nWhat are you planning on using this for?",
+      "parentUuid": "533b507f_59a6bb39",
+      "range": {
+        "startLine": 55,
+        "startChar": 29,
+        "endLine": 55,
+        "endChar": 40
+      },
+      "revId": "e383cbf5f006c8d219cb5c46de53459f900ed2ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
