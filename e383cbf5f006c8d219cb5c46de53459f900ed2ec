@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d152f50e_85738f13",
+        "filename": "light/utils/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000414
+      },
+      "writtenOn": "2019-10-07T20:44:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5fe8be5d_613a19db",
+      "range": {
+        "startLine": 50,
+        "startChar": 8,
+        "endLine": 50,
+        "endChar": 16
+      },
+      "revId": "e383cbf5f006c8d219cb5c46de53459f900ed2ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f415fc31_d9fd2b71",
         "filename": "light/utils/main.cpp",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2019-10-07T20:28:17Z",
       "side": 1,
       "message": "error?",
+      "range": {
+        "startLine": 55,
+        "startChar": 29,
+        "endLine": 55,
+        "endChar": 40
+      },
+      "revId": "e383cbf5f006c8d219cb5c46de53459f900ed2ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "533b507f_59a6bb39",
+        "filename": "light/utils/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000414
+      },
+      "writtenOn": "2019-10-07T20:44:21Z",
+      "side": 1,
+      "message": "Error report was added. Failing here probably not safe due to the fact that it is a service.",
+      "parentUuid": "f415fc31_d9fd2b71",
       "range": {
         "startLine": 55,
         "startChar": 29,
