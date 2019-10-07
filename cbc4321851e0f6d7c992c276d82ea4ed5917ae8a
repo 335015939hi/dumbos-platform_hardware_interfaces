@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3863e259_91b67b0f",
+        "filename": "current.txt",
+        "patchSetId": 10
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-10-07T17:46:27Z",
+      "side": 1,
+      "message": "this should be in another section labeled\n# HALs released in Android R\n\n(which is only on internal now)",
+      "range": {
+        "startLine": 574,
+        "startChar": 0,
+        "endLine": 574,
+        "endChar": 49
+      },
+      "revId": "cbc4321851e0f6d7c992c276d82ea4ed5917ae8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
