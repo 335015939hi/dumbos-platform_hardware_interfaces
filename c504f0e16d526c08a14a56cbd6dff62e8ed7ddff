@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "a1491c9f_0abddfc8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-10-08T17:16:15Z",
+      "side": 1,
+      "message": "all lg, just on cf as well?",
+      "range": {
+        "startLine": 9,
+        "startChar": 6,
+        "endLine": 9,
+        "endChar": 12
+      },
+      "revId": "c504f0e16d526c08a14a56cbd6dff62e8ed7ddff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4929b89d_4cbdbe88",
         "filename": "health/2.1/vts/functional/VtsHalHealthV2_1TargetTest.cpp",
         "patchSetId": 3
