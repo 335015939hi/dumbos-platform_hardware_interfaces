@@ -66,6 +66,30 @@
     },
     {
       "key": {
+        "uuid": "c47c8662_a0213e25",
+        "filename": "health/2.1/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2019-10-08T00:19:29Z",
+      "side": 1,
+      "message": "\u003e where /sys/class/power_supply/{source}/type is \"Battery\"\n\nThis is true for the default HAL implementation (which uses libbatterymonitor, which is what healthd used to do), but a HAL may report values from ANY \"source\" that it wants to report.",
+      "parentUuid": "e73c472b_7b166279",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 8
+      },
+      "revId": "0f2b2e29cff8132909dc1300fe134d154044b943",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "42fea85f_3225e991",
         "filename": "health/2.1/types.hal",
         "patchSetId": 2
