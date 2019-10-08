@@ -161,6 +161,30 @@
     },
     {
       "key": {
+        "uuid": "4558b719_d9fb12cd",
+        "filename": "health/2.1/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2019-10-08T00:30:43Z",
+      "side": 1,
+      "message": "I think about it a bit more. How about this?\n\nstruct HealthInfoFields_2_0 { 2.0 fields }; // since I didn\u0027t do it for 2.0\n    struct HealthInfoFields { new fields };\n\n    struct HealthInfo {\n        @1.0::HealthInfo v1_0;\n        HealthInfoFields_2_0 v2_0;\n        HealthInfoFields v2_1;\n    };\n\nThen in C++, I\u0027ll need to implement this:\n\n    V2_0::HealthInfo convert(const V2_1::HealthInfo\u0026 e) {\n        V2_0::HealthInfo ret;\n        ret.legacy \u003d e.v1_0;\n        // assign others in ret\n    }",
+      "parentUuid": "d8a67cb2_50e128c3",
+      "range": {
+        "startLine": 72,
+        "startChar": 4,
+        "endLine": 72,
+        "endChar": 28
+      },
+      "revId": "0f2b2e29cff8132909dc1300fe134d154044b943",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "da90a7fc_a4c89989",
         "filename": "health/2.1/vts/OWNERS",
         "patchSetId": 2
