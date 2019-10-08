@@ -43,7 +43,8 @@ int main(int argc, char* argv[]) {
 
     static LightState off = {
             .color = 0u,
-            .flashMode = Flash::NONE,
+            .flashMode = Flash::TIMED,
+            .flashOnMs = 500,
             .brightnessMode = Brightness::USER,
     };
 
