@@ -126,12 +126,13 @@ SensorsTestSharedMemory::SensorsTestSharedMemory(SharedMemType type, size_t size
             using android::hardware::graphics::common::V1_0::BufferUsage;
             using android::hardware::graphics::common::V1_0::PixelFormat;
             mapper2::IMapper::BufferDescriptorInfo buf_desc_info = {
-                .width = static_cast<uint32_t>(size),
-                .height = 1,
-                .layerCount = 1,
-                .usage = static_cast<uint64_t>(BufferUsage::SENSOR_DIRECT_DATA |
-                                               BufferUsage::CPU_READ_OFTEN),
-                .format = PixelFormat::BLOB};
+                    .width = static_cast<uint32_t>(size),
+                    .height = 1,
+                    .layerCount = 1,
+                    .format = PixelFormat::BLOB,
+                    .usage = static_cast<uint64_t>(BufferUsage::SENSOR_DIRECT_DATA |
+                                                   BufferUsage::CPU_READ_OFTEN),
+            };
 
             handle = const_cast<native_handle_t*>(mGrallocWrapper->allocate(buf_desc_info));
             if (handle != nullptr) {
