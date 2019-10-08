@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "e73c472b_7b166279",
+        "filename": "health/2.1/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2019-10-08T00:16:11Z",
+      "side": 1,
+      "message": "It is signed because these values are used in Java as well. I think it is nice to align them.\n\nThis is reported by the kernel in /sys/class/power_supply/{source}/capacity_level, where /sys/class/power_supply/{source}/type is \"Battery\". Also a device may calculate this at the HAL level (and not in the kernel).",
+      "parentUuid": "732cbdf3_ea6e439a",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 8
+      },
+      "revId": "0f2b2e29cff8132909dc1300fe134d154044b943",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "42fea85f_3225e991",
         "filename": "health/2.1/types.hal",
         "patchSetId": 2
@@ -53,6 +77,30 @@
       "writtenOn": "2019-10-08T00:04:25Z",
       "side": 1,
       "message": "could also consider this to avoid so much boilerplate in client code (and avoid \u0027info.legacy.legacy.foo\u0027:\n\nstruct BatteryCapacityInfo { new fields };\nstruct HealthInfo {\n    @2.0::HealthInfo health;\n    BatteryCapacityInfo batteryCapacity;\n};\n\nAlthough, maybe not since there is already battery info in health. Another possibility would be to add a separate method \u0027getBatteryCapacityInfo\u0027 any particular reason to want it to be one binder call? Efficiency I guess?",
+      "range": {
+        "startLine": 72,
+        "startChar": 4,
+        "endLine": 72,
+        "endChar": 28
+      },
+      "revId": "0f2b2e29cff8132909dc1300fe134d154044b943",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3218181_3e09a693",
+        "filename": "health/2.1/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2019-10-08T00:16:11Z",
+      "side": 1,
+      "message": "I know the \"legacy.legacy\" thing is bad. BTW there is already a \"legacy\" in @2.0::HealthInfo that points to @1.0::HealthInfo... :(\n\nStill, this structure has these benefits:\n\n- https://android-review.googlesource.com/c/platform/system/core/+/1135154/2/healthd/BatteryMonitor.cpp#84 I can return a certain version of HealthInfo object. Otherwise, I\u0027ll need to copy some fields at runtime.\n- (Efficiency) I want only one IHealth::getHealthInfo_2_1() and (especially) IHealthInfoCallback::healthInfoChaged_2_1(). Framework (BatteryService) reads all these values altogether.",
+      "parentUuid": "42fea85f_3225e991",
       "range": {
         "startLine": 72,
         "startChar": 4,
