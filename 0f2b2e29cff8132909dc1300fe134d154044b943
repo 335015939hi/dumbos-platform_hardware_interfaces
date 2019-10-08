@@ -2,6 +2,69 @@
   "comments": [
     {
       "key": {
+        "uuid": "0dc5a0d8_f0913f0f",
+        "filename": "health/2.1/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-10-08T00:04:25Z",
+      "side": 1,
+      "message": "insert space before or maybe run hidl-lint :)",
+      "revId": "0f2b2e29cff8132909dc1300fe134d154044b943",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "732cbdf3_ea6e439a",
+        "filename": "health/2.1/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-10-08T00:04:25Z",
+      "side": 1,
+      "message": "Could we use uint8_t 0-255 instead or even uint32_t instead? Some other devices or us in the future might want more exact data?\n\nAlso, how is this data reported by the kernel already?",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 8
+      },
+      "revId": "0f2b2e29cff8132909dc1300fe134d154044b943",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42fea85f_3225e991",
+        "filename": "health/2.1/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-10-08T00:04:25Z",
+      "side": 1,
+      "message": "could also consider this to avoid so much boilerplate in client code (and avoid \u0027info.legacy.legacy.foo\u0027:\n\nstruct BatteryCapacityInfo { new fields };\nstruct HealthInfo {\n    @2.0::HealthInfo health;\n    BatteryCapacityInfo batteryCapacity;\n};\n\nAlthough, maybe not since there is already battery info in health. Another possibility would be to add a separate method \u0027getBatteryCapacityInfo\u0027 any particular reason to want it to be one binder call? Efficiency I guess?",
+      "range": {
+        "startLine": 72,
+        "startChar": 4,
+        "endLine": 72,
+        "endChar": 28
+      },
+      "revId": "0f2b2e29cff8132909dc1300fe134d154044b943",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "da90a7fc_a4c89989",
         "filename": "health/2.1/vts/OWNERS",
         "patchSetId": 2
@@ -16,6 +79,29 @@
       "revId": "0f2b2e29cff8132909dc1300fe134d154044b943",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43ff431f_0afe66a1",
+        "filename": "health/2.1/vts/OWNERS",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-10-08T00:04:25Z",
+      "side": 1,
+      "message": "guang inherits",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 8
+      },
+      "revId": "0f2b2e29cff8132909dc1300fe134d154044b943",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
