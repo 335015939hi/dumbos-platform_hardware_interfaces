@@ -137,6 +137,30 @@
     },
     {
       "key": {
+        "uuid": "d8a67cb2_50e128c3",
+        "filename": "health/2.1/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2019-10-08T00:24:50Z",
+      "side": 1,
+      "message": "Also, for callbacks, if I add IHealthInfoCallback::additionalFieldsChanged() instead, then clients will receive two calls every time (healthInfoChanged() and additionalFieldsChanged()). Since system_server is multi-threaded, I cannot assume the integrity of received values any more (I might have an old HealthInfo with new AdditionalFields).",
+      "parentUuid": "b3218181_3e09a693",
+      "range": {
+        "startLine": 72,
+        "startChar": 4,
+        "endLine": 72,
+        "endChar": 28
+      },
+      "revId": "0f2b2e29cff8132909dc1300fe134d154044b943",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "da90a7fc_a4c89989",
         "filename": "health/2.1/vts/OWNERS",
         "patchSetId": 2
