@@ -57,6 +57,24 @@
       "revId": "61115812eddca38d1c76429d65dd5ca9259bdd26",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b07b85f8_fa40b653",
+        "filename": "dumpstate/1.0/vts/functional/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-10-08T17:24:06Z",
+      "side": 1,
+      "message": "This is pretty tricky. It\u0027s because the test falls back to the instance name \u0027default\u0027:\nhttps://android.googlesource.com/platform/test/vts/+/master/runners/target/vts_hal_hidl_target/VtsHalHidlTargetTestEnvBase.cpp#121\n\nWe could make sure that we don\u0027t hit this case by changing this to an error. It only appears to work because the device happens to have only one instance named \u0027default\u0027 installed on it. However, if there was another instance installed, it would fail to work.",
+      "parentUuid": "3d42a50c_31b242f9",
+      "revId": "61115812eddca38d1c76429d65dd5ca9259bdd26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
