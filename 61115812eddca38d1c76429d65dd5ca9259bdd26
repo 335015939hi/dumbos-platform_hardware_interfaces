@@ -39,6 +39,24 @@
       "revId": "61115812eddca38d1c76429d65dd5ca9259bdd26",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d42a50c_31b242f9",
+        "filename": "dumpstate/1.0/vts/functional/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1307893
+      },
+      "writtenOn": "2019-10-08T07:11:52Z",
+      "side": 1,
+      "message": "Thanks, I added it because I got the same test results between vts-tradefed and GTest.\nMaybe I missed something and I\u0027ll update VtsHalDumpstateV1_0TargetTest.cpp as aosp/1106614.\n\ne.g. \n$atest VtsHalDumpstateV1_0TargetTest --all-abi\narm64-v8a VtsHalDumpstateV1_0TargetTest: \nPassed: 4, Failed: 0, Ignored: 0, Assumption Failed: 0 \narmeabi-v7a VtsHalDumpstateV1_0TargetTest: \nPassed: 4, Failed: 0, Ignored: 0, Assumption Failed: 0",
+      "parentUuid": "ac8d5dff_dc747fa8",
+      "revId": "61115812eddca38d1c76429d65dd5ca9259bdd26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
