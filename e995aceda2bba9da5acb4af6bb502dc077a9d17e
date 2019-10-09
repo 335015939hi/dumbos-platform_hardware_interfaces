@@ -22,6 +22,30 @@
       "revId": "e995aceda2bba9da5acb4af6bb502dc077a9d17e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e73ecc4_b3e5baf0",
+        "filename": "radio/1.4/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2019-10-09T22:44:39Z",
+      "side": 1,
+      "message": "Hmmm... you\u0027re right; however, now that I think about it, maybe I should just use this thing and then do the full update to P900/850 in a separate CL (when some vendor inevitably complains about why we\u0027re using these weird bands).",
+      "parentUuid": "0eaa0da7_dd0f61ed",
+      "range": {
+        "startLine": 185,
+        "startChar": 4,
+        "endLine": 188,
+        "endChar": 0
+      },
+      "revId": "e995aceda2bba9da5acb4af6bb502dc077a9d17e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
