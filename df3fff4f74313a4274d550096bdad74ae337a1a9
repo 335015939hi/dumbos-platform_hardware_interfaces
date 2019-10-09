@@ -70,6 +70,30 @@
       "revId": "df3fff4f74313a4274d550096bdad74ae337a1a9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e40058c1_f3499af9",
+        "filename": "radio/1.4/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1236374
+      },
+      "writtenOn": "2019-10-09T10:54:22Z",
+      "side": 1,
+      "message": "Thanks, I got it.\nCould you please proceed to prepare 1.5 HAL base code? I\u0027ve found following CL for 1.5 HAL but it seems not updated for this five months.(from May 22)\nhttps://android-review.googlesource.com/c/platform/hardware/interfaces/+/965536\nWhen the 1.5 HAL becomes available, I can upload new code on it.\n\nIn parallel, while waiting for above, I\u0027d appreciated it if you review current code even on 1.4 HAL. If there is any problem on current logic, I\u0027d like to update it together toward 1.5 HAL.",
+      "parentUuid": "ac58693a_5d75f86c",
+      "range": {
+        "startLine": 245,
+        "startChar": 4,
+        "endLine": 245,
+        "endChar": 27
+      },
+      "revId": "df3fff4f74313a4274d550096bdad74ae337a1a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
