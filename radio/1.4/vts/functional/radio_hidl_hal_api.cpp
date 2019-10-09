@@ -18,6 +18,15 @@
 
 #define ASSERT_OK(ret) ASSERT_TRUE(ret.isOk())
 
+namespace {
+const RadioAccessSpecifier GERAN_SPECIFIER_P900 = {.radioAccessNetwork = RadioAccessNetworks::GERAN,
+                                                   .geranBands = {GeranBands::BAND_P900},
+                                                   .channels = {1, 2}};
+const RadioAccessSpecifier GERAN_SPECIFIER_850 = {.radioAccessNetwork = RadioAccessNetworks::GERAN,
+                                                  .geranBands = {GeranBands::BAND_850},
+                                                  .channels = {128, 129}};
+}  // namespace
+
 /*
  * Test IRadio.emergencyDial() for the response returned.
  */
@@ -178,7 +187,12 @@ TEST_F(RadioHidlTest_v1_4, startNetworkScan) {
                                       .channels = {1, 2}};
 
     ::android::hardware::radio::V1_2::NetworkScanRequest request = {
-            .type = ScanType::ONE_SHOT, .interval = 60, .specifiers = {specifier}};
+            .type = ScanType::ONE_SHOT,
+            .interval = 4,
+            .specifiers = {::GERAN_SPECIFIER_P900, ::GERAN_SPECIFIER_850},
+            .maxSearchTime = 60,
+            .incrementalResults = false,
+            .incrementalResultsPeriodicity = 1};
 
     Return<void> res = radio_v1_4->startNetworkScan_1_4(serial, request);
     ASSERT_OK(res);
