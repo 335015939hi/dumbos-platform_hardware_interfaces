@@ -45,4 +45,6 @@ cc_defaults {
         "-g",
     ],
 
+    // All VTS HAL target tests require to run with root.
+    require_root: true,
 }
