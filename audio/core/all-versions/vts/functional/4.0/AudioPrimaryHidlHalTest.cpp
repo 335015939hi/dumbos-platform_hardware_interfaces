@@ -33,6 +33,10 @@ TEST_F(AudioHidlTest, OpenPrimaryDeviceUsingGetDevice) {
         Result result;
         sp<IDevice> baseDevice;
         ASSERT_OK(devicesFactory->openDevice("primary", returnIn(result, baseDevice)));
+        if (result != Result::OK && isPrimaryDeviceOptional()) {
+            GTEST_SKIP() << "No primary device on this factory";
+            goto exit;
+        }
         ASSERT_OK(result);
         ASSERT_TRUE(baseDevice != nullptr);
 
@@ -40,6 +44,7 @@ TEST_F(AudioHidlTest, OpenPrimaryDeviceUsingGetDevice) {
         ASSERT_TRUE(primaryDevice.isOk());
         ASSERT_TRUE(sp<IPrimaryDevice>(primaryDevice) != nullptr);
     }  // Destroy local IDevice proxy
+exit:
     waitForDeviceDestruction();
 }
 
@@ -152,6 +157,7 @@ TEST_F(AudioPrimaryHidlTest, SetConnectedState) {
     // initial state. To workaround this, destroy the HAL at the end of this test.
     device.clear();
     waitForDeviceDestruction();
+    initPrimaryDevice();
 }
 
 static void testGetDevices(IStream* stream, AudioDevice expectedDevice) {
