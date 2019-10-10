@@ -101,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "4a2a8bb9_b47a40e4",
+        "filename": "audio/core/all-versions/vts/functional/AudioPrimaryHidlHalTest.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2019-10-10T20:05:50Z",
+      "side": 1,
+      "message": "It\u0027s in fact a recent addition, GTest on P doesn\u0027t have it :(",
+      "parentUuid": "dcbedbd0_e5375ffd",
+      "revId": "3af5ab33dc180b5be5bae328fcf5117a427659fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3b3b6b5d_4746c4ad",
         "filename": "audio/core/all-versions/vts/functional/AudioPrimaryHidlHalTest.h",
         "patchSetId": 1
