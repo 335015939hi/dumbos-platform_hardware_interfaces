@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "70e84a87_367fc4ca",
+        "filename": "gnss/1.0/vts/functional/VtsHalGnssV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2019-10-10T18:39:32Z",
+      "side": 0,
+      "message": "You still need to parse argc, argv to get these values.",
+      "range": {
+        "startLine": 500,
+        "startChar": 8,
+        "endLine": 500,
+        "endChar": 22
+      },
+      "revId": "c048c187be35b6b6dfd24cb6aecc29f17519c9b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
