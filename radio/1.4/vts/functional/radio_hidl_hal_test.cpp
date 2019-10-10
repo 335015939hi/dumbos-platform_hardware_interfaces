@@ -92,6 +92,8 @@ void RadioHidlTest_v1_4::clearPotentialEstablishedCalls() {
     serial = GetRandomSerialNumber();
     radio_v1_4->getCurrentCalls(serial);
     EXPECT_EQ(std::cv_status::no_timeout, wait());
+    // for radioRsp_v1_4->currentCalls ready.
+    sleep(1);
 
     // Hang up to disconnect the established call channels.
     for (const ::android::hardware::radio::V1_2::Call& call : radioRsp_v1_4->currentCalls) {
