@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "324d00b3_89b273cc",
+        "filename": "boot/1.1/default/BootControl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1290458
+      },
+      "writtenOn": "2019-10-10T00:55:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7f76abc_5caa0063",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "6dc636e5fb0c6b5dcd3a02abbbe75c66b22e02ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5d6a2f60_10ef0b57",
         "filename": "boot/1.1/default/android.hardware.boot@1.1-service.rc",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "6dc636e5fb0c6b5dcd3a02abbbe75c66b22e02ec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d6f0fa1_afd449db",
+        "filename": "boot/1.1/default/android.hardware.boot@1.1-service.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1290458
+      },
+      "writtenOn": "2019-10-10T00:55:07Z",
+      "side": 1,
+      "message": "Yes, unfortunately, it does direct writes to a block device which is owned by root. I\u0027m not sure how to get around that other than changing ownership of the device.",
+      "parentUuid": "5d6a2f60_10ef0b57",
+      "range": {
+        "startLine": 5,
+        "startChar": 9,
+        "endLine": 5,
+        "endChar": 13
+      },
+      "revId": "6dc636e5fb0c6b5dcd3a02abbbe75c66b22e02ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
