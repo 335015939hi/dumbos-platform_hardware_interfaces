@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d93072bb_e0ba1ee0",
+        "filename": "audio/core/all-versions/vts/functional/AudioPrimaryHidlHalTest.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1136369
+      },
+      "writtenOn": "2019-10-10T10:40:57Z",
+      "side": 0,
+      "message": "you can probably delete the environment creation \u0026 class too.",
+      "range": {
+        "startLine": 267,
+        "startChar": 12,
+        "endLine": 267,
+        "endChar": 41
+      },
+      "revId": "56f1c0c18122055ab380904bc0df1e84cf6c7e87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

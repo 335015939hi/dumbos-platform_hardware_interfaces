@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "52e0a2b4_eaeafa41",
+        "filename": "audio/core/all-versions/vts/functional/AudioPrimaryHidlHalTest.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1136369
+      },
+      "writtenOn": "2019-10-10T10:40:57Z",
+      "side": 1,
+      "message": "ASSERT_NO_FATAL_FAILURE(AudioHidlTest::SetUpTestSuite())\n\nEven if not needed as we know the base setUpTestSuite can not fail, it is a good idea to surround all subroutine call by ASSERT_NO_FATAL_FAILURE",
+      "revId": "3af5ab33dc180b5be5bae328fcf5117a427659fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81955fc1_1c957ba4",
+        "filename": "audio/core/all-versions/vts/functional/AudioPrimaryHidlHalTest.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1136369
+      },
+      "writtenOn": "2019-10-10T10:40:57Z",
+      "side": 1,
+      "message": "ASSERT_NO_FATAL_FAILURE(initPrimaryDevice())\n\nHere it can actually fail, so it is important.",
+      "range": {
+        "startLine": 271,
+        "startChar": 8,
+        "endLine": 271,
+        "endChar": 25
+      },
+      "revId": "3af5ab33dc180b5be5bae328fcf5117a427659fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dcbedbd0_e5375ffd",
+        "filename": "audio/core/all-versions/vts/functional/AudioPrimaryHidlHalTest.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1136369
+      },
+      "writtenOn": "2019-10-10T10:40:57Z",
+      "side": 1,
+      "message": "Nice, did not know GTEST_SKIP existed!",
+      "revId": "3af5ab33dc180b5be5bae328fcf5117a427659fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b3b6b5d_4746c4ad",
+        "filename": "audio/core/all-versions/vts/functional/AudioPrimaryHidlHalTest.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1136369
+      },
+      "writtenOn": "2019-10-10T10:40:57Z",
+      "side": 1,
+      "message": "use ASSERT_TRUE(devicesFactory)",
+      "revId": "3af5ab33dc180b5be5bae328fcf5117a427659fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
