@@ -141,25 +141,33 @@ class HidlTest : public ::testing::VtsHalHidlTargetTestBase {
 // Test all audio devices
 class AudioHidlTest : public HidlTest {
    public:
+    static void SetUpTestCase() {
+        devicesFactory = ::testing::VtsHalHidlTargetTestBase::getService<IDevicesFactory>(
+                environment->getServiceName<IDevicesFactory>());
+    }
+
+    static void TearDownTestCase() {
+        devicesFactory.clear();
+    }
+
     void SetUp() override {
         ASSERT_NO_FATAL_FAILURE(HidlTest::SetUp());  // setup base
-
-        if (devicesFactory == nullptr) {
-            environment->registerTearDown([] { devicesFactory.clear(); });
-            devicesFactory = ::testing::VtsHalHidlTargetTestBase::getService<IDevicesFactory>(
-                environment->getServiceName<IDevicesFactory>("default"));
-        }
         ASSERT_TRUE(devicesFactory != nullptr);
     }
 
    protected:
     // Cache the devicesFactory retrieval to speed up each test by ~0.5s
     static sp<IDevicesFactory> devicesFactory;
+
+    static bool isPrimaryDeviceOptional() {
+        // It's OK not to have "primary" device on non-default audio HAL service.
+        return environment->getServiceName<IDevicesFactory>() != kDefaultServiceName;
+    }
 };
 sp<IDevicesFactory> AudioHidlTest::devicesFactory;
 
 TEST_F(AudioHidlTest, GetAudioDevicesFactoryService) {
-    doc::test("Test the getService (called in SetUp)");
+    doc::test("Test the getService");
 }
 
 TEST_F(AudioHidlTest, OpenDeviceInvalidParameter) {
@@ -171,19 +179,7 @@ TEST_F(AudioHidlTest, OpenDeviceInvalidParameter) {
     ASSERT_TRUE(device == nullptr);
 }
 
-TEST_F(AudioHidlTest, OpenPrimaryDeviceUsingGetDevice) {
-    doc::test("Calling openDevice(\"primary\") should return the primary device.");
-    {
-        Result result;
-        sp<IDevice> baseDevice;
-        ASSERT_OK(devicesFactory->openDevice("primary", returnIn(result, baseDevice)));
-        ASSERT_OK(result);
-        ASSERT_TRUE(baseDevice != nullptr);
-
-        Return<sp<IPrimaryDevice>> primaryDevice = IPrimaryDevice::castFrom(baseDevice);
-        ASSERT_TRUE(primaryDevice.isOk());
-        ASSERT_TRUE(sp<IPrimaryDevice>(primaryDevice) != nullptr);
-    }  // Destroy local IDevice proxy
+static void waitForDeviceDestruction() {
     // FIXME: there is no way to know when the remote IDevice is being destroyed
     //        Binder does not support testing if an object is alive, thus
     //        wait for 100ms to let the binder destruction propagates and
@@ -194,6 +190,25 @@ TEST_F(AudioHidlTest, OpenPrimaryDeviceUsingGetDevice) {
     usleep(100);
 }
 
+TEST_F(AudioHidlTest, OpenPrimaryDeviceUsingGetDevice) {
+    doc::test("Calling openDevice(\"primary\") should return the primary device.");
+    struct WaitExecutor {
+        ~WaitExecutor() { waitForDeviceDestruction(); }
+    } waitExecutor;  // Make sure we wait for the device destruction on exiting from the test.
+    Result result;
+    sp<IDevice> baseDevice;
+    ASSERT_OK(devicesFactory->openDevice("primary", returnIn(result, baseDevice)));
+    if (result != Result::OK && isPrimaryDeviceOptional()) {
+        return SUCCEED() << "No primary device on this factory";
+    }
+    ASSERT_OK(result);
+    ASSERT_TRUE(baseDevice != nullptr);
+
+    Return<sp<IPrimaryDevice>> primaryDevice = IPrimaryDevice::castFrom(baseDevice);
+    ASSERT_TRUE(primaryDevice.isOk());
+    ASSERT_TRUE(sp<IPrimaryDevice>(primaryDevice) != nullptr);
+}
+
 //////////////////////////////////////////////////////////////////////////////
 /////////////////////////////// openDevice primary ///////////////////////////
 //////////////////////////////////////////////////////////////////////////////
@@ -201,32 +216,51 @@ TEST_F(AudioHidlTest, OpenPrimaryDeviceUsingGetDevice) {
 // Test the primary device
 class AudioPrimaryHidlTest : public AudioHidlTest {
    public:
-    /** Primary HAL test are NOT thread safe. */
+    static void SetUpTestCase() {
+        ASSERT_NO_FATAL_FAILURE(AudioHidlTest::SetUpTestCase());
+        ASSERT_NO_FATAL_FAILURE(initPrimaryDevice());
+    }
+
+    static void TearDownTestCase() {
+        device.clear();
+        AudioHidlTest::TearDownTestCase();
+    }
+
     void SetUp() override {
         ASSERT_NO_FATAL_FAILURE(AudioHidlTest::SetUp());  // setup base
-
-        if (device == nullptr) {
-            Result result;
-            ASSERT_OK(devicesFactory->openPrimaryDevice(returnIn(result, device)));
-            ASSERT_OK(result);
-            ASSERT_TRUE(device != nullptr);
-
-            environment->registerTearDown([] { device.clear(); });
+        if (!device && isPrimaryDeviceOptional()) {
+            return SUCCEED() << "No primary device on this factory";
         }
+        ASSERT_TRUE(device != nullptr);
     }
 
    protected:
     // Cache the device opening to speed up each test by ~0.5s
     static sp<IPrimaryDevice> device;
+
+    static void initPrimaryDevice() {
+        // Failures during test suite set up do not cause test termination.
+        ASSERT_TRUE(devicesFactory != nullptr);
+        Result result;
+        ASSERT_OK(devicesFactory->openPrimaryDevice(returnIn(result, device)));
+        ASSERT_OK(result);
+    }
 };
 sp<IPrimaryDevice> AudioPrimaryHidlTest::device;
 
+#define SKIP_IF_NO_DEVICE                                       \
+    if (!device) {                                              \
+        doc::partialTest("No primary device on this factory");  \
+        return;                                                 \
+    }                                                           \
+
 TEST_F(AudioPrimaryHidlTest, OpenPrimaryDevice) {
-    doc::test("Test the openDevice (called in SetUp)");
+    doc::test("Test the openDevice (called during setup)");
 }
 
 TEST_F(AudioPrimaryHidlTest, Init) {
     doc::test("Test that the audio primary hal initialized correctly");
+    SKIP_IF_NO_DEVICE;
     ASSERT_OK(device->initCheck());
 }
 
@@ -250,6 +284,7 @@ class AccessorPrimaryHidlTest : public AudioPrimaryHidlTest {
     void testAccessors(const string& propertyName, const Initial expectedInitial,
                        list<Property> valuesToTest, Setter setter, Getter getter,
                        const vector<Property>& invalidValues = {}) {
+        SKIP_IF_NO_DEVICE;
         const auto expectedResults = {Result::OK,
                                       optionality == OPTIONAL ? Result::NOT_SUPPORTED : Result::OK};
 
@@ -332,6 +367,7 @@ class AudioPatchPrimaryHidlTest : public AudioPrimaryHidlTest {
 
 TEST_F(AudioPatchPrimaryHidlTest, AudioPatches) {
     doc::test("Test if audio patches are supported");
+    SKIP_IF_NO_DEVICE;
     if (!areAudioPatchesSupported()) {
         doc::partialTest("Audio patches are not supported");
         return;
@@ -431,6 +467,7 @@ class AudioCaptureConfigPrimaryTest : public AudioConfigPrimaryTest,
                                       public ::testing::WithParamInterface<AudioConfig> {
    protected:
     void inputBufferSizeTest(const AudioConfig& audioConfig, bool supportRequired) {
+        SKIP_IF_NO_DEVICE;
         uint64_t bufferSize;
         ASSERT_OK(device->getInputBufferSize(audioConfig, returnIn(res, bufferSize)));
 
@@ -487,6 +524,7 @@ INSTANTIATE_TEST_CASE_P(
 
 TEST_F(AudioPrimaryHidlTest, setScreenState) {
     doc::test("Check that the hal can receive the screen state");
+    SKIP_IF_NO_DEVICE;
     for (bool turnedOn : {false, true, true, false, false}) {
         ASSERT_RESULT(okOrNotSupported, device->setScreenState(turnedOn));
     }
@@ -498,6 +536,7 @@ TEST_F(AudioPrimaryHidlTest, setScreenState) {
 
 TEST_F(AudioPrimaryHidlTest, getParameters) {
     doc::test("Check that the hal can set and get parameters");
+    SKIP_IF_NO_DEVICE;
     hidl_vec<ParameterValue> context;
     hidl_vec<hidl_string> keys;
     hidl_vec<ParameterValue> values;
@@ -513,6 +552,7 @@ TEST_F(AudioPrimaryHidlTest, getParameters) {
 
 TEST_F(AudioPrimaryHidlTest, GetMicrophonesTest) {
     doc::test("Make sure getMicrophones always succeeds");
+    SKIP_IF_NO_DEVICE;
     hidl_vec<MicrophoneInfo> microphones;
     ASSERT_OK(device->getMicrophones(returnIn(res, microphones)));
     ASSERT_OK(res);
@@ -628,16 +668,19 @@ static void testDebugDump(DebugDump debugDump) {
 
 TEST_F(AudioPrimaryHidlTest, DebugDump) {
     doc::test("Check that the hal can dump its state without error");
+    SKIP_IF_NO_DEVICE;
     testDebugDump([](const auto& handle) { return device->debug(handle, {/* options */}); });
 }
 
 TEST_F(AudioPrimaryHidlTest, DebugDumpInvalidArguments) {
     doc::test("Check that the hal dump doesn't crash on invalid arguments");
+    SKIP_IF_NO_DEVICE;
     ASSERT_OK(device->debug(hidl_handle(), {/* options */}));
 }
 
 TEST_F(AudioPrimaryHidlTest, SetConnectedState) {
     doc::test("Check that the HAL can be notified of device connection and deconnection");
+    SKIP_IF_NO_DEVICE;
     using AD = AudioDevice;
     for (auto deviceType : {AD::OUT_HDMI, AD::OUT_WIRED_HEADPHONE, AD::IN_USB_HEADSET}) {
         SCOPED_TRACE("device=" + ::testing::PrintToString(deviceType));
@@ -654,6 +697,13 @@ TEST_F(AudioPrimaryHidlTest, SetConnectedState) {
             ASSERT_OK(ret);
         }
     }
+
+    // Because there is no way of knowing if the devices were connected before
+    // calling setConnectedState, there is no way to restore the HAL to its
+    // initial state. To workaround this, destroy the HAL at the end of this test.
+    device.clear();
+    waitForDeviceDestruction();
+    ASSERT_NO_FATAL_FAILURE(initPrimaryDevice());
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -666,6 +716,7 @@ class OpenStreamTest : public AudioConfigPrimaryTest,
    protected:
     template <class Open>
     void testOpen(Open openStream, const AudioConfig& config) {
+        SKIP_IF_NO_DEVICE;
         // FIXME: Open a stream without an IOHandle
         //        This is not required to be accepted by hal implementations
         AudioIoHandle ioHandle = (AudioIoHandle)AudioHandleConsts::AUDIO_IO_HANDLE_NONE;
@@ -706,6 +757,7 @@ class OpenStreamTest : public AudioConfigPrimaryTest,
         if (open) {
             ASSERT_OK(stream->close());
         }
+        AudioConfigPrimaryTest::TearDown();
     }
 
    protected:
@@ -718,8 +770,9 @@ class OpenStreamTest : public AudioConfigPrimaryTest,
 ////////////////////////////// openOutputStream //////////////////////////////
 
 class OutputStreamTest : public OpenStreamTest<IStreamOut> {
-    virtual void SetUp() override {
+    void SetUp() override {
         ASSERT_NO_FATAL_FAILURE(OpenStreamTest::SetUp());  // setup base
+        if (!device && !HasFailure()) return;  // do not attempt to use 'device'
         address.device = AudioDevice::OUT_DEFAULT;
         const AudioConfig& config = GetParam();
         // TODO: test all flag combination
@@ -759,8 +812,9 @@ INSTANTIATE_TEST_CASE_P(
 ////////////////////////////// openInputStream //////////////////////////////
 
 class InputStreamTest : public OpenStreamTest<IStreamIn> {
-    virtual void SetUp() override {
+    void SetUp() override {
         ASSERT_NO_FATAL_FAILURE(OpenStreamTest::SetUp());  // setup base
+        if (!device && !HasFailure()) return;  // do not attempt to use 'device'
         address.device = AudioDevice::IN_DEFAULT;
         const AudioConfig& config = GetParam();
         // TODO: test all supported flags and source
@@ -811,15 +865,23 @@ static R extract(Return<R> ret) {
     return ret;
 }
 
+#define SKIP_IF_NO_STREAM                                       \
+    if (!stream) {                                              \
+        doc::partialTest("No primary device on this factory");  \
+        return;                                                 \
+    }
+
 /* Could not find a way to write a test for two parametrized class fixure
  * thus use this macro do duplicate tests for Input and Output stream */
 #define TEST_IO_STREAM(test_name, documentation, code) \
     TEST_P(InputStreamTest, test_name) {               \
         doc::test(documentation);                      \
+        SKIP_IF_NO_STREAM;                             \
         code;                                          \
     }                                                  \
     TEST_P(OutputStreamTest, test_name) {              \
         doc::test(documentation);                      \
+        SKIP_IF_NO_STREAM;                             \
         code;                                          \
     }
 
@@ -848,6 +910,7 @@ static void testCapabilityGetter(const string& name, IStream* stream,
                                  Return<Property> (IStream::*getter)(),
                                  Return<Result> (IStream::*setter)(Property),
                                  bool currentMustBeSupported = true) {
+    SKIP_IF_NO_STREAM;
     hidl_vec<Property> capabilities;
     auto ret = capablityGetter(stream, capabilities);
     if (ret == Result::NOT_SUPPORTED) {
@@ -917,6 +980,7 @@ TEST_IO_STREAM(SupportedFormat, "Check that the stream format is declared as sup
                                     &IStream::getFormat, &IStream::setFormat))
 
 static void testGetDevices(IStream* stream, AudioDevice expectedDevice) {
+    SKIP_IF_NO_STREAM;
     hidl_vec<DeviceAddress> devices;
     Result res;
     ASSERT_OK(stream->getDevices(returnIn(res, devices)));
@@ -936,6 +1000,7 @@ TEST_IO_STREAM(GetDevices, "Check that the stream device == the one it was opene
                                           : testGetDevices(stream.get(), address.device))
 
 static void testSetDevices(IStream* stream, const DeviceAddress& address) {
+    SKIP_IF_NO_STREAM;
     DeviceAddress otherAddress = address;
     otherAddress.device = (address.device & AudioDevice::BIT_IN) == 0 ? AudioDevice::OUT_SPEAKER
                                                                       : AudioDevice::IN_BUILTIN_MIC;
@@ -949,6 +1014,7 @@ TEST_IO_STREAM(SetDevices, "Check that the stream can be rerouted to SPEAKER or 
                                           : testSetDevices(stream.get(), address))
 
 static void testGetAudioProperties(IStream* stream, AudioConfig expectedConfig) {
+    SKIP_IF_NO_STREAM;
     uint32_t sampleRateHz;
     hidl_bitfield<AudioChannelMask> mask;
     AudioFormat format;
@@ -970,6 +1036,7 @@ TEST_IO_STREAM(SetHwAvSync, "Try to set hardware sync to an invalid value",
                ASSERT_RESULT(okOrNotSupportedOrInvalidArgs, stream->setHwAvSync(666)))
 
 static void checkGetHwAVSync(IDevice* device) {
+    SKIP_IF_NO_DEVICE;
     Result res;
     AudioHwSync sync;
     ASSERT_OK(device->getHwAvSync(returnIn(res, sync)));
@@ -982,6 +1049,7 @@ TEST_IO_STREAM(GetHwAvSync, "Get hardware sync can not fail", checkGetHwAVSync(d
 
 static void checkGetNoParameter(IStream* stream, hidl_vec<hidl_string> keys,
                                 initializer_list<Result> expectedResults) {
+    SKIP_IF_NO_STREAM;
     hidl_vec<ParameterValue> context;
     hidl_vec<ParameterValue> parameters;
     Result res;
@@ -1055,6 +1123,7 @@ TEST_IO_STREAM(closeTwice, "Make sure a stream can not be closed twice", ASSERT_
                ASSERT_RESULT(Result::INVALID_STATE, closeStream()))
 
 static void testCreateTooBigMmapBuffer(IStream* stream) {
+    SKIP_IF_NO_STREAM;
     MmapBufferInfo info;
     Result res;
     // Assume that int max is a value too big to be allocated
@@ -1069,6 +1138,7 @@ TEST_IO_STREAM(CreateTooBigMmapBuffer, "Create mmap buffer too big should fail",
                testCreateTooBigMmapBuffer(stream.get()))
 
 static void testGetMmapPositionOfNonMmapedStream(IStream* stream) {
+    SKIP_IF_NO_STREAM;
     Result res;
     MmapPosition position;
     ASSERT_OK(stream->getMmapPosition(returnIn(res, position)));
@@ -1085,6 +1155,7 @@ TEST_IO_STREAM(GetMmapPositionOfNonMmapedStream,
 
 TEST_P(InputStreamTest, GetAudioSource) {
     doc::test("Retrieving the audio source of an input stream should always succeed");
+    SKIP_IF_NO_STREAM;
     AudioSource source;
     ASSERT_OK(stream->getAudioSource(returnIn(res, source)));
     if (res == Result::NOT_SUPPORTED) {
@@ -1119,12 +1190,14 @@ static void testOptionalUnitaryGain(std::function<Return<Result>(float)> setGain
 
 TEST_P(InputStreamTest, SetGain) {
     doc::test("The gain of an input stream should only be set between [0,1]");
+    SKIP_IF_NO_STREAM;
     testOptionalUnitaryGain([this](float volume) { return stream->setGain(volume); },
                             "InputStream::setGain");
 }
 
 static void testPrepareForReading(IStreamIn* stream, uint32_t frameSize, uint32_t framesCount) {
     Result res;
+    SKIP_IF_NO_STREAM;
     // Ignore output parameters as the call should fail
     ASSERT_OK(stream->prepareForReading(frameSize, framesCount,
                                         [&res](auto r, auto&, auto&, auto&, auto&) { res = r; }));
@@ -1133,11 +1206,13 @@ static void testPrepareForReading(IStreamIn* stream, uint32_t frameSize, uint32_
 
 TEST_P(InputStreamTest, PrepareForReadingWithZeroBuffer) {
     doc::test("Preparing a stream for reading with a 0 sized buffer should fail");
+    SKIP_IF_NO_STREAM;
     testPrepareForReading(stream.get(), 0, 0);
 }
 
 TEST_P(InputStreamTest, PrepareForReadingWithHugeBuffer) {
     doc::test("Preparing a stream for reading with a 2^32 sized buffer should fail");
+    SKIP_IF_NO_STREAM;
     testPrepareForReading(stream.get(), 1, std::numeric_limits<uint32_t>::max());
 }
 
@@ -1145,12 +1220,14 @@ TEST_P(InputStreamTest, PrepareForReadingCheckOverflow) {
     doc::test(
         "Preparing a stream for reading with a overflowing sized buffer should "
         "fail");
+    SKIP_IF_NO_STREAM;
     auto uintMax = std::numeric_limits<uint32_t>::max();
     testPrepareForReading(stream.get(), uintMax, uintMax);
 }
 
 TEST_P(InputStreamTest, GetInputFramesLost) {
     doc::test("The number of frames lost on a never started stream should be 0");
+    SKIP_IF_NO_STREAM;
     auto ret = stream->getInputFramesLost();
     ASSERT_IS_OK(ret);
     uint32_t framesLost{ret};
@@ -1161,6 +1238,7 @@ TEST_P(InputStreamTest, getCapturePosition) {
     doc::test(
         "The capture position of a non prepared stream should not be "
         "retrievable or 0");
+    SKIP_IF_NO_STREAM;
     uint64_t frames;
     uint64_t time;
     ASSERT_OK(stream->getCapturePosition(returnIn(res, frames, time)));
@@ -1173,6 +1251,7 @@ TEST_P(InputStreamTest, getCapturePosition) {
 
 TEST_P(InputStreamTest, updateSinkMetadata) {
     doc::test("The HAL should not crash on metadata change");
+    SKIP_IF_NO_STREAM;
 
     hidl_enum_iterator<AudioSource> range;
     // Test all possible track configuration
@@ -1199,6 +1278,7 @@ TEST_P(InputStreamTest, updateSinkMetadata) {
 
 TEST_P(OutputStreamTest, getLatency) {
     doc::test("Make sure latency is over 0");
+    SKIP_IF_NO_STREAM;
     auto result = stream->getLatency();
     ASSERT_IS_OK(result);
     ASSERT_GT(result, 0U);
@@ -1206,12 +1286,14 @@ TEST_P(OutputStreamTest, getLatency) {
 
 TEST_P(OutputStreamTest, setVolume) {
     doc::test("Try to set the output volume");
+    SKIP_IF_NO_STREAM;
     testOptionalUnitaryGain([this](float volume) { return stream->setVolume(volume, volume); },
                             "setVolume");
 }
 
 static void testPrepareForWriting(IStreamOut* stream, uint32_t frameSize, uint32_t framesCount) {
     Result res;
+    SKIP_IF_NO_STREAM;
     // Ignore output parameters as the call should fail
     ASSERT_OK(stream->prepareForWriting(frameSize, framesCount,
                                         [&res](auto r, auto&, auto&, auto&, auto&) { res = r; }));
@@ -1220,11 +1302,13 @@ static void testPrepareForWriting(IStreamOut* stream, uint32_t frameSize, uint32
 
 TEST_P(OutputStreamTest, PrepareForWriteWithZeroBuffer) {
     doc::test("Preparing a stream for writing with a 0 sized buffer should fail");
+    SKIP_IF_NO_STREAM;
     testPrepareForWriting(stream.get(), 0, 0);
 }
 
 TEST_P(OutputStreamTest, PrepareForWriteWithHugeBuffer) {
     doc::test("Preparing a stream for writing with a 2^32 sized buffer should fail");
+    SKIP_IF_NO_STREAM;
     testPrepareForWriting(stream.get(), 1, std::numeric_limits<uint32_t>::max());
 }
 
@@ -1232,6 +1316,7 @@ TEST_P(OutputStreamTest, PrepareForWritingCheckOverflow) {
     doc::test(
         "Preparing a stream for writing with a overflowing sized buffer should "
         "fail");
+    SKIP_IF_NO_STREAM;
     auto uintMax = std::numeric_limits<uint32_t>::max();
     testPrepareForWriting(stream.get(), uintMax, uintMax);
 }
@@ -1252,6 +1337,7 @@ struct Capability {
 
 TEST_P(OutputStreamTest, SupportsPauseAndResumeAndDrain) {
     doc::test("Implementation must expose pause, resume and drain capabilities");
+    SKIP_IF_NO_STREAM;
     Capability(stream.get());
 }
 
@@ -1270,6 +1356,7 @@ static void checkInvalidStateOr0(Result res, Value value) {
 
 TEST_P(OutputStreamTest, GetRenderPosition) {
     doc::test("A new stream render position should be 0 or INVALID_STATE");
+    SKIP_IF_NO_STREAM;
     uint32_t dspFrames;
     ASSERT_OK(stream->getRenderPosition(returnIn(res, dspFrames)));
     if (res == Result::NOT_SUPPORTED) {
@@ -1281,6 +1368,7 @@ TEST_P(OutputStreamTest, GetRenderPosition) {
 
 TEST_P(OutputStreamTest, GetNextWriteTimestamp) {
     doc::test("A new stream next write timestamp should be 0 or INVALID_STATE");
+    SKIP_IF_NO_STREAM;
     uint64_t timestampUs;
     ASSERT_OK(stream->getNextWriteTimestamp(returnIn(res, timestampUs)));
     if (res == Result::NOT_SUPPORTED) {
@@ -1298,6 +1386,7 @@ class MockOutCallbacks : public IStreamOutCallback {
 };
 
 static bool isAsyncModeSupported(IStreamOut* stream) {
+    if (!stream) return false;
     auto res = stream->setCallback(new MockOutCallbacks);
     stream->clearCallback();  // try to restore the no callback state, ignore
                               // any error
@@ -1334,6 +1423,7 @@ TEST_P(OutputStreamTest, Resume) {
     doc::test(
         "If supported, a stream should fail to resume if not previously "
         "paused");
+    SKIP_IF_NO_STREAM;
     if (!Capability(stream.get()).resume) {
         doc::partialTest("The output stream does not support resume");
         return;
@@ -1345,6 +1435,7 @@ TEST_P(OutputStreamTest, Pause) {
     doc::test(
         "If supported, a stream should fail to pause if not previously "
         "started");
+    SKIP_IF_NO_STREAM;
     if (!Capability(stream.get()).pause) {
         doc::partialTest("The output stream does not support pause");
         return;
@@ -1362,16 +1453,19 @@ static void testDrain(IStreamOut* stream, AudioDrain type) {
 
 TEST_P(OutputStreamTest, DrainAll) {
     doc::test("If supported, a stream should always succeed to drain");
+    SKIP_IF_NO_STREAM;
     testDrain(stream.get(), AudioDrain::ALL);
 }
 
 TEST_P(OutputStreamTest, DrainEarlyNotify) {
     doc::test("If supported, a stream should always succeed to drain");
+    SKIP_IF_NO_STREAM;
     testDrain(stream.get(), AudioDrain::EARLY_NOTIFY);
 }
 
 TEST_P(OutputStreamTest, FlushStop) {
     doc::test("If supported, a stream should always succeed to flush");
+    SKIP_IF_NO_STREAM;
     auto ret = stream->flush();
     ASSERT_IS_OK(ret);
     if (ret == Result::NOT_SUPPORTED) {
@@ -1385,6 +1479,7 @@ TEST_P(OutputStreamTest, GetPresentationPositionStop) {
     doc::test(
         "If supported, a stream should always succeed to retrieve the "
         "presentation position");
+    SKIP_IF_NO_STREAM;
     uint64_t frames;
     TimeSpec mesureTS;
     ASSERT_OK(stream->getPresentationPosition(returnIn(res, frames, mesureTS)));
@@ -1412,11 +1507,13 @@ TEST_P(OutputStreamTest, GetPresentationPositionStop) {
 
 TEST_P(OutputStreamTest, SelectPresentation) {
     doc::test("Verify that presentation selection does not crash");
+    SKIP_IF_NO_STREAM;
     ASSERT_RESULT(okOrNotSupported, stream->selectPresentation(0, 0));
 }
 
 TEST_P(OutputStreamTest, updateSourceMetadata) {
     doc::test("The HAL should not crash on metadata change");
+    SKIP_IF_NO_STREAM;
 
     hidl_enum_iterator<AudioUsage> usageRange;
     hidl_enum_iterator<AudioContentType> contentRange;
@@ -1452,11 +1549,13 @@ TEST_P(OutputStreamTest, updateSourceMetadata) {
 
 TEST_F(AudioPrimaryHidlTest, setVoiceVolume) {
     doc::test("Make sure setVoiceVolume only succeed if volume is in [0,1]");
+    SKIP_IF_NO_DEVICE;
     testUnitaryGain([](float volume) { return device->setVoiceVolume(volume); });
 }
 
 TEST_F(AudioPrimaryHidlTest, setMode) {
     doc::test("Make sure setMode always succeeds if mode is valid and fails otherwise");
+    SKIP_IF_NO_DEVICE;
     // Test Invalid values
     for (int mode : {-2, -1, int(AudioMode::IN_COMMUNICATION) + 1}) {
         ASSERT_RESULT(Result::INVALID_ARGUMENTS, device->setMode(AudioMode(mode)))
@@ -1473,6 +1572,7 @@ TEST_F(AudioPrimaryHidlTest, setBtHfpSampleRate) {
     doc::test(
         "Make sure setBtHfpSampleRate either succeeds or "
         "indicates that it is not supported at all, or that the provided value is invalid");
+    SKIP_IF_NO_DEVICE;
     for (auto samplingRate : {8000, 16000, 22050, 24000}) {
         ASSERT_RESULT(okOrNotSupportedOrInvalidArgs, device->setBtHfpSampleRate(samplingRate));
     }
@@ -1482,6 +1582,7 @@ TEST_F(AudioPrimaryHidlTest, setBtHfpVolume) {
     doc::test(
         "Make sure setBtHfpVolume is either not supported or "
         "only succeed if volume is in [0,1]");
+    SKIP_IF_NO_DEVICE;
     auto ret = device->setBtHfpVolume(0.0);
     ASSERT_TRUE(ret.isOk());
     if (ret == Result::NOT_SUPPORTED) {
@@ -1495,11 +1596,13 @@ TEST_F(AudioPrimaryHidlTest, setBtScoHeadsetDebugName) {
     doc::test(
         "Make sure setBtScoHeadsetDebugName either succeeds or "
         "indicates that it is not supported");
+    SKIP_IF_NO_DEVICE;
     ASSERT_RESULT(okOrNotSupported, device->setBtScoHeadsetDebugName("test"));
 }
 
 TEST_F(AudioPrimaryHidlTest, updateRotation) {
     doc::test("Check that the hal can receive the current rotation");
+    SKIP_IF_NO_DEVICE;
     for (Rotation rotation : {Rotation::DEG_0, Rotation::DEG_90, Rotation::DEG_180,
                               Rotation::DEG_270, Rotation::DEG_0}) {
         ASSERT_RESULT(okOrNotSupported, device->updateRotation(rotation));
