@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "28c903b7_7393c30a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1136369
+      },
+      "writtenOn": "2019-10-11T08:58:42Z",
+      "side": 1,
+      "message": "Are you sure this is safe? All automerger do not respect it.\nI usually use Merged-In:",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 13
+      },
+      "revId": "abf6b1c889242c0f73bf270e8dfb868b15d82f5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
