@@ -22,6 +22,30 @@
       "revId": "abf6b1c889242c0f73bf270e8dfb868b15d82f5b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0345228d_4b08c5a7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2019-10-11T16:44:10Z",
+      "side": 1,
+      "message": "According to the automerger graph, \"DO NOT MERGE\" is respected between pie-vts-dev and pi-dev, and also between pi-dev and qt-dev so there is even a double barrier :)",
+      "parentUuid": "28c903b7_7393c30a",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 13
+      },
+      "revId": "abf6b1c889242c0f73bf270e8dfb868b15d82f5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
