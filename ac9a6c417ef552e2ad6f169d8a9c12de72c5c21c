@@ -22,6 +22,30 @@
       "revId": "ac9a6c417ef552e2ad6f169d8a9c12de72c5c21c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1240b85_c94fdb70",
+        "filename": "Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-10-14T21:38:16Z",
+      "side": 1,
+      "message": "does that mean we shouldn\u0027t change this default? or root the device won\u0027t change the test behavior for tests like atrace?",
+      "parentUuid": "87b5b5f9_bc899bbc",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 57
+      },
+      "revId": "ac9a6c417ef552e2ad6f169d8a9c12de72c5c21c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
