@@ -46,6 +46,30 @@
       "revId": "d120a1ef1eefc3da65301b08ca4e9f6270c1dba2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "331a0bce_84aaa3af",
+        "filename": "current.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-10-14T17:41:12Z",
+      "side": 1,
+      "message": "Can you also make sure this is consistent with master?",
+      "parentUuid": "48499dec_34353391",
+      "range": {
+        "startLine": 589,
+        "startChar": 96,
+        "endLine": 589,
+        "endChar": 101
+      },
+      "revId": "d120a1ef1eefc3da65301b08ca4e9f6270c1dba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
