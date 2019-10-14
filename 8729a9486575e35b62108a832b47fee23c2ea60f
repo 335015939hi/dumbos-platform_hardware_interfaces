@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2449dcda_0d57e96d",
+        "filename": "keymaster/4.1/IKeymasterDevice.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-10-14T21:06:22Z",
+      "side": 1,
+      "message": "Er, you\u0027re right.  That\u0027s a mistake.  Fixed.",
+      "parentUuid": "007cb950_dd5c8a10",
+      "range": {
+        "startLine": 40,
+        "startChar": 79,
+        "endLine": 40,
+        "endChar": 92
+      },
+      "revId": "8729a9486575e35b62108a832b47fee23c2ea60f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7998eef2_83b477e3",
         "filename": "keymaster/4.1/IKeymasterDevice.hal",
         "patchSetId": 2
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "dd743e8d_f9590530",
+        "filename": "keymaster/4.1/IKeymasterDevice.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-10-14T21:06:22Z",
+      "side": 1,
+      "message": "We\u0027ll have to think hard about how to do this at the higher layers, but it\u0027s simple enough to do here, so done.",
+      "parentUuid": "7998eef2_83b477e3",
+      "revId": "8729a9486575e35b62108a832b47fee23c2ea60f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e77e7f99_f3fe82cd",
         "filename": "keymaster/4.1/IKeymasterDevice.hal",
         "patchSetId": 2
@@ -53,6 +95,24 @@
       "writtenOn": "2019-09-19T21:21:06Z",
       "side": 1,
       "message": "We already have BOOTLOADER_ONLY.  Is that not sufficient?",
+      "revId": "8729a9486575e35b62108a832b47fee23c2ea60f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78ee7ea2_761156c5",
+        "filename": "keymaster/4.1/IKeymasterDevice.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-10-14T21:06:22Z",
+      "side": 1,
+      "message": "It isn\u0027t.  There are things we\u0027d like to do that can\u0027t be done in the bootloader, but can be done while the Android system is in a relatively trustworthy state (before any unverified code can run).",
+      "parentUuid": "e77e7f99_f3fe82cd",
       "revId": "8729a9486575e35b62108a832b47fee23c2ea60f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
