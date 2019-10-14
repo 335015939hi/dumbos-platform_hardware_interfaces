@@ -119,6 +119,24 @@
     },
     {
       "key": {
+        "uuid": "a67681d9_9f2baffe",
+        "filename": "keymaster/4.1/IKeymasterDevice.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-10-14T21:27:12Z",
+      "side": 1,
+      "message": "Resolving",
+      "parentUuid": "78ee7ea2_761156c5",
+      "revId": "8729a9486575e35b62108a832b47fee23c2ea60f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8eda22d3_1d870eb0",
         "filename": "keymaster/4.1/types.hal",
         "patchSetId": 2
@@ -139,6 +157,30 @@
       "revId": "8729a9486575e35b62108a832b47fee23c2ea60f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1be65116_e666546b",
+        "filename": "keymaster/4.1/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-10-14T21:27:12Z",
+      "side": 1,
+      "message": "Correct.",
+      "parentUuid": "8eda22d3_1d870eb0",
+      "range": {
+        "startLine": 32,
+        "startChar": 27,
+        "endLine": 32,
+        "endChar": 44
+      },
+      "revId": "8729a9486575e35b62108a832b47fee23c2ea60f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -165,6 +207,30 @@
     },
     {
       "key": {
+        "uuid": "65d928d1_63c8a7ba",
+        "filename": "keymaster/4.1/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-10-14T21:27:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ba5fc07_918711d9",
+      "range": {
+        "startLine": 36,
+        "startChar": 57,
+        "endLine": 36,
+        "endChar": 81
+      },
+      "revId": "8729a9486575e35b62108a832b47fee23c2ea60f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "716d275b_04c025b4",
         "filename": "keymaster/4.1/types.hal",
         "patchSetId": 2
@@ -185,6 +251,30 @@
       "revId": "8729a9486575e35b62108a832b47fee23c2ea60f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06f69ee5_a4f46a3e",
+        "filename": "keymaster/4.1/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-10-14T21:27:12Z",
+      "side": 1,
+      "message": "Agreed.  I\u0027ve updated the comment.",
+      "parentUuid": "716d275b_04c025b4",
+      "range": {
+        "startLine": 39,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 29
+      },
+      "revId": "8729a9486575e35b62108a832b47fee23c2ea60f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
