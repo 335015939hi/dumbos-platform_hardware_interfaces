@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bda7320d_3bc9aee1",
+        "filename": "health/2.1/default/Android.bp",
+        "patchSetId": 9
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-10-14T20:38:13Z",
+      "side": 1,
+      "message": "it\u0027s a bit confusing to have two names, no? why not just 2.0-impl-2.1?",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 45
+      },
+      "revId": "ad32eefec68ab8def47f83e6075ff904b4645bb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
