@@ -70,6 +70,30 @@
       "revId": "d120a1ef1eefc3da65301b08ca4e9f6270c1dba2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8020b26e_2b186ab3",
+        "filename": "current.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1418133
+      },
+      "writtenOn": "2019-10-14T17:43:06Z",
+      "side": 1,
+      "message": "Yup. Already done.",
+      "parentUuid": "331a0bce_84aaa3af",
+      "range": {
+        "startLine": 589,
+        "startChar": 96,
+        "endLine": 589,
+        "endChar": 101
+      },
+      "revId": "d120a1ef1eefc3da65301b08ca4e9f6270c1dba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
