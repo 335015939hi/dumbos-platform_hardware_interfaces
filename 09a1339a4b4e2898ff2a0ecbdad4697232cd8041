@@ -45,6 +45,30 @@
       "revId": "09a1339a4b4e2898ff2a0ecbdad4697232cd8041",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b77058e4_032cb345",
+        "filename": "boot/1.1/default/service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1290458
+      },
+      "writtenOn": "2019-10-14T21:51:19Z",
+      "side": 1,
+      "message": "If I do this, won\u0027t we be missing the .rc file which indicates the service fulfills the 1.1 version of the interface?",
+      "parentUuid": "4cc86e9b_0fe97b1a",
+      "range": {
+        "startLine": 25,
+        "startChar": 11,
+        "endLine": 25,
+        "endChar": 50
+      },
+      "revId": "09a1339a4b4e2898ff2a0ecbdad4697232cd8041",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
