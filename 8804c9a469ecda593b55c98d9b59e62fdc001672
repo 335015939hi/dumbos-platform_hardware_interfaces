@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "993222c4_2364a3bf",
+        "filename": "health/2.1/IHealth.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2019-10-14T23:09:29Z",
+      "side": 1,
+      "message": "This is converted from the original screen_on function in healthd_config:\n\nhttps://android.googlesource.com/platform/system/core/+/refs/heads/master/healthd/include/healthd/healthd.h#75\n\nCharger is the only client for this function. Charger is controlling the screen here, but it needs to ask the HAL if the HAL wants to override the behavior of when to keep the screen on.\n\nMaybe I should change this to \"shouldKeepScreenOn\" or \"shouldTurnOffScreen\" instead?",
+      "parentUuid": "df249a49_cdf4cc66",
+      "range": {
+        "startLine": 79,
+        "startChar": 4,
+        "endLine": 79,
+        "endChar": 15
+      },
+      "revId": "8804c9a469ecda593b55c98d9b59e62fdc001672",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3ef0717b_435df21f",
         "filename": "health/2.1/types.hal",
         "patchSetId": 7
@@ -36,6 +60,24 @@
       "writtenOn": "2019-10-14T20:40:26Z",
       "side": 1,
       "message": "units?",
+      "revId": "8804c9a469ecda593b55c98d9b59e62fdc001672",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9272c89a_2e5d7519",
+        "filename": "health/2.1/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2019-10-14T23:09:29Z",
+      "side": 1,
+      "message": "this is unitless. Battery level ranges from 0-100. Let me clarify this in the patch.",
+      "parentUuid": "3ef0717b_435df21f",
       "revId": "8804c9a469ecda593b55c98d9b59e62fdc001672",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
