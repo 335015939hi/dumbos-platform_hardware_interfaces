@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "87b5b5f9_bc899bbc",
+        "filename": "Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-10-14T20:55:16Z",
+      "side": 1,
+      "message": "please omit comment, also this is only true for most hals, not all hals. For instance \"hal_client_domain(shell, hal_atrace)\" means that the atrace test will probably work w/o root.",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 57
+      },
+      "revId": "ac9a6c417ef552e2ad6f169d8a9c12de72c5c21c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

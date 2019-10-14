@@ -165,6 +165,30 @@
       "revId": "c048c187be35b6b6dfd24cb6aecc29f17519c9b5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9175cba2_2d216ae0",
+        "filename": "gnss/1.0/vts/functional/VtsHalGnssV1_0TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-10-14T20:55:16Z",
+      "side": 0,
+      "message": "I\u0027m not exactly sure how the mechanism works, but it\u0027s because in my case it should use the default main function from libgtest_main or similar. However, since we\u0027re explicitly using a main function here, we need to call InitGoogleTest.",
+      "parentUuid": "02bdce87_6761cae0",
+      "range": {
+        "startLine": 491,
+        "startChar": 0,
+        "endLine": 491,
+        "endChar": 41
+      },
+      "revId": "c048c187be35b6b6dfd24cb6aecc29f17519c9b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
