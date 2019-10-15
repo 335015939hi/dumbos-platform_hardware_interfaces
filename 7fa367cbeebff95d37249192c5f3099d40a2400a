@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e9f1f75a_0ce1f48a",
+        "filename": "health/2.1/default/service.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2019-10-15T00:54:15Z",
+      "side": 1,
+      "message": "This is the wrong approach for health HAL. I\u0027ve fixed it in the new patchset.\n\nIt should use setupTransportPolling() instead.",
+      "parentUuid": "db4655a1_ee34df1b",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 45
+      },
+      "revId": "7fa367cbeebff95d37249192c5f3099d40a2400a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1be88ce9_800e0778",
         "filename": "health/utils/libhealth2impl/Android.bp",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "7fa367cbeebff95d37249192c5f3099d40a2400a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12b445b1_57a2eb64",
+        "filename": "health/utils/libhealth2impl/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2019-10-15T00:54:15Z",
+      "side": 1,
+      "message": "Thanks for catching this!",
+      "parentUuid": "1be88ce9_800e0778",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 16
+      },
+      "revId": "7fa367cbeebff95d37249192c5f3099d40a2400a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

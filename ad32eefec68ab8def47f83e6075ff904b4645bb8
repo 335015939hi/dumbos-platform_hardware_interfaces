@@ -22,6 +22,30 @@
       "revId": "ad32eefec68ab8def47f83e6075ff904b4645bb8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97c9f950_8ecc801f",
+        "filename": "health/2.1/default/Android.bp",
+        "patchSetId": 9
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2019-10-15T00:54:15Z",
+      "side": 1,
+      "message": "I think it is nice for devices to say \n\nPRODUCT_PACKAGES +\u003d android.hardware.health@2.1-impl\n\nright? Let me know if you think otherwise.",
+      "parentUuid": "bda7320d_3bc9aee1",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 45
+      },
+      "revId": "ad32eefec68ab8def47f83e6075ff904b4645bb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
