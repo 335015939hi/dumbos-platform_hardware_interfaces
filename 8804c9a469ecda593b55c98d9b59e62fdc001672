@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "e64a45d5_2b9e3840",
+        "filename": "health/2.1/IHealth.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-10-15T01:15:25Z",
+      "side": 1,
+      "message": "I like shouldKeepScreenOn since it\u0027s explicit\n\nAlso, maybe specify in an error case, turning the screen off is probably a good idea? :D",
+      "parentUuid": "993222c4_2364a3bf",
+      "range": {
+        "startLine": 79,
+        "startChar": 4,
+        "endLine": 79,
+        "endChar": 15
+      },
+      "revId": "8804c9a469ecda593b55c98d9b59e62fdc001672",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3ef0717b_435df21f",
         "filename": "health/2.1/types.hal",
         "patchSetId": 7
