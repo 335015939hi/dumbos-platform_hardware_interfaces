@@ -22,6 +22,30 @@
       "revId": "ab017f20cf256cba57ad9a00ee3d5e0cf214fa0e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b500a07_2d389e30",
+        "filename": "authsecret/1.0/vts/functional/VtsHalAuthSecretV1_0TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-10-15T20:49:10Z",
+      "side": 0,
+      "message": "It\u0027s fine to delete the main function entirely. InitGoogleTest is only required when there is a custom main function.",
+      "parentUuid": "cdaea5cc_256952da",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 43
+      },
+      "revId": "ab017f20cf256cba57ad9a00ee3d5e0cf214fa0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
