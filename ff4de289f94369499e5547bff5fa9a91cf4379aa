@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0f3c25e1_b2a7a227",
+        "filename": "authsecret/1.0/vts/functional/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-10-15T16:01:23Z",
+      "side": 1,
+      "message": "this can be removed after aosp/1138875 is landed.",
+      "revId": "ff4de289f94369499e5547bff5fa9a91cf4379aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
