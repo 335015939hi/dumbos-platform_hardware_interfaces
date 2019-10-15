@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "de193384_968dfaff",
+        "filename": "keymaster/4.1/IKeymasterDevice.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1362721
+      },
+      "writtenOn": "2019-10-15T17:44:45Z",
+      "side": 1,
+      "message": "nit: OperationHandle object",
+      "range": {
+        "startLine": 60,
+        "startChar": 77,
+        "endLine": 60,
+        "endChar": 86
+      },
+      "revId": "19b76a7eb9df159d271a70ff24090dd3129376f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4378e4f_512120ac",
+        "filename": "keymaster/4.1/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1362721
+      },
+      "writtenOn": "2019-10-15T17:44:45Z",
+      "side": 1,
+      "message": "Why is this a STRONGBOX only feature?",
+      "range": {
+        "startLine": 34,
+        "startChar": 83,
+        "endLine": 34,
+        "endChar": 99
+      },
+      "revId": "19b76a7eb9df159d271a70ff24090dd3129376f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
