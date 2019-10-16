@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "746922d1_ecd50dc5",
+        "filename": "thermal/1.1/vts/functional/VtsHalThermalV1_1TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-10-16T22:20:33Z",
+      "side": 1,
+      "message": "filed b/142820661",
+      "parentUuid": "4426588f_a1b8f9e1",
+      "range": {
+        "startLine": 24,
+        "startChar": 10,
+        "endLine": 24,
+        "endChar": 38
+      },
+      "revId": "030bef33a505ff87f11ec6293a070a9dcc884a1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "49f4f34e_44effc32",
         "filename": "thermal/1.1/vts/functional/VtsHalThermalV1_1TargetTest.cpp",
         "patchSetId": 1
@@ -78,6 +102,24 @@
       "side": 1,
       "message": "We are in process deprecating 1.1, no 1.1 in Pixel. All pixels run with 2.0. 2.0 derived with 1.0, so you see both 1.0 and 2.0.",
       "parentUuid": "49f4f34e_44effc32",
+      "revId": "030bef33a505ff87f11ec6293a070a9dcc884a1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff4808dc_8725e1fe",
+        "filename": "thermal/1.1/vts/functional/VtsHalThermalV1_1TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-10-16T22:20:33Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "82c3447d_bebb3098",
       "revId": "030bef33a505ff87f11ec6293a070a9dcc884a1b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
