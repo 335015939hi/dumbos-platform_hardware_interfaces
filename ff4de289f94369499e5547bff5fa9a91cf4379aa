@@ -16,6 +16,24 @@
       "revId": "ff4de289f94369499e5547bff5fa9a91cf4379aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d231d630_936a3499",
+        "filename": "authsecret/1.0/vts/functional/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1307893
+      },
+      "writtenOn": "2019-10-16T02:38:25Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0f3c25e1_b2a7a227",
+      "revId": "ff4de289f94369499e5547bff5fa9a91cf4379aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
