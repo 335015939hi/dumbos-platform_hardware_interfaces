@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "aa7f284c_a297bc97",
+        "filename": "health/2.1/IHealth.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2019-10-16T00:40:51Z",
+      "side": 1,
+      "message": "when \"UNSUPPORTED\" is returned, charger keep the screen on. This is an implementation detail of charger (the client) though, not the HAL, so I don\u0027t think I should specify it here.\n\nDone.",
+      "parentUuid": "e64a45d5_2b9e3840",
+      "range": {
+        "startLine": 79,
+        "startChar": 4,
+        "endLine": 79,
+        "endChar": 15
+      },
+      "revId": "8804c9a469ecda593b55c98d9b59e62fdc001672",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ef0717b_435df21f",
         "filename": "health/2.1/types.hal",
         "patchSetId": 7
