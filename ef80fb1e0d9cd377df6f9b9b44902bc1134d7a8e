@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f5fe7e5_bba9a5d2",
+        "filename": "boot/1.1/default/service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-10-16T22:25:35Z",
+      "side": 1,
+      "message": "can you use elsk\u0027s version of this that makes sure it\u0027s 1.1?",
+      "range": {
+        "startLine": 25,
+        "startChar": 51,
+        "endLine": 25,
+        "endChar": 63
+      },
+      "revId": "ef80fb1e0d9cd377df6f9b9b44902bc1134d7a8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
