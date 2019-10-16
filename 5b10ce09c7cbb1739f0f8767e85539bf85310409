@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8b28a15f_af98426d",
+        "filename": "audio/core/all-versions/vts/functional/AudioPrimaryHidlHalTest.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2019-10-16T23:08:51Z",
+      "side": 1,
+      "message": "is it possible to make this decision based on the audio_policy_configuration.xml file instead?\nIf not module has an output profile with PRIMARY flag set, then primary device should not be tested",
+      "range": {
+        "startLine": 239,
+        "startChar": 0,
+        "endLine": 239,
+        "endChar": 85
+      },
+      "revId": "5b10ce09c7cbb1739f0f8767e85539bf85310409",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "821352d1_3368c301",
+        "filename": "audio/core/all-versions/vts/functional/AudioPrimaryHidlHalTest.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2019-10-16T23:08:51Z",
+      "side": 1,
+      "message": "device \u003d\u003d nullptr for consistency",
+      "range": {
+        "startLine": 281,
+        "startChar": 13,
+        "endLine": 281,
+        "endChar": 19
+      },
+      "revId": "5b10ce09c7cbb1739f0f8767e85539bf85310409",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
