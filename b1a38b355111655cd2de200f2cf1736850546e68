@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6c0a96f0_9131e062",
+        "filename": "radio/1.4/vts/functional/radio_hidl_hal_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1131623
+      },
+      "writtenOn": "2019-10-16T22:30:27Z",
+      "side": 1,
+      "message": "radioRsp_v1_4-\u003ecurrentCalls is updated after line 94. Even you added line 95-96 to sleep, the radioRsp_v1_4-\u003ecurrentCalls should not be changed. I don\u0027t understand why these two lines can fix the radioRsp_v1_4-\u003ecurrentCalls null issues.",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 13
+      },
+      "revId": "b1a38b355111655cd2de200f2cf1736850546e68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
