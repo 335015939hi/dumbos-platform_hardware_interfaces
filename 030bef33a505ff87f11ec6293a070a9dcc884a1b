@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b77fc958_5b0a4efc",
+        "filename": "thermal/1.1/vts/functional/VtsHalThermalV1_1TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-10-16T21:58:56Z",
+      "side": 1,
+      "message": "We need to think about where can this library be moved to. Is there some common treble test lib?",
+      "range": {
+        "startLine": 24,
+        "startChar": 10,
+        "endLine": 24,
+        "endChar": 38
+      },
+      "revId": "030bef33a505ff87f11ec6293a070a9dcc884a1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49f4f34e_44effc32",
+        "filename": "thermal/1.1/vts/functional/VtsHalThermalV1_1TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-10-16T21:58:56Z",
+      "side": 1,
+      "message": "Somehow this test runs no test cases on blueline or newer pixel. Do we know why?\n1.0 and 2.0 tests both work though.",
+      "revId": "030bef33a505ff87f11ec6293a070a9dcc884a1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
