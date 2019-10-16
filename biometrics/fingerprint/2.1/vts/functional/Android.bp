@@ -20,5 +20,6 @@ cc_test {
     srcs: ["VtsHalBiometricsFingerprintV2_1TargetTest.cpp"],
     static_libs: ["android.hardware.biometrics.fingerprint@2.1"],
     test_suites: ["general-tests"],
+    require_root: true,
 }
 
