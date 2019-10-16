@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4b7def8f_adbd9240",
+        "filename": "graphics/mapper/4.0/IMapper.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1468456
+      },
+      "writtenOn": "2019-10-16T17:17:56Z",
+      "side": 1,
+      "message": "Would it be useful to make this extensible as well (move to LLNDK) ?",
+      "range": {
+        "startLine": 24,
+        "startChar": 11,
+        "endLine": 24,
+        "endChar": 31
+      },
+      "revId": "f4467bc224e5ee7b6ca4fc734858f4c0c14eaafc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
