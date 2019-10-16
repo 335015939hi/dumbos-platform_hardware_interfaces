@@ -1,0 +1,288 @@
+/*
+ * Copyright (C) 2019 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package android.hardware.gnss.measurement_corrections@1.1;
+
+import android.hardware.gnss@1.0::GnssConstellationType;
+import android.hardware.gnss@1.0::GnssUtcTime;
+
+/**
+ * A struct with information about the reference station.
+ */
+struct ReferenceStation {
+    /**
+     * A set of flags indicating the validity of the fields in this data
+     * structure.
+     */
+    bitfield<ReferenceStationFlags> referenceStationFlags;
+
+    /**
+     * Reference station ID
+     *
+     * DF003
+     *
+     * This field is mandatory.
+     */
+    uint16_t referenceStationId;
+
+    /**
+     * Base station antenna reference point latitude in degrees.
+     *
+     * DF025, DF026, DF027
+     *
+     * If this data is available, referenceStationFlags must contain
+     * HAS_ANTENNA_REFERENCE_POINT.
+     */
+    double antennaReferenceLatitudeDegrees;
+
+    /**
+     * Base station antenna reference point longitude in degrees.
+     *
+     * DF025, DF026, DF027
+     *
+     * If this data is available, referenceStationFlags must contain
+     * HAS_ANTENNA_REFERENCE_POINT.
+     */
+    double antennaReferenceLongitudeDegrees;
+
+    /**
+     * Base station antenna reference point altitude in meters above the WGS 84
+     * reference ellipsoid.
+     *
+     * DF025, DF026, DF027
+     *
+     * If this data is available, referenceStationFlags must contain
+     * HAS_ANTENNA_REFERENCE_POINT.
+     */
+    double antennaReferenceAltitudeMeters;
+
+    /**
+     * GLONASS L1C/A code - phase bias in meters.
+     *
+     * DF423
+     *
+     * This is the bias that has not been applied to the measurements,
+     * i.e. the amount by which they are un-aligned.
+     *
+     * If this data is available, referenceStationFlags must contain
+     * HAS_GLONASS_L1CA_CODE_MINUS_PHASE_BIAS.
+     */
+    float glonassL1CACodeMinusPhaseBiasMeters;
+
+    /**
+     * GLONASS L1P code - phase bias in meters.
+     *
+     * DF424
+     *
+     * This is the bias that has not been applied to the measurements,
+     * i.e. the amount by which they are un-aligned.
+     *
+     * If this data is available, referenceStationFlags must contain
+     * HAS_GLONASS_L1P_CODE_MINUS_PHASE_BIAS.
+     */
+    float glonassL1PCodeMinusPhaseBiasMeters;
+
+    /**
+     * GLONASS L2C/A code - phase bias in meters.
+     *
+     * DF425
+     *
+     * This is the bias that has not been applied to the measurements,
+     * i.e. the amount by which they are un-aligned.
+     *
+     * If this data is available, referenceStationFlags must contain
+     * HAS_GLONASS_L2CA_CODE_MINUS_PHASE_BIAS.
+     */
+
+    float glonassL2CACodeMinusPhaseBiasMeters;
+
+    /**
+     * GLONASS L2P code - phase bias in meters.
+     *
+     * DF426
+     *
+     * This is the bias that has not been applied to the measurements,
+     * i.e. the amount by which they are un-aligned.
+     *
+     * If this data is available, referenceStationFlags must contain
+     * HAS_GLONASS_L2P_CODE_MINUS_PHASE_BIAS.
+     */
+    float glonassL2PCodeMinusPhaseBiasMeters;
+
+    /**
+     * Receiver type descriptor.
+     *
+     * DF228
+     *
+     * This field is mandatory.
+     */
+    string receiverType;
+
+    /**
+     * Antenna descriptor.
+     *
+     * DF030
+     *
+     * This field is mandatory.
+     */
+    string antenna;
+
+    /**
+     * Reference station indicator.
+     *
+     * DF141
+     *
+     * This field is mandatory.
+     */
+    ReferenceStationType referenceStationType;
+};
+
+/** Bit mask to indicate which values are valid in a ReferenceStation object. */
+enum ReferenceStationFlags : uint16_t {
+    /** Antenna reference point is valid. */
+    HAS_ANTENNA_REFERENCE_POINT               = 0x0001,
+    /** GLONASS L1C/A code - phase bias is valid. */
+    HAS_GLONASS_L1CA_CODE_MINUS_PHASE_BIAS    = 0x0002,
+    /** GLONASS L1P code - phase bias is valid. */
+    HAS_GLONASS_L1P_CODE_MINUS_PHASE_BIAS     = 0x0004,
+    /** GLONASS L2C/A code - phase bias is valid. */
+    HAS_GLONASS_L2CA_CODE_MINUS_PHASE_BIAS    = 0x0008,
+    /** GLONASS L2P code - phase bias is valid. */
+    HAS_GLONASS_L2P_CODE_MINUS_PHASE_BIAS     = 0x0010,
+};
+
+/** Reference station indicator. */
+enum ReferenceStationType : uint8_t {
+    /** Real, Physical Reference Station. */
+    PHYSICAL = 0,
+    /** Non-Physical or Computed Reference Station. */
+    COMPUTED = 1,
+};
+
+/**
+ * A struct with differential corrections for a single GNSS for a single epoch
+ * from a single base station.
+ */
+struct OsrDiffCorrections {
+    /** Constellation of all corrections contained in this message. */
+    GnssConstellationType constellation;
+
+    /**
+     *    Reference station ID.
+     *
+     * DF003
+     *
+     */
+    uint16_t referenceStationId;
+
+    /**
+     * IODS – Issue of Data Station.
+     *
+     * DF409
+     *
+     */
+    uint16_t IODS;
+
+    /** Timestamp for these corrections. */
+    GnssUtcTime timestamp;
+
+    /**
+     * Multiple Message flag.
+     *
+     * DF388
+     *
+     * If true, more corrections for this epoch will follow, otherwise this is
+     * the last correction message for this epoch and reference station ID.
+     */
+    bool isLastMessage;
+
+    /**
+     * A set of SingleOsrDiffCorrection each containing corrections for a signal.
+     */
+    vec<SingleOsrDiffCorrection> diffCorrections;
+};
+
+/**
+ * A struct with differential corrections for a single signal.
+ *
+ * The bit mask SingleOsrDiffCorrectionFlags indicates which correction values are
+ * valid in the struct.
+ */
+struct SingleOsrDiffCorrection {
+    /** Contains SingleOsrDiffCorrectionFlags bits. */
+    bitfield<SingleOsrDiffCorrectionFlags> singleOsrDiffCorrectionFlags;
+
+    /**
+     * Signal ID (internal representation).
+     *
+     * This field is mandatory.
+     */
+    uint8_t sigId;
+
+    /**
+     * Satellite ID.
+     *
+     * This field is mandatory.
+     */
+    uint16_t svId;
+
+    /**
+     * Pseudorange measurement in meters.
+     *
+     * If this data is available, singleOsrDiffCorrectionFlags must contain
+     * HAS_PSEUDORANGE.
+     */
+    double pseudorangeMeters;
+
+    /**
+     * Phase range measurement in meters.
+
+     * If this data is available, singleOsrDiffCorrectionFlags must contain
+     * HAS_PHASERANGE.
+     */
+    double phaserangeMeters;
+
+    /**
+     * GNSS signal CNR in dBHz.
+     *
+     * DF403
+     *
+     * If this data is available, singleOsrDiffCorrectionFlags must contain
+     * HAS_CNR.
+     */
+    uint8_t cnrDbhz;
+
+    /**
+     * Minimum phase range lock time in milliseconds.
+     *
+     * DF402
+     *
+     * This field is mandatory.
+     */
+    uint32_t minimumLockTimeMs;
+};
+
+/** Bit mask of flags for a single signal differential correction. */
+enum SingleOsrDiffCorrectionFlags : uint16_t {
+    /** Pseudorange measurement is valid. */
+    HAS_PSEUDORANGE          = 0x0001,
+    /** Phase range measurement is valid. */
+    HAS_PHASERANGE           = 0x0002,
+    /** CNR is valid. */
+    HAS_CNR                  = 0x0004,
+    /** Half-cycle ambiguity indicator (DF420): 0 = No half-cycle ambiguity, 1 = Half-cycle ambiguity. */
+    HALF_CYCLE_AMBIGUITY_IND = 0x0008,
+};
