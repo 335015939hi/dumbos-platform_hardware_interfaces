@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "71c42ebd_ec4e7303",
+        "filename": "audio/core/all-versions/vts/functional/AudioPrimaryHidlHalTest.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2019-10-17T00:28:31Z",
+      "side": 1,
+      "message": "The apm configuration file does not specify which modules come from which IDevicesFactory instance. The HAL access layer simply iterates through all the available factories (that is, \"default\" and \"msd\") until one of them returns a device of the specified name, see http://cs/android/frameworks/av/media/libaudiohal/impl/DevicesFactoryHalHidl.cpp.\n\nThus, the contents of apm configuration file in addition to the instance name doesn\u0027t help figuring out whether the instance of IDeviceFactory can create IDevice for \"primary\" module or not. We can only hardcode this decision for now.\n\nThe apm configuration file can help figuring out whether there is a \"primary\" module on the device at all. But this isn\u0027t the issue that this CL is fixing.",
+      "parentUuid": "8b28a15f_af98426d",
+      "range": {
+        "startLine": 239,
+        "startChar": 0,
+        "endLine": 239,
+        "endChar": 85
+      },
+      "revId": "5b10ce09c7cbb1739f0f8767e85539bf85310409",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "821352d1_3368c301",
         "filename": "audio/core/all-versions/vts/functional/AudioPrimaryHidlHalTest.h",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "5b10ce09c7cbb1739f0f8767e85539bf85310409",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7b04a9d_60e4ac54",
+        "filename": "audio/core/all-versions/vts/functional/AudioPrimaryHidlHalTest.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2019-10-17T00:28:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "821352d1_3368c301",
+      "range": {
+        "startLine": 281,
+        "startChar": 13,
+        "endLine": 281,
+        "endChar": 19
+      },
+      "revId": "5b10ce09c7cbb1739f0f8767e85539bf85310409",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
