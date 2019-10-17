@@ -22,6 +22,30 @@
       "revId": "f4467bc224e5ee7b6ca4fc734858f4c0c14eaafc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57a2398c_7ce068cc",
+        "filename": "graphics/mapper/4.0/IMapper.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-10-17T23:13:34Z",
+      "side": 1,
+      "message": "I can move this structure to the LLNDK. The framework won\u0027t be able to use any vendor version of BufferDescriptorInfo. Vendor code could use it when allocating a buffer.\n\nDo you have a use case in mind?",
+      "parentUuid": "4b7def8f_adbd9240",
+      "range": {
+        "startLine": 24,
+        "startChar": 11,
+        "endLine": 24,
+        "endChar": 31
+      },
+      "revId": "f4467bc224e5ee7b6ca4fc734858f4c0c14eaafc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
