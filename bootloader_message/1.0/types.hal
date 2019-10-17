@@ -1,0 +1,64 @@
+/*
+ * Copyright 2019 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package android.hardware.bootloader_message@1.0;
+
+/**
+ * This structure describes the content of a block in flash that is used for the core domain,
+ * recovery and the bootloader to talk to each other.
+ *
+ * The command field is updated by the core domain to set the reboot target. For example, it can be
+ * used to reboot into recovery or bootloader to update radio or bootloader firmware. It is also
+ * updated by the bootloader when firmware update is complete (to boot into recovery for any final
+ * cleanup).
+ *
+ * The recovery field is written by the core domain and used for the system to send a message to
+ * recovery or the other way around.
+ *
+ * The stage field is written by packages which restart themselves multiple times, so that the UI
+ * can reflect which invocation of the package it is. If the value is of the format "#/#" (eg,
+ * "1/3"), the UI will add a simple indicator of that status.
+ */
+struct Message {
+    string command;
+    string recovery;
+    string stage;
+};
+
+/**
+ * The minimal size requirement in bytes for each field in the message struct. All implementations
+ * of the HAL need to support at least these bytes of storage for each field.
+ */
+enum MinimalMessageFieldSize : uint32_t {
+  COMMAND_SIZE = 32,
+  RECOVERY_SIZE = 768,
+  STAGE_SIZE = 32,
+};
+
+/**
+ * The minimal size requirement to support for the wipe package.
+ */
+enum MinimalWipePackageSize : uint32_t {
+  PACKAGE_SIZE = 49152,  // 48 * 1024
+};
+
+/**
+ * A result encapsulating whether the R/W succeeds and an error string.
+ */
+struct CommandResult {
+    bool result;
+    string errorMessage;
+};
