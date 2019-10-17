@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "7929f624_ee28a941",
+        "filename": "audio/core/all-versions/vts/functional/AudioPrimaryHidlHalTest.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2019-10-17T00:45:34Z",
+      "side": 1,
+      "message": "but the interface names and the module names in the audio_policy_configuration.xml file should match no? (e.g. \"primary\" or \"a2dp\" etc...)\nSo if you check which module has an output with primary flag set in APM and check which factory exposes an interface with that name you should be able to tell that this factory must implement the primary device interface no?",
+      "parentUuid": "71c42ebd_ec4e7303",
+      "range": {
+        "startLine": 239,
+        "startChar": 0,
+        "endLine": 239,
+        "endChar": 85
+      },
+      "revId": "5b10ce09c7cbb1739f0f8767e85539bf85310409",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "821352d1_3368c301",
         "filename": "audio/core/all-versions/vts/functional/AudioPrimaryHidlHalTest.h",
         "patchSetId": 1
