@@ -1,0 +1,5 @@
+service vendor.boot.message-hal-1-0 /vendor/bin/hw/android.hardware.boot.message@1.0-service
+    interface android.hardware.boot.message@1.0::IBootloaderMessage default
+    class early_hal
+    user root
+    group root
