@@ -1,0 +1,45 @@
+cc_library_shared {
+    name: "android.hardware.boot.message@1.0-impl",
+    defaults: ["hidl_defaults"],
+    relative_install_path: "hw",
+    vendor: true,
+    recovery_available: true,
+    srcs: ["BootloaderMessage.cpp"],
+
+    static_libs: [
+        "libfstab",
+    ],
+
+    shared_libs: [
+        "libbase",
+        "liblog",
+        "libhidlbase",
+        "libhardware",
+        "libutils",
+        "android.hardware.boot.message@1.0",
+    ],
+}
+
+cc_binary {
+    name: "android.hardware.boot.message@1.0-service",
+    defaults: ["hidl_defaults"],
+    relative_install_path: "hw",
+    vendor: true,
+    srcs: ["service.cpp"],
+    init_rc: ["android.hardware.boot.message@1.0-service.rc"],
+
+    vintf_fragments: [
+        "android.hardware.boot.message@1.0.xml",
+    ],
+
+    shared_libs: [
+        "liblog",
+        "libcutils",
+        "libdl",
+        "libbase",
+        "libutils",
+        "libhardware",
+        "libhidlbase",
+        "android.hardware.boot.message@1.0",
+    ],
+}
