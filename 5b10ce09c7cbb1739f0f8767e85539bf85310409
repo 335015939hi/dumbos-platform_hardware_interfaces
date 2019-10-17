@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "a3b8fc2c_4fe463e9",
+        "filename": "audio/core/all-versions/vts/functional/AudioPrimaryHidlHalTest.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2019-10-17T01:37:45Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f557e54b_48274bee",
+      "range": {
+        "startLine": 239,
+        "startChar": 0,
+        "endLine": 239,
+        "endChar": 85
+      },
+      "revId": "5b10ce09c7cbb1739f0f8767e85539bf85310409",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "821352d1_3368c301",
         "filename": "audio/core/all-versions/vts/functional/AudioPrimaryHidlHalTest.h",
         "patchSetId": 1
