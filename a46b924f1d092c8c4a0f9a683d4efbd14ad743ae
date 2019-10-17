@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "150d528b_668e0856",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1308044
+      },
+      "writtenOn": "2019-10-17T08:57:31Z",
+      "side": 1,
+      "message": "atest",
+      "range": {
+        "startLine": 13,
+        "startChar": 7,
+        "endLine": 13,
+        "endChar": 12
+      },
+      "revId": "a46b924f1d092c8c4a0f9a683d4efbd14ad743ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "183c48e3_edf893e6",
         "filename": "biometrics/fingerprint/2.1/vts/functional/Android.bp",
         "patchSetId": 1
