@@ -1,0 +1,5 @@
+service vendor.bootloader_message-hal-1-0 /vendor/bin/hw/android.hardware.bootloader_message@1.0-service
+    interface android.hardware.bootloader_message@1.0::IBootloaderMessage default
+    class hal
+    user system
+    group system
