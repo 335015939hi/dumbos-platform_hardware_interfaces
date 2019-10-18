@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "613939c8_e13a001c",
+        "filename": "keymaster/4.1/IKeymasterDevice.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-10-18T16:08:28Z",
+      "side": 1,
+      "message": "Actually, an IOperation, object.  Fixed.",
+      "parentUuid": "de193384_968dfaff",
+      "range": {
+        "startLine": 60,
+        "startChar": 77,
+        "endLine": 60,
+        "endChar": 86
+      },
+      "revId": "19b76a7eb9df159d271a70ff24090dd3129376f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f4378e4f_512120ac",
         "filename": "keymaster/4.1/types.hal",
         "patchSetId": 4
@@ -45,6 +69,30 @@
       "revId": "19b76a7eb9df159d271a70ff24090dd3129376f0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb96522d_58224aeb",
+        "filename": "keymaster/4.1/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-10-18T16:08:28Z",
+      "side": 1,
+      "message": "Mostly to keep it contained to relatively few, enterprise-oriented devices until we understand the impact.",
+      "parentUuid": "f4378e4f_512120ac",
+      "range": {
+        "startLine": 34,
+        "startChar": 83,
+        "endLine": 34,
+        "endChar": 99
+      },
+      "revId": "19b76a7eb9df159d271a70ff24090dd3129376f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
