@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "29122fe8_a22b7487",
+        "filename": "nfc/1.0/vts/functional/VtsHalNfcV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-10-18T17:51:44Z",
+      "side": 1,
+      "message": "this test only run 5 tests in latest pixel. I assume that\u0027s expected?",
+      "revId": "935aa3c594b554a08d7f1472ba382614adc9e34e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
