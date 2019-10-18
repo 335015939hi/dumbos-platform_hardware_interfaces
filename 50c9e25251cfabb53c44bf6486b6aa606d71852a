@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b891d35c_25fefd16",
+        "filename": "health/2.0/default/healthd_common_adapter.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2019-10-18T17:57:48Z",
+      "side": 1,
+      "message": "health_loop.reset() calls the destructor of HealthLoop, which calls LOG(FATAL); so there is no need to add extra log here.",
+      "parentUuid": "806d9193_9d8f1ab0",
+      "revId": "50c9e25251cfabb53c44bf6486b6aa606d71852a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8813c8a9_86c24120",
         "filename": "health/utils/libhealthloop/HealthLoop.cpp",
         "patchSetId": 8
@@ -33,6 +51,24 @@
       "revId": "50c9e25251cfabb53c44bf6486b6aa606d71852a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9610ebf3_98e5ba67",
+        "filename": "health/utils/libhealthloop/HealthLoop.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2019-10-18T17:57:48Z",
+      "side": 1,
+      "message": "No.\n\nIt is expected that RegisterEvent is called by subclass override of Init(), which should happen before MainLoop() starts. Note that RegisterEvent is a protected method.\n\nThat being said, healthd_register_event() exposes the function as a public API. Clients could incorrectly call it in a different thread after MainLoop() starts. Hence, this CHECK here is a sanity check to defend against this state.\n\nNote that reject_event_register_ is initialized to false and only set to true once in MainLoop(); it is never reset back to false. I think a bool here is necessary, and an atomic_bool is an overkill.\n\nLet me know if you think otherwise.",
+      "parentUuid": "8813c8a9_86c24120",
+      "revId": "50c9e25251cfabb53c44bf6486b6aa606d71852a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
