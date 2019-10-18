@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "806d9193_9d8f1ab0",
+        "filename": "health/2.0/default/healthd_common_adapter.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2019-10-18T04:48:58Z",
+      "side": 1,
+      "message": "nit: add an error log here too?",
+      "revId": "50c9e25251cfabb53c44bf6486b6aa606d71852a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8813c8a9_86c24120",
+        "filename": "health/utils/libhealthloop/HealthLoop.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2019-10-18T04:48:58Z",
+      "side": 1,
+      "message": "Do we need synchronization for accessing this variable?",
+      "revId": "50c9e25251cfabb53c44bf6486b6aa606d71852a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
