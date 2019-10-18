@@ -70,6 +70,30 @@
       "revId": "f4467bc224e5ee7b6ca4fc734858f4c0c14eaafc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b30c6e42_462a8208",
+        "filename": "graphics/mapper/4.0/IMapper.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-10-18T17:07:30Z",
+      "side": 1,
+      "message": "The framework could pass a generic BufferDescriptorInfo. It wouldn\u0027t ever pass a vendor BufferDescriptorInfo. \n\nAre the clients you were referring to vendor clients? For example, a vendor camera hal implementation may want to pass a vendor specific BufferDescriptorInfo. If so, I can move this to the LLDNK.",
+      "parentUuid": "daa56a16_0fcc6770",
+      "range": {
+        "startLine": 24,
+        "startChar": 11,
+        "endLine": 24,
+        "endChar": 31
+      },
+      "revId": "f4467bc224e5ee7b6ca4fc734858f4c0c14eaafc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
