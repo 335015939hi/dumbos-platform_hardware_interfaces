@@ -288,6 +288,58 @@ interface IMapper {
     unlock(pointer buffer) generates (Error error, handle releaseFence);
 
     /**
+     * Flushes the contents of a locked buffer.
+     *
+     * This function flushes the CPUs caches for the range of all the buffer's
+     * planes and metadata. This should behave similarly to unlock() except the
+     * buffer should remain mapped to the CPU.
+     *
+     * The client is still responsible for calling unlock() when it is done
+     * with all CPU accesses to the buffer.
+     *
+     * @param buffer Buffer to flush.
+     * @return error Error status of the call, which may be
+     *     - `NONE` upon success.
+     *     - `BAD_BUFFER` if the buffer is invalid or not locked.
+     * @return releaseFence Handle containing a file descriptor referring to a
+     *     sync fence object. The sync fence object will be signaled when the
+     *     mapper has completed any pending work. @p releaseFence may be an
+     *     empty fence.
+     */
+    flushLockedBuffer(pointer buffer) generates (Error error, handle releaseFence);
+
+    /**
+     * Rereads the contents of a locked buffer.
+     *
+     * This should fetch the most recent copy of the locked buffer.
+     *
+     * This function returns a pointer to the reread data. The client may
+     * not attempt to use their old pointer to access @p buffer's data. The
+     * client must use the new pointer returned by this function.
+     * This function may return the old pointer as the "new" pointer if the data
+     * pointer remains the same.
+     *
+     * Other locked copies of the same buffer MAY be reread as well.
+     * IMapper can choose to reread other locked copies of the buffer in
+     * the calling process as well as any other process. However, those
+     * locked copies of the buffer must still be safely accessible via their
+     * existing data pointers. Only the @p buffer's data pointer can be updated
+     * through the new pointer.
+     *
+     * The client is still responsible for calling unlock() when it is done
+     * with all CPU accesses to the buffer.
+     *
+     * @param buffer Buffer to reread.
+     * @return error Error status of the call, which may be
+     *     - `NONE` upon success.
+     *     - `BAD_BUFFER` if the buffer is invalid or not locked.
+     *     - `NO_RESOURCES` if the buffer cannot be reread at this time. Note
+     *       that locking may succeed at a later time.
+     * @return data CPU-accessible pointer to the reread buffer data.
+     */
+    rereadLockedBuffer(pointer buffer) generates(Error error, pointer data);
+
+    /**
      * Test whether the given BufferDescriptorInfo is allocatable.
      *
      * If this function returns true, it means that a buffer with the given
