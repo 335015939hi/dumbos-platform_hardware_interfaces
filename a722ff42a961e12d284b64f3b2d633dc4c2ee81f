@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "154d799c_8cab5cab",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4423,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-10-18T21:51:00Z",
+      "side": 1,
+      "message": "How about some attestations longer than 256 also, maybe in a separate test?  Just to make sure they can\u0027t screw that up.",
+      "range": {
+        "startLine": 4423,
+        "startChar": 24,
+        "endLine": 4423,
+        "endChar": 69
+      },
+      "revId": "a722ff42a961e12d284b64f3b2d633dc4c2ee81f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
