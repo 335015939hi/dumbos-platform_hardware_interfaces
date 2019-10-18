@@ -94,6 +94,30 @@
       "revId": "f4467bc224e5ee7b6ca4fc734858f4c0c14eaafc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73c28f46_4b8247c3",
+        "filename": "graphics/mapper/4.0/IMapper.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1468456
+      },
+      "writtenOn": "2019-10-18T17:12:55Z",
+      "side": 1,
+      "message": "Yes  - vendor clients. Additionally, if we need to add more things here even in AOSP - we don\u0027t have to do a major gralloc revision right?",
+      "parentUuid": "b30c6e42_462a8208",
+      "range": {
+        "startLine": 24,
+        "startChar": 11,
+        "endLine": 24,
+        "endChar": 31
+      },
+      "revId": "f4467bc224e5ee7b6ca4fc734858f4c0c14eaafc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
