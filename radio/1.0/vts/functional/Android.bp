@@ -33,7 +33,7 @@ cc_test {
     static_libs: [
         "android.hardware.radio@1.0",
     ],
-    test_suites: ["general-tests"],
+    test_suites: ["general-tests", "vts-core"],
 }
 
 cc_test {
@@ -47,7 +47,7 @@ cc_test {
     static_libs: [
         "android.hardware.radio@1.0",
     ],
-    test_suites: ["general-tests"],
+    test_suites: ["general-tests", "vts-core"],
 }
 
 cc_library_static {

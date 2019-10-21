@@ -14,12 +14,17 @@
  * limitations under the License.
  */
 
+#include <gtest/gtest.h>
+#include <hidl/GtestPrinter.h>
+#include <hidl/ServiceManagement.h>
 #include <sap_hidl_hal_utils.h>
 
+INSTANTIATE_TEST_SUITE_P(PerInstance, SapHidlTest,
+                         testing::ValuesIn((std::vector<std::string>){SAP_SERVICE_NAME}),
+                         android::hardware::PrintInstanceNameToString);
+
 int main(int argc, char** argv) {
-    ::testing::AddGlobalTestEnvironment(SapHidlEnvironment::Instance());
     ::testing::InitGoogleTest(&argc, argv);
-    SapHidlEnvironment::Instance()->init(&argc, argv);
 
     // setup seed for rand function
     int seedSrand = time(NULL);
