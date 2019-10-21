@@ -14,6 +14,9 @@
  * limitations under the License.
  */
 
+#include <gtest/gtest.h>
+#include <hidl/GtestPrinter.h>
+#include <hidl/ServiceManagement.h>
 #include <radio_hidl_hal_utils_v1_2.h>
 
 int main(int argc, char** argv) {

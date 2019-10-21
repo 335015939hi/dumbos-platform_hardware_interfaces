@@ -14,6 +14,9 @@
  * limitations under the License.
  */
 
+#include <gtest/gtest.h>
+#include <hidl/GtestPrinter.h>
+#include <hidl/ServiceManagement.h>
 #include <radio_hidl_hal_utils_v1_3.h>
 
 int main(int argc, char** argv) {
@@ -24,3 +27,8 @@ int main(int argc, char** argv) {
     LOG(INFO) << "Test result = " << status;
     return status;
 }
+INSTANTIATE_TEST_SUITE_P(
+        PerInstance, RadioHidlTest_v1_4,
+        testing::ValuesIn(android::hardware::getAllHalInstanceNames(
+            ::android::hardware::radio::V1_4::IRadio::descriptor)),
+        android::hardware::PrintInstanceNameToString);
