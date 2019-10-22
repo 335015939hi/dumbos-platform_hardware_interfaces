@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bb1a264a_3fc8f7a7",
+        "filename": "audio/core/all-versions/vts/functional/AudioPrimaryHidlHalTest.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 709,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2019-10-22T23:52:25Z",
+      "side": 1,
+      "message": "IStream is a binder interface. Don\u0027t we get a binderDied() notification when the object is destroyed in the remote process if we register a death listener on it?",
+      "range": {
+        "startLine": 709,
+        "startChar": 58,
+        "endLine": 709,
+        "endChar": 65
+      },
+      "revId": "5aa2002a38c5189b19fdfad85d76d599f990a561",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
