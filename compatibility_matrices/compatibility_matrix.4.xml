@@ -412,6 +412,14 @@
         </interface>
     </hal>
     <hal format="hidl" optional="true">
+        <name>android.hardware.storagekey</name>
+        <version>1.0</version>
+        <interface>
+            <name>IStorageKey</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
         <name>android.hardware.tetheroffload.config</name>
         <version>1.0</version>
         <interface>
