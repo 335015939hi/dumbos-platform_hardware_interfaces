@@ -105,6 +105,24 @@
       "revId": "50c9e25251cfabb53c44bf6486b6aa606d71852a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e71feca1_2f8d68f4",
+        "filename": "health/utils/libhealthloop/HealthLoop.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2019-10-22T19:18:24Z",
+      "side": 1,
+      "message": "Yes. When these two functions are executed on a different thread, since this function writes the event_handlers_ vector and MainLoop() reads it, it can go segfault. \n\nOne way to fix this is to have a \"state\" variable in the class, and here, check that it is called during initialization only. I\u0027ll put up a CL.",
+      "parentUuid": "02a4dcef_6feec7dc",
+      "revId": "50c9e25251cfabb53c44bf6486b6aa606d71852a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
