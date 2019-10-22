@@ -16,6 +16,24 @@
       "revId": "e74bc351f2279311a028622720ca46e92776434d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fef617dd_1799036d",
+        "filename": "boot/1.0/vts/functional/VtsHalBootV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1307893
+      },
+      "writtenOn": "2019-10-22T03:18:13Z",
+      "side": 1,
+      "message": "Yes, but reformatting can be consistent because some codes are indented differently.\ne.g. \nLine 158 has 4 indentations, but 149 rows have only 2 indentations.",
+      "parentUuid": "b58de32d_756acfca",
+      "revId": "e74bc351f2279311a028622720ca46e92776434d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
