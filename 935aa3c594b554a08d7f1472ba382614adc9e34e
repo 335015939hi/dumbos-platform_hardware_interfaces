@@ -34,6 +34,24 @@
       "revId": "935aa3c594b554a08d7f1472ba382614adc9e34e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "532d1af4_9fe8f3f0",
+        "filename": "nfc/1.0/vts/functional/VtsHalNfcV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-10-22T20:59:14Z",
+      "side": 1,
+      "message": "I tried it on master branch too, same result:\nhttps://tests.corp.google.com/target?showTestCases\u003dFAILURE\u0026showTestCases\u003dPASSED\u0026showTestCases\u003d\u0026id\u003d16847461-bcca-4957-a9c6-fa944ab09fd7\u0026searchFor\u003duser%3Adshi\u0026show\u003dINTERNAL_ERROR\u0026tab\u003dTest+Cases\u0026target\u003darm64-v8a+VtsHalNfcV1_0TargetTest\u0026view\u003dFLAT\u0026sortMethodsBy\u003dSTATUS\u0026showRuns\u003dSHOW_ALL_RUNS",
+      "parentUuid": "6ec0b182_24655660",
+      "revId": "935aa3c594b554a08d7f1472ba382614adc9e34e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
