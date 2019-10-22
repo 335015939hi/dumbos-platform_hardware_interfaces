@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1b34b7f6_baf349fb",
+        "filename": "health/2.1/vts/functional/VtsHalHealthV2_1TargetTest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2019-10-22T23:54:47Z",
+      "side": 1,
+      "message": "Should we make Callbacks_2_0 and Callbacks_2_1 just throw a warning and not cause a test failure? Worried about flakiness since we have a few time-outs here.",
+      "range": {
+        "startLine": 156,
+        "startChar": 22,
+        "endLine": 156,
+        "endChar": 27
+      },
+      "revId": "ed0fead8e42f11a6856178926548a03c61659753",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
