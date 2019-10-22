@@ -16,6 +16,24 @@
       "revId": "935aa3c594b554a08d7f1472ba382614adc9e34e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6ec0b182_24655660",
+        "filename": "nfc/1.0/vts/functional/VtsHalNfcV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-10-22T20:16:00Z",
+      "side": 1,
+      "message": "Nope. That is really strange. There are more than 5 tests here.",
+      "parentUuid": "29122fe8_a22b7487",
+      "revId": "935aa3c594b554a08d7f1472ba382614adc9e34e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
