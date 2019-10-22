@@ -1,0 +1,76 @@
+package android.hardware.storagekey@1.0;
+
+import android.hardware.keymaster@4.0::types;
+
+/**
+ * StorageKey HAL provides a mechanism to generate and protect storage keys
+ * in secure hardware (Key manager hardware, Strongbox or TEE). This ensures
+ * the plaintext key material is never present in the clear in vold or Linux kernel.
+ * vold in Android will generate FBE keys using this HAL and set the wrapped key in
+ * fscrypt. Implementors of this HAL must also have a mechanism in the kernel to unwrap
+ * and set the storage key in Inline crypto engine (or similar) securely without
+ * returning the key in the clear to the Linux kernel.
+ *
+ * This HAL is optional so does not require an implementation on device.
+ */
+interface IStorageKey {
+    /**
+      * Generates a new AES key, specifying associated parameters, which must be
+      * cryptographically bound to the key. Generated key enforces all key bindings
+      * supported by IKeymasterDevice for AES keys.
+      *
+      * @param keyParams Key generation parameters are defined as IKeymasterDevice tag/value pairs,
+      *        provided in params.  See above for detailed specifications of which tags are required
+      *        for which types of keys.
+      *
+      * @return keyBlob Opaque descriptor of the generated key.  The recommended implementation
+      *         strategy is to include an encrypted copy of the key material, wrapped in a key
+      *         unavailable outside secure hardware.
+      */
+    generateStorageKey(vec<KeyParameter> keyParams)
+        generates (ErrorCode error, vec<uint8_t> keyBlob);
+
+     /**
+      * Imports a new AES key, specifying associated parameters, which must be
+      * cryptographically bound to the key. Imported key enforces all key bindings
+      * supported by IKeymasterDevice for AES keys.
+      *
+      * @param keyParams Key generation parameters are defined as IKeymasterDevice tag/value pairs,
+      *        provided in params.  See above for detailed specifications of which tags are required
+      *        for which types of keys.
+      *
+      * @param keyData The key material to import, in the format specified in keyFormat.
+      *
+      * @return keyBlob Opaque descriptor of the generated key.  The recommended implementation
+      *         strategy is to include an encrypted copy of the key material, wrapped in a key
+      *         unavailable outside secure hardware.
+      */
+    importStorageKey(vec<KeyParameter> keyParams, vec<uint8_t> keyData)
+        generates (ErrorCode error, vec<uint8_t> keyBlob);
+
+    /**
+     * Exports the AES code in wrapped form. Enforces all 'hardwareEnforced' key authorization parameters
+     * mentioned under '== Authorization Enforcement ==' in IKeymasterDevice prior to exporting the key.
+     *
+     * keyBlob is unwrapped and re-wrapped using a per-boot ephemeral key generated within secure hardware.
+     * The format of the wrapped key is implementation specific. Wrapping algorithm is implementation specific
+     * as well but it is recommended to use an Authenticated encryption mode of AES (e.g: AES-SIV).
+     *
+     * @param keyBlob The opaque key descriptor returned by generateKey() or importKey().
+     *
+     * @return wrappedKeyMaterial Per-boot ephemeral key wrapped storage key.
+     */
+    exportStorageKey(vec<uint8_t> keyBlob)
+        generates (ErrorCode error, vec<uint8_t> wrappedKeyMaterial);
+
+    /**
+     * Deletes the key associated with the key blob.  Calling this function on a key
+     * with Tag::ROLLBACK_RESISTANCE in its hardware-enforced authorization list must render the key
+     * permanently unusable.  Keys without Tag::ROLLBACK_RESISTANCE may or may not be rendered
+     * unusable.
+     *
+     * @param keyBlob The opaque descriptor returned by generateKey() or importKey();
+     */
+    deleteStorageKey(vec<uint8_t> keyBlob)
+        generates (ErrorCode error);
+};
