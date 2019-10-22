@@ -123,6 +123,24 @@
       "revId": "50c9e25251cfabb53c44bf6486b6aa606d71852a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4132606_561cd241",
+        "filename": "health/utils/libhealthloop/HealthLoop.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2019-10-22T19:22:05Z",
+      "side": 1,
+      "message": "Actually, MainLoop only reads the size() of event_handlers_. In a race, MainLoop may call epoll_wait() with a smaller event count, which may cause events to not be depleted. I think this is acceptable (and is an existing \"bug\" before my change, if it is a bug).\n\nWe only add event handlers at the end of event_handlers_, so it is fine.",
+      "parentUuid": "e71feca1_2f8d68f4",
+      "revId": "50c9e25251cfabb53c44bf6486b6aa606d71852a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
