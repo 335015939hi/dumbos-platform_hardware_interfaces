@@ -1,0 +1,10 @@
+package android.hardware.storagekey@1.0;
+
+/**
+ * Symmetric block mode used by Storage keys
+ */
+enum StorageBlockMode : uint32_t {
+    CBC = 2,
+    CTS = 4,
+    XTS = 5,
+};
