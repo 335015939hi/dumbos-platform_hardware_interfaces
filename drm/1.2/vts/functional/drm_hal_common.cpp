@@ -101,17 +101,17 @@ void DrmHalTest::SetUp() {
           GetParam().c_str());
 
     string name = vendorModule->getServiceName();
-    drmFactory = VtsHalHidlTargetTestBase::getService<IDrmFactory>(name);
+    drmFactory = IDrmFactory::getService(name);
     if (drmFactory == nullptr) {
-        drmFactory = VtsHalHidlTargetTestBase::getService<IDrmFactory>();
+        drmFactory = IDrmFactory::getService();
     }
     if (drmFactory != nullptr) {
         drmPlugin = createDrmPlugin();
     }
 
-    cryptoFactory = VtsHalHidlTargetTestBase::getService<ICryptoFactory>(name);
+    cryptoFactory = ICryptoFactory::getService(name);
     if (cryptoFactory == nullptr) {
-        cryptoFactory = VtsHalHidlTargetTestBase::getService<ICryptoFactory>();
+        cryptoFactory = ICryptoFactory::getService();
     }
     if (cryptoFactory != nullptr) {
         cryptoPlugin = createCryptoPlugin();

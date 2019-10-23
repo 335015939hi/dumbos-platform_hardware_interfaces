@@ -34,9 +34,6 @@
 #include <openssl/aes.h>
 #include <random>
 
-#include "VtsHalHidlTargetTestBase.h"
-#include "VtsHalHidlTargetTestEnvBase.h"
-
 namespace drm = ::android::hardware::drm;
 using ::android::hardware::drm::V1_0::BufferType;
 using ::android::hardware::drm::V1_0::DestinationBuffer;
@@ -94,34 +91,8 @@ static const uint8_t kClearKeyUUID[16] = {
     0xE2, 0x71, 0x9D, 0x58, 0xA9, 0x85, 0xB3, 0xC9,
     0x78, 0x1A, 0xB0, 0x30, 0xAF, 0x78, 0xD3, 0x0E};
 
-// Test environment for drm
-class DrmHidlEnvironment : public ::testing::VtsHalHidlTargetTestEnvBase {
-   public:
-    // get the test environment singleton
-    static DrmHidlEnvironment* Instance() {
-        static DrmHidlEnvironment* instance = new DrmHidlEnvironment;
-        return instance;
-    }
-
-    virtual void HidlSetUp() override { ALOGI("SetUp DrmHidlEnvironment"); }
-
-    virtual void HidlTearDown() override { ALOGI("TearDown DrmHidlEnvironment"); }
-
-    void registerTestServices() override {
-        registerTestService<ICryptoFactory>();
-        registerTestService<IDrmFactory>();
-        setServiceCombMode(::testing::HalServiceCombMode::NO_COMBINATION);
-    }
-
-   private:
-    DrmHidlEnvironment() {}
-
-    GTEST_DISALLOW_COPY_AND_ASSIGN_(DrmHidlEnvironment);
-};
-
-
-class DrmHalClearkeyTest : public ::testing::VtsHalHidlTargetTestBase {
-public:
+class DrmHalClearkeyTest : public ::testing::Test {
+  public:
     virtual void SetUp() override {
         const ::testing::TestInfo* const test_info =
                 ::testing::UnitTest::GetInstance()->current_test_info();
@@ -134,8 +105,7 @@ public:
         manager->listManifestByInterface(IDrmFactory::descriptor,
                 [&](const hidl_vec<hidl_string> &registered) {
                     for (const auto &instance : registered) {
-                        sp<IDrmFactory> drmFactory =
-                                ::testing::VtsHalHidlTargetTestBase::getService<IDrmFactory>(instance);
+                        sp<IDrmFactory> drmFactory = IDrmFactory::getService(instance);
                         drmPlugin = createDrmPlugin(drmFactory);
                         if (drmPlugin != nullptr) {
                             break;
@@ -147,8 +117,7 @@ public:
         manager->listManifestByInterface(ICryptoFactory::descriptor,
                 [&](const hidl_vec<hidl_string> &registered) {
                     for (const auto &instance : registered) {
-                        sp<ICryptoFactory> cryptoFactory =
-                                ::testing::VtsHalHidlTargetTestBase::getService<ICryptoFactory>(instance);
+                        sp<ICryptoFactory> cryptoFactory = ICryptoFactory::getService(instance);
                         cryptoPlugin = createCryptoPlugin(cryptoFactory);
                         if (cryptoPlugin != nullptr) {
                             break;
@@ -264,7 +233,6 @@ protected:
  sp<IDrmPlugin> drmPlugin;
  sp<ICryptoPlugin> cryptoPlugin;
 };
-
 
 /**
  * Helper method to open a session and verify that a non-empty
@@ -861,14 +829,4 @@ TEST_F(DrmHalClearkeyTest, RemoveSecureStopById) {
                 EXPECT_EQ(0u, ids.size());
             });
     EXPECT_OK(res);
-}
-
-
-int main(int argc, char** argv) {
-    ::testing::AddGlobalTestEnvironment(DrmHidlEnvironment::Instance());
-    ::testing::InitGoogleTest(&argc, argv);
-    DrmHidlEnvironment::Instance()->init(&argc, argv);
-    int status = RUN_ALL_TESTS();
-    ALOGI("Test result = %d", status);
-    return status;
 }

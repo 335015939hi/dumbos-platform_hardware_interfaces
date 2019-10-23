@@ -33,7 +33,6 @@
 #include "drm_hal_vendor_module_api.h"
 #include "vendor_modules.h"
 #include <VtsHalHidlTargetCallbackBase.h>
-#include <VtsHalHidlTargetTestBase.h>
 
 using ::android::hardware::drm::V1_0::BufferType;
 using ::android::hardware::drm::V1_0::DestinationBuffer;
@@ -77,7 +76,6 @@ using std::vector;
 
 using ContentConfiguration = ::DrmHalVTSVendorModule_V1::ContentConfiguration;
 using Key = ::DrmHalVTSVendorModule_V1::ContentConfiguration::Key;
-using VtsTestBase = ::testing::VtsHalHidlTargetTestBase;
 
 #define ASSERT_OK(ret) ASSERT_TRUE(ret.isOk())
 #define EXPECT_OK(ret) EXPECT_TRUE(ret.isOk())
@@ -96,27 +94,6 @@ static const uint8_t kInvalidUUID[16] = {
 };
 
 static drm_vts::VendorModules* gVendorModules = nullptr;
-
-// Test environment for drm
-class DrmHidlEnvironment : public ::testing::VtsHalHidlTargetTestEnvBase {
-   public:
-    // get the test environment singleton
-    static DrmHidlEnvironment* Instance() {
-        static DrmHidlEnvironment* instance = new DrmHidlEnvironment;
-        return instance;
-    }
-
-    void registerTestServices() override {
-        registerTestService<ICryptoFactory>();
-        registerTestService<IDrmFactory>();
-        setServiceCombMode(::testing::HalServiceCombMode::NO_COMBINATION);
-    }
-
-   private:
-    DrmHidlEnvironment() {}
-
-    GTEST_DISALLOW_COPY_AND_ASSIGN_(DrmHidlEnvironment);
-};
 
 class DrmHalVendorFactoryTest : public testing::TestWithParam<std::string> {
    public:
@@ -140,16 +117,16 @@ class DrmHalVendorFactoryTest : public testing::TestWithParam<std::string> {
         // If that fails, which it can on non-binderized devices, try the default
         // service.
         string name = vendorModule->getServiceName();
-        drmFactory = VtsTestBase::getService<IDrmFactory>(name);
+        drmFactory = IDrmFactory::getService(name);
         if (drmFactory == nullptr) {
-            drmFactory = VtsTestBase::getService<IDrmFactory>();
+            drmFactory = IDrmFactory::getService();
         }
         ASSERT_NE(nullptr, drmFactory.get());
 
         // Do the same for the crypto factory
-        cryptoFactory = VtsTestBase::getService<ICryptoFactory>(name);
+        cryptoFactory = ICryptoFactory::getService(name);
         if (cryptoFactory == nullptr) {
-            cryptoFactory = VtsTestBase::getService<ICryptoFactory>();
+            cryptoFactory = ICryptoFactory::getService();
         }
         ASSERT_NE(nullptr, cryptoFactory.get());
 
@@ -1619,9 +1596,7 @@ int main(int argc, char** argv) {
         std::cerr << "WARNING: No vendor modules found in " << kModulePath <<
                 ", all vendor tests will be skipped" << std::endl;
     }
-    ::testing::AddGlobalTestEnvironment(DrmHidlEnvironment::Instance());
     ::testing::InitGoogleTest(&argc, argv);
-    DrmHidlEnvironment::Instance()->init(&argc, argv);
     int status = RUN_ALL_TESTS();
     ALOGI("Test result = %d", status);
     return status;
