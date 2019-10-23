@@ -70,6 +70,24 @@
       "revId": "935aa3c594b554a08d7f1472ba382614adc9e34e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53db1563_8b101313",
+        "filename": "nfc/1.0/vts/functional/VtsHalNfcV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-10-23T01:09:33Z",
+      "side": 1,
+      "message": "yeah, it\u0027s a timeout. That method took over a minute to finish. Add an option to the test config can solve the problem. I will set the timeout to 3 minutes (default is 1min).",
+      "parentUuid": "13bc87de_a5bad585",
+      "revId": "935aa3c594b554a08d7f1472ba382614adc9e34e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
