@@ -30,8 +30,6 @@
 #include <openssl/aes.h>
 #include <random>
 
-#include "VtsHalHidlTargetTestBase.h"
-
 using ::android::hardware::drm::V1_0::BufferType;
 using ::android::hardware::drm::V1_0::DestinationBuffer;
 using ::android::hardware::drm::V1_0::ICryptoFactory;
@@ -89,19 +87,17 @@ static const uint8_t kInvalidUUID[16] = {
     0x10, 0x20, 0x30, 0x40, 0x50, 0x60, 0x70, 0x80,
     0x10, 0x20, 0x30, 0x40, 0x50, 0x60, 0x70, 0x80};
 
-class DrmHalClearkeyFactoryTest : public ::testing::VtsHalHidlTargetTestBase {
-   public:
+class DrmHalClearkeyFactoryTest : public ::testing::Test {
+  public:
     virtual void SetUp() override {
         const ::testing::TestInfo* const test_info =
                 ::testing::UnitTest::GetInstance()->current_test_info();
         ALOGD("Running test %s.%s", test_info->test_case_name(),
               test_info->name());
 
-        drmFactory =
-                ::testing::VtsHalHidlTargetTestBase::getService<IDrmFactory>();
+        drmFactory = IDrmFactory::getService();
         ASSERT_NE(nullptr, drmFactory.get());
-        cryptoFactory =
-                ::testing::VtsHalHidlTargetTestBase::getService<ICryptoFactory>();
+        cryptoFactory = ICryptoFactory::getService();
         ASSERT_NE(nullptr, cryptoFactory.get());
     }
 

@@ -101,21 +101,13 @@ void DrmHalTest::SetUp() {
           GetParam().c_str());
 
     string name = vendorModule->getServiceName();
-    drmFactory = VtsHalHidlTargetTestBase::getService<IDrmFactory>(name);
-    if (drmFactory == nullptr) {
-        drmFactory = VtsHalHidlTargetTestBase::getService<IDrmFactory>();
-    }
-    if (drmFactory != nullptr) {
-        drmPlugin = createDrmPlugin();
-    }
+    drmFactory = IDrmFactory::getService(name);
+    ASSERT_NE(drmFactory, nullptr);
+    drmPlugin = createDrmPlugin();
 
-    cryptoFactory = VtsHalHidlTargetTestBase::getService<ICryptoFactory>(name);
-    if (cryptoFactory == nullptr) {
-        cryptoFactory = VtsHalHidlTargetTestBase::getService<ICryptoFactory>();
-    }
-    if (cryptoFactory != nullptr) {
-        cryptoPlugin = createCryptoPlugin();
-    }
+    cryptoFactory = ICryptoFactory::getService(name);
+    ASSERT_NE(cryptoFactory, nullptr);
+    cryptoPlugin = createCryptoPlugin();
 
     // If drm scheme not installed skip subsequent tests
     if (!drmFactory->isCryptoSchemeSupported(getVendorUUID())) {

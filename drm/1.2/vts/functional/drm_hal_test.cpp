@@ -35,7 +35,6 @@ using ::android::hardware::drm::V1_2::OfflineLicenseState;
 using ::android::hardware::drm::V1_2::vts::DrmHalClearkeyTest;
 using ::android::hardware::drm::V1_2::vts::DrmHalPluginListener;
 using ::android::hardware::drm::V1_2::vts::DrmHalTest;
-using ::android::hardware::drm::V1_2::vts::DrmHidlEnvironment;
 using ::android::hardware::drm::V1_2::vts::kCallbackLostState;
 using ::android::hardware::drm::V1_2::vts::kCallbackKeysChange;
 
@@ -582,9 +581,7 @@ int main(int argc, char** argv) {
         std::cerr << "WARNING: No vendor modules found in " << kModulePath <<
                 ", all vendor tests will be skipped" << std::endl;
     }
-    ::testing::AddGlobalTestEnvironment(DrmHidlEnvironment::Instance());
     ::testing::InitGoogleTest(&argc, argv);
-    DrmHidlEnvironment::Instance()->init(&argc, argv);
     int status = RUN_ALL_TESTS();
     ALOGI("Test result = %d", status);
     return status;

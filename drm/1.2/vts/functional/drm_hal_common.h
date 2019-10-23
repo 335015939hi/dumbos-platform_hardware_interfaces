@@ -33,7 +33,6 @@
 #include "drm_hal_vendor_module_api.h"
 #include "vendor_modules.h"
 #include "VtsHalHidlTargetCallbackBase.h"
-#include "VtsHalHidlTargetTestBase.h"
 
 using ::android::hardware::drm::V1_0::EventType;
 using ::android::hardware::drm::V1_0::KeyedVector;
@@ -56,8 +55,6 @@ using ::android::hardware::Void;
 using ::android::hidl::memory::V1_0::IMemory;
 using ::android::sp;
 
-using ::testing::VtsHalHidlTargetTestBase;
-
 using std::map;
 using std::string;
 using std::unique_ptr;
@@ -78,26 +75,6 @@ namespace hardware {
 namespace drm {
 namespace V1_2 {
 namespace vts {
-
-class DrmHidlEnvironment : public ::testing::VtsHalHidlTargetTestEnvBase {
-   public:
-    // get the test environment singleton
-    static DrmHidlEnvironment* Instance() {
-        static DrmHidlEnvironment* instance = new DrmHidlEnvironment;
-        return instance;
-    }
-
-    void registerTestServices() override {
-        registerTestService<ICryptoFactory>();
-        registerTestService<IDrmFactory>();
-        setServiceCombMode(::testing::HalServiceCombMode::NO_COMBINATION);
-    }
-
-   private:
-    DrmHidlEnvironment() {}
-
-    GTEST_DISALLOW_COPY_AND_ASSIGN_(DrmHidlEnvironment);
-};
 
 class DrmHalTest : public ::testing::TestWithParam<std::string> {
    public:
