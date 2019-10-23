@@ -34,6 +34,24 @@
       "revId": "e74bc351f2279311a028622720ca46e92776434d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04004ee7_c7a7acb1",
+        "filename": "boot/1.0/vts/functional/VtsHalBootV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1307893
+      },
+      "writtenOn": "2019-10-23T01:59:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "fef617dd_1799036d",
+      "revId": "e74bc351f2279311a028622720ca46e92776434d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
