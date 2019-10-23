@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "383b25cd_88731077",
+        "filename": "bootloader_message/1.0/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-10-23T00:28:48Z",
+      "side": 1,
+      "message": "could we group this under boot.message instead to keep hardware/interfaces slightly cleaner?",
+      "range": {
+        "startLine": 4,
+        "startChar": 28,
+        "endLine": 4,
+        "endChar": 46
+      },
+      "revId": "f4a3c29d58ceb6675e24424f6c39938aa74cfd70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "465d5b2d_9b9e1d3e",
         "filename": "bootloader_message/1.0/IBootloaderMessage.hal",
         "patchSetId": 5
