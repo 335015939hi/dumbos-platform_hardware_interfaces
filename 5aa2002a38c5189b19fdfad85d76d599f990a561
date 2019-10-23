@@ -70,6 +70,30 @@
       "revId": "5aa2002a38c5189b19fdfad85d76d599f990a561",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "23362ee7_8a43fbb1",
+        "filename": "audio/core/all-versions/vts/functional/AudioPrimaryHidlHalTest.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 709,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2019-10-23T16:06:26Z",
+      "side": 1,
+      "message": "We have a bug b/114451103 to track this issue.",
+      "parentUuid": "4566c470_8f4c8d29",
+      "range": {
+        "startLine": 709,
+        "startChar": 58,
+        "endLine": 709,
+        "endChar": 65
+      },
+      "revId": "5aa2002a38c5189b19fdfad85d76d599f990a561",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
