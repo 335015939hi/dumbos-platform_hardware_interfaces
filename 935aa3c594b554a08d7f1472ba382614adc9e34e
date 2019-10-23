@@ -88,6 +88,24 @@
       "revId": "935aa3c594b554a08d7f1472ba382614adc9e34e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7613928_5c7346fb",
+        "filename": "nfc/1.0/vts/functional/VtsHalNfcV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-10-23T01:35:58Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "53db1563_8b101313",
+      "revId": "935aa3c594b554a08d7f1472ba382614adc9e34e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
