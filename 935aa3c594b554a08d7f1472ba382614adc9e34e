@@ -52,6 +52,24 @@
       "revId": "935aa3c594b554a08d7f1472ba382614adc9e34e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13bc87de_a5bad585",
+        "filename": "nfc/1.0/vts/functional/VtsHalNfcV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-10-23T00:25:08Z",
+      "side": 1,
+      "message": "It seems like it is throwing an error and quitting:\nPerInstance/NfcHidlTest.Bandwidth/0_default\t01:06.669\nNo test results.\n\nMust be a crash or timeout or other problem. Can you investigate?",
+      "parentUuid": "532d1af4_9fe8f3f0",
+      "revId": "935aa3c594b554a08d7f1472ba382614adc9e34e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
