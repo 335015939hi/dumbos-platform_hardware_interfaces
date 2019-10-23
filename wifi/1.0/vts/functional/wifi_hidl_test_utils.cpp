@@ -88,9 +88,12 @@ bool configureChipToSupportIfaceTypeInternal(const sp<IWifiChip>& wifi_chip,
 }  // namespace
 
 sp<IWifi> getWifi() {
-    sp<IWifi> wifi = ::testing::VtsHalHidlTargetTestBase::getService<IWifi>(
-        gEnv->getServiceName<IWifi>());
-    return wifi;
+    if (gEnv != nullptr) {
+        return ::testing::VtsHalHidlTargetTestBase::getService<IWifi>(
+            gEnv->getServiceName<IWifi>());
+    } else {
+        return IWifi::getService();
+    }
 }
 
 sp<IWifiChip> getWifiChip() {
