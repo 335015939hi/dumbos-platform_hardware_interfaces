@@ -22,6 +22,30 @@
       "revId": "ed0fead8e42f11a6856178926548a03c61659753",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "080f7ddf_7ded4af7",
+        "filename": "health/2.1/vts/functional/VtsHalHealthV2_1TargetTest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2019-10-23T17:13:36Z",
+      "side": 1,
+      "message": "It is expected that the health HAL calls these callbacks when  update() is called. L156 / L157 doesn\u0027t throw any warnings. I can make the timeout in L162/163 longer though.",
+      "parentUuid": "1b34b7f6_baf349fb",
+      "range": {
+        "startLine": 156,
+        "startChar": 22,
+        "endLine": 156,
+        "endChar": 27
+      },
+      "revId": "ed0fead8e42f11a6856178926548a03c61659753",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
