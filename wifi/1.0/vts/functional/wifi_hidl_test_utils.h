@@ -32,13 +32,27 @@
 // These helper functions should be modified to return vectors if we support
 // multiple instances.
 android::sp<android::hardware::wifi::V1_0::IWifi> getWifi();
+android::sp<android::hardware::wifi::V1_0::IWifi> getWifi(
+    const std::string& instance_name);
 android::sp<android::hardware::wifi::V1_0::IWifiChip> getWifiChip();
+android::sp<android::hardware::wifi::V1_0::IWifiChip> getWifiChip(
+    const std::string& instance_name);
 android::sp<android::hardware::wifi::V1_0::IWifiApIface> getWifiApIface();
+android::sp<android::hardware::wifi::V1_0::IWifiApIface> getWifiApIface(
+    const std::string& instance_name);
 android::sp<android::hardware::wifi::V1_0::IWifiNanIface> getWifiNanIface();
+android::sp<android::hardware::wifi::V1_0::IWifiNanIface> getWifiNanIface(
+    const std::string& instance_name);
 android::sp<android::hardware::wifi::V1_0::IWifiP2pIface> getWifiP2pIface();
+android::sp<android::hardware::wifi::V1_0::IWifiP2pIface> getWifiP2pIface(
+    const std::string& instance_name);
 android::sp<android::hardware::wifi::V1_0::IWifiStaIface> getWifiStaIface();
+android::sp<android::hardware::wifi::V1_0::IWifiStaIface> getWifiStaIface(
+    const std::string& instance_name);
 android::sp<android::hardware::wifi::V1_0::IWifiRttController>
 getWifiRttController();
+android::sp<android::hardware::wifi::V1_0::IWifiRttController>
+getWifiRttController(const std::string& instance_name);
 // Configure the chip in a mode to support the creation of the provided
 // iface type.
 bool configureChipToSupportIfaceType(
@@ -47,6 +61,7 @@ bool configureChipToSupportIfaceType(
     android::hardware::wifi::V1_0::ChipModeId* configured_mode_id);
 // Used to trigger IWifi.stop() at the end of every test.
 void stopWifi();
+void stopWifi(const std::string& instance_name);
 
 class WifiHidlEnvironment : public ::testing::VtsHalHidlTargetTestEnvBase {
    protected:
