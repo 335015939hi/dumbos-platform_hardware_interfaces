@@ -44,8 +44,6 @@ using ::android::hidl::manager::V1_0::IServiceNotification;
 using ::android::wifi_system::HostapdManager;
 using ::android::wifi_system::SupplicantManager;
 
-extern WifiHostapdHidlEnvironment* gEnv;
-
 namespace {
 // Helper function to initialize the driver and firmware to AP mode
 // using the vendor HAL HIDL interface.
@@ -127,12 +125,11 @@ void stopHostapd() {
     deInitilializeDriverAndFirmware();
 }
 
-void startHostapdAndWaitForHidlService() {
+void startHostapdAndWaitForHidlService(std::string service_name) {
     initilializeDriverAndFirmware();
 
     android::sp<ServiceNotificationListener> notification_listener =
         new ServiceNotificationListener();
-    string service_name = gEnv->getServiceName<IHostapd>();
     ASSERT_TRUE(notification_listener->registerForHidlServiceNotifications(
         service_name));
 
@@ -146,9 +143,4 @@ bool is_1_1(const sp<IHostapd>& hostapd) {
     sp<::android::hardware::wifi::hostapd::V1_1::IHostapd> hostapd_1_1 =
         ::android::hardware::wifi::hostapd::V1_1::IHostapd::castFrom(hostapd);
     return hostapd_1_1.get() != nullptr;
-}
-
-sp<IHostapd> getHostapd() {
-    return ::testing::VtsHalHidlTargetTestBase::getService<IHostapd>(
-        gEnv->getServiceName<IHostapd>());
 }
