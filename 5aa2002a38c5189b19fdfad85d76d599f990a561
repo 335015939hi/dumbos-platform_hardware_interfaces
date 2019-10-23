@@ -22,6 +22,30 @@
       "revId": "5aa2002a38c5189b19fdfad85d76d599f990a561",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d500761_e0005c59",
+        "filename": "audio/core/all-versions/vts/functional/AudioPrimaryHidlHalTest.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 709,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2019-10-23T00:23:55Z",
+      "side": 1,
+      "message": "In order to register and continue receiving \u0027binderDied\u0027 notifications there needs to be a client object. But having a client object prevents the server object from being destroyed. There are no \"weak\" binder proxies that would allow keeping a client object and allowing the server object to die; for example, wp\u003cIStream\u003e is a weak local reference to a binder proxy object, not a weak proxy.\n\nWe were looking for any possible loopholes with the Treble team and found none. The correct way for dealing with this situation is to have an explicit synchronous call (or a callback) that would inform the client that the server resource has been released.",
+      "parentUuid": "bb1a264a_3fc8f7a7",
+      "range": {
+        "startLine": 709,
+        "startChar": 58,
+        "endLine": 709,
+        "endChar": 65
+      },
+      "revId": "5aa2002a38c5189b19fdfad85d76d599f990a561",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
