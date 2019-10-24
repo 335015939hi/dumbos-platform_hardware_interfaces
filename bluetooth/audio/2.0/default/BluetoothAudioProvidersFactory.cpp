@@ -37,6 +37,8 @@ A2dpOffloadAudioProvider
     BluetoothAudioProvidersFactory::a2dp_offload_provider_instance_;
 HearingAidAudioProvider
     BluetoothAudioProvidersFactory::hearing_aid_provider_instance_;
+LeAudioAudioProvider
+    BluetoothAudioProvidersFactory::leaudio_provider_instance_;
 
 Return<void> BluetoothAudioProvidersFactory::openProvider(
     const SessionType sessionType, openProvider_cb _hidl_cb) {
@@ -52,6 +54,9 @@ Return<void> BluetoothAudioProvidersFactory::openProvider(
       break;
     case SessionType::HEARING_AID_SOFTWARE_ENCODING_DATAPATH:
       provider = &hearing_aid_provider_instance_;
+      break;
+    case SessionType::LE_AUDIO_SOFTWARE_ENCODING_DATAPATH:
+      provider = &leaudio_provider_instance_;
       break;
     default:
       status = BluetoothAudioStatus::FAILURE;

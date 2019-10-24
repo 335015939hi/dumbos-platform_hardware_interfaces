@@ -271,10 +271,13 @@ class BluetoothAudioProvidersFactoryHidlTest
   // to Bluetooth stack
   sp<IBluetoothAudioPort> audio_port_;
 
-  static constexpr SessionType session_types_[4] = {
-      SessionType::UNKNOWN, SessionType::A2DP_SOFTWARE_ENCODING_DATAPATH,
+  static constexpr SessionType session_types_[] = {
+      SessionType::UNKNOWN,
+      SessionType::A2DP_SOFTWARE_ENCODING_DATAPATH,
       SessionType::A2DP_HARDWARE_OFFLOAD_DATAPATH,
-      SessionType::HEARING_AID_SOFTWARE_ENCODING_DATAPATH};
+      SessionType::HEARING_AID_SOFTWARE_ENCODING_DATAPATH,
+      SessionType::LE_AUDIO_SOFTWARE_ENCODING_DATAPATH
+  };
 };
 
 /**
