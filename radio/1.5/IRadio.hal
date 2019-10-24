@@ -1,0 +1,15 @@
+package android.hardware.radio@1.5;
+
+import @1.4::IRadio;
+
+interface IRadio extends @1.4::IRadio {
+   /**
+     * Set current CLIP status
+     *
+     * @param serial Serial number of request.
+     * @param status "n" parameter indicates CLIP status
+     *
+     * Response function is IRadioResponse.setClipResponse()
+     */
+    oneway setClip(int32_t serial, int32_t status);
+};
