@@ -27,4 +27,13 @@ import @1.4::IRadio;
  * setResponseFunctions must work with @1.5::IRadioResponse and @1.5::IRadioIndication.
  */
 interface IRadio extends @1.4::IRadio {
+    /**
+     * Set current CLIP status
+     *
+     * @param serial Serial number of request.
+     * @param status "n" parameter indicates CLIP status
+     *
+     * Response function is IRadioResponse.setClipResponse()
+     */
+    oneway setClip(int32_t serial, int32_t status);
 };
