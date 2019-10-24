@@ -46,6 +46,30 @@
       "revId": "a722ff42a961e12d284b64f3b2d633dc4c2ee81f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf5783b0_e0253980",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4423,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2019-10-24T22:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85701b62_9f7ab98f",
+      "range": {
+        "startLine": 4423,
+        "startChar": 24,
+        "endLine": 4423,
+        "endChar": 69
+      },
+      "revId": "a722ff42a961e12d284b64f3b2d633dc4c2ee81f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
