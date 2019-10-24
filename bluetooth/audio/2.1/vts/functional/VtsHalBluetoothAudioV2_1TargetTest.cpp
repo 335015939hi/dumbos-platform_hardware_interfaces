@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 The Android Open Source Project
+ * Copyright 2020 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,8 +18,8 @@
 
 #include <android-base/logging.h>
 #include <android/hardware/bluetooth/audio/2.0/IBluetoothAudioPort.h>
-#include <android/hardware/bluetooth/audio/2.0/IBluetoothAudioProvider.h>
-#include <android/hardware/bluetooth/audio/2.0/IBluetoothAudioProvidersFactory.h>
+#include <android/hardware/bluetooth/audio/2.1/IBluetoothAudioProvider.h>
+#include <android/hardware/bluetooth/audio/2.1/IBluetoothAudioProvidersFactory.h>
 #include <fmq/MessageQueue.h>
 #include <gtest/gtest.h>
 #include <hidl/GtestPrinter.h>
@@ -49,13 +49,13 @@ using ::android::hardware::bluetooth::audio::V2_0::CodecConfiguration;
 using ::android::hardware::bluetooth::audio::V2_0::CodecType;
 using ::android::hardware::bluetooth::audio::V2_0::IBluetoothAudioPort;
 using ::android::hardware::bluetooth::audio::V2_0::IBluetoothAudioProvider;
-using ::android::hardware::bluetooth::audio::V2_0::
+using ::android::hardware::bluetooth::audio::V2_1::
     IBluetoothAudioProvidersFactory;
 using ::android::hardware::bluetooth::audio::V2_0::LdacChannelMode;
 using ::android::hardware::bluetooth::audio::V2_0::LdacParameters;
 using ::android::hardware::bluetooth::audio::V2_0::LdacQualityIndex;
 using ::android::hardware::bluetooth::audio::V2_0::PcmParameters;
-using ::android::hardware::bluetooth::audio::V2_0::SampleRate;
+using ::android::hardware::bluetooth::audio::V2_1::SampleRate;
 using ::android::hardware::bluetooth::audio::V2_0::SbcAllocMethod;
 using ::android::hardware::bluetooth::audio::V2_0::SbcBlockLength;
 using ::android::hardware::bluetooth::audio::V2_0::SbcChannelMode;
@@ -70,9 +70,9 @@ using CodecSpecificConfig = ::android::hardware::bluetooth::audio::V2_0::
     CodecConfiguration::CodecSpecific;
 
 namespace {
-constexpr SampleRate a2dp_sample_rates[5] = {
-    SampleRate::RATE_UNKNOWN, SampleRate::RATE_44100, SampleRate::RATE_48000,
-    SampleRate::RATE_88200, SampleRate::RATE_96000};
+constexpr android::hardware::bluetooth::audio::V2_0::SampleRate a2dp_sample_rates[5] = {
+    android::hardware::bluetooth::audio::V2_0::SampleRate::RATE_UNKNOWN, android::hardware::bluetooth::audio::V2_0::SampleRate::RATE_44100, android::hardware::bluetooth::audio::V2_0::SampleRate::RATE_48000,
+    android::hardware::bluetooth::audio::V2_0::SampleRate::RATE_88200, android::hardware::bluetooth::audio::V2_0::SampleRate::RATE_96000};
 constexpr BitsPerSample a2dp_bits_per_samples[4] = {
     BitsPerSample::BITS_UNKNOWN, BitsPerSample::BITS_16, BitsPerSample::BITS_24,
     BitsPerSample::BITS_32};
@@ -212,6 +212,24 @@ class BluetoothAudioProvidersFactoryHidlTest
     }
   }
 
+  void GetProviderCapabilitiesHelper_2_1(const android::hardware::bluetooth::audio::V2_1::SessionType& session_type) {
+    temp_provider_capabilities_2_1_.clear();
+    auto hidl_cb = [& temp_capabilities = this->temp_provider_capabilities_2_1_](
+                       const hidl_vec<android::hardware::bluetooth::audio::V2_1::AudioCapabilities>& audioCapabilities) {
+      for (auto audioCapability : audioCapabilities)
+        temp_capabilities.push_back(audioCapability);
+    };
+    auto hidl_retval =
+        providers_factory_->getProviderCapabilities_2_1(session_type, hidl_cb);
+    // HIDL calls should not be failed and callback has to be executed
+    ASSERT_TRUE(hidl_retval.isOk());
+
+    // All software paths are mandatory and must have exact 1 "PcmParameters"
+    ASSERT_EQ(temp_provider_capabilities_2_1_.size(), 1);
+    ASSERT_EQ(temp_provider_capabilities_2_1_[0].getDiscriminator(),
+              android::hardware::bluetooth::audio::V2_1::AudioCapabilities::hidl_discriminator::pcmCapabilities);
+  }
+
   // This helps to open the specified provider and check the openProvider()
   // has corruct return values. BUT, to keep it simple, it does not consider
   // the capability, and please do so at the SetUp of each session's test.
@@ -239,6 +257,31 @@ class BluetoothAudioProvidersFactoryHidlTest
     }
   }
 
+  // This helps to open the specified provider and check the openProvider_2_1()
+  // has corruct return values. BUT, to keep it simple, it does not consider
+  // the capability, and please do so at the SetUp of each session's test.
+  void OpenProviderHelper_2_1(const android::hardware::bluetooth::audio::V2_1::SessionType& session_type) {
+    BluetoothAudioStatus cb_status;
+    auto hidl_cb = [&cb_status, &local_provider = this->audio_provider_2_1_](
+                       BluetoothAudioStatus status,
+                       const sp<android::hardware::bluetooth::audio::V2_1::IBluetoothAudioProvider>& provider) {
+      cb_status = status;
+      local_provider = provider;
+    };
+    auto hidl_retval = providers_factory_->openProvider_2_1(session_type, hidl_cb);
+    // HIDL calls should not be failed and callback has to be executed
+    ASSERT_TRUE(hidl_retval.isOk());
+    if (cb_status == BluetoothAudioStatus::SUCCESS) {
+      ASSERT_NE(session_type, android::hardware::bluetooth::audio::V2_1::SessionType::UNKNOWN);
+      ASSERT_NE(audio_provider_2_1_, nullptr);
+      audio_port_ = new BluetoothAudioPort(*this);
+    } else {
+      ASSERT_TRUE(session_type == android::hardware::bluetooth::audio::V2_1::SessionType::UNKNOWN);
+      ASSERT_EQ(cb_status, BluetoothAudioStatus::FAILURE);
+      ASSERT_EQ(audio_provider_2_1_, nullptr);
+    }
+  }
+
   bool IsPcmParametersSupported(const PcmParameters& pcm_parameters) {
     if (temp_provider_capabilities_.size() != 1 ||
         temp_provider_capabilities_[0].getDiscriminator() !=
@@ -247,9 +290,28 @@ class BluetoothAudioProvidersFactoryHidlTest
     }
     auto pcm_capability = temp_provider_capabilities_[0].pcmCapabilities();
     bool is_parameter_valid =
-        (pcm_parameters.sampleRate != SampleRate::RATE_UNKNOWN &&
+        (pcm_parameters.sampleRate != android::hardware::bluetooth::audio::V2_0::SampleRate::RATE_UNKNOWN &&
          pcm_parameters.channelMode != ChannelMode::UNKNOWN &&
          pcm_parameters.bitsPerSample != BitsPerSample::BITS_UNKNOWN);
+    bool is_parameter_in_capability =
+        (pcm_capability.sampleRate & pcm_parameters.sampleRate &&
+         pcm_capability.channelMode & pcm_parameters.channelMode &&
+         pcm_capability.bitsPerSample & pcm_parameters.bitsPerSample);
+    return is_parameter_valid && is_parameter_in_capability;
+  }
+
+  bool IsPcmParametersSupported_2_1(const android::hardware::bluetooth::audio::V2_1::PcmParameters& pcm_parameters) {
+    if (temp_provider_capabilities_2_1_.size() != 1 ||
+        temp_provider_capabilities_2_1_[0].getDiscriminator() !=
+            android::hardware::bluetooth::audio::V2_1::AudioCapabilities::hidl_discriminator::pcmCapabilities) {
+      return false;
+    }
+    auto pcm_capability = temp_provider_capabilities_2_1_[0].pcmCapabilities();
+    bool is_parameter_valid =
+        (pcm_parameters.sampleRate != SampleRate::RATE_UNKNOWN &&
+         pcm_parameters.channelMode != ChannelMode::UNKNOWN &&
+         pcm_parameters.bitsPerSample != BitsPerSample::BITS_UNKNOWN &&
+         pcm_parameters.dataIntervalUs != 0);
     bool is_parameter_in_capability =
         (pcm_capability.sampleRate & pcm_parameters.sampleRate &&
          pcm_capability.channelMode & pcm_parameters.channelMode &&
@@ -267,6 +329,7 @@ class BluetoothAudioProvidersFactoryHidlTest
   // audio_provider_ is for the Bluetooth stack to report session started/ended
   // and handled audio stream started / suspended
   sp<IBluetoothAudioProvider> audio_provider_;
+  sp<android::hardware::bluetooth::audio::V2_1::IBluetoothAudioProvider> audio_provider_2_1_;
 
   // audio_port_ is for the Audio HAL to send stream start/suspend/stop commands
   // to Bluetooth stack
@@ -413,7 +476,7 @@ class BluetoothAudioProviderA2dpHardwareHidlTest
     if (sbc_capability.minBitpool > sbc_capability.maxBitpool) {
       return sbc_codec_specifics;
     }
-    std::vector<SampleRate> sample_rates = ExtractValuesFromBitmask<SampleRate>(
+    std::vector<android::hardware::bluetooth::audio::V2_0::SampleRate> sample_rates = ExtractValuesFromBitmask<android::hardware::bluetooth::audio::V2_0::SampleRate>(
         sbc_capability.sampleRate, 0xff, supported);
     std::vector<SbcChannelMode> channel_modes =
         ExtractValuesFromBitmask<SbcChannelMode>(sbc_capability.channelMode,
@@ -472,7 +535,7 @@ class BluetoothAudioProviderA2dpHardwareHidlTest
     std::vector<AacObjectType> object_types =
         ExtractValuesFromBitmask<AacObjectType>(aac_capability.objectType, 0xf0,
                                                 supported);
-    std::vector<SampleRate> sample_rates = ExtractValuesFromBitmask<SampleRate>(
+    std::vector<android::hardware::bluetooth::audio::V2_0::SampleRate> sample_rates = ExtractValuesFromBitmask<android::hardware::bluetooth::audio::V2_0::SampleRate>(
         aac_capability.sampleRate, 0xff, supported);
     std::vector<ChannelMode> channel_modes =
         ExtractValuesFromBitmask<ChannelMode>(aac_capability.channelMode, 0x03,
@@ -519,7 +582,7 @@ class BluetoothAudioProviderA2dpHardwareHidlTest
     // parse the capability
     LdacParameters ldac_capability =
         temp_codec_capabilities_.capabilities.ldacCapabilities();
-    std::vector<SampleRate> sample_rates = ExtractValuesFromBitmask<SampleRate>(
+    std::vector<android::hardware::bluetooth::audio::V2_0::SampleRate> sample_rates = ExtractValuesFromBitmask<android::hardware::bluetooth::audio::V2_0::SampleRate>(
         ldac_capability.sampleRate, 0xff, supported);
     std::vector<LdacChannelMode> channel_modes =
         ExtractValuesFromBitmask<LdacChannelMode>(ldac_capability.channelMode,
@@ -563,7 +626,7 @@ class BluetoothAudioProviderA2dpHardwareHidlTest
     // parse the capability
     AptxParameters aptx_capability =
         temp_codec_capabilities_.capabilities.aptxCapabilities();
-    std::vector<SampleRate> sample_rates = ExtractValuesFromBitmask<SampleRate>(
+    std::vector<android::hardware::bluetooth::audio::V2_0::SampleRate> sample_rates = ExtractValuesFromBitmask<android::hardware::bluetooth::audio::V2_0::SampleRate>(
         aptx_capability.sampleRate, 0xff, supported);
     std::vector<ChannelMode> channel_modes =
         ExtractValuesFromBitmask<ChannelMode>(aptx_capability.channelMode, 0x03,
@@ -824,8 +887,8 @@ class BluetoothAudioProviderHearingAidSoftwareHidlTest
     BluetoothAudioProvidersFactoryHidlTest::TearDown();
   }
 
-  static constexpr SampleRate hearing_aid_sample_rates_[3] = {
-      SampleRate::RATE_UNKNOWN, SampleRate::RATE_16000, SampleRate::RATE_24000};
+  static constexpr android::hardware::bluetooth::audio::V2_0::SampleRate hearing_aid_sample_rates_[3] = {
+      android::hardware::bluetooth::audio::V2_0::SampleRate::RATE_UNKNOWN, android::hardware::bluetooth::audio::V2_0::SampleRate::RATE_16000, android::hardware::bluetooth::audio::V2_0::SampleRate::RATE_24000};
   static constexpr BitsPerSample hearing_aid_bits_per_samples_[3] = {
       BitsPerSample::BITS_UNKNOWN, BitsPerSample::BITS_16,
       BitsPerSample::BITS_24};
@@ -885,6 +948,178 @@ TEST_P(BluetoothAudioProviderHearingAidSoftwareHidlTest,
   }      // SampleRate
 }
 
+/**
+ * openProvider LE_AUDIO_SOFTWARE_ENCODING_DATAPATH
+ */
+class BluetoothAudioProviderLeAudioOutputSoftwareHidlTest
+    : public BluetoothAudioProvidersFactoryHidlTest {
+ public:
+  virtual void SetUp() override {
+    BluetoothAudioProvidersFactoryHidlTest::SetUp();
+    GetProviderCapabilitiesHelper_2_1(
+        android::hardware::bluetooth::audio::V2_1::SessionType::LE_AUDIO_SOFTWARE_ENCODING_DATAPATH);
+    OpenProviderHelper_2_1(android::hardware::bluetooth::audio::V2_1::SessionType::LE_AUDIO_SOFTWARE_ENCODING_DATAPATH);
+    ASSERT_NE(audio_provider_2_1_, nullptr);
+  }
+
+  virtual void TearDown() override {
+    audio_port_ = nullptr;
+    audio_provider_2_1_ = nullptr;
+    BluetoothAudioProvidersFactoryHidlTest::TearDown();
+  }
+
+  static constexpr SampleRate le_audio_output_sample_rates_[3] = {
+      SampleRate::RATE_UNKNOWN, SampleRate::RATE_16000, SampleRate::RATE_24000};
+  static constexpr BitsPerSample le_audio_output_bits_per_samples_[3] = {
+      BitsPerSample::BITS_UNKNOWN, BitsPerSample::BITS_16,
+      BitsPerSample::BITS_24};
+  static constexpr ChannelMode le_audio_output_channel_modes_[3] = {
+      ChannelMode::UNKNOWN, ChannelMode::MONO, ChannelMode::STEREO};
+  static constexpr uint32_t le_audio_output_data_interval_us_[2] = {
+      0 /* Invalid */, 10000 /* Valid 10ms */};
+};
+
+/**
+ * Test whether each provider of type
+ * SessionType::LE_AUDIO_SOFTWARE_ENCODING_DATAPATH can be started and
+ * stopped
+ */
+TEST_P(BluetoothAudioProviderLeAudioOutputSoftwareHidlTest,
+       OpenLeAudioOutputSoftwareProvider) {}
+
+/**
+ * Test whether each provider of type
+ * SessionType::LE_AUDIO_SOFTWARE_ENCODING_DATAPATH can be started and
+ * stopped with different PCM config
+ */
+TEST_P(BluetoothAudioProviderLeAudioOutputSoftwareHidlTest,
+       StartAndEndLeAudioOutputSessionWithPossiblePcmConfig) {
+  bool is_codec_config_valid;
+  std::unique_ptr<DataMQ> tempDataMQ;
+  auto hidl_cb = [&is_codec_config_valid, &tempDataMQ](
+                     BluetoothAudioStatus status,
+                     const DataMQ::Descriptor& dataMQ) {
+    if (is_codec_config_valid) {
+      ASSERT_EQ(status, BluetoothAudioStatus::SUCCESS);
+      ASSERT_TRUE(dataMQ.isHandleValid());
+      tempDataMQ.reset(new DataMQ(dataMQ));
+    } else {
+      EXPECT_EQ(status, BluetoothAudioStatus::UNSUPPORTED_CODEC_CONFIGURATION);
+      EXPECT_FALSE(dataMQ.isHandleValid());
+    }
+  };
+  android::hardware::bluetooth::audio::V2_1::AudioConfiguration audio_config = {};
+  android::hardware::bluetooth::audio::V2_1::PcmParameters pcm_parameters = {};
+  for (auto sample_rate : le_audio_output_sample_rates_) {
+    pcm_parameters.sampleRate = sample_rate;
+    for (auto bits_per_sample : le_audio_output_bits_per_samples_) {
+      pcm_parameters.bitsPerSample = bits_per_sample;
+      for (auto channel_mode : le_audio_output_channel_modes_) {
+        pcm_parameters.channelMode = channel_mode;
+        for (auto data_interval_us : le_audio_output_data_interval_us_) {
+          pcm_parameters.dataIntervalUs = data_interval_us;
+          is_codec_config_valid = IsPcmParametersSupported_2_1(pcm_parameters);
+          audio_config.pcmConfig(pcm_parameters);
+          auto hidl_retval =
+              audio_provider_2_1_->startSession_2_1(audio_port_, audio_config, hidl_cb);
+          // HIDL calls should not be failed and callback has to be executed
+          ASSERT_TRUE(hidl_retval.isOk());
+          if (is_codec_config_valid) {
+            EXPECT_TRUE(tempDataMQ != nullptr && tempDataMQ->isValid());
+          }
+          EXPECT_TRUE(audio_provider_2_1_->endSession().isOk());
+        } // uint32_t (data interval in microseconds)
+      }  // ChannelMode
+    }    // BitsPerSampple
+  }      // SampleRate
+}
+
+/**
+ * openProvider LE_AUDIO_SOFTWARE_DECODED_DATAPATH
+ */
+class BluetoothAudioProviderLeAudioInputSoftwareHidlTest
+    : public BluetoothAudioProvidersFactoryHidlTest {
+ public:
+  virtual void SetUp() override {
+    BluetoothAudioProvidersFactoryHidlTest::SetUp();
+    GetProviderCapabilitiesHelper_2_1(
+        android::hardware::bluetooth::audio::V2_1::SessionType::LE_AUDIO_SOFTWARE_DECODED_DATAPATH);
+    OpenProviderHelper_2_1(android::hardware::bluetooth::audio::V2_1::SessionType::LE_AUDIO_SOFTWARE_DECODED_DATAPATH);
+    ASSERT_NE(audio_provider_2_1_, nullptr);
+  }
+
+  virtual void TearDown() override {
+    audio_port_ = nullptr;
+    audio_provider_2_1_ = nullptr;
+    BluetoothAudioProvidersFactoryHidlTest::TearDown();
+  }
+
+  static constexpr SampleRate le_audio_output_sample_rates_[3] = {
+      SampleRate::RATE_UNKNOWN, SampleRate::RATE_16000, SampleRate::RATE_24000};
+  static constexpr BitsPerSample le_audio_output_bits_per_samples_[3] = {
+      BitsPerSample::BITS_UNKNOWN, BitsPerSample::BITS_16,
+      BitsPerSample::BITS_24};
+  static constexpr ChannelMode le_audio_output_channel_modes_[3] = {
+      ChannelMode::UNKNOWN, ChannelMode::MONO, ChannelMode::STEREO};
+  static constexpr uint32_t le_audio_output_data_interval_us_[2] = {
+      0 /* Invalid */, 10000 /* Valid 10ms */};
+};
+
+/**
+ * Test whether each provider of type
+ * SessionType::LE_AUDIO_SOFTWARE_DECODED_DATAPATH can be started and
+ * stopped
+ */
+TEST_P(BluetoothAudioProviderLeAudioInputSoftwareHidlTest,
+       OpenLeAudioInputSoftwareProvider) {}
+
+/**
+ * Test whether each provider of type
+ * SessionType::LE_AUDIO_SOFTWARE_DECODED_DATAPATH can be started and
+ * stopped with different PCM config
+ */
+TEST_P(BluetoothAudioProviderLeAudioInputSoftwareHidlTest,
+       StartAndEndLeAudioInputSessionWithPossiblePcmConfig) {
+  bool is_codec_config_valid;
+  std::unique_ptr<DataMQ> tempDataMQ;
+  auto hidl_cb = [&is_codec_config_valid, &tempDataMQ](
+                     BluetoothAudioStatus status,
+                     const DataMQ::Descriptor& dataMQ) {
+    if (is_codec_config_valid) {
+      ASSERT_EQ(status, BluetoothAudioStatus::SUCCESS);
+      ASSERT_TRUE(dataMQ.isHandleValid());
+      tempDataMQ.reset(new DataMQ(dataMQ));
+    } else {
+      EXPECT_EQ(status, BluetoothAudioStatus::UNSUPPORTED_CODEC_CONFIGURATION);
+      EXPECT_FALSE(dataMQ.isHandleValid());
+    }
+  };
+  android::hardware::bluetooth::audio::V2_1::AudioConfiguration audio_config = {};
+  android::hardware::bluetooth::audio::V2_1::PcmParameters pcm_parameters = {};
+  for (auto sample_rate : le_audio_output_sample_rates_) {
+    pcm_parameters.sampleRate = sample_rate;
+    for (auto bits_per_sample : le_audio_output_bits_per_samples_) {
+      pcm_parameters.bitsPerSample = bits_per_sample;
+      for (auto channel_mode : le_audio_output_channel_modes_) {
+        pcm_parameters.channelMode = channel_mode;
+        for (auto data_interval_us : le_audio_output_data_interval_us_) {
+          pcm_parameters.dataIntervalUs = data_interval_us;
+          is_codec_config_valid = IsPcmParametersSupported_2_1(pcm_parameters);
+          audio_config.pcmConfig(pcm_parameters);
+          auto hidl_retval =
+              audio_provider_2_1_->startSession_2_1(audio_port_, audio_config, hidl_cb);
+          // HIDL calls should not be failed and callback has to be executed
+          ASSERT_TRUE(hidl_retval.isOk());
+          if (is_codec_config_valid) {
+            EXPECT_TRUE(tempDataMQ != nullptr && tempDataMQ->isValid());
+          }
+          EXPECT_TRUE(audio_provider_2_1_->endSession().isOk());
+        } // uint32_t (data interval in microseconds)
+      }  // ChannelMode
+    }    // BitsPerSampple
+  }      // SampleRate
+}
+
 static const std::vector<std::string> kAudioInstances =
     android::hardware::getAllHalInstanceNames(
         IBluetoothAudioProvidersFactory::descriptor);
@@ -905,5 +1140,15 @@ INSTANTIATE_TEST_SUITE_P(PerInstance,
 
 INSTANTIATE_TEST_SUITE_P(PerInstance,
                          BluetoothAudioProviderHearingAidSoftwareHidlTest,
+                         testing::ValuesIn(kAudioInstances),
+                         android::hardware::PrintInstanceNameToString);
+
+INSTANTIATE_TEST_SUITE_P(PerInstance,
+                         BluetoothAudioProviderLeAudioOutputSoftwareHidlTest,
+                         testing::ValuesIn(kAudioInstances),
+                         android::hardware::PrintInstanceNameToString);
+
+INSTANTIATE_TEST_SUITE_P(PerInstance,
+                         BluetoothAudioProviderLeAudioInputSoftwareHidlTest,
                          testing::ValuesIn(kAudioInstances),
                          android::hardware::PrintInstanceNameToString);
