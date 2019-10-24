@@ -654,6 +654,10 @@ cd84ab19c590e0e73dd2307b591a3093ee18147ef95e6d5418644463a6620076 android.hardwar
 38d65fb20c60a5b823298560fc0825457ecdc49603a4b4e94bf81511790737da android.hardware.radio@1.4::types
 954c334efd80e8869b66d1ce5fe2755712d96ba4b3c38d415739c330af5fb4cb android.hardware.radio@1.5::types
 
+9b2ba547ed4152110636011ca91328ebba0d9b81722c394dee932cebe14b7afd android.hardware.bluetooth.audio@2.1::types
+4baf8e0eca4aa896cc9ceb7bb676aaf4fa21372ef8b49eed68eced1221c3dc0d android.hardware.bluetooth.audio@2.1::IBluetoothAudioProvider
+d417a9212c8f96e3a06a2f221c8c5756c765355b2b81de2b2a65d4c9eee85401 android.hardware.bluetooth.audio@2.1::IBluetoothAudioProvidersFactory
+
 # HALs released in Android S
 # NOTE: waiting to freeze HALs until later in the release
 # NOTE: new HALs are recommended to be in AIDL
