@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c3848ad4_b35e0095",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_test_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-10-24T17:12:01Z",
+      "side": 1,
+      "message": "guess I can remove this.",
+      "range": {
+        "startLine": 91,
+        "startChar": 12,
+        "endLine": 91,
+        "endChar": 23
+      },
+      "revId": "735a3a6df9c980dac3fb598f0156bf2bca927cc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9bf96624_b9dd67a2",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_test_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-10-24T17:12:01Z",
+      "side": 1,
+      "message": "I think this will return the default wifi interface. For Hostapd tests, I think that works, as hostapd tests don\u0027t specify wifi interface.\nFor the later change for wifi tests, this method will be obsoleted.",
+      "revId": "735a3a6df9c980dac3fb598f0156bf2bca927cc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
