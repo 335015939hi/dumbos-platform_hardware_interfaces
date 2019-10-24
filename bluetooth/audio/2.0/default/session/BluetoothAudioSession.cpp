@@ -171,7 +171,8 @@ bool BluetoothAudioSession::UpdateAudioConfig(
     const AudioConfiguration& audio_config) {
   bool is_software_session =
       (session_type_ == SessionType::A2DP_SOFTWARE_ENCODING_DATAPATH ||
-       session_type_ == SessionType::HEARING_AID_SOFTWARE_ENCODING_DATAPATH);
+       session_type_ == SessionType::HEARING_AID_SOFTWARE_ENCODING_DATAPATH ||
+       session_type_ == SessionType::LE_AUDIO_SOFTWARE_ENCODING_DATAPATH);
   bool is_offload_session =
       (session_type_ == SessionType::A2DP_HARDWARE_OFFLOAD_DATAPATH);
   auto audio_config_discriminator = audio_config.getDiscriminator();
