@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ae85cdee_d05a5b2a",
+        "filename": "keymaster/4.1/IKeymasterDevice.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-10-24T15:46:48Z",
+      "side": 1,
+      "message": "nit: consider \u0027hidl-gen -Lformat android.hardware.keymaster@4.1\u0027",
+      "range": {
+        "startLine": 49,
+        "startChar": 44,
+        "endLine": 49,
+        "endChar": 47
+      },
+      "revId": "16ffe94371abf4133d0118f0e76949c5f7bbec42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21db8ea6_cf35deb9",
+        "filename": "keymaster/4.1/IOperation.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-10-24T15:46:48Z",
+      "side": 1,
+      "message": "comments? will this have methods later or just for link to death?\n\nWould it be easier/possible to use IBase (\u0027interface\u0027 in HIDL) instead? (actually I would need to check this is possible)",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 24
+      },
+      "revId": "16ffe94371abf4133d0118f0e76949c5f7bbec42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
