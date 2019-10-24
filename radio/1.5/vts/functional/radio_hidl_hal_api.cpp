@@ -276,3 +276,18 @@ TEST_F(RadioHidlTest_v1_5, setSignalStrengthReportingCriteria_1_5_NGRAN_SSSINR) 
           toString(radioRsp_v1_5->rspInfo.error).c_str());
     ASSERT_TRUE(CheckAnyOfErrors(radioRsp_v1_5->rspInfo.error, {RadioError::NONE}));
 }
+
+/*
+ * Test IRadio.setClip() for the response returned.
+ */
+TEST_F(RadioHidlTest_v1_5, setClip) {
+    serial = GetRandomSerialNumber();
+    int32_t status = 1;
+
+    radio_v1_5->setClip(serial, status);
+
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_v1_5->rspInfo.type);
+    EXPECT_EQ(serial, radioRsp_v1_5->rspInfo.serial);
+    EXPECT_EQ(RadioError::NONE, radioRsp_v1_5->rspInfo.error);
+}

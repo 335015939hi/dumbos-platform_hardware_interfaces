@@ -893,3 +893,9 @@ Return<void> RadioResponse_v1_5::setSignalStrengthReportingCriteriaResponse_1_5(
     parent_v1_5.notify(info.serial);
     return Void();
 }
+
+Return<void> RadioResponse_v1_5::setClipResponse(const RadioResponseInfo& info) {
+    rspInfo = info;
+    parent_v1_5.notify(info.serial);
+    return Void();
+}

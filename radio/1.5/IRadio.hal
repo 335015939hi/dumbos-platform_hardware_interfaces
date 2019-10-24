@@ -55,4 +55,14 @@ interface IRadio extends @1.4::IRadio {
      */
     oneway setSignalStrengthReportingCriteria_1_5(int32_t serial,
             SignalThresholdInfo signalThresholdInfo, AccessNetwork accessNetwork);
+
+    /**
+     * Set current CLIP status
+     *
+     * @param serial Serial number of request.
+     * @param status "n" parameter from TS 27.007 7.6
+     *
+     * Response function is IRadioResponse.setClipResponse()
+     */
+    oneway setClip(int32_t serial, int32_t status);
 };

@@ -32,4 +32,9 @@ interface IRadioResponse extends @1.4::IRadioResponse {
      *   RadioError:RADIO_NOT_AVAILABLE
      */
     oneway setSignalStrengthReportingCriteriaResponse_1_5(RadioResponseInfo info);
+
+    /**
+     * @param info Response info struct containing response type, serial no. and error
+     */
+    oneway setClipResponse(RadioResponseInfo info);
 };
