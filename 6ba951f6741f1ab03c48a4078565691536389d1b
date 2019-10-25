@@ -34,6 +34,24 @@
       "revId": "6ba951f6741f1ab03c48a4078565691536389d1b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1772a3ba_42f9fc23",
+        "filename": "wifi/hostapd/1.0/vts/functional/hostapd_hidl_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-10-25T16:40:54Z",
+      "side": 0,
+      "message": "so just change it to TEST_P?\n\ncompare this to what\u0027s in SetUp method, this test really doesn\u0027t do anything. If setup passes, this test will sure pass.",
+      "parentUuid": "2ac8532d_27d4a51e",
+      "revId": "6ba951f6741f1ab03c48a4078565691536389d1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
