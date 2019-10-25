@@ -1,0 +1,14 @@
+cc_test {
+    name: "VtsHalVibratorTargetTest",
+    defaults: ["VtsHalTargetTestDefaults"],
+    srcs: ["VtsHalVibratorTargetTest.cpp"],
+    shared_libs: [
+        "libbinder",
+    ],
+    static_libs: [
+        "vintf-vibrator-cpp",
+    ],
+    test_suites: [
+        "vts-core",
+    ],
+}
