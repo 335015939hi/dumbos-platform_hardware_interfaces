@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3b500a8a_324e59c8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1094493
+      },
+      "writtenOn": "2019-10-25T23:01:49Z",
+      "side": 1,
+      "message": "I\u0027d suggest to create one top-level summary commit message that explains and/or references where to read more about what the feature is/how it works, how to enable it in the build, and how to integrate your HAL with it. Part of this summary should reference the internal commit hashes + commit subjects (e.g. the output of git log --oneline) for later cross-referencing.",
+      "revId": "7c531d7b65656f52989911472b57e534fc0d6823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e6b26b1_57beb322",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1094493
+      },
+      "writtenOn": "2019-10-25T23:01:49Z",
+      "side": 1,
+      "message": "We should ensure that this CL has only one Change-Id, and it is unique (i.e. doesn\u0027t duplicate any of the IDs from the internal branch - just deleting all the Change-Id lines will cause one to be generated when you amend the commit).",
+      "revId": "7c531d7b65656f52989911472b57e534fc0d6823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "048ed911_1cdaab2f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1094493
+      },
+      "writtenOn": "2019-10-25T23:01:49Z",
+      "side": 1,
+      "message": "Likewise, only one bug reference and one test line",
+      "revId": "7c531d7b65656f52989911472b57e534fc0d6823",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
