@@ -45,6 +45,30 @@
       "revId": "16ffe94371abf4133d0118f0e76949c5f7bbec42",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1bd6ed4_bad7df76",
+        "filename": "keymaster/4.1/IOperation.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2019-10-26T00:24:02Z",
+      "side": 1,
+      "message": "I think IBase should work, but yeah please check this",
+      "parentUuid": "21db8ea6_cf35deb9",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 24
+      },
+      "revId": "16ffe94371abf4133d0118f0e76949c5f7bbec42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
