@@ -19,6 +19,7 @@ package android.hardware.neuralnetworks@1.3;
 import @1.0::DataLocation;
 import @1.0::OperandLifeTime;
 import @1.0::PerformanceInfo;
+import @1.0::RequestArgument;
 import @1.2::OperandType;
 import @1.2::OperationType;
 import @1.2::SymmPerChannelQuantParams;
@@ -4912,4 +4913,34 @@ struct Model {
         HIGH_BITS_PREFIX = 16,
         LOW_BITS_TYPE = 16,
     };
+};
+
+/**
+ * TODO(xusongw): Add documentation.
+ */
+struct Request {
+    vec<RequestArgument> inputs;
+    vec<RequestArgument> outputs;
+
+    safe_union MemoryPool {
+        memory hidlMemory;
+        int32_t token;
+    };
+    vec<MemoryPool> pools;
+};
+
+/**
+ * TODO(xusongw): Add documentation.
+ */
+struct MemoryDesc {
+    vec<uint32_t> dimensions;
+};
+
+/**
+ * TODO(xusongw): Add documentation.
+ */
+struct ModelUsage {
+    uint32_t modelIndex;
+    uint32_t ioIndex;
+    float frequency;
 };

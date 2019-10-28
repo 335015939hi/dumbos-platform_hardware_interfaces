@@ -22,6 +22,12 @@ import @1.2::Constant;
 import @1.2::DeviceType;
 import @1.2::Extension;
 import @1.2::IDevice;
+import Capabilities;
+import MemoryDesc;
+import Model;
+import ModelUsage;
+import IBuffer;
+import IPreparedModel;
 import IPreparedModelCallback;
 
 /**
@@ -247,4 +253,11 @@ interface IDevice extends @1.2::IDevice {
                               uint8_t[Constant:BYTE_SIZE_OF_CACHE_TOKEN] token,
                               IPreparedModelCallback callback)
             generates (ErrorStatus status);
+
+    /**
+     * TODO(xusongw): Add documentation.
+     */
+    allocate(MemoryDesc desc, vec<IPreparedModel> preparedModels, vec<ModelUsage> inputUsages,
+             vec<ModelUsage> outputUsages)
+            generates (ErrorStatus status, IBuffer buffer, int32_t token);
 };
