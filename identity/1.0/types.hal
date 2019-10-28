@@ -1,0 +1,215 @@
+/*
+ * Copyright 2018 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package android.hardware.identity@1.0;
+
+enum CipherSuite : uint32_t {
+     /**
+      * TODO: docs
+      */
+     CIPHERSUITE_ECDHE_HKDF_ECDSA_WITH_AES_256_GCM_SHA256 = 1,
+};
+
+/**
+ * The ResultCode enumeration is used to convey the status of an operation.
+ */
+enum ResultCode : int32_t {
+    /**
+     * Success.
+     */
+    OK = 0,
+
+    /**
+     * The operation failed. This is used as a generic catch-all for errors that don't belong
+     * in other categories, including memory/resource allocation failures and I/O errors.
+     */
+    FAILED = 1,
+
+    /**
+     * The passed data was invalid. This is a generic catch all for errors that don't belong
+     * in other categories related to parameter validation.
+     */
+    INVALID_DATA = 2,
+
+    /**
+     * The requested cipher suite is not supported by the implementation.
+     */
+    CIPHER_SUITE_NOT_SUPPORTED = 3,
+
+    /**
+     * The authToken parameter passed to IIdentityCredential.startRetrieval() is not valid.
+     */
+    INVALID_AUTH_TOKEN = 4,
+
+    /**
+     * The itemsRequest parameter passed to IIdentityCredential.startRetrieval() does not meet
+     * the requirements described in the documentation for that method.
+     */
+    INVALID_ITEMS_REQUEST_MESSAGE = 5,
+
+    /**
+     * The readerSignature parameter in IIdentityCredential.startRetrieval() is invalid,
+     * doesn't contain an embedded certificate chain, or the signature failed to
+     * validate.
+     */
+    READER_SIGNATURE_CHECK_FAILED = 6,
+
+    /**
+     * The sessionTranscript passed to startRetrieval() did not contain the ephmeral public
+     * key returned by createEphemeralPublicKey().
+     */
+    EPHEMERAL_PUBLIC_KEY_NOT_FOUND = 7,
+
+    /**
+     * An access condition related to user authentication was not satisfied.
+     */
+    USER_AUTHENTICATION_FAILED = 8,
+
+    /**
+     * An access condition related to reader authentication was not satisfied.
+     */
+    READER_AUTHENTICATION_FAILED = 9,
+
+    /**
+    * The request data element has no access control profiles associated so it cannot be accessed.
+    */
+    NO_ACCESS_CONTROL_PROFILES = 10,
+
+    /**
+     * The requested data element is not in the provided non-empty itemsRequest message.
+     */
+    NOT_IN_REQUEST_MESSAGE = 11,
+};
+
+/**
+ * A result has a ResultCode and corresponding textual message.
+ */
+struct Result {
+    /**
+     * The result code.
+     *
+     * Implementations must not use values not defined in the ResultCode enumeration.
+     */
+    ResultCode code;
+
+    /**
+     * A human-readable message in English conveying more detail about a failure.
+     *
+     * If code is ResultCode::OK this field must be set to the empty string.
+     */
+    string message;
+};
+
+/**
+ * An AuditLogEntry is a cryptographically-authenticated record that a credential presentation
+ * occurred.
+ */
+struct AuditLogEntry {
+    /**
+     * Hash of the data request.  It contains:
+     *
+     *     SHA-256(ItemsRequest)
+     *
+     * See itemsRequest parameter in IIdentityCredential.startRetrieval for the definition of
+     * ItemsRequest.
+     */
+    uint8_t[32] requestHash;
+
+    /**
+     * Hash of the response.  It contains:
+     *
+     *     SHA-256(DeviceAuthentication)
+     *
+     * See IIdentityCredential.finishRetrieval() for the definition of DeviceAuthentication.
+     */
+    uint8_t[32] responseHash;
+
+    /**
+     * Signature that authenticates this audit log entry.  Contains:
+     *
+     *     ECDSA(CredentialKey, AuditLogData)
+     *
+     *  where
+     *
+     *      AuditLogData = [
+     *          "AuditLogEntry",
+     *          requestHash : bstr,
+     *          responseHash: bstr,
+     *          previousAuditSignatureHash : bstr
+     *     ]
+     *
+     *  requestHash and responseHash are the values above, See IIdentityCredential.finishRetrieval()
+     *  for previousAuditSignatureHash.
+     */
+    vec<uint8_t> signature;
+};
+
+struct SecureAccessControlProfile {
+    /**
+     * id is a numeric identifier that must be unique within the context of a Credential and may be
+     * used to reference the profile.
+     */
+    uint16_t id;
+
+    /**
+     * readerCertificate, if non-empty, specifies a single X.509 certificate (not a chain
+     * of certificates) that must be used to authenticate requests. For details about how
+     * this is done, see the readerSignature paremter of IIdentityCredential.startRetrieval.
+     */
+    vec<uint8_t> readerCertificate;
+
+    /**
+     * if true, the user is required to authenticate to allow requests.  Required authentication
+     * fressness is specified by timeout below.
+     *
+     */
+    bool userAuthenticationRequired;
+
+    /**
+     * Timeout specifies the amount of time, in seconds, for which a user authentication (see
+     * above) is valid, if userAuthenticationRequired is set to true.  If userAuthenticationRequired
+     * is true and timout is zero then authentication is required for each reader session.
+     *
+     * If userAuthenticationRequired is false, timeout must be zero.
+     */
+    uint32_t timeout;
+
+    /**
+     * secureUserId must be non-zero if userAuthenticationRequired is true.
+     * It is not related to any Android user ID or UID, but is created in the
+     * Gatekeeper application in the secure environment.
+     */
+    uint64_t secureUserId;
+
+    /**
+     * The mac is used to authenticate the access control profile.  It contains:
+     *
+     *      AES-GCM-ENC(storageKey, R, {}, AccessControlProfile)
+     *
+     *  where AccessControlProfile is the CBOR map:
+     *
+     *      AccessControlProfile = {
+     *          "id": uint,
+     *          ? "readerCertificate" : bstr,
+     *          ? (
+     *              "userAuthenticationRequired" : bool,
+     *              "timeout" : uint,
+     *              "secureUserId" : uint
+     *          )
+     *      }
+     */
+    vec<uint8_t> mac;
+};
