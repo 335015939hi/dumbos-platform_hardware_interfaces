@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "24dba813_469b8c20",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_test_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-10-29T22:17:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3848ad4_b35e0095",
+      "range": {
+        "startLine": 91,
+        "startChar": 12,
+        "endLine": 91,
+        "endChar": 23
+      },
+      "revId": "735a3a6df9c980dac3fb598f0156bf2bca927cc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9bf96624_b9dd67a2",
         "filename": "wifi/1.0/vts/functional/wifi_hidl_test_utils.cpp",
         "patchSetId": 1
