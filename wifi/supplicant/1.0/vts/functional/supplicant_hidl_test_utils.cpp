@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+#include <stdio.h>
+
 #include <VtsHalHidlTargetTestBase.h>
 #include <android-base/logging.h>
 #include <cutils/properties.h>
@@ -56,8 +58,8 @@ namespace {
 
 // Helper function to initialize the driver and firmware to STA mode
 // using the vendor HAL HIDL interface.
-void initilializeDriverAndFirmware() {
-    sp<IWifiChip> wifi_chip = getWifiChip();
+void initilializeDriverAndFirmware(const std::string& wifi_instance_name) {
+    sp<IWifiChip> wifi_chip = getWifiChip(wifi_instance_name);
     ChipModeId mode_id;
     EXPECT_TRUE(configureChipToSupportIfaceType(
         wifi_chip, ::android::hardware::wifi::V1_0::IfaceType::STA, &mode_id));
@@ -65,7 +67,9 @@ void initilializeDriverAndFirmware() {
 
 // Helper function to deinitialize the driver and firmware
 // using the vendor HAL HIDL interface.
-void deInitilializeDriverAndFirmware() { stopWifi(); }
+void deInitilializeDriverAndFirmware(const std::string& wifi_instance_name) {
+    stopWifi(wifi_instance_name);
+}
 
 // Helper function to find any iface of the desired type exposed.
 bool findIfaceOfType(sp<ISupplicant> supplicant, IfaceType desired_type,
@@ -154,28 +158,37 @@ class ServiceNotificationListener : public IServiceNotification {
     std::condition_variable condition_;
 };
 
-void stopSupplicant() {
+void stopSupplicant() { stopSupplicant(nullptr); }
+
+void stopSupplicant(const std::string& wifi_instance_name) {
     SupplicantManager supplicant_manager;
 
     ASSERT_TRUE(supplicant_manager.StopSupplicant());
-    deInitilializeDriverAndFirmware();
+    deInitilializeDriverAndFirmware(wifi_instance_name);
     ASSERT_FALSE(supplicant_manager.IsSupplicantRunning());
 }
 
 void startSupplicantAndWaitForHidlService() {
-    initilializeDriverAndFirmware();
+    startSupplicantAndWaitForHidlService(nullptr,
+                                         gEnv->getServiceName<ISupplicant>());
+}
+
+void startSupplicantAndWaitForHidlService(
+    const std::string& wifi_instance_name,
+    const std::string& supplicant_instance_name) {
+    initilializeDriverAndFirmware(wifi_instance_name);
 
     android::sp<ServiceNotificationListener> notification_listener =
         new ServiceNotificationListener();
-    string service_name = gEnv->getServiceName<ISupplicant>();
     ASSERT_TRUE(notification_listener->registerForHidlServiceNotifications(
-        service_name));
+        supplicant_instance_name));
 
     SupplicantManager supplicant_manager;
     ASSERT_TRUE(supplicant_manager.StartSupplicant());
     ASSERT_TRUE(supplicant_manager.IsSupplicantRunning());
 
-    ASSERT_TRUE(notification_listener->waitForHidlService(200, service_name));
+    ASSERT_TRUE(notification_listener->waitForHidlService(
+        200, supplicant_instance_name));
 }
 
 bool is_1_1(const sp<ISupplicant>& supplicant) {
@@ -232,8 +245,26 @@ sp<ISupplicant> getSupplicant() {
     return supplicant;
 }
 
+sp<ISupplicant> getSupplicant(std::string supplicant_instance_name,
+                              bool isP2pOn) {
+    sp<ISupplicant> supplicant =
+        ISupplicant::getService(supplicant_instance_name);
+    // For 1.1 supplicant, we need to add interfaces at initialization.
+    if (is_1_1(supplicant)) {
+        addSupplicantStaIface_1_1(supplicant);
+        if (isP2pOn) {
+            addSupplicantP2pIface_1_1(supplicant);
+        }
+    }
+    return supplicant;
+}
+
 sp<ISupplicantStaIface> getSupplicantStaIface() {
     sp<ISupplicant> supplicant = getSupplicant();
+    return getSupplicantStaIface(supplicant);
+}
+
+sp<ISupplicantStaIface> getSupplicantStaIface(sp<ISupplicant> supplicant) {
     if (!supplicant.get()) {
         return nullptr;
     }
@@ -258,7 +289,12 @@ sp<ISupplicantStaIface> getSupplicantStaIface() {
 }
 
 sp<ISupplicantStaNetwork> createSupplicantStaNetwork() {
-    sp<ISupplicantStaIface> sta_iface = getSupplicantStaIface();
+    return createSupplicantStaNetwork(getSupplicant());
+}
+
+sp<ISupplicantStaNetwork> createSupplicantStaNetwork(
+    sp<ISupplicant> supplicant) {
+    sp<ISupplicantStaIface> sta_iface = getSupplicantStaIface(supplicant);
     if (!sta_iface.get()) {
         return nullptr;
     }
@@ -279,7 +315,10 @@ sp<ISupplicantStaNetwork> createSupplicantStaNetwork() {
 }
 
 sp<ISupplicantP2pIface> getSupplicantP2pIface() {
-    sp<ISupplicant> supplicant = getSupplicant();
+    return getSupplicantP2pIface(getSupplicant());
+}
+
+sp<ISupplicantP2pIface> getSupplicantP2pIface(sp<ISupplicant> supplicant) {
     if (!supplicant.get()) {
         return nullptr;
     }
@@ -304,7 +343,10 @@ sp<ISupplicantP2pIface> getSupplicantP2pIface() {
 }
 
 bool turnOnExcessiveLogging() {
-    sp<ISupplicant> supplicant = getSupplicant();
+    return turnOnExcessiveLogging(getSupplicant());
+}
+
+bool turnOnExcessiveLogging(sp<ISupplicant> supplicant) {
     if (!supplicant.get()) {
         return false;
     }
