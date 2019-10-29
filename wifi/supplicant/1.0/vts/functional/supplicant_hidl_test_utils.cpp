@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+#include <stdio.h>
+
 #include <VtsHalHidlTargetTestBase.h>
 #include <android-base/logging.h>
 #include <cutils/properties.h>
@@ -163,11 +165,14 @@ void stopSupplicant() {
 }
 
 void startSupplicantAndWaitForHidlService() {
+    startSupplicantAndWaitForHidlService(gEnv->getServiceName<ISupplicant>());
+}
+
+void startSupplicantAndWaitForHidlService(std::string service_name) {
     initilializeDriverAndFirmware();
 
     android::sp<ServiceNotificationListener> notification_listener =
         new ServiceNotificationListener();
-    string service_name = gEnv->getServiceName<ISupplicant>();
     ASSERT_TRUE(notification_listener->registerForHidlServiceNotifications(
         service_name));
 
@@ -232,8 +237,24 @@ sp<ISupplicant> getSupplicant() {
     return supplicant;
 }
 
+sp<ISupplicant> getSupplicant(std::string service_name, bool isP2pOn) {
+    sp<ISupplicant> supplicant = ISupplicant::getService(service_name);
+    // For 1.1 supplicant, we need to add interfaces at initialization.
+    if (is_1_1(supplicant)) {
+        addSupplicantStaIface_1_1(supplicant);
+        if (isP2pOn) {
+            addSupplicantP2pIface_1_1(supplicant);
+        }
+    }
+    return supplicant;
+}
+
 sp<ISupplicantStaIface> getSupplicantStaIface() {
     sp<ISupplicant> supplicant = getSupplicant();
+    return getSupplicantStaIface(supplicant);
+}
+
+sp<ISupplicantStaIface> getSupplicantStaIface(sp<ISupplicant> supplicant) {
     if (!supplicant.get()) {
         return nullptr;
     }
@@ -258,7 +279,12 @@ sp<ISupplicantStaIface> getSupplicantStaIface() {
 }
 
 sp<ISupplicantStaNetwork> createSupplicantStaNetwork() {
-    sp<ISupplicantStaIface> sta_iface = getSupplicantStaIface();
+    return createSupplicantStaNetwork(getSupplicant());
+}
+
+sp<ISupplicantStaNetwork> createSupplicantStaNetwork(
+    sp<ISupplicant> supplicant) {
+    sp<ISupplicantStaIface> sta_iface = getSupplicantStaIface(supplicant);
     if (!sta_iface.get()) {
         return nullptr;
     }
@@ -279,7 +305,10 @@ sp<ISupplicantStaNetwork> createSupplicantStaNetwork() {
 }
 
 sp<ISupplicantP2pIface> getSupplicantP2pIface() {
-    sp<ISupplicant> supplicant = getSupplicant();
+    return getSupplicantP2pIface(getSupplicant());
+}
+
+sp<ISupplicantP2pIface> getSupplicantP2pIface(sp<ISupplicant> supplicant) {
     if (!supplicant.get()) {
         return nullptr;
     }
@@ -304,7 +333,10 @@ sp<ISupplicantP2pIface> getSupplicantP2pIface() {
 }
 
 bool turnOnExcessiveLogging() {
-    sp<ISupplicant> supplicant = getSupplicant();
+    return turnOnExcessiveLogging(getSupplicant());
+}
+
+bool turnOnExcessiveLogging(sp<ISupplicant> supplicant) {
     if (!supplicant.get()) {
         return false;
     }

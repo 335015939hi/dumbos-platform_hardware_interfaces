@@ -88,9 +88,12 @@ bool configureChipToSupportIfaceTypeInternal(const sp<IWifiChip>& wifi_chip,
 }  // namespace
 
 sp<IWifi> getWifi() {
-    sp<IWifi> wifi = ::testing::VtsHalHidlTargetTestBase::getService<IWifi>(
-        gEnv->getServiceName<IWifi>());
-    return wifi;
+    if (gEnv) {
+        return ::testing::VtsHalHidlTargetTestBase::getService<IWifi>(
+            gEnv->getServiceName<IWifi>());
+    } else {
+        return IWifi::getService();
+    }
 }
 
 sp<IWifiChip> getWifiChip() {
@@ -210,4 +213,29 @@ void stopWifi() {
     sp<IWifi> wifi = getWifi();
     ASSERT_NE(wifi, nullptr);
     HIDL_INVOKE(wifi, stop);
+}
+
+// Runs "pm list features" and attempts to find the specified feature in its
+// output.
+bool deviceSupportsFeature(const char* feature) {
+    bool hasFeature = false;
+    FILE* p = popen("/system/bin/pm list features", "re");
+    if (p) {
+        char* line = NULL;
+        size_t len = 0;
+        while (getline(&line, &len, p) > 0) {
+            if (strstr(line, feature)) {
+                hasFeature = true;
+                break;
+            }
+        }
+        pclose(p);
+    } else {
+        __android_log_print(ANDROID_LOG_FATAL, LOG_TAG, "popen failed: %d",
+                            errno);
+        _exit(EXIT_FAILURE);
+    }
+    __android_log_print(ANDROID_LOG_INFO, LOG_TAG, "Feature %s: %ssupported",
+                        feature, hasFeature ? "" : "not ");
+    return hasFeature;
 }
