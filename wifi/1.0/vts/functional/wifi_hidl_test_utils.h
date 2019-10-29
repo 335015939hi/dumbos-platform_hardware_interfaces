@@ -39,6 +39,7 @@ android::sp<android::hardware::wifi::V1_0::IWifiP2pIface> getWifiP2pIface();
 android::sp<android::hardware::wifi::V1_0::IWifiStaIface> getWifiStaIface();
 android::sp<android::hardware::wifi::V1_0::IWifiRttController>
 getWifiRttController();
+bool deviceSupportsFeature(const char* feature);
 // Configure the chip in a mode to support the creation of the provided
 // iface type.
 bool configureChipToSupportIfaceType(

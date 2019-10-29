@@ -25,7 +25,7 @@
 
 #include <getopt.h>
 
-#include <VtsHalHidlTargetTestEnvBase.h>
+#include "wifi_hidl_test_utils.h"
 
 // Used to stop the android wifi framework before every test.
 void stopWifiFramework();
@@ -33,12 +33,32 @@ void startWifiFramework();
 void stopSupplicant();
 // Used to configure the chip, driver and start wpa_supplicant before every
 // test.
-void startSupplicantAndWaitForHidlService();
+void startSupplicantAndWaitForHidlService(std::string service_name);
 
 // Helper functions to obtain references to the various HIDL interface objects.
 // Note: We only have a single instance of each of these objects currently.
 // These helper functions should be modified to return vectors if we support
 // multiple instances.
+android::sp<android::hardware::wifi::supplicant::V1_0::ISupplicant>
+getSupplicant(std::string service_name, bool isP2pOn);
+android::sp<android::hardware::wifi::supplicant::V1_0::ISupplicantStaIface>
+getSupplicantStaIface(
+    android::sp<android::hardware::wifi::supplicant::V1_0::ISupplicant>
+        supplicant);
+android::sp<android::hardware::wifi::supplicant::V1_0::ISupplicantStaNetwork>
+createSupplicantStaNetwork(
+    android::sp<android::hardware::wifi::supplicant::V1_0::ISupplicant>
+        supplicant);
+android::sp<android::hardware::wifi::supplicant::V1_0::ISupplicantP2pIface>
+getSupplicantP2pIface(
+    android::sp<android::hardware::wifi::supplicant::V1_0::ISupplicant>
+        supplicant);
+bool turnOnExcessiveLogging(
+    android::sp<android::hardware::wifi::supplicant::V1_0::ISupplicant>
+        supplicant);
+
+// TODO(dshi): Remove old APIs after all supplicant tests are updated.
+void startSupplicantAndWaitForHidlService();
 android::sp<android::hardware::wifi::supplicant::V1_0::ISupplicant>
 getSupplicant();
 android::sp<android::hardware::wifi::supplicant::V1_0::ISupplicantStaIface>
