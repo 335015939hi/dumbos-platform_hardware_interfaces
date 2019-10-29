@@ -515,6 +515,15 @@ int32_t setLayerStateHook(hwc2_device_t* device, hwc2_display_t display, hwc2_la
     return HWC2_ERROR_NONE;
 }
 
+int32_t getDisplayCapabilitiesHook(hwc2_device_t* device, hwc2_display_t display,
+                                   uint32_t* outNumCapabilities, uint32_t* outCapabilities) {
+    (void)device;
+    (void)display;
+    (void)outCapabilities;
+    *outNumCapabilities = 0;
+    return HWC2_ERROR_NONE;
+}
+
 template <typename PFN, typename T>
 static hwc2_function_pointer_t asFP(T function) {
     static_assert(std::is_same<PFN, T>::value, "Incompatible function pointer");
@@ -624,6 +633,10 @@ hwc2_function_pointer_t getFunctionHook(hwc2_device_t* /*device*/, int32_t descr
             return asFP<HWC2_PFN_SET_LAYER_VISIBLE_REGION>(setLayerStateHook<hwc_region_t>);
         case HWC2_FUNCTION_SET_LAYER_Z_ORDER:
             return asFP<HWC2_PFN_SET_LAYER_Z_ORDER>(setLayerStateHook<uint32_t>);
+
+        // HWC 2.3 functions
+        case HWC2_FUNCTION_GET_DISPLAY_CAPABILITIES:
+            return asFP<HWC2_PFN_GET_DISPLAY_CAPABILITIES>(getDisplayCapabilitiesHook);
 
         default:
             ALOGE("unknown function descriptor %d", descriptor);
