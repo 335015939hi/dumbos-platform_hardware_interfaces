@@ -16,14 +16,14 @@
 
 #include <android-base/logging.h>
 
-#include <VtsHalHidlTargetTestBase.h>
-
 #include <android/hardware/wifi/supplicant/1.0/ISupplicantStaNetwork.h>
-
-#include <android/hardware/wifi/supplicant/1.0/ISupplicantStaNetwork.h>
+#include <gtest/gtest.h>
+#include <hidl/GtestPrinter.h>
+#include <hidl/ServiceManagement.h>
 
 #include "supplicant_hidl_call_util.h"
 #include "supplicant_hidl_test_utils.h"
+#include "vts_core_util.h"
 
 using ::android::sp;
 using ::android::hardware::hidl_array;
@@ -32,6 +32,7 @@ using ::android::hardware::hidl_vec;
 using ::android::hardware::Return;
 using ::android::hardware::Void;
 using ::android::hardware::wifi::supplicant::V1_0::IfaceType;
+using ::android::hardware::wifi::supplicant::V1_0::ISupplicant;
 using ::android::hardware::wifi::supplicant::V1_0::ISupplicantStaIface;
 using ::android::hardware::wifi::supplicant::V1_0::ISupplicantStaNetwork;
 using ::android::hardware::wifi::supplicant::V1_0::
@@ -74,12 +75,16 @@ constexpr uint32_t kTestPairwiseCipher =
      ISupplicantStaNetwork::PairwiseCipherMask::TKIP);
 }  // namespace
 
-class SupplicantStaNetworkHidlTest : public ::testing::VtsHalHidlTargetTestBase {
+class SupplicantStaNetworkHidlTest
+    : public ::testing::TestWithParam<std::string> {
    public:
     virtual void SetUp() override {
-        startSupplicantAndWaitForHidlService();
-        EXPECT_TRUE(turnOnExcessiveLogging());
-        sta_network_ = createSupplicantStaNetwork();
+        stopSupplicant();
+        startSupplicantAndWaitForHidlService(GetParam());
+        isP2pOn_ = deviceSupportsFeature("android.hardware.wifi.direct");
+        supplicant_ = getSupplicant(GetParam(), isP2pOn_);
+        EXPECT_TRUE(turnOnExcessiveLogging(supplicant_));
+        sta_network_ = createSupplicantStaNetwork(supplicant_);
         ASSERT_NE(sta_network_.get(), nullptr);
 
         ssid_.assign(kTestSsidStr, kTestSsidStr + strlen(kTestSsidStr));
@@ -89,18 +94,21 @@ class SupplicantStaNetworkHidlTest : public ::testing::VtsHalHidlTargetTestBase 
 
    protected:
     void removeNetwork() {
-      sp<ISupplicantStaIface> sta_iface = getSupplicantStaIface();
-      ASSERT_NE(nullptr, sta_iface.get());
-      uint32_t net_id;
-      sta_network_->getId([&](const SupplicantStatus& status, int network_id) {
-              ASSERT_EQ(SupplicantStatusCode::SUCCESS, status.code);
-              net_id = network_id;
-          });
-      sta_iface->removeNetwork(net_id, [](const SupplicantStatus& status) {
-              ASSERT_EQ(SupplicantStatusCode::SUCCESS, status.code);
-          });
+        sp<ISupplicantStaIface> sta_iface = getSupplicantStaIface(supplicant_);
+        ASSERT_NE(nullptr, sta_iface.get());
+        uint32_t net_id;
+        sta_network_->getId(
+            [&](const SupplicantStatus& status, int network_id) {
+                ASSERT_EQ(SupplicantStatusCode::SUCCESS, status.code);
+                net_id = network_id;
+            });
+        sta_iface->removeNetwork(net_id, [](const SupplicantStatus& status) {
+            ASSERT_EQ(SupplicantStatusCode::SUCCESS, status.code);
+        });
     }
 
+    bool isP2pOn_ = false;
+    sp<ISupplicant> supplicant_;
     // ISupplicantStaNetwork object used for all tests in this fixture.
     sp<ISupplicantStaNetwork> sta_network_;
     // SSID to use for various tests.
@@ -126,16 +134,18 @@ class NetworkCallback : public ISupplicantStaNetworkCallback {
  * Ensures that an instance of the ISupplicantStaNetwork proxy object is
  * successfully created.
  */
-TEST(SupplicantStaNetworkHidlTestNoFixture, Create) {
-    startSupplicantAndWaitForHidlService();
-    EXPECT_NE(nullptr, createSupplicantStaNetwork().get());
+TEST_P(SupplicantStaNetworkHidlTest, Create) {
     stopSupplicant();
+    startSupplicantAndWaitForHidlService(GetParam());
+    sp<ISupplicant> supplicant = getSupplicant(GetParam(), isP2pOn_);
+    EXPECT_TRUE(turnOnExcessiveLogging(supplicant));
+    EXPECT_NE(nullptr, createSupplicantStaNetwork(supplicant).get());
 }
 
 /*
  * RegisterCallback
  */
-TEST_F(SupplicantStaNetworkHidlTest, RegisterCallback) {
+TEST_P(SupplicantStaNetworkHidlTest, RegisterCallback) {
     sta_network_->registerCallback(
         new NetworkCallback(), [](const SupplicantStatus& status) {
             EXPECT_EQ(SupplicantStatusCode::SUCCESS, status.code);
@@ -145,7 +155,7 @@ TEST_F(SupplicantStaNetworkHidlTest, RegisterCallback) {
 /*
  * GetInterfaceName
  */
-TEST_F(SupplicantStaNetworkHidlTest, GetInterfaceName) {
+TEST_P(SupplicantStaNetworkHidlTest, GetInterfaceName) {
     const auto& status_and_interface_name =
         HIDL_INVOKE(sta_network_, getInterfaceName);
     EXPECT_EQ(SupplicantStatusCode::SUCCESS,
@@ -156,7 +166,7 @@ TEST_F(SupplicantStaNetworkHidlTest, GetInterfaceName) {
 /*
  * GetType
  */
-TEST_F(SupplicantStaNetworkHidlTest, GetType) {
+TEST_P(SupplicantStaNetworkHidlTest, GetType) {
     const auto& status_and_interface_type = HIDL_INVOKE(sta_network_, getType);
     EXPECT_EQ(SupplicantStatusCode::SUCCESS,
               status_and_interface_type.first.code);
@@ -167,7 +177,7 @@ TEST_F(SupplicantStaNetworkHidlTest, GetType) {
 /*
  * SetGetSsid
  */
-TEST_F(SupplicantStaNetworkHidlTest, SetGetSsid) {
+TEST_P(SupplicantStaNetworkHidlTest, SetGetSsid) {
     sta_network_->setSsid(ssid_, [](const SupplicantStatus& status) {
         EXPECT_EQ(SupplicantStatusCode::SUCCESS, status.code);
     });
@@ -181,7 +191,7 @@ TEST_F(SupplicantStaNetworkHidlTest, SetGetSsid) {
 /*
  * SetGetBssid
  */
-TEST_F(SupplicantStaNetworkHidlTest, SetGetBssid) {
+TEST_P(SupplicantStaNetworkHidlTest, SetGetBssid) {
     std::array<uint8_t, 6> set_bssid;
     memcpy(set_bssid.data(), kTestBssid, set_bssid.size());
     sta_network_->setBssid(set_bssid, [](const SupplicantStatus& status) {
@@ -199,7 +209,7 @@ TEST_F(SupplicantStaNetworkHidlTest, SetGetBssid) {
 /*
  * SetGetKeyMgmt
  */
-TEST_F(SupplicantStaNetworkHidlTest, SetGetKeyMgmt) {
+TEST_P(SupplicantStaNetworkHidlTest, SetGetKeyMgmt) {
     sta_network_->setKeyMgmt(kTestKeyMgmt, [](const SupplicantStatus& status) {
         EXPECT_EQ(SupplicantStatusCode::SUCCESS, status.code);
     });
@@ -213,7 +223,7 @@ TEST_F(SupplicantStaNetworkHidlTest, SetGetKeyMgmt) {
 /*
  * SetGetProto
  */
-TEST_F(SupplicantStaNetworkHidlTest, SetGetProto) {
+TEST_P(SupplicantStaNetworkHidlTest, SetGetProto) {
     sta_network_->setProto(kTestProto, [](const SupplicantStatus& status) {
         EXPECT_EQ(SupplicantStatusCode::SUCCESS, status.code);
     });
@@ -226,7 +236,7 @@ TEST_F(SupplicantStaNetworkHidlTest, SetGetProto) {
 /*
  * SetGetKeyAuthAlg
  */
-TEST_F(SupplicantStaNetworkHidlTest, SetGetAuthAlg) {
+TEST_P(SupplicantStaNetworkHidlTest, SetGetAuthAlg) {
     sta_network_->setAuthAlg(kTestAuthAlg, [](const SupplicantStatus& status) {
         EXPECT_EQ(SupplicantStatusCode::SUCCESS, status.code);
     });
@@ -240,7 +250,7 @@ TEST_F(SupplicantStaNetworkHidlTest, SetGetAuthAlg) {
 /*
  * SetGetGroupCipher
  */
-TEST_F(SupplicantStaNetworkHidlTest, SetGetGroupCipher) {
+TEST_P(SupplicantStaNetworkHidlTest, SetGetGroupCipher) {
     sta_network_->setGroupCipher(
         kTestGroupCipher, [](const SupplicantStatus& status) {
             EXPECT_EQ(SupplicantStatusCode::SUCCESS, status.code);
@@ -255,7 +265,7 @@ TEST_F(SupplicantStaNetworkHidlTest, SetGetGroupCipher) {
 /*
  * SetGetPairwiseCipher
  */
-TEST_F(SupplicantStaNetworkHidlTest, SetGetPairwiseCipher) {
+TEST_P(SupplicantStaNetworkHidlTest, SetGetPairwiseCipher) {
     sta_network_->setPairwiseCipher(
         kTestPairwiseCipher, [](const SupplicantStatus& status) {
             EXPECT_EQ(SupplicantStatusCode::SUCCESS, status.code);
@@ -270,7 +280,7 @@ TEST_F(SupplicantStaNetworkHidlTest, SetGetPairwiseCipher) {
 /*
  * SetGetPskPassphrase
  */
-TEST_F(SupplicantStaNetworkHidlTest, SetGetPskPassphrase) {
+TEST_P(SupplicantStaNetworkHidlTest, SetGetPskPassphrase) {
     sta_network_->setPskPassphrase(
         kTestPskPassphrase, [](const SupplicantStatus& status) {
             EXPECT_EQ(SupplicantStatusCode::SUCCESS, status.code);
@@ -285,7 +295,7 @@ TEST_F(SupplicantStaNetworkHidlTest, SetGetPskPassphrase) {
 /*
  * SetGetPsk
  */
-TEST_F(SupplicantStaNetworkHidlTest, SetGetPsk) {
+TEST_P(SupplicantStaNetworkHidlTest, SetGetPsk) {
     EXPECT_EQ(SupplicantStatusCode::SUCCESS,
               HIDL_INVOKE(sta_network_, setPsk, kTestPsk).code);
     const auto& status_and_psk = HIDL_INVOKE(sta_network_, getPsk);
@@ -297,7 +307,7 @@ TEST_F(SupplicantStaNetworkHidlTest, SetGetPsk) {
 /*
  * SetGetWepKeys
  */
-TEST_F(SupplicantStaNetworkHidlTest, SetGetWepTxKeyIdx) {
+TEST_P(SupplicantStaNetworkHidlTest, SetGetWepTxKeyIdx) {
     sta_network_->setWepTxKeyIdx(
         kTestWepTxKeyIdx, [](const SupplicantStatus& status) {
             EXPECT_EQ(SupplicantStatusCode::SUCCESS, status.code);
@@ -312,7 +322,7 @@ TEST_F(SupplicantStaNetworkHidlTest, SetGetWepTxKeyIdx) {
 /*
  * SetGetWepKeys
  */
-TEST_F(SupplicantStaNetworkHidlTest, SetGetWepKeys) {
+TEST_P(SupplicantStaNetworkHidlTest, SetGetWepKeys) {
     for (uint32_t i = 0;
          i < static_cast<uint32_t>(
                  ISupplicantStaNetwork::ParamSizeLimits::WEP_KEYS_MAX_NUM);
@@ -334,7 +344,7 @@ TEST_F(SupplicantStaNetworkHidlTest, SetGetWepKeys) {
 /*
  * SetGetScanSsid
  */
-TEST_F(SupplicantStaNetworkHidlTest, SetGetScanSsid) {
+TEST_P(SupplicantStaNetworkHidlTest, SetGetScanSsid) {
     sta_network_->setScanSsid(
         true, [](const SupplicantStatus& status) {
             EXPECT_EQ(SupplicantStatusCode::SUCCESS, status.code);
@@ -349,7 +359,7 @@ TEST_F(SupplicantStaNetworkHidlTest, SetGetScanSsid) {
 /*
  * SetGetRequirePmf
  */
-TEST_F(SupplicantStaNetworkHidlTest, SetGetRequirePmf) {
+TEST_P(SupplicantStaNetworkHidlTest, SetGetRequirePmf) {
     sta_network_->setRequirePmf(
         true, [](const SupplicantStatus& status) {
             EXPECT_EQ(SupplicantStatusCode::SUCCESS, status.code);
@@ -364,7 +374,7 @@ TEST_F(SupplicantStaNetworkHidlTest, SetGetRequirePmf) {
 /*
  * SetGetIdStr
  */
-TEST_F(SupplicantStaNetworkHidlTest, SetGetIdStr) {
+TEST_P(SupplicantStaNetworkHidlTest, SetGetIdStr) {
     sta_network_->setIdStr(
         kTestIdStr, [](const SupplicantStatus& status) {
             EXPECT_EQ(SupplicantStatusCode::SUCCESS, status.code);
@@ -376,11 +386,10 @@ TEST_F(SupplicantStaNetworkHidlTest, SetGetIdStr) {
         });
 }
 
-
 /*
  * SetGetEapMethod
  */
-TEST_F(SupplicantStaNetworkHidlTest, SetGetEapMethod) {
+TEST_P(SupplicantStaNetworkHidlTest, SetGetEapMethod) {
     ISupplicantStaNetwork::EapMethod set_eap_method =
         ISupplicantStaNetwork::EapMethod::PEAP;
     sta_network_->setEapMethod(
@@ -398,7 +407,7 @@ TEST_F(SupplicantStaNetworkHidlTest, SetGetEapMethod) {
 /*
  * SetGetEapPhase2Method
  */
-TEST_F(SupplicantStaNetworkHidlTest, SetGetEapPhase2Method) {
+TEST_P(SupplicantStaNetworkHidlTest, SetGetEapPhase2Method) {
     ISupplicantStaNetwork::EapMethod set_eap_method =
         ISupplicantStaNetwork::EapMethod::PEAP;
     sta_network_->setEapMethod(
@@ -422,7 +431,7 @@ TEST_F(SupplicantStaNetworkHidlTest, SetGetEapPhase2Method) {
 /*
  * SetGetEapIdentity
  */
-TEST_F(SupplicantStaNetworkHidlTest, SetGetEapIdentity) {
+TEST_P(SupplicantStaNetworkHidlTest, SetGetEapIdentity) {
     std::vector<uint8_t> set_identity(kTestIdentity, kTestIdentity + sizeof(kTestIdentity));
     sta_network_->setEapIdentity(
         set_identity, [](const SupplicantStatus& status) {
@@ -438,7 +447,7 @@ TEST_F(SupplicantStaNetworkHidlTest, SetGetEapIdentity) {
 /*
  * SetGetEapAnonymousIdentity
  */
-TEST_F(SupplicantStaNetworkHidlTest, SetGetEapAnonymousIdentity) {
+TEST_P(SupplicantStaNetworkHidlTest, SetGetEapAnonymousIdentity) {
     std::vector<uint8_t> set_identity(kTestIdentity, kTestIdentity + sizeof(kTestIdentity));
     sta_network_->setEapAnonymousIdentity(
         set_identity, [](const SupplicantStatus& status) {
@@ -454,7 +463,7 @@ TEST_F(SupplicantStaNetworkHidlTest, SetGetEapAnonymousIdentity) {
 /*
  * SetGetEapPassword
  */
-TEST_F(SupplicantStaNetworkHidlTest, SetGetEapPassword) {
+TEST_P(SupplicantStaNetworkHidlTest, SetGetEapPassword) {
     std::vector<uint8_t> set_eap_passwd(
         kTestEapPasswdStr, kTestEapPasswdStr + strlen(kTestEapPasswdStr));
     sta_network_->setEapPassword(
@@ -471,7 +480,7 @@ TEST_F(SupplicantStaNetworkHidlTest, SetGetEapPassword) {
 /*
  * SetGetEapCACert
  */
-TEST_F(SupplicantStaNetworkHidlTest, SetGetEapCACert) {
+TEST_P(SupplicantStaNetworkHidlTest, SetGetEapCACert) {
     sta_network_->setEapCACert(
         kTestEapCert, [](const SupplicantStatus& status) {
             EXPECT_EQ(SupplicantStatusCode::SUCCESS, status.code);
@@ -486,7 +495,7 @@ TEST_F(SupplicantStaNetworkHidlTest, SetGetEapCACert) {
 /*
  * SetGetEapCAPath
  */
-TEST_F(SupplicantStaNetworkHidlTest, SetGetEapCAPath) {
+TEST_P(SupplicantStaNetworkHidlTest, SetGetEapCAPath) {
     sta_network_->setEapCAPath(
         kTestEapCert, [](const SupplicantStatus& status) {
             EXPECT_EQ(SupplicantStatusCode::SUCCESS, status.code);
@@ -501,7 +510,7 @@ TEST_F(SupplicantStaNetworkHidlTest, SetGetEapCAPath) {
 /*
  * SetGetEapClientCert
  */
-TEST_F(SupplicantStaNetworkHidlTest, SetGetEapClientCert) {
+TEST_P(SupplicantStaNetworkHidlTest, SetGetEapClientCert) {
     sta_network_->setEapClientCert(
         kTestEapCert, [](const SupplicantStatus& status) {
             EXPECT_EQ(SupplicantStatusCode::SUCCESS, status.code);
@@ -516,7 +525,7 @@ TEST_F(SupplicantStaNetworkHidlTest, SetGetEapClientCert) {
 /*
  * SetGetEapPrivateKeyId
  */
-TEST_F(SupplicantStaNetworkHidlTest, SetGetEapPrivateKeyId) {
+TEST_P(SupplicantStaNetworkHidlTest, SetGetEapPrivateKeyId) {
     sta_network_->setEapPrivateKeyId(
         kTestEapPrivateKeyId, [](const SupplicantStatus& status) {
             EXPECT_EQ(SupplicantStatusCode::SUCCESS, status.code);
@@ -531,7 +540,7 @@ TEST_F(SupplicantStaNetworkHidlTest, SetGetEapPrivateKeyId) {
 /*
  * SetGetEapAltSubjectMatch
  */
-TEST_F(SupplicantStaNetworkHidlTest, SetGetEapAltSubjectMatch) {
+TEST_P(SupplicantStaNetworkHidlTest, SetGetEapAltSubjectMatch) {
     sta_network_->setEapAltSubjectMatch(
         kTestEapMatch, [](const SupplicantStatus& status) {
             EXPECT_EQ(SupplicantStatusCode::SUCCESS, status.code);
@@ -546,7 +555,7 @@ TEST_F(SupplicantStaNetworkHidlTest, SetGetEapAltSubjectMatch) {
 /*
  * SetGetEapSubjectMatch
  */
-TEST_F(SupplicantStaNetworkHidlTest, SetGetEapSubjectMatch) {
+TEST_P(SupplicantStaNetworkHidlTest, SetGetEapSubjectMatch) {
     EXPECT_EQ(
         SupplicantStatusCode::SUCCESS,
         HIDL_INVOKE(sta_network_, setEapSubjectMatch, kTestEapMatch).code);
@@ -561,7 +570,7 @@ TEST_F(SupplicantStaNetworkHidlTest, SetGetEapSubjectMatch) {
 /*
  * SetGetEapDomainSuffixMatch
  */
-TEST_F(SupplicantStaNetworkHidlTest, SetGetEapDomainSuffixMatch) {
+TEST_P(SupplicantStaNetworkHidlTest, SetGetEapDomainSuffixMatch) {
     sta_network_->setEapDomainSuffixMatch(
         kTestEapMatch, [](const SupplicantStatus& status) {
             EXPECT_EQ(SupplicantStatusCode::SUCCESS, status.code);
@@ -576,7 +585,7 @@ TEST_F(SupplicantStaNetworkHidlTest, SetGetEapDomainSuffixMatch) {
 /*
  * SetGetEapEngine
  */
-TEST_F(SupplicantStaNetworkHidlTest, SetGetEapEngine) {
+TEST_P(SupplicantStaNetworkHidlTest, SetGetEapEngine) {
     sta_network_->setEapEngine(
         true, [](const SupplicantStatus& status) {
             EXPECT_EQ(SupplicantStatusCode::SUCCESS, status.code);
@@ -591,7 +600,7 @@ TEST_F(SupplicantStaNetworkHidlTest, SetGetEapEngine) {
 /*
  * SetGetEapEngineID
  */
-TEST_F(SupplicantStaNetworkHidlTest, SetGetEapEngineID) {
+TEST_P(SupplicantStaNetworkHidlTest, SetGetEapEngineID) {
     sta_network_->setEapEngineID(
         kTestEapEngineID, [](const SupplicantStatus& status) {
             EXPECT_EQ(SupplicantStatusCode::SUCCESS, status.code);
@@ -606,7 +615,7 @@ TEST_F(SupplicantStaNetworkHidlTest, SetGetEapEngineID) {
 /*
  * Enable
  */
-TEST_F(SupplicantStaNetworkHidlTest, Enable) {
+TEST_P(SupplicantStaNetworkHidlTest, Enable) {
     // wpa_supplicant doesn't perform any connection initiation
     // unless atleast the Ssid and Ket mgmt params are set.
     sta_network_->setSsid(ssid_, [](const SupplicantStatus& status) {
@@ -633,7 +642,7 @@ TEST_F(SupplicantStaNetworkHidlTest, Enable) {
 /*
  * Disable
  */
-TEST_F(SupplicantStaNetworkHidlTest, Disable) {
+TEST_P(SupplicantStaNetworkHidlTest, Disable) {
     // wpa_supplicant doesn't perform any connection initiation
     // unless atleast the Ssid and Ket mgmt params are set.
     sta_network_->setSsid(ssid_, [](const SupplicantStatus& status) {
@@ -656,7 +665,7 @@ TEST_F(SupplicantStaNetworkHidlTest, Disable) {
 /*
  * Select.
  */
-TEST_F(SupplicantStaNetworkHidlTest, Select) {
+TEST_P(SupplicantStaNetworkHidlTest, Select) {
     // wpa_supplicant doesn't perform any connection initiation
     // unless atleast the Ssid and Ket mgmt params are set.
     sta_network_->setSsid(ssid_, [](const SupplicantStatus& status) {
@@ -679,7 +688,7 @@ TEST_F(SupplicantStaNetworkHidlTest, Select) {
 /*
  * SendNetworkEapSimGsmAuthResponse
  */
-TEST_F(SupplicantStaNetworkHidlTest, SendNetworkEapSimGsmAuthResponse) {
+TEST_P(SupplicantStaNetworkHidlTest, SendNetworkEapSimGsmAuthResponse) {
     std::vector<ISupplicantStaNetwork::NetworkResponseEapSimGsmAuthParams>
         params;
     ISupplicantStaNetwork::NetworkResponseEapSimGsmAuthParams param;
@@ -695,7 +704,7 @@ TEST_F(SupplicantStaNetworkHidlTest, SendNetworkEapSimGsmAuthResponse) {
 /*
  * SendNetworkEapSimGsmAuthFailure
  */
-TEST_F(SupplicantStaNetworkHidlTest, SendNetworkEapSimGsmAuthFailure) {
+TEST_P(SupplicantStaNetworkHidlTest, SendNetworkEapSimGsmAuthFailure) {
     EXPECT_EQ(SupplicantStatusCode::SUCCESS,
               HIDL_INVOKE(sta_network_, sendNetworkEapSimGsmAuthFailure).code);
 }
@@ -703,7 +712,7 @@ TEST_F(SupplicantStaNetworkHidlTest, SendNetworkEapSimGsmAuthFailure) {
 /*
  * SendNetworkEapSimUmtsAuthResponse
  */
-TEST_F(SupplicantStaNetworkHidlTest, SendNetworkEapSimUmtsAuthResponse) {
+TEST_P(SupplicantStaNetworkHidlTest, SendNetworkEapSimUmtsAuthResponse) {
     ISupplicantStaNetwork::NetworkResponseEapSimUmtsAuthParams params;
     params.res = std::vector<uint8_t>(kTestRes, kTestRes + sizeof(kTestRes));
     memcpy(params.ik.data(), kTestIk, params.ik.size());
@@ -717,7 +726,7 @@ TEST_F(SupplicantStaNetworkHidlTest, SendNetworkEapSimUmtsAuthResponse) {
 /*
  * SendNetworkEapSimUmtsAuthFailure
  */
-TEST_F(SupplicantStaNetworkHidlTest, SendNetworkEapSimUmtsAuthFailure) {
+TEST_P(SupplicantStaNetworkHidlTest, SendNetworkEapSimUmtsAuthFailure) {
     EXPECT_EQ(SupplicantStatusCode::SUCCESS,
               HIDL_INVOKE(sta_network_, sendNetworkEapSimUmtsAuthFailure).code);
 }
@@ -725,7 +734,7 @@ TEST_F(SupplicantStaNetworkHidlTest, SendNetworkEapSimUmtsAuthFailure) {
 /*
  * SendNetworkEapSimUmtsAutsResponse
  */
-TEST_F(SupplicantStaNetworkHidlTest, SendNetworkEapSimUmtsAutsResponse) {
+TEST_P(SupplicantStaNetworkHidlTest, SendNetworkEapSimUmtsAutsResponse) {
     EXPECT_EQ(SupplicantStatusCode::SUCCESS,
               HIDL_INVOKE(sta_network_, sendNetworkEapSimUmtsAutsResponse,
                           kTestAutParam)
@@ -735,7 +744,7 @@ TEST_F(SupplicantStaNetworkHidlTest, SendNetworkEapSimUmtsAutsResponse) {
 /*
  * SendNetworkEapIdentityResponse
  */
-TEST_F(SupplicantStaNetworkHidlTest, SendNetworkEapIdentityResponse) {
+TEST_P(SupplicantStaNetworkHidlTest, SendNetworkEapIdentityResponse) {
     sta_network_->sendNetworkEapIdentityResponse(
         std::vector<uint8_t>(kTestIdentity,
                              kTestIdentity + sizeof(kTestIdentity)),
@@ -747,7 +756,7 @@ TEST_F(SupplicantStaNetworkHidlTest, SendNetworkEapIdentityResponse) {
 /*
  * SetUpdateIdentifier
  */
-TEST_F(SupplicantStaNetworkHidlTest, SetUpdateIdentifier) {
+TEST_P(SupplicantStaNetworkHidlTest, SetUpdateIdentifier) {
     EXPECT_EQ(
         SupplicantStatusCode::SUCCESS,
         HIDL_INVOKE(sta_network_, setUpdateIdentifier, kTestUpdateIdentifier)
@@ -757,7 +766,7 @@ TEST_F(SupplicantStaNetworkHidlTest, SetUpdateIdentifier) {
 /*
  * SetProactiveKeyCaching
  */
-TEST_F(SupplicantStaNetworkHidlTest, SetProactiveKeyCaching) {
+TEST_P(SupplicantStaNetworkHidlTest, SetProactiveKeyCaching) {
     EXPECT_EQ(SupplicantStatusCode::SUCCESS,
               HIDL_INVOKE(sta_network_, setProactiveKeyCaching, true).code);
     EXPECT_EQ(SupplicantStatusCode::SUCCESS,
@@ -767,7 +776,7 @@ TEST_F(SupplicantStaNetworkHidlTest, SetProactiveKeyCaching) {
 /*
  * GetWpsNfcConfigurationToken
  */
-TEST_F(SupplicantStaNetworkHidlTest, GetWpsNfcConfigurationToken) {
+TEST_P(SupplicantStaNetworkHidlTest, GetWpsNfcConfigurationToken) {
     ASSERT_EQ(SupplicantStatusCode::SUCCESS,
               HIDL_INVOKE(sta_network_, setSsid, ssid_).code);
     ASSERT_EQ(SupplicantStatusCode::SUCCESS,
@@ -780,3 +789,9 @@ TEST_F(SupplicantStaNetworkHidlTest, GetWpsNfcConfigurationToken) {
     EXPECT_EQ(SupplicantStatusCode::SUCCESS, status_and_token.first.code);
     EXPECT_FALSE(0 == status_and_token.second.size());
 }
+
+INSTANTIATE_TEST_SUITE_P(
+    PerInstance, SupplicantStaNetworkHidlTest,
+    testing::ValuesIn(
+        android::hardware::getAllHalInstanceNames(ISupplicant::descriptor)),
+    android::hardware::PrintInstanceNameToString);
