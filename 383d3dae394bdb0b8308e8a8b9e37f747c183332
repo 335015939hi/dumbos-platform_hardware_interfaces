@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fd1245e5_3543e13b",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_test_utils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-10-29T21:47:05Z",
+      "side": 1,
+      "message": "it\u0027s copied from cts/tests/tests/nativemedia/aaudio/jni/utils.cpp\nany common lib we can move it to to share?",
+      "revId": "383d3dae394bdb0b8308e8a8b9e37f747c183332",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
