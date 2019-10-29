@@ -52,6 +52,24 @@
       "revId": "6ba951f6741f1ab03c48a4078565691536389d1b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3d8a250_f13def7f",
+        "filename": "wifi/hostapd/1.0/vts/functional/hostapd_hidl_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-10-29T22:18:15Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "1772a3ba_42f9fc23",
+      "revId": "6ba951f6741f1ab03c48a4078565691536389d1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
