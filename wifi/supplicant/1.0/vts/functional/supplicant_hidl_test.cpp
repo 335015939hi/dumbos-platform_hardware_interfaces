@@ -16,9 +16,10 @@
 
 #include <android-base/logging.h>
 
-#include <VtsHalHidlTargetTestBase.h>
-
 #include <android/hardware/wifi/supplicant/1.0/ISupplicant.h>
+#include <gtest/gtest.h>
+#include <hidl/GtestPrinter.h>
+#include <hidl/ServiceManagement.h>
 
 #include "supplicant_hidl_test_utils.h"
 
@@ -30,13 +31,13 @@ using ::android::hardware::wifi::supplicant::V1_0::SupplicantStatus;
 using ::android::hardware::wifi::supplicant::V1_0::SupplicantStatusCode;
 using ::android::hardware::wifi::supplicant::V1_0::IfaceType;
 
-extern WifiSupplicantHidlEnvironment* gEnv;
-
-class SupplicantHidlTest : public ::testing::VtsHalHidlTargetTestBase {
+class SupplicantHidlTest : public ::testing::TestWithParam<std::string> {
    public:
     virtual void SetUp() override {
-        startSupplicantAndWaitForHidlService();
-        supplicant_ = getSupplicant();
+        stopSupplicant();
+        startSupplicantAndWaitForHidlService(GetParam());
+        isP2pOn_ = deviceSupportsFeature("android.hardware.wifi.direct");
+        supplicant_ = getSupplicant(GetParam(), isP2pOn_);
         ASSERT_NE(supplicant_.get(), nullptr);
     }
 
@@ -45,6 +46,7 @@ class SupplicantHidlTest : public ::testing::VtsHalHidlTargetTestBase {
    protected:
     // ISupplicant object used for all tests in this fixture.
     sp<ISupplicant> supplicant_;
+    bool isP2pOn_ = false;
 };
 
 /*
@@ -52,16 +54,17 @@ class SupplicantHidlTest : public ::testing::VtsHalHidlTargetTestBase {
  * Ensures that an instance of the ISupplicant proxy object is
  * successfully created.
  */
-TEST(SupplicantHidlTestNoFixture, Create) {
-    startSupplicantAndWaitForHidlService();
-    EXPECT_NE(nullptr, getSupplicant().get());
+TEST_P(SupplicantHidlTest, Create) {
+    // Stop the proxy object created in setup.
     stopSupplicant();
+    startSupplicantAndWaitForHidlService(GetParam());
+    EXPECT_NE(nullptr, getSupplicant(GetParam(), isP2pOn_).get());
 }
 
 /*
  * ListInterfaces
  */
-TEST_F(SupplicantHidlTest, ListInterfaces) {
+TEST_P(SupplicantHidlTest, ListInterfaces) {
     std::vector<ISupplicant::IfaceInfo> ifaces;
     supplicant_->listInterfaces(
         [&](const SupplicantStatus& status,
@@ -74,7 +77,7 @@ TEST_F(SupplicantHidlTest, ListInterfaces) {
               std::find_if(ifaces.begin(), ifaces.end(), [](const auto& iface) {
                   return iface.type == IfaceType::STA;
               }));
-    if (gEnv->isP2pOn) {
+    if (isP2pOn_) {
         EXPECT_NE(
             ifaces.end(),
             std::find_if(ifaces.begin(), ifaces.end(), [](const auto& iface) {
@@ -86,7 +89,7 @@ TEST_F(SupplicantHidlTest, ListInterfaces) {
 /*
  * GetInterface
  */
-TEST_F(SupplicantHidlTest, GetInterface) {
+TEST_P(SupplicantHidlTest, GetInterface) {
     std::vector<ISupplicant::IfaceInfo> ifaces;
     supplicant_->listInterfaces(
         [&](const SupplicantStatus& status,
@@ -107,7 +110,7 @@ TEST_F(SupplicantHidlTest, GetInterface) {
 /*
  * SetDebugParams
  */
-TEST_F(SupplicantHidlTest, SetDebugParams) {
+TEST_P(SupplicantHidlTest, SetDebugParams) {
     bool show_timestamp = true;
     bool show_keys = true;
     ISupplicant::DebugLevel level = ISupplicant::DebugLevel::EXCESSIVE;
@@ -124,7 +127,7 @@ TEST_F(SupplicantHidlTest, SetDebugParams) {
 /*
  * GetDebugLevel
  */
-TEST_F(SupplicantHidlTest, GetDebugLevel) {
+TEST_P(SupplicantHidlTest, GetDebugLevel) {
     bool show_timestamp = true;
     bool show_keys = true;
     ISupplicant::DebugLevel level = ISupplicant::DebugLevel::EXCESSIVE;
@@ -142,7 +145,7 @@ TEST_F(SupplicantHidlTest, GetDebugLevel) {
 /*
  * IsDebugShowTimestampEnabled
  */
-TEST_F(SupplicantHidlTest, IsDebugShowTimestampEnabled) {
+TEST_P(SupplicantHidlTest, IsDebugShowTimestampEnabled) {
     bool show_timestamp = true;
     bool show_keys = true;
     ISupplicant::DebugLevel level = ISupplicant::DebugLevel::EXCESSIVE;
@@ -160,7 +163,7 @@ TEST_F(SupplicantHidlTest, IsDebugShowTimestampEnabled) {
 /*
  * IsDebugShowKeysEnabled
  */
-TEST_F(SupplicantHidlTest, IsDebugShowKeysEnabled) {
+TEST_P(SupplicantHidlTest, IsDebugShowKeysEnabled) {
     bool show_timestamp = true;
     bool show_keys = true;
     ISupplicant::DebugLevel level = ISupplicant::DebugLevel::EXCESSIVE;
@@ -178,15 +181,21 @@ TEST_F(SupplicantHidlTest, IsDebugShowKeysEnabled) {
 /*
  * SetConcurrenyPriority
  */
-TEST_F(SupplicantHidlTest, SetConcurrencyPriority) {
+TEST_P(SupplicantHidlTest, SetConcurrencyPriority) {
     supplicant_->setConcurrencyPriority(
         IfaceType::STA, [](const SupplicantStatus& status) {
             EXPECT_EQ(SupplicantStatusCode::SUCCESS, status.code);
         });
-    if (gEnv->isP2pOn) {
+    if (isP2pOn_) {
         supplicant_->setConcurrencyPriority(
             IfaceType::P2P, [](const SupplicantStatus& status) {
                 EXPECT_EQ(SupplicantStatusCode::SUCCESS, status.code);
             });
     }
 }
+
+INSTANTIATE_TEST_SUITE_P(
+    PerInstance, SupplicantHidlTest,
+    testing::ValuesIn(
+        android::hardware::getAllHalInstanceNames(ISupplicant::descriptor)),
+    android::hardware::PrintInstanceNameToString);

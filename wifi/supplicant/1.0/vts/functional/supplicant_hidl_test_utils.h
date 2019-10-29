@@ -25,7 +25,13 @@
 
 #include <getopt.h>
 
-#include <VtsHalHidlTargetTestEnvBase.h>
+#include "wifi_hidl_test_utils.h"
+
+using ::android::sp;
+using ::android::hardware::wifi::supplicant::V1_0::ISupplicant;
+using ::android::hardware::wifi::supplicant::V1_0::ISupplicantP2pIface;
+using ::android::hardware::wifi::supplicant::V1_0::ISupplicantStaIface;
+using ::android::hardware::wifi::supplicant::V1_0::ISupplicantStaNetwork;
 
 // Used to stop the android wifi framework before every test.
 void stopWifiFramework();
@@ -33,67 +39,17 @@ void startWifiFramework();
 void stopSupplicant();
 // Used to configure the chip, driver and start wpa_supplicant before every
 // test.
-void startSupplicantAndWaitForHidlService();
+void startSupplicantAndWaitForHidlService(std::string service_name);
 
 // Helper functions to obtain references to the various HIDL interface objects.
 // Note: We only have a single instance of each of these objects currently.
 // These helper functions should be modified to return vectors if we support
 // multiple instances.
-android::sp<android::hardware::wifi::supplicant::V1_0::ISupplicant>
-getSupplicant();
-android::sp<android::hardware::wifi::supplicant::V1_0::ISupplicantStaIface>
-getSupplicantStaIface();
-android::sp<android::hardware::wifi::supplicant::V1_0::ISupplicantStaNetwork>
-createSupplicantStaNetwork();
-android::sp<android::hardware::wifi::supplicant::V1_0::ISupplicantP2pIface>
-getSupplicantP2pIface();
-
-bool turnOnExcessiveLogging();
-
-class WifiSupplicantHidlEnvironment
-    : public ::testing::VtsHalHidlTargetTestEnvBase {
-   protected:
-    virtual void HidlSetUp() override { stopSupplicant(); }
-    virtual void HidlTearDown() override {
-        startSupplicantAndWaitForHidlService();
-    }
-
-   public:
-    // Whether P2P feature is supported on the device.
-    bool isP2pOn = true;
-
-    void usage(char* me, char* arg) {
-        fprintf(stderr,
-                "unrecognized option: %s\n\n"
-                "usage: %s <gtest options> <test options>\n\n"
-                "test options are:\n\n"
-                "-P, --p2p_on: Whether P2P feature is supported\n",
-                arg, me);
-    }
-
-    int initFromOptions(int argc, char** argv) {
-        static struct option options[] = {{"p2p_off", no_argument, 0, 'P'},
-                                          {0, 0, 0, 0}};
-
-        int c;
-        while ((c = getopt_long(argc, argv, "P", options, NULL)) >= 0) {
-            switch (c) {
-                case 'P':
-                    isP2pOn = false;
-                    break;
-                default:
-                    usage(argv[0], argv[optind]);
-                    return 2;
-            }
-        }
-
-        if (optind < argc) {
-            usage(argv[0], argv[optind]);
-            return 2;
-        }
-
-        return 0;
-    }
-};
+sp<ISupplicant> getSupplicant(std::string service_name, bool isP2pOn);
+sp<ISupplicantStaIface> getSupplicantStaIface(sp<ISupplicant> supplicant);
+sp<ISupplicantStaNetwork> createSupplicantStaNetwork(
+    sp<ISupplicant> supplicant);
+sp<ISupplicantP2pIface> getSupplicantP2pIface(sp<ISupplicant> supplicant);
+bool turnOnExcessiveLogging(sp<ISupplicant> supplicant);
 
 #endif /* SUPPLICANT_HIDL_TEST_UTILS_H */

@@ -14,7 +14,8 @@
  * limitations under the License.
  */
 
-#include <VtsHalHidlTargetTestBase.h>
+#include <stdio.h>
+
 #include <android-base/logging.h>
 #include <cutils/properties.h>
 
@@ -26,7 +27,6 @@
 #include <wifi_system/supplicant_manager.h>
 
 #include "supplicant_hidl_test_utils.h"
-#include "wifi_hidl_test_utils.h"
 
 using ::android::sp;
 using ::android::hardware::configureRpcThreadpool;
@@ -49,8 +49,6 @@ using ::android::hardware::wifi::supplicant::V1_0::SupplicantStatusCode;
 using ::android::hidl::manager::V1_0::IServiceNotification;
 using ::android::wifi_system::InterfaceTool;
 using ::android::wifi_system::SupplicantManager;
-
-extern WifiSupplicantHidlEnvironment* gEnv;
 
 namespace {
 
@@ -162,12 +160,11 @@ void stopSupplicant() {
     ASSERT_FALSE(supplicant_manager.IsSupplicantRunning());
 }
 
-void startSupplicantAndWaitForHidlService() {
+void startSupplicantAndWaitForHidlService(std::string service_name) {
     initilializeDriverAndFirmware();
 
     android::sp<ServiceNotificationListener> notification_listener =
         new ServiceNotificationListener();
-    string service_name = gEnv->getServiceName<ISupplicant>();
     ASSERT_TRUE(notification_listener->registerForHidlServiceNotifications(
         service_name));
 
@@ -218,22 +215,19 @@ void addSupplicantP2pIface_1_1(const sp<ISupplicant>& supplicant) {
         });
 }
 
-sp<ISupplicant> getSupplicant() {
-    sp<ISupplicant> supplicant =
-        ::testing::VtsHalHidlTargetTestBase::getService<ISupplicant>(
-            gEnv->getServiceName<ISupplicant>());
+sp<ISupplicant> getSupplicant(std::string service_name, bool isP2pOn) {
+    sp<ISupplicant> supplicant = ISupplicant::getService(service_name);
     // For 1.1 supplicant, we need to add interfaces at initialization.
     if (is_1_1(supplicant)) {
         addSupplicantStaIface_1_1(supplicant);
-        if (gEnv->isP2pOn) {
+        if (isP2pOn) {
             addSupplicantP2pIface_1_1(supplicant);
         }
     }
     return supplicant;
 }
 
-sp<ISupplicantStaIface> getSupplicantStaIface() {
-    sp<ISupplicant> supplicant = getSupplicant();
+sp<ISupplicantStaIface> getSupplicantStaIface(sp<ISupplicant> supplicant) {
     if (!supplicant.get()) {
         return nullptr;
     }
@@ -257,8 +251,9 @@ sp<ISupplicantStaIface> getSupplicantStaIface() {
     return sta_iface;
 }
 
-sp<ISupplicantStaNetwork> createSupplicantStaNetwork() {
-    sp<ISupplicantStaIface> sta_iface = getSupplicantStaIface();
+sp<ISupplicantStaNetwork> createSupplicantStaNetwork(
+    sp<ISupplicant> supplicant) {
+    sp<ISupplicantStaIface> sta_iface = getSupplicantStaIface(supplicant);
     if (!sta_iface.get()) {
         return nullptr;
     }
@@ -278,8 +273,7 @@ sp<ISupplicantStaNetwork> createSupplicantStaNetwork() {
     return sta_network;
 }
 
-sp<ISupplicantP2pIface> getSupplicantP2pIface() {
-    sp<ISupplicant> supplicant = getSupplicant();
+sp<ISupplicantP2pIface> getSupplicantP2pIface(sp<ISupplicant> supplicant) {
     if (!supplicant.get()) {
         return nullptr;
     }
@@ -303,8 +297,7 @@ sp<ISupplicantP2pIface> getSupplicantP2pIface() {
     return p2p_iface;
 }
 
-bool turnOnExcessiveLogging() {
-    sp<ISupplicant> supplicant = getSupplicant();
+bool turnOnExcessiveLogging(sp<ISupplicant> supplicant) {
     if (!supplicant.get()) {
         return false;
     }
