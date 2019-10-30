@@ -15,8 +15,10 @@
  */
 
 #include <android-base/logging.h>
+#include <gtest/gtest.h>
+#include <hidl/GtestPrinter.h>
+#include <hidl/ServiceManagement.h>
 
-#include <VtsHalHidlTargetTestBase.h>
 #include <android/hardware/wifi/supplicant/1.1/ISupplicantStaNetwork.h>
 
 #include "supplicant_hidl_test_utils.h"
@@ -33,20 +35,25 @@ constexpr uint8_t kTestEncryptedIdentity[] = {0x35, 0x37, 0x58, 0x57, 0x26};
 }  // namespace
 
 class SupplicantStaNetworkHidlTest
-    : public ::testing::VtsHalHidlTargetTestBase {
- public:
-  virtual void SetUp() override {
-    startSupplicantAndWaitForHidlService();
-    EXPECT_TRUE(turnOnExcessiveLogging());
-    sta_network_ = createSupplicantStaNetwork_1_1();
-    ASSERT_NE(sta_network_.get(), nullptr);
-  }
+    : public ::testing::TestWithParam<std::string> {
+   public:
+    virtual void SetUp() override {
+        startSupplicantAndWaitForHidlService(GetParam());
+        isP2pOn_ = deviceSupportsFeature("android.hardware.wifi.direct");
+        supplicant_ = getSupplicant_1_1(GetParam(), isP2pOn_);
+        EXPECT_TRUE(turnOnExcessiveLogging(supplicant_));
+        sta_network_ = createSupplicantStaNetwork_1_1(supplicant_);
+        ASSERT_NE(sta_network_.get(), nullptr);
+    }
 
-  virtual void TearDown() override { stopSupplicant(); }
+    virtual void TearDown() override { stopSupplicant(); }
 
- protected:
-  // ISupplicantStaNetwork object used for all tests in this fixture.
-  sp<ISupplicantStaNetwork> sta_network_;
+   protected:
+    bool isP2pOn_ = false;
+    sp<android::hardware::wifi::supplicant::V1_1::ISupplicant> supplicant_;
+    // ISupplicantStaNetwork object used for all tests in this fixture.
+    sp<android::hardware::wifi::supplicant::V1_1::ISupplicantStaNetwork>
+        sta_network_;
 };
 
 /*
@@ -54,36 +61,44 @@ class SupplicantStaNetworkHidlTest
  * Ensures that an instance of the ISupplicantStaNetwork proxy object is
  * successfully created.
  */
-TEST(SupplicantStaNetworkHidlTestNoFixture, Create) {
-  startSupplicantAndWaitForHidlService();
-  EXPECT_NE(nullptr, createSupplicantStaNetwork_1_1().get());
-  stopSupplicant();
+TEST_P(SupplicantStaNetworkHidlTest, Create) {
+    stopSupplicant();
+    startSupplicantAndWaitForHidlService(GetParam());
+    sp<android::hardware::wifi::supplicant::V1_1::ISupplicant> supplicant =
+        getSupplicant_1_1(GetParam(), isP2pOn_);
+    EXPECT_NE(nullptr, createSupplicantStaNetwork_1_1(supplicant).get());
 }
 
 /*
  * Ensure that the encrypted imsi identity is set successfully.
  */
-TEST_F(SupplicantStaNetworkHidlTest, setEapEncryptedImsiIdentity) {
-  std::vector<uint8_t> encrypted_identity(
-      kTestEncryptedIdentity,
-      kTestEncryptedIdentity + sizeof(kTestEncryptedIdentity));
-  sta_network_->setEapEncryptedImsiIdentity(
-      encrypted_identity, [](const SupplicantStatus &status) {
-        EXPECT_EQ(SupplicantStatusCode::SUCCESS, status.code);
-      });
+TEST_P(SupplicantStaNetworkHidlTest, setEapEncryptedImsiIdentity) {
+    std::vector<uint8_t> encrypted_identity(
+        kTestEncryptedIdentity,
+        kTestEncryptedIdentity + sizeof(kTestEncryptedIdentity));
+    sta_network_->setEapEncryptedImsiIdentity(
+        encrypted_identity, [](const SupplicantStatus &status) {
+            EXPECT_EQ(SupplicantStatusCode::SUCCESS, status.code);
+        });
 }
 
 /*
  * Ensure that the identity and the encrypted imsi identity are sent
  * successfully.
  */
-TEST_F(SupplicantStaNetworkHidlTest, SendNetworkEapIdentityResponse_1_1) {
-  sta_network_->sendNetworkEapIdentityResponse_1_1(
-      std::vector<uint8_t>(kTestIdentity,
-                           kTestIdentity + sizeof(kTestIdentity)),
-      std::vector<uint8_t>(kTestEncryptedIdentity,
-                           kTestIdentity + sizeof(kTestEncryptedIdentity)),
-      [](const SupplicantStatus &status) {
-        EXPECT_EQ(SupplicantStatusCode::SUCCESS, status.code);
-      });
+TEST_P(SupplicantStaNetworkHidlTest, SendNetworkEapIdentityResponse_1_1) {
+    sta_network_->sendNetworkEapIdentityResponse_1_1(
+        std::vector<uint8_t>(kTestIdentity,
+                             kTestIdentity + sizeof(kTestIdentity)),
+        std::vector<uint8_t>(kTestEncryptedIdentity,
+                             kTestIdentity + sizeof(kTestEncryptedIdentity)),
+        [](const SupplicantStatus &status) {
+            EXPECT_EQ(SupplicantStatusCode::SUCCESS, status.code);
+        });
 }
+
+INSTANTIATE_TEST_SUITE_P(
+    PerInstance, SupplicantStaNetworkHidlTest,
+    testing::ValuesIn(android::hardware::getAllHalInstanceNames(
+        android::hardware::wifi::supplicant::V1_1::ISupplicant::descriptor)),
+    android::hardware::PrintInstanceNameToString);

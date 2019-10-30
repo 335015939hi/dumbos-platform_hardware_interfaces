@@ -26,18 +26,20 @@ using ::android::hardware::wifi::supplicant::V1_2::ISupplicantP2pIface;
 using ::android::hardware::wifi::supplicant::V1_2::ISupplicantStaIface;
 using ::android::hardware::wifi::supplicant::V1_2::ISupplicantStaNetwork;
 
-sp<ISupplicant> getSupplicant_1_2() {
-    return ISupplicant::castFrom(getSupplicant());
+sp<ISupplicant> getSupplicant_1_2(std::string service_name, bool isP2pOn) {
+    return ISupplicant::castFrom(getSupplicant(service_name, isP2pOn));
 }
 
-sp<ISupplicantStaIface> getSupplicantStaIface_1_2() {
-    return ISupplicantStaIface::castFrom(getSupplicantStaIface());
+sp<ISupplicantStaIface> getSupplicantStaIface_1_2(sp<ISupplicant> supplicant) {
+    return ISupplicantStaIface::castFrom(getSupplicantStaIface(supplicant));
 }
 
-sp<ISupplicantStaNetwork> createSupplicantStaNetwork_1_2() {
-    return ISupplicantStaNetwork::castFrom(createSupplicantStaNetwork());
+sp<ISupplicantStaNetwork> createSupplicantStaNetwork_1_2(
+    sp<ISupplicant> supplicant) {
+    return ISupplicantStaNetwork::castFrom(
+        createSupplicantStaNetwork(supplicant));
 }
 
-sp<ISupplicantP2pIface> getSupplicantP2pIface_1_2() {
-    return ISupplicantP2pIface::castFrom(getSupplicantP2pIface());
+sp<ISupplicantP2pIface> getSupplicantP2pIface_1_2(sp<ISupplicant> supplicant) {
+    return ISupplicantP2pIface::castFrom(getSupplicantP2pIface(supplicant));
 }

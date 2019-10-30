@@ -21,13 +21,25 @@
 #include <android/hardware/wifi/supplicant/1.1/ISupplicantStaIface.h>
 #include <android/hardware/wifi/supplicant/1.1/ISupplicantStaNetwork.h>
 
+// using android::hardware::wifi::supplicant::V1_1::ISupplicant;
+// using android::hardware::wifi::supplicant::V1_1::ISupplicantStaIface;
+// using android::hardware::wifi::supplicant::V1_1::ISupplicantStaNetwork
+
 android::sp<android::hardware::wifi::supplicant::V1_1::ISupplicant>
-    getSupplicant_1_1();
+getSupplicant_1_1(std::string service_name, bool isP2pOn);
 
 android::sp<android::hardware::wifi::supplicant::V1_1::ISupplicantStaIface>
-    getSupplicantStaIface_1_1();
+getSupplicantStaIface_1_1(
+    android::sp<android::hardware::wifi::supplicant::V1_1::ISupplicant>
+        supplicant);
 
 android::sp<android::hardware::wifi::supplicant::V1_1::ISupplicantStaNetwork>
-    createSupplicantStaNetwork_1_1();
+createSupplicantStaNetwork_1_1(
+    android::sp<android::hardware::wifi::supplicant::V1_1::ISupplicant>
+        supplicant);
+
+// bool turnOnExcessiveLogging(
+//     android::sp<android::hardware::wifi::supplicant::V1_1::ISupplicant>
+//         supplicant);
 
 #endif /* SUPPLICANT_HIDL_TEST_UTILS_1_1_H */

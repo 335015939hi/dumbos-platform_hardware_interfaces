@@ -25,14 +25,20 @@ using ::android::hardware::wifi::supplicant::V1_1::ISupplicantStaIface;
 using ::android::hardware::wifi::supplicant::V1_1::ISupplicantStaNetwork;
 using ::android::sp;
 
-sp<ISupplicant> getSupplicant_1_1() {
-    return ISupplicant::castFrom(getSupplicant());
+sp<ISupplicant> getSupplicant_1_1(std::string service_name, bool isP2pOn) {
+    return ISupplicant::castFrom(getSupplicant(service_name, isP2pOn));
 }
 
-sp<ISupplicantStaIface> getSupplicantStaIface_1_1() {
-    return ISupplicantStaIface::castFrom(getSupplicantStaIface());
+sp<ISupplicantStaIface> getSupplicantStaIface_1_1(sp<ISupplicant> supplicant) {
+    return ISupplicantStaIface::castFrom(getSupplicantStaIface(supplicant));
 }
 
-sp<ISupplicantStaNetwork> createSupplicantStaNetwork_1_1() {
-    return ISupplicantStaNetwork::castFrom(createSupplicantStaNetwork());
+sp<ISupplicantStaNetwork> createSupplicantStaNetwork_1_1(
+    sp<ISupplicant> supplicant) {
+    return ISupplicantStaNetwork::castFrom(
+        createSupplicantStaNetwork(supplicant));
 }
+
+// bool turnOnExcessiveLogging(sp<ISupplicant> supplicant) {
+//     return turnOnExcessiveLogging();
+// }

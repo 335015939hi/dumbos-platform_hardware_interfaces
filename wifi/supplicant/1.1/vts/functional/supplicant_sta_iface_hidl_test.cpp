@@ -15,8 +15,9 @@
  */
 
 #include <android-base/logging.h>
-
-#include <VtsHalHidlTargetTestBase.h>
+#include <gtest/gtest.h>
+#include <hidl/GtestPrinter.h>
+#include <hidl/ServiceManagement.h>
 
 #include <android/hardware/wifi/supplicant/1.1/ISupplicantStaIface.h>
 
@@ -35,20 +36,25 @@ using ::android::hardware::wifi::supplicant::V1_0::SupplicantStatus;
 using ::android::hardware::wifi::supplicant::V1_0::SupplicantStatusCode;
 
 class SupplicantStaIfaceHidlTest
-    : public ::testing::VtsHalHidlTargetTestBase {
- public:
-  virtual void SetUp() override {
-      startSupplicantAndWaitForHidlService();
-      EXPECT_TRUE(turnOnExcessiveLogging());
-      sta_iface_ = getSupplicantStaIface_1_1();
-      ASSERT_NE(sta_iface_.get(), nullptr);
-  }
+    : public ::testing::TestWithParam<std::string> {
+   public:
+    virtual void SetUp() override {
+        startSupplicantAndWaitForHidlService(GetParam());
+        isP2pOn_ = deviceSupportsFeature("android.hardware.wifi.direct");
+        supplicant_ = getSupplicant_1_1(GetParam(), isP2pOn_);
+        EXPECT_TRUE(turnOnExcessiveLogging(supplicant_));
+        sta_iface_ = getSupplicantStaIface_1_1(supplicant_);
+        ASSERT_NE(sta_iface_.get(), nullptr);
+    }
 
-  virtual void TearDown() override { stopSupplicant(); }
+    virtual void TearDown() override { stopSupplicant(); }
 
- protected:
-  // ISupplicantStaIface object used for all tests in this fixture.
-  sp<ISupplicantStaIface> sta_iface_;
+   protected:
+    bool isP2pOn_ = false;
+    sp<android::hardware::wifi::supplicant::V1_1::ISupplicant> supplicant_;
+    // ISupplicantStaIface object used for all tests in this fixture.
+    sp<android::hardware::wifi::supplicant::V1_1::ISupplicantStaIface>
+        sta_iface_;
 };
 
 class IfaceCallback : public ISupplicantStaIfaceCallback {
@@ -131,9 +137,15 @@ class IfaceCallback : public ISupplicantStaIfaceCallback {
 /*
  * RegisterCallback_1_1
  */
-TEST_F(SupplicantStaIfaceHidlTest, RegisterCallback_1_1) {
-  sta_iface_->registerCallback_1_1(
-      new IfaceCallback(), [](const SupplicantStatus& status) {
-          EXPECT_EQ(SupplicantStatusCode::SUCCESS, status.code);
-      });
+TEST_P(SupplicantStaIfaceHidlTest, RegisterCallback_1_1) {
+    sta_iface_->registerCallback_1_1(
+        new IfaceCallback(), [](const SupplicantStatus& status) {
+            EXPECT_EQ(SupplicantStatusCode::SUCCESS, status.code);
+        });
 }
+
+INSTANTIATE_TEST_SUITE_P(
+    PerInstance, SupplicantStaIfaceHidlTest,
+    testing::ValuesIn(android::hardware::getAllHalInstanceNames(
+        android::hardware::wifi::supplicant::V1_1::ISupplicant::descriptor)),
+    android::hardware::PrintInstanceNameToString);

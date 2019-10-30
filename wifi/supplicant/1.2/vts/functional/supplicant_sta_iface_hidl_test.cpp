@@ -14,7 +14,10 @@
  * limitations under the License.
  */
 
-#include <VtsHalHidlTargetTestBase.h>
+#include <gtest/gtest.h>
+#include <hidl/GtestPrinter.h>
+#include <hidl/ServiceManagement.h>
+
 #include <android/hardware/wifi/supplicant/1.0/ISupplicantStaIfaceCallback.h>
 #include <android/hardware/wifi/supplicant/1.0/types.h>
 #include <android/hardware/wifi/supplicant/1.1/ISupplicantStaIfaceCallback.h>
@@ -47,12 +50,15 @@ using ::android::hardware::wifi::supplicant::V1_2::ISupplicantStaNetwork;
 #define TIMEOUT_PERIOD 60
 class IfaceDppCallback;
 
-class SupplicantStaIfaceHidlTest : public ::testing::VtsHalHidlTargetTestBase {
+class SupplicantStaIfaceHidlTest
+    : public ::testing::TestWithParam<std::string> {
    public:
     virtual void SetUp() override {
-        startSupplicantAndWaitForHidlService();
-        EXPECT_TRUE(turnOnExcessiveLogging());
-        sta_iface_ = getSupplicantStaIface_1_2();
+        startSupplicantAndWaitForHidlService(GetParam());
+        isP2pOn_ = deviceSupportsFeature("android.hardware.wifi.direct");
+        supplicant_ = getSupplicant_1_2(GetParam(), isP2pOn_);
+        EXPECT_TRUE(turnOnExcessiveLogging(supplicant_));
+        sta_iface_ = getSupplicantStaIface_1_2(supplicant_);
         ASSERT_NE(sta_iface_.get(), nullptr);
         count_ = 0;
     }
@@ -97,8 +103,11 @@ class SupplicantStaIfaceHidlTest : public ::testing::VtsHalHidlTargetTestBase {
     int count_;
 
    protected:
+    bool isP2pOn_ = false;
+    sp<android::hardware::wifi::supplicant::V1_2::ISupplicant> supplicant_;
     // ISupplicantStaIface object used for all tests in this fixture.
-    sp<ISupplicantStaIface> sta_iface_;
+    sp<android::hardware::wifi::supplicant::V1_2::ISupplicantStaIface>
+        sta_iface_;
     bool isDppSupported() {
         uint32_t keyMgmtMask = 0;
 
@@ -252,7 +261,7 @@ class IfaceDppCallback : public IfaceCallback {
 /*
  * RegisterCallback_1_2
  */
-TEST_F(SupplicantStaIfaceHidlTest, RegisterCallback_1_2) {
+TEST_P(SupplicantStaIfaceHidlTest, RegisterCallback_1_2) {
     sta_iface_->registerCallback_1_2(
         new IfaceCallback(), [](const SupplicantStatus& status) {
             EXPECT_EQ(SupplicantStatusCode::SUCCESS, status.code);
@@ -262,7 +271,7 @@ TEST_F(SupplicantStaIfaceHidlTest, RegisterCallback_1_2) {
 /*
  * GetKeyMgmtCapabilities
  */
-TEST_F(SupplicantStaIfaceHidlTest, GetKeyMgmtCapabilities) {
+TEST_P(SupplicantStaIfaceHidlTest, GetKeyMgmtCapabilities) {
     sta_iface_->getKeyMgmtCapabilities(
         [&](const SupplicantStatus& status, uint32_t keyMgmtMask) {
             EXPECT_EQ(SupplicantStatusCode::SUCCESS, status.code);
@@ -278,7 +287,7 @@ TEST_F(SupplicantStaIfaceHidlTest, GetKeyMgmtCapabilities) {
 /*
  * AddDppPeerUriAndRomveUri
  */
-TEST_F(SupplicantStaIfaceHidlTest, AddDppPeerUriAndRomveUri) {
+TEST_P(SupplicantStaIfaceHidlTest, AddDppPeerUriAndRomveUri) {
     // We need to first get the key management capabilities from the device.
     // If DPP is not supported, we just pass the test.
     if (!isDppSupported()) {
@@ -310,7 +319,7 @@ TEST_F(SupplicantStaIfaceHidlTest, AddDppPeerUriAndRomveUri) {
 /*
  * StartDppEnrolleeInitiator
  */
-TEST_F(SupplicantStaIfaceHidlTest, StartDppEnrolleeInitiator) {
+TEST_P(SupplicantStaIfaceHidlTest, StartDppEnrolleeInitiator) {
     // We need to first get the key management capabilities from the device.
     // If DPP is not supported, we just pass the test.
     if (!isDppSupported()) {
@@ -361,7 +370,7 @@ TEST_F(SupplicantStaIfaceHidlTest, StartDppEnrolleeInitiator) {
 /*
  * StartDppConfiguratorInitiator
  */
-TEST_F(SupplicantStaIfaceHidlTest, StartDppConfiguratorInitiator) {
+TEST_P(SupplicantStaIfaceHidlTest, StartDppConfiguratorInitiator) {
     // We need to first get the key management capabilities from the device.
     // If DPP is not supported, we just pass the test.
     if (!isDppSupported()) {
@@ -413,3 +422,9 @@ TEST_F(SupplicantStaIfaceHidlTest, StartDppConfiguratorInitiator) {
         EXPECT_EQ(SupplicantStatusCode::SUCCESS, status.code);
     });
 }
+
+INSTANTIATE_TEST_SUITE_P(
+    PerInstance, SupplicantStaIfaceHidlTest,
+    testing::ValuesIn(android::hardware::getAllHalInstanceNames(
+        android::hardware::wifi::supplicant::V1_1::ISupplicant::descriptor)),
+    android::hardware::PrintInstanceNameToString);
