@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "4307b854_770976a8",
+        "filename": "vibrator/staidl/android/hardware/vibrator/IVibrator.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-10-30T19:27:34Z",
+      "side": 1,
+      "message": "@eliptus: should we enforce all of these are implemented or expose a list of those that are implemented?",
+      "range": {
+        "startLine": 74,
+        "startChar": 16,
+        "endLine": 74,
+        "endChar": 60
+      },
+      "revId": "dcdfe2d2772cb094f0405732b5e561ffdd76e62e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3f012826_bfc58414",
         "filename": "vibrator/staidl/android/hardware/vibrator/IVibrator.aidl",
         "patchSetId": 5
@@ -22,6 +45,30 @@
       "revId": "dcdfe2d2772cb094f0405732b5e561ffdd76e62e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df057100_0177a662",
+        "filename": "vibrator/staidl/android/hardware/vibrator/IVibrator.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-10-30T19:27:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f012826_bfc58414",
+      "range": {
+        "startLine": 86,
+        "startChar": 9,
+        "endLine": 86,
+        "endChar": 21
+      },
+      "revId": "dcdfe2d2772cb094f0405732b5e561ffdd76e62e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
