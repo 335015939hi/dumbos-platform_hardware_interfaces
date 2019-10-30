@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+#include <cutils/properties.h>
+
 #include <radio_config_hidl_hal_utils.h>
 
 #define ASSERT_OK(ret) ASSERT_TRUE(ret.isOk())
@@ -39,8 +41,13 @@ TEST_F(RadioConfigHidlTest, getSimSlotsStatus) {
  * Test IRadioConfig.setSimSlotsMapping()
  */
 TEST_F(RadioConfigHidlTest, setSimSlotsMapping) {
+    char prop_str[PROPERTY_VALUE_MAX];
     const int serial = GetRandomSerialNumber();
     android::hardware::hidl_vec<uint32_t> mapping = {0};
+    property_get("persist.radio.multisim.config", prop_str, "");
+    if (strncmp(prop_str, "dsds", 4) == 0) {
+        mapping = {0, 1};
+    }
     Return<void> res = radioConfig->setSimSlotsMapping(serial, mapping);
     ASSERT_OK(res);
     EXPECT_EQ(std::cv_status::no_timeout, wait());
