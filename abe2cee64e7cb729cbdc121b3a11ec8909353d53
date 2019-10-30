@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6efed52a_41e4c6da",
+        "filename": "health/utils/libhealth2impl/BinderHealth.cpp",
+        "patchSetId": 28
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1120612
+      },
+      "writtenOn": "2019-10-30T04:49:08Z",
+      "side": 1,
+      "message": "Can this be deleted?",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 48
+      },
+      "revId": "abe2cee64e7cb729cbdc121b3a11ec8909353d53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
