@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f012826_bfc58414",
+        "filename": "vibrator/staidl/android/hardware/vibrator/IVibrator.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-10-30T01:25:10Z",
+      "side": 1,
+      "message": "FIXME: byte is signed here",
+      "range": {
+        "startLine": 86,
+        "startChar": 9,
+        "endLine": 86,
+        "endChar": 21
+      },
+      "revId": "dcdfe2d2772cb094f0405732b5e561ffdd76e62e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
