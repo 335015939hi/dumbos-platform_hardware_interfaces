@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "86d7c20a_10f9584c",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_test_utils.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-10-31T22:27:47Z",
+      "side": 1,
+      "message": "Based on the default HalServiceCombMode, it seems that most vts tests requires full permutation (except drm tests).",
+      "parentUuid": "68c1c8a1_047c4a91",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 35
+      },
+      "revId": "70bc112f668ce090d5b614ca4ece7516893e7d35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dad34a19_715510f6",
         "filename": "wifi/1.0/vts/functional/wifi_hidl_test_utils.cpp",
         "patchSetId": 4
