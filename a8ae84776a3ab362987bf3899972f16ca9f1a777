@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "78b5e6d0_ff23c620",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_test_utils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-10-31T17:10:29Z",
+      "side": 1,
+      "message": "we should be getting it according to the test params, right? Or should it be for all combinations of hostapd/wifi?",
+      "range": {
+        "startLine": 95,
+        "startChar": 15,
+        "endLine": 95,
+        "endChar": 35
+      },
+      "revId": "a8ae84776a3ab362987bf3899972f16ca9f1a777",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "910c0239_2efd9b01",
+        "filename": "wifi/hostapd/1.0/vts/functional/VtsHalWifiHostapdV1_0TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-10-31T17:10:29Z",
+      "side": 1,
+      "message": "nit: open bug specifically for this so we don\u0027t forget",
+      "range": {
+        "startLine": 19,
+        "startChar": 8,
+        "endLine": 19,
+        "endChar": 12
+      },
+      "revId": "a8ae84776a3ab362987bf3899972f16ca9f1a777",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da610f38_598ad423",
+        "filename": "wifi/hostapd/1.0/vts/functional/hostapd_hidl_test_utils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-10-31T17:10:29Z",
+      "side": 1,
+      "message": "const\u0026",
+      "range": {
+        "startLine": 128,
+        "startChar": 39,
+        "endLine": 128,
+        "endChar": 42
+      },
+      "revId": "a8ae84776a3ab362987bf3899972f16ca9f1a777",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a66ef43a_e7c6c5a9",
+        "filename": "wifi/hostapd/1.0/vts/functional/hostapd_hidl_test_utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-10-31T17:10:29Z",
+      "side": 1,
+      "message": "const\u0026",
+      "range": {
+        "startLine": 30,
+        "startChar": 42,
+        "endLine": 30,
+        "endChar": 43
+      },
+      "revId": "a8ae84776a3ab362987bf3899972f16ca9f1a777",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
