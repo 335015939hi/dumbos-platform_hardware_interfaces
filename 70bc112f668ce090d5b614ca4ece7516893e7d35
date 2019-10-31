@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "68c1c8a1_047c4a91",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_test_utils.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-10-31T21:54:30Z",
+      "side": 1,
+      "message": "That\u0027s the part I wasn\u0027t sure. If we call  IWifi::getService(GetParam()), will the interface name from \n android::hardware::getAllHalInstanceNames(ISupplicant::descriptor)),\nthe same as IWifi interface?\nor do we need to create a permutation of parameterized test of all interfaces of IWifi and ISupplicant?",
+      "parentUuid": "0a41c58c_905f956d",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 35
+      },
+      "revId": "70bc112f668ce090d5b614ca4ece7516893e7d35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dad34a19_715510f6",
         "filename": "wifi/1.0/vts/functional/wifi_hidl_test_utils.cpp",
         "patchSetId": 4
@@ -93,6 +117,30 @@
       "revId": "70bc112f668ce090d5b614ca4ece7516893e7d35",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56fbc7fe_545fedd2",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_test_utils.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-10-31T21:54:30Z",
+      "side": 1,
+      "message": "Done\n\naosp/1156903",
+      "parentUuid": "6dc676fa_211abc40",
+      "range": {
+        "startLine": 220,
+        "startChar": 5,
+        "endLine": 220,
+        "endChar": 26
+      },
+      "revId": "70bc112f668ce090d5b614ca4ece7516893e7d35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
