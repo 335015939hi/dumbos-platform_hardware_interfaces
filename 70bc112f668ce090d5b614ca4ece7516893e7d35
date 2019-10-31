@@ -22,6 +22,30 @@
       "revId": "70bc112f668ce090d5b614ca4ece7516893e7d35",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8b19068_7c37502a",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_test_utils.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-10-31T17:04:13Z",
+      "side": 1,
+      "message": "commented in patchset 1:\n\nit\u0027s copied from cts/tests/tests/nativemedia/aaudio/jni/utils.cpp\nany common lib we can move it to to share?\n\nIn vts harness, it\u0027s done by python script and passed in as a command line option.",
+      "parentUuid": "dad34a19_715510f6",
+      "range": {
+        "startLine": 220,
+        "startChar": 5,
+        "endLine": 220,
+        "endChar": 26
+      },
+      "revId": "70bc112f668ce090d5b614ca4ece7516893e7d35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
