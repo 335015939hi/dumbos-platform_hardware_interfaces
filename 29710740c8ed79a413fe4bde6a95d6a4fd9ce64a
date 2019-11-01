@@ -208,6 +208,30 @@
       "revId": "29710740c8ed79a413fe4bde6a95d6a4fd9ce64a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3cb2e215_5320536e",
+        "filename": "wifi/supplicant/1.1/vts/functional/supplicant_sta_network_hidl_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-01T17:56:44Z",
+      "side": 1,
+      "message": "Hmmm. Maybe it\u0027s a problem with the device? Maybe they want to test it can be re-initialized? Was it failing before in the same way?",
+      "parentUuid": "ebb9386e_ab2c4306",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 21
+      },
+      "revId": "29710740c8ed79a413fe4bde6a95d6a4fd9ce64a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
