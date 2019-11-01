@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ee3a24d9_d0daa5da",
+        "filename": "keymaster/4.1/IKeymasterDevice.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-11-01T20:02:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae85cdee_d05a5b2a",
+      "range": {
+        "startLine": 49,
+        "startChar": 44,
+        "endLine": 49,
+        "endChar": 47
+      },
+      "revId": "16ffe94371abf4133d0118f0e76949c5f7bbec42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "21db8ea6_cf35deb9",
         "filename": "keymaster/4.1/IOperation.hal",
         "patchSetId": 7
@@ -69,6 +93,30 @@
       "revId": "16ffe94371abf4133d0118f0e76949c5f7bbec42",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6711d4d4_416ae3d1",
+        "filename": "keymaster/4.1/IOperation.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-11-01T20:02:22Z",
+      "side": 1,
+      "message": "I decided to move the operation handle/challenge retrieval to a method here.  That would have been coming anyway and it\u0027s convenient to do it now.",
+      "parentUuid": "a1bd6ed4_bad7df76",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 24
+      },
+      "revId": "16ffe94371abf4133d0118f0e76949c5f7bbec42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
