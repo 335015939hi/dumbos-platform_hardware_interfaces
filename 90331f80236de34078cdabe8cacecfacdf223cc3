@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b54fb321_ba9a70dc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-04T19:36:11Z",
+      "side": 1,
+      "message": "my comments are only coming from an API perspective. telephony team will have to make comments on the feature overall",
+      "revId": "90331f80236de34078cdabe8cacecfacdf223cc3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "67aaa21a_5c6968c8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-04T19:36:11Z",
+      "side": 1,
+      "message": "VTS test addition would also be a requirement to land this, although telephony team might consider taking that",
+      "revId": "90331f80236de34078cdabe8cacecfacdf223cc3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af77e482_57909705",
+        "filename": "radio/1.5/IRadio.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-04T19:36:11Z",
+      "side": 1,
+      "message": "what values are expected here?",
+      "range": {
+        "startLine": 38,
+        "startChar": 35,
+        "endLine": 38,
+        "endChar": 42
+      },
+      "revId": "90331f80236de34078cdabe8cacecfacdf223cc3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
