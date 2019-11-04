@@ -71,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "11068b22_c2ba794c",
+        "filename": "wifi/hostapd/1.0/vts/functional/hostapd_hidl_test_utils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-11-04T20:15:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da610f38_598ad423",
+      "range": {
+        "startLine": 128,
+        "startChar": 39,
+        "endLine": 128,
+        "endChar": 42
+      },
+      "revId": "a8ae84776a3ab362987bf3899972f16ca9f1a777",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a66ef43a_e7c6c5a9",
         "filename": "wifi/hostapd/1.0/vts/functional/hostapd_hidl_test_utils.h",
         "patchSetId": 2
