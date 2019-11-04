@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8f3d3c0e_4f713dd8",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_test_utils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-11-04T21:16:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "78b5e6d0_ff23c620",
+      "range": {
+        "startLine": 95,
+        "startChar": 15,
+        "endLine": 95,
+        "endChar": 35
+      },
+      "revId": "a8ae84776a3ab362987bf3899972f16ca9f1a777",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "910c0239_2efd9b01",
         "filename": "wifi/hostapd/1.0/vts/functional/VtsHalWifiHostapdV1_0TargetTest.cpp",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "a8ae84776a3ab362987bf3899972f16ca9f1a777",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8767f446_67c7c8f0",
+        "filename": "wifi/hostapd/1.0/vts/functional/VtsHalWifiHostapdV1_0TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-11-04T21:16:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "910c0239_2efd9b01",
+      "range": {
+        "startLine": 19,
+        "startChar": 8,
+        "endLine": 19,
+        "endChar": 12
+      },
+      "revId": "a8ae84776a3ab362987bf3899972f16ca9f1a777",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -95,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "e5650457_f00ab1bd",
+        "filename": "wifi/hostapd/1.0/vts/functional/hostapd_hidl_test_utils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-11-04T21:16:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "11068b22_c2ba794c",
+      "range": {
+        "startLine": 128,
+        "startChar": 39,
+        "endLine": 128,
+        "endChar": 42
+      },
+      "revId": "a8ae84776a3ab362987bf3899972f16ca9f1a777",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a66ef43a_e7c6c5a9",
         "filename": "wifi/hostapd/1.0/vts/functional/hostapd_hidl_test_utils.h",
         "patchSetId": 2
@@ -115,6 +187,30 @@
       "revId": "a8ae84776a3ab362987bf3899972f16ca9f1a777",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f292a7c6_6361242d",
+        "filename": "wifi/hostapd/1.0/vts/functional/hostapd_hidl_test_utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-11-04T21:16:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a66ef43a_e7c6c5a9",
+      "range": {
+        "startLine": 30,
+        "startChar": 42,
+        "endLine": 30,
+        "endChar": 43
+      },
+      "revId": "a8ae84776a3ab362987bf3899972f16ca9f1a777",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7865d22b_1aefe257",
+        "filename": "wifi/hostapd/1.0/vts/functional/hostapd_hidl_test_utils.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-11-04T21:16:42Z",
+      "side": 1,
+      "message": "It\u0027s a bit unclear that to stop supplicant, the instance_name passed in is the wifi instance name, as that\u0027s used in the call of deInitilializeDriverAndFirmware.\n\nIt\u0027s the same for stopHostapd call. Anyway, just want to confirm that\u0027s the expected behavior.",
+      "revId": "3d04248e6ac7c2e13aa401d7004fee7b27e4eaee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
