@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "97cde53f_de89caee",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test_utils.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2019-11-04T23:58:28Z",
+      "side": 1,
+      "message": "unused?",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 18
+      },
+      "revId": "64eb416894cdbccf51c81a21954fb7bc976d6951",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b5f0155_c8660afb",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_p2p_iface_hidl_test.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 650,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2019-11-04T23:58:28Z",
+      "side": 1,
+      "message": "It would be nice to provide a printer for the instance names as well, e.g.\n\n    [](const testing::TestParamInfo\u003cSupplicantP2pIfaceHidlTest::ParamType\u003e\u0026 info) {\n      return \"Wifi_\" + sanitize(std::get\u003c0\u003e(info)) + \"_Supplicant_ + sanitize(std::get\u003c1\u003e(info));\n    }\n\n(where sanitize() uses the same logic as in PrintInstanceNameToString)\n\nhttps://github.com/google/googletest/blob/master/googletest/docs/advanced.md#specifying-names-for-value-parameterized-test-parameters",
+      "revId": "64eb416894cdbccf51c81a21954fb7bc976d6951",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
