@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df780b88_609a1f8e",
+        "filename": "keymaster/4.1/vts/OWNERS",
+        "patchSetId": 9
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-04T19:23:17Z",
+      "side": 1,
+      "message": "fyi, no longer on the team and needed perms inherited from hardware/interface OWNERS",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 0
+      },
+      "revId": "6b60849d541a7823a836ae42b9937e0cfd384505",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
