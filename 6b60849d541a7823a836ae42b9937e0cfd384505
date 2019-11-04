@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "1de8d86f_a2caadfe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-04T19:25:54Z",
+      "side": 1,
+      "message": "is there a bug for this?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 57
+      },
+      "revId": "6b60849d541a7823a836ae42b9937e0cfd384505",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33368cef_0ba9a984",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-04T19:25:54Z",
+      "side": 1,
+      "message": "also, is there an android FR tied to this? all new HALs should have one",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 14
+      },
+      "revId": "6b60849d541a7823a836ae42b9937e0cfd384505",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2bc78541_85de8af3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-04T19:25:54Z",
+      "side": 1,
+      "message": "run boilerplate?\nalso, note hidl_implementation_test on cf is a real TH failure. See internal link http://go/android-treble-hal-checklist",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 28
+      },
+      "revId": "6b60849d541a7823a836ae42b9937e0cfd384505",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "df780b88_609a1f8e",
         "filename": "keymaster/4.1/vts/OWNERS",
         "patchSetId": 9
@@ -22,6 +91,29 @@
       "revId": "6b60849d541a7823a836ae42b9937e0cfd384505",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8fc7c5d7_b3fc9a5e",
+        "filename": "keymaster/4.1/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-04T19:25:54Z",
+      "side": 1,
+      "message": "I should mention we\u0027re trying to decouple tests from this infrastructure. See internal link:\nhttps://groups.google.com/a/google.com/d/msg/hidl-announce/BTyd5qc7fdM/6oAohV2hEAAJ",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 60
+      },
+      "revId": "6b60849d541a7823a836ae42b9937e0cfd384505",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
