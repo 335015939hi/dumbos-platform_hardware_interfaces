@@ -97,6 +97,54 @@
     },
     {
       "key": {
+        "uuid": "bd179b08_fe1e7f64",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_test_utils.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-11-04T23:57:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a16290a2_384f0671",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 35
+      },
+      "revId": "70bc112f668ce090d5b614ca4ece7516893e7d35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "44b89790_cac860ed",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_test_utils.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-11-04T23:57:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a16290a2_384f0671",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 35
+      },
+      "revId": "70bc112f668ce090d5b614ca4ece7516893e7d35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dad34a19_715510f6",
         "filename": "wifi/1.0/vts/functional/wifi_hidl_test_utils.cpp",
         "patchSetId": 4
