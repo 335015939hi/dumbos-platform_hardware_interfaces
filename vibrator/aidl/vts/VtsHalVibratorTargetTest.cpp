@@ -221,6 +221,19 @@ TEST_P(VibratorAidl, ChangeVibrationExternalControl) {
     }
 }
 
+TEST_P(VibratorAidl, ExternalAmplitudeControl) {
+    const bool supportsExternalAmplitudeControl =
+            (capabilities & IVibrator::CAP_EXTERNAL_AMPLITUDE_CONTROL) > 0;
+
+    if (capabilities & IVibrator::CAP_EXTERNAL_CONTROL) {
+        EXPECT_TRUE(vibrator->setExternalControl(true).isOk());
+        EXPECT_TRUE(vibrator->setAmplitude(128).isOk());
+        EXPECT_TRUE(vibrator->setExternalControl(false).isOk());
+    } else {
+        EXPECT_FALSE(supportsExternalAmplitudeControl);
+    }
+}
+
 TEST_P(VibratorAidl, ExternalControlUnsupportedMatchingCapabilities) {
     if ((capabilities & IVibrator::CAP_EXTERNAL_CONTROL) == 0) {
         EXPECT_EQ(Status::EX_UNSUPPORTED_OPERATION,
