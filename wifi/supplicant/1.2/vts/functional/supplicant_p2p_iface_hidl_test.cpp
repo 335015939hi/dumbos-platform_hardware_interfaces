@@ -18,7 +18,13 @@
 
 #include <VtsHalHidlTargetTestBase.h>
 
+#include <VtsCoreUtil.h>
+#include <android/hardware/wifi/1.0/IWifi.h>
+#include <android/hardware/wifi/1.1/IWifi.h>
 #include <android/hardware/wifi/supplicant/1.2/ISupplicantP2pIface.h>
+#include <gtest/gtest.h>
+#include <hidl/GtestPrinter.h>
+#include <hidl/ServiceManagement.h>
 
 #include "supplicant_hidl_test_utils.h"
 #include "supplicant_hidl_test_utils_1_2.h"
@@ -26,6 +32,7 @@
 using ::android::sp;
 using ::android::hardware::wifi::supplicant::V1_0::SupplicantStatus;
 using ::android::hardware::wifi::supplicant::V1_0::SupplicantStatusCode;
+using ::android::hardware::wifi::supplicant::V1_2::ISupplicant;
 using ::android::hardware::wifi::supplicant::V1_2::ISupplicantP2pIface;
 
 namespace {
@@ -35,26 +42,47 @@ constexpr char kTestPassphrase[] = "P2pWorld1234";
 constexpr uint8_t kTestZeroMacAddr[] = {[0 ... 5] = 0x0};
 }  // namespace
 
-class SupplicantP2pIfaceHidlTest : public ::testing::VtsHalHidlTargetTestBase {
+class SupplicantP2pIfaceHidlTest
+    : public ::testing::TestWithParam<std::tuple<
+          std::string, std::string, std::string, std::string, std::string>> {
    public:
     virtual void SetUp() override {
-        startSupplicantAndWaitForHidlService();
-        EXPECT_TRUE(turnOnExcessiveLogging());
-        p2p_iface_ = getSupplicantP2pIface_1_2();
+        wifi_v1_0_instance_name_ = std::get<0>(GetParam());
+        wifi_v1_1_instance_name_ = std::get<1>(GetParam());
+        supplicant_v1_0_instance_name_ = std::get<2>(GetParam());
+        supplicant_v1_1_instance_name_ = std::get<3>(GetParam());
+        supplicant_v1_2_instance_name_ = std::get<4>(GetParam());
+        isP2pOn_ =
+            testing::deviceSupportsFeature("android.hardware.wifi.direct");
+        startSupplicantAndWaitForHidlService(wifi_v1_0_instance_name_,
+                                             supplicant_v1_0_instance_name_);
+        supplicant_ =
+            getSupplicant_1_2(supplicant_v1_2_instance_name_, isP2pOn_);
+        EXPECT_TRUE(turnOnExcessiveLogging(supplicant_));
+        p2p_iface_ = getSupplicantP2pIface_1_2(supplicant_);
         ASSERT_NE(p2p_iface_.get(), nullptr);
     }
 
-    virtual void TearDown() override { stopSupplicant(); }
+    virtual void TearDown() override {
+        stopSupplicant(wifi_v1_0_instance_name_);
+    }
 
    protected:
     // ISupplicantP2pIface object used for all tests in this fixture.
     sp<ISupplicantP2pIface> p2p_iface_;
+    sp<ISupplicant> supplicant_;
+    bool isP2pOn_ = false;
+    std::string wifi_v1_0_instance_name_;
+    std::string wifi_v1_1_instance_name_;
+    std::string supplicant_v1_0_instance_name_;
+    std::string supplicant_v1_1_instance_name_;
+    std::string supplicant_v1_2_instance_name_;
 };
 
 /*
  * Verify that AddGroup_1_2 could create a group successfully.
  */
-TEST_F(SupplicantP2pIfaceHidlTest, AddGroup_1_2_Success) {
+TEST_P(SupplicantP2pIfaceHidlTest, AddGroup_1_2_Success) {
     std::vector<uint8_t> ssid(kTestSsid, kTestSsid + sizeof(kTestSsid));
     std::string passphrase = kTestPassphrase;
     int freq = 0;
@@ -73,7 +101,7 @@ TEST_F(SupplicantP2pIfaceHidlTest, AddGroup_1_2_Success) {
 /*
  * Verify that AddGroup_1_2 fails due to invalid SSID.
  */
-TEST_F(SupplicantP2pIfaceHidlTest, AddGroup_1_2_FailureInvalidSsid) {
+TEST_P(SupplicantP2pIfaceHidlTest, AddGroup_1_2_FailureInvalidSsid) {
     std::vector<uint8_t> ssid;
     std::string passphrase = kTestPassphrase;
     int freq = 0;
@@ -92,7 +120,7 @@ TEST_F(SupplicantP2pIfaceHidlTest, AddGroup_1_2_FailureInvalidSsid) {
 /*
  * Verify that AddGroup_1_2 fails due to invalid passphrase.
  */
-TEST_F(SupplicantP2pIfaceHidlTest, AddGroup_1_2_FailureInvalidPassphrase) {
+TEST_P(SupplicantP2pIfaceHidlTest, AddGroup_1_2_FailureInvalidPassphrase) {
     std::vector<uint8_t> ssid(kTestSsid, kTestSsid + sizeof(kTestSsid));
     std::string passphrase = "1234";
     int freq = 0;
@@ -111,7 +139,7 @@ TEST_F(SupplicantP2pIfaceHidlTest, AddGroup_1_2_FailureInvalidPassphrase) {
 /*
  * Verify that AddGroup_1_2 fails due to invalid frequency.
  */
-TEST_F(SupplicantP2pIfaceHidlTest, AddGroup_1_2_FailureInvalidFrequency) {
+TEST_P(SupplicantP2pIfaceHidlTest, AddGroup_1_2_FailureInvalidFrequency) {
     std::vector<uint8_t> ssid(kTestSsid, kTestSsid + sizeof(kTestSsid));
     std::string passphrase = kTestPassphrase;
     int freq = 9999;
@@ -134,7 +162,7 @@ bool isMacRandomizationSupported(const SupplicantStatus& status) {
 /*
  * Verify that setMacRandomization successes.
  */
-TEST_F(SupplicantP2pIfaceHidlTest, EnableMacRandomization) {
+TEST_P(SupplicantP2pIfaceHidlTest, EnableMacRandomization) {
     p2p_iface_->setMacRandomization(true, [](const SupplicantStatus& status) {
         if (!isMacRandomizationSupported(status)) return;
         EXPECT_EQ(SupplicantStatusCode::SUCCESS, status.code);
@@ -157,3 +185,21 @@ TEST_F(SupplicantP2pIfaceHidlTest, EnableMacRandomization) {
         EXPECT_EQ(SupplicantStatusCode::SUCCESS, status.code);
     });
 }
+
+INSTANTIATE_TEST_CASE_P(
+    PerInstance, SupplicantP2pIfaceHidlTest,
+    testing::Combine(
+        testing::ValuesIn(android::hardware::getAllHalInstanceNames(
+            android::hardware::wifi::V1_0::IWifi::descriptor)),
+        testing::ValuesIn(android::hardware::getAllHalInstanceNames(
+            android::hardware::wifi::V1_1::IWifi::descriptor)),
+        testing::ValuesIn(android::hardware::getAllHalInstanceNames(
+            android::hardware::wifi::supplicant::V1_0::ISupplicant::
+                descriptor)),
+        testing::ValuesIn(android::hardware::getAllHalInstanceNames(
+            android::hardware::wifi::supplicant::V1_1::ISupplicant::
+                descriptor)),
+        testing::ValuesIn(android::hardware::getAllHalInstanceNames(
+            android::hardware::wifi::supplicant::V1_2::ISupplicant::
+                descriptor))),
+    android::hardware::PrintInstanceNameToString<std::string>);
