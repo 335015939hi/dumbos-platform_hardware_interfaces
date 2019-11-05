@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c7f0172a_18c5baf5",
+        "filename": "radio/1.3/IRadio.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1413995
+      },
+      "writtenOn": "2019-11-05T11:28:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09436989_35fb8a7b",
+      "range": {
+        "startLine": 87,
+        "startChar": 33,
+        "endLine": 87,
+        "endChar": 40
+      },
+      "revId": "ed5748b87f82ac4b9fd8e4b4c5d28ba5e5ae275c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "573a9945_53151802",
         "filename": "radio/1.3/IRadio.hal",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "ed5748b87f82ac4b9fd8e4b4c5d28ba5e5ae275c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95c62996_b55c3bda",
+        "filename": "radio/1.3/IRadio.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1413995
+      },
+      "writtenOn": "2019-11-05T11:28:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "573a9945_53151802",
+      "range": {
+        "startLine": 90,
+        "startChar": 24,
+        "endLine": 90,
+        "endChar": 31
+      },
+      "revId": "ed5748b87f82ac4b9fd8e4b4c5d28ba5e5ae275c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -91,6 +139,54 @@
       "revId": "ed5748b87f82ac4b9fd8e4b4c5d28ba5e5ae275c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b599cb95_34160f4b",
+        "filename": "radio/1.3/IRadio.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1413995
+      },
+      "writtenOn": "2019-11-05T11:28:59Z",
+      "side": 1,
+      "message": "QC has few more perso categories which are not present in specification, i am not completely sure whether I can define those perso category names/enums here hence i defined it as int type.",
+      "parentUuid": "b2955655_d73f3f32",
+      "range": {
+        "startLine": 96,
+        "startChar": 54,
+        "endLine": 96,
+        "endChar": 57
+      },
+      "revId": "ed5748b87f82ac4b9fd8e4b4c5d28ba5e5ae275c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab598f5a_e91ee3ef",
+        "filename": "radio/1.3/IRadio.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1413995
+      },
+      "writtenOn": "2019-11-05T11:28:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c829784_97fcb1e3",
+      "range": {
+        "startLine": 96,
+        "startChar": 76,
+        "endLine": 96,
+        "endChar": 79
+      },
+      "revId": "ed5748b87f82ac4b9fd8e4b4c5d28ba5e5ae275c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
