@@ -57,7 +57,7 @@ cc_test {
         "libwifi-system",
         "libwifi-system-iface",
     ],
-    test_suites: ["general-tests"],
+    test_suites: ["general-tests", "vts-core"],
 }
 
 cc_test {
@@ -81,5 +81,6 @@ cc_test {
         "libwifi-system",
         "libwifi-system-iface",
     ],
+    test_suites: ["general-tests", "vts-core"],
 }
 
