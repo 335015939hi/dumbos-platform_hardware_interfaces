@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f82e0108_6bcb3bc8",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test_utils.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-11-05T17:10:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "97cde53f_de89caee",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 18
+      },
+      "revId": "64eb416894cdbccf51c81a21954fb7bc976d6951",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9b5f0155_c8660afb",
         "filename": "wifi/supplicant/1.0/vts/functional/supplicant_p2p_iface_hidl_test.cpp",
         "patchSetId": 6
