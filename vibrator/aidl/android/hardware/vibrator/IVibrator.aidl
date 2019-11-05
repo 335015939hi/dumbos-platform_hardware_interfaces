@@ -40,7 +40,7 @@ interface IVibrator {
     const int CAP_EXTERNAL_CONTROL = 1 << 3;
 
     /**
-     * Determine capabilities of the vibrator HAL (CAP_* values)
+     * Determine capabilities of the vibrator HAL (CAP_* mask)
      */
     int getCapabilities();
 
@@ -55,7 +55,9 @@ interface IVibrator {
      * Turn on vibrator
      *
      * This function must only be called after the previous timeout has expired or
-     * was canceled (through off()).
+     * was canceled (through off()). A callback is only expected to be supported when
+     * getCapabilities CAP_ON_CALLBACK is specified.
+     *
      * @param timeoutMs number of milliseconds to vibrate.
      * @param callback A callback used to inform Frameworks of state change, if supported.
      */
@@ -63,6 +65,9 @@ interface IVibrator {
 
     /**
      * Fire off a predefined haptic event.
+     *
+     * A callback is only expected to be supported when getCapabilities CAP_PERFORM_CALLBACK
+     * is specified.
      *
      * @param effect The type of haptic event to trigger.
      * @param strength The intensity of haptic event to trigger.
@@ -76,7 +81,8 @@ interface IVibrator {
     /**
      * Sets the motor's vibrational amplitude.
      *
-     * Changes the force being produced by the underlying motor.
+     * Changes the force being produced by the underlying motor. This may not be supported and
+     * this support is reflected in getCapabilities (CAP_AMPLITUDE_CONTROL).
      *
      * @param amplitude The unitless force setting. Note that this number must
      *                  be between 1 and 255, inclusive. If the motor does not
@@ -92,8 +98,8 @@ interface IVibrator {
      * for haptic audio. While this is enabled, issuing of other commands to control
      * the vibrator is unsupported and the resulting behavior is undefined. Amplitude
      * control may or may not be supported and is reflected in the return value of
-     * supportsAmplitudeControl() while this is enabled. When this is disabled, the
-     * vibrator should resume to an off state.
+     * getCapabilities (CAP_EXTERNAL_CONTROL) while this is enabled. When this is
+     * disabled, the vibrator should resume to an off state.
      *
      * @param enabled Whether external control should be enabled or disabled.
      */
