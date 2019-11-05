@@ -33,6 +33,24 @@
       "revId": "d44007e625728e459772a6d5c806a5162fec362c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9399999b_1cb4a939",
+        "filename": "vibrator/staidl/android/hardware/vibrator/IVibrator.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-05T21:36:39Z",
+      "side": 1,
+      "message": "Thanks. Good catch!\n\n-\u003e https://android-review.googlesource.com/c/platform/hardware/interfaces/+/1159331",
+      "parentUuid": "dd9630aa_e2bb9a5b",
+      "revId": "d44007e625728e459772a6d5c806a5162fec362c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
