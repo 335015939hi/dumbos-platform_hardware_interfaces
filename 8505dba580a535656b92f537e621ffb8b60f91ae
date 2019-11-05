@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "170ac82f_cbb7b2bf",
+        "filename": "radio/config/1.0/vts/functional/radio_config_hidl_hal_api.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1170206
+      },
+      "writtenOn": "2019-11-05T22:56:14Z",
+      "side": 1,
+      "message": "why not just strcmp?\nalso || strcmp(prop_str, \"dsda\") \u003d\u003d 0",
+      "range": {
+        "startLine": 48,
+        "startChar": 8,
+        "endLine": 48,
+        "endChar": 15
+      },
+      "revId": "8505dba580a535656b92f537e621ffb8b60f91ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
