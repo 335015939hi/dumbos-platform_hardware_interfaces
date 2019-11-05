@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "757b7ae3_a036c5b8",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_test_utils.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-05T01:13:23Z",
+      "side": 1,
+      "message": "null reference shouldn\u0027t be valid. Is this using \u0027std::string(const char*)\u0027 constructor? Last time I checked, I seem to remember this crashing. Maybe I\u0027ve forgotten? Are these methods called? Can you simply delete them?",
+      "range": {
+        "startLine": 92,
+        "startChar": 37,
+        "endLine": 92,
+        "endChar": 44
+      },
+      "revId": "5495297a8e5bfd164d5e2df0c85aa4f1ffacee8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2822b142_2ce9fa44",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_test_utils.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-05T01:13:23Z",
+      "side": 1,
+      "message": "do you have a CL where this has been cleaned up? I know we have it in a couple of other places. Want to make sure we have a path forward.",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 43
+      },
+      "revId": "5495297a8e5bfd164d5e2df0c85aa4f1ffacee8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
