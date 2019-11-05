@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2b76ea33_04d934f4",
+        "filename": "vibrator/staidl/android/hardware/vibrator/IVibrator.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1418133
+      },
+      "writtenOn": "2019-11-05T01:56:40Z",
+      "side": 1,
+      "message": "optional: Michael, since there\u0027s no need to retain backwards compatibility, do we want to take this opportunity to change this to a float (0.0, 1.0]?",
+      "revId": "d44007e625728e459772a6d5c806a5162fec362c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd9630aa_e2bb9a5b",
+        "filename": "vibrator/staidl/android/hardware/vibrator/IVibrator.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1418133
+      },
+      "writtenOn": "2019-11-05T01:56:40Z",
+      "side": 1,
+      "message": "The last sentence about amplitude control is no longer applicable. We should probably add CAP_EXTERNAL_AMPLITUDE_CONTROL to cover this.",
+      "revId": "d44007e625728e459772a6d5c806a5162fec362c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
