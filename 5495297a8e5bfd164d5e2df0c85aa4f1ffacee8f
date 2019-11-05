@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a816bb2b_8ae8bc88",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_test_utils.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-11-05T16:49:28Z",
+      "side": 1,
+      "message": "I think we can use empty string.",
+      "parentUuid": "757b7ae3_a036c5b8",
+      "range": {
+        "startLine": 92,
+        "startChar": 37,
+        "endLine": 92,
+        "endChar": 44
+      },
+      "revId": "5495297a8e5bfd164d5e2df0c85aa4f1ffacee8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2822b142_2ce9fa44",
         "filename": "wifi/1.0/vts/functional/wifi_hidl_test_utils.cpp",
         "patchSetId": 6
@@ -45,6 +69,30 @@
       "revId": "5495297a8e5bfd164d5e2df0c85aa4f1ffacee8f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b1000c4_172ad934",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_test_utils.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-11-05T16:49:28Z",
+      "side": 1,
+      "message": "Not yet. There are several more wifi tests to be converted. Only after that we can do the cleanup.",
+      "parentUuid": "2822b142_2ce9fa44",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 43
+      },
+      "revId": "5495297a8e5bfd164d5e2df0c85aa4f1ffacee8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
