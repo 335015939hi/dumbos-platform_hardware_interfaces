@@ -22,12 +22,16 @@
 #include <android/hardware/wifi/supplicant/1.1/ISupplicantStaNetwork.h>
 
 android::sp<android::hardware::wifi::supplicant::V1_1::ISupplicant>
-    getSupplicant_1_1();
+getSupplicant_1_1(const std::string& supplicant_instance_name, bool isP2pOn);
 
 android::sp<android::hardware::wifi::supplicant::V1_1::ISupplicantStaIface>
-    getSupplicantStaIface_1_1();
+getSupplicantStaIface_1_1(
+    const android::sp<android::hardware::wifi::supplicant::V1_1::ISupplicant>&
+        supplicant);
 
 android::sp<android::hardware::wifi::supplicant::V1_1::ISupplicantStaNetwork>
-    createSupplicantStaNetwork_1_1();
+createSupplicantStaNetwork_1_1(
+    const android::sp<android::hardware::wifi::supplicant::V1_1::ISupplicant>&
+        supplicant);
 
 #endif /* SUPPLICANT_HIDL_TEST_UTILS_1_1_H */
