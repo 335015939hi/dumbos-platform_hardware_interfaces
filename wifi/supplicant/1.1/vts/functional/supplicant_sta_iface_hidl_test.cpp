@@ -16,9 +16,13 @@
 
 #include <android-base/logging.h>
 
-#include <VtsHalHidlTargetTestBase.h>
-
+#include <VtsCoreUtil.h>
+#include <android/hardware/wifi/1.0/IWifi.h>
+#include <android/hardware/wifi/1.1/IWifi.h>
 #include <android/hardware/wifi/supplicant/1.1/ISupplicantStaIface.h>
+#include <gtest/gtest.h>
+#include <hidl/GtestPrinter.h>
+#include <hidl/ServiceManagement.h>
 
 #include "supplicant_hidl_test_utils.h"
 #include "supplicant_hidl_test_utils_1_1.h"
@@ -29,26 +33,45 @@ using ::android::hardware::hidl_string;
 using ::android::hardware::hidl_vec;
 using ::android::hardware::Return;
 using ::android::hardware::Void;
-using ::android::hardware::wifi::supplicant::V1_1::ISupplicantStaIface;
-using ::android::hardware::wifi::supplicant::V1_1::ISupplicantStaIfaceCallback;
 using ::android::hardware::wifi::supplicant::V1_0::SupplicantStatus;
 using ::android::hardware::wifi::supplicant::V1_0::SupplicantStatusCode;
+using ::android::hardware::wifi::supplicant::V1_1::ISupplicant;
+using ::android::hardware::wifi::supplicant::V1_1::ISupplicantStaIface;
+using ::android::hardware::wifi::supplicant::V1_1::ISupplicantStaIfaceCallback;
 
 class SupplicantStaIfaceHidlTest
-    : public ::testing::VtsHalHidlTargetTestBase {
- public:
-  virtual void SetUp() override {
-      startSupplicantAndWaitForHidlService();
-      EXPECT_TRUE(turnOnExcessiveLogging());
-      sta_iface_ = getSupplicantStaIface_1_1();
-      ASSERT_NE(sta_iface_.get(), nullptr);
-  }
+    : public ::testing::TestWithParam<
+          std::tuple<std::string, std::string, std::string, std::string>> {
+   public:
+    virtual void SetUp() override {
+        wifi_v1_0_instance_name_ = std::get<0>(GetParam());
+        wifi_v1_1_instance_name_ = std::get<1>(GetParam());
+        supplicant_v1_0_instance_name_ = std::get<2>(GetParam());
+        supplicant_v1_1_instance_name_ = std::get<3>(GetParam());
+        isP2pOn_ =
+            testing::deviceSupportsFeature("android.hardware.wifi.direct");
+        startSupplicantAndWaitForHidlService(wifi_v1_0_instance_name_,
+                                             supplicant_v1_0_instance_name_);
+        supplicant_ =
+            getSupplicant_1_1(supplicant_v1_0_instance_name_, isP2pOn_);
+        EXPECT_TRUE(turnOnExcessiveLogging(supplicant_));
+        sta_iface_ = getSupplicantStaIface_1_1(supplicant_);
+        ASSERT_NE(sta_iface_.get(), nullptr);
+    }
 
-  virtual void TearDown() override { stopSupplicant(); }
+    virtual void TearDown() override {
+        stopSupplicant(wifi_v1_0_instance_name_);
+    }
 
- protected:
-  // ISupplicantStaIface object used for all tests in this fixture.
-  sp<ISupplicantStaIface> sta_iface_;
+   protected:
+    sp<ISupplicant> supplicant_;
+    // ISupplicantStaIface object used for all tests in this fixture.
+    sp<ISupplicantStaIface> sta_iface_;
+    bool isP2pOn_ = false;
+    std::string wifi_v1_0_instance_name_;
+    std::string wifi_v1_1_instance_name_;
+    std::string supplicant_v1_0_instance_name_;
+    std::string supplicant_v1_1_instance_name_;
 };
 
 class IfaceCallback : public ISupplicantStaIfaceCallback {
@@ -131,9 +154,24 @@ class IfaceCallback : public ISupplicantStaIfaceCallback {
 /*
  * RegisterCallback_1_1
  */
-TEST_F(SupplicantStaIfaceHidlTest, RegisterCallback_1_1) {
-  sta_iface_->registerCallback_1_1(
-      new IfaceCallback(), [](const SupplicantStatus& status) {
-          EXPECT_EQ(SupplicantStatusCode::SUCCESS, status.code);
-      });
+TEST_P(SupplicantStaIfaceHidlTest, RegisterCallback_1_1) {
+    sta_iface_->registerCallback_1_1(
+        new IfaceCallback(), [](const SupplicantStatus& status) {
+            EXPECT_EQ(SupplicantStatusCode::SUCCESS, status.code);
+        });
 }
+
+INSTANTIATE_TEST_CASE_P(
+    PerInstance, SupplicantStaIfaceHidlTest,
+    testing::Combine(
+        testing::ValuesIn(android::hardware::getAllHalInstanceNames(
+            android::hardware::wifi::V1_0::IWifi::descriptor)),
+        testing::ValuesIn(android::hardware::getAllHalInstanceNames(
+            android::hardware::wifi::V1_1::IWifi::descriptor)),
+        testing::ValuesIn(android::hardware::getAllHalInstanceNames(
+            android::hardware::wifi::supplicant::V1_0::ISupplicant::
+                descriptor)),
+        testing::ValuesIn(android::hardware::getAllHalInstanceNames(
+            android::hardware::wifi::supplicant::V1_1::ISupplicant::
+                descriptor))),
+    android::hardware::PrintInstanceTupleNameToString<>);

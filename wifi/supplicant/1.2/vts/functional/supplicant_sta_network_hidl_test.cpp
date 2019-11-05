@@ -16,8 +16,13 @@
 
 #include <android-base/logging.h>
 
-#include <VtsHalHidlTargetTestBase.h>
+#include <VtsCoreUtil.h>
+#include <android/hardware/wifi/1.0/IWifi.h>
+#include <android/hardware/wifi/1.1/IWifi.h>
 #include <android/hardware/wifi/supplicant/1.1/ISupplicantStaNetwork.h>
+#include <gtest/gtest.h>
+#include <hidl/GtestPrinter.h>
+#include <hidl/ServiceManagement.h>
 
 #include "supplicant_hidl_test_utils.h"
 #include "supplicant_hidl_test_utils_1_2.h"
@@ -26,6 +31,7 @@ using ::android::sp;
 using ::android::hardware::hidl_vec;
 using ::android::hardware::wifi::supplicant::V1_0::SupplicantStatus;
 using ::android::hardware::wifi::supplicant::V1_0::SupplicantStatusCode;
+using ::android::hardware::wifi::supplicant::V1_2::ISupplicant;
 using ::android::hardware::wifi::supplicant::V1_2::ISupplicantStaNetwork;
 // namespace {
 // constexpr uint8_t kTestIdentity[] = {0x45, 0x67, 0x98, 0x67, 0x56};
@@ -33,26 +39,46 @@ using ::android::hardware::wifi::supplicant::V1_2::ISupplicantStaNetwork;
 //}  // namespace
 
 class SupplicantStaNetworkHidlTest
-    : public ::testing::VtsHalHidlTargetTestBase {
+    : public ::testing::TestWithParam<std::tuple<
+          std::string, std::string, std::string, std::string, std::string>> {
    public:
     virtual void SetUp() override {
-        startSupplicantAndWaitForHidlService();
-        EXPECT_TRUE(turnOnExcessiveLogging());
-        sta_network_ = createSupplicantStaNetwork_1_2();
+        wifi_v1_0_instance_name_ = std::get<0>(GetParam());
+        wifi_v1_1_instance_name_ = std::get<1>(GetParam());
+        supplicant_v1_0_instance_name_ = std::get<2>(GetParam());
+        supplicant_v1_1_instance_name_ = std::get<3>(GetParam());
+        supplicant_v1_2_instance_name_ = std::get<4>(GetParam());
+        isP2pOn_ =
+            testing::deviceSupportsFeature("android.hardware.wifi.direct");
+        startSupplicantAndWaitForHidlService(wifi_v1_0_instance_name_,
+                                             supplicant_v1_0_instance_name_);
+        supplicant_ =
+            getSupplicant_1_2(supplicant_v1_2_instance_name_, isP2pOn_);
+        EXPECT_TRUE(turnOnExcessiveLogging(supplicant_));
+        sta_network_ = createSupplicantStaNetwork_1_2(supplicant_);
         ASSERT_NE(sta_network_.get(), nullptr);
     }
 
-    virtual void TearDown() override { stopSupplicant(); }
+    virtual void TearDown() override {
+        stopSupplicant(wifi_v1_0_instance_name_);
+    }
 
    protected:
     // ISupplicantStaNetwork object used for all tests in this fixture.
     sp<ISupplicantStaNetwork> sta_network_;
+    sp<ISupplicant> supplicant_;
+    bool isP2pOn_ = false;
+    std::string wifi_v1_0_instance_name_;
+    std::string wifi_v1_1_instance_name_;
+    std::string supplicant_v1_0_instance_name_;
+    std::string supplicant_v1_1_instance_name_;
+    std::string supplicant_v1_2_instance_name_;
 };
 
 /*
  * SetGetSaePassword
  */
-TEST_F(SupplicantStaNetworkHidlTest, SetGetSaePassword) {
+TEST_P(SupplicantStaNetworkHidlTest, SetGetSaePassword) {
     std::string password = "topsecret";
 
     sta_network_->setSaePassword(password, [](const SupplicantStatus &status) {
@@ -69,7 +95,7 @@ TEST_F(SupplicantStaNetworkHidlTest, SetGetSaePassword) {
 /*
  * SetGetSaePasswordId
  */
-TEST_F(SupplicantStaNetworkHidlTest, SetGetSaePasswordId) {
+TEST_P(SupplicantStaNetworkHidlTest, SetGetSaePasswordId) {
     std::string passwordId = "id1";
 
     sta_network_->setSaePasswordId(
@@ -87,7 +113,7 @@ TEST_F(SupplicantStaNetworkHidlTest, SetGetSaePasswordId) {
 /*
  * SetGetGroupMgmtCipher
  */
-TEST_F(SupplicantStaNetworkHidlTest, SetGetGroupMgmtCipher) {
+TEST_P(SupplicantStaNetworkHidlTest, SetGetGroupMgmtCipher) {
     uint32_t groupMgmtCipher =
         (uint32_t)ISupplicantStaNetwork::GroupMgmtCipherMask::BIP_GMAC_256;
 
@@ -107,7 +133,7 @@ TEST_F(SupplicantStaNetworkHidlTest, SetGetGroupMgmtCipher) {
 /*
  * SetGetKeyMgmt_1_2
  */
-TEST_F(SupplicantStaNetworkHidlTest, SetGetKeyMgmt_1_2) {
+TEST_P(SupplicantStaNetworkHidlTest, SetGetKeyMgmt_1_2) {
     uint32_t keyMgmt = (uint32_t)ISupplicantStaNetwork::KeyMgmtMask::SAE;
 
     sta_network_->setKeyMgmt_1_2(keyMgmt, [](const SupplicantStatus &status) {
@@ -124,7 +150,7 @@ TEST_F(SupplicantStaNetworkHidlTest, SetGetKeyMgmt_1_2) {
 /*
  * SetGetGroupCipher_1_2
  */
-TEST_F(SupplicantStaNetworkHidlTest, SetGetGroupCipher_1_2) {
+TEST_P(SupplicantStaNetworkHidlTest, SetGetGroupCipher_1_2) {
     uint32_t groupCipher =
         (uint32_t)ISupplicantStaNetwork::GroupCipherMask::GCMP_256;
 
@@ -144,7 +170,7 @@ TEST_F(SupplicantStaNetworkHidlTest, SetGetGroupCipher_1_2) {
 /*
  * SetGetPairwiseCipher_1_2
  */
-TEST_F(SupplicantStaNetworkHidlTest, SetGetPairwiseCipher_1_2) {
+TEST_P(SupplicantStaNetworkHidlTest, SetGetPairwiseCipher_1_2) {
     uint32_t pairwiseCipher =
         (uint32_t)ISupplicantStaNetwork::PairwiseCipherMask::GCMP_256;
 
@@ -164,7 +190,7 @@ TEST_F(SupplicantStaNetworkHidlTest, SetGetPairwiseCipher_1_2) {
 /*
  * EnableSuiteBEapOpenSslCiphers
  */
-TEST_F(SupplicantStaNetworkHidlTest, EnableSuiteBEapOpenSslCiphers) {
+TEST_P(SupplicantStaNetworkHidlTest, EnableSuiteBEapOpenSslCiphers) {
     sta_network_->enableSuiteBEapOpenSslCiphers(
         [](const SupplicantStatus &status) {
             EXPECT_EQ(SupplicantStatusCode::SUCCESS, status.code);
@@ -179,7 +205,7 @@ TEST_F(SupplicantStaNetworkHidlTest, EnableSuiteBEapOpenSslCiphers) {
 /*
  * EnableTlsSuiteBEapPhase1Param
  */
-TEST_F(SupplicantStaNetworkHidlTest, EnableTlsSuiteBEapPhase1Param) {
+TEST_P(SupplicantStaNetworkHidlTest, EnableTlsSuiteBEapPhase1Param) {
     sta_network_->enableTlsSuiteBEapPhase1Param(
         true, [](const SupplicantStatus &status) {
             EXPECT_EQ(SupplicantStatusCode::SUCCESS, status.code);
@@ -190,3 +216,21 @@ TEST_F(SupplicantStaNetworkHidlTest, EnableTlsSuiteBEapPhase1Param) {
             EXPECT_EQ(SupplicantStatusCode::SUCCESS, status.code);
         });
 }
+
+INSTANTIATE_TEST_CASE_P(
+    PerInstance, SupplicantStaNetworkHidlTest,
+    testing::Combine(
+        testing::ValuesIn(android::hardware::getAllHalInstanceNames(
+            android::hardware::wifi::V1_0::IWifi::descriptor)),
+        testing::ValuesIn(android::hardware::getAllHalInstanceNames(
+            android::hardware::wifi::V1_1::IWifi::descriptor)),
+        testing::ValuesIn(android::hardware::getAllHalInstanceNames(
+            android::hardware::wifi::supplicant::V1_0::ISupplicant::
+                descriptor)),
+        testing::ValuesIn(android::hardware::getAllHalInstanceNames(
+            android::hardware::wifi::supplicant::V1_1::ISupplicant::
+                descriptor)),
+        testing::ValuesIn(android::hardware::getAllHalInstanceNames(
+            android::hardware::wifi::supplicant::V1_2::ISupplicant::
+                descriptor))),
+    android::hardware::PrintInstanceTupleNameToString<>);
