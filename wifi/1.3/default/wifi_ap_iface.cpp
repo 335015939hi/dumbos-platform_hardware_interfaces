@@ -40,6 +40,10 @@ WifiApIface::WifiApIface(
       is_valid_(true) {
     if (feature_flags_.lock()->isApMacRandomizationDisabled()) {
         LOG(INFO) << "AP MAC randomization disabled";
+        bool apstatus = iface_util_.lock()->setUpState(ifname_);
+        if (!apstatus) {
+            LOG(ERROR) << "Failed to set up for Ap iface";
+        }
         return;
     }
     LOG(INFO) << "AP MAC randomization enabled";
