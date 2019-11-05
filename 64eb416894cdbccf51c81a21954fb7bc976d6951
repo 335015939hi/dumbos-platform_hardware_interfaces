@@ -39,6 +39,24 @@
       "revId": "64eb416894cdbccf51c81a21954fb7bc976d6951",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e0b57a8_cc7a0412",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_p2p_iface_hidl_test.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 650,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2019-11-05T00:01:43Z",
+      "side": 1,
+      "message": "s/info/info.param/g",
+      "parentUuid": "9b5f0155_c8660afb",
+      "revId": "64eb416894cdbccf51c81a21954fb7bc976d6951",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
