@@ -46,6 +46,34 @@ void InitHealthdConfig(struct healthd_config* healthd_config) {
     };
 }
 
+void InitHealthInfo(V1_0::HealthInfo* health_info) {
+    health_info->chargerAcOnline = false;
+    health_info->chargerUsbOnline = false;
+    health_info->chargerWirelessOnline = false;
+    health_info->maxChargingCurrent = 0;
+    health_info->maxChargingVoltage = 0;
+    health_info->batteryStatus = V1_0::BatteryStatus::UNKNOWN;
+    health_info->batteryHealth = V1_0::BatteryHealth::UNKNOWN;
+    health_info->batteryPresent = false;
+    health_info->batteryLevel = 0;
+    health_info->batteryVoltage = 0;
+    health_info->batteryTemperature = 0;
+    health_info->batteryCurrent = 0;
+    health_info->batteryCycleCount = 0;
+    health_info->batteryFullCharge = 0;
+    health_info->batteryChargeCounter = 0;
+    health_info->batteryTechnology.clear();
+}
+void InitHealthInfo(V2_0::HealthInfo* health_info) {
+    *health_info = HealthInfo{};
+    InitHealthInfo(health_info->legacy);
+}
+
+void InitHealthInfo(V2_1::HealthInfo* health_info) {
+    *health_info = HealthInfo{};
+    InitHealthInfo(health_info->legacy);
+}
+
 }  // namespace health
 }  // namespace hardware
 }  // namespace android
