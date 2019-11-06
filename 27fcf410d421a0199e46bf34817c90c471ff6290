@@ -71,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "44b4134a_a6a7d12e",
+        "filename": "radio/1.3/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2019-11-06T06:14:10Z",
+      "side": 1,
+      "message": "Move to 1.5",
+      "parentUuid": "c272d420_0ace2b2c",
+      "range": {
+        "startLine": 4,
+        "startChar": 33,
+        "endLine": 4,
+        "endChar": 37
+      },
+      "revId": "27fcf410d421a0199e46bf34817c90c471ff6290",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8f35355a_04bb8e06",
         "filename": "radio/1.3/IRadio.hal",
         "patchSetId": 1
@@ -117,6 +141,54 @@
     },
     {
       "key": {
+        "uuid": "cd56794f_baae1f1e",
+        "filename": "radio/1.3/IRadio.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2019-11-06T06:14:10Z",
+      "side": 1,
+      "message": "Yes, and I have already stated it in the description of getAdnRecordResponse()",
+      "parentUuid": "00a10112_0d93bf64",
+      "range": {
+        "startLine": 32,
+        "startChar": 7,
+        "endLine": 32,
+        "endChar": 38
+      },
+      "revId": "27fcf410d421a0199e46bf34817c90c471ff6290",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d793c3bb_1c6af193",
+        "filename": "radio/1.3/IRadio.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2019-11-06T06:14:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f35355a_04bb8e06",
+      "range": {
+        "startLine": 32,
+        "startChar": 64,
+        "endLine": 32,
+        "endChar": 65
+      },
+      "revId": "27fcf410d421a0199e46bf34817c90c471ff6290",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2278f1e0_163a6587",
         "filename": "radio/1.3/IRadio.hal",
         "patchSetId": 1
@@ -140,6 +212,30 @@
     },
     {
       "key": {
+        "uuid": "ecbd0d2a_49b4ffdf",
+        "filename": "radio/1.3/IRadio.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2019-11-06T06:14:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2278f1e0_163a6587",
+      "range": {
+        "startLine": 40,
+        "startChar": 11,
+        "endLine": 40,
+        "endChar": 23
+      },
+      "revId": "27fcf410d421a0199e46bf34817c90c471ff6290",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "980a48f6_daaf7d6d",
         "filename": "radio/1.3/IRadio.hal",
         "patchSetId": 1
@@ -160,6 +256,30 @@
       "revId": "27fcf410d421a0199e46bf34817c90c471ff6290",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "022bca21_aa69023d",
+        "filename": "radio/1.3/IRadio.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2019-11-06T06:14:10Z",
+      "side": 1,
+      "message": "Yes, the API can also add and delete record.And when the fields of adnRecordInfo is empty, RIL will delete the ADN by the index.",
+      "parentUuid": "980a48f6_daaf7d6d",
+      "range": {
+        "startLine": 43,
+        "startChar": 7,
+        "endLine": 43,
+        "endChar": 13
+      },
+      "revId": "27fcf410d421a0199e46bf34817c90c471ff6290",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -209,6 +329,54 @@
     },
     {
       "key": {
+        "uuid": "89635eff_4a97e560",
+        "filename": "radio/1.3/IRadioIndication.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2019-11-06T06:14:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14624f0c_9ee7b638",
+      "range": {
+        "startLine": 28,
+        "startChar": 43,
+        "endLine": 28,
+        "endChar": 62
+      },
+      "revId": "27fcf410d421a0199e46bf34817c90c471ff6290",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae605367_8b67594e",
+        "filename": "radio/1.3/IRadioIndication.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2019-11-06T06:14:10Z",
+      "side": 1,
+      "message": "Yes.",
+      "parentUuid": "6a863578_9c5c0aaa",
+      "range": {
+        "startLine": 28,
+        "startChar": 7,
+        "endLine": 28,
+        "endChar": 42
+      },
+      "revId": "27fcf410d421a0199e46bf34817c90c471ff6290",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e751f7b1_62d2f1b9",
         "filename": "radio/1.3/IRadioIndication.hal",
         "patchSetId": 1
@@ -252,6 +420,54 @@
       "revId": "27fcf410d421a0199e46bf34817c90c471ff6290",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48f36372_5e955c71",
+        "filename": "radio/1.3/IRadioIndication.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2019-11-06T06:14:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e751f7b1_62d2f1b9",
+      "range": {
+        "startLine": 30,
+        "startChar": 11,
+        "endLine": 30,
+        "endChar": 14
+      },
+      "revId": "27fcf410d421a0199e46bf34817c90c471ff6290",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "218d5ae4_c22befb5",
+        "filename": "radio/1.3/IRadioIndication.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2019-11-06T06:14:10Z",
+      "side": 1,
+      "message": "Yes, and I have defined the feature configration in fw/base",
+      "parentUuid": "24b96468_1e23ffed",
+      "range": {
+        "startLine": 30,
+        "startChar": 11,
+        "endLine": 30,
+        "endChar": 22
+      },
+      "revId": "27fcf410d421a0199e46bf34817c90c471ff6290",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -324,6 +540,78 @@
     },
     {
       "key": {
+        "uuid": "0f165eac_83b53356",
+        "filename": "radio/1.3/IRadioIndication.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2019-11-06T06:14:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40bb2b66_fa0dda40",
+      "range": {
+        "startLine": 33,
+        "startChar": 49,
+        "endLine": 33,
+        "endChar": 52
+      },
+      "revId": "27fcf410d421a0199e46bf34817c90c471ff6290",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "af9e55bb_55737503",
+        "filename": "radio/1.3/IRadioIndication.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2019-11-06T06:14:10Z",
+      "side": 1,
+      "message": "It would return 10 records in one indication.\nIf the card contains 1000 valid entries, it return all of them in 100 indications.\nI think there will not be risk of exceeding 1MB.",
+      "parentUuid": "a3fb3e74_cc6d0d52",
+      "range": {
+        "startLine": 33,
+        "startChar": 17,
+        "endLine": 33,
+        "endChar": 20
+      },
+      "revId": "27fcf410d421a0199e46bf34817c90c471ff6290",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1e583718_62d70bbc",
+        "filename": "radio/1.3/IRadioIndication.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2019-11-06T06:14:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb614991_65187f04",
+      "range": {
+        "startLine": 33,
+        "startChar": 7,
+        "endLine": 33,
+        "endChar": 20
+      },
+      "revId": "27fcf410d421a0199e46bf34817c90c471ff6290",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9dae6f10_efb14259",
         "filename": "radio/1.3/IRadioIndication.hal",
         "patchSetId": 1
@@ -344,6 +632,30 @@
       "revId": "27fcf410d421a0199e46bf34817c90c471ff6290",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5842485e_8b7fd7fe",
+        "filename": "radio/1.3/IRadioIndication.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2019-11-06T06:14:10Z",
+      "side": 1,
+      "message": "Multiple times according to the total number of the ADN records",
+      "parentUuid": "9dae6f10_efb14259",
+      "range": {
+        "startLine": 34,
+        "startChar": 7,
+        "endLine": 34,
+        "endChar": 41
+      },
+      "revId": "27fcf410d421a0199e46bf34817c90c471ff6290",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -393,6 +705,54 @@
     },
     {
       "key": {
+        "uuid": "5642804f_c0bfac40",
+        "filename": "radio/1.3/IRadioResponse.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2019-11-06T06:14:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08f1a96f_19396d8b",
+      "range": {
+        "startLine": 29,
+        "startChar": 49,
+        "endLine": 29,
+        "endChar": 52
+      },
+      "revId": "27fcf410d421a0199e46bf34817c90c471ff6290",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b680e8e7_7ae5a5dc",
+        "filename": "radio/1.3/IRadioResponse.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2019-11-06T06:14:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01588ebf_d4119255",
+      "range": {
+        "startLine": 29,
+        "startChar": 71,
+        "endLine": 29,
+        "endChar": 74
+      },
+      "revId": "27fcf410d421a0199e46bf34817c90c471ff6290",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3aa4a3f_9f420f03",
         "filename": "radio/1.3/IRadioResponse.hal",
         "patchSetId": 1
@@ -413,6 +773,30 @@
       "revId": "27fcf410d421a0199e46bf34817c90c471ff6290",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "685a2bfa_a618ee02",
+        "filename": "radio/1.3/IRadioResponse.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2019-11-06T06:14:10Z",
+      "side": 1,
+      "message": "No, the index is 1 based.",
+      "parentUuid": "c3aa4a3f_9f420f03",
+      "range": {
+        "startLine": 41,
+        "startChar": 37,
+        "endLine": 41,
+        "endChar": 42
+      },
+      "revId": "27fcf410d421a0199e46bf34817c90c471ff6290",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -439,6 +823,30 @@
     },
     {
       "key": {
+        "uuid": "9e057bef_c1c8710c",
+        "filename": "radio/1.3/IRadioResponse.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2019-11-06T06:14:10Z",
+      "side": 1,
+      "message": "The description is incorrect. The index value in the response for adding contact will not be 0.",
+      "parentUuid": "52f076cd_ec25edb9",
+      "range": {
+        "startLine": 42,
+        "startChar": 56,
+        "endLine": 42,
+        "endChar": 57
+      },
+      "revId": "27fcf410d421a0199e46bf34817c90c471ff6290",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8c4934eb_c200ad54",
         "filename": "radio/1.3/IRadioResponse.hal",
         "patchSetId": 1
@@ -459,6 +867,30 @@
       "revId": "27fcf410d421a0199e46bf34817c90c471ff6290",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64a90a81_5b865c4a",
+        "filename": "radio/1.3/IRadioResponse.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2019-11-06T06:14:10Z",
+      "side": 1,
+      "message": "For these case, the max count of adnCapacity will be 0 when invoke getAdnRecordResponse().",
+      "parentUuid": "8c4934eb_c200ad54",
+      "range": {
+        "startLine": 44,
+        "startChar": 7,
+        "endLine": 44,
+        "endChar": 28
+      },
+      "revId": "27fcf410d421a0199e46bf34817c90c471ff6290",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -485,6 +917,30 @@
     },
     {
       "key": {
+        "uuid": "83aa4ac4_a332e204",
+        "filename": "radio/1.3/ISap.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2019-11-06T06:14:10Z",
+      "side": 1,
+      "message": "Removed",
+      "parentUuid": "01e89e9a_8c0fb243",
+      "range": {
+        "startLine": 21,
+        "startChar": 10,
+        "endLine": 21,
+        "endChar": 14
+      },
+      "revId": "27fcf410d421a0199e46bf34817c90c471ff6290",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e8fb6f14_2e317c13",
         "filename": "radio/1.3/types.hal",
         "patchSetId": 1
@@ -505,6 +961,30 @@
       "revId": "27fcf410d421a0199e46bf34817c90c471ff6290",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6ed17c9_2ed35fa9",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2019-11-06T06:14:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8fb6f14_2e317c13",
+      "range": {
+        "startLine": 19,
+        "startChar": 7,
+        "endLine": 19,
+        "endChar": 10
+      },
+      "revId": "27fcf410d421a0199e46bf34817c90c471ff6290",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -577,6 +1057,78 @@
     },
     {
       "key": {
+        "uuid": "12370549_3fffbb87",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2019-11-06T06:14:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1eeaa8c5_4cebb66e",
+      "range": {
+        "startLine": 20,
+        "startChar": 65,
+        "endLine": 20,
+        "endChar": 67
+      },
+      "revId": "27fcf410d421a0199e46bf34817c90c471ff6290",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1305e91e_93fc16c9",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2019-11-06T06:14:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79427996_d0920bd4",
+      "range": {
+        "startLine": 20,
+        "startChar": 32,
+        "endLine": 20,
+        "endChar": 34
+      },
+      "revId": "27fcf410d421a0199e46bf34817c90c471ff6290",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a109dd50_201c0e6c",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2019-11-06T06:14:10Z",
+      "side": 1,
+      "message": "The max value of int32",
+      "parentUuid": "6c4a5fb9_31224c65",
+      "range": {
+        "startLine": 20,
+        "startChar": 69,
+        "endLine": 20,
+        "endChar": 72
+      },
+      "revId": "27fcf410d421a0199e46bf34817c90c471ff6290",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "08b43cf2_37d0b107",
         "filename": "radio/1.3/types.hal",
         "patchSetId": 1
@@ -597,6 +1149,30 @@
       "revId": "27fcf410d421a0199e46bf34817c90c471ff6290",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0461572_68970320",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2019-11-06T06:14:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08b43cf2_37d0b107",
+      "range": {
+        "startLine": 21,
+        "startChar": 34,
+        "endLine": 21,
+        "endChar": 58
+      },
+      "revId": "27fcf410d421a0199e46bf34817c90c471ff6290",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -623,6 +1199,30 @@
     },
     {
       "key": {
+        "uuid": "0b9ab482_2ed2d4cb",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2019-11-06T06:14:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "77662a0e_84a58260",
+      "range": {
+        "startLine": 22,
+        "startChar": 34,
+        "endLine": 22,
+        "endChar": 58
+      },
+      "revId": "27fcf410d421a0199e46bf34817c90c471ff6290",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6a6d54f7_85323211",
         "filename": "radio/1.3/types.hal",
         "patchSetId": 1
@@ -643,6 +1243,30 @@
       "revId": "27fcf410d421a0199e46bf34817c90c471ff6290",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd47884c_4d69a9bf",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2019-11-06T06:14:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a6d54f7_85323211",
+      "range": {
+        "startLine": 23,
+        "startChar": 34,
+        "endLine": 23,
+        "endChar": 73
+      },
+      "revId": "27fcf410d421a0199e46bf34817c90c471ff6290",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -692,6 +1316,54 @@
     },
     {
       "key": {
+        "uuid": "56c606ff_71b40883",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2019-11-06T06:14:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36518c4d_dfa2dbb0",
+      "range": {
+        "startLine": 24,
+        "startChar": 21,
+        "endLine": 24,
+        "endChar": 30
+      },
+      "revId": "27fcf410d421a0199e46bf34817c90c471ff6290",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad61ce1b_52253b52",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2019-11-06T06:14:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "77ce2e29_2c0b8bd5",
+      "range": {
+        "startLine": 24,
+        "startChar": 34,
+        "endLine": 24,
+        "endChar": 72
+      },
+      "revId": "27fcf410d421a0199e46bf34817c90c471ff6290",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e6717c62_dee3db45",
         "filename": "radio/1.3/types.hal",
         "patchSetId": 1
@@ -712,6 +1384,30 @@
       "revId": "27fcf410d421a0199e46bf34817c90c471ff6290",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48fd33f2_02b71640",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2019-11-06T06:14:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e6717c62_dee3db45",
+      "range": {
+        "startLine": 27,
+        "startChar": 7,
+        "endLine": 27,
+        "endChar": 10
+      },
+      "revId": "27fcf410d421a0199e46bf34817c90c471ff6290",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -784,6 +1480,78 @@
     },
     {
       "key": {
+        "uuid": "0b71c966_33680ddc",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2019-11-06T06:14:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f7a4d82_4316e47c",
+      "range": {
+        "startLine": 28,
+        "startChar": 68,
+        "endLine": 28,
+        "endChar": 77
+      },
+      "revId": "27fcf410d421a0199e46bf34817c90c471ff6290",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9d764941_612b4c59",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2019-11-06T06:14:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8fe8903_6b73e801",
+      "range": {
+        "startLine": 28,
+        "startChar": 40,
+        "endLine": 28,
+        "endChar": 43
+      },
+      "revId": "27fcf410d421a0199e46bf34817c90c471ff6290",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f35e5212_d769bacc",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2019-11-06T06:14:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4464bb72_4532c104",
+      "range": {
+        "startLine": 28,
+        "startChar": 32,
+        "endLine": 28,
+        "endChar": 39
+      },
+      "revId": "27fcf410d421a0199e46bf34817c90c471ff6290",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84f87688_224a5181",
         "filename": "radio/1.3/types.hal",
         "patchSetId": 1
@@ -807,6 +1575,30 @@
     },
     {
       "key": {
+        "uuid": "94b8d835_75685fd8",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2019-11-06T06:14:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84f87688_224a5181",
+      "range": {
+        "startLine": 29,
+        "startChar": 56,
+        "endLine": 29,
+        "endChar": 65
+      },
+      "revId": "27fcf410d421a0199e46bf34817c90c471ff6290",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5e70e72d_daa3f85f",
         "filename": "radio/1.3/types.hal",
         "patchSetId": 1
@@ -818,6 +1610,30 @@
       "writtenOn": "2018-12-14T03:53:32Z",
       "side": 1,
       "message": "What does \"Used records possible\" mean?\nDid you mean \"Used email records in the phonebook\"?",
+      "range": {
+        "startLine": 31,
+        "startChar": 32,
+        "endLine": 31,
+        "endChar": 59
+      },
+      "revId": "27fcf410d421a0199e46bf34817c90c471ff6290",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f57657f_135fb5a0",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2019-11-06T06:14:10Z",
+      "side": 1,
+      "message": "Yes,changed",
+      "parentUuid": "5e70e72d_daa3f85f",
       "range": {
         "startLine": 31,
         "startChar": 32,
@@ -850,6 +1666,30 @@
       "revId": "27fcf410d421a0199e46bf34817c90c471ff6290",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ab9917f_7e97e3c8",
+        "filename": "radio/1.3/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1170335
+      },
+      "writtenOn": "2019-11-06T06:14:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21079b56_f6c04c04",
+      "range": {
+        "startLine": 37,
+        "startChar": 17,
+        "endLine": 37,
+        "endChar": 20
+      },
+      "revId": "27fcf410d421a0199e46bf34817c90c471ff6290",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
