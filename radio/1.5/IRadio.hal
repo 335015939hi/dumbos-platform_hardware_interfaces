@@ -27,4 +27,17 @@ import @1.4::IRadio;
  * setResponseFunctions must work with @1.5::IRadioResponse and @1.5::IRadioIndication.
  */
 interface IRadio extends @1.4::IRadio {
+    /**
+     * attach or detach Gprs.
+     *
+     * @param enable whether to attach Gprs
+     */
+    oneway attachGprs(boolean enable);
+
+    /**
+     * Enable or disable Lte.
+     *
+     * @param enable whether to enable LTE
+     */
+    oneway enableLte(boolean enable);
 };
