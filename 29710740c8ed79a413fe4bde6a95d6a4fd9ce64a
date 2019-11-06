@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7ad8b24c_79d79201",
+        "filename": "wifi/supplicant/1.1/vts/functional/supplicant_hidl_test_utils_1_1.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-11-06T22:59:41Z",
+      "side": 1,
+      "message": "Do you mean to remove both supplicant_hidl_test_utils_1_1.h and supplicant_hidl_test_utils_1_1.cpp, and just use the function body directly in the tests?\n\nThe methods are shared across 3 tests, so we will have to duplicate the code in 3 cpp files.\nI think it\u0027s a bit cleaner in its current form.",
+      "parentUuid": "55b5d053_b6882e2a",
+      "range": {
+        "startLine": 28,
+        "startChar": 16,
+        "endLine": 28,
+        "endChar": 33
+      },
+      "revId": "29710740c8ed79a413fe4bde6a95d6a4fd9ce64a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1ffab26a_bedd860a",
         "filename": "wifi/supplicant/1.1/vts/functional/supplicant_hidl_test_utils_1_1.cpp",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "29710740c8ed79a413fe4bde6a95d6a4fd9ce64a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06c2473e_08d091e7",
+        "filename": "wifi/supplicant/1.1/vts/functional/supplicant_hidl_test_utils_1_1.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-11-06T22:59:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ffab26a_bedd860a",
+      "range": {
+        "startLine": 32,
+        "startChar": 50,
+        "endLine": 32,
+        "endChar": 52
+      },
+      "revId": "29710740c8ed79a413fe4bde6a95d6a4fd9ce64a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "a178819f_084d1e5c",
+        "filename": "wifi/supplicant/1.1/vts/functional/supplicant_hidl_test_utils_1_1.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-11-06T22:59:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8537756_82d76177",
+      "range": {
+        "startLine": 37,
+        "startChar": 4,
+        "endLine": 37,
+        "endChar": 6
+      },
+      "revId": "29710740c8ed79a413fe4bde6a95d6a4fd9ce64a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e7bac189_23500263",
         "filename": "wifi/supplicant/1.1/vts/functional/supplicant_hidl_test_utils_1_1.cpp",
         "patchSetId": 1
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "829d87a7_7195051c",
+        "filename": "wifi/supplicant/1.1/vts/functional/supplicant_hidl_test_utils_1_1.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-11-06T22:59:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e7bac189_23500263",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 4
+      },
+      "revId": "29710740c8ed79a413fe4bde6a95d6a4fd9ce64a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d43f85e7_94084503",
         "filename": "wifi/supplicant/1.1/vts/functional/supplicant_sta_iface_hidl_test.cpp",
         "patchSetId": 1
@@ -114,6 +210,30 @@
       "revId": "29710740c8ed79a413fe4bde6a95d6a4fd9ce64a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "faceb85a_432ba649",
+        "filename": "wifi/supplicant/1.1/vts/functional/supplicant_sta_iface_hidl_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-11-06T22:59:41Z",
+      "side": 1,
+      "message": "Through a command line option, injected by the python test(VtsHalWifiSupplicantV1_1HostTest.py)",
+      "parentUuid": "d43f85e7_94084503",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 73
+      },
+      "revId": "29710740c8ed79a413fe4bde6a95d6a4fd9ce64a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -161,6 +281,30 @@
       "revId": "29710740c8ed79a413fe4bde6a95d6a4fd9ce64a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "472b7b0a_861e12d2",
+        "filename": "wifi/supplicant/1.1/vts/functional/supplicant_sta_network_hidl_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-11-06T22:59:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17d2e0bd_571305f8",
+      "range": {
+        "startLine": 53,
+        "startChar": 7,
+        "endLine": 53,
+        "endChar": 61
+      },
+      "revId": "29710740c8ed79a413fe4bde6a95d6a4fd9ce64a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -223,6 +367,30 @@
       "side": 1,
       "message": "Hmmm. Maybe it\u0027s a problem with the device? Maybe they want to test it can be re-initialized? Was it failing before in the same way?",
       "parentUuid": "ebb9386e_ab2c4306",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 21
+      },
+      "revId": "29710740c8ed79a413fe4bde6a95d6a4fd9ce64a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f016bb51_f4fc60cf",
+        "filename": "wifi/supplicant/1.1/vts/functional/supplicant_sta_network_hidl_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-11-06T22:59:41Z",
+      "side": 1,
+      "message": "It was passing. Note that this was a `TEST` not `TEST_F`, maybe the run logic is different.",
+      "parentUuid": "3cb2e215_5320536e",
       "range": {
         "startLine": 65,
         "startChar": 0,
