@@ -34,6 +34,24 @@
       "revId": "b3dacf28b30cebf0cdd8d4632be16496891d0cd3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "572030fc_31863fda",
+        "filename": "vibrator/aidl/android/hardware/vibrator/IVibrator.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-06T02:08:53Z",
+      "side": 1,
+      "message": "As in, I\u0027m confused because the old interface only has one \u0027capability\u0027 here (value of supportsAmplitudeControl, CAP_AMPLITUDE_CONTROL). Should I really be adding all three of these? Or should it only be CAP_EXTERNAL_CONTROL and CAP_EXTERNAL_AMPLITUDE_CONTROL?",
+      "parentUuid": "a0dc5739_76ee2189",
+      "revId": "b3dacf28b30cebf0cdd8d4632be16496891d0cd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
