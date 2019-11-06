@@ -52,6 +52,24 @@
       "revId": "b3dacf28b30cebf0cdd8d4632be16496891d0cd3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0a3f0bb_40d5bba8",
+        "filename": "vibrator/aidl/android/hardware/vibrator/IVibrator.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1418133
+      },
+      "writtenOn": "2019-11-06T02:23:32Z",
+      "side": 1,
+      "message": "There should be three. Being single-purposed, it was reasonable for supportsAmplitudeControl() to be called in the context that setAmplitude() was to be used.\n\nFor example:\n\n// Normal operation, not using external control\nif (supportsAmplitudeControl()) {\n  setAmplitude();\n}\n\nif (supportsExternalControl()) {\n    setExternalControl(true);\n    // If external control is supported and enabled\n    if (supportsAmplitudeControl()) {\n      setAmplitude();\n    }\n}\n\nWe could require the same for getCapabilities(), but it would be at odds with how such APIs are generally used.",
+      "parentUuid": "572030fc_31863fda",
+      "revId": "b3dacf28b30cebf0cdd8d4632be16496891d0cd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
