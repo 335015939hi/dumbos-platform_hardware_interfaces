@@ -123,6 +123,24 @@
       "revId": "3bcdb3b0da1ca733f94c5f6db10fd939f823b477",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1d0ff67e_26bba70e",
+        "filename": "vibrator/aidl/vts/VtsHalVibratorTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1418133
+      },
+      "writtenOn": "2019-11-06T02:25:38Z",
+      "side": 1,
+      "message": "Nice! Optional: Add a TODO to utilize the planned feature.",
+      "parentUuid": "16203f8c_30369e2c",
+      "revId": "3bcdb3b0da1ca733f94c5f6db10fd939f823b477",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
