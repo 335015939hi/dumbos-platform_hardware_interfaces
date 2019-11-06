@@ -105,6 +105,24 @@
       "revId": "3bcdb3b0da1ca733f94c5f6db10fd939f823b477",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16203f8c_30369e2c",
+        "filename": "vibrator/aidl/vts/VtsHalVibratorTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-06T02:13:58Z",
+      "side": 1,
+      "message": "*its :)",
+      "parentUuid": "d239d3f0_e237b29c",
+      "revId": "3bcdb3b0da1ca733f94c5f6db10fd939f823b477",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
