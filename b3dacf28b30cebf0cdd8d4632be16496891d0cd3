@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d8333d54_729b6f1b",
+        "filename": "vibrator/aidl/android/hardware/vibrator/IVibrator.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1418133
+      },
+      "writtenOn": "2019-11-06T01:59:51Z",
+      "side": 1,
+      "message": "This is not quite accurate. CAP_EXTERNAL_CONTROL indicates that setExternalControl() is supported. Independently, we want to convey whether or not setAmplitude() is supported while setExternalControl() is enabled.\n\nWith the getCapabilities() API, it is most likely that clients will only call it once to discern all capabilities of the service. Thus, it is unreasonable to required it to be called after enabling external control to determine if amplitude control of the external interface is supported. So, it should be expressed as a separate capability (CAP_EXTERNAL_AMPLITUDE_CONTROL).",
+      "revId": "b3dacf28b30cebf0cdd8d4632be16496891d0cd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
