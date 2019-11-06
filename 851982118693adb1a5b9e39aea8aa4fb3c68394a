@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "09e92b61_0979edc7",
+        "filename": "health/storage/1.0/vts/functional/VtsHalHealthStorageV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-06T17:36:01Z",
+      "side": 1,
+      "message": "FWIW, this is setting the default. I think you should be able to delete all of main?",
+      "revId": "851982118693adb1a5b9e39aea8aa4fb3c68394a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
