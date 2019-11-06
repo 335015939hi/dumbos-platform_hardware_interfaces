@@ -23,4 +23,9 @@ import @1.4::IRadioIndication;
  * Interface declaring unsolicited radio indications.
  */
 interface IRadioIndication extends @1.4::IRadioIndication {
+
+    /**
+     * notify RAU Success
+     */
+    oneway responseRauSuccess(int indicationType);
 };

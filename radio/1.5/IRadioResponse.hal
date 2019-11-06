@@ -23,4 +23,13 @@ import @1.4::IRadioResponse;
  * Interface declaring response functions to solicited radio requests.
  */
 interface IRadioResponse extends @1.4::IRadioResponse {
+    /**
+     * @param responseInfo Response info struct containing response type, serial number and error.
+     */
+    oneway attachGprsResponse(RadioResponseInfo responseInfo)
+
+    /**
+     * @param responseInfo Response info struct containing response type, serial number and error.
+     */
+    oneway enableLteResponse(RadioResponseInfo responseInfo)
 };
