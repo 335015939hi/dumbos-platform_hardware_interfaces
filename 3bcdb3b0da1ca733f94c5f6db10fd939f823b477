@@ -22,6 +22,47 @@
       "revId": "3bcdb3b0da1ca733f94c5f6db10fd939f823b477",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ffa335f7_b5f5c055",
+        "filename": "vibrator/aidl/android/hardware/vibrator/IVibrator.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1418133
+      },
+      "writtenOn": "2019-11-06T02:10:17Z",
+      "side": 1,
+      "message": "Yes. The current expectations is that the HAL provides an appropriate mapping for all strengths, even if they are all the same under the hood.",
+      "parentUuid": "417b853c_a4487eda",
+      "range": {
+        "startLine": 87,
+        "startChar": 4,
+        "endLine": 87,
+        "endChar": 10
+      },
+      "revId": "3bcdb3b0da1ca733f94c5f6db10fd939f823b477",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "92465a2d_578f6424",
+        "filename": "vibrator/aidl/vts/VtsHalVibratorTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1418133
+      },
+      "writtenOn": "2019-11-06T02:10:17Z",
+      "side": 1,
+      "message": "Tangential: Without the equivalent of hidl_enum_range, there\u0027s a real possibility that new effects may accidentally be omitted from this list. Any thoughts on how to prevent this?",
+      "revId": "3bcdb3b0da1ca733f94c5f6db10fd939f823b477",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
