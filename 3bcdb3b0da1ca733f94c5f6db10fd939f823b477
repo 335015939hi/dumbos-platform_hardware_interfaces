@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "3255fd85_de2a0bd2",
+        "filename": "vibrator/aidl/android/hardware/vibrator/IVibrator.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-06T02:13:47Z",
+      "side": 1,
+      "message": "Awesome! We have the right behavior here then. :)",
+      "parentUuid": "ffa335f7_b5f5c055",
+      "range": {
+        "startLine": 87,
+        "startChar": 4,
+        "endLine": 87,
+        "endChar": 10
+      },
+      "revId": "3bcdb3b0da1ca733f94c5f6db10fd939f823b477",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "92465a2d_578f6424",
         "filename": "vibrator/aidl/vts/VtsHalVibratorTargetTest.cpp",
         "patchSetId": 1
@@ -63,6 +87,24 @@
       "revId": "3bcdb3b0da1ca733f94c5f6db10fd939f823b477",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d239d3f0_e237b29c",
+        "filename": "vibrator/aidl/vts/VtsHalVibratorTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-06T02:13:47Z",
+      "side": 1,
+      "message": "Well, hidl_enum_range equivalent is planned. I\u0027ve filed b/143992652 to expedite it\u0027s implementation.",
+      "parentUuid": "92465a2d_578f6424",
+      "revId": "3bcdb3b0da1ca733f94c5f6db10fd939f823b477",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
