@@ -16,6 +16,24 @@
       "revId": "b3dacf28b30cebf0cdd8d4632be16496891d0cd3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0dc5739_76ee2189",
+        "filename": "vibrator/aidl/android/hardware/vibrator/IVibrator.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-06T02:05:05Z",
+      "side": 1,
+      "message": "Hmmm. Sorry, I had missed this distinction. Do you think we need both of these capabilities?",
+      "parentUuid": "d8333d54_729b6f1b",
+      "revId": "b3dacf28b30cebf0cdd8d4632be16496891d0cd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
