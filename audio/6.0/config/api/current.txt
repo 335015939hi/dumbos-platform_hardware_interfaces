@@ -246,6 +246,8 @@ package audio.policy.configuration.V6_0 {
     method public void setMode(audio.policy.configuration.V6_0.GainMode);
     method public void setName(String);
     method public void setStepValueMB(int);
+    method public void setUseForVolume(boolean);
+    method public boolean canUseForVolume();
   }
 
   public class GlobalConfiguration {
