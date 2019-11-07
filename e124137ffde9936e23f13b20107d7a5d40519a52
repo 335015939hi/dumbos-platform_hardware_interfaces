@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ac0126ce_db41fbe9",
+        "filename": "vibrator/aidl/vts/VtsHalVibratorTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1418133
+      },
+      "writtenOn": "2019-11-07T01:41:10Z",
+      "side": 1,
+      "message": "This should be:\n\nStatus status \u003d vibrator-\u003esetAmplitude(128);\nif (supportsExternalAmplitudeControl) {\n    EXPECT_TRUE(status.isOk());\n} else {\n    EXPECT_EQ(Status::EX_UNSUPPORTED_OPERATION, status.exceptionCode());\n}",
+      "revId": "e124137ffde9936e23f13b20107d7a5d40519a52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
