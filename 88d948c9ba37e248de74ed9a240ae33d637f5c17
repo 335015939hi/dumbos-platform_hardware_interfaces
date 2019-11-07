@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2cd9dbb9_f5a1398c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-07T18:55:02Z",
+      "side": 1,
+      "message": "This must be merged into aosp/master, and then it can be c/p\u0027d here.",
+      "revId": "88d948c9ba37e248de74ed9a240ae33d637f5c17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4de1eb18_82dfd339",
+        "filename": "radio/config/1.0/vts/functional/radio_config_hidl_hal_api.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-07T18:55:02Z",
+      "side": 1,
+      "message": "nit: prefer libbase APIs",
+      "range": {
+        "startLine": 47,
+        "startChar": 4,
+        "endLine": 47,
+        "endChar": 16
+      },
+      "revId": "88d948c9ba37e248de74ed9a240ae33d637f5c17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
