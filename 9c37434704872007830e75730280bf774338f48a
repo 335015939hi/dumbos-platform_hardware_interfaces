@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df8d3696_aa108212",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_test_utils.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-07T20:41:31Z",
+      "side": 1,
+      "message": "nit: use default parameters for these?\ne.g.\nsp\u003cIWifi\u003e getWifi(const std::string\u0026 instance_name \u003d \"\")\n\nCan you add TODO(b/) or otherwise make sure we don\u0027t miss these in the future?",
+      "range": {
+        "startLine": 92,
+        "startChar": 37,
+        "endLine": 92,
+        "endChar": 39
+      },
+      "revId": "9c37434704872007830e75730280bf774338f48a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4be6da0d_1111086f",
+        "filename": "wifi/hostapd/1.0/vts/functional/hostapd_hidl_test.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-07T20:41:31Z",
+      "side": 1,
+      "message": "this formatting is off. Is there a clang-format bug? If you indent this manually, will it fix itself?",
+      "range": {
+        "startLine": 266,
+        "startChar": 12,
+        "endLine": 266,
+        "endChar": 19
+      },
+      "revId": "9c37434704872007830e75730280bf774338f48a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "826f0b8f_73c6c184",
+        "filename": "wifi/hostapd/1.0/vts/functional/hostapd_hidl_test.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-07T20:41:31Z",
+      "side": 1,
+      "message": "this isn\u0027t supposed to be \u003cstd::string, std::string\u003e?",
+      "range": {
+        "startLine": 267,
+        "startChar": 54,
+        "endLine": 267,
+        "endChar": 65
+      },
+      "revId": "9c37434704872007830e75730280bf774338f48a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
