@@ -16,6 +16,24 @@
       "revId": "e124137ffde9936e23f13b20107d7a5d40519a52",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60edb005_d9529e36",
+        "filename": "vibrator/aidl/vts/VtsHalVibratorTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-07T02:17:00Z",
+      "side": 1,
+      "message": "thanks for the catch. that would have defeated the point. oops",
+      "parentUuid": "ac0126ce_db41fbe9",
+      "revId": "e124137ffde9936e23f13b20107d7a5d40519a52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
