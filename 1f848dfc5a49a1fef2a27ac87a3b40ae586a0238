@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a468e8ca_031db258",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-07T20:43:18Z",
+      "side": 1,
+      "message": "same question as https://android-review.googlesource.com/c/platform/hardware/interfaces/+/1151081/9/wifi/hostapd/1.0/vts/functional/hostapd_hidl_test.cpp#267\n\nshould be \u003cstd::string, std::string\u003e?",
+      "range": {
+        "startLine": 216,
+        "startChar": 54,
+        "endLine": 216,
+        "endChar": 65
+      },
+      "revId": "1f848dfc5a49a1fef2a27ac87a3b40ae586a0238",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
