@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b9101a74_2fd1a30f",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_test_utils.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-11-07T22:33:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df8d3696_aa108212",
+      "range": {
+        "startLine": 92,
+        "startChar": 37,
+        "endLine": 92,
+        "endChar": 39
+      },
+      "revId": "9c37434704872007830e75730280bf774338f48a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4be6da0d_1111086f",
         "filename": "wifi/hostapd/1.0/vts/functional/hostapd_hidl_test.cpp",
         "patchSetId": 9
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "12199ade_11f3f551",
+        "filename": "wifi/hostapd/1.0/vts/functional/hostapd_hidl_test.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-11-07T22:33:32Z",
+      "side": 1,
+      "message": "It\u0027s auto-formated. This line is 4 spaces indentation of the previous line ending with left parenthesis. Seems correct to me?",
+      "parentUuid": "4be6da0d_1111086f",
+      "range": {
+        "startLine": 266,
+        "startChar": 12,
+        "endLine": 266,
+        "endChar": 19
+      },
+      "revId": "9c37434704872007830e75730280bf774338f48a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "826f0b8f_73c6c184",
         "filename": "wifi/hostapd/1.0/vts/functional/hostapd_hidl_test.cpp",
         "patchSetId": 9
@@ -68,6 +116,30 @@
       "revId": "9c37434704872007830e75730280bf774338f48a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "298d5b5a_efefbc66",
+        "filename": "wifi/hostapd/1.0/vts/functional/hostapd_hidl_test.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-11-07T22:33:32Z",
+      "side": 1,
+      "message": "\u003cstd::string, std::string\u003e failed with error:\nhardware/interfaces/wifi/hostapd/1.0/vts/functional/hostapd_hidl_test.cpp:260:1: error: expected \u0027\u003e\u0027\nINSTANTIATE_TEST_SUITE_P(\n^\nexternal/googletest/googletest/include/gtest/gtest-param-test.h:471:25: note: expanded from macro \u0027INSTANTIATE_TEST_SUITE_P\u0027\n          DUMMY_PARAM_)));                                                    \\\n                        ^\nhardware/interfaces/wifi/hostapd/1.0/vts/functional/hostapd_hidl_test.cpp:260:1: error: expected \u0027\u003e\u0027\nexternal/googletest/googletest/include/gtest/gtest-param-test.h:479:23: note: expanded from macro \u0027INSTANTIATE_TEST_SUITE_P\u0027\n        DUMMY_PARAM_))))(info);                                               \\\n                      ^\nhardware/interfaces/wifi/hostapd/1.0/vts/functional/hostapd_hidl_test.cpp:260:1: error: type name requires a specifier or qualifier\nexternal/googletest/googletest/include/gtest/gtest-param-test.h:479:23: note: expanded from macro \u0027INSTANTIATE_TEST_SUITE_P\u0027\n        DUMMY_PARAM_))))(info);        \n\nWe can actually just call \u003c\u003e, and let the caller to fill in any packed types.",
+      "parentUuid": "826f0b8f_73c6c184",
+      "range": {
+        "startLine": 267,
+        "startChar": 54,
+        "endLine": 267,
+        "endChar": 65
+      },
+      "revId": "9c37434704872007830e75730280bf774338f48a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
