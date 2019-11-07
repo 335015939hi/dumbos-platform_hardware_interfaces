@@ -16,6 +16,24 @@
       "revId": "851982118693adb1a5b9e39aea8aa4fb3c68394a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0f5b557a_21fab90f",
+        "filename": "health/storage/1.0/vts/functional/VtsHalHealthStorageV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1307893
+      },
+      "writtenOn": "2019-11-07T02:06:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09e92b61_0979edc7",
+      "revId": "851982118693adb1a5b9e39aea8aa4fb3c68394a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
