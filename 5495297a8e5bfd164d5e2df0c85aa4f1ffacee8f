@@ -93,6 +93,30 @@
       "revId": "5495297a8e5bfd164d5e2df0c85aa4f1ffacee8f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "312d1f85_0a86bdda",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_test_utils.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-07T20:42:00Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1b1000c4_172ad934",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 43
+      },
+      "revId": "5495297a8e5bfd164d5e2df0c85aa4f1ffacee8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
