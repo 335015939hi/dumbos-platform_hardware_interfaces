@@ -70,6 +70,24 @@
       "revId": "b3dacf28b30cebf0cdd8d4632be16496891d0cd3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce05637d_ea0d31c9",
+        "filename": "vibrator/aidl/android/hardware/vibrator/IVibrator.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-07T00:11:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0a3f0bb_40d5bba8",
+      "revId": "b3dacf28b30cebf0cdd8d4632be16496891d0cd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
