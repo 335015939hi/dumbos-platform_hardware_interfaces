@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a523734_4d5b311b",
+        "filename": "vibrator/aidl/vts/VtsHalVibratorTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-08T01:07:54Z",
+      "side": 1,
+      "message": "this is needed to avoid \"Previous vibration pending.\" error. Should this also be reflected in the .aidl interface? Is this intentional?",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 125,
+        "endChar": 40
+      },
+      "revId": "40b356989853da8335aa3d838a965698cf99705a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
