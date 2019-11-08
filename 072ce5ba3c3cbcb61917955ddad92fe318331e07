@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2b1c46d6_9e5eab1c",
+        "filename": "usb/1.0/vts/functional/AndroidTest.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1308044
+      },
+      "writtenOn": "2019-11-08T06:25:38Z",
+      "side": 1,
+      "message": "May I know why you need to exclude this test?",
+      "range": {
+        "startLine": 31,
+        "startChar": 8,
+        "endLine": 31,
+        "endChar": 78
+      },
+      "revId": "072ce5ba3c3cbcb61917955ddad92fe318331e07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
