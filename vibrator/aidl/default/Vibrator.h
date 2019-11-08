@@ -17,6 +17,8 @@
 #pragma once
 
 #include <aidl/android/hardware/vibrator/BnVibrator.h>
+#include <condition_variable>
+#include <mutex>
 
 namespace aidl {
 namespace android {
@@ -34,6 +36,11 @@ class Vibrator : public BnVibrator {
     ndk::ScopedAStatus getSupportedEffects(std::vector<Effect>* _aidl_return) override;
     ndk::ScopedAStatus setAmplitude(int32_t amplitude) override;
     ndk::ScopedAStatus setExternalControl(bool enabled) override;
+
+  private:
+    bool mIsVibrating = false;
+    std::mutex mMutex;
+    std::condition_variable mCv;
 };
 
 }  // namespace vibrator

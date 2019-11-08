@@ -62,6 +62,9 @@ interface IVibrator {
      * was canceled (through off()). A callback is only expected to be supported when
      * getCapabilities CAP_ON_CALLBACK is specified.
      *
+     * Turning a vibrator on when it is already on must return unsupported operation. If you want
+     * to abort an existing vibration, an explicit call to 'off' is required.
+     *
      * @param timeoutMs number of milliseconds to vibrate.
      * @param callback A callback used to inform Frameworks of state change, if supported.
      */
@@ -72,6 +75,9 @@ interface IVibrator {
      *
      * A callback is only expected to be supported when getCapabilities CAP_PERFORM_CALLBACK
      * is specified.
+     *
+     * Turning a vibrator on when it is already on must return unsupported operation. If you want
+     * to abort an existing vibration, an explicit call to 'off' is required.
      *
      * @param effect The type of haptic event to trigger.
      * @param strength The intensity of haptic event to trigger.

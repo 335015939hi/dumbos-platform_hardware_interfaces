@@ -92,10 +92,16 @@ TEST_P(VibratorAidl, OnWithCallback) {
     std::future<void> completionFuture{completionPromise.get_future()};
     sp<CompletionCallback> callback =
             new CompletionCallback([&completionPromise] { completionPromise.set_value(); });
-    uint32_t durationMs = 250;
+    constexpr uint32_t durationMs = 250;
     std::chrono::milliseconds timeout{durationMs * 2};
     EXPECT_TRUE(vibrator->on(durationMs, callback).isOk());
     EXPECT_EQ(completionFuture.wait_for(timeout), std::future_status::ready);
+    EXPECT_TRUE(vibrator->off().isOk());
+}
+
+TEST_P(VibratorAidl, RepeatedOnFails) {
+    EXPECT_TRUE(vibrator->on(2000, nullptr).isOk());
+    EXPECT_EQ(Status::EX_UNSUPPORTED_OPERATION, vibrator->on(100, nullptr).exceptionCode());
     EXPECT_TRUE(vibrator->off().isOk());
 }
 
@@ -122,7 +128,7 @@ TEST_P(VibratorAidl, ValidateEffect) {
                 EXPECT_TRUE(status.isOk())
                         << static_cast<int>(effect) << " " << static_cast<int>(strength);
                 EXPECT_GT(lengthMs, 0);
-                usleep(lengthMs * 1000);
+                EXPECT_TRUE(vibrator->off().isOk());
             } else {
                 EXPECT_EQ(status.exceptionCode(), Status::EX_UNSUPPORTED_OPERATION)
                         << static_cast<int>(effect) << " " << static_cast<int>(strength);

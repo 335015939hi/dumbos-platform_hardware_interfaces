@@ -24,6 +24,8 @@ namespace android {
 namespace hardware {
 namespace vibrator {
 
+using namespace std::chrono_literals;
+
 ndk::ScopedAStatus Vibrator::getCapabilities(int32_t* _aidl_return) {
     LOG(INFO) << "Vibrator reporting capabilities";
     *_aidl_return = IVibrator::CAP_ON_CALLBACK | IVibrator::CAP_PERFORM_CALLBACK |
@@ -34,20 +36,44 @@ ndk::ScopedAStatus Vibrator::getCapabilities(int32_t* _aidl_return) {
 
 ndk::ScopedAStatus Vibrator::off() {
     LOG(INFO) << "Vibrator off";
+    std::unique_lock<std::mutex> l(mMutex);
+    mIsVibrating = false;
+    l.unlock();
+    mCv.notify_one();
+
     return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus Vibrator::on(int32_t timeoutMs,
                                 const std::shared_ptr<IVibratorCallback>& callback) {
+    std::unique_lock<std::mutex> l(mMutex);
+
+    if (mIsVibrating) {
+        LOG(INFO) << "Vibrator is running";
+        return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+    }
+
+    mIsVibrating = true;
+
     LOG(INFO) << "Vibrator on for timeoutMs: " << timeoutMs;
-    if (callback != nullptr) {
-        std::thread([=] {
-            LOG(INFO) << "Starting on on another thread";
-            usleep(timeoutMs * 1000);
+    std::thread([callback, timeoutMs, this] {
+        LOG(INFO) << "Starting on another thread";
+        std::unique_lock<std::mutex> l(mMutex);
+        mCv.wait_for(l, timeoutMs * 1ms, [&] { return !mIsVibrating; });
+
+        // was cancelled
+        if (!mIsVibrating) {
+            LOG(INFO) << "Vibration cancelled, won't give a callback";
+            return;
+        }
+        mIsVibrating = false;
+
+        if (callback != nullptr) {
             LOG(INFO) << "Notifying on complete";
             callback->onComplete();
-        }).detach();
-    }
+        }
+    }).detach();
+
     return ndk::ScopedAStatus::ok();
 }
 
@@ -66,17 +92,14 @@ ndk::ScopedAStatus Vibrator::perform(Effect effect, EffectStrength strength,
 
     constexpr size_t kEffectMillis = 100;
 
-    if (callback != nullptr) {
-        std::thread([=] {
-            LOG(INFO) << "Starting perform on another thread";
-            usleep(kEffectMillis * 1000);
-            LOG(INFO) << "Notifying perform complete";
-            callback->onComplete();
-        }).detach();
+    // for convenience, for mIsVibrating logic
+    ndk::ScopedAStatus status = on(kEffectMillis, callback);
+
+    if (status.isOk()) {
+        *_aidl_return = kEffectMillis;
     }
 
-    *_aidl_return = kEffectMillis;
-    return ndk::ScopedAStatus::ok();
+    return status;
 }
 
 ndk::ScopedAStatus Vibrator::getSupportedEffects(std::vector<Effect>* _aidl_return) {
