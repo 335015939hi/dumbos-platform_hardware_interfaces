@@ -22,6 +22,30 @@
       "revId": "072ce5ba3c3cbcb61917955ddad92fe318331e07",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95145662_b4783e0c",
+        "filename": "usb/1.0/vts/functional/AndroidTest.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-11-08T06:28:31Z",
+      "side": 1,
+      "message": "It\u0027s from the vts test config:\nhttps://cs.corp.google.com/android/test/vts-testcase/hal/usb/V1_0/target/AndroidTest.xml?rcl\u003d1a63aba8ffae49e35b515fbb0e409301f392d928\u0026l\u003d28",
+      "parentUuid": "2b1c46d6_9e5eab1c",
+      "range": {
+        "startLine": 31,
+        "startChar": 8,
+        "endLine": 31,
+        "endChar": 78
+      },
+      "revId": "072ce5ba3c3cbcb61917955ddad92fe318331e07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
