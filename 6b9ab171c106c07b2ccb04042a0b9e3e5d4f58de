@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d0d5cac9_8512e9fa",
+        "filename": "vibrator/aidl/android/hardware/vibrator/IVibrator.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-08T19:49:20Z",
+      "side": 1,
+      "message": "if this happens, should onComplete still happen? Should we have onCancelled instead? Seems we missed thinking about this case.",
+      "range": {
+        "startLine": 54,
+        "startChar": 7,
+        "endLine": 54,
+        "endChar": 43
+      },
+      "revId": "6b9ab171c106c07b2ccb04042a0b9e3e5d4f58de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13ab2188_e6f70495",
+        "filename": "vibrator/aidl/android/hardware/vibrator/IVibrator.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-08T19:49:20Z",
+      "side": 1,
+      "message": "should we have a story for what setExternalControl should do when the vibrator is in use?",
+      "range": {
+        "startLine": 129,
+        "startChar": 9,
+        "endLine": 129,
+        "endChar": 27
+      },
+      "revId": "6b9ab171c106c07b2ccb04042a0b9e3e5d4f58de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
