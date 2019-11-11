@@ -90,8 +90,8 @@ class CommandWriterBase : public V2_2::CommandWriterBase {
         commandLength += metadata.size();
 
         for (auto metadataBlob : metadata) {
-            commandLength += sizeof(int32_t);  // key of metadata blob
-            commandLength += 1;                // size information of metadata blob
+            commandLength += 1;  // key of metadata blob
+            commandLength += 1;  // size information of metadata blob
 
             // metadata content size
             size_t metadataSize = metadataBlob.blob.size() / sizeof(uint32_t);
