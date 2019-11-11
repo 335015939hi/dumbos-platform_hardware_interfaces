@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "87e8f794_c83a0e2e",
+        "filename": "vibrator/aidl/android/hardware/vibrator/IVibrator.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1418133
+      },
+      "writtenOn": "2019-11-11T01:43:55Z",
+      "side": 1,
+      "message": "onComplete() will still be called, by design, for simplicity.",
+      "parentUuid": "d0d5cac9_8512e9fa",
+      "range": {
+        "startLine": 54,
+        "startChar": 7,
+        "endLine": 54,
+        "endChar": 43
+      },
+      "revId": "6b9ab171c106c07b2ccb04042a0b9e3e5d4f58de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2f41243e_87d5b529",
         "filename": "vibrator/aidl/android/hardware/vibrator/IVibrator.aidl",
         "patchSetId": 1
