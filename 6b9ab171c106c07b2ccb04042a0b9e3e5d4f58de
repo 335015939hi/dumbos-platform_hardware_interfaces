@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "4a4fce03_be367a72",
+        "filename": "vibrator/aidl/android/hardware/vibrator/IVibrator.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-11T04:07:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "87e8f794_c83a0e2e",
+      "range": {
+        "startLine": 54,
+        "startChar": 7,
+        "endLine": 54,
+        "endChar": 43
+      },
+      "revId": "6b9ab171c106c07b2ccb04042a0b9e3e5d4f58de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2f41243e_87d5b529",
         "filename": "vibrator/aidl/android/hardware/vibrator/IVibrator.aidl",
         "patchSetId": 1
@@ -60,6 +84,24 @@
       "writtenOn": "2019-11-11T01:42:26Z",
       "side": 1,
       "message": "I didn\u0027t want to enforce this because this might add complexity to the HAL with very little benefit. It\u0027s already expected that the client is tracking the on/off state and currently only the HAL that supports CAP_ON_CALLBACK is aware of if the vibration has completed. Returning an error instead of overriding any currently playing vibration is an implementation detail to simplify race management. This is why I\u0027d prefer it to be undefined behavior if attempting to play a vibration while one is active.",
+      "revId": "6b9ab171c106c07b2ccb04042a0b9e3e5d4f58de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d698145_8af1b4d8",
+        "filename": "vibrator/aidl/android/hardware/vibrator/IVibrator.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-11T04:07:09Z",
+      "side": 1,
+      "message": "Maybe I should have responded to this before removing my changes. I do actually think there is a lot of benefit here. The benefit is that when developing client code on one device, testing on one device should be sufficient. With variations in implementations (especially unnecessary ones), the testing story becomes much harder.\n\nHowever, I suppose we can see how this works out. It would always be possible to change this requirement in the future.",
+      "parentUuid": "2f41243e_87d5b529",
       "revId": "6b9ab171c106c07b2ccb04042a0b9e3e5d4f58de",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -110,6 +152,30 @@
       "revId": "6b9ab171c106c07b2ccb04042a0b9e3e5d4f58de",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0473abb9_f1711083",
+        "filename": "vibrator/aidl/android/hardware/vibrator/IVibrator.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-11T04:07:09Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "72326271_ff3d4ae8",
+      "range": {
+        "startLine": 129,
+        "startChar": 9,
+        "endLine": 129,
+        "endChar": 27
+      },
+      "revId": "6b9ab171c106c07b2ccb04042a0b9e3e5d4f58de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
