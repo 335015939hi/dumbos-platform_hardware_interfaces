@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "98afc4e9_da12c099",
+        "filename": "graphics/composer/2.3/utils/command-buffer/include/composer-command-buffer/2.3/ComposerCommandBuffer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-11T02:04:49Z",
+      "side": 0,
+      "message": "do we know how this wasn\u0027t caught earlier? We need to make sure that we don\u0027t change the binary format here. Can someone on the composer team investigate?",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 70
+      },
+      "revId": "528f91b05559b4ff069c6c39e305edf1e0d2a598",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
