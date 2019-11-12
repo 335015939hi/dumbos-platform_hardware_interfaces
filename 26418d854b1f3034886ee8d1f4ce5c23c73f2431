@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "13ec8773_b3915094",
+        "filename": "audio/effect/all-versions/vts/functional/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1136369
+      },
+      "writtenOn": "2019-11-12T11:28:57Z",
+      "side": 1,
+      "message": "Does it not work to just add\n test_suites: [\"vts-core\"],\nto V5 \u0026 V6 and not remove this default?\n\nAlso, as far as I know, all versions have been converted to pure gtest. So vts-core can be added to all version (and thus should be added in the default).\n\nMikhail can confirm.",
+      "revId": "26418d854b1f3034886ee8d1f4ce5c23c73f2431",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
