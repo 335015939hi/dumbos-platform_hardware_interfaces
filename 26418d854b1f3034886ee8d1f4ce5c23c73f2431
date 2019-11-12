@@ -16,6 +16,24 @@
       "revId": "26418d854b1f3034886ee8d1f4ce5c23c73f2431",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7f9fb58_25bf9b91",
+        "filename": "audio/effect/all-versions/vts/functional/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2019-11-12T16:23:10Z",
+      "side": 1,
+      "message": "No, only V6 uses gtest, see aosp/1163970.\n\nI agree that common stuff should be declared in cc_defaults.",
+      "parentUuid": "13ec8773_b3915094",
+      "revId": "26418d854b1f3034886ee8d1f4ce5c23c73f2431",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
