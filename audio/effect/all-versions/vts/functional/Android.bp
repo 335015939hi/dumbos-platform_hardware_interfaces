@@ -30,8 +30,7 @@ cc_defaults {
     ],
     header_libs: [
         "android.hardware.audio.common.util@all-versions",
-    ],
-    test_suites: ["general-tests"],
+    ]
 }
 
 cc_test {
@@ -45,7 +44,8 @@ cc_test {
         "-DMAJOR_VERSION=2",
         "-DMINOR_VERSION=0",
         "-include common/all-versions/VersionMacro.h",
-    ]
+    ],
+    test_suites: ["general-tests"],
 }
 
 cc_test {
@@ -59,7 +59,8 @@ cc_test {
         "-DMAJOR_VERSION=4",
         "-DMINOR_VERSION=0",
         "-include common/all-versions/VersionMacro.h",
-    ]
+    ],
+    test_suites: ["general-tests"],
 }
 
 cc_test {
@@ -73,7 +74,8 @@ cc_test {
         "-DMAJOR_VERSION=5",
         "-DMINOR_VERSION=0",
         "-include common/all-versions/VersionMacro.h",
-    ]
+    ],
+    test_suites: ["general-tests", "vts-core"],
 }
 
 cc_test {
@@ -87,5 +89,6 @@ cc_test {
         "-DMAJOR_VERSION=6",
         "-DMINOR_VERSION=0",
         "-include common/all-versions/VersionMacro.h",
-    ]
+    ],
+    test_suites: ["general-tests", "vts-core"],
 }
