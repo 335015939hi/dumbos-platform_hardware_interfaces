@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "99e7510d_56721891",
+        "filename": "radio/1.5/IRadio.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2019-11-12T00:06:43Z",
+      "side": 1,
+      "message": "Minor. Since the interface is also used to retrieve the emails, maybe we can keep the description more generic, like \"Get the phonebook records from the SIM card\".\nAlso, considering the presence of local and global phonebook, it might be a good idea to clarify what this interface is used for.",
+      "range": {
+        "startLine": 32,
+        "startChar": 11,
+        "endLine": 32,
+        "endChar": 38
+      },
+      "revId": "d2d2bb6957de6bda4325ab0cf823fd78d0ae5385",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f305327d_8a2da1a6",
+        "filename": "radio/1.5/IRadio.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2019-11-12T00:06:43Z",
+      "side": 1,
+      "message": "Minor suggestion.\nPropose to reword it like: This message can be used only after receiving adnInitDone notification.\n\n(by the way, there is a minor typo in \"received\"",
+      "range": {
+        "startLine": 33,
+        "startChar": 7,
+        "endLine": 33,
+        "endChar": 55
+      },
+      "revId": "d2d2bb6957de6bda4325ab0cf823fd78d0ae5385",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a58d931_0d547832",
+        "filename": "radio/1.5/IRadio.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2019-11-12T00:06:43Z",
+      "side": 1,
+      "message": "How about: Insert, delete or update a phonebook record on the SIM card.\n\nIn this way, the overall description captures all three possible operations that are performed with this command.",
+      "range": {
+        "startLine": 44,
+        "startChar": 7,
+        "endLine": 44,
+        "endChar": 13
+      },
+      "revId": "d2d2bb6957de6bda4325ab0cf823fd78d0ae5385",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "446ad18e_e472f44f",
+        "filename": "radio/1.5/IRadio.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2019-11-12T00:06:43Z",
+      "side": 1,
+      "message": "Why \"could\"? Should it be \"will\"?",
+      "range": {
+        "startLine": 46,
+        "startChar": 48,
+        "endLine": 46,
+        "endChar": 53
+      },
+      "revId": "d2d2bb6957de6bda4325ab0cf823fd78d0ae5385",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c3da4f2_0981e3b8",
+        "filename": "radio/1.5/IRadio.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2019-11-12T00:06:43Z",
+      "side": 1,
+      "message": "Why \"could\"? Should it be \"will\"?",
+      "range": {
+        "startLine": 49,
+        "startChar": 28,
+        "endLine": 49,
+        "endChar": 33
+      },
+      "revId": "d2d2bb6957de6bda4325ab0cf823fd78d0ae5385",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2142c8e3_9bbf72f8",
+        "filename": "radio/1.5/IRadioIndication.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2019-11-12T00:06:43Z",
+      "side": 1,
+      "message": "Similar comment as other file. Good idea to indicate which phonebook it refers to (local, global, both?)",
+      "range": {
+        "startLine": 30,
+        "startChar": 54,
+        "endLine": 30,
+        "endChar": 63
+      },
+      "revId": "d2d2bb6957de6bda4325ab0cf823fd78d0ae5385",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8297c4d9_cb63357f",
+        "filename": "radio/1.5/IRadioIndication.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2019-11-12T00:06:43Z",
+      "side": 1,
+      "message": "Comment from previous review:\nI assume that this new mechanism to access the SIM phonebook would be optional, even for devices that implement the correct IRadio interface.\nBasically, I assume that Android would do:\n - use this feature if supported\n - fallback to SIM_IO if not supported.\nHow is Android expected to find out if the feature is supported or not\n\n\nYou mentioned that you have defined the feature configration in fw/base.\n\nI think we should document it here, indicating that this is optional. Something like this:\nThe support of this message by the radio is optional.",
+      "range": {
+        "startLine": 35,
+        "startChar": 11,
+        "endLine": 35,
+        "endChar": 22
+      },
+      "revId": "d2d2bb6957de6bda4325ab0cf823fd78d0ae5385",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b8f3232_1503895e",
+        "filename": "radio/1.5/IRadioIndication.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2019-11-12T00:06:43Z",
+      "side": 1,
+      "message": "Can you explain it? Is it because the vec\u003c\u003e has a maximum size?\nIf this is the case, maybe good to explain it in the documentation, like \"it is possible that phonebook content is sent using multiple indications, if the number of records is large\" or similar.",
+      "range": {
+        "startLine": 43,
+        "startChar": 7,
+        "endLine": 43,
+        "endChar": 67
+      },
+      "revId": "d2d2bb6957de6bda4325ab0cf823fd78d0ae5385",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61e99cb9_940375fe",
+        "filename": "radio/1.5/IRadioResponse.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2019-11-12T00:06:43Z",
+      "side": 1,
+      "message": "updated or inserted?\n\nWhat about the case where record is deleted?",
+      "range": {
+        "startLine": 41,
+        "startChar": 50,
+        "endLine": 41,
+        "endChar": 57
+      },
+      "revId": "d2d2bb6957de6bda4325ab0cf823fd78d0ae5385",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82bf576c_d892b931",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2019-11-12T00:06:43Z",
+      "side": 1,
+      "message": "What is MAX?",
+      "range": {
+        "startLine": 20,
+        "startChar": 70,
+        "endLine": 20,
+        "endChar": 73
+      },
+      "revId": "d2d2bb6957de6bda4325ab0cf823fd78d0ae5385",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "487f41eb_afb02540",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2019-11-12T00:06:43Z",
+      "side": 1,
+      "message": "Capital letters",
+      "range": {
+        "startLine": 29,
+        "startChar": 38,
+        "endLine": 29,
+        "endChar": 41
+      },
+      "revId": "d2d2bb6957de6bda4325ab0cf823fd78d0ae5385",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
