@@ -34,6 +34,23 @@
       "revId": "26418d854b1f3034886ee8d1f4ce5c23c73f2431",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b5697eb_c858b9bb",
+        "filename": "audio/effect/all-versions/vts/functional/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1136369
+      },
+      "writtenOn": "2019-11-12T17:41:20Z",
+      "side": 1,
+      "message": "\u003e Only V6 uses gtest, see aosp/1163970\n\ncf Mikhail comment",
+      "revId": "26418d854b1f3034886ee8d1f4ce5c23c73f2431",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
