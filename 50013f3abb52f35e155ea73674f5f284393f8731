@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bf8b742b_5af92a4f",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4424,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2019-11-12T18:22:59Z",
+      "side": 1,
+      "message": "good catch",
+      "parentUuid": "2f1f712c_f4b7c661",
+      "range": {
+        "startLine": 4424,
+        "startChar": 19,
+        "endLine": 4424,
+        "endChar": 28
+      },
+      "revId": "50013f3abb52f35e155ea73674f5f284393f8731",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c0e7a8e_e3b6cd7c",
         "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "50013f3abb52f35e155ea73674f5f284393f8731",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c2abda8_b6f12547",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4425,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2019-11-12T18:22:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c0e7a8e_e3b6cd7c",
+      "range": {
+        "startLine": 4425,
+        "startChar": 24,
+        "endLine": 4425,
+        "endChar": 25
+      },
+      "revId": "50013f3abb52f35e155ea73674f5f284393f8731",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
