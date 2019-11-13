@@ -1,0 +1,13 @@
+aidl_interface {
+    name: "vintf-boot-power",
+    vendor_available: true,
+    srcs: [
+        "android/hardware/boot/power/*.aidl",
+    ],
+    stability: "vintf",
+    backend: {
+        java: {
+            enabled: false,
+        },
+    },
+}

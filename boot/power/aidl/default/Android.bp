@@ -1,0 +1,13 @@
+cc_binary {
+    name: "android.hardware.boot.power-service.default",
+    relative_install_path: "hw",
+    init_rc: ["boot-power-default.rc"],
+    vintf_fragments: ["boot-power-default.xml"],
+    vendor: true,
+    shared_libs: [
+        "libbase",
+        "libbinder_ndk",
+        "vintf-boot-power-ndk_platform",
+    ],
+    srcs: ["main.cpp", "PowerManagement.cpp"],
+}

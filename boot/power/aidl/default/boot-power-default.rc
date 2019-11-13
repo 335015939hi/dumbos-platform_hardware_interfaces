@@ -1,0 +1,6 @@
+service vendor.boot-power-default /vendor/bin/hw/android.hardware.boot.power-service.default
+    class hal
+    user system
+    group system
+
+
