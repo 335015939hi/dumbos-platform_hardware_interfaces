@@ -46,6 +46,30 @@
       "revId": "072ce5ba3c3cbcb61917955ddad92fe318331e07",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9010168e_0f1a770c",
+        "filename": "usb/1.0/vts/functional/AndroidTest.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-13T01:24:53Z",
+      "side": 1,
+      "message": "Could we call GTEST_SKIP instead and make sure we have a bug tracking the issue (or comment from team)? Or put it behind a test argument instead? I want to use auto-generated AndroidTest.xml files. Or simply delete the test?",
+      "parentUuid": "95145662_b4783e0c",
+      "range": {
+        "startLine": 31,
+        "startChar": 8,
+        "endLine": 31,
+        "endChar": 78
+      },
+      "revId": "072ce5ba3c3cbcb61917955ddad92fe318331e07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
