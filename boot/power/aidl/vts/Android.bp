@@ -1,0 +1,17 @@
+cc_test {
+    name: "VtsHalBootPowerTargetTest",
+    defaults: [
+        "VtsHalTargetTestDefaults",
+        "use_libaidlvintf_gtest_helper_static",
+    ],
+    srcs: ["VtsHalBootPowerTargetTest.cpp"],
+    shared_libs: [
+        "libbinder",
+    ],
+    static_libs: [
+        "vintf-boot-power-cpp",
+    ],
+    test_suites: [
+        "vts-core",
+    ],
+}
