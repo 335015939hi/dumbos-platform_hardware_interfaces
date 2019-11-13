@@ -16,12 +16,15 @@
 
 #include <VtsHalHidlTargetTestBase.h>
 
+#include <wifi_system/interface_tool.h>
+
 #include "wifi_hidl_call_util.h"
 #include "wifi_hidl_test_utils.h"
 
 using ::android::hardware::wifi::V1_0::IWifi;
 using ::android::hardware::wifi::V1_0::IWifiApIface;
 using ::android::hardware::wifi::V1_0::IWifiChip;
+using ::android::hardware::wifi::V1_0::IWifiIface;
 using ::android::hardware::wifi::V1_0::IWifiNanIface;
 using ::android::hardware::wifi::V1_0::IWifiP2pIface;
 using ::android::hardware::wifi::V1_0::IWifiRttController;
@@ -34,6 +37,7 @@ using ::android::hardware::wifi::V1_0::WifiStatusCode;
 using ::android::sp;
 using ::android::hardware::hidl_string;
 using ::android::hardware::hidl_vec;
+using ::android::wifi_system::InterfaceTool;
 
 extern WifiHidlEnvironment* gEnv;
 
@@ -122,8 +126,23 @@ sp<IWifiChip> getWifiChip() {
     return status_and_chip.second;
 }
 
+<<<<<<< HEAD   (0b8f38 Fix the failed case for the VtsHalWifiSupplicantV1_2Host#Sup)
 sp<IWifiApIface> getWifiApIface() {
     sp<IWifiChip> wifi_chip = getWifiChip();
+=======
+void setIfaceUp(const sp<IWifiIface>& iface) {
+    // Set the iface up before retrurning the object.
+    const auto& status_and_name = HIDL_INVOKE(iface, getName);
+    if (status_and_name.first.code == WifiStatusCode::SUCCESS) {
+        const auto& iface_name = status_and_name.second;
+        InterfaceTool iface_tool;
+        iface_tool.SetUpState(iface_name.c_str(), true);
+    }
+}
+
+sp<IWifiApIface> getWifiApIface(const std::string& instance_name) {
+    sp<IWifiChip> wifi_chip = getWifiChip(instance_name);
+>>>>>>> CHANGE (958dee wifi(vts): Set the iface up as a part of setup)
     if (!wifi_chip.get()) {
         return nullptr;
     }
@@ -134,6 +153,7 @@ sp<IWifiApIface> getWifiApIface() {
     if (status_and_iface.first.code != WifiStatusCode::SUCCESS) {
         return nullptr;
     }
+    setIfaceUp(status_and_iface.second);
     return status_and_iface.second;
 }
 
@@ -149,6 +169,7 @@ sp<IWifiNanIface> getWifiNanIface() {
     if (status_and_iface.first.code != WifiStatusCode::SUCCESS) {
         return nullptr;
     }
+    setIfaceUp(status_and_iface.second);
     return status_and_iface.second;
 }
 
@@ -164,6 +185,7 @@ sp<IWifiP2pIface> getWifiP2pIface() {
     if (status_and_iface.first.code != WifiStatusCode::SUCCESS) {
         return nullptr;
     }
+    setIfaceUp(status_and_iface.second);
     return status_and_iface.second;
 }
 
@@ -179,6 +201,7 @@ sp<IWifiStaIface> getWifiStaIface() {
     if (status_and_iface.first.code != WifiStatusCode::SUCCESS) {
         return nullptr;
     }
+    setIfaceUp(status_and_iface.second);
     return status_and_iface.second;
 }
 
