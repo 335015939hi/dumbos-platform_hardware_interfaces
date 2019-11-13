@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e0eb9868_1ae11eba",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test_utils.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-13T01:21:39Z",
+      "side": 1,
+      "message": "this should use the parameter? or TODO to remove this method?",
+      "range": {
+        "startLine": 317,
+        "startChar": 33,
+        "endLine": 317,
+        "endChar": 48
+      },
+      "revId": "2f9eaa9fa35003797c77b03315c4e8685166cb72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2349321e_c3eaf5ff",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test_utils.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-13T01:21:39Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 345,
+        "startChar": 0,
+        "endLine": 347,
+        "endChar": 1
+      },
+      "revId": "2f9eaa9fa35003797c77b03315c4e8685166cb72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
