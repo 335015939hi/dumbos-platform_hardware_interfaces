@@ -228,6 +228,12 @@ class KeymasterHidlTest : public ::testing::VtsHalHidlTargetTestBase {
     std::vector<Digest> ValidDigests(bool withNone, bool withMD5);
     std::vector<Digest> InvalidDigests();
 
+    std::vector<PaddingMode> ValidPaddings(Algorithm algorithm, bool includePkcs7, bool sign);
+    std::vector<BlockMode> ValidBlockModes(Algorithm algorithm);
+
+    uint32_t minRsaSignatureKeySize(Digest digest, PaddingMode padding);
+    uint32_t maxRsaEncryptionPlainTextSize(uint32_t keySizeBits, Digest digest, PaddingMode padding);
+
     HidlBuf key_blob_;
     KeyCharacteristics key_characteristics_;
     OperationHandle op_handle_ = kOpHandleSentinel;

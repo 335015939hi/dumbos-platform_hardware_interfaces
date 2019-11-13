@@ -332,7 +332,7 @@ ErrorCode KeymasterHidlTest::Update(OperationHandle op_handle, const Authorizati
                                  error = hidl_error;
                                  out_params->push_back(AuthorizationSet(hidl_out_params));
                                  output->append(hidl_output.to_string());
-                                 *input_consumed = hidl_input_consumed;
+                                 *input_consumed += hidl_input_consumed;
                              })
                     .isOk());
     return error;
@@ -352,8 +352,7 @@ ErrorCode KeymasterHidlTest::Finish(OperationHandle op_handle, const Authorizati
                                     AuthorizationSet* out_params, string* output) {
     SCOPED_TRACE("Finish");
     ErrorCode error;
-    EXPECT_TRUE(
-        keymaster_
+    auto rc = keymaster_
             ->finish(op_handle, in_params.hidl_data(), HidlBuf(input), HidlBuf(signature),
                      HardwareAuthToken(), VerificationToken(),
                      [&](ErrorCode hidl_error, const hidl_vec<KeyParameter>& hidl_out_params,
@@ -361,8 +360,9 @@ ErrorCode KeymasterHidlTest::Finish(OperationHandle op_handle, const Authorizati
                          error = hidl_error;
                          *out_params = hidl_out_params;
                          output->append(hidl_output.to_string());
-                     })
-            .isOk());
+                     });
+    EXPECT_TRUE(rc.isOk()) << error;
+
     op_handle_ = kOpHandleSentinel;  // So dtor doesn't Abort().
     return error;
 }
@@ -439,13 +439,20 @@ string KeymasterHidlTest::ProcessMessage(const HidlBuf& key_blob, KeyPurpose ope
     SCOPED_TRACE("ProcessMessage");
     AuthorizationSet begin_out_params;
     EXPECT_EQ(ErrorCode::OK, Begin(operation, key_blob, in_params, &begin_out_params, &op_handle_));
+    out_params->push_back(begin_out_params);
+
+    static const int HIDL_BUFFER_LIMIT = 1<<14; //16KB
 
     string output;
     size_t consumed = 0;
-    AuthorizationSet update_params;
-    AuthorizationSet update_out_params;
-    EXPECT_EQ(ErrorCode::OK,
-              Update(op_handle_, update_params, message, &update_out_params, &output, &consumed));
+    ErrorCode error_code = ErrorCode::OK;
+    while(error_code == ErrorCode::OK && message.length()-consumed > HIDL_BUFFER_LIMIT) {
+      AuthorizationSet update_params;
+      AuthorizationSet update_out_params;
+      error_code = Update(op_handle_, update_params, message.substr(consumed, HIDL_BUFFER_LIMIT), &update_out_params, &output, &consumed);
+      EXPECT_EQ(ErrorCode::OK, error_code);
+      out_params->push_back(update_params);
+    }
 
     string unused;
     AuthorizationSet finish_params;
@@ -453,9 +460,8 @@ string KeymasterHidlTest::ProcessMessage(const HidlBuf& key_blob, KeyPurpose ope
     EXPECT_EQ(ErrorCode::OK, Finish(op_handle_, finish_params, message.substr(consumed), unused,
                                     &finish_out_params, &output));
     op_handle_ = kOpHandleSentinel;
-
-    out_params->push_back(begin_out_params);
     out_params->push_back(finish_out_params);
+
     return output;
 }
 
@@ -670,6 +676,7 @@ std::pair<ErrorCode, HidlBuf> KeymasterHidlTest::UpgradeKey(const HidlBuf& key_b
                            });
     return retval;
 }
+
 std::vector<uint32_t> KeymasterHidlTest::ValidKeySizes(Algorithm algorithm) {
     switch (algorithm) {
         case Algorithm::RSA:
@@ -711,6 +718,7 @@ std::vector<uint32_t> KeymasterHidlTest::ValidKeySizes(Algorithm algorithm) {
     CHECK(false) << "Should be impossible to get here";
     return {};
 }
+
 std::vector<uint32_t> KeymasterHidlTest::InvalidKeySizes(Algorithm algorithm) {
     if (SecLevel() == SecurityLevel::TRUSTED_ENVIRONMENT) return {};
     CHECK(SecLevel() == SecurityLevel::STRONGBOX);
@@ -738,6 +746,34 @@ std::vector<EcCurve> KeymasterHidlTest::InvalidCurves() {
     if (SecLevel() == SecurityLevel::TRUSTED_ENVIRONMENT) return {};
     CHECK(SecLevel() == SecurityLevel::STRONGBOX);
     return {EcCurve::P_224, EcCurve::P_384, EcCurve::P_521};
+}
+
+std::vector<PaddingMode> KeymasterHidlTest::ValidPaddings(Algorithm algorithm, bool includePkcs7, bool sign) {
+    if(algorithm == Algorithm::RSA) {
+        if(sign) {
+            return {PaddingMode::RSA_PSS, PaddingMode::RSA_PKCS1_1_5_SIGN};
+        }
+        else {
+            return {PaddingMode::NONE, PaddingMode::RSA_OAEP, PaddingMode::RSA_PKCS1_1_5_ENCRYPT};
+        }
+    }
+    else if (includePkcs7) {
+        return {PaddingMode::NONE, PaddingMode::PKCS7};
+    }
+    return {PaddingMode::NONE};
+}
+
+std::vector<BlockMode> KeymasterHidlTest::ValidBlockModes(Algorithm algorithm) {
+    switch(algorithm) {
+        case(Algorithm::AES):
+            return {BlockMode::ECB, BlockMode::CBC, BlockMode::CTR, BlockMode::GCM};
+        case(Algorithm::TRIPLE_DES):
+            return {BlockMode::ECB, BlockMode::CBC};
+        case(Algorithm::RSA):
+            return {BlockMode::ECB};
+        default:
+            return {};
+    }
 }
 
 std::vector<Digest> KeymasterHidlTest::ValidDigests(bool withNone, bool withMD5) {
@@ -776,6 +812,79 @@ std::vector<Digest> KeymasterHidlTest::ValidDigests(bool withNone, bool withMD5)
 
 std::vector<Digest> KeymasterHidlTest::InvalidDigests() {
     return {};
+}
+
+uint32_t KeymasterHidlTest::minRsaSignatureKeySize(Digest digest, PaddingMode padding) {
+
+    int digestBytes;
+    switch(digest) {
+        case Digest::NONE:
+            digestBytes = 0;
+            break;
+        case Digest::MD5:
+            digestBytes = 16;
+            break;
+        case Digest::SHA1:
+            digestBytes = 20;
+            break;
+        case Digest::SHA_2_224:
+            digestBytes = 28;
+            break;
+        case Digest::SHA_2_256:
+            digestBytes = 32;
+            break;
+        case Digest::SHA_2_384:
+            digestBytes = 48;
+            break;
+        case Digest::SHA_2_512:
+            digestBytes = 64;
+            break;
+    }
+    int paddingOverheadBytes = 0;
+    if (padding == PaddingMode::RSA_PKCS1_1_5_SIGN) {
+        paddingOverheadBytes = 30;
+    } else if (padding == PaddingMode::RSA_PSS) {
+        paddingOverheadBytes = digestBytes + 1;
+    } else {
+        CHECK(false) << "Unsupported signature padding scheme";
+    }
+    return paddingOverheadBytes + digestBytes + 1;
+}
+
+uint32_t getDigestOutputSizeBits(Digest digest) {
+    switch(digest) {
+        case(Digest::NONE):
+            return 0;
+        case(Digest::MD5):
+            return 128;
+        case(Digest::SHA1):
+            return 160;
+        case(Digest::SHA_2_224):
+            return 224;
+        case(Digest::SHA_2_256):
+            return 256;
+        case(Digest::SHA_2_384):
+            return 384;
+        case(Digest::SHA_2_512):
+            return 512;
+    }
+}
+
+uint32_t KeymasterHidlTest::maxRsaEncryptionPlainTextSize(uint32_t keySizeBits, Digest digest, PaddingMode padding) {
+
+    uint32_t modulusSizeBytes = (keySizeBits + 7) / 8;
+    uint32_t digestOutputSizeBytes = (getDigestOutputSizeBits(digest) + 7) / 8;
+    switch(padding) {
+      case PaddingMode::NONE:
+        return modulusSizeBytes - 1;
+      case PaddingMode::RSA_PKCS1_1_5_ENCRYPT:
+        return modulusSizeBytes - 11;
+      case PaddingMode::RSA_OAEP:
+        return modulusSizeBytes - 2 * digestOutputSizeBytes - 2;
+      default:
+        CHECK(false) << "Unsupported rsa encryption padding scheme";
+        return 0;
+    }
 }
 
 }  // namespace test

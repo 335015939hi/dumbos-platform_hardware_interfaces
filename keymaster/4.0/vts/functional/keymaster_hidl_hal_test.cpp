@@ -18,7 +18,9 @@
 #include <cutils/log.h>
 
 #include <iostream>
+#include <math.h>
 #include <signal.h>
+#include <locale>
 
 #include <openssl/evp.h>
 #include <openssl/mem.h>
@@ -1553,7 +1555,7 @@ TEST_F(VerificationOperationsTest, RsaSuccess) {
                                              .RsaSigningKey(2048, 65537)
                                              .Digest(Digest::NONE)
                                              .Padding(PaddingMode::NONE)));
-    string message = "12345678901234567890123456789012";
+    string message = "12345678901234567890123456789012"; // 32 bytes
     string signature = SignMessage(
         message, AuthorizationSetBuilder().Digest(Digest::NONE).Padding(PaddingMode::NONE));
     VerifyMessage(message, signature,
@@ -2832,9 +2834,9 @@ TEST_F(EncryptionOperationsTest, AesIncremental) {
             EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, params, &output_params));
 
             string ciphertext;
-            size_t input_consumed;
             string to_send;
             for (size_t i = 0; i < message.size(); i += increment) {
+                size_t input_consumed = 0;
                 to_send.append(message.substr(i, increment));
                 EXPECT_EQ(ErrorCode::OK, Update(to_send, &ciphertext, &input_consumed));
                 EXPECT_EQ(to_send.length(), input_consumed);
@@ -2890,6 +2892,7 @@ TEST_F(EncryptionOperationsTest, AesIncremental) {
 
             string plaintext;
             for (size_t i = 0; i < ciphertext.size(); i += increment) {
+                size_t input_consumed = 0;
                 to_send.append(ciphertext.substr(i, increment));
                 EXPECT_EQ(ErrorCode::OK, Update(to_send, &plaintext, &input_consumed));
                 to_send = to_send.substr(input_consumed);
@@ -3167,7 +3170,7 @@ TEST_F(EncryptionOperationsTest, AesGcmRoundTripSuccess) {
     // Decrypt.
     ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, begin_params)) << "Begin decrypt";
     string plaintext;
-    size_t input_consumed;
+    size_t input_consumed = 0;
     ASSERT_EQ(ErrorCode::OK, Update(op_handle_, update_params, ciphertext, &update_out_params,
                                     &plaintext, &input_consumed));
     EXPECT_EQ(ciphertext.size(), input_consumed);
@@ -3219,7 +3222,7 @@ TEST_F(EncryptionOperationsTest, AesGcmRoundTripWithDelaySuccess) {
     // Decrypt.
     ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, begin_params)) << "Begin decrypt";
     string plaintext;
-    size_t input_consumed;
+    size_t input_consumed = 0;
     sleep(5);
     ASSERT_EQ(ErrorCode::OK, Update(op_handle_, update_params, ciphertext, &update_out_params,
                                     &plaintext, &input_consumed));
@@ -3451,7 +3454,7 @@ TEST_F(EncryptionOperationsTest, AesGcmMultiPartAad) {
 
     // No data, AAD only.
     string ciphertext;
-    size_t input_consumed;
+    size_t input_consumed = 0;
     AuthorizationSet update_out_params;
     EXPECT_EQ(ErrorCode::OK, Update(op_handle_, update_params, "" /* input */, &update_out_params,
                                     &ciphertext, &input_consumed));
@@ -3511,7 +3514,7 @@ TEST_F(EncryptionOperationsTest, AesGcmAadOutOfOrder) {
 
     // No data, AAD only.
     string ciphertext;
-    size_t input_consumed;
+    size_t input_consumed = 0;
     AuthorizationSet update_out_params;
     EXPECT_EQ(ErrorCode::OK, Update(op_handle_, update_params, "" /* input */, &update_out_params,
                                     &ciphertext, &input_consumed));
@@ -3777,7 +3780,7 @@ TEST_F(EncryptionOperationsTest, TripleDesEcbPkcs7PaddingCorrupted) {
     begin_params.push_back(TAG_PADDING, PaddingMode::PKCS7);
     EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, begin_params));
     string plaintext;
-    size_t input_consumed;
+    size_t input_consumed = 0;
     EXPECT_EQ(ErrorCode::OK, Update(ciphertext, &plaintext, &input_consumed));
     EXPECT_EQ(ciphertext.size(), input_consumed);
     EXPECT_EQ(ErrorCode::INVALID_ARGUMENT, Finish(&plaintext));
@@ -4089,7 +4092,7 @@ TEST_F(EncryptionOperationsTest, TripleDesCbcPkcs7PaddingCorrupted) {
                             .Authorization(TAG_NONCE, iv);
     EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, begin_params));
     string plaintext;
-    size_t input_consumed;
+    size_t input_consumed = 0;
     EXPECT_EQ(ErrorCode::OK, Update(ciphertext, &plaintext, &input_consumed));
     EXPECT_EQ(ciphertext.size(), input_consumed);
     EXPECT_EQ(ErrorCode::INVALID_ARGUMENT, Finish(&plaintext));
@@ -4115,7 +4118,7 @@ TEST_F(EncryptionOperationsTest, TripleDesCbcIncrementalNoPadding) {
     EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, input_params, &output_params));
 
     string ciphertext;
-    size_t input_consumed;
+    size_t input_consumed = 0;
     for (size_t i = 0; i < message.size(); i += increment)
         EXPECT_EQ(ErrorCode::OK,
                   Update(message.substr(i, increment), &ciphertext, &input_consumed));
@@ -4597,6 +4600,864 @@ TEST_F(ClearOperationsTest, ServiceDeath) {
          Begin(KeyPurpose::ENCRYPT, key_blob_, params, &out_params, &op_handle_));
     for(int i=0; i<max_operations; i++) {
         EXPECT_EQ(ErrorCode::OK, Abort(op_handles[i]));
+    }
+}
+
+
+using PerformanceTests = KeymasterHidlTest;
+
+using namespace std::chrono;
+
+const seconds PEFORMANCE_TIME_LIMIT(30);
+#define PERFORMANCE_ITERATION_LIMIT 20
+
+const string PERFORMANCE_TEST_MESSAGE_SMALL(1<<6, 'x');
+const string PERFORMANCE_TEST_MESSAGE_MEDIUM(1<<10, 'x');
+const string PERFORMANCE_TEST_MESSAGE_LARGE(1<<20, 'x');
+const string PERFORMANCE_TEST_MESSAGES[] = {PERFORMANCE_TEST_MESSAGE_SMALL, PERFORMANCE_TEST_MESSAGE_MEDIUM};//, PERFORMANCE_TEST_MESSAGE_LARGE};
+
+string tolower(string str) {
+    string out;
+    std::transform(str.begin(), str.end(), out.begin(), ::tolower);
+    return out;
+}
+
+class Measurable {
+
+private:
+    string name_;
+    string environment_;
+
+public:
+    Measurable(string environment, string name) :
+                name_(name), environment_(environment) {}
+
+    virtual ~Measurable() {};
+
+    string getEnvironment() const {
+        return environment_;
+    }
+
+    string getName() const {
+        return name_;
+    }
+
+    virtual void initialSetup() const {};
+
+    virtual void setup() const {};
+
+    virtual void run() const = 0;
+
+    virtual void tearDown() const {};
+
+    virtual void finalTearDown() const {};
+
+    class Builder;
+    class Built;
+    class Result;
+
+    static Builder builder(string environment, string name);
+    static Builder builder(string environment, string operation, string algorithm, int key_size, int msg_size);
+    static Builder builder(string environment, string operation, string algorithm, int key_size);
+
+    Result measure();
+};
+
+#define FUNCTOR std::function<void()>
+
+class Measurable::Built : public Measurable {
+private:
+    const FUNCTOR _initialSetup;
+    const FUNCTOR _setup;
+    const FUNCTOR _run;
+    const FUNCTOR _tearDown;
+    const FUNCTOR _finalTearDown;
+public:
+    Built(string environment, string name, FUNCTOR initialSetup, FUNCTOR setup, FUNCTOR run, FUNCTOR tearDown, FUNCTOR finalTearDown) :
+        Measurable(environment, name),
+        _initialSetup(initialSetup), _setup(setup), _run(run), _tearDown(tearDown), _finalTearDown(finalTearDown) {
+
+    }
+
+    void initialSetup() const override {
+        _initialSetup();
+    }
+
+    void setup() const override {
+        _setup();
+    }
+    void run() const override {
+        _run();
+    }
+    void tearDown() const override {
+        _tearDown();
+    }
+    void finalTearDown() const override {
+        _finalTearDown();
+    }
+
+};
+
+class Measurable::Builder {
+
+private:
+    FUNCTOR initialSetup = []{};
+    FUNCTOR setup = []{};
+    FUNCTOR run = []{};
+    FUNCTOR tearDown = []{};
+    FUNCTOR finalTearDown = []{};
+    string environment_;
+    string name_;
+
+public:
+
+    Builder(string environment, string name) : environment_(environment), name_(name) {}
+
+    Builder& setInitialSetup(FUNCTOR func) {
+        initialSetup = func;
+        return *this;
+    }
+
+    Builder& setSetup(FUNCTOR func) {
+        setup = func;
+        return *this;
+    }
+
+    Builder& setRun(FUNCTOR func) {
+        run = func;
+        return *this;
+    }
+
+    Builder& setTearDown(FUNCTOR func) {
+        tearDown = func;
+        return *this;
+    }
+
+    Builder& setFinalTearDown(FUNCTOR func) {
+        finalTearDown = func;
+        return *this;
+    }
+
+    Measurable::Built build() const {
+        return Measurable::Built(name_, environment_, initialSetup, setup, run, tearDown, finalTearDown);
+    }
+
+};
+
+Measurable::Builder Measurable::builder(string environment, string name) {
+    return Builder(environment, name);
+}
+Measurable::Builder Measurable::builder(string environment, string operation, string algorithm, int key_size) {
+    return builder(environment, operation + "_" + algorithm + "_" + std::to_string(key_size));
+}
+Measurable::Builder Measurable::builder(string environment, string operation, string algorithm, int key_size, int msg_size) {
+    return builder(environment, operation + "_" + algorithm + "_" + std::to_string(key_size) + "_" + std::to_string(msg_size));
+}
+
+class Measurable::Result {
+private:
+    nanoseconds mSetupTime = 0ns;
+    uint16_t mSampleCount = 0;
+    nanoseconds mSamples[PERFORMANCE_ITERATION_LIMIT];
+    nanoseconds mTearDownTime = 0ns;
+    string name_;
+    string environment_;
+
+    void setup(const Measurable &measurable) {
+        mSetupTime += measure([&measurable](){measurable.setup();});
+    }
+
+    void run(const Measurable &measurable) {
+        mSamples[mSampleCount++] = measure([&measurable](){measurable.run();});
+    }
+
+    void tearDown(const Measurable &measurable) {
+        mTearDownTime += measure([&measurable](){measurable.tearDown();});
+    }
+
+public:
+
+    Result(const Measurable &measurable) :
+        name_(tolower(measurable.getName())),
+        environment_(tolower(measurable.getEnvironment()))
+    {
+        measurable.initialSetup();
+        measurable.setup();
+        measurable.run();
+        measurable.tearDown();
+
+        auto runLimit = now() + PEFORMANCE_TIME_LIMIT;
+        for(int i=0; i < PERFORMANCE_ITERATION_LIMIT && now() < runLimit; i++) {
+            setup(measurable);
+
+            run(measurable);
+
+            tearDown(measurable);
+        }
+        measurable.finalTearDown();
+    }
+
+    static time_point<high_resolution_clock, nanoseconds> now() {
+        return high_resolution_clock::now();
+    }
+
+    static const nanoseconds measure(std::function<void()> func) {
+        auto start = now();
+        func();
+        return now()-start;
+    }
+
+    uint16_t getSampleCount() const {
+        return mSampleCount;
+    }
+
+    milliseconds getTotalRunTime() const {
+        nanoseconds totalTime;
+        for(int i=0; i < mSampleCount; i++) {
+            totalTime += mSamples[i];
+        }
+        return duration_cast<milliseconds>(totalTime);
+    }
+
+    double getTotalRunTimeSq() const {
+        double totalTimeSq = 0;
+        for(int i=0; i < mSampleCount; i++) {
+            double sampleTimeMs = duration_cast<milliseconds>(mSamples[i]).count();
+            totalTimeSq += sampleTimeMs * sampleTimeMs;
+        }
+        return totalTimeSq;
+    }
+
+
+    milliseconds getSetupTime() const {
+        return duration_cast<milliseconds>(mSetupTime);
+    }
+
+    milliseconds getTearDownTime() const {
+        return duration_cast<milliseconds>(mTearDownTime);
+    }
+
+    milliseconds getMean() const {
+        return getTotalRunTime() / mSampleCount;
+    }
+
+    double getSampleStdDev() {
+        double totalTime = getTotalRunTime().count();
+        return sqrt(mSampleCount * getTotalRunTimeSq() - totalTime * totalTime)
+                / (mSampleCount * (mSampleCount - 1));
+    }
+
+    string getEnvironment() const {
+        return environment_;
+    }
+
+    string getName() const {
+        return name_;
+    }
+
+};
+
+Measurable::Result Measurable::measure() {
+    return Measurable::Result(*this);
+}
+
+BlockMode algorithmToBlockMode(string algorithm) {
+    if(algorithm.find("/ECB") != string::npos) {
+        return BlockMode::ECB;
+    }
+    else if(algorithm.find("/CBC") != string::npos) {
+        return BlockMode::CBC;
+    }
+    else if(algorithm.find("/CTR") != string::npos) {
+        return BlockMode::CTR;
+    }
+    else if(algorithm.find("/GCM") != string::npos) {
+        return BlockMode::GCM;
+    }
+    // CHECK(false) << "Invalid block mode";
+    return BlockMode::GCM;
+}
+
+PaddingMode algorithmToPaddingMode(string algorithm, bool sign) {
+    if(algorithm.find("/NoPadding") != string::npos) {
+        return PaddingMode::NONE;
+    }
+    else if(algorithm.find("/PKCS7Padding") != string::npos) {
+        return PaddingMode::PKCS7;
+    }
+    else if(algorithm.find("/PSS") != string::npos) {
+        return PaddingMode::RSA_PSS;
+    }
+    else if(algorithm.find("/OAEPPadding") != string::npos) {
+        return PaddingMode::RSA_OAEP;
+    }
+    else if(algorithm.find("/PKCS1Padding") != string::npos) {
+        return sign ? PaddingMode::RSA_PKCS1_1_5_SIGN : PaddingMode::RSA_PKCS1_1_5_ENCRYPT;
+    }
+    return PaddingMode::NONE;
+}
+
+PaddingMode algorithmToPaddingMode(string algorithm) {
+    return algorithmToPaddingMode(algorithm, false);
+}
+
+string digestToString(Digest digest) {
+    switch(digest) {
+        case(Digest::NONE):
+            return "NONE";
+        case(Digest::MD5):
+            return "MD5";
+        case(Digest::SHA1):
+            return "SHA1";
+        case(Digest::SHA_2_224):
+            return "SHA224";
+        case(Digest::SHA_2_256):
+            return "SHA256";
+        case(Digest::SHA_2_384):
+            return "SHA384";
+        case(Digest::SHA_2_512):
+            return "SHA256";
+    }
+}
+
+string paddingToString(PaddingMode padding) {
+    switch(padding) {
+        case(PaddingMode::NONE):
+            return "NoPadding";
+        case(PaddingMode::PKCS7):
+            return "PKCS7Padding";
+        case(PaddingMode::RSA_PSS):
+            return "PSS";
+        case(PaddingMode::RSA_OAEP):
+            return "OAEPPadding";
+        case(PaddingMode::RSA_PKCS1_1_5_SIGN):
+        case(PaddingMode::RSA_PKCS1_1_5_ENCRYPT):
+            return "PKCS1Padding";
+    }
+}
+
+string blockModeToString(BlockMode blockMode) {
+    switch(blockMode) {
+        case(BlockMode::ECB):
+            return "ECB";
+        case (BlockMode::CBC):
+            return "CBC";
+        case (BlockMode::CTR):
+            return "CTR";
+        case (BlockMode::GCM):
+            return "GCM";
+    }
+}
+
+
+Digest algorithmToDigest(string algorithm) {
+    if(algorithm.find("NONE") == 0) {
+        return Digest::NONE;
+    }
+    else if(algorithm.find("MD5") == 0) {
+        return Digest::MD5;
+    }
+    else if(algorithm.find("SHA1") == 0) {
+        return Digest::SHA1;
+    }
+    else if(algorithm.find("SHA224") == 0) {
+        return Digest::SHA_2_224;
+    }
+    else if(algorithm.find("SHA256") == 0) {
+        return Digest::SHA_2_256;
+    }
+    else if(algorithm.find("SHA384") == 0) {
+        return Digest::SHA_2_384;
+    }
+    else if(algorithm.find("SHA512") == 0) {
+        return Digest::SHA_2_512;
+    }
+    return Digest::NONE;
+}
+
+
+/*
+ * AesKeyGenPerformanceTest
+ *
+ */
+TEST_F(PerformanceTests, AesKeyGenPerformanceTest) {
+    for(int key_size : ValidKeySizes(Algorithm::AES)) {
+        auto result = Measurable::builder("keymaster", "keygen", "aes", key_size)
+            .setRun([&]{
+                GenerateKey(AuthorizationSetBuilder()
+                            .AesEncryptionKey(key_size));
+            })
+            .setTearDown([&]{
+                CheckedDeleteKey();
+            })
+            .build().measure();
+    }
+}
+
+/*
+ * DesKeyGenPerformanceTest
+ *
+ */
+TEST_F(PerformanceTests, DesKeyGenPerformanceTest) {
+    for(int key_size : ValidKeySizes(Algorithm::TRIPLE_DES)) {
+        auto result = Measurable::builder("keymaster", "keygen", "DESede", key_size)
+            .setRun([&]{
+                GenerateKey(AuthorizationSetBuilder()
+                            .TripleDesEncryptionKey(key_size));
+            })
+            .setTearDown([&]{
+                CheckedDeleteKey();
+            })
+            .build().measure();
+    }
+}
+
+
+/*
+ * EcKeyGenPerformanceTest
+ *
+ */
+TEST_F(PerformanceTests, EcKeyGenPerformanceTest) {
+    for(int key_size : ValidKeySizes(Algorithm::EC)) {
+        auto result = Measurable::builder("keymaster", "keygen", "ec", key_size)
+            .setRun([&]{
+                GenerateKey(AuthorizationSetBuilder()
+                            .EcdsaKey(key_size));
+            })
+            .setTearDown([&]{
+                CheckedDeleteKey();
+            })
+            .build().measure();
+    }
+}
+
+
+/*
+ * HmacKeyGenPerformanceTest
+ *
+ */
+TEST_F(PerformanceTests, HmacKeyGenPerformanceTest) {
+    for(int key_size : ValidKeySizes(Algorithm::HMAC)) {
+        auto result = Measurable::builder("keymaster", "keygen", "hmac", key_size)
+            .setRun([&]{
+                ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
+                            .HmacKey(key_size)
+                            .Digest(Digest::SHA1)
+                            .Authorization(TAG_MIN_MAC_LENGTH, 128)));
+            })
+            .setTearDown([&]{
+                CheckedDeleteKey();
+            })
+            .build().measure();
+    }
+}
+
+/*
+ * RsaKeyGenPerformanceTest
+ *
+ */
+TEST_F(PerformanceTests, RsaKeyGenPerformanceTest) {
+    for(int key_size : ValidKeySizes(Algorithm::RSA)) {
+        Measurable::Result result = Measurable::builder("keymaster", "keygen", "rsa", key_size)
+            .setRun([&]{
+                ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
+                            .RsaSigningKey(key_size, 65537)));
+            })
+            .setTearDown([&]{
+                    CheckedDeleteKey();
+            })
+            .build().measure();
+    }
+}
+
+/*
+ * AesCipherPerformanceTest
+ */
+TEST_F(PerformanceTests, AesCipherPerformanceTest) {
+    for(int key_size : ValidKeySizes(Algorithm::AES)) {
+        for(BlockMode block_mode : ValidBlockModes(Algorithm::AES)) {
+            bool includePkcs7 = block_mode != BlockMode::GCM && block_mode != BlockMode::CTR;
+            for(PaddingMode padding : ValidPaddings(Algorithm::AES, includePkcs7, false)) {
+                ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
+                        .Authorization(TAG_NO_AUTH_REQUIRED)
+                        .AesEncryptionKey(key_size)
+                        .BlockMode(block_mode)
+                        .Padding(padding)
+                        .Authorization(TAG_MIN_MAC_LENGTH, 128)));
+
+                for(string plain_message : PERFORMANCE_TEST_MESSAGES)
+                {
+                    auto cipher_params = AuthorizationSetBuilder()
+                                .BlockMode(block_mode)
+                                .Padding(padding)
+                                .Authorization(TAG_MAC_LENGTH, 128);
+
+                    string encrypted_message;
+                    AuthorizationSet out_params;
+                    string algorithm = string("AES/");// + blockModeToString(block_mode) + string("/") + paddingToString(padding);
+                    auto encrypt_result = Measurable::builder("keymaster", "encrypt",algorithm, key_size, plain_message.length())
+                        .setSetup([&] {
+                            out_params.Clear();
+                        })
+                        .setRun([&]{
+                            encrypted_message = EncryptMessage(plain_message, cipher_params, &out_params);
+                        })
+                        .build().measure();
+
+                    // Sanity check output size
+                    if(block_mode == BlockMode::GCM) {
+                        EXPECT_EQ(plain_message.size() + 16, encrypted_message.size());
+                    } else if (padding == PaddingMode::PKCS7) {
+                        EXPECT_EQ(plain_message.size() + 16, encrypted_message.size());
+                    } else {
+                        EXPECT_EQ(plain_message.size(), encrypted_message.size());
+                    }
+
+                    cipher_params.push_back(out_params);
+
+                    string decrypted_message;
+                    Measurable::Result decrypt_result = Measurable::builder("keymaster", "decrypt", algorithm, key_size, plain_message.length())
+                        .setRun([&]{
+                            decrypted_message = DecryptMessage(encrypted_message, cipher_params);
+                        })
+                        .build().measure();
+
+                    EXPECT_EQ(plain_message.length(), decrypted_message.length());
+                }
+                CheckedDeleteKey();
+            }
+        }
+    }
+}
+
+
+/*
+ * DesCipherPerformanceTest
+ */
+TEST_F(PerformanceTests, DesCipherPerformanceTest) {
+    for(int key_size : ValidKeySizes(Algorithm::TRIPLE_DES)) {
+        for(BlockMode block_mode : ValidBlockModes(Algorithm::TRIPLE_DES)) {
+            for(PaddingMode padding : ValidPaddings(Algorithm::TRIPLE_DES, true, false)) {
+
+                auto gen_params = AuthorizationSetBuilder()
+                        .Authorization(TAG_NO_AUTH_REQUIRED)
+                        .TripleDesEncryptionKey(key_size)
+                        .BlockMode(block_mode)
+                        .Padding(padding);
+
+                ASSERT_EQ(ErrorCode::OK, GenerateKey(gen_params));
+
+                string algorithm = "DESede";// string("DESede/").append(blockModeToString(block_mode)).append("/").append(paddingToString(padding));
+
+                for(string plain_message : PERFORMANCE_TEST_MESSAGES) {
+                    auto cipher_params = AuthorizationSetBuilder()
+                                .BlockMode(block_mode)
+                                .Padding(padding);
+
+                    string encrypted_message;
+                    AuthorizationSet out_params;
+                    ALOGD("algorithm %s, blockmode %s, padding %s, size %zu", algorithm.c_str(), blockModeToString(block_mode).c_str(), paddingToString(padding).c_str(), plain_message.length());
+                    auto encrypt_result = Measurable::builder("keymaster",  "encrypt", algorithm, key_size, plain_message.length())
+                        .setSetup([&] {
+                            out_params.Clear();
+                        })
+                        .setRun([&]{
+                            encrypted_message = EncryptMessage(plain_message, cipher_params, &out_params);
+                        })
+                        .build().measure();
+
+                    // Sanity check output size
+                    if (padding == PaddingMode::PKCS7) {
+                        EXPECT_EQ(plain_message.size() + 8, encrypted_message.size())  << "Unexpected encrypted message size for " << encrypt_result.getName();
+                    } else {
+                        EXPECT_EQ(plain_message.size(), encrypted_message.size()) << "Unexpected encrypted message size for " << encrypt_result.getName();
+                    }
+
+                    cipher_params.push_back(out_params);
+                    string decrypted_message;
+                    Measurable::Result decrypt_result = Measurable::builder("keymaster",  "decrypt", algorithm, key_size, plain_message.length())
+                        .setRun([&]{
+                            decrypted_message = DecryptMessage(encrypted_message, cipher_params);
+                        })
+                        .build().measure();
+
+                    EXPECT_EQ(plain_message.length(), decrypted_message.length());
+                }
+            CheckedDeleteKey();
+            }
+        }
+    }
+}
+
+/*
+ * EcdsaSignaturePerformanceTest
+ */
+TEST_F(PerformanceTests, EcdsaSignaturePerformanceTest) {
+    for(uint32_t key_size : ValidKeySizes(Algorithm::EC)) {
+        for(Digest digest : ValidDigests(true, false)) {
+
+            ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
+                     .Authorization(TAG_NO_AUTH_REQUIRED)
+                     .EcdsaSigningKey(key_size)
+                     .Authorization(TAG_MIN_MAC_LENGTH, 128)
+                     .Digest(digest)));
+            for(string plain_message : PERFORMANCE_TEST_MESSAGES)
+            {
+                string algorithm = "ecdsa";
+                auto sigining_params = AuthorizationSetBuilder().Digest(digest);
+                string signature;
+                auto sign_result = Measurable::builder("keymaster",  "sign", algorithm, key_size, plain_message.length())
+                    .setRun([&]{
+                        signature = SignMessage(plain_message, sigining_params);
+                    })
+                    .build().measure();
+                EXPECT_GT(signature.length(), 0);
+
+                Measurable::Result decrypt_result = Measurable::builder("keymaster",  "verify", algorithm, key_size, plain_message.length())
+                    .setRun([&]{
+                       VerifyMessage(plain_message, signature, sigining_params);
+                    })
+                    .build().measure();
+            }
+            CheckedDeleteKey();
+        }
+    }
+}
+
+/*
+ * HmacMacPerformanceTest
+ */
+TEST_F(PerformanceTests, HmacMacPerformanceTest) {
+    for(int key_size : ValidKeySizes(Algorithm::HMAC)) {
+        for(Digest digest : ValidDigests(false, false)) {
+
+            ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
+                     .Authorization(TAG_NO_AUTH_REQUIRED)
+                     .HmacKey(key_size)
+                     .Authorization(TAG_MIN_MAC_LENGTH, 128)
+                     .Digest(digest)));
+
+            for(string plain_message : PERFORMANCE_TEST_MESSAGES)
+            {
+                auto cipher_params = AuthorizationSetBuilder()
+                            .Digest(digest);
+
+                string signature;
+                auto encrypt_result = Measurable::builder("keymaster",  "mac", "hmac" + digestToString(digest),   key_size, plain_message.length())
+                    .setRun([&]{
+                       signature = MacMessage(plain_message, digest, 128);
+                    })
+                    .build().measure();
+
+                EXPECT_GT(signature.length(), 0);
+            }
+            CheckedDeleteKey();
+        }
+    }
+}
+
+/*
+ * RsaSignaturePerformanceTest
+ */
+TEST_F(PerformanceTests, RsaSignaturePerformanceTest) {
+    for(int key_size : ValidKeySizes(Algorithm::RSA)) {
+        for(Digest digest : ValidDigests(false, true)) {
+            for(PaddingMode padding : ValidPaddings(Algorithm::RSA, false, true)) {
+                ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
+                        .Authorization(TAG_NO_AUTH_REQUIRED)
+                        .RsaSigningKey(key_size, 65537)
+                        .Digest(digest)
+                        .Padding(padding)));
+                for(string plain_message : PERFORMANCE_TEST_MESSAGES)
+                {
+                    string algorithm = "rsa";
+                    auto sigining_params = AuthorizationSetBuilder().Digest(digest).Padding(padding);
+                    string signature;
+                    auto sign_result = Measurable::builder("keymaster",  "sign", algorithm, key_size, plain_message.length())
+                        .setRun([&]{
+                            signature = SignMessage(plain_message, AuthorizationSetBuilder().Digest(digest).Padding(padding));
+                        })
+                        .build().measure();
+                    EXPECT_GT(signature.length(), 0);
+
+                    Measurable::Result decrypt_result = Measurable::builder("keymaster",  "verify", algorithm, key_size, plain_message.length())
+                        .setRun([&]{
+                        VerifyMessage(plain_message, signature, AuthorizationSetBuilder().Digest(digest).Padding(padding));
+                        })
+                        .build().measure();
+                }
+                CheckedDeleteKey();
+            }
+        }
+    }
+}
+
+/*
+ * Rsa2048SignaturePerformanceTest
+ */
+TEST_F(PerformanceTests, Rsa2048SignaturePerformanceTest) {
+    int key_size = 2048;
+    for(Digest digest : ValidDigests(false, true)) {
+        for(PaddingMode padding : ValidPaddings(Algorithm::RSA, false, true)) {
+            // auto minKeySize = minRsaSignatureKeySize(digest, padding);
+            ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
+                    .Authorization(TAG_NO_AUTH_REQUIRED)
+                    .RsaSigningKey(key_size, 65537)
+                    .Digest(digest)
+                    .Padding(padding)));
+            for(string plain_message : PERFORMANCE_TEST_MESSAGES)
+            {
+                string algorithm = "rsa";
+                auto sigining_params = AuthorizationSetBuilder().Digest(digest).Padding(padding);
+                string signature;
+                auto sign_result = Measurable::builder("keymaster",  "sign", algorithm, key_size, plain_message.length())
+                    .setRun([&]{
+                        signature = SignMessage(plain_message, AuthorizationSetBuilder().Digest(digest).Padding(padding));
+                    })
+                    .build().measure();
+                EXPECT_GT(signature.length(), 0);
+
+                // auto verify_params = AuthorizationSetBuilder().Digest(digest).Padding(padding);
+                Measurable::Result decrypt_result = Measurable::builder("keymaster",  "verify", algorithm, key_size, plain_message.length())
+                    .setRun([&]{
+                    VerifyMessage(plain_message, signature, AuthorizationSetBuilder().Digest(digest).Padding(padding));
+                    })
+                    .build().measure();
+            }
+            CheckedDeleteKey();
+        }
+    }
+}
+
+/*
+ * Rsa3072SignaturePerformanceTest
+ */
+TEST_F(PerformanceTests, Rsa3072SignaturePerformanceTest) {
+    int key_size = 3072;
+    for(Digest digest : ValidDigests(false, true)) {
+        for(PaddingMode padding : ValidPaddings(Algorithm::RSA, false, true)) {
+            // auto minKeySize = minRsaSignatureKeySize(digest, padding);
+            ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
+                    .Authorization(TAG_NO_AUTH_REQUIRED)
+                    .RsaSigningKey(key_size, 65537)
+                    .Digest(digest)
+                    .Padding(padding)));
+            for(string plain_message : PERFORMANCE_TEST_MESSAGES)
+            {
+                string algorithm = "rsa";
+                auto sigining_params = AuthorizationSetBuilder().Digest(digest).Padding(padding);
+                string signature;
+                auto sign_result = Measurable::builder("keymaster",  "sign", algorithm, key_size, plain_message.length())
+                    .setRun([&]{
+                        signature = SignMessage(plain_message, AuthorizationSetBuilder().Digest(digest).Padding(padding));
+                    })
+                    .build().measure();
+                EXPECT_GT(signature.length(), 0);
+
+                // auto verify_params = AuthorizationSetBuilder().Digest(digest).Padding(padding);
+                Measurable::Result decrypt_result = Measurable::builder("keymaster",  "verify", algorithm, key_size, plain_message.length())
+                    .setRun([&]{
+                    VerifyMessage(plain_message, signature, AuthorizationSetBuilder().Digest(digest).Padding(padding));
+                    })
+                    .build().measure();
+            }
+            CheckedDeleteKey();
+        }
+    }
+}
+
+/*
+ * Rsa4096SignaturePerformanceTest
+ */
+TEST_F(PerformanceTests, Rsa4096SignaturePerformanceTest) {
+    int key_size = 4096;
+    for(Digest digest : ValidDigests(false, true)) {
+        for(PaddingMode padding : ValidPaddings(Algorithm::RSA, false, true)) {
+            // auto minKeySize = minRsaSignatureKeySize(digest, padding);
+            ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
+                    .Authorization(TAG_NO_AUTH_REQUIRED)
+                    .RsaSigningKey(key_size, 65537)
+                    .Digest(digest)
+                    .Padding(padding)));
+            for(string plain_message : PERFORMANCE_TEST_MESSAGES)
+            {
+                string algorithm = "rsa";
+                auto sigining_params = AuthorizationSetBuilder().Digest(digest).Padding(padding);
+                string signature;
+                auto sign_result = Measurable::builder("keymaster",  "sign", algorithm, key_size, plain_message.length())
+                    .setRun([&]{
+                        signature = SignMessage(plain_message, AuthorizationSetBuilder().Digest(digest).Padding(padding));
+                    })
+                    .build().measure();
+                EXPECT_GT(signature.length(), 0);
+
+                Measurable::Result decrypt_result = Measurable::builder("keymaster",  "verify", algorithm, key_size, plain_message.length())
+                    .setRun([&]{
+                    VerifyMessage(plain_message, signature, AuthorizationSetBuilder().Digest(digest).Padding(padding));
+                    })
+                    .build().measure();
+            }
+            CheckedDeleteKey();
+        }
+    }
+}
+
+/*
+ * RsaCipherPerformanceTest
+ */
+TEST_F(PerformanceTests, RsaCipherPerformanceTest) {
+    for(int key_size : ValidKeySizes(Algorithm::RSA)) {
+        for(PaddingMode padding : ValidPaddings(Algorithm::RSA, false, false)) {
+            for(Digest digest : ValidDigests(true, true)) {
+                if(padding == PaddingMode::RSA_OAEP && digest == Digest::NONE) {
+                    continue;
+                }
+                else if (padding != PaddingMode::RSA_OAEP && digest != Digest::NONE) {
+                    continue;
+                }
+                ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
+                         .Authorization(TAG_NO_AUTH_REQUIRED)
+                         .RsaEncryptionKey(key_size, 65537)
+                         .BlockMode(BlockMode::ECB)
+                         .Digest(digest)
+                         .Padding(padding)));
+
+                for(string plain_message : PERFORMANCE_TEST_MESSAGES)
+                {
+                    if (plain_message.length() > maxRsaEncryptionPlainTextSize(key_size, Digest::NONE, padding)) {
+                        continue;
+                    }
+                    auto cipher_params = AuthorizationSetBuilder()
+                                .BlockMode(BlockMode::ECB)
+                                .Digest(digest)
+                                .Padding(padding);
+
+                    string algorithm = "rsa";
+                    string encrypted_message;
+                    AuthorizationSet out_params;
+                    auto encrypt_result = Measurable::builder("keymaster",  "encrypt", algorithm, key_size, plain_message.length())
+                        .setSetup([&] {
+                            out_params.Clear();
+                        })
+                        .setRun([&]{
+                            encrypted_message = EncryptMessage(plain_message, cipher_params, &out_params);
+                        })
+                        .build().measure();
+                    EXPECT_GT(encrypted_message.size(), 0)  << "Unexpected encrypted message size for " << encrypt_result.getName();
+
+
+                    cipher_params.push_back(out_params);
+                    string decrypted_message;
+                    Measurable::Result decrypt_result = Measurable::builder("keymaster",  "decrypt", algorithm, key_size, plain_message.length())
+                        .setRun([&]{
+                            decrypted_message = DecryptMessage(encrypted_message, cipher_params);
+                        })
+                        .build().measure();
+                    EXPECT_NE(decrypted_message.find(plain_message), string::npos)  << "Unexpected decrypted message for " << encrypt_result.getName();
+                }
+                CheckedDeleteKey();
+            }
+        }
     }
 }
 
