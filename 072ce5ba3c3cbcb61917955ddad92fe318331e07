@@ -70,6 +70,30 @@
       "revId": "072ce5ba3c3cbcb61917955ddad92fe318331e07",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3cc88c29_eb7fdbfb",
+        "filename": "usb/1.0/vts/functional/AndroidTest.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1307893
+      },
+      "writtenOn": "2019-11-13T01:29:42Z",
+      "side": 1,
+      "message": "How about just delete the test since UsbHidlTest.switchModetoDFP always failed and even crash the test process.",
+      "parentUuid": "9010168e_0f1a770c",
+      "range": {
+        "startLine": 31,
+        "startChar": 8,
+        "endLine": 31,
+        "endChar": 78
+      },
+      "revId": "072ce5ba3c3cbcb61917955ddad92fe318331e07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
