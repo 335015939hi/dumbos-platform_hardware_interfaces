@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e1e8c6d9_631c3076",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-14T03:39:11Z",
+      "side": 1,
+      "message": "this should follow go/android-treble-hal-checklist\n\nThe main thing is, I\u0027d like to understand if this flag should go elsewhere, what is for. It would be nice if we had a stable upstream kernel interface for this, since it\u0027s just an off/on flag.",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 21
+      },
+      "revId": "8ee9ce483f6a778b75d883dedda3099a10fecffe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd2bb138_d0b988d9",
+        "filename": "boot/power/aidl/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-14T03:39:11Z",
+      "side": 1,
+      "message": "we\u0027ll want to make this vndk as well (I need to do this for vibrator actually)",
+      "range": {
+        "startLine": 3,
+        "startChar": 4,
+        "endLine": 3,
+        "endChar": 20
+      },
+      "revId": "8ee9ce483f6a778b75d883dedda3099a10fecffe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a88262ba_d023a0f9",
+        "filename": "boot/power/aidl/android/hardware/boot/power/IPowerManagement.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-14T03:39:11Z",
+      "side": 1,
+      "message": "describe what this is",
+      "range": {
+        "startLine": 22,
+        "startChar": 16,
+        "endLine": 22,
+        "endChar": 26
+      },
+      "revId": "8ee9ce483f6a778b75d883dedda3099a10fecffe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10239383_b59157db",
+        "filename": "boot/power/aidl/android/hardware/boot/power/IPowerManagement.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-14T03:39:11Z",
+      "side": 1,
+      "message": "aidl has implicit status",
+      "range": {
+        "startLine": 25,
+        "startChar": 4,
+        "endLine": 25,
+        "endChar": 11
+      },
+      "revId": "8ee9ce483f6a778b75d883dedda3099a10fecffe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ac9eec0_6230ae79",
+        "filename": "boot/power/aidl/android/hardware/boot/power/IPowerManagement.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-14T03:39:11Z",
+      "side": 1,
+      "message": "why not have one method with \u0027boolean onOff\u0027?",
+      "range": {
+        "startLine": 25,
+        "startChar": 12,
+        "endLine": 25,
+        "endChar": 28
+      },
+      "revId": "8ee9ce483f6a778b75d883dedda3099a10fecffe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f21cf55_8e4d964e",
+        "filename": "boot/power/aidl/default/PowerManagement.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-14T03:39:11Z",
+      "side": 1,
+      "message": "if I\u0027m not mistaken, this refers to qcom? we shouldn\u0027t have qcom specific code here (also, does this work on cf)",
+      "range": {
+        "startLine": 39,
+        "startChar": 52,
+        "endLine": 39,
+        "endChar": 55
+      },
+      "revId": "8ee9ce483f6a778b75d883dedda3099a10fecffe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7173a97_c0451a49",
+        "filename": "boot/power/aidl/vts/VtsHalBootPowerTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-14T03:39:11Z",
+      "side": 1,
+      "message": "this test would be run on any device, but it assumes implementation details.",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 67
+      },
+      "revId": "8ee9ce483f6a778b75d883dedda3099a10fecffe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
