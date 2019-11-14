@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "dd236ff6_0e76982b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1088085
+      },
+      "writtenOn": "2019-11-14T04:41:20Z",
+      "side": 1,
+      "message": "As described in go/rvc-ota-persist-logs, the goal is to persist the log across reboot on pixel 3+. And the location in sys file is qualcom chip specific.\n\nMore background:\nThe soc on pixel 3+ always do hard reset. Qualcom\u0027s chip doesn\u0027t support warm reset. So our bootloader simulate the process by\nbacking up -\u003e hard reset -\u003e restore\n\n\nI talked to a few kernel people and this will not be in the generic kernel, since this is qualcom specific. \n\nI then realize the default implementation won\u0027t work on CF. Maybe I should not use a HAL at all, and an system property is sufficient?",
+      "parentUuid": "e1e8c6d9_631c3076",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 21
+      },
+      "revId": "8ee9ce483f6a778b75d883dedda3099a10fecffe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fd2bb138_d0b988d9",
         "filename": "boot/power/aidl/Android.bp",
         "patchSetId": 2
@@ -128,6 +152,30 @@
       "writtenOn": "2019-11-14T03:39:11Z",
       "side": 1,
       "message": "if I\u0027m not mistaken, this refers to qcom? we shouldn\u0027t have qcom specific code here (also, does this work on cf)",
+      "range": {
+        "startLine": 39,
+        "startChar": 52,
+        "endLine": 39,
+        "endChar": 55
+      },
+      "revId": "8ee9ce483f6a778b75d883dedda3099a10fecffe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0c3a466_062f1cab",
+        "filename": "boot/power/aidl/default/PowerManagement.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1088085
+      },
+      "writtenOn": "2019-11-14T04:41:20Z",
+      "side": 1,
+      "message": "Yes, it\u0027s qcom specific. And it will not work on cf...",
+      "parentUuid": "3f21cf55_8e4d964e",
       "range": {
         "startLine": 39,
         "startChar": 52,
