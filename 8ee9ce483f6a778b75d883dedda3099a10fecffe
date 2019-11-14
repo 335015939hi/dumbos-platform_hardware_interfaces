@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "23f7bbed_f1531119",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1088085
+      },
+      "writtenOn": "2019-11-14T04:42:59Z",
+      "side": 1,
+      "message": "And we won\u0027t be able to switch to reboot reason, because setting the flag doesn\u0027t necessary mean a immediate reboot. Also there are so many paths leading to the reset, which we are not able to clean up in the short run.",
+      "parentUuid": "dd236ff6_0e76982b",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 21
+      },
+      "revId": "8ee9ce483f6a778b75d883dedda3099a10fecffe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fd2bb138_d0b988d9",
         "filename": "boot/power/aidl/Android.bp",
         "patchSetId": 2
