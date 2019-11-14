@@ -22,6 +22,30 @@
       "revId": "528f91b05559b4ff069c6c39e305edf1e0d2a598",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95f66d81_ce09b23e",
+        "filename": "graphics/composer/2.3/utils/command-buffer/include/composer-command-buffer/2.3/ComposerCommandBuffer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-11-14T23:47:57Z",
+      "side": 0,
+      "message": "vhau@, \nCan you take a look at this?",
+      "parentUuid": "98afc4e9_da12c099",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 70
+      },
+      "revId": "528f91b05559b4ff069c6c39e305edf1e0d2a598",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
