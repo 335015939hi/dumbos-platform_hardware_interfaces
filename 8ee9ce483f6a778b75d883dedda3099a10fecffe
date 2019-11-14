@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "9eedf054_d2fcb4cc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1088085
+      },
+      "writtenOn": "2019-11-14T04:53:26Z",
+      "side": 1,
+      "message": "The other option is to use a generic system property like  ota.warm_reset. And we do all the setting/clearing from the vendor init.",
+      "parentUuid": "23f7bbed_f1531119",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 21
+      },
+      "revId": "8ee9ce483f6a778b75d883dedda3099a10fecffe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fd2bb138_d0b988d9",
         "filename": "boot/power/aidl/Android.bp",
         "patchSetId": 2
