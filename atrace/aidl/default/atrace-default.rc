@@ -1,0 +1,4 @@
+service vendor.atrace-default /vendor/bin/hw/android.hardware.atrace-service.default
+    class hal
+    user nobody
+    group nobody
