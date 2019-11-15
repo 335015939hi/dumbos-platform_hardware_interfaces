@@ -1,0 +1,39 @@
+package android.hardware.radio@1.6;
+
+import @1.5::IRadio;
+
+/**
+ * This interface is used by telephony and telecom to talk to cellular radio.
+ * All the functions have minimum one parameter:
+ * serial: which corresponds to serial no. of request. Serial numbers must only be memorized for the
+ * duration of a method call. If clients provide colliding serials (including passing the same
+ * serial to different methods), multiple responses (one for each method call) must still be served.
+ * setResponseFunctions must work with @1.5::IRadioResponse and @1.5::IRadioIndication.
+ */
+interface IRadio extends @1.5::IRadio {
+
+    /**
+     * Get the local and global phonebook records from the SIM card
+     * This message can be used only after receiving adnInitDone notification.
+     * The phonebook records must be recevied via adnRecordsReceived()
+     *
+     * @param serial Serial number of request
+     *
+     * Response callback is IRadioResponse.getAdnRecordResponse()
+     */
+    oneway getAdnRecords(int32_t serial);
+
+    /**
+     * Insert, delete or update a phonebook record on the SIM card.
+     * If the index of recordInfo is 0, the phonebook record will be added.
+     *
+     * If all of the fields in the recordInfo is empty except the index, the phonebook
+     * record of the index will be deleted.
+     *
+     * @param serial Serial number of request
+     * @param recordInfo PhonebookRecordInfo
+     *
+     * Response callback is IRadioResponse.updateAdnRecordResponse()
+     */
+    oneway updateAdnRecord(int32_t serial, PhonebookRecordInfo recordInfo);
+};

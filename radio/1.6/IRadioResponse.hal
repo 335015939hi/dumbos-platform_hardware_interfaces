@@ -1,0 +1,35 @@
+package android.hardware.radio@1.6;
+
+import @1.0::RadioResponseInfo;
+import @1.5::IRadioResponse;
+
+/**
+ * Interface declaring response functions to solicited radio requests.
+ */
+interface IRadioResponse extends @1.5::IRadioResponse {
+
+    /**
+     * @param info Response info struct containing response type, serial no. and error
+     * @param capacity Contains the ADN, email, additional number capacities in the SIM card.
+     *
+     * Valid errors returned:
+     *   RadioError:NONE
+     *   RadioError:RADIO_NOT_AVAILABLE
+     *   RadioError:REQUEST_NOT_SUPPORTED
+     *   RadioError:INVALID_ARGUMENTS
+     */
+    oneway getAdnRecordResponse(RadioResponseInfo info, PhonebookCapacity capacity);
+
+    /**
+     * @param info Response info struct containing response type, serial no. and error
+     * @param updatedRecordIndex The index of the updated record in the phonebook and
+     *                           the minimum value is 1
+     *
+     * Valid errors returned:
+     *   RadioError:NONE
+     *   RadioError:RADIO_NOT_AVAILABLE
+     *   RadioError:REQUEST_NOT_SUPPORTED
+     *   RadioError:INVALID_ARGUMENTS
+     */
+    oneway updateAdnRecordResponse(RadioResponseInfo info, int32_t updatedRecordIndex);
+};

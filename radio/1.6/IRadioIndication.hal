@@ -1,0 +1,35 @@
+package android.hardware.radio@1.6;
+
+import @1.0::RadioIndicationType;
+import @1.5::IRadioIndication;
+
+/**
+ * Interface declaring unsolicited radio indications.
+ */
+interface IRadioIndication extends @1.5::IRadioIndication {
+
+    /**
+     * Indicates when the phonebook module initialized completely.
+     *
+     * This indication will be sent after modem has completely read and cached the local and
+     * global phonebook records stored in the SIM card, this indication will be sent.
+     *
+     * The support of this message by the radio is optional
+     *
+     * The used records in phonebook can be retrieved using getAdnRecords()
+     */
+    oneway adnInitDone(RadioIndicationType type);
+
+    /**
+     * Indicates the content of all the used records in the SIM phonebook.
+     *
+     * It must be sent after getAdnRecords()
+     * After each invokation of getAdnRecords(), this indication will be sent.
+     *
+     * One indication included a fixed number of phonebook records.
+     *
+     * It is possible that phonebook content is sent using multiple indications,
+     * if the number of records is more than the maximum records in one indication.
+     */
+    oneway adnRecordsReceived(RadioIndicationType type, vec<PhonebookRecordInfo> records);
+};

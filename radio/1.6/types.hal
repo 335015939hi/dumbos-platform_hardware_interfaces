@@ -1,0 +1,22 @@
+package android.hardware.radio@1.6;
+
+struct PhonebookRecordInfo {
+    uint32_t         recordId;  // record index. 0 is used to insert a record
+    string           name;      // alpha identifier, empty string if no value
+    string           number;    // dialling number, empty string if no value
+    vec<string>      emails;    // email addresses
+    vec<string>      additionalNumbers; // additional numbers
+};
+
+struct PhonebookCapacity {
+     int32_t  maxAdnNum;      // Maximum number of ADN records possible in the SIM phonebook
+     int32_t  validAdnNum;    // Used ADN records in the SIM phonebook
+     int32_t  maxEmailNum;    // Maximum email records possible in the SIM phonebook
+     int32_t  validEmailNum;  // Used email records in the SIM phonebook
+     int32_t  maxAdNum;       // Maximum additional number records possible in the SIM phonebook
+     int32_t  validAdNum;     // Used additional number records in the SIM phonebook
+     int32_t  maxNameLen;     // Maximum name length possible in the SIM phonebook
+     int32_t  maxNumberLen;   // Maximum number length possible in the SIM phonebook
+     int32_t  maxEmailLen;    // Maximum email length possible in the SIM phonebook
+     int32_t  maxAdNumLen;    // Maximum additional number length possible in the SIM phonebook
+};
