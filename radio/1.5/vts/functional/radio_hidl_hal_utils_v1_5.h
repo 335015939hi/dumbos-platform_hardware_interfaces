@@ -590,6 +590,12 @@ class RadioResponse_v1_5 : public ::android::hardware::radio::V1_5::IRadioRespon
     Return<void> getIccCardStatusResponse_1_5(
             const RadioResponseInfo& info,
             const ::android::hardware::radio::V1_5::CardStatus& card_status);
+
+    Return<void> getPhonebookRecordsResponse(const RadioResponseInfo& info,
+                                               const PhonebookCapacity& capacity);
+
+    Return<void> updatePhonebookRecordResponse(const RadioResponseInfo& info,
+                                               int32_t updatedRecordIndex);
 };
 
 /* Callback class for radio indication */
@@ -616,6 +622,13 @@ class RadioIndication_v1_5 : public ::android::hardware::radio::V1_5::IRadioIndi
     Return<void> dataCallListChanged_1_5(
             RadioIndicationType type,
             const hidl_vec<::android::hardware::radio::V1_5::SetupDataCallResult>& dcList);
+
+    Return<void> phonebookInitDone(RadioIndicationType type);
+
+    Return<void> phonebookRecordsReceived(
+            RadioIndicationType type,
+            const ::android::hardware::hidl_vec<::android::hardware::radio::V1_5::PhonebookRecordInfo>&
+                    records);
 
     /* 1.4 Api */
     Return<void> currentEmergencyNumberList(

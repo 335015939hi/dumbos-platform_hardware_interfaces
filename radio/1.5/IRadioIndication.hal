@@ -112,4 +112,27 @@ interface IRadioIndication extends @1.4::IRadioIndication {
      *        3. Unsolicited disconnect from either modem or network side.
      */
     oneway dataCallListChanged_1_5(RadioIndicationType type, vec<SetupDataCallResult> dcList);
+
+    /**
+     * Indicates when the phonebook module initialized completely.
+     *
+     * This indication will be sent after modem has completely read and cached the local and
+     * global phonebook records stored in the SIM card.
+     *
+     * The support of this message by the radio is optional.
+     *
+     * The used records in phonebook can be retrieved using getPhonebookRecords()
+     */
+    oneway phonebookInitDone(RadioIndicationType type);
+
+    /**
+     * Indicates the content of all the used records in the SIM phonebook.
+     *
+     * It must be sent after getPhonebookRecords().
+     * After each invocation of getPhonebookRecords(), this indication will be sent.
+     *
+     * It is possible that phonebook content is sent using multiple indications,
+     * if the number of records is more than the maximum records in one indication.
+     */
+    oneway phonebookRecordsReceived(RadioIndicationType type, vec<PhonebookRecordInfo> records);
 };
