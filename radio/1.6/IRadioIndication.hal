@@ -24,6 +24,7 @@ import @1.6::NetworkScanResult;
 import @1.6::SignalStrength;
 import @1.6::SetupDataCallResult;
 import @1.6::PhysicalChannelConfig;
+import @1.6::PhonebookRecordInfo;
 
 /**
  * Interface declaring unsolicited radio indications.
@@ -72,7 +73,6 @@ interface IRadioIndication extends @1.5::IRadioIndication {
      */
     oneway currentLinkCapacityEstimate_1_6(RadioIndicationType type, LinkCapacityEstimate lce);
 
-
     /**
      * Indicates current signal strength of the radio.
      *
@@ -113,4 +113,31 @@ interface IRadioIndication extends @1.5::IRadioIndication {
      */
     oneway currentPhysicalChannelConfigs_1_6(RadioIndicationType type,
             vec<PhysicalChannelConfig> configs);
+
+    /**
+     * Indicates when the phonebook module initialized completely.
+     *
+     * This indication must be sent after modem has completely read and cached the local and
+     * global phonebook records stored in the SIM card.
+     *
+     * The support of this message by the radio is optional.
+     *
+     * The used records in phonebook can be retrieved using getPhonebookRecords()
+     */
+    oneway phonebookInitDone(RadioIndicationType type);
+
+    /**
+     * Indicates the content of all the used records in the SIM phonebook.
+     *
+     * It must be sent after getPhonebookRecords().
+     * After each invocation of getPhonebookRecords(), this indication will be sent.
+     *
+     * It is possible that phonebook content is sent using multiple indications per invocation
+     * of getPhonebookRecords(), if the number of records is more than the maximum records in
+     * one indication.
+     *
+     * Caller should compare the number of received records with the value of used records returned
+     * in getPhonebookRecordsResponse to determine when all of the indications are received.
+     */
+    oneway phonebookRecordsReceived(RadioIndicationType type, vec<PhonebookRecordInfo> records);
 };
