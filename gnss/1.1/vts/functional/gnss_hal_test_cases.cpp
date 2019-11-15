@@ -377,6 +377,10 @@ TEST_F(GnssHalTest, BlacklistConstellation) {
         // Proceed functionally to blacklist something.
         constellation_to_blacklist = GnssConstellationType::GLONASS;
     }
+
+    // Stop locations, blacklist the constellation
+    StopAndClearLocations();
+
     IGnssConfiguration::BlacklistedSource source_to_blacklist;
     source_to_blacklist.constellation = constellation_to_blacklist;
     source_to_blacklist.svid = 0;  // documented wildcard for all satellites in this constellation
