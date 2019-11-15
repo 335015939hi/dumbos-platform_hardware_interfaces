@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "19680cc3_474456fb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 17
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-11-15T14:55:54Z",
+      "side": 1,
+      "message": "b/140193672",
+      "parentUuid": "02e2aa11_ed43a48e",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 28
+      },
+      "revId": "d84c7402a1d24cded6e6ab9961d3ecae18166132",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a1d733a_eb362e98",
         "filename": "compatibility_matrices/compatibility_matrix.4.xml",
         "patchSetId": 17
@@ -45,6 +69,30 @@
       "revId": "d84c7402a1d24cded6e6ab9961d3ecae18166132",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa2d13e5_b07ac0c1",
+        "filename": "compatibility_matrices/compatibility_matrix.4.xml",
+        "patchSetId": 17
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-11-15T14:55:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a1d733a_eb362e98",
+      "range": {
+        "startLine": 257,
+        "startChar": 19,
+        "endLine": 257,
+        "endChar": 20
+      },
+      "revId": "d84c7402a1d24cded6e6ab9961d3ecae18166132",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "876b43ff_057071d6",
+        "filename": "keymaster/4.1/IKeymasterDevice.hal",
+        "patchSetId": 17
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-11-15T14:55:54Z",
+      "side": 1,
+      "message": "\"password\" is inclusive.  There are bits in the auth token that allow determination of the auth type.",
+      "parentUuid": "598e6277_17ca2721",
+      "range": {
+        "startLine": 46,
+        "startChar": 14,
+        "endLine": 46,
+        "endChar": 23
+      },
+      "revId": "d84c7402a1d24cded6e6ab9961d3ecae18166132",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "40d3e21d_08626a93",
         "filename": "keymaster/4.1/IKeymasterDevice.hal",
         "patchSetId": 17
@@ -91,6 +163,30 @@
       "revId": "d84c7402a1d24cded6e6ab9961d3ecae18166132",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03a1f82b_2a13ab7f",
+        "filename": "keymaster/4.1/IKeymasterDevice.hal",
+        "patchSetId": 17
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-11-15T14:55:54Z",
+      "side": 1,
+      "message": "Not exactly, and in any case the trusted side doesn\u0027t know anything about init.",
+      "parentUuid": "40d3e21d_08626a93",
+      "range": {
+        "startLine": 55,
+        "startChar": 4,
+        "endLine": 55,
+        "endChar": 18
+      },
+      "revId": "d84c7402a1d24cded6e6ab9961d3ecae18166132",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "348f93ec_78cd6821",
+        "filename": "keymaster/4.1/IKeymasterDevice.hal",
+        "patchSetId": 17
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-11-15T14:55:54Z",
+      "side": 1,
+      "message": "The format is vendor-defined, and opaque to Android.",
+      "parentUuid": "023d5b09_43bb7c3b",
+      "range": {
+        "startLine": 67,
+        "startChar": 45,
+        "endLine": 67,
+        "endChar": 52
+      },
+      "revId": "d84c7402a1d24cded6e6ab9961d3ecae18166132",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ffd191a6_f262144b",
         "filename": "keymaster/4.1/IKeymasterDevice.hal",
         "patchSetId": 17
@@ -137,6 +257,30 @@
       "revId": "d84c7402a1d24cded6e6ab9961d3ecae18166132",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0591eff8_859fd4ea",
+        "filename": "keymaster/4.1/IKeymasterDevice.hal",
+        "patchSetId": 17
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-11-15T14:55:54Z",
+      "side": 1,
+      "message": "Yes.",
+      "parentUuid": "ffd191a6_f262144b",
+      "range": {
+        "startLine": 68,
+        "startChar": 8,
+        "endLine": 68,
+        "endChar": 25
+      },
+      "revId": "d84c7402a1d24cded6e6ab9961d3ecae18166132",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "cc2058dd_daa0d62d",
+        "filename": "keymaster/4.1/IOperation.hal",
+        "patchSetId": 17
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-11-15T14:55:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3228253_dc9b8c49",
+      "range": {
+        "startLine": 23,
+        "startChar": 4,
+        "endLine": 23,
+        "endChar": 25
+      },
+      "revId": "d84c7402a1d24cded6e6ab9961d3ecae18166132",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9edc032b_622d5b72",
         "filename": "keymaster/4.1/default/service.cpp",
         "patchSetId": 17
@@ -183,6 +351,30 @@
       "revId": "d84c7402a1d24cded6e6ab9961d3ecae18166132",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8b7f047_b323e80d",
+        "filename": "keymaster/4.1/default/service.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-11-15T14:55:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9edc032b_622d5b72",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 2
+      },
+      "revId": "d84c7402a1d24cded6e6ab9961d3ecae18166132",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "5db9d461_deda67ce",
+        "filename": "keymaster/4.1/default/service.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-11-15T14:55:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "143c455c_e01da68d",
+      "range": {
+        "startLine": 3,
+        "startChar": 13,
+        "endLine": 3,
+        "endChar": 17
+      },
+      "revId": "d84c7402a1d24cded6e6ab9961d3ecae18166132",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3972c24a_6ef50ad7",
         "filename": "keymaster/4.1/support/Android.bp",
         "patchSetId": 17
@@ -229,6 +445,30 @@
       "revId": "d84c7402a1d24cded6e6ab9961d3ecae18166132",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ef2c1b5_390b4998",
+        "filename": "keymaster/4.1/support/Android.bp",
+        "patchSetId": 17
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-11-15T14:55:54Z",
+      "side": 1,
+      "message": "It will be used by three processes.",
+      "parentUuid": "3972c24a_6ef50ad7",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 10
+      },
+      "revId": "d84c7402a1d24cded6e6ab9961d3ecae18166132",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -278,6 +518,30 @@
     },
     {
       "key": {
+        "uuid": "84062770_ef7aff8d",
+        "filename": "keymaster/4.1/support/include/keymasterV4_1/authorization_set.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-11-15T14:55:54Z",
+      "side": 1,
+      "message": "To avoid cluttering client code.  When I get the tests and the rest of the support library implemented, there will be more 4.0 symbols brought into the 4.1 namespace.",
+      "parentUuid": "cc677268_aea1268a",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 25
+      },
+      "revId": "d84c7402a1d24cded6e6ab9961d3ecae18166132",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d821bea2_cb11e7d5",
         "filename": "keymaster/4.1/vts/OWNERS",
         "patchSetId": 17
@@ -301,6 +565,30 @@
     },
     {
       "key": {
+        "uuid": "84c9e5c1_5f26f80a",
+        "filename": "keymaster/4.1/vts/OWNERS",
+        "patchSetId": 17
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-11-15T14:55:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d821bea2_cb11e7d5",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 18
+      },
+      "revId": "d84c7402a1d24cded6e6ab9961d3ecae18166132",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a5052613_92a80328",
         "filename": "keymaster/4.1/vts/functional/Android.bp",
         "patchSetId": 17
@@ -315,6 +603,24 @@
       "revId": "d84c7402a1d24cded6e6ab9961d3ecae18166132",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "384cd8e7_a1a07452",
+        "filename": "keymaster/4.1/vts/functional/Android.bp",
+        "patchSetId": 17
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-11-15T14:55:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5052613_92a80328",
+      "revId": "d84c7402a1d24cded6e6ab9961d3ecae18166132",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -341,6 +647,30 @@
     },
     {
       "key": {
+        "uuid": "1958d7d4_ff99f176",
+        "filename": "keymaster/4.1/vts/functional/EarlyBootKeyTest.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-11-15T14:55:54Z",
+      "side": 1,
+      "message": "I\u0027ll figure out the new test approach when I write the tests.",
+      "parentUuid": "de295301_3af1a6c1",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 1
+      },
+      "revId": "d84c7402a1d24cded6e6ab9961d3ecae18166132",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b910ca8a_4cc87887",
         "filename": "keymaster/4.1/vts/functional/KeymasterHidlTest.h",
         "patchSetId": 17
@@ -358,6 +688,24 @@
     },
     {
       "key": {
+        "uuid": "5aadae35_6c50cc4d",
+        "filename": "keymaster/4.1/vts/functional/KeymasterHidlTest.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-11-15T14:55:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b910ca8a_4cc87887",
+      "revId": "d84c7402a1d24cded6e6ab9961d3ecae18166132",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5fd7b574_1d43ae94",
         "filename": "keymaster/4.1/vts/functional/keymaster_hidl_hal_test.cpp",
         "patchSetId": 17
@@ -372,6 +720,24 @@
       "revId": "d84c7402a1d24cded6e6ab9961d3ecae18166132",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48dac13e_bc105a2b",
+        "filename": "keymaster/4.1/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-11-15T14:55:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5fd7b574_1d43ae94",
+      "revId": "d84c7402a1d24cded6e6ab9961d3ecae18166132",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
