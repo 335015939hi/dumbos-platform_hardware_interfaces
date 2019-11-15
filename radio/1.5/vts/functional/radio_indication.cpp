@@ -368,3 +368,15 @@ Return<void> RadioIndication_v1_5::modemReset(RadioIndicationType /*type*/,
                                               const ::android::hardware::hidl_string& /*reason*/) {
     return Void();
 }
+
+Return<void> RadioIndication_v1_5::phonebookInitDone(
+        RadioIndicationType /*type*/) {
+    return Void();
+}
+
+Return<void> RadioIndication_v1_5::phonebookRecordsReceived(
+        RadioIndicationType /*type*/,
+        const ::android::hardware::hidl_vec<
+        ::android::hardware::radio::V1_5::PhonebookRecordInfo>& /*records*/) {
+    return Void();
+}
