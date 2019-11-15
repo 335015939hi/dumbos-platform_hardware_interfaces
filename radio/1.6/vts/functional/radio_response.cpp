@@ -1156,3 +1156,13 @@ Return<void> RadioResponse_v1_6::setAllowedNetworkTypeBitmapResponse(
     parent_v1_6.notify(info.serial);
     return Void();
 }
+
+Return<void> RadioResponse_v1_6::getPhonebookRecordsResponse(const RadioResponseInfo& /*info*/,
+                                                          const PhonebookCapacity& /*capacity*/) {
+    return Void();
+}
+
+Return<void> RadioResponse_v1_6::updatePhonebookRecordResponse(const RadioResponseInfo& /*info*/,
+                                                               int32_t /*updatedRecordIndex*/) {
+    return Void();
+}

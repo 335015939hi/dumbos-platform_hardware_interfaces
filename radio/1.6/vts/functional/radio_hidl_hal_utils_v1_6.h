@@ -792,6 +792,12 @@ class RadioResponse_v1_6 : public ::android::hardware::radio::V1_6::IRadioRespon
 
     Return<void> setAllowedNetworkTypeBitmapResponse(
             const ::android::hardware::radio::V1_6::RadioResponseInfo& info);
+
+    Return<void> getPhonebookRecordsResponse(const RadioResponseInfo& info,
+            const PhonebookCapacity& capacity);
+
+    Return<void> updatePhonebookRecordResponse(const RadioResponseInfo& info,
+            int32_t updatedRecordIndex);
 };
 
 /* Callback class for radio indication */
@@ -1018,6 +1024,13 @@ class RadioIndication_v1_6 : public ::android::hardware::radio::V1_6::IRadioIndi
             const ::android::hardware::radio::V1_5::CellIdentity& /*cellIdentity*/,
             const ::android::hardware::hidl_vec<::android::hardware::radio::V1_5::BarringInfo>&
             /*barringInfos*/);
+
+    Return<void> phonebookInitDone(RadioIndicationType type);
+
+    Return<void> phonebookRecordsReceived(
+            RadioIndicationType type,
+            const ::android::hardware::hidl_vec<::android::hardware::radio::V1_6::PhonebookRecordInfo>&
+                    records);
 };
 
 // The main test class for Radio HIDL.
