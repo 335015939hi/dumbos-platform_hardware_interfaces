@@ -118,6 +118,30 @@
       "revId": "072ce5ba3c3cbcb61917955ddad92fe318331e07",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a1496bf9_a2b143e3",
+        "filename": "usb/1.0/vts/functional/AndroidTest.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2019-11-15T02:01:36Z",
+      "side": 1,
+      "message": "In case we don\u0027t get a definitive answer, please preserve current behavior. https://github.com/google/googletest/blob/master/googletest/docs/advanced.md#temporarily-disabling-tests",
+      "parentUuid": "ae08b9d5_f0171cd3",
+      "range": {
+        "startLine": 31,
+        "startChar": 8,
+        "endLine": 31,
+        "endChar": 78
+      },
+      "revId": "072ce5ba3c3cbcb61917955ddad92fe318331e07",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
