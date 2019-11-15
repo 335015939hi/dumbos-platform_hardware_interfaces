@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "88796cf4_72e071bb",
+        "filename": "usb/1.0/vts/functional/VtsHalUsbV1_0TargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-15T05:16:22Z",
+      "side": 0,
+      "message": "explain why we\u0027re removing this in the commit message. Should there be a bug opened up to fix this test? Please also get on-team approval/ack.",
+      "range": {
+        "startLine": 229,
+        "startChar": 20,
+        "endLine": 229,
+        "endChar": 35
+      },
+      "revId": "460be5866117684a9fd277e08fa9a30736082055",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
