@@ -26,6 +26,7 @@ import @1.5::IRadio;
 import @1.5::AccessNetwork;
 import @1.5::DataProfileInfo;
 import @1.5::LinkAddress;
+import @1.6::PhonebookRecordInfo;
 
 /**
  * This interface is used by telephony and telecom to talk to cellular radio.
@@ -429,4 +430,31 @@ interface IRadio extends @1.5::IRadio {
      * Response function is IRadioResponse.getCurrentCallsResponse_1_6()
      */
     oneway getCurrentCalls_1_6(int32_t serial);
+
+    /**
+     * Get the local and global phonebook records from the SIM card.
+     * This message can be used only after receiving IRadioIndication.phonebookInitDone
+     * notification.
+     * The phonebook records are received via IRadioIndication.phonebookRecordsReceived()
+     *
+     * @param serial Serial number of request.
+     *
+     * Response callback is IRadioResponse.getPhonebookRecordsResponse()
+     */
+    oneway getPhonebookRecords(int32_t serial);
+
+    /**
+     * Insert, delete or update a phonebook record on the SIM card.
+     * If the index of recordInfo is 0, the phonebook record will be added to global or
+     * local phonebook, and global phonebook has priority over local phonebook.
+     *
+     * If all the fields in the recordInfo are empty except the index, the phonebook
+     * record specified by the index will be deleted.
+     *
+     * @param serial Serial number of request.
+     * @param recordInfo Details of the record to insert, delete or update.
+     *
+     * Response callback is IRadioResponse.updatePhonebookRecordResponse()
+     */
+    oneway updatePhonebookRecord(int32_t serial, PhonebookRecordInfo recordInfo);
 };
