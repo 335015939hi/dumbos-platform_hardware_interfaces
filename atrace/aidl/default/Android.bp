@@ -1,0 +1,19 @@
+cc_binary {
+    name: "android.hardware.atrace-service.default",
+    relative_install_path: "hw",
+    init_rc: ["atrace-default.rc"],
+    vintf_fragments: ["atrace-default.xml"],
+    vendor: true,
+    shared_libs: [
+        "libbase",
+        "libbinder_ndk",
+        "android.hardware.atrace-ndk_platform",
+    ],
+    srcs: [
+        "main.cpp",
+        "AtraceDevice.cpp",
+    ],
+    local_include_dirs: [
+        "include",
+    ],
+}
