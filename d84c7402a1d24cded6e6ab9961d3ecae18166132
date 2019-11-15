@@ -1,0 +1,377 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "02e2aa11_ed43a48e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 17
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-15T04:54:36Z",
+      "side": 1,
+      "message": "Is there a bug for this? This is ship blocking",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 28
+      },
+      "revId": "d84c7402a1d24cded6e6ab9961d3ecae18166132",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a1d733a_eb362e98",
+        "filename": "compatibility_matrices/compatibility_matrix.4.xml",
+        "patchSetId": 17
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-15T04:54:36Z",
+      "side": 1,
+      "message": "\u003cversion\u003e4.0-1\u003c/version\u003e",
+      "range": {
+        "startLine": 257,
+        "startChar": 19,
+        "endLine": 257,
+        "endChar": 20
+      },
+      "revId": "d84c7402a1d24cded6e6ab9961d3ecae18166132",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "598e6277_17ca2721",
+        "filename": "keymaster/4.1/IKeymasterDevice.hal",
+        "patchSetId": 17
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-15T04:54:36Z",
+      "side": 1,
+      "message": "or pattern, etc.. right? how do we formalize that it\u0027s a password?",
+      "range": {
+        "startLine": 46,
+        "startChar": 14,
+        "endLine": 46,
+        "endChar": 23
+      },
+      "revId": "d84c7402a1d24cded6e6ab9961d3ecae18166132",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40d3e21d_08626a93",
+        "filename": "keymaster/4.1/IKeymasterDevice.hal",
+        "patchSetId": 17
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-15T04:54:36Z",
+      "side": 1,
+      "message": "this information is already exposed by init run levels, right?",
+      "range": {
+        "startLine": 55,
+        "startChar": 4,
+        "endLine": 55,
+        "endChar": 18
+      },
+      "revId": "d84c7402a1d24cded6e6ab9961d3ecae18166132",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "023d5b09_43bb7c3b",
+        "filename": "keymaster/4.1/IKeymasterDevice.hal",
+        "patchSetId": 17
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-15T04:54:36Z",
+      "side": 1,
+      "message": "describe format?",
+      "range": {
+        "startLine": 67,
+        "startChar": 45,
+        "endLine": 67,
+        "endChar": 52
+      },
+      "revId": "d84c7402a1d24cded6e6ab9961d3ecae18166132",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ffd191a6_f262144b",
+        "filename": "keymaster/4.1/IKeymasterDevice.hal",
+        "patchSetId": 17
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-15T04:54:36Z",
+      "side": 1,
+      "message": "nit: run \u0027hidl-gen -Lformat android.hardware.keymaster@4.1\u0027. does it produce this?",
+      "range": {
+        "startLine": 68,
+        "startChar": 8,
+        "endLine": 68,
+        "endChar": 25
+      },
+      "revId": "d84c7402a1d24cded6e6ab9961d3ecae18166132",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3228253_dc9b8c49",
+        "filename": "keymaster/4.1/IOperation.hal",
+        "patchSetId": 17
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-15T04:54:36Z",
+      "side": 1,
+      "message": "document?",
+      "range": {
+        "startLine": 23,
+        "startChar": 4,
+        "endLine": 23,
+        "endChar": 25
+      },
+      "revId": "d84c7402a1d24cded6e6ab9961d3ecae18166132",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9edc032b_622d5b72",
+        "filename": "keymaster/4.1/default/service.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-15T04:54:36Z",
+      "side": 1,
+      "message": "is this on purpose? never seen this before",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 2
+      },
+      "revId": "d84c7402a1d24cded6e6ab9961d3ecae18166132",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "143c455c_e01da68d",
+        "filename": "keymaster/4.1/default/service.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-15T04:54:36Z",
+      "side": 1,
+      "message": "2019",
+      "range": {
+        "startLine": 3,
+        "startChar": 13,
+        "endLine": 3,
+        "endChar": 17
+      },
+      "revId": "d84c7402a1d24cded6e6ab9961d3ecae18166132",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3972c24a_6ef50ad7",
+        "filename": "keymaster/4.1/support/Android.bp",
+        "patchSetId": 17
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-15T04:54:36Z",
+      "side": 1,
+      "message": "should this be _static to reduce size? is it expected to be used by many things?",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 10
+      },
+      "revId": "d84c7402a1d24cded6e6ab9961d3ecae18166132",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c10ea4c8_6eba3bc8",
+        "filename": "keymaster/4.1/support/include/keymasterV4_1/authorization_set.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-15T04:54:36Z",
+      "side": 1,
+      "message": "awesome!!!!",
+      "range": {
+        "startLine": 24,
+        "startChar": 10,
+        "endLine": 24,
+        "endChar": 44
+      },
+      "revId": "d84c7402a1d24cded6e6ab9961d3ecae18166132",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cc677268_aea1268a",
+        "filename": "keymaster/4.1/support/include/keymasterV4_1/authorization_set.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-15T04:54:36Z",
+      "side": 1,
+      "message": "delete this file and use these explicitly? why not?",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 25
+      },
+      "revId": "d84c7402a1d24cded6e6ab9961d3ecae18166132",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d821bea2_cb11e7d5",
+        "filename": "keymaster/4.1/vts/OWNERS",
+        "patchSetId": 17
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-15T04:54:36Z",
+      "side": 1,
+      "message": "no longer on the team, all necessary permissions are inherited from hardware/interfaces/OWNERS",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 18
+      },
+      "revId": "d84c7402a1d24cded6e6ab9961d3ecae18166132",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5052613_92a80328",
+        "filename": "keymaster/4.1/vts/functional/Android.bp",
+        "patchSetId": 17
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-15T04:54:36Z",
+      "side": 1,
+      "message": "vts-core",
+      "revId": "d84c7402a1d24cded6e6ab9961d3ecae18166132",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de295301_3af1a6c1",
+        "filename": "keymaster/4.1/vts/functional/EarlyBootKeyTest.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-15T04:54:36Z",
+      "side": 1,
+      "message": "see https://android-review.googlesource.com/c/platform/test/vts-testcase/hal/+/1106615",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 1
+      },
+      "revId": "d84c7402a1d24cded6e6ab9961d3ecae18166132",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b910ca8a_4cc87887",
+        "filename": "keymaster/4.1/vts/functional/KeymasterHidlTest.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-15T04:54:36Z",
+      "side": 1,
+      "message": "delete",
+      "revId": "d84c7402a1d24cded6e6ab9961d3ecae18166132",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5fd7b574_1d43ae94",
+        "filename": "keymaster/4.1/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-15T04:54:36Z",
+      "side": 1,
+      "message": "this file can be deleted, it doesn\u0027t add anything and gtest will provide default main",
+      "revId": "d84c7402a1d24cded6e6ab9961d3ecae18166132",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
