@@ -295,3 +295,56 @@ TEST_P(RadioHidlTest_v1_6, isNrDualConnectivityEnabled) {
                                   ::android::hardware::radio::V1_6::RadioError::INTERNAL_ERR,
                                   ::android::hardware::radio::V1_6::RadioError::NONE}));
 }
+
+/*
+ * Test IRadio.getPhonebookRecords() for the response returned.
+ */
+TEST_F(RadioHidlTest_v1_6, getPhonebookRecords) {
+    serial = GetRandomSerialNumber();
+    radio_v1_6->getPhonebookRecords(serial);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_v1_6->rspInfo.type);
+    EXPECT_EQ(serial, radioRsp_v1_6->rspInfo.serial);
+    if (cardStatus.base.base.cardState == CardState::ABSENT) {
+        ASSERT_TRUE(CheckAnyOfErrors(
+            radioRsp_v1_6->rspInfo.error,
+            {RadioError::INVALID_SIM_STATE,
+             RadioError::REQUEST_NOT_SUPPORTED},
+            CHECK_GENERAL_ERROR));
+    } else if (cardStatus.base.base.base.cardState == CardState::PRESENT) {
+        ASSERT_TRUE(CheckAnyOfErrors(
+            radioRsp_v1_6->rspInfo.error,
+            {RadioError::NONE,
+             RadioError::REQUEST_NOT_SUPPORTED},
+            CHECK_GENERAL_ERROR));
+    }
+}
+
+/*
+ * Test IRadio.updatePhonebookRecord() for the response returned.
+ */
+TEST_F(RadioHidlTest_v1_6, updatePhonebookRecord) {
+    serial = GetRandomSerialNumber();
+    // Create a PhonebookRecordInfo
+    PhonebookRecordInfo recordInfo;
+    recordInfo.recordId = 0;
+    recordInfo.name = "ABC";
+    recordInfo.number = "1234567890";
+    radio_v1_6->updatePhonebookRecord(serial, recordInfo);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_v1_6->rspInfo.type);
+    EXPECT_EQ(serial, radioRsp_v1_6->rspInfo.serial);
+    if (cardStatus.base.base.cardState == CardState::ABSENT) {
+        ASSERT_TRUE(CheckAnyOfErrors(
+            radioRsp_v1_6->rspInfo.error,
+            {RadioError::INVALID_SIM_STATE,
+             RadioError::REQUEST_NOT_SUPPORTED},
+            CHECK_GENERAL_ERROR));
+    } else if (cardStatus.base.base.base.cardState == CardState::PRESENT) {
+        ASSERT_TRUE(CheckAnyOfErrors(
+            radioRsp_v1_6->rspInfo.error,
+            {RadioError::NONE,
+             RadioError::REQUEST_NOT_SUPPORTED},
+            CHECK_GENERAL_ERROR));
+    }
+}
