@@ -1,0 +1,18 @@
+aidl_interface {
+    name: "android.hardware.atrace",
+    vendor_available: true,
+    srcs: [
+        "android/hardware/atrace/*.aidl",
+    ],
+    stability: "vintf",
+    backend: {
+        java: {
+            platform_apis: true,
+        },
+        ndk: {
+            vndk: {
+                enabled: true,
+            },
+        },
+    },
+}
