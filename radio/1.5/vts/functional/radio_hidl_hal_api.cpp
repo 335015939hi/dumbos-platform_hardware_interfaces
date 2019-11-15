@@ -1162,3 +1162,49 @@ TEST_F(RadioHidlTest_v1_5, sendCdmaSmsExpectMore) {
             CHECK_GENERAL_ERROR));
     }
 }
+
+/*
+ * Test IRadio.getPhonebookRecords() for the response returned.
+ */
+TEST_F(RadioHidlTest_v1_5, getPhonebookRecords) {
+    serial = GetRandomSerialNumber();
+
+    radio_v1_5->getPhonebookRecords(serial);
+
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_v1_5->rspInfo.type);
+    EXPECT_EQ(serial, radioRsp_v1_5->rspInfo.serial);
+
+    if (cardStatus.base.base.cardState == CardState::ABSENT) {
+        ASSERT_TRUE(CheckAnyOfErrors(
+            radioRsp_v1_5->rspInfo.error,
+            {RadioError::NONE, RadioError::INVALID_ARGUMENTS, RadioError::INTERNAL_ERR, RadioError::INVALID_SIM_STATE},
+            CHECK_GENERAL_ERROR));
+    }
+}
+
+/*
+ * Test IRadio.updatePhonebookRecord() for the response returned.
+ */
+TEST_F(RadioHidlTest_v1_5, updatePhonebookRecord) {
+    serial = GetRandomSerialNumber();
+
+    // Create a PhonebookRecordInfo
+    PhonebookRecordInfo recordInfo;
+    recordInfo.recordId = 0;
+    recordInfo.name = "ABC";
+    recordInfo.number = "1234567890";
+
+    radio_v1_5->updatePhonebookRecord(serial, recordInfo);
+
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_v1_5->rspInfo.type);
+    EXPECT_EQ(serial, radioRsp_v1_5->rspInfo.serial);
+
+    if (cardStatus.base.base.cardState == CardState::ABSENT) {
+        ASSERT_TRUE(CheckAnyOfErrors(
+            radioRsp_v1_5->rspInfo.error,
+            {RadioError::NONE, RadioError::INVALID_ARGUMENTS, RadioError::INTERNAL_ERR, RadioError::INVALID_SIM_STATE},
+            CHECK_GENERAL_ERROR));
+    }
+}

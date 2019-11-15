@@ -368,3 +368,50 @@ Return<void> RadioIndication_v1_5::modemReset(RadioIndicationType /*type*/,
                                               const ::android::hardware::hidl_string& /*reason*/) {
     return Void();
 }
+
+Return<void> RadioIndication_v1_5::uiccApplicationsEnablementChanged(RadioIndicationType /*type*/,
+                                                                     bool /*enabled*/) {
+    return Void();
+}
+
+Return<void> RadioIndication_v1_5::registrationFailed(
+        RadioIndicationType /*type*/,
+        const ::android::hardware::radio::V1_5::CellIdentity& /*cellIdentity*/,
+        const ::android::hardware::hidl_string& /*chosenPlmn*/,
+        ::android::hardware::hidl_bitfield<::android::hardware::radio::V1_5::Domain> /*domain*/,
+        int32_t /*causeCode*/, int32_t /*additionalCauseCode*/) {
+    return Void();
+}
+
+Return<void> RadioIndication_v1_5::barringInfoChanged(
+        RadioIndicationType /*type*/,
+        const ::android::hardware::radio::V1_5::CellIdentity& /*cellIdentity*/,
+        const ::android::hardware::hidl_vec<::android::hardware::radio::V1_5::BarringInfo>&
+        /*barringInfos*/) {
+    return Void();
+}
+
+Return<void> RadioIndication_v1_5::networkScanResult_1_5(
+        RadioIndicationType /*type*/,
+        const ::android::hardware::radio::V1_5::NetworkScanResult& /*result*/) {
+    return Void();
+}
+
+Return<void> RadioIndication_v1_5::cellInfoList_1_5(
+        RadioIndicationType /*type*/,
+        const ::android::hardware::hidl_vec<
+                ::android::hardware::radio::V1_5::CellInfo>& /*records*/) {
+    return Void();
+}
+
+Return<void> RadioIndication_v1_5::phonebookInitDone(
+        RadioIndicationType /*type*/) {
+    return Void();
+}
+
+Return<void> RadioIndication_v1_5::phonebookRecordsReceived(
+        RadioIndicationType /*type*/,
+        const ::android::hardware::hidl_vec<
+        ::android::hardware::radio::V1_5::PhonebookRecordInfo>& /*records*/) {
+    return Void();
+}

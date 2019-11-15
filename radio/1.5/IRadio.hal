@@ -28,6 +28,7 @@ import @1.5::PersoSubstate;
 import @1.5::RadioAccessNetworks;
 import @1.5::RadioAccessSpecifier;
 import @1.5::SignalThresholdInfo;
+import @1.5::PhonebookRecordInfo;
 
 /**
  * This interface is used by telephony and telecom to talk to cellular radio.
@@ -338,4 +339,29 @@ interface IRadio extends @1.4::IRadio {
      * Response function is IRadioResponse.supplySimDepersonalizationResponse()
      */
     oneway supplySimDepersonalization(int32_t serial, PersoSubstate persoType, string controlKey);
+
+    /**
+     * Get the local and global phonebook records from the SIM card.
+     * This message can be used only after receiving IRadioIndication.phonebookInitDone notification.
+     * The phonebook records are received via IRadioIndication.phonebookRecordsReceived()
+     *
+     * @param serial Serial number of request.
+     *
+     * Response callback is IRadioResponse.getPhonebookRecordsResponse()
+     */
+    oneway getPhonebookRecords(int32_t serial);
+
+    /**
+     * Insert, delete or update a phonebook record on the SIM card.
+     * If the index of recordInfo is 0, the phonebook record will be added.
+     *
+     * If all the fields in the recordInfo are empty except the index, the phonebook
+     * record specified by the index will be deleted.
+     *
+     * @param serial Serial number of request.
+     * @param recordInfo Details of the record to insert, delete or update.
+     *
+     * Response callback is IRadioResponse.updatePhonebookRecordResponse()
+     */
+    oneway updatePhonebookRecord(int32_t serial, PhonebookRecordInfo recordInfo);
 };

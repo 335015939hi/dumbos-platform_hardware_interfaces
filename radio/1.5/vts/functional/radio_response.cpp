@@ -1034,3 +1034,14 @@ Return<void> RadioResponse_v1_5::getIccCardStatusResponse_1_5(
     parent_v1_5.notify(info.serial);
     return Void();
 }
+
+Return<void> RadioResponse_v1_5::getPhonebookRecordsResponse(const RadioResponseInfo& /*info*/,
+                                                              const PhonebookCapacity& /*capacity*/) {
+    return Void();
+}
+
+
+Return<void> RadioResponse_v1_5::updatePhonebookRecordResponse(const RadioResponseInfo& /*info*/,
+                                                               int32_t /*updatedRecordIndex*/) {
+    return Void();
+}
