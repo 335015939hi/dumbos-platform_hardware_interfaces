@@ -580,6 +580,12 @@ class RadioResponse_v1_5 : public ::android::hardware::radio::V1_5::IRadioRespon
     Return<void> supplySimDepersonalizationResponse(
             const RadioResponseInfo& info,
             ::android::hardware::radio::V1_5::PersoSubstate persoType, int32_t remainingRetries);
+
+    Return<void> getPhonebookRecordsResponse(const RadioResponseInfo& info,
+                                               const PhonebookCapacity& capacity);
+
+    Return<void> updatePhonebookRecordResponse(const RadioResponseInfo& info,
+                                               int32_t updatedRecordIndex);
 };
 
 /* Callback class for radio indication */
@@ -601,6 +607,13 @@ class RadioIndication_v1_5 : public ::android::hardware::radio::V1_5::IRadioIndi
     Return<void> cellInfoList_1_5(
             RadioIndicationType type,
             const ::android::hardware::hidl_vec<::android::hardware::radio::V1_5::CellInfo>&
+                    records);
+
+    Return<void> phonebookInitDone(RadioIndicationType type);
+
+    Return<void> phonebookRecordsReceived(
+            RadioIndicationType type,
+            const ::android::hardware::hidl_vec<::android::hardware::radio::V1_5::PhonebookRecordInfo>&
                     records);
 
     /* 1.4 Api */

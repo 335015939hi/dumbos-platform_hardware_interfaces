@@ -1042,3 +1042,52 @@ enum PersoSubstate : @1.0::PersoSubstate {
     SIM_NS_SP,
     SIM_NS_SP_PUK,
 };
+
+struct PhonebookRecordInfo {
+    /** Record index. 0 is used to insert a record */
+    uint32_t recordId;
+
+    /** Alpha identifier, empty string if no value */
+    string name;
+
+    /** Dialling number, empty string if no value */
+    string number;
+
+    /** Email addresses */
+    vec<string> emails;
+
+    /** Additional numbers */
+    vec<string> additionalNumbers;
+};
+
+struct PhonebookCapacity {
+    /** Maximum number of ADN records possible in the SIM phonebook */
+    int32_t maxAdnRecords;
+
+    /** Used ADN records in the SIM phonebook */
+    int32_t usedAdnRecords;
+
+    /** Maximum email records possible in the SIM phonebook */
+    int32_t maxEmailRecords;
+
+    /** Used email records in the SIM phonebook */
+    int32_t usedEmailRecords;
+
+    /** Maximum additional number records possible in the SIM phonebook */
+    int32_t maxAdditionalNumberRecords;
+
+    /** Used additional number records in the SIM phonebook */
+    int32_t usedAdditionalNumberRecords;
+
+    /** Maximum name length possible in the SIM phonebook */
+    int32_t maxNameLen;
+
+    /** Maximum number length possible in the SIM phonebook */
+    int32_t maxNumberLen;
+
+    /** Maximum email length possible in the SIM phonebook */
+    int32_t maxEmailLen;
+
+    /** Maximum additional number length possible in the SIM phonebook */
+    int32_t maxAdditionalNumberLen;
+};

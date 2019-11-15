@@ -1011,3 +1011,14 @@ Return<void> RadioResponse_v1_5::supplySimDepersonalizationResponse(
         int32_t /*remainingRetries*/) {
     return Void();
 }
+
+Return<void> RadioResponse_v1_5::getPhonebookRecordsResponse(const RadioResponseInfo& /*info*/,
+                                                              const PhonebookCapacity& /*capacity*/) {
+    return Void();
+}
+
+
+Return<void> RadioResponse_v1_5::updatePhonebookRecordResponse(const RadioResponseInfo& /*info*/,
+                                                               int32_t /*updatedRecordIndex*/) {
+    return Void();
+}
