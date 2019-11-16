@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8a8ad984_3f2e389a",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1002609
+      },
+      "writtenOn": "2019-11-16T01:06:46Z",
+      "side": 1,
+      "message": "I\u0027d rather remove this than make it optional.  If we can\u0027t count on it it provides no value and makes the platform harder to support.\n\nWe certainly can\u0027t add something here where the interpretation is vendor specific",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 14
+      },
+      "revId": "bd4a6f13df672ca0717c3435ad63a0859706e9c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
