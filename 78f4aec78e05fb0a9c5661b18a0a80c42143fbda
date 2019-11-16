@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e735cb4_047d6f78",
+        "filename": "radio/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1002609
+      },
+      "writtenOn": "2019-11-16T01:10:12Z",
+      "side": 1,
+      "message": "Yim is on assitant.  doesn\u0027t seem appropriate.\n\nI would add more telephony team folks.\n\nI\u0027d remove yuexima (app compat).",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 14
+      },
+      "revId": "78f4aec78e05fb0a9c5661b18a0a80c42143fbda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
