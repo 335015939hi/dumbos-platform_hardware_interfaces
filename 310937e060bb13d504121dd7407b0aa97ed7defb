@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4daa01a3_e753db32",
+        "filename": "keymaster/4.0/vts/performance/Benchmark.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 642,
+      "author": {
+        "id": 1362721
+      },
+      "writtenOn": "2019-11-16T00:51:51Z",
+      "side": 1,
+      "message": "Looks like formatter adding spaces between slashes. This will need to be fixed.",
+      "revId": "310937e060bb13d504121dd7407b0aa97ed7defb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
