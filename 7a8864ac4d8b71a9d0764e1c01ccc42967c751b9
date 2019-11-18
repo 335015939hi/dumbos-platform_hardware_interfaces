@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "f130c550_a251440d",
+        "filename": "graphics/mapper/4.0/IMapper.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-11-18T20:31:11Z",
+      "side": 1,
+      "message": "I think it would be hard to make it forbidden. I am not sure clients would read the api carefully enough to realize it isn\u0027t allowed. Eventually someone will continue to use the old pointer and write into something they aren\u0027t supposed to.\n\nWould it be possible for reread to always reread to the exact same address? Or are there cases where it wouldn\u0027t work?",
+      "parentUuid": "e3d5fe8d_0a41f3dc",
+      "range": {
+        "startLine": 316,
+        "startChar": 59,
+        "endLine": 318,
+        "endChar": 65
+      },
+      "revId": "7a8864ac4d8b71a9d0764e1c01ccc42967c751b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7688a4ef_9f8df6f1",
         "filename": "graphics/mapper/4.0/IMapper.hal",
         "patchSetId": 1
@@ -60,6 +84,30 @@
       "writtenOn": "2019-11-18T17:54:47Z",
       "side": 1,
       "message": "I think this is confusing. The assumption is that when this function is called the client has a locked buffer, right?",
+      "range": {
+        "startLine": 336,
+        "startChar": 73,
+        "endLine": 337,
+        "endChar": 54
+      },
+      "revId": "7a8864ac4d8b71a9d0764e1c01ccc42967c751b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cde98480_243f8506",
+        "filename": "graphics/mapper/4.0/IMapper.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-11-18T20:31:11Z",
+      "side": 1,
+      "message": "You are right, I took the language from lock. Would changing it to \"Note that rereading it may succeed at a later time\" be reasonable?",
+      "parentUuid": "7688a4ef_9f8df6f1",
       "range": {
         "startLine": 336,
         "startChar": 73,
