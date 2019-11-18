@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "00ebe8d2_2c069ef8",
+        "filename": "compatibility_matrices/compatibility_matrix.4.xml",
+        "patchSetId": 20
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-18T19:25:56Z",
+      "side": 1,
+      "message": "This is correct, however, we should be modifying compatibility_matrix.current.xml instead sorry I missed this before.",
+      "parentUuid": "17f4ef9b_1a2315ff",
+      "revId": "e375788cba133d68ea4133162851925106acd2b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3b138a0d_b118deb0",
         "filename": "keymaster/4.1/IKeymasterDevice.hal",
         "patchSetId": 20
