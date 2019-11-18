@@ -16,6 +16,46 @@
       "revId": "e375788cba133d68ea4133162851925106acd2b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b138a0d_b118deb0",
+        "filename": "keymaster/4.1/IKeymasterDevice.hal",
+        "patchSetId": 20
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1098493
+      },
+      "writtenOn": "2019-11-18T19:18:20Z",
+      "side": 1,
+      "message": "I assume that the HAL should start up in a failsafe mode?  i.e. Locked?",
+      "revId": "e375788cba133d68ea4133162851925106acd2b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "211cd8ba_8364cace",
+        "filename": "keymaster/4.1/IKeymasterDevice.hal",
+        "patchSetId": 20
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1098493
+      },
+      "writtenOn": "2019-11-18T19:18:20Z",
+      "side": 1,
+      "message": "What\u0027s a good way for the HAL to infer that (password) authentication happened?  Could add some examples?",
+      "range": {
+        "startLine": 43,
+        "startChar": 7,
+        "endLine": 43,
+        "endChar": 20
+      },
+      "revId": "e375788cba133d68ea4133162851925106acd2b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
