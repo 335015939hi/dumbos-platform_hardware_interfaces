@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "17f4ef9b_1a2315ff",
+        "filename": "compatibility_matrices/compatibility_matrix.4.xml",
+        "patchSetId": 20
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1362721
+      },
+      "writtenOn": "2019-11-18T18:10:37Z",
+      "side": 1,
+      "message": "Should this be 4.1?",
+      "revId": "e375788cba133d68ea4133162851925106acd2b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
