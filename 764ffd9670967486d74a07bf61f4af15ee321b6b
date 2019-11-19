@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e79c537b_1eaa1b2e",
+        "filename": "radio/1.3/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-11-19T23:18:37Z",
+      "side": 1,
+      "message": "Both this method and enableModem failed in flame with error like:\n\n[1/3] PerInstance/RadioHidlTest_v1_3#enableModem/0_slot1: FAILED (125ms)\n\nSTACKTRACE:\nhardware/interfaces/radio/1.3/vts/functional/radio_hidl_hal_api.cpp:38: Failure\nValue of: CheckAnyOfErrors(radioRsp_v1_3-\u003erspInfo.error, {RadioError::NONE, RadioError::RADIO_NOT_AVAILABLE, RadioError::MODEM_ERR, RadioError::INVALID_STATE})\nActual: false (RadioError:REQUEST_NOT_SUPPORTED is returned)\nExpected: true\n\n[3/3] PerInstance/RadioHidlTest_v1_3#setSystemSelectionChannels/0_slot1: FAILED (118ms)\n\nSTACKTRACE:\nhardware/interfaces/radio/1.3/vts/functional/radio_hidl_hal_api.cpp:100: Failure\nValue of: CheckAnyOfErrors( radioRsp_v1_3-\u003erspInfo.error, {RadioError::NONE, RadioError::RADIO_NOT_AVAILABLE, RadioError::INTERNAL_ERR})\nActual: false (RadioError:REQUEST_NOT_SUPPORTED is returned)\nExpected: true\n\n\nIs that expected?",
+      "revId": "764ffd9670967486d74a07bf61f4af15ee321b6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
