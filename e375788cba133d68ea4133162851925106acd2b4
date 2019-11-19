@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "1a7c80ce_24842fd5",
+        "filename": "compatibility_matrices/compatibility_matrix.4.xml",
+        "patchSetId": 20
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-11-19T15:55:32Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "00ebe8d2_2c069ef8",
+      "revId": "e375788cba133d68ea4133162851925106acd2b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3b138a0d_b118deb0",
         "filename": "keymaster/4.1/IKeymasterDevice.hal",
         "patchSetId": 20
@@ -74,6 +92,48 @@
       "revId": "e375788cba133d68ea4133162851925106acd2b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c86a1d70_f82e25c8",
+        "filename": "keymaster/4.1/IKeymasterDevice.hal",
+        "patchSetId": 20
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-11-19T15:55:32Z",
+      "side": 1,
+      "message": "Will fix in the next CL.  I want to land this unchanged because of the downstream merge problem on the hashes.  I think that should be better after this lands.",
+      "parentUuid": "3b138a0d_b118deb0",
+      "revId": "e375788cba133d68ea4133162851925106acd2b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "abe8815f_a1cd3258",
+        "filename": "keymaster/4.1/IKeymasterDevice.hal",
+        "patchSetId": 20
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-11-19T15:55:32Z",
+      "side": 1,
+      "message": "There are bits in the HardwareAuthToken that specify they auth type.",
+      "parentUuid": "211cd8ba_8364cace",
+      "range": {
+        "startLine": 43,
+        "startChar": 7,
+        "endLine": 43,
+        "endChar": 20
+      },
+      "revId": "e375788cba133d68ea4133162851925106acd2b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
