@@ -134,6 +134,30 @@
       "revId": "e375788cba133d68ea4133162851925106acd2b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ec0d2cbb_b3b142ed",
+        "filename": "keymaster/4.1/IKeymasterDevice.hal",
+        "patchSetId": 20
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1098493
+      },
+      "writtenOn": "2019-11-19T19:30:25Z",
+      "side": 1,
+      "message": "A pure doc change triggers a hash update?  Seems sub-optimal for API usage clarifications.",
+      "parentUuid": "abe8815f_a1cd3258",
+      "range": {
+        "startLine": 43,
+        "startChar": 7,
+        "endLine": 43,
+        "endChar": 20
+      },
+      "revId": "e375788cba133d68ea4133162851925106acd2b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
