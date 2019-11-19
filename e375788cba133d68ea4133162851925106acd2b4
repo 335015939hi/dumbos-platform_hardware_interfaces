@@ -158,6 +158,30 @@
       "revId": "e375788cba133d68ea4133162851925106acd2b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "69fd8d8c_394ca122",
+        "filename": "keymaster/4.1/IKeymasterDevice.hal",
+        "patchSetId": 20
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-19T20:06:38Z",
+      "side": 1,
+      "message": "Yes, the logic for this is that comment changes are more often than not API changes (and FWIW, they are frequently -2\u0027d/not merged). Hard to weigh the pros and cons, but it would be difficult to switch to a different system.",
+      "parentUuid": "ec0d2cbb_b3b142ed",
+      "range": {
+        "startLine": 43,
+        "startChar": 7,
+        "endLine": 43,
+        "endChar": 20
+      },
+      "revId": "e375788cba133d68ea4133162851925106acd2b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

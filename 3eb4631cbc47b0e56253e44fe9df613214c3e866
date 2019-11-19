@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "87d8e549_0a5b2417",
+        "filename": "compatibility_matrices/compatibility_matrix.4.xml",
+        "patchSetId": 22
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-19T20:06:38Z",
+      "side": 1,
+      "message": "we shouldn\u0027t need to modify this file at all (it\u0027ll inherit 4.1, but we avoid any changes to the old files)",
+      "range": {
+        "startLine": 257,
+        "startChar": 20,
+        "endLine": 257,
+        "endChar": 23
+      },
+      "revId": "3eb4631cbc47b0e56253e44fe9df613214c3e866",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
