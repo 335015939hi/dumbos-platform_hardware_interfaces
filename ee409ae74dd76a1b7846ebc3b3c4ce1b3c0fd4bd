@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "87ca6a49_e9dc141e",
+        "filename": "tests/extension/vibrator/aidl/client/test-cpp-client.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-19T00:48:43Z",
+      "side": 1,
+      "message": "hmmm, need to improve the story here, since the type isn\u0027t checked when interface_cast is used if the descriptor hasn\u0027t been retrieved yet.",
+      "range": {
+        "startLine": 47,
+        "startChar": 31,
+        "endLine": 47,
+        "endChar": 45
+      },
+      "revId": "ee409ae74dd76a1b7846ebc3b3c4ce1b3c0fd4bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
