@@ -2,6 +2,103 @@
   "comments": [
     {
       "key": {
+        "uuid": "c727b49b_45e0a0ee",
+        "filename": "radio/1.0/vts/functional/VtsHalRadioV1_0TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-20T18:17:30Z",
+      "side": 1,
+      "message": "why not all instance names? it needs to be all instance names?\n\nif this is the fact that the SIM isn\u0027t up on some devices, there is configuration we need to setup before the test, but we shouldn\u0027t lose coverage",
+      "range": {
+        "startLine": 23,
+        "startChar": 70,
+        "endLine": 23,
+        "endChar": 88
+      },
+      "revId": "764ffd9670967486d74a07bf61f4af15ee321b6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a419b5e_a7672b4a",
+        "filename": "radio/1.0/vts/functional/VtsHalSapV1_0TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-20T18:17:30Z",
+      "side": 1,
+      "message": "same, all instance names",
+      "range": {
+        "startLine": 23,
+        "startChar": 70,
+        "endLine": 23,
+        "endChar": 86
+      },
+      "revId": "764ffd9670967486d74a07bf61f4af15ee321b6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f45e049_f4824835",
+        "filename": "radio/1.1/vts/functional/VtsHalRadioV1_1TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-20T18:17:30Z",
+      "side": 1,
+      "message": "same",
+      "revId": "764ffd9670967486d74a07bf61f4af15ee321b6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9c7039f_f656ee80",
+        "filename": "radio/1.2/vts/functional/VtsHalRadioV1_2TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-20T18:17:30Z",
+      "side": 1,
+      "message": "same",
+      "revId": "764ffd9670967486d74a07bf61f4af15ee321b6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40803269_f1d33a37",
+        "filename": "radio/1.3/vts/functional/VtsHalRadioV1_3TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-20T18:17:30Z",
+      "side": 1,
+      "message": "same",
+      "revId": "764ffd9670967486d74a07bf61f4af15ee321b6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e79c537b_1eaa1b2e",
         "filename": "radio/1.3/vts/functional/radio_hidl_hal_api.cpp",
         "patchSetId": 2
@@ -34,6 +131,23 @@
       "revId": "764ffd9670967486d74a07bf61f4af15ee321b6b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "155fcd6d_79735ba2",
+        "filename": "radio/1.4/vts/functional/VtsHalRadioV1_4TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-20T18:17:30Z",
+      "side": 1,
+      "message": "same",
+      "revId": "764ffd9670967486d74a07bf61f4af15ee321b6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
