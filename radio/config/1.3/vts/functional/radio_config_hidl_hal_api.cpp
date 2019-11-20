@@ -17,3 +17,33 @@
 #include <radio_config_hidl_hal_utils.h>
 
 #define ASSERT_OK(ret) ASSERT_TRUE(ret.isOk())
+
+/*
+ * Test IRadioConfig.getPhoneCapability_1_3()
+ */
+TEST_P(RadioConfigHidlTest, getPhoneCapability_1_3) {
+    serial = GetRandomSerialNumber();
+    Return<void> res = radioConfig->getPhoneCapability_1_3(serial);
+    ASSERT_OK(res);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioConfigRsp->rspInfo.type);
+    EXPECT_EQ(serial, radioConfigRsp->rspInfo.serial);
+    ALOGI("getPhoneCapability_1_3, rspInfo.error = %s\n",
+          toString(radioConfigRsp->rspInfo.error).c_str());
+
+    ASSERT_TRUE(CheckAnyOfErrors(
+            radioConfigRsp->rspInfo.error,
+            {RadioError::NONE, RadioError::RADIO_NOT_AVAILABLE, RadioError::INTERNAL_ERR}));
+
+    if (radioConfigRsp->rspInfo.error == RadioError ::NONE) {
+        int numModems = radioConfigRsp->phoneCap_1_3.logicalModemUuids.size();
+        EXPECT_GE(numModems, 0);
+        EXPECT_GE(radioConfigRsp->phoneCap_1_3.simSlotCapabilities.size(), 0);
+        // length of modemFeatures in each ConcurrentModemFeatures should be
+        // equal to length of logicalModemList
+        for (V1_3::ConcurrentModemFeatures cmf :
+             radioConfigRsp->phoneCap_1_3.concurrentFeatureSupport) {
+            EXPECT_EQ(numModems, cmf.modemFeatures.size());
+        }
+    }
+}
