@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "458f43e2_e363ec4c",
+        "filename": "radio/1.0/vts/functional/VtsHalRadioV1_0TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-11-20T18:57:02Z",
+      "side": 1,
+      "message": "yeah, it appears that some tests will fail if we test all slots:\nVtsHalRadioV1_0TargetTest aborted when running a test in slot1.\nVtsHalRadioV1_3TargetTest failed to run setSystemSelectionChannels on both slots.",
+      "parentUuid": "c727b49b_45e0a0ee",
+      "range": {
+        "startLine": 23,
+        "startChar": 70,
+        "endLine": 23,
+        "endChar": 88
+      },
+      "revId": "764ffd9670967486d74a07bf61f4af15ee321b6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4a419b5e_a7672b4a",
         "filename": "radio/1.0/vts/functional/VtsHalSapV1_0TargetTest.cpp",
         "patchSetId": 2
