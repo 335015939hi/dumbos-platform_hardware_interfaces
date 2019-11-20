@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "be7d7471_4c60e9fa",
+        "filename": "identity_credential/1.0/default/IdentityCredential.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-11-20T21:51:48Z",
+      "side": 1,
+      "message": "Obnoxious name.  Makes me think this is a callback function type, but it\u0027s a struct.\n\nMore seriously, would it make sense to update this to use libcppbor?",
+      "range": {
+        "startLine": 64,
+        "startChar": 4,
+        "endLine": 64,
+        "endChar": 19
+      },
+      "revId": "078698add2f9232410f9fe3ec37137da778e1c59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a17c379a_39008984",
+        "filename": "identity_credential/1.0/default/IdentityCredential.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-11-20T21:51:48Z",
+      "side": 1,
+      "message": "Nit, formatting.",
+      "range": {
+        "startLine": 159,
+        "startChar": 7,
+        "endLine": 159,
+        "endChar": 20
+      },
+      "revId": "078698add2f9232410f9fe3ec37137da778e1c59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e764fec3_73452c79",
+        "filename": "identity_credential/1.0/default/IdentityCredential.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-11-20T21:51:48Z",
+      "side": 1,
+      "message": "Nit:  You can now type\n\nnamespace android::hardware::identity_credential::V1_0::implementation {\n\nMinor but great C++17 feature.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 26
+      },
+      "revId": "078698add2f9232410f9fe3ec37137da778e1c59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ba868c9_7425f3b5",
+        "filename": "identity_credential/1.0/default/IdentityCredential.h",
+        "patchSetId": 22
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-11-20T21:51:48Z",
+      "side": 1,
+      "message": "If you have to explicitly initialize (so you can return an error code), why not make the constructor a no-op and pass the credentialData here?\n\nThough I think I\u0027d prefer moving the initialize() logic into the ctor and add an out parameter for the return value.\n\nEither way, splitting the initialization logic is awkward.",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 28
+      },
+      "revId": "078698add2f9232410f9fe3ec37137da778e1c59",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
