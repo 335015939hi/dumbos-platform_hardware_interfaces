@@ -16,6 +16,24 @@
       "revId": "764ffd9670967486d74a07bf61f4af15ee321b6b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4762192f_4ba134cc",
+        "filename": "radio/1.3/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-11-20T17:54:05Z",
+      "side": 1,
+      "message": "somehow the test is always passing now. maybe some device flake.",
+      "parentUuid": "e79c537b_1eaa1b2e",
+      "revId": "764ffd9670967486d74a07bf61f4af15ee321b6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
