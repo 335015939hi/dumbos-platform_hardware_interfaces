@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "89ea7883_ad417532",
+        "filename": "radio/config/1.2/vts/functional/radio_config_hidl_hal_utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-11-20T04:33:05Z",
+      "side": 1,
+      "message": "this needs to be cleaned up.",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 113,
+        "endChar": 2
+      },
+      "revId": "7a2cba8487fee0e234af10ad87537de0384e1b5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
