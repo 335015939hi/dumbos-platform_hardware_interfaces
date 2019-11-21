@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f6f4ef8d_da13d82a",
+        "filename": "sensors/2.0/multihal/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1585259
+      },
+      "writtenOn": "2019-11-21T22:35:25Z",
+      "side": 1,
+      "message": "Brian suggested I try moving the ScopedWakelock implementation all into the header file and just getting rid of the shared library idea, but I ran into double definition problems so I opted for this.",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 1
+      },
+      "revId": "f537573de30e013592e74b3f1aac5c2555cdf2c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
