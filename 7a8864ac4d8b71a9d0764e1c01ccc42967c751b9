@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "3e255606_6ab5e7cf",
+        "filename": "graphics/mapper/4.0/IMapper.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1468456
+      },
+      "writtenOn": "2019-11-21T17:23:35Z",
+      "side": 1,
+      "message": "For us it is fine to reread on the same address, since all of this is preceded with a regular lock()",
+      "parentUuid": "f130c550_a251440d",
+      "range": {
+        "startLine": 316,
+        "startChar": 59,
+        "endLine": 318,
+        "endChar": 65
+      },
+      "revId": "7a8864ac4d8b71a9d0764e1c01ccc42967c751b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7688a4ef_9f8df6f1",
         "filename": "graphics/mapper/4.0/IMapper.hal",
         "patchSetId": 1
