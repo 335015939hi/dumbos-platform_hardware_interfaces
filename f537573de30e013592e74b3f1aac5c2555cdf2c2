@@ -22,6 +22,76 @@
       "revId": "f537573de30e013592e74b3f1aac5c2555cdf2c2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "238df256_a19b54ee",
+        "filename": "sensors/2.0/multihal/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1074038
+      },
+      "writtenOn": "2019-11-21T22:43:45Z",
+      "side": 1,
+      "message": "I\u0027m fine with either (though header only impl would be better). Would be good to understand if the double definition problems can be remidiated.",
+      "parentUuid": "f6f4ef8d_da13d82a",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 1
+      },
+      "revId": "f537573de30e013592e74b3f1aac5c2555cdf2c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "43bc45a8_b9fe063d",
+        "filename": "sensors/2.0/multihal/tests/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1074038
+      },
+      "writtenOn": "2019-11-21T22:43:45Z",
+      "side": 1,
+      "message": "Since this is already specified in the defaults, it\u0027s not needed here and below. Also, if you export it from -HalProxy, it shouldn\u0027t be needed at all right?",
+      "range": {
+        "startLine": 49,
+        "startChar": 4,
+        "endLine": 49,
+        "endChar": 15
+      },
+      "revId": "f537573de30e013592e74b3f1aac5c2555cdf2c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba6caaf5_f597c229",
+        "filename": "sensors/2.0/multihal/tests/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1074038
+      },
+      "writtenOn": "2019-11-21T22:43:45Z",
+      "side": 1,
+      "message": "This can be moved to android.hardware.sensors@2.0-HalProxy and then you don\u0027t need it here right?",
+      "range": {
+        "startLine": 106,
+        "startChar": 4,
+        "endLine": 106,
+        "endChar": 29
+      },
+      "revId": "f537573de30e013592e74b3f1aac5c2555cdf2c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
