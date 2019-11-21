@@ -23,6 +23,7 @@ cc_defaults {
     ],
     export_include_dirs: ["fake_subhal"],
     shared_libs: [
+        "android.hardware.sensors@2.0-ScopedWakelock",
         "android.hardware.sensors@1.0",
         "android.hardware.sensors@2.0",
         "libcutils",
@@ -45,6 +46,9 @@ cc_library {
     name: "android.hardware.sensors@2.0-fakesubhal-config1",
     vendor: true,
     defaults: ["android.hardware.sensors@2.0-fakesubhal-defaults"],
+    shared_libs: [
+        "android.hardware.sensors@2.0-ScopedWakelock",
+    ],
     cflags: [
         "-DSUPPORT_CONTINUOUS_SENSORS",
         "-DSUB_HAL_NAME=\"FakeSubHal-Continuous\"",
@@ -55,6 +59,9 @@ cc_library {
     name: "android.hardware.sensors@2.0-fakesubhal-config2",
     vendor: true,
     defaults: ["android.hardware.sensors@2.0-fakesubhal-defaults"],
+    shared_libs: [
+        "android.hardware.sensors@2.0-ScopedWakelock",
+    ],
     cflags: [
         "-DSUPPORT_ON_CHANGE_SENSORS",
         "-DSUB_HAL_NAME=\"FakeSubHal-OnChange\"",
@@ -65,6 +72,9 @@ cc_test_library {
     name: "android.hardware.sensors@2.0-fakesubhal-unittest",
     vendor_available: true,
     defaults: ["android.hardware.sensors@2.0-fakesubhal-defaults"],
+    shared_libs: [
+        "android.hardware.sensors@2.0-HalProxy",
+    ],
     cflags: [
         "-DSUPPORT_ON_CHANGE_SENSORS",
         "-DSUPPORT_CONTINUOUS_SENSORS",
@@ -83,6 +93,7 @@ cc_test {
     shared_libs: [
         "android.hardware.sensors@1.0",
         "android.hardware.sensors@2.0",
+        "android.hardware.sensors@2.0-ScopedWakelock",
         "libbase",
         "libcutils",
         "libfmq",
@@ -91,6 +102,9 @@ cc_test {
         "liblog",
         "libpower",
         "libutils",
+    ],
+    export_shared_lib_headers: [
+        "android.hardware.sensors@2.0-ScopedWakelock",
     ],
     test_suites: ["device-tests"],
     cflags: [
