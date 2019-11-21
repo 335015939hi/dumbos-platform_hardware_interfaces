@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "26ff7431_8fc48ace",
+        "filename": "audio/core/all-versions/default/Device.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2019-11-21T19:58:13Z",
+      "side": 1,
+      "message": "we should assert when attempting to close with an open count already 0.",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 26
+      },
+      "revId": "d5328020f01262727f68b86fdafdc77ef2c4b79c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
