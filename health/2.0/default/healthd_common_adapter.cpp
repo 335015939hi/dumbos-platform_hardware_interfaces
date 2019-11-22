@@ -50,11 +50,12 @@ static std::unique_ptr<HealthLoopAdapter> health_loop;
 
 int healthd_register_event(int fd, void (*handler)(uint32_t), EventWakeup wakeup) {
     auto wrapped_handler = [handler](auto*, uint32_t epevents) { handler(epevents); };
+    if (!health_loop) return 0;
     return health_loop->RegisterEvent(fd, wrapped_handler, wakeup);
 }
 
 void healthd_battery_update_internal(bool charger_online) {
-    health_loop->AdjustWakealarmPeriods(charger_online);
+    if (health_loop) health_loop->AdjustWakealarmPeriods(charger_online);
 }
 
 int healthd_main() {
