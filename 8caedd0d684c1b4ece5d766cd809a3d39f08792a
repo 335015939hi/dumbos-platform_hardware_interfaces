@@ -22,6 +22,30 @@
       "revId": "8caedd0d684c1b4ece5d766cd809a3d39f08792a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78e96ba3_8331ac1f",
+        "filename": "radio/1.0/vts/functional/vts_hal_sap_target_test.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-22T22:52:53Z",
+      "side": 1,
+      "message": "-\u003e jminjie/rgreenwalt?",
+      "parentUuid": "90b029c8_2cfd3212",
+      "range": {
+        "startLine": 20,
+        "startChar": 60,
+        "endLine": 20,
+        "endChar": 76
+      },
+      "revId": "8caedd0d684c1b4ece5d766cd809a3d39f08792a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
