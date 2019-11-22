@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1b189e15_266b2eb8",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2019-11-22T19:33:33Z",
+      "side": 1,
+      "message": "Remove empty line",
+      "range": {
+        "startLine": 33,
+        "startChar": 2,
+        "endLine": 33,
+        "endChar": 6
+      },
+      "revId": "22daf510ac893a650b9fc4e22947372e2f97add7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc29ba82_8dc2c35d",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2019-11-22T19:33:33Z",
+      "side": 1,
+      "message": "Remove empty line",
+      "range": {
+        "startLine": 35,
+        "startChar": 1,
+        "endLine": 35,
+        "endChar": 6
+      },
+      "revId": "22daf510ac893a650b9fc4e22947372e2f97add7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b53a5201_3734d3ff",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2019-11-22T19:33:33Z",
+      "side": 1,
+      "message": "Remove empty line",
+      "range": {
+        "startLine": 46,
+        "startChar": 2,
+        "endLine": 46,
+        "endChar": 6
+      },
+      "revId": "22daf510ac893a650b9fc4e22947372e2f97add7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f0ee835_8f86d09c",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2019-11-22T19:33:33Z",
+      "side": 1,
+      "message": "Is it added to global or local phonebook? In the comment above, I read that this interface is used to handle both.",
+      "range": {
+        "startLine": 47,
+        "startChar": 69,
+        "endLine": 47,
+        "endChar": 74
+      },
+      "revId": "22daf510ac893a650b9fc4e22947372e2f97add7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0f0c9b5_8aee6bba",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2019-11-22T19:33:33Z",
+      "side": 1,
+      "message": "Use the entire line for the comments.",
+      "range": {
+        "startLine": 49,
+        "startChar": 66,
+        "endLine": 50,
+        "endChar": 10
+      },
+      "revId": "22daf510ac893a650b9fc4e22947372e2f97add7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3dcbf00f_02d64143",
+        "filename": "radio/1.6/IRadioIndication.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2019-11-22T19:33:33Z",
+      "side": 1,
+      "message": "Minor suggestion to make it more readable:\n  This indication will be sent after modem ...\n\nAlso, use the entire line without going to new line too early.",
+      "range": {
+        "startLine": 30,
+        "startChar": 7,
+        "endLine": 31,
+        "endChar": 77
+      },
+      "revId": "22daf510ac893a650b9fc4e22947372e2f97add7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e441e4d_c45d8da4",
+        "filename": "radio/1.6/IRadioIndication.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2019-11-22T19:33:33Z",
+      "side": 1,
+      "message": "Review usage of empty line, removing them as necessary",
+      "range": {
+        "startLine": 43,
+        "startChar": 5,
+        "endLine": 44,
+        "endChar": 6
+      },
+      "revId": "22daf510ac893a650b9fc4e22947372e2f97add7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e75ac6a7_3fe5edae",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2019-11-22T19:33:33Z",
+      "side": 1,
+      "message": "Maybe we can simply say: record index. 0 is used to insert a record.",
+      "range": {
+        "startLine": 20,
+        "startChar": 47,
+        "endLine": 22,
+        "endChar": 97
+      },
+      "revId": "22daf510ac893a650b9fc4e22947372e2f97add7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
