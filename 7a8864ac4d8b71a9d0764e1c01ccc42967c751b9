@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "1f744ace_41d3afcd",
+        "filename": "graphics/mapper/4.0/IMapper.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-11-22T02:12:04Z",
+      "side": 1,
+      "message": "Clarify if other hardware tries to access during a flush",
+      "revId": "7a8864ac4d8b71a9d0764e1c01ccc42967c751b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "61a02cb8_f1898345",
         "filename": "graphics/mapper/4.0/IMapper.hal",
         "patchSetId": 1
