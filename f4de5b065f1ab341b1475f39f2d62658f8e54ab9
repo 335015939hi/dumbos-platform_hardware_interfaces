@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e6c3ebcb_c6fa0409",
+        "filename": "vibrator/aidl/vts/VtsHalVibratorTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-22T22:09:52Z",
+      "side": 1,
+      "message": "yeah, I need to add something to make this better. Printing toString8() has even more information. On my todo list...",
+      "range": {
+        "startLine": 220,
+        "startChar": 18,
+        "endLine": 220,
+        "endChar": 24
+      },
+      "revId": "f4de5b065f1ab341b1475f39f2d62658f8e54ab9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8422785a_3d9c0867",
+        "filename": "vibrator/aidl/vts/VtsHalVibratorTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-22T22:09:52Z",
+      "side": 1,
+      "message": "why exactly is this a hardware restriction btw?",
+      "range": {
+        "startLine": 330,
+        "startChar": 45,
+        "endLine": 330,
+        "endChar": 67
+      },
+      "revId": "f4de5b065f1ab341b1475f39f2d62658f8e54ab9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
