@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "efcb7070_e82d2f29",
+        "filename": "sensors/2.0/multihal/tests/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1585259
+      },
+      "writtenOn": "2019-11-25T19:02:05Z",
+      "side": 1,
+      "message": "It looks like it is needed atleast in the defaults. Otherwise, the symbol is not defined during compilation. Removed from other entries tho :).",
+      "parentUuid": "43bc45a8_b9fe063d",
+      "range": {
+        "startLine": 49,
+        "startChar": 4,
+        "endLine": 49,
+        "endChar": 15
+      },
+      "revId": "f537573de30e013592e74b3f1aac5c2555cdf2c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ba6caaf5_f597c229",
         "filename": "sensors/2.0/multihal/tests/Android.bp",
         "patchSetId": 1
@@ -92,6 +116,30 @@
       "revId": "f537573de30e013592e74b3f1aac5c2555cdf2c2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85dcfcff_602be30e",
+        "filename": "sensors/2.0/multihal/tests/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1585259
+      },
+      "writtenOn": "2019-11-25T19:02:05Z",
+      "side": 1,
+      "message": "No I need it there because otherwise impelemntation looks like it doesn\u0027t compile in. I will remove this entry tho.",
+      "parentUuid": "ba6caaf5_f597c229",
+      "range": {
+        "startLine": 106,
+        "startChar": 4,
+        "endLine": 106,
+        "endChar": 29
+      },
+      "revId": "f537573de30e013592e74b3f1aac5c2555cdf2c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
