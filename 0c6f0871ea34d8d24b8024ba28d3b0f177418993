@@ -22,6 +22,30 @@
       "revId": "0c6f0871ea34d8d24b8024ba28d3b0f177418993",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b6e0267_e71e7a60",
+        "filename": "sensors/2.0/multihal/tests/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1585259
+      },
+      "writtenOn": "2019-11-25T20:41:28Z",
+      "side": 1,
+      "message": "Looks like I still need to add ScopedWakelock as a shared lib to the defaults to pull in those implementations but yes you are right I shouldn\u0027t have HalProxy as a shared lib anywhere. I put ScopedWakelock in the defaults under tests.",
+      "parentUuid": "871c9711_9e8c23e1",
+      "range": {
+        "startLine": 69,
+        "startChar": 4,
+        "endLine": 69,
+        "endChar": 15
+      },
+      "revId": "0c6f0871ea34d8d24b8024ba28d3b0f177418993",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
