@@ -45,6 +45,30 @@
       "revId": "f4de5b065f1ab341b1475f39f2d62658f8e54ab9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "627bc006_15d6b716",
+        "filename": "vibrator/aidl/vts/VtsHalVibratorTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1418133
+      },
+      "writtenOn": "2019-11-25T05:27:26Z",
+      "side": 1,
+      "message": "It\u0027s a vendor-side restriction. Possibly arbitrary, possibly an artifact of how it\u0027s encoded.",
+      "parentUuid": "8422785a_3d9c0867",
+      "range": {
+        "startLine": 330,
+        "startChar": 45,
+        "endLine": 330,
+        "endChar": 67
+      },
+      "revId": "f4de5b065f1ab341b1475f39f2d62658f8e54ab9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
