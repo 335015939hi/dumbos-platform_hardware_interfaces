@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8f250d34_fab6fccb",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1380100
+      },
+      "writtenOn": "2019-11-25T06:12:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b189e15_266b2eb8",
+      "range": {
+        "startLine": 33,
+        "startChar": 2,
+        "endLine": 33,
+        "endChar": 6
+      },
+      "revId": "22daf510ac893a650b9fc4e22947372e2f97add7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc29ba82_8dc2c35d",
         "filename": "radio/1.6/IRadio.hal",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "22daf510ac893a650b9fc4e22947372e2f97add7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c3c7677_b11707a1",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1380100
+      },
+      "writtenOn": "2019-11-25T06:12:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc29ba82_8dc2c35d",
+      "range": {
+        "startLine": 35,
+        "startChar": 1,
+        "endLine": 35,
+        "endChar": 6
+      },
+      "revId": "22daf510ac893a650b9fc4e22947372e2f97add7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "28930d44_c300ae8e",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1380100
+      },
+      "writtenOn": "2019-11-25T06:12:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b53a5201_3734d3ff",
+      "range": {
+        "startLine": 46,
+        "startChar": 2,
+        "endLine": 46,
+        "endChar": 6
+      },
+      "revId": "22daf510ac893a650b9fc4e22947372e2f97add7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2f0ee835_8f86d09c",
         "filename": "radio/1.6/IRadio.hal",
         "patchSetId": 3
@@ -91,6 +163,30 @@
       "revId": "22daf510ac893a650b9fc4e22947372e2f97add7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48f6ed1e_0e427e2f",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1380100
+      },
+      "writtenOn": "2019-11-25T06:12:55Z",
+      "side": 1,
+      "message": "Yes，it could handle both global or local pb records.",
+      "parentUuid": "2f0ee835_8f86d09c",
+      "range": {
+        "startLine": 47,
+        "startChar": 69,
+        "endLine": 47,
+        "endChar": 74
+      },
+      "revId": "22daf510ac893a650b9fc4e22947372e2f97add7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "24e518a1_2d643a08",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1380100
+      },
+      "writtenOn": "2019-11-25T06:12:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c0f0c9b5_8aee6bba",
+      "range": {
+        "startLine": 49,
+        "startChar": 66,
+        "endLine": 50,
+        "endChar": 10
+      },
+      "revId": "22daf510ac893a650b9fc4e22947372e2f97add7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3dcbf00f_02d64143",
         "filename": "radio/1.6/IRadioIndication.hal",
         "patchSetId": 3
@@ -137,6 +257,30 @@
       "revId": "22daf510ac893a650b9fc4e22947372e2f97add7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8da92af3_575190ce",
+        "filename": "radio/1.6/IRadioIndication.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1380100
+      },
+      "writtenOn": "2019-11-25T06:12:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3dcbf00f_02d64143",
+      "range": {
+        "startLine": 30,
+        "startChar": 7,
+        "endLine": 31,
+        "endChar": 77
+      },
+      "revId": "22daf510ac893a650b9fc4e22947372e2f97add7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "e5c2c047_bd36f62b",
+        "filename": "radio/1.6/IRadioIndication.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1380100
+      },
+      "writtenOn": "2019-11-25T06:12:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e441e4d_c45d8da4",
+      "range": {
+        "startLine": 43,
+        "startChar": 5,
+        "endLine": 44,
+        "endChar": 6
+      },
+      "revId": "22daf510ac893a650b9fc4e22947372e2f97add7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e75ac6a7_3fe5edae",
         "filename": "radio/1.6/types.hal",
         "patchSetId": 3
@@ -183,6 +351,30 @@
       "revId": "22daf510ac893a650b9fc4e22947372e2f97add7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe3a0702_02abbeeb",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1380100
+      },
+      "writtenOn": "2019-11-25T06:12:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e75ac6a7_3fe5edae",
+      "range": {
+        "startLine": 20,
+        "startChar": 47,
+        "endLine": 22,
+        "endChar": 97
+      },
+      "revId": "22daf510ac893a650b9fc4e22947372e2f97add7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
