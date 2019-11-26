@@ -22,6 +22,30 @@
       "revId": "aa3a91b7c218c0b12b31b71fba6be67323ba1ca9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0d48b43_193492c4",
+        "filename": "health/2.0/default/healthd_common_adapter.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2019-11-26T00:24:58Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f8c833df_6877c551",
+      "range": {
+        "startLine": 52,
+        "startChar": 29,
+        "endLine": 52,
+        "endChar": 30
+      },
+      "revId": "aa3a91b7c218c0b12b31b71fba6be67323ba1ca9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
