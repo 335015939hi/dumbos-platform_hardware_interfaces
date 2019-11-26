@@ -22,8 +22,6 @@
 
 #include <VtsHalHidlTargetTestBase.h>
 
-#include <keymaster/keymaster_configuration.h>
-
 #include <keymasterV4_0/authorization_set.h>
 
 namespace android {
