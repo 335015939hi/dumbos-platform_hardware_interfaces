@@ -1,0 +1,216 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f91d0b8_fcc3a522",
+        "filename": "wifi/supplicant/1.1/vts/functional/supplicant_hidl_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-26T23:38:00Z",
+      "side": 1,
+      "message": "this is unused",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 59
+      },
+      "revId": "55a6dce7553f491cb62e92facfaf7b3ab9f7ec2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e67a6d0b_9f65f849",
+        "filename": "wifi/supplicant/1.1/vts/functional/supplicant_hidl_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-26T23:38:00Z",
+      "side": 1,
+      "message": "delete",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 65
+      },
+      "revId": "55a6dce7553f491cb62e92facfaf7b3ab9f7ec2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb850d20_1a3a0b30",
+        "filename": "wifi/supplicant/1.1/vts/functional/supplicant_hidl_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-26T23:38:00Z",
+      "side": 1,
+      "message": "use 1.1 for supplicant everywhere since we are only testing 1.1\n\n(wifi 1.0 will be used though because it seems that the test is only depending on starting 1.0, and starting 1.0 will also start 1.1)",
+      "range": {
+        "startLine": 52,
+        "startChar": 59,
+        "endLine": 52,
+        "endChar": 60
+      },
+      "revId": "55a6dce7553f491cb62e92facfaf7b3ab9f7ec2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88aca1a3_335fa024",
+        "filename": "wifi/supplicant/1.1/vts/functional/supplicant_sta_iface_hidl_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-26T23:38:00Z",
+      "side": 1,
+      "message": "similar, also, is it possible to de-dupe this logic?",
+      "range": {
+        "startLine": 47,
+        "startChar": 8,
+        "endLine": 47,
+        "endChar": 32
+      },
+      "revId": "55a6dce7553f491cb62e92facfaf7b3ab9f7ec2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68d0d61a_5e1714dd",
+        "filename": "wifi/supplicant/1.1/vts/functional/supplicant_sta_network_hidl_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-26T23:38:00Z",
+      "side": 1,
+      "message": "similar",
+      "revId": "55a6dce7553f491cb62e92facfaf7b3ab9f7ec2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae638196_8a86df0f",
+        "filename": "wifi/supplicant/1.2/vts/functional/supplicant_p2p_iface_hidl_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-26T23:38:00Z",
+      "side": 1,
+      "message": "unused",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 59
+      },
+      "revId": "55a6dce7553f491cb62e92facfaf7b3ab9f7ec2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58e39b65_05308dbb",
+        "filename": "wifi/supplicant/1.2/vts/functional/supplicant_p2p_iface_hidl_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-26T23:38:00Z",
+      "side": 1,
+      "message": "should be able to avoid these since we\u0027re testing 1.2",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 65
+      },
+      "revId": "55a6dce7553f491cb62e92facfaf7b3ab9f7ec2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c97a105_65a62e6f",
+        "filename": "wifi/supplicant/1.2/vts/functional/supplicant_p2p_iface_hidl_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-26T23:38:00Z",
+      "side": 1,
+      "message": "2",
+      "range": {
+        "startLine": 58,
+        "startChar": 59,
+        "endLine": 58,
+        "endChar": 60
+      },
+      "revId": "55a6dce7553f491cb62e92facfaf7b3ab9f7ec2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "feefa8c4_fc0df479",
+        "filename": "wifi/supplicant/1.2/vts/functional/supplicant_sta_iface_hidl_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-26T23:38:00Z",
+      "side": 1,
+      "message": "similarly want to de-dupe logic here if possible",
+      "revId": "55a6dce7553f491cb62e92facfaf7b3ab9f7ec2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c11c2ce_1ba6c6e5",
+        "filename": "wifi/supplicant/1.2/vts/functional/supplicant_sta_network_hidl_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-11-26T23:38:00Z",
+      "side": 1,
+      "message": "similar",
+      "revId": "55a6dce7553f491cb62e92facfaf7b3ab9f7ec2b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
