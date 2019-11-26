@@ -75,7 +75,7 @@ class VerificationTokenTest : public KeymasterHidlTest {
  * thing we really can test is that tokens can be created by TEE keymasters, and that the
  * timestamps increase as expected.
  */
-TEST_F(VerificationTokenTest, TestCreation) {
+TEST_P(VerificationTokenTest, TestCreation) {
     auto result1 = verifyAuthorization(
         1 /* operation handle */, AuthorizationSet() /* paramtersToVerify */, HardwareAuthToken());
     ASSERT_TRUE(result1.callSuccessful);
@@ -134,7 +134,7 @@ TEST_F(VerificationTokenTest, TestCreation) {
  * stamp is included in the mac but on failure we know that it is not. Other than in the test
  * case above we call verifyAuthorization with the exact same set of parameters.
  */
-TEST_F(VerificationTokenTest, MacChangesOnChangingTimestamp) {
+TEST_P(VerificationTokenTest, MacChangesOnChangingTimestamp) {
     auto result1 =
             verifyAuthorization(0 /* operation handle */,
                                 AuthorizationSet() /* paramtersToVerify */, HardwareAuthToken());
@@ -184,6 +184,8 @@ TEST_F(VerificationTokenTest, MacChangesOnChangingTimestamp) {
     ASSERT_NE(0,
               memcmp(result1.token.mac.data(), result2.token.mac.data(), result1.token.mac.size()));
 }
+
+INSTANTIATE_KEYMASTER_HIDL_TEST(VerificationTokenTest);
 
 }  // namespace test
 }  // namespace V4_0
