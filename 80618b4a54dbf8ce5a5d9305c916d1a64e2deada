@@ -22,6 +22,30 @@
       "revId": "80618b4a54dbf8ce5a5d9305c916d1a64e2deada",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eff3c4f7_bba123bf",
+        "filename": "cas/native/1.0/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2019-11-26T01:43:55Z",
+      "side": 1,
+      "message": "Interesting! I am pretty sure I block Java keywords for all variable names (args \u0026 return values), but I did miss names inside fqnames.",
+      "parentUuid": "a40f88e9_0cffa090",
+      "range": {
+        "startLine": 4,
+        "startChar": 32,
+        "endLine": 4,
+        "endChar": 38
+      },
+      "revId": "80618b4a54dbf8ce5a5d9305c916d1a64e2deada",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
