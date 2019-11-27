@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5c4e48d9_87ed4b6a",
+        "filename": "wifi/supplicant/1.1/vts/functional/supplicant_hidl_test_utils_1_1.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-11-27T17:06:05Z",
+      "side": 1,
+      "message": "would it be OK to keep the function body in header file?",
+      "revId": "5d075c9ef301e16c15d5c5d67632a33ac7315efe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
