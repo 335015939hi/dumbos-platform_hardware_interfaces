@@ -46,6 +46,30 @@
       "revId": "460be5866117684a9fd277e08fa9a30736082055",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01b1fb10_39e254b3",
+        "filename": "usb/1.0/vts/functional/VtsHalUsbV1_0TargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1307893
+      },
+      "writtenOn": "2019-11-28T07:06:38Z",
+      "side": 0,
+      "message": "Create b/144387841 for further tracking.",
+      "parentUuid": "0a6b53c7_fefea2a3",
+      "range": {
+        "startLine": 229,
+        "startChar": 20,
+        "endLine": 229,
+        "endChar": 35
+      },
+      "revId": "460be5866117684a9fd277e08fa9a30736082055",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
