@@ -397,10 +397,16 @@ bool verify_attestation_record(const string& challenge, const string& app_id,
     // true. A provided boolean tag that can be pulled back out of the certificate indicates correct
     // encoding. No need to check if it's in both lists, since the AuthorizationSet compare below
     // will handle mismatches of tags.
-    EXPECT_TRUE(expected_hw_enforced.Contains(TAG_NO_AUTH_REQUIRED));
+    if (security_level == SecurityLevel::SOFTWARE) {
+        EXPECT_TRUE(expected_sw_enforced.Contains(TAG_NO_AUTH_REQUIRED));
+    } else {
+        EXPECT_TRUE(expected_hw_enforced.Contains(TAG_NO_AUTH_REQUIRED));
+    }
 
     // Alternatively this checks the opposite - a false boolean tag (one that isn't provided in
     // the authorization list during key generation) isn't being attested to in the certificate.
+    EXPECT_FALSE(expected_sw_enforced.Contains(TAG_TRUSTED_USER_PRESENCE_REQUIRED));
+    EXPECT_FALSE(att_sw_enforced.Contains(TAG_TRUSTED_USER_PRESENCE_REQUIRED));
     EXPECT_FALSE(expected_hw_enforced.Contains(TAG_TRUSTED_USER_PRESENCE_REQUIRED));
     EXPECT_FALSE(att_hw_enforced.Contains(TAG_TRUSTED_USER_PRESENCE_REQUIRED));
 
@@ -455,10 +461,10 @@ bool verify_attestation_record(const string& challenge, const string& app_id,
                             verified_boot_key.size()));
     } else if (!strcmp(property_value, "red")) {
         EXPECT_EQ(verified_boot_state, KM_VERIFIED_BOOT_FAILED);
-        EXPECT_EQ(0, memcmp(verified_boot_key.data(), empty_boot_key.data(),
-                            verified_boot_key.size()));
     } else {
-        EXPECT_TRUE(false);
+        EXPECT_EQ(verified_boot_state, KM_VERIFIED_BOOT_UNVERIFIED);
+        EXPECT_NE(0, memcmp(verified_boot_key.data(), empty_boot_key.data(),
+                            verified_boot_key.size()));
     }
 
     att_sw_enforced.Sort();
@@ -2612,8 +2618,10 @@ TEST_P(EncryptionOperationsTest, AesWrongPurpose) {
                                    .Padding(PaddingMode::NONE));
     ASSERT_EQ(ErrorCode::OK, err) << "Got " << err;
 
-    err = Begin(KeyPurpose::DECRYPT,
-                AuthorizationSetBuilder().BlockMode(BlockMode::GCM).Padding(PaddingMode::NONE));
+    err = Begin(KeyPurpose::DECRYPT, AuthorizationSetBuilder()
+                                             .BlockMode(BlockMode::GCM)
+                                             .Padding(PaddingMode::NONE)
+                                             .Authorization(TAG_MAC_LENGTH, 128));
     EXPECT_EQ(ErrorCode::INCOMPATIBLE_PURPOSE, err) << "Got " << err;
 
     CheckedDeleteKey();
@@ -2626,8 +2634,10 @@ TEST_P(EncryptionOperationsTest, AesWrongPurpose) {
                                                  .Authorization(TAG_MIN_MAC_LENGTH, 128)
                                                  .Padding(PaddingMode::NONE)));
 
-    err = Begin(KeyPurpose::ENCRYPT,
-                AuthorizationSetBuilder().BlockMode(BlockMode::GCM).Padding(PaddingMode::NONE));
+    err = Begin(KeyPurpose::ENCRYPT, AuthorizationSetBuilder()
+                                             .BlockMode(BlockMode::GCM)
+                                             .Padding(PaddingMode::NONE)
+                                             .Authorization(TAG_MAC_LENGTH, 128));
     EXPECT_EQ(ErrorCode::INCOMPATIBLE_PURPOSE, err) << "Got " << err;
 }
 
