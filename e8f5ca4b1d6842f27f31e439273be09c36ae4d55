@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e80b0b12_7f119aa0",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 890,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-12-02T21:27:50Z",
+      "side": 1,
+      "message": "nit: Hmmm, should we avoid calling this multiple times or rename the tests so they are all named the same?\n\nstatic const std::vector\u003cstd::string\u003e kAudioInstances \u003d ...getAllHalInstanceNames(...);\n\nINSTANTIATE_TEST_SUITE_P(PerInstance, ..., kAudioInstances, PrintInstanceNameToString);\nINSTANTIATE_TEST_SUITE_P(PerInstance, ..., kAudioInstances, PrintInstanceNameToString);\nINSTANTIATE_TEST_SUITE_P(PerInstance, ..., kAudioInstances, PrintInstanceNameToString);\nINSTANTIATE_TEST_SUITE_P(PerInstance, ..., kAudioInstances, PrintInstanceNameToString);",
+      "range": {
+        "startLine": 889,
+        "startChar": 4,
+        "endLine": 890,
+        "endChar": 53
+      },
+      "revId": "e8f5ca4b1d6842f27f31e439273be09c36ae4d55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
