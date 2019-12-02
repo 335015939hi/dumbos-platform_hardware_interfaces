@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e284eb2f_b3db6f6b",
+        "filename": "keymaster/4.0/vts/functional/KeymasterHidlTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 682,
+      "author": {
+        "id": 1362721
+      },
+      "writtenOn": "2019-12-02T16:39:56Z",
+      "side": 1,
+      "message": "Should this be InvalidStrongBoxKeySizes?",
+      "revId": "9b17e657b8b6f9ea3e99e783b1902ee2e2c6d586",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
