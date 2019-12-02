@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bf0192bd_da479560",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4616,
+      "author": {
+        "id": 1362721
+      },
+      "writtenOn": "2019-12-02T16:45:51Z",
+      "side": 1,
+      "message": "This change puts a minimum input size of 2KB on finish. Is this requirement documented anywhere else?  \n\nThis also hides a known bug in current current implementations, INVALID_INPUT_LENGTH should be returned if the input is too large.",
+      "revId": "c1c9794c10bfb433f5041441b04d69f6b7facbc7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
