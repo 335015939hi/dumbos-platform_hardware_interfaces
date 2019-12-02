@@ -22,6 +22,30 @@
       "revId": "e8f5ca4b1d6842f27f31e439273be09c36ae4d55",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a581ccd_3b49f6c5",
+        "filename": "bluetooth/audio/2.0/vts/functional/VtsHalBluetoothAudioV2_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 890,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-12-02T22:15:57Z",
+      "side": 1,
+      "message": "Done\n\nIt seems that each test class\u0027s SetUp method calls OpenProviderHelper with different options. Merging the test classes can be trick.",
+      "parentUuid": "e80b0b12_7f119aa0",
+      "range": {
+        "startLine": 889,
+        "startChar": 4,
+        "endLine": 890,
+        "endChar": 53
+      },
+      "revId": "e8f5ca4b1d6842f27f31e439273be09c36ae4d55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
