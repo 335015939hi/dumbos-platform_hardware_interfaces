@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bd1f1591_0bbee72d",
+        "filename": "radio/1.5/IRadio.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-12-02T21:17:09Z",
+      "side": 1,
+      "message": "The lint comment TH found is b/c this and serial above has a colon, technically it should not.",
+      "range": {
+        "startLine": 71,
+        "startChar": 20,
+        "endLine": 71,
+        "endChar": 21
+      },
+      "revId": "fb6d6241c7160a15ba200d7a49f492e1f28b82c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
