@@ -158,6 +158,30 @@
       "revId": "7a8864ac4d8b71a9d0764e1c01ccc42967c751b9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5bc5406_d512d211",
+        "filename": "graphics/mapper/4.0/IMapper.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1597049
+      },
+      "writtenOn": "2019-12-03T10:41:04Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "cde98480_243f8506",
+      "range": {
+        "startLine": 336,
+        "startChar": 73,
+        "endLine": 337,
+        "endChar": 54
+      },
+      "revId": "7a8864ac4d8b71a9d0764e1c01ccc42967c751b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
