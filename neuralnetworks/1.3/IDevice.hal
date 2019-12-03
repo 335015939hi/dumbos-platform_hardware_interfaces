@@ -42,12 +42,17 @@ interface IDevice extends @1.2::IDevice {
     /**
      * Gets the supported operations in a model.
      *
-     * getSupportedOperations indicates which operations of a model are fully
-     * supported by the vendor driver. If an operation may not be supported for
-     * any reason, getSupportedOperations must return false for that operation.
+     * getSupportedOperations indicates which operations of the main model are
+     * fully supported by the vendor driver. If an operation may not be
+     * supported for any reason, getSupportedOperations must return false for
+     * that operation.
      *
-     * @param model A model whose operations--and their corresponding operands--
-     *     are to be verified by the driver.
+     * The {@link OperationType::IF} and {@link OperationType::LOOP} operations
+     * may only be fully supported if the vendor driver fully supports all
+     * operations in the referenced models.
+     *
+     * @param models A set of models whose operations--and their corresponding
+     *     operands--are to be verified by the driver.
      * @return status Error status of the call, must be:
      *     - NONE if successful
      *     - DEVICE_UNAVAILABLE if driver is offline or busy
@@ -125,7 +130,7 @@ interface IDevice extends @1.2::IDevice {
      *
      * Multiple threads may call prepareModel on the same model concurrently.
      *
-     * @param model The model to be prepared for execution.
+     * @param models The set of models to be prepared for execution.
      * @param preference Indicates the intended execution behavior of a prepared
      *     model.
      * @param modelCache A vector of handles with each entry holding exactly one

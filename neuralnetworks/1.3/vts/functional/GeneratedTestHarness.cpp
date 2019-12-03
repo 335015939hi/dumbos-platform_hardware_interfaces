@@ -59,7 +59,6 @@ using hidl::memory::V1_0::IMemory;
 using implementation::PreparedModelCallback;
 using V1_0::DataLocation;
 using V1_0::ErrorStatus;
-using V1_0::OperandLifeTime;
 using V1_0::Request;
 using V1_1::ExecutionPreference;
 using V1_2::Constant;
@@ -68,6 +67,7 @@ using V1_2::OutputShape;
 using V1_2::SymmPerChannelQuantParams;
 using V1_2::Timing;
 using V1_2::implementation::ExecutionCallback;
+using V1_3::OperandLifeTime;
 using HidlToken = hidl_array<uint8_t, static_cast<uint32_t>(Constant::BYTE_SIZE_OF_CACHE_TOKEN)>;
 
 namespace {

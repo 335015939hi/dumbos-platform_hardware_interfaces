@@ -21,6 +21,8 @@ package android.hardware.neuralnetworks@1.3;
 import @1.0::DataLocation;
 import @1.0::OperandLifeTime;
 import @1.0::PerformanceInfo;
+import @1.2::Model.ExtensionNameAndPrefix;
+import @1.2::Model.ExtensionTypeEncoding;
 import @1.2::OperandType;
 import @1.2::OperationType;
 import @1.2::SymmPerChannelQuantParams;
@@ -57,6 +59,8 @@ enum OperationType : int32_t {
 
 %insert Operation_1.2
 
+%insert Operation_1.3
+
     /**
      * DEPRECATED. Since NNAPI 1.2, extensions are the preferred alternative to
      * OEM operation and data types.
@@ -85,12 +89,13 @@ enum OperationTypeRange : uint32_t {
     BASE_MAX        = 0xFFFF,
 };
 
-
 /**
  * The capabilities of a driver.
  *
- * Performance of an operation comes from the type of its first operand.
- * This represents performance for non extension operand types.
+ * This represents performance of non-extension operations.
+ *
+ * Performance of an operation other than {@link OperandType::IF} and
+ * {@link OperandType::WHILE} comes from the type of its first operand.
  */
 struct Capabilities {
     /**
@@ -113,11 +118,32 @@ struct Capabilities {
 
     /**
      * Performance by operand type. Must be sorted by OperandType.
-     * If a particular OperandType is not present in operandPerformance,
+     *
+     * If a particular {@link OperandType} is not present in operandPerformance,
      * its performance is treated as
      * { .execTime = FLT_MAX, .powerUsage = FLT_MAX }.
+     *
+     * Performance does not apply to {@link OperandType::MODEL}, and a driver
+     * must not report operand performance for {@link OperandType::MODEL}.
      */
     vec<OperandPerformance> operandPerformance;
+
+    /**
+     * Performance of an {@link OperandType::IF} operation is the sum of
+     * {@link Capabilities::ifPerformance} and the mean of performance for the
+     * two branch models, where performance for a model is the sum of the
+     * performance of all operations within the model.
+     */
+    PerformanceInfo ifPerformance;
+
+    /**
+     * Performance of a {@link OperandType::WHILE} operation is the sum of
+     * {@link Capabilities::whilePerformance}, performance for the condition
+     * model and performance for the body model, where performance for a
+     * model is the sum of the performance of all operations within the
+     * model.
+     */
+    PerformanceInfo whilePerformance;
 };
 
 /**
@@ -144,6 +170,17 @@ struct Operation {
      * operation. The offset is the index in the operandIndexes table.
      */
     vec<uint32_t> outputs;
+};
+
+/**
+ * How an operand is used.
+ */
+enum OperandLifeTime : @1.0::OperandLifeTime {
+    /**
+     * The operand is a reference to a subgraph. It must be an input to one
+     * or more IF or LOOP operations.
+     */
+    MODEL,
 };
 
 /**
@@ -241,6 +278,11 @@ struct Operand {
      * - location.poolIndex is set.
      * - location.offset is the offset in bytes into the specified pool.
      * - location.length is set.
+     * If the lifetime is MODEL:
+     * - location.poolIndex is 0.
+     * - location.offset is the index of the referenced model in
+     *   {@link Model::referenced}.
+     * - location.length is 0.
      */
     DataLocation location;
 
@@ -279,32 +321,19 @@ struct Operand {
  */
 struct Model {
     /**
-     * All operands included in the model.
+     * The top-level subgraph.
      */
-    vec<Operand> operands;
+    Subgraph main;
 
     /**
-     * All operations included in the model.
+     * Referenced subgraphs.
      *
-     * The operations are sorted into execution order. Every operand
-     * with lifetime MODEL_OUTPUT or TEMPORARY_VARIABLE must be
-     * written before it is read.
-     */
-    vec<Operation> operations;
-
-    /**
-     * Input indexes of the model. There must be at least one.
+     * Each model is referenced by the main subgraph or at least one other
+     * referenced subgraph.
      *
-     * Each value corresponds to the index of the operand in "operands".
+     * There must be no reference cycles.
      */
-    vec<uint32_t> inputIndexes;
-
-    /**
-     * Output indexes of the model. There must be at least one.
-     *
-     * Each value corresponds to the index of the operand in "operands".
-     */
-    vec<uint32_t> outputIndexes;
+    vec<Subgraph> referenced;
 
     /**
      * A byte buffer containing operand data that were copied into the model.
@@ -354,36 +383,40 @@ struct Model {
      * name corresponding to each prefix.
      */
     vec<ExtensionNameAndPrefix> extensionNameToPrefix;
-
-    /**
-     * A correspondence between an extension name and a prefix of operand and
-     * operation type values.
-     */
-    struct ExtensionNameAndPrefix {
-        /**
-         * The extension name.
-         *
-         * See {@link Extension::name} for the format specification.
-         */
-        string name;
-
-        /**
-         * The unique extension identifier within the model.
-         *
-         * See {@link Model::extensionNameToPrefix}.
-         */
-        uint16_t prefix;
-    };
-
-    /**
-     * Numeric values of extension operand and operation types have the
-     * following structure:
-     * - 16 high bits represent the "prefix", which corresponds uniquely to the
-     *   extension name.
-     * - 16 low bits represent the type ID within the extension.
-     */
-    enum ExtensionTypeEncoding : uint8_t {
-        HIGH_BITS_PREFIX = 16,
-        LOW_BITS_TYPE = 16,
-    };
 };
+
+/**
+ * An excerpt of the execution graph.
+ */
+struct Subgraph {
+    /**
+     * All operands included in the subgraph.
+     */
+    vec<Operand> operands;
+
+    /**
+     * All operations included in the subgraph.
+     *
+     * The operations are sorted into execution order. Every operand
+     * with lifetime MODEL_OUTPUT or TEMPORARY_VARIABLE must be
+     * written before it is read.
+     */
+    vec<Operation> operations;
+
+    /**
+     * Input indexes of the subgraph. There must be at least one.
+     *
+     * Each value corresponds to the index of the operand in "operands".
+     */
+    vec<uint32_t> inputIndexes;
+
+    /**
+     * Output indexes of the subgraph. There must be at least one.
+     *
+     * Each value corresponds to the index of the operand in "operands".
+     */
+    vec<uint32_t> outputIndexes;
+};
+
+typedef @1.2::Model.ExtensionNameAndPrefix ExtensionNameAndPrefix;
+typedef @1.2::Model.ExtensionTypeEncoding ExtensionTypeEncoding;
