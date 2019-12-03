@@ -22,6 +22,30 @@
       "revId": "5827d8d74745654e494b3f4552ebeb1c0416320e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39c50f8b_29da7617",
+        "filename": "audio/core/all-versions/vts/functional/6.0/AudioPrimaryHidlHalTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2019-12-03T18:46:49Z",
+      "side": 1,
+      "message": "Agree. I haven\u0027t found any example of using OFFLOAD w/o DIRECT in config files, so a check for OFFLOAD should suffice.",
+      "parentUuid": "f4119c28_bb166f0d",
+      "range": {
+        "startLine": 86,
+        "startChar": 37,
+        "endLine": 86,
+        "endChar": 61
+      },
+      "revId": "5827d8d74745654e494b3f4552ebeb1c0416320e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
