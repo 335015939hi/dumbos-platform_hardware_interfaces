@@ -70,6 +70,30 @@
       "revId": "617f9d8c66c4994fd221f23784e746d580029be7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f3b956d_bb805e72",
+        "filename": "audio/common/all-versions/test/utility/src/ValidateXml.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2019-12-04T19:38:15Z",
+      "side": 1,
+      "message": "I don\u0027t think it\u0027s a good idea :) My function \u0027hasDeviceTypeInModule\u0027 will then try to use an invalid file, which will not end up good anyway.",
+      "parentUuid": "f5251ee4_fede8388",
+      "range": {
+        "startLine": 153,
+        "startChar": 12,
+        "endLine": 153,
+        "endChar": 18
+      },
+      "revId": "617f9d8c66c4994fd221f23784e746d580029be7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
