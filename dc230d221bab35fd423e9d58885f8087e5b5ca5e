@@ -46,6 +46,30 @@
       "revId": "dc230d221bab35fd423e9d58885f8087e5b5ca5e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0af223e5_670bdba7",
+        "filename": "broadcastradio/1.1/default/service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2019-12-04T18:56:04Z",
+      "side": 1,
+      "message": "\u003e Generating two sp\u003c\u003es from the same native pointer is generally bad practice\n\nI don\u0027t think that\u0027s true. For shared_ptr yes it\u0027s bad. But sp\u003c\u003e doesn\u0027t do anything itself, it just calls incRef/decRef on the pointer. The pointer is the reference counter, sp\u003c\u003e is just a helper. This is a really fundamental difference so I would expect that best practices should also be fundamentally different. We see the same thing with sk_sp\u003c\u003e as well (where it\u0027s considered trivially convertible to \u0026 from a raw pointer)\n\nWhere is the definition of registerAsService() though? I\u0027d expect there\u0027s no issue with it converting this to an sp\u003c\u003e but I\u0027d like to confirm that.",
+      "parentUuid": "80aaf737_1b6e1410",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 31,
+        "endChar": 29
+      },
+      "revId": "dc230d221bab35fd423e9d58885f8087e5b5ca5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
