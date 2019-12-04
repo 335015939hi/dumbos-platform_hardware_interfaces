@@ -46,6 +46,30 @@
       "revId": "617f9d8c66c4994fd221f23784e746d580029be7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5251ee4_fede8388",
+        "filename": "audio/common/all-versions/test/utility/src/ValidateXml.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2019-12-04T19:21:24Z",
+      "side": 1,
+      "message": "OK I thought it was intentional to return all files even those not validated.",
+      "parentUuid": "6735d6c8_ef8f6b4a",
+      "range": {
+        "startLine": 153,
+        "startChar": 12,
+        "endLine": 153,
+        "endChar": 18
+      },
+      "revId": "617f9d8c66c4994fd221f23784e746d580029be7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
