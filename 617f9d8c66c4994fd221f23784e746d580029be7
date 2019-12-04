@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a3ff52a2_d76de46e",
+        "filename": "audio/common/all-versions/test/utility/src/ValidateXml.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2019-12-04T18:25:21Z",
+      "side": 1,
+      "message": "Is it OK that foundFiles and errors do not have the same size? How do we know which error corresponds to which file when returning?",
+      "range": {
+        "startLine": 153,
+        "startChar": 12,
+        "endLine": 153,
+        "endChar": 18
+      },
+      "revId": "617f9d8c66c4994fd221f23784e746d580029be7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
