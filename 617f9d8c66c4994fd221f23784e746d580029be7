@@ -22,6 +22,30 @@
       "revId": "617f9d8c66c4994fd221f23784e746d580029be7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6735d6c8_ef8f6b4a",
+        "filename": "audio/common/all-versions/test/utility/src/ValidateXml.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2019-12-04T18:42:03Z",
+      "side": 1,
+      "message": "There is a test that verifies that there is only 1 config file at all, see ValidateAudioConfiguration.cpp. And in the code I\u0027m adding--\u0027hasDeviceTypeInModule\u0027, we also check that the size of the array is 1. So \u0027vector\u0027 is used to be able to return that there are no config files at all rather than for returning multiple config files.\n\nHowever, there is indeed an issue here that we put \u0027xmlFilePath\u0027 into \u0027foundFiles\u0027 prior to validating it. I\u0027ve fixed that.",
+      "parentUuid": "a3ff52a2_d76de46e",
+      "range": {
+        "startLine": 153,
+        "startChar": 12,
+        "endLine": 153,
+        "endChar": 18
+      },
+      "revId": "617f9d8c66c4994fd221f23784e746d580029be7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
