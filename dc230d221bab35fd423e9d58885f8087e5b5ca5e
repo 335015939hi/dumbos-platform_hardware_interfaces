@@ -70,6 +70,30 @@
       "revId": "dc230d221bab35fd423e9d58885f8087e5b5ca5e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "084b4bf3_ea0148ba",
+        "filename": "broadcastradio/1.1/default/service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2019-12-04T19:08:54Z",
+      "side": 1,
+      "message": "The definition is auto-generated, please see a copy:\n\n::android::status_t IBroadcastRadioFactory::registerAsService(const std::string \u0026serviceName) {\n    return ::android::hardware::details::registerAsServiceInternal(this, serviceName);\n}",
+      "parentUuid": "0af223e5_670bdba7",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 31,
+        "endChar": 29
+      },
+      "revId": "dc230d221bab35fd423e9d58885f8087e5b5ca5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
