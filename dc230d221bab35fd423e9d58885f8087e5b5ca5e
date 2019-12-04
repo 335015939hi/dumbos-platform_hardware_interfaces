@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "80aaf737_1b6e1410",
+        "filename": "broadcastradio/1.1/default/service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-12-04T17:46:32Z",
+      "side": 1,
+      "message": "I would use BroadcastRadioFactory* .\n\nThe problem with the way you have it is that the sp\u003c\u003e is used as an argument to operator-\u003e, which converts it to a raw pointer, which is then converted back to an sp\u003c\u003e by registerAsService(). Generating two sp\u003c\u003es from the same native pointer is generally bad practice. (For std::shared_ptr, it would be a clear bug.) It works here because their lifetimes are guaranteed to overlap, and they\u0027ll use the same reference count. But what looks like a simplification here actually makes reasoning about the code considerably more complicated.\n\nI\u0027m not a fan of registerAsService()-like APIs that convert an incoming this pointer to an sp\u003c\u003e. But I presume that can\u0027t be changed?",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 31,
+        "endChar": 29
+      },
+      "revId": "dc230d221bab35fd423e9d58885f8087e5b5ca5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
