@@ -94,6 +94,30 @@
       "revId": "dc230d221bab35fd423e9d58885f8087e5b5ca5e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e77a8ba5_14c590ab",
+        "filename": "broadcastradio/1.1/default/service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2019-12-04T20:53:10Z",
+      "side": 1,
+      "message": "registerAsServiceInternal takes an sp\u003c\u003e as I recall. This should work. And I can see the argument for doing it this way, since it does follow the rule of immediately generating an sp\u003c\u003e. I guess the divergence from shared_ptr is OK.\n\nThe registerAsService API has the unfortunate characteristic that it takes a raw pointer, when it should logically take an sp\u003c\u003e. It of course can\u0027t do that, since it\u0027s a member function rather than taking an explicit argument.",
+      "parentUuid": "084b4bf3_ea0148ba",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 31,
+        "endChar": 29
+      },
+      "revId": "dc230d221bab35fd423e9d58885f8087e5b5ca5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
