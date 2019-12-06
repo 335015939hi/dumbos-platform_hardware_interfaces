@@ -16,6 +16,7 @@
 
 package android.hardware.radio@1.5;
 
+import @1.0::PersoSubstate;
 import @1.1::EutranBands;
 import @1.1::GeranBands;
 import @1.1::RadioAccessNetworks;
@@ -258,4 +259,20 @@ struct NetworkScanRequest {
      * reported.
      */
     vec<string> mccMncs;
+};
+
+/**
+ * added more Perso categories
+ */
+enum PersoSubstate : @1.0::PersoSubstate {
+    SIM_SPN = 100,
+    SIM_SPN_PUK = 101,
+    SIM_SP_EHPLMN = 102,
+    SIM_SP_EHPLMN_PUK = 103,
+    SIM_ICCID = 104,
+    SIM_ICCID_PUK = 105,
+    SIM_IMPI = 106,
+    SIM_IMPI_PUK = 107,
+    SIM_NS_SP = 108,
+    SIM_NS_SP_PUK = 109,
 };
