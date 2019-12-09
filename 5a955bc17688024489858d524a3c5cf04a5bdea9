@@ -22,6 +22,30 @@
       "revId": "5a955bc17688024489858d524a3c5cf04a5bdea9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f219344_cc17ba2a",
+        "filename": "graphics/mapper/2.0/vts/functional/VtsHalGraphicsMapperV2_0TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-12-09T17:39:22Z",
+      "side": 1,
+      "message": "I am not sure I understand the HIDL side of this. \n\nThere is one Allocator service and per process mappers. We do test calling getService\u003cIMapper\u003e and importing a buffer then calling getService\u003cIMapper\u003e again and freeing the buffer with the second reference to Mapper. \n\nThe Allocator and Mapper don\u0027t communicate directly for anything.",
+      "parentUuid": "dcc75aea_f27293b2",
+      "range": {
+        "startLine": 417,
+        "startChar": 0,
+        "endLine": 418,
+        "endChar": 99
+      },
+      "revId": "5a955bc17688024489858d524a3c5cf04a5bdea9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
