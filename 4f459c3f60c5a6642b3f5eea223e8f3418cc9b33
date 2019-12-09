@@ -22,6 +22,30 @@
       "revId": "4f459c3f60c5a6642b3f5eea223e8f3418cc9b33",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "20ef4bae_06ca0ec8",
+        "filename": "sensors/1.0/vts/functional/VtsHalSensorsV1_0TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-12-09T18:12:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42f94256_4aca69a0",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 16
+      },
+      "revId": "4f459c3f60c5a6642b3f5eea223e8f3418cc9b33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
