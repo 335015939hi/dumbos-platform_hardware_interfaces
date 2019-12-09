@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "984928d8_6a5b2570",
+        "filename": "wifi/supplicant/1.1/vts/functional/supplicant_hidl_test.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-12-09T17:48:39Z",
+      "side": 1,
+      "message": "hmmm, I\u0027m wondering if it is possible for there ever to be a supplicant interface but not a wifi instance. Can we check w/ the wifi team if this is possible? Or we might want to throw an error in that case? Since, right now we would be losing supplicant coverage.",
+      "range": {
+        "startLine": 146,
+        "startChar": 37,
+        "endLine": 146,
+        "endChar": 41
+      },
+      "revId": "5d075c9ef301e16c15d5c5d67632a33ac7315efe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5c4e48d9_87ed4b6a",
         "filename": "wifi/supplicant/1.1/vts/functional/supplicant_hidl_test_utils_1_1.h",
         "patchSetId": 6
@@ -16,6 +39,24 @@
       "revId": "5d075c9ef301e16c15d5c5d67632a33ac7315efe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b777704a_564d9de1",
+        "filename": "wifi/supplicant/1.1/vts/functional/supplicant_hidl_test_utils_1_1.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-12-09T17:48:39Z",
+      "side": 1,
+      "message": "doesn\u0027t really matter for test, although it\u0027s considered messy, and in some cases can lead to code bloat (make sure \u0027-Wweak-vtables\u0027 is on here, there could be a warning?). Anyway, it\u0027s fine",
+      "parentUuid": "5c4e48d9_87ed4b6a",
+      "revId": "5d075c9ef301e16c15d5c5d67632a33ac7315efe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
