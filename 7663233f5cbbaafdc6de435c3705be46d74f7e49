@@ -22,6 +22,30 @@
       "revId": "7663233f5cbbaafdc6de435c3705be46d74f7e49",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f51f200f_f12816d9",
+        "filename": "wifi/supplicant/1.1/vts/functional/supplicant_hidl_test.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-12-09T18:45:39Z",
+      "side": 0,
+      "message": "I was testing some odd test behavior. Somehow it was failing when running in different orders. I can\u0027t reproduce it any more.",
+      "parentUuid": "3e056401_a50bd4ae",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 1
+      },
+      "revId": "7663233f5cbbaafdc6de435c3705be46d74f7e49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
