@@ -70,6 +70,30 @@
       "revId": "5a955bc17688024489858d524a3c5cf04a5bdea9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "119e2218_1dea0797",
+        "filename": "graphics/mapper/2.0/vts/functional/VtsHalGraphicsMapperV2_0TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2019-12-09T18:38:21Z",
+      "side": 1,
+      "message": "Thanks, that makes more sense. From a graphic\u0027s point of view, any allocator should work with any mapper. It shouldn\u0027t even matter if they are in the same process.",
+      "parentUuid": "84aa9061_1eed6829",
+      "range": {
+        "startLine": 417,
+        "startChar": 0,
+        "endLine": 418,
+        "endChar": 99
+      },
+      "revId": "5a955bc17688024489858d524a3c5cf04a5bdea9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
