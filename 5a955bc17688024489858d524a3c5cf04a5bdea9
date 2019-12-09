@@ -46,6 +46,30 @@
       "revId": "5a955bc17688024489858d524a3c5cf04a5bdea9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "84aa9061_1eed6829",
+        "filename": "graphics/mapper/2.0/vts/functional/VtsHalGraphicsMapperV2_0TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-12-09T18:15:45Z",
+      "side": 1,
+      "message": "Ah, we always use IMapper/IAllocator with \"default\" instance name (getService() \u003d getService(\"default\")).\n\nHowever, we could have:\nIMapper/a\nIAllocator/a\n\nIMapper/b\nIAllocator/b\n\nThis would be if we wanted two different types of allocation mapping on the same device, but I see now, we don\u0027t have this, and if we do have this, then we could make the decision about whether IMapper/a should work with IAllocator/b.",
+      "parentUuid": "9f219344_cc17ba2a",
+      "range": {
+        "startLine": 417,
+        "startChar": 0,
+        "endLine": 418,
+        "endChar": 99
+      },
+      "revId": "5a955bc17688024489858d524a3c5cf04a5bdea9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
