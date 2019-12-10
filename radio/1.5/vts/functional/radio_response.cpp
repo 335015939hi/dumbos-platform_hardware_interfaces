@@ -414,6 +414,11 @@ Return<void> RadioResponse_v1_5::sendCdmaSmsResponse(const RadioResponseInfo& /*
     return Void();
 }
 
+Return<void> RadioResponse_v1_5::sendCdmaSMSExpectMoreResponse(const RadioResponseInfo& /*info*/,
+                                                     const SendSmsResult& /*sms*/) {
+    return Void();
+}
+
 Return<void> RadioResponse_v1_5::acknowledgeLastIncomingCdmaSmsResponse(
         const RadioResponseInfo& /*info*/) {
     return Void();
