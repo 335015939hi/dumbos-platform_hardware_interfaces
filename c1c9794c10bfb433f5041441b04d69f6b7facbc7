@@ -16,6 +16,24 @@
       "revId": "c1c9794c10bfb433f5041441b04d69f6b7facbc7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee54eb96_9519066f",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4616,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2019-12-10T05:14:05Z",
+      "side": 1,
+      "message": "It\u0027s not documented anywhere, unfortunately.  I think all existing implementations will pass the test, though, and it allows us to make the assumption in keystore that devices will accept that much data, so it\u0027s useful.\n\nAs for the point about INVALID_INPUT_LENGTH, I don\u0027t think that is useful anyway so I\u0027m not concerned if implementations don\u0027t do it correctly.",
+      "parentUuid": "bf0192bd_da479560",
+      "revId": "c1c9794c10bfb433f5041441b04d69f6b7facbc7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
