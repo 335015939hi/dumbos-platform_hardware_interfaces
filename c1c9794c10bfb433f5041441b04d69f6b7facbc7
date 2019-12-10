@@ -34,6 +34,24 @@
       "revId": "c1c9794c10bfb433f5041441b04d69f6b7facbc7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b402a3e_802d8cb1",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4616,
+      "author": {
+        "id": 1362721
+      },
+      "writtenOn": "2019-12-10T16:51:19Z",
+      "side": 1,
+      "message": "I\u0027d argue INVALID_INPUT_LENGTH is important. Without this error the operation fails silently, meaning an app may unknowingly store malformed output.",
+      "parentUuid": "ee54eb96_9519066f",
+      "revId": "c1c9794c10bfb433f5041441b04d69f6b7facbc7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
