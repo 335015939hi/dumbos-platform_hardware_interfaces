@@ -112,6 +112,23 @@ TEST_P(GraphicsMapperHidlTest, ValidateBufferSizeBadValue) {
     ASSERT_NO_FATAL_FAILURE(
         bufferHandle = const_cast<native_handle_t*>(mGralloc->allocate(info, true, &stride)));
 
+    /**
+     * Construct invalid descriptor and stride, then check the return value.
+     * If the return value is Error::NONE, then we think that the platform
+     * does not support validateBufferSize, skip this test.
+     */
+    info.width *= 2;
+    info.height *= 2;
+    info.layerCount *= 2;
+    info.format = PixelFormat::RGBA_FP16;
+    if (mGralloc->getMapper()->validateBufferSize(bufferHandle, info, stride * 2) == Error::NONE) {
+        return;
+    }
+    info.width /= 2;
+    info.height /= 2;
+    info.layerCount /= 2;
+    info.format = PixelFormat::RGBA_8888;
+
     // All checks below test if a 8MB buffer can fit in a 4MB buffer.
     info.width *= 2;
     Error ret = mGralloc->getMapper()->validateBufferSize(bufferHandle, info, stride);
