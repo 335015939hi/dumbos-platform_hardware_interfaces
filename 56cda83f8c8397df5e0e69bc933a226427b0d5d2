@@ -22,6 +22,30 @@
       "revId": "56cda83f8c8397df5e0e69bc933a226427b0d5d2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ace05a01_dc467de7",
+        "filename": "secure_element/1.0/vts/functional/VtsHalSecureElementV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-12-11T21:40:52Z",
+      "side": 0,
+      "message": "No, this means that the test runs on eSE1 if it is run by any argument. It\u0027s the default instance name parameter. Similar to SIM1 we saw in radio (I think that\u0027s where we saw it before?). However, if VTS is running this test, it\u0027ll pass in arguments which with the actual instance to be used.",
+      "parentUuid": "b75e5166_94cadb82",
+      "range": {
+        "startLine": 86,
+        "startChar": 86,
+        "endLine": 86,
+        "endChar": 90
+      },
+      "revId": "56cda83f8c8397df5e0e69bc933a226427b0d5d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
