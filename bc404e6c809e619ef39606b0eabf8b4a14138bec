@@ -22,6 +22,30 @@
       "revId": "bc404e6c809e619ef39606b0eabf8b4a14138bec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba2736e8_10373891",
+        "filename": "renderscript/1.0/vts/functional/VtsHalRenderscriptV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-12-11T21:47:48Z",
+      "side": 1,
+      "message": "yes, it runs all tests in other cpp files.",
+      "parentUuid": "128775da_449b705d",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 24
+      },
+      "revId": "bc404e6c809e619ef39606b0eabf8b4a14138bec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
