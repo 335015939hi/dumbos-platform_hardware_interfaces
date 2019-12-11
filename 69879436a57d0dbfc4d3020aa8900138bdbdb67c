@@ -16,6 +16,24 @@
       "revId": "69879436a57d0dbfc4d3020aa8900138bdbdb67c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "889dd684_6e9684ff",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1307893
+      },
+      "writtenOn": "2019-12-11T02:08:57Z",
+      "side": 0,
+      "message": "I think the reason is here.(aosp/922233)\nIt want to provide the option of \"--force\".\nAnd I think it only can used by using adb command.\n(e.g. adb /data/loca/tmp/VtsHalHealthV2_0TargetTest --force)",
+      "parentUuid": "3b7eb63e_80da149a",
+      "revId": "69879436a57d0dbfc4d3020aa8900138bdbdb67c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
