@@ -34,6 +34,24 @@
       "revId": "69879436a57d0dbfc4d3020aa8900138bdbdb67c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f391bf5_c5cfd1d0",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1307893
+      },
+      "writtenOn": "2019-12-11T02:59:39Z",
+      "side": 0,
+      "message": "Add it back in patchset2, thanks.",
+      "parentUuid": "889dd684_6e9684ff",
+      "revId": "69879436a57d0dbfc4d3020aa8900138bdbdb67c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
