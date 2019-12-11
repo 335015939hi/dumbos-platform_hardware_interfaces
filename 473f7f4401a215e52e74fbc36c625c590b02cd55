@@ -1,0 +1,268 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cef66461_67f4b2bf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-12-11T22:15:42Z",
+      "side": 1,
+      "message": "one high-level comment, are you familiar with b/136027762? We are moving more of these interfaces to AIDL b/c of various properties. Would it make sense to introduce this HAL as an AIDL HAL? I don\u0027t see anything that would be limiting per se.",
+      "revId": "473f7f4401a215e52e74fbc36c625c590b02cd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44a6a96e_e7b55e02",
+        "filename": "identity/1.0/IIdentityCredential.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-12-11T22:15:42Z",
+      "side": 1,
+      "message": "fyi, these aren\u0027t used for anything. Unless you want to use them as documentation, you might want to remove them",
+      "range": {
+        "startLine": 188,
+        "startChar": 0,
+        "endLine": 189,
+        "endChar": 49
+      },
+      "revId": "473f7f4401a215e52e74fbc36c625c590b02cd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f948d19_bee3b57a",
+        "filename": "identity/1.0/IWritableIdentityCredential.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-12-11T22:15:42Z",
+      "side": 1,
+      "message": "dangling TODO",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 73
+      },
+      "revId": "473f7f4401a215e52e74fbc36c625c590b02cd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc41ba92_7f5bf14b",
+        "filename": "identity/1.0/default/Android.bp",
+        "patchSetId": 13
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-12-11T22:15:42Z",
+      "side": 1,
+      "message": "dangling TODO",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 29
+      },
+      "revId": "473f7f4401a215e52e74fbc36c625c590b02cd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81312e90_63952cad",
+        "filename": "identity/1.0/default/IdentityCredential.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-12-11T22:15:42Z",
+      "side": 1,
+      "message": "if you re-generate these using hidl-gen, you\u0027ll notice this namespace has been removed. The motivation is to make the implementation easier to update (to 1.1, say)",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 16
+      },
+      "revId": "473f7f4401a215e52e74fbc36c625c590b02cd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e92b6c4f_7791a407",
+        "filename": "identity/1.0/default/android.hardware.identity@1.0-service.rc",
+        "patchSetId": 13
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-12-11T22:15:42Z",
+      "side": 1,
+      "message": "wow, we really should be doing this in some of the other mock/example HALs. Nice.",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 15
+      },
+      "revId": "473f7f4401a215e52e74fbc36c625c590b02cd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a909143_2a8678e9",
+        "filename": "identity/1.0/types.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-12-11T22:15:42Z",
+      "side": 1,
+      "message": "if we are only going to have one value, we should avoid the enum (HIDL precludes modification of this once it is frozen)",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 0
+      },
+      "revId": "473f7f4401a215e52e74fbc36c625c590b02cd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be29f483_d276afe3",
+        "filename": "identity/1.0/types.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-12-11T22:15:42Z",
+      "side": 1,
+      "message": "these are fixed?",
+      "range": {
+        "startLine": 129,
+        "startChar": 11,
+        "endLine": 129,
+        "endChar": 15
+      },
+      "revId": "473f7f4401a215e52e74fbc36c625c590b02cd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2aaafe91_fd9b6d9d",
+        "filename": "identity/1.0/vts/functional/VtsHalIdentityCredentialV1_0TargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-12-11T22:15:42Z",
+      "side": 1,
+      "message": "please switch to parameterized test style. We\u0027re currently switching all of the tests, so that this stuff can be used with the standard Android testing infrastructure.\n\nSee https://android-review.googlesource.com/c/platform/hardware/interfaces/+/1186681 for an example",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 2
+      },
+      "revId": "473f7f4401a215e52e74fbc36c625c590b02cd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b9801c1_4052d954",
+        "filename": "identity/1.0/vts/functional/VtsHalIdentityCredentialV1_0TargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-12-11T22:15:42Z",
+      "side": 1,
+      "message": "this test is quite complicated, can it be broken up into pieces?",
+      "revId": "473f7f4401a215e52e74fbc36c625c590b02cd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3578098d_dcfc3bdc",
+        "filename": "identity/support/Android.bp",
+        "patchSetId": 13
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-12-11T22:15:42Z",
+      "side": 1,
+      "message": "dangling",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 29
+      },
+      "revId": "473f7f4401a215e52e74fbc36c625c590b02cd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "729d532a_e8869736",
+        "filename": "identity/support/Android.bp",
+        "patchSetId": 13
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-12-11T22:15:42Z",
+      "side": 1,
+      "message": "we are already maintaining a lib w/ this functionality in android.hardware.confirmationui-support-lib (although there are other things there as well). Is it possible we can only have one implementation of cbor functionality for android?",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 1
+      },
+      "revId": "473f7f4401a215e52e74fbc36c625c590b02cd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
