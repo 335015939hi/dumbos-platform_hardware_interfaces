@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "126c52a3_3f884bdd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2019-12-12T19:21:17Z",
+      "side": 1,
+      "message": "Does it run without SIM or with activated SIM? The SIM should\u0027t affect broadcast radio at all.",
+      "parentUuid": "5da567ed_32134e0a",
+      "revId": "0de4662199c91049e72ab955712b0c23b56e9cc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "24807044_a3951e1f",
         "filename": "broadcastradio/2.0/vts/functional/Android.bp",
         "patchSetId": 1
@@ -76,6 +94,30 @@
       "writtenOn": "2019-12-12T19:18:27Z",
       "side": 1,
       "message": "why?",
+      "range": {
+        "startLine": 37,
+        "startChar": 26,
+        "endLine": 37,
+        "endChar": 55
+      },
+      "revId": "0de4662199c91049e72ab955712b0c23b56e9cc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5160ccb_49ad2671",
+        "filename": "broadcastradio/common/vts/utils/include/broadcastradio-vts-utils/pointer-utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2019-12-12T19:21:17Z",
+      "side": 1,
+      "message": "+1, can you revert this line, please?",
+      "parentUuid": "7001d1ab_d279bf9d",
       "range": {
         "startLine": 37,
         "startChar": 26,
