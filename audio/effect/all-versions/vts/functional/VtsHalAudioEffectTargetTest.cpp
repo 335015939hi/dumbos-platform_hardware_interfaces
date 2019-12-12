@@ -28,10 +28,10 @@
 
 #include <common/all-versions/VersionUtils.h>
 
-#if MAJOR_VERSION <= 5
+#if MAJOR_VERSION <= 4
 #include <VtsHalHidlTargetTestBase.h>
 #include <VtsHalHidlTargetTestEnvBase.h>
-#elif MAJOR_VERSION >= 6
+#elif MAJOR_VERSION >= 5
 #include <gtest/gtest.h>
 #include <hidl/GtestPrinter.h>
 #include <hidl/ServiceManagement.h>
@@ -55,7 +55,7 @@ using namespace ::android::hardware::audio::effect::CPP_VERSION;
 #define ARRAY_SIZE(a) (sizeof(a) / sizeof(*(a)))
 #endif
 
-#if MAJOR_VERSION <= 5
+#if MAJOR_VERSION <= 4
 // For HAL versions 2..5 Vts Environment and Test base classes are used.
 // The tests are non-parametrized.
 #define EFFECT_TEST TEST_F
@@ -82,7 +82,7 @@ class AudioEffectsFactoryHidlTest : public ::testing::VtsHalHidlTargetTestBase {
         ASSERT_NE(effectsFactory, nullptr);
     }
 
-#elif MAJOR_VERSION >= 6
+#elif MAJOR_VERSION >= 5
 // For HAL version 6 and above, standard GTest Environment and Test base classes are used.
 // The tests are parametrized by the IEffectsFactory instance name.
 #define EFFECT_TEST TEST_P
@@ -191,12 +191,12 @@ static const Uuid LOUDNESS_ENHANCER_EFFECT_TYPE = {
     std::array<uint8_t, 6>{{0x11, 0x26, 0x0e, 0xb6, 0x3c, 0xf1}}};
 
 // The main test class for Audio Effect HIDL HAL.
-#if MAJOR_VERSION <= 5
+#if MAJOR_VERSION <= 4
 class AudioEffectHidlTest : public ::testing::VtsHalHidlTargetTestBase {
    public:
     void SetUp() override {
         effectsFactory = ::testing::VtsHalHidlTargetTestBase::getService<IEffectsFactory>();
-#elif MAJOR_VERSION >= 6
+#elif MAJOR_VERSION >= 5
 class AudioEffectHidlTest : public ::testing::TestWithParam<std::string> {
   public:
     void SetUp() override {
@@ -838,7 +838,7 @@ EFFECT_TEST(LoudnessEnhancerAudioEffectHidlTest, GetSetTargetGain) {
     EXPECT_EQ(gain, actualGain);
 }
 
-#if MAJOR_VERSION <= 5
+#if MAJOR_VERSION <= 4
 int main(int argc, char** argv) {
     ::testing::AddGlobalTestEnvironment(AudioEffectsFactoryHidlEnvironment::Instance());
     ::testing::InitGoogleTest(&argc, argv);
@@ -847,7 +847,7 @@ int main(int argc, char** argv) {
     LOG(INFO) << "Test result = " << status;
     return status;
 }
-#elif MAJOR_VERSION >= 6
+#elif MAJOR_VERSION >= 5
 INSTANTIATE_TEST_SUITE_P(
         EffectsFactory, AudioEffectsFactoryHidlTest,
         testing::ValuesIn(android::hardware::getAllHalInstanceNames(IEffectsFactory::descriptor)),
@@ -858,6 +858,10 @@ INSTANTIATE_TEST_SUITE_P(
         android::hardware::PrintInstanceNameToString);
 INSTANTIATE_TEST_SUITE_P(
         LoudnessEnhancer, LoudnessEnhancerAudioEffectHidlTest,
+        testing::ValuesIn(android::hardware::getAllHalInstanceNames(IEffectsFactory::descriptor)),
+        android::hardware::PrintInstanceNameToString);
+INSTANTIATE_TEST_SUITE_P(
+        LoudnessEnhancer, AudioEffectHidlTest,
         testing::ValuesIn(android::hardware::getAllHalInstanceNames(IEffectsFactory::descriptor)),
         android::hardware::PrintInstanceNameToString);
 #endif

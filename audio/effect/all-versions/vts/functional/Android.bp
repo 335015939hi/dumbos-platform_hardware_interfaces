@@ -65,9 +65,14 @@ cc_test {
 cc_test {
     name: "VtsHalAudioEffectV5_0TargetTest",
     defaults: ["VtsHalAudioEffectTargetTest_default"],
+    //Use test_config for vts-core suite.
+    test_config: "VtsHalAudioEffectV5_0TargetTest.xml",
     static_libs: [
         "android.hardware.audio.common@5.0",
         "android.hardware.audio.effect@5.0",
+    ],
+    data: [
+        ":audio_effects_conf_V5_0_xsd",
     ],
     cflags: [
         "-DMAJOR_VERSION=5",
@@ -79,9 +84,14 @@ cc_test {
 cc_test {
     name: "VtsHalAudioEffectV6_0TargetTest",
     defaults: ["VtsHalAudioEffectTargetTest_default"],
+    //Use test_config for vts-core suite.
+    test_config: "VtsHalAudioEffectV6_0TargetTest.xml",
     static_libs: [
         "android.hardware.audio.common@6.0",
         "android.hardware.audio.effect@6.0",
+    ],
+    data: [
+        ":audio_effects_conf_V6_0_xsd",
     ],
     cflags: [
         "-DMAJOR_VERSION=6",
