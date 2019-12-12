@@ -60,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "62fb6e99_14b6782c",
+        "filename": "broadcastradio/2.0/vts/functional/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2019-12-12T19:24:12Z",
+      "side": 1,
+      "message": "The new soong flag for that is `cpp_std: \"experimental\"`, but in this case as Enrico pointed out I think you can remove this line entirely.",
+      "parentUuid": "24807044_a3951e1f",
+      "range": {
+        "startLine": 19,
+        "startChar": 24,
+        "endLine": 19,
+        "endChar": 26
+      },
+      "revId": "0de4662199c91049e72ab955712b0c23b56e9cc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a7d2a341_cb34a1e9",
         "filename": "broadcastradio/2.0/vts/functional/VtsHalBroadcastradioV2_0TargetTest.cpp",
         "patchSetId": 1
@@ -71,6 +95,30 @@
       "writtenOn": "2019-12-12T19:18:27Z",
       "side": 1,
       "message": "Or one could add\n\n    using std::nullopt;\n\nabove and reduce the number of deltas",
+      "range": {
+        "startLine": 244,
+        "startChar": 15,
+        "endLine": 244,
+        "endChar": 27
+      },
+      "revId": "0de4662199c91049e72ab955712b0c23b56e9cc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "096abeca_75f2c4ee",
+        "filename": "broadcastradio/2.0/vts/functional/VtsHalBroadcastradioV2_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2019-12-12T19:24:12Z",
+      "side": 1,
+      "message": "I\u0027m fine with going for std::nullopt everywhere (instead of `using`). No strong preference either way.",
+      "parentUuid": "a7d2a341_cb34a1e9",
       "range": {
         "startLine": 244,
         "startChar": 15,
