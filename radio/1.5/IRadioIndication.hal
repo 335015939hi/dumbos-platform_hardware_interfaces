@@ -56,7 +56,7 @@ interface IRadioIndication extends @1.4::IRadioIndication {
      *        For LTE (ESM), cause codes are in TS 24.301 9.9.4.4
      *        MAX_INT if this value is unused.
      */
-    oneway registrationFailed(
-            RadioIndicationType type, CellIdentity cellIdentity, string chosenPlmn,
-            bitfield<Domain> domain, int32_t causeCode, int32_t additionalCauseCode);
+    oneway registrationFailed(RadioIndicationType type, CellIdentity cellIdentity,
+        string chosenPlmn, bitfield<Domain> domain, int32_t causeCode,
+        int32_t additionalCauseCode);
 };

@@ -19,13 +19,14 @@ package android.hardware.radio@1.5;
 import @1.2::DataRequestReason;
 import @1.4::IRadio;
 import @1.4::DataProfileInfo;
-import @1.5::AccessNetwork;
-import @1.5::DataProfileInfo;
-import @1.5::IndicationFilter;
-import @1.5::LinkAddress;
-import @1.5::NetworkScanRequest;
-import @1.5::RadioAccessSpecifier;
-import @1.5::SignalThresholdInfo;
+import AccessNetwork;
+import DataProfileInfo;
+import IndicationFilter;
+import LinkAddress;
+import NetworkScanRequest;
+import PersoSubstate;
+import RadioAccessSpecifier;
+import SignalThresholdInfo;
 
 /**
  * This interface is used by telephony and telecom to talk to cellular radio.
@@ -64,7 +65,7 @@ interface IRadio extends @1.4::IRadio {
      * @param accessNetwork The type of network for which to apply these thresholds.
      */
     oneway setSignalStrengthReportingCriteria_1_5(int32_t serial,
-            SignalThresholdInfo signalThresholdInfo, AccessNetwork accessNetwork);
+        SignalThresholdInfo signalThresholdInfo, AccessNetwork accessNetwork);
 
     /**
      * Enable or disable UiccApplications on the SIM. If disabled:
@@ -79,7 +80,7 @@ interface IRadio extends @1.4::IRadio {
      *
      * @param serial Serial number of request.
      * @param enable true if to enable uiccApplications, false to disable.
-
+     *
      * Response callback is IRadioResponse.enableUiccApplicationsResponse()
      */
     oneway enableUiccApplications(int32_t serial, bool enable);
@@ -111,7 +112,7 @@ interface IRadio extends @1.4::IRadio {
      * Response callback is IRadioResponse.setSystemSelectionChannelsResponse()
      */
     oneway setSystemSelectionChannels_1_5(int32_t serial, bool specifyChannels,
-            vec<RadioAccessSpecifier> specifiers);
+        vec<RadioAccessSpecifier> specifiers);
 
     /**
      * Starts a network scan
@@ -165,8 +166,8 @@ interface IRadio extends @1.4::IRadio {
      * 1.5 AccessNetwork, DataProfileInto, and link addresses as the input param.
      */
     oneway setupDataCall_1_5(int32_t serial, AccessNetwork accessNetwork,
-            DataProfileInfo dataProfileInfo, bool roamingAllowed,
-            DataRequestReason reason, vec<LinkAddress> addresses, vec<string> dnses);
+        DataProfileInfo dataProfileInfo, bool roamingAllowed, DataRequestReason reason,
+        vec<LinkAddress> addresses, vec<string> dnses);
 
     /**
      * Set an apn to initial attach network
@@ -219,7 +220,7 @@ interface IRadio extends @1.4::IRadio {
      * Response callback is IRadioConfigResponse. setRadioPowerResponse_1_5.
      */
     oneway setRadioPower_1_5(int32_t serial, bool powerOn, bool forEmergencyCall,
-            bool preferredForEmergencyCall);
+        bool preferredForEmergencyCall);
 
     /**
      * Sets the indication filter.
@@ -235,4 +236,15 @@ interface IRadio extends @1.4::IRadio {
      * Response callback is IRadioResponse.setIndicationFilterResponse()
      */
     oneway setIndicationFilter_1_5(int32_t serial, bitfield<IndicationFilter> indicationFilter);
+
+    /**
+     * Requests that deactivates one category of the device personalization.
+     *
+     * @param serial Serial number of request.
+     * @param persoType SIM personalization type.
+     * @param controlKey depersonalization code corresponding to persoType
+     *
+     * Response function is IRadioResponse.supplySimDepersonalizationResponse()
+     */
+    oneway supplySimDepersonalization(int32_t serial, PersoSubstate persoType, string controlKey);
 };

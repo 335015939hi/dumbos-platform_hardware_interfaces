@@ -16,6 +16,7 @@
 
 package android.hardware.radio@1.5;
 
+import @1.0::PersoSubstate;
 import @1.1::EutranBands;
 import @1.1::GeranBands;
 import @1.1::RadioAccessNetworks;
@@ -36,7 +37,6 @@ import @1.4::DataCallFailCause;
 import @1.4::DataConnActiveStatus;
 import @1.4::DataProfileInfo;
 import @1.4::PdpProtocolType;
-
 import android.hidl.safe_union@1.0::Monostate;
 
 /**
@@ -107,10 +107,14 @@ enum SignalMeasurementType : int32_t {
  * Contains the threshold values of each signal measurement type.
  */
 struct SignalThresholdInfo {
-    /** Signal Measurement Type */
+    /**
+     * Signal Measurement Type
+     */
     SignalMeasurementType signalMeasurement;
 
-    /** A hysteresis time in milliseconds to prevent flapping. A value of 0 disables hysteresis */
+    /**
+     * A hysteresis time in milliseconds to prevent flapping. A value of 0 disables hysteresis
+     */
     int32_t hysteresisMs;
 
     /**
@@ -163,13 +167,24 @@ struct RadioAccessSpecifier {
      * Maximum length of the vector is 8.
      */
     safe_union Bands {
-        /** Valid only if radioAccessNetwork = GERAN. */
+        /**
+         * Valid only if radioAccessNetwork = GERAN.
+         */
         vec<GeranBands> geranBands;
-        /** Valid only if radioAccessNetwork = UTRAN. */
+
+        /**
+         * Valid only if radioAccessNetwork = UTRAN.
+         */
         vec<UtranBands> utranBands;
-        /** Valid only if radioAccessNetwork = EUTRAN. */
+
+        /**
+         * Valid only if radioAccessNetwork = EUTRAN.
+         */
         vec<EutranBands> eutranBands;
-        /** Valid only if radioAccessNetwork = NGRAN. */
+
+        /**
+         * Valid only if radioAccessNetwork = NGRAN.
+         */
         vec<NgranBands> ngranBands;
     } bands;
 
@@ -181,7 +196,9 @@ struct RadioAccessSpecifier {
 };
 
 enum NgranBands : int32_t {
-    /** 3GPP TS 38.101-1, Table 5.2-1: FR1 bands */
+    /**
+     * 3GPP TS 38.101-1, Table 5.2-1: FR1 bands
+     */
     BAND_1 = 1,
     BAND_2 = 2,
     BAND_3 = 3,
@@ -221,7 +238,9 @@ enum NgranBands : int32_t {
     BAND_84 = 84,
     BAND_86 = 86,
     BAND_90 = 90,
-    /** 3GPP TS 38.101-2, Table 5.2-1: FR2 bands */
+    /**
+     * 3GPP TS 38.101-2, Table 5.2-1: FR2 bands
+     */
     BAND_257 = 257,
     BAND_258 = 258,
     BAND_260 = 260,
@@ -298,7 +317,9 @@ enum ApnTypes : @1.4::ApnTypes {
 struct DataProfileInfo {
     @1.4::DataProfileInfo base;
 
-    /** Supported APN types bitmap. See ApnTypes for the value of each bit. */
+    /**
+     * Supported APN types bitmap. See ApnTypes for the value of each bit.
+     */
     bitfield<ApnTypes> supportedApnTypesBitmap;
 };
 
@@ -308,8 +329,9 @@ struct DataProfileInfo {
  */
 enum AddressProperty : int32_t {
     NONE = 0,
-
-    /** Indicates this address is deprecated */
+    /**
+     * Indicates this address is deprecated
+     */
     DEPRECATED = 0x20,
 };
 
@@ -349,7 +371,9 @@ struct LinkAddress {
  * version. In 1.5 the type of addresses changes to vector of LinkAddress.
  */
 struct SetupDataCallResult {
-    /** Data call fail cause. DataCallFailCause.NONE if no error. */
+    /**
+     * Data call fail cause. DataCallFailCause.NONE if no error.
+     */
     DataCallFailCause cause;
 
     /**
@@ -361,10 +385,14 @@ struct SetupDataCallResult {
      */
     int32_t suggestedRetryTime;
 
-    /** Context ID, uniquely identifies this call. */
+    /**
+     * Context ID, uniquely identifies this call.
+     */
     int32_t cid;
 
-    /** Data connection active status. */
+    /**
+     * Data connection active status.
+     */
     DataConnActiveStatus active;
 
     /**
@@ -373,7 +401,9 @@ struct SetupDataCallResult {
      */
     PdpProtocolType type;
 
-    /** The network interface name. */
+    /**
+     * The network interface name.
+     */
     string ifname;
 
     /**
@@ -407,26 +437,54 @@ struct SetupDataCallResult {
 };
 
 enum Domain : int32_t {
-    /** Circuit-switched */
+    /**
+     * Circuit-switched
+     */
     CS = 1 << 0,
-
-    /** Packet-switched */
+    /**
+     * Packet-switched
+     */
     PS = 1 << 1,
 };
 
-/** A union representing the CellIdentity of a single cell */
+/**
+ * A union representing the CellIdentity of a single cell
+ */
 safe_union CellIdentity {
     Monostate noinit;
 
     CellIdentityGsm gsm;
+
     CellIdentityWcdma wcdma;
+
     CellIdentityTdscdma tdscdma;
+
     CellIdentityCdma cdma;
+
     CellIdentityLte lte;
+
     CellIdentityNr nr;
 };
 
 enum IndicationFilter : @1.2::IndicationFilter {
-    /** Control the unsolicited sending of registration failure reports via onRegistrationFailed */
+    /**
+     * Control the unsolicited sending of registration failure reports via onRegistrationFailed
+     */
     REGISTRATION_FAILURE = 1 << 5,
+};
+
+/**
+ * Additional personalization categories in addition to those specified in 3GPP TS 22.022 and 3GPP2 C.S0068-0.
+ */
+enum PersoSubstate : @1.0::PersoSubstate {
+    SIM_SPN,
+    SIM_SPN_PUK,
+    SIM_SP_EHPLMN,
+    SIM_SP_EHPLMN_PUK,
+    SIM_ICCID,
+    SIM_ICCID_PUK,
+    SIM_IMPI,
+    SIM_IMPI_PUK,
+    SIM_NS_SP,
+    SIM_NS_SP_PUK,
 };
