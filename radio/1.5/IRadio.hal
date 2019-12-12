@@ -21,6 +21,7 @@ import @1.4::IRadio;
 import @1.5::AccessNetwork;
 import @1.5::DataProfileInfo;
 import @1.5::NetworkScanRequest;
+import @1.5::PersoSubstate;
 import @1.5::RadioAccessSpecifier;
 import @1.5::SignalThresholdInfo;
 
@@ -221,4 +222,15 @@ interface IRadio extends @1.4::IRadio {
      */
     oneway setRadioPower_1_5(int32_t serial, bool powerOn, bool forEmergencyCall,
             bool preferredForEmergencyCall);
+
+    /**
+     * Requests that deactivates one category of the device personalization.
+     *
+     * @param serial Serial number of request.
+     * @param persoType SIM personalized type.
+     * @param controlKey depersonlization code corresponding to persoType
+     *
+     * Response function is IRadioResponse.supplySimDepersonalizationResponse()
+     */
+     oneway supplySimDepersonalization(int32_t serial, PersoSubstate persoType, string controlKey);
 };
