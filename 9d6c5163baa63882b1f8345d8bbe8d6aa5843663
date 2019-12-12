@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "60ce9b00_7b509aa4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2019-12-12T18:33:00Z",
+      "side": 1,
+      "message": "Please add \u0027Bug: 146015418\u0027, I\u0027ve filed it recently to document the need of converting audio VTS tests to vts-core.",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 14
+      },
+      "revId": "9d6c5163baa63882b1f8345d8bbe8d6aa5843663",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "847750a3_8323772c",
+        "filename": "audio/effect/all-versions/vts/functional/VtsHalAudioEffectTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 809,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2019-12-12T18:33:00Z",
+      "side": 1,
+      "message": "Thanks for noticing this problem! Please call this set \u0027Equalizer\u0027 and move this instantiation after EffectsFactory, before the rest of Equalizer tests, because AudioEffectHidlTest uses Equalizer effect UUID.",
+      "range": {
+        "startLine": 809,
+        "startChar": 8,
+        "endLine": 809,
+        "endChar": 24
+      },
+      "revId": "9d6c5163baa63882b1f8345d8bbe8d6aa5843663",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
