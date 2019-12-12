@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a618d173_0f544a5e",
+        "filename": "radio/1.5/IRadioResponse.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1153084
+      },
+      "writtenOn": "2019-12-12T05:30:56Z",
+      "side": 1,
+      "message": "long line.",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 121
+      },
+      "revId": "3af8bd8d4a09e768854646b1af9712ffce7af613",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56083ea3_41ab39fb",
+        "filename": "radio/1.5/vts/functional/radio_response.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1153084
+      },
+      "writtenOn": "2019-12-12T05:30:56Z",
+      "side": 1,
+      "message": "long line.",
+      "range": {
+        "startLine": 66,
+        "startChar": 105,
+        "endLine": 66,
+        "endChar": 131
+      },
+      "revId": "3af8bd8d4a09e768854646b1af9712ffce7af613",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
