@@ -1,0 +1,8 @@
+genrule {
+    name: "audio_policy_configuration_V2_0_xsd",
+    srcs: ["audio_policy_configuration.xsd"],
+    out: [
+        "audio_policy_configuration_V2_0.xsd",
+    ],
+    cmd: "cp -f $(in) $(genDir)/audio_policy_configuration_V2_0.xsd",
+}
