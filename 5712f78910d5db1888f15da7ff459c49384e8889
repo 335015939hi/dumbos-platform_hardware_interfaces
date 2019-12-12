@@ -22,6 +22,30 @@
       "revId": "5712f78910d5db1888f15da7ff459c49384e8889",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "833b9419_d91a9a3c",
+        "filename": "broadcastradio/2.0/vts/functional/VtsHalBroadcastradioV2_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-12-12T21:08:38Z",
+      "side": 0,
+      "message": "The file is still used by 1.0 and 1.1 test. These 2 tests are not part of compliant suite. If they are still useful tests, I can convert them too.\n1.0 test requires more change, I will convert them in a separate CL.",
+      "parentUuid": "54dcde68_188fe261",
+      "range": {
+        "startLine": 28,
+        "startChar": 9,
+        "endLine": 28,
+        "endChar": 55
+      },
+      "revId": "5712f78910d5db1888f15da7ff459c49384e8889",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }

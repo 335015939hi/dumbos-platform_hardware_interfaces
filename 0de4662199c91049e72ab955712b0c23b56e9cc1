@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "efa74556_e66b73c2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-12-12T21:08:38Z",
+      "side": 1,
+      "message": "Without SIM: no test\nWith activated SIM: no test\n\nI tried with the original VTS test running through vts test harness as well, same result. The flame is on master 6059848",
+      "parentUuid": "126c52a3_3f884bdd",
+      "revId": "0de4662199c91049e72ab955712b0c23b56e9cc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "24807044_a3951e1f",
         "filename": "broadcastradio/2.0/vts/functional/Android.bp",
         "patchSetId": 1
@@ -81,6 +99,30 @@
       "revId": "0de4662199c91049e72ab955712b0c23b56e9cc1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05686b5a_3c4577ee",
+        "filename": "broadcastradio/2.0/vts/functional/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-12-12T21:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62fb6e99_14b6782c",
+      "range": {
+        "startLine": 19,
+        "startChar": 24,
+        "endLine": 19,
+        "endChar": 26
+      },
+      "revId": "0de4662199c91049e72ab955712b0c23b56e9cc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -131,6 +173,30 @@
     },
     {
       "key": {
+        "uuid": "f46a4406_4c9e2e4e",
+        "filename": "broadcastradio/2.0/vts/functional/VtsHalBroadcastradioV2_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-12-12T21:08:38Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "096abeca_75f2c4ee",
+      "range": {
+        "startLine": 244,
+        "startChar": 15,
+        "endLine": 244,
+        "endChar": 27
+      },
+      "revId": "0de4662199c91049e72ab955712b0c23b56e9cc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7001d1ab_d279bf9d",
         "filename": "broadcastradio/common/vts/utils/include/broadcastradio-vts-utils/pointer-utils.h",
         "patchSetId": 1
@@ -166,6 +232,30 @@
       "side": 1,
       "message": "+1, can you revert this line, please?",
       "parentUuid": "7001d1ab_d279bf9d",
+      "range": {
+        "startLine": 37,
+        "startChar": 26,
+        "endLine": 37,
+        "endChar": 55
+      },
+      "revId": "0de4662199c91049e72ab955712b0c23b56e9cc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7832f48d_c8450cb9",
+        "filename": "broadcastradio/common/vts/utils/include/broadcastradio-vts-utils/pointer-utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-12-12T21:08:38Z",
+      "side": 1,
+      "message": "I ran into a build error. likely related to the removal of include environment-utils.h\n\nadd \"using namespace std::chrono_literals\" to fix that.",
+      "parentUuid": "b5160ccb_49ad2671",
       "range": {
         "startLine": 37,
         "startChar": 26,
