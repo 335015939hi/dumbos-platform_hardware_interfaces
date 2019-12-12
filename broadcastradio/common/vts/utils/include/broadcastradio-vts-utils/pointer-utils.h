@@ -34,7 +34,7 @@ template <typename T>
 static void clearAndWait(sp<T>& ptr, std::chrono::milliseconds timeout) {
     using std::chrono::steady_clock;
 
-    constexpr auto step = 10ms;
+    constexpr auto step = std::chrono::milliseconds(10);
 
     wp<T> wptr = ptr;
     ptr.clear();
