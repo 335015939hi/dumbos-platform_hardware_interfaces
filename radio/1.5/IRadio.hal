@@ -19,6 +19,7 @@ package android.hardware.radio@1.5;
 import @1.4::IRadio;
 import @1.5::AccessNetwork;
 import @1.5::NetworkScanRequest;
+import @1.5::PersoSubstate;
 import @1.5::RadioAccessSpecifier;
 import @1.5::SignalThresholdInfo;
 
@@ -118,4 +119,16 @@ interface IRadio extends @1.4::IRadio {
      * 1.5 version of NetworkScanRequest
      */
     oneway startNetworkScan_1_5(int32_t serial, NetworkScanRequest request);
+
+    /**
+     Requests that deactivates one category of the device personalization.
+     *
+     * @param serial Serial number of request.
+     * @param persoType SIM personalized type.
+     * @param controlKey depersonlization code corresponding to persoType
+     *
+     * Response function is IRadioResponse.supplySimDepersonalizationResponse()
+     *
+     */
+     oneway supplySimDepersonalization(int32_t serial, PersoSubstate persoType, string controlKey);
 };
