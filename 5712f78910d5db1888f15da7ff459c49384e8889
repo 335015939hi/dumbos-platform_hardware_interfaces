@@ -46,6 +46,30 @@
       "revId": "5712f78910d5db1888f15da7ff459c49384e8889",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26609749_2b96ee67",
+        "filename": "broadcastradio/2.0/vts/functional/VtsHalBroadcastradioV2_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2019-12-12T22:09:37Z",
+      "side": 0,
+      "message": "Ack",
+      "parentUuid": "833b9419_d91a9a3c",
+      "range": {
+        "startLine": 28,
+        "startChar": 9,
+        "endLine": 28,
+        "endChar": 55
+      },
+      "revId": "5712f78910d5db1888f15da7ff459c49384e8889",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

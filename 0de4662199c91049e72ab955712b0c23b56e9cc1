@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "d493405d_d5a8dbeb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2019-12-12T22:09:37Z",
+      "side": 1,
+      "message": "It sounds like it\u0027s not related to SIM, doesn\u0027t it?",
+      "parentUuid": "efa74556_e66b73c2",
+      "revId": "0de4662199c91049e72ab955712b0c23b56e9cc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "24807044_a3951e1f",
         "filename": "broadcastradio/2.0/vts/functional/Android.bp",
         "patchSetId": 1
@@ -265,6 +283,30 @@
       "revId": "0de4662199c91049e72ab955712b0c23b56e9cc1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1aec583a_6c0462e2",
+        "filename": "broadcastradio/common/vts/utils/include/broadcastradio-vts-utils/pointer-utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2019-12-12T22:09:37Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7832f48d_c8450cb9",
+      "range": {
+        "startLine": 37,
+        "startChar": 26,
+        "endLine": 37,
+        "endChar": 55
+      },
+      "revId": "0de4662199c91049e72ab955712b0c23b56e9cc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
