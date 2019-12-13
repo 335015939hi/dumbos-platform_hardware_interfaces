@@ -33,6 +33,7 @@
 #include <cutils/klog.h>
 #include <cutils/uevent.h>
 #include <healthd/healthd.h>
+#include <libbpf_android.h>
 #include <utils/Errors.h>
 
 #include <health/utils.h>
@@ -73,7 +74,7 @@ int HealthLoop::RegisterEvent(int fd, BoundFunction func, EventWakeup wakeup) {
     ev.data.ptr = reinterpret_cast<void*>(event_handler);
 
     if (epoll_ctl(epollfd_, EPOLL_CTL_ADD, fd, &ev) == -1) {
-        KLOG_ERROR(LOG_TAG, "epoll_ctl failed; errno=%d\n", errno);
+        KLOG_ERROR(LOG_TAG, "epoll_ctl failed; errno=%s\n", strerror(errno));
         return -1;
     }
 
@@ -143,6 +144,7 @@ void HealthLoop::UeventEvent(uint32_t /*epevents*/) {
     cp = msg;
 
     while (*cp) {
+        LOG(INFO) << "asdfasdf btw, wokeup for: " << cp;
         if (!strcmp(cp, "SUBSYSTEM=" POWER_SUPPLY_SUBSYSTEM)) {
             ScheduleBatteryUpdate();
             break;
@@ -163,6 +165,19 @@ void HealthLoop::UeventInit(void) {
     }
 
     fcntl(uevent_fd_, F_SETFL, O_NONBLOCK);
+
+    android::bpf::waitForProgsLoaded();
+
+    int filter_fd = bpf_obj_get("/sys/fs/bpf/prog_power_wakeup_skfilter");
+    if (filter_fd < 0) {
+        KLOG_ERROR(LOG_TAG, "uevent_init: could not open bpf, errno=%s", strerror(errno));
+    } else if (-1 ==
+               setsockopt(uevent_fd_, SOL_SOCKET, SO_ATTACH_BPF, &filter_fd, sizeof(filter_fd))) {
+        KLOG_ERROR(LOG_TAG, "uevent_init: could not attach bpf program, errno=%s", strerror(errno));
+    } else {
+        KLOG_ERROR(LOG_TAG, "uevent_init: successfully attached bpf program");
+    }
+
     if (RegisterEvent(uevent_fd_, &HealthLoop::UeventEvent, EVENT_WAKEUP_FD))
         KLOG_ERROR(LOG_TAG, "register for uevent events failed\n");
 }
