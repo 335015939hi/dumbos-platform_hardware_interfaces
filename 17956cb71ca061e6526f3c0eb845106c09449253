@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "087de38f_f884f5d9",
+        "filename": "health/utils/libhealthloop/HealthLoop.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-12-13T01:42:19Z",
+      "side": 1,
+      "message": "Joel/Connor, I am hitting this line (unless I run this as a super user). Do you know what permission checks are run here or how to find this out? Thanks\n\n12-12 20:33:49.117     0     0 E HealthLoop: uevent_init: could not open bpf, errno\u003d13",
+      "range": {
+        "startLine": 171,
+        "startChar": 29,
+        "endLine": 171,
+        "endChar": 40
+      },
+      "revId": "17956cb71ca061e6526f3c0eb845106c09449253",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
