@@ -168,6 +168,30 @@
     },
     {
       "key": {
+        "uuid": "12278a13_3cf1edfc",
+        "filename": "audio/effect/all-versions/vts/functional/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-12-13T18:24:57Z",
+      "side": 1,
+      "message": "When running the test as native test through TradeFed, we don\u0027t rely on VTS harness (native server) to do service discovery. So I don\u0027t think the option \"binary-test-stop-native-servers\" will be applicable any more. And there is no equivalent TradeFed option, as we won\u0027t install vts native server on the device.",
+      "parentUuid": "3ccc8133_588bf4cf",
+      "range": {
+        "startLine": 34,
+        "startChar": 18,
+        "endLine": 34,
+        "endChar": 33
+      },
+      "revId": "9d6c5163baa63882b1f8345d8bbe8d6aa5843663",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "847750a3_8323772c",
         "filename": "audio/effect/all-versions/vts/functional/VtsHalAudioEffectTargetTest.cpp",
         "patchSetId": 3
