@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "ba87c300_20892bcd",
+        "filename": "audio/effect/all-versions/vts/functional/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-12-13T18:00:51Z",
+      "side": 1,
+      "message": "just to clarify, tests only need to be in general-tests or device-tests to be accessible by presubmit test run, e.g., through Test Mapping. Adding it to vts-core is for the test to be part of vts-core compliance suite (for OEM).\n\nThe missing \"binary-test-disable-framework\" option should be added to the test xml files in this CL.\nNote that it\u0027s a vts option. To be translated to TradeFed config:\n\"binary-test-disable-framework\" is equivalent to:\n\t\u003ctarget_preparer class\u003d\"com.android.tradefed.targetprep.RunCommandTargetPreparer\"\u003e\n\t\t\u003coption name\u003d\"run-command\" value\u003d\"stop\"/\u003e\n\t\t\u003coption name\u003d\"teardown-command\" value\u003d\"start\"/\u003e\n\t\u003c/target_preparer\u003e\n\n\"binary-test-stop-native-servers\" is only related to vts harness (\"vts.native_server.on\" system property). Since the test will be a generic native test that doesn\u0027t require vts harness, the option is no longer needed.",
+      "parentUuid": "3a6ea048_05f28d5e",
+      "range": {
+        "startLine": 34,
+        "startChar": 18,
+        "endLine": 34,
+        "endChar": 33
+      },
+      "revId": "9d6c5163baa63882b1f8345d8bbe8d6aa5843663",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "847750a3_8323772c",
         "filename": "audio/effect/all-versions/vts/functional/VtsHalAudioEffectTargetTest.cpp",
         "patchSetId": 3
