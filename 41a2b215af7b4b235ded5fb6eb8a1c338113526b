@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "e9765298_930eb42b",
+        "filename": "radio/1.5/IRadioResponse.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2019-12-13T14:32:57Z",
+      "side": 1,
+      "message": "It\u0027s ok to use -1 for infinite number of retries. In this case, can you please add that in the documentation of the interface, so that it is clear what -1 means. Right now, it says \"if unknown\".",
+      "parentUuid": "82d692fd_20adef88",
+      "range": {
+        "startLine": 88,
+        "startChar": 77,
+        "endLine": 88,
+        "endChar": 90
+      },
+      "revId": "41a2b215af7b4b235ded5fb6eb8a1c338113526b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "962c1e67_79d51fe8",
         "filename": "radio/1.5/IRadioResponse.hal",
         "patchSetId": 1
@@ -93,6 +117,30 @@
       "revId": "41a2b215af7b4b235ded5fb6eb8a1c338113526b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "60baa889_33cfcbd6",
+        "filename": "radio/1.5/IRadioResponse.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2019-12-13T14:32:57Z",
+      "side": 1,
+      "message": "A bit confused... you responded with \"Done\", but the error code is still there. Does it mean that it\u0027s applicable? If so, can you describe a scenario where this would happen?",
+      "parentUuid": "e2760721_8446c8f1",
+      "range": {
+        "startLine": 101,
+        "startChar": 9,
+        "endLine": 101,
+        "endChar": 29
+      },
+      "revId": "41a2b215af7b4b235ded5fb6eb8a1c338113526b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
@@ -187,6 +235,30 @@
       "revId": "41a2b215af7b4b235ded5fb6eb8a1c338113526b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c1b172f_cf5794e2",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2019-12-13T14:32:57Z",
+      "side": 1,
+      "message": "I see \"done\" here, but I don\u0027t see any change to add a description.",
+      "parentUuid": "de5d30fb_abd800a1",
+      "range": {
+        "startLine": 285,
+        "startChar": 4,
+        "endLine": 285,
+        "endChar": 13
+      },
+      "revId": "41a2b215af7b4b235ded5fb6eb8a1c338113526b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
