@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "247fda01_a3b4ee08",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1307893
+      },
+      "writtenOn": "2019-12-13T02:33:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60ce9b00_7b509aa4",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 14
+      },
+      "revId": "9d6c5163baa63882b1f8345d8bbe8d6aa5843663",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0eea84c3_eb887054",
         "filename": "audio/effect/all-versions/vts/functional/Android.bp",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "5d0c0ba7_965f1a23",
+        "filename": "audio/effect/all-versions/vts/functional/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1307893
+      },
+      "writtenOn": "2019-12-13T02:33:37Z",
+      "side": 1,
+      "message": "Thanks, I just added the \"vts-core\" and kept the \"general-tests\" since we need it if you want to set it as a presubmit by using test-mapping.\nCurrently, test-mapping only wrapper the tests in general-tests or device-tests.",
+      "parentUuid": "0eea84c3_eb887054",
+      "range": {
+        "startLine": 34,
+        "startChar": 18,
+        "endLine": 34,
+        "endChar": 33
+      },
+      "revId": "9d6c5163baa63882b1f8345d8bbe8d6aa5843663",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "847750a3_8323772c",
         "filename": "audio/effect/all-versions/vts/functional/VtsHalAudioEffectTargetTest.cpp",
         "patchSetId": 3
@@ -68,6 +116,30 @@
       "revId": "9d6c5163baa63882b1f8345d8bbe8d6aa5843663",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1726c2ee_40254c2a",
+        "filename": "audio/effect/all-versions/vts/functional/VtsHalAudioEffectTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 809,
+      "author": {
+        "id": 1307893
+      },
+      "writtenOn": "2019-12-13T02:33:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "847750a3_8323772c",
+      "range": {
+        "startLine": 809,
+        "startChar": 8,
+        "endLine": 809,
+        "endChar": 24
+      },
+      "revId": "9d6c5163baa63882b1f8345d8bbe8d6aa5843663",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
