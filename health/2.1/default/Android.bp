@@ -72,7 +72,11 @@ cc_binary {
     ],
 
     vintf_fragments: [
-        "android.hardware.health@2.1.xml"
+        "android.hardware.health@2.1.xml",
+    ],
+
+    required: [
+        "power_wakeup.o",
     ],
 
     overrides: [

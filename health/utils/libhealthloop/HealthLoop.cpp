@@ -33,6 +33,7 @@
 #include <cutils/klog.h>
 #include <cutils/uevent.h>
 #include <healthd/healthd.h>
+#include <libbpf.h>
 #include <utils/Errors.h>
 
 #include <health/utils.h>
@@ -143,6 +144,7 @@ void HealthLoop::UeventEvent(uint32_t /*epevents*/) {
     cp = msg;
 
     while (*cp) {
+        LOG(INFO) << "asdfasdf btw, wokeup for: " << cp;
         if (!strcmp(cp, "SUBSYSTEM=" POWER_SUPPLY_SUBSYSTEM)) {
             ScheduleBatteryUpdate();
             break;
@@ -163,6 +165,18 @@ void HealthLoop::UeventInit(void) {
     }
 
     fcntl(uevent_fd_, F_SETFL, O_NONBLOCK);
+
+    // FIXME: need to wait until after bpfloader is done
+    int filter_fd = bpf_obj_get("/sys/fs/bpf/prog_power_wakeup_skfilter");
+    if (filter_fd < 0) {
+        KLOG_ERROR(LOG_TAG, "uevent_init: could not open bpf, errno=%d", errno);
+    } else if (-1 ==
+               setsockopt(uevent_fd_, SOL_SOCKET, SO_ATTACH_BPF, &filter_fd, sizeof(filter_fd))) {
+        KLOG_ERROR(LOG_TAG, "uevent_init: could not attach bpf program");
+    } else {
+        KLOG_ERROR(LOG_TAG, "uevent_init: successfully attached bpf program");
+    }
+
     if (RegisterEvent(uevent_fd_, &HealthLoop::UeventEvent, EVENT_WAKEUP_FD))
         KLOG_ERROR(LOG_TAG, "register for uevent events failed\n");
 }
