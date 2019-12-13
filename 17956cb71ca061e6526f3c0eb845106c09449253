@@ -70,6 +70,30 @@
       "revId": "17956cb71ca061e6526f3c0eb845106c09449253",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da6660ab_8d9c3e8d",
+        "filename": "health/utils/libhealthloop/HealthLoop.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1115183
+      },
+      "writtenOn": "2019-12-13T20:07:37Z",
+      "side": 1,
+      "message": "Looks like owner and mode for a lot of the maps and programs are set explicitly here:\nhttps://android.googlesource.com/platform/system/netd/+/refs/heads/master/server/TrafficController.cpp#194",
+      "parentUuid": "a4fdced6_1d26d114",
+      "range": {
+        "startLine": 171,
+        "startChar": 29,
+        "endLine": 171,
+        "endChar": 40
+      },
+      "revId": "17956cb71ca061e6526f3c0eb845106c09449253",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
