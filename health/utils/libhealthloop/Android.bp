@@ -12,6 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+bpf {
+    name: "power_wakeup.o",
+    vendor: true,
+    cflags: [
+        "-Werror",
+        "-Wall",
+    ],
+    srcs: ["power_wakeup.c"],
+}
+
 cc_library_static {
     name: "libhealthloop",
     vendor_available: true,
@@ -23,6 +33,10 @@ cc_library_static {
     shared_libs: [
         "libcutils",
         "libbase",
+    ],
+    whole_static_libs: [
+        "libbpf",
+        "libbpf_android",
     ],
     header_libs: [
         "libbatteryservice_headers",

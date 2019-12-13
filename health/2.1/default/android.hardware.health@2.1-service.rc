@@ -1,6 +1,8 @@
 service health-hal-2-1 /vendor/bin/hw/android.hardware.health@2.1-service
     class hal
-    user system
-    group system
+    # FIXME: this is root to match permissions of /sys/fs/bpf/prog_...
+    # but we instead need to change the permissions of those files.
+    user root
+    group root
     capabilities WAKE_ALARM
     file /dev/kmsg w
