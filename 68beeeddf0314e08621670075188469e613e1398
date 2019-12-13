@@ -22,6 +22,30 @@
       "revId": "68beeeddf0314e08621670075188469e613e1398",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f512ae07_5946f4f6",
+        "filename": "vibrator/aidl/vts/VtsHalVibratorTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2019-12-13T01:45:56Z",
+      "side": 1,
+      "message": "Yeah, I don\u0027t like it having a some weird invalid_type as default type for aidl_enum_values, because it carries no information about the aidl_enum_values, is it iterable or container-like etc?? So if we need to make it better, i\u0027d like to 1) expose std::array directly in AIDLSupport.h OR 2) use aidl_enum_range as a contract just like b/143992652#comment4.\n\nI don\u0027t think the extra wrapping would be necessary, which means I\u0027m leaning to the option 1). But, I\u0027m also fine with the option 2).",
+      "parentUuid": "f9dd3099_c4a2eae6",
+      "range": {
+        "startLine": 37,
+        "startChar": 31,
+        "endLine": 37,
+        "endChar": 47
+      },
+      "revId": "68beeeddf0314e08621670075188469e613e1398",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
