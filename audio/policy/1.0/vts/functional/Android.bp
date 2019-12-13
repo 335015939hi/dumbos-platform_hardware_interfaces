@@ -1,0 +1,43 @@
+cc_test {
+    name: "VtsHalAudioPolicyV1_0TargetTest",
+    defaults: ["vts_target_tests_defaults"],
+    srcs: [
+        "ValidateEngineConfigurableConfiguration.cpp",
+    ],
+    static_libs: [
+        "android.hardware.audio.common.test.utility",
+        "libxml2",
+        "liblog",
+        "libmedia_helper",
+        "libaudiopolicyengine_config",
+        "libaudiopolicycomponents",
+        "libaudiopolicyengineconfigurable_pfwwrapper",
+        "libparameter",
+        "libpfw_utility",
+        "libremote-processor",
+        "libutils",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libbase",
+    ],
+    shared_libs: [
+        "libaudiofoundation",
+    ],
+    cflags: [
+        "-DXSD_DIR=\"/data/local/tmp\"",
+        "-Wall",
+        "-Werror",
+        "-Wno-unused-function",
+        "-O0",
+        "-g",
+    ],
+    gtest: true,
+    test_suites: [
+        "general-tests",
+        "vts-core",
+    ],
+    data: [
+        ":audio_policy_engine_conf_V1_0_xsd",
+    ],
+}
