@@ -192,6 +192,30 @@
     },
     {
       "key": {
+        "uuid": "3305ab23_55a0d83a",
+        "filename": "audio/effect/all-versions/vts/functional/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2019-12-13T18:30:32Z",
+      "side": 1,
+      "message": "Let\u0027s clarify this. For audio VTS, toggling \"vts.native_server.on\" also means that native audio_server process exits. This is important because audio HAL only supports 1 client correctly, having 2 clients: audio_server and VTS test often leads to test failures (especially for the \"core\" audio HAL VTS). So we still need this option to run VTS tests properly. We can introduce another property specific to audio_server if you plan to retire VTS harness native server.",
+      "parentUuid": "12278a13_3cf1edfc",
+      "range": {
+        "startLine": 34,
+        "startChar": 18,
+        "endLine": 34,
+        "endChar": 33
+      },
+      "revId": "9d6c5163baa63882b1f8345d8bbe8d6aa5843663",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "847750a3_8323772c",
         "filename": "audio/effect/all-versions/vts/functional/VtsHalAudioEffectTargetTest.cpp",
         "patchSetId": 3
