@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "3a6ea048_05f28d5e",
+        "filename": "audio/effect/all-versions/vts/functional/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2019-12-13T17:43:50Z",
+      "side": 1,
+      "message": "My understanding is that due to \"vts-core\" it is possible to run these tests correctly in presubmit. Current issue with \"general-tests\" is that atest doesn\u0027t take into account \"binary-test-disable-framework\" and \"binary-test-stop-native-servers\" statements from the test xml config, and leaving framework and native servers running can interfere with VTS.",
+      "parentUuid": "5d0c0ba7_965f1a23",
+      "range": {
+        "startLine": 34,
+        "startChar": 18,
+        "endLine": 34,
+        "endChar": 33
+      },
+      "revId": "9d6c5163baa63882b1f8345d8bbe8d6aa5843663",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "847750a3_8323772c",
         "filename": "audio/effect/all-versions/vts/functional/VtsHalAudioEffectTargetTest.cpp",
         "patchSetId": 3
