@@ -46,6 +46,30 @@
       "revId": "17956cb71ca061e6526f3c0eb845106c09449253",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4fdced6_1d26d114",
+        "filename": "health/utils/libhealthloop/HealthLoop.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-12-13T17:47:13Z",
+      "side": 1,
+      "message": "I didn\u0027t see any SELinux denials, but I\u0027ll try. Hmm. I even tried user/group root for the health binary.\n\nDo you know how these programs end up getting ownership setup?\n-rw-rw---- 1 root net_bw_stats 0 2019-12-12 20:33 map_netd_stats_map_A\n-rw------- 1 root root         0 2019-12-12 20:33 prog_power_wakeup_skfilter",
+      "parentUuid": "e536e0a9_6df1cc3b",
+      "range": {
+        "startLine": 171,
+        "startChar": 29,
+        "endLine": 171,
+        "endChar": 40
+      },
+      "revId": "17956cb71ca061e6526f3c0eb845106c09449253",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
