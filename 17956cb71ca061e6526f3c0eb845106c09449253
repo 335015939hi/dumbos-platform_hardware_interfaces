@@ -22,6 +22,30 @@
       "revId": "17956cb71ca061e6526f3c0eb845106c09449253",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e536e0a9_6df1cc3b",
+        "filename": "health/utils/libhealthloop/HealthLoop.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1115183
+      },
+      "writtenOn": "2019-12-13T01:53:59Z",
+      "side": 1,
+      "message": "You may need the prog_run selinux permission? Based on looking at the netd sepolicy, something like:\nallow healthd bpfloader:bpf prog_run;",
+      "parentUuid": "087de38f_f884f5d9",
+      "range": {
+        "startLine": 171,
+        "startChar": 29,
+        "endLine": 171,
+        "endChar": 40
+      },
+      "revId": "17956cb71ca061e6526f3c0eb845106c09449253",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
