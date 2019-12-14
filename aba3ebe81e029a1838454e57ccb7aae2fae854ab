@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "01b1d467_871ff822",
+        "filename": "contexthub/1.0/vts/functional/VtsHalContexthubV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-12-14T00:13:14Z",
+      "side": 1,
+      "message": "document parameters",
+      "range": {
+        "startLine": 367,
+        "startChar": 30,
+        "endLine": 367,
+        "endChar": 54
+      },
+      "revId": "aba3ebe81e029a1838454e57ccb7aae2fae854ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0adc829_8c88ff64",
+        "filename": "contexthub/1.0/vts/functional/VtsHalContexthubV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-12-14T00:13:14Z",
+      "side": 1,
+      "message": "const\u0026 std::string",
+      "range": {
+        "startLine": 380,
+        "startChar": 9,
+        "endLine": 380,
+        "endChar": 20
+      },
+      "revId": "aba3ebe81e029a1838454e57ccb7aae2fae854ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0904b2c6_69420c0b",
+        "filename": "contexthub/1.0/vts/functional/VtsHalContexthubV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-12-14T00:13:14Z",
+      "side": 1,
+      "message": "does this happen before INSTANTIATE_TEST_SUITE_P time? We can\u0027t do it in static time? It seems a bit strange to me to rely on main executing before whenever INSTANTIATE_TEST_SUITE_P happens.",
+      "range": {
+        "startLine": 378,
+        "startChar": 0,
+        "endLine": 385,
+        "endChar": 5
+      },
+      "revId": "aba3ebe81e029a1838454e57ccb7aae2fae854ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
