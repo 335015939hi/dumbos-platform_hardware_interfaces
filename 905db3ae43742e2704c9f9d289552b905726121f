@@ -34,6 +34,24 @@
       "revId": "905db3ae43742e2704c9f9d289552b905726121f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2e83d7b_4c9cd897",
+        "filename": "radio/1.5/IRadioResponse.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-12-14T00:27:55Z",
+      "side": 1,
+      "message": "IRadio calls/responses?\n\nSince if getCurrentCalls is called, it isn\u0027t clear which getCurrentCallsResponse_1_* to call. Or maybe we mean implicitly the most recent one? This discussion came up in the past. I can\u0027t remember the outcome exactly, but I thought we wanted call/response pairs. Or if not, should we document the expected behavior?",
+      "parentUuid": "8d3110f0_783d816d",
+      "revId": "905db3ae43742e2704c9f9d289552b905726121f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
