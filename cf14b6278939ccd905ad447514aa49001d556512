@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "014b85ab_9ed7c5b2",
+        "filename": "radio/1.5/IRadioResponse.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2019-12-16T06:24:32Z",
+      "side": 1,
+      "message": "Minor. lower case",
+      "range": {
+        "startLine": 88,
+        "startChar": 57,
+        "endLine": 88,
+        "endChar": 58
+      },
+      "revId": "cf14b6278939ccd905ad447514aa49001d556512",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5abdbbd_c876b714",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2019-12-16T06:24:32Z",
+      "side": 1,
+      "message": "Minor. Use the entire line.",
+      "range": {
+        "startLine": 274,
+        "startChar": 62,
+        "endLine": 275,
+        "endChar": 6
+      },
+      "revId": "cf14b6278939ccd905ad447514aa49001d556512",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3cbc86a6_8c0d9724",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2019-12-16T06:24:32Z",
+      "side": 1,
+      "message": "Minor. Remove empty line at beginning of enum",
+      "range": {
+        "startLine": 277,
+        "startChar": 31,
+        "endLine": 279,
+        "endChar": 12
+      },
+      "revId": "cf14b6278939ccd905ad447514aa49001d556512",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
