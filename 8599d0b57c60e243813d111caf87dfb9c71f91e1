@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1fffd986_dddd820a",
+        "filename": "drm/1.0/vts/functional/drm_hal_vendor_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-12-16T21:18:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5dda285_4c05eea1",
+      "range": {
+        "startLine": 121,
+        "startChar": 0,
+        "endLine": 123,
+        "endChar": 9
+      },
+      "revId": "8599d0b57c60e243813d111caf87dfb9c71f91e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "02bdac16_ff7367c9",
         "filename": "drm/1.0/vts/functional/drm_hal_vendor_test.cpp",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "8599d0b57c60e243813d111caf87dfb9c71f91e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "075e97f1_5f905993",
+        "filename": "drm/1.0/vts/functional/drm_hal_vendor_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-12-16T21:18:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02bdac16_ff7367c9",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 130,
+        "endChar": 9
+      },
+      "revId": "8599d0b57c60e243813d111caf87dfb9c71f91e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "70aadc24_bc885506",
+        "filename": "drm/1.2/vts/functional/drm_hal_common.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-12-16T21:18:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53dc5ab7_1909332a",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 5
+      },
+      "revId": "8599d0b57c60e243813d111caf87dfb9c71f91e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "952d2166_2c0a97de",
         "filename": "drm/1.2/vts/functional/drm_hal_common.cpp",
         "patchSetId": 1
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "9f935123_08839117",
+        "filename": "drm/1.2/vts/functional/drm_hal_common.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-12-16T21:18:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "952d2166_2c0a97de",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 32
+      },
+      "revId": "8599d0b57c60e243813d111caf87dfb9c71f91e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d8eebd3_54aae430",
         "filename": "drm/1.2/vts/functional/drm_hal_common.cpp",
         "patchSetId": 1
@@ -114,6 +210,30 @@
       "revId": "8599d0b57c60e243813d111caf87dfb9c71f91e1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ba1e85b_7adb0537",
+        "filename": "drm/1.2/vts/functional/drm_hal_common.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-12-16T21:18:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d8eebd3_54aae430",
+      "range": {
+        "startLine": 113,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 5
+      },
+      "revId": "8599d0b57c60e243813d111caf87dfb9c71f91e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
