@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e5b0c3b3_5e04496d",
+        "filename": "health/2.1/default/android.hardware.health@2.1-service.rc",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1054468
+      },
+      "writtenOn": "2019-12-16T09:26:42Z",
+      "side": 1,
+      "message": "Can these be fixed before submitting?\n\nsystem system also seems wrong. nobody nobody instead?",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 0
+      },
+      "revId": "e13d8ccf99eb5df7f62bb080bc804270f1f2dbfc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
