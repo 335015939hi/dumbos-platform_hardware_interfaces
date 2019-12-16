@@ -240,6 +240,30 @@
     },
     {
       "key": {
+        "uuid": "9e7d8661_20e92a7d",
+        "filename": "audio/effect/all-versions/vts/functional/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1307893
+      },
+      "writtenOn": "2019-12-16T05:06:59Z",
+      "side": 1,
+      "message": "Thanks for the clarification. I just update the xml in the new patch.",
+      "parentUuid": "5d6e739d_1d870fd8",
+      "range": {
+        "startLine": 34,
+        "startChar": 18,
+        "endLine": 34,
+        "endChar": 33
+      },
+      "revId": "9d6c5163baa63882b1f8345d8bbe8d6aa5843663",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "847750a3_8323772c",
         "filename": "audio/effect/all-versions/vts/functional/VtsHalAudioEffectTargetTest.cpp",
         "patchSetId": 3
