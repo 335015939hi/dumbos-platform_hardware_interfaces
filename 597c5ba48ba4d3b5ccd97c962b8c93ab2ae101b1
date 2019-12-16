@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8d9abdb6_e632503d",
+        "filename": "audio/effect/5.0/xml/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-12-16T18:46:02Z",
+      "side": 1,
+      "message": "We shouldn\u0027t need to write rules like this. I\u0027ve filed b/146349835 for getting xsd_config to give us this for free. Do you want to try doing that? Otherwise, we\u0027d just want to cleanup these makefiles later.",
+      "revId": "597c5ba48ba4d3b5ccd97c962b8c93ab2ae101b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
