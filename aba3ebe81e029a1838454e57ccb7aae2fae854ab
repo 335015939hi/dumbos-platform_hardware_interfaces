@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8e56565f_55614699",
+        "filename": "contexthub/1.0/vts/functional/VtsHalContexthubV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-12-16T17:46:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01b1d467_871ff822",
+      "range": {
+        "startLine": 367,
+        "startChar": 30,
+        "endLine": 367,
+        "endChar": 54
+      },
+      "revId": "aba3ebe81e029a1838454e57ccb7aae2fae854ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0adc829_8c88ff64",
         "filename": "contexthub/1.0/vts/functional/VtsHalContexthubV1_0TargetTest.cpp",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "9a9a0e7c_26ae2075",
+        "filename": "contexthub/1.0/vts/functional/VtsHalContexthubV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-12-16T17:46:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0adc829_8c88ff64",
+      "range": {
+        "startLine": 380,
+        "startChar": 9,
+        "endLine": 380,
+        "endChar": 20
+      },
+      "revId": "aba3ebe81e029a1838454e57ccb7aae2fae854ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0904b2c6_69420c0b",
         "filename": "contexthub/1.0/vts/functional/VtsHalContexthubV1_0TargetTest.cpp",
         "patchSetId": 1
@@ -68,6 +116,30 @@
       "revId": "aba3ebe81e029a1838454e57ccb7aae2fae854ab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a756a6e5_e65a3c6f",
+        "filename": "contexthub/1.0/vts/functional/VtsHalContexthubV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-12-16T17:46:06Z",
+      "side": 1,
+      "message": "main function will be executed first. INSTANTIATE_TEST_SUITE_P macro will be triggered in RUN_ALL_TESTS.\nWe can certainly create a static method and use that to init kTestParameters.",
+      "parentUuid": "0904b2c6_69420c0b",
+      "range": {
+        "startLine": 378,
+        "startChar": 0,
+        "endLine": 385,
+        "endChar": 5
+      },
+      "revId": "aba3ebe81e029a1838454e57ccb7aae2fae854ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
