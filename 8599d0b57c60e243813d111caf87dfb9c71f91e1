@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c5dda285_4c05eea1",
+        "filename": "drm/1.0/vts/functional/drm_hal_vendor_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-12-16T20:21:01Z",
+      "side": 1,
+      "message": "should delete this",
+      "range": {
+        "startLine": 121,
+        "startChar": 0,
+        "endLine": 123,
+        "endChar": 9
+      },
+      "revId": "8599d0b57c60e243813d111caf87dfb9c71f91e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02bdac16_ff7367c9",
+        "filename": "drm/1.0/vts/functional/drm_hal_vendor_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-12-16T20:21:01Z",
+      "side": 1,
+      "message": "should delete this",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 130,
+        "endChar": 9
+      },
+      "revId": "8599d0b57c60e243813d111caf87dfb9c71f91e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53dc5ab7_1909332a",
+        "filename": "drm/1.2/vts/functional/drm_hal_common.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-12-16T20:21:01Z",
+      "side": 1,
+      "message": "delete",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 5
+      },
+      "revId": "8599d0b57c60e243813d111caf87dfb9c71f91e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "952d2166_2c0a97de",
+        "filename": "drm/1.2/vts/functional/drm_hal_common.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-12-16T20:21:01Z",
+      "side": 1,
+      "message": "this should probably be ASSERT_NE(drmFactory, nullptr) like in the other test above",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 32
+      },
+      "revId": "8599d0b57c60e243813d111caf87dfb9c71f91e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d8eebd3_54aae430",
+        "filename": "drm/1.2/vts/functional/drm_hal_common.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-12-16T20:21:01Z",
+      "side": 1,
+      "message": "delete",
+      "range": {
+        "startLine": 113,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 5
+      },
+      "revId": "8599d0b57c60e243813d111caf87dfb9c71f91e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
