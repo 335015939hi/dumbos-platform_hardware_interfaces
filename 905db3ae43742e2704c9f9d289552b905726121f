@@ -52,6 +52,24 @@
       "revId": "905db3ae43742e2704c9f9d289552b905726121f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da9cc021_40c03902",
+        "filename": "radio/1.5/IRadioResponse.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2019-12-16T21:41:03Z",
+      "side": 1,
+      "message": "I am not aware of any such discussion .. Robert/Jack, do you know?\n\nIsn\u0027t it depending on what version of the HAL the client (RIL.java) is currently connected to? Do you see any case where client and implementation will go out of sync?",
+      "parentUuid": "e2e83d7b_4c9cd897",
+      "revId": "905db3ae43742e2704c9f9d289552b905726121f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
