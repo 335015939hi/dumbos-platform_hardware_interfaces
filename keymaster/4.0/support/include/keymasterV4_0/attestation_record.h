@@ -18,13 +18,12 @@
 #define HARDWARE_INTERFACES_KEYMASTER_40_VTS_FUNCTIONAL_ATTESTATION_RECORD_H_
 
 #include <android/hardware/keymaster/4.0/IKeymasterDevice.h>
+#include "authorization_set.h"
 
 namespace android {
 namespace hardware {
 namespace keymaster {
 namespace V4_0 {
-
-class AuthorizationSet;
 
 /**
  * The OID for Android attestation records.  For the curious, it breaks down as follows:
@@ -49,15 +48,19 @@ enum keymaster_verified_boot_t {
     KM_VERIFIED_BOOT_FAILED = 3,
 };
 
+struct attestation_record {
+    AuthorizationSet sw_enforced;
+    AuthorizationSet hw_enforced;
+    uint32_t attestation_version;
+    uint32_t keymaster_version;
+    SecurityLevel attestation_security_level;
+    SecurityLevel keymaster_security_level;
+    hidl_vec<uint8_t> challenge;
+    hidl_vec<uint8_t> unique_id;
+};
+
 ErrorCode parse_attestation_record(const uint8_t* asn1_key_desc, size_t asn1_key_desc_len,
-                                   uint32_t* attestation_version,  //
-                                   SecurityLevel* attestation_security_level,
-                                   uint32_t* keymaster_version,
-                                   SecurityLevel* keymaster_security_level,
-                                   hidl_vec<uint8_t>* attestation_challenge,
-                                   AuthorizationSet* software_enforced,
-                                   AuthorizationSet* tee_enforced,  //
-                                   hidl_vec<uint8_t>* unique_id);
+                                   attestation_record* parsed_record);
 
 ErrorCode parse_root_of_trust(const uint8_t* asn1_key_desc, size_t asn1_key_desc_len,
                               hidl_vec<uint8_t>* verified_boot_key,
