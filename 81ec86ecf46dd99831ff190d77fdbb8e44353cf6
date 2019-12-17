@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da25c2d5_503b8c03",
+        "filename": "drm/1.0/vts/functional/drm_hal_clearkey_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-12-17T02:20:07Z",
+      "side": 1,
+      "message": "Also, sorry I missed this before. Shouldn\u0027t we be getting the \"clearkey\" instance specifically?",
+      "range": {
+        "startLine": 98,
+        "startChar": 45,
+        "endLine": 98,
+        "endChar": 47
+      },
+      "revId": "81ec86ecf46dd99831ff190d77fdbb8e44353cf6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa4b7240_ace2cbbb",
+        "filename": "drm/1.0/vts/functional/drm_hal_vendor_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-12-17T02:20:07Z",
+      "side": 1,
+      "message": "and wait, this should be GetParam as well? What is this other getServiceName?\n\nOr at least check that this is the same as the vendorModule name? It should be, right? set on L102?",
+      "range": {
+        "startLine": 120,
+        "startChar": 45,
+        "endLine": 120,
+        "endChar": 49
+      },
+      "revId": "81ec86ecf46dd99831ff190d77fdbb8e44353cf6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
