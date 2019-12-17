@@ -88,6 +88,24 @@
       "revId": "905db3ae43742e2704c9f9d289552b905726121f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1e3b2a3_7d928c8c",
+        "filename": "radio/1.5/IRadioResponse.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2019-12-17T21:19:56Z",
+      "side": 1,
+      "message": "Masaya,\nCan you pls add getCurrentCalls_1_5() in IRadioRequest.hal and make changes in telephony as well ?",
+      "parentUuid": "a5214350_a94ff4e4",
+      "revId": "905db3ae43742e2704c9f9d289552b905726121f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
