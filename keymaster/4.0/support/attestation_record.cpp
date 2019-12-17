@@ -275,36 +275,29 @@ MAKE_OPENSSL_PTR_TYPE(KM_KEY_DESCRIPTION)
 // Parse the DER-encoded attestation record, placing the results in keymaster_version,
 // attestation_challenge, software_enforced, tee_enforced and unique_id.
 ErrorCode parse_attestation_record(const uint8_t* asn1_key_desc, size_t asn1_key_desc_len,
-                                   uint32_t* attestation_version,  //
-                                   SecurityLevel* attestation_security_level,
-                                   uint32_t* keymaster_version,
-                                   SecurityLevel* keymaster_security_level,
-                                   hidl_vec<uint8_t>* attestation_challenge,
-                                   AuthorizationSet* software_enforced,
-                                   AuthorizationSet* tee_enforced,  //
-                                   hidl_vec<uint8_t>* unique_id) {
+                                   attestation_record* parsed_record) {
     const uint8_t* p = asn1_key_desc;
     KM_KEY_DESCRIPTION_Ptr record(d2i_KM_KEY_DESCRIPTION(nullptr, &p, asn1_key_desc_len));
     if (!record.get()) return ErrorCode::UNKNOWN_ERROR;
 
-    *attestation_version = ASN1_INTEGER_get(record->attestation_version);
-    *attestation_security_level =
-        static_cast<SecurityLevel>(ASN1_ENUMERATED_get(record->attestation_security_level));
-    *keymaster_version = ASN1_INTEGER_get(record->keymaster_version);
-    *keymaster_security_level =
-        static_cast<SecurityLevel>(ASN1_ENUMERATED_get(record->keymaster_security_level));
+    parsed_record->attestation_version = ASN1_INTEGER_get(record->attestation_version);
+    parsed_record->attestation_security_level =
+            static_cast<SecurityLevel>(ASN1_ENUMERATED_get(record->attestation_security_level));
+    parsed_record->keymaster_version = ASN1_INTEGER_get(record->keymaster_version);
+    parsed_record->keymaster_security_level =
+            static_cast<SecurityLevel>(ASN1_ENUMERATED_get(record->keymaster_security_level));
 
     auto& chall = record->attestation_challenge;
-    attestation_challenge->resize(chall->length);
-    memcpy(attestation_challenge->data(), chall->data, chall->length);
+    parsed_record->challenge.resize(chall->length);
+    memcpy(parsed_record->challenge.data(), chall->data, chall->length);
     auto& uid = record->unique_id;
-    unique_id->resize(uid->length);
-    memcpy(unique_id->data(), uid->data, uid->length);
+    parsed_record->unique_id.resize(uid->length);
+    memcpy(parsed_record->unique_id.data(), uid->data, uid->length);
 
-    ErrorCode error = extract_auth_list(record->software_enforced, software_enforced);
+    ErrorCode error = extract_auth_list(record->software_enforced, &(parsed_record->sw_enforced));
     if (error != ErrorCode::OK) return error;
 
-    return extract_auth_list(record->tee_enforced, tee_enforced);
+    return extract_auth_list(record->tee_enforced, &(parsed_record->hw_enforced));
 }
 
 ErrorCode parse_root_of_trust(const uint8_t* asn1_key_desc, size_t asn1_key_desc_len,
