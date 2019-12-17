@@ -16,6 +16,24 @@
       "revId": "597c5ba48ba4d3b5ccd97c962b8c93ab2ae101b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f19c37fa_e0f03175",
+        "filename": "audio/effect/5.0/xml/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1307893
+      },
+      "writtenOn": "2019-12-17T09:27:50Z",
+      "side": 1,
+      "message": "I\u0027m not sure which category it should be more appropriate.\nMaybe creating xsd_config_root.go and also add it to system/tools/hidl/build?\nI just update it in aosp/1191857, thanks.",
+      "parentUuid": "8d9abdb6_e632503d",
+      "revId": "597c5ba48ba4d3b5ccd97c962b8c93ab2ae101b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
