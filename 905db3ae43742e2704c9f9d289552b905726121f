@@ -70,6 +70,24 @@
       "revId": "905db3ae43742e2704c9f9d289552b905726121f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5214350_a94ff4e4",
+        "filename": "radio/1.5/IRadioResponse.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1002609
+      },
+      "writtenOn": "2019-12-17T02:15:01Z",
+      "side": 1,
+      "message": "Yeah - I think this was something Amit was involved in.  We\u0027d make a new response version but now does the old request function return the new response or the old response?  I think we had testing that tried to test the 1.4 version and would fail if it got a 1.5 response.",
+      "parentUuid": "da9cc021_40c03902",
+      "revId": "905db3ae43742e2704c9f9d289552b905726121f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
