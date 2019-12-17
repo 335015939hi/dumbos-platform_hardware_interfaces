@@ -16,6 +16,24 @@
       "revId": "c5e95daf6ca7c7bc1bc62a34e7fb1c72a6b83530",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71721d30_39873db3",
+        "filename": "wifi/supplicant/1.1/vts/functional/supplicant_hidl_test.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2019-12-17T00:14:05Z",
+      "side": 1,
+      "message": "also I don\u0027t think you can create std::string from nullptr.",
+      "parentUuid": "2764a15f_ea0c23ed",
+      "revId": "c5e95daf6ca7c7bc1bc62a34e7fb1c72a6b83530",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
