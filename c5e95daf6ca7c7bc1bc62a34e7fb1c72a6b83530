@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2764a15f_ea0c23ed",
+        "filename": "wifi/supplicant/1.1/vts/functional/supplicant_hidl_test.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-12-17T00:11:03Z",
+      "side": 1,
+      "message": "Etan,\nIs this the test case you have in mind?\nI use \"\" here instead of nullptr, to make the name formatting a bit easier.",
+      "revId": "c5e95daf6ca7c7bc1bc62a34e7fb1c72a6b83530",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
