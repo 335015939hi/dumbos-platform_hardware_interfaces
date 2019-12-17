@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "60bd7997_3065732a",
+        "filename": "drm/1.0/vts/functional/drm_hal_clearkey_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-12-17T02:41:54Z",
+      "side": 1,
+      "message": "So do you mean we should parameterize the test by each service name of IDrmFactory instance, like the other tests? just want to confirm.",
+      "parentUuid": "da25c2d5_503b8c03",
+      "range": {
+        "startLine": 98,
+        "startChar": 45,
+        "endLine": 98,
+        "endChar": 47
+      },
+      "revId": "81ec86ecf46dd99831ff190d77fdbb8e44353cf6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fa4b7240_ace2cbbb",
         "filename": "drm/1.0/vts/functional/drm_hal_vendor_test.cpp",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2019-12-17T02:20:07Z",
       "side": 1,
       "message": "and wait, this should be GetParam as well? What is this other getServiceName?\n\nOr at least check that this is the same as the vendorModule name? It should be, right? set on L102?",
+      "range": {
+        "startLine": 120,
+        "startChar": 45,
+        "endLine": 120,
+        "endChar": 49
+      },
+      "revId": "81ec86ecf46dd99831ff190d77fdbb8e44353cf6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "878f8809_3936e955",
+        "filename": "drm/1.0/vts/functional/drm_hal_vendor_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2019-12-17T02:41:54Z",
+      "side": 1,
+      "message": "That\u0027s the part I was confused too. Based on the original code, the test doesn\u0027t run against a service with certain name, you can see that in DrmHidlEnvironment. \n\nThe test is already a parameterized test based on different vendor module path. Can you find the test owner to confirm the test behavior? If we also need to have it parameterized against each service instance, how shall we create the vendorModule object based on service name?",
+      "parentUuid": "fa4b7240_ace2cbbb",
       "range": {
         "startLine": 120,
         "startChar": 45,
