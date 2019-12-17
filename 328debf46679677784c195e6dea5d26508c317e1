@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "587b5fd7_99553cd6",
+        "filename": "radio/1.5/IRadio.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-12-17T22:16:50Z",
+      "side": 1,
+      "message": "radioPowerOn/powerOn is convention (you can try `hidl-lint android.hardware.radio@1.5` or view this in the TH results)",
+      "range": {
+        "startLine": 222,
+        "startChar": 50,
+        "endLine": 222,
+        "endChar": 62
+      },
+      "revId": "328debf46679677784c195e6dea5d26508c317e1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
