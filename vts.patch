@@ -1,0 +1,87 @@
+diff --git a/gnss/1.0/vts/functional/VtsHalGnssV1_0TargetTest.cpp b/gnss/1.0/vts/functional/VtsHalGnssV1_0TargetTest.cpp
+index c26f60a70..75556157b 100644
+--- a/gnss/1.0/vts/functional/VtsHalGnssV1_0TargetTest.cpp
++++ b/gnss/1.0/vts/functional/VtsHalGnssV1_0TargetTest.cpp
+@@ -14,10 +14,13 @@
+  * limitations under the License.
+  */
+ 
++#define LOG_NDEBUG 0
+ #define LOG_TAG "VtsHalGnssV1_0TargetTest"
+ #include <android/hardware/gnss/1.0/IGnss.h>
+ #include <log/log.h>
+ 
++//#include <treble/vintf/utils.h>
++
+ #include <VtsHalHidlTargetTestBase.h>
+ #include <VtsHalHidlTargetTestEnvBase.h>
+ 
+@@ -25,6 +28,8 @@
+ #include <condition_variable>
+ #include <mutex>
+ 
++#include <cutils/properties.h>
++
+ using android::hardware::Return;
+ using android::hardware::Void;
+ 
+@@ -36,6 +41,12 @@ using android::hardware::gnss::V1_0::IGnssDebug;
+ using android::hardware::gnss::V1_0::IGnssMeasurement;
+ using android::sp;
+ 
++static bool IsAutomotiveDevice() {
++  char buffer[PROPERTY_VALUE_MAX];
++  property_get("ro.hardware.type", buffer, "");
++  return strncmp(buffer, "automotive", PROPERTY_VALUE_MAX) == 0;
++}
++
+ #define TIMEOUT_SEC 2  // for basic commands/responses
+ 
+ // for command line argument on how strictly to run the test
+@@ -460,9 +471,9 @@ TEST_F(GnssHalTest, GetAllExtensions) {
+ 
+   auto gnssDebug = gnss_hal_->getExtensionGnssDebug();
+   ASSERT_TRUE(gnssDebug.isOk());
+-  if (info_called_count_ > 0 && last_info_.yearOfHw >= 2017) {
+-    sp<IGnssDebug> iGnssDebug = gnssDebug;
+-    EXPECT_NE(iGnssDebug, nullptr);
++  if (!IsAutomotiveDevice() && info_called_count_ > 0 && last_info_.yearOfHw >= 2017) {
++      sp<IGnssDebug> iGnssDebug = gnssDebug;
++      EXPECT_NE(iGnssDebug, nullptr);
+   }
+ }
+ 
+diff --git a/gnss/1.1/vts/functional/gnss_hal_test_cases.cpp b/gnss/1.1/vts/functional/gnss_hal_test_cases.cpp
+index 2d901f330..98160468a 100644
+--- a/gnss/1.1/vts/functional/gnss_hal_test_cases.cpp
++++ b/gnss/1.1/vts/functional/gnss_hal_test_cases.cpp
+@@ -21,6 +21,7 @@
+ #include <VtsHalHidlTargetTestBase.h>
+ 
+ #include <android/hardware/gnss/1.1/IGnssConfiguration.h>
++#include <cutils/properties.h>
+ 
+ using android::hardware::hidl_vec;
+ 
+@@ -30,6 +31,12 @@ using android::hardware::gnss::V1_0::IGnssDebug;
+ using android::hardware::gnss::V1_1::IGnssConfiguration;
+ using android::hardware::gnss::V1_1::IGnssMeasurement;
+ 
++static bool IsAutomotiveDevice() {
++  char buffer[PROPERTY_VALUE_MAX];
++  property_get("ro.hardware.type", buffer, "");
++  return strncmp(buffer, "automotive", PROPERTY_VALUE_MAX) == 0;
++}
++
+ /*
+  * SetupTeardownCreateCleanup:
+  * Requests the gnss HAL then calls cleanup
+@@ -425,7 +432,7 @@ TEST_F(GnssHalTest, InjectBestLocation) {
+ TEST_F(GnssHalTest, GnssDebugValuesSanityTest) {
+     auto gnssDebug = gnss_hal_->getExtensionGnssDebug();
+     ASSERT_TRUE(gnssDebug.isOk());
+-    if (info_called_count_ > 0 && last_info_.yearOfHw >= 2017) {
++    if (!IsAutomotiveDevice() && info_called_count_ > 0 && last_info_.yearOfHw >= 2017) {
+         sp<IGnssDebug> iGnssDebug = gnssDebug;
+         EXPECT_NE(iGnssDebug, nullptr);
+ 
