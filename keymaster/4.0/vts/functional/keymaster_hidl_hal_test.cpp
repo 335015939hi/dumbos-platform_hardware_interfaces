@@ -329,49 +329,30 @@ bool verify_attestation_record(const string& challenge, const string& app_id,
     EXPECT_TRUE(!!attest_rec);
     if (!attest_rec) return false;
 
-    AuthorizationSet att_sw_enforced;
-    AuthorizationSet att_hw_enforced;
-    uint32_t att_attestation_version;
-    uint32_t att_keymaster_version;
-    SecurityLevel att_attestation_security_level;
-    SecurityLevel att_keymaster_security_level;
-    HidlBuf att_challenge;
-    HidlBuf att_unique_id;
-    HidlBuf att_app_id;
+    auto [error, parsed_record] = parse_attestation_record(attest_rec->data, attest_rec->length);
 
-    auto error = parse_attestation_record(attest_rec->data,                 //
-                                          attest_rec->length,               //
-                                          &att_attestation_version,         //
-                                          &att_attestation_security_level,  //
-                                          &att_keymaster_version,           //
-                                          &att_keymaster_security_level,    //
-                                          &att_challenge,                   //
-                                          &att_sw_enforced,                 //
-                                          &att_hw_enforced,                 //
-                                          &att_unique_id);
     EXPECT_EQ(ErrorCode::OK, error);
     if (error != ErrorCode::OK) return false;
 
-    EXPECT_GE(att_attestation_version, 3U);
+    EXPECT_GE(parsed_record.attestation_version, 3U);
 
     expected_sw_enforced.push_back(TAG_ATTESTATION_APPLICATION_ID, HidlBuf(app_id));
 
-    EXPECT_GE(att_keymaster_version, 4U);
-    EXPECT_EQ(security_level, att_keymaster_security_level);
-    EXPECT_EQ(security_level, att_attestation_security_level);
-
-    EXPECT_EQ(challenge.length(), att_challenge.size());
-    EXPECT_EQ(0, memcmp(challenge.data(), att_challenge.data(), challenge.length()));
+    EXPECT_EQ(parsed_record.keymaster_version, 4U);
+    EXPECT_EQ(security_level, parsed_record.keymaster_security_level);
+    EXPECT_EQ(security_level, parsed_record.attestation_security_level);
+    EXPECT_EQ(challenge.length(), parsed_record.challenge.size());
+    EXPECT_EQ(0, memcmp(challenge.data(), parsed_record.challenge.data(), challenge.length()));
 
     char property_value[PROPERTY_VALUE_MAX] = {};
     // TODO(b/136282179): When running under VTS-on-GSI the TEE-backed
     // keymaster implementation will report YYYYMM dates instead of YYYYMMDD
     // for the BOOT_PATCH_LEVEL.
     if (avb_verification_enabled()) {
-        for (int i = 0; i < att_hw_enforced.size(); i++) {
-            if (att_hw_enforced[i].tag == TAG_BOOT_PATCHLEVEL ||
-                att_hw_enforced[i].tag == TAG_VENDOR_PATCHLEVEL) {
-                std::string date = std::to_string(att_hw_enforced[i].f.integer);
+        for (int i = 0; i < parsed_record.hw_enforced.size(); i++) {
+            if (parsed_record.hw_enforced[i].tag == TAG_BOOT_PATCHLEVEL ||
+                parsed_record.hw_enforced[i].tag == TAG_VENDOR_PATCHLEVEL) {
+                std::string date = std::to_string(parsed_record.hw_enforced[i].f.integer);
                 // strptime seems to require delimiters, but the tag value will
                 // be YYYYMMDD
                 date.insert(6, "-");
@@ -406,14 +387,14 @@ bool verify_attestation_record(const string& challenge, const string& app_id,
     // Alternatively this checks the opposite - a false boolean tag (one that isn't provided in
     // the authorization list during key generation) isn't being attested to in the certificate.
     EXPECT_FALSE(expected_sw_enforced.Contains(TAG_TRUSTED_USER_PRESENCE_REQUIRED));
-    EXPECT_FALSE(att_sw_enforced.Contains(TAG_TRUSTED_USER_PRESENCE_REQUIRED));
+    EXPECT_FALSE(parsed_record.sw_enforced.Contains(TAG_TRUSTED_USER_PRESENCE_REQUIRED));
     EXPECT_FALSE(expected_hw_enforced.Contains(TAG_TRUSTED_USER_PRESENCE_REQUIRED));
-    EXPECT_FALSE(att_hw_enforced.Contains(TAG_TRUSTED_USER_PRESENCE_REQUIRED));
+    EXPECT_FALSE(parsed_record.hw_enforced.Contains(TAG_TRUSTED_USER_PRESENCE_REQUIRED));
 
-    if (att_hw_enforced.Contains(TAG_ALGORITHM, Algorithm::EC)) {
+    if (parsed_record.hw_enforced.Contains(TAG_ALGORITHM, Algorithm::EC)) {
         // For ECDSA keys, either an EC_CURVE or a KEY_SIZE can be specified, but one must be.
-        EXPECT_TRUE(att_hw_enforced.Contains(TAG_EC_CURVE) ||
-                    att_hw_enforced.Contains(TAG_KEY_SIZE));
+        EXPECT_TRUE(parsed_record.hw_enforced.Contains(TAG_EC_CURVE) ||
+                    parsed_record.hw_enforced.Contains(TAG_KEY_SIZE));
     }
 
     // Test root of trust elements
@@ -473,13 +454,13 @@ bool verify_attestation_record(const string& challenge, const string& app_id,
                             verified_boot_key.size()));
     }
 
-    att_sw_enforced.Sort();
+    parsed_record.sw_enforced.Sort();
     expected_sw_enforced.Sort();
-    EXPECT_EQ(filter_tags(expected_sw_enforced), filter_tags(att_sw_enforced));
+    EXPECT_EQ(filter_tags(expected_sw_enforced), filter_tags(parsed_record.sw_enforced));
 
-    att_hw_enforced.Sort();
+    parsed_record.hw_enforced.Sort();
     expected_hw_enforced.Sort();
-    EXPECT_EQ(filter_tags(expected_hw_enforced), filter_tags(att_hw_enforced));
+    EXPECT_EQ(filter_tags(expected_hw_enforced), filter_tags(parsed_record.hw_enforced));
 
     return true;
 }
