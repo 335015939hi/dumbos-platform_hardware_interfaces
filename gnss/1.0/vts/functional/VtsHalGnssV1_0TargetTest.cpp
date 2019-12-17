@@ -450,19 +450,15 @@ TEST_F(GnssHalTest, GetAllExtensions) {
   auto gnssBatching = gnss_hal_->getExtensionGnssBatching();
   ASSERT_TRUE(gnssBatching.isOk());
 
+  auto gnssDebug = gnss_hal_->getExtensionGnssDebug();
+  ASSERT_TRUE(gnssDebug.isOk());
+
   // Verifying, in some cases, that these return actual extensions
   auto gnssMeasurement = gnss_hal_->getExtensionGnssMeasurement();
   ASSERT_TRUE(gnssMeasurement.isOk());
   if (last_capabilities_ & IGnssCallback::Capabilities::MEASUREMENTS) {
     sp<IGnssMeasurement> iGnssMeas = gnssMeasurement;
     EXPECT_NE(iGnssMeas, nullptr);
-  }
-
-  auto gnssDebug = gnss_hal_->getExtensionGnssDebug();
-  ASSERT_TRUE(gnssDebug.isOk());
-  if (info_called_count_ > 0 && last_info_.yearOfHw >= 2017) {
-    sp<IGnssDebug> iGnssDebug = gnssDebug;
-    EXPECT_NE(iGnssDebug, nullptr);
   }
 }
 
