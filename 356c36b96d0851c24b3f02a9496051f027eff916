@@ -46,6 +46,30 @@
       "revId": "356c36b96d0851c24b3f02a9496051f027eff916",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6cf5009d_e04127f3",
+        "filename": "gnss/1.0/vts/functional/VtsHalGnssV1_0TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 1358281
+      },
+      "writtenOn": "2019-12-18T05:50:13Z",
+      "side": 0,
+      "message": "Thanks! These intermediate states are probably less common in pre-existing device outputs. The debug interface is relatively newly-invented in the ecosystem.",
+      "parentUuid": "a9a4c75c_07881f78",
+      "range": {
+        "startLine": 463,
+        "startChar": 0,
+        "endLine": 466,
+        "endChar": 3
+      },
+      "revId": "356c36b96d0851c24b3f02a9496051f027eff916",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
