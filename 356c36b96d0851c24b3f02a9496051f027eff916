@@ -94,6 +94,30 @@
       "revId": "356c36b96d0851c24b3f02a9496051f027eff916",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25d847f1_947dc3ba",
+        "filename": "gnss/1.0/vts/functional/VtsHalGnssV1_0TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 1358281
+      },
+      "writtenOn": "2019-12-18T17:31:06Z",
+      "side": 0,
+      "message": "Can you try to use aosp/1178808 to carve out automotive device here?",
+      "parentUuid": "3996a35c_b09354c8",
+      "range": {
+        "startLine": 463,
+        "startChar": 0,
+        "endLine": 466,
+        "endChar": 3
+      },
+      "revId": "356c36b96d0851c24b3f02a9496051f027eff916",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
