@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f6d953e5_7fb87316",
+        "filename": "audio/policy/1.0/vts/functional/ValidateEngineConfiguration.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2019-12-18T21:27:22Z",
+      "side": 1,
+      "message": "Why \u0027EXPECT_ONE\u0027? audio_policy_engine_configuration.xml is not mandatory. Should use EXPECT_VALID_XML_MULTIPLE_LOCATIONS.",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 31,
+        "endChar": 14
+      },
+      "revId": "8cec0574e23e9f29d52d9da27ccdf951154134cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
