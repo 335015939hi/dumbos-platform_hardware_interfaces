@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dff511d5_d55b51b1",
+        "filename": "audio/policy/1.0/xml/pfw_schemas/ComponentLibrary.xsd",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2019-12-18T21:26:11Z",
+      "side": 1,
+      "message": "You need to create an \u0027xsd_config\u0027 rule in Android.bp similar to the one we are adding for audio_policy_engine_configuration.xsd (https://android-review.googlesource.com/c/platform/hardware/interfaces/+/1192296/1/audio/policy/1.0/xml/Android.bp) to instruct xsdc compiler to generate files under \u0027api/\u0027.\n\nThe problem you will encounter is that \u0027xsd_config\u0027 rule (and xsdc) only accepts a single source file. My recommendation would be to join all these xsd files into a single one.\n\nI also noticed that PFW XSD files do not add xmlns for XInclude as we do in APM config files, this could create problems for the parser, so joining xsds seems like a solution for both problems.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 38
+      },
+      "revId": "af21e306c5d1c04f05d6cc0a753278017c332231",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
