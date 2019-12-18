@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "793e0bb7_2410da0a",
+        "filename": "drm/1.0/vts/functional/drm_hal_clearkey_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-12-18T18:26:40Z",
+      "side": 1,
+      "message": "This test should be running on \"clearkey\" instances as well, even if it might not have been before (we were losing coverage?).\n\nPerhaps we should also run it on all instances, but if L115-L119 return false, then we should disable parts of the test. Can you get ahold of Jeff to confirm here?",
+      "parentUuid": "60bd7997_3065732a",
+      "range": {
+        "startLine": 98,
+        "startChar": 45,
+        "endLine": 98,
+        "endChar": 47
+      },
+      "revId": "81ec86ecf46dd99831ff190d77fdbb8e44353cf6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fa4b7240_ace2cbbb",
         "filename": "drm/1.0/vts/functional/drm_hal_vendor_test.cpp",
         "patchSetId": 2
