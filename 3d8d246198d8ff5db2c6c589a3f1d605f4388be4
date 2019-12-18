@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f5d2f1da_4750f5ee",
+        "filename": "audio/policy/1.0/vts/functional/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2019-12-18T08:40:18Z",
+      "side": 1,
+      "message": "not required since it would add uncecessary copy of the xsd file within:\n/target/product/generic_x86_64/data/nativetest/VtsHalAudioPolicyV1_0TargetTest/audio_policy_engine_configuration_V1_0.xsd\n./target/product/generic_x86_64/data/nativetest64/VtsHalAudioPolicyV1_0TargetTest/audio_policy_engine_configuration_V1_0.xsd\n\nWe may prefer to use this one but it would imply checking the platform x86 or x86_64 to provide xsd path to application.",
+      "range": {
+        "startLine": 40,
+        "startChar": 1,
+        "endLine": 42,
+        "endChar": 6
+      },
+      "revId": "3d8d246198d8ff5db2c6c589a3f1d605f4388be4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b618429a_1e3da5e0",
+        "filename": "audio/policy/1.0/xml/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2019-12-18T08:40:18Z",
+      "side": 1,
+      "message": "IMHO this is not required since the script within test/vts/tools/build/tasks/vts_package.mk\nwill copy all the xsd found in hardware/interfaces/audio:\n\naudio_test_res_files :\u003d \\\n  $(call find-files-in-subdirs,hardware/interfaces/audio,\"*.xsd\" -and -type f,.) \\\n\naudio_test_res_copy_pairs :\u003d \\\n  $(foreach f,$(audio_test_res_files),\\\n    hardware/interfaces/audio/$(f):$(VTS_TESTCASES_OUT)/DATA/hardware/interfaces/audio/$(f))",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 0
+      },
+      "revId": "3d8d246198d8ff5db2c6c589a3f1d605f4388be4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
