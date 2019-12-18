@@ -1,0 +1,59 @@
+// Signature format: 2.0
+package audio.policy.configurable.V1_0 {
+
+  public class ConfigurationFilePath {
+    ctor public ConfigurationFilePath();
+    method public String getPath();
+    method public void setPath(String);
+  }
+
+  public class ParameterFrameworkConfiguration {
+    ctor public ParameterFrameworkConfiguration();
+    method public String getServerPort();
+    method public audio.policy.configurable.V1_0.SettingsConfigurationType getSettingsConfiguration();
+    method public audio.policy.configurable.V1_0.ConfigurationFilePath getStructureDescriptionFileLocation();
+    method public audio.policy.configurable.V1_0.SubsystemPlugins getSubsystemPlugins();
+    method public String getSystemClassName();
+    method public boolean getTuningAllowed();
+    method public void setServerPort(String);
+    method public void setSettingsConfiguration(audio.policy.configurable.V1_0.SettingsConfigurationType);
+    method public void setStructureDescriptionFileLocation(audio.policy.configurable.V1_0.ConfigurationFilePath);
+    method public void setSubsystemPlugins(audio.policy.configurable.V1_0.SubsystemPlugins);
+    method public void setSystemClassName(String);
+    method public void setTuningAllowed(boolean);
+  }
+
+  public class PluginFile {
+    ctor public PluginFile();
+    method public String getName();
+    method public void setName(String);
+  }
+
+  public class PluginLocation {
+    ctor public PluginLocation();
+    method public String getFolder();
+    method public java.util.List<audio.policy.configurable.V1_0.PluginFile> getPlugin();
+    method public void setFolder(String);
+  }
+
+  public class SettingsConfigurationType {
+    ctor public SettingsConfigurationType();
+    method public audio.policy.configurable.V1_0.ConfigurationFilePath getConfigurableDomainsFileLocation();
+    method public void setConfigurableDomainsFileLocation(audio.policy.configurable.V1_0.ConfigurationFilePath);
+  }
+
+  public class SubsystemPlugins {
+    ctor public SubsystemPlugins();
+    method public java.util.List<audio.policy.configurable.V1_0.PluginLocation> getLocation();
+  }
+
+  public class XmlParser {
+    ctor public XmlParser();
+    method public static audio.policy.configurable.V1_0.ParameterFrameworkConfiguration readParameterFrameworkConfiguration(java.io.InputStream) throws javax.xml.datatype.DatatypeConfigurationException, java.io.IOException, org.xmlpull.v1.XmlPullParserException;
+    method public static audio.policy.configurable.V1_0.SubsystemPlugins readSubsystemPlugins(java.io.InputStream) throws javax.xml.datatype.DatatypeConfigurationException, java.io.IOException, org.xmlpull.v1.XmlPullParserException;
+    method public static String readText(org.xmlpull.v1.XmlPullParser) throws java.io.IOException, org.xmlpull.v1.XmlPullParserException;
+    method public static void skip(org.xmlpull.v1.XmlPullParser) throws java.io.IOException, org.xmlpull.v1.XmlPullParserException;
+  }
+
+}
+
