@@ -22,6 +22,30 @@
       "revId": "356c36b96d0851c24b3f02a9496051f027eff916",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9a4c75c_07881f78",
+        "filename": "gnss/1.0/vts/functional/VtsHalGnssV1_0TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 1315593
+      },
+      "writtenOn": "2019-12-18T01:55:37Z",
+      "side": 0,
+      "message": "Sounds good to me. I think few would deny the usefulness, but you should spell this out (for other verticals) as a requirement in the CDD then. That said, we can only do that once we have the whole ecosystem ready to provide all the data. For EphemerisSource/health/type is known not to be the case at the moment. Even speed/bearing accuracy are still just SR as of now.",
+      "parentUuid": "2b971ab3_26e0ae0f",
+      "range": {
+        "startLine": 463,
+        "startChar": 0,
+        "endLine": 466,
+        "endChar": 3
+      },
+      "revId": "356c36b96d0851c24b3f02a9496051f027eff916",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
