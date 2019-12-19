@@ -1,6 +1,7 @@
 LOCAL_PATH := $(call my-dir)
 
 ################################################################################
+ifneq (,$(if $(PRODUCT_SHIPPING_API_LEVEL),$(call math_gt_or_eq,29,$(PRODUCT_SHIPPING_API_LEVEL)),false))
 include $(CLEAR_VARS)
 LOCAL_MODULE := android.hardware.configstore@1.1-service
 # seccomp is not required for coverage build.
@@ -34,4 +35,5 @@ LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR)/etc/seccomp_policy
 LOCAL_SRC_FILES := seccomp_policy/configstore@1.1-$(TARGET_ARCH).policy
 include $(BUILD_PREBUILT)
+endif
 endif
