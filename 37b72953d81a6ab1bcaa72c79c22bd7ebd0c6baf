@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5bf9a3df_22c98577",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1362721
+      },
+      "writtenOn": "2019-12-19T22:12:04Z",
+      "side": 1,
+      "message": "I don\u0027t see the bool being checked in the tests. Can we just return the unique_id?",
+      "revId": "37b72953d81a6ab1bcaa72c79c22bd7ebd0c6baf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9cb1ae62_3b0e2502",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1362721
+      },
+      "writtenOn": "2019-12-19T22:12:04Z",
+      "side": 1,
+      "message": "Why do we need both the EXPECT and if?",
+      "revId": "37b72953d81a6ab1bcaa72c79c22bd7ebd0c6baf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba7702aa_9f477695",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 4406,
+      "author": {
+        "id": 1362721
+      },
+      "writtenOn": "2019-12-19T22:12:04Z",
+      "side": 1,
+      "message": "Should we also check that the unique_id size is greater than 0?",
+      "revId": "37b72953d81a6ab1bcaa72c79c22bd7ebd0c6baf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
