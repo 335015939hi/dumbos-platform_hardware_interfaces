@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "adeee841_705785ff",
+        "filename": "radio/1.5/IRadio.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2019-12-19T12:13:48Z",
+      "side": 1,
+      "message": "In my opinion, this is left to implementation. Any string should be acceptable.\nStandards only allow a maximum of 8 digits from 0 to 9 , but this change goes already beyond the  specifications, so I don\u0027t think we should impose any specific restriction here.",
+      "parentUuid": "f392d9eb_70cf74d0",
+      "range": {
+        "startLine": 204,
+        "startChar": 0,
+        "endLine": 204,
+        "endChar": 73
+      },
+      "revId": "cd4be08e7099b8d9f9a68cc54999db0c43956cfe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c6c282f1_01a90fca",
         "filename": "radio/1.5/IRadioResponse.hal",
         "patchSetId": 9
