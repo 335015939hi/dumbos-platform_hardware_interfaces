@@ -118,6 +118,30 @@
       "revId": "356c36b96d0851c24b3f02a9496051f027eff916",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "405ae23c_13cdc37e",
+        "filename": "gnss/1.0/vts/functional/VtsHalGnssV1_0TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 1611637
+      },
+      "writtenOn": "2019-12-20T09:22:05Z",
+      "side": 0,
+      "message": "Can I include that file and use that function somehow? Or should I simply copy it?",
+      "parentUuid": "25d847f1_947dc3ba",
+      "range": {
+        "startLine": 463,
+        "startChar": 0,
+        "endLine": 466,
+        "endChar": 3
+      },
+      "revId": "356c36b96d0851c24b3f02a9496051f027eff916",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
