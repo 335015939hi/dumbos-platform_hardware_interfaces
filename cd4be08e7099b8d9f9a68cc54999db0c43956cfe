@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "965610f6_6e378e33",
+        "filename": "radio/1.5/IRadio.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2019-12-20T09:51:01Z",
+      "side": 1,
+      "message": "Not sure I get the request to make it more \"structured\".\n\nThe control key is a string, just like a password. The properties of this string (alphabet, length, ...) depends on modem implementation, so the interface should not add limitations.\nIf an invalid password is sent down (e.g. containing letters when modem only handles numbers), then the modem will respond back appropriately.",
+      "parentUuid": "ed19f7ea_174ab1c5",
+      "range": {
+        "startLine": 204,
+        "startChar": 0,
+        "endLine": 204,
+        "endChar": 73
+      },
+      "revId": "cd4be08e7099b8d9f9a68cc54999db0c43956cfe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c6c282f1_01a90fca",
         "filename": "radio/1.5/IRadioResponse.hal",
         "patchSetId": 9
