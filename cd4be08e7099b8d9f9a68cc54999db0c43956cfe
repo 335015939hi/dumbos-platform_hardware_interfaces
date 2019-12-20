@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "f280df0f_8399fa2c",
+        "filename": "radio/1.5/IRadio.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-12-20T17:28:24Z",
+      "side": 1,
+      "message": "Can you document this usage? How does the framework know which value to send (e.g. does it originate from a carrier or is it manually entered by the user?)",
+      "parentUuid": "965610f6_6e378e33",
+      "range": {
+        "startLine": 204,
+        "startChar": 0,
+        "endLine": 204,
+        "endChar": 73
+      },
+      "revId": "cd4be08e7099b8d9f9a68cc54999db0c43956cfe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c6c282f1_01a90fca",
         "filename": "radio/1.5/IRadioResponse.hal",
         "patchSetId": 9
