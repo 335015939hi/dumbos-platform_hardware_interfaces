@@ -145,6 +145,30 @@
     },
     {
       "key": {
+        "uuid": "7d7e34f0_f66b8b62",
+        "filename": "radio/1.5/IRadio.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-12-20T23:51:18Z",
+      "side": 1,
+      "message": "One of the goals here is structured interfaces (https://source.android.com/devices/architecture/hidl/versioning#structuring) in order to try to make implementations and clients more portable. Is there a story or could there be a story to standardized this API across all modems/carriers?",
+      "parentUuid": "5dfd625a_370e72e7",
+      "range": {
+        "startLine": 204,
+        "startChar": 0,
+        "endLine": 204,
+        "endChar": 73
+      },
+      "revId": "cd4be08e7099b8d9f9a68cc54999db0c43956cfe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c6c282f1_01a90fca",
         "filename": "radio/1.5/IRadioResponse.hal",
         "patchSetId": 9
