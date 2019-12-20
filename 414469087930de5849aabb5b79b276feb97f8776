@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee228329_322d0f54",
+        "filename": "drm/1.0/vts/functional/drm_hal_clearkey_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-12-20T19:37:45Z",
+      "side": 1,
+      "message": "is clearkey support/common pssh support ever expected separately?\n\nSince \u0027default\u0027 might support multiple modes, I\u0027m wondering if these tests should actually be structured:\n\nfor instance in hal instance:\n    run generic tests (like invalid UUID)\n\n    for module in (vendor modules + clearkey):\n       if instance widevine: assert we have module\n       if instance clearkey: assert we have module\n       if instance supports module:\n           run module specific tests\n\nRight now, the test assumes 1:1 correspondence between modules/interfaces (before and after my current change)",
+      "range": {
+        "startLine": 111,
+        "startChar": 19,
+        "endLine": 111,
+        "endChar": 35
+      },
+      "revId": "414469087930de5849aabb5b79b276feb97f8776",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be037b30_c47fd72a",
+        "filename": "drm/1.0/vts/functional/drm_hal_clearkey_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 970,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-12-20T19:37:45Z",
+      "side": 1,
+      "message": "GTEST_SKIP in parent class doesn\u0027t cause child classes to skip. I think that makes sense since we are adding tests here.",
+      "range": {
+        "startLine": 968,
+        "startChar": 0,
+        "endLine": 970,
+        "endChar": 10
+      },
+      "revId": "414469087930de5849aabb5b79b276feb97f8776",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0db60528_2d64e826",
+        "filename": "drm/1.2/vts/functional/drm_hal_common.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-12-20T19:37:45Z",
+      "side": 1,
+      "message": "this is also wrong, since we should test all available modules on the default instance as well (coverage is missing before as well)",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 53
+      },
+      "revId": "414469087930de5849aabb5b79b276feb97f8776",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

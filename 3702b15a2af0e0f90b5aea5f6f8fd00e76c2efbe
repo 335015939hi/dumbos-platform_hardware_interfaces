@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0f2768af_a5e86e19",
+        "filename": "drm/1.0/vts/functional/drm_hal_clearkey_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-12-20T19:37:45Z",
+      "side": 0,
+      "message": "this was returning \u0027default\u0027 before, so it turns out, some of the tests on \u0027clearkey\u0027 instances are failing",
+      "range": {
+        "startLine": 101,
+        "startChar": 76,
+        "endLine": 101,
+        "endChar": 78
+      },
+      "revId": "3702b15a2af0e0f90b5aea5f6f8fd00e76c2efbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26bdc74e_bcb92247",
+        "filename": "drm/1.1/vts/functional/drm_hal_clearkey_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-12-20T19:37:45Z",
+      "side": 0,
+      "message": "notice before, this only hits the first thing that supports clearkey, but now hits everything that supports clearkey",
+      "range": {
+        "startLine": 141,
+        "startChar": 28,
+        "endLine": 141,
+        "endChar": 33
+      },
+      "revId": "3702b15a2af0e0f90b5aea5f6f8fd00e76c2efbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
