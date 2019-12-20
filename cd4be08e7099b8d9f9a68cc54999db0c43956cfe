@@ -121,6 +121,30 @@
     },
     {
       "key": {
+        "uuid": "5dfd625a_370e72e7",
+        "filename": "radio/1.5/IRadio.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2019-12-20T18:45:53Z",
+      "side": 1,
+      "message": "Today, it\u0027s normally entered by the user. But this leads to a pretty bad UX, where user receives this secret code somehow and then needs to type it on the screen.\nThe UX could be much better if a carrier application is used to send the secret code down to the modem, so that the process is completely transparent for the user.\n\nThis is the radio HAL and I don\u0027t think it should limit the use cases on upper layers, but rather describe the interface with the modem.",
+      "parentUuid": "f280df0f_8399fa2c",
+      "range": {
+        "startLine": 204,
+        "startChar": 0,
+        "endLine": 204,
+        "endChar": 73
+      },
+      "revId": "cd4be08e7099b8d9f9a68cc54999db0c43956cfe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c6c282f1_01a90fca",
         "filename": "radio/1.5/IRadioResponse.hal",
         "patchSetId": 9
