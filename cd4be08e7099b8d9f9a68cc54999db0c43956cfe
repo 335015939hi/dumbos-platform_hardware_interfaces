@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "ed19f7ea_174ab1c5",
+        "filename": "radio/1.5/IRadio.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2019-12-20T01:27:30Z",
+      "side": 1,
+      "message": "Can you make this more structured or test it? We want as solid interfaces as possible here. Or at least, maybe I am missing, how can the framework know to interpret this?",
+      "parentUuid": "adeee841_705785ff",
+      "range": {
+        "startLine": 204,
+        "startChar": 0,
+        "endLine": 204,
+        "endChar": 73
+      },
+      "revId": "cd4be08e7099b8d9f9a68cc54999db0c43956cfe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c6c282f1_01a90fca",
         "filename": "radio/1.5/IRadioResponse.hal",
         "patchSetId": 9
