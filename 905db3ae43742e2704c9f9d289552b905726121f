@@ -106,6 +106,24 @@
       "revId": "905db3ae43742e2704c9f9d289552b905726121f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8eb8e51_ae274b9b",
+        "filename": "radio/1.5/IRadioResponse.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1236374
+      },
+      "writtenOn": "2019-12-23T08:27:05Z",
+      "side": 1,
+      "message": "OK, I\u0027ve added it with telephony side.\n\u003e https://android-review.googlesource.com/c/platform/frameworks/opt/telephony/+/812859",
+      "parentUuid": "e1e3b2a3_7d928c8c",
+      "revId": "905db3ae43742e2704c9f9d289552b905726121f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
