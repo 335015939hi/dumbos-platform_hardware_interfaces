@@ -551,6 +551,13 @@ class RadioResponse_v1_5 : public ::android::hardware::radio::V1_5::IRadioRespon
     Return<void> setDataProfileResponse_1_5(const RadioResponseInfo& info);
 
     Return<void> setRadioPowerResponse_1_5(const RadioResponseInfo& info);
+
+    Return<void> getAllBarringInfoResponse(
+            const RadioResponseInfo& info,
+            const ::android::hardware::hidl_vec<::android::hardware::radio::V1_5::BarringInfo>&
+                    barringInfos);
+
+    Return<void> setIndicationFilterResponse_1_5(const RadioResponseInfo& info);
 };
 
 /* Callback class for radio indication */
@@ -746,6 +753,11 @@ class RadioIndication_v1_5 : public ::android::hardware::radio::V1_5::IRadioIndi
             const ::android::hardware::hidl_string& chosenPlmn,
             ::android::hardware::hidl_bitfield<::android::hardware::radio::V1_5::Domain> domain,
             int32_t causeCode, int32_t additionalCauseCode);
+
+    Return<void> onBarringInfoChanged(
+            const ::android::hardware::radio::V1_5::CellIdentity& cellIdentity,
+            const ::android::hardware::hidl_vec<::android::hardware::radio::V1_5::BarringInfo>&
+                    barringInfos);
 };
 
 // Test environment for Radio HIDL HAL.
