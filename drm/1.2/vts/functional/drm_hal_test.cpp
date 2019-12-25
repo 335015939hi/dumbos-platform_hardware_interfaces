@@ -216,7 +216,7 @@ TEST_P(DrmHalTest, OfflineLicenseTest) {
     EXPECT_OK(res);
 
     err = drmPlugin->removeOfflineLicense(keySetId);
-    EXPECT_EQ(Status::BAD_VALUE, err);
+    EXPECT_NE(Status::OK, err);
 
     closeSession(sessionId);
 }
