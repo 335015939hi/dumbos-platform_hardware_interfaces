@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3dd5fb52_42cb4f8a",
+        "filename": "radio/1.5/IRadioIndication.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1199008
+      },
+      "writtenOn": "2019-12-30T20:30:54Z",
+      "side": 1,
+      "message": "The PLMN information is available in CellIdentity. Can you please explain more how replacing this information helps in chosenPLMN",
+      "range": {
+        "startLine": 60,
+        "startChar": 32,
+        "endLine": 60,
+        "endChar": 36
+      },
+      "revId": "f9ee708051d0ff4444353411319d3eca0b78caef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
