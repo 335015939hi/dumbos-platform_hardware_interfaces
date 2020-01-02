@@ -166,6 +166,30 @@
       "revId": "356c36b96d0851c24b3f02a9496051f027eff916",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2fe5ab22_4214df57",
+        "filename": "gnss/1.0/vts/functional/VtsHalGnssV1_0TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 1611637
+      },
+      "writtenOn": "2020-01-02T12:35:15Z",
+      "side": 0,
+      "message": "I tried a few different ways, but it didn\u0027t work. I also tried copying the function implementation, but it didn\u0027t work. The popen call worked, but there was no data to read from the pipe, and I couldn\u0027t figure out why.",
+      "parentUuid": "3e177767_357fa8d9",
+      "range": {
+        "startLine": 463,
+        "startChar": 0,
+        "endLine": 466,
+        "endChar": 3
+      },
+      "revId": "356c36b96d0851c24b3f02a9496051f027eff916",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
