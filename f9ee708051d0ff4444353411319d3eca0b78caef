@@ -22,6 +22,30 @@
       "revId": "f9ee708051d0ff4444353411319d3eca0b78caef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fed5fcbf_50691118",
+        "filename": "radio/1.5/IRadioIndication.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2020-01-02T18:05:57Z",
+      "side": 1,
+      "message": "The CellIdentity includes (today) the Primary PLMN of the cell. A Cell can broadcast multiple PLMN IDs, and the chosen PLMN (which would be the RPLMN) is actually the one against which the UE is registering. We need both pieces of info.\n\nBtw, we plan to fix this in our other APIs where this is a problem as well. As a straightforward example, imagine a tower on the border of Italy but in Switzerland (this is a real bug), and the device registers using the Italian Vodafone PLMN, which is reported (incorrectly) in the CellIdentity as the PLMN of the cell. the AP now believes that we are in Italy for regulatory (and any other location-based) purposes instead of Switzerland. Hence, we need both the Primary PLMN of the cell and in this case the chosen PLMN.",
+      "parentUuid": "3dd5fb52_42cb4f8a",
+      "range": {
+        "startLine": 60,
+        "startChar": 32,
+        "endLine": 60,
+        "endChar": 36
+      },
+      "revId": "f9ee708051d0ff4444353411319d3eca0b78caef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
