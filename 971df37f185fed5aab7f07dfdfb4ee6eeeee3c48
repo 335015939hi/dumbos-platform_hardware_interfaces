@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1457e033_de0f1d57",
+        "filename": "audio/policy/1.0/xml/pfw_schemas/ParameterFrameworkConfiguration.xsd",
+        "patchSetId": 4
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2020-01-02T22:49:54Z",
+      "side": 1,
+      "message": "Please remove trailing spaces",
+      "range": {
+        "startLine": 6,
+        "startChar": 21,
+        "endLine": 6,
+        "endChar": 22
+      },
+      "revId": "971df37f185fed5aab7f07dfdfb4ee6eeeee3c48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f47fc399_80ebc3d2",
+        "filename": "audio/policy/1.0/xml/pfw_schemas/ParameterFrameworkConfiguration.xsd",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2020-01-02T22:49:54Z",
+      "side": 1,
+      "message": "Please do not mix tabs and spaces tabulation in the same file.",
+      "range": {
+        "startLine": 32,
+        "startChar": 12,
+        "endLine": 32,
+        "endChar": 13
+      },
+      "revId": "971df37f185fed5aab7f07dfdfb4ee6eeeee3c48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
