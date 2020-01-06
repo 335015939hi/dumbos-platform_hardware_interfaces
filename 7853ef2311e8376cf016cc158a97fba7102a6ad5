@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "33704ef4_0250fd03",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-06T18:33:22Z",
+      "side": 1,
+      "message": "could we use EXPECT/ASSERT or make a method to return ::test::AssertionResult? The errors from this would be hard to debug.",
+      "range": {
+        "startLine": 270,
+        "startChar": 0,
+        "endLine": 270,
+        "endChar": 78
+      },
+      "revId": "7853ef2311e8376cf016cc158a97fba7102a6ad5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
