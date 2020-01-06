@@ -211,52 +211,31 @@ AssertionResult isPropertyOk(Result res, const std::string& valueStr, bool pred,
     return AssertionFailure() << "Result is not SUCCESS or NOT_SUPPORTED: " << toString(res);
 }
 
-bool verifyStorageInfo(const hidl_vec<struct StorageInfo>& info) {
-    for (size_t i = 0; i < info.size(); i++) {
-        if (!(0 <= info[i].eol && info[i].eol <= 3 && 0 <= info[i].lifetimeA &&
-              info[i].lifetimeA <= 0x0B && 0 <= info[i].lifetimeB && info[i].lifetimeB <= 0x0B)) {
-            return false;
+template <typename T>
+AssertionResult IsEnum(T value) {
+    for (auto it : hidl_enum_range<T>()) {
+        if (it == value) {
+            return AssertionSuccess();
         }
     }
-
-    return true;
+    return AssertionFailure() << static_cast<std::underlying_type_t<T>>(value) << " is not valid";
 }
 
 template <typename T>
-bool verifyEnum(T value) {
-    for (auto it : hidl_enum_range<T>()) {
-        if (it == value) {
-            return true;
-        }
+AssertionResult IsInRange(T x, const std::array<T, 2>& range) {
+    if (x < range[0] || range[1] < x) {
+        return AssertionFailure() << "Value " << x <<" is not in range [" << range[0] << ", " << range[1] << "]";
+    } else {
+        return AssertionSuccess();
     }
-
-    return false;
 }
 
-bool verifyHealthInfo(const HealthInfo& health_info) {
-    if (!verifyStorageInfo(health_info.storageInfos)) {
-        return false;
+void verifyStorageInfos(const hidl_vec<struct StorageInfo>& infos) {
+    for (const auto& info : infos) {
+        EXPECT_TRUE(IsInRange(info.eol, {0, 3}));
+        EXPECT_TRUE(IsInRange(info.lifetimeA, {0, 0x0B}));
+        EXPECT_TRUE(IsInRange(info.lifetimeB, {0, 0x0B}));
     }
-
-    using V1_0::BatteryStatus;
-    using V1_0::BatteryHealth;
-
-    if (!((health_info.legacy.batteryCurrent != INT32_MIN) &&
-          (0 <= health_info.legacy.batteryLevel && health_info.legacy.batteryLevel <= 100) &&
-          verifyEnum<BatteryHealth>(health_info.legacy.batteryHealth) &&
-          verifyEnum<BatteryStatus>(health_info.legacy.batteryStatus))) {
-        return false;
-    }
-
-    if (health_info.legacy.batteryPresent) {
-        // If a battery is present, the battery status must be known.
-        if (!((health_info.legacy.batteryChargeCounter > 0) &&
-              (health_info.legacy.batteryStatus != BatteryStatus::UNKNOWN))) {
-            return false;
-        }
-    }
-
-    return true;
 }
 
 /*
@@ -317,7 +296,7 @@ TEST_P(HealthHidlTest, getChargeStatus) {
     EXPECT_OK(mHealth->getChargeStatus([](auto result, auto value) {
         EXPECT_VALID_OR_UNSUPPORTED_PROP(
             result, toString(value),
-            value != BatteryStatus::UNKNOWN && verifyEnum<BatteryStatus>(value));
+            value != BatteryStatus::UNKNOWN && IsEnum(value));
     }));
 }
 
@@ -327,7 +306,11 @@ TEST_P(HealthHidlTest, getChargeStatus) {
 TEST_P(HealthHidlTest, getStorageInfo) {
     SKIP_IF_SKIPPED();
     EXPECT_OK(mHealth->getStorageInfo([](auto result, auto& value) {
-        EXPECT_VALID_OR_UNSUPPORTED_PROP(result, toString(value), verifyStorageInfo(value));
+        if (result == Result::NOT_SUPPORTED) {
+            return;
+        }
+        ASSERT_EQ(Result::SUCCESS, result);
+        verifyStorageInfos(value);
     }));
 }
 
@@ -346,8 +329,23 @@ TEST_P(HealthHidlTest, getDiskStats) {
  */
 TEST_P(HealthHidlTest, getHealthInfo) {
     SKIP_IF_SKIPPED();
-    EXPECT_OK(mHealth->getHealthInfo([](auto result, auto& value) {
-        EXPECT_VALID_OR_UNSUPPORTED_PROP(result, toString(value), verifyHealthInfo(value));
+    EXPECT_OK(mHealth->getHealthInfo([](auto result, auto& health_info) {
+        if (result == Result::NOT_SUPPORTED) {
+            return;
+        }
+        ASSERT_EQ(Result::SUCCESS, result);
+        verifyStorageInfos(health_info.storageInfos);
+
+        EXPECT_NE(health_info.legacy.batteryCurrent, INT32_MIN);
+        EXPECT_TRUE(IsInRange(health_info.legacy.batteryLevel, {0, 100}));
+
+        EXPECT_TRUE(IsEnum(health_info.legacy.batteryHealth));
+        EXPECT_TRUE(IsEnum(health_info.legacy.batteryStatus));
+
+        if (health_info.legacy.batteryPresent) {
+            EXPECT_GE(health_info.legacy.batteryChargeCounter, 0);
+            EXPECT_NE(health_info.legacy.batteryStatus, BatteryStatus::UNKNOWN);
+        }
     }));
 }
 
