@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "216aee5d_8a791ff5",
+        "filename": "audio/effect/4.0/xml/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-06T19:19:21Z",
+      "side": 1,
+      "message": "should we switch these to being xsd_config so changes to them are tracked?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 7
+      },
+      "revId": "3c12e5844cc8b4385fd299f99f7d54763bc9c486",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
