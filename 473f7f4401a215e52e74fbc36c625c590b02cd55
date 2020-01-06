@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6a2e44e8_b46c424c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-01-06T18:08:15Z",
+      "side": 1,
+      "message": "Yeah, I watched your tech talk about it last year - I\u0027ll try to give this a shot, doesn\u0027t seem like it\u0027s too much work to change this. (Might end up doing it in a later CL as our IC deadline is Jan 19th and there\u0027s one or two pieces of functionality that still needs to be finished.)",
+      "parentUuid": "cef66461_67f4b2bf",
+      "revId": "473f7f4401a215e52e74fbc36c625c590b02cd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44a6a96e_e7b55e02",
         "filename": "identity/1.0/IIdentityCredential.hal",
         "patchSetId": 13
