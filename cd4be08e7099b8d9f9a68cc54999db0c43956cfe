@@ -169,6 +169,30 @@
     },
     {
       "key": {
+        "uuid": "119a6f88_c800f5fc",
+        "filename": "radio/1.5/IRadio.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-01-06T22:55:11Z",
+      "side": 1,
+      "message": "There is a 3GPP specification (22.022) that gives guidance on personalization, but reality is that many carriers deviate from that. Moreover, there are valid security reasons to go beyond what is specified in 3GPP to protect against some off-target brute force attacks. So, I think it\u0027s preferable to leave this field generic and let each OEM/carrier define what a control key is (only numbers? numbers and letters? special characters? length?).\n\nThe recent trend is to move to a completely different approach, no longer based on control keys, as it leads to better security and user experience. We do have APIs in the radio interface for those.",
+      "parentUuid": "7d7e34f0_f66b8b62",
+      "range": {
+        "startLine": 204,
+        "startChar": 0,
+        "endLine": 204,
+        "endChar": 73
+      },
+      "revId": "cd4be08e7099b8d9f9a68cc54999db0c43956cfe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c6c282f1_01a90fca",
         "filename": "radio/1.5/IRadioResponse.hal",
         "patchSetId": 9
