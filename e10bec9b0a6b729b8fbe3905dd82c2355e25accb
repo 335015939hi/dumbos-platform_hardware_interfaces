@@ -142,6 +142,30 @@
       "revId": "e10bec9b0a6b729b8fbe3905dd82c2355e25accb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7089f5a1_032d4582",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1225025
+      },
+      "writtenOn": "2020-01-07T02:10:31Z",
+      "side": 1,
+      "message": "yeah, but the two CLs are coupled. This CL is the parent of the other one, so I can not just submit one of them unless we need to submit both of them.",
+      "parentUuid": "6cbb350b_91ef4c5f",
+      "range": {
+        "startLine": 7,
+        "startChar": 9,
+        "endLine": 7,
+        "endChar": 13
+      },
+      "revId": "e10bec9b0a6b729b8fbe3905dd82c2355e25accb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
