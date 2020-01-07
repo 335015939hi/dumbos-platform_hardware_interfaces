@@ -22,6 +22,30 @@
       "revId": "3c12e5844cc8b4385fd299f99f7d54763bc9c486",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ff0c91d_285ef65d",
+        "filename": "audio/effect/4.0/xml/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1307893
+      },
+      "writtenOn": "2020-01-07T03:43:49Z",
+      "side": 1,
+      "message": "We cant change it to xsd_config since the rule of \"xsd_config\" will copy other files like \"current.txt\", \"removed.txt\"... etc. But these files doesn\u0027t exist in the old version.\ne.g.\n  module source path \"hardware/interfaces/audio/effect/2.0/xml/api/current.txt\" does not exist\n  module source path \"hardware/interfaces/audio/effect/2.0/xml/api/removed.txt\" does not exist\n  module source path \"hardware/interfaces/audio/effect/2.0/xml/api/last_current.txt\" does not exist\n  ...",
+      "parentUuid": "216aee5d_8a791ff5",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 7
+      },
+      "revId": "3c12e5844cc8b4385fd299f99f7d54763bc9c486",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
