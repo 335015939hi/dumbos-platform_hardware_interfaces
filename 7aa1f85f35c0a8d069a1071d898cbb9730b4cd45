@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e8b60b4d_e8a9aeb7",
+        "filename": "audio/effect/6.0/xml/audio_effects_conf.xsd",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2020-01-07T16:04:38Z",
+      "side": 0,
+      "message": "really have no clue why gerrit is unable to show the newfile that replaced the symlink...",
+      "revId": "7aa1f85f35c0a8d069a1071d898cbb9730b4cd45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
