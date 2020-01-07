@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "296c8545_8da0efda",
+        "filename": "drm/1.0/vts/functional/drm_hal_clearkey_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1005920
+      },
+      "writtenOn": "2020-01-07T21:30:45Z",
+      "side": 1,
+      "message": "Sorry missed this, they will never be separate for clearkey",
+      "parentUuid": "73a3a27f_673007ca",
+      "range": {
+        "startLine": 111,
+        "startChar": 19,
+        "endLine": 111,
+        "endChar": 35
+      },
+      "revId": "414469087930de5849aabb5b79b276feb97f8776",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "be037b30_c47fd72a",
         "filename": "drm/1.0/vts/functional/drm_hal_clearkey_test.cpp",
         "patchSetId": 3

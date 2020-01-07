@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "38cc2732_58b9bea1",
+        "filename": "drm/1.0/vts/functional/drm_hal_clearkey_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1005920
+      },
+      "writtenOn": "2020-01-07T21:30:45Z",
+      "side": 0,
+      "message": "That was my non-forward-thinking idea at the time the 1.0 tests were written. I agree that it would be best to run the 1.0 tests on all instances, I\u0027m not sure if it\u0027s okay to modify the 1.0 tests in a way that causes them to fail on devices with newer instances though.",
+      "parentUuid": "affe2bb1_5fd2ee65",
+      "range": {
+        "startLine": 101,
+        "startChar": 76,
+        "endLine": 101,
+        "endChar": 78
+      },
+      "revId": "3702b15a2af0e0f90b5aea5f6f8fd00e76c2efbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "26bdc74e_bcb92247",
         "filename": "drm/1.1/vts/functional/drm_hal_clearkey_test.cpp",
         "patchSetId": 3
@@ -132,6 +156,30 @@
       "side": 0,
       "message": "Shouldn\u0027t we test all of them though if they say they support this?",
       "parentUuid": "dfdde4d3_5ccebca5",
+      "range": {
+        "startLine": 141,
+        "startChar": 28,
+        "endLine": 141,
+        "endChar": 33
+      },
+      "revId": "3702b15a2af0e0f90b5aea5f6f8fd00e76c2efbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3460aba4_24019817",
+        "filename": "drm/1.1/vts/functional/drm_hal_clearkey_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1005920
+      },
+      "writtenOn": "2020-01-07T21:30:45Z",
+      "side": 0,
+      "message": "probably should yes, I was just noting that it hits the correct one, not just the first one it finds",
+      "parentUuid": "013a5a5e_5b056523",
       "range": {
         "startLine": 141,
         "startChar": 28,
