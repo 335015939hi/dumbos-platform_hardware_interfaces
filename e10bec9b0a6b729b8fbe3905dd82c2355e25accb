@@ -118,6 +118,30 @@
       "revId": "e10bec9b0a6b729b8fbe3905dd82c2355e25accb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6cbb350b_91ef4c5f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1497372
+      },
+      "writtenOn": "2020-01-07T01:49:30Z",
+      "side": 1,
+      "message": "Hi Kai, I really can\u0027t understand this.\nThese two CLs are already separate, right? Could you explain more?\nThanks.",
+      "parentUuid": "2c086ca6_d4e30f62",
+      "range": {
+        "startLine": 7,
+        "startChar": 9,
+        "endLine": 7,
+        "endChar": 13
+      },
+      "revId": "e10bec9b0a6b729b8fbe3905dd82c2355e25accb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
