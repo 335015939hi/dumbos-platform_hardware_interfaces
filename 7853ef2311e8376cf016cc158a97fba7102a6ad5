@@ -46,6 +46,30 @@
       "revId": "7853ef2311e8376cf016cc158a97fba7102a6ad5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a06e7618_ccb7f421",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1045544
+      },
+      "writtenOn": "2020-01-07T20:33:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a837a918_291b9e9b",
+      "range": {
+        "startLine": 270,
+        "startChar": 0,
+        "endLine": 270,
+        "endChar": 78
+      },
+      "revId": "7853ef2311e8376cf016cc158a97fba7102a6ad5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
