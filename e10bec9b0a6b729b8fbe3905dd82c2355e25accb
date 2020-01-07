@@ -94,6 +94,30 @@
       "revId": "e10bec9b0a6b729b8fbe3905dd82c2355e25accb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2c086ca6_d4e30f62",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1225025
+      },
+      "writtenOn": "2020-01-07T01:30:26Z",
+      "side": 1,
+      "message": "No, I mean separate those two CL.\nhttps://android-review.googlesource.com/c/platform/hardware/interfaces/+/1197821\n\nand \nhttps://android-review.googlesource.com/c/platform/hardware/interfaces/+/1197822",
+      "parentUuid": "bd249f26_7dc96796",
+      "range": {
+        "startLine": 7,
+        "startChar": 9,
+        "endLine": 7,
+        "endChar": 13
+      },
+      "revId": "e10bec9b0a6b729b8fbe3905dd82c2355e25accb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
