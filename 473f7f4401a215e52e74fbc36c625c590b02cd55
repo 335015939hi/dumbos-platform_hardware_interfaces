@@ -281,6 +281,30 @@
       "revId": "473f7f4401a215e52e74fbc36c625c590b02cd55",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f681f832_88077dd7",
+        "filename": "identity/support/Android.bp",
+        "patchSetId": 13
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-01-07T16:10:41Z",
+      "side": 1,
+      "message": "The CBOR code in android.hardware.confirmationui-support-lib is a different and a much less complete CBOR library than this (it\u0027s less than 90 LOC including comments!). FWIW, we have plans to move cppbor (the CBOR code here) to external/cppbor and once that happens (jbires@ is on it) we\u0027ll switch this code to using it. Then we can also switch ConfirmationUI to use that code (if it makes sense). Until then the easiest thing is to keep the code here.",
+      "parentUuid": "729d532a_e8869736",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 1
+      },
+      "revId": "473f7f4401a215e52e74fbc36c625c590b02cd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
