@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "77730e15_81350cd5",
+        "filename": "radio/1.5/IRadioResponse.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2020-01-07T17:57:53Z",
+      "side": 1,
+      "message": "They are the standard error codes for \"modem has crashed\" and \"ril has crashed\". They aren\u0027t used for anything else, but they are used everywhere.",
+      "parentUuid": "927b5cf9_c0ac5b82",
+      "range": {
+        "startLine": 169,
+        "startChar": 0,
+        "endLine": 170,
+        "endChar": 29
+      },
+      "revId": "b50af977005ba4805edc4213a9b2426084527e97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2266f712_fc857abd",
         "filename": "radio/1.5/types.hal",
         "patchSetId": 4
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "9da28751_9c51071d",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2020-01-07T17:57:53Z",
+      "side": 1,
+      "message": "CS_SERVICE is whether you are allowed to register / be in-service on a cell. This is most traditional barring type, where you are just not allowed to use a cell.\n\nCS_VOICE is barring for placing voice calls.",
+      "parentUuid": "2266f712_fc857abd",
+      "range": {
+        "startLine": 430,
+        "startChar": 0,
+        "endLine": 430,
+        "endChar": 13
+      },
+      "revId": "b50af977005ba4805edc4213a9b2426084527e97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d3d390a1_eeafbce1",
         "filename": "radio/1.5/types.hal",
         "patchSetId": 4
@@ -59,6 +107,30 @@
       "writtenOn": "2020-01-07T17:36:00Z",
       "side": 1,
       "message": "Is this only applicable to a specific carrier? Should we use a separate field for that or can we well-define each individual code?",
+      "range": {
+        "startLine": 443,
+        "startChar": 0,
+        "endLine": 475,
+        "endChar": 23
+      },
+      "revId": "b50af977005ba4805edc4213a9b2426084527e97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2ab0757_8967d815",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2020-01-07T17:57:53Z",
+      "side": 1,
+      "message": "These codes are operator-defined. The standard reserved 32 codes that each operator can customize individually. Thus, the meaning cannot be well-defined, only the value.",
+      "parentUuid": "d3d390a1_eeafbce1",
       "range": {
         "startLine": 443,
         "startChar": 0,
