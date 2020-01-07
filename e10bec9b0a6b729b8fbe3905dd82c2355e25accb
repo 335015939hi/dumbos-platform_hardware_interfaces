@@ -166,6 +166,30 @@
       "revId": "e10bec9b0a6b729b8fbe3905dd82c2355e25accb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b2e3fc51_746fd9f4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1497372
+      },
+      "writtenOn": "2020-01-07T02:17:27Z",
+      "side": 1,
+      "message": "Thanks Kai. I understood...\nSo I will abandon this CL, and only send review for anther patch.",
+      "parentUuid": "7089f5a1_032d4582",
+      "range": {
+        "startLine": 7,
+        "startChar": 9,
+        "endLine": 7,
+        "endChar": 13
+      },
+      "revId": "e10bec9b0a6b729b8fbe3905dd82c2355e25accb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
