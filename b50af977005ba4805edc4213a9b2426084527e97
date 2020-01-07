@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "927b5cf9_c0ac5b82",
+        "filename": "radio/1.5/IRadioResponse.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2020-01-07T17:36:00Z",
+      "side": 1,
+      "message": "Can we replace them with more concrete errors?",
+      "range": {
+        "startLine": 169,
+        "startChar": 0,
+        "endLine": 170,
+        "endChar": 29
+      },
+      "revId": "b50af977005ba4805edc4213a9b2426084527e97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2266f712_fc857abd",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2020-01-07T17:36:00Z",
+      "side": 1,
+      "message": "What\u0027s the difference between CS_VOICE and CS_SERVICE?",
+      "range": {
+        "startLine": 430,
+        "startChar": 0,
+        "endLine": 430,
+        "endChar": 13
+      },
+      "revId": "b50af977005ba4805edc4213a9b2426084527e97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3d390a1_eeafbce1",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2020-01-07T17:36:00Z",
+      "side": 1,
+      "message": "Is this only applicable to a specific carrier? Should we use a separate field for that or can we well-define each individual code?",
+      "range": {
+        "startLine": 443,
+        "startChar": 0,
+        "endLine": 475,
+        "endChar": 23
+      },
+      "revId": "b50af977005ba4805edc4213a9b2426084527e97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
