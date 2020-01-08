@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1c2606f6_8f60f041",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-08T21:57:38Z",
+      "side": 1,
+      "message": "fix or consider `hidl-gen -Lformat android.hardware.radio@1.5` (might need to be in a CL below this)",
+      "range": {
+        "startLine": 436,
+        "startChar": 0,
+        "endLine": 436,
+        "endChar": 1
+      },
+      "revId": "92cd1363fb1774bc86086b8323b5ee3dc1e75f74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a36d5d18_2b1a16f3",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-08T21:57:38Z",
+      "side": 1,
+      "message": "can these be namespaced? how can we be sure aosp/system code doesn\u0027t branch on this? Without explicit semantics, I\u0027m concerned that they may also change over time for a specific device, but they shouldn\u0027t.",
+      "range": {
+        "startLine": 461,
+        "startChar": 0,
+        "endLine": 461,
+        "endChar": 63
+      },
+      "revId": "92cd1363fb1774bc86086b8323b5ee3dc1e75f74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
