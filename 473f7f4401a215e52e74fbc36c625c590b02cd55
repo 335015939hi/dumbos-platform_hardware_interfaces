@@ -106,6 +106,29 @@
     },
     {
       "key": {
+        "uuid": "d7427c89_1e8913f8",
+        "filename": "identity/1.0/default/IdentityCredential.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-01-08T16:05:02Z",
+      "side": 1,
+      "message": "Could be:\n\ncppbor::Array array \u003d { \"ProofOfDeletion\", docType_, testCredential };\n\nOr you could do the creation and encoding all on one line:\n\nvector\u003cuint8_t\u003e proofOfDeletion \u003d cppbor::Array(\"ProofOfDeletion\", docType_, testCredential).encode();",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 31
+      },
+      "revId": "473f7f4401a215e52e74fbc36c625c590b02cd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "81312e90_63952cad",
         "filename": "identity/1.0/default/IdentityCredential.h",
         "patchSetId": 13
@@ -305,6 +328,29 @@
       "revId": "473f7f4401a215e52e74fbc36c625c590b02cd55",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "98f33e3f_535c9ba1",
+        "filename": "identity/support/include/android/hardware/identity/support/IdentityCredentialSupport.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-01-08T16:05:02Z",
+      "side": 1,
+      "message": "I think non-const reference arguments are generally not a good idea, and they\u0027re actually banned in the Google C++ style guide.  Readers of the calling code don\u0027t have a solid clue that the \"output\" argument is being modified.  IMO, it\u0027s better to either pass a pointer, which is a strong clue to client code that the arg may be modified or better yet in modern C++ style to return multiple values in a tuple.\n\nSo the interface might look like:\n\nstd::tuple\u003cbool, vector\u003cuint8_t\u003e\u003e decryptAes128Gcm(...);\n\nAnd the call site would look like:\n\nauto [success, plainText] \u003d decryptAes128Gcm(key, encryptedData, addlAuthData);\n\nThe functional notation -- args in, return value out -- is very clean.  The main downside is that at the call site the types of success and plaintText aren\u0027t always obvious.  Unless you pre-declare them, e.g.\n\nbool success;\nvector\u003cuint8_t\u003e plainText;\n[success, plainText] \u003d ....\n\nWhat might be even better is to use std::optional.  Like:\n\nstd::optional\u003cvector\u003cuint8_t\u003e\u003e decryptAes128Gcm(...)\n\nYou can then even do something like:\n\nif (auto plainText \u003d decrypteAes128Gcm(...)) {\n    // use plainText.\n} else {\n    // Handle decryption error\n}",
+      "range": {
+        "startLine": 98,
+        "startChar": 21,
+        "endLine": 98,
+        "endChar": 48
+      },
+      "revId": "473f7f4401a215e52e74fbc36c625c590b02cd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
