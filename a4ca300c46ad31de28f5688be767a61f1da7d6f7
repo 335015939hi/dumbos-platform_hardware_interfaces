@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9597dc0e_f4b9a863",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2020-01-08T02:26:47Z",
+      "side": 1,
+      "message": "nit: consider using matchers:\n\nEXPECT_THAT(hidl_enum_range\u003cT\u003e(), Contains(x))\n\nEXPECT_THAT(T[]{x}, IsSubsetOf(hidl_enum_range\u003cT\u003e()) // untested",
+      "revId": "a4ca300c46ad31de28f5688be767a61f1da7d6f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0819907f_16f30ff2",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2020-01-08T02:26:47Z",
+      "side": 1,
+      "message": "nit: std:pair\n\nAlso, consider using matchers from gmock directly:\n\nEXPECT_THAT(x, AllOf(Ge(lower_bound), Le(higher_bound))",
+      "range": {
+        "startLine": 225,
+        "startChar": 46,
+        "endLine": 225,
+        "endChar": 62
+      },
+      "revId": "a4ca300c46ad31de28f5688be767a61f1da7d6f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
