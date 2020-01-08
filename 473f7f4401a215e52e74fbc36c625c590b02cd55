@@ -60,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "6e4b3a69_5c026aae",
+        "filename": "identity/1.0/IIdentityCredential.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-01-08T22:14:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44a6a96e_e7b55e02",
+      "range": {
+        "startLine": 188,
+        "startChar": 0,
+        "endLine": 189,
+        "endChar": 49
+      },
+      "revId": "473f7f4401a215e52e74fbc36c625c590b02cd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0f948d19_bee3b57a",
         "filename": "identity/1.0/IWritableIdentityCredential.hal",
         "patchSetId": 13
@@ -103,6 +127,30 @@
       "revId": "473f7f4401a215e52e74fbc36c625c590b02cd55",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51b9497b_6b5c1d8f",
+        "filename": "identity/1.0/default/Android.bp",
+        "patchSetId": 13
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-01-08T22:14:47Z",
+      "side": 1,
+      "message": "Removed and also removed all the \"-Wno-*\" below since they\u0027re no longer needed.",
+      "parentUuid": "fc41ba92_7f5bf14b",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 29
+      },
+      "revId": "473f7f4401a215e52e74fbc36c625c590b02cd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -152,6 +200,30 @@
     },
     {
       "key": {
+        "uuid": "ea8bbf9a_a03c3a2a",
+        "filename": "identity/1.0/default/IdentityCredential.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-01-08T22:14:47Z",
+      "side": 1,
+      "message": "OK, nifty. Done!",
+      "parentUuid": "81312e90_63952cad",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 16
+      },
+      "revId": "473f7f4401a215e52e74fbc36c625c590b02cd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e92b6c4f_7791a407",
         "filename": "identity/1.0/default/android.hardware.identity@1.0-service.rc",
         "patchSetId": 13
@@ -195,6 +267,30 @@
       "revId": "473f7f4401a215e52e74fbc36c625c590b02cd55",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5fc3493_f276395a",
+        "filename": "identity/1.0/types.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-01-08T22:14:47Z",
+      "side": 1,
+      "message": "In the future we might have several values. The current draft of ISO 18013-5 only has one right now and I think it\u0027ll stay that for when it\u0027s published as an International Standard (it\u0027s currently a Draft International Standard). I\u0027ll remove it for now, it\u0027s easy to add later.",
+      "parentUuid": "8a909143_2a8678e9",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 0
+      },
+      "revId": "473f7f4401a215e52e74fbc36c625c590b02cd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -281,6 +377,30 @@
       "revId": "473f7f4401a215e52e74fbc36c625c590b02cd55",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fed23279_d65a5a42",
+        "filename": "identity/support/Android.bp",
+        "patchSetId": 13
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-01-08T22:14:47Z",
+      "side": 1,
+      "message": "Removed and also removed all the \"-Wno-*\" params below.",
+      "parentUuid": "3578098d_dcfc3bdc",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 29
+      },
+      "revId": "473f7f4401a215e52e74fbc36c625c590b02cd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
