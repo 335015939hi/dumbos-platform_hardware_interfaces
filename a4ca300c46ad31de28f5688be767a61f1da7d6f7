@@ -39,6 +39,29 @@
       "revId": "a4ca300c46ad31de28f5688be767a61f1da7d6f7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b403d1bb_6d7aaa15",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2020-01-08T02:28:58Z",
+      "side": 1,
+      "message": "I vaguely remember that EXPECT calls in invoked functions doesn\u0027t work. You have to make verifyStorageInfos return an AssertionResult or create a matcher for StorageInfo. Let me know if I am wrong...",
+      "range": {
+        "startLine": 337,
+        "startChar": 8,
+        "endLine": 337,
+        "endChar": 26
+      },
+      "revId": "a4ca300c46ad31de28f5688be767a61f1da7d6f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
