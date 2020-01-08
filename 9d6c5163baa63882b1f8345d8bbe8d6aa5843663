@@ -264,6 +264,30 @@
     },
     {
       "key": {
+        "uuid": "0e8e1558_0a0e06ee",
+        "filename": "audio/effect/all-versions/vts/functional/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1307893
+      },
+      "writtenOn": "2020-01-08T02:11:34Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9e7d8661_20e92a7d",
+      "range": {
+        "startLine": 34,
+        "startChar": 18,
+        "endLine": 34,
+        "endChar": 33
+      },
+      "revId": "9d6c5163baa63882b1f8345d8bbe8d6aa5843663",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "847750a3_8323772c",
         "filename": "audio/effect/all-versions/vts/functional/VtsHalAudioEffectTargetTest.cpp",
         "patchSetId": 3
