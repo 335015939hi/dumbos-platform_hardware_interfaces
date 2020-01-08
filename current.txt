@@ -642,3 +642,5 @@ b27ab0cd40b0b078cdcd024bfe1061c4c4c065f3519eeb9347fa359a3268a5ae android.hardwar
 ##
 # END Radio HAL Merge Conflict Avoidance Buffer - STOPSHIP if present
 ##
+00c19b361980da50eecbfde85368c1849bd06a3561408fb50069b8699fc950de android.hardware.keymaster@4.1::IKeymasterDevice
+ac429fca0da4ce91218768ec31b64ded88251f8a26d8c4f27c06abdc5b1926d9 android.hardware.keymaster@4.1::types
