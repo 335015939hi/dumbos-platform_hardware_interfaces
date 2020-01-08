@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "62d0d880_70f7f809",
+        "filename": "drm/1.2/vts/functional/drm_hal_common.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-08T21:49:39Z",
+      "side": 1,
+      "message": "shouldn\u0027t this be an error if the instance is not installed?\n\nI think on P1, you are seeing the segfault here because you are running it with default args. However, VTS should only run the test if the instance is there (and after R changes, the test controls this).\n\nWDYT?",
+      "range": {
+        "startLine": 121,
+        "startChar": 8,
+        "endLine": 121,
+        "endChar": 18
+      },
+      "revId": "9da82c7cdf626635a6e6f1341478f0b4f28b42ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
