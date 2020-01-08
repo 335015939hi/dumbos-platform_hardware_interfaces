@@ -22,6 +22,30 @@
       "revId": "9da82c7cdf626635a6e6f1341478f0b4f28b42ee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d9d3b05_bed727cf",
+        "filename": "drm/1.2/vts/functional/drm_hal_common.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1005920
+      },
+      "writtenOn": "2020-01-08T23:35:36Z",
+      "side": 1,
+      "message": "Okay, I uploaded PS4 to make it an error. But in b/145965256 VTS is running the test even though the instance is not installed, we\u0027ll need to figure out why that is happening.",
+      "parentUuid": "62d0d880_70f7f809",
+      "range": {
+        "startLine": 121,
+        "startChar": 8,
+        "endLine": 121,
+        "endChar": 18
+      },
+      "revId": "9da82c7cdf626635a6e6f1341478f0b4f28b42ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
