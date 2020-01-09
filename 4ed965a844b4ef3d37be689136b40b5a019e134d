@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b76e2201_0b3282e9",
+        "filename": "radio/1.5/IRadio.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-01-09T17:53:12Z",
+      "side": 1,
+      "message": "Sorry, I did not see this before. \"personalization\"",
+      "range": {
+        "startLine": 228,
+        "startChar": 28,
+        "endLine": 228,
+        "endChar": 40
+      },
+      "revId": "4ed965a844b4ef3d37be689136b40b5a019e134d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1affcdd5_67ec4920",
+        "filename": "radio/1.5/IRadio.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-01-09T17:53:12Z",
+      "side": 1,
+      "message": "Minor typo.\ndepersonalization... an \u0027a\u0027 is missing.",
+      "range": {
+        "startLine": 229,
+        "startChar": 25,
+        "endLine": 229,
+        "endChar": 41
+      },
+      "revId": "4ed965a844b4ef3d37be689136b40b5a019e134d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ffe1956_fe5f2bb7",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-01-09T17:53:12Z",
+      "side": 1,
+      "message": "Remove empty line (it was not there in previous patches)",
+      "revId": "4ed965a844b4ef3d37be689136b40b5a019e134d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98ffa0d9_57785d4c",
+        "filename": "radio/1.5/vts/functional/radio_response.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-01-09T17:53:12Z",
+      "side": 1,
+      "message": "Minor. It might make sense to move this argument to new line, so that the corresponding comment is on the same line. And then have the remainingRetries in yet another line.",
+      "range": {
+        "startLine": 66,
+        "startChar": 43,
+        "endLine": 67,
+        "endChar": 21
+      },
+      "revId": "4ed965a844b4ef3d37be689136b40b5a019e134d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
