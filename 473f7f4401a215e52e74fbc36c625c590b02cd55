@@ -107,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "0d909718_b99c1a6e",
+        "filename": "identity/1.0/IWritableIdentityCredential.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-01-09T14:40:47Z",
+      "side": 1,
+      "message": "This has now been resolved (docs now contain precise instructions what OEMs need to do).",
+      "parentUuid": "0f948d19_bee3b57a",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 73
+      },
+      "revId": "473f7f4401a215e52e74fbc36c625c590b02cd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc41ba92_7f5bf14b",
         "filename": "identity/1.0/default/Android.bp",
         "patchSetId": 13
