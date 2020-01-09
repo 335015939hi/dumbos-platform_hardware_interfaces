@@ -109,6 +109,30 @@
       "revId": "4ed965a844b4ef3d37be689136b40b5a019e134d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93a21ea6_5a781f54",
+        "filename": "radio/1.5/vts/functional/radio_response.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-01-09T18:01:13Z",
+      "side": 1,
+      "message": "Yes, looks better",
+      "parentUuid": "f98866d5_a6ab5d06",
+      "range": {
+        "startLine": 66,
+        "startChar": 43,
+        "endLine": 67,
+        "endChar": 21
+      },
+      "revId": "4ed965a844b4ef3d37be689136b40b5a019e134d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
