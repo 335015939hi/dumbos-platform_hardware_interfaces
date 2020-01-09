@@ -26,6 +26,8 @@
 #include <cppbor/cppbor.h>
 #include <cppbor/cppbor_parse.h>
 
+#include <utility>
+
 namespace android {
 namespace hardware {
 namespace identity {
@@ -78,26 +80,6 @@ bool generateCredentialData(const vector<uint8_t>& hardwareBoundKey, const strin
 }
 
 bool WritableIdentityCredential::initialize() {
-    optional<vector<uint8_t>> keyPair = support::createEcKeyPair();
-    if (!keyPair) {
-        LOG(ERROR) << "Error creating credentialKey";
-        return false;
-    }
-
-    optional<vector<uint8_t>> pubKey = support::ecKeyPairGetPublicKey(keyPair.value());
-    if (!pubKey) {
-        LOG(ERROR) << "Error getting public part of credentialKey";
-        return false;
-    }
-    credentialPubKey_ = pubKey.value();
-
-    optional<vector<uint8_t>> privKey = support::ecKeyPairGetPrivateKey(keyPair.value());
-    if (!privKey) {
-        LOG(ERROR) << "Error getting private part of credentialKey";
-        return false;
-    }
-    credentialPrivKey_ = privKey.value();
-
     optional<vector<uint8_t>> random = support::getRandom(16);
     if (!random) {
         LOG(ERROR) << "Error creating storageKey";
@@ -108,93 +90,52 @@ bool WritableIdentityCredential::initialize() {
     return true;
 }
 
-// TODO: use |attestationApplicationId| and |attestationChallenge| and also
-//       ensure the returned certificate chain satisfy the requirements listed in
-//       the docs for IWritableIdentityCredential::getAttestationCertificate()
-//
+// This function generates the attestation certificate using the passed in
+// |attestationApplicationId| and |attestationChallenge|.  It will generate an
+// attestation certificate with current time and expires one year from now.  The
+// certificate shall contain all values as specified in hal.
 Return<void> WritableIdentityCredential::getAttestationCertificate(
-        const hidl_vec<uint8_t>& /* attestationApplicationId */,
-        const hidl_vec<uint8_t>& /* attestationChallenge */,
-        getAttestationCertificate_cb _hidl_cb) {
-    // For now, we dynamically generate an attestion key on each and every
-    // request and use that to sign CredentialKey. In a real implementation this
-    // would look very differently.
-    optional<vector<uint8_t>> attestationKeyPair = support::createEcKeyPair();
-    if (!attestationKeyPair) {
-        _hidl_cb(support::result(ResultCode::FAILED, "Error creating attestationKey"), {});
-        return Void();
-    }
-
-    optional<vector<uint8_t>> attestationPubKey =
-            support::ecKeyPairGetPublicKey(attestationKeyPair.value());
-    if (!attestationPubKey) {
-        _hidl_cb(support::result(ResultCode::FAILED, "Error getting public part of attestationKey"),
+        const hidl_vec<uint8_t>& attestationApplicationId,
+        const hidl_vec<uint8_t>& attestationChallenge, getAttestationCertificate_cb _hidl_cb) {
+    if (!credentialPrivKey_.empty() || !credentialPubKey_.empty() || !certificateChain_.empty()) {
+        _hidl_cb(support::result(ResultCode::FAILED,
+                                 "Error attestation certificate previously"
+                                 " generated"),
                  {});
         return Void();
     }
 
-    optional<vector<uint8_t>> attestationPrivKey =
-            support::ecKeyPairGetPrivateKey(attestationKeyPair.value());
-    if (!attestationPrivKey) {
+    optional<std::pair<vector<uint8_t>, vector<vector<uint8_t>>>> keyAttestationPair =
+            support::createEcKeyPairAndAttestation(attestationChallenge, attestationApplicationId);
+    if (!keyAttestationPair) {
+        LOG(ERROR) << "Error creating credentialKey and attestation";
         _hidl_cb(
-                support::result(ResultCode::FAILED, "Error getting private part of attestationKey"),
+                support::result(ResultCode::FAILED, "Error creating credentialKey and attestation"),
                 {});
         return Void();
     }
 
-    string serialDecimal;
-    string issuer;
-    string subject;
-    time_t validityNotBefore = time(nullptr);
-    time_t validityNotAfter = validityNotBefore + 365 * 24 * 3600;
+    vector<uint8_t> keyPair = keyAttestationPair.value().first;
+    certificateChain_ = keyAttestationPair.value().second;
 
-    // First create a certificate for |credentialPubKey| which is signed by
-    // |attestationPrivKey|.
-    //
-    serialDecimal = "0";  // TODO: set serial to |attestationChallenge|
-    issuer = "Android Open Source Project";
-    subject = "Android IdentityCredential CredentialKey";
-    optional<vector<uint8_t>> credentialPubKeyCertificate = support::ecPublicKeyGenerateCertificate(
-            credentialPubKey_, attestationPrivKey.value(), serialDecimal, issuer, subject,
-            validityNotBefore, validityNotAfter);
-    if (!credentialPubKeyCertificate) {
-        _hidl_cb(support::result(ResultCode::FAILED,
-                                 "Error creating certificate for credentialPubKey"),
+    optional<vector<uint8_t>> pubKey = support::ecKeyPairGetPublicKey(keyPair);
+    if (!pubKey) {
+        _hidl_cb(support::result(ResultCode::FAILED, "Error getting public part of credentialKey"),
                  {});
         return Void();
     }
+    credentialPubKey_ = pubKey.value();
 
-    // This is followed by a certificate for |attestationPubKey| self-signed by
-    // |attestationPrivKey|.
-    serialDecimal = "0";  // TODO: set serial
-    issuer = "Android Open Source Project";
-    subject = "Android IdentityCredential AttestationKey";
-    optional<vector<uint8_t>> attestationKeyCertificate = support::ecPublicKeyGenerateCertificate(
-            attestationPubKey.value(), attestationPrivKey.value(), serialDecimal, issuer, subject,
-            validityNotBefore, validityNotAfter);
-    if (!attestationKeyCertificate) {
-        _hidl_cb(support::result(ResultCode::FAILED,
-                                 "Error creating certificate for attestationPubKey"),
+    optional<vector<uint8_t>> privKey = support::ecKeyPairGetPrivateKey(keyPair);
+    if (!privKey) {
+        _hidl_cb(support::result(ResultCode::FAILED, "Error getting private part of credentialKey"),
                  {});
         return Void();
     }
+    credentialPrivKey_ = privKey.value();
 
-    // Concatenate the certificates to form the chain.
-    vector<uint8_t> certificateChain;
-    certificateChain.insert(certificateChain.end(), credentialPubKeyCertificate.value().begin(),
-                            credentialPubKeyCertificate.value().end());
-    certificateChain.insert(certificateChain.end(), attestationKeyCertificate.value().begin(),
-                            attestationKeyCertificate.value().end());
-
-    optional<vector<vector<uint8_t>>> splitCertChain =
-            support::certificateChainSplit(certificateChain);
-    if (!splitCertChain) {
-        _hidl_cb(support::result(ResultCode::FAILED, "Error splitting certificate chain"), {});
-        return Void();
-    }
-    hidl_vec<hidl_vec<uint8_t>> ret;
-    ret.resize(splitCertChain.value().size());
-    std::copy(splitCertChain.value().begin(), splitCertChain.value().end(), ret.begin());
+    // convert from vector<vector<>> to hidl_vec<hidl_vec<>>
+    hidl_vec<hidl_vec<uint8_t>> ret(certificateChain_.begin(), certificateChain_.end());
     _hidl_cb(support::resultOK(), ret);
     return Void();
 }
