@@ -22,6 +22,8 @@
 #include <tuple>
 #include <vector>
 
+#include <openssl/evp.h>
+
 #include <android/hardware/identity/1.0/types.h>
 
 namespace android {
@@ -111,6 +113,18 @@ optional<vector<uint8_t>> encryptAes128Gcm(const vector<uint8_t>& key, const vec
 // ---------------------------------------------------------------------------
 // EC crypto functionality / abstraction (only supports P-256).
 // ---------------------------------------------------------------------------
+// Creates an 256-bit EC key using the NID_X9_62_prime256v1 curve, returns the
+// PKCS#8 encoded key-pair in |keyPair|.  Also generates an attestation
+// certificate using the |challenge|, and returns the generated certificate
+// in X.509 certificate chain format in |attestation|.
+//
+bool createEcKeyPairAndAttestation(const vector<uint8_t>& challenge, vector<uint8_t>& keyPair,
+                                   vector<uint8_t>& attestation);
+
+// Create attestation certificate based on the given EVP key and the challenge.
+// The time fields used will be the current time, and expires in one year. The
+// application id used will be TODO(seleneh).
+optional<vector<uint8_t>> createAttestation(EVP_PKEY* key, const vector<uint8_t>& challenge);
 
 // Creates an 256-bit EC key using the NID_X9_62_prime256v1 curve, returns the
 // PKCS#8 encoded key-pair.

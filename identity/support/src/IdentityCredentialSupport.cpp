@@ -47,10 +47,33 @@
 #include <cppbor.h>
 #include <cppbor_parse.h>
 
+#include <android/hardware/keymaster/4.0/types.h>
+#include <keymaster/authorization_set.h>
+#include <keymaster/contexts/pure_soft_keymaster_context.h>
+#include <keymaster/contexts/soft_attestation_cert.h>
+#include <keymaster/keymaster_tags.h>
+#include <keymaster/km_openssl/attestation_utils.h>
+
 namespace android {
 namespace hardware {
 namespace identity {
 namespace support {
+
+using ::android::hardware::keymaster::V4_0::ErrorCode;
+using ::android::hardware::keymaster::V4_0::SecurityLevel;
+
+using ::keymaster::ASN1_OBJECT_Ptr;
+using ::keymaster::AttestationRecordContext;
+using ::keymaster::AuthorizationSet;
+using ::keymaster::AuthorizationSetBuilder;
+using ::keymaster::CertChainPtr;
+using ::keymaster::getAttestationChain;
+using ::keymaster::getAttestationKey;
+using ::keymaster::PureSoftKeymasterContext;
+using ::keymaster::TAG_ACTIVE_DATETIME;
+using ::keymaster::TAG_ATTESTATION_APPLICATION_ID;
+using ::keymaster::TAG_ATTESTATION_CHALLENGE;
+using ::keymaster::TAG_USAGE_EXPIRE_DATETIME;
 
 using ::std::pair;
 using ::std::unique_ptr;
@@ -709,6 +732,89 @@ bool certificateChainValidate(const vector<uint8_t>& certificateChain) {
     return true;
 }
 
+// Extract attestation record from cert. Returned object is still part of cert; don't free it
+// separately.
+// ASN1_OCTET_STRING* get_attestation_record(X509* certificate) {
+//    ASN1_OBJECT_Ptr oid(OBJ_txt2obj(kAttestionRecordOid, 1 /* dotted string format */));
+//    if (!oid.get())
+//      return nullptr;
+
+//    int location = X509_get_ext_by_OBJ(certificate, oid.get(), -1 /* search from beginning */);
+/*    if (location == -1)
+      return nullptr;
+
+    X509_EXTENSION* attest_rec_ext = X509_get_ext(certificate, location);
+    if (!attest_rec_ext)
+      return nullptr;
+
+    ASN1_OCTET_STRING* attest_rec = X509_EXTENSION_get_data(attest_rec_ext);
+    return attest_rec;
+}
+
+bool ValidateAttestationCertificate(const vector<uint8_t>& certificateChain,
+                                    const vector<uint8_t>& attestationChallenge) {
+    vector<X509_Ptr> certs;
+
+    if (!parseX509Certificates(certificateChain, certs)) {
+        LOG(ERROR) << "Error parsing X509 certificates";
+        return false;
+    }
+
+    // has to be at least 2 certificates
+    if (certs.size() <= 1) {
+        return false;
+    }
+
+    // each certificate in the chain should be signed by previous
+    for (size_t n = 1; n < certs.size(); n++) {
+        const X509_Ptr& keyCert = certs[n - 1];
+        const X509_Ptr& signingCert = certs[n];
+        EVP_PKEY_Ptr signingPubkey(X509_get_pubkey(signingCert.get()));
+        if (X509_verify(keyCert.get(), signingPubkey.get()) != 1) {
+            LOG(ERROR) << "Error validating cert at index " << n - 1
+                       << " is signed by its successor";
+            return false;
+        }
+
+        ASN1_OCTET_STRING* attest_rec = get_attestation_record(signingCert.get());
+        if (!attest_rec)
+          return false;
+
+        AuthorizationSet att_sw_enforced;
+        AuthorizationSet att_hw_enforced;
+        uint32_t att_attestation_version;
+        uint32_t att_keymaster_version;
+        SecurityLevel att_attestation_security_level;
+        SecurityLevel att_keymaster_security_level;
+        HidlBuf att_challenge;
+        HidlBuf att_unique_id;
+        HidlBuf att_app_id;
+
+        auto error = parse_attestation_record(attest_rec->data,
+                                              attest_rec->length,
+                                              &att_attestation_version,
+                                              &att_attestation_security_level,
+                                              &att_keymaster_version,
+                                              &att_keymaster_security_level,
+                                              &att_challenge,
+                                              &att_sw_enforced,
+                                              &att_hw_enforced,
+                                              &att_unique_id);
+
+        if (attestationChallenge.length() != att_challenge.size()) {
+          return false;
+        }
+
+        if (memcmp(attestationChallenge.data(), att_challenge.data(),
+                   attestationChallenge.length()) != 0) {
+          return false;
+        }
+    }
+
+    return true;
+}
+*/
+
 bool checkEcDsaSignature(const vector<uint8_t>& digest, const vector<uint8_t>& signature,
                          const vector<uint8_t>& publicKey) {
     const unsigned char* p = (unsigned char*)signature.data();
@@ -814,6 +920,104 @@ optional<vector<uint8_t>> hmacSha256(const vector<uint8_t>& key, const vector<ui
         return {};
     }
     return hmac;
+}
+
+optional<vector<uint8_t>> createAttestation(EVP_PKEY* key, const vector<uint8_t>& challenge) {
+    time_t now = time(nullptr);
+    time_t secondsInOneYear = 365 * 24 * 60 * 60;
+    string app_id = "Android Open Source Project";
+
+    // do not set any of the tags in kDeviceAttestationTags or else sub sub sub
+    // call build_attestation_record will fail due to device id not found.
+    AuthorizationSet auth_set(
+            AuthorizationSetBuilder()
+                    .Authorization(TAG_ATTESTATION_CHALLENGE, challenge.data(), challenge.size())
+                    // KM_DATE fields such as TAG_ACTIVE_DATETIME are defined in
+                    // miliseconds, so need to multiply by 1000 as time()
+                    // returns seconds.
+                    .Authorization(TAG_ACTIVE_DATETIME, now * 1000)
+                    .Authorization(TAG_USAGE_EXPIRE_DATETIME, (now + secondsInOneYear) * 1000)
+                    .Authorization(TAG_ATTESTATION_APPLICATION_ID, app_id.data(), app_id.size()));
+
+    // TODO(seleneh): set these with the right parameters later.
+    // Unique id and device id is not applicable for identity creditial attestion,
+    // so we don't need to set those or application id, or creation time tags
+    AuthorizationSet sw_enforced, hw_enforced;
+
+    const keymaster_cert_chain_t* attestation_chain = getAttestationChain(KM_ALGORITHM_EC, nullptr);
+    if (!attestation_chain) {
+        return {};
+    }
+
+    const keymaster_key_blob_t* attestation_signing_key =
+            getAttestationKey(KM_ALGORITHM_EC, nullptr);
+    if (!attestation_signing_key) {
+        return {};
+    }
+
+    keymaster_error_t error;
+    CertChainPtr cert_chain_out;
+    PureSoftKeymasterContext context;
+    error = generate_attestation_from_EVP(key, sw_enforced, hw_enforced, auth_set, context,
+                                          *attestation_chain, *attestation_signing_key,
+                                          &cert_chain_out);
+
+    if (KM_ERROR_OK != error || !cert_chain_out.get()) {
+        return {};
+    }
+
+    // TODO (seleneh): translate certificate format from keymaster_cert_chain_t
+    // to vector<uint8_t>. Not sure what is the right format expected, for now
+    // just copy the data.
+    vector<uint8_t> attestationCertificate;
+    keymaster_cert_chain_t* chain = cert_chain_out.get();
+    for (int i = 0; i < chain->entry_count; i++) {
+        attestationCertificate.insert(attestationCertificate.end(), chain->entries[i].data,
+                                      chain->entries[i].data + chain->entries[i].data_length);
+    }
+
+    return attestationCertificate;
+}
+
+bool createEcKeyPairAndAttestation(const vector<uint8_t>& challenge, vector<uint8_t>& keyPair,
+                                   vector<uint8_t>& attestation) {
+    auto ec_key = ::keymaster::EC_KEY_Ptr(EC_KEY_new());
+    auto pkey = ::keymaster::EVP_PKEY_Ptr(EVP_PKEY_new());
+    auto group = ::keymaster::EC_GROUP_Ptr(EC_GROUP_new_by_curve_name(NID_X9_62_prime256v1));
+
+    if (ec_key.get() == nullptr || pkey.get() == nullptr) {
+        LOG(ERROR) << "Memory allocation failed";
+        return false;
+    }
+
+    if (EC_KEY_set_group(ec_key.get(), group.get()) != 1 ||
+        EC_KEY_generate_key(ec_key.get()) != 1 || EC_KEY_check_key(ec_key.get()) < 0) {
+        LOG(ERROR) << "Error generating key";
+        return false;
+    }
+
+    if (EVP_PKEY_set1_EC_KEY(pkey.get(), ec_key.get()) != 1) {
+        LOG(ERROR) << "Error getting private key";
+        return false;
+    }
+
+    optional<vector<uint8_t>> attestationCert = createAttestation(pkey.get(), challenge);
+    if (!attestationCert) {
+        LOG(ERROR) << "Error create attesation from key and challenge";
+        return false;
+    }
+    attestation = attestationCert.value();
+
+    int size = i2d_PrivateKey(pkey.get(), nullptr);
+    if (size == 0) {
+        LOG(ERROR) << "Error generating public key encoding";
+        return false;
+    }
+
+    keyPair.resize(size);
+    unsigned char* p = keyPair.data();
+    i2d_PrivateKey(pkey.get(), &p);
+    return true;
 }
 
 optional<vector<uint8_t>> createEcKeyPair() {

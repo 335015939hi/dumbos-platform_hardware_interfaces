@@ -80,6 +80,7 @@ class WritableIdentityCredential : public IWritableIdentityCredential {
     vector<uint8_t> storageKey_;
     vector<uint8_t> credentialPrivKey_;
     vector<uint8_t> credentialPubKey_;
+    vector<uint8_t> certificateChain_;
 
     // These fields are initialized during startPersonalization()
     size_t numAccessControlProfileRemaining_;
