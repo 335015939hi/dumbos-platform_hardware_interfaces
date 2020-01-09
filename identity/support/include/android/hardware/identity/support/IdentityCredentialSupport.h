@@ -20,7 +20,10 @@
 #include <cstdint>
 #include <string>
 #include <tuple>
+#include <utility>
 #include <vector>
+
+#include <openssl/evp.h>
 
 #include <android/hardware/identity/1.0/types.h>
 
@@ -111,6 +114,25 @@ optional<vector<uint8_t>> encryptAes128Gcm(const vector<uint8_t>& key, const vec
 // ---------------------------------------------------------------------------
 // EC crypto functionality / abstraction (only supports P-256).
 // ---------------------------------------------------------------------------
+// Creates an 256-bit EC key using the NID_X9_62_prime256v1 curve, returns the
+// PKCS#8 encoded key-pair in |keyPair|.  Also generates an attestation
+// certificate using the |challenge|, and returns the generated certificate
+// in X.509 certificate chain format in |attestation|.
+// The time fields used will be the current time, and expires in one year.
+//
+// The first parameter of the return value is the keyPair, second return in
+// the pair is the attestation certificate.
+optional<std::pair<vector<uint8_t>, vector<vector<uint8_t>>>> createEcKeyPairAndAttestation(
+        const vector<uint8_t>& challenge, const vector<uint8_t>& applicationId);
+
+// Create attestation certificate based on the given EVP key, application id,
+// and the challenge.  The certificate active and expire time should be in
+// milliseconds since epoch.
+optional<vector<vector<uint8_t>>> createAttestation(EVP_PKEY* key,
+                                                    const vector<uint8_t>& applicationId,
+                                                    const vector<uint8_t>& challenge,
+                                                    uint64_t activeTimeMilliSeconds,
+                                                    uint64_t expireTimeMilliSeconds);
 
 // Creates an 256-bit EC key using the NID_X9_62_prime256v1 curve, returns the
 // PKCS#8 encoded key-pair.
