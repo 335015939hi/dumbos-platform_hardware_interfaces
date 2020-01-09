@@ -28,6 +28,9 @@ cc_library {
         "libbase",
         "libhidlbase",
         "libhardware",
+        "libkeymaster_portable",
+        "libsoft_attestation_cert",
+        "libpuresoftkeymasterdevice",
     ],
     static_libs: [
         "libcppbor",

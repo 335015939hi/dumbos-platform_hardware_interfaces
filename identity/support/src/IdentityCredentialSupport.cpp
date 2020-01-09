@@ -47,6 +47,13 @@
 #include <cppbor.h>
 #include <cppbor_parse.h>
 
+#include <android/hardware/keymaster/4.0/types.h>
+#include <keymaster/authorization_set.h>
+#include <keymaster/contexts/pure_soft_keymaster_context.h>
+#include <keymaster/contexts/soft_attestation_cert.h>
+#include <keymaster/keymaster_tags.h>
+#include <keymaster/km_openssl/attestation_utils.h>
+
 namespace android {
 namespace hardware {
 namespace identity {
@@ -814,6 +821,147 @@ optional<vector<uint8_t>> hmacSha256(const vector<uint8_t>& key, const vector<ui
         return {};
     }
     return hmac;
+}
+
+// Generates the attestation certificate with the parameters passed in.  Note
+// that the passed in |activeTimeMilliSeconds| |expireTimeMilliSeconds| are in
+// milli seconds since epoch.  We are setting them to milliseconds due to
+// requirement in AuthorizationSet KM_DATE fields.  The certificate created is
+// actually in seconds.
+optional<vector<vector<uint8_t>>> createAttestation(EVP_PKEY* key,
+                                                    const vector<uint8_t>& applicationId,
+                                                    const vector<uint8_t>& challenge,
+                                                    uint64_t activeTimeMilliSeconds,
+                                                    uint64_t expireTimeMilliSeconds) {
+    // do not set any of the tags in kDeviceAttestationTags or else sub sub sub
+    // call build_attestation_record will fail due to device id not found.
+    ::keymaster::AuthorizationSet auth_set(
+            ::keymaster::AuthorizationSetBuilder()
+                    .Authorization(::keymaster::TAG_ATTESTATION_CHALLENGE, challenge.data(),
+                                   challenge.size())
+                    .Authorization(::keymaster::TAG_ACTIVE_DATETIME, activeTimeMilliSeconds)
+                    // Even though identity attestation hal said the application
+                    // id should be in software enforced authentication set,
+                    // keymaster portable lib expect the input in this parameter
+                    // and does not check the software authentication set
+                    // currently.  The keymaster then copy the app id from
+                    // auth_set to the software_auth_set. It does not make sense
+                    // to me why keymaster does not look for app id in
+                    // soft_authset to begin with.  So I'm adding to
+                    // both places so in case future keymaster code updates to
+                    // look for app id in swEnforced authentication set, this
+                    // code doesn't break.
+                    .Authorization(::keymaster::TAG_ATTESTATION_APPLICATION_ID,
+                                   applicationId.data(), applicationId.size())
+                    .Authorization(::keymaster::TAG_USAGE_EXPIRE_DATETIME, expireTimeMilliSeconds));
+
+    // Unique id and device id is not applicable for identity creditial attestion,
+    // so we don't need to set those or application id, or creation time tags
+    ::keymaster::AuthorizationSet swEnforced(::keymaster::AuthorizationSetBuilder().Authorization(
+            ::keymaster::TAG_ATTESTATION_APPLICATION_ID, applicationId.data(),
+            applicationId.size()));
+
+    ::keymaster::AuthorizationSet hwEnforced(::keymaster::AuthorizationSetBuilder().Authorization(
+            ::keymaster::TAG_IDENTITY_CREDENTIAL_KEY));
+
+    const keymaster_cert_chain_t* attestation_chain =
+            ::keymaster::getAttestationChain(KM_ALGORITHM_EC, nullptr);
+
+    if (attestation_chain == nullptr) {
+        LOG(ERROR) << "Error get attestation chain";
+        return {};
+    }
+
+    const keymaster_key_blob_t* attestation_signing_key =
+            ::keymaster::getAttestationKey(KM_ALGORITHM_EC, nullptr);
+    if (attestation_signing_key == nullptr) {
+        LOG(ERROR) << "Error getting attestation key";
+        return {};
+    }
+
+    keymaster_error_t error;
+    ::keymaster::CertChainPtr cert_chain_out;
+    ::keymaster::PureSoftKeymasterContext context;
+
+    // set identity version to 10 per hal requirements specified in IWriteableCredential.hal
+    // For now, the identity version in the attestation is set in the keymaster
+    // version field in the portable keymaster lib, which is a bit misleading.
+    uint identity_version = 10;
+    error = generate_attestation_from_EVP(key, swEnforced, hwEnforced, auth_set, context,
+                                          identity_version, *attestation_chain,
+                                          *attestation_signing_key, &cert_chain_out);
+
+    if (KM_ERROR_OK != error || cert_chain_out == nullptr) {
+        LOG(ERROR) << "Error generate attestation from EVP key" << error;
+        return {};
+    }
+
+    // translate certificate format from keymaster_cert_chain_t to vector<uint8_t>.
+    vector<vector<uint8_t>> attestationCertificate;
+    for (int i = 0; i < cert_chain_out->entry_count; i++) {
+        attestationCertificate.insert(
+                attestationCertificate.end(),
+                vector<uint8_t>(
+                        cert_chain_out->entries[i].data,
+                        cert_chain_out->entries[i].data + cert_chain_out->entries[i].data_length));
+    }
+
+    return attestationCertificate;
+}
+
+// Creates an 256-bit EC key using the NID_X9_62_prime256v1 curve, returns the
+// PKCS#8 encoded key-pair.  Also generates an attestation
+// certificate using the |challenge| and |applicationId|, and returns the generated
+// certificate in X.509 certificate chain format.
+//
+// The attestation time fields used will be the current time, and expires in one year.
+//
+// The first parameter of the return value is the keyPair generated, second return in
+// the pair is the attestation certificate generated.
+optional<std::pair<vector<uint8_t>, vector<vector<uint8_t>>>> createEcKeyPairAndAttestation(
+        const vector<uint8_t>& challenge, const vector<uint8_t>& applicationId) {
+    auto ec_key = ::keymaster::EC_KEY_Ptr(EC_KEY_new());
+    auto pkey = ::keymaster::EVP_PKEY_Ptr(EVP_PKEY_new());
+    auto group = ::keymaster::EC_GROUP_Ptr(EC_GROUP_new_by_curve_name(NID_X9_62_prime256v1));
+
+    if (ec_key.get() == nullptr || pkey.get() == nullptr) {
+        LOG(ERROR) << "Memory allocation failed";
+        return {};
+    }
+
+    if (EC_KEY_set_group(ec_key.get(), group.get()) != 1 ||
+        EC_KEY_generate_key(ec_key.get()) != 1 || EC_KEY_check_key(ec_key.get()) < 0) {
+        LOG(ERROR) << "Error generating key";
+        return {};
+    }
+
+    if (EVP_PKEY_set1_EC_KEY(pkey.get(), ec_key.get()) != 1) {
+        LOG(ERROR) << "Error getting private key";
+        return {};
+    }
+
+    uint64_t now = time(nullptr);
+    uint64_t secondsInOneYear = 365 * 24 * 60 * 60;
+    uint64_t expireTimeMs = (now + secondsInOneYear) * 1000;
+
+    optional<vector<vector<uint8_t>>> attestationCert =
+            createAttestation(pkey.get(), applicationId, challenge, now * 1000, expireTimeMs);
+    if (!attestationCert) {
+        LOG(ERROR) << "Error create attestation from key and challenge";
+        return {};
+    }
+
+    int size = i2d_PrivateKey(pkey.get(), nullptr);
+    if (size == 0) {
+        LOG(ERROR) << "Error generating public key encoding";
+        return {};
+    }
+
+    vector<uint8_t> keyPair(size);
+    unsigned char* p = keyPair.data();
+    i2d_PrivateKey(pkey.get(), &p);
+
+    return make_pair(keyPair, attestationCert.value());
 }
 
 optional<vector<uint8_t>> createEcKeyPair() {
