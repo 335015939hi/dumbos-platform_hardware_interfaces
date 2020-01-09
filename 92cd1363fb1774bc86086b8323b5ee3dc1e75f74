@@ -93,6 +93,30 @@
       "revId": "92cd1363fb1774bc86086b8323b5ee3dc1e75f74",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8435c85_3eeb6833",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-09T22:20:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3ba94930_9754fb26",
+      "range": {
+        "startLine": 461,
+        "startChar": 0,
+        "endLine": 461,
+        "endChar": 63
+      },
+      "revId": "92cd1363fb1774bc86086b8323b5ee3dc1e75f74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
