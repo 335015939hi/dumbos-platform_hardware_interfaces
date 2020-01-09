@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "92a98bc8_84c977bd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1005920
+      },
+      "writtenOn": "2020-01-09T00:51:47Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "083eddec_463d01d9",
+      "revId": "6b3a7f6c49311619c001ef151f4b76e4aad0a713",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b96f562b_b5dbaff8",
         "filename": "drm/1.2/vts/functional/drm_hal_common.cpp",
         "patchSetId": 4
@@ -30,6 +48,30 @@
       "writtenOn": "2020-01-09T00:14:33Z",
       "side": 1,
       "message": "is the service name android.hardware.drm@1.2-service.widevine?",
+      "range": {
+        "startLine": 104,
+        "startChar": 67,
+        "endLine": 104,
+        "endChar": 71
+      },
+      "revId": "6b3a7f6c49311619c001ef151f4b76e4aad0a713",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea2722a9_dba5956b",
+        "filename": "drm/1.2/vts/functional/drm_hal_common.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1005920
+      },
+      "writtenOn": "2020-01-09T00:51:47Z",
+      "side": 1,
+      "message": "The service name is \"widevine\"",
+      "parentUuid": "b96f562b_b5dbaff8",
       "range": {
         "startLine": 104,
         "startChar": 67,
@@ -76,6 +118,30 @@
       "writtenOn": "2020-01-08T23:52:10Z",
       "side": 1,
       "message": "also, I think it\u0027s a bug that this is checked, since if the clearkey instance is missing for instance, the default one will be tested instead",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 79
+      },
+      "revId": "6b3a7f6c49311619c001ef151f4b76e4aad0a713",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f658415f_985eba9b",
+        "filename": "drm/1.2/vts/functional/drm_hal_common.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1005920
+      },
+      "writtenOn": "2020-01-09T00:51:47Z",
+      "side": 1,
+      "message": "I see what you mean, Robert WDYT?",
+      "parentUuid": "926dffd7_2b97f0c2",
       "range": {
         "startLine": 114,
         "startChar": 0,

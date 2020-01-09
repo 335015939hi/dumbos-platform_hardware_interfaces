@@ -70,6 +70,30 @@
       "revId": "9da82c7cdf626635a6e6f1341478f0b4f28b42ee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd3dc529_37c724fe",
+        "filename": "drm/1.2/vts/functional/drm_hal_common.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1005920
+      },
+      "writtenOn": "2020-01-09T00:51:47Z",
+      "side": 1,
+      "message": "I believe the original version was correct. Say e.g. there is a vendor module for playready and widevine, but the device does not have playready. Then the vendor tests for playready should skip, they should not fail. I\u0027ve restored PS3 but welcome further discussion.",
+      "parentUuid": "b699d0aa_4cfac05c",
+      "range": {
+        "startLine": 121,
+        "startChar": 8,
+        "endLine": 121,
+        "endChar": 18
+      },
+      "revId": "9da82c7cdf626635a6e6f1341478f0b4f28b42ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
