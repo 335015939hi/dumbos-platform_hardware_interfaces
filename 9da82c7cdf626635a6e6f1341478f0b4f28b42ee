@@ -94,6 +94,30 @@
       "revId": "9da82c7cdf626635a6e6f1341478f0b4f28b42ee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ded979e2_3bfa72ae",
+        "filename": "drm/1.2/vts/functional/drm_hal_common.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1043093
+      },
+      "writtenOn": "2020-01-09T08:23:39Z",
+      "side": 1,
+      "message": "I also commented on b/145965256.\n\nDrm vts requires a corresponding vendor vts module for each scheme. If the WV vendor vts module is found at the specified location (/data/local/tmp) drm vts would attempt to test the module. The WV vendor vts module is shared between vts versions, so it was likely built/pushed by earlier drm vts versions.\n\nWe can avoid this if we have access to some parameter passed in from the vts runner instructing which hal to test.",
+      "parentUuid": "dd3dc529_37c724fe",
+      "range": {
+        "startLine": 121,
+        "startChar": 8,
+        "endLine": 121,
+        "endChar": 18
+      },
+      "revId": "9da82c7cdf626635a6e6f1341478f0b4f28b42ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
