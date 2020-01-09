@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6d8a288b_001301ea",
+        "filename": "drm/1.0/vts/functional/drm_hal_vendor_test.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-09T23:25:00Z",
+      "side": 1,
+      "message": "next step is making sure that the widevine module is packaged w/ VTS",
+      "range": {
+        "startLine": 116,
+        "startChar": 0,
+        "endLine": 118,
+        "endChar": 10
+      },
+      "revId": "4f7cab9de3da3c37494d0901fb231609454864e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "defe1e5d_1da8728f",
+        "filename": "drm/1.0/vts/functional/drm_hal_vendor_test.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-09T23:25:00Z",
+      "side": 1,
+      "message": "with atest, this fails, but if I run the test directly, I get that it passes:\n\n[\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d] 384 tests from 6 test suites ran. (894 ms total)\n[  PASSED  ] 61 tests.\n[  SKIPPED ] 323 tests, listed below:\n\nDan, do you think this could be an atest issue?",
+      "range": {
+        "startLine": 121,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 58
+      },
+      "revId": "4f7cab9de3da3c37494d0901fb231609454864e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c915882_1f198f0e",
+        "filename": "drm/1.2/vts/functional/drm_hal_common.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-09T23:25:00Z",
+      "side": 1,
+      "message": "a couple of these tests fail on my local walleye device. I\u0027ve noted them in b/147449315, but I\u0027m not sure if they are intended to pass or not.",
+      "revId": "4f7cab9de3da3c37494d0901fb231609454864e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

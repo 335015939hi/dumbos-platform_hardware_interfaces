@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "69847f47_dd72c27b",
+        "filename": "drm/1.0/vts/functional/drm_hal_clearkey_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-09T23:25:00Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "296c8545_8da0efda",
+      "range": {
+        "startLine": 111,
+        "startChar": 19,
+        "endLine": 111,
+        "endChar": 35
+      },
+      "revId": "414469087930de5849aabb5b79b276feb97f8776",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "be037b30_c47fd72a",
         "filename": "drm/1.0/vts/functional/drm_hal_clearkey_test.cpp",
         "patchSetId": 3
