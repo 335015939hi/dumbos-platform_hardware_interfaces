@@ -341,6 +341,30 @@
     },
     {
       "key": {
+        "uuid": "11a7e723_05343934",
+        "filename": "identity/1.0/types.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-01-09T22:11:30Z",
+      "side": 1,
+      "message": "They are (it\u0027s a SHA-256) but the whole AuditLogEntry struct is now gone since we decided to punt logging to later (for a multitude of reasons).",
+      "parentUuid": "be29f483_d276afe3",
+      "range": {
+        "startLine": 129,
+        "startChar": 11,
+        "endLine": 129,
+        "endChar": 15
+      },
+      "revId": "473f7f4401a215e52e74fbc36c625c590b02cd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2aaafe91_fd9b6d9d",
         "filename": "identity/1.0/vts/functional/VtsHalIdentityCredentialV1_0TargetTest.cpp",
         "patchSetId": 13
@@ -364,6 +388,30 @@
     },
     {
       "key": {
+        "uuid": "e55c624b_ef56b6f4",
+        "filename": "identity/1.0/vts/functional/VtsHalIdentityCredentialV1_0TargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-01-09T22:11:30Z",
+      "side": 1,
+      "message": "Sure thing. Done.",
+      "parentUuid": "2aaafe91_fd9b6d9d",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 2
+      },
+      "revId": "473f7f4401a215e52e74fbc36c625c590b02cd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6b9801c1_4052d954",
         "filename": "identity/1.0/vts/functional/VtsHalIdentityCredentialV1_0TargetTest.cpp",
         "patchSetId": 13
@@ -378,6 +426,24 @@
       "revId": "473f7f4401a215e52e74fbc36c625c590b02cd55",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b6d9da0_c67119d7",
+        "filename": "identity/1.0/vts/functional/VtsHalIdentityCredentialV1_0TargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-01-09T22:11:30Z",
+      "side": 1,
+      "message": "We\u0027re (well, seleneh@ and myself a bit) are working on overhauling the tests. The current test is functional and covers all the positive paths and generally acceptable... but, yes, we want to make it less complicated and more modular. That\u0027ll come in a later CL, hope that\u0027s OK.",
+      "parentUuid": "6b9801c1_4052d954",
+      "revId": "473f7f4401a215e52e74fbc36c625c590b02cd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
