@@ -154,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "ecf71747_39cec4d4",
+        "filename": "drm/1.2/vts/functional/drm_hal_common.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1043093
+      },
+      "writtenOn": "2020-01-09T07:23:58Z",
+      "side": 1,
+      "message": "I agree. We should not be testing with the default service. Let\u0027s remove the erroneous code.",
+      "parentUuid": "f658415f_985eba9b",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 79
+      },
+      "revId": "6b3a7f6c49311619c001ef151f4b76e4aad0a713",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "82f8d9e0_7e567aa9",
         "filename": "drm/1.2/vts/functional/drm_hal_common.cpp",
         "patchSetId": 4
