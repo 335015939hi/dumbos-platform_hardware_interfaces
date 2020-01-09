@@ -85,6 +85,30 @@
       "revId": "4ed965a844b4ef3d37be689136b40b5a019e134d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f98866d5_a6ab5d06",
+        "filename": "radio/1.5/vts/functional/radio_response.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1588212
+      },
+      "writtenOn": "2020-01-09T17:57:59Z",
+      "side": 1,
+      "message": "Return\u003cvoid\u003e RadioResponse_v1_5::supplySimDepersonalizationResponse(\n        const RadioResponseInfo\u0026 /*info*/,\n        ::android::hardware::radio::V1_5::PersoSubstate /*persoType*/,\n        int32_t /*remainingRetries*/)\n\nis this ok ??",
+      "parentUuid": "98ffa0d9_57785d4c",
+      "range": {
+        "startLine": 66,
+        "startChar": 43,
+        "endLine": 67,
+        "endChar": 21
+      },
+      "revId": "4ed965a844b4ef3d37be689136b40b5a019e134d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
