@@ -189,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "8c30cfd8_a3c11a24",
+        "filename": "drm/1.0/vts/functional/drm_hal_vendor_test.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-10T18:27:59Z",
+      "side": 1,
+      "message": "I had commented out L117, but even in this configuration, I saw some clearkey failures (in between the many widevine failures)",
+      "parentUuid": "342dff6f_bd40f3ad",
+      "range": {
+        "startLine": 121,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 58
+      },
+      "revId": "4f7cab9de3da3c37494d0901fb231609454864e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4c915882_1f198f0e",
         "filename": "drm/1.2/vts/functional/drm_hal_common.cpp",
         "patchSetId": 4
