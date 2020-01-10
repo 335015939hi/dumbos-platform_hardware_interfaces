@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "a25e47e7_082d8919",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-01-10T21:56:00Z",
+      "side": 1,
+      "message": "Do you think it would be possible to do the HIDL -\u003e AIDL after the IC5 deadline? It looks to me like it\u0027s mostly a mechanical change and we do benefit from having only a single user of the HAL (credstore, see aosp/1151487)... we also have excellent test coverage (our CTS tests are a bit more comprehensive that our VTS currently are) so personally I\u0027d be very comfortable with such a change.",
+      "parentUuid": "3c26adf8_0b3b12da",
+      "revId": "473f7f4401a215e52e74fbc36c625c590b02cd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44a6a96e_e7b55e02",
         "filename": "identity/1.0/IIdentityCredential.hal",
         "patchSetId": 13
@@ -405,6 +423,30 @@
       "revId": "473f7f4401a215e52e74fbc36c625c590b02cd55",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b2da584_9a50bcf1",
+        "filename": "identity/1.0/types.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-01-10T21:56:00Z",
+      "side": 1,
+      "message": "OK.",
+      "parentUuid": "c381d054_92a453b6",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 0
+      },
+      "revId": "473f7f4401a215e52e74fbc36c625c590b02cd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {

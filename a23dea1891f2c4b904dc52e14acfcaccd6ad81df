@@ -22,6 +22,30 @@
       "revId": "a23dea1891f2c4b904dc52e14acfcaccd6ad81df",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9660b98_d3e854bc",
+        "filename": "identity/1.0/default/Android.bp",
+        "patchSetId": 21
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-01-10T21:56:00Z",
+      "side": 1,
+      "message": "It\u0027s definitely not meant for production (its Hardware-Bound-Key is hardcoded and trivial), not right now anyway and probably never. I\u0027m not very familiar with the do\u0027s and don\u0027ts here so please advise if the file name should be changed! Thanks.",
+      "parentUuid": "521b6108_74180289",
+      "range": {
+        "startLine": 18,
+        "startChar": 41,
+        "endLine": 18,
+        "endChar": 48
+      },
+      "revId": "a23dea1891f2c4b904dc52e14acfcaccd6ad81df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
