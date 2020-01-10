@@ -243,6 +243,30 @@
     },
     {
       "key": {
+        "uuid": "befd2b61_edd64387",
+        "filename": "identity/1.0/default/IdentityCredential.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-01-10T21:49:55Z",
+      "side": 1,
+      "message": "Yeah, I\u0027ve updated the code to the first variant - I agree it\u0027s much nicer.",
+      "parentUuid": "d7427c89_1e8913f8",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 31
+      },
+      "revId": "473f7f4401a215e52e74fbc36c625c590b02cd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "81312e90_63952cad",
         "filename": "identity/1.0/default/IdentityCredential.h",
         "patchSetId": 13
@@ -693,6 +717,30 @@
       "revId": "473f7f4401a215e52e74fbc36c625c590b02cd55",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6b8617b_ab25fc72",
+        "filename": "identity/support/include/android/hardware/identity/support/IdentityCredentialSupport.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-01-10T21:49:55Z",
+      "side": 1,
+      "message": "OK, I\u0027ve updated the entire support library to use std::optional except for ecPublicKeyGetXandY() which returns a std::tuple\u003cbool, vector\u003cuint8_t\u003e, vector\u003cuint8_t\u003e\u003e.\n\nSo now it\u0027s not violating the Google C++ style guide and the code overall is nicer to look at (in a few some places it\u0027s a little uglier though... std::optional is nice but it\u0027s not a panacea).",
+      "parentUuid": "98f33e3f_535c9ba1",
+      "range": {
+        "startLine": 98,
+        "startChar": 21,
+        "endLine": 98,
+        "endChar": 48
+      },
+      "revId": "473f7f4401a215e52e74fbc36c625c590b02cd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
