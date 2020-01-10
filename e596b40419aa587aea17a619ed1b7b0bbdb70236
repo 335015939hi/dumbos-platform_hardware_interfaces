@@ -22,6 +22,30 @@
       "revId": "e596b40419aa587aea17a619ed1b7b0bbdb70236",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0367118e_5b3b408c",
+        "filename": "audio/6.0/IDevice.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2020-01-10T20:49:07Z",
+      "side": 1,
+      "message": "the state of the effect in the audio HAL is fully controlled and maintained by the framework.\nThere is no need for a query API as the framework knows what is the state for each effect.\nThere is also no need for a global reset API: the effect is added in the HAL when the effect is enabled by the framework and removed when disabled. This follows the life cycle of each effect and the effect will be removed from the HAL independently for each effect instance when it is disabled or destroyed while enabled.",
+      "parentUuid": "3d1eba76_9dea2a72",
+      "range": {
+        "startLine": 321,
+        "startChar": 4,
+        "endLine": 321,
+        "endChar": 22
+      },
+      "revId": "e596b40419aa587aea17a619ed1b7b0bbdb70236",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
