@@ -19,6 +19,7 @@ package android.hardware.radio@1.5;
 import @1.4::IRadio;
 import @1.5::AccessNetwork;
 import @1.5::SignalThresholdInfo;
+import @1.5::TrafficDescriptorInfo;
 
 /**
  * This interface is used by telephony and telecom to talk to cellular radio.
@@ -55,4 +56,6 @@ interface IRadio extends @1.4::IRadio {
      */
     oneway setSignalStrengthReportingCriteria_1_5(int32_t serial,
             SignalThresholdInfo signalThresholdInfo, AccessNetwork accessNetwork);
+
+    oneway evaluateUrspRules(int32_t serial, TrafficDescriptorInfo tdi);
 };
