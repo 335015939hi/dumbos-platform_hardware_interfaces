@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3d1eba76_9dea2a72",
+        "filename": "audio/6.0/IDevice.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-10T19:56:25Z",
+      "side": 1,
+      "message": "should there be a way to remove all effects or reset a device?\n\nshould there be a way to query what effects are set?",
+      "range": {
+        "startLine": 321,
+        "startChar": 4,
+        "endLine": 321,
+        "endChar": 22
+      },
+      "revId": "e596b40419aa587aea17a619ed1b7b0bbdb70236",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
