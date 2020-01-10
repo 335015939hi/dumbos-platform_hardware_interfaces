@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "0b443393_c3cfc9df",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1005920
+      },
+      "writtenOn": "2020-01-10T01:38:12Z",
+      "side": 1,
+      "message": "Cherry pick to master in https://android-review.googlesource.com/c/platform/hardware/interfaces/+/1204888",
+      "parentUuid": "92a98bc8_84c977bd",
+      "revId": "6b3a7f6c49311619c001ef151f4b76e4aad0a713",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b96f562b_b5dbaff8",
         "filename": "drm/1.2/vts/functional/drm_hal_common.cpp",
         "patchSetId": 4
