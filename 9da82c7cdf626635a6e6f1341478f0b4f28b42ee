@@ -118,6 +118,30 @@
       "revId": "9da82c7cdf626635a6e6f1341478f0b4f28b42ee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a23f022_3c87063e",
+        "filename": "drm/1.2/vts/functional/drm_hal_common.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1005920
+      },
+      "writtenOn": "2020-01-10T01:34:45Z",
+      "side": 1,
+      "message": "Right, something in the vts framework should be preventing this test from running on devices that don\u0027t support drm@1.2 for a given drm scheme. Unfortunately that isn\u0027t happening yet.",
+      "parentUuid": "ded979e2_3bfa72ae",
+      "range": {
+        "startLine": 121,
+        "startChar": 8,
+        "endLine": 121,
+        "endChar": 18
+      },
+      "revId": "9da82c7cdf626635a6e6f1341478f0b4f28b42ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }

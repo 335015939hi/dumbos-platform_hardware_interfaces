@@ -107,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "77b3eeee_c6cc39f9",
+        "filename": "drm/1.2/vts/functional/drm_hal_common.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1005920
+      },
+      "writtenOn": "2020-01-10T01:34:45Z",
+      "side": 1,
+      "message": "N/A. Removed from PS4",
+      "parentUuid": "08ccd254_1b3fbbcb",
+      "range": {
+        "startLine": 112,
+        "startChar": 4,
+        "endLine": 112,
+        "endChar": 17
+      },
+      "revId": "6b3a7f6c49311619c001ef151f4b76e4aad0a713",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "926dffd7_2b97f0c2",
         "filename": "drm/1.2/vts/functional/drm_hal_common.cpp",
         "patchSetId": 4
@@ -178,6 +202,30 @@
     },
     {
       "key": {
+        "uuid": "a95e2fdf_f33c8334",
+        "filename": "drm/1.2/vts/functional/drm_hal_common.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1005920
+      },
+      "writtenOn": "2020-01-10T01:34:45Z",
+      "side": 1,
+      "message": "Sounds good, let\u0027s follow up in a separate CL.",
+      "parentUuid": "ecf71747_39cec4d4",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 79
+      },
+      "revId": "6b3a7f6c49311619c001ef151f4b76e4aad0a713",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "82f8d9e0_7e567aa9",
         "filename": "drm/1.2/vts/functional/drm_hal_common.cpp",
         "patchSetId": 4
@@ -189,6 +237,30 @@
       "writtenOn": "2020-01-08T23:52:10Z",
       "side": 1,
       "message": "\u003c\u003c name?",
+      "range": {
+        "startLine": 120,
+        "startChar": 40,
+        "endLine": 120,
+        "endChar": 41
+      },
+      "revId": "6b3a7f6c49311619c001ef151f4b76e4aad0a713",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "225ee12a_1db5a5f4",
+        "filename": "drm/1.2/vts/functional/drm_hal_common.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1005920
+      },
+      "writtenOn": "2020-01-10T01:34:45Z",
+      "side": 1,
+      "message": "N/A removed from PS4.",
+      "parentUuid": "82f8d9e0_7e567aa9",
       "range": {
         "startLine": 120,
         "startChar": 40,
