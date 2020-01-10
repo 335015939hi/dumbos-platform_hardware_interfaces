@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "1c20232a_9365c1b9",
+        "filename": "drm/1.0/vts/functional/drm_hal_clearkey_test.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1005920
+      },
+      "writtenOn": "2020-01-10T00:54:14Z",
+      "side": 1,
+      "message": "s/pluggin into/plugin in/ (I think that\u0027s what you meant)",
+      "range": {
+        "startLine": 123,
+        "startChar": 33,
+        "endLine": 123,
+        "endChar": 45
+      },
+      "revId": "4f7cab9de3da3c37494d0901fb231609454864e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71b48919_39b4cbfe",
+        "filename": "drm/1.0/vts/functional/drm_hal_clearkey_test.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1005920
+      },
+      "writtenOn": "2020-01-10T00:54:14Z",
+      "side": 1,
+      "message": "Is this redundant with lines 129..130?",
+      "range": {
+        "startLine": 273,
+        "startChar": 0,
+        "endLine": 276,
+        "endChar": 0
+      },
+      "revId": "4f7cab9de3da3c37494d0901fb231609454864e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c62f33c_9b0344b0",
+        "filename": "drm/1.0/vts/functional/drm_hal_clearkey_test.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 976,
+      "author": {
+        "id": 1005920
+      },
+      "writtenOn": "2020-01-10T00:54:14Z",
+      "side": 1,
+      "message": "Is this redundant with lines 129..130?",
+      "range": {
+        "startLine": 973,
+        "startChar": 0,
+        "endLine": 976,
+        "endChar": 10
+      },
+      "revId": "4f7cab9de3da3c37494d0901fb231609454864e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6d8a288b_001301ea",
         "filename": "drm/1.0/vts/functional/drm_hal_vendor_test.cpp",
         "patchSetId": 4
