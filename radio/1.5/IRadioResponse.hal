@@ -19,6 +19,7 @@ package android.hardware.radio@1.5;
 import @1.0::RadioResponseInfo;
 import @1.4::IRadioResponse;
 import @1.5::SetupDataCallResult;
+import @1.5::UrspEvaluateResult;
 
 /**
  * Interface declaring response functions to solicited radio requests.
@@ -157,4 +158,19 @@ interface IRadioResponse extends @1.4::IRadioResponse {
      *   RadioError:SYSTEM_ERR
      */
     oneway setIndicationFilterResponse_1_5(RadioResponseInfo info);
+
+    /**
+     * @param info Response info struct containing response type, serial no. and error
+     *
+     * Valid errors returned:
+     *   RadioError:NONE
+     *   RadioError:INVALID_ARGUMENTS
+     *   RadioError:RADIO_NOT_AVAILABLE
+     *
+     * @param result UrspEvaluateResult struct containing
+     *   evaluate URSP result state
+     *   PDU cid if use exist PDU
+     *   Route Selection Descriptor info
+     */
+    oneway evaluateUrspRulesResponse(RadioResponseInfo info, UrspEvaluateResult result);
 };
