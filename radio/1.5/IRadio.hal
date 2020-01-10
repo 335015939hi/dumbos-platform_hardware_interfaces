@@ -26,6 +26,7 @@ import @1.5::LinkAddress;
 import @1.5::NetworkScanRequest;
 import @1.5::RadioAccessSpecifier;
 import @1.5::SignalThresholdInfo;
+import @1.5::TrafficDescriptorInfo;
 
 /**
  * This interface is used by telephony and telecom to talk to cellular radio.
@@ -235,4 +236,6 @@ interface IRadio extends @1.4::IRadio {
      * Response callback is IRadioResponse.setIndicationFilterResponse()
      */
     oneway setIndicationFilter_1_5(int32_t serial, bitfield<IndicationFilter> indicationFilter);
+
+    oneway evaluateUrspRules(int32_t serial, TrafficDescriptorInfo tdi);
 };

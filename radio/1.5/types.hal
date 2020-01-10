@@ -430,3 +430,123 @@ enum IndicationFilter : @1.2::IndicationFilter {
     /** Control the unsolicited sending of registration failure reports via onRegistrationFailed */
     REGISTRATION_FAILURE = 1 << 5,
 };
+
+struct IPDescriptorInfo {
+    /**
+     * IPv4 remote address
+     */
+    string ipv4Addr;
+    /**
+     * remote IPv4 address mask field
+     */
+    string ipv4AddrMask;
+    /**
+     * remote IPv6 address
+     */
+    string ipv6Addr;
+    /**
+     * remote IPv6 address  prefix
+     */
+    uint8_t ipv6AddrPrefixLen;
+    /**
+     * IPv4/IPv6 protocol type
+     */
+    uint8_t protocol;
+    /**
+     * IP port rang form start port to end port
+     */
+    uint32_t startPort;
+    /**
+     * IP port rang form start port to end port
+     */
+    uint32_t endPort;
+    /**
+     * IPSec security parameter index
+     */
+    string spi;
+    /**
+     * flow label field
+     */
+    string flowLabel;
+    /**
+     * type of service, field
+     */
+    uint8_t tosField;
+    /**
+     * type of service, mask
+     */
+    uint8_t tosMask;
+};
+
+struct TrafficDescriptorInfo {
+    /**
+     * OS Id component information
+     */
+    string osId;
+    /**
+     * the APP Id component information
+     */
+    string appId;
+    /**
+     * Non-IP descriptors component information
+     */
+    string nonIPDescriptor;
+    /**
+     * IP 3 tuple component information (only store 1 ip_3_tuple)
+     */
+    IPDescriptorInfo ipDescriptorInfo;
+    /**
+     * destination FQDN(s)
+     */
+    string domainDescriptor;
+    /**
+     * DNN information
+     */
+    vec<string> dnn;
+    /**
+     * network capability, such as "MMS","IMS"
+     */
+    vec<uint8_t> capability;
+};
+
+struct RouteSelectionDescriptorInfo {
+    /**
+     * current URSP id
+     */
+    int32_t urspCount;
+    /**
+     * current RSD id
+     */
+    int32_t rsdCount;
+    /**
+     * current DNN/S-NSSAI/SSCMODE id
+     */
+    int32_t id;
+    /**
+     * DNN information
+     */
+    string dnn;
+    /**
+     * S-NSSAI information
+     */
+    string snssai;
+    /**
+     * SSC mode
+     */
+    int32_t sscMode;
+};
+
+struct UrspEvaluateResult {
+    /**
+     * evaluate URSP result state
+     */
+    int32_t state;
+    /**
+     * PDU cid if use exist PDU
+     */
+    int32_t cid;
+    /**
+     * Route Selection Descriptor parmer for new PDU
+     */
+    RouteSelectionDescriptorInfo rsd;
+};
