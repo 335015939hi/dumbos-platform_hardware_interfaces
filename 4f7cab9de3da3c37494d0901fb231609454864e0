@@ -213,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "b9e1a204_9f9486c2",
+        "filename": "drm/1.0/vts/functional/drm_hal_vendor_test.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2020-01-10T19:54:38Z",
+      "side": 1,
+      "message": "you are right, there are 56 \"failures\" message from clearkey:\n\nSTACKTRACE:\njava.lang.Throwable: Unknown failure\n[511/384] DrmHalVendorDecryptTestCases/DrmHalVendorDecryptTest#QueryKeyStatusInvalidSession/0_clearkey: FAILED (114ms)\n\nHowever, the final result seems to be correct (all 123 failed tests are for widevine interface). I filed b/147498661 to track the parsing issue.",
+      "parentUuid": "8c30cfd8_a3c11a24",
+      "range": {
+        "startLine": 121,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 58
+      },
+      "revId": "4f7cab9de3da3c37494d0901fb231609454864e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4c915882_1f198f0e",
         "filename": "drm/1.2/vts/functional/drm_hal_common.cpp",
         "patchSetId": 4
