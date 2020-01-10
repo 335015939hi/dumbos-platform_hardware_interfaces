@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "1e515a2d_c7dcfded",
+        "filename": "drm/1.0/vts/functional/drm_hal_clearkey_test.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-10T00:56:36Z",
+      "side": 1,
+      "message": "It\u0027s a gtest \"feature\", since the skip is in a parent class and more tests are added here.",
+      "parentUuid": "71b48919_39b4cbfe",
+      "range": {
+        "startLine": 273,
+        "startChar": 0,
+        "endLine": 276,
+        "endChar": 0
+      },
+      "revId": "4f7cab9de3da3c37494d0901fb231609454864e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6c62f33c_9b0344b0",
         "filename": "drm/1.0/vts/functional/drm_hal_clearkey_test.cpp",
         "patchSetId": 4
@@ -68,6 +92,30 @@
       "revId": "4f7cab9de3da3c37494d0901fb231609454864e0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc96af17_dfbf7840",
+        "filename": "drm/1.0/vts/functional/drm_hal_clearkey_test.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 976,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-10T00:56:36Z",
+      "side": 1,
+      "message": "same",
+      "parentUuid": "6c62f33c_9b0344b0",
+      "range": {
+        "startLine": 973,
+        "startChar": 0,
+        "endLine": 976,
+        "endChar": 10
+      },
+      "revId": "4f7cab9de3da3c37494d0901fb231609454864e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
