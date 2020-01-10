@@ -26,6 +26,7 @@ enum Tag : @4.0::Tag {
      * IKeymasterDevice::earlyBootEnded() is called.
      */
     EARLY_BOOT_ONLY = TagType:BOOL | 305,
+
     /**
      * DEVICE_UNIQUE_ATTESTATION is an argument to IKeymasterDevice::attestKey().  It indicates that
      * attestation using a device-unique key is requested, rather than a batch key.  Only
@@ -39,4 +40,12 @@ enum Tag : @4.0::Tag {
      * DEVICE_UNIQUE_ATTESTATION tag to device-unique attestations.
      */
     DEVICE_UNIQUE_ATTESTATION = TagType:BOOL | 720,
+
+    /**
+     * IDENTITY_CREDENTIAL_KEY is never used by IKeymasterDevice, is not a valid argument to key
+     * generation or any operation, is never returned by any method and is never used in a key
+     * attestation.  It is used in attestations produced by the IIdentityCredential HAL when that
+     * HAL attests to Credential Keys.  IIdentityCredential produces Keymaster-style attestations.
+     */
+    IDENTITY_CREDENTIAL_KEY = TagType:BOOL | 721,
 };
