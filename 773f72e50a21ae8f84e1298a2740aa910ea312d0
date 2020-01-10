@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "085f0805_9dec65d2",
+        "filename": "current.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 594,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-10T18:57:10Z",
+      "side": 1,
+      "message": "can you replace this hash, since it isn\u0027t released yet?",
+      "range": {
+        "startLine": 594,
+        "startChar": 97,
+        "endLine": 594,
+        "endChar": 113
+      },
+      "revId": "773f72e50a21ae8f84e1298a2740aa910ea312d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
