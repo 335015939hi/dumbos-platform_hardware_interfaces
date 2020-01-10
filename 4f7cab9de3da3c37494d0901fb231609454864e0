@@ -119,6 +119,29 @@
     },
     {
       "key": {
+        "uuid": "d817f823_948a920d",
+        "filename": "drm/1.0/vts/functional/drm_hal_vendor_test.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2020-01-10T21:14:19Z",
+      "side": 1,
+      "message": "this should be removed, it\u0027s the cause of b/147498661.",
+      "range": {
+        "startLine": 87,
+        "startChar": 22,
+        "endLine": 87,
+        "endChar": 34
+      },
+      "revId": "4f7cab9de3da3c37494d0901fb231609454864e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6d8a288b_001301ea",
         "filename": "drm/1.0/vts/functional/drm_hal_vendor_test.cpp",
         "patchSetId": 4
