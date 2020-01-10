@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "521b6108_74180289",
+        "filename": "identity/1.0/default/Android.bp",
+        "patchSetId": 21
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-10T19:42:35Z",
+      "side": 1,
+      "message": "should this be \u0027.example\u0027 or is it for production?",
+      "range": {
+        "startLine": 18,
+        "startChar": 41,
+        "endLine": 18,
+        "endChar": 48
+      },
+      "revId": "a23dea1891f2c4b904dc52e14acfcaccd6ad81df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

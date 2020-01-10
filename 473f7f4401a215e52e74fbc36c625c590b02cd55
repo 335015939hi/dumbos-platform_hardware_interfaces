@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "3c26adf8_0b3b12da",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-10T19:42:35Z",
+      "side": 1,
+      "message": "Keep in mind that it would be much easier to switch now than later. As anything that is written from now on will have to be changed, and if it doesn\u0027t happen this release, it\u0027s likely we\u0027ll have to maintain a HIDL + AIDL version for several years. Further, AIDL will allow you to do things like add enumerations to the interface in place, rather than having to extend this interface w/ new methods.",
+      "parentUuid": "6a2e44e8_b46c424c",
+      "revId": "473f7f4401a215e52e74fbc36c625c590b02cd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44a6a96e_e7b55e02",
         "filename": "identity/1.0/IIdentityCredential.hal",
         "patchSetId": 13
@@ -119,6 +137,30 @@
       "side": 1,
       "message": "This has now been resolved (docs now contain precise instructions what OEMs need to do).",
       "parentUuid": "0f948d19_bee3b57a",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 73
+      },
+      "revId": "473f7f4401a215e52e74fbc36c625c590b02cd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62f0a6cf_7f7f5059",
+        "filename": "identity/1.0/IWritableIdentityCredential.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-10T19:42:35Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0d909718_b99c1a6e",
       "range": {
         "startLine": 28,
         "startChar": 0,
@@ -318,6 +360,30 @@
     },
     {
       "key": {
+        "uuid": "c381d054_92a453b6",
+        "filename": "identity/1.0/types.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-10T19:42:35Z",
+      "side": 1,
+      "message": "In HIDL, once the interface is published, we can\u0027t change this. That is another reason to switch this to AIDL, so that we can update these types of things in place.",
+      "parentUuid": "c5fc3493_f276395a",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 0
+      },
+      "revId": "473f7f4401a215e52e74fbc36c625c590b02cd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "be29f483_d276afe3",
         "filename": "identity/1.0/types.hal",
         "patchSetId": 13
@@ -353,6 +419,30 @@
       "side": 1,
       "message": "They are (it\u0027s a SHA-256) but the whole AuditLogEntry struct is now gone since we decided to punt logging to later (for a multitude of reasons).",
       "parentUuid": "be29f483_d276afe3",
+      "range": {
+        "startLine": 129,
+        "startChar": 11,
+        "endLine": 129,
+        "endChar": 15
+      },
+      "revId": "473f7f4401a215e52e74fbc36c625c590b02cd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "172054e7_532d6237",
+        "filename": "identity/1.0/types.hal",
+        "patchSetId": 13
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-10T19:42:35Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "11a7e723_05343934",
       "range": {
         "startLine": 129,
         "startChar": 11,
@@ -447,6 +537,24 @@
     },
     {
       "key": {
+        "uuid": "eaa5765a_6d30cfa3",
+        "filename": "identity/1.0/vts/functional/VtsHalIdentityCredentialV1_0TargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-10T19:42:35Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1b6d9da0_c67119d7",
+      "revId": "473f7f4401a215e52e74fbc36c625c590b02cd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3578098d_dcfc3bdc",
         "filename": "identity/support/Android.bp",
         "patchSetId": 13
@@ -529,6 +637,30 @@
       "side": 1,
       "message": "The CBOR code in android.hardware.confirmationui-support-lib is a different and a much less complete CBOR library than this (it\u0027s less than 90 LOC including comments!). FWIW, we have plans to move cppbor (the CBOR code here) to external/cppbor and once that happens (jbires@ is on it) we\u0027ll switch this code to using it. Then we can also switch ConfirmationUI to use that code (if it makes sense). Until then the easiest thing is to keep the code here.",
       "parentUuid": "729d532a_e8869736",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 1
+      },
+      "revId": "473f7f4401a215e52e74fbc36c625c590b02cd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bc372796_48dcf735",
+        "filename": "identity/support/Android.bp",
+        "patchSetId": 13
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-10T19:42:35Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f681f832_88077dd7",
       "range": {
         "startLine": 66,
         "startChar": 0,
