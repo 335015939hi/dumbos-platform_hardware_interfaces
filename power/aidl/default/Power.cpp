@@ -48,6 +48,33 @@ ndk::ScopedAStatus Power::isBoostSupported(Boost type, bool* _aidl_return) {
     return ndk::ScopedAStatus::ok();
 }
 
+ndk::ScopedAStatus Power::isHintSupported(Hint hint, bool* _aidl_return) {
+    LOG(INFO) << "Power isHintSupported: " << static_cast<int32_t>(hint);
+    *_aidl_return = false;
+    return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus Power::setTopApp(const std::string& packageName, int32_t pgid) {
+    LOG(VERBOSE) << "Power setTopAppPackageName: " << packageName << ", pgid " << pgid;
+    return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus Power::setRenderingRate(int32_t renderingRate) {
+    LOG(VERBOSE) << "Power setRenderingRate: " << renderingRate;
+    return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus Power::notifyLoadChanged(float cpuChange, float gpuChange) {
+    LOG(VERBOSE) << "Power notifyLoadChanged: CPU " << cpuChange << ", GPU " << gpuChange;
+    return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus Power::setThreadHint(int thread, ThreadHint hint, bool enabled) {
+    LOG(VERBOSE) << "Power setThreadHint: thread " << thread << ", hint "
+                 << static_cast<int32_t>(hint) << ", enabled " << enabled;
+    return ndk::ScopedAStatus::ok();
+}
+
 }  // namespace example
 }  // namespace impl
 }  // namespace power
