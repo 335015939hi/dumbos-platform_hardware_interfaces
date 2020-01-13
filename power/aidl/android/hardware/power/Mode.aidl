@@ -38,6 +38,35 @@ enum Mode {
     */
     SUSTAINED_PERFORMANCE,
 
+    /*
+     * The fixed performance modes are similar to sustained performance mode,
+     * except that whereas sustained performance mode puts an upper bound on
+     * performance in the name of long-term stability, fixed performance modes
+     * put both upper and lower bounds on performance such that any workload
+     * run while in a fixed performance mode should complete in a repeatable
+     * amount of time (except if the device is under thermal throttling).
+     */
+
+   /**
+    * Sets the device to its minimum performance level
+    */
+    FIXED_PERFORMANCE_MINIMUM,
+
+    /**
+     * Sets the device to a performance level between FIXED_PERFORMANCE_MINIMUM
+     * and FIXED_PERFORMANCE_MAXIMUM_SUSTAINABLE
+     */
+    FIXED_PERFORMANCE_MODERATE,
+
+    /**
+     * Sets the device to a performance level which:
+     * - Runs the test workload a number of times scaled by the value returned
+     *   from getFixedPerformanceScaleFactor() in approximately 10 seconds
+     * - Can be sustained under normal indoor conditions for at least
+     *   10 minutes
+     */
+    FIXED_PERFORMANCE_MAXIMUM_SUSTAINABLE,
+
    /**
     * This mode indidates VR Mode is activated or not. VR mode is intended
     * to provide minimum guarantee for performance for the amount of time the
