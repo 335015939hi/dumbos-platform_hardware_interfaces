@@ -48,6 +48,44 @@ ndk::ScopedAStatus Power::isBoostSupported(Boost type, bool* _aidl_return) {
     return ndk::ScopedAStatus::ok();
 }
 
+ndk::ScopedAStatus Power::getFixedPerformanceScaleFactor(int32_t* _aidl_return) {
+    LOG(INFO) << "Power getFixedPerformanceScaleFactor";
+    *_aidl_return = 0;
+    return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus Power::isHintSupported(Hint hint, bool* _aidl_return) {
+    LOG(INFO) << "Power isHintSupported: " << static_cast<int32_t>(hint);
+    *_aidl_return = false;
+    return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus Power::setDisplayUpdateImminent(int64_t targetNs) {
+    LOG(VERBOSE) << "Power setDisplayUpdateImminent: " << targetNs;
+    return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus Power::setTopAppPackageName(const std::string& packageName) {
+    LOG(VERBOSE) << "Power setTopAppPackageName: " << packageName;
+    return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus Power::setRenderingRate(int32_t renderingRate) {
+    LOG(VERBOSE) << "Power setRenderingRate: " << renderingRate;
+    return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus Power::notifyLoadChanged(float cpuChange, float gpuChange) {
+    LOG(VERBOSE) << "Power notifyLoadChanged: CPU " << cpuChange << ", GPU " << gpuChange;
+    return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus Power::setThreadHint(int thread, ThreadHint hint, bool enabled) {
+    LOG(VERBOSE) << "Power setThreadHint: thread " << thread << ", hint "
+                 << static_cast<int32_t>(hint) << ", enabled " << enabled;
+    return ndk::ScopedAStatus::ok();
+}
+
 }  // namespace example
 }  // namespace impl
 }  // namespace power
