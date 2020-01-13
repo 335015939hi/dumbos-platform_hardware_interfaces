@@ -77,7 +77,7 @@ TEST_P(PowerAidl, isModeSupported) {
     for (const auto& mode : kInvalidModes) {
         bool supported;
         ASSERT_TRUE(power->isModeSupported(mode, &supported).isOk());
-        // Should return false for values outsides enum
+        // Should return false for values outside enum
         ASSERT_FALSE(supported);
     }
 }
@@ -103,9 +103,16 @@ TEST_P(PowerAidl, isBoostSupported) {
     for (const auto& boost : kInvalidBoosts) {
         bool supported;
         ASSERT_TRUE(power->isBoostSupported(boost, &supported).isOk());
-        // Should return false for values outsides enum
+        // Should return false for values outside enum
         ASSERT_FALSE(supported);
     }
+}
+
+// FIXED_PERFORMANCE mode is required for all implementations
+TEST_P(PowerAidl, hasFixedPerformance) {
+    bool supported;
+    ASSERT_TRUE(power->isModeSupported(Mode::FIXED_PERFORMANCE, &supported).isOk());
+    ASSERT_TRUE(supported);
 }
 
 INSTANTIATE_TEST_SUITE_P(Power, PowerAidl,
