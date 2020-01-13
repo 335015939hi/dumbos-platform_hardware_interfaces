@@ -17,7 +17,9 @@
 package android.hardware.power;
 
 import android.hardware.power.Boost;
+import android.hardware.power.Hint;
 import android.hardware.power.Mode;
+import android.hardware.power.ThreadHint;
 
 @VintfStability
 interface IPower {
@@ -43,7 +45,7 @@ interface IPower {
      */
     boolean isModeSupported(in Mode type);
 
-   /**
+    /**
      * setBoost() indicates the device may need to boost some resources, as the
      * the load is likely to increase before the kernel governors can react.
      * Depending on the boost, it may be appropriate to raise the frequencies of
@@ -69,4 +71,99 @@ interface IPower {
      * @param type Boost to be queried
      */
     boolean isBoostSupported(in Boost type);
+
+    /**
+     * getFixedPerformanceScaleFactor() provides a scaling factor which will be
+     * used when verifying the stability of fixed performance mode. The number
+     * of iterations used for the test suite will be scaled by this factor,
+     * with the expectation that this scaled test suite will complete in 10
+     * seconds.
+     *
+     * If (and only if) fixed performance modes are not available on this device
+     * (as reported by supportMode()), this function must return 0.
+     *
+     * @return The scaling factor to be used when verifying the
+     *         FIXED_PERFORMANCE_MAXIMUM_SUSTAINABLE mode
+     */
+    int getFixedPerformanceScaleFactor();
+
+    /**
+     * isHintSupported() is called to query if the given hint is supported by
+     * the device. If this method returns false, calling the corresponding hint
+     * will have no effect on the device.
+     *
+     * @return True if the hint passed is supported on this device.
+     * @param hint Hint to be queried
+     */
+    boolean isHintSupported(in Hint hint);
+
+    /**
+     * setDisplayUpdateImminent() indicates that the framework is likely to
+     * provide a new display frame soon. This implies that the device should
+     * ensure that the display processing path is powered up and ready to
+     * receive that update.
+     *
+     * Support may be queried by calling supportHint(DISPLAY_UPDATE_IMMINENT).
+     *
+     * @param targetNs The time that the given update is expected to be visible
+     *        on the display in absolute CLOCK_MONOTONIC nanoseconds.
+     */
+    oneway void setDisplayUpdateImminent(in long targetNs);
+
+    /**
+     * setTopAppPackageName() reports the current top app to the HAL, if the
+     * app has opted into one of the dynamic performance framework APIs. If a
+     * name has been set, then if the top app changes, the framework will
+     * send either an empty string or the name of the new top app, depending on
+     * whether the new top app has opted into the dynamic performance framework
+     * APIs.
+     *
+     * Support may be queried by calling supportHint(TOP_APP_PACKAGE_NAME).
+     *
+     * @param packageName The package name of the top app, if that app has
+     *        opted into one of the dynamic performance framework APIs.
+     */
+    oneway void setTopAppPackageName(in String packageName);
+
+    /**
+     * setRenderingRate() notifies the system of the intended rendering rate of
+     * the top app in frames per second.
+     *
+     * Note that this does not have anything to do with the actual display
+     * pipeline, but is intended to allow the system to align its load
+     * measurement periods with the rendering duration.
+     *
+     * Support may be queried by calling supportHint(RENDERING_RATE).
+     *
+     * @param renderingRate Intended rendering rate of the top app in frames
+     *        per second.
+     */
+    oneway void setRenderingRate(in int renderingRate);
+
+    /**
+     * notifyLoadChanged() notifies the system that the top app is anticipating
+     * a change in load. This change may either be in the direction of more
+     * utilization (> 1.0) or in the direction of less utilization (< 1.0),
+     * and is specified as relative to the current workload.
+     *
+     * Support may be queried by calling supportHint(LOAD_CHANGED).
+     *
+     * @param cpuChange The anticipated change in CPU load
+     * @param gpuChange The anticipated change in GPU load
+     */
+    oneway void notifyLoadChanged(in float cpuChange, in float gpuChange);
+
+    /**
+     * setThreadHint() notifies the system that the given thread has (or no
+     * longer has) a particular behavior as defined by the corresponding
+     * ThreadHint.
+     *
+     * Support may be queried by calling supportHint(THREAD_HINT).
+     *
+     * @param thread The tid of the thread for which the hint is being changed.
+     * @param hint The hint to set or clear.
+     * @param enabled Whether to set (true) or clear (false) the hint.
+     */
+    oneway void setThreadHint(in int thread, in ThreadHint hint,
+            boolean enabled);
 }
