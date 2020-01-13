@@ -30,6 +30,11 @@ class Power : public BnPower {
     ndk::ScopedAStatus isModeSupported(Mode type, bool* _aidl_return) override;
     ndk::ScopedAStatus setBoost(Boost type, int32_t durationMs) override;
     ndk::ScopedAStatus isBoostSupported(Boost type, bool* _aidl_return) override;
+    ndk::ScopedAStatus isHintSupported(Hint hint, bool* _aidl_return) override;
+    ndk::ScopedAStatus setTopApp(const std::string& packageName, int32_t pgid) override;
+    ndk::ScopedAStatus setRenderingRate(int32_t renderingRate) override;
+    ndk::ScopedAStatus notifyLoadChanged(float cpuChange, float gpuChange) override;
+    ndk::ScopedAStatus setThreadHint(int thread, ThreadHint hint, bool enabled) override;
 };
 
 }  // namespace example
