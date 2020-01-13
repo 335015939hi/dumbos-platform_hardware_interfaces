@@ -22,6 +22,30 @@
       "revId": "ebf0273916cf359de34edf060cb7d1a93deacdf9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fddd7c98_1453b766",
+        "filename": "radio/1.5/IRadio.hal",
+        "patchSetId": 17
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1588212
+      },
+      "writtenOn": "2020-01-13T05:32:16Z",
+      "side": 1,
+      "message": "hi steven,\ncan you plz elaborate this comment. i need more details to resolve this.",
+      "parentUuid": "830306de_9d536517",
+      "range": {
+        "startLine": 239,
+        "startChar": 0,
+        "endLine": 239,
+        "endChar": 4
+      },
+      "revId": "ebf0273916cf359de34edf060cb7d1a93deacdf9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
