@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "af90ac14_ea7932db",
+        "filename": "drm/1.2/vts/functional/drm_hal_common.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-13T19:07:19Z",
+      "side": 1,
+      "message": "Noting that the fallback is being removed in https://android-review.googlesource.com/c/platform/hardware/interfaces/+/1189587.\n\nProbably won\u0027t want to backport all that though",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 5
+      },
+      "revId": "a8c405a796c7d7aa84c91bd07952ce91adc35274",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
