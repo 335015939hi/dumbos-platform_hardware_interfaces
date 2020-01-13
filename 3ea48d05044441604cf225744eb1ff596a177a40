@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2ea88212_5e46861a",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-13T18:05:52Z",
+      "side": 1,
+      "message": "are we planning on deprecating this for R launches?",
+      "range": {
+        "startLine": 334,
+        "startChar": 0,
+        "endLine": 341,
+        "endChar": 10
+      },
+      "revId": "3ea48d05044441604cf225744eb1ff596a177a40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6440278f_ece69482",
+        "filename": "power/aidl/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-13T18:05:52Z",
+      "side": 1,
+      "message": "install this in cuttlefish in topic, for testing? WDYT?",
+      "revId": "3ea48d05044441604cf225744eb1ff596a177a40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eeac88cb_e9a63984",
+        "filename": "power/aidl/android/hardware/power/IPower.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-13T18:05:52Z",
+      "side": 1,
+      "message": "Specify what the client should do when the user stops interacting.\n\nFor instance, if the client calls:\n\nsetUserInteractionBoost(60000); // 1 minute\n\nThen the user decides to close their phone, should setUserInteractionBoost(1) be called to time out quickly? Do we need stopUserInteractionBoost?\n\n\nAlso, document what times are expected here? Should it mean a few milliseconds, this will get called, with ever screen-touch, or are longer durations expected?",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 62
+      },
+      "revId": "3ea48d05044441604cf225744eb1ff596a177a40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c909d72_5029fe84",
+        "filename": "power/aidl/android/hardware/power/IPower.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-13T18:05:52Z",
+      "side": 1,
+      "message": "should return EX_UNSUPPORTED_OPERATION?",
+      "range": {
+        "startLine": 66,
+        "startChar": 14,
+        "endLine": 66,
+        "endChar": 79
+      },
+      "revId": "3ea48d05044441604cf225744eb1ff596a177a40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec7cea8b_b4977d72",
+        "filename": "power/aidl/default/power-default.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-13T18:05:52Z",
+      "side": 1,
+      "message": "Could these be \u0027nobody\u0027?",
+      "range": {
+        "startLine": 3,
+        "startChar": 9,
+        "endLine": 3,
+        "endChar": 15
+      },
+      "revId": "3ea48d05044441604cf225744eb1ff596a177a40",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
