@@ -46,6 +46,30 @@
       "revId": "ebf0273916cf359de34edf060cb7d1a93deacdf9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf3f6be1_8dd09712",
+        "filename": "radio/1.5/IRadio.hal",
+        "patchSetId": 17
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-13T18:11:49Z",
+      "side": 1,
+      "message": "This line has extra trailing spaces. You could remove them, or run the provided command to remove them automatically",
+      "parentUuid": "fddd7c98_1453b766",
+      "range": {
+        "startLine": 239,
+        "startChar": 0,
+        "endLine": 239,
+        "endChar": 4
+      },
+      "revId": "ebf0273916cf359de34edf060cb7d1a93deacdf9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
