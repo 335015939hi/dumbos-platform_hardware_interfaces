@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "9072ca80_c4fce0ec",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-13T18:10:47Z",
+      "side": 1,
+      "message": "Yes, it would be, ideally by 2/19 api freeze deadline, but yeah.",
+      "parentUuid": "a25e47e7_082d8919",
+      "revId": "473f7f4401a215e52e74fbc36c625c590b02cd55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "44a6a96e_e7b55e02",
         "filename": "identity/1.0/IIdentityCredential.hal",
         "patchSetId": 13

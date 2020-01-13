@@ -46,6 +46,30 @@
       "revId": "a23dea1891f2c4b904dc52e14acfcaccd6ad81df",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69ba6ffb_e7227216",
+        "filename": "identity/1.0/default/Android.bp",
+        "patchSetId": 21
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-13T18:10:47Z",
+      "side": 1,
+      "message": "Please add \u0027.example\u0027 to the end or similar to distinguish it, yeah. We\u0027ve had a couple instances where useless things have gone into production, but certainly nothing as potentially dangerous as this. It doesn\u0027t need to be a lot, but \u0027.example\u0027 should get caught in various reviews for real devices.",
+      "parentUuid": "d9660b98_d3e854bc",
+      "range": {
+        "startLine": 18,
+        "startChar": 41,
+        "endLine": 18,
+        "endChar": 48
+      },
+      "revId": "a23dea1891f2c4b904dc52e14acfcaccd6ad81df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
