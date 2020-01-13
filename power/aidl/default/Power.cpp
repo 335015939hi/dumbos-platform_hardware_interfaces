@@ -48,6 +48,30 @@ ndk::ScopedAStatus Power::isBoostSupported(Boost type, bool* _aidl_return) {
     return ndk::ScopedAStatus::ok();
 }
 
+ndk::ScopedAStatus Power::isHintSupported(Hint hint, bool* _aidl_return) {
+    LOG(INFO) << "Power isHintSupported: " << static_cast<int32_t>(hint);
+    *_aidl_return = false;
+    return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus Power::setWorkloadPeriod(int32_t pgid, int32_t workloadPeriodMicros) {
+    LOG(VERBOSE) << "Power setWorkloadPeriod: pgid " << pgid << ", period " << workloadPeriodMicros
+                 << "us";
+    return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus Power::notifyLoadChanged(int32_t pgid, float cpuChange, float gpuChange) {
+    LOG(VERBOSE) << "Power notifyLoadChanged: pgid " << pgid << ", CPU " << cpuChange << ", GPU "
+                 << gpuChange;
+    return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus Power::setThreadHints(int tid, ThreadHint hintMask) {
+    LOG(VERBOSE) << "Power setThreadHints: tid " << tid << ", hintMask "
+                 << static_cast<int32_t>(hintMask);
+    return ndk::ScopedAStatus::ok();
+}
+
 }  // namespace example
 }  // namespace impl
 }  // namespace power
