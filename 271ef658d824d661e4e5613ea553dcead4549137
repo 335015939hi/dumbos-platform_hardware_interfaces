@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a1f4e39a_d2ea62d0",
+        "filename": "power/aidl/android/hardware/power/Boost.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1105075
+      },
+      "writtenOn": "2020-01-14T18:50:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9c8260ae_cbb8128f",
+      "range": {
+        "startLine": 22,
+        "startChar": 3,
+        "endLine": 22,
+        "endChar": 5
+      },
+      "revId": "271ef658d824d661e4e5613ea553dcead4549137",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "00b206c6_bd143cf7",
         "filename": "power/aidl/android/hardware/power/Boost.aidl",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "271ef658d824d661e4e5613ea553dcead4549137",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40c76258_18af2a69",
+        "filename": "power/aidl/android/hardware/power/Boost.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1105075
+      },
+      "writtenOn": "2020-01-14T18:50:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "00b206c6_bd143cf7",
+      "range": {
+        "startLine": 35,
+        "startChar": 66,
+        "endLine": 35,
+        "endChar": 67
+      },
+      "revId": "271ef658d824d661e4e5613ea553dcead4549137",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "40b76aad_e4cbd5d9",
+        "filename": "power/aidl/android/hardware/power/Boost.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1105075
+      },
+      "writtenOn": "2020-01-14T18:50:29Z",
+      "side": 1,
+      "message": "It is better to be documented somewhere, I would expect someone update the hints should take care of the comments.",
+      "parentUuid": "f0048898_a0a104f3",
+      "range": {
+        "startLine": 36,
+        "startChar": 5,
+        "endLine": 37,
+        "endChar": 36
+      },
+      "revId": "271ef658d824d661e4e5613ea553dcead4549137",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7b426b99_b824752d",
         "filename": "power/aidl/android/hardware/power/IPower.aidl",
         "patchSetId": 3
@@ -91,6 +163,30 @@
       "revId": "271ef658d824d661e4e5613ea553dcead4549137",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99c436bd_b0f05002",
+        "filename": "power/aidl/android/hardware/power/IPower.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1105075
+      },
+      "writtenOn": "2020-01-14T18:50:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7b426b99_b824752d",
+      "range": {
+        "startLine": 50,
+        "startChar": 54,
+        "endLine": 50,
+        "endChar": 55
+      },
+      "revId": "271ef658d824d661e4e5613ea553dcead4549137",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "b701bf3e_ea7a4b90",
+        "filename": "power/aidl/android/hardware/power/Mode.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1105075
+      },
+      "writtenOn": "2020-01-14T18:50:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "aacee6a3_f4f1c0b2",
+      "range": {
+        "startLine": 28,
+        "startChar": 3,
+        "endLine": 28,
+        "endChar": 4
+      },
+      "revId": "271ef658d824d661e4e5613ea553dcead4549137",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "42c24d95_9a33cb39",
         "filename": "power/aidl/vts/VtsHalPowerTargetTest.cpp",
         "patchSetId": 3
@@ -128,6 +248,30 @@
       "writtenOn": "2020-01-14T18:28:28Z",
       "side": 1,
       "message": "test modes outside of the mode fail/return not supported?",
+      "range": {
+        "startLine": 54,
+        "startChar": 27,
+        "endLine": 54,
+        "endChar": 34
+      },
+      "revId": "271ef658d824d661e4e5613ea553dcead4549137",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "277266c4_66ca1290",
+        "filename": "power/aidl/vts/VtsHalPowerTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1105075
+      },
+      "writtenOn": "2020-01-14T18:50:29Z",
+      "side": 1,
+      "message": "should we return false in this case if new types are added later? What is the process for adding/removing enum in stable AIDL?",
+      "parentUuid": "42c24d95_9a33cb39",
       "range": {
         "startLine": 54,
         "startChar": 27,
