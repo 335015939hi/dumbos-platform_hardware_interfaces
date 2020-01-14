@@ -142,6 +142,30 @@
       "revId": "9da82c7cdf626635a6e6f1341478f0b4f28b42ee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e14332f3_3d1adf9f",
+        "filename": "drm/1.2/vts/functional/drm_hal_common.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1005920
+      },
+      "writtenOn": "2020-01-14T22:00:51Z",
+      "side": 1,
+      "message": "Marking resolved",
+      "parentUuid": "4a23f022_3c87063e",
+      "range": {
+        "startLine": 121,
+        "startChar": 8,
+        "endLine": 121,
+        "endChar": 18
+      },
+      "revId": "9da82c7cdf626635a6e6f1341478f0b4f28b42ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
