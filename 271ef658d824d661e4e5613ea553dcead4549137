@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9c8260ae_cbb8128f",
+        "filename": "power/aidl/android/hardware/power/Boost.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-14T18:28:28Z",
+      "side": 1,
+      "message": "format, should be like:\n\n    /**\n     *\n     */\n    FOO,\n\neverywhere in this file",
+      "range": {
+        "startLine": 22,
+        "startChar": 3,
+        "endLine": 22,
+        "endChar": 5
+      },
+      "revId": "271ef658d824d661e4e5613ea553dcead4549137",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00b206c6_bd143cf7",
+        "filename": "power/aidl/android/hardware/power/Boost.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-14T18:28:28Z",
+      "side": 1,
+      "message": "extra space",
+      "range": {
+        "startLine": 35,
+        "startChar": 66,
+        "endLine": 35,
+        "endChar": 67
+      },
+      "revId": "271ef658d824d661e4e5613ea553dcead4549137",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0048898_a0a104f3",
+        "filename": "power/aidl/android/hardware/power/Boost.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-14T18:28:28Z",
+      "side": 1,
+      "message": "remove these comments which are liable to go out of date",
+      "range": {
+        "startLine": 36,
+        "startChar": 5,
+        "endLine": 37,
+        "endChar": 36
+      },
+      "revId": "271ef658d824d661e4e5613ea553dcead4549137",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b426b99_b824752d",
+        "filename": "power/aidl/android/hardware/power/IPower.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-14T18:28:28Z",
+      "side": 1,
+      "message": "trailing space",
+      "range": {
+        "startLine": 50,
+        "startChar": 54,
+        "endLine": 50,
+        "endChar": 55
+      },
+      "revId": "271ef658d824d661e4e5613ea553dcead4549137",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aacee6a3_f4f1c0b2",
+        "filename": "power/aidl/android/hardware/power/Mode.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-14T18:28:28Z",
+      "side": 1,
+      "message": "format on many of these as well",
+      "range": {
+        "startLine": 28,
+        "startChar": 3,
+        "endLine": 28,
+        "endChar": 4
+      },
+      "revId": "271ef658d824d661e4e5613ea553dcead4549137",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42c24d95_9a33cb39",
+        "filename": "power/aidl/vts/VtsHalPowerTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-14T18:28:28Z",
+      "side": 1,
+      "message": "test modes outside of the mode fail/return not supported?",
+      "range": {
+        "startLine": 54,
+        "startChar": 27,
+        "endLine": 54,
+        "endChar": 34
+      },
+      "revId": "271ef658d824d661e4e5613ea553dcead4549137",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
