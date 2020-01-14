@@ -70,6 +70,30 @@
       "revId": "ebf0273916cf359de34edf060cb7d1a93deacdf9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4e5bcd4_6c4e7deb",
+        "filename": "radio/1.5/IRadio.hal",
+        "patchSetId": 17
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1588212
+      },
+      "writtenOn": "2020-01-14T11:20:37Z",
+      "side": 1,
+      "message": "resolved",
+      "parentUuid": "bf3f6be1_8dd09712",
+      "range": {
+        "startLine": 239,
+        "startChar": 0,
+        "endLine": 239,
+        "endChar": 4
+      },
+      "revId": "ebf0273916cf359de34edf060cb7d1a93deacdf9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
