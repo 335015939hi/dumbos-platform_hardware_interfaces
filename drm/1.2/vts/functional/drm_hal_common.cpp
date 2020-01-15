@@ -86,10 +86,13 @@ Return<void> DrmHalPluginListener::sendKeysChange_1_2(const hidl_vec<uint8_t>& s
  */
 
 DrmHalTest::DrmHalTest()
-    : vendorModule(GetParam() == "clearkey"
+    : serviceName(DrmHidlEnvironment::Instance()->getServiceName<IDrmFactory>()),
+      vendorModule(serviceName == "clearkey"
             ? new DrmHalVTSClearkeyModule()
-            : static_cast<DrmHalVTSVendorModule_V1*>(gVendorModules->getModule(GetParam()))),
-      contentConfigurations(vendorModule->getContentConfigurations()) {
+            : static_cast<DrmHalVTSVendorModule_V1*>(gVendorModules->getModuleByName(serviceName))),
+      contentConfigurations(vendorModule == nullptr
+            ? vector<DrmHalVTSVendorModule_V1::ContentConfiguration>()
+            : vendorModule->getContentConfigurations()) {
 }
 
 void DrmHalTest::SetUp() {
@@ -98,7 +101,9 @@ void DrmHalTest::SetUp() {
 
     ALOGD("Running test %s.%s from (vendor) module %s",
           test_info->test_case_name(), test_info->name(),
-          GetParam().c_str());
+          serviceName.c_str());
+
+    ASSERT_NE(nullptr, vendorModule.get()) << "Vendor module not found: " << serviceName;
 
     string name = vendorModule->getServiceName();
     drmFactory = VtsHalHidlTargetTestBase::getService<IDrmFactory>(name);

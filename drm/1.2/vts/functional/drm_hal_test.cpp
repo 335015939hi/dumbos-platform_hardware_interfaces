@@ -51,7 +51,7 @@ static const SecurityLevel kSwSecureCrypto = SecurityLevel::SW_SECURE_CRYPTO;
 /**
  * Ensure drm factory supports module UUID Scheme
  */
-TEST_P(DrmHalTest, VendorUuidSupported) {
+TEST_F(DrmHalTest, VendorUuidSupported) {
     auto res = drmFactory->isCryptoSchemeSupported_1_2(getVendorUUID(), kVideoMp4, kSwSecureCrypto);
     ALOGI("kVideoMp4 = %s res %d", kVideoMp4, (bool)res);
     EXPECT_TRUE(res);
@@ -60,7 +60,7 @@ TEST_P(DrmHalTest, VendorUuidSupported) {
 /**
  * Ensure drm factory doesn't support an invalid scheme UUID
  */
-TEST_P(DrmHalTest, InvalidPluginNotSupported) {
+TEST_F(DrmHalTest, InvalidPluginNotSupported) {
     const uint8_t kInvalidUUID[16] = {
         0x10, 0x20, 0x30, 0x40, 0x50, 0x60, 0x70, 0x80,
         0x10, 0x20, 0x30, 0x40, 0x50, 0x60, 0x70, 0x80};
@@ -70,7 +70,7 @@ TEST_P(DrmHalTest, InvalidPluginNotSupported) {
 /**
  * Ensure drm factory doesn't support an empty UUID
  */
-TEST_P(DrmHalTest, EmptyPluginUUIDNotSupported) {
+TEST_F(DrmHalTest, EmptyPluginUUIDNotSupported) {
     hidl_array<uint8_t, 16> emptyUUID;
     memset(emptyUUID.data(), 0, 16);
     EXPECT_FALSE(drmFactory->isCryptoSchemeSupported_1_2(emptyUUID, kVideoMp4, kSwSecureCrypto));
@@ -79,7 +79,7 @@ TEST_P(DrmHalTest, EmptyPluginUUIDNotSupported) {
 /**
  * Ensure drm factory doesn't support an invalid mime type
  */
-TEST_P(DrmHalTest, BadMimeNotSupported) {
+TEST_F(DrmHalTest, BadMimeNotSupported) {
     EXPECT_FALSE(drmFactory->isCryptoSchemeSupported_1_2(getVendorUUID(), kBadMime, kSwSecureCrypto));
 }
 
@@ -95,7 +95,7 @@ TEST_P(DrmHalTest, BadMimeNotSupported) {
  * vendor module which should provide a provisioning response
  * that is delivered back to the HAL.
  */
-TEST_P(DrmHalTest, DoProvisioning) {
+TEST_F(DrmHalTest, DoProvisioning) {
     RETURN_IF_SKIPPED;
     hidl_string certificateType;
     hidl_string certificateAuthority;
@@ -132,7 +132,7 @@ TEST_P(DrmHalTest, DoProvisioning) {
 /**
  * A get key request should fail if no sessionId is provided
  */
-TEST_P(DrmHalTest, GetKeyRequestNoSession) {
+TEST_F(DrmHalTest, GetKeyRequestNoSession) {
     SessionId invalidSessionId;
     hidl_vec<uint8_t> initData;
     KeyedVector optionalParameters;
@@ -149,7 +149,7 @@ TEST_P(DrmHalTest, GetKeyRequestNoSession) {
  * case of attempting to generate a key request using an
  * invalid mime type
  */
-TEST_P(DrmHalTest, GetKeyRequestBadMime) {
+TEST_F(DrmHalTest, GetKeyRequestBadMime) {
     auto sessionId = openSession();
     hidl_vec<uint8_t> initData;
     KeyedVector optionalParameters;
@@ -185,7 +185,7 @@ void checkKeySetIdState(Status status, OfflineLicenseState state) {
 /**
  * Test drm plugin offline key support
  */
-TEST_P(DrmHalTest, OfflineLicenseTest) {
+TEST_F(DrmHalTest, OfflineLicenseTest) {
     auto sessionId = openSession();
     hidl_vec<uint8_t> keySetId = loadKeys(sessionId, KeyType::OFFLINE);
 
@@ -224,7 +224,7 @@ TEST_P(DrmHalTest, OfflineLicenseTest) {
 /**
  * Test drm plugin offline key state
  */
-TEST_P(DrmHalTest, OfflineLicenseStateTest) {
+TEST_F(DrmHalTest, OfflineLicenseStateTest) {
     auto sessionId = openSession();
     DrmHalVTSVendorModule_V1::ContentConfiguration content = getContent(KeyType::OFFLINE);
     hidl_vec<uint8_t> keySetId = loadKeys(sessionId, content, KeyType::OFFLINE);
@@ -248,7 +248,7 @@ TEST_P(DrmHalTest, OfflineLicenseStateTest) {
 /**
  * Negative offline license test. Remove empty keySetId
  */
-TEST_P(DrmHalTest, RemoveEmptyKeySetId) {
+TEST_F(DrmHalTest, RemoveEmptyKeySetId) {
     KeySetId emptyKeySetId;
     Status err = drmPlugin->removeOfflineLicense(emptyKeySetId);
     EXPECT_EQ(Status::BAD_VALUE, err);
@@ -257,7 +257,7 @@ TEST_P(DrmHalTest, RemoveEmptyKeySetId) {
 /**
  * Negative offline license test. Get empty keySetId state
  */
-TEST_P(DrmHalTest, GetEmptyKeySetIdState) {
+TEST_F(DrmHalTest, GetEmptyKeySetIdState) {
     KeySetId emptyKeySetId;
     auto res = drmPlugin->getOfflineLicenseState(emptyKeySetId, checkKeySetIdState<Status::BAD_VALUE, OfflineLicenseState::UNKNOWN>);
     EXPECT_OK(res);
@@ -266,7 +266,7 @@ TEST_P(DrmHalTest, GetEmptyKeySetIdState) {
 /**
  * Test that the plugin returns valid connected and max HDCP levels
  */
-TEST_P(DrmHalTest, GetHdcpLevels) {
+TEST_F(DrmHalTest, GetHdcpLevels) {
     auto res = drmPlugin->getHdcpLevels_1_2(
             [&](StatusV1_2 status, const HdcpLevel &connectedLevel,
                 const HdcpLevel &maxLevel) {
@@ -281,7 +281,7 @@ TEST_P(DrmHalTest, GetHdcpLevels) {
  * Simulate the plugin sending keys change and make sure
  * the listener gets them.
  */
-TEST_P(DrmHalTest, ListenerKeysChange) {
+TEST_F(DrmHalTest, ListenerKeysChange) {
     RETURN_IF_SKIPPED;
     sp<DrmHalPluginListener> listener = new DrmHalPluginListener();
     auto res = drmPlugin->setListener(listener);
@@ -313,7 +313,7 @@ TEST_P(DrmHalTest, ListenerKeysChange) {
 /**
  * Positive decrypt test.  "Decrypt" a single clear segment
  */
-TEST_P(DrmHalTest, ClearSegmentTest) {
+TEST_F(DrmHalTest, ClearSegmentTest) {
     RETURN_IF_SKIPPED;
     for (const auto& config : contentConfigurations) {
         for (const auto& key : config.keys) {
@@ -341,7 +341,7 @@ TEST_P(DrmHalTest, ClearSegmentTest) {
  * Positive decrypt test.  Decrypt a single segment using aes_ctr.
  * Verify data matches.
  */
-TEST_P(DrmHalTest, EncryptedAesCtrSegmentTest) {
+TEST_F(DrmHalTest, EncryptedAesCtrSegmentTest) {
     RETURN_IF_SKIPPED;
     for (const auto& config : contentConfigurations) {
         for (const auto& key : config.keys) {
@@ -368,7 +368,7 @@ TEST_P(DrmHalTest, EncryptedAesCtrSegmentTest) {
 /**
  * Negative decrypt test.  Decrypted frame too large to fit in output buffer
  */
-TEST_P(DrmHalTest, ErrorFrameTooLarge) {
+TEST_F(DrmHalTest, ErrorFrameTooLarge) {
     RETURN_IF_SKIPPED;
     for (const auto& config : contentConfigurations) {
         for (const auto& key : config.keys) {
@@ -394,7 +394,7 @@ TEST_P(DrmHalTest, ErrorFrameTooLarge) {
 /**
  * Negative decrypt test. Decrypt without loading keys.
  */
-TEST_P(DrmHalTest, EncryptedAesCtrSegmentTestNoKeys) {
+TEST_F(DrmHalTest, EncryptedAesCtrSegmentTestNoKeys) {
     RETURN_IF_SKIPPED;
     for (const auto& config : contentConfigurations) {
         for (const auto& key : config.keys) {
@@ -420,7 +420,7 @@ TEST_P(DrmHalTest, EncryptedAesCtrSegmentTestNoKeys) {
 /**
  * Ensure clearkey drm factory doesn't support security level higher than supported
  */
-TEST_P(DrmHalClearkeyTest, BadLevelNotSupported) {
+TEST_F(DrmHalClearkeyTest, BadLevelNotSupported) {
     const SecurityLevel kHwSecureAll = SecurityLevel::HW_SECURE_ALL;
     EXPECT_FALSE(drmFactory->isCryptoSchemeSupported_1_2(getVendorUUID(), kVideoMp4, kHwSecureAll));
 }
@@ -428,7 +428,7 @@ TEST_P(DrmHalClearkeyTest, BadLevelNotSupported) {
 /**
  * Test resource contention during attempt to generate key request
  */
-TEST_P(DrmHalClearkeyTest, GetKeyRequestResourceContention) {
+TEST_F(DrmHalClearkeyTest, GetKeyRequestResourceContention) {
     Status status = drmPlugin->setPropertyString(kDrmErrorTestKey, kDrmErrorResourceContention);
     EXPECT_EQ(Status::OK, status);
     auto sessionId = openSession();
@@ -449,7 +449,7 @@ TEST_P(DrmHalClearkeyTest, GetKeyRequestResourceContention) {
 /**
  * Test clearkey plugin offline key with mock error
  */
-TEST_P(DrmHalClearkeyTest, OfflineLicenseInvalidState) {
+TEST_F(DrmHalClearkeyTest, OfflineLicenseInvalidState) {
     auto sessionId = openSession();
     hidl_vec<uint8_t> keySetId = loadKeys(sessionId, KeyType::OFFLINE);
     Status status = drmPlugin->setPropertyString(kDrmErrorTestKey, kDrmErrorInvalidState);
@@ -470,7 +470,7 @@ TEST_P(DrmHalClearkeyTest, OfflineLicenseInvalidState) {
 /**
  * Test SessionLostState is triggered on error
  */
-TEST_P(DrmHalClearkeyTest, SessionLostState) {
+TEST_F(DrmHalClearkeyTest, SessionLostState) {
     sp<DrmHalPluginListener> listener = new DrmHalPluginListener();
     auto res = drmPlugin->setListener(listener);
     EXPECT_OK(res);
@@ -490,7 +490,7 @@ TEST_P(DrmHalClearkeyTest, SessionLostState) {
 /**
  * Negative decrypt test. Decrypt with invalid key.
  */
-TEST_P(DrmHalClearkeyTest, DecryptWithEmptyKey) {
+TEST_F(DrmHalClearkeyTest, DecryptWithEmptyKey) {
     vector<uint8_t> iv(AES_BLOCK_SIZE, 0);
     const Pattern noPattern = {0, 0};
     const uint32_t kClearBytes = 512;
@@ -527,7 +527,7 @@ TEST_P(DrmHalClearkeyTest, DecryptWithEmptyKey) {
 /**
  * Negative decrypt test. Decrypt with a key exceeds AES_BLOCK_SIZE.
  */
-TEST_P(DrmHalClearkeyTest, DecryptWithKeyTooLong) {
+TEST_F(DrmHalClearkeyTest, DecryptWithKeyTooLong) {
     vector<uint8_t> iv(AES_BLOCK_SIZE, 0);
     const Pattern noPattern = {0, 0};
     const uint32_t kClearBytes = 512;
@@ -554,22 +554,6 @@ TEST_P(DrmHalClearkeyTest, DecryptWithKeyTooLong) {
     memcpy(invalidResponse.data(), keyTooLongResponse.c_str(), kKeyTooLongResponseSize);
     decryptWithInvalidKeys(invalidResponse, iv, noPattern, subSamples);
 }
-
-/**
- * Instantiate the set of test cases for each vendor module
- */
-
-INSTANTIATE_TEST_CASE_P(
-        DrmHalTestClearkey, DrmHalTest,
-        testing::Values("clearkey"));
-
-INSTANTIATE_TEST_CASE_P(
-        DrmHalTestClearkeyExtended, DrmHalClearkeyTest,
-        testing::Values("clearkey"));
-
-INSTANTIATE_TEST_CASE_P(
-        DrmHalTestVendor, DrmHalTest,
-        testing::ValuesIn(DrmHalTest::gVendorModules->getPathList()));
 
 int main(int argc, char** argv) {
 #if defined(__LP64__)
