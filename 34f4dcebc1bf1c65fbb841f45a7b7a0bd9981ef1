@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "35e17ceb_315a42a4",
+        "filename": "current.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-15T23:06:50Z",
+      "side": 1,
+      "message": "can you replace these, since R hasn\u0027t launched yet?",
+      "range": {
+        "startLine": 618,
+        "startChar": 0,
+        "endLine": 618,
+        "endChar": 113
+      },
+      "revId": "34f4dcebc1bf1c65fbb841f45a7b7a0bd9981ef1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
