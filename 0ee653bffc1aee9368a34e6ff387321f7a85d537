@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "593bdca6_98e516c0",
+        "filename": "sensors/2.0/multihal/HalProxy.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1074038
+      },
+      "writtenOn": "2020-01-15T16:22:09Z",
+      "side": 1,
+      "message": "WDYT about consolidating the decrementing logic to above the if and using numToWrite? Then, it\u0027s clear where that value comes from and we don\u0027t have to worry about it being invalidated?",
+      "range": {
+        "startLine": 496,
+        "startChar": 48,
+        "endLine": 496,
+        "endChar": 73
+      },
+      "revId": "0ee653bffc1aee9368a34e6ff387321f7a85d537",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
