@@ -710,6 +710,11 @@ void SensorsHidlTest::runFlushTest(const std::vector<SensorInfo>& sensors, bool 
 
         // Flush the sensor
         for (int32_t i = 0; i < flushCalls; i++) {
+            SCOPED_TRACE(::testing::Message()
+                         << i << "/" << flushCalls << ": "
+                         << " handle=0x" << std::hex << std::setw(8) << std::setfill('0')
+                         << sensor.sensorHandle << std::dec
+                         << " type=" << static_cast<int>(sensor.type) << " name=" << sensor.name);
             Result flushResult = flush(sensor.sensorHandle);
             ASSERT_EQ(flushResult, expectedResponse);
         }
@@ -727,7 +732,11 @@ void SensorsHidlTest::runFlushTest(const std::vector<SensorInfo>& sensors, bool 
 
     // Check that the correct number of flushes are present for each sensor
     for (const SensorInfo& sensor : sensors) {
-        ASSERT_EQ(callback.getFlushCount(sensor.sensorHandle), expectedFlushCount);
+        SCOPED_TRACE(::testing::Message()
+                     << " handle=0x" << std::hex << std::setw(8) << std::setfill('0')
+                     << sensor.sensorHandle << std::dec << " type=" << static_cast<int>(sensor.type)
+                     << " name=" << sensor.name);
+        EXPECT_EQ(callback.getFlushCount(sensor.sensorHandle), expectedFlushCount);
     }
 }
 
