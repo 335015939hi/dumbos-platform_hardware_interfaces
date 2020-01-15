@@ -68,8 +68,7 @@ using std::vector;
 #define RETURN_IF_SKIPPED \
     if (!vendorModule->isInstalled()) { \
         std::cout << "[  SKIPPED ] This drm scheme not supported." << \
-                " library:" << GetParam() << " service-name:" << \
-                vendorModule->getServiceName() << std::endl; \
+                " service-name:" << vendorModule->getServiceName() << std::endl; \
         return; \
     }
 
@@ -90,7 +89,7 @@ class DrmHidlEnvironment : public ::testing::VtsHalHidlTargetTestEnvBase {
     void registerTestServices() override {
         registerTestService<ICryptoFactory>();
         registerTestService<IDrmFactory>();
-        setServiceCombMode(::testing::HalServiceCombMode::NO_COMBINATION);
+        setServiceCombMode(::testing::HalServiceCombMode::NAME_MATCH);
     }
 
    private:
@@ -99,7 +98,7 @@ class DrmHidlEnvironment : public ::testing::VtsHalHidlTargetTestEnvBase {
     GTEST_DISALLOW_COPY_AND_ASSIGN_(DrmHidlEnvironment);
 };
 
-class DrmHalTest : public ::testing::TestWithParam<std::string> {
+class DrmHalTest : public ::testing::Test {
    public:
     static drm_vts::VendorModules* gVendorModules;
     DrmHalTest();
@@ -141,6 +140,7 @@ class DrmHalTest : public ::testing::TestWithParam<std::string> {
     sp<ICryptoFactory> cryptoFactory;
     sp<IDrmPlugin> drmPlugin;
     sp<ICryptoPlugin> cryptoPlugin;
+    string serviceName;
     unique_ptr<DrmHalVTSVendorModule_V1> vendorModule;
     const vector<DrmHalVTSVendorModule_V1::ContentConfiguration> contentConfigurations;
 
@@ -152,7 +152,12 @@ class DrmHalTest : public ::testing::TestWithParam<std::string> {
 
 class DrmHalClearkeyTest : public DrmHalTest {
    public:
-    virtual void SetUp() override { DrmHalTest::SetUp(); }
+    virtual void SetUp() override {
+        if (serviceName != "clearkey") {
+            GTEST_SKIP();
+        }
+        DrmHalTest::SetUp();
+    }
     virtual void TearDown() override {}
     void decryptWithInvalidKeys(hidl_vec<uint8_t>& invalidResponse,
             vector<uint8_t>& iv, const Pattern& noPattern, const vector<SubSample>& subSamples);
