@@ -22,6 +22,30 @@
       "revId": "0ee653bffc1aee9368a34e6ff387321f7a85d537",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "996d67cc_7cef9c07",
+        "filename": "sensors/2.0/multihal/HalProxy.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1585259
+      },
+      "writtenOn": "2020-01-15T16:31:22Z",
+      "side": 1,
+      "message": "Sounds good to me",
+      "parentUuid": "593bdca6_98e516c0",
+      "range": {
+        "startLine": 496,
+        "startChar": 48,
+        "endLine": 496,
+        "endChar": 73
+      },
+      "revId": "0ee653bffc1aee9368a34e6ff387321f7a85d537",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
