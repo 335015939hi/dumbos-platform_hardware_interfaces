@@ -493,8 +493,8 @@ void HalProxy::handlePendingWrites() {
                                          pendingWriteEvents.begin() + eventQueueSize);
                 mSizePendingWriteEventsQueue -= eventQueueSize;
             } else {
-                mPendingWriteEventsQueue.pop();
                 mSizePendingWriteEventsQueue -= pendingWriteEvents.size();
+                mPendingWriteEventsQueue.pop();
             }
         }
     }
