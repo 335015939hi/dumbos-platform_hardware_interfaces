@@ -22,6 +22,30 @@
       "revId": "34f4dcebc1bf1c65fbb841f45a7b7a0bd9981ef1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11f4995b_b2f1b487",
+        "filename": "current.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-01-15T23:33:47Z",
+      "side": 1,
+      "message": "Absolutely!  I didn\u0027t know if you wanted them updated or appended.",
+      "parentUuid": "35e17ceb_315a42a4",
+      "range": {
+        "startLine": 618,
+        "startChar": 0,
+        "endLine": 618,
+        "endChar": 113
+      },
+      "revId": "34f4dcebc1bf1c65fbb841f45a7b7a0bd9981ef1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
