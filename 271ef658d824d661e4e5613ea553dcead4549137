@@ -281,6 +281,30 @@
       "revId": "271ef658d824d661e4e5613ea553dcead4549137",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7bd84963_fbe93f50",
+        "filename": "power/aidl/vts/VtsHalPowerTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1105075
+      },
+      "writtenOn": "2020-01-15T19:48:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "277266c4_66ca1290",
+      "range": {
+        "startLine": 54,
+        "startChar": 27,
+        "endLine": 54,
+        "endChar": 34
+      },
+      "revId": "271ef658d824d661e4e5613ea553dcead4549137",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
