@@ -87,7 +87,7 @@ static DrmHalVTSVendorModule_V1* getModuleForInstance(const std::string& instanc
         return new DrmHalVTSClearkeyModule();
     }
 
-    return static_cast<DrmHalVTSVendorModule_V1*>(DrmHalTest::gVendorModules->getModule(instance));
+    return static_cast<DrmHalVTSVendorModule_V1*>(DrmHalTest::gVendorModules->getModuleByName(instance));
 }
 
 /**
@@ -118,14 +118,6 @@ void DrmHalTest::SetUp() {
         ASSERT_NE(instance, "widevine") << "Widevine requires vendor module.";
         ASSERT_NE(instance, "clearkey") << "Clearkey requires vendor module.";
         GTEST_SKIP() << "No vendor module installed";
-    }
-
-    if (instance == "clearkey") {
-        // TODO(b/147449315)
-        // Only the clearkey plugged into the "default" instance supports
-        // this test. Currently the "clearkey" instance fails some tests
-        // here.
-        GTEST_SKIP() << "Clearkey tests don't work with 'clearkey' instance yet.";
     }
 
     ASSERT_EQ(instance, vendorModule->getServiceName());

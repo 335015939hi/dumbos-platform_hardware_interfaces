@@ -130,11 +130,12 @@ class DrmHalTest : public ::testing::TestWithParam<std::string> {
 class DrmHalClearkeyTest : public DrmHalTest {
    public:
      virtual void SetUp() override {
-         DrmHalTest::SetUp();
-
-         if (vendorModule == nullptr) {
-             GTEST_SKIP() << "Instance not supported";
+         const string instance = GetParam();
+         if (instance != "clearkey") {
+             GTEST_SKIP() << "only clearkey supported";
          }
+
+         DrmHalTest::SetUp();
      }
     virtual void TearDown() override {}
     void decryptWithInvalidKeys(hidl_vec<uint8_t>& invalidResponse,
