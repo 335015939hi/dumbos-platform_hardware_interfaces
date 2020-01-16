@@ -1,0 +1,239 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a19e9d9_10d20970",
+        "filename": "compatibility_matrices/compatibility_matrix.4.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-16T00:44:55Z",
+      "side": 1,
+      "message": "should add to compatibility_matrix.current.xml instead",
+      "revId": "198477d9ad4385fbef295b898f7988291b48b9d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ee4810d_cf9dcbca",
+        "filename": "current.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 587,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-16T00:44:55Z",
+      "side": 1,
+      "message": "and add in this section (probably need to rebase)",
+      "range": {
+        "startLine": 587,
+        "startChar": 0,
+        "endLine": 587,
+        "endChar": 28
+      },
+      "revId": "198477d9ad4385fbef295b898f7988291b48b9d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14520dd9_35442cf8",
+        "filename": "storagekey/1.0/IStorageKey.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-16T00:44:55Z",
+      "side": 1,
+      "message": "could this be converted to stable AIDL instead?",
+      "revId": "198477d9ad4385fbef295b898f7988291b48b9d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1ba352b_c7b013c1",
+        "filename": "storagekey/1.0/IStorageKey.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-16T00:44:55Z",
+      "side": 1,
+      "message": "please explicitly import types",
+      "range": {
+        "startLine": 3,
+        "startChar": 39,
+        "endLine": 3,
+        "endChar": 44
+      },
+      "revId": "198477d9ad4385fbef295b898f7988291b48b9d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b19ea66_9cee3698",
+        "filename": "storagekey/1.0/default/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-16T00:44:55Z",
+      "side": 1,
+      "message": "add \u0027.example\u0027 extension or similar to emphasize that this is not for production",
+      "range": {
+        "startLine": 2,
+        "startChar": 43,
+        "endLine": 2,
+        "endChar": 50
+      },
+      "revId": "198477d9ad4385fbef295b898f7988291b48b9d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74e0ca43_2585007e",
+        "filename": "storagekey/1.0/default/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-16T00:44:55Z",
+      "side": 1,
+      "message": "you\u0027ll need to remove this to compile on ToT. This library was combined with libhidlbase near the end of Q",
+      "range": {
+        "startLine": 16,
+        "startChar": 9,
+        "endLine": 16,
+        "endChar": 25
+      },
+      "revId": "198477d9ad4385fbef295b898f7988291b48b9d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f1f0116_684fb2bf",
+        "filename": "storagekey/1.0/default/StorageKey.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-16T00:44:55Z",
+      "side": 1,
+      "message": "can there be a working mock implementatoin?",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 19
+      },
+      "revId": "198477d9ad4385fbef295b898f7988291b48b9d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff0fbb5f_1f3fbc35",
+        "filename": "storagekey/1.0/default/StorageKey.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-16T00:44:55Z",
+      "side": 1,
+      "message": "nit: this is generated with an old version of hidl-gen. If you use a ToT version, there are some improvements",
+      "range": {
+        "startLine": 11,
+        "startChar": 10,
+        "endLine": 11,
+        "endChar": 14
+      },
+      "revId": "198477d9ad4385fbef295b898f7988291b48b9d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4f81c3c_1e7b420c",
+        "filename": "storagekey/1.0/default/android.hardware.storagekey@1.0-service.rc",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-16T00:44:55Z",
+      "side": 1,
+      "message": "use nobody/nobody for user group",
+      "range": {
+        "startLine": 3,
+        "startChar": 9,
+        "endLine": 3,
+        "endChar": 15
+      },
+      "revId": "198477d9ad4385fbef295b898f7988291b48b9d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "21acc53f_7ed45de2",
+        "filename": "storagekey/1.0/default/service.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-16T00:44:55Z",
+      "side": 1,
+      "message": "needs licensing headers (everywhere)",
+      "revId": "198477d9ad4385fbef295b898f7988291b48b9d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74467d3c_0042e9a1",
+        "filename": "storagekey/1.0/default/service.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-16T00:44:55Z",
+      "side": 1,
+      "message": "return 1, since this shouldn\u0027t be reached",
+      "range": {
+        "startLine": 24,
+        "startChar": 11,
+        "endLine": 24,
+        "endChar": 12
+      },
+      "revId": "198477d9ad4385fbef295b898f7988291b48b9d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

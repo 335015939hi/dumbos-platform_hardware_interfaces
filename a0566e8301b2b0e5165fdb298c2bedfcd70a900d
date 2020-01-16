@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "74936d98_afd8bdf8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-16T00:44:55Z",
+      "side": 1,
+      "message": "high level comments:\n- this seems to have overlap with other HALs rebootescrow, potentially weaver. Could it be combined with any of these surfaces?\n- could this HAL be written in AIDL instead (we are trying to move new HALs to this format)\n- whatever we end up with, we need VTS tests and an implementation installed on cuttlefish",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 45
+      },
+      "revId": "a0566e8301b2b0e5165fdb298c2bedfcd70a900d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
