@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "eb2138b0_968b15c3",
+        "filename": "power/aidl/android/hardware/power/Mode.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1105075
+      },
+      "writtenOn": "2020-01-16T00:39:07Z",
+      "side": 1,
+      "message": "depending on vendor implementation. SF is sending the hint. but I am not sure if every vendor\u0027s GPU governor implementation requires such hint.",
+      "parentUuid": "4be8330a_26f8500d",
+      "range": {
+        "startLine": 55,
+        "startChar": 40,
+        "endLine": 55,
+        "endChar": 45
+      },
+      "revId": "4560ed739ffea7edd641215e2f0d052907656ecc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a52ff6b6_763a91fb",
         "filename": "power/aidl/default/Power.cpp",
         "patchSetId": 5
