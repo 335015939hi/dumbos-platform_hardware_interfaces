@@ -1,0 +1,395 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8090e497_d8736760",
+        "filename": "power/aidl/android/hardware/power/Boost.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1043625
+      },
+      "writtenOn": "2020-01-16T00:04:05Z",
+      "side": 1,
+      "message": "INTERACTIVE",
+      "range": {
+        "startLine": 26,
+        "startChar": 40,
+        "endLine": 26,
+        "endChar": 52
+      },
+      "revId": "326b3428deb8bc96cb7bd306c0322c44a9ce4e3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c23b06a5_2deb4406",
+        "filename": "power/aidl/android/hardware/power/Boost.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1043625
+      },
+      "writtenOn": "2020-01-16T00:04:05Z",
+      "side": 1,
+      "message": "This seems redundant with the second sentence above",
+      "range": {
+        "startLine": 27,
+        "startChar": 77,
+        "endLine": 30,
+        "endChar": 42
+      },
+      "revId": "326b3428deb8bc96cb7bd306c0322c44a9ce4e3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "622d9ec8_fa6408d8",
+        "filename": "power/aidl/android/hardware/power/Boost.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1043625
+      },
+      "writtenOn": "2020-01-16T00:04:05Z",
+      "side": 1,
+      "message": "accelerator",
+      "range": {
+        "startLine": 40,
+        "startChar": 67,
+        "endLine": 40,
+        "endChar": 78
+      },
+      "revId": "326b3428deb8bc96cb7bd306c0322c44a9ce4e3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9266745_6043de9b",
+        "filename": "power/aidl/android/hardware/power/Boost.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1043625
+      },
+      "writtenOn": "2020-01-16T00:04:05Z",
+      "side": 1,
+      "message": "This seems a bit different than the hint name. Should we try to make the comment and ENUM name match a bit more closely?",
+      "range": {
+        "startLine": 55,
+        "startChar": 33,
+        "endLine": 55,
+        "endChar": 53
+      },
+      "revId": "326b3428deb8bc96cb7bd306c0322c44a9ce4e3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c9cc3ab_45f39ad7",
+        "filename": "power/aidl/android/hardware/power/IPower.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1043625
+      },
+      "writtenOn": "2020-01-16T00:04:05Z",
+      "side": 1,
+      "message": "Nit: I might go for \u0027supports*\u0027 for these, since it scans a little better to my eyes",
+      "range": {
+        "startLine": 44,
+        "startChar": 12,
+        "endLine": 44,
+        "endChar": 23
+      },
+      "revId": "326b3428deb8bc96cb7bd306c0322c44a9ce4e3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3208a43_b7c59b90",
+        "filename": "power/aidl/android/hardware/power/IPower.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1043625
+      },
+      "writtenOn": "2020-01-16T00:04:05Z",
+      "side": 1,
+      "message": "may need to boost the",
+      "range": {
+        "startLine": 47,
+        "startChar": 39,
+        "endLine": 47,
+        "endChar": 59
+      },
+      "revId": "326b3428deb8bc96cb7bd306c0322c44a9ce4e3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79d27579_643eb8c8",
+        "filename": "power/aidl/android/hardware/power/IPower.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1043625
+      },
+      "writtenOn": "2020-01-16T00:04:05Z",
+      "side": 1,
+      "message": "before the kernel or other governors can react.",
+      "range": {
+        "startLine": 48,
+        "startChar": 37,
+        "endLine": 48,
+        "endChar": 83
+      },
+      "revId": "326b3428deb8bc96cb7bd306c0322c44a9ce4e3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d26ca0f0_20bd4690",
+        "filename": "power/aidl/android/hardware/power/IPower.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1043625
+      },
+      "writtenOn": "2020-01-16T00:04:05Z",
+      "side": 1,
+      "message": "Depending on the boost, it may...",
+      "range": {
+        "startLine": 49,
+        "startChar": 7,
+        "endLine": 49,
+        "endChar": 20
+      },
+      "revId": "326b3428deb8bc96cb7bd306c0322c44a9ce4e3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e4673632_12d10e0a",
+        "filename": "power/aidl/android/hardware/power/IPower.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1043625
+      },
+      "writtenOn": "2020-01-16T00:04:05Z",
+      "side": 1,
+      "message": "Nit: double-space",
+      "range": {
+        "startLine": 49,
+        "startChar": 60,
+        "endLine": 49,
+        "endChar": 62
+      },
+      "revId": "326b3428deb8bc96cb7bd306c0322c44a9ce4e3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eaf7b817_946dda67",
+        "filename": "power/aidl/android/hardware/power/IPower.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1043625
+      },
+      "writtenOn": "2020-01-16T00:04:05Z",
+      "side": 1,
+      "message": "negative",
+      "range": {
+        "startLine": 57,
+        "startChar": 16,
+        "endLine": 57,
+        "endChar": 23
+      },
+      "revId": "326b3428deb8bc96cb7bd306c0322c44a9ce4e3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b725f5e_fd9e02a1",
+        "filename": "power/aidl/android/hardware/power/IPower.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1043625
+      },
+      "writtenOn": "2020-01-16T00:04:05Z",
+      "side": 1,
+      "message": "choose",
+      "range": {
+        "startLine": 58,
+        "startChar": 35,
+        "endLine": 58,
+        "endChar": 42
+      },
+      "revId": "326b3428deb8bc96cb7bd306c0322c44a9ce4e3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d2fe425_45ccf981",
+        "filename": "power/aidl/android/hardware/power/IPower.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1043625
+      },
+      "writtenOn": "2020-01-16T00:04:05Z",
+      "side": 1,
+      "message": "may also pick an",
+      "range": {
+        "startLine": 59,
+        "startChar": 18,
+        "endLine": 59,
+        "endChar": 30
+      },
+      "revId": "326b3428deb8bc96cb7bd306c0322c44a9ce4e3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43a1f2be_cbdd7d89",
+        "filename": "power/aidl/android/hardware/power/IPower.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1043625
+      },
+      "writtenOn": "2020-01-16T00:04:05Z",
+      "side": 1,
+      "message": "I might just fold this into the Javadoc below:\n\n  @return true if the hint passed is supported on this platform. If false, setting the boost will have no effect.",
+      "range": {
+        "startLine": 65,
+        "startChar": 28,
+        "endLine": 66,
+        "endChar": 33
+      },
+      "revId": "326b3428deb8bc96cb7bd306c0322c44a9ce4e3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a0599ba_4305d329",
+        "filename": "power/aidl/android/hardware/power/IPower.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1043625
+      },
+      "writtenOn": "2020-01-16T00:04:05Z",
+      "side": 1,
+      "message": "type Boost",
+      "range": {
+        "startLine": 69,
+        "startChar": 14,
+        "endLine": 69,
+        "endChar": 23
+      },
+      "revId": "326b3428deb8bc96cb7bd306c0322c44a9ce4e3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97ce0194_ab39bef4",
+        "filename": "power/aidl/android/hardware/power/Mode.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1043625
+      },
+      "writtenOn": "2020-01-16T00:04:05Z",
+      "side": 1,
+      "message": "Nit: double-space",
+      "range": {
+        "startLine": 23,
+        "startChar": 54,
+        "endLine": 23,
+        "endChar": 56
+      },
+      "revId": "326b3428deb8bc96cb7bd306c0322c44a9ce4e3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f903d925_6a9adca3",
+        "filename": "power/aidl/android/hardware/power/Mode.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1043625
+      },
+      "writtenOn": "2020-01-16T00:04:05Z",
+      "side": 1,
+      "message": "activated",
+      "range": {
+        "startLine": 35,
+        "startChar": 57,
+        "endLine": 35,
+        "endChar": 64
+      },
+      "revId": "326b3428deb8bc96cb7bd306c0322c44a9ce4e3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "861ace7d_66f0b406",
+        "filename": "power/aidl/android/hardware/power/Mode.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1043625
+      },
+      "writtenOn": "2020-01-16T00:04:05Z",
+      "side": 1,
+      "message": "Nit: given that the main goal of this HAL is device specific optimizations, I don\u0027t know that we need to specifically say things like this in the docs (here and throughout)",
+      "range": {
+        "startLine": 49,
+        "startChar": 66,
+        "endLine": 50,
+        "endChar": 67
+      },
+      "revId": "326b3428deb8bc96cb7bd306c0322c44a9ce4e3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
