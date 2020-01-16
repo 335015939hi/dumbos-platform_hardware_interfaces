@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fe718e07_1cc9d2f4",
+        "filename": "radio/1.5/IRadio.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-16T17:58:37Z",
+      "side": 1,
+      "message": "Sms",
+      "range": {
+        "startLine": 249,
+        "startChar": 19,
+        "endLine": 249,
+        "endChar": 22
+      },
+      "revId": "e3e88982c8cdf55d4e61de78c4e810e835d1432d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e9b3a38_6660f7f0",
+        "filename": "radio/1.5/IRadioResponse.hal",
+        "patchSetId": 9
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-16T17:58:37Z",
+      "side": 1,
+      "message": "Sms",
+      "range": {
+        "startLine": 191,
+        "startChar": 19,
+        "endLine": 191,
+        "endChar": 22
+      },
+      "revId": "e3e88982c8cdf55d4e61de78c4e810e835d1432d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
