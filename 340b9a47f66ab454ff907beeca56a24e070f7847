@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c03bebd4_755e7692",
+        "filename": "audio/policy/1.0/xml/audio_policy_engine_configuration.xsd",
+        "patchSetId": 6
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2020-01-16T09:41:43Z",
+      "side": 1,
+      "message": "thes flags refers to  /android/system/media/audio/include/system/audio.h and so all the flags\nthat may be used in AudioAttributes definition for ProductStrategies",
+      "parentUuid": "11dcf820_ea0f8176",
+      "range": {
+        "startLine": 364,
+        "startChar": 0,
+        "endLine": 375,
+        "endChar": 60
+      },
+      "revId": "340b9a47f66ab454ff907beeca56a24e070f7847",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ab387084_c8391ae5",
         "filename": "audio/policy/1.0/xml/audio_policy_engine_configuration.xsd",
         "patchSetId": 6
@@ -45,6 +69,30 @@
       "revId": "340b9a47f66ab454ff907beeca56a24e070f7847",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9999b866_552008d8",
+        "filename": "audio/policy/1.0/xml/audio_policy_engine_configuration.xsd",
+        "patchSetId": 6
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2020-01-16T09:41:43Z",
+      "side": 1,
+      "message": "yes, definitely, so not needed, removed",
+      "parentUuid": "ab387084_c8391ae5",
+      "range": {
+        "startLine": 377,
+        "startChar": 0,
+        "endLine": 384,
+        "endChar": 65
+      },
+      "revId": "340b9a47f66ab454ff907beeca56a24e070f7847",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
