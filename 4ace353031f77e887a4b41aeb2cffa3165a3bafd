@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "15810111_c0dcce69",
+        "filename": "keymaster/4.0/support/attestation_record.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2020-01-16T10:58:19Z",
+      "side": 1,
+      "message": "Nit: A more informative message such as \"no software or TEE root of trust\" ?",
+      "range": {
+        "startLine": 331,
+        "startChar": 30,
+        "endLine": 331,
+        "endChar": 58
+      },
+      "revId": "4ace353031f77e887a4b41aeb2cffa3165a3bafd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
