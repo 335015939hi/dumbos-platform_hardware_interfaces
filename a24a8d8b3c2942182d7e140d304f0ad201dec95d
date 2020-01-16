@@ -22,6 +22,30 @@
       "revId": "a24a8d8b3c2942182d7e140d304f0ad201dec95d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f65fe59c_3f222bda",
+        "filename": "drm/1.2/vts/functional/drm_hal_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1043093
+      },
+      "writtenOn": "2020-01-16T23:04:48Z",
+      "side": 1,
+      "message": "I think this is where I am confused.\n\nMy understanding is that we only provided default implementation for 1.0. The default instance doesn\u0027t support the 1.2 interface, so it shouldn\u0027t be tested by the 1.2 vts test. The default instance shouldn\u0027t be included in android::hardware::getAllHalInstanceNames ... unless vendors upgrade the default instance themselves.\n\nI can update the code to check uuid instead of instance name.",
+      "parentUuid": "c09bf318_effaee8f",
+      "range": {
+        "startLine": 135,
+        "startChar": 0,
+        "endLine": 135,
+        "endChar": 55
+      },
+      "revId": "a24a8d8b3c2942182d7e140d304f0ad201dec95d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
