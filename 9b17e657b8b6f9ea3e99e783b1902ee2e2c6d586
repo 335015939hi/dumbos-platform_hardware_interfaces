@@ -16,6 +16,24 @@
       "revId": "9b17e657b8b6f9ea3e99e783b1902ee2e2c6d586",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43715c54_2177ff6a",
+        "filename": "keymaster/4.0/vts/functional/KeymasterHidlTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 682,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-01-16T10:53:17Z",
+      "side": 1,
+      "message": "I don\u0027t think so.  It returns invalid sizes for both... it\u0027s just that in the TEE case, it\u0027s an empty list.",
+      "parentUuid": "e284eb2f_b3db6f6b",
+      "revId": "9b17e657b8b6f9ea3e99e783b1902ee2e2c6d586",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
