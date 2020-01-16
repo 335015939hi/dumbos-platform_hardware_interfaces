@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4be8330a_26f8500d",
+        "filename": "power/aidl/android/hardware/power/Mode.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1043625
+      },
+      "writtenOn": "2020-01-16T00:32:10Z",
+      "side": 1,
+      "message": "Nit: I actually like \"should\" better here, since it\u0027s directing the HAL to do something than saying that something might be done by someone",
+      "range": {
+        "startLine": 55,
+        "startChar": 40,
+        "endLine": 55,
+        "endChar": 45
+      },
+      "revId": "4560ed739ffea7edd641215e2f0d052907656ecc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

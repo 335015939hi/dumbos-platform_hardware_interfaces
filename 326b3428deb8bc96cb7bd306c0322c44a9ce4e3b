@@ -237,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "86f2e547_f4c29bd2",
+        "filename": "power/aidl/android/hardware/power/IPower.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1043625
+      },
+      "writtenOn": "2020-01-16T00:32:10Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7f7091a2_94fd7717",
+      "range": {
+        "startLine": 44,
+        "startChar": 12,
+        "endLine": 44,
+        "endChar": 23
+      },
+      "revId": "326b3428deb8bc96cb7bd306c0322c44a9ce4e3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d3208a43_b7c59b90",
         "filename": "power/aidl/android/hardware/power/IPower.aidl",
         "patchSetId": 4
