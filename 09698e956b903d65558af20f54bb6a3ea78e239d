@@ -22,6 +22,30 @@
       "revId": "09698e956b903d65558af20f54bb6a3ea78e239d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18611cb5_56f4a51e",
+        "filename": "audio/policy/1.0/vts/functional/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2020-01-16T16:51:24Z",
+      "side": 1,
+      "message": "Yes, the fix just got merged: https://android-review.googlesource.com/c/platform/system/tools/xsdc/+/1209507/. Please sync and retry.",
+      "parentUuid": "94d95db9_e9d10e89",
+      "range": {
+        "startLine": 23,
+        "startChar": 4,
+        "endLine": 25,
+        "endChar": 6
+      },
+      "revId": "09698e956b903d65558af20f54bb6a3ea78e239d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
