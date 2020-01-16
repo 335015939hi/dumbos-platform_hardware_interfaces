@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ab387084_c8391ae5",
+        "filename": "audio/policy/1.0/xml/audio_policy_engine_configuration.xsd",
+        "patchSetId": 6
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2020-01-16T00:19:03Z",
+      "side": 1,
+      "message": "Francois, could you please why input flags are needed? It looks like the flag type ends up being used for ProductStrategies which only apply to output.",
+      "range": {
+        "startLine": 377,
+        "startChar": 0,
+        "endLine": 384,
+        "endChar": 65
+      },
+      "revId": "340b9a47f66ab454ff907beeca56a24e070f7847",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
