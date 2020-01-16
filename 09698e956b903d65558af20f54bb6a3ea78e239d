@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "94d95db9_e9d10e89",
+        "filename": "audio/policy/1.0/vts/functional/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2020-01-16T16:45:39Z",
+      "side": 1,
+      "message": "@Mikhail: do you have some extra CL from xsdcgen? I am facing an issue here on aosp/master if i keep data:\nbuild/make/core/base_rules.mk:573: error: overriding commands for target `out/target/product/generic_x86_64/data/nativetest64/VtsHalAudioPolicyV1_0TargetTest/java/xsdcgen.srcjar\u0027, previously defined at build/make/core/base_rules.mk:573",
+      "range": {
+        "startLine": 23,
+        "startChar": 4,
+        "endLine": 25,
+        "endChar": 6
+      },
+      "revId": "09698e956b903d65558af20f54bb6a3ea78e239d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
