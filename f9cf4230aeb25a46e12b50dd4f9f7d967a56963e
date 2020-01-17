@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "2e2d99b3_f50ebba3",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2020-01-17T23:47:38Z",
+      "side": 1,
+      "message": "Just double-confirmed with Amruth, the VoPS flag is not applicable to NR, and of course the NR indicators for EN-DC don\u0027t apply for NR either, so I think this is actually the right shape. LMK if I missed something.",
+      "parentUuid": "59c17157_a52d2a42",
+      "range": {
+        "startLine": 684,
+        "startChar": 7,
+        "endLine": 684,
+        "endChar": 13
+      },
+      "revId": "f9cf4230aeb25a46e12b50dd4f9f7d967a56963e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0129c956_8f0e41e2",
         "filename": "radio/1.5/types.hal",
         "patchSetId": 2
