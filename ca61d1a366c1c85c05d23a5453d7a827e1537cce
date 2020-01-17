@@ -16,6 +16,24 @@
       "revId": "ca61d1a366c1c85c05d23a5453d7a827e1537cce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f795ad8_4de47c77",
+        "filename": "drm/1.2/vts/functional/drm_hal_common.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1043093
+      },
+      "writtenOn": "2020-01-17T07:55:25Z",
+      "side": 0,
+      "message": "You are referring to the TODO in drm 1.0 vts correct? I will address it in a separate change.",
+      "parentUuid": "5a0629c5_bf0bd4d4",
+      "revId": "ca61d1a366c1c85c05d23a5453d7a827e1537cce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

@@ -46,6 +46,30 @@
       "revId": "a24a8d8b3c2942182d7e140d304f0ad201dec95d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e4ac95e_61312e11",
+        "filename": "drm/1.2/vts/functional/drm_hal_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1043093
+      },
+      "writtenOn": "2020-01-17T07:55:25Z",
+      "side": 1,
+      "message": "Done. In patchset 3 test only skips if clearkey uuid is not supported.",
+      "parentUuid": "f65fe59c_3f222bda",
+      "range": {
+        "startLine": 135,
+        "startChar": 0,
+        "endLine": 135,
+        "endChar": 55
+      },
+      "revId": "a24a8d8b3c2942182d7e140d304f0ad201dec95d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
