@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "59c17157_a52d2a42",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2020-01-17T23:18:34Z",
+      "side": 1,
+      "message": "This is copied over directly from the 1.4 HAL where it was named \"LTE\". All I did was change LTE -\u003e EUTRAN. Even the field itself is called \"LteVopsInfo\". :-(",
+      "parentUuid": "9624b122_e4364a51",
+      "range": {
+        "startLine": 684,
+        "startChar": 7,
+        "endLine": 684,
+        "endChar": 13
+      },
+      "revId": "f9cf4230aeb25a46e12b50dd4f9f7d967a56963e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0129c956_8f0e41e2",
         "filename": "radio/1.5/types.hal",
         "patchSetId": 2
@@ -59,6 +83,30 @@
       "writtenOn": "2020-01-17T23:06:57Z",
       "side": 1,
       "message": "Can we mention that on 1.5 and after VoiceRegStateResult DataRegStateResult will not be used anymore?\n\nAlso the name \"RegStateResult\" and then you have \"regState\" in it. How about rename this struct to \"RegistrationInfo\"",
+      "range": {
+        "startLine": 705,
+        "startChar": 7,
+        "endLine": 705,
+        "endChar": 21
+      },
+      "revId": "f9cf4230aeb25a46e12b50dd4f9f7d967a56963e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14b26a98_c95fa33a",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 705,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2020-01-17T23:18:34Z",
+      "side": 1,
+      "message": "I\u0027m ok with that. This is of course also just copied from the earlier versions which are VoiceRegStateResult and DataRegStateResult.\n\nlmk.",
+      "parentUuid": "0129c956_8f0e41e2",
       "range": {
         "startLine": 705,
         "startChar": 7,
