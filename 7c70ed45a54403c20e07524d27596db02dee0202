@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e85a5f81_7f280614",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2020-01-17T18:56:38Z",
+      "side": 1,
+      "message": "nit: usually, add an empty line between the first and second line to prevent the \"title\" of the change being too long.",
+      "revId": "7c70ed45a54403c20e07524d27596db02dee0202",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
