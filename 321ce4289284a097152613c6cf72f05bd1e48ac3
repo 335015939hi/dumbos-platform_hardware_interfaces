@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "142b029e_ffa3d3cf",
+        "filename": "keymaster/4.1/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1494277
+      },
+      "writtenOn": "2020-01-18T22:00:03Z",
+      "side": 1,
+      "message": "STORAGE_KEY right now only makes sense for AES keys. I am ok either to restrict it or to leave it open for any key type to be re-wrapped.",
+      "parentUuid": "fab46384_8b35390e",
+      "range": {
+        "startLine": 62,
+        "startChar": 18,
+        "endLine": 62,
+        "endChar": 27
+      },
+      "revId": "321ce4289284a097152613c6cf72f05bd1e48ac3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "109cdd84_10da5e57",
         "filename": "keymaster/4.1/types.hal",
         "patchSetId": 2
@@ -39,6 +63,24 @@
       "revId": "321ce4289284a097152613c6cf72f05bd1e48ac3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5556b4fc_3e6767f7",
+        "filename": "keymaster/4.1/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1494277
+      },
+      "writtenOn": "2020-01-18T22:00:03Z",
+      "side": 1,
+      "message": "Sure makes sense.",
+      "parentUuid": "109cdd84_10da5e57",
+      "revId": "321ce4289284a097152613c6cf72f05bd1e48ac3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
