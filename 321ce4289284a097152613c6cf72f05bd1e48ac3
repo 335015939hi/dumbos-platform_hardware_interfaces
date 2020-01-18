@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fab46384_8b35390e",
+        "filename": "keymaster/4.1/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1098493
+      },
+      "writtenOn": "2020-01-18T15:56:15Z",
+      "side": 1,
+      "message": "This comment is confusing, exportKey currently only exports the public key portion.  Is there another related feature for wrapping the private key as well?",
+      "range": {
+        "startLine": 62,
+        "startChar": 18,
+        "endLine": 62,
+        "endChar": 27
+      },
+      "revId": "321ce4289284a097152613c6cf72f05bd1e48ac3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "109cdd84_10da5e57",
+        "filename": "keymaster/4.1/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1098493
+      },
+      "writtenOn": "2020-01-18T15:56:15Z",
+      "side": 1,
+      "message": "Pl. describe an error for h/w that does not support type STORAGE_KEY.",
+      "revId": "321ce4289284a097152613c6cf72f05bd1e48ac3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
