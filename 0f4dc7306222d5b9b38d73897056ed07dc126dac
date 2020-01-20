@@ -22,6 +22,75 @@
       "revId": "0f4dc7306222d5b9b38d73897056ed07dc126dac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48912f1b_fe28bc30",
+        "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1308473
+      },
+      "writtenOn": "2020-01-20T11:57:53Z",
+      "side": 1,
+      "message": "error",
+      "range": {
+        "startLine": 55,
+        "startChar": 47,
+        "endLine": 55,
+        "endChar": 51
+      },
+      "revId": "0f4dc7306222d5b9b38d73897056ed07dc126dac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "adf49601_e8f050e8",
+        "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1308473
+      },
+      "writtenOn": "2020-01-20T11:57:53Z",
+      "side": 1,
+      "message": "error",
+      "range": {
+        "startLine": 86,
+        "startChar": 47,
+        "endLine": 86,
+        "endChar": 51
+      },
+      "revId": "0f4dc7306222d5b9b38d73897056ed07dc126dac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66b6d72d_ed063375",
+        "filename": "tetheroffload/control/1.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1308473
+      },
+      "writtenOn": "2020-01-20T11:57:53Z",
+      "side": 1,
+      "message": "IIUC ITetheringOffloadCallback#onEvent is using this, you should override that method for 1.1 version.",
+      "range": {
+        "startLine": 21,
+        "startChar": 34,
+        "endLine": 21,
+        "endChar": 54
+      },
+      "revId": "0f4dc7306222d5b9b38d73897056ed07dc126dac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
