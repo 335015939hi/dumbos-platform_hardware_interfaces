@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e01797f9_d38f719d",
+        "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2020-01-20T11:27:36Z",
+      "side": 1,
+      "message": "Note for reviewer:\n  for alert, we don\u0027t have iface parameter, see AbstractNetworkStatsProvider#setAlert().\n  Thus, for the API, we can:\n    1. call this function with unused upstream parameter. However, It might be hard\n      to implement given that it is easier to define behavior if new quota replace \n       any previous quota (soft|hard) associated with given interface.\n    2. expand 1 setAlert function call to a for-loop calls to HAL, with all\n       {previous|current} interface.",
+      "range": {
+        "startLine": 48,
+        "startChar": 12,
+        "endLine": 48,
+        "endChar": 20
+      },
+      "revId": "0f4dc7306222d5b9b38d73897056ed07dc126dac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
