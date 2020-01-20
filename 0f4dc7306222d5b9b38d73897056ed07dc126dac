@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "b79d6832_ed271c81",
+        "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2020-01-20T12:02:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48912f1b_fe28bc30",
+      "range": {
+        "startLine": 55,
+        "startChar": 47,
+        "endLine": 55,
+        "endChar": 51
+      },
+      "revId": "0f4dc7306222d5b9b38d73897056ed07dc126dac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "adf49601_e8f050e8",
         "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
         "patchSetId": 1
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "aaa24376_c4778bcf",
+        "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2020-01-20T12:02:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "adf49601_e8f050e8",
+      "range": {
+        "startLine": 86,
+        "startChar": 47,
+        "endLine": 86,
+        "endChar": 51
+      },
+      "revId": "0f4dc7306222d5b9b38d73897056ed07dc126dac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "66b6d72d_ed063375",
         "filename": "tetheroffload/control/1.1/types.hal",
         "patchSetId": 1
@@ -91,6 +139,30 @@
       "revId": "0f4dc7306222d5b9b38d73897056ed07dc126dac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d6186d8_43c03396",
+        "filename": "tetheroffload/control/1.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2020-01-20T12:02:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "66b6d72d_ed063375",
+      "range": {
+        "startLine": 21,
+        "startChar": 34,
+        "endLine": 21,
+        "endChar": 54
+      },
+      "revId": "0f4dc7306222d5b9b38d73897056ed07dc126dac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
