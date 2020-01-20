@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "4cc3dc52_d2b91bef",
+        "filename": "keymaster/4.1/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1494277
+      },
+      "writtenOn": "2020-01-20T18:35:29Z",
+      "side": 1,
+      "message": "when this tag is used, exportKey will re-wrap the symmetric key with an ephemeral per-boot key to be used for FBE.\nPlease check kernel changes that adds this support. https://android-review.googlesource.com/q/topic:%22fbe_wrapped_key_kernel%22+(status:open%20OR%20status:merged)\n\nAlso vold / libfscrypt changes: https://android-review.googlesource.com/q/topic:%22storagekey%22+(status:open%20OR%20status:merged)\n\nThis is specifically needed only for FBE, this tag cannot be used by apps, will be adding this restriction into keystore.",
+      "parentUuid": "11635e73_98d7072e",
+      "range": {
+        "startLine": 62,
+        "startChar": 18,
+        "endLine": 62,
+        "endChar": 27
+      },
+      "revId": "321ce4289284a097152613c6cf72f05bd1e48ac3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "109cdd84_10da5e57",
         "filename": "keymaster/4.1/types.hal",
         "patchSetId": 2
