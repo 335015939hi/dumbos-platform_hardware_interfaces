@@ -1,0 +1,58 @@
+/*
+ * Copyright (C) 2020 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package android.hardware.tetheroffload.control@1.1;
+
+import @1.0::IOffloadControl;
+
+/**
+ * Interface used to control the lifecycle of tethering offload
+ */
+interface IOffloadControl extends @1.0::IOffloadControl {
+  /**
+   * Instruct hardware to send a callback after quota bytes have been transferred in either
+   * direction on this upstream interface.
+   *
+   * The quota must be applied to all traffic on the given upstream interface. This includes
+   * hardware forwarded traffic, software forwarded traffic, and AP-originated traffic. IPv4 and
+   * IPv6 traffic both count towards the same quota. IP headers are included in the byte count
+   * quota, but, link-layer headers are not.
+   *
+   * This API may only be called while offload is occurring on this upstream.  The hardware
+   * management process is not expected to cache the value and apply the quota once offload is
+   * started.  This cache is not expected, because the quota value would likely become stale over
+   * time and would not reflect any new traffic that has occurred.
+   *
+   * The quota must replace any previous call with any quota specified on the same interface. It
+   * may be interpreted as "tell me when <quota> bytes have been transferred (in either direction)
+   * on <upstream>, starting now and counting from zero."
+   *
+   * Once the quota is reached, the callback registered in initOffload must be called to indicate
+   * this event. Once the alert fires for this upstream, no further alert will be fired for this
+   * upstream unless this method is called again with the same interface. Note that it is not
+   * necessary to call initOffload again to resume offload if stopOffload
+   * was not called by the client. A caller may call both {@code setDataAlert} and
+   * {@code setDataLimit}, and both limits must be able to operate independently.
+   *
+   * @param upstream Upstream interface name that quota must apply to.
+   * @param quota The quota defined as the number of bytes, starting from zero and counting from
+   *              now.
+   *
+   * @return success true if quota is applied, false otherwise
+   * @return errMsg a human readable string if error has occurred.
+   */
+  setDataAlert(string upstream, uint64_t quota) generates (bool success, string errMsg);
+};
