@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "11635e73_98d7072e",
+        "filename": "keymaster/4.1/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1098493
+      },
+      "writtenOn": "2020-01-20T16:40:27Z",
+      "side": 1,
+      "message": "So exportKey() does not, as of KM 4.0, support wrapping/export of symmetric keys.  Is that a separate pending change?",
+      "parentUuid": "142b029e_ffa3d3cf",
+      "range": {
+        "startLine": 62,
+        "startChar": 18,
+        "endLine": 62,
+        "endChar": 27
+      },
+      "revId": "321ce4289284a097152613c6cf72f05bd1e48ac3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "109cdd84_10da5e57",
         "filename": "keymaster/4.1/types.hal",
         "patchSetId": 2
