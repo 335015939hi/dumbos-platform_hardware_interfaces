@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1537f7b4_bc1769d1",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 673,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-21T19:26:10Z",
+      "side": 1,
+      "message": "is this a better candidate for an enum? If not, should use an int8_t to pack this next to cssSupported?",
+      "range": {
+        "startLine": 673,
+        "startChar": 9,
+        "endLine": 673,
+        "endChar": 51
+      },
+      "revId": "4b98a5679b27617e4dbf20a074b6fdb00b57bc52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36900684_261d0b94",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 735,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-21T19:26:10Z",
+      "side": 1,
+      "message": "document standard w/ format?",
+      "range": {
+        "startLine": 732,
+        "startChar": 0,
+        "endLine": 735,
+        "endChar": 26
+      },
+      "revId": "4b98a5679b27617e4dbf20a074b6fdb00b57bc52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2792737b_3d39c6da",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 740,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-21T19:26:10Z",
+      "side": 1,
+      "message": "nit: define union in place, since used once",
+      "range": {
+        "startLine": 740,
+        "startChar": 4,
+        "endLine": 740,
+        "endChar": 44
+      },
+      "revId": "4b98a5679b27617e4dbf20a074b6fdb00b57bc52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
