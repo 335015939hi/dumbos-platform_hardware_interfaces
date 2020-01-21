@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1d3b6f8a_904dd157",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-21T20:51:22Z",
+      "side": 1,
+      "message": "out of date?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 36
+      },
+      "revId": "b78ea4732e6f183d829abe425989b61af9e06b12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ca4c524_5bdabbec",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-21T20:51:22Z",
+      "side": 1,
+      "message": "if we go down this path, should we remove the other boilerplate that\u0027s implementing the other way? (see comment first)",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 43
+      },
+      "revId": "b78ea4732e6f183d829abe425989b61af9e06b12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89bdda69_fd42deee",
+        "filename": "drm/1.2/vts/functional/drm_hal_common.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-21T20:51:22Z",
+      "side": 1,
+      "message": "don\u0027t we want to run it on other tests which don\u0027t require the vendor module?",
+      "range": {
+        "startLine": 128,
+        "startChar": 8,
+        "endLine": 128,
+        "endChar": 18
+      },
+      "revId": "b78ea4732e6f183d829abe425989b61af9e06b12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
