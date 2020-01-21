@@ -48,6 +48,54 @@
     },
     {
       "key": {
+        "uuid": "e5198c41_f3e558ac",
+        "filename": "power/aidl/android/hardware/power/IPower.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1043625
+      },
+      "writtenOn": "2020-01-21T22:39:08Z",
+      "side": 1,
+      "message": "Fair point. Pulled it into ro.power.fixed_performance_scale_factor defined here:\nhttps://android-review.googlesource.com/c/platform/system/libsysprop/+/1214538",
+      "parentUuid": "abb22e9c_b0223793",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 41
+      },
+      "revId": "fbd4c5b15e63a91dc1e0eb93e64cab6fa52b47f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "653bc77e_c623d084",
+        "filename": "power/aidl/android/hardware/power/IPower.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1043625
+      },
+      "writtenOn": "2020-01-21T22:39:08Z",
+      "side": 1,
+      "message": "It\u0027s intended to be fixed-point integer, since we are more interested in binning into tiers than getting the exact performance level of the device.",
+      "parentUuid": "089781af_cfde54aa",
+      "range": {
+        "startLine": 88,
+        "startChar": 4,
+        "endLine": 88,
+        "endChar": 7
+      },
+      "revId": "fbd4c5b15e63a91dc1e0eb93e64cab6fa52b47f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8f26cd76_c3bb6704",
         "filename": "power/aidl/android/hardware/power/IPower.aidl",
         "patchSetId": 6
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "c01f698d_8cd24042",
+        "filename": "power/aidl/android/hardware/power/IPower.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1043625
+      },
+      "writtenOn": "2020-01-21T22:39:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f26cd76_c3bb6704",
+      "range": {
+        "startLine": 111,
+        "startChar": 49,
+        "endLine": 111,
+        "endChar": 58
+      },
+      "revId": "fbd4c5b15e63a91dc1e0eb93e64cab6fa52b47f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cda2a7b7_ce318a9b",
         "filename": "power/aidl/android/hardware/power/IPower.aidl",
         "patchSetId": 6
@@ -82,6 +154,30 @@
       "writtenOn": "2020-01-21T21:27:59Z",
       "side": 1,
       "message": "if possible can we also give pgid for easier handling data.\nalso do we really need this, since setThreadHint will pass tid anyway.",
+      "range": {
+        "startLine": 126,
+        "startChar": 58,
+        "endLine": 126,
+        "endChar": 59
+      },
+      "revId": "fbd4c5b15e63a91dc1e0eb93e64cab6fa52b47f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d502472_ab518c29",
+        "filename": "power/aidl/android/hardware/power/IPower.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1043625
+      },
+      "writtenOn": "2020-01-21T22:39:08Z",
+      "side": 1,
+      "message": "I think we still need it, because there\u0027s no guarantee that an app that does care about DPF will call setThreadHint (they might only care about thermal and loadChanged, for example). Passing the pgid is a good idea, though.",
+      "parentUuid": "cda2a7b7_ce318a9b",
       "range": {
         "startLine": 126,
         "startChar": 58,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "d83ecc81_426f1d14",
+        "filename": "power/aidl/android/hardware/power/IPower.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1043625
+      },
+      "writtenOn": "2020-01-21T22:39:08Z",
+      "side": 1,
+      "message": "The info is coming from the app directly. The goal here is to allow the app to notify us before we actually could even theoretically measure a load change. Basically stuff like \"I just turned a corner and now I have twice as many entities to render. I haven\u0027t started rendering them yet, but you probably want to boost clocks so I don\u0027t drop the next frame.\"",
+      "parentUuid": "ae6b80ef_cc0ba91e",
+      "range": {
+        "startLine": 146,
+        "startChar": 19,
+        "endLine": 146,
+        "endChar": 26
+      },
+      "revId": "fbd4c5b15e63a91dc1e0eb93e64cab6fa52b47f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ebc7dce4_772170bb",
         "filename": "power/aidl/android/hardware/power/IPower.aidl",
         "patchSetId": 6
@@ -128,6 +248,30 @@
       "writtenOn": "2020-01-21T21:27:59Z",
       "side": 1,
       "message": "any guarantee, tid is part of TA?",
+      "range": {
+        "startLine": 167,
+        "startChar": 30,
+        "endLine": 167,
+        "endChar": 43
+      },
+      "revId": "fbd4c5b15e63a91dc1e0eb93e64cab6fa52b47f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8dd36a2c_8c17814d",
+        "filename": "power/aidl/android/hardware/power/IPower.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1043625
+      },
+      "writtenOn": "2020-01-21T22:39:08Z",
+      "side": 1,
+      "message": "There\u0027s not, but we can filter out any non-TA tids in the framework before calling into the HAL",
+      "parentUuid": "ebc7dce4_772170bb",
       "range": {
         "startLine": 167,
         "startChar": 30,
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "4d996573_e5422ba1",
+        "filename": "power/aidl/android/hardware/power/Mode.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1043625
+      },
+      "writtenOn": "2020-01-21T22:39:08Z",
+      "side": 1,
+      "message": "Fair point. Killed it.",
+      "parentUuid": "feda22d5_30245bb0",
+      "range": {
+        "startLine": 59,
+        "startChar": 4,
+        "endLine": 59,
+        "endChar": 30
+      },
+      "revId": "fbd4c5b15e63a91dc1e0eb93e64cab6fa52b47f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "41f6a15b_b56812c9",
         "filename": "power/aidl/android/hardware/power/Mode.aidl",
         "patchSetId": 6
@@ -186,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "42092de1_6de515bc",
+        "filename": "power/aidl/android/hardware/power/Mode.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1043625
+      },
+      "writtenOn": "2020-01-21T22:39:08Z",
+      "side": 1,
+      "message": "I\u0027m working with the game certification team to come up with a workload that we can fold into VTS for this purpose.",
+      "parentUuid": "41f6a15b_b56812c9",
+      "range": {
+        "startLine": 65,
+        "startChar": 25,
+        "endLine": 65,
+        "endChar": 26
+      },
+      "revId": "fbd4c5b15e63a91dc1e0eb93e64cab6fa52b47f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "38520d9f_b482a374",
         "filename": "power/aidl/android/hardware/power/ThreadHint.aidl",
         "patchSetId": 6
@@ -197,6 +389,30 @@
       "writtenOn": "2020-01-21T21:27:59Z",
       "side": 1,
       "message": "we should have a NORMAL one",
+      "range": {
+        "startLine": 21,
+        "startChar": 5,
+        "endLine": 21,
+        "endChar": 15
+      },
+      "revId": "fbd4c5b15e63a91dc1e0eb93e64cab6fa52b47f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dca5a5b1_a7c10d85",
+        "filename": "power/aidl/android/hardware/power/ThreadHint.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1043625
+      },
+      "writtenOn": "2020-01-21T22:39:08Z",
+      "side": 1,
+      "message": "Can we not assume that NORMAL is just the absence of the other two? I don\u0027t know that there\u0027s value in having the app tag every one of its threads, especially now that we\u0027re passing the pgid in.",
+      "parentUuid": "38520d9f_b482a374",
       "range": {
         "startLine": 21,
         "startChar": 5,
