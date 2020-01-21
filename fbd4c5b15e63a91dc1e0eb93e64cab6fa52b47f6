@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "36baf3a7_fca7ce0c",
+        "filename": "power/aidl/android/hardware/power/IPower.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1043625
+      },
+      "writtenOn": "2020-01-21T23:57:11Z",
+      "side": 1,
+      "message": "We\u0027ll need access to this from VTS somewhere. Can those tests get at overlay settings?",
+      "parentUuid": "11778437_68c10913",
+      "range": {
+        "startLine": 88,
+        "startChar": 4,
+        "endLine": 88,
+        "endChar": 7
+      },
+      "revId": "fbd4c5b15e63a91dc1e0eb93e64cab6fa52b47f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8f26cd76_c3bb6704",
         "filename": "power/aidl/android/hardware/power/IPower.aidl",
         "patchSetId": 6
@@ -238,6 +262,30 @@
     },
     {
       "key": {
+        "uuid": "d2202eeb_96d37683",
+        "filename": "power/aidl/android/hardware/power/IPower.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1043625
+      },
+      "writtenOn": "2020-01-21T23:57:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f02bd742_76e66633",
+      "range": {
+        "startLine": 126,
+        "startChar": 58,
+        "endLine": 126,
+        "endChar": 59
+      },
+      "revId": "fbd4c5b15e63a91dc1e0eb93e64cab6fa52b47f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ae6b80ef_cc0ba91e",
         "filename": "power/aidl/android/hardware/power/IPower.aidl",
         "patchSetId": 6
@@ -309,6 +357,30 @@
     },
     {
       "key": {
+        "uuid": "2bb0a2d3_6fe44348",
+        "filename": "power/aidl/android/hardware/power/IPower.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1043625
+      },
+      "writtenOn": "2020-01-21T23:57:11Z",
+      "side": 1,
+      "message": "This will also be gated by TA. I\u0027m not sure exactly how we could throttle it other than a rate limit (similar to the thermal API), since I don\u0027t know that we want to artificially constrain the range of work, but that is something we could consider at some point.",
+      "parentUuid": "914d9ffb_e78f6421",
+      "range": {
+        "startLine": 146,
+        "startChar": 19,
+        "endLine": 146,
+        "endChar": 26
+      },
+      "revId": "fbd4c5b15e63a91dc1e0eb93e64cab6fa52b47f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ebc7dce4_772170bb",
         "filename": "power/aidl/android/hardware/power/IPower.aidl",
         "patchSetId": 6
@@ -368,6 +440,30 @@
       "side": 1,
       "message": "then we can grantee things coming to HAL, right.",
       "parentUuid": "8dd36a2c_8c17814d",
+      "range": {
+        "startLine": 167,
+        "startChar": 30,
+        "endLine": 167,
+        "endChar": 43
+      },
+      "revId": "fbd4c5b15e63a91dc1e0eb93e64cab6fa52b47f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2680e501_0280af57",
+        "filename": "power/aidl/android/hardware/power/IPower.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1043625
+      },
+      "writtenOn": "2020-01-21T23:57:11Z",
+      "side": 1,
+      "message": "Ah, I see what you\u0027re saying. Added a comment.",
+      "parentUuid": "679d3a6a_16c93174",
       "range": {
         "startLine": 167,
         "startChar": 30,
@@ -522,6 +618,30 @@
     },
     {
       "key": {
+        "uuid": "e7e6c094_936978cb",
+        "filename": "power/aidl/android/hardware/power/Mode.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1043625
+      },
+      "writtenOn": "2020-01-21T23:57:11Z",
+      "side": 1,
+      "message": "This was intentionally left vague to avoid turning it into a chamber test. Fundamentally the 10-second repeatability is the main objective here more so than the long term stability. We just don\u0027t want this to be \"max clocks\" so there\u0027s some level of thermal headroom while in this mode. We expect that any testing framework that relies on this mode will also tune into the thermal APIs and will take some responsibility for making sure the device is in a reasonable environment.",
+      "parentUuid": "c3e33020_21b86bb2",
+      "range": {
+        "startLine": 65,
+        "startChar": 25,
+        "endLine": 65,
+        "endChar": 26
+      },
+      "revId": "fbd4c5b15e63a91dc1e0eb93e64cab6fa52b47f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "38520d9f_b482a374",
         "filename": "power/aidl/android/hardware/power/ThreadHint.aidl",
         "patchSetId": 6
@@ -581,6 +701,30 @@
       "side": 1,
       "message": "I was thinking of make the API \n    oneway void setThreadHint(in int thread, in ThreadHint hint)\nand eliminating the bool there.\n\ndo you want to set both HIGH_UTILIZATION | LOW_LATENCY...\n\nalso do you want to have a hint for placing a low util clamp\n\ne.g.LOW_UTILIZATION",
       "parentUuid": "dca5a5b1_a7c10d85",
+      "range": {
+        "startLine": 21,
+        "startChar": 5,
+        "endLine": 21,
+        "endChar": 15
+      },
+      "revId": "fbd4c5b15e63a91dc1e0eb93e64cab6fa52b47f6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "687376d6_8aa4fa41",
+        "filename": "power/aidl/android/hardware/power/ThreadHint.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1043625
+      },
+      "writtenOn": "2020-01-21T23:57:11Z",
+      "side": 1,
+      "message": "When we spoke to vendors, they wanted us to break those out separately so you can have one or the other or both, just to give them more information about the workload.\n\nWe didn\u0027t specify a low-utilization state because we want to experiment with util clamp before committing to making that one of the hints, but we can always extend this later if it turns out to be useful.",
+      "parentUuid": "6f4f2f0c_8f4ffdaa",
       "range": {
         "startLine": 21,
         "startChar": 5,
