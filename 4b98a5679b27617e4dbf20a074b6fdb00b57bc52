@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d2d48946_e614582d",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 673,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2020-01-21T20:44:39Z",
+      "side": 1,
+      "message": "We really avoid using any data types other than int32_t because it has bitten us badly before. :-( Enum \u003d\u003d done.",
+      "parentUuid": "1537f7b4_bc1769d1",
+      "range": {
+        "startLine": 673,
+        "startChar": 9,
+        "endLine": 673,
+        "endChar": 51
+      },
+      "revId": "4b98a5679b27617e4dbf20a074b6fdb00b57bc52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36900684_261d0b94",
         "filename": "radio/1.5/types.hal",
         "patchSetId": 4
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "ed8dcb1b_125afc3e",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 735,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2020-01-21T20:44:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36900684_261d0b94",
+      "range": {
+        "startLine": 732,
+        "startChar": 0,
+        "endLine": 735,
+        "endChar": 26
+      },
+      "revId": "4b98a5679b27617e4dbf20a074b6fdb00b57bc52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2792737b_3d39c6da",
         "filename": "radio/1.5/types.hal",
         "patchSetId": 4
@@ -68,6 +116,30 @@
       "revId": "4b98a5679b27617e4dbf20a074b6fdb00b57bc52",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "380f1c33_7d916c45",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 740,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2020-01-21T20:44:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2792737b_3d39c6da",
+      "range": {
+        "startLine": 740,
+        "startChar": 4,
+        "endLine": 740,
+        "endChar": 44
+      },
+      "revId": "4b98a5679b27617e4dbf20a074b6fdb00b57bc52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
