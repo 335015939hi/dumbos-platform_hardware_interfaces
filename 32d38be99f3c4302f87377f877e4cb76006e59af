@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6bce6521_d7cab25a",
+        "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2020-01-21T10:11:32Z",
+      "side": 1,
+      "message": "Should this include only tether offload traffic? Or all traffic on the interface, like the current setDataLimit? Probably best to be consistent.",
+      "range": {
+        "startLine": 30,
+        "startChar": 5,
+        "endLine": 30,
+        "endChar": 31
+      },
+      "revId": "32d38be99f3c4302f87377f877e4cb76006e59af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41fccccf_1d84c7e3",
+        "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2020-01-21T10:11:32Z",
+      "side": 1,
+      "message": ", and if",
+      "range": {
+        "startLine": 43,
+        "startChar": 72,
+        "endLine": 43,
+        "endChar": 75
+      },
+      "revId": "32d38be99f3c4302f87377f877e4cb76006e59af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b83f68c_089ab929",
+        "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2020-01-21T10:11:32Z",
+      "side": 1,
+      "message": "If isLimit is false, the hardware must continue forwarding traffic when the quota is reached.",
+      "range": {
+        "startLine": 46,
+        "startChar": 84,
+        "endLine": 46,
+        "endChar": 85
+      },
+      "revId": "32d38be99f3c4302f87377f877e4cb76006e59af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83c2d31f_acfe1aa2",
+        "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2020-01-21T10:11:32Z",
+      "side": 1,
+      "message": "Should this count only tethering offload traffic, or all traffic on the interface?",
+      "range": {
+        "startLine": 66,
+        "startChar": 53,
+        "endLine": 66,
+        "endChar": 79
+      },
+      "revId": "32d38be99f3c4302f87377f877e4cb76006e59af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "867ab3d9_8c0e6e60",
+        "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2020-01-21T10:11:32Z",
+      "side": 1,
+      "message": "Should also say something like:\n\nA caller may call both setDataAlert and setDataLimit, and both limits must be able to operate independently.\n\nAlso:\n\nOnce the alert fires, no further alerts will fire unless this method is called again.",
+      "range": {
+        "startLine": 81,
+        "startChar": 45,
+        "endLine": 81,
+        "endChar": 1
+      },
+      "revId": "32d38be99f3c4302f87377f877e4cb76006e59af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
