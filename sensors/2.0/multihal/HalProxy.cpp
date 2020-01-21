@@ -567,8 +567,11 @@ void HalProxy::postEventsToMessageQueue(const std::vector<Event>& events, size_t
         }
     }
     size_t numLeft = events.size() - numToWrite;
-    if (numToWrite < events.size() &&
-        mSizePendingWriteEventsQueue + numLeft <= kMaxSizePendingWriteEventsQueue) {
+    if (numToWrite < events.size()
+#ifdef LIMIT_PENDING_QUEUE_SIZE
+        && mSizePendingWriteEventsQueue + numLeft <= kMaxSizePendingWriteEventsQueue
+#endif
+    ) {
         std::vector<Event> eventsLeft(events.begin() + numToWrite, events.end());
         mPendingWriteEventsQueue.push({eventsLeft, numWakeupEvents});
         mSizePendingWriteEventsQueue += numLeft;
