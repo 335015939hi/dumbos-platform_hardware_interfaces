@@ -210,6 +210,30 @@
       "revId": "32d38be99f3c4302f87377f877e4cb76006e59af",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "119595b5_fdabf113",
+        "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2020-01-21T11:21:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "867ab3d9_8c0e6e60",
+      "range": {
+        "startLine": 81,
+        "startChar": 45,
+        "endLine": 81,
+        "endChar": 1
+      },
+      "revId": "32d38be99f3c4302f87377f877e4cb76006e59af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
