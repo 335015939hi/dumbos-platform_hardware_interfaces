@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "70f51b03_e72a3c37",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 691,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2020-01-21T23:41:24Z",
+      "side": 1,
+      "message": "I\u0027m going to do this in a separate change.",
+      "range": {
+        "startLine": 691,
+        "startChar": 15,
+        "endLine": 691,
+        "endChar": 38
+      },
+      "revId": "3132afef785ff4f992bd5623ed564e309951b20e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
