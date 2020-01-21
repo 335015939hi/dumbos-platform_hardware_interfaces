@@ -14,6 +14,12 @@
 // limitations under the License.
 //
 
+cc_library_headers {
+    name: "libdrmvtshelper_headers",
+    defaults: ["VtsHalTargetTestDefaults"],
+    export_include_dirs: ["include"],
+}
+
 cc_test {
     name: "VtsHalDrmV1_0TargetTest",
     defaults: ["VtsHalTargetTestDefaults"],
