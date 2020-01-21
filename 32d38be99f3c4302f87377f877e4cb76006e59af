@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a849c2d2_96e62678",
+        "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2020-01-21T11:11:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6bce6521_d7cab25a",
+      "range": {
+        "startLine": 30,
+        "startChar": 5,
+        "endLine": 30,
+        "endChar": 31
+      },
+      "revId": "32d38be99f3c4302f87377f877e4cb76006e59af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "41fccccf_1d84c7e3",
         "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "32d38be99f3c4302f87377f877e4cb76006e59af",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab90f9d7_356d35d3",
+        "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2020-01-21T11:11:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41fccccf_1d84c7e3",
+      "range": {
+        "startLine": 43,
+        "startChar": 72,
+        "endLine": 43,
+        "endChar": 75
+      },
+      "revId": "32d38be99f3c4302f87377f877e4cb76006e59af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "8dd623b6_3b9c21b2",
+        "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2020-01-21T11:11:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b83f68c_089ab929",
+      "range": {
+        "startLine": 46,
+        "startChar": 84,
+        "endLine": 46,
+        "endChar": 85
+      },
+      "revId": "32d38be99f3c4302f87377f877e4cb76006e59af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "83c2d31f_acfe1aa2",
         "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
         "patchSetId": 2
@@ -91,6 +163,30 @@
       "revId": "32d38be99f3c4302f87377f877e4cb76006e59af",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62e6642a_1dee81ac",
+        "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2020-01-21T11:11:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83c2d31f_acfe1aa2",
+      "range": {
+        "startLine": 66,
+        "startChar": 53,
+        "endLine": 66,
+        "endChar": 79
+      },
+      "revId": "32d38be99f3c4302f87377f877e4cb76006e59af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
