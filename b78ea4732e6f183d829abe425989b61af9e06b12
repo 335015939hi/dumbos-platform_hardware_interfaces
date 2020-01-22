@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "29593093_cfc7213b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1043093
+      },
+      "writtenOn": "2020-01-22T03:19:38Z",
+      "side": 1,
+      "message": "getModuleByName is still required. The original getModule expects a path to the vendor module shared library (e.g. /path/to/vendor/module.so) not an instance name (default, widevine, clearkey, etc).",
+      "parentUuid": "1d3b6f8a_904dd157",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 36
+      },
+      "revId": "b78ea4732e6f183d829abe425989b61af9e06b12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ca4c524_5bdabbec",
         "filename": "/COMMIT_MSG",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "0a0a9a43_100fce65",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1043093
+      },
+      "writtenOn": "2020-01-22T03:19:38Z",
+      "side": 1,
+      "message": "You are correct in that RETURN_IF_SKIPPED would be unnecessary if we do GTEST_SKIP in setup.",
+      "parentUuid": "3ca4c524_5bdabbec",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 43
+      },
+      "revId": "b78ea4732e6f183d829abe425989b61af9e06b12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "89bdda69_fd42deee",
         "filename": "drm/1.2/vts/functional/drm_hal_common.cpp",
         "patchSetId": 3
@@ -68,6 +116,30 @@
       "revId": "b78ea4732e6f183d829abe425989b61af9e06b12",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d67cc492_63e43346",
+        "filename": "drm/1.2/vts/functional/drm_hal_common.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1043093
+      },
+      "writtenOn": "2020-01-22T03:19:38Z",
+      "side": 1,
+      "message": "We can remove the `drmFactory.get() \u003d\u003d nullptr` check since we just did `ASSERT_NE(drmFactory, nullptr);` above on line 110.\n\nAll the 1.2 tests have RETURN_IF_SKIPPED at the beginning, i.e. tests would skip if vendorModule-\u003eisInstalled equals false. GTEST_SKIP here should have the same effect.",
+      "parentUuid": "89bdda69_fd42deee",
+      "range": {
+        "startLine": 128,
+        "startChar": 8,
+        "endLine": 128,
+        "endChar": 18
+      },
+      "revId": "b78ea4732e6f183d829abe425989b61af9e06b12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
