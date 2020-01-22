@@ -22,6 +22,30 @@
       "revId": "062679c5dbb47e5ca7fae5643d7a6a40795f90bd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ae62d12_4ef55c84",
+        "filename": "audio/policy/1.0/xml/audio_policy_engine_configuration.xsd",
+        "patchSetId": 8
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2020-01-22T18:04:40Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "38aa6cef_431e8516",
+      "range": {
+        "startLine": 307,
+        "startChar": 0,
+        "endLine": 307,
+        "endChar": 0
+      },
+      "revId": "062679c5dbb47e5ca7fae5643d7a6a40795f90bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
