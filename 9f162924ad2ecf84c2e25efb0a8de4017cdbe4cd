@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "36dde520_1c0ff56b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1315593
+      },
+      "writtenOn": "2020-01-22T02:33:41Z",
+      "side": 1,
+      "message": "add \"Test: \u003chow you\u0027ve tested the fix\u003e\"",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 14
+      },
+      "revId": "9f162924ad2ecf84c2e25efb0a8de4017cdbe4cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8aca79fb_3a848da5",
+        "filename": "gnss/1.0/vts/functional/VtsHalGnssV1_0TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1315593
+      },
+      "writtenOn": "2020-01-22T02:33:41Z",
+      "side": 1,
+      "message": "this should probably be removed, or at very least commented out",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 20
+      },
+      "revId": "9f162924ad2ecf84c2e25efb0a8de4017cdbe4cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82b4e13c_80a98cd1",
+        "filename": "gnss/1.0/vts/functional/VtsHalGnssV1_0TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1315593
+      },
+      "writtenOn": "2020-01-22T02:33:41Z",
+      "side": 1,
+      "message": "get rid of this",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 33
+      },
+      "revId": "9f162924ad2ecf84c2e25efb0a8de4017cdbe4cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0bc80e8_9c39d79f",
+        "filename": "gnss/1.0/vts/functional/VtsHalGnssV1_0TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1315593
+      },
+      "writtenOn": "2020-01-22T02:33:41Z",
+      "side": 1,
+      "message": "better practice for this to be initialized to a known good value, possibly something like this:\n\nchar buffer[PROPERTY_VALUE_MAX] \u003d {0};",
+      "range": {
+        "startLine": 45,
+        "startChar": 2,
+        "endLine": 45,
+        "endChar": 34
+      },
+      "revId": "9f162924ad2ecf84c2e25efb0a8de4017cdbe4cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f887abd1_4e023d87",
+        "filename": "gnss/1.1/vts/functional/gnss_hal_test_cases.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1315593
+      },
+      "writtenOn": "2020-01-22T02:33:41Z",
+      "side": 1,
+      "message": "initialize to known value",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 34
+      },
+      "revId": "9f162924ad2ecf84c2e25efb0a8de4017cdbe4cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
