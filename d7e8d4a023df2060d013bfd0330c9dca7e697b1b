@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ae7fc48_68fcfb0f",
+        "filename": "radio/1.5/IRadio.hal",
+        "patchSetId": 11
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2020-01-22T22:25:01Z",
+      "side": 1,
+      "message": "As mentioned this is identical to sendCdmaSms. If you want \"expect more\" (which is not a very good name, stay connected maybe a more accurate name), you should add extra param to the existing API sendCdmaSms, not adding a new function.\n\nThe bad thing is that we already have an incorrect sendSMSExpectMore API for GSM there, but that doesn\u0027t mean we should be wrong again.",
+      "range": {
+        "startLine": 251,
+        "startChar": 7,
+        "endLine": 251,
+        "endChar": 53
+      },
+      "revId": "d7e8d4a023df2060d013bfd0330c9dca7e697b1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
