@@ -77,7 +77,6 @@ DrmHalVTSVendorModule* VendorModules::getModuleByName(const string& name) {
         if (module->getServiceName() == name) {
             return module;
         }
-
     }
     return NULL;
 }
