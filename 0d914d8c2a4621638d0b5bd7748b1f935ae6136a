@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eb0922c6_178ceea2",
+        "filename": "secure_element/1.2/ISecureElement.hal",
+        "patchSetId": 8
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2020-01-22T20:08:19Z",
+      "side": 1,
+      "message": "must",
+      "range": {
+        "startLine": 27,
+        "startChar": 11,
+        "endLine": 27,
+        "endChar": 17
+      },
+      "revId": "0d914d8c2a4621638d0b5bd7748b1f935ae6136a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
