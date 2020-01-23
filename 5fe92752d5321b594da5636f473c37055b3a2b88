@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b6cbb6a6_e3aa5e12",
+        "filename": "gnss/1.0/vts/functional/VtsHalGnssV1_0TargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1315593
+      },
+      "writtenOn": "2020-01-23T00:48:44Z",
+      "side": 1,
+      "message": "sorry to be so nit-picky, but we don\u0027t usually leave a space between braces, instead it\u0027s really just {0}",
+      "range": {
+        "startLine": 42,
+        "startChar": 36,
+        "endLine": 42,
+        "endChar": 41
+      },
+      "revId": "5fe92752d5321b594da5636f473c37055b3a2b88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b45b570_bc9efb10",
+        "filename": "gnss/1.1/vts/functional/gnss_hal_test_cases.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1315593
+      },
+      "writtenOn": "2020-01-23T00:48:44Z",
+      "side": 1,
+      "message": "sorry to be so nit-picky, but we don\u0027t usually leave a space between braces, instead it\u0027s really just {0}",
+      "range": {
+        "startLine": 35,
+        "startChar": 36,
+        "endLine": 35,
+        "endChar": 41
+      },
+      "revId": "5fe92752d5321b594da5636f473c37055b3a2b88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
