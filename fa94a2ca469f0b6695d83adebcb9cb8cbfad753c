@@ -16,6 +16,24 @@
       "revId": "fa94a2ca469f0b6695d83adebcb9cb8cbfad753c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2761796f_94ccc86c",
+        "filename": "tv/tuner/1.0/vts/functional/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1345588
+      },
+      "writtenOn": "2020-01-23T16:57:39Z",
+      "side": 1,
+      "message": "Do you mean the require_root part?",
+      "parentUuid": "161deb58_7c97a38a",
+      "revId": "fa94a2ca469f0b6695d83adebcb9cb8cbfad753c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
