@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "161deb58_7c97a38a",
+        "filename": "tv/tuner/1.0/vts/functional/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2020-01-23T16:54:24Z",
+      "side": 1,
+      "message": "This is not needed, VtsHalTargetTestDefaults already has it.",
+      "revId": "fa94a2ca469f0b6695d83adebcb9cb8cbfad753c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
