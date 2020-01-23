@@ -34,6 +34,24 @@
       "revId": "fa94a2ca469f0b6695d83adebcb9cb8cbfad753c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "774f6f39_199013dd",
+        "filename": "tv/tuner/1.0/vts/functional/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1345588
+      },
+      "writtenOn": "2020-01-23T16:58:46Z",
+      "side": 1,
+      "message": "Will remove them in the internal master also.",
+      "parentUuid": "2761796f_94ccc86c",
+      "revId": "fa94a2ca469f0b6695d83adebcb9cb8cbfad753c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
