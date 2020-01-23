@@ -22,6 +22,30 @@
       "revId": "ab61b8024e6453c9b3195e221b19424ea9e65769",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1fd767bd_8b206688",
+        "filename": "drm/1.2/vts/functional/drm_hal_common.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1043093
+      },
+      "writtenOn": "2020-01-23T21:06:30Z",
+      "side": 1,
+      "message": "This represents error when the vendor module handles the response to the request obtained via getProvisionRequest_1_2.",
+      "parentUuid": "01b71bda_f13ceaef",
+      "range": {
+        "startLine": 201,
+        "startChar": 8,
+        "endLine": 201,
+        "endChar": 17
+      },
+      "revId": "ab61b8024e6453c9b3195e221b19424ea9e65769",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
