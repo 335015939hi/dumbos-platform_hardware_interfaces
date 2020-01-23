@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "01b71bda_f13ceaef",
+        "filename": "drm/1.2/vts/functional/drm_hal_common.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1005970
+      },
+      "writtenOn": "2020-01-23T18:57:27Z",
+      "side": 1,
+      "message": "Just curious, why assert here and not earlier in getProvisionRequest_1_2 if it encounters an error?",
+      "range": {
+        "startLine": 201,
+        "startChar": 8,
+        "endLine": 201,
+        "endChar": 17
+      },
+      "revId": "ab61b8024e6453c9b3195e221b19424ea9e65769",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
