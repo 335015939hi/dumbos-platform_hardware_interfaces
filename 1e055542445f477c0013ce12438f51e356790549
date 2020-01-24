@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1119de2b_7a9dff84",
+        "filename": "power/aidl/android/hardware/power/Hint.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1105075
+      },
+      "writtenOn": "2020-01-24T18:28:26Z",
+      "side": 1,
+      "message": "the enum called Hint, \nso I would rather explain what XXX is instead of saying \"Whether XXX is supported\"\notherwise the enum would be called Capability",
+      "range": {
+        "startLine": 23,
+        "startChar": 7,
+        "endLine": 23,
+        "endChar": 40
+      },
+      "revId": "1e055542445f477c0013ce12438f51e356790549",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61ad0c20_0b72e121",
+        "filename": "power/aidl/vts/VtsHalPowerTargetTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1105075
+      },
+      "writtenOn": "2020-01-24T18:28:26Z",
+      "side": 1,
+      "message": "0 isn\u0027t a valid pid for userspace, if we want to restrict, make it fail. or maybe just leave that from VTS?",
+      "range": {
+        "startLine": 153,
+        "startChar": 46,
+        "endLine": 153,
+        "endChar": 47
+      },
+      "revId": "1e055542445f477c0013ce12438f51e356790549",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
