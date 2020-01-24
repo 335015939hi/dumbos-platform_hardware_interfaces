@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4807ab91_2fec25ac",
+        "filename": "drm/1.0/vts/functional/include/drm_vts_helper.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1005970
+      },
+      "writtenOn": "2020-01-24T00:51:53Z",
+      "side": 1,
+      "message": "nit: remove space please",
+      "range": {
+        "startLine": 25,
+        "startChar": 1,
+        "endLine": 25,
+        "endChar": 2
+      },
+      "revId": "d46af360fa18a2cc00b0bc8549893d3c6143da3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "baf558d9_5f8e67f0",
+        "filename": "drm/1.0/vts/functional/include/drm_vts_helper.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1005970
+      },
+      "writtenOn": "2020-01-24T00:51:53Z",
+      "side": 1,
+      "message": "shall we pass by reference and add const?",
+      "range": {
+        "startLine": 39,
+        "startChar": 25,
+        "endLine": 39,
+        "endChar": 31
+      },
+      "revId": "d46af360fa18a2cc00b0bc8549893d3c6143da3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88203410_fa55bfac",
+        "filename": "drm/1.0/vts/functional/include/drm_vts_helper.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1005970
+      },
+      "writtenOn": "2020-01-24T00:51:53Z",
+      "side": 1,
+      "message": "pass by reference and add const for instance and scheme?",
+      "range": {
+        "startLine": 40,
+        "startChar": 25,
+        "endLine": 40,
+        "endChar": 31
+      },
+      "revId": "d46af360fa18a2cc00b0bc8549893d3c6143da3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
