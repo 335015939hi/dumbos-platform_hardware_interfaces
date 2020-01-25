@@ -16,6 +16,24 @@
       "revId": "d9f263744da71e5b30e694e7e24cf0c361c76688",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7299b131_97140c06",
+        "filename": "power/aidl/android/hardware/power/Hint.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1105075
+      },
+      "writtenOn": "2020-01-25T00:21:02Z",
+      "side": 1,
+      "message": "e.g I don\u0027t see a purpose that a device only handles RENDERING_RATE but not TOP_APP",
+      "parentUuid": "d7de2e8b_38117e53",
+      "revId": "d9f263744da71e5b30e694e7e24cf0c361c76688",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
