@@ -16,6 +16,24 @@
       "revId": "0debfc3cc7ea1baa54e60021a531732067fd7a3f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f25fc84_fc0a020f",
+        "filename": "audio/core/all-versions/vts/functional/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2020-01-25T02:56:40Z",
+      "side": 1,
+      "message": "Perhaps Nelson has some ideas. He is keeping a bug for this, so I\u0027ve added a reference here.",
+      "parentUuid": "cd2eb189_d1009870",
+      "revId": "0debfc3cc7ea1baa54e60021a531732067fd7a3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
