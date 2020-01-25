@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d7de2e8b_38117e53",
+        "filename": "power/aidl/android/hardware/power/Hint.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1105075
+      },
+      "writtenOn": "2020-01-25T00:17:55Z",
+      "side": 1,
+      "message": "since everything is related to dynamic performance framework, maybe we don\u0027t need Hint here, and instead just \n\nisDynamicPerformanceHint() supported?",
+      "revId": "d9f263744da71e5b30e694e7e24cf0c361c76688",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
