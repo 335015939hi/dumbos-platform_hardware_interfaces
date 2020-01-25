@@ -34,6 +34,24 @@
       "revId": "d9f263744da71e5b30e694e7e24cf0c361c76688",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ac3ed7a_7ef87b69",
+        "filename": "power/aidl/android/hardware/power/Hint.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1043625
+      },
+      "writtenOn": "2020-01-25T00:58:12Z",
+      "side": 1,
+      "message": "Per our offline conversation, left all the hints since it might be nice for them to be separable for reporting/stats purposes, but clarified the TOP_APP hint and removed DPF mentions from the others.",
+      "parentUuid": "7299b131_97140c06",
+      "revId": "d9f263744da71e5b30e694e7e24cf0c361c76688",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
