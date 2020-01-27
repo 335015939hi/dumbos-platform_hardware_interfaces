@@ -22,6 +22,30 @@
       "revId": "7552b5445c0f69287f01d5acc330a4ab91c3faf5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "486161ae_0af42a83",
+        "filename": "drm/1.0/vts/functional/include/drm_vts_helper.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1043093
+      },
+      "writtenOn": "2020-01-27T23:21:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a5e9b59_90d052c2",
+      "range": {
+        "startLine": 39,
+        "startChar": 37,
+        "endLine": 39,
+        "endChar": 39
+      },
+      "revId": "7552b5445c0f69287f01d5acc330a4ab91c3faf5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
