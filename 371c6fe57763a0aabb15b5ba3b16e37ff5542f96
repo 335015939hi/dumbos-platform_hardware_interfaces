@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6713ec76_bbd3969b",
+        "filename": "power/aidl/vts/VtsHalPowerTargetTest.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1069543
+      },
+      "writtenOn": "2020-01-28T01:38:12Z",
+      "side": 1,
+      "message": "is there going to be a test that the fixed perf modes actually work as advertised?",
+      "revId": "371c6fe57763a0aabb15b5ba3b16e37ff5542f96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
