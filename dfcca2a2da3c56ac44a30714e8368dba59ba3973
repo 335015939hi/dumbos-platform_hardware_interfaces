@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "1f963632_db3ed2d8",
+        "filename": "drm/1.0/vts/functional/drm_hal_vendor_module_api.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1005920
+      },
+      "writtenOn": "2020-01-28T06:25:17Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "83c146d8_f3592bff",
+      "revId": "dfcca2a2da3c56ac44a30714e8368dba59ba3973",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ee7c3c6b_dd77977c",
         "filename": "drm/1.0/vts/functional/include/android/hardware/drm/1.0/vts/drm_hal_clearkey_test.h",
         "patchSetId": 8
