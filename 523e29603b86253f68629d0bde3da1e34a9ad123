@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6d09d8d2_28781e59",
+        "filename": "vibrator/aidl/android/hardware/vibrator/IVibrator.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-28T20:59:15Z",
+      "side": 1,
+      "message": "should the durations of the primitives be limited to specific ranges? (e.g. it wouldn\u0027t make sense for a \u0027THUD\u0027 to be 100ms on one device and 2s on another)",
+      "range": {
+        "startLine": 177,
+        "startChar": 8,
+        "endLine": 177,
+        "endChar": 28
+      },
+      "revId": "523e29603b86253f68629d0bde3da1e34a9ad123",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1ef4be2_c1255a19",
+        "filename": "vibrator/aidl/vts/VtsHalVibratorTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-01-28T20:59:15Z",
+      "side": 1,
+      "message": "can you get a callback and time it to test that the getPrimitiveDuration functionality is accurate?",
+      "range": {
+        "startLine": 378,
+        "startChar": 28,
+        "endLine": 378,
+        "endChar": 35
+      },
+      "revId": "523e29603b86253f68629d0bde3da1e34a9ad123",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
