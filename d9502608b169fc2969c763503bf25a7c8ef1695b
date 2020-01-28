@@ -1,0 +1,349 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f525457c_a2342cdc",
+        "filename": "radio/1.5/IRadio.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-01-28T00:19:56Z",
+      "side": 1,
+      "message": "Minor. Add period at the end of the sentence.",
+      "range": {
+        "startLine": 263,
+        "startChar": 63,
+        "endLine": 263,
+        "endChar": 67
+      },
+      "revId": "d9502608b169fc2969c763503bf25a7c8ef1695b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df9dacf1_8016466c",
+        "filename": "radio/1.5/IRadio.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-01-28T00:19:56Z",
+      "side": 1,
+      "message": "Minor. I think it might be preferable to change this to \"are received\".",
+      "range": {
+        "startLine": 265,
+        "startChar": 29,
+        "endLine": 265,
+        "endChar": 36
+      },
+      "revId": "d9502608b169fc2969c763503bf25a7c8ef1695b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "20f93b94_c82d88d4",
+        "filename": "radio/1.5/IRadio.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-01-28T00:19:56Z",
+      "side": 1,
+      "message": "Typo: received",
+      "range": {
+        "startLine": 265,
+        "startChar": 37,
+        "endLine": 265,
+        "endChar": 45
+      },
+      "revId": "d9502608b169fc2969c763503bf25a7c8ef1695b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "671c7392_fb32304a",
+        "filename": "radio/1.5/IRadio.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-01-28T00:19:56Z",
+      "side": 1,
+      "message": "Records (I left the same comment also in IRadioResponse.hal",
+      "range": {
+        "startLine": 269,
+        "startChar": 49,
+        "endLine": 269,
+        "endChar": 55
+      },
+      "revId": "d9502608b169fc2969c763503bf25a7c8ef1695b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ab9eea4_e9d96905",
+        "filename": "radio/1.5/IRadio.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-01-28T00:19:56Z",
+      "side": 1,
+      "message": "In case of insertion, do we need to specify if the record is added in the local or global phonebook? Maybe a good idea to add a paragraph in the documentation that describes what happens, even if this is left to implementation.",
+      "range": {
+        "startLine": 274,
+        "startChar": 7,
+        "endLine": 274,
+        "endChar": 13
+      },
+      "revId": "d9502608b169fc2969c763503bf25a7c8ef1695b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ea405f9_b46e846e",
+        "filename": "radio/1.5/IRadio.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-01-28T00:19:56Z",
+      "side": 1,
+      "message": "Minor: remove \"of\". all the fields",
+      "range": {
+        "startLine": 277,
+        "startChar": 10,
+        "endLine": 277,
+        "endChar": 27
+      },
+      "revId": "d9502608b169fc2969c763503bf25a7c8ef1695b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a6b4c93_7eae58e9",
+        "filename": "radio/1.5/IRadio.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-01-28T00:19:56Z",
+      "side": 1,
+      "message": "are",
+      "range": {
+        "startLine": 277,
+        "startChar": 46,
+        "endLine": 277,
+        "endChar": 48
+      },
+      "revId": "d9502608b169fc2969c763503bf25a7c8ef1695b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "695f178f_1230b14e",
+        "filename": "radio/1.5/IRadio.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-01-28T00:19:56Z",
+      "side": 1,
+      "message": "specified by",
+      "range": {
+        "startLine": 278,
+        "startChar": 14,
+        "endLine": 278,
+        "endChar": 16
+      },
+      "revId": "d9502608b169fc2969c763503bf25a7c8ef1695b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6b97f04_6d1b2462",
+        "filename": "radio/1.5/IRadio.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-01-28T00:19:56Z",
+      "side": 1,
+      "message": "Minor. Expand the description like this \"details of the record to insert, delete or update\".",
+      "range": {
+        "startLine": 281,
+        "startChar": 25,
+        "endLine": 281,
+        "endChar": 44
+      },
+      "revId": "d9502608b169fc2969c763503bf25a7c8ef1695b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d78575d6_96ec8a91",
+        "filename": "radio/1.5/IRadioIndication.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-01-28T00:19:56Z",
+      "side": 1,
+      "message": "Remove. This is already said at the beginning of the paragraph.",
+      "range": {
+        "startLine": 84,
+        "startChar": 56,
+        "endLine": 84,
+        "endChar": 84
+      },
+      "revId": "d9502608b169fc2969c763503bf25a7c8ef1695b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dafef93d_5e5d3ddd",
+        "filename": "radio/1.5/IRadioIndication.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-01-28T00:19:56Z",
+      "side": 1,
+      "message": "Add period at the end",
+      "range": {
+        "startLine": 86,
+        "startChar": 51,
+        "endLine": 86,
+        "endChar": 59
+      },
+      "revId": "d9502608b169fc2969c763503bf25a7c8ef1695b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df63650b_d12e7079",
+        "filename": "radio/1.5/IRadioResponse.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-01-28T00:19:56Z",
+      "side": 1,
+      "message": "Other possible errors?\nFor example MODEM_ERR (generic error to handle modem errors), INVALID_SIM_STATE (for example, if the SIM is not present).\nAny other?",
+      "range": {
+        "startLine": 204,
+        "startChar": 9,
+        "endLine": 207,
+        "endChar": 37
+      },
+      "revId": "d9502608b169fc2969c763503bf25a7c8ef1695b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a14f82eb_1c5f006b",
+        "filename": "radio/1.5/IRadioResponse.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-01-28T00:19:56Z",
+      "side": 1,
+      "message": "getAdnRecordsResponse to match the name of the request which has plural records.",
+      "range": {
+        "startLine": 209,
+        "startChar": 11,
+        "endLine": 209,
+        "endChar": 23
+      },
+      "revId": "d9502608b169fc2969c763503bf25a7c8ef1695b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb81d085_a35131e4",
+        "filename": "radio/1.5/IRadioResponse.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-01-28T00:19:56Z",
+      "side": 1,
+      "message": "Other possible errors?\n\nFor example MODEM_ERR (generic error to handle modem errors), INVALID_SIM_STATE (for example, if the SIM is not present), NO_RESOURCES is the SIM phonebook is full.\nAny other? What if index is invalid? Or if name in the record is too long?",
+      "range": {
+        "startLine": 217,
+        "startChar": 9,
+        "endLine": 220,
+        "endChar": 37
+      },
+      "revId": "d9502608b169fc2969c763503bf25a7c8ef1695b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45f73c43_271ecc1b",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-01-28T00:19:56Z",
+      "side": 1,
+      "message": "Can you convert all these comments to multi-line comments above the struct item?\nFor example, see how comments are added in RadioAccessSpecifier.\n\nSame comment applies for PhonebookCapacity below.",
+      "range": {
+        "startLine": 576,
+        "startChar": 32,
+        "endLine": 576,
+        "endChar": 77
+      },
+      "revId": "d9502608b169fc2969c763503bf25a7c8ef1695b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
