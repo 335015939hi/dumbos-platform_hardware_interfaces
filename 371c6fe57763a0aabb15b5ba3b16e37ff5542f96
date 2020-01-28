@@ -16,6 +16,24 @@
       "revId": "371c6fe57763a0aabb15b5ba3b16e37ff5542f96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac9f28d9_1908e1ec",
+        "filename": "power/aidl/vts/VtsHalPowerTargetTest.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1105075
+      },
+      "writtenOn": "2020-01-28T20:13:07Z",
+      "side": 1,
+      "message": "I asked the same question, and the answer is there will be some VTS/CTS run a workload with with this. Also this is something ccraik@ needed for his benchmark.",
+      "parentUuid": "6713ec76_bbd3969b",
+      "revId": "371c6fe57763a0aabb15b5ba3b16e37ff5542f96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
