@@ -16,6 +16,24 @@
       "revId": "f4f7df8724bc3c4aaea1fab2f33145f55cfc23cb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "497ce9c4_8f7e9dcc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1604091
+      },
+      "writtenOn": "2020-01-29T02:10:05Z",
+      "side": 1,
+      "message": "Will do",
+      "parentUuid": "11ae4af8_31d6bc6b",
+      "revId": "f4f7df8724bc3c4aaea1fab2f33145f55cfc23cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
