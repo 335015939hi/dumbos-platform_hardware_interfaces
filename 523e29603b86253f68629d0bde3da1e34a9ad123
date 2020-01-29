@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f8659492_ee819e26",
+        "filename": "vibrator/aidl/android/hardware/vibrator/IVibrator.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1418133
+      },
+      "writtenOn": "2020-01-29T02:11:54Z",
+      "side": 1,
+      "message": "Captured in b/148496381.",
+      "parentUuid": "6d09d8d2_28781e59",
+      "range": {
+        "startLine": 177,
+        "startChar": 8,
+        "endLine": 177,
+        "endChar": 28
+      },
+      "revId": "523e29603b86253f68629d0bde3da1e34a9ad123",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b1ef4be2_c1255a19",
         "filename": "vibrator/aidl/vts/VtsHalVibratorTargetTest.cpp",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2020-01-28T20:59:15Z",
       "side": 1,
       "message": "can you get a callback and time it to test that the getPrimitiveDuration functionality is accurate?",
+      "range": {
+        "startLine": 378,
+        "startChar": 28,
+        "endLine": 378,
+        "endChar": 35
+      },
+      "revId": "523e29603b86253f68629d0bde3da1e34a9ad123",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59a2fe0f_88a7c8f1",
+        "filename": "vibrator/aidl/vts/VtsHalVibratorTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1418133
+      },
+      "writtenOn": "2020-01-29T02:11:54Z",
+      "side": 1,
+      "message": "Captured in b/148496381.",
+      "parentUuid": "b1ef4be2_c1255a19",
       "range": {
         "startLine": 378,
         "startChar": 28,
