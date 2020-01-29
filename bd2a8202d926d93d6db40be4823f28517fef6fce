@@ -22,6 +22,30 @@
       "revId": "bd2a8202d926d93d6db40be4823f28517fef6fce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf507886_bb0ad38a",
+        "filename": "radio/1.5/IRadioResponse.hal",
+        "patchSetId": 10
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2020-01-29T19:51:59Z",
+      "side": 1,
+      "message": "my bad .. missed in conflict resolution",
+      "parentUuid": "bd38ebd3_630c3c52",
+      "range": {
+        "startLine": 272,
+        "startChar": 0,
+        "endLine": 281,
+        "endChar": 7
+      },
+      "revId": "bd2a8202d926d93d6db40be4823f28517fef6fce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
