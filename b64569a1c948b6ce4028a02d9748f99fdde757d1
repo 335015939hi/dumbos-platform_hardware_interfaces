@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6801f42f_42bf4520",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 810,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-01-29T01:23:11Z",
+      "side": 1,
+      "message": "There are 2 fields that have an extremely similar name: maxAndNum and maxAdNum.\nThis leads to code that is clearly difficult to read.\n\nIs it possible to have better names?\nFor example, maxAdnRecords for the first one, and maxAdditionalNumbers for this one?\n\nSame for validAdnNum and validAdNum.",
+      "range": {
+        "startLine": 810,
+        "startChar": 13,
+        "endLine": 810,
+        "endChar": 21
+      },
+      "revId": "b64569a1c948b6ce4028a02d9748f99fdde757d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2dd66775_8060c08d",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 825,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-01-29T01:23:11Z",
+      "side": 1,
+      "message": "Similar to comment above. Maybe maxAdditionalNumberLen?\nI think it\u0027s preferable to prioritize readability over a short variable name and \"AdNum\" is not very clear.",
+      "range": {
+        "startLine": 825,
+        "startChar": 13,
+        "endLine": 825,
+        "endChar": 24
+      },
+      "revId": "b64569a1c948b6ce4028a02d9748f99fdde757d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
