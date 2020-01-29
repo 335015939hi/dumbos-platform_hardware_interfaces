@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "bba9c8c8_34a355ed",
+        "filename": "vibrator/aidl/android/hardware/vibrator/IVibrator.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1418133
+      },
+      "writtenOn": "2020-01-29T04:26:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8659492_ee819e26",
+      "range": {
+        "startLine": 177,
+        "startChar": 8,
+        "endLine": 177,
+        "endChar": 28
+      },
+      "revId": "523e29603b86253f68629d0bde3da1e34a9ad123",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b1ef4be2_c1255a19",
         "filename": "vibrator/aidl/vts/VtsHalVibratorTargetTest.cpp",
         "patchSetId": 2
@@ -93,6 +117,30 @@
       "revId": "523e29603b86253f68629d0bde3da1e34a9ad123",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d90f513b_8e662e1d",
+        "filename": "vibrator/aidl/vts/VtsHalVibratorTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1418133
+      },
+      "writtenOn": "2020-01-29T04:26:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "59a2fe0f_88a7c8f1",
+      "range": {
+        "startLine": 378,
+        "startChar": 28,
+        "endLine": 378,
+        "endChar": 35
+      },
+      "revId": "523e29603b86253f68629d0bde3da1e34a9ad123",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
