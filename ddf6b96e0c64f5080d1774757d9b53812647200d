@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d6d92070_fbccbe72",
+        "filename": "drm/1.2/vts/functional/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1005920
+      },
+      "writtenOn": "2020-01-29T23:00:00Z",
+      "side": 1,
+      "message": "curious why android.hardware.drm@1.1 isn\u0027t needed here. Is it being referenced from android.hardware.drm@1.2-vts? If are these needed?",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 35
+      },
+      "revId": "ddf6b96e0c64f5080d1774757d9b53812647200d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
