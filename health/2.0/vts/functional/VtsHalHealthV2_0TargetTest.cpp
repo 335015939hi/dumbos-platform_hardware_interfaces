@@ -16,11 +16,15 @@
 
 #define LOG_TAG "health_hidl_hal_test"
 
+#include <chrono>
 #include <mutex>
 #include <set>
 #include <string>
+#include <thread>
 
 #include <android-base/logging.h>
+#include <android-base/properties.h>
+#include <android/hardware/health/1.0/types.h>
 #include <android/hardware/health/2.0/IHealth.h>
 #include <android/hardware/health/2.0/types.h>
 #include <gflags/gflags.h>
@@ -32,6 +36,7 @@
 using ::testing::AssertionFailure;
 using ::testing::AssertionResult;
 using ::testing::AssertionSuccess;
+using namespace std::chrono_literals;
 
 DEFINE_bool(force, false, "Force test healthd even when the default instance is present.");
 
@@ -68,12 +73,21 @@ static std::string GetCurrentTestName() {
 #define SKIP_IF_SKIPPED()
 #endif
 
+// Return expr if it is evaluated to false.
+#define TEST_AND_RETURN(expr) \
+    do {                      \
+        auto res = (expr);    \
+        if (!res) return res; \
+    } while (0)
+
 namespace android {
 namespace hardware {
 namespace health {
-namespace V2_0 {
 
 using V1_0::BatteryStatus;
+using V1_0::toString;
+
+namespace V2_0 {
 
 class HealthHidlTest : public ::testing::TestWithParam<std::string> {
    public:
@@ -355,6 +369,248 @@ INSTANTIATE_TEST_SUITE_P(
         PerInstance, HealthHidlTest,
         testing::ValuesIn(android::hardware::getAllHalInstanceNames(IHealth::descriptor)),
         android::hardware::PrintInstanceNameToString);
+
+// For tests on current_average, value may not be stable if the battery current has fluctuated.
+// Retry in a bit more time (with the following timeout) and consider the test successful if it
+// has succeed once.
+static constexpr auto gAverageCurrentTestTimeout = 1min;
+// Tests on battery current signs are only enforced on devices launching with Android 11.
+static constexpr int64_t gBatteryCurrentTestMinShippingApiLevel = 30;
+static constexpr double gCurrentCompareFactor = 0.50;
+
+// Tuple for all IHealth::get* API return values.
+template <typename T>
+struct HalResult {
+    Result result;
+    T value;
+};
+
+static AssertionResult IsBatteryCurrentSignCorrect(HalResult<BatteryStatus> status,
+                                                   HalResult<int32_t> current) {
+    // getChargeStatus / getCurrentNow / getCurrentAverage / getHealthInfo already tested above.
+    // Here, just skip if not ok.
+    if (status.result != Result::SUCCESS) {
+        return AssertionSuccess() << "getChargeStatus / getHealthInfo returned "
+                                  << toString(status.result) << ", skipping";
+    }
+
+    if (current.result != Result::SUCCESS) {
+        return AssertionSuccess() << "getCurrentNow / getCurrentAverage returned "
+                                  << toString(current.result) << ", skipping";
+    }
+
+    if (current.value == 0) {
+        return AssertionSuccess()
+               << "current is 0, which indicates the value may not be available. Skipping.";
+    }
+
+    switch (status.value) {
+        case BatteryStatus::UNKNOWN:
+            if (current.value != 0) {
+                return AssertionFailure()
+                       << "BatteryStatus is UNKNOWN but current is not 0. Actual: "
+                       << current.value;
+            }
+            break;
+        case BatteryStatus::CHARGING:
+            if (current.value <= 0) {
+                return AssertionFailure()
+                       << "BatteryStatus is CHARGING but current is not positive. Actual: "
+                       << current.value;
+            }
+            break;
+        case BatteryStatus::DISCHARGING:
+        case BatteryStatus::NOT_CHARGING:
+            if (current.value >= 0) {
+                return AssertionFailure()
+                       << "BatteryStatus is " << toString(status.value)
+                       << " but current is not negative. Actual: " << current.value;
+            }
+            break;
+        case BatteryStatus::FULL:
+            // Battery current may be positive or negative depending on the load.
+            break;
+        default:
+            return AssertionFailure() << "Unknown BatteryStatus " << toString(status.value);
+    }
+
+    return AssertionSuccess() << "BatteryStatus is " << toString(status.value)
+                              << " and current has the correct sign: " << current.value;
+}
+
+static AssertionResult IsValueSimilar(int32_t dividend, int32_t divisor, double factor) {
+    auto difference = abs(dividend - divisor);
+    if (difference > factor * abs(divisor)) {
+        return AssertionFailure() << dividend << " and " << divisor << " are not similar.";
+    }
+    return AssertionSuccess() << dividend << " and " << divisor << " are similar.";
+}
+
+static AssertionResult IsBatteryCurrentSimilar(HalResult<BatteryStatus> status,
+                                               HalResult<int32_t> currentNow,
+                                               HalResult<int32_t> currentAverage) {
+    if (status.result == Result::SUCCESS && status.value == BatteryStatus::FULL) {
+        // No reason to test on full battery because battery current load fluctuates.
+        return AssertionSuccess() << "Battery is full, skipping";
+    }
+
+    // getCurrentNow / getCurrentAverage / getHealthInfo already tested above. Here, just skip if
+    // not SUCCESS or value 0.
+    if (currentNow.result != Result::SUCCESS || currentNow.value == 0) {
+        return AssertionSuccess() << "getCurrentNow returned " << toString(currentNow.result)
+                                  << " with value " << currentNow.value << ", skipping";
+    }
+
+    if (currentAverage.result != Result::SUCCESS || currentAverage.value == 0) {
+        return AssertionSuccess() << "getCurrentAverage returned "
+                                  << toString(currentAverage.result) << " with value "
+                                  << currentAverage.value << ", skipping";
+    }
+
+    TEST_AND_RETURN(IsValueSimilar(currentNow.value, currentAverage.value, gCurrentCompareFactor)
+                    << " for now vs. average. Check units.");
+    TEST_AND_RETURN(IsValueSimilar(currentAverage.value, currentNow.value, gCurrentCompareFactor)
+                    << " for average vs. now. Check units.");
+    return AssertionSuccess() << "currentNow = " << currentNow.value
+                              << " and currentAverage = " << currentAverage.value
+                              << " are considered similar.";
+}
+
+// Test that f() returns AssertionSuccess() once in a given period of time.
+template <typename Duration, typename Function>
+static AssertionResult SucceedOnce(Duration d, Function f) {
+    AssertionResult result = AssertionFailure() << "Function never evaluated.";
+    auto end = std::chrono::system_clock::now() + d;
+    while (std::chrono::system_clock::now() <= end) {
+        result = f();
+        if (result) {
+            return result;
+        }
+        std::this_thread::sleep_for(2s);
+    }
+    return result;
+}
+
+class BatteryCurrentTest : public HealthHidlTest {
+  public:
+    void SetUp() override {
+        HealthHidlTest::SetUp();
+
+        auto shippingApiLevel =
+                android::base::GetIntProperty<int64_t>("ro.product.first_api_level", 0);
+        if (shippingApiLevel < gBatteryCurrentTestMinShippingApiLevel) {
+            GTEST_SKIP() << "Skipping on devices with first API level " << shippingApiLevel;
+        }
+    }
+};
+
+TEST_P(BatteryCurrentTest, InstantCurrentAgainstChargeStatusInHealthInfo) {
+    SKIP_IF_SKIPPED();
+
+    HalResult<HealthInfo> healthInfo;
+    EXPECT_OK(mHealth->getHealthInfo([&](auto result, const auto& value) {
+        healthInfo = {result, value};
+    }));
+
+    EXPECT_TRUE(IsBatteryCurrentSignCorrect(
+            {healthInfo.result, healthInfo.value.legacy.batteryStatus},
+            {healthInfo.result, healthInfo.value.legacy.batteryCurrent}));
+}
+
+TEST_P(BatteryCurrentTest, AverageCurrentAgainstChargeStatusInHealthInfo) {
+    SKIP_IF_SKIPPED();
+
+    auto testOnce = [&]() -> AssertionResult {
+        HalResult<HealthInfo> healthInfo;
+        TEST_AND_RETURN(isOk(mHealth->getHealthInfo([&](auto result, const auto& value) {
+            healthInfo = {result, value};
+        })));
+        return IsBatteryCurrentSignCorrect(
+                {healthInfo.result, healthInfo.value.legacy.batteryStatus},
+                {healthInfo.result, healthInfo.value.batteryCurrentAverage});
+    };
+
+    EXPECT_TRUE(SucceedOnce(gAverageCurrentTestTimeout, testOnce))
+            << "You may want to try again later when current_average becomes stable.";
+}
+
+TEST_P(BatteryCurrentTest, InstantCurrentAgainstAverageCurrentInHealthInfo) {
+    SKIP_IF_SKIPPED();
+
+    auto testOnce = [&]() -> AssertionResult {
+        HalResult<HealthInfo> healthInfo;
+        TEST_AND_RETURN(isOk(mHealth->getHealthInfo([&](auto result, const auto& value) {
+            healthInfo = {result, value};
+        })));
+        return IsBatteryCurrentSimilar({healthInfo.result, healthInfo.value.legacy.batteryStatus},
+                                       {healthInfo.result, healthInfo.value.legacy.batteryCurrent},
+                                       {healthInfo.result, healthInfo.value.batteryCurrentAverage});
+    };
+
+    EXPECT_TRUE(SucceedOnce(gAverageCurrentTestTimeout, testOnce))
+            << "You may want to try again later when current_average becomes stable.";
+}
+
+TEST_P(BatteryCurrentTest, InstantCurrentAgainstChargeStatusFromHal) {
+    SKIP_IF_SKIPPED();
+
+    HalResult<BatteryStatus> status;
+    HalResult<int32_t> currentNow;
+    EXPECT_OK(mHealth->getChargeStatus([&](auto result, auto value) { status = {result, value}; }));
+    EXPECT_OK(mHealth->getCurrentNow([&](auto result, auto value) {
+        currentNow = {result, value};
+    }));
+
+    EXPECT_TRUE(IsBatteryCurrentSignCorrect(status, currentNow));
+}
+
+TEST_P(BatteryCurrentTest, AverageCurrentAgainstChargeStatusFromHal) {
+    SKIP_IF_SKIPPED();
+
+    auto testOnce = [&]() -> AssertionResult {
+        HalResult<BatteryStatus> status;
+        TEST_AND_RETURN(isOk(mHealth->getChargeStatus([&](auto result, auto value) {
+            status = {result, value};
+        })));
+        HalResult<int32_t> currentAverage;
+        TEST_AND_RETURN(isOk(mHealth->getCurrentAverage([&](auto result, auto value) {
+            currentAverage = {result, value};
+        })));
+        return IsBatteryCurrentSignCorrect(status, currentAverage);
+    };
+
+    EXPECT_TRUE(SucceedOnce(gAverageCurrentTestTimeout, testOnce))
+            << "You may want to try again later when current_average becomes stable.";
+}
+
+TEST_P(BatteryCurrentTest, InstantCurrentAgainstAverageCurrentFromHal) {
+    SKIP_IF_SKIPPED();
+
+    auto testOnce = [&]() -> AssertionResult {
+        HalResult<BatteryStatus> status;
+        TEST_AND_RETURN(isOk(mHealth->getChargeStatus([&](auto result, auto value) {
+            status = {result, value};
+        })));
+        HalResult<int32_t> currentNow;
+        TEST_AND_RETURN(isOk(mHealth->getCurrentNow([&](auto result, auto value) {
+            currentNow = {result, value};
+        })));
+        HalResult<int32_t> currentAverage;
+        TEST_AND_RETURN(isOk(mHealth->getCurrentAverage([&](auto result, auto value) {
+            currentAverage = {result, value};
+        })));
+        return IsBatteryCurrentSimilar(status, currentNow, currentAverage);
+    };
+
+    EXPECT_TRUE(SucceedOnce(gAverageCurrentTestTimeout, testOnce))
+            << "You may want to try again later when current_average becomes stable.";
+}
+
+INSTANTIATE_TEST_SUITE_P(
+        PerInstance, BatteryCurrentTest,
+        testing::ValuesIn(android::hardware::getAllHalInstanceNames(IHealth::descriptor)),
+        android::hardware::PrintInstanceNameToString);
+
 }  // namespace V2_0
 }  // namespace health
 }  // namespace hardware
