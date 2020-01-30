@@ -201,10 +201,12 @@ TEST_P(IdentityCredentialStoreHidlTest, createAndRetrieveCredential) {
     ASSERT_NE(writableCredential, nullptr);
 
     string challenge = "attestationChallenge";
+    // TODO: set it to something unique and check it's in the cert chain
+    vector<uint8_t> attestationApplicationId = {};
     vector<uint8_t> attestationChallenge(challenge.begin(), challenge.end());
     vector<uint8_t> attestationCertificate;
     writableCredential->getAttestationCertificate(
-            attestationChallenge,
+            attestationApplicationId, attestationChallenge,
             [&](const Result& _result, const hidl_vec<uint8_t>& _attestationCertificate) {
                 result = _result;
                 attestationCertificate = _attestationCertificate;

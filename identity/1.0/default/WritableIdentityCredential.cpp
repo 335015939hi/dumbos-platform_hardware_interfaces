@@ -108,7 +108,12 @@ bool WritableIdentityCredential::initialize() {
     return true;
 }
 
+// TODO: use |attestationApplicationId| and |attestationChallenge| and also
+//       ensure the returned certificate chain satisfy the requirements listed in
+//       the docs for IWritableIdentityCredential::getAttestationCertificate()
+//
 Return<void> WritableIdentityCredential::getAttestationCertificate(
+        const hidl_vec<uint8_t>& /* attestationApplicationId */,
         const hidl_vec<uint8_t>& /* attestationChallenge */,
         getAttestationCertificate_cb _hidl_cb) {
     // For now, we dynamically generate an attestion key on each and every
