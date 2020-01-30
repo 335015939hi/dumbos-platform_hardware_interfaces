@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8a8746a6_3377d8df",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1319951
+      },
+      "writtenOn": "2020-01-30T22:52:01Z",
+      "side": 1,
+      "message": "0 current is a valid value for NOT_CHARGING while connected and for DISCHARGING right after disconnect. 0 current is usually not valid when connected with CHARGING. see note at 424",
+      "revId": "98a3e115fadb627b2a4e65883d1a50df480baad9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46adcd53_d4ef65f4",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1319951
+      },
+      "writtenOn": "2020-01-30T22:52:01Z",
+      "side": 1,
+      "message": "Battery status unknown should release the constraints on current sign.\nNot a failure.",
+      "revId": "98a3e115fadb627b2a4e65883d1a50df480baad9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "264f98f2_5c5c0fff",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1319951
+      },
+      "writtenOn": "2020-01-30T22:52:01Z",
+      "side": 1,
+      "message": "You bail for current \u003d\u003d 0 at 402, change the logic @ 402 to have this executed.\n\nBatteryStatus \u003d CHARGING while connected with 0 average current is a failure: it might be OK if tested with instant current (yet testing battery status against average current has too many pitfalls)\n\nCHARGING while not connected is a failure",
+      "revId": "98a3e115fadb627b2a4e65883d1a50df480baad9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d20cb6bc_f228d996",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1319951
+      },
+      "writtenOn": "2020-01-30T22:52:01Z",
+      "side": 1,
+      "message": "\u003d NOT_CHARGING with 0 current is OK\n\u003d DISCHARGING with current \u003e 0 is a failure.\n\u003d DISCHARGING with 0 average current is not a failure unless the condition persists over time\n\nDISCHARGING with 0 current is possible right after disconnect when you compare state to average . It is possible (but unlikely) to have DISCHARGING with 0 instantaneous current since \"instantaneous\" is usually averaged over a (very short) period of time.\n\nNOTE: reporting NOT_CHARGING while disconnected is a failure",
+      "revId": "98a3e115fadb627b2a4e65883d1a50df480baad9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d97f59b3_72fef449",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 1319951
+      },
+      "writtenOn": "2020-01-30T22:52:01Z",
+      "side": 1,
+      "message": "Instantaneous current might (briefly) invert the sign when reacting to transient loads since the behavior depends mostly on the averaging window used by the fuel gauge (yes, instantaneous current is averaged over some period).\n\nAdding a test on it might cause more problems that it tries to solve: this should not be a failure (same remark later)",
+      "revId": "98a3e115fadb627b2a4e65883d1a50df480baad9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b474aef_73245e2d",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1319951
+      },
+      "writtenOn": "2020-01-30T22:52:01Z",
+      "side": 1,
+      "message": "The average current might be calculated over a long interval: in general you need to check instantaneous and average over some time to determine if the values makes sense. I would not make this a failure.",
+      "revId": "98a3e115fadb627b2a4e65883d1a50df480baad9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14530868_e02bff2c",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1319951
+      },
+      "writtenOn": "2020-01-30T22:52:01Z",
+      "side": 1,
+      "message": "Instantaneous current might (briefly) invert the sign when reacting to transient loads since the behavior depends mostly on the averaging window used by the fuel gauge (yes, instantaneous current is averaged over some period).\n\nAdding a test on it might cause more problems that it tries to solve: this should not be a failure.",
+      "revId": "98a3e115fadb627b2a4e65883d1a50df480baad9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d99b209a_cf7d431a",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 602,
+      "author": {
+        "id": 1319951
+      },
+      "writtenOn": "2020-01-30T22:52:01Z",
+      "side": 1,
+      "message": "The average current might be calculated over a long interval: in general you need to check instantaneous and average over some time to determine if the values makes sense. I would not make this a failure.",
+      "revId": "98a3e115fadb627b2a4e65883d1a50df480baad9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
