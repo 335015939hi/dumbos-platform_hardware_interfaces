@@ -2,6 +2,207 @@
   "comments": [
     {
       "key": {
+        "uuid": "d4c801ef_55a64b99",
+        "filename": "identity/1.0/default/WritableIdentityCredential.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-01-30T15:12:47Z",
+      "side": 1,
+      "message": "These three are now set in getAttestationCertificate() and since we have comments stating when fields are initialized, add a comment stating this.",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 38
+      },
+      "revId": "c0641baf1d05cf5f5e007f52d0036935df49553c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac99aac8_821d25b2",
+        "filename": "identity/1.0/vts/functional/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-01-30T15:12:47Z",
+      "side": 1,
+      "message": "Why are you adding a new test binary? This should go into the existing VTS test, VtsHalIdentityCredentialTargetTest.cpp.",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 1
+      },
+      "revId": "c0641baf1d05cf5f5e007f52d0036935df49553c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43685bd5_a6e1998d",
+        "filename": "identity/1.0/vts/functional/VtsHalIdentityCredentialUnitTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-01-30T15:12:47Z",
+      "side": 1,
+      "message": "Seems like a lot of copy-paste from VtsHalIdentityCredentialTargetTest.cpp ... move relevant parts into that file instead.",
+      "revId": "c0641baf1d05cf5f5e007f52d0036935df49553c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6949d189_034d0ac5",
+        "filename": "identity/support/include/android/hardware/identity/support/IdentityCredentialSupport.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-01-30T15:12:47Z",
+      "side": 1,
+      "message": "Avoid non-const reference parameters [1], instead return the keyPair and attestationCertificateChain as a optional\u003cpair\u003cvector\u003cuint8_t\u003e, vector\u003cuint8_t\u003e\u003e.\n\nAlso, this should take a string applicationId for the applicationId to use (the HAL will get a parameter so credstore can pass it).\n\n[1] : yes, the code used to do this all over the place when you started working on it but this has now changed.",
+      "range": {
+        "startLine": 121,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 65
+      },
+      "revId": "c0641baf1d05cf5f5e007f52d0036935df49553c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c83035e_8ec5e133",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-01-30T15:12:47Z",
+      "side": 1,
+      "message": "I know it makes the code below more compact but I would prefer you didn\u0027t do this... the reason is that it helps the reader of the code in this file figure out if the identity/symbol is local to this file or if it\u0027s part of keymaster.\n\nCase in point, I was looking at the code just before and saw getAttestationKey() and was looking in this file for it... then I realized that it was something from keymaster. So if the code had read ::keymaster::getAttestationKey() this would have been avoided.",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 45
+      },
+      "revId": "c0641baf1d05cf5f5e007f52d0036935df49553c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "097d70e8_672f642c",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 928,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-01-30T15:12:47Z",
+      "side": 1,
+      "message": "Not that it matters (since I\u0027m asking for this to be a parameter), but I think these are normally of the form com.acme.MyAppIdentifier etc.",
+      "range": {
+        "startLine": 928,
+        "startChar": 20,
+        "endLine": 928,
+        "endChar": 49
+      },
+      "revId": "c0641baf1d05cf5f5e007f52d0036935df49553c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27fc90f5_47e338ab",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 939,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-01-30T15:12:47Z",
+      "side": 1,
+      "message": "This function should take all the variables as parameters so we only hard-code things at the highest level possible... so move what goes into TAG_ACTIVE_DATETIME and TAG_USAGE_EXPIRE_DATETIME into the caller.",
+      "range": {
+        "startLine": 938,
+        "startChar": 0,
+        "endLine": 939,
+        "endChar": 94
+      },
+      "revId": "c0641baf1d05cf5f5e007f52d0036935df49553c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b9a9c73_6504de4b",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 942,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-01-30T15:12:47Z",
+      "side": 1,
+      "message": "Roger. Also, don\u0027t forget about setting Tag::IDENTITY_CREDENTIAL_KEY!",
+      "range": {
+        "startLine": 942,
+        "startChar": 7,
+        "endLine": 942,
+        "endChar": 64
+      },
+      "revId": "c0641baf1d05cf5f5e007f52d0036935df49553c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f575fd2_c0bda16b",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 945,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-01-30T15:12:47Z",
+      "side": 1,
+      "message": "I know it\u0027s work in progress but use camelCase as in the rest of the file (also in other places).",
+      "range": {
+        "startLine": 945,
+        "startChar": 21,
+        "endLine": 945,
+        "endChar": 46
+      },
+      "revId": "c0641baf1d05cf5f5e007f52d0036935df49553c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "39df3fa4_7b09fd9e",
         "filename": "identity/support/src/IdentityCredentialSupport.cpp",
         "patchSetId": 1
@@ -41,6 +242,52 @@
         "startChar": 4,
         "endLine": 973,
         "endChar": 57
+      },
+      "revId": "c0641baf1d05cf5f5e007f52d0036935df49553c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45c63bab_e1b7c05c",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1004,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-01-30T15:12:47Z",
+      "side": 1,
+      "message": "Also pass applicationId here (see comments about prototype in IdentityCredentialSupport.h).",
+      "range": {
+        "startLine": 1004,
+        "startChar": 48,
+        "endLine": 1004,
+        "endChar": 89
+      },
+      "revId": "c0641baf1d05cf5f5e007f52d0036935df49553c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c4b90eb_913c34df",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1006,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-01-30T15:12:47Z",
+      "side": 1,
+      "message": "spelling",
+      "range": {
+        "startLine": 1006,
+        "startChar": 36,
+        "endLine": 1006,
+        "endChar": 46
       },
       "revId": "c0641baf1d05cf5f5e007f52d0036935df49553c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
