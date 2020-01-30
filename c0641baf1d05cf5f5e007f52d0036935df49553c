@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "39df3fa4_7b09fd9e",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 965,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-01-30T01:10:42Z",
+      "side": 1,
+      "message": "you don\u0027t need this. UniquePtr and std::unique_ptr convert to bool.",
+      "range": {
+        "startLine": 965,
+        "startChar": 47,
+        "endLine": 965,
+        "endChar": 53
+      },
+      "revId": "c0641baf1d05cf5f5e007f52d0036935df49553c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8456e44_14f113af",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 973,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-01-30T01:10:42Z",
+      "side": 1,
+      "message": "nit: you can just use cert_chain_out-\u003eentry_count etc. But it does not hurt.",
+      "range": {
+        "startLine": 973,
+        "startChar": 4,
+        "endLine": 973,
+        "endChar": 57
+      },
+      "revId": "c0641baf1d05cf5f5e007f52d0036935df49553c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
