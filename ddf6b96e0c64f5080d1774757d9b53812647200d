@@ -22,6 +22,30 @@
       "revId": "ddf6b96e0c64f5080d1774757d9b53812647200d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0669d070_2cfb734d",
+        "filename": "drm/1.2/vts/functional/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1043093
+      },
+      "writtenOn": "2020-01-30T01:03:03Z",
+      "side": 1,
+      "message": "The library dependencies for VtsHalDrmV1_2TargetTest are necessary. I tried removing them and the build broke. I can\u0027t explain why android.hardware.drm@1.1 isn\u0027t needed ... I did check object files in android.hardware.drm@1.2-vts.a and somehow all the referenced drm@1.1 symbols were already resolved, but not all the drm@1.0 symbols.\n\nSomehow the references to drm@1.0 and co couldn\u0027t be resolved until the final binary was built?",
+      "parentUuid": "d6d92070_fbccbe72",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 35
+      },
+      "revId": "ddf6b96e0c64f5080d1774757d9b53812647200d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
