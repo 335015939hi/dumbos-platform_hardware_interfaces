@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "1189e81b_3c1875b2",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1319951
+      },
+      "writtenOn": "2020-01-30T23:20:51Z",
+      "side": 1,
+      "message": "not really, just pointing out the fact the this test makes the tests on 0 current that follows not executed. Can you just add a note?",
+      "parentUuid": "6440c26a_3247009f",
+      "revId": "98a3e115fadb627b2a4e65883d1a50df480baad9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "46adcd53_d4ef65f4",
         "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
         "patchSetId": 3
@@ -66,6 +84,24 @@
       "side": 1,
       "message": "I was meant to check that if batteryPresent \u003d false, batteryCurrent must be 0.\n\nAlthough, why can\u0027t we require them to report 0 when batteryStatus is UNKNOWN? I thought it can only be UNKNOWN if batteryPresent is false.",
       "parentUuid": "46adcd53_d4ef65f4",
+      "revId": "98a3e115fadb627b2a4e65883d1a50df480baad9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15824e2c_a6ed4153",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1319951
+      },
+      "writtenOn": "2020-01-30T23:20:51Z",
+      "side": 1,
+      "message": "no, not really. BatteryState \u003d UNKNOWN doesn\u0027t automatically means that the battery is not there. The device will report \"UNKNOWN\" right after boot for example and might do so for some time until initialization is complete (i.e. loading battery model after POR takes some time).\n\nDuring this time current average (or instantaneous) might be available and could be used along with other measurements to determine if it\u0027s time to shutdown when/if CAPACITY_LEVEL is not implemented.",
+      "parentUuid": "f07c1c23_9b3fc94c",
       "revId": "98a3e115fadb627b2a4e65883d1a50df480baad9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -177,6 +213,24 @@
     },
     {
       "key": {
+        "uuid": "6e347771_6050c707",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 1319951
+      },
+      "writtenOn": "2020-01-30T23:20:51Z",
+      "side": 1,
+      "message": "yes you can do that, 1 minute might be reasonable if/when the device is (mostly) IDLE.",
+      "parentUuid": "7aa542e6_71bbdffc",
+      "revId": "98a3e115fadb627b2a4e65883d1a50df480baad9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2b474aef_73245e2d",
         "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
         "patchSetId": 3
@@ -206,6 +260,24 @@
       "side": 1,
       "message": "Right now I test this over gAverageCurrentTestTimeout. I can make this a longer timeout if suitable.",
       "parentUuid": "2b474aef_73245e2d",
+      "revId": "98a3e115fadb627b2a4e65883d1a50df480baad9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "588f73a4_1eaaf257",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1319951
+      },
+      "writtenOn": "2020-01-30T23:20:51Z",
+      "side": 1,
+      "message": "1minute is reasonable",
+      "parentUuid": "fd1e674d_b3d0cd8c",
       "revId": "98a3e115fadb627b2a4e65883d1a50df480baad9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
