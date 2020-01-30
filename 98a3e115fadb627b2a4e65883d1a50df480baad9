@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6440c26a_3247009f",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2020-01-30T23:02:11Z",
+      "side": 1,
+      "message": "There could be devices that does not report battery current at all. Unless we start mandating them to report battery current, we can\u0027t get rid of this conditional. Do you want me to start mandating battery current (instant + average) to be reported?",
+      "parentUuid": "8a8746a6_3377d8df",
+      "revId": "98a3e115fadb627b2a4e65883d1a50df480baad9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "46adcd53_d4ef65f4",
         "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2020-01-30T22:52:01Z",
       "side": 1,
       "message": "Battery status unknown should release the constraints on current sign.\nNot a failure.",
+      "revId": "98a3e115fadb627b2a4e65883d1a50df480baad9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f07c1c23_9b3fc94c",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2020-01-30T23:02:11Z",
+      "side": 1,
+      "message": "I was meant to check that if batteryPresent \u003d false, batteryCurrent must be 0.\n\nAlthough, why can\u0027t we require them to report 0 when batteryStatus is UNKNOWN? I thought it can only be UNKNOWN if batteryPresent is false.",
+      "parentUuid": "46adcd53_d4ef65f4",
       "revId": "98a3e115fadb627b2a4e65883d1a50df480baad9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "1515b9ad_ecaceea8",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2020-01-30T23:02:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "264f98f2_5c5c0fff",
+      "revId": "98a3e115fadb627b2a4e65883d1a50df480baad9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d20cb6bc_f228d996",
         "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
         "patchSetId": 3
@@ -64,6 +118,24 @@
       "writtenOn": "2020-01-30T22:52:01Z",
       "side": 1,
       "message": "\u003d NOT_CHARGING with 0 current is OK\n\u003d DISCHARGING with current \u003e 0 is a failure.\n\u003d DISCHARGING with 0 average current is not a failure unless the condition persists over time\n\nDISCHARGING with 0 current is possible right after disconnect when you compare state to average . It is possible (but unlikely) to have DISCHARGING with 0 instantaneous current since \"instantaneous\" is usually averaged over a (very short) period of time.\n\nNOTE: reporting NOT_CHARGING while disconnected is a failure",
+      "revId": "98a3e115fadb627b2a4e65883d1a50df480baad9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31f548b7_3c8f48ed",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2020-01-30T23:02:11Z",
+      "side": 1,
+      "message": "Ack, will fix",
+      "parentUuid": "d20cb6bc_f228d996",
       "revId": "98a3e115fadb627b2a4e65883d1a50df480baad9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "7aa542e6_71bbdffc",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2020-01-30T23:02:11Z",
+      "side": 1,
+      "message": "How about I test this over 1 minute (or some other period of time) too? \n\nI know different devices may have different \"period of time\", but from the point of view of the framework, I only need a reasonable timeout for these kind of tests.",
+      "parentUuid": "d97f59b3_72fef449",
+      "revId": "98a3e115fadb627b2a4e65883d1a50df480baad9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2b474aef_73245e2d",
         "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
         "patchSetId": 3
@@ -98,6 +188,24 @@
       "writtenOn": "2020-01-30T22:52:01Z",
       "side": 1,
       "message": "The average current might be calculated over a long interval: in general you need to check instantaneous and average over some time to determine if the values makes sense. I would not make this a failure.",
+      "revId": "98a3e115fadb627b2a4e65883d1a50df480baad9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd1e674d_b3d0cd8c",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2020-01-30T23:02:11Z",
+      "side": 1,
+      "message": "Right now I test this over gAverageCurrentTestTimeout. I can make this a longer timeout if suitable.",
+      "parentUuid": "2b474aef_73245e2d",
       "revId": "98a3e115fadb627b2a4e65883d1a50df480baad9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
