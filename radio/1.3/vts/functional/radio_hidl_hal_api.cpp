@@ -75,6 +75,7 @@ TEST_F(RadioHidlTest_v1_3, getModemStackStatus) {
             radioRsp_v1_3->rspInfo.error,
             {RadioError::NONE, RadioError::RADIO_NOT_AVAILABLE, RadioError::MODEM_ERR}));
 }
+<<<<<<< HEAD   (51e6ef Merge "camera vts: Skip regular vts tests for secure only ca)
 
 /*
  * Test IRadio.setSystemSelectionChannels() for the response returned.
@@ -110,3 +111,5 @@ TEST_F(RadioHidlTest_v1_3, setSystemSelectionChannels) {
         EXPECT_EQ(RadioError::NONE, radioRsp_v1_3->rspInfo.error);
     }
 }
+=======
+>>>>>>> CHANGE (96f01b Remove setSystemSelectionChannels vts test.)
