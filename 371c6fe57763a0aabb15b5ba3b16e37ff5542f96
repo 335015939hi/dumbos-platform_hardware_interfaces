@@ -2,6 +2,165 @@
   "comments": [
     {
       "key": {
+        "uuid": "576449c0_dcb0a4dc",
+        "filename": "power/aidl/android/hardware/power/Boost.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1069543
+      },
+      "writtenOn": "2020-01-31T01:56:16Z",
+      "side": 1,
+      "message": "Is the expected implementation of this to raise the uclamp.min or other action that causes a temporary frequency increase?\n\nHow does the HAL know what value to use for the uclamp.min?\nHow does the HAL know which frequency domains to apply this to?\nHow does the HAL know when the uclamp.min can be restored to it\u0027s \"normal\" value?",
+      "revId": "371c6fe57763a0aabb15b5ba3b16e37ff5542f96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87f17051_884e17b6",
+        "filename": "power/aidl/android/hardware/power/Hint.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1069543
+      },
+      "writtenOn": "2020-01-31T01:56:16Z",
+      "side": 1,
+      "message": "This seems like it will be very useful information if we ever use frame times as feedback to optimize the selected frequency.\n\nHowever, isn\u0027t this a property of a particular app/process? What happens if there are multiple apps contributing to the experience. Eg, a split screen where appA is targeting 30fps and appB is targeting 60fps?\n\nIf an app notifies the HAL of a 60fps rate and then the top-app is switched to another app that doesn\u0027t know about this hint, is the HAL notified that the period is now \"unknown\"?\n\nWhen the app is switched back, is the 60fps rate sent to the HAL again?",
+      "revId": "371c6fe57763a0aabb15b5ba3b16e37ff5542f96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "92ff401e_52047859",
+        "filename": "power/aidl/android/hardware/power/Hint.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1069543
+      },
+      "writtenOn": "2020-01-31T01:56:16Z",
+      "side": 1,
+      "message": "What are the units of this hint? Does the picard framework convert this into an absolute load value (eg, 0-1023 scale usable to program uclamp values)? The app hint API appears to expose a delta (\u003e1.0 to indicate increase and \u003c1.0 to indicate decrease). Who keeps track of the current load that the delta applies to?\n\nAgain, what happens if that app is no longer top-app, does the HAL get notified? Is it reapplied when the app becomes top-app again?\n\nDo actions like this map better onto task profiles than HAL hints?",
+      "revId": "371c6fe57763a0aabb15b5ba3b16e37ff5542f96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c429ccab_9ee9bfd6",
+        "filename": "power/aidl/android/hardware/power/Hint.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1069543
+      },
+      "writtenOn": "2020-01-31T01:56:16Z",
+      "side": 1,
+      "message": "This seems to map better to task profiles than HAL hints. Is the HAL interface getting the tid and the hint? I guess it could use task profiles in the implementation. I presume the normal usecase for this one is to annotate a threads behavior when it starts and then never change it.",
+      "revId": "371c6fe57763a0aabb15b5ba3b16e37ff5542f96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c1cdd3b_1c17427b",
+        "filename": "power/aidl/android/hardware/power/IPower.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1069543
+      },
+      "writtenOn": "2020-01-31T01:56:16Z",
+      "side": 1,
+      "message": "I guess this answers my previous question. So to make sense of this, the HAL has to know the current load. Is that expected to just be the current setting of uclamp.min? Or does the HAL need to keep a map of PID/load values? How does the load get initialized? What happens when the top-app changes? Does the load value get updated based on measured load at some point?",
+      "range": {
+        "startLine": 114,
+        "startChar": 76,
+        "endLine": 114,
+        "endChar": 85
+      },
+      "revId": "371c6fe57763a0aabb15b5ba3b16e37ff5542f96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28ee1def_cec323c5",
+        "filename": "power/aidl/android/hardware/power/Mode.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1069543
+      },
+      "writtenOn": "2020-01-31T01:56:16Z",
+      "side": 1,
+      "message": "How does this fundamentally differ from LOW_POWER?",
+      "revId": "371c6fe57763a0aabb15b5ba3b16e37ff5542f96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65db8830_cd3fdb84",
+        "filename": "power/aidl/android/hardware/power/Mode.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1069543
+      },
+      "writtenOn": "2020-01-31T01:56:16Z",
+      "side": 1,
+      "message": "Do we know what the test workload is?\n\nSo this is the same as SUSTAINED_PERFORMANCE except that the clocks are fixed at the highest sustainable? SUSTAINED_PERFORMANCE has been difficult for partners to tune so it is often a very conservative setting.",
+      "revId": "371c6fe57763a0aabb15b5ba3b16e37ff5542f96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "742d1fa4_c0582fb8",
+        "filename": "power/aidl/android/hardware/power/ThreadHint.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1069543
+      },
+      "writtenOn": "2020-01-31T01:56:16Z",
+      "side": 1,
+      "message": "What is the pain-point being addressed by HIGH_UTILIZATION?\n\nIs it priming the clocks, in which case the implementation of this would be to increase uclamp.min for the specified tid and that value persists for the lifetime of the thread. This could be done with schedtune too. In both cases, the challenge is to map \"heavy\" to an actual value that can be used. We probably don\u0027t want to use maxFreq for power reasons, but anything else might be \"heavy\" enough and a one-value-fits-all workloads might be hard to find. Might need to make this adaptive in some way.\n\n...or is the pain-point that heavy tasks get placed on little-cores so implementation would be to change the affinity to big cores if possible?",
+      "revId": "371c6fe57763a0aabb15b5ba3b16e37ff5542f96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08d072b0_005dc12d",
+        "filename": "power/aidl/android/hardware/power/ThreadHint.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1069543
+      },
+      "writtenOn": "2020-01-31T01:56:16Z",
+      "side": 1,
+      "message": "Presumably this would be implemented by setting the uclamp low_latency property (\u003d schedtune\u0027s perfer_idle property). This implies that other threads in the top-app group do not have the property set (it normally is set for top-app).\n\nMaybe an abuse mitigation for this includes a policy where any app uses these hints, the default for this becomes !low_latency and the top-app default uclamp.min is 0 (or even better uclamp.max is set aggressively unless HIGH_UTILIZATION is set for a task).",
+      "revId": "371c6fe57763a0aabb15b5ba3b16e37ff5542f96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6713ec76_bbd3969b",
         "filename": "power/aidl/vts/VtsHalPowerTargetTest.cpp",
         "patchSetId": 14
