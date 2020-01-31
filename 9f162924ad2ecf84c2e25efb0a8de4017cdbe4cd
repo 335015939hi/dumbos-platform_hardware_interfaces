@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "3da8e89b_fbe10ba4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1315593
+      },
+      "writtenOn": "2020-01-31T22:33:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "be5a517f_5e0e6ee8",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 14
+      },
+      "revId": "9f162924ad2ecf84c2e25efb0a8de4017cdbe4cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8aca79fb_3a848da5",
         "filename": "gnss/1.0/vts/functional/VtsHalGnssV1_0TargetTest.cpp",
         "patchSetId": 3
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "8aca79fb_3a848da5",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 20
+      },
+      "revId": "9f162924ad2ecf84c2e25efb0a8de4017cdbe4cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa9edad9_177fad50",
+        "filename": "gnss/1.0/vts/functional/VtsHalGnssV1_0TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1315593
+      },
+      "writtenOn": "2020-01-31T22:33:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1393e0cd_49917bf3",
       "range": {
         "startLine": 17,
         "startChar": 0,
@@ -143,6 +191,30 @@
     },
     {
       "key": {
+        "uuid": "6558788d_3f448594",
+        "filename": "gnss/1.0/vts/functional/VtsHalGnssV1_0TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1315593
+      },
+      "writtenOn": "2020-01-31T22:33:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87aec6d3_bdbc52dd",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 33
+      },
+      "revId": "9f162924ad2ecf84c2e25efb0a8de4017cdbe4cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b0bc80e8_9c39d79f",
         "filename": "gnss/1.0/vts/functional/VtsHalGnssV1_0TargetTest.cpp",
         "patchSetId": 3
@@ -190,6 +262,30 @@
     },
     {
       "key": {
+        "uuid": "9d7d909c_94132051",
+        "filename": "gnss/1.0/vts/functional/VtsHalGnssV1_0TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1315593
+      },
+      "writtenOn": "2020-01-31T22:33:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7fffa669_9987d8c2",
+      "range": {
+        "startLine": 45,
+        "startChar": 2,
+        "endLine": 45,
+        "endChar": 34
+      },
+      "revId": "9f162924ad2ecf84c2e25efb0a8de4017cdbe4cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f887abd1_4e023d87",
         "filename": "gnss/1.1/vts/functional/gnss_hal_test_cases.cpp",
         "patchSetId": 3
@@ -225,6 +321,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "f887abd1_4e023d87",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 34
+      },
+      "revId": "9f162924ad2ecf84c2e25efb0a8de4017cdbe4cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "382696e1_2628ab8a",
+        "filename": "gnss/1.1/vts/functional/gnss_hal_test_cases.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1315593
+      },
+      "writtenOn": "2020-01-31T22:33:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7b1e56b_03ad87d1",
       "range": {
         "startLine": 35,
         "startChar": 0,
