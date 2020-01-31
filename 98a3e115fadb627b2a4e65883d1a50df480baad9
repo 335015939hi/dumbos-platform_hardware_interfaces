@@ -108,6 +108,24 @@
     },
     {
       "key": {
+        "uuid": "5be8e301_56e6cae3",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2020-01-31T21:55:22Z",
+      "side": 1,
+      "message": "Ack.\n\nI would still want to enforce this. How about the test waits for some time (same 1min) and require that, if it is UNKNOWN, it implies battery is not present, and must report battery current 0? This should allow the battery to finish initialization.",
+      "parentUuid": "15824e2c_a6ed4153",
+      "revId": "98a3e115fadb627b2a4e65883d1a50df480baad9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "264f98f2_5c5c0fff",
         "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
         "patchSetId": 3
@@ -301,6 +319,24 @@
     },
     {
       "key": {
+        "uuid": "ee8c86ca_df41f65e",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2020-01-31T21:55:22Z",
+      "side": 1,
+      "message": "(See previous comment)",
+      "parentUuid": "14530868_e02bff2c",
+      "revId": "98a3e115fadb627b2a4e65883d1a50df480baad9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d99b209a_cf7d431a",
         "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
         "patchSetId": 3
@@ -315,6 +351,24 @@
       "revId": "98a3e115fadb627b2a4e65883d1a50df480baad9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db2d1c18_28f5e9d0",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 602,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2020-01-31T21:55:22Z",
+      "side": 1,
+      "message": "(See previous comment)",
+      "parentUuid": "d99b209a_cf7d431a",
+      "revId": "98a3e115fadb627b2a4e65883d1a50df480baad9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
