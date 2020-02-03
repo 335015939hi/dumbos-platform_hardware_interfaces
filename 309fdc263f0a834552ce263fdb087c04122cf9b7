@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a6727b1_71a94498",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-02-03T18:15:21Z",
+      "side": 1,
+      "message": "are there VTS test changes for these?",
+      "revId": "309fdc263f0a834552ce263fdb087c04122cf9b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "636918e5_bef1a0d6",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 1065,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-02-03T18:15:21Z",
+      "side": 1,
+      "message": "what are the formats of these? Does this correspond to some SIM standard?",
+      "range": {
+        "startLine": 1054,
+        "startChar": 0,
+        "endLine": 1065,
+        "endChar": 34
+      },
+      "revId": "309fdc263f0a834552ce263fdb087c04122cf9b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cea2f6cc_63ebce5e",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 1082,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-02-03T18:15:21Z",
+      "side": 1,
+      "message": "is this total across all contacts?",
+      "range": {
+        "startLine": 1082,
+        "startChar": 12,
+        "endLine": 1082,
+        "endChar": 38
+      },
+      "revId": "309fdc263f0a834552ce263fdb087c04122cf9b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7e8a5ce_e643f1a5",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 1085,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-02-03T18:15:21Z",
+      "side": 1,
+      "message": "Is this the number available or used?",
+      "range": {
+        "startLine": 1085,
+        "startChar": 12,
+        "endLine": 1085,
+        "endChar": 17
+      },
+      "revId": "309fdc263f0a834552ce263fdb087c04122cf9b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
