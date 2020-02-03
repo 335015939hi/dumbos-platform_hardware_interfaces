@@ -45,11 +45,16 @@ class Gralloc0HalImpl : public V2_0::passthrough::detail::Gralloc0HalImpl<Hal> {
              return Error::NONE;
          }
 
+         if (descriptorInfo.layerCount != 1)
+         {
+             return Error::BAD_VALUE;
+         }
+
          int32_t ret = mModule->validateBufferSize(
                  mModule, bufferHandle, descriptorInfo.width, descriptorInfo.height,
                  static_cast<int32_t>(descriptorInfo.format),
                  static_cast<uint64_t>(descriptorInfo.usage), stride);
-         return static_cast<Error>(ret);
+         return ret == 0 ? Error::NONE : Error::BAD_VALUE;
      }
      Error getTransportSize(const native_handle_t* bufferHandle, uint32_t* outNumFds,
                             uint32_t* outNumInts) override {
@@ -60,7 +65,7 @@ class Gralloc0HalImpl : public V2_0::passthrough::detail::Gralloc0HalImpl<Hal> {
          }
 
          int32_t ret = mModule->getTransportSize(mModule, bufferHandle, outNumFds, outNumInts);
-         return static_cast<Error>(ret);
+         return ret == 0 ? Error::NONE : Error::BAD_BUFFER;
     }
 
     Error createDescriptor_2_1(const IMapper::BufferDescriptorInfo& descriptorInfo,
