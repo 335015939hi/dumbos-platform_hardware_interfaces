@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "184d6fd3_504420d6",
+        "filename": "identity/1.0/IWritableIdentityCredential.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-02-04T06:51:43Z",
+      "side": 1,
+      "message": "Can you please make a decision on using vec\u003cvec\u003cuint8_t\u003e\u003e vs vec\u003cuint8_t\u003e?  I spent some time trying to figure out how to find the boundaries in vec\u003cuint8_t\u003e to convert to keymaster_cert_chain_t. Then I wrote the code, now it seems unnecessary.  errr...",
+      "range": {
+        "startLine": 78,
+        "startChar": 8,
+        "endLine": 78,
+        "endChar": 17
+      },
+      "revId": "87cb07bd0868874208cd8f48d19ca98ae51610ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
