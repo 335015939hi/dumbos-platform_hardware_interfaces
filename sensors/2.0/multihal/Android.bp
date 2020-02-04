@@ -85,7 +85,7 @@ cc_test_library {
         "android.hardware.sensors@2.0-multihal.header",
     ],
     export_shared_lib_headers: [
-	"android.hardware.sensors@2.0-ScopedWakelock",
+        "android.hardware.sensors@2.0-ScopedWakelock",
     ],
     shared_libs: [
         "libutils",
