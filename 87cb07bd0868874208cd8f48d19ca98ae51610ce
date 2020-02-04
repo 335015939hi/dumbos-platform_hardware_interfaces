@@ -22,6 +22,30 @@
       "revId": "87cb07bd0868874208cd8f48d19ca98ae51610ce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77aa3d38_85f8e893",
+        "filename": "identity/1.0/IWritableIdentityCredential.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-02-04T15:05:57Z",
+      "side": 1,
+      "message": "If you read the previous comments in the CL, Shawn specifically requested it should be vec\u003cvec\u003cuint8_t\u003e\u003e and I agree with him that\u0027s nicer.\n\nAlso note how there are utility functions in IdentityCredentialSupport to split and join so converting between each is trivial. Your comment about keymaster_cert_chain_t is a little out of place here as that\u0027s an implementation detail and you can just use support:: certificateChainSplit() to deal with this change as you would already need to produce a vec\u003cuint8_t\u003e _anyway_.",
+      "parentUuid": "184d6fd3_504420d6",
+      "range": {
+        "startLine": 78,
+        "startChar": 8,
+        "endLine": 78,
+        "endChar": 17
+      },
+      "revId": "87cb07bd0868874208cd8f48d19ca98ae51610ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
