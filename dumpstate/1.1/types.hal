@@ -56,7 +56,25 @@ enum DumpstateMode : uint32_t {
     WIFI = 5,
 
     /**
-     * Default mode.
+     * Default mode, essentially analogous to calling @1.0::IDumpstateDevice.dumpstateBoard(handle).
+     * This mode MUST be supported if the dumpstate HAL is implemented.
      */
     DEFAULT = 6
+};
+
+/** A simple return enum for use with dumpstateBoard_1_1. */
+enum DumpstateStatus : uint32_t {
+    OK = 0,
+
+    /**
+     * Returned for cases where the device doesn't support the given DumpstateMode (e.g. a phone
+     * trying to use DumpstateMode::WEAR).
+     */
+    UNSUPPORTED_MODE = 1,
+
+    /**
+     * Returned for cases where an IllegalArgumentException is typically appropriate, e.g. missing
+     * file descriptors.
+     */
+    ILLEGAL_ARGUMENT = 2,
 };
