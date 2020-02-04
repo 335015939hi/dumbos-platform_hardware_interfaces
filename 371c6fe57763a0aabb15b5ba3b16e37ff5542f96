@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "309db3b0_fa805aba",
+        "filename": "power/aidl/android/hardware/power/Boost.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1277048
+      },
+      "writtenOn": "2020-02-04T22:48:28Z",
+      "side": 1,
+      "message": "The HAL may apply changes to different frequency domains according to the needs for the particular DPU.  It may also take actions such as preparing DPU state which is lost during power collapse.\n\nOn platforms which can wake up the DPU in time to receive frames given just the normal frame notification (through the HWC HAL) doing nothing in response to this message is also acceptable.",
+      "parentUuid": "576449c0_dcb0a4dc",
+      "revId": "371c6fe57763a0aabb15b5ba3b16e37ff5542f96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "87f17051_884e17b6",
         "filename": "power/aidl/android/hardware/power/Hint.aidl",
         "patchSetId": 14
