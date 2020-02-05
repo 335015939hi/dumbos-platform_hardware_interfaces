@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6bbc0c67_05e4b2bb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1074038
+      },
+      "writtenOn": "2020-02-05T01:36:03Z",
+      "side": 1,
+      "message": "Can you test without your previous fix to make sure it fails?",
+      "range": {
+        "startLine": 10,
+        "startChar": 6,
+        "endLine": 10,
+        "endChar": 19
+      },
+      "revId": "8ab193a8fe8808f5246050f97e0f5b890398b2ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "676f884f_696a0919",
+        "filename": "sensors/2.0/multihal/tests/HalProxy_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 763,
+      "author": {
+        "id": 1074038
+      },
+      "writtenOn": "2020-02-05T01:36:03Z",
+      "side": 1,
+      "message": "Can we instead wait for the FMQ flag to be signaled? sleeps tend to cause flakiness issues.",
+      "range": {
+        "startLine": 763,
+        "startChar": 4,
+        "endLine": 763,
+        "endChar": 62
+      },
+      "revId": "8ab193a8fe8808f5246050f97e0f5b890398b2ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
