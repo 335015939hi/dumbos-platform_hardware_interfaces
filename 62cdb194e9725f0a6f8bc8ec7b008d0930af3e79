@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5b204717_e0061818",
+        "filename": "sensors/2.0/multihal/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1074038
+      },
+      "writtenOn": "2020-02-05T01:33:43Z",
+      "side": 1,
+      "message": "nit: since this isn\u0027t actually a test, maybe .testlib or something more explicit.",
+      "range": {
+        "startLine": 97,
+        "startChar": 54,
+        "endLine": 97,
+        "endChar": 59
+      },
+      "revId": "62cdb194e9725f0a6f8bc8ec7b008d0930af3e79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
