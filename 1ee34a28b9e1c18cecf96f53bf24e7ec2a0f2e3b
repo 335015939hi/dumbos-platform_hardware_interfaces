@@ -22,6 +22,30 @@
       "revId": "1ee34a28b9e1c18cecf96f53bf24e7ec2a0f2e3b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d79d5f3_d9e47265",
+        "filename": "vibrator/aidl/android/hardware/vibrator/IVibrator.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1418133
+      },
+      "writtenOn": "2020-02-05T02:43:28Z",
+      "side": 1,
+      "message": "I don\u0027t see how this request is feasible. Frameworks and applications are free to choose how they obtain board-specific configurations (e.g. resource files, system properties). Also, dictating the property would undermine the ability to target specific client because all clients would be querying the same property.",
+      "parentUuid": "8eaf41b2_0fe338e7",
+      "range": {
+        "startLine": 206,
+        "startChar": 7,
+        "endLine": 206,
+        "endChar": 39
+      },
+      "revId": "1ee34a28b9e1c18cecf96f53bf24e7ec2a0f2e3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
