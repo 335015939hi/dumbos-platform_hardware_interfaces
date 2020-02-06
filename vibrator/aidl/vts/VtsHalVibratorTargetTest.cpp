@@ -105,7 +105,7 @@ TEST_P(VibratorAidl, OnWithCallback) {
 TEST_P(VibratorAidl, OnCallbackNotSupported) {
     if (!(capabilities & IVibrator::CAP_PERFORM_CALLBACK)) {
         sp<CompletionCallback> callback = new CompletionCallback([] {});
-        EXPECT_EQ(Status::EX_UNSUPPORTED_OPERATION, vibrator->on(250, callback).exceptionCode());
+        EXPECT_EQ(Status::EX_NONE, vibrator->on(250, callback).exceptionCode());
     }
 }
 
@@ -171,13 +171,23 @@ TEST_P(VibratorAidl, ValidateEffectWithCallback) {
 TEST_P(VibratorAidl, ValidateEffectWithCallbackNotSupported) {
     if (capabilities & IVibrator::CAP_PERFORM_CALLBACK) return;
 
+    std::vector<Effect> supported;
+    ASSERT_TRUE(vibrator->getSupportedEffects(&supported).isOk());
+
     for (Effect effect : kEffects) {
+        bool isEffectSupported =
+                std::find(supported.begin(), supported.end(), effect) != supported.end();
+
+        if (!isEffectSupported) {
+            continue;
+        }
+
         for (EffectStrength strength : kEffectStrengths) {
             sp<CompletionCallback> callback = new CompletionCallback([] {});
             int lengthMs;
             Status status = vibrator->perform(effect, strength, callback, &lengthMs);
-            EXPECT_EQ(Status::EX_UNSUPPORTED_OPERATION, status.exceptionCode());
-            EXPECT_EQ(lengthMs, 0);
+            EXPECT_EQ(Status::EX_NONE, status.exceptionCode());
+            EXPECT_GT(lengthMs, 0);
         }
     }
 }
