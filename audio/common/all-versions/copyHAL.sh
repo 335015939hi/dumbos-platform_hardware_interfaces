@@ -21,13 +21,14 @@ readonly HAL_SERVICE_CPP=service.cpp
 
 readonly FWK_DIRECTORY=frameworks/av/media/libaudiohal
 readonly IMPL_DIRECTORY=impl
-readonly IMPL_FACTORYHAL=$IMPL_DIRECTORY/include/libaudiohal/FactoryHalHidl.h
+readonly IMPL_FACTORYHAL=FactoryHalHidl.cpp
 
 readonly VTS_DIRECTORY=test/vts-testcase/hal/audio
 readonly VTS_LIST=test/vts/tools/build/tasks/list/vts_test_lib_hidl_package_list.mk
 readonly WATCHDOG=frameworks/base/services/core/java/com/android/server/Watchdog.cpp
 readonly DUMP_UTILS=frameworks/native/libs/dumputils/dump_utils.cpp
 readonly GSI_CURRENT=build/make/target/product/gsi/current.txt
+readonly BASE_SYSTEM_MK=build/make/target/product/base_system.mk
 
 readonly BASE_VERSION=${1:-$(ls $ANDROID_BUILD_TOP/$HAL_DIRECTORY | grep -E '[0-9]+\.[0-9]+' |
                                   sort -n |tail -n1)}
@@ -150,7 +151,7 @@ runIfNeeded $HAL_DIRECTORY createHALVersion
 
 createFrameworkAdapter() {
     updateVersion -v original_before=1 Android.bp
-    updateVersion -v original_before=1 -v RS= -v ORS='\n\n' $IMPL_FACTORYHAL/Android.bp
+    updateVersion -v original_before=1 -v RS= -v ORS='\n\n' $IMPL_DIRECTORY/Android.bp
     updateVersion -v original_after=1 $IMPL_FACTORYHAL
 }
 echo "Now creating the framework adapter version"
@@ -177,6 +178,9 @@ runIfNeeded $(dirname $DUMP_UTILS) updateAudioVersion -v original_before=1 $(bas
 
 echo "Now update GSI current.txt"
 runIfNeeded $(dirname $GSI_CURRENT) update-vndk-list.sh
+
+echo "Now update base_system.mk"
+runIfNeeded $(dirname $BASE_SYSTEM_MK) updateVersion -v original_after=1 $(basename $BASE_SYSTEM_MK)
 
 if ! [ "$MODIFIED" ]; then
     echo
