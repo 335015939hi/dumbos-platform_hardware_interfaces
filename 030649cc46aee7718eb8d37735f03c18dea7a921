@@ -22,6 +22,30 @@
       "revId": "030649cc46aee7718eb8d37735f03c18dea7a921",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d73fc9b9_2f6244b5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1418133
+      },
+      "writtenOn": "2020-02-07T02:40:12Z",
+      "side": 1,
+      "message": "No, it\u0027s not currently being conditionalized.\n\nIt would make sense if the capabilities flag didn\u0027t exist. Since it\u0027s not needed as a means to convey capability, don\u0027t cares are preferable over being required to be pedantic.",
+      "parentUuid": "55d20843_f996bda3",
+      "range": {
+        "startLine": 11,
+        "startChar": 33,
+        "endLine": 12,
+        "endChar": 27
+      },
+      "revId": "030649cc46aee7718eb8d37735f03c18dea7a921",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
