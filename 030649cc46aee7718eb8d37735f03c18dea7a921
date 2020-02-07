@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "55d20843_f996bda3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-02-07T00:49:46Z",
+      "side": 1,
+      "message": "it does already need to conditionalize the behavior though? isn\u0027t it tricky that a callback is being passed in but ignored\n\nas a hal developer, returning unsupported if you don\u0027t support the callback makes a lot of sense",
+      "range": {
+        "startLine": 11,
+        "startChar": 33,
+        "endLine": 12,
+        "endChar": 27
+      },
+      "revId": "030649cc46aee7718eb8d37735f03c18dea7a921",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
