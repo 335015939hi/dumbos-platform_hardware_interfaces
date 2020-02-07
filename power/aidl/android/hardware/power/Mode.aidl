@@ -76,8 +76,18 @@ enum Mode {
      */
     INTERACTIVE,
 
-
     /**
+     * This mode indicates device is in doze.
+     */
+    DOZE,
+
+   /**
+     * This mode indicates that device is either OFF or still on
+     * but is optimized for showing static system-provided content.
+     */
+    DISPLAY_INACTIVE,
+
+   /**
      * Below hints are currently not sent in Android framework but OEM might choose to
      * implement for power/perf optimizations.
      */
