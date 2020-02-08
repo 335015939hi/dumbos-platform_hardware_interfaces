@@ -45,6 +45,29 @@
       "revId": "fa6049209dfd0d9e45cb44d971ca58af719b98a0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7d76cfb_93518b4a",
+        "filename": "power/aidl/android/hardware/power/Mode.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1096003
+      },
+      "writtenOn": "2020-02-08T01:32:13Z",
+      "side": 1,
+      "message": "There are 7 display states in b/140148621#comment2. So this is for DISPLAY_STATE_DOZE_SUSPEND based on the comment? https://source.corp.google.com/android/frameworks/base/core/proto/android/view/enums.proto;cl\u003dmaster;l\u003d38?q\u003dDISPLAY_STATE_DOZE_SUSPEND%20%3D%204;",
+      "range": {
+        "startLine": 88,
+        "startChar": 4,
+        "endLine": 88,
+        "endChar": 21
+      },
+      "revId": "fa6049209dfd0d9e45cb44d971ca58af719b98a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
