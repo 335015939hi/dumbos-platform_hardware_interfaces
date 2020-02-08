@@ -46,6 +46,30 @@
       "revId": "030649cc46aee7718eb8d37735f03c18dea7a921",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e98feed_370e0a54",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-02-08T01:08:40Z",
+      "side": 1,
+      "message": "In general, we want HAL interfaces to be defined precisely. For instance, by introducing this option, it seems to me that it would be very easy to write framework code which only works on some devices. I think ideally I would prefer mandating the callback support (though this comes with its own problem of having a huge API surface that is hard to implement). :/ ideally just less APIs which are more consistent.\n\nIf you feel this is necessary, please specify the new semantics in the interface.",
+      "parentUuid": "d73fc9b9_2f6244b5",
+      "range": {
+        "startLine": 11,
+        "startChar": 33,
+        "endLine": 12,
+        "endChar": 27
+      },
+      "revId": "030649cc46aee7718eb8d37735f03c18dea7a921",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
