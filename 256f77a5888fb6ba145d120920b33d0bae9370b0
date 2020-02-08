@@ -22,6 +22,30 @@
       "revId": "256f77a5888fb6ba145d120920b33d0bae9370b0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6736ccc1_29074c5d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1124543
+      },
+      "writtenOn": "2020-02-08T01:02:17Z",
+      "side": 1,
+      "message": "The original change-id was on AOSP but I had abandoned it due to merge conflicts and saw it cleaner to just make a totally new change without any patch set histories just to be clear it\u0027s a clean CP.",
+      "parentUuid": "265b4112_6ea6e403",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 52
+      },
+      "revId": "256f77a5888fb6ba145d120920b33d0bae9370b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
