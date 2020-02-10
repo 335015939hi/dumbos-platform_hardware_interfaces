@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0ac2b4cc_10ee1bbb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1105075
+      },
+      "writtenOn": "2020-02-10T22:35:39Z",
+      "side": 1,
+      "message": "included aosp/1231453 here",
+      "parentUuid": "f44fd84d_27c4a82b",
+      "range": {
+        "startLine": 7,
+        "startChar": 7,
+        "endLine": 7,
+        "endChar": 48
+      },
+      "revId": "fa6049209dfd0d9e45cb44d971ca58af719b98a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f962ce7e_4247b268",
         "filename": "power/aidl/android/hardware/power/Mode.aidl",
         "patchSetId": 2
