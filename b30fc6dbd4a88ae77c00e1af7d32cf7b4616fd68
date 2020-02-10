@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d58ba6b5_394bef74",
+        "filename": "power/aidl/android/hardware/power/Mode.aidl",
+        "patchSetId": 15
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1105075
+      },
+      "writtenOn": "2020-02-10T19:39:04Z",
+      "side": 1,
+      "message": "This is an added overhead for vendor. can we be clear about the purpose of this hint?\n\nAlso what is run2run variation of 2) worklaod? what about ARCH and scheduling difference? are 2) workload guaranteed to lock on big or little CPUs? if not, does vendor need lock it to lowest capacity CPU or highest capacity CPU?\nWhat is the tolerance between the error of N?",
+      "range": {
+        "startLine": 64,
+        "startChar": 7,
+        "endLine": 68,
+        "endChar": 75
+      },
+      "revId": "b30fc6dbd4a88ae77c00e1af7d32cf7b4616fd68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
