@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "d086ec0d_3ddc85ed",
+        "filename": "power/aidl/android/hardware/power/Mode.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1105075
+      },
+      "writtenOn": "2020-02-10T22:21:47Z",
+      "side": 1,
+      "message": "this this the Doze which i guess well documented already, I can put a link here:\nhttps://developer.android.com/training/monitoring-device-state/doze-standby#understand_app_standby",
+      "parentUuid": "f962ce7e_4247b268",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 9
+      },
+      "revId": "fa6049209dfd0d9e45cb44d971ca58af719b98a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c7d76cfb_93518b4a",
         "filename": "power/aidl/android/hardware/power/Mode.aidl",
         "patchSetId": 2
@@ -59,6 +83,30 @@
       "writtenOn": "2020-02-08T01:32:13Z",
       "side": 1,
       "message": "There are 7 display states in b/140148621#comment2. So this is for DISPLAY_STATE_DOZE_SUSPEND based on the comment? https://source.corp.google.com/android/frameworks/base/core/proto/android/view/enums.proto;cl\u003dmaster;l\u003d38?q\u003dDISPLAY_STATE_DOZE_SUSPEND%20%3D%204;",
+      "range": {
+        "startLine": 88,
+        "startChar": 4,
+        "endLine": 88,
+        "endChar": 21
+      },
+      "revId": "fa6049209dfd0d9e45cb44d971ca58af719b98a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4429794_78b48e21",
+        "filename": "power/aidl/android/hardware/power/Mode.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1105075
+      },
+      "writtenOn": "2020-02-10T22:21:47Z",
+      "side": 1,
+      "message": "doze will be sent as another DOZE mode, this is meant to decouple the state of display/doze.\n\nso yes, DISPLAY_STATE_DOZE_SUSPEND and DISPLAY_STATE_ON_SUSPEND and DISPLAY_STATE_OFF will all set this mode to _enabled_",
+      "parentUuid": "c7d76cfb_93518b4a",
       "range": {
         "startLine": 88,
         "startChar": 4,
