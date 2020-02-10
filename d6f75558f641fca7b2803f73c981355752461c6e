@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c728339e_b89416bf",
+        "filename": "current.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1463284
+      },
+      "writtenOn": "2020-02-10T17:25:08Z",
+      "side": 1,
+      "message": "Are these hashes correct for both pi-car and pi? If not, it doesn\u0027t seem like we should merge them.",
+      "revId": "d6f75558f641fca7b2803f73c981355752461c6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
