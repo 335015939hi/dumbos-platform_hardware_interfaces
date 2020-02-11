@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "640cb3e6_a1cee456",
+        "filename": "power/aidl/android/hardware/power/Mode.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1105075
+      },
+      "writtenOn": "2020-02-11T22:33:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6adc0602_97c81464",
+      "range": {
+        "startLine": 80,
+        "startChar": 7,
+        "endLine": 80,
+        "endChar": 44
+      },
+      "revId": "03ff75ec8f2b2f4af3dc1e48c38d7917db4bb840",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "022d9b66_7c686faf",
         "filename": "power/aidl/android/hardware/power/Mode.aidl",
         "patchSetId": 6
@@ -45,6 +69,30 @@
       "revId": "03ff75ec8f2b2f4af3dc1e48c38d7917db4bb840",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05ac5e65_31777c10",
+        "filename": "power/aidl/android/hardware/power/Mode.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1105075
+      },
+      "writtenOn": "2020-02-11T22:33:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "022d9b66_7c686faf",
+      "range": {
+        "startLine": 87,
+        "startChar": 7,
+        "endLine": 87,
+        "endChar": 59
+      },
+      "revId": "03ff75ec8f2b2f4af3dc1e48c38d7917db4bb840",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
