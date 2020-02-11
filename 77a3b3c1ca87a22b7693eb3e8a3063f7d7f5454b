@@ -22,6 +22,30 @@
       "revId": "77a3b3c1ca87a22b7693eb3e8a3063f7d7f5454b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05b9371c_16245014",
+        "filename": "power/aidl/android/hardware/power/Mode.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1105075
+      },
+      "writtenOn": "2020-02-11T17:19:30Z",
+      "side": 1,
+      "message": "took discussion offline.",
+      "parentUuid": "198f3340_ec710917",
+      "range": {
+        "startLine": 39,
+        "startChar": 4,
+        "endLine": 39,
+        "endChar": 19
+      },
+      "revId": "77a3b3c1ca87a22b7693eb3e8a3063f7d7f5454b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
