@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6adc0602_97c81464",
+        "filename": "power/aidl/android/hardware/power/Mode.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1006497
+      },
+      "writtenOn": "2020-02-11T22:03:04Z",
+      "side": 1,
+      "message": "nit:\n\n  This mode indicates the device is in device idle, externally known as doze.\n\nTo make the name and the documentation align better.",
+      "range": {
+        "startLine": 80,
+        "startChar": 7,
+        "endLine": 80,
+        "endChar": 44
+      },
+      "revId": "03ff75ec8f2b2f4af3dc1e48c38d7917db4bb840",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "022d9b66_7c686faf",
+        "filename": "power/aidl/android/hardware/power/Mode.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1006497
+      },
+      "writtenOn": "2020-02-11T22:03:04Z",
+      "side": 1,
+      "message": "nit:\n\n  but is in a low power state and optimized for showing system provided content while the device is non-interactive.\n\nThe fact that it\u0027s non-interactive is the important bit here, not that it\u0027s showing system-provided content.\n\nIf you\u0027re going to include STATE_ON when in dreaming (e.g. screensaver mode, where display is ON but the device is non-interactive) then you can drop the bit about low power state.",
+      "range": {
+        "startLine": 87,
+        "startChar": 7,
+        "endLine": 87,
+        "endChar": 59
+      },
+      "revId": "03ff75ec8f2b2f4af3dc1e48c38d7917db4bb840",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
