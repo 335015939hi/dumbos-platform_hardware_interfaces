@@ -22,6 +22,29 @@
       "revId": "b30fc6dbd4a88ae77c00e1af7d32cf7b4616fd68",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc50b825_a6b00fb8",
+        "filename": "power/aidl/vts/VtsHalPowerTargetTest.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1105075
+      },
+      "writtenOn": "2020-02-11T00:24:52Z",
+      "side": 1,
+      "message": "should this only for device shipping with R+, what about deice upgrade?\nalso vendor can just set to VMIN for this kind of hint if this doesn\u0027t bring value.",
+      "range": {
+        "startLine": 115,
+        "startChar": 3,
+        "endLine": 115,
+        "endChar": 27
+      },
+      "revId": "b30fc6dbd4a88ae77c00e1af7d32cf7b4616fd68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
