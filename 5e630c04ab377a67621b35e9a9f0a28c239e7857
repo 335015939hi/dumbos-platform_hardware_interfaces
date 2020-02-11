@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d6a4007d_3f6d9c96",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 16
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-02-11T19:10:48Z",
+      "side": 1,
+      "message": "What about devices which plug in the wall or virtual devices?",
+      "range": {
+        "startLine": 334,
+        "startChar": 33,
+        "endLine": 334,
+        "endChar": 38
+      },
+      "revId": "5e630c04ab377a67621b35e9a9f0a28c239e7857",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
