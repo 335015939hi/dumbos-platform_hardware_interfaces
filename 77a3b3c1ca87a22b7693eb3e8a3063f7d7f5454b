@@ -66,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "a6bf34c9_a555c0ee",
+        "filename": "power/aidl/android/hardware/power/Mode.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1105075
+      },
+      "writtenOn": "2020-02-11T21:29:01Z",
+      "side": 1,
+      "message": "DEVICE_IDLE sgtm",
+      "parentUuid": "3a0b9f1f_a9ec5b19",
+      "revId": "77a3b3c1ca87a22b7693eb3e8a3063f7d7f5454b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a7805f6_fd8ec2d0",
         "filename": "power/aidl/android/hardware/power/Mode.aidl",
         "patchSetId": 4
@@ -86,6 +104,30 @@
       "revId": "77a3b3c1ca87a22b7693eb3e8a3063f7d7f5454b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35aa899d_9f882c25",
+        "filename": "power/aidl/android/hardware/power/Mode.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1105075
+      },
+      "writtenOn": "2020-02-11T21:29:01Z",
+      "side": 1,
+      "message": "in this case, STATE_DOZE is also a non-active usage which display is in low-power state. so I would prefer the latter case.",
+      "parentUuid": "2a7805f6_fd8ec2d0",
+      "range": {
+        "startLine": 94,
+        "startChar": 11,
+        "endLine": 94,
+        "endChar": 66
+      },
+      "revId": "77a3b3c1ca87a22b7693eb3e8a3063f7d7f5454b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
