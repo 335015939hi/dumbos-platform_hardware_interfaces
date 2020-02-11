@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f194cbd_651a2885",
+        "filename": "power/aidl/android/hardware/power/Mode.aidl",
+        "patchSetId": 17
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1006497
+      },
+      "writtenOn": "2020-02-11T22:07:38Z",
+      "side": 1,
+      "message": "Should we move this infrastructure closer to the HAL (i.e. somewhere in hardware/interfaces/power/)? That way the docs are less likely to get out of date because the hwui folks moved something and didn\u0027t remember to update the info here.",
+      "revId": "a9fd6409da0a59d2b712e93f7ec266a7120c3553",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
