@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "e9568304_903b2fb3",
+        "filename": "power/aidl/android/hardware/power/Mode.aidl",
+        "patchSetId": 15
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1043625
+      },
+      "writtenOn": "2020-02-11T00:41:09Z",
+      "side": 1,
+      "message": "Added a comment about the purpose of the hint.\n\nI don\u0027t think we need to put restrictions on which cluster things get scheduled on. This is largely targeted at game engines which already take care of setting their affinities, so I suspect it won\u0027t affect their measurements much. I have also talked to the HWUI team, and it sounds like they\u0027re willing to use affinity while in this mode as well.\n\nThere\u0027s a tolerance listed for N, but maybe it\u0027s not sufficient?",
+      "parentUuid": "d58ba6b5_394bef74",
+      "range": {
+        "startLine": 64,
+        "startChar": 7,
+        "endLine": 68,
+        "endChar": 75
+      },
+      "revId": "b30fc6dbd4a88ae77c00e1af7d32cf7b4616fd68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bc50b825_a6b00fb8",
         "filename": "power/aidl/vts/VtsHalPowerTargetTest.cpp",
         "patchSetId": 15
@@ -36,6 +60,30 @@
       "writtenOn": "2020-02-11T00:24:52Z",
       "side": 1,
       "message": "should this only for device shipping with R+, what about deice upgrade?\nalso vendor can just set to VMIN for this kind of hint if this doesn\u0027t bring value.",
+      "range": {
+        "startLine": 115,
+        "startChar": 3,
+        "endLine": 115,
+        "endChar": 27
+      },
+      "revId": "b30fc6dbd4a88ae77c00e1af7d32cf7b4616fd68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae3a8f4b_e93f530d",
+        "filename": "power/aidl/vts/VtsHalPowerTargetTest.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1043625
+      },
+      "writtenOn": "2020-02-11T00:41:09Z",
+      "side": 1,
+      "message": "For upgrades, they don\u0027t have to use the AIDL Power HAL, and therefore they won\u0027t have to pass this test.\n\nAs for VMIN, that\u0027s true, though it will mean their device is less useful for game developers and others who want to do app profiling on their device. I added a note about that in the comment in the Mode.aidl, saying that VMIN is valid but likely to be less useful.",
+      "parentUuid": "bc50b825_a6b00fb8",
       "range": {
         "startLine": 115,
         "startChar": 3,
