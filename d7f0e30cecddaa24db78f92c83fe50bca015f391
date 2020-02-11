@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7fe6814f_3698149e",
+        "filename": "graphics/mapper/2.1/utils/passthrough/include/mapper-passthrough/2.1/Gralloc0Hal.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2020-02-11T18:39:08Z",
+      "side": 1,
+      "message": "This looks the same as lines 40-42.",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 10
+      },
+      "revId": "d7f0e30cecddaa24db78f92c83fe50bca015f391",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff5c4726_9ef0aa01",
+        "filename": "graphics/mapper/2.1/utils/passthrough/include/mapper-passthrough/2.1/Gralloc0Hal.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2020-02-11T18:39:08Z",
+      "side": 1,
+      "message": "This assumes every error is a BAD_VALUE error but it is possible for this function to return a BAD_BUFFER error.",
+      "range": {
+        "startLine": 57,
+        "startChar": 16,
+        "endLine": 57,
+        "endChar": 58
+      },
+      "revId": "d7f0e30cecddaa24db78f92c83fe50bca015f391",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
