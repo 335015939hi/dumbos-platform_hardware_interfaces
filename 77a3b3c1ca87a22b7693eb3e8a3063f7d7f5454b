@@ -46,6 +46,46 @@
       "revId": "77a3b3c1ca87a22b7693eb3e8a3063f7d7f5454b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a0b9f1f_a9ec5b19",
+        "filename": "power/aidl/android/hardware/power/Mode.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1006497
+      },
+      "writtenOn": "2020-02-11T17:47:05Z",
+      "side": 1,
+      "message": "Can we call this DEVICE_DOZE or DEVICE_IDLE?\n\nDOZE is used both for device idle (which is externally called doze) and Always-On-Display (which is internally called doze).",
+      "revId": "77a3b3c1ca87a22b7693eb3e8a3063f7d7f5454b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a7805f6_fd8ec2d0",
+        "filename": "power/aidl/android/hardware/power/Mode.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1006497
+      },
+      "writtenOn": "2020-02-11T17:47:05Z",
+      "side": 1,
+      "message": "Does this mean it only applies to STATE_*_SUSPEND and OFF states? Or does it apply to STATE_DOZE as well?\n\nIf the former, might be better to call this DISPLAY_SUSPEND. If the latter then we should change the docs because STATE_DOZE is not optimized for showing static content.",
+      "range": {
+        "startLine": 94,
+        "startChar": 11,
+        "endLine": 94,
+        "endChar": 66
+      },
+      "revId": "77a3b3c1ca87a22b7693eb3e8a3063f7d7f5454b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
