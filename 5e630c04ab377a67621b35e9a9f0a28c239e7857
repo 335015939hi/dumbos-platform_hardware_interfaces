@@ -22,6 +22,30 @@
       "revId": "5e630c04ab377a67621b35e9a9f0a28c239e7857",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c320010_498beb6f",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 16
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1043625
+      },
+      "writtenOn": "2020-02-11T19:15:25Z",
+      "side": 1,
+      "message": "Do we have a way to put a finer control on this? Plug-in devices shouldn\u0027t be a problem, since everything in this HAL is optional except for FIXED_PERFORMANCE (which should be pretty easy for them). Virtual devices might be harder, though, so I\u0027m open to suggestions on those.",
+      "parentUuid": "d6a4007d_3f6d9c96",
+      "range": {
+        "startLine": 334,
+        "startChar": 33,
+        "endLine": 334,
+        "endChar": 38
+      },
+      "revId": "5e630c04ab377a67621b35e9a9f0a28c239e7857",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
