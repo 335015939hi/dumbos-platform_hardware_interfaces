@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "72b6ca55_446e47c0",
+        "filename": "identity/aidl/android/hardware/identity/HardwareInformation.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-02-12T20:36:08Z",
+      "side": 1,
+      "message": "I\u0027m using the -cpp backend in credstore (which consumes the HAL) and also in the VTS test (because the Vibrator AIDL was doing that and that was my inspiration)... should I be using the NDK there? I thought NDK was only for vendor stuff and credstore is already speaking binder to the Framework API and I was afraid of mixing binders..",
+      "parentUuid": "95a63640_aa0f11ba",
+      "range": {
+        "startLine": 24,
+        "startChar": 4,
+        "endLine": 24,
+        "endChar": 15
+      },
+      "revId": "6b664a718e52181dd6470a09c249fbcce59ed5d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "19244b96_c0aca88a",
         "filename": "identity/aidl/android/hardware/identity/HardwareInformation.aidl",
         "patchSetId": 3
