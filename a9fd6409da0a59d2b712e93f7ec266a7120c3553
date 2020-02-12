@@ -34,6 +34,29 @@
       "revId": "a9fd6409da0a59d2b712e93f7ec266a7120c3553",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85024a7b_e0cf85e2",
+        "filename": "power/aidl/vts/VtsHalPowerTargetTest.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1105075
+      },
+      "writtenOn": "2020-02-12T06:56:13Z",
+      "side": 1,
+      "message": "also change the default(example) implementation to make it at least pass?",
+      "range": {
+        "startLine": 115,
+        "startChar": 18,
+        "endLine": 115,
+        "endChar": 37
+      },
+      "revId": "a9fd6409da0a59d2b712e93f7ec266a7120c3553",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
