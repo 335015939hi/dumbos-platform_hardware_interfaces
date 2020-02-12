@@ -46,6 +46,30 @@
       "revId": "5e630c04ab377a67621b35e9a9f0a28c239e7857",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6eaf7685_e88e13e4",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 16
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1105075
+      },
+      "writtenOn": "2020-02-12T00:45:46Z",
+      "side": 1,
+      "message": "do we then want thermal required also for picard?",
+      "parentUuid": "4c320010_498beb6f",
+      "range": {
+        "startLine": 334,
+        "startChar": 33,
+        "endLine": 334,
+        "endChar": 38
+      },
+      "revId": "5e630c04ab377a67621b35e9a9f0a28c239e7857",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
