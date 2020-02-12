@@ -52,6 +52,24 @@
       "revId": "c1c9794c10bfb433f5041441b04d69f6b7facbc7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58257f88_94841f65",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4616,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-02-12T00:52:45Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4b402a3e_802d8cb1",
+      "revId": "c1c9794c10bfb433f5041441b04d69f6b7facbc7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
