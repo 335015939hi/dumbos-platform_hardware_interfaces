@@ -190,6 +190,30 @@
       "revId": "5e630c04ab377a67621b35e9a9f0a28c239e7857",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1cbc87d9_6f5ff875",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 16
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1105075
+      },
+      "writtenOn": "2020-02-12T03:48:09Z",
+      "side": 1,
+      "message": "not sure how the benchmark/test would be used by game developers in a scalable way across device, but totally fine with being a developer cmd only for R, thanks for confirming.",
+      "parentUuid": "bb438f85_1e0604e8",
+      "range": {
+        "startLine": 334,
+        "startChar": 33,
+        "endLine": 334,
+        "endChar": 38
+      },
+      "revId": "5e630c04ab377a67621b35e9a9f0a28c239e7857",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
