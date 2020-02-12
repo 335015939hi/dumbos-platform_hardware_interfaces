@@ -94,6 +94,30 @@
       "revId": "5e630c04ab377a67621b35e9a9f0a28c239e7857",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0435ed53_14d0c037",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 16
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1105075
+      },
+      "writtenOn": "2020-02-12T01:03:54Z",
+      "side": 1,
+      "message": "wait, just to clarify FIXED_PERFORMANCE is not for gaming, right for benchmarking for testing? or this is _actually_ called in device operation? setting a perf app is very sensitive and usually the source for power draining bugs...",
+      "parentUuid": "a421598a_b298373d",
+      "range": {
+        "startLine": 334,
+        "startChar": 33,
+        "endLine": 334,
+        "endChar": 38
+      },
+      "revId": "5e630c04ab377a67621b35e9a9f0a28c239e7857",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
