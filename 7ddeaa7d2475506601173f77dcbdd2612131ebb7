@@ -1,0 +1,124 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0f1eb600_db63784b",
+        "filename": "identity/1.0/vts/functional/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-02-12T01:45:14Z",
+      "side": 1,
+      "message": "Remove this (can go in later CL).",
+      "revId": "7ddeaa7d2475506601173f77dcbdd2612131ebb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32b836ac_be54d887",
+        "filename": "identity/1.0/vts/functional/VtsHalIdentityCredentialUnitTests.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-02-12T01:45:14Z",
+      "side": 1,
+      "message": "Remove entire file (can go in later CL).",
+      "revId": "7ddeaa7d2475506601173f77dcbdd2612131ebb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3db5663_f87e7976",
+        "filename": "identity/support/include/android/hardware/identity/support/IdentityCredentialSupport.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-02-12T01:45:14Z",
+      "side": 1,
+      "message": "Comment is out-of-date (values are returned in the std::pair)",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 36
+      },
+      "revId": "7ddeaa7d2475506601173f77dcbdd2612131ebb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b18a8ad5_0bae0118",
+        "filename": "identity/support/include/android/hardware/identity/support/IdentityCredentialSupport.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-02-12T01:45:14Z",
+      "side": 1,
+      "message": "No need to make this public. Remove along with the #include for openssl.",
+      "range": {
+        "startLine": 127,
+        "startChar": 0,
+        "endLine": 135,
+        "endChar": 85
+      },
+      "revId": "7ddeaa7d2475506601173f77dcbdd2612131ebb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57073692_c37f92f1",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 896,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-02-12T01:45:14Z",
+      "side": 1,
+      "message": "Looks unused. Remove.",
+      "range": {
+        "startLine": 896,
+        "startChar": 0,
+        "endLine": 896,
+        "endChar": 3
+      },
+      "revId": "7ddeaa7d2475506601173f77dcbdd2612131ebb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0ff3d0e_f9057b0b",
+        "filename": "keymaster/4.1/support/include/keymasterV4_1/keymaster_tags.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-02-12T01:45:14Z",
+      "side": 1,
+      "message": "I think this has already landed in AOSP master, no?",
+      "revId": "7ddeaa7d2475506601173f77dcbdd2612131ebb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
