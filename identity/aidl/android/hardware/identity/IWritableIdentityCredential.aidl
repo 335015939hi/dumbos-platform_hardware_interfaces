@@ -14,68 +14,35 @@
  * limitations under the License.
  */
 
-package android.hardware.identity@1.0;
+package android.hardware.identity;
+
+import android.hardware.identity.Certificate;
+import android.hardware.identity.SecureAccessControlProfile;
 
 /**
  * IWritableIdentityCredential is used to personalize a new identity credential.  Credentials cannot
  * be updated or modified after creation; any changes require deletion and re-creation.
  */
+@VintfStability
 interface IWritableIdentityCredential {
     /**
      * Gets the certificate chain for credentialKey which can be used to prove the hardware
      * characteristics to an issuing authority.  Must not be called more than once.
      *
      * The certificate chain must be generated using Keymaster Attestation
-     * (see https://source.android.com/security/keystore/attestation) with the
-     * following additional requirements:
-     *
-     *  - The attestationVersion field in the attestation extension must be at least 3.
-     *
-     *  - The attestationSecurityLevel field must be set to either Software (0),
-     *    TrustedEnvironment (1), or StrongBox (2) depending on how attestation is
-     *    implemented. Only the default AOSP implementation of this HAL may use
-     *    value 0 (additionally, this implementation must not be used on production
-     *    devices).
-     *
-     *  - The keymasterVersion field in the attestation extension must be set to (10*major + minor)
-     *    where major and minor are the Identity Credential interface major and minor versions.
-     *    Specifically for this version of the interface (1.0) this value is 10.
-     *
-     *  - The keymasterSecurityLevel field in the attestation extension must be set to
-     *    either Software (0), TrustedEnvironment (1), or StrongBox (2) depending on how
-     *    the Trusted Application backing the HAL implementation is implemented. Only
-     *    the default AOSP implementation of this HAL may use value 0 (additionally, this
-     *    implementation must not be used on production devices)
-     *
-     *  - The attestationChallenge field must be set to the passed-in challenge.
-     *
-     *  - The uniqueId field must be empty.
-     *
-     *  - The softwareEnforced field in the attestation extension must include
-     *    Tag::ATTESTATION_APPLICATION_ID which must be set to the bytes of the passed-in
-     *    attestationApplicationId.
-     *
-     *  - The teeEnforced field in the attestation extension must include
-     *    Tag::IDENTITY_CREDENTIAL_KEY. This tag indicates that the key is an Identity
-     *    Credential key (which can only sign/MAC very specific messages) and not an Android
-     *    Keystore key (which can be used to sign/MAC anything).
-     *
-     * Additional authorizations may be needed in the softwareEnforced and teeEnforced
-     * fields - the above is not an exhaustive list.
-     *
-     * @param attestationApplicationId is the DER encoded value to be stored
-     *     in Tag::ATTESTATION_APPLICATION_ID. This schema is described in
-     *     https://developer.android.com/training/articles/security-key-attestation#certificate_schema_attestationid
+     * (see https://source.android.com/security/keystore/attestation) and must also
+     * have the Tag::IDENTITY_CREDENTIAL_KEY tag from KeyMaster 4.1 set. This tag indicates
+     * that this key is an Identity Credential key (which can only sign/MAC very
+     * specific messages) and not an Android Keystore key (which can be used to sign/MAC
+     * anything).
      *
      * @param attestationChallenge a challenge set by the issuer to ensure freshness.
      *
-     * @return result is OK on success, FAILED if an error occurred.
+     * @param out result is OK on success, FAILED if an error occurred.
      *
-     * @return certificateChain is the X.509 certificate chain for the credentialKey
+     * @param out certificate is the X.509 certificate chain for the credentialKey
      */
-    getAttestationCertificate(vec<uint8_t> attestationApplicationId,
-                              vec<uint8_t> attestationChallenge)
-        generates(Result result, vec<vec<uint8_t>> certificateChain);
+    Certificate[] getAttestationCertificate(in byte[] attestationApplicationId, in byte[] attestationChallenge);
 
     /**
      * Start the personalization process.
@@ -89,11 +56,10 @@ interface IWritableIdentityCredential {
      *     beginAddEntry() and addEntry(). Each item in the array specifies how many entries
      *     will be added for each name space.
      *
-     * @return result is OK on success, FAILED if an error occurred.
+     * @return is OK on success, FAILED if an error occurred.
      *
      */
-    startPersonalization(uint16_t accessControlProfileCount, vec<uint16_t> entryCounts)
-        generates(Result result);
+    void startPersonalization(in int accessControlProfileCount, in int[] entryCounts);
 
     /**
      * Add an access control profile, which defines the requirements or retrieval of one or more
@@ -128,15 +94,13 @@ interface IWritableIdentityCredential {
      *     in the secure environment. If this requirement is not met the call fails with
      *     INVALID_DATA.
      *
-     * @return result is OK on success, INVALID_DATA or FAILED if an error occurred.
+     * @param out result is OK on success, INVALID_DATA or FAILED if an error occurred.
      *
-     * @return secureAccessControlProfile is a structure with the passed-in data and MAC created
+     * @param out secureAccessControlProfile is a structure with the passed-in data and MAC created
      *     with storageKey for authenticating the data at a later point in time.
      */
-    addAccessControlProfile(uint16_t id, vec<uint8_t> readerCertificate,
-                            bool userAuthenticationRequired, uint64_t timeoutMillis,
-                            uint64_t secureUserId)
-        generates(Result result, SecureAccessControlProfile secureAccessControlProfile);
+    SecureAccessControlProfile addAccessControlProfile(in int id, in Certificate readerCertificate,
+        in boolean userAuthenticationRequired, in long timeoutMillis, in long secureUserId);
 
     /**
      * Begins the process of adding an entry to the credential.  All access control profiles must be
@@ -157,11 +121,10 @@ interface IWritableIdentityCredential {
      * @param entrySize is the size of the entry value. If this requirement
      *     is not met this method fails with INVALID_DATA.
      *
-     * @return result is OK on success, INVALID_DATA or FAILED if an error occurred.
+     * @return is OK on success, INVALID_DATA or FAILED if an error occurred.
      */
-    beginAddEntry(vec<uint16_t> accessControlProfileIds, string nameSpace,
-                  string name, uint32_t entrySize)
-        generates(Result result);
+    void beginAddEntry(in int[] accessControlProfileIds, in @utf8InCpp String nameSpace, in @utf8InCpp String name,
+        in int entrySize);
 
     /**
      * Continues the process of adding an entry, providing a value or part of a value.
@@ -176,9 +139,9 @@ interface IWritableIdentityCredential {
      * @param content is the entry value, encoded as CBOR. In the case the content exceeds gcmChunkSize,
      *     this may be partial content up to gcmChunkSize bytes long.
      *
-     * @return result is OK on success, INVALID_DATA or FAILED if an error occurred.
+     * @param out result is OK on success, INVALID_DATA or FAILED if an error occurred.
      *
-     * @return encryptedContent contains the encrypted and MACed content.  For directly-available
+     * @param out encryptedContent contains the encrypted and MACed content.  For directly-available
      *     credentials the contents are implementation-defined but must not exceed 32 bytes in
      *     length.
      *
@@ -196,8 +159,7 @@ interface IWritableIdentityCredential {
      *             "AccessControlProfileIds" : [ + uint ],
      *         }
      */
-    addEntryValue(vec<uint8_t> content)
-        generates(Result result, vec<uint8_t> encryptedContent);
+    byte[] addEntryValue(in byte[] content);
 
     /**
      * Finishes adding entries and returns a signature that an issuing authority may use to validate
@@ -205,9 +167,9 @@ interface IWritableIdentityCredential {
      *
      * After this method is called, the IWritableIdentityCredential is no longer usable.
      *
-     * @return result is OK on success or FAILED if an error occurred.
+     * @param out result is OK on success or FAILED if an error occurred.
      *
-     * @return credentialData is a CBOR-encoded structure (in CDDL notation):
+     * @param out credentialData is a CBOR-encoded structure (in CDDL notation):
      *
      *         CredentialData = [
      *              tstr,   ; docType, an optional name that identifies the type of credential
@@ -230,7 +192,7 @@ interface IWritableIdentityCredential {
      *              bstr    ; credentialPrivKey, the private key for credentialKey
      *         ]
      *
-     * @return proofOfProvisioningSignature proves to the IA that the credential was imported into the
+     * @param out proofOfProvisioningSignature proves to the IA that the credential was imported into the
      *     secure hardware without alteration or error.  When the final addEntry() call is made
      *     (when the number of provisioned entries equals the sum of the items in
      *     startPersonalization() entryCounts parameter), it a COSE_Sign1 structure
@@ -266,7 +228,6 @@ interface IWritableIdentityCredential {
      *              "accessControlProfiles" : [ * uint ],
      *          }
      */
-    finishAddingEntries()
-        generates(Result result, vec<uint8_t> credentialData,
-                  vec<uint8_t> proofOfProvisioningSignature);
-};
+    void finishAddingEntries(out byte[] credentialData,
+        out byte[] proofOfProvisioningSignature);
+}
