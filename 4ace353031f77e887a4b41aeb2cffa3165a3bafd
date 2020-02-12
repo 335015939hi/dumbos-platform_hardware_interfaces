@@ -22,6 +22,30 @@
       "revId": "4ace353031f77e887a4b41aeb2cffa3165a3bafd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b34b31b_e2d5450a",
+        "filename": "keymaster/4.0/support/attestation_record.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-02-12T00:51:24Z",
+      "side": 1,
+      "message": "It could also have been malformed.",
+      "parentUuid": "15810111_c0dcce69",
+      "range": {
+        "startLine": 331,
+        "startChar": 30,
+        "endLine": 331,
+        "endChar": 58
+      },
+      "revId": "4ace353031f77e887a4b41aeb2cffa3165a3bafd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
