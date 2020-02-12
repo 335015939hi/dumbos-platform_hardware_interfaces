@@ -214,6 +214,30 @@
       "revId": "5e630c04ab377a67621b35e9a9f0a28c239e7857",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b974627f_00b692de",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 16
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-02-12T19:37:44Z",
+      "side": 1,
+      "message": "It\u0027s.. quite late to make this a requirement in R (as the initial drafts are already published) and I still am not convinced: this isn\u0027t required to make an Android device, only as a helpful tool. Maybe we can discuss today?",
+      "parentUuid": "1cbc87d9_6f5ff875",
+      "range": {
+        "startLine": 334,
+        "startChar": 33,
+        "endLine": 334,
+        "endChar": 38
+      },
+      "revId": "5e630c04ab377a67621b35e9a9f0a28c239e7857",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
