@@ -70,6 +70,30 @@
       "revId": "5e630c04ab377a67621b35e9a9f0a28c239e7857",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a421598a_b298373d",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 16
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1043625
+      },
+      "writtenOn": "2020-02-12T00:49:39Z",
+      "side": 1,
+      "message": "My intention was to push for required in a future release, with a \"strongly recommended\" now. Making Thermal mandatory is in a sense less important, even for Picard, because there\u0027s a much stronger incentive for vendors to provide it (i.e., games run better longer), when compared to FIXED_PERFORMANCE.",
+      "parentUuid": "6eaf7685_e88e13e4",
+      "range": {
+        "startLine": 334,
+        "startChar": 33,
+        "endLine": 334,
+        "endChar": 38
+      },
+      "revId": "5e630c04ab377a67621b35e9a9f0a28c239e7857",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
