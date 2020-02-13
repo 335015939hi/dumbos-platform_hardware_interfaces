@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c35126ac_90318bf2",
+        "filename": "identity/aidl/android/hardware/identity/Certificate.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-02-13T16:43:05Z",
+      "side": 1,
+      "message": "It\u0027s encoded as a X509 certificate, will note that in the comment. Not planning on expansion, it\u0027s only done this way because one getAttestationCertificate() returns an array of certificate (a chain) and byte[][] doesn\u0027t work. If byte[][] worked, I\u0027d remove this type.",
+      "parentUuid": "b131edbd_d6f2b316",
+      "range": {
+        "startLine": 26,
+        "startChar": 4,
+        "endLine": 26,
+        "endChar": 10
+      },
+      "revId": "6b664a718e52181dd6470a09c249fbcce59ed5d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "95a63640_aa0f11ba",
         "filename": "identity/aidl/android/hardware/identity/HardwareInformation.aidl",
         "patchSetId": 3
@@ -96,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "d0e63743_aac833b6",
+        "filename": "identity/aidl/android/hardware/identity/HardwareInformation.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-02-13T16:43:05Z",
+      "side": 1,
+      "message": "Sounds good. Let me know if I should change to the NDK backend in credstore and the VTS test.",
+      "parentUuid": "b1d1611d_5e9f7a29",
+      "range": {
+        "startLine": 24,
+        "startChar": 4,
+        "endLine": 24,
+        "endChar": 15
+      },
+      "revId": "6b664a718e52181dd6470a09c249fbcce59ed5d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "19244b96_c0aca88a",
         "filename": "identity/aidl/android/hardware/identity/HardwareInformation.aidl",
         "patchSetId": 3
@@ -107,6 +155,30 @@
       "writtenOn": "2020-02-12T19:53:11Z",
       "side": 1,
       "message": "nit: maxDataChunkSize",
+      "range": {
+        "startLine": 34,
+        "startChar": 8,
+        "endLine": 34,
+        "endChar": 21
+      },
+      "revId": "6b664a718e52181dd6470a09c249fbcce59ed5d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff2b7cf9_69ebac34",
+        "filename": "identity/aidl/android/hardware/identity/HardwareInformation.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-02-13T16:43:05Z",
+      "side": 1,
+      "message": "I think |dataChunkSize| is actually the right name since this is the size that must be used (not the maximum size that can be used) and only the last chunk may be shorter. I\u0027ll update the comment to be clearer.",
+      "parentUuid": "19244b96_c0aca88a",
       "range": {
         "startLine": 34,
         "startChar": 8,
@@ -142,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "2fe770ce_f47d3492",
+        "filename": "identity/aidl/android/hardware/identity/HardwareInformation.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-02-13T16:43:05Z",
+      "side": 1,
+      "message": "Document types are an ISO 18013-5 thing (and will be a ISO 23220-[1-5] thing too) and they\u0027re strings there. They\u0027re meant to be free-form and such that any organization (including companies or standards bodies) can define document types... for this, these ISO standards suggest to use reverse-DNS so IANA serves as the registrar to avoid collisions. For example, if I use Identity Credential for loyalty cards, I\u0027d use e.g. com.mycompany.super-savings-card as the document type. For Mobile Driving Licenses the document is (unsurprisingly) \"org.iso.18013.5.1.mDL\".\n\nWe\u0027re planning for docs at both s.a.c and d.a.c to highlight this.",
+      "parentUuid": "65c37c0c_98ce9b28",
+      "range": {
+        "startLine": 45,
+        "startChar": 20,
+        "endLine": 45,
+        "endChar": 34
+      },
+      "revId": "6b664a718e52181dd6470a09c249fbcce59ed5d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d4e40e67_f2d07f22",
         "filename": "identity/aidl/android/hardware/identity/ResultCode.aidl",
         "patchSetId": 3
@@ -153,6 +249,30 @@
       "writtenOn": "2020-02-12T19:53:11Z",
       "side": 1,
       "message": "FYI: AIDL has built-in result codes on all methods (see serviceSpecificException). These usually get created in \u0027const\u0027 members of an interface, and there is no need to attach \u0027ResultCode\u0027 to methods",
+      "range": {
+        "startLine": 24,
+        "startChar": 5,
+        "endLine": 24,
+        "endChar": 15
+      },
+      "revId": "6b664a718e52181dd6470a09c249fbcce59ed5d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a95d8df9_3c8a2965",
+        "filename": "identity/aidl/android/hardware/identity/ResultCode.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-02-13T16:43:05Z",
+      "side": 1,
+      "message": "Yeah, I actually use ServiceSpecificException in the code, just with values from this enumeration [1]. Should I move these constants to IdentityCredentialStore as const values instead? It\u0027s a little weird to put these as constants in a single interface when they\u0027re used by all interfaces... but if that\u0027s the idiomatic thing to do, I\u0027m happy to change it\n\n[1] : the intro blurb for IdentityCredentialStore says at the end: \"All binder calls in the HAL may return a ServiceSpecificException with error codes from the ResultCode enumeration. Each method states which error codes can be returned and under which circumstances.\"",
+      "parentUuid": "d4e40e67_f2d07f22",
       "range": {
         "startLine": 24,
         "startChar": 5,
@@ -188,6 +308,30 @@
     },
     {
       "key": {
+        "uuid": "0af153cb_8dc4351a",
+        "filename": "identity/aidl/default/IdentityCredential.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-02-13T16:43:05Z",
+      "side": 1,
+      "message": "Will fix.",
+      "parentUuid": "0d2b2f24_eae0446d",
+      "range": {
+        "startLine": 2,
+        "startChar": 13,
+        "endLine": 2,
+        "endChar": 17
+      },
+      "revId": "6b664a718e52181dd6470a09c249fbcce59ed5d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d83dd833_dfb0029a",
         "filename": "keymaster/aidl/android/hardware/keymaster/HardwareAuthToken.aidl",
         "patchSetId": 3
@@ -199,6 +343,30 @@
       "writtenOn": "2020-02-12T19:53:11Z",
       "side": 1,
       "message": "just \u0027long milliseconds\u0027 instead? to avoid extra type?",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 24
+      },
+      "revId": "6b664a718e52181dd6470a09c249fbcce59ed5d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "110cc729_9a0eae0a",
+        "filename": "keymaster/aidl/android/hardware/keymaster/HardwareAuthToken.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-02-13T16:43:05Z",
+      "side": 1,
+      "message": "I guess that\u0027s something will is up to swillden@ and others owning the Keymaster interfaces. The nice thing about having a type is that you can do stuff like\n\n Timestamp issuingDate;\n\ncompared to\n\n long issuingDate;\n\nwhere in the latter you need to remind the reader about the encoding format (e.g. milliseconds since a given Epoch). Shawn, thoughts?",
+      "parentUuid": "d83dd833_dfb0029a",
       "range": {
         "startLine": 66,
         "startChar": 0,
