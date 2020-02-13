@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "b1d1611d_5e9f7a29",
+        "filename": "identity/aidl/android/hardware/identity/HardwareInformation.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-02-13T02:04:46Z",
+      "side": 1,
+      "message": "That\u0027s fine. I am thinking about pushing everything to use ndk in the future, since it makes the code portable wrt vendor/system.",
+      "parentUuid": "72b6ca55_446e47c0",
+      "range": {
+        "startLine": 24,
+        "startChar": 4,
+        "endLine": 24,
+        "endChar": 15
+      },
+      "revId": "6b664a718e52181dd6470a09c249fbcce59ed5d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "19244b96_c0aca88a",
         "filename": "identity/aidl/android/hardware/identity/HardwareInformation.aidl",
         "patchSetId": 3
