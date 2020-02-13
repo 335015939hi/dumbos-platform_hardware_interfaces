@@ -93,6 +93,30 @@
       "revId": "599d0fbc222db4fee6e981124647eb2fd13a67e0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b8cfaaf_09fe156c",
+        "filename": "dumpstate/1.1/vts/functional/VtsHalDumpstateV1_1TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-02-13T23:12:26Z",
+      "side": 1,
+      "message": "I didn\u0027t read it, but three options I can think of:\n- call getService every time in the loop\n- use INSTANTIATE_TEST_P to make gtest instantiate multiple tests from an iterable parameter\n- (may be too late) switch dumpstate HALs to use the lazy HAL methodology introduced in Android Q (in Android P, lazy services were introduced, but they shut down in various ad hoc ways, now it\u0027s supported to shutdown when clients are done using it. See https://source.android.com/devices/architecture/hal/dynamic-lifecycle )",
+      "parentUuid": "4bdb11f7_f6455bd6",
+      "range": {
+        "startLine": 89,
+        "startChar": 40,
+        "endLine": 97,
+        "endChar": 0
+      },
+      "revId": "599d0fbc222db4fee6e981124647eb2fd13a67e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
