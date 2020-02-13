@@ -117,6 +117,30 @@
       "revId": "599d0fbc222db4fee6e981124647eb2fd13a67e0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb47a404_2d449256",
+        "filename": "dumpstate/1.1/vts/functional/VtsHalDumpstateV1_1TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1124543
+      },
+      "writtenOn": "2020-02-13T23:36:30Z",
+      "side": 1,
+      "message": "INSTANTIATE_TEST_P might do it, but I think we\u0027d need two separate test subclasses:\n\n- DumpstateHidl1_1GeneralTest : TestWithParam\u003cstring\u003e\n  -\u003e Does all of the non-mode-parameterized tests, like toggling verbose logging on/off - this would still be per-HAL-instance, but not per-mode\n- DumpstateHidl1_1TestForMode : TestWithParam\u003cpair\u003cstring, DumpstateMode\u003e\u003e\n  -\u003e This would be the per-mode tests, which also get executed per-instance",
+      "parentUuid": "9b8cfaaf_09fe156c",
+      "range": {
+        "startLine": 89,
+        "startChar": 40,
+        "endLine": 97,
+        "endChar": 0
+      },
+      "revId": "599d0fbc222db4fee6e981124647eb2fd13a67e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
