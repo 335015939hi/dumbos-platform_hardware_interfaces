@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "08ba8ada_1b9489a5",
+        "filename": "identity/aidl/android/hardware/identity/Certificate.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-02-13T22:52:39Z",
+      "side": 1,
+      "message": "ack, makes sense. Can you also document it being \u0027dir\u0027 format? Is this what Kenny said?",
+      "parentUuid": "c35126ac_90318bf2",
+      "range": {
+        "startLine": 26,
+        "startChar": 4,
+        "endLine": 26,
+        "endChar": 10
+      },
+      "revId": "6b664a718e52181dd6470a09c249fbcce59ed5d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "95a63640_aa0f11ba",
         "filename": "identity/aidl/android/hardware/identity/HardwareInformation.aidl",
         "patchSetId": 3
@@ -191,6 +215,30 @@
     },
     {
       "key": {
+        "uuid": "26535c95_06754519",
+        "filename": "identity/aidl/android/hardware/identity/HardwareInformation.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-02-13T22:52:39Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ff2b7cf9_69ebac34",
+      "range": {
+        "startLine": 34,
+        "startChar": 8,
+        "endLine": 34,
+        "endChar": 21
+      },
+      "revId": "6b664a718e52181dd6470a09c249fbcce59ed5d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "65c37c0c_98ce9b28",
         "filename": "identity/aidl/android/hardware/identity/HardwareInformation.aidl",
         "patchSetId": 3
@@ -238,6 +286,30 @@
     },
     {
       "key": {
+        "uuid": "d199088d_543e1815",
+        "filename": "identity/aidl/android/hardware/identity/HardwareInformation.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-02-13T22:52:39Z",
+      "side": 1,
+      "message": "Yeah, something like this here would be perfect",
+      "parentUuid": "2fe770ce_f47d3492",
+      "range": {
+        "startLine": 45,
+        "startChar": 20,
+        "endLine": 45,
+        "endChar": 34
+      },
+      "revId": "6b664a718e52181dd6470a09c249fbcce59ed5d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d4e40e67_f2d07f22",
         "filename": "identity/aidl/android/hardware/identity/ResultCode.aidl",
         "patchSetId": 3
@@ -273,6 +345,30 @@
       "side": 1,
       "message": "Yeah, I actually use ServiceSpecificException in the code, just with values from this enumeration [1]. Should I move these constants to IdentityCredentialStore as const values instead? It\u0027s a little weird to put these as constants in a single interface when they\u0027re used by all interfaces... but if that\u0027s the idiomatic thing to do, I\u0027m happy to change it\n\n[1] : the intro blurb for IdentityCredentialStore says at the end: \"All binder calls in the HAL may return a ServiceSpecificException with error codes from the ResultCode enumeration. Each method states which error codes can be returned and under which circumstances.\"",
       "parentUuid": "d4e40e67_f2d07f22",
+      "range": {
+        "startLine": 24,
+        "startChar": 5,
+        "endLine": 24,
+        "endChar": 15
+      },
+      "revId": "6b664a718e52181dd6470a09c249fbcce59ed5d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b35a8201_27445f08",
+        "filename": "identity/aidl/android/hardware/identity/ResultCode.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-02-13T22:52:39Z",
+      "side": 1,
+      "message": "Yeah, it is the idiomatic thing, although if you can think of something better, I\u0027d be okay with that as well.\n\nSgtm",
+      "parentUuid": "a95d8df9_3c8a2965",
       "range": {
         "startLine": 24,
         "startChar": 5,
