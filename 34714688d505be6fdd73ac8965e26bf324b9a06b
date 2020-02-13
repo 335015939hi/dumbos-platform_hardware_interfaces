@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "50d1077f_9910d09b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-02-13T23:26:03Z",
+      "side": 1,
+      "message": "power_profile.xml, which is bad voodoo coupling. Okay. I guess we have two bad options: either remove the redundant field or add a \"new feature\". Makes sense.",
+      "range": {
+        "startLine": 10,
+        "startChar": 15,
+        "endLine": 11,
+        "endChar": 17
+      },
+      "revId": "34714688d505be6fdd73ac8965e26bf324b9a06b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
