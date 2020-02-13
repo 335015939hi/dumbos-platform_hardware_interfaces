@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "905c55ec_715be648",
+        "filename": "dumpstate/1.1/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-02-13T22:40:10Z",
+      "side": 1,
+      "message": "please avoid documenting client in interface",
+      "range": {
+        "startLine": 59,
+        "startChar": 22,
+        "endLine": 59,
+        "endChar": 67
+      },
+      "revId": "599d0fbc222db4fee6e981124647eb2fd13a67e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca7c270d_91598029",
+        "filename": "dumpstate/1.1/vts/functional/VtsHalDumpstateV1_1TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-02-13T22:40:10Z",
+      "side": 1,
+      "message": "FYI: there is hidl_enum_range",
+      "range": {
+        "startLine": 89,
+        "startChar": 40,
+        "endLine": 97,
+        "endChar": 0
+      },
+      "revId": "599d0fbc222db4fee6e981124647eb2fd13a67e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
