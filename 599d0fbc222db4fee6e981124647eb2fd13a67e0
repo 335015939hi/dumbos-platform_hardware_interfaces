@@ -45,6 +45,30 @@
       "revId": "599d0fbc222db4fee6e981124647eb2fd13a67e0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4bdb11f7_f6455bd6",
+        "filename": "dumpstate/1.1/vts/functional/VtsHalDumpstateV1_1TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1124543
+      },
+      "writtenOn": "2020-02-13T22:47:16Z",
+      "side": 1,
+      "message": "There\u0027s a comment above this macro already, but not entirely opposed to switching to hidl_enum_range - it just would glob all of the modes together into a single test and potentially be harder to discern where the problem really lies.",
+      "parentUuid": "ca7c270d_91598029",
+      "range": {
+        "startLine": 89,
+        "startChar": 40,
+        "endLine": 97,
+        "endChar": 0
+      },
+      "revId": "599d0fbc222db4fee6e981124647eb2fd13a67e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
