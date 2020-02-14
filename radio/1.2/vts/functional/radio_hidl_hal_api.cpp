@@ -301,6 +301,8 @@ TEST_P(RadioHidlTest_v1_2, startNetworkScan_InvalidPeriodicity2) {
 /*
  * Test IRadio.startNetworkScan() with valid periodicity
  */
+/*
+ * TODO: Commented out for b/112206766#53, should reenable if modem allows GSM scanning.
 TEST_P(RadioHidlTest_v1_2, startNetworkScan_GoodRequest1) {
     serial = GetRandomSerialNumber();
 
@@ -331,10 +333,13 @@ TEST_P(RadioHidlTest_v1_2, startNetworkScan_GoodRequest1) {
             {RadioError::NONE, RadioError::REQUEST_NOT_SUPPORTED}));
     }
 }
+*/
 
 /*
  * Test IRadio.startNetworkScan() with valid periodicity and plmns
  */
+/*
+ * TODO: Commented out for b/112206766#53, should reenable if modem allows GSM scanning.
 TEST_P(RadioHidlTest_v1_2, startNetworkScan_GoodRequest2) {
     serial = GetRandomSerialNumber();
 
@@ -366,6 +371,7 @@ TEST_P(RadioHidlTest_v1_2, startNetworkScan_GoodRequest2) {
             {RadioError::NONE, RadioError::REQUEST_NOT_SUPPORTED}));
     }
 }
+*/
 
 /*
  * Test IRadio.setIndicationFilter_1_2()
