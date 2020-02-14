@@ -118,6 +118,30 @@
       "revId": "1ee34a28b9e1c18cecf96f53bf24e7ec2a0f2e3b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f332e90a_20e0b65e",
+        "filename": "vibrator/aidl/android/hardware/vibrator/IVibrator.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-02-14T21:10:55Z",
+      "side": 1,
+      "message": "Hmmm, I have missed the detail that this is in an overlay specific to SysUIGoogle, and was thinking this was an overlay in the platform.\n\nI am left feeling strange by this whole setup: why not make all of this just a part of AOSP.\n\n\nMaybe we should emphasize in the comments that clients \"must develop their own way to get IDs from vendor in a stable way\"",
+      "parentUuid": "442f1691_3e55a263",
+      "range": {
+        "startLine": 206,
+        "startChar": 7,
+        "endLine": 206,
+        "endChar": 39
+      },
+      "revId": "1ee34a28b9e1c18cecf96f53bf24e7ec2a0f2e3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
