@@ -235,12 +235,11 @@ TEST_P(HealthHidlTest, getHealthInfo_2_1) {
         EXPECT_GE(value.batteryFullChargeDesignCapacityUah, 0)
                 << "batteryFullChargeDesignCapacityUah should not be negative";
 
-        // Check for extreme outliers
-        const auto& legacy = value.legacy.legacy;
-        if (value.batteryFullChargeDesignCapacityUah > 0) {
-            EXPECT_LT((long)legacy.batteryFullCharge,
-                      ((long)value.batteryFullChargeDesignCapacityUah * 1000));
-        }
+        EXPECT_GT(value.batteryFullChargeDesignCapacityUah, 100)
+                << "batteryFullChargeDesignCapacityUah should be greater than 100 mAh";
+
+        EXPECT_LT(value.batteryFullChargeDesignCapacityUah, 100000)
+                << "batteryFullChargeDesignCapacityUah should be less than 100,000 mAh";
     })));
 }
 
