@@ -16,6 +16,24 @@
       "revId": "2307d7ff558ff71f7bdb0effa7d790fe49b52fb4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b845b3a7_5145d43d",
+        "filename": "health/2.1/vts/functional/VtsHalHealthV2_1TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1604091
+      },
+      "writtenOn": "2020-02-14T23:11:38Z",
+      "side": 1,
+      "message": "Yes, will add. Also I need to modify the HAL 2.1 comments to show that this is a constraint.\n\nI added the relevant bugs to the HAL 2.1 design document.",
+      "parentUuid": "e67b4cc2_e5ad9256",
+      "revId": "2307d7ff558ff71f7bdb0effa7d790fe49b52fb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
