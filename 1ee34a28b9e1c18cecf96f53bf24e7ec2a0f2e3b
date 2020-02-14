@@ -94,6 +94,30 @@
       "revId": "1ee34a28b9e1c18cecf96f53bf24e7ec2a0f2e3b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "442f1691_3e55a263",
+        "filename": "vibrator/aidl/android/hardware/vibrator/IVibrator.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1006497
+      },
+      "writtenOn": "2020-02-14T00:59:43Z",
+      "side": 1,
+      "message": "I think the fundamental issue is that the ID here is defined by the vendor, not the platform, and its use is defined by the OEM integrating that vendor\u0027s component.\n\nFor example, the ID in Pixel\u0027s case is a GPIO rise or fall and we happen to have it connected to active edge vibrations. So:\n\n - the vendor defines \"ID 0 \u003d\u003e GPIO Rise\"\n - Pixel HW connects active edge to that GPIO \n - SysUIGoogle gets told via an overlay that always on ID 0 means active edge on P19\n - SysUIGoogle tells the platform \"ID 0 should play EFFECT_CLICK and it\u0027s a form of touch feedback\".\n - the platform will tells the HAL \"ID 0 maps to EFFECT_CLICK with EFFECT_STRENGTH_HIGH\" which it derives from the user\u0027s current setting for touch feedback.\n\nI don\u0027t really see how the platform could define what the interface IDs means here or enumerate them or even provide a stable surface to pull them from. Another vendor could just as easily use a second I2C bus connected to SLPI that has many IDs able to be called from it for all sorts of purposes; it\u0027s just not knowable or predictable for us since their use is subject to OEM customization.\n\nYou also can\u0027t cut out the platform from this since we\u0027re the only ones that technically know what the user settings are configured to. Plus, it\u0027s generally simpler for their to be one client (just the platform, not the platform + arbitrary OEM code). We have an interface for things like SysUIGoogle to tell us the information it needs to, but the ID it passes is opaque to the platform itself.\n\nGiven all of that, I don\u0027t really have a proposal for how we create a stable API surface to pull the IDs from. It\u0027s basically a communication that has to happen between vendor and OEM and the platform isn\u0027t really involved in it.\n\nDo you have any thoughts on how we might do this Steven? Is there precedent elsewhere in the HAL APIs for this kind of three way dance and how to solve it?",
+      "parentUuid": "e5356916_88b75f2c",
+      "range": {
+        "startLine": 206,
+        "startChar": 7,
+        "endLine": 206,
+        "endChar": 39
+      },
+      "revId": "1ee34a28b9e1c18cecf96f53bf24e7ec2a0f2e3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
