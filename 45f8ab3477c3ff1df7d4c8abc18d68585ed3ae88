@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6c125686_22a397b7",
+        "filename": "health/2.0/default/Health.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1319951
+      },
+      "writtenOn": "2020-02-14T22:31:00Z",
+      "side": 1,
+      "message": "nit: don\u0027t need the parenthesis",
+      "revId": "45f8ab3477c3ff1df7d4c8abc18d68585ed3ae88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
