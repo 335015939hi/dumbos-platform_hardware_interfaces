@@ -52,6 +52,24 @@
       "revId": "2307d7ff558ff71f7bdb0effa7d790fe49b52fb4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d8cf171_bb75966d",
+        "filename": "health/2.1/vts/functional/VtsHalHealthV2_1TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2020-02-14T23:15:23Z",
+      "side": 1,
+      "message": "You can change the comments in a HAL several years later, though. But not the values.",
+      "parentUuid": "95bbfede_1c52a2e9",
+      "revId": "2307d7ff558ff71f7bdb0effa7d790fe49b52fb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
