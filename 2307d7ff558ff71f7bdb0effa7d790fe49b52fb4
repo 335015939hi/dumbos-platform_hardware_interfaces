@@ -70,6 +70,24 @@
       "revId": "2307d7ff558ff71f7bdb0effa7d790fe49b52fb4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed3fc0ef_dc76e0db",
+        "filename": "health/2.1/vts/functional/VtsHalHealthV2_1TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1604091
+      },
+      "writtenOn": "2020-02-14T23:21:05Z",
+      "side": 1,
+      "message": "So... if we can change the comments, add it to the HAL? :P",
+      "parentUuid": "1d8cf171_bb75966d",
+      "revId": "2307d7ff558ff71f7bdb0effa7d790fe49b52fb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
