@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3e1c3b7f_e3d0e52f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-02-15T00:53:52Z",
+      "side": 1,
+      "message": "fyi, still waiting on extension",
+      "revId": "5cb8aa6ea0fad1d50659d373fd7c92db8eb725b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a43a26a7_aa1432c7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-02-15T00:53:52Z",
+      "side": 1,
+      "message": "VTS?",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 10
+      },
+      "revId": "5cb8aa6ea0fad1d50659d373fd7c92db8eb725b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e669ee8_edc3b3d9",
+        "filename": "atrace/aidl/android/hardware/atrace/TracingEvent.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-02-15T00:53:52Z",
+      "side": 1,
+      "message": "format consistency",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 2
+      },
+      "revId": "5cb8aa6ea0fad1d50659d373fd7c92db8eb725b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7098d96_637b663b",
+        "filename": "atrace/aidl/android/hardware/atrace/TracingEvent.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-02-15T00:53:52Z",
+      "side": 1,
+      "message": "is this an implementation detail? or is this expected to be used from platform? does platform have permission to talk to these files? is this in the upstream linux kernel?",
+      "range": {
+        "startLine": 24,
+        "startChar": 5,
+        "endLine": 24,
+        "endChar": 56
+      },
+      "revId": "5cb8aa6ea0fad1d50659d373fd7c92db8eb725b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c6d45b3_11aadf6c",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-02-15T00:53:52Z",
+      "side": 1,
+      "message": "if we want to deprecate the HIDL interface for launching devices this late in the release, we\u0027ll have to kick off another process. Consider doing this in a separate change and sending an email?",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 44
+      },
+      "revId": "5cb8aa6ea0fad1d50659d373fd7c92db8eb725b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
