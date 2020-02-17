@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "94a56f33_7a4c7d3b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1047376
+      },
+      "writtenOn": "2020-02-17T20:53:55Z",
+      "side": 1,
+      "message": "Should have this tomorrow.",
+      "parentUuid": "3e1c3b7f_e3d0e52f",
+      "revId": "5cb8aa6ea0fad1d50659d373fd7c92db8eb725b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a43a26a7_aa1432c7",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -39,6 +57,30 @@
       "revId": "5cb8aa6ea0fad1d50659d373fd7c92db8eb725b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7687685e_58d789d4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1047376
+      },
+      "writtenOn": "2020-02-17T20:53:55Z",
+      "side": 1,
+      "message": "Added VtsHalAtraceTargetTest",
+      "parentUuid": "a43a26a7_aa1432c7",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 10
+      },
+      "revId": "5cb8aa6ea0fad1d50659d373fd7c92db8eb725b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "bebd1477_20998fe9",
+        "filename": "atrace/aidl/android/hardware/atrace/TracingEvent.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1047376
+      },
+      "writtenOn": "2020-02-17T20:53:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e669ee8_edc3b3d9",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 2
+      },
+      "revId": "5cb8aa6ea0fad1d50659d373fd7c92db8eb725b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d7098d96_637b663b",
         "filename": "atrace/aidl/android/hardware/atrace/TracingEvent.aidl",
         "patchSetId": 2
@@ -76,6 +142,30 @@
       "writtenOn": "2020-02-15T00:53:52Z",
       "side": 1,
       "message": "is this an implementation detail? or is this expected to be used from platform? does platform have permission to talk to these files? is this in the upstream linux kernel?",
+      "range": {
+        "startLine": 24,
+        "startChar": 5,
+        "endLine": 24,
+        "endChar": 56
+      },
+      "revId": "5cb8aa6ea0fad1d50659d373fd7c92db8eb725b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7eb8a19b_ff8b1cbc",
+        "filename": "atrace/aidl/android/hardware/atrace/TracingEvent.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1047376
+      },
+      "writtenOn": "2020-02-17T20:53:55Z",
+      "side": 1,
+      "message": "An implementation detail in what sense?\n\nThe platform reads and writes these files currently (atrace.cpp, traced_probes among others). Access to the files is controlled by selinux [1-3] for full details see go/android-tracefs. On userdebug we have access to everything (the debugfs_tracing_debug label) on user builds we have access to a subset (the debugfs_tracing label). Ability to read/write these files (and that they do what we expect) is part of CTS. In this case the thing we need to be able to do from the platform is read the format files for the vendor specific events:\n/sys/kernel/debug/tracing/events/mygroup/myevent/format\nwhich that platform can do currently.\n\n\nTracing in general is in the upstream kernel as are many of the events (including sched_switch) although not all of the events. That is what\nthis HAL (and the previous version) expose to the platform. Vendors can\nadd a custom trace points then use this HAL to inform atrace/perfetto about them.\n\n[1]: https://cs.corp.google.com/android/system/sepolicy/private/genfs_contexts?q\u003dsched_sw+file:%5Esystem/sepolicy/+package:%5Eandroid$\u0026g\u003d0\u0026l\u003d155\n[2]: http://cs/android/system/sepolicy/private/atrace.te?l\u003d13\u0026rcl\u003db2e1b88336f812bdf81d8958315db82780338d57\n[3]: http://cs/android/system/sepolicy/private/traced_probes.te?l\u003d14\u0026rcl\u003db2e1b88336f812bdf81d8958315db82780338d57",
+      "parentUuid": "d7098d96_637b663b",
       "range": {
         "startLine": 24,
         "startChar": 5,
@@ -108,6 +198,30 @@
       "revId": "5cb8aa6ea0fad1d50659d373fd7c92db8eb725b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74875d6e_a2052ffa",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1047376
+      },
+      "writtenOn": "2020-02-17T20:53:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c6d45b3_11aadf6c",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 44
+      },
+      "revId": "5cb8aa6ea0fad1d50659d373fd7c92db8eb725b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
