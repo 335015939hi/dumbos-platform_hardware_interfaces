@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "07686665_52ebf9e3",
+        "filename": "identity/1.0/default/WritableIdentityCredential.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-02-18T15:13:15Z",
+      "side": 1,
+      "message": "I don\u0027t think this is needed anymore. Remove.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 51
+      },
+      "revId": "c4be0ce63cfce186a47f13d04aedac7c95ceddcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc130085_a626b41e",
+        "filename": "identity/1.0/default/WritableIdentityCredential.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-02-18T15:13:15Z",
+      "side": 1,
+      "message": "Remove commented out code.",
+      "range": {
+        "startLine": 86,
+        "startChar": 4,
+        "endLine": 86,
+        "endChar": 41
+      },
+      "revId": "c4be0ce63cfce186a47f13d04aedac7c95ceddcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8651113_0308ad30",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 837,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-02-18T15:13:15Z",
+      "side": 1,
+      "message": "This seems superfluous. Remove.",
+      "range": {
+        "startLine": 836,
+        "startChar": 0,
+        "endLine": 837,
+        "endChar": 74
+      },
+      "revId": "c4be0ce63cfce186a47f13d04aedac7c95ceddcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5bd44131_b1267aa8",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 844,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-02-18T15:13:15Z",
+      "side": 1,
+      "message": "The reader knows this so no need to state it here. We\u0027re also not multiplying here, think maybe this is a stale comment.",
+      "range": {
+        "startLine": 842,
+        "startChar": 0,
+        "endLine": 844,
+        "endChar": 39
+      },
+      "revId": "c4be0ce63cfce186a47f13d04aedac7c95ceddcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e33ec19_68a848d2",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 852,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-02-18T15:13:15Z",
+      "side": 1,
+      "message": "Resolve this with Janis/Shawn, then remove this comment.",
+      "range": {
+        "startLine": 846,
+        "startChar": 0,
+        "endLine": 852,
+        "endChar": 53
+      },
+      "revId": "c4be0ce63cfce186a47f13d04aedac7c95ceddcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b726ec6_968eae27",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 857,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-02-18T15:13:15Z",
+      "side": 1,
+      "message": "Leftover comment?",
+      "range": {
+        "startLine": 857,
+        "startChar": 0,
+        "endLine": 857,
+        "endChar": 64
+      },
+      "revId": "c4be0ce63cfce186a47f13d04aedac7c95ceddcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b29997d9_d3470ff4",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 870,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-02-18T15:13:15Z",
+      "side": 1,
+      "message": "Nit: this makes the reader thinks it\u0027s a boolean - suggest to use \"if (attestation_chain \u003d\u003d nullptr) {\" which IMO is a lot more readable. Ditto elsewhere.",
+      "range": {
+        "startLine": 870,
+        "startChar": 8,
+        "endLine": 870,
+        "endChar": 26
+      },
+      "revId": "c4be0ce63cfce186a47f13d04aedac7c95ceddcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e36cbb14_01f88a7c",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 871,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-02-18T15:13:15Z",
+      "side": 1,
+      "message": "*getting. Also other places.",
+      "range": {
+        "startLine": 871,
+        "startChar": 29,
+        "endLine": 871,
+        "endChar": 32
+      },
+      "revId": "c4be0ce63cfce186a47f13d04aedac7c95ceddcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "890fab32_34b675c3",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 901,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-02-18T15:13:15Z",
+      "side": 1,
+      "message": "Nit: you can keep the comment if you want but it\u0027s kinda stating the obvious.",
+      "range": {
+        "startLine": 899,
+        "startChar": 0,
+        "endLine": 901,
+        "endChar": 26
+      },
+      "revId": "c4be0ce63cfce186a47f13d04aedac7c95ceddcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
