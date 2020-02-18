@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "5c0c18ef_21bcb519",
+        "filename": "graphics/mapper/2.1/utils/passthrough/include/mapper-passthrough/2.1/Gralloc0Hal.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2020-02-18T19:44:50Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3193b216_29d93172",
+      "revId": "c9e3cfbb80ece780636cd2b4a8c39299b166df12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dbbbe578_bfbb4ef7",
         "filename": "graphics/mapper/2.1/utils/passthrough/include/mapper-passthrough/2.1/Gralloc0Hal.h",
         "patchSetId": 2
@@ -39,6 +57,30 @@
       "revId": "c9e3cfbb80ece780636cd2b4a8c39299b166df12",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f22d68a9_48f63995",
+        "filename": "graphics/mapper/2.1/utils/passthrough/include/mapper-passthrough/2.1/Gralloc0Hal.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1073546
+      },
+      "writtenOn": "2020-02-18T19:44:50Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "dbbbe578_bfbb4ef7",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 2
+      },
+      "revId": "c9e3cfbb80ece780636cd2b4a8c39299b166df12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
