@@ -21,7 +21,14 @@ using namespace ::android::hardware::radio::V1_0;
 /*
  * Test IRadio.setGsmBroadcastConfig() for the response returned.
  */
+<<<<<<< HEAD   (8ccf3e Merge "Fix issues for Japan model." into android10-tests-dev)
 TEST_F(RadioHidlTest, setGsmBroadcastConfig) {
+=======
+/*
+ * TODO(b/145710242) this is commented out because it breaks on TSTS devices on Q. The test
+ * can be safely enabled for future devices).
+TEST_P(RadioHidlTest, setGsmBroadcastConfig) {
+>>>>>>> CHANGE (60d2be Disable tests for TSTS issue)
     serial = GetRandomSerialNumber();
 
     // Create GsmBroadcastSmsConfigInfo #1
@@ -80,6 +87,7 @@ TEST_F(RadioHidlTest, setGsmBroadcastConfig) {
                                      CHECK_GENERAL_ERROR));
     }
 }
+*/
 
 /*
  * Test IRadio.getGsmBroadcastConfig() for the response returned.
