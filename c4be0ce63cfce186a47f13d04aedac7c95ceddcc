@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "e3c45ea1_9bbb7666",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-02-18T15:18:59Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 7,
+        "startChar": 68,
+        "endLine": 7,
+        "endChar": 83
+      },
+      "revId": "c4be0ce63cfce186a47f13d04aedac7c95ceddcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "07686665_52ebf9e3",
         "filename": "identity/1.0/default/WritableIdentityCredential.cpp",
         "patchSetId": 8
