@@ -48,6 +48,29 @@
     },
     {
       "key": {
+        "uuid": "be57f19d_716d2eaa",
+        "filename": "identity/1.0/default/WritableIdentityCredential.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-02-18T19:26:08Z",
+      "side": 1,
+      "message": "It should be possible to express this as:\n    hidl_vec\u003chidl_vec\u003cuint8_t\u003e\u003e ret(certificateChain_.begin(), certificateChain_.end());",
+      "range": {
+        "startLine": 144,
+        "startChar": 4,
+        "endLine": 147,
+        "endChar": 0
+      },
+      "revId": "c4be0ce63cfce186a47f13d04aedac7c95ceddcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fc130085_a626b41e",
         "filename": "identity/1.0/default/WritableIdentityCredential.h",
         "patchSetId": 8
@@ -117,6 +140,29 @@
     },
     {
       "key": {
+        "uuid": "beb56b03_b404f956",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 848,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-02-18T19:26:08Z",
+      "side": 1,
+      "message": "portable?",
+      "range": {
+        "startLine": 848,
+        "startChar": 33,
+        "endLine": 848,
+        "endChar": 39
+      },
+      "revId": "c4be0ce63cfce186a47f13d04aedac7c95ceddcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6e33ec19_68a848d2",
         "filename": "identity/support/src/IdentityCredentialSupport.cpp",
         "patchSetId": 8
@@ -128,6 +174,30 @@
       "writtenOn": "2020-02-18T15:13:15Z",
       "side": 1,
       "message": "Resolve this with Janis/Shawn, then remove this comment.",
+      "range": {
+        "startLine": 846,
+        "startChar": 0,
+        "endLine": 852,
+        "endChar": 53
+      },
+      "revId": "c4be0ce63cfce186a47f13d04aedac7c95ceddcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e78962f_fe489af7",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 852,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-02-18T19:26:08Z",
+      "side": 1,
+      "message": "The attestation application id is not stored in the key blob. It is supplied by the caller through the attestation parameters. It is then included in the software enforced parameter list of the generated certificate.",
+      "parentUuid": "6e33ec19_68a848d2",
       "range": {
         "startLine": 846,
         "startChar": 0,
