@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "08a2be73_d0f5dda5",
+        "filename": "identity/aidl/android/hardware/identity/HardwareInformation.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-02-18T17:04:55Z",
+      "side": 1,
+      "message": "s/should/must/.  If Steven doesn\u0027t want to use \"must\", maybe just remove the qualifier entirely. e.g.:  \"credential stores with this set to true require reader authentication on all elements\".  Also, the comma before it shouldn\u0027t be there.",
+      "range": {
+        "startLine": 40,
+        "startChar": 14,
+        "endLine": 40,
+        "endChar": 23
+      },
+      "revId": "81603155a9582941cf558e840ffff0c90edaf330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "af7eeeed_266bde81",
         "filename": "identity/aidl/android/hardware/identity/IIdentityCredentialStore.aidl",
         "patchSetId": 4
