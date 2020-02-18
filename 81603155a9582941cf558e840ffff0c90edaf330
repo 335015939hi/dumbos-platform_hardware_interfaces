@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "16159710_e07dee8f",
+        "filename": "identity/aidl/android/hardware/identity/HardwareInformation.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-02-18T18:33:30Z",
+      "side": 1,
+      "message": "Good point.  We should probably think about how to enforce this in the mDL case.",
+      "parentUuid": "910c2589_af2fa6c4",
+      "range": {
+        "startLine": 40,
+        "startChar": 14,
+        "endLine": 40,
+        "endChar": 23
+      },
+      "revId": "81603155a9582941cf558e840ffff0c90edaf330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "af7eeeed_266bde81",
         "filename": "identity/aidl/android/hardware/identity/IIdentityCredentialStore.aidl",
         "patchSetId": 4
