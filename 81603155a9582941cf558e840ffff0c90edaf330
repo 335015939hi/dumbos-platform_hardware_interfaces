@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "910c2589_af2fa6c4",
+        "filename": "identity/aidl/android/hardware/identity/HardwareInformation.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-02-18T17:37:24Z",
+      "side": 1,
+      "message": "For mDL this would be \"must\" for sure... but since this is general, I would prefer to keep \"should\". I can imagine some document types where directAccess makes sense without requiring reader authentication, for example loyalty cards or for an app where you tap your phone to check-in somewhere ... or, heck, even to unlock a hotel room!\n\nRemember, the interaction already requires a physical tap so I don\u0027t think this is any more risky than someone gaining access to my physical wallet and reading what\u0027s on my physical loyality card or the physical hotel keycard that was issued to me at check-in. For example, if I\u0027m running a hotel chain I might be willing to make that tradeoff so guests can enter their room with a phone that has run out of battery.",
+      "parentUuid": "08a2be73_d0f5dda5",
+      "range": {
+        "startLine": 40,
+        "startChar": 14,
+        "endLine": 40,
+        "endChar": 23
+      },
+      "revId": "81603155a9582941cf558e840ffff0c90edaf330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "af7eeeed_266bde81",
         "filename": "identity/aidl/android/hardware/identity/IIdentityCredentialStore.aidl",
         "patchSetId": 4
