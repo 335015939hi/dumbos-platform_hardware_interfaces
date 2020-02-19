@@ -308,6 +308,30 @@
     },
     {
       "key": {
+        "uuid": "8db13953_cd00868c",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 844,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-02-19T21:30:49Z",
+      "side": 1,
+      "message": "Well, it\u0027s already hinted below by good use of variable naming (activeTimeMilliSeconds) so no need to mention it twice. Don\u0027t get me wrong, I strongly believe in good naming as well as good comments but I also believe it\u0027s important to not unnecessarily repeat yourself :-)",
+      "parentUuid": "90f9858a_4a90fbd5",
+      "range": {
+        "startLine": 842,
+        "startChar": 0,
+        "endLine": 844,
+        "endChar": 39
+      },
+      "revId": "c4be0ce63cfce186a47f13d04aedac7c95ceddcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "beb56b03_b404f956",
         "filename": "identity/support/src/IdentityCredentialSupport.cpp",
         "patchSetId": 8
@@ -485,6 +509,30 @@
       "side": 1,
       "message": "I think David should be able to point you to the documentation specifying what the attestation should include.",
       "parentUuid": "82d2491b_11c3789c",
+      "range": {
+        "startLine": 857,
+        "startChar": 0,
+        "endLine": 857,
+        "endChar": 64
+      },
+      "revId": "c4be0ce63cfce186a47f13d04aedac7c95ceddcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ea70d4f_f96a8320",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 857,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-02-19T21:30:49Z",
+      "side": 1,
+      "message": "Yes. I would add a comment here saying that the docs for the getAttestationCertificate() method in hardware/interfaces/identity/aidl/android/hardware/identity/IWritableIdentityCredential.aidl state what the attestation must include.",
+      "parentUuid": "4ae60009_df6c10a3",
       "range": {
         "startLine": 857,
         "startChar": 0,
