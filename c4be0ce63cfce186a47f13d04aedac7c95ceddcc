@@ -237,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "20a3b1f1_71318e30",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 837,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-02-19T21:14:29Z",
+      "side": 1,
+      "message": "I agree with David here. You should not set any of the parameters unless you have read the documentation. This comment is oddly specific.",
+      "parentUuid": "f1cdf5fa_e1d83616",
+      "range": {
+        "startLine": 836,
+        "startChar": 0,
+        "endLine": 837,
+        "endChar": 74
+      },
+      "revId": "c4be0ce63cfce186a47f13d04aedac7c95ceddcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5bd44131_b1267aa8",
         "filename": "identity/support/src/IdentityCredentialSupport.cpp",
         "patchSetId": 8
@@ -437,6 +461,30 @@
       "side": 1,
       "message": "actually I meant to ask you and Janis except I forgot, what do you guys think is necessary to set in soft and tee auth_set in addition to what I have added?",
       "parentUuid": "1b726ec6_968eae27",
+      "range": {
+        "startLine": 857,
+        "startChar": 0,
+        "endLine": 857,
+        "endChar": 64
+      },
+      "revId": "c4be0ce63cfce186a47f13d04aedac7c95ceddcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ae60009_df6c10a3",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 857,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-02-19T21:14:29Z",
+      "side": 1,
+      "message": "I think David should be able to point you to the documentation specifying what the attestation should include.",
+      "parentUuid": "82d2491b_11c3789c",
       "range": {
         "startLine": 857,
         "startChar": 0,
