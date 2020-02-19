@@ -93,6 +93,30 @@
       "revId": "81603155a9582941cf558e840ffff0c90edaf330",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5615cdf_02c3d23d",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredentialStore.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-02-19T21:07:38Z",
+      "side": 1,
+      "message": "True.. but I use that constant elsewhere in the code where status codes are passed around.",
+      "parentUuid": "af7eeeed_266bde81",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 0
+      },
+      "revId": "81603155a9582941cf558e840ffff0c90edaf330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
