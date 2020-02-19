@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "d3e3d1de_79af23d7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-02-19T00:47:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3c45ea1_9bbb7666",
+      "range": {
+        "startLine": 7,
+        "startChar": 68,
+        "endLine": 7,
+        "endChar": 83
+      },
+      "revId": "c4be0ce63cfce186a47f13d04aedac7c95ceddcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "07686665_52ebf9e3",
         "filename": "identity/1.0/default/WritableIdentityCredential.cpp",
         "patchSetId": 8
@@ -45,6 +69,30 @@
       "revId": "c4be0ce63cfce186a47f13d04aedac7c95ceddcc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13b572d7_0d3939e5",
+        "filename": "identity/1.0/default/WritableIdentityCredential.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-02-19T00:47:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "07686665_52ebf9e3",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 51
+      },
+      "revId": "c4be0ce63cfce186a47f13d04aedac7c95ceddcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "4090b526_ce39e39c",
+        "filename": "identity/1.0/default/WritableIdentityCredential.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-02-19T00:47:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "be57f19d_716d2eaa",
+      "range": {
+        "startLine": 144,
+        "startChar": 4,
+        "endLine": 147,
+        "endChar": 0
+      },
+      "revId": "c4be0ce63cfce186a47f13d04aedac7c95ceddcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc130085_a626b41e",
         "filename": "identity/1.0/default/WritableIdentityCredential.h",
         "patchSetId": 8
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "2d5fd48f_f45a7cc8",
+        "filename": "identity/1.0/default/WritableIdentityCredential.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-02-19T00:47:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc130085_a626b41e",
+      "range": {
+        "startLine": 86,
+        "startChar": 4,
+        "endLine": 86,
+        "endChar": 41
+      },
+      "revId": "c4be0ce63cfce186a47f13d04aedac7c95ceddcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c8651113_0308ad30",
         "filename": "identity/support/src/IdentityCredentialSupport.cpp",
         "patchSetId": 8
@@ -105,6 +201,30 @@
       "writtenOn": "2020-02-18T15:13:15Z",
       "side": 1,
       "message": "This seems superfluous. Remove.",
+      "range": {
+        "startLine": 836,
+        "startChar": 0,
+        "endLine": 837,
+        "endChar": 74
+      },
+      "revId": "c4be0ce63cfce186a47f13d04aedac7c95ceddcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1cdf5fa_e1d83616",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 837,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-02-19T00:47:30Z",
+      "side": 1,
+      "message": "Actually I think I benefited from this comment myself, cause I would forget in a week why I did and didn\u0027t do such things and have to dig up the codes again.",
+      "parentUuid": "c8651113_0308ad30",
       "range": {
         "startLine": 836,
         "startChar": 0,
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "90f9858a_4a90fbd5",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 844,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-02-19T00:47:30Z",
+      "side": 1,
+      "message": "I removed it since you feel strongly.  But I do kind of feel people who don\u0027t touch keymaster or TAG_ACTIVE_DATETIME often, such as myself, does not know they are in milliseconds unless they dig, so it is nice to add the comment so people don\u0027t have to dig.",
+      "parentUuid": "5bd44131_b1267aa8",
+      "range": {
+        "startLine": 842,
+        "startChar": 0,
+        "endLine": 844,
+        "endChar": 39
+      },
+      "revId": "c4be0ce63cfce186a47f13d04aedac7c95ceddcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "beb56b03_b404f956",
         "filename": "identity/support/src/IdentityCredentialSupport.cpp",
         "patchSetId": 8
@@ -160,6 +304,30 @@
       "revId": "c4be0ce63cfce186a47f13d04aedac7c95ceddcc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14241ac7_b547f291",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 848,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-02-19T00:47:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "beb56b03_b404f956",
+      "range": {
+        "startLine": 848,
+        "startChar": 33,
+        "endLine": 848,
+        "endChar": 39
+      },
+      "revId": "c4be0ce63cfce186a47f13d04aedac7c95ceddcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -210,6 +378,30 @@
     },
     {
       "key": {
+        "uuid": "8d90d5da_062fa79b",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 852,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-02-19T00:47:30Z",
+      "side": 1,
+      "message": "That\u0027s what I meant.  I updated the comment to make it more clear. basically I don\u0027t think it make sense keymaster look for the app id in auth_set instead of software_auth_set, then copy the app id to auth_set.  so I added app id to both locations in case keymaster changes search area in the future.",
+      "parentUuid": "8e78962f_fe489af7",
+      "range": {
+        "startLine": 846,
+        "startChar": 0,
+        "endLine": 852,
+        "endChar": 53
+      },
+      "revId": "c4be0ce63cfce186a47f13d04aedac7c95ceddcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1b726ec6_968eae27",
         "filename": "identity/support/src/IdentityCredentialSupport.cpp",
         "patchSetId": 8
@@ -221,6 +413,30 @@
       "writtenOn": "2020-02-18T15:13:15Z",
       "side": 1,
       "message": "Leftover comment?",
+      "range": {
+        "startLine": 857,
+        "startChar": 0,
+        "endLine": 857,
+        "endChar": 64
+      },
+      "revId": "c4be0ce63cfce186a47f13d04aedac7c95ceddcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82d2491b_11c3789c",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 857,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-02-19T00:47:30Z",
+      "side": 1,
+      "message": "actually I meant to ask you and Janis except I forgot, what do you guys think is necessary to set in soft and tee auth_set in addition to what I have added?",
+      "parentUuid": "1b726ec6_968eae27",
       "range": {
         "startLine": 857,
         "startChar": 0,
@@ -256,6 +472,30 @@
     },
     {
       "key": {
+        "uuid": "1e3ade83_bc25f3ea",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 870,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-02-19T00:47:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b29997d9_d3470ff4",
+      "range": {
+        "startLine": 870,
+        "startChar": 8,
+        "endLine": 870,
+        "endChar": 26
+      },
+      "revId": "c4be0ce63cfce186a47f13d04aedac7c95ceddcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e36cbb14_01f88a7c",
         "filename": "identity/support/src/IdentityCredentialSupport.cpp",
         "patchSetId": 8
@@ -279,6 +519,30 @@
     },
     {
       "key": {
+        "uuid": "7da16d82_e3d67e8b",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 871,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-02-19T00:47:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e36cbb14_01f88a7c",
+      "range": {
+        "startLine": 871,
+        "startChar": 29,
+        "endLine": 871,
+        "endChar": 32
+      },
+      "revId": "c4be0ce63cfce186a47f13d04aedac7c95ceddcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "890fab32_34b675c3",
         "filename": "identity/support/src/IdentityCredentialSupport.cpp",
         "patchSetId": 8
@@ -299,6 +563,30 @@
       "revId": "c4be0ce63cfce186a47f13d04aedac7c95ceddcc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a4dd535_cfe5acb4",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 901,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-02-19T00:47:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "890fab32_34b675c3",
+      "range": {
+        "startLine": 899,
+        "startChar": 0,
+        "endLine": 901,
+        "endChar": 26
+      },
+      "revId": "c4be0ce63cfce186a47f13d04aedac7c95ceddcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
