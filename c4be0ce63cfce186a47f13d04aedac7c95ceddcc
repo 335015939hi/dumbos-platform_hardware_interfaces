@@ -261,6 +261,30 @@
     },
     {
       "key": {
+        "uuid": "4acc3886_d696e518",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 837,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-02-20T00:08:39Z",
+      "side": 1,
+      "message": "Ok removed.  However I must say there is no documentation on the first level call.  You don\u0027t know what parameters you need set or cannot set until you trace down all the function calls though multiple layers.  So it is easy to overlook without documenting it at higher levels.",
+      "parentUuid": "20a3b1f1_71318e30",
+      "range": {
+        "startLine": 836,
+        "startChar": 0,
+        "endLine": 837,
+        "endChar": 74
+      },
+      "revId": "c4be0ce63cfce186a47f13d04aedac7c95ceddcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5bd44131_b1267aa8",
         "filename": "identity/support/src/IdentityCredentialSupport.cpp",
         "patchSetId": 8
@@ -320,6 +344,30 @@
       "side": 1,
       "message": "Well, it\u0027s already hinted below by good use of variable naming (activeTimeMilliSeconds) so no need to mention it twice. Don\u0027t get me wrong, I strongly believe in good naming as well as good comments but I also believe it\u0027s important to not unnecessarily repeat yourself :-)",
       "parentUuid": "90f9858a_4a90fbd5",
+      "range": {
+        "startLine": 842,
+        "startChar": 0,
+        "endLine": 844,
+        "endChar": 39
+      },
+      "revId": "c4be0ce63cfce186a47f13d04aedac7c95ceddcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "25bd2d92_308afe6b",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 844,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-02-20T00:08:39Z",
+      "side": 1,
+      "message": "It was removed yesterday actually.",
+      "parentUuid": "8db13953_cd00868c",
       "range": {
         "startLine": 842,
         "startChar": 0,
@@ -542,6 +590,30 @@
       "revId": "c4be0ce63cfce186a47f13d04aedac7c95ceddcc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34a2ba27_89dbd1e5",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 857,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-02-20T00:08:39Z",
+      "side": 1,
+      "message": "I\u0027ve long had the fields required by IC interface documentations added to the code.  I was just looking for extra confirmation to make sure there are no other keymaster fields etc I should add and was not aware of.  Per comments from 2 of you, I guess not. Anyway the comment was removed in the patch uploaded yesterday afternoon.",
+      "parentUuid": "5ea70d4f_f96a8320",
+      "range": {
+        "startLine": 857,
+        "startChar": 0,
+        "endLine": 857,
+        "endChar": 64
+      },
+      "revId": "c4be0ce63cfce186a47f13d04aedac7c95ceddcc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
