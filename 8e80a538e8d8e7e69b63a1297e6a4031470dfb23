@@ -284,6 +284,30 @@
     },
     {
       "key": {
+        "uuid": "b6f3623f_d9c70649",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 865,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-02-20T01:04:22Z",
+      "side": 1,
+      "message": "so I added purpose, size, algorithm, no_auth_required, digest, and curve.  I did not find usage.",
+      "parentUuid": "60ca2084_61ff547a",
+      "range": {
+        "startLine": 864,
+        "startChar": 4,
+        "endLine": 865,
+        "endChar": 55
+      },
+      "revId": "8e80a538e8d8e7e69b63a1297e6a4031470dfb23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5f445971_1978682f",
         "filename": "identity/support/src/IdentityCredentialSupport.cpp",
         "patchSetId": 10
