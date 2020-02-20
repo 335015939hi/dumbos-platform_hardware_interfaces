@@ -308,6 +308,30 @@
     },
     {
       "key": {
+        "uuid": "f47ecd06_3667727d",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 865,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-02-20T01:10:17Z",
+      "side": 1,
+      "message": "For a first pass I think it would be OK to just add a TODO about that a proper implementation should include these. That is, first order of business should be just to pass the CTS/VTS tests we have for this... after all, this is not a real implementation.",
+      "parentUuid": "b6f3623f_d9c70649",
+      "range": {
+        "startLine": 864,
+        "startChar": 4,
+        "endLine": 865,
+        "endChar": 55
+      },
+      "revId": "8e80a538e8d8e7e69b63a1297e6a4031470dfb23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5f445971_1978682f",
         "filename": "identity/support/src/IdentityCredentialSupport.cpp",
         "patchSetId": 10
