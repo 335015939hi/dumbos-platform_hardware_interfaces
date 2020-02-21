@@ -299,7 +299,10 @@ interface IRadio extends @1.4::IRadio {
      *
      * @param serial Serial number of request.
      * @param persoType SIM personalization type.
-     * @param controlKey depersonalization code corresponding to persoType
+     * @param controlKey depersonalization code corresponding to persoType. The
+     *                   depersonalization code is 8-16 digits long, and will be supplied by the
+     *                   user through the keypad or sent over the air. (For more info see 3GPP TS
+     *                   22.022).
      *
      * Response function is IRadioResponse.supplySimDepersonalizationResponse()
      */
