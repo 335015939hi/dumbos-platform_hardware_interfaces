@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "36091cb1_a51fe61f",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 853,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-02-21T20:14:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce164989_1b9583a7",
+      "range": {
+        "startLine": 843,
+        "startChar": 20,
+        "endLine": 853,
+        "endChar": 42
+      },
+      "revId": "8e80a538e8d8e7e69b63a1297e6a4031470dfb23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4a049c7d_fe9994b8",
         "filename": "identity/support/src/IdentityCredentialSupport.cpp",
         "patchSetId": 10
@@ -377,6 +401,30 @@
       "revId": "8e80a538e8d8e7e69b63a1297e6a4031470dfb23",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57db6407_2b48efd8",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 865,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-02-21T20:14:24Z",
+      "side": 1,
+      "message": "Are you guys looking at the right patch?  All these fields have been added since 19th and they passed the test.",
+      "parentUuid": "07d799a5_4808e4bb",
+      "range": {
+        "startLine": 864,
+        "startChar": 4,
+        "endLine": 865,
+        "endChar": 55
+      },
+      "revId": "8e80a538e8d8e7e69b63a1297e6a4031470dfb23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
