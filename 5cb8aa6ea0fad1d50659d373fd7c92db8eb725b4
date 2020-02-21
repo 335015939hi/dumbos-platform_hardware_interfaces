@@ -178,6 +178,30 @@
     },
     {
       "key": {
+        "uuid": "799421e1_695b2507",
+        "filename": "atrace/aidl/android/hardware/atrace/TracingEvent.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1108565
+      },
+      "writtenOn": "2020-02-21T23:10:03Z",
+      "side": 1,
+      "message": "one nit: since we have started (deprecated) debugfs, can we use the new tracefs path in comments as well?",
+      "parentUuid": "7eb8a19b_ff8b1cbc",
+      "range": {
+        "startLine": 24,
+        "startChar": 5,
+        "endLine": 24,
+        "endChar": 56
+      },
+      "revId": "5cb8aa6ea0fad1d50659d373fd7c92db8eb725b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0c6d45b3_11aadf6c",
         "filename": "compatibility_matrices/compatibility_matrix.current.xml",
         "patchSetId": 2
