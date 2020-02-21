@@ -68,8 +68,8 @@ bool WritableIdentityCredential::initialize() {
 //       the docs for IWritableIdentityCredential::getAttestationCertificate()
 //
 ndk::ScopedAStatus WritableIdentityCredential::getAttestationCertificate(
-        const vector<int8_t>& /*attestationApplicationId*/,
-        const vector<int8_t>& /*attestationChallenge*/, vector<Certificate>* outCertificateChain) {
+        const vector<uint8_t>& /*attestationApplicationId*/,
+        const vector<uint8_t>& /*attestationChallenge*/, vector<Certificate>* outCertificateChain) {
     // For now, we dynamically generate an attestion key on each and every
     // request and use that to sign CredentialKey. In a real implementation this
     // would look very differently.
@@ -146,7 +146,7 @@ ndk::ScopedAStatus WritableIdentityCredential::getAttestationCertificate(
     *outCertificateChain = vector<Certificate>();
     for (const vector<uint8_t>& cert : splitCertChain.value()) {
         Certificate c = Certificate();
-        c.encodedCertificate = byteStringToSigned(cert);
+        c.encodedCertificate = cert;
         outCertificateChain->push_back(std::move(c));
     }
     return ndk::ScopedAStatus::ok();
@@ -195,14 +195,13 @@ ndk::ScopedAStatus WritableIdentityCredential::addAccessControlProfile(
         return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
                 IIdentityCredentialStore::STATUS_FAILED, "Error calculating MAC for profile"));
     }
-    profile.mac = byteStringToSigned(mac.value());
+    profile.mac = mac.value();
 
     cppbor::Map profileMap;
     profileMap.add("id", profile.id);
     if (profile.readerCertificate.encodedCertificate.size() > 0) {
-        profileMap.add(
-                "readerCertificate",
-                cppbor::Bstr(byteStringToUnsigned(profile.readerCertificate.encodedCertificate)));
+        profileMap.add("readerCertificate",
+                       cppbor::Bstr(profile.readerCertificate.encodedCertificate));
     }
     if (profile.userAuthenticationRequired) {
         profileMap.add("userAuthenticationRequired", profile.userAuthenticationRequired);
@@ -272,9 +271,8 @@ ndk::ScopedAStatus WritableIdentityCredential::beginAddEntry(
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus WritableIdentityCredential::addEntryValue(const vector<int8_t>& contentS,
-                                                             vector<int8_t>* outEncryptedContent) {
-    auto content = byteStringToUnsigned(contentS);
+ndk::ScopedAStatus WritableIdentityCredential::addEntryValue(const vector<uint8_t>& content,
+                                                             vector<uint8_t>* outEncryptedContent) {
     size_t contentSize = content.size();
 
     if (contentSize > IdentityCredentialStore::kGcmChunkSize) {
@@ -329,7 +327,7 @@ ndk::ScopedAStatus WritableIdentityCredential::addEntryValue(const vector<int8_t
         signedDataCurrentNamespace_.add(std::move(entryMap));
     }
 
-    *outEncryptedContent = byteStringToSigned(encryptedContent.value());
+    *outEncryptedContent = encryptedContent.value();
     return ndk::ScopedAStatus::ok();
 }
 
@@ -378,7 +376,7 @@ bool generateCredentialData(const vector<uint8_t>& hardwareBoundKey, const strin
 }
 
 ndk::ScopedAStatus WritableIdentityCredential::finishAddingEntries(
-        vector<int8_t>* outCredentialData, vector<int8_t>* outProofOfProvisioningSignature) {
+        vector<uint8_t>* outCredentialData, vector<uint8_t>* outProofOfProvisioningSignature) {
     if (signedDataCurrentNamespace_.size() > 0) {
         signedDataNamespaces_.add(entryNameSpace_, std::move(signedDataCurrentNamespace_));
     }
@@ -413,8 +411,8 @@ ndk::ScopedAStatus WritableIdentityCredential::finishAddingEntries(
                 IIdentityCredentialStore::STATUS_FAILED, "Error generating CredentialData"));
     }
 
-    *outCredentialData = byteStringToSigned(credentialData);
-    *outProofOfProvisioningSignature = byteStringToSigned(signature.value());
+    *outCredentialData = credentialData;
+    *outProofOfProvisioningSignature = signature.value();
     return ndk::ScopedAStatus::ok();
 }
 
