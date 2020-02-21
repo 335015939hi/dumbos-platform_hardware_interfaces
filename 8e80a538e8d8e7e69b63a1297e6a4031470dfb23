@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "ce164989_1b9583a7",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 853,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-02-21T15:18:59Z",
+      "side": 1,
+      "message": "The comment is still incorrect.  The app ID should be in the SW-enforced part of the attestation, but it should not be in any part of the key characteristics, so it is not expected to be in the swEnforced set passed to generateAttestation, because that argument represents the swEnforced part of the key characteristics.",
+      "parentUuid": "afa9b233_1009127c",
+      "range": {
+        "startLine": 843,
+        "startChar": 20,
+        "endLine": 853,
+        "endChar": 42
+      },
+      "revId": "8e80a538e8d8e7e69b63a1297e6a4031470dfb23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4a049c7d_fe9994b8",
         "filename": "identity/support/src/IdentityCredentialSupport.cpp",
         "patchSetId": 10
@@ -332,6 +356,30 @@
     },
     {
       "key": {
+        "uuid": "07d799a5_4808e4bb",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 865,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-02-21T15:18:59Z",
+      "side": 1,
+      "message": "You also need TAG_NO_AUTH_REQUIRED.  I think that\u0027s it.",
+      "parentUuid": "f47ecd06_3667727d",
+      "range": {
+        "startLine": 864,
+        "startChar": 4,
+        "endLine": 865,
+        "endChar": 55
+      },
+      "revId": "8e80a538e8d8e7e69b63a1297e6a4031470dfb23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5f445971_1978682f",
         "filename": "identity/support/src/IdentityCredentialSupport.cpp",
         "patchSetId": 10
@@ -367,6 +415,30 @@
       "side": 1,
       "message": "why? swenforced will be used if you want to set creation time.",
       "parentUuid": "5f445971_1978682f",
+      "range": {
+        "startLine": 890,
+        "startChar": 47,
+        "endLine": 890,
+        "endChar": 57
+      },
+      "revId": "8e80a538e8d8e7e69b63a1297e6a4031470dfb23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e228517f_1b83b85f",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 890,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-02-21T15:18:59Z",
+      "side": 1,
+      "message": "Good point.",
+      "parentUuid": "feeeb33f_b432512f",
       "range": {
         "startLine": 890,
         "startChar": 47,
