@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ab43d647_a96ad0eb",
+        "filename": "radio/1.5/IRadio.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-02-21T23:14:18Z",
+      "side": 1,
+      "message": "Please, refer to comments in the bug.",
+      "range": {
+        "startLine": 302,
+        "startChar": 76,
+        "endLine": 305,
+        "endChar": 33
+      },
+      "revId": "3211e127d36c7214c018c99aa8b868d9522a336e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
