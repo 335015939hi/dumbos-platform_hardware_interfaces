@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e22d1423_0884f929",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 16
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-02-21T20:34:43Z",
+      "side": 1,
+      "message": "Missing bug number. Use 149908474",
+      "revId": "16c1b3a561f376a9fe60185f1d176d438a229aa5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de9fdd66_16fda882",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 871,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-02-21T20:34:43Z",
+      "side": 1,
+      "message": "Nit: getting",
+      "range": {
+        "startLine": 871,
+        "startChar": 29,
+        "endLine": 871,
+        "endChar": 32
+      },
+      "revId": "16c1b3a561f376a9fe60185f1d176d438a229aa5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b806a5d_bc5ad601",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 920,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-02-21T20:34:43Z",
+      "side": 1,
+      "message": "Nit: Already have these docs in the header file so no need to repeat it here.",
+      "range": {
+        "startLine": 911,
+        "startChar": 0,
+        "endLine": 920,
+        "endChar": 53
+      },
+      "revId": "16c1b3a561f376a9fe60185f1d176d438a229aa5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
