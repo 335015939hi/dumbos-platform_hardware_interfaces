@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "13cb5e03_d7b892cf",
+        "filename": "identity/1.0/vts/functional/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-02-22T00:06:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f1eb600_db63784b",
+      "revId": "7ddeaa7d2475506601173f77dcbdd2612131ebb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "32b836ac_be54d887",
         "filename": "identity/1.0/vts/functional/VtsHalIdentityCredentialUnitTests.cpp",
         "patchSetId": 4
@@ -33,6 +51,24 @@
       "revId": "7ddeaa7d2475506601173f77dcbdd2612131ebb7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0947398d_a646492c",
+        "filename": "identity/1.0/vts/functional/VtsHalIdentityCredentialUnitTests.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-02-22T00:06:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32b836ac_be54d887",
+      "revId": "7ddeaa7d2475506601173f77dcbdd2612131ebb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -59,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "4dbcda88_7e4c6d60",
+        "filename": "identity/support/include/android/hardware/identity/support/IdentityCredentialSupport.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-02-22T00:06:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3db5663_f87e7976",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 36
+      },
+      "revId": "7ddeaa7d2475506601173f77dcbdd2612131ebb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b18a8ad5_0bae0118",
         "filename": "identity/support/include/android/hardware/identity/support/IdentityCredentialSupport.h",
         "patchSetId": 4
@@ -79,6 +139,30 @@
       "revId": "7ddeaa7d2475506601173f77dcbdd2612131ebb7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7a5733d_0e907fba",
+        "filename": "identity/support/include/android/hardware/identity/support/IdentityCredentialSupport.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-02-22T00:06:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b18a8ad5_0bae0118",
+      "range": {
+        "startLine": 127,
+        "startChar": 0,
+        "endLine": 135,
+        "endChar": 85
+      },
+      "revId": "7ddeaa7d2475506601173f77dcbdd2612131ebb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -105,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "f288ae18_a557840c",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 896,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-02-22T00:06:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57073692_c37f92f1",
+      "range": {
+        "startLine": 896,
+        "startChar": 0,
+        "endLine": 896,
+        "endChar": 3
+      },
+      "revId": "7ddeaa7d2475506601173f77dcbdd2612131ebb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a0ff3d0e_f9057b0b",
         "filename": "keymaster/4.1/support/include/keymasterV4_1/keymaster_tags.h",
         "patchSetId": 4
@@ -119,6 +227,24 @@
       "revId": "7ddeaa7d2475506601173f77dcbdd2612131ebb7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1a767f0_548fe7db",
+        "filename": "keymaster/4.1/support/include/keymasterV4_1/keymaster_tags.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-02-22T00:06:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0ff3d0e_f9057b0b",
+      "revId": "7ddeaa7d2475506601173f77dcbdd2612131ebb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
