@@ -34,6 +34,24 @@
       "revId": "8c11ee2e75071c4e8b9ea3536df2bab777bcc889",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "521b8b3f_d83d74d2",
+        "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1199008
+      },
+      "writtenOn": "2020-02-24T18:56:42Z",
+      "side": 1,
+      "message": "For IPA any limit is applied per upstream.  For the HAL interface we will need the interface to be added to the limit. Although on framework your are using Global alert (is the global alert set to the value that user selects on the UI or its 2MB?) but when you enable offload and pass the limit, we will need the upstream interface with it.",
+      "parentUuid": "0beef9a0_119984f9",
+      "revId": "8c11ee2e75071c4e8b9ea3536df2bab777bcc889",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
