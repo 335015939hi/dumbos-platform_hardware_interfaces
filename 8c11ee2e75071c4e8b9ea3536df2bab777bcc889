@@ -16,6 +16,24 @@
       "revId": "8c11ee2e75071c4e8b9ea3536df2bab777bcc889",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0beef9a0_119984f9",
+        "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2020-02-24T08:40:49Z",
+      "side": 1,
+      "message": "For now the global alert works exactly in this way.\nhttps://source.corp.google.com/android/frameworks/base/services/core/java/com/android/server/net/NetworkStatsService.java;l\u003d526;cl\u003dmaster?q\u003dNetworkStatsService\n\nIt is global across all places who need to set it.\nSo currently it is designed in that way where there\nis no specific value for specific interface.\n\nany thought?",
+      "parentUuid": "325d4ec0_db8e159f",
+      "revId": "8c11ee2e75071c4e8b9ea3536df2bab777bcc889",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
