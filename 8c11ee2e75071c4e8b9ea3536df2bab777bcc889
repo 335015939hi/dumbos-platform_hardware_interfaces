@@ -52,6 +52,24 @@
       "revId": "8c11ee2e75071c4e8b9ea3536df2bab777bcc889",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87a8a808_b4dbaf92",
+        "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2020-02-25T04:03:55Z",
+      "side": 1,
+      "message": "1. IIRC global alert is MAX(2MB, MIN(warning, limit)/1000).\nso it does somehow reflect user setting.\n\n2.Ack\nI think it is afforded to apply alart bytes to current upstreams.\nUpdated accordingly.\nquestion: will we have multiple upstream case in future?\nIf so these interfaces might not be good.",
+      "parentUuid": "521b8b3f_d83d74d2",
+      "revId": "8c11ee2e75071c4e8b9ea3536df2bab777bcc889",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
