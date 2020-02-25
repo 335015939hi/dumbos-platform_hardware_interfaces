@@ -30,7 +30,7 @@ cc_library {
         "libhardware",
         "libkeymaster_portable",
         "libsoft_attestation_cert",
-        "libpuresoftkeymasterdevice",
+        "libsoftkeymasterdevice",
     ],
     static_libs: [
         "libcppbor",
