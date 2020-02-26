@@ -30,6 +30,8 @@ cc_test {
         "libhidlmemory",
         "libnativehelper",
         "libssl",
+    ],
+    shared_libs: [
         "libcrypto",
     ],
     test_suites: ["general-tests"],
