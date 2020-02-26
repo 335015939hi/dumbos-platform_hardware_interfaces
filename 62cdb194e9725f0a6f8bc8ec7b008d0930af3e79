@@ -22,6 +22,30 @@
       "revId": "62cdb194e9725f0a6f8bc8ec7b008d0930af3e79",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "adb1c4be_c03f7ec2",
+        "filename": "sensors/2.0/multihal/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1585259
+      },
+      "writtenOn": "2020-02-26T18:50:40Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "5b204717_e0061818",
+      "range": {
+        "startLine": 97,
+        "startChar": 54,
+        "endLine": 97,
+        "endChar": 59
+      },
+      "revId": "62cdb194e9725f0a6f8bc8ec7b008d0930af3e79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
