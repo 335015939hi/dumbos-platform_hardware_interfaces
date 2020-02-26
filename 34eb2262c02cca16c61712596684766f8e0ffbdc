@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "319183cc_4248830e",
+        "filename": "radio/1.5/IRadio.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-02-26T18:54:42Z",
+      "side": 1,
+      "message": "The term \"category\" is coming from TS 22.022, so I would keep that instead of \"type\".",
+      "range": {
+        "startLine": 298,
+        "startChar": 36,
+        "endLine": 298,
+        "endChar": 40
+      },
+      "revId": "34eb2262c02cca16c61712596684766f8e0ffbdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fba0a324_9175686b",
+        "filename": "radio/1.5/IRadio.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-02-26T18:54:42Z",
+      "side": 1,
+      "message": "Minor. I would use a single space after the period, just to be consistent with the rest of all the other comments in the HAL files.",
+      "range": {
+        "startLine": 299,
+        "startChar": 89,
+        "endLine": 299,
+        "endChar": 91
+      },
+      "revId": "34eb2262c02cca16c61712596684766f8e0ffbdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
