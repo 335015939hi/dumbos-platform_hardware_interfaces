@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8777a066_e71aa254",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1585259
+      },
+      "writtenOn": "2020-02-26T23:20:17Z",
+      "side": 1,
+      "message": "It does not fail on my end during unit testing, but this maybe be because the stdlib implementation of the vector desctructor does not zero out the size of pendingWriteEvents object which does not trigger the failure. It does however fail if I entirely take out the decrement operation here: https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/sensors/2.0/multihal/HalProxy.cpp;l\u003d491",
+      "parentUuid": "6bbc0c67_05e4b2bb",
+      "range": {
+        "startLine": 10,
+        "startChar": 6,
+        "endLine": 10,
+        "endChar": 19
+      },
+      "revId": "8ab193a8fe8808f5246050f97e0f5b890398b2ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "676f884f_696a0919",
         "filename": "sensors/2.0/multihal/tests/HalProxy_test.cpp",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "8ab193a8fe8808f5246050f97e0f5b890398b2ea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7a3fb6f_8085f8ac",
+        "filename": "sensors/2.0/multihal/tests/HalProxy_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 763,
+      "author": {
+        "id": 1585259
+      },
+      "writtenOn": "2020-02-26T23:20:17Z",
+      "side": 1,
+      "message": "Yes. Good idea.",
+      "parentUuid": "676f884f_696a0919",
+      "range": {
+        "startLine": 763,
+        "startChar": 4,
+        "endLine": 763,
+        "endChar": 62
+      },
+      "revId": "8ab193a8fe8808f5246050f97e0f5b890398b2ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
