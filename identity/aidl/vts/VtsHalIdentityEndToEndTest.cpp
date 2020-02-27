@@ -112,9 +112,13 @@ TEST_P(IdentityAidl, createAndRetrieveCredential) {
     // TODO: set it to something random and check it's in the cert chain
     ASSERT_GE(attData.attestationCertificate.size(), 2);
 
-    ASSERT_TRUE(
-            writableCredential->startPersonalization(testProfiles.size(), testEntriesEntryCounts)
-                    .isOk());
+    // This is kinda of a hack but we need to give the size of
+    // ProofOfProvisioning that we'll expect to receive.
+    const int32_t expectedProofOfProvisioningSize = 262861 - 326 + readerCertificate.value().size();
+    ASSERT_TRUE(writableCredential
+                        ->startPersonalization(testProfiles.size(), testEntriesEntryCounts,
+                                               expectedProofOfProvisioningSize)
+                        .isOk());
 
     optional<vector<SecureAccessControlProfile>> secureProfiles =
             test_utils::AddAccessControlProfiles(writableCredential, testProfiles);
@@ -134,7 +138,6 @@ TEST_P(IdentityAidl, createAndRetrieveCredential) {
     ASSERT_TRUE(
             writableCredential->finishAddingEntries(&credentialData, &proofOfProvisioningSignature)
                     .isOk());
-
     optional<vector<uint8_t>> proofOfProvisioning =
             support::coseSignGetPayload(proofOfProvisioningSignature);
     ASSERT_TRUE(proofOfProvisioning);
@@ -268,10 +271,12 @@ TEST_P(IdentityAidl, createAndRetrieveCredential) {
     Certificate signingKeyCertificate;
     ASSERT_TRUE(credential->generateSigningKeyPair(&signingKeyBlob, &signingKeyCertificate).isOk());
 
+    size_t expectedDeviceNameSpacesSize = 262271;  // TODO
     ASSERT_TRUE(credential
                         ->startRetrieval(secureProfiles.value(), authToken, itemsRequestBytes,
                                          signingKeyBlob, sessionTranscriptBytes,
-                                         readerSignature.value(), testEntriesEntryCounts)
+                                         readerSignature.value(), testEntriesEntryCounts,
+                                         expectedDeviceNameSpacesSize)
                         .isOk());
 
     for (const auto& entry : testEntries) {

@@ -205,7 +205,8 @@ interface IIdentityCredential {
      */
     void startRetrieval(in SecureAccessControlProfile[] accessControlProfiles,
         in HardwareAuthToken authToken, in byte[] itemsRequest, in byte[] signingKeyBlob,
-        in byte[] sessionTranscript, in byte[] readerSignature, in int[] requestCounts);
+        in byte[] sessionTranscript, in byte[] readerSignature, in int[] requestCounts,
+        in int expectedDeviceNameSpacesSize);
 
     /**
      * Starts retrieving an entry, subject to access control requirements.  Entries must be

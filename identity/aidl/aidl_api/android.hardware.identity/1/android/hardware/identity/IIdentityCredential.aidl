@@ -22,7 +22,7 @@ interface IIdentityCredential {
   byte[] createEphemeralKeyPair();
   void setReaderEphemeralPublicKey(in byte[] publicKey);
   long createAuthChallenge();
-  void startRetrieval(in android.hardware.identity.SecureAccessControlProfile[] accessControlProfiles, in android.hardware.keymaster.HardwareAuthToken authToken, in byte[] itemsRequest, in byte[] signingKeyBlob, in byte[] sessionTranscript, in byte[] readerSignature, in int[] requestCounts);
+  void startRetrieval(in android.hardware.identity.SecureAccessControlProfile[] accessControlProfiles, in android.hardware.keymaster.HardwareAuthToken authToken, in byte[] itemsRequest, in byte[] signingKeyBlob, in byte[] sessionTranscript, in byte[] readerSignature, in int[] requestCounts, in int expectedDeviceNameSpacesSize);
   void startRetrieveEntryValue(in @utf8InCpp String nameSpace, in @utf8InCpp String name, in int entrySize, in int[] accessControlProfileIds);
   byte[] retrieveEntryValue(in byte[] encryptedContent);
   void finishRetrieval(out byte[] mac, out byte[] deviceNameSpaces);

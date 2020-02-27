@@ -23,8 +23,12 @@
 #include <cppbor.h>
 #include <set>
 
+#include "SecureHardwareProxy.h"
+
 namespace aidl::android::hardware::identity {
 
+using ::android::sp;
+using ::android::hardware::identity::SecureHardwareProvisioningProxy;
 using ::std::set;
 using ::std::string;
 using ::std::vector;
@@ -33,6 +37,8 @@ class WritableIdentityCredential : public BnWritableIdentityCredential {
   public:
     WritableIdentityCredential(const string& docType, bool testCredential)
         : docType_(docType), testCredential_(testCredential) {}
+
+    ~WritableIdentityCredential();
 
     // Creates the Credential Key. Returns false on failure. Must be called
     // right after construction.
@@ -44,7 +50,8 @@ class WritableIdentityCredential : public BnWritableIdentityCredential {
                                                  vector<Certificate>* outCertificateChain) override;
 
     ndk::ScopedAStatus startPersonalization(int32_t accessControlProfileCount,
-                                            const vector<int32_t>& entryCounts) override;
+                                            const vector<int32_t>& entryCounts,
+                                            int32_t expectedProofOfProvisioningSize) override;
 
     ndk::ScopedAStatus addAccessControlProfile(
             int32_t id, const Certificate& readerCertificate, bool userAuthenticationRequired,
@@ -62,21 +69,20 @@ class WritableIdentityCredential : public BnWritableIdentityCredential {
             vector<uint8_t>* outCredentialData,
             vector<uint8_t>* outProofOfProvisioningSignature) override;
 
-    // private:
+  private:
     string docType_;
     bool testCredential_;
 
     // This is set in initialize().
-    vector<uint8_t> storageKey_;
     bool startPersonalizationCalled_;
     bool firstEntry_;
+    sp<SecureHardwareProvisioningProxy> hwProxy_;
 
-    // These are set in getAttestationCertificate().
-    vector<uint8_t> credentialPrivKey_;
-    vector<uint8_t> credentialPubKey_;
-    vector<vector<uint8_t>> certificateChain_;
+    // This is set in getAttestationCertificate().
+    bool getAttestationCertificateAlreadyCalled_ = false;
 
     // These fields are initialized during startPersonalization()
+    size_t expectedProofOfProvisioningSize_;
     size_t numAccessControlProfileRemaining_;
     vector<int32_t> remainingEntryCounts_;
     cppbor::Array signedDataAccessControlProfiles_;
