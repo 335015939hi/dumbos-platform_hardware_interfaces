@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d185bb85_ac7f9eff",
+        "filename": "drm/1.0/vts/functional/AndroidTest.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1043093
+      },
+      "writtenOn": "2020-02-27T02:16:14Z",
+      "side": 1,
+      "message": "Curious how does this affect existing AndroidTest.xml files such as test/vts-testcase/hal/drm/V1_0/target/AndroidTest.xml ? Thanks for help packaging libvtswidevine.",
+      "revId": "3d0285b18252fa6e0fe5b4e7cc395cb9667b1460",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
