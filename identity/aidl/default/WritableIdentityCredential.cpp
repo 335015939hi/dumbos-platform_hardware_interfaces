@@ -17,7 +17,6 @@
 #define LOG_TAG "WritableIdentityCredential"
 
 #include "WritableIdentityCredential.h"
-#include "IdentityCredentialStore.h"
 
 #include <android/hardware/identity/support/IdentityCredentialSupport.h>
 
@@ -30,7 +29,6 @@
 
 #include "IdentityCredentialStore.h"
 #include "Util.h"
-#include "WritableIdentityCredential.h"
 
 namespace aidl::android::hardware::identity {
 
@@ -45,8 +43,14 @@ bool WritableIdentityCredential::initialize() {
     }
     storageKey_ = random.value();
 
+    eicProvisionInit(&eicCtx_, docType_.c_str());
+    fprintf(stderr, "sizeof(EicProvision): %zd\n", sizeof(EicProvision));
+    fprintf(stderr, "sizeof(EicSha256Ctx): %zd\n", sizeof(EicSha256Ctx));
+
     return true;
 }
+
+WritableIdentityCredential::~WritableIdentityCredential() {}
 
 // This function generates the attestation certificate using the passed in
 // |attestationApplicationId| and |attestationChallenge|.  It will generate an
@@ -113,6 +117,12 @@ ndk::ScopedAStatus WritableIdentityCredential::startPersonalization(
     signedDataNamespaces_ = cppbor::Map();
     signedDataCurrentNamespace_ = cppbor::Array();
 
+    if (!eicStartPersonalization(&eicCtx_, accessControlProfileCount, entryCounts.data(),
+                                 entryCounts.size())) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED, "eicStartPersonalization"));
+    }
+
     return ndk::ScopedAStatus::ok();
 }
 
@@ -162,6 +172,14 @@ ndk::ScopedAStatus WritableIdentityCredential::addAccessControlProfile(
     signedDataAccessControlProfiles_.add(std::move(profileMap));
 
     numAccessControlProfileRemaining_--;
+
+    if (!eicAddAccessControlProfile(&eicCtx_, id,
+                                    (const uint8_t*)readerCertificate.encodedCertificate.data(),
+                                    readerCertificate.encodedCertificate.size(),
+                                    userAuthenticationRequired, timeoutMillis, secureUserId)) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED, "eicAddAccessControlProfile"));
+    }
 
     *outSecureAccessControlProfile = profile;
     return ndk::ScopedAStatus::ok();
@@ -220,6 +238,13 @@ ndk::ScopedAStatus WritableIdentityCredential::beginAddEntry(
     entryAccessControlProfileIds_ = accessControlProfileIds;
     entryBytes_.resize(0);
     // LOG(INFO) << "name=" << name << " entrySize=" << entrySize;
+
+    if (!eicBeginAddEntry(&eicCtx_, accessControlProfileIds.data(), accessControlProfileIds.size(),
+                          nameSpace.c_str(), name.c_str(), entrySize)) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED, "eicBeginAddEntry"));
+    }
+
     return ndk::ScopedAStatus::ok();
 }
 
@@ -259,6 +284,11 @@ ndk::ScopedAStatus WritableIdentityCredential::addEntryValue(const vector<int8_t
     if (!encryptedContent) {
         return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
                 IIdentityCredentialStore::STATUS_FAILED, "Error encrypting content"));
+    }
+
+    if (!eicAddEntryValue(&eicCtx_, content.data(), content.size())) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED, "eicAddEntryValue"));
     }
 
     if (entryRemainingBytes_ == 0) {
@@ -340,6 +370,22 @@ ndk::ScopedAStatus WritableIdentityCredential::finishAddingEntries(
             .add(std::move(signedDataNamespaces_))
             .add(testCredential_);
     vector<uint8_t> encodedCbor = popArray.encode();
+    ::android::hardware::identity::support::hexdump(
+            "origiCborDigest", ::android::hardware::identity::support::sha256(encodedCbor));
+    // fprintf(stderr, "cbor: %s\n",
+    // ::android::hardware::identity::support::cborPrettyPrint(encodedCbor).c_str());
+
+    uint8_t cborSha256[EIC_SHA256_DIGEST_SIZE];
+    if (!eicFinishAddingEntries(&eicCtx_, testCredential_, cborSha256)) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED, "eicFinishAddingEntries"));
+    }
+    vector<uint8_t> asVec;
+    asVec.resize(32);
+    for (size_t n = 0; n < 32; n++) {
+        asVec[n] = cborSha256[n];
+    }
+    ::android::hardware::identity::support::hexdump("embedCborDigest", asVec);
 
     optional<vector<uint8_t>> signature = support::coseSignEcDsa(credentialPrivKey_,
                                                                  encodedCbor,  // payload
