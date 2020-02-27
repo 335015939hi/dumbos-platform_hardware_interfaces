@@ -114,12 +114,13 @@ TEST_P(IdentityCredentialTests, verifyStartPersonalization) {
 
     // First call should go through
     const vector<int32_t> entryCounts = {2, 4};
-    result = writableCredential->startPersonalization(5, entryCounts);
+    size_t expectedPoPSize = 42;
+    result = writableCredential->startPersonalization(5, entryCounts, expectedPoPSize);
     ASSERT_TRUE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage()
                                << endl;
 
     // Call personalization again to check if repeat call is allowed.
-    result = writableCredential->startPersonalization(7, entryCounts);
+    result = writableCredential->startPersonalization(7, entryCounts, expectedPoPSize);
 
     // Second call to startPersonalization should have failed.
     EXPECT_FALSE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage()
@@ -135,7 +136,8 @@ TEST_P(IdentityCredentialTests, verifyStartPersonalizationMin) {
 
     // Verify minimal number of profile count and entry count
     const vector<int32_t> entryCounts = {1, 1};
-    writableCredential->startPersonalization(1, entryCounts);
+    size_t expectedPoPSize = 42;
+    writableCredential->startPersonalization(1, entryCounts, expectedPoPSize);
     EXPECT_TRUE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage()
                                << endl;
 }
@@ -146,7 +148,8 @@ TEST_P(IdentityCredentialTests, verifyStartPersonalizationZero) {
     ASSERT_TRUE(test_utils::SetupWritableCredential(writableCredential, credentialStore_));
 
     const vector<int32_t> entryCounts = {0};
-    writableCredential->startPersonalization(0, entryCounts);
+    size_t expectedPoPSize = 42;
+    writableCredential->startPersonalization(0, entryCounts, expectedPoPSize);
     EXPECT_TRUE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage()
                                << endl;
 }
@@ -158,7 +161,8 @@ TEST_P(IdentityCredentialTests, verifyStartPersonalizationOne) {
 
     // Verify minimal number of profile count and entry count
     const vector<int32_t> entryCounts = {1};
-    writableCredential->startPersonalization(1, entryCounts);
+    size_t expectedPoPSize = 42;
+    writableCredential->startPersonalization(1, entryCounts, expectedPoPSize);
     EXPECT_TRUE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage()
                                << endl;
 }
@@ -170,7 +174,8 @@ TEST_P(IdentityCredentialTests, verifyStartPersonalizationLarge) {
 
     // Verify set a large number of profile count and entry count is ok
     const vector<int32_t> entryCounts = {3000};
-    writableCredential->startPersonalization(3500, entryCounts);
+    size_t expectedPoPSize = 42;
+    writableCredential->startPersonalization(3500, entryCounts, expectedPoPSize);
     EXPECT_TRUE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage()
                                << endl;
 }
@@ -182,7 +187,8 @@ TEST_P(IdentityCredentialTests, verifyProfileNumberMismatchShouldFail) {
 
     // Enter mismatched entry and profile numbers
     const vector<int32_t> entryCounts = {5, 6};
-    writableCredential->startPersonalization(5, entryCounts);
+    size_t expectedPoPSize = 42;
+    writableCredential->startPersonalization(5, entryCounts, expectedPoPSize);
     ASSERT_TRUE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage()
                                << endl;
 
@@ -218,7 +224,8 @@ TEST_P(IdentityCredentialTests, verifyDuplicateProfileId) {
     ASSERT_TRUE(test_utils::SetupWritableCredential(writableCredential, credentialStore_));
 
     const vector<int32_t> entryCounts = {3, 6};
-    writableCredential->startPersonalization(3, entryCounts);
+    size_t expectedPoPSize = 42;
+    writableCredential->startPersonalization(3, entryCounts, expectedPoPSize);
     ASSERT_TRUE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage()
                                << endl;
 
@@ -279,15 +286,15 @@ TEST_P(IdentityCredentialTests, verifyOneProfileAndEntryPass) {
     EXPECT_TRUE(attData.result.isOk())
             << attData.result.exceptionCode() << "; " << attData.result.exceptionMessage() << endl;
 
-    const vector<int32_t> entryCounts = {1u};
-    writableCredential->startPersonalization(1, entryCounts);
-    ASSERT_TRUE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage()
-                               << endl;
-
     optional<vector<uint8_t>> readerCertificate1 = test_utils::GenerateReaderCertificate("123456");
     ASSERT_TRUE(readerCertificate1);
-
     const vector<test_utils::TestProfile> testProfiles = {{1, readerCertificate1.value(), true, 1}};
+
+    const vector<int32_t> entryCounts = {1u};
+    size_t expectedPoPSize = 186 + readerCertificate1.value().size();
+    writableCredential->startPersonalization(1, entryCounts, expectedPoPSize);
+    ASSERT_TRUE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage()
+                               << endl;
 
     optional<vector<SecureAccessControlProfile>> secureProfiles =
             test_utils::AddAccessControlProfiles(writableCredential, testProfiles);
@@ -374,7 +381,9 @@ TEST_P(IdentityCredentialTests, verifyManyProfilesAndEntriesPass) {
             {2, readerCertificate2.value(), true, 2},
     };
     const vector<int32_t> entryCounts = {1u, 3u, 1u, 1u, 2u};
-    writableCredential->startPersonalization(testProfiles.size(), entryCounts);
+    size_t expectedPoPSize =
+            525021 + readerCertificate1.value().size() + readerCertificate2.value().size();
+    writableCredential->startPersonalization(testProfiles.size(), entryCounts, expectedPoPSize);
     ASSERT_TRUE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage()
                                << endl;
 
@@ -518,11 +527,6 @@ TEST_P(IdentityCredentialTests, verifyEmptyNameSpaceMixedWithNonEmptyWorks) {
     ASSERT_TRUE(attData.result.isOk())
             << attData.result.exceptionCode() << "; " << attData.result.exceptionMessage() << endl;
 
-    const vector<int32_t> entryCounts = {2u, 2u};
-    writableCredential->startPersonalization(3, entryCounts);
-    ASSERT_TRUE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage()
-                               << endl;
-
     optional<vector<uint8_t>> readerCertificate1 = test_utils::GenerateReaderCertificate("123456");
     ASSERT_TRUE(readerCertificate1);
 
@@ -533,6 +537,13 @@ TEST_P(IdentityCredentialTests, verifyEmptyNameSpaceMixedWithNonEmptyWorks) {
     const vector<test_utils::TestProfile> testProfiles = {{0, readerCertificate1.value(), false, 0},
                                                           {1, readerCertificate2.value(), true, 1},
                                                           {2, {}, false, 0}};
+
+    const vector<int32_t> entryCounts = {2u, 2u};
+    size_t expectedPoPSize =
+            377 + readerCertificate1.value().size() + readerCertificate2.value().size();
+    writableCredential->startPersonalization(3, entryCounts, expectedPoPSize);
+    ASSERT_TRUE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage()
+                               << endl;
 
     optional<vector<SecureAccessControlProfile>> secureProfiles =
             test_utils::AddAccessControlProfiles(writableCredential, testProfiles);
@@ -580,7 +591,8 @@ TEST_P(IdentityCredentialTests, verifyInterleavingEntryNameSpaceOrderingFails) {
     // before "Image" and 2 after image, which is not correct.  All of same name
     // space should occur together.  Let's see if this fails.
     const vector<int32_t> entryCounts = {2u, 1u, 2u};
-    writableCredential->startPersonalization(3, entryCounts);
+    size_t expectedPoPSize = 42;
+    writableCredential->startPersonalization(3, entryCounts, expectedPoPSize);
     ASSERT_TRUE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage()
                                << endl;
 

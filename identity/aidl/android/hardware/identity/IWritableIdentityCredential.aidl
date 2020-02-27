@@ -127,7 +127,8 @@ interface IWritableIdentityCredential {
      *     beginAddEntry() and addEntry(). Each item in the array specifies how many entries
      *     will be added for each name space.
      */
-    void startPersonalization(in int accessControlProfileCount, in int[] entryCounts);
+    void startPersonalization(in int accessControlProfileCount, in int[] entryCounts,
+                              in int expectedProofOfProvisioningSize);
 
     /**
      * Add an access control profile, which defines the requirements or retrieval of one or more

@@ -370,6 +370,25 @@ TEST(IdentityCredentialSupport, CertificateChain) {
     ASSERT_EQ(certs2, splitCerts2.value());
 }
 
+TEST(IdentityCredentialSupport, PrivateKeyToKeyPair) {
+    optional<vector<uint8_t>> keyPair = support::createEcKeyPair();
+    EXPECT_TRUE(keyPair.has_value());
+    optional<vector<uint8_t>> pub = support::ecKeyPairGetPublicKey(keyPair.value());
+    EXPECT_TRUE(pub.has_value());
+    optional<vector<uint8_t>> priv = support::ecKeyPairGetPrivateKey(keyPair.value());
+    EXPECT_TRUE(priv.has_value());
+    optional<vector<uint8_t>> reconstructed = support::ecPrivateKeyToKeyPair(priv.value());
+    EXPECT_TRUE(reconstructed.has_value());
+
+    optional<vector<uint8_t>> rPub = support::ecKeyPairGetPublicKey(reconstructed.value());
+    EXPECT_TRUE(rPub.has_value());
+    EXPECT_EQ(pub.value(), rPub.value());
+
+    optional<vector<uint8_t>> rPriv = support::ecKeyPairGetPrivateKey(reconstructed.value());
+    EXPECT_TRUE(rPriv.has_value());
+    EXPECT_EQ(priv.value(), rPriv.value());
+}
+
 vector<uint8_t> strToVec(const string& str) {
     vector<uint8_t> ret;
     size_t size = str.size();
