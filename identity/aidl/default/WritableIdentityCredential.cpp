@@ -17,7 +17,6 @@
 #define LOG_TAG "WritableIdentityCredential"
 
 #include "WritableIdentityCredential.h"
-#include "IdentityCredentialStore.h"
 
 #include <android/hardware/identity/support/IdentityCredentialSupport.h>
 
@@ -30,7 +29,6 @@
 
 #include "IdentityCredentialStore.h"
 #include "Util.h"
-#include "WritableIdentityCredential.h"
 
 namespace aidl::android::hardware::identity {
 
@@ -45,8 +43,23 @@ bool WritableIdentityCredential::initialize() {
     }
     storageKey_ = random.value();
 
+    fprintf(stderr, "sizeof(EicProvision): %zd\n", sizeof(EicProvision));
+    fprintf(stderr, "sizeof(EicSha256Ctx): %zd\n", sizeof(EicSha256Ctx));
+    if (!eicProvisionInit(&eicCtx_, docType_.c_str(), testCredential_)) {
+        LOG(ERROR) << "eicProvisionInit failed";
+        return false;
+    }
+
+    // Use storageKey from EmbeddedIC to make MAC and encryption/decryption of
+    // content work.
+    for (size_t n = 0; n < 16; n++) {
+        storageKey_[n] = eicCtx_.storageKey[n];
+    }
+
     return true;
 }
+
+WritableIdentityCredential::~WritableIdentityCredential() {}
 
 // This function generates the attestation certificate using the passed in
 // |attestationApplicationId| and |attestationChallenge|.  It will generate an
@@ -113,6 +126,12 @@ ndk::ScopedAStatus WritableIdentityCredential::startPersonalization(
     signedDataNamespaces_ = cppbor::Map();
     signedDataCurrentNamespace_ = cppbor::Array();
 
+    if (!eicStartPersonalization(&eicCtx_, accessControlProfileCount, entryCounts.data(),
+                                 entryCounts.size())) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED, "eicStartPersonalization"));
+    }
+
     return ndk::ScopedAStatus::ok();
 }
 
@@ -147,6 +166,7 @@ ndk::ScopedAStatus WritableIdentityCredential::addAccessControlProfile(
                 IIdentityCredentialStore::STATUS_FAILED, "Error calculating MAC for profile"));
     }
     profile.mac = byteStringToSigned(mac.value());
+    fprintf(stderr, "mac size = %zd\n", mac.value().size());
 
     cppbor::Map profileMap;
     profileMap.add("id", profile.id);
@@ -162,6 +182,17 @@ ndk::ScopedAStatus WritableIdentityCredential::addAccessControlProfile(
     signedDataAccessControlProfiles_.add(std::move(profileMap));
 
     numAccessControlProfileRemaining_--;
+
+    uint8_t eicMac[28];
+    if (!eicAddAccessControlProfile(
+                &eicCtx_, id, (const uint8_t*)readerCertificate.encodedCertificate.data(),
+                readerCertificate.encodedCertificate.size(), userAuthenticationRequired,
+                timeoutMillis, secureUserId, eicMac)) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED, "eicAddAccessControlProfile"));
+    }
+    // Just overwrite the MAC produced above.
+    memcpy(profile.mac.data(), eicMac, 28);
 
     *outSecureAccessControlProfile = profile;
     return ndk::ScopedAStatus::ok();
@@ -220,6 +251,13 @@ ndk::ScopedAStatus WritableIdentityCredential::beginAddEntry(
     entryAccessControlProfileIds_ = accessControlProfileIds;
     entryBytes_.resize(0);
     // LOG(INFO) << "name=" << name << " entrySize=" << entrySize;
+
+    if (!eicBeginAddEntry(&eicCtx_, accessControlProfileIds.data(), accessControlProfileIds.size(),
+                          nameSpace.c_str(), name.c_str(), entrySize)) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED, "eicBeginAddEntry"));
+    }
+
     return ndk::ScopedAStatus::ok();
 }
 
@@ -260,6 +298,17 @@ ndk::ScopedAStatus WritableIdentityCredential::addEntryValue(const vector<int8_t
         return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
                 IIdentityCredentialStore::STATUS_FAILED, "Error encrypting content"));
     }
+
+    vector<uint8_t> eicEncryptedContent;
+    eicEncryptedContent.resize(content.size() + 28);
+    if (!eicAddEntryValue(&eicCtx_, entryAccessControlProfileIds_.data(),
+                          entryAccessControlProfileIds_.size(), entryNameSpace_.c_str(),
+                          entryName_.c_str(), content.data(), content.size(),
+                          eicEncryptedContent.data())) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED, "eicAddEntryValue"));
+    }
+    encryptedContent = eicEncryptedContent;
 
     if (entryRemainingBytes_ == 0) {
         // TODO: ideally do do this without parsing the data (but still validate data is valid
@@ -340,6 +389,27 @@ ndk::ScopedAStatus WritableIdentityCredential::finishAddingEntries(
             .add(std::move(signedDataNamespaces_))
             .add(testCredential_);
     vector<uint8_t> encodedCbor = popArray.encode();
+    ::android::hardware::identity::support::hexdump(
+            "origiCborDigest", ::android::hardware::identity::support::sha256(encodedCbor));
+    // fprintf(stderr, "origiCbor: %s\n",
+    //        ::android::hardware::identity::support::cborPrettyPrint(encodedCbor).c_str());
+
+    uint8_t cborSha256[EIC_SHA256_DIGEST_SIZE];
+    if (!eicFinishAddingEntries(&eicCtx_, testCredential_, cborSha256)) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED, "eicFinishAddingEntries"));
+    }
+    vector<uint8_t> asVec;
+    asVec.resize(32);
+    for (size_t n = 0; n < 32; n++) {
+        asVec[n] = cborSha256[n];
+    }
+    ::android::hardware::identity::support::hexdump("embedCborDigest", asVec);
+    // vector<uint8_t> embedCbor;
+    // embedCbor.resize(eicCtx_.cbor.size);
+    // memcpy(embedCbor.data(), eicCtx_.cbor.buffer, eicCtx_.cbor.size);
+    // fprintf(stderr, "embedCbor: %s\n",
+    //        ::android::hardware::identity::support::cborPrettyPrint(embedCbor).c_str());
 
     optional<vector<uint8_t>> signature = support::coseSignEcDsa(credentialPrivKey_,
                                                                  encodedCbor,  // payload
