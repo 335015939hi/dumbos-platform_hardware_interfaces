@@ -150,6 +150,11 @@ optional<vector<uint8_t>> ecKeyPairGetPkcs12(const vector<uint8_t>& keyPair, con
 //
 optional<vector<uint8_t>> signEcDsa(const vector<uint8_t>& key, const vector<uint8_t>& data);
 
+// Like signEcDsa() but instead of taking the data to be signed, takes a digest
+// of it instead.
+//
+optional<vector<uint8_t>> signEcDsaDigest(const vector<uint8_t>& key, const vector<uint8_t>& dataDigest);
+
 // Calculates the HMAC with SHA-256 for |data| using |key|. The calculated HMAC
 // is returned and will be 32 bytes.
 //
@@ -238,6 +243,21 @@ optional<vector<uint8_t>> coseSignEcDsa(const vector<uint8_t>& key, const vector
                                         const vector<uint8_t>& detachedContent,
                                         const vector<uint8_t>& certificateChain);
 
+// Creates a COSE_Signature1 where |signatureToBeSigned| is the ECDSA signature
+// of the ToBeSigned CBOR from RFC 8051 "4.4. Signing and Verification Process".
+//
+// The |signatureToBeSigned| is expected to be 64 bytes and contain the R value,
+// then the S value.
+//
+// The |data| parameter will be included in the COSE_Sign1 CBOR.
+//
+// If |certificateChain| is non-empty it's included in the 'x5chain'
+// protected header element (as as described in'draft-ietf-cose-x509-04').
+//
+optional<vector<uint8_t>> coseSignEcDsaWithSignature(const vector<uint8_t>& signatureToBeSigned,
+                                                     const vector<uint8_t>& data,
+                                                     const vector<uint8_t>& certificateChain);
+
 // Checks that |signatureCoseSign1| (in COSE_Sign1 format) is a valid signature
 // made with |public_key| (which must be in the format returned by
 // ecKeyPairGetPublicKey()) where |detachedContent| is the detached content.
@@ -248,6 +268,9 @@ bool coseCheckEcDsaSignature(const vector<uint8_t>& signatureCoseSign1,
 
 // Extracts the payload from a COSE_Sign1.
 optional<vector<uint8_t>> coseSignGetPayload(const vector<uint8_t>& signatureCoseSign1);
+
+// Extracts the signature (of the ToBeSigned CBOR) from a COSE_Sign1.
+optional<vector<uint8_t>> coseSignGetSignature(const vector<uint8_t>& signatureCoseSign1);
 
 // Extracts the X.509 certificate chain, if present. Returns the data as a
 // concatenated chain of DER-encoded X.509 certificates

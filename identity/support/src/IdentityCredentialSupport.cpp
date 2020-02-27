@@ -770,7 +770,7 @@ vector<uint8_t> sha256(const vector<uint8_t>& data) {
     return ret;
 }
 
-optional<vector<uint8_t>> signEcDsa(const vector<uint8_t>& key, const vector<uint8_t>& data) {
+optional<vector<uint8_t>> signEcDsaDigest(const vector<uint8_t>& key, const vector<uint8_t>& dataDigest) {
     auto bn = BIGNUM_Ptr(BN_bin2bn(key.data(), key.size(), nullptr));
     if (bn.get() == nullptr) {
         LOG(ERROR) << "Error creating BIGNUM";
@@ -783,8 +783,7 @@ optional<vector<uint8_t>> signEcDsa(const vector<uint8_t>& key, const vector<uin
         return {};
     }
 
-    auto digest = sha256(data);
-    ECDSA_SIG* sig = ECDSA_do_sign(digest.data(), digest.size(), ec_key.get());
+    ECDSA_SIG* sig = ECDSA_do_sign(dataDigest.data(), dataDigest.size(), ec_key.get());
     if (sig == nullptr) {
         LOG(ERROR) << "Error signing digest";
         return {};
@@ -796,6 +795,10 @@ optional<vector<uint8_t>> signEcDsa(const vector<uint8_t>& key, const vector<uin
     i2d_ECDSA_SIG(sig, &p);
     ECDSA_SIG_free(sig);
     return signature;
+}
+
+optional<vector<uint8_t>> signEcDsa(const vector<uint8_t>& key, const vector<uint8_t>& data) {
+  return signEcDsaDigest(key, sha256(data));
 }
 
 optional<vector<uint8_t>> hmacSha256(const vector<uint8_t>& key, const vector<uint8_t>& data) {
@@ -1533,6 +1536,54 @@ bool ecdsaSignatureDerToCose(const vector<uint8_t>& ecdsaDerSignature,
     return true;
 }
 
+optional<vector<uint8_t>> coseSignEcDsaWithSignature(const vector<uint8_t>& signatureToBeSigned,
+                                                     const vector<uint8_t>& data,
+                                                     const vector<uint8_t>& certificateChain) {
+    if (signatureToBeSigned.size() != 64) {
+        LOG(ERROR) << "Invalid size for signatureToBeSigned, expected 64 got " << signatureToBeSigned.size();
+        return {};
+    }
+
+    cppbor::Map unprotectedHeaders;
+    cppbor::Map protectedHeaders;
+
+    protectedHeaders.add(COSE_LABEL_ALG, COSE_ALG_ECDSA_256);
+
+    if (certificateChain.size() != 0) {
+        optional<vector<vector<uint8_t>>> certs = support::certificateChainSplit(certificateChain);
+        if (!certs) {
+            LOG(ERROR) << "Error splitting certificate chain";
+            return {};
+        }
+        if (certs.value().size() == 1) {
+            unprotectedHeaders.add(COSE_LABEL_X5CHAIN, certs.value()[0]);
+        } else {
+            cppbor::Array certArray;
+            for (const vector<uint8_t>& cert : certs.value()) {
+                certArray.add(cert);
+            }
+            unprotectedHeaders.add(COSE_LABEL_X5CHAIN, std::move(certArray));
+        }
+    }
+
+    vector<uint8_t> encodedProtectedHeaders = coseEncodeHeaders(protectedHeaders);
+
+    cppbor::Array coseSign1;
+    coseSign1.add(encodedProtectedHeaders);
+    coseSign1.add(std::move(unprotectedHeaders));
+    if (data.size() == 0) {
+        cppbor::Null nullValue;
+        coseSign1.add(std::move(nullValue));
+    } else {
+        coseSign1.add(data);
+    }
+    coseSign1.add(signatureToBeSigned);
+    vector<uint8_t> signatureCoseSign1;
+    signatureCoseSign1 = coseSign1.encode();
+
+    return signatureCoseSign1;
+}
+
 optional<vector<uint8_t>> coseSignEcDsa(const vector<uint8_t>& key, const vector<uint8_t>& data,
                                         const vector<uint8_t>& detachedContent,
                                         const vector<uint8_t>& certificateChain) {
@@ -1666,6 +1717,35 @@ bool coseCheckEcDsaSignature(const vector<uint8_t>& signatureCoseSign1,
         return false;
     }
     return true;
+}
+
+// Extracts the signature (of the ToBeSigned CBOR) from a COSE_Sign1.
+optional<vector<uint8_t>> coseSignGetSignature(const vector<uint8_t>& signatureCoseSign1) {
+    auto [item, _, message] = cppbor::parse(signatureCoseSign1);
+    if (item == nullptr) {
+        LOG(ERROR) << "Passed-in COSE_Sign1 is not valid CBOR: " << message;
+        return {};
+    }
+    const cppbor::Array* array = item->asArray();
+    if (array == nullptr) {
+        LOG(ERROR) << "Value for COSE_Sign1 is not an array";
+        return {};
+    }
+    if (array->size() != 4) {
+        LOG(ERROR) << "Value for COSE_Sign1 is not an array of size 4";
+        return {};
+    }
+
+    vector<uint8_t> signature;
+    const cppbor::Bstr* signatureAsBstr = (*array)[3]->asBstr();
+    if (signatureAsBstr == nullptr) {
+      LOG(ERROR) << "Value for signature is not a bstr";
+      return {};
+    }
+    // Copy payload into |data|
+    signature = signatureAsBstr->value();
+
+    return signature;
 }
 
 optional<vector<uint8_t>> coseSignGetPayload(const vector<uint8_t>& signatureCoseSign1) {

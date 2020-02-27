@@ -28,9 +28,13 @@
 
 #include <cppbor/cppbor.h>
 
+#include "SecureHardwareProxy.h"
+
 namespace aidl::android::hardware::identity {
 
 using ::aidl::android::hardware::keymaster::HardwareAuthToken;
+using ::android::hardware::identity::SecureHardwarePresentationProxy;
+using ::android::sp;
 using ::std::map;
 using ::std::string;
 using ::std::vector;
@@ -55,7 +59,8 @@ class IdentityCredential : public BnIdentityCredential {
             const vector<SecureAccessControlProfile>& accessControlProfiles,
             const HardwareAuthToken& authToken, const vector<uint8_t>& itemsRequest,
             const vector<uint8_t>& signingKeyBlob, const vector<uint8_t>& sessionTranscript,
-            const vector<uint8_t>& readerSignature, const vector<int32_t>& requestCounts) override;
+            const vector<uint8_t>& readerSignature, const vector<int32_t>& requestCounts,
+            int32_t expectedDeviceNameSpacesSize) override;
     ndk::ScopedAStatus startRetrieveEntryValue(
             const string& nameSpace, const string& name, int32_t entrySize,
             const vector<int32_t>& accessControlProfileIds) override;
@@ -76,6 +81,7 @@ class IdentityCredential : public BnIdentityCredential {
     bool testCredential_;
     vector<uint8_t> storageKey_;
     vector<uint8_t> credentialPrivKey_;
+    sp<SecureHardwarePresentationProxy> hwProxy_;
 
     // Set by createEphemeralKeyPair()
     vector<uint8_t> ephemeralPublicKey_;
@@ -96,6 +102,7 @@ class IdentityCredential : public BnIdentityCredential {
     MapStringToVectorOfStrings requestedNameSpacesAndNames_;
     cppbor::Map deviceNameSpacesMap_;
     cppbor::Map currentNameSpaceDeviceNameSpacesMap_;
+    size_t expectedDeviceNameSpacesSize_;
 
     // Set at startRetrieveEntryValue() time.
     string currentNameSpace_;

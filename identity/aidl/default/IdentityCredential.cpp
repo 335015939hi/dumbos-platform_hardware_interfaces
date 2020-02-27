@@ -29,6 +29,8 @@
 #include <cppbor.h>
 #include <cppbor_parse.h>
 
+#include "FakeSecureHardwareProxy.h"
+
 namespace aidl::android::hardware::identity {
 
 using ::aidl::android::hardware::keymaster::Timestamp;
@@ -98,6 +100,19 @@ int IdentityCredential::initialize() {
     storageKey_ = storageKeyItem->value();
     credentialPrivKey_ = credentialPrivKeyItem->value();
 
+    if (encryptedCredentialKeys.size() != 80) {
+        LOG(ERROR) << "Unexpected size for encrypted CredentialKeys";
+        return IIdentityCredentialStore::STATUS_INVALID_DATA;
+    }
+
+    hwProxy_ = new FakeSecureHardwarePresentationProxy();
+    if (!hwProxy_->initialize(testCredential_,
+                              docType_,
+                              encryptedCredentialKeys)) {
+        LOG(ERROR) << "hwProxy->initialize failed";
+        return false;
+    }
+
     return IIdentityCredentialStore::STATUS_OK;
 }
 
@@ -120,6 +135,21 @@ ndk::ScopedAStatus IdentityCredential::deleteCredential(
 }
 
 ndk::ScopedAStatus IdentityCredential::createEphemeralKeyPair(vector<uint8_t>* outKeyPair) {
+  /*
+    uint8_t ephemeralPrivateKey[EIC_P256_PRIV_KEY_SIZE];
+    if (!eicPresentationCreateEphemeralKeyPair(&eicCtx_, ephemeralPrivateKey)) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED, "Error creating ephemeral key pair"));
+    }
+    ephemeralPublicKey_.resize(EIC_P256_PUB_KEY_SIZE + 1);
+    ephemeralPublicKey_[0] = 0x04;
+    memcpy(ephemeralPublicKey_.data() + 1, eicCtx_.ephemeralPublicKey, EIC_P256_PUB_KEY_SIZE);
+
+    // TODO: set outKeyPair (it's not yet used in VTS)
+    *outKeyPair = vector<uint8_t>(0);
+
+    return ndk::ScopedAStatus::ok();
+  */
     optional<vector<uint8_t>> kp = support::createEcKeyPair();
     if (!kp) {
         return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
@@ -257,7 +287,8 @@ ndk::ScopedAStatus IdentityCredential::startRetrieval(
         const vector<SecureAccessControlProfile>& accessControlProfiles,
         const HardwareAuthToken& authToken, const vector<uint8_t>& itemsRequest,
         const vector<uint8_t>& signingKeyBlob, const vector<uint8_t>& sessionTranscript,
-        const vector<uint8_t>& readerSignature, const vector<int32_t>& requestCounts) {
+        const vector<uint8_t>& readerSignature, const vector<int32_t>& requestCounts,
+        int32_t expectedDeviceNameSpacesSize) {
     if (sessionTranscript.size() > 0) {
         auto [item, _, message] = cppbor::parse(sessionTranscript);
         if (item == nullptr) {
@@ -275,6 +306,25 @@ ndk::ScopedAStatus IdentityCredential::startRetrieval(
         }
     }
     sessionTranscript_ = sessionTranscript;
+
+    optional<vector<uint8_t>> signatureOfToBeSigned;
+    if (readerSignature.size() > 0) {
+        signatureOfToBeSigned = support::coseSignGetSignature(readerSignature);
+        if (!signatureOfToBeSigned) {
+            return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                    IIdentityCredentialStore::STATUS_READER_SIGNATURE_CHECK_FAILED,
+                    "Error extracting signatureOfToBeSigned from COSE_Sign1"));
+        }
+    }
+
+    fprintf(stderr,
+            "sizes:\n"
+            " itemsRequest: %zd\n"
+            " sessionTranscript: %zd\n"
+            " signatureOfToBeSigned: %zd\n",
+            itemsRequest.size(),
+            sessionTranscript.size(),
+            signatureOfToBeSigned ? signatureOfToBeSigned.value().size() : 0);
 
     // If there is a signature, validate that it was made with the top-most key in the
     // certificate chain embedded in the COSE_Sign1 structure.
@@ -496,6 +546,8 @@ ndk::ScopedAStatus IdentityCredential::startRetrieval(
     itemsRequest_ = itemsRequest;
     signingKeyBlob_ = signingKeyBlob;
 
+    expectedDeviceNameSpacesSize_ = expectedDeviceNameSpacesSize;
+
     numStartRetrievalCalls_ += 1;
     return ndk::ScopedAStatus::ok();
 }
@@ -653,6 +705,14 @@ ndk::ScopedAStatus IdentityCredential::finishRetrieval(vector<uint8_t>* outMac,
     }
     vector<uint8_t> encodedDeviceNameSpaces = deviceNameSpacesMap_.encode();
 
+    if (encodedDeviceNameSpaces.size() != expectedDeviceNameSpacesSize_) {
+        LOG(ERROR) << "encodedDeviceNameSpaces is " << encodedDeviceNameSpaces.size() << " bytes, "
+                   << "was expecting " << expectedDeviceNameSpacesSize_;
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+            IIdentityCredentialStore::STATUS_INVALID_DATA,
+            "Unexpected encodedDeviceNameSpaces size"));
+    }
+
     // If there's no signing key or no sessionTranscript or no reader ephemeral
     // public key, we return the empty MAC.
     optional<vector<uint8_t>> mac;
@@ -705,56 +765,20 @@ ndk::ScopedAStatus IdentityCredential::finishRetrieval(vector<uint8_t>* outMac,
 
 ndk::ScopedAStatus IdentityCredential::generateSigningKeyPair(
         vector<uint8_t>* outSigningKeyBlob, Certificate* outSigningKeyCertificate) {
-    string serialDecimal = "0";  // TODO: set serial to something unique
-    string issuer = "Android Open Source Project";
-    string subject = "Android IdentityCredential Reference Implementation";
-    time_t validityNotBefore = time(nullptr);
-    time_t validityNotAfter = validityNotBefore + 365 * 24 * 3600;
 
-    optional<vector<uint8_t>> signingKeyPKCS8 = support::createEcKeyPair();
-    if (!signingKeyPKCS8) {
-        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
-                IIdentityCredentialStore::STATUS_FAILED, "Error creating signingKey"));
+    time_t now = time(NULL);
+    optional<pair<vector<uint8_t>, vector<uint8_t>>> pair =
+        hwProxy_->generateSigningKeyPair(docType_, now);
+    if (!pair) {
+      return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+          IIdentityCredentialStore::STATUS_FAILED, "Error creating signingKey"));
     }
 
-    optional<vector<uint8_t>> signingPublicKey =
-            support::ecKeyPairGetPublicKey(signingKeyPKCS8.value());
-    if (!signingPublicKey) {
-        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
-                IIdentityCredentialStore::STATUS_FAILED,
-                "Error getting public part of signingKey"));
-    }
-
-    optional<vector<uint8_t>> signingKey = support::ecKeyPairGetPrivateKey(signingKeyPKCS8.value());
-    if (!signingKey) {
-        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
-                IIdentityCredentialStore::STATUS_FAILED,
-                "Error getting private part of signingKey"));
-    }
-
-    optional<vector<uint8_t>> certificate = support::ecPublicKeyGenerateCertificate(
-            signingPublicKey.value(), credentialPrivKey_, serialDecimal, issuer, subject,
-            validityNotBefore, validityNotAfter);
-    if (!certificate) {
-        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
-                IIdentityCredentialStore::STATUS_FAILED, "Error creating signingKey"));
-    }
-
-    optional<vector<uint8_t>> nonce = support::getRandom(12);
-    if (!nonce) {
-        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
-                IIdentityCredentialStore::STATUS_FAILED, "Error getting random"));
-    }
-    vector<uint8_t> docTypeAsBlob(docType_.begin(), docType_.end());
-    optional<vector<uint8_t>> encryptedSigningKey = support::encryptAes128Gcm(
-            storageKey_, nonce.value(), signingKey.value(), docTypeAsBlob);
-    if (!encryptedSigningKey) {
-        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
-                IIdentityCredentialStore::STATUS_FAILED, "Error encrypting signingKey"));
-    }
-    *outSigningKeyBlob = encryptedSigningKey.value();
     *outSigningKeyCertificate = Certificate();
-    outSigningKeyCertificate->encodedCertificate = certificate.value();
+    outSigningKeyCertificate->encodedCertificate = pair->first;
+
+    *outSigningKeyBlob = pair->second;
+
     return ndk::ScopedAStatus::ok();
 }
 
