@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a6114391_1b7c0c14",
+        "filename": "tetheroffload/control/1.1/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1199008
+      },
+      "writtenOn": "2020-02-27T21:24:48Z",
+      "side": 1,
+      "message": "this should be changed to setDataAlert",
+      "range": {
+        "startLine": 23,
+        "startChar": 54,
+        "endLine": 23,
+        "endChar": 67
+      },
+      "revId": "9f1581dde35fc4d178d26d56e0c811606ad5d5e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
