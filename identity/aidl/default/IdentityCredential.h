@@ -28,9 +28,13 @@
 
 #include <cppbor/cppbor.h>
 
+#include "SecureHardwareProxy.h"
+
 namespace aidl::android::hardware::identity {
 
 using ::aidl::android::hardware::keymaster::HardwareAuthToken;
+using ::android::hardware::identity::SecureHardwarePresentationProxy;
+using ::android::sp;
 using ::std::map;
 using ::std::string;
 using ::std::vector;
@@ -76,6 +80,7 @@ class IdentityCredential : public BnIdentityCredential {
     bool testCredential_;
     vector<uint8_t> storageKey_;
     vector<uint8_t> credentialPrivKey_;
+    sp<SecureHardwarePresentationProxy> hwProxy_;
 
     // Set by createEphemeralKeyPair()
     vector<uint8_t> ephemeralPublicKey_;

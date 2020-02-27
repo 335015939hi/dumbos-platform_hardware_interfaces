@@ -19,7 +19,7 @@ package android.hardware.identity;
 @VintfStability
 interface IWritableIdentityCredential {
   android.hardware.identity.Certificate[] getAttestationCertificate(in byte[] attestationApplicationId, in byte[] attestationChallenge);
-  void startPersonalization(in int accessControlProfileCount, in int[] entryCounts);
+  void startPersonalization(in int accessControlProfileCount, in int[] entryCounts, in int expectedProofOfProvisioningSize);
   android.hardware.identity.SecureAccessControlProfile addAccessControlProfile(in int id, in android.hardware.identity.Certificate readerCertificate, in boolean userAuthenticationRequired, in long timeoutMillis, in long secureUserId);
   void beginAddEntry(in int[] accessControlProfileIds, in @utf8InCpp String nameSpace, in @utf8InCpp String name, in int entrySize);
   byte[] addEntryValue(in byte[] content);
