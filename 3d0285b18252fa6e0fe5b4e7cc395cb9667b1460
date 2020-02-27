@@ -16,6 +16,24 @@
       "revId": "3d0285b18252fa6e0fe5b4e7cc395cb9667b1460",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e6fe28a0_5f33bdae",
+        "filename": "drm/1.0/vts/functional/AndroidTest.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2020-02-27T06:06:15Z",
+      "side": 1,
+      "message": "That test config is for vts test VtsHalDrmV1_0Target, and this one is the gtest VtsHalDrmV1_0TargetTest. \nHonestly I don\u0027t know how VtsHalDrmV1_0Target actually work with libwidevine, as the library is not packaged in android-vts.zip, even on internal master branch. The test will run anyway, just ignore the push failure.\nFor this gtest, if the so files don\u0027t exist in the package (future android-vts.zip), the test will fail due to preparer error.",
+      "parentUuid": "d185bb85_ac7f9eff",
+      "revId": "3d0285b18252fa6e0fe5b4e7cc395cb9667b1460",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
