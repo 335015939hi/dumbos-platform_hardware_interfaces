@@ -98,6 +98,18 @@ int IdentityCredential::initialize() {
     storageKey_ = storageKeyItem->value();
     credentialPrivKey_ = credentialPrivKeyItem->value();
 
+    if (encryptedCredentialKeys.size() != 80) {
+        LOG(ERROR) << "Unexpected size for encrypted CredentialKeys";
+        return IIdentityCredentialStore::STATUS_INVALID_DATA;
+    }
+    if (!eicPresentationInit(&eicCtx_,
+                             testCredential_,
+                             docType_.c_str(),
+                             encryptedCredentialKeys.data())) {
+        LOG(ERROR) << "Error decrypting encrypted CredentialKeys";
+        return IIdentityCredentialStore::STATUS_INVALID_DATA;
+    }
+
     return IIdentityCredentialStore::STATUS_OK;
 }
 
@@ -120,6 +132,21 @@ ndk::ScopedAStatus IdentityCredential::deleteCredential(
 }
 
 ndk::ScopedAStatus IdentityCredential::createEphemeralKeyPair(vector<uint8_t>* outKeyPair) {
+  /*
+    uint8_t ephemeralPrivateKey[EIC_P256_PRIV_KEY_SIZE];
+    if (!eicPresentationCreateEphemeralKeyPair(&eicCtx_, ephemeralPrivateKey)) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED, "Error creating ephemeral key pair"));
+    }
+    ephemeralPublicKey_.resize(EIC_P256_PUB_KEY_SIZE + 1);
+    ephemeralPublicKey_[0] = 0x04;
+    memcpy(ephemeralPublicKey_.data() + 1, eicCtx_.ephemeralPublicKey, EIC_P256_PUB_KEY_SIZE);
+
+    // TODO: set outKeyPair (it's not yet used in VTS)
+    *outKeyPair = vector<uint8_t>(0);
+
+    return ndk::ScopedAStatus::ok();
+  */
     optional<vector<uint8_t>> kp = support::createEcKeyPair();
     if (!kp) {
         return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
@@ -705,6 +732,31 @@ ndk::ScopedAStatus IdentityCredential::finishRetrieval(vector<uint8_t>* outMac,
 
 ndk::ScopedAStatus IdentityCredential::generateSigningKeyPair(
         vector<uint8_t>* outSigningKeyBlob, Certificate* outSigningKeyCertificate) {
+
+    uint8_t publicKeyCert[512];
+    size_t publicKeyCertSize = sizeof(publicKeyCert);
+    uint8_t signingKeyBlob[60];
+    time_t now = time(NULL);
+    if (!eicPresentationGenerateSigningKeyPair(&eicCtx_,
+                                               docType_.c_str(),
+                                               now,
+                                               publicKeyCert,
+                                               &publicKeyCertSize,
+                                               signingKeyBlob)) {
+          return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+              IIdentityCredentialStore::STATUS_FAILED, "Error creating signingKey"));
+    }
+
+    *outSigningKeyCertificate = Certificate();
+    outSigningKeyCertificate->encodedCertificate.resize(publicKeyCertSize);
+    memcpy(outSigningKeyCertificate->encodedCertificate.data(), publicKeyCert, publicKeyCertSize);
+
+    *outSigningKeyBlob = vector<uint8_t>(60);
+    memcpy(outSigningKeyBlob->data(), signingKeyBlob, 60);
+
+    return ndk::ScopedAStatus::ok();
+
+  /*
     string serialDecimal = "0";  // TODO: set serial to something unique
     string issuer = "Android Open Source Project";
     string subject = "Android IdentityCredential Reference Implementation";
@@ -756,6 +808,7 @@ ndk::ScopedAStatus IdentityCredential::generateSigningKeyPair(
     *outSigningKeyCertificate = Certificate();
     outSigningKeyCertificate->encodedCertificate = certificate.value();
     return ndk::ScopedAStatus::ok();
+  */
 }
 
 }  // namespace aidl::android::hardware::identity

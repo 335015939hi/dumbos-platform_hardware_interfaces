@@ -28,6 +28,8 @@
 
 #include <cppbor/cppbor.h>
 
+#include "EmbeddedIc.h"
+
 namespace aidl::android::hardware::identity {
 
 using ::aidl::android::hardware::keymaster::HardwareAuthToken;
@@ -76,6 +78,7 @@ class IdentityCredential : public BnIdentityCredential {
     bool testCredential_;
     vector<uint8_t> storageKey_;
     vector<uint8_t> credentialPrivKey_;
+    EicPresentation eicCtx_;
 
     // Set by createEphemeralKeyPair()
     vector<uint8_t> ephemeralPublicKey_;

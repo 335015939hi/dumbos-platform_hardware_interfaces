@@ -22,6 +22,8 @@
 
 #include <cppbor.h>
 
+#include "EmbeddedIc.h"
+
 namespace aidl::android::hardware::identity {
 
 using ::std::string;
@@ -31,6 +33,8 @@ class WritableIdentityCredential : public BnWritableIdentityCredential {
   public:
     WritableIdentityCredential(const string& docType, bool testCredential)
         : docType_(docType), testCredential_(testCredential) {}
+
+    ~WritableIdentityCredential();
 
     // Creates the Credential Key. Returns false on failure. Must be called
     // right after construction.
@@ -42,7 +46,8 @@ class WritableIdentityCredential : public BnWritableIdentityCredential {
                                                  vector<Certificate>* outCertificateChain) override;
 
     ndk::ScopedAStatus startPersonalization(int32_t accessControlProfileCount,
-                                            const vector<int32_t>& entryCounts) override;
+                                            const vector<int32_t>& entryCounts,
+                                            int32_t expectedProofOfProvisioningSize) override;
 
     ndk::ScopedAStatus addAccessControlProfile(
             int32_t id, const Certificate& readerCertificate, bool userAuthenticationRequired,
@@ -60,12 +65,13 @@ class WritableIdentityCredential : public BnWritableIdentityCredential {
             vector<uint8_t>* outCredentialData,
             vector<uint8_t>* outProofOfProvisioningSignature) override;
 
-    // private:
+  private:
     string docType_;
     bool testCredential_;
 
     // This is set in initialize().
     vector<uint8_t> storageKey_;
+    EicProvision eicCtx_;
 
     // These are set in getAttestationCertificate().
     vector<uint8_t> credentialPrivKey_;
