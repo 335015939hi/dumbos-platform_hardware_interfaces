@@ -170,11 +170,14 @@ TEST_P(IdentityAidl, createAndRetrieveCredential) {
                         ->getAttestationCertificate(attestationApplicationId, attestationChallenge,
                                                     &attestationCertificates)
                         .isOk());
-    ASSERT_GE(attestationCertificates.size(), 2);
+    ASSERT_GE(attestationCertificates.size(), 1);
 
+     // This is kinda of a hack but we need to give the size of
+     // ProofOfProvisioning that we'll expect to receive.
+    const int32_t expectedProofOfProvisioningSize = 262861 - 326 + readerCertificate.value().size();
     ASSERT_TRUE(
-            writableCredential->startPersonalization(testProfiles.size(), testEntriesEntryCounts)
-                    .isOk());
+        writableCredential->startPersonalization(testProfiles.size(), testEntriesEntryCounts,
+                                                 expectedProofOfProvisioningSize).isOk());
 
     vector<SecureAccessControlProfile> returnedSecureProfiles;
     for (const auto& testProfile : testProfiles) {
@@ -223,7 +226,6 @@ TEST_P(IdentityAidl, createAndRetrieveCredential) {
     ASSERT_TRUE(
             writableCredential->finishAddingEntries(&credentialData, &proofOfProvisioningSignature)
                     .isOk());
-
     optional<vector<uint8_t>> proofOfProvisioning =
             support::coseSignGetPayload(proofOfProvisioningSignature);
     ASSERT_TRUE(proofOfProvisioning);

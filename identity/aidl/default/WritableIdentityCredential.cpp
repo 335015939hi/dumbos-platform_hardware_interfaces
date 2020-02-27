@@ -17,7 +17,6 @@
 #define LOG_TAG "WritableIdentityCredential"
 
 #include "WritableIdentityCredential.h"
-#include "IdentityCredentialStore.h"
 
 #include <android/hardware/identity/support/IdentityCredentialSupport.h>
 
@@ -30,7 +29,6 @@
 
 #include "IdentityCredentialStore.h"
 #include "Util.h"
-#include "WritableIdentityCredential.h"
 
 namespace aidl::android::hardware::identity {
 
@@ -45,8 +43,23 @@ bool WritableIdentityCredential::initialize() {
     }
     storageKey_ = random.value();
 
+    fprintf(stderr, "sizeof(EicProvision): %zd\n", sizeof(EicProvision));
+    fprintf(stderr, "sizeof(EicSha256Ctx): %zd\n", sizeof(EicSha256Ctx));
+    if (!eicProvisionInit(&eicCtx_, testCredential_)) {
+        LOG(ERROR) << "eicProvisionInit failed";
+        return false;
+    }
+
+    // Use storageKey from EmbeddedIC to make MAC and encryption/decryption of
+    // content work.
+    for (size_t n = 0; n < 16; n++) {
+        storageKey_[n] = eicCtx_.storageKey[n];
+    }
+
     return true;
 }
+
+WritableIdentityCredential::~WritableIdentityCredential() {}
 
 // This function generates the attestation certificate using the passed in
 // |attestationApplicationId| and |attestationChallenge|.  It will generate an
@@ -56,12 +69,42 @@ ndk::ScopedAStatus WritableIdentityCredential::getAttestationCertificate(
         const vector<uint8_t>& attestationApplicationId,  //
         const vector<uint8_t>& attestationChallenge,      //
         vector<Certificate>* outCertificateChain) {
+
     if (!credentialPrivKey_.empty() || !credentialPubKey_.empty() || !certificateChain_.empty()) {
         return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
                 IIdentityCredentialStore::STATUS_FAILED,
                 "Error attestation certificate previously generated"));
     }
 
+    uint8_t publicKeyCert[512];
+    size_t publicKeyCertSize = sizeof publicKeyCert;
+    if (!eicCreateCredentialKey(&eicCtx_,
+                                attestationChallenge.data(), attestationChallenge.size(),
+                                attestationApplicationId.data(), attestationApplicationId.size(),
+                                publicKeyCert,
+                                &publicKeyCertSize)) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+            IIdentityCredentialStore::STATUS_FAILED,
+            "Error generating attestation certificate"));
+    }
+    vector<uint8_t> pubKeyCert(publicKeyCertSize);
+    memcpy(pubKeyCert.data(), publicKeyCert, publicKeyCertSize);
+
+    optional<vector<uint8_t>> pubKey = support::certificateChainGetTopMostKey(pubKeyCert);
+    if (!pubKey) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+            IIdentityCredentialStore::STATUS_FAILED,
+            "Error extracting public key from certificate"));
+    }
+    credentialPubKey_ = pubKey.value();
+
+    // TODO: combine with other certs
+    *outCertificateChain = vector<Certificate>();
+    Certificate c = Certificate();
+    c.encodedCertificate = pubKeyCert;
+    outCertificateChain->push_back(std::move(c));
+    return ndk::ScopedAStatus::ok();
+    /*
     vector<uint8_t> challenge(attestationChallenge.begin(), attestationChallenge.end());
     vector<uint8_t> appId(attestationApplicationId.begin(), attestationApplicationId.end());
 
@@ -101,10 +144,12 @@ ndk::ScopedAStatus WritableIdentityCredential::getAttestationCertificate(
         outCertificateChain->push_back(std::move(c));
     }
     return ndk::ScopedAStatus::ok();
+    */
 }
 
 ndk::ScopedAStatus WritableIdentityCredential::startPersonalization(
-        int32_t accessControlProfileCount, const vector<int32_t>& entryCounts) {
+    int32_t accessControlProfileCount, const vector<int32_t>& entryCounts,
+    int32_t expectedProofOfProvisioningSize) {
     numAccessControlProfileRemaining_ = accessControlProfileCount;
     remainingEntryCounts_ = entryCounts;
     entryNameSpace_ = "";
@@ -112,6 +157,14 @@ ndk::ScopedAStatus WritableIdentityCredential::startPersonalization(
     signedDataAccessControlProfiles_ = cppbor::Array();
     signedDataNamespaces_ = cppbor::Map();
     signedDataCurrentNamespace_ = cppbor::Array();
+
+    if (!eicStartPersonalization(&eicCtx_, accessControlProfileCount, entryCounts.data(),
+                                 entryCounts.size(),
+                                 docType_.c_str(),
+                                 expectedProofOfProvisioningSize)) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED, "eicStartPersonalization"));
+    }
 
     return ndk::ScopedAStatus::ok();
 }
@@ -147,6 +200,7 @@ ndk::ScopedAStatus WritableIdentityCredential::addAccessControlProfile(
                 IIdentityCredentialStore::STATUS_FAILED, "Error calculating MAC for profile"));
     }
     profile.mac = mac.value();
+    fprintf(stderr, "mac size = %zd\n", mac.value().size());
 
     cppbor::Map profileMap;
     profileMap.add("id", profile.id);
@@ -161,6 +215,17 @@ ndk::ScopedAStatus WritableIdentityCredential::addAccessControlProfile(
     signedDataAccessControlProfiles_.add(std::move(profileMap));
 
     numAccessControlProfileRemaining_--;
+
+    uint8_t eicMac[28];
+    if (!eicAddAccessControlProfile(
+                &eicCtx_, id, (const uint8_t*)readerCertificate.encodedCertificate.data(),
+                readerCertificate.encodedCertificate.size(), userAuthenticationRequired,
+                timeoutMillis, secureUserId, eicMac)) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED, "eicAddAccessControlProfile"));
+    }
+    // Just overwrite the MAC produced above.
+    memcpy(profile.mac.data(), eicMac, 28);
 
     *outSecureAccessControlProfile = profile;
     return ndk::ScopedAStatus::ok();
@@ -219,6 +284,13 @@ ndk::ScopedAStatus WritableIdentityCredential::beginAddEntry(
     entryAccessControlProfileIds_ = accessControlProfileIds;
     entryBytes_.resize(0);
     // LOG(INFO) << "name=" << name << " entrySize=" << entrySize;
+
+    if (!eicBeginAddEntry(&eicCtx_, accessControlProfileIds.data(), accessControlProfileIds.size(),
+                          nameSpace.c_str(), name.c_str(), entrySize)) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED, "eicBeginAddEntry"));
+    }
+
     return ndk::ScopedAStatus::ok();
 }
 
@@ -258,6 +330,17 @@ ndk::ScopedAStatus WritableIdentityCredential::addEntryValue(const vector<uint8_
         return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
                 IIdentityCredentialStore::STATUS_FAILED, "Error encrypting content"));
     }
+
+    vector<uint8_t> eicEncryptedContent;
+    eicEncryptedContent.resize(content.size() + 28);
+    if (!eicAddEntryValue(&eicCtx_, entryAccessControlProfileIds_.data(),
+                          entryAccessControlProfileIds_.size(), entryNameSpace_.c_str(),
+                          entryName_.c_str(), content.data(), content.size(),
+                          eicEncryptedContent.data())) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED, "eicAddEntryValue"));
+    }
+    encryptedContent = eicEncryptedContent;
 
     if (entryRemainingBytes_ == 0) {
         // TODO: ideally do do this without parsing the data (but still validate data is valid
@@ -338,11 +421,40 @@ ndk::ScopedAStatus WritableIdentityCredential::finishAddingEntries(
             .add(std::move(signedDataNamespaces_))
             .add(testCredential_);
     vector<uint8_t> encodedCbor = popArray.encode();
+    //::android::hardware::identity::support::hexdump(
+    //        "origiCborDigest", ::android::hardware::identity::support::sha256(encodedCbor));
+    //fprintf(stderr, "origiCbor (size %zd): %s\n",
+    //        encodedCbor.size(),
+    //        ::android::hardware::identity::support::cborPrettyPrint(encodedCbor).c_str());
 
-    optional<vector<uint8_t>> signature = support::coseSignEcDsa(credentialPrivKey_,
-                                                                 encodedCbor,  // payload
-                                                                 {},           // additionalData
-                                                                 {});          // certificateChain
+    uint8_t signatureToBeSignedWithProofOfProvisioning[EIC_ECDSA_P256_SIGNATURE_SIZE];
+    if (!eicFinishAddingEntries(&eicCtx_,
+                                testCredential_,
+                                signatureToBeSignedWithProofOfProvisioning)) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED, "eicFinishAddingEntries"));
+    }
+    //vector<uint8_t> asVec;
+    //asVec.resize(32);
+    //for (size_t n = 0; n < 32; n++) {
+    //    asVec[n] = cborSha256[n];
+    //}
+    //::android::hardware::identity::support::hexdump("embedCborDigest", asVec);
+    // vector<uint8_t> embedCbor;
+    // embedCbor.resize(eicCtx_.cbor.size);
+    // memcpy(embedCbor.data(), eicCtx_.cbor.buffer, eicCtx_.cbor.size);
+    // fprintf(stderr, "embedCbor: %s\n",
+    //        ::android::hardware::identity::support::cborPrettyPrint(embedCbor).c_str());
+
+    vector<uint8_t> signatureVec(EIC_ECDSA_P256_SIGNATURE_SIZE);
+    memcpy(signatureVec.data(), signatureToBeSignedWithProofOfProvisioning, EIC_ECDSA_P256_SIGNATURE_SIZE);
+    optional<vector<uint8_t>> signature = support::coseSignEcDsaWithSignature(signatureVec,
+                                                                              encodedCbor,  // data
+                                                                              {});          // certificateChain
+    //optional<vector<uint8_t>> signature = support::coseSignEcDsa(credentialPrivKey_,
+    //                                                             encodedCbor,  // payload
+    //                                                             {},           // additionalData
+    //                                                             {});          // certificateChain
     if (!signature) {
         return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
                 IIdentityCredentialStore::STATUS_FAILED, "Error signing data"));

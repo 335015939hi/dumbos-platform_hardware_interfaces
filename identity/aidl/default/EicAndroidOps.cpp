@@ -1,0 +1,256 @@
+/*
+ * Copyright 2019, The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+#include <android/hardware/identity/support/IdentityCredentialSupport.h>
+
+#include <android-base/logging.h>
+#include <string.h>
+
+#include <openssl/sha.h>
+
+#include <openssl/aes.h>
+#include <openssl/bn.h>
+#include <openssl/crypto.h>
+#include <openssl/ec.h>
+#include <openssl/err.h>
+#include <openssl/evp.h>
+#include <openssl/hkdf.h>
+#include <openssl/hmac.h>
+#include <openssl/objects.h>
+#include <openssl/pem.h>
+#include <openssl/pkcs12.h>
+#include <openssl/rand.h>
+#include <openssl/x509.h>
+#include <openssl/x509_vfy.h>
+
+#include "EmbeddedIc.h"
+
+#define LOG_TAG "EicAndroidOps"
+
+using ::std::optional;
+using ::std::string;
+using ::std::tuple;
+using ::std::vector;
+
+void* eicMemCpy(void* dest, const void* src, size_t n) {
+    return memcpy(dest, src, n);
+}
+
+size_t eicStrLen(const char* s) {
+    return strlen(s);
+}
+
+int eicMemCmp(const void* s1, const void* s2, size_t n) {
+    return memcmp(s1, s2, n);
+}
+
+void eicOpsSha256Init(EicSha256Ctx* ctx) {
+    SHA256_CTX* realCtx = (SHA256_CTX*)ctx;
+    SHA256_Init(realCtx);
+}
+
+void eicOpsSha256Update(EicSha256Ctx* ctx, const uint8_t* data, size_t len) {
+    SHA256_CTX* realCtx = (SHA256_CTX*)ctx;
+    SHA256_Update(realCtx, data, len);
+}
+
+void eicOpsSha256Final(EicSha256Ctx* ctx, uint8_t digest[EIC_SHA256_DIGEST_SIZE]) {
+    SHA256_CTX* realCtx = (SHA256_CTX*)ctx;
+    SHA256_Final(digest, realCtx);
+}
+
+bool eicOpsRandom(uint8_t* buf, size_t numBytes) {
+    optional<vector<uint8_t>> bytes = ::android::hardware::identity::support::getRandom(numBytes);
+    if (!bytes.has_value()) {
+        return false;
+    }
+    memcpy(buf, bytes.value().data(), numBytes);
+    return true;
+}
+
+bool eicOpsEncryptAes128Gcm(
+        const uint8_t* key,    // Must be 16 bytes
+        const uint8_t* nonce,  // Must be 12 bytes
+        const uint8_t* data,   // May be NULL if size is 0
+        size_t dataSize,
+        const uint8_t* additionalAuthenticationData,  // May be NULL if size is 0
+        size_t additionalAuthenticationDataSize, uint8_t* encryptedData) {
+    vector<uint8_t> cppKey;
+    cppKey.resize(16);
+    memcpy(cppKey.data(), key, 16);
+
+    vector<uint8_t> cppData;
+    cppData.resize(dataSize);
+    if (dataSize > 0) {
+        memcpy(cppData.data(), data, dataSize);
+    }
+
+    vector<uint8_t> cppAAD;
+    cppAAD.resize(additionalAuthenticationDataSize);
+    if (additionalAuthenticationDataSize > 0) {
+        memcpy(cppAAD.data(), additionalAuthenticationData, additionalAuthenticationDataSize);
+    }
+
+    vector<uint8_t> cppNonce;
+    cppNonce.resize(12);
+    memcpy(cppNonce.data(), nonce, 12);
+
+    optional<vector<uint8_t>> cppEncryptedData =
+            android::hardware::identity::support::encryptAes128Gcm(cppKey, cppNonce, cppData,
+                                                                   cppAAD);
+    if (!cppEncryptedData.has_value()) {
+        return false;
+    }
+
+    memcpy(encryptedData, cppEncryptedData.value().data(), cppEncryptedData.value().size());
+    return true;
+}
+
+bool eicOpsCreateEcKey(uint8_t privateKey[EIC_P256_PRIV_KEY_SIZE],
+                       uint8_t publicKey[EIC_P256_PUB_KEY_SIZE]) {
+  optional<vector<uint8_t>> keyPair = android::hardware::identity::support::createEcKeyPair();
+  if (!keyPair) {
+    eicDebug("Error creating EC keypair");
+    return false;
+  }
+  optional<vector<uint8_t>> privKey = android::hardware::identity::support::ecKeyPairGetPrivateKey(keyPair.value());
+  if (!privKey) {
+    eicDebug("Error extracting private key");
+    return false;
+  }
+  if (privKey.value().size() != EIC_P256_PRIV_KEY_SIZE) {
+    eicDebug("Private key is not %zd bytes long as expected", (size_t) EIC_P256_PRIV_KEY_SIZE);
+    return false;
+  }
+
+  optional<vector<uint8_t>> pubKey = android::hardware::identity::support::ecKeyPairGetPublicKey(keyPair.value());
+  if (!pubKey) {
+    eicDebug("Error extracting public key");
+    return false;
+  }
+  // ecKeyPairGetPublicKey() returns 0x04 | x | y, we don't want the leading 0x04.
+  if (pubKey.value().size() != EIC_P256_PUB_KEY_SIZE + 1) {
+    eicDebug("Private key is not %zd bytes long as expected", (size_t) EIC_P256_PRIV_KEY_SIZE);
+    return false;
+  }
+
+  memcpy(privateKey, privKey.value().data(), EIC_P256_PRIV_KEY_SIZE);
+  memcpy(publicKey, pubKey.value().data() + 1, EIC_P256_PUB_KEY_SIZE);
+
+  return true;
+}
+
+bool eicOpsAttestToEcKey(const uint8_t publicKey[EIC_P256_PUB_KEY_SIZE],
+                         const uint8_t* challenge,
+                         size_t challengeSize,
+                         const uint8_t* applicationId,
+                         size_t applicationIdSize,
+                         uint8_t* cert,
+                         size_t* certSize) {  // inout
+  // Use NUL bytes for attestation key.
+  vector<uint8_t> signingKeyVec(EIC_P256_PRIV_KEY_SIZE);
+  for (size_t n = 0; n < EIC_P256_PRIV_KEY_SIZE; n++) {
+    signingKeyVec[n] = 0x00;
+  }
+
+  vector<uint8_t> pubKeyVec(EIC_P256_PUB_KEY_SIZE + 1);
+  pubKeyVec[0] = 0x04;
+  memcpy(pubKeyVec.data() + 1, publicKey, EIC_P256_PUB_KEY_SIZE);
+
+  optional<vector<uint8_t>> certVec =
+      android::hardware::identity::support::ecPublicKeyGenerateCertificate(pubKeyVec,
+                                                                           signingKeyVec,
+                                                                           "1",
+                                                                           "issuer",
+                                                                           "subject",
+                                                                           0,
+                                                                           1000);
+  if (!certVec) {
+    eicDebug("Error generating attestation");
+    return false;
+  }
+
+  if (*certSize < certVec.value().size()) {
+    eicDebug("Buffer for certificate is only %zd bytes long, need %zd bytes",
+             *certSize, certVec.value().size());
+    return false;
+  }
+  memcpy(cert, certVec.value().data(), certVec.value().size());
+  *certSize = certVec.value().size();
+
+  return true;
+}
+
+bool eicOpsEcDsa(const uint8_t privateKey[EIC_P256_PRIV_KEY_SIZE],
+                 const uint8_t digestOfData[EIC_SHA256_DIGEST_SIZE],
+                 uint8_t signature[EIC_ECDSA_P256_SIGNATURE_SIZE]) {
+
+    vector<uint8_t> privKeyVec(EIC_P256_PRIV_KEY_SIZE);
+    memcpy(privKeyVec.data(), privateKey, EIC_P256_PRIV_KEY_SIZE);
+
+    vector<uint8_t> digestVec(EIC_SHA256_DIGEST_SIZE);
+    memcpy(digestVec.data(), digestOfData, EIC_SHA256_DIGEST_SIZE);
+
+    optional<vector<uint8_t>> derSignature =
+        android::hardware::identity::support::signEcDsaDigest(privKeyVec, digestVec);
+    if (!derSignature) {
+        eicDebug("Error signing data");
+        return false;
+    }
+
+    ECDSA_SIG* sig;
+    const unsigned char* p = derSignature.value().data();
+    sig = d2i_ECDSA_SIG(nullptr, &p, derSignature.value().size());
+    if (sig == nullptr) {
+        eicDebug("Error decoding DER signature");
+        return false;
+    }
+
+    if (BN_bn2binpad(sig->r, signature, 32) != 32) {
+        eicDebug("Error encoding r");
+        return false;
+    }
+    if (BN_bn2binpad(sig->s, signature + 32, 32) != 32) {
+        eicDebug("Error encoding s");
+        return false;
+    }
+
+    return true;
+}
+
+#ifdef EIC_DEBUG
+
+void eicPrint(const char* format, ...) {
+    va_list args;
+    va_start(args, format);
+    vfprintf(stderr, format, args);
+    va_end(args);
+}
+
+void eicHexdump(const char* message, const uint8_t* data, size_t dataSize) {
+    vector<uint8_t> dataVec(dataSize);
+    memcpy(dataVec.data(), data, dataSize);
+    android::hardware::identity::support::hexdump(message, dataVec);
+}
+
+void eicCborPrettyPrint(const uint8_t* cborData, size_t cborDataSize, size_t maxBStrSize) {
+    vector<uint8_t> cborDataVec(cborDataSize);
+    memcpy(cborDataVec.data(), cborData, cborDataSize);
+    string str = android::hardware::identity::support::cborPrettyPrint(cborDataVec, maxBStrSize, {});
+    fprintf(stderr, "%s\n", str.c_str());
+}
+
+#endif  // EIC_DEBUG
