@@ -16,6 +16,24 @@
       "revId": "b46adc9493b90aa7ec306715b11a1be7944c32ff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b47cf2fe_42936df8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1384660
+      },
+      "writtenOn": "2020-02-28T18:57:00Z",
+      "side": 1,
+      "message": "Yes.  I\u0027m thinking to cherry pick this change manually to master brahcn.",
+      "parentUuid": "d4e40c6a_c220594e",
+      "revId": "b46adc9493b90aa7ec306715b11a1be7944c32ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
