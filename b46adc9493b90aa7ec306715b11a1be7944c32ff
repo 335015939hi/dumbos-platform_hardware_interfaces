@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d4e40c6a_c220594e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2020-02-28T18:55:27Z",
+      "side": 1,
+      "message": "this will leave the test as is on internal master branch. Do you plan to manually fix that on internal master branch with another CL?",
+      "revId": "b46adc9493b90aa7ec306715b11a1be7944c32ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
