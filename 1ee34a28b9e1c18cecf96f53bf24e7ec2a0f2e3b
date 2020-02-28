@@ -142,6 +142,30 @@
       "revId": "1ee34a28b9e1c18cecf96f53bf24e7ec2a0f2e3b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec0bdc00_08de231a",
+        "filename": "vibrator/aidl/android/hardware/vibrator/IVibrator.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1418133
+      },
+      "writtenOn": "2020-02-28T18:29:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f332e90a_20e0b65e",
+      "range": {
+        "startLine": 206,
+        "startChar": 7,
+        "endLine": 206,
+        "endChar": 39
+      },
+      "revId": "1ee34a28b9e1c18cecf96f53bf24e7ec2a0f2e3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
