@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "58744738_abd71eea",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredential.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-02-28T14:58:54Z",
+      "side": 0,
+      "message": "I wonder if the blob shouldn\u0027t be provided to both start and finish.  An implementation that wanted to use signing would need to hold a copy of the key throughout the retrieval process in order to do the signature at the end, which could be a challenge for constrained environments.  OTOH, we don\u0027t really want to encourage signing, and I suppose this approach may encourage use of MACing instead.  On the gripping hand, the cost of passing it to both is very low -- and a HAL service for an implementation that doesn\u0027t need one or the other can just ignore it -- and there may be some case in which MACing can\u0027t be used.\n\nThoughts?",
+      "range": {
+        "startLine": 257,
+        "startChar": 7,
+        "endLine": 257,
+        "endChar": 28
+      },
+      "revId": "d7975bf8d57434e06d2dba62a06436e53d8207cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
