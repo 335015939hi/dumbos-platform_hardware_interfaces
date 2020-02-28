@@ -22,6 +22,30 @@
       "revId": "d7975bf8d57434e06d2dba62a06436e53d8207cc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e7473f0_30f9cedc",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredential.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-02-28T15:08:24Z",
+      "side": 0,
+      "message": "We actually don\u0027t allow ECDSA - all HAL implementations must use MACing and I think that\u0027s a good thing. Also, the HAL is free to keep signingKeyBlob around and also pass it to finishRetrieval() if it so desires.",
+      "parentUuid": "58744738_abd71eea",
+      "range": {
+        "startLine": 257,
+        "startChar": 7,
+        "endLine": 257,
+        "endChar": 28
+      },
+      "revId": "d7975bf8d57434e06d2dba62a06436e53d8207cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
