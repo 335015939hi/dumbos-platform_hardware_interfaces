@@ -79,6 +79,30 @@
       "revId": "65c139462b8f38b7c9ecc4b29876ec66529f36d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "692e4798_30f5b9c1",
+        "filename": "identity/aidl/default/EmbeddedIc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2020-03-02T08:16:52Z",
+      "side": 1,
+      "message": "For testing purpose, we can have CBOR encoding co-exist between Hal and Citadel for comparison.\n\nSo maybe we can give a try by following code change right?\n\nvoid eicCborBegin(EicCbor* cbor, int majorType, size_t size) {\n    uint8_t data[9];\n\n    if (size \u003c 24) {\n        data[0] \u003d (majorType \u003c\u003c 5) | size;\n        eicCborAppend(cbor, data, 1);\n    } else if (size \u003c\u003d 0xff) {\n        data[0] \u003d (majorType \u003c\u003c 5) | 24;\n        data[1] \u003d size;\n        eicCborAppend(cbor, data, 2);\n    } else if (size \u003c\u003d 0xffff) {\n        data[0] \u003d (majorType \u003c\u003c 5) | 25;\n        data[1] \u003d size \u003e\u003e 8;\n        data[2] \u003d size \u0026 0xff;\n        eicCborAppend(cbor, data, 3);\n    } else if (size \u003c\u003d 0xffffffff) {\n        data[0] \u003d (majorType \u003c\u003c 5) | 26;\n        data[1] \u003d (size \u003e\u003e 24) \u0026 0xff;\n        data[2] \u003d (size \u003e\u003e 16) \u0026 0xff;\n        data[3] \u003d (size \u003e\u003e 8) \u0026 0xff;\n        data[4] \u003d size \u0026 0xff;\n        eicCborAppend(cbor, data, 5);\n    } else {\n        data[0] \u003d (majorType \u003c\u003c 5) | 24;\n        data[1] \u003d (size \u003e\u003e 56) \u0026 0xff;\n        data[2] \u003d (size \u003e\u003e 48) \u0026 0xff;\n        data[3] \u003d (size \u003e\u003e 40) \u0026 0xff;\n        data[4] \u003d (size \u003e\u003e 32) \u0026 0xff;\n        data[5] \u003d (size \u003e\u003e 24) \u0026 0xff;\n        data[6] \u003d (size \u003e\u003e 16) \u0026 0xff;\n        data[7] \u003d (size \u003e\u003e 8) \u0026 0xff;\n        data[8] \u003d size \u0026 0xff;\n        eicCborAppend(cbor, data, 9);\n    }\n+    cbor-\u003ecitadel_identity_rpc-\u003eWICcborCreateHeaderAndHash(majorType, size);\n}\n\nThank you,\nJoseph.",
+      "parentUuid": "4718287b_187b4a2c",
+      "range": {
+        "startLine": 67,
+        "startChar": 5,
+        "endLine": 67,
+        "endChar": 17
+      },
+      "revId": "65c139462b8f38b7c9ecc4b29876ec66529f36d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
