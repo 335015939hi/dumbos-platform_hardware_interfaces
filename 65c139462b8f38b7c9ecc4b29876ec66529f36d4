@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dccd4ce4_8a62f833",
+        "filename": "identity/aidl/default/EmbeddedIc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2020-03-02T08:04:47Z",
+      "side": 1,
+      "message": "Hi David,\n\nIn order to make Citadel RPC call as simple as possible, I try to create two RPC call to handle SHA256 HASH init, update and CBOR encoding from Citadel side.\n\n\nvoid eicCborInit(EicCbor* cbor, EicOps* ops) {\n    cbor-\u003esize \u003d 0;\n    cbor-\u003eops \u003d ops;\n    cbor-\u003edigester \u003d ops-\u003esha256New();\n+    cbor-\u003ecitadel_identity_rpc-\u003eWICcborSha256(HASH_BEGIN, NULL, 0, NULL);\n}\n\nCorresponding Citadel RPC call:\n\nhttps://nugget-os-review.googlesource.com/c/core/nugget/+/29925/1/user/identity/identity_support.c#750\n\n\nPlease feel free to review if that is okay or not?\n\nThank you,\nJoseph.",
+      "revId": "65c139462b8f38b7c9ecc4b29876ec66529f36d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8758caa_ca07fe8b",
+        "filename": "identity/aidl/default/EmbeddedIc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2020-03-02T08:04:47Z",
+      "side": 1,
+      "message": "Hi David,\n\nIn order to make Citadel RPC call as simple as possible, I try to create two RPC call to handle SHA256 HASH init, update and CBOR encoding from Citadel side.\n\nvoid eicCborFinal(EicCbor* cbor, uint8_t digest[EIC_SHA256_DIGEST_SIZE]) {\n    if (cbor-\u003esize \u003e 0) {\n        cbor-\u003eops-\u003esha256Update(cbor-\u003edigester, cbor-\u003edata, cbor-\u003esize);\n+\tcbor-\u003ecitadel_identity_rpc-\u003eWICcborSha256(HASH_UPDATE, cbor-\u003edata, cbor-\u003esize, NULL);\n        cbor-\u003esize \u003d 0;\n    }\n    cbor-\u003eops-\u003esha256Final(cbor-\u003edigester, digest);\n}\n\nCorresponding Citadel RPC call:\n\nhttps://nugget-os-review.googlesource.com/c/core/nugget/+/29925/1/user/identity/identity_support.c#782\n\n\nThank you,\nJoseph.",
+      "revId": "65c139462b8f38b7c9ecc4b29876ec66529f36d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7faa7316_c8625755",
+        "filename": "identity/aidl/default/EmbeddedIc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2020-03-02T08:04:47Z",
+      "side": 1,
+      "message": "Hi David,\n\nIn order to make Citadel RPC call as simple as possible, I try to create two RPC call to handle SHA256 HASH init, update and CBOR encoding from Citadel side.\n\nvoid eicCborAppend(EicCbor* cbor, const uint8_t* data, size_t size) {\n    for (size_t n \u003d 0; n \u003c size; n++) {\n        cbor-\u003edata[cbor-\u003esize] \u003d data[n];\n        cbor-\u003esize +\u003d 1;\n        if (cbor-\u003esize \u003e\u003d EIC_MAX_CBOR_SIZE) {\n            cbor-\u003eops-\u003esha256Update(cbor-\u003edigester, cbor-\u003edata, cbor-\u003esize);\n+            cbor-\u003ecitadel_identity_rpc-\u003eWICcborSha256(HASH_UPDATE, cbor-\u003edata, cbor-\u003esize, NULL);\n            cbor-\u003esize \u003d 0;\n        }\n    }\n}\n\nCorresponding Citadel RPC call:\n\nhttps://nugget-os-review.googlesource.com/c/core/nugget/+/29925/1/user/identity/identity_support.c#782\n\n\nThank you,\nJoseph.",
+      "range": {
+        "startLine": 56,
+        "startChar": 5,
+        "endLine": 56,
+        "endChar": 18
+      },
+      "revId": "65c139462b8f38b7c9ecc4b29876ec66529f36d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4718287b_187b4a2c",
+        "filename": "identity/aidl/default/EmbeddedIc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2020-03-02T08:04:47Z",
+      "side": 1,
+      "message": "Hi David,\n\nPer your suggestions, I move all CBOR encoding to Citadel side.\n\nvoid eicCborBegin(EicCbor* cbor, int majorType, size_t size) {\n    cbor-\u003ecitadel_identity_rpc-\u003eWICcborCreateHeaderAndHash(majorType, size);\n\n}\n\nCorresponding Citadel RPC call:\n\nhttps://nugget-os-review.googlesource.com/c/core/nugget/+/29925/1/user/identity/identity_support.c#811\n\nThank you,\nJoseph.",
+      "range": {
+        "startLine": 67,
+        "startChar": 5,
+        "endLine": 67,
+        "endChar": 17
+      },
+      "revId": "65c139462b8f38b7c9ecc4b29876ec66529f36d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
