@@ -60,12 +60,50 @@ interface IWritableIdentityCredential {
      *    attestationApplicationId.
      *
      *  - The teeEnforced field in the attestation extension must include
-     *    Tag::IDENTITY_CREDENTIAL_KEY. This tag indicates that the key is an Identity
-     *    Credential key (which can only sign/MAC very specific messages) and not an Android
-     *    Keystore key (which can be used to sign/MAC anything).
+     *
+     *    - Tag::IDENTITY_CREDENTIAL_KEY which indicates that the key is an Identity
+     *      Credential key (which can only sign/MAC very specific messages) and not an Android
+     *      Keystore key (which can be used to sign/MAC anything).
+     *
+     *    - Tag::PURPOSE must be set to SIGN
+     *
+     *    - Tag::KEY_SIZE must be set to the appropriate key size, in bits (e.g. 256)
+     *
+     *    - Tag::ALGORITHM must be set to EC
+     *
+     *    - Tag::NO_AUTH_REQUIRED must be set
+     *
+     *    - Tag::DIGEST must be set to SHA_2_256
+     *
+     *    - Tag::EC_CRUVE must be set to P_256
      *
      * Additional authorizations may be needed in the softwareEnforced and teeEnforced
-     * fields - the above is not an exhaustive list.
+     * fields - the above is not an exhaustive list. Specifically, authorizations containing
+     * information about the root of trust, OS version, verified boot state, and so on should
+     * be included.
+     *
+     * Since the chain is required to be generated using Keymaster Attestation, the returned
+     * certificate chain has the following properties:
+     *
+     *  - The certificate chain is of at least length three.
+     *
+     *  - The root of trust is the same as for Keymaster Attestation. This is usually
+     *    a certificate owned by Google but depending on the specific Android device it may
+     *    be another certificate.
+     *
+     * As with any user of attestation, the Issuing Authority (as a relying party) wishing
+     * to issue a credential to a device using these APIs, must carefully examine the
+     * returned certificate chain for all of the above (and more). In particular, the Issuing
+     * Authority should check the root of trust, verified boot state, patch level,
+     * application id, etc. should all be checked.
+     *
+     * This all depends on the needs of the Issuing Authority and the kind of credential but
+     * in general an Issuing Authority should never issue a credential to a device without
+     * verified boot enabled, to an unrecognized application, or if it appears the device
+     * hasn't been updated for a long time.
+     *
+     * See https://github.com/google/android-key-attestation for an example of how to
+     * examine attestations generated from Android devices.
      *
      * @param attestationApplicationId is the DER encoded value to be stored
      *     in Tag::ATTESTATION_APPLICATION_ID. This schema is described in

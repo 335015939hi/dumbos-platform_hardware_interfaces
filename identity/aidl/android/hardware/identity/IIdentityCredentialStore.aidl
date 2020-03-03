@@ -108,7 +108,8 @@ import android.hardware.identity.CipherSuite;
 @VintfStability
 interface IIdentityCredentialStore {
     /**
-     * Success.
+     * Success. This is never returned but included for completeness and for use by code
+     * using these statuses for internal use.
      */
     const int STATUS_OK = 0;
 
@@ -186,16 +187,19 @@ interface IIdentityCredentialStore {
     HardwareInformation getHardwareInformation();
 
     /**
-     * createCredential creates a new Credential.  When a Credential is created, two cryptographic
+     * createCredential creates a new credential.  When a credential is created, two cryptographic
      * keys are created: StorageKey, an AES key used to secure the externalized Credential
-     * contents, and CredentialKeyPair, an EC key pair used to authenticate the store to the IA.  In
-     * addition, all of the Credential data content is imported and a certificate for the
-     * CredentialKeyPair and a signature produced with the CredentialKeyPair are created.  These
+     * contents, and CredentialKey, an EC key pair used to authenticate the store to the IA.
+     *
+     * CredentialKey must be a 256-bit EC key using the P-256 curve.
+     *
+     * In addition, all of the Credential data content is imported and a certificate for the
+     * CredentialKey and a signature produced with the CredentialKey are created.  These
      * latter values may be checked by an issuing authority to verify that the data was imported
      * into secure hardware and that it was imported unmodified.
      *
      * @param docType is an optional name (may be an empty string) that identifies the type of
-     *     credential being created, e.g. "org.iso.18013-5.2019.mdl" (the doc type of the ISO
+     *     credential being created, e.g. "org.iso.18013.5.1.mDL" (the doc type of the ISO
      *     driving license standard).
      *
      * @param testCredential indicates if this is a test store.  Test credentials must use an
@@ -213,15 +217,8 @@ interface IIdentityCredentialStore {
      * Credential.
      *
      * The cipher suite used to communicate with the remote verifier must also be specified. Currently
-     * only a single cipher-suite is supported and the details of this are as follow:
-     *
-     *  - ECDHE with HKDF-SHA-256 for key agreement.
-     *  - AES-256 with GCM block mode for authenticated encryption (nonces are incremented by one
-     *    for every message).
-     *  - ECDSA with SHA-256 for signing (used for signing session transcripts to defeat
-     *    man-in-the-middle attacks), signing keys are not ephemeral.
-     *
-     * Support for other cipher suites may be added in a future version of this HAL.
+     * only a single cipher-suite is supported. Support for other cipher suites may be added in a
+     * future version of this HAL.
      *
      * This method fails with STATUS_INVALID_DATA if the passed in credentialData cannot be
      * decoded or decrypted.
