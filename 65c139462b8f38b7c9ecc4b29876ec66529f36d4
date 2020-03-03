@@ -59,6 +59,30 @@
     },
     {
       "key": {
+        "uuid": "27259772_b90455e7",
+        "filename": "identity/aidl/default/EmbeddedIc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2020-03-03T05:16:02Z",
+      "side": 1,
+      "message": "Hi,\n\nIn order to make sure there is no pending data in Hal side, we need to modify eicCborAppend() function by following ...\n\nvoid eicCborAppend(EicCbor* cbor, const uint8_t* data, size_t size) {\n    for (size_t n \u003d 0; n \u003c size; n++) {\n        cbor-\u003edata[cbor-\u003esize] \u003d data[n];\n        cbor-\u003esize +\u003d 1;\n        if (cbor-\u003esize \u003e\u003d EIC_MAX_CBOR_SIZE) {\n            cbor-\u003eops-\u003esha256Update(cbor-\u003edigester, cbor-\u003edata, cbor-\u003esize);\n+            cbor-\u003ecitadel_identity_rpc-\u003eWICcborSha256(HASH_UPDATE, cbor-\u003edata, cbor-\u003esize, NULL);\n            cbor-\u003esize \u003d 0;\n        }\n    }\n\n+    // Send all pending data to Citadel to update HASH\n+    if (cbor-\u003esize \u003e 0) {\n+       cbor-\u003eops-\u003esha256Update(cbor-\u003edigester, cbor-\u003edata, cbor-\u003esize);\n+\tcbor-\u003ecitadel_identity_rpc-\u003eWICcborSha256(HASH_UPDATE, cbor-\u003edata, cbor-\u003esize, NULL);\n+       cbor-\u003esize \u003d 0;\n+    }\n}",
+      "parentUuid": "7faa7316_c8625755",
+      "range": {
+        "startLine": 56,
+        "startChar": 5,
+        "endLine": 56,
+        "endChar": 18
+      },
+      "revId": "65c139462b8f38b7c9ecc4b29876ec66529f36d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4718287b_187b4a2c",
         "filename": "identity/aidl/default/EmbeddedIc.c",
         "patchSetId": 2
