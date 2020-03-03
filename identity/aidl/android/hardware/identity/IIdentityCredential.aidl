@@ -48,6 +48,8 @@ interface IIdentityCredential {
      * with the reader.  The reason for generating the key pair in the secure environment is so that
      * the secure environment knows what public key to expect to find in the session transcript.
      *
+     * The generated key must be a 256-bit EC key using the P-256 curve.
+     *
      * This method may only be called once per instance. If called more than once, STATUS_FAILED
      * will be returned.
      *
@@ -61,7 +63,8 @@ interface IIdentityCredential {
      * This method may only be called once per instance. If called more than once, STATUS_FAILED
      * will be returned.
      *
-     * @param publicKey contains the reader's ephemeral public key, in uncompressed form.
+     * @param publicKey contains the reader's ephemeral public key, in uncompressed
+     *        form (e.g. 0x04 || X || Y).
      */
     void setReaderEphemeralPublicKey(in byte[] publicKey);
 
@@ -82,9 +85,9 @@ interface IIdentityCredential {
      * This method be called after createEphemeralKeyPair(), setReaderEphemeralPublicKey(),
      * createAuthChallenge() and before startRetrieveEntry(). This method call is followed by
      * multiple calls of startRetrieveEntryValue(), retrieveEntryValue(), and finally
-     * finishRetrieval().This whole process is called a "credential presentation".
+     * finishRetrieval().
      *
-     * It is permissible to perform multiple credential presentations using the same instance (e.g.
+     * It is permissible to perform data retrievals multiple times using the same instance (e.g.
      * startRetrieval(), then multiple calls of startRetrieveEntryValue(), retrieveEntryValue(),
      * then finally finishRetrieval()) but if this is done, the sessionTranscript parameter
      * must be identical for each startRetrieval() invocation. If this is not the case, this call
@@ -147,6 +150,8 @@ interface IIdentityCredential {
      *     DeviceEngagementBytes = #6.24(bstr .cbor DeviceEngagement)
      *     EReaderKeyBytes = #6.24(bstr .cbor EReaderKey.Pub)
      *     ItemsRequestBytes = #6.24(bstr .cbor ItemsRequest)
+     *
+     *     EReaderKey.Pub = COSE_Key    ; Ephemeral public key provided by reader
      *
      * The public key corresponding to the key used to made signature, can be found in the
      * 'x5chain' unprotected header element of the COSE_Sign1 structure (as as described
@@ -220,13 +225,11 @@ interface IIdentityCredential {
      *
      * It is permissible to keep retrieving values if an access control check fails.
      *
-     * @param nameSpace is the namespace of the element, e.g. "org.iso.18013"
+     * @param nameSpace is the namespace of the element, e.g. "org.iso.18013.5.1"
      *
-     * @param name is the name of the element.
+     * @param name is the name of the element, e.g. "driving_privileges".
      *
-     * @param entrySize is the size of the entry value, if it's a text string or a byte string.
-     *     It must be zero if the entry value is an integer or boolean. If this requirement
-     *     is not met the call fails with STATUS_INVALID_DATA.
+     * @param entrySize is the size of the entry value encoded in CBOR.
      *
      * @param accessControlProfileIds specifies the set of access control profiles that can
      *     authorize access to the provisioned element. If an identifier of a profile
@@ -307,6 +310,34 @@ interface IIdentityCredential {
 
     /**
      * Generate a key pair to be used for signing session data and retrieved data items.
+     *
+     * The generated key must be a 256-bit EC key using the P-256 curve.
+     *
+     * This method shall return just a single X.509 certificate which is signed by CredentialKey.
+     * When combined with the certificate chain returned at provisioning time by
+     * getAttestationCertificate() on IWritableIdentityCredential (for the credential key), this
+     * forms a chain all the way from the root of trust to the generated key.
+     *
+     * The public part of a signing key is usually included in issuer-signed data and is
+     * used for anti-cloning purposes or as a mechanism for the issuer to attest to data
+     * generated on the device.
+     *
+     * The following non-optional fields for the X.509 certificate shall be set as follows:
+     *
+     *  - version: INTEGER 2 (means v3 certificate).
+     *
+     *  - serialNumber: INTEGER 1 (fixed value: same on all certs).
+     *
+     *  - signature: must be set to ECDSA.
+     *
+     *  - subject: CN shall be set to "Android Identity Credential Authentication Key".
+     *
+     *  - issuer: shall be set to "credentialStoreName (credentialStoreAuthorName)" using the
+     *    values returned in HardwareInformation.
+     *
+     *  - validity: should be from current time and one year in the future.
+     *
+     *  - subjectPublicKeyInfo: must contain attested public key.
      *
      * @param out signingKeyBlob contains an encrypted copy of the newly-generated private
      *     signing key.
