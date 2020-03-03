@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "fde5cf28_401ff0b7",
+        "filename": "identity/aidl/default/EmbeddedIc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-03-03T12:03:04Z",
+      "side": 1,
+      "message": "The idea is that _this_ code would run in the Secure Area (e.g. Citadel). Yes, right now it\u0027s wired up in a way so it\u0027s called directly from C from WritableIdentityCredential.cpp, the thinking is that one would insert RPC calls inbetween the invocations.\n\nSo it doesn\u0027t make any sense to make RPC calls here...",
+      "parentUuid": "e9fff88b_9f6d77e3",
+      "range": {
+        "startLine": 56,
+        "startChar": 5,
+        "endLine": 56,
+        "endChar": 18
+      },
+      "revId": "65c139462b8f38b7c9ecc4b29876ec66529f36d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4718287b_187b4a2c",
         "filename": "identity/aidl/default/EmbeddedIc.c",
         "patchSetId": 2
