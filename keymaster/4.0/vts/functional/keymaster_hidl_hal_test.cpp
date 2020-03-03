@@ -452,6 +452,14 @@ bool verify_attestation_record(const string& challenge, const string& app_id,
     std::string empty_boot_key(32, '\0');
     std::string verified_boot_key_str((const char*)verified_boot_key.data(),
                                       verified_boot_key.size());
+
+    // Compare first_api_level property with build sdk version 
+    // Need to OS Upgrade scenario
+    char property_first_api_level[PROPERTY_VALUE_MAX] = {};
+    char property_buildsdk[PROPERTY_VALUE_MAX] = {};
+    property_get("ro.product.first_api_level", property_first_api_level, "nogood");
+    property_get("ro.system.build.version.sdk", property_buildsdk, "nogood");
+
     EXPECT_NE(property_get("ro.boot.verifiedbootstate", property_value, ""), 0);
     if (!strcmp(property_value, "green")) {
         EXPECT_EQ(verified_boot_state, KM_VERIFIED_BOOT_VERIFIED);
@@ -462,9 +470,11 @@ bool verify_attestation_record(const string& challenge, const string& app_id,
         EXPECT_NE(0, memcmp(verified_boot_key.data(), empty_boot_key.data(),
                             verified_boot_key.size()));
     } else if (!strcmp(property_value, "orange")) {
-        EXPECT_EQ(verified_boot_state, KM_VERIFIED_BOOT_UNVERIFIED);
-        EXPECT_EQ(0, memcmp(verified_boot_key.data(), empty_boot_key.data(),
-                            verified_boot_key.size()));
+        if(!strcmp(property_first_api_level, property_buildsdk)){
+            EXPECT_EQ(verified_boot_state, KM_VERIFIED_BOOT_UNVERIFIED);
+            EXPECT_EQ(0, memcmp(verified_boot_key.data(), empty_boot_key.data(),
+                                verified_boot_key.size()));
+        }
     } else if (!strcmp(property_value, "red")) {
         EXPECT_EQ(verified_boot_state, KM_VERIFIED_BOOT_FAILED);
     } else {
