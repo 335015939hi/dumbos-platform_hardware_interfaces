@@ -94,7 +94,6 @@ TEST_P(GraphicsMapperHidlTest, ValidateBufferSizeBadBuffer) {
                                                     mDummyDescriptorInfo.width);
     ASSERT_EQ(Error::BAD_BUFFER, ret)
         << "validateBufferSize with raw buffer handle did not fail with BAD_BUFFER";
-    native_handle_delete(rawBufferHandle);
 }
 
 /**
@@ -183,7 +182,6 @@ TEST_P(GraphicsMapperHidlTest, GetTransportSizeBadBuffer) {
             ASSERT_EQ(Error::BAD_BUFFER, tmpError)
                 << "getTransportSize with raw buffer handle did not fail with BAD_BUFFER";
         });
-    native_handle_delete(rawBufferHandle);
 }
 
 /**
