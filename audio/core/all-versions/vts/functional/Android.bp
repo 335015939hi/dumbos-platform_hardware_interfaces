@@ -30,7 +30,10 @@ cc_defaults {
     header_libs: [
         "android.hardware.audio.common.util@all-versions",
     ],
-    test_suites: ["general-tests"],
+    test_suites: [
+        "general-tests",
+        "vts-core",
+    ],
 }
 
 cc_test {
@@ -48,6 +51,12 @@ cc_test {
         "-DMINOR_VERSION=0",
         "-include common/all-versions/VersionMacro.h",
     ],
+    data: [
+        ":audio_policy_configuration_V2_0",
+    ],
+    // Use test_config for vts-core suite.
+    // TODO(b/146104851): Add auto-gen rules and remove it.
+    test_config: "VtsHalAudioV2_0TargetTest.xml",
 }
 
 cc_test {
@@ -65,6 +74,12 @@ cc_test {
         "-DMINOR_VERSION=0",
         "-include common/all-versions/VersionMacro.h",
     ],
+    data: [
+        ":audio_policy_configuration_V4_0",
+    ],
+    // Use test_config for vts-core suite.
+    // TODO(b/146104851): Add auto-gen rules and remove it.
+    test_config: "VtsHalAudioV4_0TargetTest.xml",
 }
 
 cc_test {
@@ -82,6 +97,12 @@ cc_test {
         "-DMINOR_VERSION=0",
         "-include common/all-versions/VersionMacro.h",
     ],
+    data: [
+        ":audio_policy_configuration_V5_0",
+    ],
+    // Use test_config for vts-core suite.
+    // TODO(b/146104851): Add auto-gen rules and remove it.
+    test_config: "VtsHalAudioV5_0TargetTest.xml",
 }
 
 cc_test {
@@ -99,14 +120,10 @@ cc_test {
         "-DMINOR_VERSION=0",
         "-include common/all-versions/VersionMacro.h",
     ],
-    // Use test_config for vts-core suite.
-    // TODO(b/146104851): Add auto-gen rules and remove it.
-    test_config: "VtsHalAudioV6_0TargetTest.xml",
     data: [
         ":audio_policy_configuration_V6_0",
     ],
-    test_suites: [
-        "general-tests",
-        "vts-core",
-    ],
+    // Use test_config for vts-core suite.
+    // TODO(b/146104851): Add auto-gen rules and remove it.
+    test_config: "VtsHalAudioV6_0TargetTest.xml",
 }

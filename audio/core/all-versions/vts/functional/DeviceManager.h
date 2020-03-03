@@ -31,10 +31,10 @@ class InterfaceManager {
         auto existing = instances.find(name);
         if (existing != instances.end()) return existing->second;
         auto [inserted, _] = instances.emplace(name, Derived::createInterfaceInstance(name));
-        if (inserted->second) {
-            environment->registerTearDown(
-                    [name]() { (void)Derived::getInstance().reset(name, false); });
-        }
+        // if (inserted->second) {
+        //     environment->registerTearDown(
+        //             [name]() { (void)Derived::getInstance().reset(name, false); });
+        // }
         return inserted->second;
     }
 
@@ -75,11 +75,11 @@ class DevicesFactoryManager
         return instance;
     }
     static sp<IDevicesFactory> createInterfaceInstance(const std::string& name) {
-#if MAJOR_VERSION <= 5
-        return ::testing::VtsHalHidlTargetTestBase::getService<IDevicesFactory>(name);
-#elif MAJOR_VERSION >= 6
+// #if MAJOR_VERSION <= 5
+//         return ::testing::VtsHalHidlTargetTestBase::getService<IDevicesFactory>(name);
+// #elif MAJOR_VERSION >= 6
         return IDevicesFactory::getService(name);
-#endif
+// #endif
     }
 };
 
