@@ -44,6 +44,8 @@ bool WritableIdentityCredential::initialize() {
         return false;
     }
     storageKey_ = random.value();
+    startPersonalizationCalled_ = false;
+    firstEntry_ = true;
 
     return true;
 }
@@ -105,6 +107,12 @@ ndk::ScopedAStatus WritableIdentityCredential::getAttestationCertificate(
 
 ndk::ScopedAStatus WritableIdentityCredential::startPersonalization(
         int32_t accessControlProfileCount, const vector<int32_t>& entryCounts) {
+    if (startPersonalizationCalled_) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED, "startPersonalization called already"));
+    }
+
+    startPersonalizationCalled_ = true;
     numAccessControlProfileRemaining_ = accessControlProfileCount;
     remainingEntryCounts_ = entryCounts;
     entryNameSpace_ = "";
@@ -127,6 +135,15 @@ ndk::ScopedAStatus WritableIdentityCredential::addAccessControlProfile(
                 IIdentityCredentialStore::STATUS_INVALID_DATA,
                 "numAccessControlProfileRemaining_ is 0 and expected non-zero"));
     }
+
+    auto ret = accessControlProfileIds_.find(id);
+    if (ret != accessControlProfileIds_.end()) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_INVALID_DATA,
+                "Error: Access Control Profile id must be unique"));
+    }
+
+    accessControlProfileIds_.insert(id);
 
     // Spec requires if |userAuthenticationRequired| is false, then |timeoutMillis| must also
     // be zero.
@@ -184,7 +201,8 @@ ndk::ScopedAStatus WritableIdentityCredential::beginAddEntry(
     }
 
     // Handle initial beginEntry() call.
-    if (entryNameSpace_ == "") {
+    if (firstEntry_) {
+        firstEntry_ = false;
         entryNameSpace_ = nameSpace;
     }
 
@@ -330,6 +348,12 @@ bool generateCredentialData(const vector<uint8_t>& hardwareBoundKey, const strin
 
 ndk::ScopedAStatus WritableIdentityCredential::finishAddingEntries(
         vector<int8_t>* outCredentialData, vector<int8_t>* outProofOfProvisioningSignature) {
+    if (numAccessControlProfileRemaining_ != 0) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_INVALID_DATA,
+                "numAccessControlProfileRemaining_ is not 0 and expected zero"));
+    }
+
     if (signedDataCurrentNamespace_.size() > 0) {
         signedDataNamespaces_.add(entryNameSpace_, std::move(signedDataCurrentNamespace_));
     }
