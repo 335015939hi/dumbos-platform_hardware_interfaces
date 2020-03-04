@@ -1,0 +1,48 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000001826832",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1245367?revision\u003d5",
+      "fixSuggestions": [
+        {
+          "fixId": "b3b2d08f_aecd9dba",
+          "description": "Change to \"identity/aidl/default/EmbeddedIc.h\"",
+          "replacements": [
+            {
+              "path": "identity/aidl/default/EmbeddedIc.h",
+              "range": {
+                "startLine": 89,
+                "startChar": 45,
+                "endLine": 89,
+                "endChar": 56
+              },
+              "replacement": "successfully"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "e86093ac_1b19821e",
+        "filename": "identity/aidl/default/EmbeddedIc.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-03-04T22:30:57Z",
+      "side": 1,
+      "message": "Common typo found: \"successfuly\" -- should it be \"successfully\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line.",
+      "range": {
+        "startLine": 89,
+        "startChar": 45,
+        "endLine": 89,
+        "endChar": 56
+      },
+      "revId": "034c761b0d59c3bf87b6b5bdf58b272ecd979d46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
