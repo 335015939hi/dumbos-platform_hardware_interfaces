@@ -44,6 +44,8 @@ bool WritableIdentityCredential::initialize() {
         return false;
     }
     storageKey_ = random.value();
+    startPersonalizationCalled_ = false;
+    firstEntry_ = true;
 
     return true;
 }
@@ -105,6 +107,12 @@ ndk::ScopedAStatus WritableIdentityCredential::getAttestationCertificate(
 
 ndk::ScopedAStatus WritableIdentityCredential::startPersonalization(
         int32_t accessControlProfileCount, const vector<int32_t>& entryCounts) {
+    if (startPersonalizationCalled_) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_FAILED, "startPersonalization called already"));
+    }
+
+    startPersonalizationCalled_ = true;
     numAccessControlProfileRemaining_ = accessControlProfileCount;
     remainingEntryCounts_ = entryCounts;
     entryNameSpace_ = "";
@@ -121,12 +129,19 @@ ndk::ScopedAStatus WritableIdentityCredential::addAccessControlProfile(
         int64_t timeoutMillis, int64_t secureUserId,
         SecureAccessControlProfile* outSecureAccessControlProfile) {
     SecureAccessControlProfile profile;
-
     if (numAccessControlProfileRemaining_ == 0) {
         return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
                 IIdentityCredentialStore::STATUS_INVALID_DATA,
                 "numAccessControlProfileRemaining_ is 0 and expected non-zero"));
     }
+
+    auto ret = accessControlProfileIds_.find(id);
+    if (ret != accessControlProfileIds_.end()) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_INVALID_DATA,
+                "Error: Access Control Profile id must be unique"));
+    }
+    accessControlProfileIds_.insert(id);
 
     // Spec requires if |userAuthenticationRequired| is false, then |timeoutMillis| must also
     // be zero.
@@ -184,12 +199,21 @@ ndk::ScopedAStatus WritableIdentityCredential::beginAddEntry(
     }
 
     // Handle initial beginEntry() call.
-    if (entryNameSpace_ == "") {
+    if (firstEntry_) {
+        firstEntry_ = false;
         entryNameSpace_ = nameSpace;
+        allNameSpaces_.insert(nameSpace);
     }
 
     // If the namespace changed...
     if (nameSpace != entryNameSpace_) {
+        auto ret = allNameSpaces_.find(nameSpace);
+        if (ret != allNameSpaces_.end()) {
+            return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                    IIdentityCredentialStore::STATUS_INVALID_DATA,
+                    "Error: Name space cannot be added in interleaving fashion"));
+        }
+
         // Then check that all entries in the previous namespace have been added..
         if (remainingEntryCounts_[0] != 0) {
             return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
@@ -197,6 +221,8 @@ ndk::ScopedAStatus WritableIdentityCredential::beginAddEntry(
                     "New namespace but a non-zero number of entries remain to be added"));
         }
         remainingEntryCounts_.erase(remainingEntryCounts_.begin());
+        remainingEntryCounts_[0] -= 1;
+        allNameSpaces_.insert(nameSpace);
 
         if (signedDataCurrentNamespace_.size() > 0) {
             signedDataNamespaces_.add(entryNameSpace_, std::move(signedDataCurrentNamespace_));
@@ -330,6 +356,18 @@ bool generateCredentialData(const vector<uint8_t>& hardwareBoundKey, const strin
 
 ndk::ScopedAStatus WritableIdentityCredential::finishAddingEntries(
         vector<int8_t>* outCredentialData, vector<int8_t>* outProofOfProvisioningSignature) {
+    if (numAccessControlProfileRemaining_ != 0) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_INVALID_DATA,
+                "numAccessControlProfileRemaining_ is not 0 and expected zero"));
+    }
+
+    if (remainingEntryCounts_.size() > 1 || remainingEntryCounts_[0] != 0) {
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
+                IIdentityCredentialStore::STATUS_INVALID_DATA,
+                "More entry spaces remain than startPersonalization configured"));
+    }
+
     if (signedDataCurrentNamespace_.size() > 0) {
         signedDataNamespaces_.add(entryNameSpace_, std::move(signedDataCurrentNamespace_));
     }
