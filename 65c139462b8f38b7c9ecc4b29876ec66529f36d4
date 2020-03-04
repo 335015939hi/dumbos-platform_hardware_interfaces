@@ -167,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "c535a053_04015543",
+        "filename": "identity/aidl/default/EmbeddedIc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2020-03-04T01:25:51Z",
+      "side": 1,
+      "message": "Sure ~  After some discussion through mail. I will try to evaluate if can put all this C library into Citadel and create corresponding new RPC call to support it.\n\nThank you,\nJoseph.",
+      "parentUuid": "fde5cf28_401ff0b7",
+      "range": {
+        "startLine": 56,
+        "startChar": 5,
+        "endLine": 56,
+        "endChar": 18
+      },
+      "revId": "65c139462b8f38b7c9ecc4b29876ec66529f36d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4718287b_187b4a2c",
         "filename": "identity/aidl/default/EmbeddedIc.c",
         "patchSetId": 2
