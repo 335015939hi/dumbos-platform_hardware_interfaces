@@ -4,7 +4,10 @@ cc_test {
         "VtsHalTargetTestDefaults",
         "use_libaidlvintf_gtest_helper_static",
     ],
-    srcs: ["VtsHalIdentityTargetTest.cpp"],
+    srcs: [
+        "VtsHalIdentityTargetTest.cpp",
+        "VtsIWritableIdentityCredentialUnitTests.cpp",
+    ],
     shared_libs: [
         "libbinder",
         "libcrypto",
@@ -20,3 +23,11 @@ cc_test {
         "vts-core",
     ],
 }
+
+//    shared_libs: [
+//        "libbinder",
+//"libbinder_ndk",
+//        "libcppbor",
+//        "android.hardware.identity-support-lib",
+//"android.hardware.identity-ndk_platform",
+//"android.hardware.keymaster-ndk_platform",
