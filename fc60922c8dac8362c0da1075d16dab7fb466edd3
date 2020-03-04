@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "68ef679a_0bf5166f",
+        "filename": "tetheroffload/control/1.1/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1199008
+      },
+      "writtenOn": "2020-03-04T01:06:47Z",
+      "side": 1,
+      "message": "should we also add that offload shouldn\u0027t be stopped when this alert is received.",
+      "revId": "fc60922c8dac8362c0da1075d16dab7fb466edd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
