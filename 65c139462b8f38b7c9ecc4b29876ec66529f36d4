@@ -259,6 +259,52 @@
       "revId": "65c139462b8f38b7c9ecc4b29876ec66529f36d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed4ad31e_f03a649b",
+        "filename": "identity/aidl/default/EmbeddedIc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2020-03-04T09:30:27Z",
+      "side": 1,
+      "message": "Hi David,\n\nSeems like miss \"secureUserId\" field here ...\neicCborAppendString(\u0026ctx-\u003ecbor, \"secureUserId\");\neicCborAppendUnsigned(\u0026ctx-\u003ecbor, secureUserId);\n\nThank you,\nJoseph.",
+      "range": {
+        "startLine": 249,
+        "startChar": 0,
+        "endLine": 249,
+        "endChar": 61
+      },
+      "revId": "65c139462b8f38b7c9ecc4b29876ec66529f36d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23f7c912_ea03f841",
+        "filename": "identity/aidl/default/EmbeddedIc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2020-03-04T09:30:27Z",
+      "side": 1,
+      "message": "Hi David,\n\nSeems like miss \"secureUserId\" field here ...\neicCborAppendString(\u0026ctx-\u003ecbor, \"secureUserId\");\neicCborAppendUnsigned(\u0026ctx-\u003ecbor, secureUserId);\n\nThank you,\nJoseph.",
+      "range": {
+        "startLine": 257,
+        "startChar": 0,
+        "endLine": 257,
+        "endChar": 61
+      },
+      "revId": "65c139462b8f38b7c9ecc4b29876ec66529f36d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
