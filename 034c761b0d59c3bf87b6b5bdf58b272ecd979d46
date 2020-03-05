@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "93ddbab2_20b4943d",
+        "filename": "identity/aidl/default/EmbeddedIc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2020-03-05T02:11:43Z",
+      "side": 1,
+      "message": "Hi David,\n\nIf we already moved testCredential to eicFinishAddingEntries(), maybe we can remove testCredential input parameter here ?\n\nThank you,\nJoseph.",
+      "revId": "034c761b0d59c3bf87b6b5bdf58b272ecd979d46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
