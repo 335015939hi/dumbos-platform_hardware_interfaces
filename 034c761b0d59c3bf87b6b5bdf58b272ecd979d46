@@ -34,6 +34,24 @@
       "revId": "034c761b0d59c3bf87b6b5bdf58b272ecd979d46",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bd3f8bd_d79cd4cb",
+        "filename": "identity/aidl/default/EmbeddedIc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2020-03-05T07:22:01Z",
+      "side": 1,
+      "message": "Sure ~ it make sense 😊\n\nI will try to add code to set all zeroes to storageKey when testCredential \u003d true;\n\nThank you,\nJoseph.",
+      "parentUuid": "8a35f81b_f2135ea5",
+      "revId": "034c761b0d59c3bf87b6b5bdf58b272ecd979d46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
