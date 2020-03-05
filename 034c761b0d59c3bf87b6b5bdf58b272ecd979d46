@@ -52,6 +52,29 @@
       "revId": "034c761b0d59c3bf87b6b5bdf58b272ecd979d46",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d65a2f55_93f31379",
+        "filename": "identity/aidl/default/EmbeddedIc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2020-03-05T11:07:20Z",
+      "side": 1,
+      "message": "Hi David,\n\nSince we didn\u0027t expect to see \"accessControlProfileCount \u003e\u003d EIC_MAX_NUM_ACCESS_CONTROL_PROFILE_IDS\" and entryCounts[n] \u003e\u003d 256 in Citadel.\n\nIs it possible to change accessControlProfileCount and entryCounts data type from int to uint8_t ?\n\n\nThank you,\nJoseph.",
+      "range": {
+        "startLine": 143,
+        "startChar": 52,
+        "endLine": 143,
+        "endChar": 77
+      },
+      "revId": "034c761b0d59c3bf87b6b5bdf58b272ecd979d46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
