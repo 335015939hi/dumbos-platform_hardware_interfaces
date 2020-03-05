@@ -16,6 +16,24 @@
       "revId": "034c761b0d59c3bf87b6b5bdf58b272ecd979d46",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a35f81b_f2135ea5",
+        "filename": "identity/aidl/default/EmbeddedIc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-03-05T05:11:46Z",
+      "side": 1,
+      "message": "It\u0027s still needed here in order to generate the storageKey. It\u0027s not yet in the code but if testCredential is true, storageKey needs to be all zeroes.\n\nYou\u0027ll see the same pattern elsewhere - we send the same parameter to multiple different functions. Why? To reduce the amount of RAM needed to store information between RPCs. Makes sense?",
+      "parentUuid": "93ddbab2_20b4943d",
+      "revId": "034c761b0d59c3bf87b6b5bdf58b272ecd979d46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
