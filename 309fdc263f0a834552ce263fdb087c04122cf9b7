@@ -147,6 +147,30 @@
     },
     {
       "key": {
+        "uuid": "9f1b58a9_29f8e37c",
+        "filename": "radio/1.5/IRadioIndication.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-03-09T22:01:46Z",
+      "side": 1,
+      "message": "From my point of view, this is an optimization that modem can support to speed up the phonebook caching. But it should not be an essential command that all modem supplier must support.\nIf I recall correctly, the Android code can handle both cases (supported and not supported).",
+      "parentUuid": "aa48a4d3_75a5c63c",
+      "range": {
+        "startLine": 105,
+        "startChar": 51,
+        "endLine": 105,
+        "endChar": 59
+      },
+      "revId": "309fdc263f0a834552ce263fdb087c04122cf9b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4709bb71_caf2da1e",
         "filename": "radio/1.5/IRadioIndication.hal",
         "patchSetId": 6
