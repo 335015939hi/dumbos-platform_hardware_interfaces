@@ -84,6 +84,53 @@
     },
     {
       "key": {
+        "uuid": "c3f036d5_a5843d97",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 1065,
+      "author": {
+        "id": 1056478
+      },
+      "writtenOn": "2020-03-09T18:31:37Z",
+      "side": 1,
+      "message": "Would be good to indicate as such in the docs here.",
+      "parentUuid": "f4584e73_8149e7ed",
+      "range": {
+        "startLine": 1054,
+        "startChar": 0,
+        "endLine": 1065,
+        "endChar": 34
+      },
+      "revId": "309fdc263f0a834552ce263fdb087c04122cf9b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46f9bf1d_ad7d2c3e",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 1073,
+      "author": {
+        "id": 1056478
+      },
+      "writtenOn": "2020-03-09T18:31:37Z",
+      "side": 1,
+      "message": "usedAdnRecords",
+      "range": {
+        "startLine": 1073,
+        "startChar": 12,
+        "endLine": 1073,
+        "endChar": 27
+      },
+      "revId": "309fdc263f0a834552ce263fdb087c04122cf9b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cea2f6cc_63ebce5e",
         "filename": "radio/1.5/types.hal",
         "patchSetId": 6
@@ -166,6 +213,30 @@
       "side": 1,
       "message": "Used.",
       "parentUuid": "f7e8a5ce_e643f1a5",
+      "range": {
+        "startLine": 1085,
+        "startChar": 12,
+        "endLine": 1085,
+        "endChar": 17
+      },
+      "revId": "309fdc263f0a834552ce263fdb087c04122cf9b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2829b77f_f3a3a5ad",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 1085,
+      "author": {
+        "id": 1056478
+      },
+      "writtenOn": "2020-03-09T18:31:37Z",
+      "side": 1,
+      "message": "Does it make more sense to just name this:\nusedAdditionalNumberRecords",
+      "parentUuid": "9864d0e7_5cd7f03e",
       "range": {
         "startLine": 1085,
         "startChar": 12,
