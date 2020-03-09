@@ -55,6 +55,138 @@
     },
     {
       "key": {
+        "uuid": "bb9b1a53_9b879bb1",
+        "filename": "radio/1.5/IRadio.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2020-03-09T20:34:28Z",
+      "side": 1,
+      "message": "Same as below here. Change it to IRadioIndication.phonebookInitDone.",
+      "range": {
+        "startLine": 313,
+        "startChar": 53,
+        "endLine": 313,
+        "endChar": 70
+      },
+      "revId": "309fdc263f0a834552ce263fdb087c04122cf9b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "940badfa_e113ce7a",
+        "filename": "radio/1.5/IRadio.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2020-03-09T20:34:28Z",
+      "side": 1,
+      "message": "Change it to IRadioIndication.phonebookRecordsReceived() since generally it is expected that response will come through IRadioResponse.",
+      "range": {
+        "startLine": 314,
+        "startChar": 46,
+        "endLine": 314,
+        "endChar": 70
+      },
+      "revId": "309fdc263f0a834552ce263fdb087c04122cf9b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee0185a0_ebb25553",
+        "filename": "radio/1.5/IRadio.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2020-03-09T20:34:28Z",
+      "side": 1,
+      "message": "Does this mean that for update values of all fields need to be sent down to the modem? That doesn\u0027t seem like a good design to me from client perspective.\n\nJust wanted to call this out, although this is probably ok if you don\u0027t have an easy alternative.",
+      "range": {
+        "startLine": 326,
+        "startChar": 7,
+        "endLine": 327,
+        "endChar": 53
+      },
+      "revId": "309fdc263f0a834552ce263fdb087c04122cf9b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa48a4d3_75a5c63c",
+        "filename": "radio/1.5/IRadioIndication.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2020-03-09T20:34:28Z",
+      "side": 1,
+      "message": "Why? We try not to have any optional requests in hal. In any case currently we don\u0027t really have any VTS for indications.",
+      "range": {
+        "startLine": 105,
+        "startChar": 51,
+        "endLine": 105,
+        "endChar": 59
+      },
+      "revId": "309fdc263f0a834552ce263fdb087c04122cf9b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4709bb71_caf2da1e",
+        "filename": "radio/1.5/IRadioIndication.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2020-03-09T20:34:28Z",
+      "side": 1,
+      "message": "How does the client know how many to expect?",
+      "range": {
+        "startLine": 117,
+        "startChar": 59,
+        "endLine": 117,
+        "endChar": 79
+      },
+      "revId": "309fdc263f0a834552ce263fdb087c04122cf9b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70636b7a_e95b519c",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 830,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2020-03-09T20:34:28Z",
+      "side": 1,
+      "message": "nit: delete extra line",
+      "revId": "309fdc263f0a834552ce263fdb087c04122cf9b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "636918e5_bef1a0d6",
         "filename": "radio/1.5/types.hal",
         "patchSetId": 6
