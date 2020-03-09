@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0df7bd4c_657402e7",
+        "filename": "current.txt",
+        "patchSetId": 5
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-03-09T17:31:19Z",
+      "side": 1,
+      "message": "need to c/p to R branch, if modifying this. Can you stage? (requires bug). Given TH error, will be easier to merge there first.",
+      "range": {
+        "startLine": 617,
+        "startChar": 0,
+        "endLine": 617,
+        "endChar": 110
+      },
+      "revId": "d8b4f3a56c53a8c3f6cd9f70059f2299ee633a7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
