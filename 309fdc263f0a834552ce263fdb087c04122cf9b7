@@ -195,6 +195,30 @@
     },
     {
       "key": {
+        "uuid": "e70bd0d0_4d789d62",
+        "filename": "radio/1.5/IRadioIndication.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-03-09T22:23:39Z",
+      "side": 1,
+      "message": "The proposal was to use a resource that indicates the support.\nSee https://android-review.googlesource.com/c/platform/frameworks/base/+/1156377.",
+      "parentUuid": "f0897047_c501954d",
+      "range": {
+        "startLine": 105,
+        "startChar": 51,
+        "endLine": 105,
+        "endChar": 59
+      },
+      "revId": "309fdc263f0a834552ce263fdb087c04122cf9b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4709bb71_caf2da1e",
         "filename": "radio/1.5/IRadioIndication.hal",
         "patchSetId": 6
