@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "c9f4846e_3d546b4f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-03-09T16:20:11Z",
+      "side": 1,
+      "message": "can you also add VTS? can you also share bug/plan to add the cuttlefish implementation later?",
+      "range": {
+        "startLine": 17,
+        "startChar": 6,
+        "endLine": 17,
+        "endChar": 11
+      },
+      "revId": "1ecae4f82905d2843fe6b083f57b5597b902ac89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d3b1365c_ba890ae5",
         "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
         "patchSetId": 7
