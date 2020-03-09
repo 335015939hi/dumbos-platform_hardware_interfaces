@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "dfda6cbc_60f3ac1c",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 7
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-03-09T16:24:26Z",
+      "side": 1,
+      "message": "you\u0027ll need to update the versions here before this is usable as well",
+      "range": {
+        "startLine": 414,
+        "startChar": 0,
+        "endLine": 429,
+        "endChar": 10
+      },
+      "revId": "1ecae4f82905d2843fe6b083f57b5597b902ac89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d3b1365c_ba890ae5",
         "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
         "patchSetId": 7
