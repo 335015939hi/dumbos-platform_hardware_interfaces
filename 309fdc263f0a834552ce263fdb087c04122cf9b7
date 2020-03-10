@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "91b08d28_408fe3bb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1583329
+      },
+      "writtenOn": "2020-03-10T09:50:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ace43454_263ea9e7",
+      "revId": "309fdc263f0a834552ce263fdb087c04122cf9b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bb9b1a53_9b879bb1",
         "filename": "radio/1.5/IRadio.hal",
         "patchSetId": 6
@@ -75,6 +93,30 @@
       "revId": "309fdc263f0a834552ce263fdb087c04122cf9b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f7d77a59_9f979f32",
+        "filename": "radio/1.5/IRadio.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1583329
+      },
+      "writtenOn": "2020-03-10T09:50:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb9b1a53_9b879bb1",
+      "range": {
+        "startLine": 313,
+        "startChar": 53,
+        "endLine": 313,
+        "endChar": 70
+      },
+      "revId": "309fdc263f0a834552ce263fdb087c04122cf9b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -101,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "dc17de21_be385c22",
+        "filename": "radio/1.5/IRadio.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1583329
+      },
+      "writtenOn": "2020-03-10T09:50:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "940badfa_e113ce7a",
+      "range": {
+        "startLine": 314,
+        "startChar": 46,
+        "endLine": 314,
+        "endChar": 70
+      },
+      "revId": "309fdc263f0a834552ce263fdb087c04122cf9b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ee0185a0_ebb25553",
         "filename": "radio/1.5/IRadio.hal",
         "patchSetId": 6
@@ -121,6 +187,30 @@
       "revId": "309fdc263f0a834552ce263fdb087c04122cf9b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c0d2df3_1f7f1afa",
+        "filename": "radio/1.5/IRadio.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1583329
+      },
+      "writtenOn": "2020-03-10T09:50:33Z",
+      "side": 1,
+      "message": "This mean the API is used to insert, delete or update SIM contacts.\nIf the index is 0 and and other fields is not empty: inserted this contact\nIf the index is not 0 and other fields is not empty: updated this contact\nIf the index is not 0 and other is empty: deleted this contact",
+      "parentUuid": "ee0185a0_ebb25553",
+      "range": {
+        "startLine": 326,
+        "startChar": 7,
+        "endLine": 327,
+        "endChar": 53
+      },
+      "revId": "309fdc263f0a834552ce263fdb087c04122cf9b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -219,6 +309,30 @@
     },
     {
       "key": {
+        "uuid": "c8dfe7c7_ecd6bff1",
+        "filename": "radio/1.5/IRadioIndication.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1583329
+      },
+      "writtenOn": "2020-03-10T09:50:33Z",
+      "side": 1,
+      "message": "Yes, the optional configration was defined on ATEL.",
+      "parentUuid": "e70bd0d0_4d789d62",
+      "range": {
+        "startLine": 105,
+        "startChar": 51,
+        "endLine": 105,
+        "endChar": 59
+      },
+      "revId": "309fdc263f0a834552ce263fdb087c04122cf9b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4709bb71_caf2da1e",
         "filename": "radio/1.5/IRadioIndication.hal",
         "patchSetId": 6
@@ -242,6 +356,30 @@
     },
     {
       "key": {
+        "uuid": "314d6ad6_647f8372",
+        "filename": "radio/1.5/IRadioIndication.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1583329
+      },
+      "writtenOn": "2020-03-10T09:50:33Z",
+      "side": 1,
+      "message": "client will compare with the used ADN records count in the response of getPhonebookRecords()",
+      "parentUuid": "4709bb71_caf2da1e",
+      "range": {
+        "startLine": 117,
+        "startChar": 59,
+        "endLine": 117,
+        "endChar": 79
+      },
+      "revId": "309fdc263f0a834552ce263fdb087c04122cf9b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70636b7a_e95b519c",
         "filename": "radio/1.5/types.hal",
         "patchSetId": 6
@@ -256,6 +394,24 @@
       "revId": "309fdc263f0a834552ce263fdb087c04122cf9b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2e624b8_6773bab1",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 830,
+      "author": {
+        "id": 1583329
+      },
+      "writtenOn": "2020-03-10T09:50:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70636b7a_e95b519c",
+      "revId": "309fdc263f0a834552ce263fdb087c04122cf9b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -330,6 +486,30 @@
     },
     {
       "key": {
+        "uuid": "f43aa485_156c6e56",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 1065,
+      "author": {
+        "id": 1583329
+      },
+      "writtenOn": "2020-03-10T09:50:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3f036d5_a5843d97",
+      "range": {
+        "startLine": 1054,
+        "startChar": 0,
+        "endLine": 1065,
+        "endChar": 34
+      },
+      "revId": "309fdc263f0a834552ce263fdb087c04122cf9b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "46f9bf1d_ad7d2c3e",
         "filename": "radio/1.5/types.hal",
         "patchSetId": 6
@@ -350,6 +530,30 @@
       "revId": "309fdc263f0a834552ce263fdb087c04122cf9b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e4ab4940_3ca898a6",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 1073,
+      "author": {
+        "id": 1583329
+      },
+      "writtenOn": "2020-03-10T09:50:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "46f9bf1d_ad7d2c3e",
+      "range": {
+        "startLine": 1073,
+        "startChar": 12,
+        "endLine": 1073,
+        "endChar": 27
+      },
+      "revId": "309fdc263f0a834552ce263fdb087c04122cf9b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -468,6 +672,30 @@
       "revId": "309fdc263f0a834552ce263fdb087c04122cf9b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31d1d612_3d092f33",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 1085,
+      "author": {
+        "id": 1583329
+      },
+      "writtenOn": "2020-03-10T09:50:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2829b77f_f3a3a5ad",
+      "range": {
+        "startLine": 1085,
+        "startChar": 12,
+        "endLine": 1085,
+        "endChar": 17
+      },
+      "revId": "309fdc263f0a834552ce263fdb087c04122cf9b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
