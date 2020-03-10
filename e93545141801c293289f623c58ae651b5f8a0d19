@@ -1,0 +1,48 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000001901708",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1254348?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "36cdf52a_88d025d4",
+          "description": "Change to \"radio/1.5/IRadioIndication.hal\"",
+          "replacements": [
+            {
+              "path": "radio/1.5/IRadioIndication.hal",
+              "range": {
+                "startLine": 115,
+                "startChar": 18,
+                "endLine": 115,
+                "endChar": 28
+              },
+              "replacement": "invocation"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "1c0c72db_94e9ec2c",
+        "filename": "radio/1.5/IRadioIndication.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-03-10T09:46:15Z",
+      "side": 1,
+      "message": "Common typo found: \"invokation\" -- should it be \"invocation\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line.",
+      "range": {
+        "startLine": 115,
+        "startChar": 18,
+        "endLine": 115,
+        "endChar": 28
+      },
+      "revId": "e93545141801c293289f623c58ae651b5f8a0d19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
