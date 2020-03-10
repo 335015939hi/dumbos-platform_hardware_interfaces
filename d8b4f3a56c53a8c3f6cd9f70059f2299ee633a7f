@@ -22,6 +22,30 @@
       "revId": "d8b4f3a56c53a8c3f6cd9f70059f2299ee633a7f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f39ba60_10bafabd",
+        "filename": "current.txt",
+        "patchSetId": 5
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2020-03-10T18:23:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0df7bd4c_657402e7",
+      "range": {
+        "startLine": 617,
+        "startChar": 0,
+        "endLine": 617,
+        "endChar": 110
+      },
+      "revId": "d8b4f3a56c53a8c3f6cd9f70059f2299ee633a7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
