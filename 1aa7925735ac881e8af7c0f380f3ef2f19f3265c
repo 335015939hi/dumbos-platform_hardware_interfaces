@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0cf2d458_5e16952d",
+        "filename": "radio/1.5/IRadio.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-03-11T22:19:49Z",
+      "side": 1,
+      "message": "This line seems to be too long and needs to be split.",
+      "range": {
+        "startLine": 345,
+        "startChar": 7,
+        "endLine": 345,
+        "endChar": 100
+      },
+      "revId": "1aa7925735ac881e8af7c0f380f3ef2f19f3265c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9aff3481_c74397e1",
+        "filename": "radio/1.5/IRadioResponse.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-03-11T22:19:49Z",
+      "side": 1,
+      "message": "The line \"Valid errors returned:\" is missing before this.\nIt was present in the previous patchset in https://android-review.googlesource.com/c/platform/hardware/interfaces/+/1216835",
+      "range": {
+        "startLine": 337,
+        "startChar": 9,
+        "endLine": 337,
+        "endChar": 24
+      },
+      "revId": "1aa7925735ac881e8af7c0f380f3ef2f19f3265c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dbcdb8ae_3d322161",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 1080,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-03-11T22:19:49Z",
+      "side": 1,
+      "message": "From comments in https://android-review.googlesource.com/c/platform/hardware/interfaces/+/1216835\n\nThe comment to indicate the coding (they are specified by EF_ADN(Abbreviated dialing numbers) record of SIM as per 3GPP spec 31.102 v15 Section-4.4.2.3.) was marked as Done, but I don\u0027t see it here.",
+      "range": {
+        "startLine": 1070,
+        "startChar": 4,
+        "endLine": 1080,
+        "endChar": 34
+      },
+      "revId": "1aa7925735ac881e8af7c0f380f3ef2f19f3265c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0fb2e20_4d780c22",
+        "filename": "radio/1.5/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1178,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-03-11T22:19:49Z",
+      "side": 1,
+      "message": "How about the case where the SIM card is present?\nIn that case, I would expect NONE or NOT_SUPPORTED.",
+      "range": {
+        "startLine": 1178,
+        "startChar": 8,
+        "endLine": 1178,
+        "endChar": 59
+      },
+      "revId": "1aa7925735ac881e8af7c0f380f3ef2f19f3265c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c1b0d59_1a0e650c",
+        "filename": "radio/1.5/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1181,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-03-11T22:19:49Z",
+      "side": 1,
+      "message": "Why do we expect this as possible error in case the SIM is absent? Don\u0027t we expect only INVALID_SIM_STATE? And what about RadioError:REQUEST_NOT_SUPPORTED? This command is optional after all.",
+      "range": {
+        "startLine": 1181,
+        "startChar": 31,
+        "endLine": 1181,
+        "endChar": 60
+      },
+      "revId": "1aa7925735ac881e8af7c0f380f3ef2f19f3265c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ceeb60e7_cecac1eb",
+        "filename": "radio/1.5/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1205,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-03-11T22:19:49Z",
+      "side": 1,
+      "message": "Same comments as above",
+      "range": {
+        "startLine": 1205,
+        "startChar": 4,
+        "endLine": 1205,
+        "endChar": 59
+      },
+      "revId": "1aa7925735ac881e8af7c0f380f3ef2f19f3265c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
