@@ -214,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "e5a905a9_ca54897c",
+        "filename": "radio/1.5/IRadio.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1054648
+      },
+      "writtenOn": "2020-03-11T00:45:37Z",
+      "side": 1,
+      "message": "I understand that, but if index is not 0 and some fields are not empty, all fields will be updated, correct? Essentially a complete record needs to be sent down, not just the fields that are being updated.",
+      "parentUuid": "6c0d2df3_1f7f1afa",
+      "range": {
+        "startLine": 326,
+        "startChar": 7,
+        "endLine": 327,
+        "endChar": 53
+      },
+      "revId": "309fdc263f0a834552ce263fdb087c04122cf9b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "aa48a4d3_75a5c63c",
         "filename": "radio/1.5/IRadioIndication.hal",
         "patchSetId": 6
