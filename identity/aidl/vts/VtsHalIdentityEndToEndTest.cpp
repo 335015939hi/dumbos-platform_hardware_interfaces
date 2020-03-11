@@ -44,6 +44,8 @@ using ::android::binder::Status;
 
 using ::android::hardware::keymaster::HardwareAuthToken;
 
+using test_utils::ValidateAttestationCertificate;
+
 class IdentityAidl : public testing::TestWithParam<std::string> {
   public:
     virtual void SetUp() override {
@@ -68,7 +70,7 @@ TEST_P(IdentityAidl, createAndRetrieveCredential) {
     // part of the request data.
     vector<uint8_t> readerKey;
     optional<vector<uint8_t>> readerCertificate =
-            test_utils::GenerateReaderCertificate("1234", readerKey);
+            test_utils::GenerateReaderCertificate("1234", &readerKey);
     ASSERT_TRUE(readerCertificate);
 
     // Make the portrait image really big (just shy of 256 KiB) to ensure that
@@ -109,8 +111,9 @@ TEST_P(IdentityAidl, createAndRetrieveCredential) {
     ASSERT_EQ(binder::Status::EX_NONE, attData.result.exceptionCode());
     ASSERT_EQ(IIdentityCredentialStore::STATUS_OK, attData.result.serviceSpecificErrorCode());
 
-    // TODO: set it to something random and check it's in the cert chain
-    ASSERT_GE(attData.attestationCertificate.size(), 2);
+    EXPECT_TRUE(ValidateAttestationCertificate(attData.attestationCertificate,
+                                               attData.attestationChallenge,
+                                               attData.attestationApplicationId));
 
     ASSERT_TRUE(
             writableCredential->startPersonalization(testProfiles.size(), testEntriesEntryCounts)

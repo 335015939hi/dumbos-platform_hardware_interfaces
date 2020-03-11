@@ -99,7 +99,7 @@ bool SetupWritableCredential(sp<IWritableIdentityCredential>& writableCredential
 optional<vector<uint8_t>> GenerateReaderCertificate(string serialDecimal);
 
 optional<vector<uint8_t>> GenerateReaderCertificate(string serialDecimal,
-                                                    vector<uint8_t>& readerPrivateKey);
+                                                    vector<uint8_t>* outReaderPrivateKey);
 
 optional<vector<SecureAccessControlProfile>> AddAccessControlProfiles(
         sp<IWritableIdentityCredential>& writableCredential,
@@ -109,9 +109,11 @@ bool AddEntry(sp<IWritableIdentityCredential>& writableCredential, const TestEnt
               int dataChunkSize, map<const TestEntryData*, vector<vector<uint8_t>>>& encryptedBlobs,
               bool expectSuccess);
 
-bool ValidateAttestationCertificate(vector<Certificate>& inputCertificates);
-
 void SetImageData(vector<uint8_t>& image);
+
+bool ValidateAttestationCertificate(const vector<Certificate>& inputCertificates,
+                                    const vector<uint8_t>& expected_challenge,
+                                    const vector<uint8_t>& expected_app_id);
 
 }  // namespace android::hardware::identity::test_utils
 

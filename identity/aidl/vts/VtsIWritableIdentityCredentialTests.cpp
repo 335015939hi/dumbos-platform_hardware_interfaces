@@ -68,7 +68,8 @@ TEST_P(IdentityCredentialTests, verifyAttestationWithEmptyChallenge) {
     EXPECT_TRUE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage()
                                << endl;
 
-    EXPECT_TRUE(test_utils::ValidateAttestationCertificate(attestationCertificate));
+    EXPECT_TRUE(test_utils::ValidateAttestationCertificate(
+            attestationCertificate, attestationChallenge, attestationApplicationId));
 }
 
 TEST_P(IdentityCredentialTests, verifyAttestationSuccessWithChallenge) {
@@ -87,7 +88,8 @@ TEST_P(IdentityCredentialTests, verifyAttestationSuccessWithChallenge) {
     EXPECT_TRUE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage()
                                << endl;
 
-    EXPECT_TRUE(test_utils::ValidateAttestationCertificate(attestationCertificate));
+    EXPECT_TRUE(test_utils::ValidateAttestationCertificate(
+            attestationCertificate, attestationChallenge, attestationApplicationId));
 }
 
 TEST_P(IdentityCredentialTests, verifyAttestationDoubleCallFails) {
@@ -97,7 +99,9 @@ TEST_P(IdentityCredentialTests, verifyAttestationDoubleCallFails) {
 
     string challenge = "NotSoRandomChallenge1";
     test_utils::AttestationData attData(writableCredential, challenge, {});
-    ASSERT_TRUE(test_utils::ValidateAttestationCertificate(attData.attestationCertificate));
+    ASSERT_TRUE(test_utils::ValidateAttestationCertificate(attData.attestationCertificate,
+                                                           attData.attestationChallenge,
+                                                           attData.attestationApplicationId));
 
     string challenge2 = "NotSoRandomChallenge2";
     test_utils::AttestationData attData2(writableCredential, challenge2, {});
