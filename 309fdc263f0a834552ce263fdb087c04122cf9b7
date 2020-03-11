@@ -238,6 +238,30 @@
     },
     {
       "key": {
+        "uuid": "f9c85ac5_f90c9cda",
+        "filename": "radio/1.5/IRadio.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1583329
+      },
+      "writtenOn": "2020-03-11T02:56:20Z",
+      "side": 1,
+      "message": "Yes, all fields will be sent to RIL when update the SIM contact record.\nQCOM modem API did not support update the special field for a SIM contact record, and it just support read and write the whole record.\nAnd if we just sent the special updated field to modem, it is hardly to confirm the field is not updated or the field is deleted by user when it is empty.",
+      "parentUuid": "e5a905a9_ca54897c",
+      "range": {
+        "startLine": 326,
+        "startChar": 7,
+        "endLine": 327,
+        "endChar": 53
+      },
+      "revId": "309fdc263f0a834552ce263fdb087c04122cf9b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aa48a4d3_75a5c63c",
         "filename": "radio/1.5/IRadioIndication.hal",
         "patchSetId": 6
