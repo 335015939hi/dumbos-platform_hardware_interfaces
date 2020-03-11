@@ -277,6 +277,11 @@ const vector<uint8_t>& getTestHardwareBoundKey();
 // may be smaller than |maxChunkSize|.
 vector<vector<uint8_t>> chunkVector(const vector<uint8_t>& content, size_t maxChunkSize);
 
+// Validate the certificate chain passed in are valid certificate properly
+// signed in the chain, and matches the challengs set.
+bool ValidateAttestationCertificate(const vector<uint8_t>& certificateChain,
+                                    const vector<uint8_t>& attestationChallenge);
+
 }  // namespace support
 }  // namespace identity
 }  // namespace hardware

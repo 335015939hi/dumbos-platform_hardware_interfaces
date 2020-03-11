@@ -823,6 +823,67 @@ optional<vector<uint8_t>> hmacSha256(const vector<uint8_t>& key, const vector<ui
     return hmac;
 }
 
+optional<keymaster_cert_chain_t> certificateVectorToKeymasterChain(
+        const vector<vector<uint8_t>>& certificate) {
+    if (certificate.size() <= 0) {
+        return {};
+    }
+
+    keymaster_cert_chain_t cert;
+    cert.entry_count = certificate.size();
+    cert.entries = (keymaster_blob_t*)malloc(sizeof(keymaster_blob_t) * cert.entry_count);
+
+    int index = 0;
+    for (auto c : certificate) {
+        cert.entries[index].data_length = c.size();
+        uint8_t* data = (uint8_t*)malloc(c.size());
+
+        memcpy(cert.entries[index].data, c.data(), c.size());
+        cert.entries[index].data = (const uint8_t*)data;
+        index++;
+    }
+}
+
+optional<keymaster_cert_chain_t> convertAttestationVectorToChain(
+        const vector<uint8_t>& certificateChain) {
+    optional<vector<vector<uint8_t>>> chain = certificateChainSplit(certificateChain);
+    if (!chain) {
+        return {};
+    }
+
+    return certificateVectorToKeymasterChain(chain.value());
+}
+
+// Validate the certificate chain passed in are valid certificate properly
+// signed in the chain, and matches the challengs set.
+bool ValidateAttestationCertificate(const vector<uint8_t>& certificateChain,
+                                    const vector<uint8_t>& attestationChallenge) {
+    optional<keymaster_cert_chain_t> cert_chain = convertAttestationVectorToChain(certificateChain);
+
+    if (!cert_chain) {
+        return false;
+    }
+
+    ::keymaster::AuthorizationSet expected_swEnforced;
+    ::keymaster::AuthorizationSet expected_hwEnforced;
+    uint32_t expected_keymaster_version = 3;
+    const keymaster_security_level_t expected_keymaster_security_level =
+            KM_SECURITY_LEVEL_TRUSTED_ENVIRONMENT;
+
+    const keymaster_security_level_t expected_attestation_security_level =
+            KM_SECURITY_LEVEL_TRUSTED_ENVIRONMENT;
+    const string expected_application_id = "Android Open Source Project";
+    bool require_prod_root = false;
+
+    auto error = verifyAttestation(
+            cert_chain.value(), attestationChallenge, expected_swEnforced, expected_hwEnforced,
+            expected_keymaster_version, expected_keymaster_security_level,
+            expected_attestation_security_level, expected_application_id, require_prod_root);
+
+    keymaster_free_cert_chain(&cert_chain.value());
+    return true;
+}
+
 // Generates the attestation certificate with the parameters passed in.  Note
 // that the passed in |activeTimeMilliSeconds| |expireTimeMilliSeconds| are in
 // milli seconds since epoch.  We are setting them to milliseconds due to
