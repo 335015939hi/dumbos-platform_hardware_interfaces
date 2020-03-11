@@ -19,6 +19,8 @@
 #include <aidl/Gtest.h>
 #include <map>
 
+#include "VtsAttestationParserSupport.h"
+
 namespace android::hardware::identity::test_utils {
 
 using std::endl;
@@ -164,16 +166,62 @@ bool AddEntry(sp<IWritableIdentityCredential>& writableCredential, const TestEnt
     return true;
 }
 
-bool ValidateAttestationCertificate(vector<Certificate>& inputCertificates) {
-    return (inputCertificates.size() >= 2);
-    // TODO: add parsing of the certificate and make sure it is genuine.
-}
 
 void SetImageData(vector<uint8_t>& image) {
     image.resize(256 * 1024 - 10);
     for (size_t n = 0; n < image.size(); n++) {
         image[n] = (uint8_t)n;
     }
+}
+
+bool ValidateAttestationCertificate(const vector<Certificate>& inputCertificates,
+                                    const vector<uint8_t>& expected_challenge,
+                                    const vector<uint8_t>& expected_app_id) {
+    AttestationCertificateParser certParser_(inputCertificates);
+    bool ret = certParser_.Parse();
+    EXPECT_TRUE(ret);
+    if (!ret) {
+        return false;
+    }
+
+    // As per the IC HAL, the version of the Identity
+    // Credential HAL is 1.0 - and this is encoded as major*10 + minor. This field is used by
+    // Keymaster which is known to report integers less than or equal to 4 (for KM up to 4.0)
+    // and integers greater or equal than 41 (for KM starting with 4.1).
+    //
+    // Since we won't get to version 4.0 of the IC HAL for a while, let's also check that a KM
+    // version isn't errornously returned.
+    EXPECT_LE(10, certParser_.GetKeymasterVersion());
+    EXPECT_GT(40, certParser_.GetKeymasterVersion());
+    EXPECT_LE(3, certParser_.GetAttestationVersion());
+
+    // Verify the app id matches to whatever we set it to be.
+    optional<vector<uint8_t>> appId = certParser_.GetApplicationId();
+    if (appId) {
+        EXPECT_EQ(expected_app_id.size(), appId.value().size());
+        EXPECT_EQ(0, memcmp(expected_app_id.data(), appId.value().data(), expected_app_id.size()));
+    } else {
+        // app id not found
+        EXPECT_EQ(0, expected_app_id.size());
+    }
+
+    EXPECT_FALSE(certParser_.IncludeUniqueId());
+    EXPECT_TRUE(certParser_.IncludeIdentityCredentialKey());
+    // EXPECT_TRUE(certParser_.GetHwEnforcedBool(::keymaster::TAG_IDENTITY_CREDENTIAL_KEY));
+
+    // Verify the challenge always matches in size and data of what is passed
+    // in.
+    vector<uint8_t> att_challenge = certParser_.GetAttestationChallenge();
+    EXPECT_EQ(expected_challenge.size(), att_challenge.size());
+    EXPECT_EQ(0,
+              memcmp(expected_challenge.data(), att_challenge.data(), expected_challenge.size()));
+
+    // The level is a bit tricky.  It may be different for each hardware.  May
+    // need to delete this, unless there is a correlation with the version
+    // number.
+    EXPECT_LE(KM_SECURITY_LEVEL_SOFTWARE, certParser_.GetKeymasterSecurityLevel());
+    EXPECT_LE(KM_SECURITY_LEVEL_SOFTWARE, certParser_.GetAttestationSecurityLevel());
+    return true;
 }
 
 }  // namespace android::hardware::identity::test_utils
