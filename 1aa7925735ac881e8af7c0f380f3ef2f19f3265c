@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6b730dea_0be0d8ec",
+        "filename": "radio/1.5/IRadio.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1583329
+      },
+      "writtenOn": "2020-03-12T08:31:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0cf2d458_5e16952d",
+      "range": {
+        "startLine": 345,
+        "startChar": 7,
+        "endLine": 345,
+        "endChar": 100
+      },
+      "revId": "1aa7925735ac881e8af7c0f380f3ef2f19f3265c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9aff3481_c74397e1",
         "filename": "radio/1.5/IRadioResponse.hal",
         "patchSetId": 4
@@ -45,6 +69,30 @@
       "revId": "1aa7925735ac881e8af7c0f380f3ef2f19f3265c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "76dbd239_8a5c59a2",
+        "filename": "radio/1.5/IRadioResponse.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1583329
+      },
+      "writtenOn": "2020-03-12T08:31:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9aff3481_c74397e1",
+      "range": {
+        "startLine": 337,
+        "startChar": 9,
+        "endLine": 337,
+        "endChar": 24
+      },
+      "revId": "1aa7925735ac881e8af7c0f380f3ef2f19f3265c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "f7829116_15c5c632",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 1080,
+      "author": {
+        "id": 1583329
+      },
+      "writtenOn": "2020-03-12T08:31:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dbcdb8ae_3d322161",
+      "range": {
+        "startLine": 1070,
+        "startChar": 4,
+        "endLine": 1080,
+        "endChar": 34
+      },
+      "revId": "1aa7925735ac881e8af7c0f380f3ef2f19f3265c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c0fb2e20_4d780c22",
         "filename": "radio/1.5/vts/functional/radio_hidl_hal_api.cpp",
         "patchSetId": 4
@@ -91,6 +163,30 @@
       "revId": "1aa7925735ac881e8af7c0f380f3ef2f19f3265c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2cb5b7bf_f6f4d9de",
+        "filename": "radio/1.5/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1178,
+      "author": {
+        "id": 1583329
+      },
+      "writtenOn": "2020-03-12T08:31:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c0fb2e20_4d780c22",
+      "range": {
+        "startLine": 1178,
+        "startChar": 8,
+        "endLine": 1178,
+        "endChar": 59
+      },
+      "revId": "1aa7925735ac881e8af7c0f380f3ef2f19f3265c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "1f0417bf_fc18dade",
+        "filename": "radio/1.5/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1181,
+      "author": {
+        "id": 1583329
+      },
+      "writtenOn": "2020-03-12T08:31:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c1b0d59_1a0e650c",
+      "range": {
+        "startLine": 1181,
+        "startChar": 31,
+        "endLine": 1181,
+        "endChar": 60
+      },
+      "revId": "1aa7925735ac881e8af7c0f380f3ef2f19f3265c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ceeb60e7_cecac1eb",
         "filename": "radio/1.5/vts/functional/radio_hidl_hal_api.cpp",
         "patchSetId": 4
@@ -137,6 +257,30 @@
       "revId": "1aa7925735ac881e8af7c0f380f3ef2f19f3265c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "080bc9ae_9430230e",
+        "filename": "radio/1.5/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1205,
+      "author": {
+        "id": 1583329
+      },
+      "writtenOn": "2020-03-12T08:31:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ceeb60e7_cecac1eb",
+      "range": {
+        "startLine": 1205,
+        "startChar": 4,
+        "endLine": 1205,
+        "endChar": 59
+      },
+      "revId": "1aa7925735ac881e8af7c0f380f3ef2f19f3265c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
