@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d08c3f24_e9388532",
+        "filename": "configstore/1.1/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-03-13T18:28:03Z",
+      "side": 1,
+      "message": "is it possible for phony to override or similar? If we can avoid installing a binary, that would be preferred.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 9
+      },
+      "revId": "f39c512038b1abcfb1d613f3034458aa586ca31c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a04f48e8_1604d28b",
+        "filename": "configstore/1.1/default/disable_configstore.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-03-13T18:28:03Z",
+      "side": 1,
+      "message": "probably shouldn\u0027t succeed, since it shouldn\u0027t ever be run",
+      "range": {
+        "startLine": 18,
+        "startChar": 11,
+        "endLine": 18,
+        "endChar": 12
+      },
+      "revId": "f39c512038b1abcfb1d613f3034458aa586ca31c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
