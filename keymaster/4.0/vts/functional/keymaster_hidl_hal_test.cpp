@@ -17,8 +17,9 @@
 #define LOG_TAG "keymaster_hidl_hal_test"
 #include <cutils/log.h>
 
-#include <iostream>
 #include <signal.h>
+#include <functional>
+#include <iostream>
 
 #include <openssl/evp.h>
 #include <openssl/mem.h>
@@ -512,9 +513,14 @@ class NewKeyGenerationTest : public KeymasterHidlTest {
         EXPECT_TRUE(auths.Contains(TAG_OS_VERSION, os_version()))
             << "OS version is " << os_version() << " key reported "
             << auths.GetTagValue(TAG_OS_VERSION);
-        EXPECT_TRUE(auths.Contains(TAG_OS_PATCHLEVEL, os_patch_level()))
-            << "OS patch level is " << os_patch_level() << " key reported "
-            << auths.GetTagValue(TAG_OS_PATCHLEVEL);
+        // The two patch levels might not be equal to each other when the GSI image
+        // is updated by the DSU flow: https://developer.android.com/topic/dsu.
+        // But the os_patch_level() should not be less than TAG_OS_PATCHLEVEL.
+        EXPECT_TRUE(auths.Contains(TAG_OS_PATCHLEVEL,  // vbmeta.img patch level
+                                   os_patch_level(),   // GSI patch level
+                                   std::less_equal<>()))
+                << "OS patch level is " << os_patch_level() << ", which is less than key reported "
+                << auths.GetTagValue(TAG_OS_PATCHLEVEL);
     }
 
     void CheckCharacteristics(const HidlBuf& key_blob,
