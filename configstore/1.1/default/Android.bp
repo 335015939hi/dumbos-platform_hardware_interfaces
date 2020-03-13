@@ -1,0 +1,6 @@
+cc_binary {
+    name: "disable_configstore",
+    srcs: ["disable_configstore.cpp"],
+    overrides: ["android.hardware.configstore@1.1-service"],
+    vendor: true,
+}
