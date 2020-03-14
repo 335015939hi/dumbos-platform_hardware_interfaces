@@ -1021,18 +1021,38 @@ struct NetworkScanResult {
 /**
  * Additional personalization categories in addition to those specified in 3GPP TS 22.022 and
  * 3GPP2 C.S0068-0.
+ * SIM_SPN
+ * Device would be personalized to a particular SPN(derived from EF_SPN) name.
+ * Ex: if EF_SPN matches to some "abc" device would be allowed to register to network,
+ * if not the SIM would be stayed in PERSO lock state.
+ *
+ * SIM_SP_EHPLMN
+ * Equivalent Home PLMN
+ * It is a personalization category which device would be locked to GID1 and EF_EHPLMN contents from SIM card.
+ * If EF_GID1 is blank then just EF_HPLMN needs to be matched.
+ * The EHPLMN list is stored in the Universal subscriber identity module (USIM) of the UE.
+ *
+ * SIM_ICCID
+ * Device would be personalized to a range of ICCID values.
+ * for eg. if only first 6 digits of ICCID are 896209 or 896112, then card will allowed to register to a network.
+ *
+ * SIM_IMPI
+ * Device would be personalized to a specific IMPI values.
+ *
+ * SIM_NS_SP
+ * Network subset service provider
+ * Device will personalized to a set of GID1(derived from EF_GID1) values and set of values from IMSI (derived from EF_IMSI).
+ * for eg: first 7 digits of IMSI and first byte of GID1.
  */
 enum PersoSubstate : @1.0::PersoSubstate {
     SIM_SPN,
     SIM_SPN_PUK,
-    /** Equivalent Home PLMN */
     SIM_SP_EHPLMN,
     SIM_SP_EHPLMN_PUK,
     SIM_ICCID,
     SIM_ICCID_PUK,
     SIM_IMPI,
     SIM_IMPI_PUK,
-    /** Network subset service provider */
     SIM_NS_SP,
     SIM_NS_SP_PUK,
 };
