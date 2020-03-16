@@ -236,6 +236,30 @@
       "revId": "4c2ee1010e86dedbfcfd46b7a4054938e041756a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e1f2686_afcea3be",
+        "filename": "audio/core/all-versions/vts/functional/AudioPrimaryHidlHalTest.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-03-16T21:26:02Z",
+      "side": 1,
+      "message": "Every test of every interface which is in the tree *must be supported*. Once an interface is removed (after a period of deprecation), only then can we remove coverage.",
+      "parentUuid": "39d108c3_cd9bd40e",
+      "range": {
+        "startLine": 147,
+        "startChar": 18,
+        "endLine": 147,
+        "endChar": 52
+      },
+      "revId": "4c2ee1010e86dedbfcfd46b7a4054938e041756a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
