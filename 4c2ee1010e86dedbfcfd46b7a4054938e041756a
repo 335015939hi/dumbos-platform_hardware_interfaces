@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "d730a510_976c7d5c",
+        "filename": "audio/core/all-versions/vts/functional/AudioPrimaryHidlHalTest.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2020-03-16T21:15:51Z",
+      "side": 1,
+      "message": "Please replace \u0027HidlTestBase\u0027 with \u0027::testing::Test\u0027 in the code and remove this statement. It was only used because there were different bases for V6 and earlier versions.",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 110,
+        "endChar": 37
+      },
+      "revId": "4c2ee1010e86dedbfcfd46b7a4054938e041756a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8110b3f6_724765ee",
         "filename": "audio/core/all-versions/vts/functional/AudioPrimaryHidlHalTest.h",
         "patchSetId": 3
@@ -180,6 +203,30 @@
       "side": 1,
       "message": "I believe the test case we try to cover is that, the suite should pass for Android 11 based image. \n\nI\u0027m not aware that all versions of VTS will run on any version of vendor image (e.g., Q VTS runs on P builds?). Anyway, vts-core won\u0027t cover that. This is the same behavior as other *TS.\n\nBack to this CL, if v2 and v4 are not applicable to Android 11, maybe we should just not include these tests? Or we can change the test to check if IDevicesFactory matches the version it supports. The way these tests are written makes this a bit complicate to do.",
       "parentUuid": "8fc9771c_4597e51b",
+      "range": {
+        "startLine": 147,
+        "startChar": 18,
+        "endLine": 147,
+        "endChar": 52
+      },
+      "revId": "4c2ee1010e86dedbfcfd46b7a4054938e041756a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39d108c3_cd9bd40e",
+        "filename": "audio/core/all-versions/vts/functional/AudioPrimaryHidlHalTest.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2020-03-16T21:15:51Z",
+      "side": 1,
+      "message": "\u003e maybe we should just not include these tests?\n\nI don\u0027t know who controls the inclusion of tests into the VTS suite.\n\n\u003e Or we can change the test to check if IDevicesFactory matches the version it supports. The way these tests are written makes this a bit complicate to do.\n\nI don\u0027t see any problem with doing that. In \u0027CheckConfig\u0027 test, you can call \u0027getDeviceParametersForFactoryTests()\u0027 and see if you\u0027ve got anything. And \u0027AudioPolicyConfigTest\u0027 can inherit \u0027AudioHidlTestWithDeviceParameter\u0027 and follow parametrization setup. In this case, it will not be instantiated if there are no factories of the required version.",
+      "parentUuid": "4c811b72_21c3756b",
       "range": {
         "startLine": 147,
         "startChar": 18,
