@@ -117,6 +117,30 @@
       "revId": "4c2ee1010e86dedbfcfd46b7a4054938e041756a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9bb9d559_bddb440b",
+        "filename": "audio/core/all-versions/vts/functional/AudioPrimaryHidlHalTest.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2020-03-16T17:53:23Z",
+      "side": 1,
+      "message": "That\u0027s per: https://b.corp.google.com/issues/150299743#comment28\n\nSteven, \nshould we only include v5 test in vts-core suite?",
+      "parentUuid": "2e9cb025_833bb278",
+      "range": {
+        "startLine": 147,
+        "startChar": 18,
+        "endLine": 147,
+        "endChar": 52
+      },
+      "revId": "4c2ee1010e86dedbfcfd46b7a4054938e041756a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
