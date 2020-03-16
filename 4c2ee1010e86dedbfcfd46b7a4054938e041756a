@@ -141,6 +141,30 @@
       "revId": "4c2ee1010e86dedbfcfd46b7a4054938e041756a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8fc9771c_4597e51b",
+        "filename": "audio/core/all-versions/vts/functional/AudioPrimaryHidlHalTest.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2020-03-16T20:03:20Z",
+      "side": 1,
+      "message": "Do you plan to run vts-core suite differently from the old one based on TF? In particular, do you plan to run all versions of VTS tests on any vendor image? If yes, then we indeed need to prevent those tests from running if there is no corresponding version of IDevicesFactory.\n\nIt seems to me that as for vts-core you rely more on the test itself to do \"the right thing\" and simplifying the framework that runs the tests, that indeed can be the case. The approach with TF was that the tests for the previous versions of the HAL were not launched by the test framework. If it is changing then we need to update the tests accordingly.",
+      "parentUuid": "9bb9d559_bddb440b",
+      "range": {
+        "startLine": 147,
+        "startChar": 18,
+        "endLine": 147,
+        "endChar": 52
+      },
+      "revId": "4c2ee1010e86dedbfcfd46b7a4054938e041756a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
