@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e8fdee41_12fa8571",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 1025,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-03-16T19:26:47Z",
+      "side": 1,
+      "message": "SPN \u003d Service Provider Name, so the \"name\" is already in the acronym.\nI would rather change the description to: The device is personalized using the content of the Service Provider Name (SPN) in the SIM card.",
+      "range": {
+        "startLine": 1025,
+        "startChar": 73,
+        "endLine": 1025,
+        "endChar": 77
+      },
+      "revId": "62ef4bbd208053240b52f856a819113666f976ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef531612_9954cf78",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 1025,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-03-16T19:26:47Z",
+      "side": 1,
+      "message": "is\n(same comment applies to all cases below)",
+      "range": {
+        "startLine": 1025,
+        "startChar": 10,
+        "endLine": 1025,
+        "endChar": 18
+      },
+      "revId": "62ef4bbd208053240b52f856a819113666f976ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5584d54_887da9dc",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 1025,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-03-16T19:26:47Z",
+      "side": 1,
+      "message": "Space before the (",
+      "range": {
+        "startLine": 1025,
+        "startChar": 51,
+        "endLine": 1025,
+        "endChar": 52
+      },
+      "revId": "62ef4bbd208053240b52f856a819113666f976ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a52aac1_661b7e39",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 1036,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-03-16T19:26:47Z",
+      "side": 1,
+      "message": "I don\u0027t think you specify a range, but rather a certain value for the first digits of the ICCID. Something like this:\nDevice is personalized using the first digits of the ICCID of the SIM card.",
+      "range": {
+        "startLine": 1036,
+        "startChar": 37,
+        "endLine": 1036,
+        "endChar": 42
+      },
+      "revId": "62ef4bbd208053240b52f856a819113666f976ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47434489_5b2c249c",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 1040,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-03-16T19:26:47Z",
+      "side": 1,
+      "message": "\"value\".\nIf you say \"a specific\", then it needs to be singular.\n\nAlso, I would add \"IMPI value stored in the ISIM\", so that it\u0027s clearer where that comes from (since ISIM is not normally used for personalization).",
+      "range": {
+        "startLine": 1040,
+        "startChar": 51,
+        "endLine": 1040,
+        "endChar": 57
+      },
+      "revId": "62ef4bbd208053240b52f856a819113666f976ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "242f72c8_9e69070b",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 1044,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-03-16T19:26:47Z",
+      "side": 1,
+      "message": "is",
+      "range": {
+        "startLine": 1044,
+        "startChar": 10,
+        "endLine": 1044,
+        "endChar": 14
+      },
+      "revId": "62ef4bbd208053240b52f856a819113666f976ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32bbfbba_2e776eb7",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 1045,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-03-16T19:26:47Z",
+      "side": 1,
+      "message": "I would re-phrase as \"Device is personalized using both the content of GID1 (equivalent to service provider personalization) and the first digits of the IMSI (equivalent to network subset personalization).\"",
+      "range": {
+        "startLine": 1044,
+        "startChar": 0,
+        "endLine": 1045,
+        "endChar": 57
+      },
+      "revId": "62ef4bbd208053240b52f856a819113666f976ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ca523bb_6866794c",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 1045,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-03-16T19:26:47Z",
+      "side": 1,
+      "message": "Can you move the description before each entry... see SignalMeasurementType as example above.",
+      "range": {
+        "startLine": 1024,
+        "startChar": 1,
+        "endLine": 1045,
+        "endChar": 57
+      },
+      "revId": "62ef4bbd208053240b52f856a819113666f976ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
