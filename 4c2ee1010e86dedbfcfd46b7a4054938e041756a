@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8110b3f6_724765ee",
+        "filename": "audio/core/all-versions/vts/functional/AudioPrimaryHidlHalTest.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2020-03-16T04:43:24Z",
+      "side": 1,
+      "message": "Both v2 and 4 failed on this test with error like following. I\u0027m wondering if this test still applies to v2 and 4?\n\nVtsHalAudioV4_0TargetTest (15 Tests)\n[1/15] CheckConfig#audioPolicyConfigurationValidation: FAILED (121ms)\n\nSTACKTRACE:\nhardware/interfaces/audio/core/all-versions/vts/functional/AudioPrimaryHidlHalTest.h:153: Failure\n1 error occurred during xml validation:\nXML is not valid according to the xsd\nWhile validating: xmlFilePath\nWhich is: /vendor/etc/audio_policy_configuration.xml\nAgainst the schema: xsd\nWhich is: /data/local/tmp/audio_policy_configuration_V4_0.xsd\nLibxml2 errors:\nError: Element \u0027devicePort\u0027, attribute \u0027encodedFormats\u0027: The attribute \u0027encodedFormats\u0027 is not allowed.\nError: Element \u0027devicePort\u0027, attribute \u0027encodedFormats\u0027: The attribute \u0027encodedFormats\u0027 is not allowed.\nError: Element \u0027devicePort\u0027, attribute \u0027encodedFormats\u0027: The attribute \u0027encodedFormats\u0027 is not allowed.\nWhile validating all: kConfigFileName\nWhich is: audio_policy_configuration.xml\nIn the following folders: kConfigLocations\nWhich is: { 0x6172792f3c pointing to \"/odm/etc\", 0x6172796085 pointing to \"/vendor/etc\", 0x6172791144 pointing to \"/system/etc\" }\nWhere at least one file must be found.",
+      "range": {
+        "startLine": 147,
+        "startChar": 18,
+        "endLine": 147,
+        "endChar": 52
+      },
+      "revId": "4c2ee1010e86dedbfcfd46b7a4054938e041756a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

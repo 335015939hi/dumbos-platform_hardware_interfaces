@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5dd54ed8_03e05e75",
+        "filename": "audio/core/all-versions/vts/functional/AudioPrimaryHidlHalTest.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1574,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2020-03-16T04:43:24Z",
+      "side": 0,
+      "message": "is this still applied to the updated test? Should we limit test for 2,4,5 to primary device (refer to comment in line 302)?",
+      "range": {
+        "startLine": 1571,
+        "startChar": 0,
+        "endLine": 1574,
+        "endChar": 53
+      },
+      "revId": "218ea408e3d0f3b3060e41c416c3eabce4ec07be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
