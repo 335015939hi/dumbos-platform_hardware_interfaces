@@ -93,6 +93,30 @@
       "revId": "f39c512038b1abcfb1d613f3034458aa586ca31c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7211a235_871b386b",
+        "filename": "configstore/1.1/default/disable_configstore.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-03-16T21:56:15Z",
+      "side": 1,
+      "message": "technically should be positive errno, like EXIT_FAILURE (\u003d1), but it\u0027s fine",
+      "parentUuid": "809def21_e360b200",
+      "range": {
+        "startLine": 18,
+        "startChar": 11,
+        "endLine": 18,
+        "endChar": 12
+      },
+      "revId": "f39c512038b1abcfb1d613f3034458aa586ca31c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
