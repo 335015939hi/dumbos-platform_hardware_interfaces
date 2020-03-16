@@ -22,6 +22,30 @@
       "revId": "4c2ee1010e86dedbfcfd46b7a4054938e041756a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a8314dd_e8f47077",
+        "filename": "audio/core/all-versions/vts/functional/AudioPrimaryHidlHalTest.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2020-03-16T17:01:39Z",
+      "side": 1,
+      "message": "Yes, it applies. If you are running earlier versions of the test on a more recent HAL it\u0027s configuration file may contain entries that are not recognized by the previous versions of the XSD file because they have been introduced in later versions. There is no specification of the version in the APM config file so the test is attempting to check it in any case. I would suggest putting a more recent XSD (audio/\u003cN\u003e.0/config/audio_policy_configuration.xsd) *in your local checkout only*, just to make sure that all tests pass.",
+      "parentUuid": "8110b3f6_724765ee",
+      "range": {
+        "startLine": 147,
+        "startChar": 18,
+        "endLine": 147,
+        "endChar": 52
+      },
+      "revId": "4c2ee1010e86dedbfcfd46b7a4054938e041756a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
