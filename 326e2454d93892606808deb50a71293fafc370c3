@@ -22,6 +22,30 @@
       "revId": "326e2454d93892606808deb50a71293fafc370c3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "734e2620_cf0c6014",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2020-03-16T20:06:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "dc3c23ba_ead858b6",
+      "range": {
+        "startLine": 238,
+        "startChar": 22,
+        "endLine": 238,
+        "endChar": 38
+      },
+      "revId": "326e2454d93892606808deb50a71293fafc370c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
