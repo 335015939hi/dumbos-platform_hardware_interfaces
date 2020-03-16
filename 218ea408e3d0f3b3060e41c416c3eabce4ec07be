@@ -22,6 +22,30 @@
       "revId": "218ea408e3d0f3b3060e41c416c3eabce4ec07be",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77ac2aaa_0fb5393f",
+        "filename": "audio/core/all-versions/vts/functional/AudioPrimaryHidlHalTest.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1574,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2020-03-16T17:31:31Z",
+      "side": 0,
+      "message": "No, it doesn\u0027t.",
+      "parentUuid": "5dd54ed8_03e05e75",
+      "range": {
+        "startLine": 1571,
+        "startChar": 0,
+        "endLine": 1574,
+        "endChar": 53
+      },
+      "revId": "218ea408e3d0f3b3060e41c416c3eabce4ec07be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
