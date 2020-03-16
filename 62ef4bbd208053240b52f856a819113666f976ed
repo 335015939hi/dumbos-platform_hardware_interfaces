@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "8041857d_8e31b409",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 1024,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-03-16T22:03:24Z",
+      "side": 1,
+      "message": "also, prefer to comment in line:\n\n/** overall comment */\nenum Foo {\n    /** comment on enumerator */\n    A,\n    ...\n}",
+      "range": {
+        "startLine": 1024,
+        "startChar": 3,
+        "endLine": 1024,
+        "endChar": 10
+      },
+      "revId": "62ef4bbd208053240b52f856a819113666f976ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e8fdee41_12fa8571",
         "filename": "radio/1.5/types.hal",
         "patchSetId": 2
