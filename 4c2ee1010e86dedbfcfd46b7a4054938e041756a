@@ -46,6 +46,30 @@
       "revId": "4c2ee1010e86dedbfcfd46b7a4054938e041756a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3842b34_2fae3877",
+        "filename": "audio/core/all-versions/vts/functional/AudioPrimaryHidlHalTest.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2020-03-16T17:16:51Z",
+      "side": 1,
+      "message": "Thanks. I tried the xsd in v5, both 2 and 4 tests passed.\nAs the test suite though, if we land the CL as is, v2 and 4 tests will fail. What should we do to fix these 2 tests for R release?\n\n\nVtsHalAudioV4_0TargetTest (15 Tests)\n[1/15] CheckConfig#audioPolicyConfigurationValidation: PASSED (2ms)\n[2/15] AudioPolicyConfigTest#LoadAudioPolicyXMLConfiguration: PASSED (1ms)\n[3/15] AudioPolicyConfigTest#HasPrimaryModule: PASSED (0ms)\n[4/15] GoogleTestVerification#UninstantiatedParamaterizedTestSuite\u003cAudioHidlTest\u003e: PASSED (1ms)\n[5/15] GoogleTestVerification#UninstantiatedParamaterizedTestSuite\u003cAudioHidlDeviceTest\u003e: PASSED (0ms)\n[6/15] GoogleTestVerification#UninstantiatedParamaterizedTestSuite\u003cAudioPrimaryHidlTest\u003e: PASSED (0ms)\n[7/15] GoogleTestVerification#UninstantiatedParamaterizedTestSuite\u003cBoolAccessorHidlTest\u003e: PASSED (0ms)\n[8/15] GoogleTestVerification#UninstantiatedParamaterizedTestSuite\u003cBoolAccessorPrimaryHidlTest\u003e: PASSED (0ms)\n[9/15] GoogleTestVerification#UninstantiatedParamaterizedTestSuite\u003cFloatAccessorHidlTest\u003e: PASSED (1ms)\n[10/15] GoogleTestVerification#UninstantiatedParamaterizedTestSuite\u003cAudioPatchHidlTest\u003e: PASSED (1ms)\n[11/15] GoogleTestVerification#UninstantiatedParamaterizedTestSuite\u003cRequiredInputBufferSizeTest\u003e: PASSED (1ms)\n[12/15] GoogleTestVerification#UninstantiatedParamaterizedTestSuite\u003cOptionalInputBufferSizeTest\u003e: PASSED (0ms)\n[13/15] GoogleTestVerification#UninstantiatedParamaterizedTestSuite\u003cOutputStreamTest\u003e: PASSED (0ms)\n[14/15] GoogleTestVerification#UninstantiatedParamaterizedTestSuite\u003cInputStreamTest\u003e: PASSED (0ms)\n[15/15] GoogleTestVerification#UninstantiatedParamaterizedTestSuite\u003cTtyModeAccessorPrimaryHidlTest\u003e: PASSED (0ms)\n\nI suppose the UninstantiatedParamaterizedTestSuite is expected as aosp-master build doesn\u0027t actually have v2 and 4 interface?",
+      "parentUuid": "7a8314dd_e8f47077",
+      "range": {
+        "startLine": 147,
+        "startChar": 18,
+        "endLine": 147,
+        "endChar": 52
+      },
+      "revId": "4c2ee1010e86dedbfcfd46b7a4054938e041756a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
