@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cfe5e2d1_50f28776",
+        "filename": "configstore/1.1/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1187124
+      },
+      "writtenOn": "2020-03-16T05:37:34Z",
+      "side": 1,
+      "message": "If installble: true, then soong don\u0027t make the Android.mk file for disable_configstore.\nSo I moved to Android.mk for it.\nThen disable_configstore is not installed.",
+      "parentUuid": "d08c3f24_e9388532",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 9
+      },
+      "revId": "f39c512038b1abcfb1d613f3034458aa586ca31c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a04f48e8_1604d28b",
         "filename": "configstore/1.1/default/disable_configstore.cpp",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "f39c512038b1abcfb1d613f3034458aa586ca31c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "809def21_e360b200",
+        "filename": "configstore/1.1/default/disable_configstore.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1187124
+      },
+      "writtenOn": "2020-03-16T05:37:34Z",
+      "side": 1,
+      "message": "Changed to \"-1\". is it right?",
+      "parentUuid": "a04f48e8_1604d28b",
+      "range": {
+        "startLine": 18,
+        "startChar": 11,
+        "endLine": 18,
+        "endChar": 12
+      },
+      "revId": "f39c512038b1abcfb1d613f3034458aa586ca31c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
