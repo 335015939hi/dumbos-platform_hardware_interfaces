@@ -87,6 +87,24 @@
       "revId": "9924df1e7fffe7531c44b3cdbd3d767fc7def8dc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c74e7ad_fb8d3e1a",
+        "filename": "media/omx/1.0/vts/functional/master/VtsHalMediaOmxV1_0TargetMasterTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2020-03-17T21:31:26Z",
+      "side": 1,
+      "message": "We can keep the test as is, or change it from using tuple parameter to a single string parameter. And the INSTANTIATE_TEST_CASE_P call can just use IOmx\u0027s instance:\n\nINSTANTIATE_TEST_CASE_P(\n        PerInstance, MasterHidlTest,\n        testing::ValuesIn(android::hardware::getAllHalInstanceNames(IOmx::descriptor)),\n        android::hardware::PrintInstanceTupleNameToString\u003c\u003e);\n\nany preference?",
+      "parentUuid": "492cf379_330f6334",
+      "revId": "9924df1e7fffe7531c44b3cdbd3d767fc7def8dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
