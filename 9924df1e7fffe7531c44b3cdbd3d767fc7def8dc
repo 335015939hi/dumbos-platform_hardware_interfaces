@@ -51,6 +51,24 @@
       "revId": "9924df1e7fffe7531c44b3cdbd3d767fc7def8dc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b7f70e1_2e0a4db1",
+        "filename": "media/omx/1.0/vts/functional/master/VtsHalMediaOmxV1_0TargetMasterTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-03-17T19:32:51Z",
+      "side": 1,
+      "message": "This will run the test over the product of \u003cset of IOmxStore instances\u003e and \u003cset of IOmx instances\u003e.\n\nIf for instance, there is IOmxStore(\"a\") IOmx(\"a\") IOmxStore(\"b\") IOmx(\"b\"), would it make sense to run this on IOmxStore(\"a\") and IOmx(\"b\") OR is there an implied relationship on the instance name?\n\nOr is it the case that only one IOmxStore is expected, for instance?",
+      "parentUuid": "2baeb825_d3a5b74d",
+      "revId": "9924df1e7fffe7531c44b3cdbd3d767fc7def8dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
