@@ -16,6 +16,24 @@
       "revId": "d4e17bf94729f14863a5acf7aa8392c22f4630ef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87a28652_c204b0ec",
+        "filename": "audio/core/all-versions/vts/functional/AudioPrimaryHidlHalTest.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2020-03-17T20:50:47Z",
+      "side": 1,
+      "message": "Done\n\nI wasn\u0027t thinking...",
+      "parentUuid": "36c9d8da_b16e84d9",
+      "revId": "d4e17bf94729f14863a5acf7aa8392c22f4630ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
