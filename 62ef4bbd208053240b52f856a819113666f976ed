@@ -206,6 +206,30 @@
       "revId": "62ef4bbd208053240b52f856a819113666f976ed",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26499aff_3bbdee6c",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 1045,
+      "author": {
+        "id": 1588212
+      },
+      "writtenOn": "2020-03-17T12:17:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32bbfbba_2e776eb7",
+      "range": {
+        "startLine": 1044,
+        "startChar": 0,
+        "endLine": 1045,
+        "endChar": 57
+      },
+      "revId": "62ef4bbd208053240b52f856a819113666f976ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
