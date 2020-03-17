@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "0359f07b_8ed87431",
+        "filename": "audio/core/all-versions/vts/functional/6.0/EnvironmentTearDown.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2020-03-17T19:54:18Z",
+      "side": 0,
+      "message": "Thank you very much for removing these header files, Dan! Please also remove this one as it was only included from the files you are removing.",
+      "range": {
+        "startLine": 22,
+        "startChar": 10,
+        "endLine": 22,
+        "endChar": 39
+      },
+      "revId": "218ea408e3d0f3b3060e41c416c3eabce4ec07be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5dd54ed8_03e05e75",
         "filename": "audio/core/all-versions/vts/functional/AudioPrimaryHidlHalTest.h",
         "patchSetId": 3

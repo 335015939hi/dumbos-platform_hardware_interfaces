@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "36c9d8da_b16e84d9",
+        "filename": "audio/core/all-versions/vts/functional/AudioPrimaryHidlHalTest.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2020-03-17T19:54:18Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we also have INSTANTIATE_TEST_CASE_P for these parametrized tests?",
+      "revId": "d4e17bf94729f14863a5acf7aa8392c22f4630ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
