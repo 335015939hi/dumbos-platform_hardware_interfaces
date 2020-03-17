@@ -69,6 +69,24 @@
       "revId": "9924df1e7fffe7531c44b3cdbd3d767fc7def8dc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "492cf379_330f6334",
+        "filename": "media/omx/1.0/vts/functional/master/VtsHalMediaOmxV1_0TargetMasterTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1105338
+      },
+      "writtenOn": "2020-03-17T21:27:19Z",
+      "side": 1,
+      "message": "I see.\n\nTo Dan, both IOmxStore and IOmx should always have the same instance name. (I believe the framework only looks at \"default\".)",
+      "parentUuid": "9b7f70e1_2e0a4db1",
+      "revId": "9924df1e7fffe7531c44b3cdbd3d767fc7def8dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
