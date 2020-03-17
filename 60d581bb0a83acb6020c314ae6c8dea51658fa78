@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f543f4c6_a2f5bd2b",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 1027,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-03-17T23:33:36Z",
+      "side": 1,
+      "message": "Line seems to me too long. Can you please split it?\nThis comment applies to several lines in this file... can you please review all of them?",
+      "range": {
+        "startLine": 1027,
+        "startChar": 67,
+        "endLine": 1027,
+        "endChar": 93
+      },
+      "revId": "60d581bb0a83acb6020c314ae6c8dea51658fa78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9cf5e34f_83c8f985",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 1029,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-03-17T23:33:36Z",
+      "side": 1,
+      "message": "Not sure if the example helps or makes things more confusing, because it\u0027s unclear what \"abc\".\nIn my opinion, the description above is sufficient and we can remove these 2 lines.",
+      "range": {
+        "startLine": 1028,
+        "startChar": 7,
+        "endLine": 1029,
+        "endChar": 58
+      },
+      "revId": "60d581bb0a83acb6020c314ae6c8dea51658fa78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1413c869_f5e0a6b1",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 1034,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-03-17T23:33:36Z",
+      "side": 1,
+      "message": "Service Provider and Equivalent Home PLMN",
+      "range": {
+        "startLine": 1034,
+        "startChar": 7,
+        "endLine": 1034,
+        "endChar": 27
+      },
+      "revId": "60d581bb0a83acb6020c314ae6c8dea51658fa78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9429c16e_ef7cac63",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 1035,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-03-17T23:33:36Z",
+      "side": 1,
+      "message": "We can use the same format as SPN above:\nThe device is personalized using both the content of the GID1 (equivalent to service provider personalization) and the content of the Equivalent Home PLMN (EHPLMN) in the SIM card.",
+      "range": {
+        "startLine": 1035,
+        "startChar": 7,
+        "endLine": 1035,
+        "endChar": 108
+      },
+      "revId": "60d581bb0a83acb6020c314ae6c8dea51658fa78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "382aa5c4_24c917be",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 1036,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-03-17T23:33:36Z",
+      "side": 1,
+      "message": "If the GID1 in the SIM is absent, then just the content of the Equivalent Home PLMN is matched.",
+      "range": {
+        "startLine": 1036,
+        "startChar": 7,
+        "endLine": 1036,
+        "endChar": 9
+      },
+      "revId": "60d581bb0a83acb6020c314ae6c8dea51658fa78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9405d961_3364e754",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 1037,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-03-17T23:33:36Z",
+      "side": 1,
+      "message": "This is already mentioned above, so we can remove this line.",
+      "range": {
+        "startLine": 1037,
+        "startChar": 7,
+        "endLine": 1037,
+        "endChar": 94
+      },
+      "revId": "60d581bb0a83acb6020c314ae6c8dea51658fa78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e74e9a64_95c9e731",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 1043,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-03-17T23:33:36Z",
+      "side": 1,
+      "message": "Same as above, we can remove this example.",
+      "range": {
+        "startLine": 1043,
+        "startChar": 7,
+        "endLine": 1043,
+        "endChar": 117
+      },
+      "revId": "60d581bb0a83acb6020c314ae6c8dea51658fa78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28ee43d7_5007907b",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 1049,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-03-17T23:33:36Z",
+      "side": 1,
+      "message": "Combine into a single sentence:\nDevice is personalized using the content of the IMPI in the ISIM.",
+      "range": {
+        "startLine": 1048,
+        "startChar": 7,
+        "endLine": 1049,
+        "endChar": 37
+      },
+      "revId": "60d581bb0a83acb6020c314ae6c8dea51658fa78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b4d5c4d_58dfcaf0",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 1054,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-03-17T23:33:36Z",
+      "side": 1,
+      "message": "Network Subset and Service Provider",
+      "range": {
+        "startLine": 1054,
+        "startChar": 7,
+        "endLine": 1054,
+        "endChar": 38
+      },
+      "revId": "60d581bb0a83acb6020c314ae6c8dea51658fa78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ef16f32_91907658",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 1057,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-03-17T23:33:36Z",
+      "side": 1,
+      "message": "Same as above: we can remove the example",
+      "range": {
+        "startLine": 1057,
+        "startChar": 7,
+        "endLine": 1057,
+        "endChar": 61
+      },
+      "revId": "60d581bb0a83acb6020c314ae6c8dea51658fa78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
