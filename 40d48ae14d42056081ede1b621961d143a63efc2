@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a743126_2c38b3bc",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 1028,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-03-18T19:23:55Z",
+      "side": 1,
+      "message": "Minor. Try to use the entire line for comments.",
+      "range": {
+        "startLine": 1027,
+        "startChar": 7,
+        "endLine": 1028,
+        "endChar": 50
+      },
+      "revId": "40d48ae14d42056081ede1b621961d143a63efc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8bb293bc_4818593d",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 1038,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-03-18T19:23:55Z",
+      "side": 1,
+      "message": "Minor. Same as above... try to use the entire line for comments.",
+      "range": {
+        "startLine": 1034,
+        "startChar": 7,
+        "endLine": 1038,
+        "endChar": 63
+      },
+      "revId": "40d48ae14d42056081ede1b621961d143a63efc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e9dfb6f_ba448c56",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 1054,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-03-18T19:23:55Z",
+      "side": 1,
+      "message": "Line is too long",
+      "range": {
+        "startLine": 1054,
+        "startChar": 76,
+        "endLine": 1054,
+        "endChar": 92
+      },
+      "revId": "40d48ae14d42056081ede1b621961d143a63efc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
