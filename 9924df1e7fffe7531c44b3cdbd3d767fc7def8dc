@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "99fdf6cd_6d766f8e",
+        "filename": "media/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2020-03-18T17:34:54Z",
+      "side": 1,
+      "message": "yes, push file preparer will fail.",
+      "parentUuid": "3f7ab4b2_1eb3e165",
+      "revId": "9924df1e7fffe7531c44b3cdbd3d767fc7def8dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1b9f9094_8ade628e",
         "filename": "media/omx/1.0/vts/functional/master/VtsHalMediaOmxV1_0TargetMasterTest.cpp",
         "patchSetId": 3
@@ -192,6 +210,24 @@
       "side": 1,
       "message": "This loses coverage in the case that an IOmx instance is registered without an IOmxStore instance. If we do it that way, we must add a check there is no lone IOmx instance.",
       "parentUuid": "ed2a647a_1d067b11",
+      "revId": "9924df1e7fffe7531c44b3cdbd3d767fc7def8dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10fe227f_883d3a10",
+        "filename": "media/omx/1.0/vts/functional/master/VtsHalMediaOmxV1_0TargetMasterTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2020-03-18T17:34:54Z",
+      "side": 1,
+      "message": "If that\u0027s the case, maybe we should use IOmx instead of IOmxStore in INSTANTIATE_TEST_CASE_P?",
+      "parentUuid": "9d126a68_965716ac",
       "revId": "9924df1e7fffe7531c44b3cdbd3d767fc7def8dc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
