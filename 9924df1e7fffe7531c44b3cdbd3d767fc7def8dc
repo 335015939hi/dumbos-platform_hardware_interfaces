@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a323588e_99137388",
+        "filename": "media/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2020-03-18T00:53:24Z",
+      "side": 1,
+      "message": "the file extensions are not unique, e.g., info is applicable for both audio and video.\nand there are multiple extensions for video or audio.\n\nIf you\u0027d prefer more definitive list, I can change that to a static list without using regex matching, with each file name there.",
+      "parentUuid": "17dbad1e_158073ab",
+      "revId": "9924df1e7fffe7531c44b3cdbd3d767fc7def8dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1b9f9094_8ade628e",
         "filename": "media/omx/1.0/vts/functional/master/VtsHalMediaOmxV1_0TargetMasterTest.cpp",
         "patchSetId": 3
@@ -123,6 +141,24 @@
       "revId": "9924df1e7fffe7531c44b3cdbd3d767fc7def8dc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed2a647a_1d067b11",
+        "filename": "media/omx/1.0/vts/functional/master/VtsHalMediaOmxV1_0TargetMasterTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2020-03-18T00:53:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81bb7a63_52a99460",
+      "revId": "9924df1e7fffe7531c44b3cdbd3d767fc7def8dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
