@@ -163,6 +163,30 @@
     },
     {
       "key": {
+        "uuid": "0b4842fe_e7b9688a",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 1043,
+      "author": {
+        "id": 1588212
+      },
+      "writtenOn": "2020-03-18T11:08:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e74e9a64_95c9e731",
+      "range": {
+        "startLine": 1043,
+        "startChar": 7,
+        "endLine": 1043,
+        "endChar": 117
+      },
+      "revId": "60d581bb0a83acb6020c314ae6c8dea51658fa78",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "28ee43d7_5007907b",
         "filename": "radio/1.5/types.hal",
         "patchSetId": 4
