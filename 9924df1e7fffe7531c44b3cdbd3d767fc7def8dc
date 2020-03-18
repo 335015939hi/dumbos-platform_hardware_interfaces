@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "3f7ab4b2_1eb3e165",
+        "filename": "media/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-03-18T17:19:47Z",
+      "side": 1,
+      "message": "I see. I don\u0027t feel strongly either way. Will the test fail if one is missing?",
+      "parentUuid": "a323588e_99137388",
+      "revId": "9924df1e7fffe7531c44b3cdbd3d767fc7def8dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1b9f9094_8ade628e",
         "filename": "media/omx/1.0/vts/functional/master/VtsHalMediaOmxV1_0TargetMasterTest.cpp",
         "patchSetId": 3
@@ -159,6 +177,24 @@
       "revId": "9924df1e7fffe7531c44b3cdbd3d767fc7def8dc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9d126a68_965716ac",
+        "filename": "media/omx/1.0/vts/functional/master/VtsHalMediaOmxV1_0TargetMasterTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-03-18T17:19:47Z",
+      "side": 1,
+      "message": "This loses coverage in the case that an IOmx instance is registered without an IOmxStore instance. If we do it that way, we must add a check there is no lone IOmx instance.",
+      "parentUuid": "ed2a647a_1d067b11",
+      "revId": "9924df1e7fffe7531c44b3cdbd3d767fc7def8dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
