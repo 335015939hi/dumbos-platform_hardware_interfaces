@@ -115,6 +115,75 @@
       "revId": "1976a514272832f1876520dad38862dcadc73e5a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3638fa32_b4ffc326",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-03-19T14:30:25Z",
+      "side": 1,
+      "message": "Non const reference is not allowed by the C++ guidelines. Just return HidlBuf by value.",
+      "range": {
+        "startLine": 330,
+        "startChar": 19,
+        "endLine": 330,
+        "endChar": 37
+      },
+      "revId": "1976a514272832f1876520dad38862dcadc73e5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "864b945d_966c7fb4",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-03-19T14:30:25Z",
+      "side": 1,
+      "message": "If this function returns returns HidlVec. This can be replaced with.\nreturn std::move(parsed_record.unique_id);\nThis will transfer ownership instead of copying.",
+      "range": {
+        "startLine": 344,
+        "startChar": 4,
+        "endLine": 345,
+        "endChar": 93
+      },
+      "revId": "1976a514272832f1876520dad38862dcadc73e5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a745b851_5518940d",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 4326,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-03-19T14:30:25Z",
+      "side": 1,
+      "message": "Please add a comment indicating the unit, and how these times differ.",
+      "range": {
+        "startLine": 4325,
+        "startChar": 36,
+        "endLine": 4326,
+        "endChar": 50
+      },
+      "revId": "1976a514272832f1876520dad38862dcadc73e5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
