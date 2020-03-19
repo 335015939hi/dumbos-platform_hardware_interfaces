@@ -155,11 +155,20 @@ static const Uuid LOUDNESS_ENHANCER_EFFECT_TYPE = {
     0xfe3199be, 0xaed0, 0x413f, 0x87bb,
     std::array<uint8_t, 6>{{0x11, 0x26, 0x0e, 0xb6, 0x3c, 0xf1}}};
 
+enum { PARAM_FACTORY_NAME, PARAM_EFFECT_UUID };
+using EffectParameter = std::tuple<std::string, Uuid>;
+
+static inline std::string EffectParameterToString(
+        const ::testing::TestParamInfo<EffectParameter>& info) {
+    return ::android::hardware::PrintInstanceNameToString(::testing::TestParamInfo<std::string>{
+            std::get<PARAM_FACTORY_NAME>(info.param), info.index});
+}
+
 // The main test class for Audio Effect HIDL HAL.
-class AudioEffectHidlTest : public ::testing::TestWithParam<std::string> {
+class AudioEffectHidlTest : public ::testing::TestWithParam<EffectParameter> {
   public:
     void SetUp() override {
-        effectsFactory = IEffectsFactory::getService(GetParam());
+        effectsFactory = IEffectsFactory::getService(std::get<PARAM_FACTORY_NAME>(GetParam()));
         ASSERT_NE(nullptr, effectsFactory.get());
 
         findAndCreateEffect(getEffectType());
@@ -168,9 +177,19 @@ class AudioEffectHidlTest : public ::testing::TestWithParam<std::string> {
         Return<Result> ret = effect->init();
         ASSERT_TRUE(ret.isOk());
         ASSERT_EQ(Result::OK, ret);
+
+        if (isEqualizer()) {
+            equalizer = IEqualizerEffect::castFrom(effect);
+            ASSERT_NE(nullptr, equalizer);
+        } else if (isLoudnessEnhancer()) {
+            enhancer = ILoudnessEnhancerEffect::castFrom(effect);
+            ASSERT_NE(nullptr, enhancer);
+        }
     }
 
     void TearDown() override {
+        enhancer.clear();
+        equalizer.clear();
         effect.clear();
         effectsFactory.clear();
     }
@@ -180,14 +199,25 @@ class AudioEffectHidlTest : public ::testing::TestWithParam<std::string> {
         RecordProperty("description", description);
     }
 
-    virtual Uuid getEffectType() { return EQUALIZER_EFFECT_TYPE; }
+    Uuid getEffectType() const { return std::get<PARAM_EFFECT_UUID>(GetParam()); }
+    bool isEqualizer() const { return getEffectType() == EQUALIZER_EFFECT_TYPE; }
+    bool isLoudnessEnhancer() const { return getEffectType() == LOUDNESS_ENHANCER_EFFECT_TYPE; }
 
     void findAndCreateEffect(const Uuid& type);
     void findEffectInstance(const Uuid& type, Uuid* uuid);
     void getChannelCount(uint32_t* channelCount);
 
+    // Helper methods for IEquializerEffect
+    void getNumBands(uint16_t* numBands);
+    void getLevelRange(int16_t* minLevel, int16_t* maxLevel);
+    void getBandFrequencyRange(uint16_t band, uint32_t* minFreq, uint32_t* centerFreq,
+                               uint32_t* maxFreq);
+    void getPresetCount(size_t* count);
+
     sp<IEffectsFactory> effectsFactory;
     sp<IEffect> effect;
+    sp<IEqualizerEffect> equalizer;
+    sp<ILoudnessEnhancerEffect> enhancer;
 };
 
 void AudioEffectHidlTest::findAndCreateEffect(const Uuid& type) {
@@ -369,7 +399,9 @@ TEST_P(AudioEffectHidlTest, DisableEnableDisable) {
     description("Verify Disable -> Enable -> Disable sequence for an effect");
     Return<Result> ret = effect->disable();
     EXPECT_TRUE(ret.isOk());
-    EXPECT_EQ(Result::INVALID_ARGUMENTS, ret);
+    // Note: some legacy effects may return -EINVAL (INVALID_ARGUMENTS),
+    //       more canonical is to return -ENOSYS (NOT_SUPPORTED)
+    EXPECT_TRUE(ret == Result::NOT_SUPPORTED || ret == Result::INVALID_ARGUMENTS);
     ret = effect->enable();
     EXPECT_TRUE(ret.isOk());
     EXPECT_EQ(Result::OK, ret);
@@ -517,27 +549,7 @@ TEST_P(AudioEffectHidlTest, SetCurrentConfigForFeature) {
     EXPECT_TRUE(ret.isOk());
 }
 
-// The main test class for Equalizer Audio Effect HIDL HAL.
-class EqualizerAudioEffectHidlTest : public AudioEffectHidlTest {
-   public:
-    void SetUp() override {
-        AudioEffectHidlTest::SetUp();
-        equalizer = IEqualizerEffect::castFrom(effect);
-        ASSERT_NE(nullptr, equalizer.get());
-    }
-
-   protected:
-    Uuid getEffectType() override { return EQUALIZER_EFFECT_TYPE; }
-    void getNumBands(uint16_t* numBands);
-    void getLevelRange(int16_t* minLevel, int16_t* maxLevel);
-    void getBandFrequencyRange(uint16_t band, uint32_t* minFreq, uint32_t* centerFreq,
-                               uint32_t* maxFreq);
-    void getPresetCount(size_t* count);
-
-    sp<IEqualizerEffect> equalizer;
-};
-
-void EqualizerAudioEffectHidlTest::getNumBands(uint16_t* numBands) {
+void AudioEffectHidlTest::getNumBands(uint16_t* numBands) {
     Result retval = Result::NOT_INITIALIZED;
     Return<void> ret = equalizer->getNumBands([&](Result r, uint16_t b) {
         retval = r;
@@ -549,7 +561,7 @@ void EqualizerAudioEffectHidlTest::getNumBands(uint16_t* numBands) {
     ASSERT_EQ(Result::OK, retval);
 }
 
-void EqualizerAudioEffectHidlTest::getLevelRange(int16_t* minLevel, int16_t* maxLevel) {
+void AudioEffectHidlTest::getLevelRange(int16_t* minLevel, int16_t* maxLevel) {
     Result retval = Result::NOT_INITIALIZED;
     Return<void> ret = equalizer->getLevelRange([&](Result r, int16_t min, int16_t max) {
         retval = r;
@@ -562,8 +574,8 @@ void EqualizerAudioEffectHidlTest::getLevelRange(int16_t* minLevel, int16_t* max
     ASSERT_EQ(Result::OK, retval);
 }
 
-void EqualizerAudioEffectHidlTest::getBandFrequencyRange(uint16_t band, uint32_t* minFreq,
-                                                         uint32_t* centerFreq, uint32_t* maxFreq) {
+void AudioEffectHidlTest::getBandFrequencyRange(uint16_t band, uint32_t* minFreq,
+                                                uint32_t* centerFreq, uint32_t* maxFreq) {
     Result retval = Result::NOT_INITIALIZED;
     Return<void> ret =
         equalizer->getBandFrequencyRange(band, [&](Result r, uint32_t min, uint32_t max) {
@@ -585,7 +597,7 @@ void EqualizerAudioEffectHidlTest::getBandFrequencyRange(uint16_t band, uint32_t
     ASSERT_EQ(Result::OK, retval);
 }
 
-void EqualizerAudioEffectHidlTest::getPresetCount(size_t* count) {
+void AudioEffectHidlTest::getPresetCount(size_t* count) {
     Result retval = Result::NOT_INITIALIZED;
     Return<void> ret = equalizer->getPresetNames([&](Result r, const hidl_vec<hidl_string>& names) {
         retval = r;
@@ -597,22 +609,31 @@ void EqualizerAudioEffectHidlTest::getPresetCount(size_t* count) {
     ASSERT_EQ(Result::OK, retval);
 }
 
-TEST_P(EqualizerAudioEffectHidlTest, GetNumBands) {
+TEST_P(AudioEffectHidlTest, GetNumBands) {
     description("Verify that Equalizer effect reports at least one band");
+    if (!isEqualizer()) {
+        GTEST_SKIP() << "This test is specific to Equalizer Effect";
+    }
     uint16_t numBands = 0;
     getNumBands(&numBands);
     EXPECT_GT(numBands, 0);
 }
 
-TEST_P(EqualizerAudioEffectHidlTest, GetLevelRange) {
+TEST_P(AudioEffectHidlTest, GetLevelRange) {
     description("Verify that Equalizer effect reports adequate band level range");
+    if (!isEqualizer()) {
+        GTEST_SKIP() << "This test is specific to Equalizer Effect";
+    }
     int16_t minLevel = 0x7fff, maxLevel = 0;
     getLevelRange(&minLevel, &maxLevel);
     EXPECT_GT(maxLevel, minLevel);
 }
 
-TEST_P(EqualizerAudioEffectHidlTest, GetSetBandLevel) {
+TEST_P(AudioEffectHidlTest, GetSetBandLevel) {
     description("Verify that manipulating band levels works for Equalizer effect");
+    if (!isEqualizer()) {
+        GTEST_SKIP() << "This test is specific to Equalizer Effect";
+    }
     uint16_t numBands = 0;
     getNumBands(&numBands);
     ASSERT_GT(numBands, 0);
@@ -640,8 +661,11 @@ TEST_P(EqualizerAudioEffectHidlTest, GetSetBandLevel) {
     }
 }
 
-TEST_P(EqualizerAudioEffectHidlTest, GetBandCenterFrequencyAndRange) {
+TEST_P(AudioEffectHidlTest, GetBandCenterFrequencyAndRange) {
     description("Verify that Equalizer effect reports adequate band frequency range");
+    if (!isEqualizer()) {
+        GTEST_SKIP() << "This test is specific to Equalizer Effect";
+    }
     uint16_t numBands = 0;
     getNumBands(&numBands);
     ASSERT_GT(numBands, 0);
@@ -655,8 +679,11 @@ TEST_P(EqualizerAudioEffectHidlTest, GetBandCenterFrequencyAndRange) {
     }
 }
 
-TEST_P(EqualizerAudioEffectHidlTest, GetBandForFrequency) {
+TEST_P(AudioEffectHidlTest, GetBandForFrequency) {
     description("Verify that Equalizer effect supports GetBandForFrequency correctly");
+    if (!isEqualizer()) {
+        GTEST_SKIP() << "This test is specific to Equalizer Effect";
+    }
     uint16_t numBands = 0;
     getNumBands(&numBands);
     ASSERT_GT(numBands, 0);
@@ -684,15 +711,21 @@ TEST_P(EqualizerAudioEffectHidlTest, GetBandForFrequency) {
     }
 }
 
-TEST_P(EqualizerAudioEffectHidlTest, GetPresetNames) {
+TEST_P(AudioEffectHidlTest, GetPresetNames) {
     description("Verify that Equalizer effect reports at least one preset");
+    if (!isEqualizer()) {
+        GTEST_SKIP() << "This test is specific to Equalizer Effect";
+    }
     size_t presetCount;
     getPresetCount(&presetCount);
     EXPECT_GT(presetCount, 0u);
 }
 
-TEST_P(EqualizerAudioEffectHidlTest, GetSetCurrentPreset) {
+TEST_P(AudioEffectHidlTest, GetSetCurrentPreset) {
     description("Verify that manipulating the current preset for Equalizer effect");
+    if (!isEqualizer()) {
+        GTEST_SKIP() << "This test is specific to Equalizer Effect";
+    }
     size_t presetCount;
     getPresetCount(&presetCount);
     ASSERT_GT(presetCount, 0u);
@@ -714,10 +747,13 @@ TEST_P(EqualizerAudioEffectHidlTest, GetSetCurrentPreset) {
     }
 }
 
-TEST_P(EqualizerAudioEffectHidlTest, GetSetAllProperties) {
+TEST_P(AudioEffectHidlTest, GetSetAllProperties) {
     description(
         "Verify that setting band levels and presets works via Get / "
         "SetAllProperties for Equalizer effect");
+    if (!isEqualizer()) {
+        GTEST_SKIP() << "This test is specific to Equalizer Effect";
+    }
     using AllProperties =
         ::android::hardware::audio::effect::CPP_VERSION::IEqualizerEffect::AllProperties;
     uint16_t numBands = 0;
@@ -763,25 +799,13 @@ TEST_P(EqualizerAudioEffectHidlTest, GetSetAllProperties) {
     EXPECT_EQ(props.curPreset, actualProps.curPreset);
 }
 
-// The main test class for Equalizer Audio Effect HIDL HAL.
-class LoudnessEnhancerAudioEffectHidlTest : public AudioEffectHidlTest {
-   public:
-    void SetUp() override {
-        AudioEffectHidlTest::SetUp();
-        enhancer = ILoudnessEnhancerEffect::castFrom(effect);
-        ASSERT_NE(nullptr, enhancer.get());
-    }
-
-   protected:
-    Uuid getEffectType() override { return LOUDNESS_ENHANCER_EFFECT_TYPE; }
-
-    sp<ILoudnessEnhancerEffect> enhancer;
-};
-
-TEST_P(LoudnessEnhancerAudioEffectHidlTest, GetSetTargetGain) {
+TEST_P(AudioEffectHidlTest, GetSetTargetGain) {
     description(
         "Verify that manipulating the target gain works for Loudness Enhancer "
         "effect");
+    if (!isLoudnessEnhancer()) {
+        GTEST_SKIP() << "This test is specific to Loudness Enhancer effect";
+    }
     const int32_t gain = 100;
     Return<Result> ret = enhancer->setTargetGain(gain);
     EXPECT_TRUE(ret.isOk());
@@ -799,19 +823,19 @@ TEST_P(LoudnessEnhancerAudioEffectHidlTest, GetSetTargetGain) {
     EXPECT_EQ(gain, actualGain);
 }
 
-INSTANTIATE_TEST_SUITE_P(
-        EffectsFactory, AudioEffectsFactoryHidlTest,
-        testing::ValuesIn(android::hardware::getAllHalInstanceNames(IEffectsFactory::descriptor)),
-        android::hardware::PrintInstanceNameToString);
+INSTANTIATE_TEST_SUITE_P(EffectsFactory, AudioEffectsFactoryHidlTest,
+                         ::testing::ValuesIn(::android::hardware::getAllHalInstanceNames(
+                                 IEffectsFactory::descriptor)),
+                         ::android::hardware::PrintInstanceNameToString);
 INSTANTIATE_TEST_SUITE_P(
         Equalizer, AudioEffectHidlTest,
-        testing::ValuesIn(android::hardware::getAllHalInstanceNames(IEffectsFactory::descriptor)),
-        android::hardware::PrintInstanceNameToString);
+        ::testing::Combine(::testing::ValuesIn(::android::hardware::getAllHalInstanceNames(
+                                   IEffectsFactory::descriptor)),
+                           ::testing::Values(EQUALIZER_EFFECT_TYPE)),
+        EffectParameterToString);
 INSTANTIATE_TEST_SUITE_P(
-        Equalizer, EqualizerAudioEffectHidlTest,
-        testing::ValuesIn(android::hardware::getAllHalInstanceNames(IEffectsFactory::descriptor)),
-        android::hardware::PrintInstanceNameToString);
-INSTANTIATE_TEST_SUITE_P(
-        LoudnessEnhancer, LoudnessEnhancerAudioEffectHidlTest,
-        testing::ValuesIn(android::hardware::getAllHalInstanceNames(IEffectsFactory::descriptor)),
-        android::hardware::PrintInstanceNameToString);
+        LoudnessEnhancer, AudioEffectHidlTest,
+        ::testing::Combine(::testing::ValuesIn(::android::hardware::getAllHalInstanceNames(
+                                   IEffectsFactory::descriptor)),
+                           ::testing::Values(LOUDNESS_ENHANCER_EFFECT_TYPE)),
+        EffectParameterToString);
