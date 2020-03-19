@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "d5dfd11a_7c8fd137",
+        "filename": "keymaster/4.0/support/include/keymasterV4_0/attestation_record.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-03-19T14:28:48Z",
+      "side": 1,
+      "message": "Oh, another nice approach might be to return std::variant\u003cErrorCode, attestation_record\u003e.  That  way you can return either an error or an attestation_record.  I anticipate using this quite a bit now that we have it... in pure C++ code it does away with the need to even have ErrorCode::OK, and the like.",
+      "parentUuid": "8c0df83c_ecfe923f",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 70
+      },
+      "revId": "1976a514272832f1876520dad38862dcadc73e5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "35c2606b_2d173419",
         "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
         "patchSetId": 6
