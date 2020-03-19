@@ -249,6 +249,24 @@
       "revId": "9924df1e7fffe7531c44b3cdbd3d767fc7def8dc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "954240c1_f72f2494",
+        "filename": "media/omx/1.0/vts/functional/master/VtsHalMediaOmxV1_0TargetMasterTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-03-19T00:33:36Z",
+      "side": 1,
+      "message": "No - as a general rule, we must test every aosp hal implementation, that it fulfills its contract. This is important so that future framework code can rely on that contract if necessary. It doesn\u0027t make sense to allow exceptions here, especially not out of convenience, and if it is truly useless, testing for absence means potentially saving memory on some devices.",
+      "parentUuid": "9255863a_9679ef19",
+      "revId": "9924df1e7fffe7531c44b3cdbd3d767fc7def8dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
