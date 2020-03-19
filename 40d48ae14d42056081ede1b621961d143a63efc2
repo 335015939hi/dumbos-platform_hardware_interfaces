@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "816a9da3_74f860fb",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 1028,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-03-19T20:25:26Z",
+      "side": 1,
+      "message": "I marked as +1 to indicate that content looks fine. But it would certainly be preferable if you can re-upload with correct line length.",
+      "parentUuid": "04c872df_83292c71",
+      "range": {
+        "startLine": 1027,
+        "startChar": 7,
+        "endLine": 1028,
+        "endChar": 50
+      },
+      "revId": "40d48ae14d42056081ede1b621961d143a63efc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8bb293bc_4818593d",
         "filename": "radio/1.5/types.hal",
         "patchSetId": 5
