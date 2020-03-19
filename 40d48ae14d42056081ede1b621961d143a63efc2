@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "77165301_f77310f4",
+        "filename": "radio/1.5/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 1028,
+      "author": {
+        "id": 1407086
+      },
+      "writtenOn": "2020-03-19T18:36:12Z",
+      "side": 1,
+      "message": "The limit of each line is 100 characters, as indicated here: https://source.android.com/setup/contribute/code-style#limit-line-length\n\nThe suggestion is to use the entire line as possible, without exceeding the limit.",
+      "parentUuid": "c5ef8566_14c83a3e",
+      "range": {
+        "startLine": 1027,
+        "startChar": 7,
+        "endLine": 1028,
+        "endChar": 50
+      },
+      "revId": "40d48ae14d42056081ede1b621961d143a63efc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8bb293bc_4818593d",
         "filename": "radio/1.5/types.hal",
         "patchSetId": 5
