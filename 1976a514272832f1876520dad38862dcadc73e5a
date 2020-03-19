@@ -22,6 +22,75 @@
       "revId": "1976a514272832f1876520dad38862dcadc73e5a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c0df83c_ecfe923f",
+        "filename": "keymaster/4.0/support/include/keymasterV4_0/attestation_record.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-03-19T14:24:46Z",
+      "side": 1,
+      "message": "Nit:  This is okay as-is, but consider returning the attestation_record by value in a std::pair or std::tuple.  C++ 17 structured bindings (https://github.com/AnthonyCalandra/modern-cpp-features#structured-bindings) make receiving such a pair/tuple and unpacking it on the caller side very clean, e.g. \n\nauto [err, parsed_record] \u003d parse_attestation_record(...)\n\nAnd, of course, move constructors and assignment operators (auto-generated in the case of attestation_record) make it efficient.",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 70
+      },
+      "revId": "1976a514272832f1876520dad38862dcadc73e5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35c2606b_2d173419",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-03-19T14:24:46Z",
+      "side": 1,
+      "message": "What if TAG_CREATION_DATETIME isn\u0027t in the sw-enfored list?",
+      "range": {
+        "startLine": 323,
+        "startChar": 1,
+        "endLine": 325,
+        "endChar": 9
+      },
+      "revId": "1976a514272832f1876520dad38862dcadc73e5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ca56b88_987377ef",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-03-19T14:24:46Z",
+      "side": 1,
+      "message": "Don\u0027t use non-const reference args.  Pass a non-const pointer or return by value instead.\n\nThe bad thing about non-const reference args it that it\u0027s unclear at the call site that the function will modify the argument.\n\nhttps://engdoc.corp.google.com/eng/doc/devguide/cpp/styleguide.md?cl\u003dhead#Output_Parameters",
+      "range": {
+        "startLine": 330,
+        "startChar": 19,
+        "endLine": 330,
+        "endChar": 37
+      },
+      "revId": "1976a514272832f1876520dad38862dcadc73e5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
