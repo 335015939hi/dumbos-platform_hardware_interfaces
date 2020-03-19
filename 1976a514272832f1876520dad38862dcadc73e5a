@@ -164,6 +164,29 @@
     },
     {
       "key": {
+        "uuid": "fdb195c9_457c5801",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 4325,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-03-19T14:53:41Z",
+      "side": 1,
+      "message": "These can be constexpr.",
+      "range": {
+        "startLine": 4325,
+        "startChar": 19,
+        "endLine": 4325,
+        "endChar": 33
+      },
+      "revId": "1976a514272832f1876520dad38862dcadc73e5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a745b851_5518940d",
         "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
         "patchSetId": 6
@@ -180,6 +203,52 @@
         "startChar": 36,
         "endLine": 4326,
         "endChar": 50
+      },
+      "revId": "1976a514272832f1876520dad38862dcadc73e5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "edccda4a_9aefc22e",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 4377,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-03-19T14:53:41Z",
+      "side": 1,
+      "message": "Can you leave a comment indicating why there cannot be a unique ID rotation between these two values? Maybe a reference to the section in the spec.\n\nAlso constexpr.",
+      "range": {
+        "startLine": 4376,
+        "startChar": 4,
+        "endLine": 4377,
+        "endChar": 51
+      },
+      "revId": "1976a514272832f1876520dad38862dcadc73e5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8a63b99_1e4082b3",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 4479,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-03-19T14:53:41Z",
+      "side": 1,
+      "message": "Nit: Implement operator \u003d\u003d for HidlBuf and use EXPECT_EQ. Frankly you shouldn\u0027t use HidlBuf at all for the unique id. You should have get_unique_id return hidl_vec\u003cuint8_t\u003e which implements operator\u003d\u003d.",
+      "range": {
+        "startLine": 4479,
+        "startChar": 4,
+        "endLine": 4479,
+        "endChar": 98
       },
       "revId": "1976a514272832f1876520dad38862dcadc73e5a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
