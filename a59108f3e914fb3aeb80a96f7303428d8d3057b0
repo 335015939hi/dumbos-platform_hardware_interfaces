@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fb0593d2_69825068",
+        "filename": "media/omx/1.0/vts/functional/master/VtsHalMediaOmxV1_0TargetMasterTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-03-20T18:27:33Z",
+      "side": 1,
+      "message": "const\u0026",
+      "range": {
+        "startLine": 88,
+        "startChar": 10,
+        "endLine": 88,
+        "endChar": 19
+      },
+      "revId": "a59108f3e914fb3aeb80a96f7303428d8d3057b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed135585_76406c65",
+        "filename": "media/omx/1.0/vts/functional/master/VtsHalMediaOmxV1_0TargetMasterTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-03-20T18:27:33Z",
+      "side": 1,
+      "message": "nice!\n\nTEST vs TEST_P. This is exactly the kind of thing I\u0027m happy to see. Before, we were shoving this kind of thing into vts_treble_vintf_vendor_test, but it belongs here.",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 1
+      },
+      "revId": "a59108f3e914fb3aeb80a96f7303428d8d3057b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
