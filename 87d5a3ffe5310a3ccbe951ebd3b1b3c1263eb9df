@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7745252b_c0774caf",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2020-03-21T00:21:55Z",
+      "side": 0,
+      "message": "Note: this is the line causing the conflict because 2.1 is not in AOSP.",
+      "revId": "87d5a3ffe5310a3ccbe951ebd3b1b3c1263eb9df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
