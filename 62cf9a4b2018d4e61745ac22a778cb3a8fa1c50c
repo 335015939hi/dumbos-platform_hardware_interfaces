@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "6bdfcf77_8c000c2f",
+        "filename": "dumpstate/1.1/default/android.hardware.dumpstate@1.1-service.example.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1124543
+      },
+      "writtenOn": "2020-03-23T21:34:32Z",
+      "side": 1,
+      "message": "This should be oneshot + disabled. See ../1.0/*.rc",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 16
+      },
+      "revId": "62cf9a4b2018d4e61745ac22a778cb3a8fa1c50c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "42c29f0e_a323ba1a",
         "filename": "dumpstate/1.1/default/main.cpp",
         "patchSetId": 1
@@ -13,6 +36,121 @@
       "writtenOn": "2020-03-23T21:30:52Z",
       "side": 1,
       "message": "copyright header?",
+      "revId": "62cf9a4b2018d4e61745ac22a778cb3a8fa1c50c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a65f9ba8_87a88e40",
+        "filename": "dumpstate/1.1/default/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1124543
+      },
+      "writtenOn": "2020-03-23T21:34:32Z",
+      "side": 1,
+      "message": "What\u0027s the reasoning behind having this all in one file? ../1.0/ has separate service/header/impl files.",
+      "range": {
+        "startLine": 19,
+        "startChar": 7,
+        "endLine": 19,
+        "endChar": 22
+      },
+      "revId": "62cf9a4b2018d4e61745ac22a778cb3a8fa1c50c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "464d3af6_2627814a",
+        "filename": "dumpstate/1.1/default/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1124543
+      },
+      "writtenOn": "2020-03-23T21:34:32Z",
+      "side": 1,
+      "message": "Log these error cases? The default 1.0 logs a fair amount of stuff.",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 12
+      },
+      "revId": "62cf9a4b2018d4e61745ac22a778cb3a8fa1c50c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6890a6f2_7a7db7a2",
+        "filename": "dumpstate/1.1/default/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1124543
+      },
+      "writtenOn": "2020-03-23T21:34:32Z",
+      "side": 1,
+      "message": "I assume this is why we need to not be oneshot/disabled?\n\nSteven, any suggestions on how to handle this without using system properties?",
+      "range": {
+        "startLine": 54,
+        "startChar": 8,
+        "endLine": 54,
+        "endChar": 31
+      },
+      "revId": "62cf9a4b2018d4e61745ac22a778cb3a8fa1c50c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b928c6f_7d8e2154",
+        "filename": "dumpstate/1.1/default/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1124543
+      },
+      "writtenOn": "2020-03-23T21:34:32Z",
+      "side": 1,
+      "message": "return Void();",
+      "range": {
+        "startLine": 55,
+        "startChar": 8,
+        "endLine": 55,
+        "endChar": 18
+      },
+      "revId": "62cf9a4b2018d4e61745ac22a778cb3a8fa1c50c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f306b22_63fbee27",
+        "filename": "dumpstate/1.1/default/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1124543
+      },
+      "writtenOn": "2020-03-23T21:34:32Z",
+      "side": 1,
+      "message": "Ditto",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 18
+      },
       "revId": "62cf9a4b2018d4e61745ac22a778cb3a8fa1c50c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
