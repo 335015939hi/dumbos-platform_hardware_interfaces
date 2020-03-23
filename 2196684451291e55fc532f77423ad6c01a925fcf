@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "64f92721_8cf4bd5b",
+        "filename": "dumpstate/1.1/default/android.hardware.dumpstate@1.1-service.example.rc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-03-23T23:15:35Z",
+      "side": 1,
+      "message": "will nobody/nobody work?",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 16
+      },
+      "revId": "2196684451291e55fc532f77423ad6c01a925fcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e802d024_79802b63",
+        "filename": "dumpstate/1.1/default/android.hardware.dumpstate@1.1-service.example.rc",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-03-23T23:15:35Z",
+      "side": 1,
+      "message": "to make it lazy (so that it shuts down as well), this should be setup wit LazyServiceRegistrar (or the old way, with postcommandtask).\n\nWithout this, the device will have an extra process after a bugreport is started. Since if done too much, this kind of thing could be skewing metrics, we want to avoid it.",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 12
+      },
+      "revId": "2196684451291e55fc532f77423ad6c01a925fcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ad5705c_57fb2a32",
+        "filename": "dumpstate/1.1/default/android.hardware.dumpstate@1.1-service.example.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-03-23T23:15:35Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 1,
+        "startChar": 37,
+        "endLine": 1,
+        "endChar": 54
+      },
+      "revId": "2196684451291e55fc532f77423ad6c01a925fcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ec3d761_4992663a",
+        "filename": "dumpstate/1.1/default/main.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-03-23T23:15:35Z",
+      "side": 1,
+      "message": "why?",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 52
+      },
+      "revId": "2196684451291e55fc532f77423ad6c01a925fcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1bc0a5b_05bf4de6",
+        "filename": "dumpstate/1.1/default/main.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-03-23T23:15:35Z",
+      "side": 1,
+      "message": "be more explicit?",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 0
+      },
+      "revId": "2196684451291e55fc532f77423ad6c01a925fcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1316177d_20730957",
+        "filename": "dumpstate/1.1/default/main.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-03-23T23:15:35Z",
+      "side": 1,
+      "message": "nit: add recently, but prefer sp::make",
+      "range": {
+        "startLine": 116,
+        "startChar": 35,
+        "endLine": 116,
+        "endChar": 56
+      },
+      "revId": "2196684451291e55fc532f77423ad6c01a925fcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
