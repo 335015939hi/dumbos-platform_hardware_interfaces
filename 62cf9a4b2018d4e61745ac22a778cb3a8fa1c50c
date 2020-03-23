@@ -65,6 +65,30 @@
     },
     {
       "key": {
+        "uuid": "2b10cb7d_46f86f93",
+        "filename": "dumpstate/1.1/default/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1278660
+      },
+      "writtenOn": "2020-03-23T21:38:16Z",
+      "side": 1,
+      "message": "Fewer lines to type. I think having 3 files does not add much value here.",
+      "parentUuid": "a65f9ba8_87a88e40",
+      "range": {
+        "startLine": 19,
+        "startChar": 7,
+        "endLine": 19,
+        "endChar": 22
+      },
+      "revId": "62cf9a4b2018d4e61745ac22a778cb3a8fa1c50c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "464d3af6_2627814a",
         "filename": "dumpstate/1.1/default/main.cpp",
         "patchSetId": 1
