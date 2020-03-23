@@ -94,6 +94,29 @@
     },
     {
       "key": {
+        "uuid": "7cc4202b_8380c14c",
+        "filename": "dumpstate/1.1/default/main.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1124543
+      },
+      "writtenOn": "2020-03-23T23:21:04Z",
+      "side": 1,
+      "message": "The point of the default HAL should also be to show OEMs how to use the DumpstateUtil library. See 1.0\u0027s examples.",
+      "range": {
+        "startLine": 87,
+        "startChar": 21,
+        "endLine": 87,
+        "endChar": 39
+      },
+      "revId": "2196684451291e55fc532f77423ad6c01a925fcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d1bc0a5b_05bf4de6",
         "filename": "dumpstate/1.1/default/main.cpp",
         "patchSetId": 4
