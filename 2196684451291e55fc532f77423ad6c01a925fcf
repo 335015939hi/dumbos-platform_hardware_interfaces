@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "61563422_c99e917d",
+        "filename": "dumpstate/1.1/default/android.hardware.dumpstate@1.1-service.example.rc",
+        "patchSetId": 4
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1278660
+      },
+      "writtenOn": "2020-03-24T04:36:13Z",
+      "side": 1,
+      "message": "Yes, it works.",
+      "parentUuid": "64f92721_8cf4bd5b",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 16
+      },
+      "revId": "2196684451291e55fc532f77423ad6c01a925fcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e802d024_79802b63",
         "filename": "dumpstate/1.1/default/android.hardware.dumpstate@1.1-service.example.rc",
         "patchSetId": 4
@@ -45,6 +69,30 @@
       "revId": "2196684451291e55fc532f77423ad6c01a925fcf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "787327f6_417f58b1",
+        "filename": "dumpstate/1.1/default/android.hardware.dumpstate@1.1-service.example.rc",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1278660
+      },
+      "writtenOn": "2020-03-24T04:36:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e802d024_79802b63",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 12
+      },
+      "revId": "2196684451291e55fc532f77423ad6c01a925fcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -95,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "d822b211_975c4a81",
+        "filename": "dumpstate/1.1/default/android.hardware.dumpstate@1.1-service.example.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1278660
+      },
+      "writtenOn": "2020-03-24T04:36:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ad5705c_57fb2a32",
+      "range": {
+        "startLine": 1,
+        "startChar": 37,
+        "endLine": 1,
+        "endChar": 54
+      },
+      "revId": "2196684451291e55fc532f77423ad6c01a925fcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ec3d761_4992663a",
         "filename": "dumpstate/1.1/default/main.cpp",
         "patchSetId": 4
@@ -118,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "2254aef3_1b8ae505",
+        "filename": "dumpstate/1.1/default/main.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1278660
+      },
+      "writtenOn": "2020-03-24T04:36:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ec3d761_4992663a",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 52
+      },
+      "revId": "2196684451291e55fc532f77423ad6c01a925fcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7cc4202b_8380c14c",
         "filename": "dumpstate/1.1/default/main.cpp",
         "patchSetId": 4
@@ -129,6 +225,30 @@
       "writtenOn": "2020-03-23T23:21:04Z",
       "side": 1,
       "message": "The point of the default HAL should also be to show OEMs how to use the DumpstateUtil library. See 1.0\u0027s examples.",
+      "range": {
+        "startLine": 87,
+        "startChar": 21,
+        "endLine": 87,
+        "endChar": 39
+      },
+      "revId": "2196684451291e55fc532f77423ad6c01a925fcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "acc73a36_9bcbb0dc",
+        "filename": "dumpstate/1.1/default/main.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1278660
+      },
+      "writtenOn": "2020-03-24T04:36:13Z",
+      "side": 1,
+      "message": "Alistair, do you know if it is expected that selinux blocks access to /vendor/bin/date and /system/etc/hosts from dumpstate? I was able to allow access to date but not to hosts.",
+      "parentUuid": "7cc4202b_8380c14c",
       "range": {
         "startLine": 87,
         "startChar": 21,
@@ -164,6 +284,30 @@
     },
     {
       "key": {
+        "uuid": "6f03ca25_60c1950f",
+        "filename": "dumpstate/1.1/default/main.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1278660
+      },
+      "writtenOn": "2020-03-24T04:36:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d1bc0a5b_05bf4de6",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 0
+      },
+      "revId": "2196684451291e55fc532f77423ad6c01a925fcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1316177d_20730957",
         "filename": "dumpstate/1.1/default/main.cpp",
         "patchSetId": 4
@@ -184,6 +328,30 @@
       "revId": "2196684451291e55fc532f77423ad6c01a925fcf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34b20af3_740d076b",
+        "filename": "dumpstate/1.1/default/main.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1278660
+      },
+      "writtenOn": "2020-03-24T04:36:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1316177d_20730957",
+      "range": {
+        "startLine": 116,
+        "startChar": 35,
+        "endLine": 116,
+        "endChar": 56
+      },
+      "revId": "2196684451291e55fc532f77423ad6c01a925fcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
