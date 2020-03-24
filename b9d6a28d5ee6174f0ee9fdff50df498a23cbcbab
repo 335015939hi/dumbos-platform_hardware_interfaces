@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "08b7210a_15bcda4b",
+        "filename": "dumpstate/1.1/default/main.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1124543
+      },
+      "writtenOn": "2020-03-24T18:36:26Z",
+      "side": 1,
+      "message": "HIDL enums have a toString method\n\n::a::h::d::V1_1::toString",
+      "range": {
+        "startLine": 68,
+        "startChar": 67,
+        "endLine": 68,
+        "endChar": 84
+      },
+      "revId": "b9d6a28d5ee6174f0ee9fdff50df498a23cbcbab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9601a6d2_0ad39b71",
+        "filename": "dumpstate/1.1/default/main.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1124543
+      },
+      "writtenOn": "2020-03-24T18:36:26Z",
+      "side": 1,
+      "message": "Ditto",
+      "range": {
+        "startLine": 72,
+        "startChar": 61,
+        "endLine": 72,
+        "endChar": 77
+      },
+      "revId": "b9d6a28d5ee6174f0ee9fdff50df498a23cbcbab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2bc0b8d8_da330f1b",
+        "filename": "dumpstate/1.1/default/main.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1124543
+      },
+      "writtenOn": "2020-03-24T18:36:26Z",
+      "side": 1,
+      "message": "Let\u0027s also do this in 1.0 since that one can\u0027t run the date command or read the hosts file either",
+      "range": {
+        "startLine": 100,
+        "startChar": 8,
+        "endLine": 100,
+        "endChar": 58
+      },
+      "revId": "b9d6a28d5ee6174f0ee9fdff50df498a23cbcbab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
