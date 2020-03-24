@@ -71,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "652f2048_4d68a85d",
+        "filename": "dumpstate/1.1/default/android.hardware.dumpstate@1.1-service.example.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1293738
+      },
+      "writtenOn": "2020-03-24T02:55:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ad5705c_57fb2a32",
+      "range": {
+        "startLine": 1,
+        "startChar": 37,
+        "endLine": 1,
+        "endChar": 54
+      },
+      "revId": "2196684451291e55fc532f77423ad6c01a925fcf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ec3d761_4992663a",
         "filename": "dumpstate/1.1/default/main.cpp",
         "patchSetId": 4
