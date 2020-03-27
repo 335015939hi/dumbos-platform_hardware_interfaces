@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "65fa6a2c_3ba4e1e3",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-03-27T23:57:39Z",
+      "side": 1,
+      "message": "note, this is for S. I\u0027m not sure what happened to the original removal in R. Sundong, do you know?",
+      "range": {
+        "startLine": 1,
+        "startChar": 60,
+        "endLine": 1,
+        "endChar": 61
+      },
+      "revId": "c4b68af92b2a653e3a47d447c4880ce6585ef277",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
