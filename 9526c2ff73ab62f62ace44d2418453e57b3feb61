@@ -43,6 +43,50 @@
       "revId": "9526c2ff73ab62f62ace44d2418453e57b3feb61",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000002175187",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/636743?revision\u003d2",
+      "fixSuggestions": [
+        {
+          "fixId": "1f0176b4_1a38096a",
+          "description": "Change to \"bluetooth/a2dp/1.0/default/BluetoothAudioOffload.cpp\"",
+          "replacements": [
+            {
+              "path": "bluetooth/a2dp/1.0/default/BluetoothAudioOffload.cpp",
+              "range": {
+                "startLine": 36,
+                "startChar": 12,
+                "endLine": 36,
+                "endChar": 19
+              },
+              "replacement": "the"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "6a3811f1_81c6497c",
+        "filename": "bluetooth/a2dp/1.0/default/BluetoothAudioOffload.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-03-29T07:49:36Z",
+      "side": 1,
+      "message": "Common typo found: \"the the\" -- should it be \"the\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line.",
+      "range": {
+        "startLine": 36,
+        "startChar": 12,
+        "endLine": 36,
+        "endChar": 19
+      },
+      "revId": "9526c2ff73ab62f62ace44d2418453e57b3feb61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
