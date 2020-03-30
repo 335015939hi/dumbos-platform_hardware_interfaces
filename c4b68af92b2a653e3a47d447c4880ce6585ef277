@@ -70,6 +70,30 @@
       "revId": "c4b68af92b2a653e3a47d447c4880ce6585ef277",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3bf59a3_0a1d978d",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-03-30T20:27:53Z",
+      "side": 1,
+      "message": "The compatibility matrix was never updated, apparently. Since it\u0027s in the GMS requirements for R, you should probably update the matrix there, if it can be updated. However, I\u0027m removing it from S in this CL. It definitely shouldn\u0027t be here.",
+      "parentUuid": "f9fe7d83_69879bdc",
+      "range": {
+        "startLine": 1,
+        "startChar": 60,
+        "endLine": 1,
+        "endChar": 61
+      },
+      "revId": "c4b68af92b2a653e3a47d447c4880ce6585ef277",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
