@@ -46,6 +46,30 @@
       "revId": "c4b68af92b2a653e3a47d447c4880ce6585ef277",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9fe7d83_69879bdc",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2020-03-30T20:03:57Z",
+      "side": 1,
+      "message": "I am not sure I understand. So you are planning to deprecate configstore 1.1. in S? What do you mean by \"we deprecate configstore in Q?\"",
+      "parentUuid": "e1b2d83c_ab369301",
+      "range": {
+        "startLine": 1,
+        "startChar": 60,
+        "endLine": 1,
+        "endChar": 61
+      },
+      "revId": "c4b68af92b2a653e3a47d447c4880ce6585ef277",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
