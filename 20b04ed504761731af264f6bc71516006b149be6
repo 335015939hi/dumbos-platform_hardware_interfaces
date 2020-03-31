@@ -1,0 +1,48 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000002205182",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1209497?revision\u003d2",
+      "fixSuggestions": [
+        {
+          "fixId": "f6a987b5_d2a18083",
+          "description": "Change to \"keymaster/4.1/vts/functional/Keymaster4_1HidlTest.h\"",
+          "replacements": [
+            {
+              "path": "keymaster/4.1/vts/functional/Keymaster4_1HidlTest.h",
+              "range": {
+                "startLine": 139,
+                "startChar": 0,
+                "endLine": 139,
+                "endChar": 25
+              },
+              "replacement": "        // TODO(swillden)"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "0702dd14_1f721879",
+        "filename": "keymaster/4.1/vts/functional/Keymaster4_1HidlTest.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-03-31T06:24:10Z",
+      "side": 1,
+      "message": "Common typo found: \"        // TOOD(swillden)\" -- should it be \"        // TODO(swillden)\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line.",
+      "range": {
+        "startLine": 139,
+        "startChar": 0,
+        "endLine": 139,
+        "endChar": 25
+      },
+      "revId": "20b04ed504761731af264f6bc71516006b149be6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
