@@ -177,9 +177,15 @@ TEST_F(RadioHidlTest, changeIccPin2ForApp) {
 }
 
 /*
+ * The following test is disabled due to b/109889468
+ *
  * Test IRadio.getImsiForApp() for the response returned.
  */
+<<<<<<< HEAD   (1cafa3 [automerger skipped] RESTRICT AUTOMERGE Relax timeout for al)
 TEST_F(RadioHidlTest, getImsiForApp) {
+=======
+TEST_P(RadioHidlTest, DISABLED_getImsiForApp) {
+>>>>>>> CHANGE (fb98e4 Starting from Android 11, VTS will use "DISABLE_" prefix to )
     serial = GetRandomSerialNumber();
 
     // Check success returned while getting imsi for 3GPP and 3GPP2 apps only

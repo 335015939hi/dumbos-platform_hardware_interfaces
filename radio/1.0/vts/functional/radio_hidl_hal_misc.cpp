@@ -629,9 +629,15 @@ TEST_F(RadioHidlTest, getHardwareConfig) {
 }
 
 /*
+ * The following test is disabled due to b/64734869
+ *
  * Test IRadio.requestShutdown() for the response returned.
  */
+<<<<<<< HEAD   (1cafa3 [automerger skipped] RESTRICT AUTOMERGE Relax timeout for al)
 TEST_F(RadioHidlTest, requestShutdown) {
+=======
+TEST_P(RadioHidlTest, DISABLED_requestShutdown) {
+>>>>>>> CHANGE (fb98e4 Starting from Android 11, VTS will use "DISABLE_" prefix to )
     serial = GetRandomSerialNumber();
 
     radio->requestShutdown(serial);
@@ -756,9 +762,15 @@ TEST_F(RadioHidlTest, getModemActivityInfo) {
 }
 
 /*
+ * The following test is disabled due to b/79930549
+ *
  * Test IRadio.setAllowedCarriers() for the response returned.
  */
+<<<<<<< HEAD   (1cafa3 [automerger skipped] RESTRICT AUTOMERGE Relax timeout for al)
 TEST_F(RadioHidlTest, setAllowedCarriers) {
+=======
+TEST_P(RadioHidlTest, DISABLED_setAllowedCarriers) {
+>>>>>>> CHANGE (fb98e4 Starting from Android 11, VTS will use "DISABLE_" prefix to )
     serial = GetRandomSerialNumber();
     CarrierRestrictions carriers;
     memset(&carriers, 0, sizeof(carriers));

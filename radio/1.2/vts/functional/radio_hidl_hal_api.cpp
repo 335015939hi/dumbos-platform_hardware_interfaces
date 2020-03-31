@@ -290,9 +290,15 @@ TEST_F(RadioHidlTest_v1_2, startNetworkScan_InvalidPeriodicity2) {
 }
 
 /*
+ * The following test is disabled due to b/112206766
+ *
  * Test IRadio.startNetworkScan() with valid periodicity
  */
+<<<<<<< HEAD   (1cafa3 [automerger skipped] RESTRICT AUTOMERGE Relax timeout for al)
 TEST_F(RadioHidlTest_v1_2, startNetworkScan_GoodRequest1) {
+=======
+TEST_P(RadioHidlTest_v1_2, DISABLED_startNetworkScan_GoodRequest1) {
+>>>>>>> CHANGE (fb98e4 Starting from Android 11, VTS will use "DISABLE_" prefix to )
     serial = GetRandomSerialNumber();
 
     ::android::hardware::radio::V1_2::NetworkScanRequest request = {
@@ -324,9 +330,15 @@ TEST_F(RadioHidlTest_v1_2, startNetworkScan_GoodRequest1) {
 }
 
 /*
+ * The following test is disabled due to b/112206766
+ *
  * Test IRadio.startNetworkScan() with valid periodicity and plmns
  */
+<<<<<<< HEAD   (1cafa3 [automerger skipped] RESTRICT AUTOMERGE Relax timeout for al)
 TEST_F(RadioHidlTest_v1_2, startNetworkScan_GoodRequest2) {
+=======
+TEST_P(RadioHidlTest_v1_2, DISABLED_startNetworkScan_GoodRequest2) {
+>>>>>>> CHANGE (fb98e4 Starting from Android 11, VTS will use "DISABLE_" prefix to )
     serial = GetRandomSerialNumber();
 
     ::android::hardware::radio::V1_2::NetworkScanRequest request = {
