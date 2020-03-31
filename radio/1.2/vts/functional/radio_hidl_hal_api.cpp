@@ -290,9 +290,11 @@ TEST_F(RadioHidlTest_v1_2, startNetworkScan_InvalidPeriodicity2) {
 }
 
 /*
+ * The following test is disabled due to b/112206766
+ *
  * Test IRadio.startNetworkScan() with valid periodicity
  */
-TEST_F(RadioHidlTest_v1_2, startNetworkScan_GoodRequest1) {
+TEST_F(RadioHidlTest_v1_2, DISABLED_startNetworkScan_GoodRequest1) {
     serial = GetRandomSerialNumber();
 
     ::android::hardware::radio::V1_2::NetworkScanRequest request = {
@@ -324,9 +326,11 @@ TEST_F(RadioHidlTest_v1_2, startNetworkScan_GoodRequest1) {
 }
 
 /*
+ * The following test is disabled due to b/112206766
+ *
  * Test IRadio.startNetworkScan() with valid periodicity and plmns
  */
-TEST_F(RadioHidlTest_v1_2, startNetworkScan_GoodRequest2) {
+TEST_F(RadioHidlTest_v1_2, DISABLED_startNetworkScan_GoodRequest2) {
     serial = GetRandomSerialNumber();
 
     ::android::hardware::radio::V1_2::NetworkScanRequest request = {

@@ -629,9 +629,11 @@ TEST_F(RadioHidlTest, getHardwareConfig) {
 }
 
 /*
+ * The following test is disabled due to b/64734869
+ *
  * Test IRadio.requestShutdown() for the response returned.
  */
-TEST_F(RadioHidlTest, requestShutdown) {
+TEST_F(RadioHidlTest, DISABLED_requestShutdown) {
     serial = GetRandomSerialNumber();
 
     radio->requestShutdown(serial);
@@ -756,9 +758,11 @@ TEST_F(RadioHidlTest, getModemActivityInfo) {
 }
 
 /*
+ * The following test is disabled due to b/79930549
+ *
  * Test IRadio.setAllowedCarriers() for the response returned.
  */
-TEST_F(RadioHidlTest, setAllowedCarriers) {
+TEST_F(RadioHidlTest, DISABLED_setAllowedCarriers) {
     serial = GetRandomSerialNumber();
     CarrierRestrictions carriers;
     memset(&carriers, 0, sizeof(carriers));
