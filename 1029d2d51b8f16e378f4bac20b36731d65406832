@@ -1,0 +1,349 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "093da224_557a4e58",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-02T14:22:49Z",
+      "side": 1,
+      "message": "Please rephrase to keep this to 72 or fewer characters.\n\n(Also, please refrain from calling these unit tests - they\u0027re VTS tests and will be used to test many different code bases.)",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 10
+      },
+      "revId": "1029d2d51b8f16e378f4bac20b36731d65406832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2af4d771_312ab580",
+        "filename": "identity/aidl/default/WritableIdentityCredential.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-02T14:22:49Z",
+      "side": 1,
+      "message": "We never use ret again so just use the find() call inside the if statement.",
+      "range": {
+        "startLine": 138,
+        "startChar": 4,
+        "endLine": 139,
+        "endChar": 11
+      },
+      "revId": "1029d2d51b8f16e378f4bac20b36731d65406832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f9aa0e0_cc6d4f5d",
+        "filename": "identity/aidl/default/WritableIdentityCredential.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-02T14:22:49Z",
+      "side": 1,
+      "message": "Remove \"Error: \" (also in other places).",
+      "range": {
+        "startLine": 142,
+        "startChar": 17,
+        "endLine": 142,
+        "endChar": 24
+      },
+      "revId": "1029d2d51b8f16e378f4bac20b36731d65406832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c07f767_c27d2525",
+        "filename": "identity/aidl/default/WritableIdentityCredential.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-02T14:22:49Z",
+      "side": 1,
+      "message": "Same, never use ret again so move find() inside if statement.",
+      "range": {
+        "startLine": 210,
+        "startChar": 8,
+        "endLine": 211,
+        "endChar": 40
+      },
+      "revId": "1029d2d51b8f16e378f4bac20b36731d65406832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5835207a_6a13ae5f",
+        "filename": "identity/aidl/default/WritableIdentityCredential.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-02T14:22:49Z",
+      "side": 1,
+      "message": "Add \u0027using ::std::set\u0027 above and just use set here (and below).",
+      "range": {
+        "startLine": 86,
+        "startChar": 4,
+        "endLine": 86,
+        "endChar": 14
+      },
+      "revId": "1029d2d51b8f16e378f4bac20b36731d65406832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d327304_27920839",
+        "filename": "identity/aidl/vts/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-02T14:22:49Z",
+      "side": 1,
+      "message": "These are not unit tests.\n\nI suggest we rename VtsHalIdentityTargetTest.cpp to VtsHalIdentityEndToEndTest.coo (since it tests everything end to end, e.g. both provisioning and presentation) and you use VtsIdentityProvisioningTests.cpp for these new tests.",
+      "range": {
+        "startLine": 9,
+        "startChar": 9,
+        "endLine": 9,
+        "endChar": 52
+      },
+      "revId": "1029d2d51b8f16e378f4bac20b36731d65406832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9254603_181142ff",
+        "filename": "identity/aidl/vts/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-02T14:22:49Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 44
+      },
+      "revId": "1029d2d51b8f16e378f4bac20b36731d65406832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a30f9b6_f201f6db",
+        "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialUnitTests.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-02T14:22:49Z",
+      "side": 1,
+      "message": "This looks familiar. Move TestEntryData, TestProfile, AttestationData into a separate header VtsIdentityTestUtils.[h|cpp] which can be used by both .cpp files in the test.",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 22
+      },
+      "revId": "1029d2d51b8f16e378f4bac20b36731d65406832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87e4f7e5_a5f9b13f",
+        "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialUnitTests.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-02T14:22:49Z",
+      "side": 1,
+      "message": "No need, just Status. (Also other instances of this problem below.)",
+      "range": {
+        "startLine": 99,
+        "startChar": 4,
+        "endLine": 99,
+        "endChar": 29
+      },
+      "revId": "1029d2d51b8f16e378f4bac20b36731d65406832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a925f82_822961a3",
+        "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialUnitTests.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-02T14:22:49Z",
+      "side": 1,
+      "message": "Do you think we can also move this into VtsIdentityTestUtils.[h|cpp] and make the existing test use it?",
+      "range": {
+        "startLine": 109,
+        "startChar": 6,
+        "endLine": 109,
+        "endChar": 33
+      },
+      "revId": "1029d2d51b8f16e378f4bac20b36731d65406832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ffc6e2a_b53b019b",
+        "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialUnitTests.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-02T14:22:49Z",
+      "side": 1,
+      "message": "Empty challenge is fine - what makes you think it isn\u0027t?",
+      "range": {
+        "startLine": 263,
+        "startChar": 0,
+        "endLine": 264,
+        "endChar": 77
+      },
+      "revId": "1029d2d51b8f16e378f4bac20b36731d65406832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f77d6de_735b9867",
+        "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialUnitTests.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-02T14:22:49Z",
+      "side": 1,
+      "message": "Missing result.exceptionCode() etc.",
+      "range": {
+        "startLine": 266,
+        "startChar": 30,
+        "endLine": 266,
+        "endChar": 31
+      },
+      "revId": "1029d2d51b8f16e378f4bac20b36731d65406832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa9f231a_7802ac7b",
+        "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialUnitTests.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-02T14:22:49Z",
+      "side": 1,
+      "message": "Also check that the expected status value (e.g. STATUS_FAILED) is returned. Same in other places where you check for failures.",
+      "range": {
+        "startLine": 299,
+        "startChar": 17,
+        "endLine": 299,
+        "endChar": 39
+      },
+      "revId": "1029d2d51b8f16e378f4bac20b36731d65406832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c056c44d_696c5ecd",
+        "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialUnitTests.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-02T14:22:49Z",
+      "side": 1,
+      "message": "Why all the stuff with reader certificates? It seems like you\u0027re testing two things here, one is whether duplicate IDs are allowed, the other being the contents of the reader certificates... now, the latter is already tested in the existing test so no need to do that.. just do the former (check only whether duplicates are allowed) and the test will be much shorter.",
+      "range": {
+        "startLine": 401,
+        "startChar": 36,
+        "endLine": 401,
+        "endChar": 60
+      },
+      "revId": "1029d2d51b8f16e378f4bac20b36731d65406832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "336377e1_cd9a7710",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 970,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-02T14:22:49Z",
+      "side": 1,
+      "message": "I don\u0027t think this will ever fail but it doesn\u0027t hurt to check!",
+      "range": {
+        "startLine": 966,
+        "startChar": 0,
+        "endLine": 970,
+        "endChar": 5
+      },
+      "revId": "1029d2d51b8f16e378f4bac20b36731d65406832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
