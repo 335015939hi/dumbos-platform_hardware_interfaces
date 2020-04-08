@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f310068_4cfe2f31",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1319951
+      },
+      "writtenOn": "2020-04-08T23:15:31Z",
+      "side": 1,
+      "message": "can you add a comment about why you check both sides?",
+      "revId": "f15c78434e0007f8585f9bfb22b4b1e65e39c8bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
