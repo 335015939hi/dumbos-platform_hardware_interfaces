@@ -718,6 +718,12 @@ INSTANTIATE_TEST_CASE_P(
                 ::testing::Values(AudioInputFlag::NONE)),
         &DeviceConfigParameterToString);
 INSTANTIATE_TEST_CASE_P(
+        SupportedInputBufferSize, RequiredInputBufferSizeTest,
+        ::testing::Combine(::testing::ValuesIn(getDeviceParameters()),
+                           ::testing::ValuesIn(ConfigHelper::getSupportedCaptureAudioConfig()),
+                           ::testing::Values(AudioInputFlag::NONE)),
+        &DeviceConfigParameterToString);
+INSTANTIATE_TEST_CASE_P(
         RecommendedCaptureAudioConfigSupport, OptionalInputBufferSizeTest,
         ::testing::Combine(
                 ::testing::ValuesIn(getDeviceParametersForPrimaryDeviceTests()),
@@ -925,6 +931,12 @@ INSTANTIATE_TEST_CASE_P(
                 ::testing::Values(AudioOutputFlag::NONE)),
         &DeviceConfigParameterToString);
 INSTANTIATE_TEST_CASE_P(
+        SupportedOutputStreamConfig, OutputStreamTest,
+        ::testing::Combine(::testing::ValuesIn(getDeviceParameters()),
+                           ::testing::ValuesIn(ConfigHelper::getSupportedPlaybackAudioConfig()),
+                           ::testing::Values(AudioOutputFlag::NONE)),
+        &DeviceConfigParameterToString);
+INSTANTIATE_TEST_CASE_P(
         RecommendedOutputStreamConfigSupport, OutputStreamTest,
         ::testing::Combine(
                 ::testing::ValuesIn(getDeviceParametersForPrimaryDeviceTests()),
@@ -934,7 +946,7 @@ INSTANTIATE_TEST_CASE_P(
 #elif MAJOR_VERSION >= 6
 // For V6 and above test according to the audio policy manager configuration.
 // This is more correct as CDD is written from the apps perspective.
-// Audio system provides necessary format conversions for missing configurations.
+// Audio system provides necessary format conversions for the missing configurations.
 INSTANTIATE_TEST_CASE_P(DeclaredOutputStreamConfigSupport, OutputStreamTest,
                         ::testing::ValuesIn(getOutputDeviceConfigParameters()),
                         &DeviceConfigParameterToString);
@@ -980,6 +992,12 @@ INSTANTIATE_TEST_CASE_P(
                 ::testing::Values(AudioInputFlag::NONE)),
         &DeviceConfigParameterToString);
 INSTANTIATE_TEST_CASE_P(
+        SupportedInputStreamConfig, InputStreamTest,
+        ::testing::Combine(::testing::ValuesIn(getDeviceParameters()),
+                           ::testing::ValuesIn(ConfigHelper::getSupportedCaptureAudioConfig()),
+                           ::testing::Values(AudioInputFlag::NONE)),
+        &DeviceConfigParameterToString);
+INSTANTIATE_TEST_CASE_P(
         RecommendedInputStreamConfigSupport, InputStreamTest,
         ::testing::Combine(
                 ::testing::ValuesIn(getDeviceParametersForPrimaryDeviceTests()),
@@ -989,7 +1007,7 @@ INSTANTIATE_TEST_CASE_P(
 #elif MAJOR_VERSION >= 6
 // For V6 and above test according to the audio policy manager configuration.
 // This is more correct as CDD is written from the apps perspective.
-// Audio system provides necessary format conversions for missing configurations.
+// Audio system provides necessary format conversions for the missing configurations.
 INSTANTIATE_TEST_CASE_P(DeclaredInputStreamConfigSupport, InputStreamTest,
                         ::testing::ValuesIn(getInputDeviceConfigParameters()),
                         &DeviceConfigParameterToString);
