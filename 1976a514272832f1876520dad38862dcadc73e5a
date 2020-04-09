@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "701f3f05_723d7e8f",
+        "filename": "keymaster/4.0/support/attestation_record.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2020-04-09T18:13:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e85da51_b8804ed1",
+      "range": {
+        "startLine": 278,
+        "startChar": 35,
+        "endLine": 278,
+        "endChar": 68
+      },
+      "revId": "1976a514272832f1876520dad38862dcadc73e5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8c0df83c_ecfe923f",
         "filename": "keymaster/4.0/support/include/keymasterV4_0/attestation_record.h",
         "patchSetId": 6
