@@ -317,6 +317,41 @@ bool avb_verification_enabled() {
 
 }  // namespace
 
+void check_expected_creation_date_time(const AuthorizationSet& sw_enforced,
+                                       const AuthorizationSet& hw_enforced,
+                                       const uint64_t expected_time) {
+    EXPECT_FALSE(hw_enforced.Contains(TAG_CREATION_DATETIME));
+    for (int i = 0; i < sw_enforced.size(); i++) {
+        if (sw_enforced[i].tag == TAG_CREATION_DATETIME) {
+            EXPECT_EQ(expected_time, sw_enforced[i].f.dateTime);
+            return;
+        }
+    }
+    FAIL() << "The software enforced authorization list must contain CREATION_DATETIME";
+}
+
+hidl_vec<uint8_t> get_unique_id(const hidl_vec<uint8_t>& attestation_cert,
+                                const uint64_t expected_time) {
+    X509_Ptr cert(parse_cert_blob(attestation_cert));
+    EXPECT_TRUE(cert);
+    if (!cert) return {};
+
+    ASN1_OCTET_STRING* attest_rec = get_attestation_record(cert.get());
+    EXPECT_TRUE(!!attest_rec);
+    if (!cert) return {};
+
+    auto [error, parsed_record] = parse_attestation_record(attest_rec->data, attest_rec->length);
+
+    EXPECT_EQ(ErrorCode::OK, error);
+    if (error != ErrorCode::OK) {
+        return {};
+    }
+    check_expected_creation_date_time(parsed_record.sw_enforced, parsed_record.hw_enforced,
+                                      expected_time);
+
+    return std::move(parsed_record.unique_id);
+}
+
 bool verify_attestation_record(const string& challenge, const string& app_id,
                                AuthorizationSet expected_sw_enforced,
                                AuthorizationSet expected_hw_enforced, SecurityLevel security_level,
@@ -4303,6 +4338,165 @@ TEST_P(AttestationTest, EcAttestation) {
                                           key_characteristics_.softwareEnforced,  //
                                           key_characteristics_.hardwareEnforced,  //
                                           SecLevel(), cert_chain[0]));
+}
+
+/*
+ * AttestationTest.EcAttestationUniqueIdTimeRotation
+ *
+ * Verifies that the INCLUDE_UNIQUE_ID tag returns different values for different time periods
+ */
+TEST_P(AttestationTest, EcAttestationUniqueIdTimeRotation) {
+    // Values in milliseconds. The unique ID should rotate every 30 days, or 2592000000 ms
+    constexpr uint64_t first_key_time = 1576484079000;
+    constexpr uint64_t second_key_time = 1579476079000;
+
+    ASSERT_EQ(ErrorCode::OK,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .Authorization(TAG_NO_AUTH_REQUIRED)
+                                  .EcdsaSigningKey(EcCurve::P_256)
+                                  .Digest(Digest::SHA_2_256)
+                                  .Authorization(TAG_CREATION_DATETIME, first_key_time)
+                                  .Authorization(TAG_INCLUDE_UNIQUE_ID)));
+
+    hidl_vec<hidl_vec<uint8_t>> cert_chain;
+    ASSERT_EQ(ErrorCode::OK,
+              AttestKey(AuthorizationSetBuilder()
+                                .Authorization(TAG_ATTESTATION_CHALLENGE, HidlBuf("challenge"))
+                                .Authorization(TAG_ATTESTATION_APPLICATION_ID, HidlBuf("foo")),
+                        &cert_chain));
+    EXPECT_GE(cert_chain.size(), 2U);
+
+    hidl_vec<uint8_t> unique_id_first = get_unique_id(cert_chain[0], first_key_time);
+    DeleteKey(false);
+
+    ASSERT_EQ(ErrorCode::OK,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .Authorization(TAG_NO_AUTH_REQUIRED)
+                                  .EcdsaSigningKey(EcCurve::P_256)
+                                  .Digest(Digest::SHA_2_256)
+                                  .Authorization(TAG_CREATION_DATETIME, second_key_time)
+                                  .Authorization(TAG_INCLUDE_UNIQUE_ID)));
+
+    ASSERT_EQ(ErrorCode::OK,
+              AttestKey(AuthorizationSetBuilder()
+                                .Authorization(TAG_ATTESTATION_CHALLENGE, HidlBuf("challenge"))
+                                .Authorization(TAG_ATTESTATION_APPLICATION_ID, HidlBuf("foo")),
+                        &cert_chain));
+    EXPECT_GE(cert_chain.size(), 2U);
+    hidl_vec<uint8_t> unique_id_second = get_unique_id(cert_chain[0], second_key_time);
+
+    EXPECT_EQ(unique_id_first.size(), 16);
+    EXPECT_EQ(unique_id_second.size(), 16);
+    EXPECT_NE(unique_id_first, unique_id_second);
+}
+
+/*
+ * AttestationTest.EcAttestationUniqueIdMatch
+ *
+ * Verifies that the INCLUDE_UNIQUE_ID tag returns the same value for the same thirty day time
+ * period.
+ */
+TEST_P(AttestationTest, EcAttestationUniqueIdMatch) {
+    // Values in milliseconds. The unique ID should rotate every 30 days, or 2592000000 ms
+    constexpr uint64_t first_key_time = 1576484079000;
+    constexpr uint64_t second_key_time = 1576484099000;
+
+    ASSERT_EQ(ErrorCode::OK,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .Authorization(TAG_NO_AUTH_REQUIRED)
+                                  .EcdsaSigningKey(EcCurve::P_256)
+                                  .Digest(Digest::SHA_2_256)
+                                  .Authorization(TAG_CREATION_DATETIME, first_key_time)
+                                  .Authorization(TAG_INCLUDE_UNIQUE_ID)));
+
+    hidl_vec<hidl_vec<uint8_t>> cert_chain;
+    ASSERT_EQ(ErrorCode::OK,
+              AttestKey(AuthorizationSetBuilder()
+                                .Authorization(TAG_ATTESTATION_CHALLENGE, HidlBuf("challenge"))
+                                .Authorization(TAG_ATTESTATION_APPLICATION_ID, HidlBuf("foo")),
+                        &cert_chain));
+    EXPECT_GE(cert_chain.size(), 2U);
+    hidl_vec<uint8_t> unique_id_first = get_unique_id(cert_chain[0], first_key_time);
+    DeleteKey(false);
+
+    ASSERT_EQ(ErrorCode::OK,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .Authorization(TAG_NO_AUTH_REQUIRED)
+                                  .EcdsaSigningKey(EcCurve::P_256)
+                                  .Digest(Digest::SHA_2_256)
+                                  .Authorization(TAG_CREATION_DATETIME, second_key_time)
+                                  .Authorization(TAG_INCLUDE_UNIQUE_ID)));
+
+    ASSERT_EQ(ErrorCode::OK,
+              AttestKey(AuthorizationSetBuilder()
+                                .Authorization(TAG_ATTESTATION_CHALLENGE, HidlBuf("challenge"))
+                                .Authorization(TAG_ATTESTATION_APPLICATION_ID, HidlBuf("foo")),
+                        &cert_chain));
+    EXPECT_GE(cert_chain.size(), 2U);
+    hidl_vec<uint8_t> unique_id_second = get_unique_id(cert_chain[0], second_key_time);
+
+    EXPECT_EQ(unique_id_first.size(), 16);
+    EXPECT_EQ(unique_id_first, unique_id_second);
+}
+
+/*
+ * AttestationTest.EcAttestationUniqueIdFactoryReset
+ *
+ * Verifies that the INCLUDE_UNIQUE_ID tag returns a different value for the same thirty day time
+ * period when RESET_SINCE_ID_ROTATION was provided to AttestKey
+ */
+TEST_P(AttestationTest, EcAttestationUniqueIdFactoryReset) {
+    // Values in milliseconds. The unique ID should rotate every 30 days, or 2592000000 ms
+    constexpr uint64_t first_key_time = 1576484079000;
+    constexpr uint64_t second_key_time = 1576484099000;
+
+    ASSERT_EQ(ErrorCode::OK,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .Authorization(TAG_NO_AUTH_REQUIRED)
+                                  .EcdsaSigningKey(EcCurve::P_256)
+                                  .Digest(Digest::SHA_2_256)
+                                  .Authorization(TAG_CREATION_DATETIME, first_key_time)
+                                  .Authorization(TAG_INCLUDE_UNIQUE_ID)));
+
+    hidl_vec<hidl_vec<uint8_t>> cert_chain;
+    ASSERT_EQ(ErrorCode::OK,
+              AttestKey(AuthorizationSetBuilder()
+                                .Authorization(TAG_ATTESTATION_CHALLENGE, HidlBuf("challenge"))
+                                .Authorization(TAG_ATTESTATION_APPLICATION_ID, HidlBuf("foo")),
+                        &cert_chain));
+    EXPECT_GE(cert_chain.size(), 2U);
+    hidl_vec<uint8_t> unique_id_first = get_unique_id(cert_chain[0], first_key_time);
+    DeleteKey(false);
+
+    ASSERT_EQ(ErrorCode::OK,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .Authorization(TAG_NO_AUTH_REQUIRED)
+                                  .EcdsaSigningKey(EcCurve::P_256)
+                                  .Digest(Digest::SHA_2_256)
+                                  .Authorization(TAG_CREATION_DATETIME, second_key_time)
+                                  .Authorization(TAG_INCLUDE_UNIQUE_ID)));
+
+    ASSERT_EQ(ErrorCode::OK,
+              AttestKey(AuthorizationSetBuilder()
+                                .Authorization(TAG_ATTESTATION_CHALLENGE, HidlBuf("challenge"))
+                                .Authorization(TAG_ATTESTATION_APPLICATION_ID, HidlBuf("foo")),
+                        &cert_chain));
+    EXPECT_GE(cert_chain.size(), 2U);
+    hidl_vec<uint8_t> unique_id_second = get_unique_id(cert_chain[0], second_key_time);
+
+    ASSERT_EQ(ErrorCode::OK,
+              AttestKey(AuthorizationSetBuilder()
+                                .Authorization(TAG_ATTESTATION_CHALLENGE, HidlBuf("challenge"))
+                                .Authorization(TAG_RESET_SINCE_ID_ROTATION)
+                                .Authorization(TAG_ATTESTATION_APPLICATION_ID, HidlBuf("foo")),
+                        &cert_chain));
+    EXPECT_GE(cert_chain.size(), 2U);
+    hidl_vec<uint8_t> unique_id_reset = get_unique_id(cert_chain[0], second_key_time);
+
+    EXPECT_EQ(unique_id_first.size(), 16);
+    EXPECT_EQ(unique_id_reset.size(), 16);
+    EXPECT_EQ(unique_id_first, unique_id_second);
+    EXPECT_NE(unique_id_first, unique_id_reset);
 }
 
 /*
