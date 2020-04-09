@@ -46,6 +46,30 @@
       "revId": "7d70ba0cbf6aee1507c8ba9ad4b402504ea2c8d2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a5a0c440_c4ad3703",
+        "filename": "health/2.0/vts/functional/VtsHalHealthV2_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2020-04-09T18:30:49Z",
+      "side": 1,
+      "message": "I read b/118852225 again. Yes, I think this can be deleted. Will submit a separate patch.",
+      "parentUuid": "c3f6add7_6308e31d",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 6
+      },
+      "revId": "7d70ba0cbf6aee1507c8ba9ad4b402504ea2c8d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
