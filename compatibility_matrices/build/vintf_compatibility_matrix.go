@@ -40,6 +40,12 @@ var (
 		Description: "assemble_vintf -i ${inputs}",
 	}, "inputs")
 
+	xmllintXsd = pctx.AndroidStaticRule("xmllint-xsd", blueprint.RuleParams{
+		Command:     `$XmlLintCmd --schema $xsd $in > /dev/null && touch -a $out`,
+		CommandDeps: []string{"$XmlLintCmd"},
+		Restat:      true,
+	}, "xsd")
+
 	kernelConfigTag = dependencyTag{name: "kernel-config"}
 )
 
@@ -62,11 +68,13 @@ type vintfCompatibilityMatrixRule struct {
 	android.ModuleBase
 	properties vintfCompatibilityMatrixProperties
 
-	genFile android.WritablePath
+	genFile                android.WritablePath
+	additionalDependencies android.WritablePaths
 }
 
 func init() {
 	pctx.HostBinToolVariable("assembleVintfCmd", "assemble_vintf")
+	pctx.HostBinToolVariable("XmlLintCmd", "xmllint")
 	android.RegisterModuleType("vintf_compatibility_matrix", vintfCompatibilityMatrixFactory)
 }
 
@@ -82,6 +90,26 @@ var _ android.AndroidMkDataProvider = (*vintfCompatibilityMatrixRule)(nil)
 func (g *vintfCompatibilityMatrixRule) DepsMutator(ctx android.BottomUpMutatorContext) {
 	android.ExtractSourcesDeps(ctx, g.properties.Srcs)
 	ctx.AddDependency(ctx.Module(), kernelConfigTag, g.properties.Kernel_configs...)
+	android.ExtractSourcesDeps(ctx, []string{":compatibility_matrix_schema"})
+}
+
+func (g *vintfCompatibilityMatrixRule) timestampFilePath(ctx android.ModuleContext, name string) android.WritablePath {
+	return android.PathForModuleOut(ctx, name+"-timestamp")
+}
+
+func (g *vintfCompatibilityMatrixRule) generateValidateBuildAction(ctx android.ModuleContext, path android.Path, schema android.Path, tsPrefix string) {
+	timestamp := g.timestampFilePath(ctx, tsPrefix+path.Base())
+	ctx.Build(pctx, android.BuildParams{
+		Rule:        xmllintXsd,
+		Description: "xmllint-xsd",
+		Input:       path,
+		Output:      timestamp,
+		Implicit:    schema,
+		Args: map[string]string{
+			"xsd": schema.String(),
+		},
+	})
+	g.additionalDependencies = append(g.additionalDependencies, timestamp)
 }
 
 func (g *vintfCompatibilityMatrixRule) GenerateAndroidBuildActions(ctx android.ModuleContext) {
@@ -101,6 +129,16 @@ func (g *vintfCompatibilityMatrixRule) GenerateAndroidBuildActions(ctx android.M
 		}
 	})
 
+	schemaSrcs := android.PathsForModuleSrc(ctx, []string{":compatibility_matrix_schema"})
+	if len(schemaSrcs) != 1 {
+		ctx.ModuleErrorf(`Srcs for :compatibility_matrix_schema has length %d != 1`, len(schemaSrcs))
+		return
+	}
+	schema := schemaSrcs[0]
+	for _, inputPath := range inputPaths {
+		g.generateValidateBuildAction(ctx, inputPath, schema, "input/")
+	}
+
 	g.genFile = android.PathForModuleGen(ctx, outputFilename)
 
 	ctx.Build(pctx, android.BuildParams{
@@ -112,6 +150,7 @@ func (g *vintfCompatibilityMatrixRule) GenerateAndroidBuildActions(ctx android.M
 			"inputs": strings.Join(inputPaths.Strings(), ":"),
 		},
 	})
+	g.generateValidateBuildAction(ctx, g.genFile, schema, "output/")
 
 	ctx.InstallFile(android.PathForModuleInstall(ctx, "etc", relpath), outputFilename, g.genFile)
 }
@@ -125,6 +164,9 @@ func (g *vintfCompatibilityMatrixRule) AndroidMk() android.AndroidMkData {
 				fmt.Fprintln(w, "LOCAL_MODULE_RELATIVE_PATH :=", relpath)
 				if proptools.String(g.properties.Stem) != "" {
 					fmt.Fprintln(w, "LOCAL_MODULE_STEM :=", proptools.String(g.properties.Stem))
+				}
+				for _, path := range g.additionalDependencies {
+					fmt.Fprintln(w, "LOCAL_ADDITIONAL_DEPENDENCIES +=", path.String())
 				}
 			},
 		},
