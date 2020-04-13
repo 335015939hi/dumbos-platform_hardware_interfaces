@@ -22,6 +22,30 @@
       "revId": "756a7300336278ab88275ef28c254aa4b7664886",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5fb2187_1ff5b5df",
+        "filename": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1074628
+      },
+      "writtenOn": "2020-04-13T19:23:18Z",
+      "side": 1,
+      "message": "This is what GenPathWithExt is designed for, something like:\n\n  GenPathWithExt(ctx, \"vintf-xmllint\", path, \"ts\")",
+      "parentUuid": "4a2e6c57_4edb87c9",
+      "range": {
+        "startLine": 101,
+        "startChar": 39,
+        "endLine": 101,
+        "endChar": 59
+      },
+      "revId": "756a7300336278ab88275ef28c254aa4b7664886",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
