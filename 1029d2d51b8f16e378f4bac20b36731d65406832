@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "652f1c25_7af2bbbe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-04-13T10:35:02Z",
+      "side": 1,
+      "message": "Done. but I thought the unit test vs end to end test, refers to a small set of API that you are testing individually.",
+      "parentUuid": "093da224_557a4e58",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 10
+      },
+      "revId": "1029d2d51b8f16e378f4bac20b36731d65406832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2af4d771_312ab580",
         "filename": "identity/aidl/default/WritableIdentityCredential.cpp",
         "patchSetId": 4
@@ -45,6 +69,30 @@
       "revId": "1029d2d51b8f16e378f4bac20b36731d65406832",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0181f7c_1f368114",
+        "filename": "identity/aidl/default/WritableIdentityCredential.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-04-13T10:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2af4d771_312ab580",
+      "range": {
+        "startLine": 138,
+        "startChar": 4,
+        "endLine": 139,
+        "endChar": 11
+      },
+      "revId": "1029d2d51b8f16e378f4bac20b36731d65406832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "ea2bf910_b3085f8d",
+        "filename": "identity/aidl/default/WritableIdentityCredential.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-04-13T10:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f9aa0e0_cc6d4f5d",
+      "range": {
+        "startLine": 142,
+        "startChar": 17,
+        "endLine": 142,
+        "endChar": 24
+      },
+      "revId": "1029d2d51b8f16e378f4bac20b36731d65406832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4c07f767_c27d2525",
         "filename": "identity/aidl/default/WritableIdentityCredential.cpp",
         "patchSetId": 4
@@ -91,6 +163,30 @@
       "revId": "1029d2d51b8f16e378f4bac20b36731d65406832",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6fa1c795_d37eca6c",
+        "filename": "identity/aidl/default/WritableIdentityCredential.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-04-13T10:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c07f767_c27d2525",
+      "range": {
+        "startLine": 210,
+        "startChar": 8,
+        "endLine": 211,
+        "endChar": 40
+      },
+      "revId": "1029d2d51b8f16e378f4bac20b36731d65406832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "97088e71_1cf4b225",
+        "filename": "identity/aidl/default/WritableIdentityCredential.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-04-13T10:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5835207a_6a13ae5f",
+      "range": {
+        "startLine": 86,
+        "startChar": 4,
+        "endLine": 86,
+        "endChar": 14
+      },
+      "revId": "1029d2d51b8f16e378f4bac20b36731d65406832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8d327304_27920839",
         "filename": "identity/aidl/vts/Android.bp",
         "patchSetId": 4
@@ -137,6 +257,30 @@
       "revId": "1029d2d51b8f16e378f4bac20b36731d65406832",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80347f48_1644c41e",
+        "filename": "identity/aidl/vts/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-04-13T10:35:02Z",
+      "side": 1,
+      "message": "VtsHalIdentityEndToEndTest.cpp rename done\nVtsIWritableIdentityCredentialUnitTests.cpp is named to match the aidl file IWritableIdentityCredential.aidl since it does a unit test of each interface.",
+      "parentUuid": "8d327304_27920839",
+      "range": {
+        "startLine": 9,
+        "startChar": 9,
+        "endLine": 9,
+        "endChar": 52
+      },
+      "revId": "1029d2d51b8f16e378f4bac20b36731d65406832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "07594f75_a869c11b",
+        "filename": "identity/aidl/vts/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-04-13T10:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9254603_181142ff",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 44
+      },
+      "revId": "1029d2d51b8f16e378f4bac20b36731d65406832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a30f9b6_f201f6db",
         "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialUnitTests.cpp",
         "patchSetId": 4
@@ -183,6 +351,30 @@
       "revId": "1029d2d51b8f16e378f4bac20b36731d65406832",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e1882aa_50a0144f",
+        "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialUnitTests.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-04-13T10:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a30f9b6_f201f6db",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 22
+      },
+      "revId": "1029d2d51b8f16e378f4bac20b36731d65406832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "aa41998e_d0dfb1af",
+        "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialUnitTests.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-04-13T10:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87e4f7e5_a5f9b13f",
+      "range": {
+        "startLine": 99,
+        "startChar": 4,
+        "endLine": 99,
+        "endChar": 29
+      },
+      "revId": "1029d2d51b8f16e378f4bac20b36731d65406832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3a925f82_822961a3",
         "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialUnitTests.cpp",
         "patchSetId": 4
@@ -229,6 +445,30 @@
       "revId": "1029d2d51b8f16e378f4bac20b36731d65406832",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8becf407_587e455b",
+        "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialUnitTests.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-04-13T10:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a925f82_822961a3",
+      "range": {
+        "startLine": 109,
+        "startChar": 6,
+        "endLine": 109,
+        "endChar": 33
+      },
+      "revId": "1029d2d51b8f16e378f4bac20b36731d65406832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -255,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "dee22230_5263ef44",
+        "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialUnitTests.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-04-13T10:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ffc6e2a_b53b019b",
+      "range": {
+        "startLine": 263,
+        "startChar": 0,
+        "endLine": 264,
+        "endChar": 77
+      },
+      "revId": "1029d2d51b8f16e378f4bac20b36731d65406832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2f77d6de_735b9867",
         "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialUnitTests.cpp",
         "patchSetId": 4
@@ -275,6 +539,30 @@
       "revId": "1029d2d51b8f16e378f4bac20b36731d65406832",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27706d09_1cafc914",
+        "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialUnitTests.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-04-13T10:35:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f77d6de_735b9867",
+      "range": {
+        "startLine": 266,
+        "startChar": 30,
+        "endLine": 266,
+        "endChar": 31
+      },
+      "revId": "1029d2d51b8f16e378f4bac20b36731d65406832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -301,6 +589,30 @@
     },
     {
       "key": {
+        "uuid": "e4a3e6a8_5787a2d4",
+        "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialUnitTests.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-04-13T10:35:02Z",
+      "side": 1,
+      "message": "https://cs.corp.google.com/android/system/libhidl/base/include/hidl/Status.h\n\nthere is no STATUS_FAILED, all there is is exceptionCode which I printed.  Your tests didn\u0027t have one either.",
+      "parentUuid": "fa9f231a_7802ac7b",
+      "range": {
+        "startLine": 299,
+        "startChar": 17,
+        "endLine": 299,
+        "endChar": 39
+      },
+      "revId": "1029d2d51b8f16e378f4bac20b36731d65406832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c056c44d_696c5ecd",
         "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialUnitTests.cpp",
         "patchSetId": 4
@@ -324,6 +636,30 @@
     },
     {
       "key": {
+        "uuid": "502b5a4a_bbfd6366",
+        "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialUnitTests.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-04-13T10:35:02Z",
+      "side": 1,
+      "message": "errr, yes and no.  I want to make sure test didn\u0027t fail because underlaying vts implementation wants a different reader certificate for each profile pass.  I know that is less likely, but I want to make sure the duplicate id is the only point of failure.",
+      "parentUuid": "c056c44d_696c5ecd",
+      "range": {
+        "startLine": 401,
+        "startChar": 36,
+        "endLine": 401,
+        "endChar": 60
+      },
+      "revId": "1029d2d51b8f16e378f4bac20b36731d65406832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "336377e1_cd9a7710",
         "filename": "identity/support/src/IdentityCredentialSupport.cpp",
         "patchSetId": 4
@@ -335,6 +671,30 @@
       "writtenOn": "2020-04-02T14:22:49Z",
       "side": 1,
       "message": "I don\u0027t think this will ever fail but it doesn\u0027t hurt to check!",
+      "range": {
+        "startLine": 966,
+        "startChar": 0,
+        "endLine": 970,
+        "endChar": 5
+      },
+      "revId": "1029d2d51b8f16e378f4bac20b36731d65406832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "533bef17_f3c1bbb7",
+        "filename": "identity/support/src/IdentityCredentialSupport.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 970,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-04-13T10:35:02Z",
+      "side": 1,
+      "message": "I added this while debugging for a failure, but turned out to be something else.  but I think this change is ok so it stayed.",
+      "parentUuid": "336377e1_cd9a7710",
       "range": {
         "startLine": 966,
         "startChar": 0,
