@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4a2e6c57_4edb87c9",
+        "filename": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2020-04-13T18:36:50Z",
+      "side": 1,
+      "message": "This will be broken if there are multiple input files with the same name but at different dirs, e.g. foo/foo and bar/foo. Dan, any suggestions for me to do this?",
+      "range": {
+        "startLine": 101,
+        "startChar": 39,
+        "endLine": 101,
+        "endChar": 59
+      },
+      "revId": "756a7300336278ab88275ef28c254aa4b7664886",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
