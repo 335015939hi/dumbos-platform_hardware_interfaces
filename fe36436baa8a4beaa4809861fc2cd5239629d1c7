@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0dd3193e_13d7a429",
+        "filename": "keymaster/4.0/support/attestation_record.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-04-13T18:28:25Z",
+      "side": 1,
+      "message": "Nit:  I\u0027d use return {error, {}};\n\nUsing the empty brackets for the second value makes it clear that you\u0027re returning an empty value.",
+      "range": {
+        "startLine": 300,
+        "startChar": 39,
+        "endLine": 300,
+        "endChar": 75
+      },
+      "revId": "fe36436baa8a4beaa4809861fc2cd5239629d1c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45f522e3_624b03fe",
+        "filename": "keymaster/4.0/support/attestation_record.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-04-13T18:28:25Z",
+      "side": 1,
+      "message": "FYI:  return {error, parsed_record}; should work.",
+      "range": {
+        "startLine": 304,
+        "startChar": 4,
+        "endLine": 304,
+        "endChar": 48
+      },
+      "revId": "fe36436baa8a4beaa4809861fc2cd5239629d1c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
