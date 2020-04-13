@@ -46,6 +46,30 @@
       "revId": "756a7300336278ab88275ef28c254aa4b7664886",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed388c1f_b17c0851",
+        "filename": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2020-04-13T21:39:20Z",
+      "side": 1,
+      "message": "It returns error for me:\n\nerror: hardware/interfaces/compatibility_matrices/Android.bp:81:1: module \"framework_compatibility_matrix.5.xml\" variant \"android_common\": Tried to create generated file from unsupported path: Mo\nduleOutPath(out/soong/.intermediates/kernel/configs/r/android-4.14/kernel_config_r_4.14/matrix_kernel_config_r_4.14.xml)\n\nThe reason is that the source file includes modules from elsewhere. (See L125)",
+      "parentUuid": "f5fb2187_1ff5b5df",
+      "range": {
+        "startLine": 101,
+        "startChar": 39,
+        "endLine": 101,
+        "endChar": 59
+      },
+      "revId": "756a7300336278ab88275ef28c254aa4b7664886",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
