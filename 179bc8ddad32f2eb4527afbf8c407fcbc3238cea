@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "87c6a145_145c5149",
+        "filename": "keymaster/4.0/support/attestation_record.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-04-14T22:17:37Z",
+      "side": 1,
+      "message": "If I read cppreference correctly this leads to copy-list-initialization. This means parsed_reacord will be copied (not moved) into the returned pair. Since the constructed pair is a prvalue, copy-elision will then kick in. But the whole record would have been copied.\nYou should use\nreturn { error, std::move(parsed_record)};\nto avoid this copy.\n\n[1] https://en.cppreference.com/w/cpp/language/return (see variant 2)\n[2] https://en.cppreference.com/w/cpp/language/list_initialization",
+      "range": {
+        "startLine": 304,
+        "startChar": 11,
+        "endLine": 304,
+        "endChar": 33
+      },
+      "revId": "179bc8ddad32f2eb4527afbf8c407fcbc3238cea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
