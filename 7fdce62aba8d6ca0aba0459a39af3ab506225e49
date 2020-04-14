@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "b1487b96_dbf8743e",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredential.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-14T19:04:46Z",
+      "side": 1,
+      "message": "Thanks for confirming. I don\u0027t think we need to make it a COSE_Key since the interface is used only between the framework and the HAL ... that is, framework API users call https://developer.android.com/reference/android/security/identity/IdentityCredential#setReaderEphemeralPublicKey(java.security.PublicKey)",
+      "parentUuid": "9dda1c24_76b64c81",
+      "revId": "7fdce62aba8d6ca0aba0459a39af3ab506225e49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "47a4a789_c14a5059",
         "filename": "identity/aidl/android/hardware/identity/IIdentityCredential.aidl",
         "patchSetId": 4
@@ -75,6 +93,30 @@
       "revId": "7fdce62aba8d6ca0aba0459a39af3ab506225e49",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72aecf29_b1123a91",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredential.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-14T19:04:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "47a4a789_c14a5059",
+      "range": {
+        "startLine": 312,
+        "startChar": 35,
+        "endLine": 312,
+        "endChar": 71
+      },
+      "revId": "7fdce62aba8d6ca0aba0459a39af3ab506225e49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -101,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "142292a1_10f76734",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredentialStore.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-14T19:04:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "49db6f4c_3914bf40",
+      "range": {
+        "startLine": 117,
+        "startChar": 28,
+        "endLine": 117,
+        "endChar": 30
+      },
+      "revId": "7fdce62aba8d6ca0aba0459a39af3ab506225e49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed9bc4e5_a28c2c1e",
         "filename": "identity/aidl/android/hardware/identity/IWritableIdentityCredential.aidl",
         "patchSetId": 4
@@ -121,6 +187,30 @@
       "revId": "7fdce62aba8d6ca0aba0459a39af3ab506225e49",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "342222d3_bbe48306",
+        "filename": "identity/aidl/android/hardware/identity/IWritableIdentityCredential.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-14T19:04:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed9bc4e5_a28c2c1e",
+      "range": {
+        "startLine": 78,
+        "startChar": 17,
+        "endLine": 78,
+        "endChar": 25
+      },
+      "revId": "7fdce62aba8d6ca0aba0459a39af3ab506225e49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
