@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "528ba61c_a8cb4609",
+        "filename": "keymaster/4.0/support/attestation_record.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2020-04-14T20:50:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0dd3193e_13d7a429",
+      "range": {
+        "startLine": 300,
+        "startChar": 39,
+        "endLine": 300,
+        "endChar": 75
+      },
+      "revId": "fe36436baa8a4beaa4809861fc2cd5239629d1c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45f522e3_624b03fe",
         "filename": "keymaster/4.0/support/attestation_record.cpp",
         "patchSetId": 8
