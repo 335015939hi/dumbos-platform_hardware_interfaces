@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "70a3603f_e8c67e57",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredential.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-14T18:13:23Z",
+      "side": 1,
+      "message": "I think uncompressed form (e.g. 0x04 || X || Y) is independent of both the chosen curve and also the key size. Shawn?",
+      "parentUuid": "ae4c77a2_70b9357a",
+      "revId": "7fdce62aba8d6ca0aba0459a39af3ab506225e49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d8fe312d_d786441c",
         "filename": "identity/aidl/android/hardware/identity/IWritableIdentityCredential.aidl",
         "patchSetId": 4
@@ -30,6 +48,30 @@
       "writtenOn": "2020-04-14T17:04:23Z",
       "side": 1,
       "message": "This value cannot be greater than 512KiB right ?",
+      "range": {
+        "startLine": 191,
+        "startChar": 42,
+        "endLine": 191,
+        "endChar": 51
+      },
+      "revId": "7fdce62aba8d6ca0aba0459a39af3ab506225e49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38139ae4_92257cfd",
+        "filename": "identity/aidl/android/hardware/identity/IWritableIdentityCredential.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-14T18:13:23Z",
+      "side": 1,
+      "message": "Correct, IIdentityCredentialStore.aidl guarantees that.",
+      "parentUuid": "d8fe312d_d786441c",
       "range": {
         "startLine": 191,
         "startChar": 42,
