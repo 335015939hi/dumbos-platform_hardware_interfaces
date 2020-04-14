@@ -378,6 +378,30 @@
     },
     {
       "key": {
+        "uuid": "657d9483_181e3ef1",
+        "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialUnitTests.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-14T17:45:28Z",
+      "side": 1,
+      "message": "Thanks for doing this. Please also use this from what is now VtsHalIdentityEndToEndTest.cpp...",
+      "parentUuid": "1e1882aa_50a0144f",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 22
+      },
+      "revId": "1029d2d51b8f16e378f4bac20b36731d65406832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "87e4f7e5_a5f9b13f",
         "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialUnitTests.cpp",
         "patchSetId": 4
@@ -613,6 +637,30 @@
     },
     {
       "key": {
+        "uuid": "5452ad65_2473a842",
+        "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialUnitTests.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-14T17:45:28Z",
+      "side": 1,
+      "message": "Yes there is. We throw a service specific exception, see e.g. WritableIdentityCredential::getAttestationCertificate() implementation. Such a thing includes the status code and this is what I\u0027m asking you to check.",
+      "parentUuid": "e4a3e6a8_5787a2d4",
+      "range": {
+        "startLine": 299,
+        "startChar": 17,
+        "endLine": 299,
+        "endChar": 39
+      },
+      "revId": "1029d2d51b8f16e378f4bac20b36731d65406832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c056c44d_696c5ecd",
         "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialUnitTests.cpp",
         "patchSetId": 4
@@ -657,6 +705,30 @@
       "revId": "1029d2d51b8f16e378f4bac20b36731d65406832",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f14504c_af961c28",
+        "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialUnitTests.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-14T17:45:28Z",
+      "side": 1,
+      "message": "This is confusing. Just please test whether duplicate IDs are allowed, it\u0027s a lot cleaner/shorter that way.",
+      "parentUuid": "502b5a4a_bbfd6366",
+      "range": {
+        "startLine": 401,
+        "startChar": 36,
+        "endLine": 401,
+        "endChar": 60
+      },
+      "revId": "1029d2d51b8f16e378f4bac20b36731d65406832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
