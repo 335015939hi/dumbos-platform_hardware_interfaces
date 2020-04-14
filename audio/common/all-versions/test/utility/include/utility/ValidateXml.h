@@ -51,8 +51,9 @@ namespace utility {
  */
 template <bool atLeastOneRequired = true>
 ::testing::AssertionResult validateXmlMultipleLocations(
-    const char* xmlFileNameExpr, const char* xmlFileLocationsExpr, const char* xsdFilePathExpr,
-    const char* xmlFileName, std::vector<const char*> xmlFileLocations, const char* xsdFilePath);
+        const char* xmlFileNameExpr, const char* xmlFileLocationsExpr, const char* xsdFilePathExpr,
+        const char* xmlFileName, const std::vector<std::string>& xmlFileLocations,
+        const char* xsdFilePath);
 
 /** ASSERT that all found XML are valid according to an xsd. */
 #define ASSERT_VALID_XML_MULTIPLE_LOCATIONS(xmlFileName, xmlFileLocations, xsdFilePath)         \
