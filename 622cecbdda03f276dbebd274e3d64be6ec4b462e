@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "60b34fad_5f4c3ae6",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-04-14T18:36:20Z",
+      "side": 1,
+      "message": "std::unique_ptr converts to bool\n\nEXPECT_TRUE(cert) should work. If not (bool)cert or !!cert should do the trick.\n\nAlso add\nif (!cert) return {}\nsee below for ratinale.",
+      "range": {
+        "startLine": 336,
+        "startChar": 16,
+        "endLine": 336,
+        "endChar": 28
+      },
+      "revId": "622cecbdda03f276dbebd274e3d64be6ec4b462e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82242127_38b5c300",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-04-14T18:36:20Z",
+      "side": 1,
+      "message": "EXPECT macros do not influence control flow. This meas if this check fails you will have a nullptr deref below. We should make sure tests fail gracefully an not crash.\n\nadd if (!attest_rec) return {} after the EXPECT_ statement.",
+      "range": {
+        "startLine": 339,
+        "startChar": 4,
+        "endLine": 339,
+        "endChar": 29
+      },
+      "revId": "622cecbdda03f276dbebd274e3d64be6ec4b462e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4249a370_a586a1a2",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-04-14T18:36:20Z",
+      "side": 1,
+      "message": "Add control flow here.",
+      "revId": "622cecbdda03f276dbebd274e3d64be6ec4b462e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
