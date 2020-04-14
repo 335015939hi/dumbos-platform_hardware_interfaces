@@ -37,6 +37,93 @@
     },
     {
       "key": {
+        "uuid": "9dda1c24_76b64c81",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredential.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-04-14T18:56:14Z",
+      "side": 1,
+      "message": "It\u0027s independent, I think, but it requires already knowing the curve.  Maybe this should be a COSE_Key.",
+      "parentUuid": "70a3603f_e8c67e57",
+      "revId": "7fdce62aba8d6ca0aba0459a39af3ab506225e49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47a4a789_c14a5059",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredential.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-04-14T18:56:14Z",
+      "side": 1,
+      "message": "Nit:  This is redundant.  If you just specify that it\u0027s a P-256 key, that implies the size.",
+      "range": {
+        "startLine": 312,
+        "startChar": 35,
+        "endLine": 312,
+        "endChar": 71
+      },
+      "revId": "7fdce62aba8d6ca0aba0459a39af3ab506225e49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49db6f4c_3914bf40",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredentialStore.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-04-14T18:56:14Z",
+      "side": 1,
+      "message": "Yes, *two* spaces!  (Steven prefers one, which is just wrong.  With a monospaced font, anyway.)\n\n:D",
+      "range": {
+        "startLine": 117,
+        "startChar": 28,
+        "endLine": 117,
+        "endChar": 30
+      },
+      "revId": "7fdce62aba8d6ca0aba0459a39af3ab506225e49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed9bc4e5_a28c2c1e",
+        "filename": "identity/aidl/android/hardware/identity/IWritableIdentityCredential.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-04-14T18:56:14Z",
+      "side": 1,
+      "message": "EC_CURVE",
+      "range": {
+        "startLine": 78,
+        "startChar": 17,
+        "endLine": 78,
+        "endChar": 25
+      },
+      "revId": "7fdce62aba8d6ca0aba0459a39af3ab506225e49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d8fe312d_d786441c",
         "filename": "identity/aidl/android/hardware/identity/IWritableIdentityCredential.aidl",
         "patchSetId": 4
