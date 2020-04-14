@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "44003ff9_882e9175",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-04-14T22:18:47Z",
+      "side": 1,
+      "message": "Nit: this could also go on the same line.",
+      "range": {
+        "startLine": 346,
+        "startChar": 32,
+        "endLine": 348,
+        "endChar": 5
+      },
+      "revId": "3d01b4a2d8cadff047e52fd0342af44942172f3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
