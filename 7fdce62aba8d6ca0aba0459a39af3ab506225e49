@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ae4c77a2_70b9357a",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredential.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1071728
+      },
+      "writtenOn": "2020-04-14T17:04:23Z",
+      "side": 1,
+      "message": "So this is just EcPoint (SubjectPublicKey) and not SubjectPublicKeyInfo which includes the AlgorithmIdentifier ?\n\nIf that is the case then it is always going to be p256 curve ? Using SubjectPublicKeyInfo can make it generic for the future no ?",
+      "revId": "7fdce62aba8d6ca0aba0459a39af3ab506225e49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8fe312d_d786441c",
+        "filename": "identity/aidl/android/hardware/identity/IWritableIdentityCredential.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1071728
+      },
+      "writtenOn": "2020-04-14T17:04:23Z",
+      "side": 1,
+      "message": "This value cannot be greater than 512KiB right ?",
+      "range": {
+        "startLine": 191,
+        "startChar": 42,
+        "endLine": 191,
+        "endChar": 51
+      },
+      "revId": "7fdce62aba8d6ca0aba0459a39af3ab506225e49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
