@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "cf9836e7_d74636f6",
+        "filename": "identity/aidl/vts/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-15T13:23:27Z",
+      "side": 1,
+      "message": "The difference here is that this test will be used for all kinds of code (coming from the OEM) so I don\u0027t think it\u0027d be correct to call it a \"unit test\". Please just call it VtsIWritableIdentityCredentialTests.cpp.",
+      "parentUuid": "a4c6c94b_c16d6eb9",
+      "range": {
+        "startLine": 9,
+        "startChar": 39,
+        "endLine": 9,
+        "endChar": 48
+      },
+      "revId": "955c5242fde1029539ae52dd6b6e9e16ec80aa21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "551345a7_c5ca420e",
         "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialUnitTests.cpp",
         "patchSetId": 5
