@@ -38,7 +38,7 @@ class Keymaster4 : public Keymaster {
           km4_1_dev_(km4_1_dev) {}
 
     Keymaster4(sp<V4_0::IKeymasterDevice> km4_0_dev, const hidl_string& instanceName)
-        : Keymaster(V4_1::IKeymasterDevice::descriptor, instanceName),
+        : Keymaster(V4_0::IKeymasterDevice::descriptor, instanceName),
           haveVersion_(false),
           km4_0_dev_(km4_0_dev),
           km4_1_dev_() {}

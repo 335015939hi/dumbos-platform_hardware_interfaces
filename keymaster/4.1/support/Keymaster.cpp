@@ -17,6 +17,7 @@
 #include <keymasterV4_1/Keymaster.h>
 
 #include <iomanip>
+#include <iterator>
 
 #include <android-base/logging.h>
 #include <android/hidl/manager/1.2/IServiceManager.h>
@@ -81,17 +82,17 @@ std::ostream& operator<<(std::ostream& os, const Keymaster& keymaster) {
     return os;
 }
 
-template <typename Wrapper>
+template <typename Wrapper, typename WrappedIKeymasterDevice>
 std::vector<std::unique_ptr<Keymaster>> enumerateDevices(
         const sp<IServiceManager>& serviceManager) {
     Keymaster::KeymasterSet result;
 
     bool foundDefault = false;
-    auto& descriptor = Wrapper::WrappedIKeymasterDevice::descriptor;
+    auto& descriptor = WrappedIKeymasterDevice::descriptor;
     serviceManager->listManifestByInterface(descriptor, [&](const hidl_vec<hidl_string>& names) {
         for (auto& name : names) {
             if (name == "default") foundDefault = true;
-            auto device = Wrapper::WrappedIKeymasterDevice::getService(name);
+            auto device = WrappedIKeymasterDevice::getService(name);
             CHECK(device) << "Failed to get service for " << descriptor << " with interface name "
                           << name;
             result.push_back(std::unique_ptr<Keymaster>(new Wrapper(device, name)));
@@ -125,10 +126,19 @@ Keymaster::KeymasterSet Keymaster::enumerateAvailableDevices() {
     auto serviceManager = IServiceManager::getService();
     CHECK(serviceManager) << "Could not retrieve ServiceManager";
 
-    auto km4s = enumerateDevices<Keymaster4>(serviceManager);
-    auto km3s = enumerateDevices<Keymaster3>(serviceManager);
+    auto km41s = enumerateDevices<Keymaster4, V4_1::IKeymasterDevice>(serviceManager);
+    auto km40s = enumerateDevices<Keymaster4, V4_0::IKeymasterDevice>(serviceManager);
+    auto km3s = enumerateDevices<Keymaster3, V3_0::IKeymasterDevice>(serviceManager);
 
-    auto result = std::move(km4s);
+    auto result = std::move(km41s);
+
+    std::copy_if(std::make_move_iterator(km40s.begin()), std::make_move_iterator(km40s.end()),
+                 std::back_inserter(result), [&](const auto& a) {
+                     return std::none_of(result.begin(), result.end(), [&](const auto& b) {
+                         return a->instanceName() == b->instanceName();
+                     });
+                 });
+
     result.insert(result.end(), std::make_move_iterator(km3s.begin()),
                   std::make_move_iterator(km3s.end()));
 
