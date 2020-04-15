@@ -22,6 +22,30 @@
       "revId": "226761ce9d060de51a9583a20ff796e2f6a4d406",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e75d2ed_2b660098",
+        "filename": "sensors/2.0/vts/functional/VtsHalSensorsV2_0TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 901,
+      "author": {
+        "id": 1278660
+      },
+      "writtenOn": "2020-04-15T21:11:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2417b5d7_5cd045a0",
+      "range": {
+        "startLine": 901,
+        "startChar": 4,
+        "endLine": 901,
+        "endChar": 40
+      },
+      "revId": "226761ce9d060de51a9583a20ff796e2f6a4d406",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
