@@ -94,6 +94,30 @@
       "revId": "b0f8dc1204aa019b4f23c65fb08f3811b094c27f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "20e44914_6d85b2eb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1278660
+      },
+      "writtenOn": "2020-04-15T16:41:16Z",
+      "side": 1,
+      "message": "Internally it will land to sensors/common/vts/2_X/VtsHalSensorsV2_XTargetTest.h. I believe we want to push some internal changes to AOSP first to use \"Merged-In:\".",
+      "parentUuid": "19d17759_df543525",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 37
+      },
+      "revId": "b0f8dc1204aa019b4f23c65fb08f3811b094c27f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
