@@ -86,7 +86,7 @@ class BluetoothAudioSession {
 
   // audio control path to use for both software and offloading
   sp<IBluetoothAudioPort> stack_iface_;
-  // audio data path (FMQ) for software encoding
+  // Audio path (FMQ) for software encoding/decoded data
   std::unique_ptr<DataMQ> mDataMQ;
   // audio data configuration for both software and offloading
   AudioConfiguration audio_config_;
@@ -153,6 +153,8 @@ class BluetoothAudioSession {
 
   // The control function writes stream to FMQ
   size_t OutWritePcmData(const void* buffer, size_t bytes);
+  // The control function read stream from FMQ
+  size_t InReadPcmData(void* buffer, size_t bytes);
 
   static constexpr PcmParameters kInvalidPcmParameters = {
       .sampleRate = SampleRate::RATE_UNKNOWN,
@@ -170,7 +172,7 @@ class BluetoothAudioSession {
 
 class BluetoothAudioSessionInstance {
  public:
-  // The API is to fetch the specified session of A2DP / Hearing Aid
+  // The API is to fetch the specified session
   static std::shared_ptr<BluetoothAudioSession> GetSessionInstance(
       const SessionType& session_type);
 

@@ -25,7 +25,7 @@ namespace audio {
 class BluetoothAudioSessionReport {
  public:
   // The API reports the Bluetooth stack has started the session, and will
-  // inform registered bluetooth_audio outputs
+  // inform registered bluetooth_audio
   static void OnSessionStarted(const SessionType& session_type,
                                const sp<IBluetoothAudioPort> host_iface,
                                const DataMQ::Descriptor* dataMQ,
