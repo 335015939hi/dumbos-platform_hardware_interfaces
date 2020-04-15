@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3d900d89_a00eef2d",
+        "filename": "identity/aidl/default/WritableIdentityCredential.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-04-15T00:52:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3638d2c6_2ba3a9f4",
+      "range": {
+        "startLine": 96,
+        "startChar": 4,
+        "endLine": 96,
+        "endChar": 14
+      },
+      "revId": "955c5242fde1029539ae52dd6b6e9e16ec80aa21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4c686f8_3be722df",
         "filename": "identity/aidl/vts/Android.bp",
         "patchSetId": 5
@@ -45,6 +69,30 @@
       "revId": "955c5242fde1029539ae52dd6b6e9e16ec80aa21",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4c6c94b_c16d6eb9",
+        "filename": "identity/aidl/vts/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-04-15T00:52:28Z",
+      "side": 1,
+      "message": "I replied to this in the previous patch reply \"VtsIWritableIdentityCredentialUnitTests.cpp is named to match the aidl file IWritableIdentityCredential.aidl since it does a unit test of each interface.\" \n\nSo I think the current file name of VtsIWritableIdentityCredentialUnitTests is a good name because it matches exactly with the aidl it aims to test.  Let me know if you disagree and what is a better name.",
+      "parentUuid": "e4c686f8_3be722df",
+      "range": {
+        "startLine": 9,
+        "startChar": 39,
+        "endLine": 9,
+        "endChar": 48
+      },
+      "revId": "955c5242fde1029539ae52dd6b6e9e16ec80aa21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "675e1c3b_1dd65db0",
+        "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialUnitTests.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-04-15T00:52:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "551345a7_c5ca420e",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 0
+      },
+      "revId": "955c5242fde1029539ae52dd6b6e9e16ec80aa21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5dacd513_7cd114be",
         "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialUnitTests.cpp",
         "patchSetId": 5
@@ -91,6 +163,30 @@
       "revId": "955c5242fde1029539ae52dd6b6e9e16ec80aa21",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ea41722_3cc563f3",
+        "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialUnitTests.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-04-15T00:52:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5dacd513_7cd114be",
+      "range": {
+        "startLine": 50,
+        "startChar": 66,
+        "endLine": 50,
+        "endChar": 71
+      },
+      "revId": "955c5242fde1029539ae52dd6b6e9e16ec80aa21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "317b2b12_f2318654",
+        "filename": "identity/aidl/vts/VtsIdentityTestUtils.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-04-15T00:52:28Z",
+      "side": 1,
+      "message": "different CL. This CL focus on unit test of the aidl Writable Identity Credential.  That CL focus on attestation certificate verifcation.  let\u0027s keep them seperate so cl don\u0027t pile up.",
+      "parentUuid": "91e52da2_0843b09a",
+      "range": {
+        "startLine": 156,
+        "startChar": 4,
+        "endLine": 156,
+        "endChar": 72
+      },
+      "revId": "955c5242fde1029539ae52dd6b6e9e16ec80aa21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fbaaf274_77af1e6a",
         "filename": "identity/aidl/vts/VtsIdentityTestUtils.h",
         "patchSetId": 5
@@ -137,6 +257,30 @@
       "revId": "955c5242fde1029539ae52dd6b6e9e16ec80aa21",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f239335_6dabf2ed",
+        "filename": "identity/aidl/vts/VtsIdentityTestUtils.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-04-15T00:52:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fbaaf274_77af1e6a",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 39
+      },
+      "revId": "955c5242fde1029539ae52dd6b6e9e16ec80aa21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
