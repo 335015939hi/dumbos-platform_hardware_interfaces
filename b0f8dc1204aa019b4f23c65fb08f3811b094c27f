@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "433d9834_d34ee32f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1074038
+      },
+      "writtenOn": "2020-04-15T13:41:37Z",
+      "side": 1,
+      "message": "Not sure I follow what\u0027s happening here. activateAllSensors(false) must stop all sensors from producing events if it\u0027s working properly and EventCallback should be valid for the entirety of this test so we shouldn\u0027t be seeing crashes. Is this something wrong with the HAL implementation on the device you\u0027re testing?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 37
+      },
+      "revId": "b0f8dc1204aa019b4f23c65fb08f3811b094c27f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
