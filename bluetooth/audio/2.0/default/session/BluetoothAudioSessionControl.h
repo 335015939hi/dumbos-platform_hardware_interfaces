@@ -126,13 +126,24 @@ class BluetoothAudioSessionControl {
     }
   }
 
-  // The control API writes stream to FMQ
+  // The control API writes stream to OutFMQ
   static size_t OutWritePcmData(const SessionType& session_type,
                                 const void* buffer, size_t bytes) {
     std::shared_ptr<BluetoothAudioSession> session_ptr =
         BluetoothAudioSessionInstance::GetSessionInstance(session_type);
     if (session_ptr != nullptr) {
       return session_ptr->OutWritePcmData(buffer, bytes);
+    }
+    return 0;
+  }
+
+  // The control API reads stream from InFMQ
+  static size_t InReadPcmData(const SessionType& session_type, void* buffer,
+                              size_t bytes) {
+    std::shared_ptr<BluetoothAudioSession> session_ptr =
+        BluetoothAudioSessionInstance::GetSessionInstance(session_type);
+    if (session_ptr != nullptr) {
+      return session_ptr->InReadPcmData(buffer, bytes);
     }
     return 0;
   }
