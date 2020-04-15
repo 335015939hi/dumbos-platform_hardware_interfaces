@@ -46,6 +46,30 @@
       "revId": "b0f8dc1204aa019b4f23c65fb08f3811b094c27f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc9245af_be636334",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1278660
+      },
+      "writtenOn": "2020-04-15T16:34:25Z",
+      "side": 1,
+      "message": "If even a HAL misbehaves, I don\u0027t think you want to crash the test if it is easy to avoid.",
+      "parentUuid": "4200dc55_1c143dec",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 37
+      },
+      "revId": "b0f8dc1204aa019b4f23c65fb08f3811b094c27f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
