@@ -70,6 +70,30 @@
       "revId": "b0f8dc1204aa019b4f23c65fb08f3811b094c27f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19d17759_df543525",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1074038
+      },
+      "writtenOn": "2020-04-15T16:37:16Z",
+      "side": 1,
+      "message": "Ack. I\u0027d prefer if we merge this internally and use Merged-In: here to make sure that this change propagates to the right branches. Are you able to merge this internally first?",
+      "parentUuid": "bc9245af_be636334",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 37
+      },
+      "revId": "b0f8dc1204aa019b4f23c65fb08f3811b094c27f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
