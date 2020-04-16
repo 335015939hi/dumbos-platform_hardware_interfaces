@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ebc8c412_f280cf26",
+        "filename": "vibrator/aidl/vts/VtsHalVibratorTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1006497
+      },
+      "writtenOn": "2020-04-16T11:21:29Z",
+      "side": 1,
+      "message": "nit: Could make this a std::chrono::milliseconds and drop the Ms suffix\n\nNice to use proper types where possible and avoids having three distinct types for timing (std::chrono::milliseconds elapsed, int32_t duration, uint32_t allowedLatencyMs).",
+      "revId": "8e31a949f64ba0abe162db4b7bd658b5c1b25b4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "242081a5_462306f1",
+        "filename": "vibrator/aidl/vts/VtsHalVibratorTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1006497
+      },
+      "writtenOn": "2020-04-16T11:21:29Z",
+      "side": 1,
+      "message": "nit: why not\n\n  EXPECT_LE(elapsed.count(), duration + allowedLatencyMs)\n\n?",
+      "revId": "8e31a949f64ba0abe162db4b7bd658b5c1b25b4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
