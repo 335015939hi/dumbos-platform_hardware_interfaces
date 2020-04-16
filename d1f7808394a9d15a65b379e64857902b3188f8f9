@@ -63,6 +63,24 @@
       "revId": "d1f7808394a9d15a65b379e64857902b3188f8f9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51d411fe_e752be24",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1020018
+      },
+      "writtenOn": "2020-04-16T23:59:58Z",
+      "side": 1,
+      "message": "The test is present but if you just build the vts using: make vts the testcase will not be present unless you specify using the line in the makefile. I am getting it wrong?",
+      "parentUuid": "e42f7b43_c3fa59a5",
+      "revId": "d1f7808394a9d15a65b379e64857902b3188f8f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
