@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ac9ac73e_6083311c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2020-04-16T23:40:55Z",
+      "side": 1,
+      "message": "please also try to run `atest VtsHalSensorsV2_0TargetTest`",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 4
+      },
+      "revId": "d1f7808394a9d15a65b379e64857902b3188f8f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
