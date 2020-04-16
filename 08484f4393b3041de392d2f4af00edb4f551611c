@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "866710ce_cf6be005",
+        "filename": "identity/aidl/default/EicAndroidOps.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2020-04-16T10:39:42Z",
+      "side": 1,
+      "message": "Hi David,\n\nFor EC key cert, I create two RPC function IdentityStartAttestKey() and IdentityFinishAttestKey() to generate cert.\n\nBecause the key attestation certification is very complex, I prefer to create vendor RPC function in Keymaster to support it.\n\nIs it possible to move ecPublicKeyGenerateCertificate() to another new eIC API like eicOpsGenerateEcKeyCert()?\n\nI can share the proto type of two RPC functions by following for your reference.\n\n// IdentityStartAttestKey\nmessage IdentityStartAttestKeyRequest {\n  bytes pubkey \u003d 1;\n  KeyParameters params \u003d 2;\n  uint32 attestation_app_id_len \u003d 3;\n  AttestationSelector selector \u003d 4;\n  bytes not_before \u003d 5;      // strftime(\u0027%y%m%d%H%M%SZ\u0027) [13 octects]\n  bytes not_after \u003d 6;       // strftime(\u0027%y%m%d%H%M%SZ\u0027) [13 octects]\n  uint64 creation_time_ms \u003d 7;      // Rough current time (ms since epoch).\n}\nmessage IdentityStartAttestKeyResponse {\n  ErrorCode error_code \u003d 1;\n  OperationHandle handle \u003d 2;\n  bytes certificate_prologue \u003d 3;\n}\n\nhttps://nugget-os-review.googlesource.com/c/host/generic/+/30685/3/nugget/proto/nugget/app/keymaster/keymaster.proto#488\n\n\n// IdentityFinishAttestKeyRequest\nmessage IdentityFinishAttestKeyRequest {\n  OperationHandle handle \u003d 1;\n  bytes signingKey \u003d 2;\n}\nmessage IdentityFinishAttestKeyResponse {\n  ErrorCode error_code \u003d 1;\n  bytes certificate_epilogue \u003d 2;\n  ChipFusing chip_fusing \u003d 3;\n  bool nodelocked_ro \u003d 4;\n}\nhttps://nugget-os-review.googlesource.com/c/host/generic/+/30685/3/nugget/proto/nugget/app/keymaster/keymaster.proto#504\n\nThen we could refer to keymaster attestKey() to call vendor RPC API to get EC key attestation and certificate.\n\nhttps://source.corp.google.com/android/vendor/google_nos/host/android/hals/keymaster/KeymasterDevice.cpp;l\u003d667?q\u003dattestation_certificate.setToExternal\n\n\n\nI create a system harness testing function by https://nugget-os-review.googlesource.com/c/test/system-test-harness/+/30686/3/src/keymaster-attestation-certificate-tests.cc#66 for your reference.\n\nThank you,\nJoseph.",
+      "revId": "08484f4393b3041de392d2f4af00edb4f551611c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
