@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3379d9da_190beaed",
+        "filename": "vibrator/aidl/vts/VtsHalVibratorTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1418133
+      },
+      "writtenOn": "2020-04-17T02:19:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ebc8c412_f280cf26",
+      "revId": "8e31a949f64ba0abe162db4b7bd658b5c1b25b4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "242081a5_462306f1",
         "filename": "vibrator/aidl/vts/VtsHalVibratorTargetTest.cpp",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "8e31a949f64ba0abe162db4b7bd658b5c1b25b4a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d14216b2_ae1e4cd6",
+        "filename": "vibrator/aidl/vts/VtsHalVibratorTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1418133
+      },
+      "writtenOn": "2020-04-17T02:19:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "242081a5_462306f1",
+      "revId": "8e31a949f64ba0abe162db4b7bd658b5c1b25b4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
