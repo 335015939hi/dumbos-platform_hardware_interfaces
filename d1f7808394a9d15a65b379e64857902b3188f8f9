@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "755887ac_c3cb45d1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2020-04-17T04:44:50Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0e6bdcf5_c5127ba2",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 4
+      },
+      "revId": "d1f7808394a9d15a65b379e64857902b3188f8f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e42f7b43_c3fa59a5",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -78,6 +102,24 @@
       "side": 1,
       "message": "The test is present but if you just build the vts using: make vts the testcase will not be present unless you specify using the line in the makefile. I am getting it wrong?",
       "parentUuid": "e42f7b43_c3fa59a5",
+      "revId": "d1f7808394a9d15a65b379e64857902b3188f8f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14454f6c_30681779",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2020-04-17T04:44:50Z",
+      "side": 1,
+      "message": "I made the change in rvc-dev, so you will needed that change ID to avoid merge conflict.",
+      "parentUuid": "51d411fe_e752be24",
       "revId": "d1f7808394a9d15a65b379e64857902b3188f8f9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
