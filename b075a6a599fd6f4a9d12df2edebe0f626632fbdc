@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6f8b13f7_00fdd4f3",
+        "filename": "vibrator/aidl/vts/VtsHalVibratorTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1006497
+      },
+      "writtenOn": "2020-04-17T13:42:28Z",
+      "side": 1,
+      "message": "You don\u0027t need count() here, durations can be compared directly",
+      "range": {
+        "startLine": 429,
+        "startChar": 29,
+        "endLine": 429,
+        "endChar": 37
+      },
+      "revId": "b075a6a599fd6f4a9d12df2edebe0f626632fbdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
