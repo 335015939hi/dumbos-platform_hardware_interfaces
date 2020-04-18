@@ -1519,7 +1519,9 @@ TEST_F(CameraHidlTest, noHal1AfterP) {
         return;
     }
 
-    if (firstApiLevel >= HAL1_PHASE_OUT_API_LEVEL) {
+    // all devices with first API level == 28 can use HAL1
+    // Whether it's a low memory machine or not
+    if (firstApiLevel > HAL1_PHASE_OUT_API_LEVEL) {
         hidl_vec<hidl_string> cameraDeviceNames = getCameraDeviceNames(mProvider);
         for (const auto& name : cameraDeviceNames) {
             int deviceVersion = getCameraDeviceVersion(name, mProviderType);
@@ -1527,6 +1529,7 @@ TEST_F(CameraHidlTest, noHal1AfterP) {
             ASSERT_NE(deviceVersion, CAMERA_DEVICE_API_VERSION_1_0); // Must not be device@1.0
         }
     }
+    return;
 }
 
 // Test if ICameraProvider::isTorchModeSupported returns Status::OK
