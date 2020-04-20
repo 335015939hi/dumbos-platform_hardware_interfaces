@@ -22,6 +22,30 @@
       "revId": "b075a6a599fd6f4a9d12df2edebe0f626632fbdc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a46ebe6_ee124a65",
+        "filename": "vibrator/aidl/vts/VtsHalVibratorTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1418133
+      },
+      "writtenOn": "2020-04-20T01:39:59Z",
+      "side": 1,
+      "message": "The count() is used to ensure the assert failure output is easily readable.",
+      "parentUuid": "6f8b13f7_00fdd4f3",
+      "range": {
+        "startLine": 429,
+        "startChar": 29,
+        "endLine": 429,
+        "endChar": 37
+      },
+      "revId": "b075a6a599fd6f4a9d12df2edebe0f626632fbdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
