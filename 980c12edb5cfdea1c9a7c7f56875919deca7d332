@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "935c1f23_3bf6066f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2020-04-20T19:00:50Z",
+      "side": 1,
+      "message": "Can you include this line?\n\nChange-Id: I0ed71d1227ede4e08c9d4108e019260511d6f0ed\n\nIt allows you to upload to the same CL when it is updated.",
+      "revId": "980c12edb5cfdea1c9a7c7f56875919deca7d332",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3471d089_0f3c2037",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2020-04-20T19:00:50Z",
+      "side": 1,
+      "message": "AFAIK from VTS\u0027s perspective, ro.product.first_api_level can be empty on launch devices; in this case a VTS test should assume its value is ro.build.version.sdk",
+      "range": {
+        "startLine": 460,
+        "startChar": 18,
+        "endLine": 460,
+        "endChar": 44
+      },
+      "revId": "980c12edb5cfdea1c9a7c7f56875919deca7d332",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2383758a_f99165f8",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2020-04-20T19:00:50Z",
+      "side": 1,
+      "message": "I think the convention is to use ro.build.version.sdk (although, their values should be the same?)",
+      "range": {
+        "startLine": 461,
+        "startChar": 18,
+        "endLine": 461,
+        "endChar": 45
+      },
+      "revId": "980c12edb5cfdea1c9a7c7f56875919deca7d332",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3857d9ae_06d132a2",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2020-04-20T19:00:50Z",
+      "side": 1,
+      "message": "so we want to enforce it when both are \"nogood\"?",
+      "range": {
+        "startLine": 473,
+        "startChar": 11,
+        "endLine": 473,
+        "endChar": 63
+      },
+      "revId": "980c12edb5cfdea1c9a7c7f56875919deca7d332",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
