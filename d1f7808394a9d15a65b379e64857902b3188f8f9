@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "e9bf131a_0b9d9e3c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1020018
+      },
+      "writtenOn": "2020-04-20T20:06:41Z",
+      "side": 1,
+      "message": "\u003e Ack",
+      "parentUuid": "755887ac_c3cb45d1",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 4
+      },
+      "revId": "d1f7808394a9d15a65b379e64857902b3188f8f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e42f7b43_c3fa59a5",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -123,6 +147,24 @@
       "revId": "d1f7808394a9d15a65b379e64857902b3188f8f9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e555bb19_0b10ac71",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1020018
+      },
+      "writtenOn": "2020-04-20T20:06:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14454f6c_30681779",
+      "revId": "d1f7808394a9d15a65b379e64857902b3188f8f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
