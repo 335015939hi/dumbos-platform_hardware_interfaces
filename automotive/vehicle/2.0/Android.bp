@@ -6,6 +6,9 @@ hidl_interface {
     vndk: {
         enabled: true,
     },
+    vintf_fragments: [
+        "android.hardware.automotive.vehicle@2.0-service.xml",
+    ],
     srcs: [
         "types.hal",
         "IVehicle.hal",
