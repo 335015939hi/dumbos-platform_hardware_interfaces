@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3d8e919f_047d329e",
+        "filename": "wifi/1.3/default/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1332974
+      },
+      "writtenOn": "2020-04-20T11:14:05Z",
+      "side": 1,
+      "message": "nit: can use \"ifdef BOARD_WIFI_AVOID_IFACE_RESET\" directly.",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 40
+      },
+      "revId": "ebb22f41be4a6357ba47aea31b83dfe16569ecf0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
