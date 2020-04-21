@@ -258,6 +258,30 @@
       "revId": "7fdce62aba8d6ca0aba0459a39af3ab506225e49",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a2b5dbb_cae36911",
+        "filename": "identity/aidl/android/hardware/identity/IWritableIdentityCredential.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-21T20:19:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38139ae4_92257cfd",
+      "range": {
+        "startLine": 191,
+        "startChar": 42,
+        "endLine": 191,
+        "endChar": 51
+      },
+      "revId": "7fdce62aba8d6ca0aba0459a39af3ab506225e49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
