@@ -49,6 +49,12 @@ bool SetupWritableCredential(sp<IWritableIdentityCredential>& writableCredential
 }
 
 optional<vector<uint8_t>> GenerateReaderCertificate(string serialDecimal) {
+    vector<uint8_t> privKey;
+    return GenerateReaderCertificate(serialDecimal, privKey);
+}
+
+optional<vector<uint8_t>> GenerateReaderCertificate(string serialDecimal,
+                                                    vector<uint8_t>& readerPrivateKey) {
     optional<vector<uint8_t>> readerKeyPKCS8 = support::createEcKeyPair();
     if (!readerKeyPKCS8) {
         return {};
@@ -60,6 +66,8 @@ optional<vector<uint8_t>> GenerateReaderCertificate(string serialDecimal) {
     if (!readerPublicKey || !readerKey) {
         return {};
     }
+
+    readerPrivateKey = readerKey.value();
 
     string issuer = "Android Open Source Project";
     string subject = "Android IdentityCredential VTS Test";
@@ -73,7 +81,18 @@ optional<vector<uint8_t>> GenerateReaderCertificate(string serialDecimal) {
 
 bool AddAccessControlProfiles(sp<IWritableIdentityCredential>& writableCredential,
                               const vector<TestProfile>& testProfiles) {
+    vector<SecureAccessControlProfile> returnedSecureProfiles;
+    return AddAccessControlProfilesAndPushSecPro(writableCredential, testProfiles,
+                                                 returnedSecureProfiles);
+}
+
+bool AddAccessControlProfilesAndPushSecPro(
+        sp<IWritableIdentityCredential>& writableCredential,
+        const vector<TestProfile>& testProfiles,
+        vector<SecureAccessControlProfile>& returnedSecureProfiles) {
     Status result;
+
+    returnedSecureProfiles.clear();
 
     for (const auto& testProfile : testProfiles) {
         SecureAccessControlProfile profile;
@@ -100,7 +119,10 @@ bool AddAccessControlProfiles(sp<IWritableIdentityCredential>& writableCredentia
             support::kAesGcmTagSize + support::kAesGcmIvSize != profile.mac.size()) {
             return false;
         }
+
+        returnedSecureProfiles.push_back(profile);
     }
+
     return true;
 }
 

@@ -98,8 +98,16 @@ bool SetupWritableCredential(sp<IWritableIdentityCredential>& writableCredential
 
 optional<vector<uint8_t>> GenerateReaderCertificate(string serialDecimal);
 
+optional<vector<uint8_t>> GenerateReaderCertificate(string serialDecimal,
+                                                    vector<uint8_t>& readerPrivateKey);
+
 bool AddAccessControlProfiles(sp<IWritableIdentityCredential>& writableCredential,
                               const vector<TestProfile>& testProfiles);
+
+bool AddAccessControlProfilesAndPushSecPro(
+        sp<IWritableIdentityCredential>& writableCredential,
+        const vector<TestProfile>& testProfiles,
+        vector<SecureAccessControlProfile>& returnedSecureProfiles);
 
 bool AddEntry(sp<IWritableIdentityCredential>& writableCredential, const TestEntryData& entry,
               int dataChunkSize, map<const TestEntryData*, vector<vector<uint8_t>>>& encryptedBlobs,
