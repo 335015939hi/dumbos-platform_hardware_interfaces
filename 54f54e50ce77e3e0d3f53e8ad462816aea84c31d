@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fee5b35f_32d4d736",
+        "filename": "identity/aidl/default/EmbeddedIc.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2020-04-22T09:33:20Z",
+      "side": 1,
+      "message": "Hi David,\n\nSince we have plan to use separated RPC API to support ECDSA key and cert generatioon.\n\nIs it possible to use following prototype type?\n\nbool eicCreateCredentialKey(EicProvision* ctx,     // will call mDL RPC function\n                            uint8_t publicKey[EIC_P256_PUB_KEY_SIZE]);\n\nbool eicGenerateCredentialKeyCert(EicProvision* ctx,    // will call keymaster RPC function\n                            uint8_t publicKey[EIC_P256_PUB_KEY_SIZE],\n                            const uint8_t* challenge,\n                            size_t challengeSize,\n                            const uint8_t* applicationId,\n                            size_t applicationIdSize,\n                            uint8_t* publicKeyCert,\n                            size_t* publicKeyCertSize);\n\nThank you,\nJoseph.",
+      "range": {
+        "startLine": 309,
+        "startChar": 5,
+        "endLine": 309,
+        "endChar": 27
+      },
+      "revId": "54f54e50ce77e3e0d3f53e8ad462816aea84c31d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4fadab88_579b39b2",
+        "filename": "identity/aidl/default/WritableIdentityCredential.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2020-04-22T09:33:20Z",
+      "side": 1,
+      "message": "Hi David,\n\nSince I have plan to put ECDSA key certificate RPC to keymaster, \nis it possible to create two separate eic API like following to support EC key and cert?\n\nmDL reference CL: https://nugget-os-review.googlesource.com/c/core/nugget/+/30884/7/user/identity/EmbeddedIc/EmbeddedIc.c#203\nhttps://nugget-os-review.googlesource.com/c/core/nugget/+/30884/7/user/identity/identity_support.c#589\n\n    optional\u003cvector\u003cuint8_t\u003e\u003e pubKey\n    if (!eicCreateCredentialKey(\u0026eicCtx_, pubKey)) {\t\t// call mDL RPC to support ECDSA key generation\n        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(\n            IIdentityCredentialStore::STATUS_FAILED,\n            \"Error generating credential key\"));\n    }\n\n\nkeymaster reference CL: https://nugget-os-review.googlesource.com/c/core/nugget/+/30684/8/user/keymaster/attest.c#21\n\n    if (!eicGenerateKeyCert(\u0026eicCtx_, pubKey\t\t\t// call keymaster RPC to support ECDSA key certificate generation\n                                attestationChallenge.data(), attestationChallenge.size(),\n                                attestationApplicationId.data(), attestationApplicationId.size(),\n                                publicKeyCert,\n                                \u0026publicKeyCertSize)) {\n        return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(\n            IIdentityCredentialStore::STATUS_FAILED,\n            \"Error generating attestation certificate\"));\n    }\n\nThank you,\nJoseph.",
+      "range": {
+        "startLine": 81,
+        "startChar": 9,
+        "endLine": 81,
+        "endChar": 31
+      },
+      "revId": "54f54e50ce77e3e0d3f53e8ad462816aea84c31d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
