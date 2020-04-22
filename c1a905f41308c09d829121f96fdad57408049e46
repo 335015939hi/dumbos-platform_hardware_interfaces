@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b2c04c75_bbd17ebf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-22T22:35:50Z",
+      "side": 1,
+      "message": "Please also run the CTS tests and add a \"Test: atest android.security.identity.cts\" to convey this.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 36
+      },
+      "revId": "c1a905f41308c09d829121f96fdad57408049e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "655c003e_a65810a9",
+        "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-22T22:35:50Z",
+      "side": 1,
+      "message": "The code below is fine (it checks that empty challenges are OK) but the comment suggests the opposite. Suggest to just delete the comment.",
+      "range": {
+        "startLine": 62,
+        "startChar": 4,
+        "endLine": 62,
+        "endChar": 39
+      },
+      "revId": "c1a905f41308c09d829121f96fdad57408049e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50888100_8b697b40",
+        "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-22T22:35:50Z",
+      "side": 1,
+      "message": "You only need to look at the serviceSpecificException if something actually fails. In this case it doesn\u0027t fail so these two lines can be deleted. Same instance many, many places below so only mentioning it once here 😊",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 85
+      },
+      "revId": "c1a905f41308c09d829121f96fdad57408049e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e2bbc3e_c403a088",
+        "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-22T22:35:50Z",
+      "side": 1,
+      "message": "through? (spelling)",
+      "range": {
+        "startLine": 120,
+        "startChar": 28,
+        "endLine": 120,
+        "endChar": 34
+      },
+      "revId": "c1a905f41308c09d829121f96fdad57408049e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31c46c8c_9ab2dd13",
+        "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-22T22:35:50Z",
+      "side": 1,
+      "message": "Remove?",
+      "range": {
+        "startLine": 129,
+        "startChar": 70,
+        "endLine": 129,
+        "endChar": 81
+      },
+      "revId": "c1a905f41308c09d829121f96fdad57408049e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "353b590e_2acaf31a",
+        "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-22T22:35:50Z",
+      "side": 1,
+      "message": "I think \"check\" is better word here?",
+      "range": {
+        "startLine": 129,
+        "startChar": 37,
+        "endLine": 129,
+        "endChar": 43
+      },
+      "revId": "c1a905f41308c09d829121f96fdad57408049e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0bc7da09_a8bc698e",
+        "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-22T22:35:50Z",
+      "side": 1,
+      "message": "I asked in a previous comment, here:\n\n https://android-review.googlesource.com/c/platform/hardware/interfaces/+/1250147/4/identity/aidl/vts/VtsIWritableIdentityCredentialUnitTests.cpp#401\n\nto not use reader certificates for this and you said \"Done\".\n\nBut it looks like nothing has changed?\n\nI really think this is an important test and I think it could be a lot shorter if you remove reader certificates. I mean, it literally can be as short as something like this:\n\n result \u003d writableCredential-\u003eaddAccessControlProfile(1, ...);\n ASSERT_TRUE(result.isOk()...\n\n // Check that it fails with STATUS_FAILED if trying to re-use an id\n result \u003d writableCredential-\u003eaddAccessControlProfile(1, ...);\n ASSERT_TRUE(result.isOk() ...\n ASSERT_EQ(binder::Status::EX_SERVICE_SPECIFIC, result.exceptionCode());\n ASSERT_EQ(IIdentityCredentialStore::STATUS_INVALID_DATA, result.serviceSpecificErrorCode());",
+      "range": {
+        "startLine": 231,
+        "startChar": 32,
+        "endLine": 231,
+        "endChar": 56
+      },
+      "revId": "c1a905f41308c09d829121f96fdad57408049e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ea325aa_a3861736",
+        "filename": "identity/aidl/vts/VtsIdentityTestUtils.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-22T22:35:50Z",
+      "side": 1,
+      "message": "I don\u0027t think this is used anywhere. Please delete it from this CL if it\u0027s not.",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 2
+      },
+      "revId": "c1a905f41308c09d829121f96fdad57408049e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
