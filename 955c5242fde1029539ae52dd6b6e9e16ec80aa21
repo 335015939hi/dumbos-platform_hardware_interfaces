@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "24d71653_7066be3b",
+        "filename": "identity/aidl/vts/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-04-22T04:18:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf9836e7_d74636f6",
+      "range": {
+        "startLine": 9,
+        "startChar": 39,
+        "endLine": 9,
+        "endChar": 48
+      },
+      "revId": "955c5242fde1029539ae52dd6b6e9e16ec80aa21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "551345a7_c5ca420e",
         "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialUnitTests.cpp",
         "patchSetId": 5
