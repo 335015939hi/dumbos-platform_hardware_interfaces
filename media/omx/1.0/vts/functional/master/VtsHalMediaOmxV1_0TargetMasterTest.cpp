@@ -80,6 +80,68 @@ void displayComponentInfo(hidl_vec<IOmx::ComponentInfo>& nodeList) {
     }
 }
 
+/*
+ * Returns the role based on is_encoder and mime.
+ *
+ * The mapping from a pair (is_encoder, mime) to a role string is
+ * defined in frameworks/av/media/libmedia/MediaDefs.cpp and
+ * frameworks/av/media/libstagefright/omx/OMXUtils.cpp. This function
+ * does essentially the same work as GetComponentRole() in
+ * OMXUtils.cpp.
+ *
+ * Args:
+ *   is_encoder: A boolean indicating whether the role is for an
+ *       encoder or a decoder.
+ *   mime: A string of the desired mime type.
+ *
+ * Returns:
+ *   A const string for the requested role name, empty if mime is not
+ *   recognized.
+ */
+const std::string getComponentRole(bool is_encoder, const std::string mime) {
+    // Mapping from mime types to roles.
+    // These values come from MediaDefs.cpp and OMXUtils.cpp
+    const std::map<const std::string, const std::string> audio_mime_to_role = {
+            {"3gpp", "amrnb"},         {"ac3", "ac3"},     {"amr-wb", "amrwb"},
+            {"eac3", "eac3"},          {"flac", "flac"},   {"g711-alaw", "g711alaw"},
+            {"g711-mlaw", "g711mlaw"}, {"gsm", "gsm"},     {"mp4a-latm", "aac"},
+            {"mpeg", "mp3"},           {"mpeg-L1", "mp1"}, {"mpeg-L2", "mp2"},
+            {"opus", "opus"},          {"raw", "raw"},     {"vorbis", "vorbis"},
+    };
+    const std::map<const std::string, const std::string> video_mime_to_role = {
+            {"3gpp", "h263"},         {"avc", "avc"},           {"dolby-vision", "dolby-vision"},
+            {"hevc", "hevc"},         {"mp4v-es", "mpeg4"},     {"mpeg2", "mpeg2"},
+            {"x-vnd.on2.vp8", "vp8"}, {"x-vnd.on2.vp9", "vp9"},
+    };
+    const std::map<const std::string, const std::string> image_mime_to_role = {
+            {"vnd.android.heic", "heic"},
+    };
+
+    const std::string mime_suffix = mime.substr(6, mime.size() - 1);
+    const std::string middle = is_encoder ? "encoder." : "decoder.";
+    std::string prefix;
+    std::string suffix;
+    if (mime.rfind("audio/", 0) != std::string::npos) {
+        auto it = audio_mime_to_role.find(mime_suffix);
+        if (it == audio_mime_to_role.end()) return "";
+        prefix = "audio_";
+        suffix = it->second;
+    } else if (mime.rfind("video/", 0) != std::string::npos) {
+        auto it = video_mime_to_role.find(mime_suffix);
+        if (it == video_mime_to_role.end()) return "";
+        prefix = "video_";
+        suffix = it->second;
+    } else if (mime.rfind("image/", 0) != std::string::npos) {
+        auto it = image_mime_to_role.find(mime_suffix);
+        if (it == image_mime_to_role.end()) return "";
+        prefix = "image_";
+        suffix = it->second;
+    } else {
+        return "";
+    }
+    return prefix + middle + suffix;
+}
+
 // Make sure IOmx and IOmxStore have the same set of instances.
 TEST(MasterHidlTest, instanceMatchValidation) {
     auto omxInstances = android::hardware::getAllHalInstanceNames(IOmx::descriptor);
@@ -91,7 +153,7 @@ TEST(MasterHidlTest, instanceMatchValidation) {
     }
 }
 
-// list service attributes
+// list service attributes and verify expected formats
 TEST_P(MasterHidlTest, ListServiceAttr) {
     description("list service attributes");
     android::hardware::media::omx::V1_0::Status status;
@@ -105,7 +167,64 @@ TEST_P(MasterHidlTest, ListServiceAttr) {
                     })
                     .isOk());
     ASSERT_EQ(status, android::hardware::media::omx::V1_0::Status::OK);
-    if (attributes.size() == 0) ALOGV("Warning, Attribute list empty");
+    if (attributes.size() == 0) {
+        ALOGV("Warning, Attribute list empty");
+    } else {
+        /*
+         * known is a map whose keys are the known "key" for a service
+         * attribute pair (see IOmxStore::Attribute), and whose values are the
+         * corresponding regular expressions that will have to match with the
+         * "value" of the attribute pair. If listServiceAttributes() returns an
+         * attribute that has a matching key but an unmatched value, the test
+         * will fail.
+         */
+        const std::map<const std::string, const testing::internal::RE> known = {
+                {"max-video-encoder-input-buffers", "0|[1-9][0-9]*"},
+                {"supports-multiple-secure-codecs", "0|1"},
+                {"supports-secure-with-non-secure-codec", "0|1"},
+        };
+        /*
+         * unknown is a map of pairs of strings used for regular expressions.
+         * For each attribute whose key is not known (i.e., does not match any
+         * of the keys in the "known" variable defined above), that key will be
+         * tried for a match with the first element of each pair of the variable
+         * "unknown". If a match occurs, the value of that same attribute will be
+         * tried for a match with the second element of the pair. If this second
+         * match fails, the test will fail.
+         */
+        const std::map<std::string, std::string> unknown = {{"supports-[a-z0-9-]*", "0|1"}};
+
+        std::set<const std::string> keySet;
+        for (IOmxStore::Attribute attr : attributes) {
+            // Make sure there are no duplicates
+            const auto [keyIter, inserted] = keySet.insert(attr.key);
+            EXPECT_EQ(inserted, true);
+
+            // Check the value against the corresponding regular
+            // expression.
+            const auto knownIter = known.find(attr.key);
+            if (knownIter != known.end()) {
+                EXPECT_EQ(testing::internal::RE::FullMatch(attr.value, knownIter->second), true);
+            } else {
+                // Failed to find exact attribute, check against
+                // possible patterns.
+                bool matched = false;
+                for (auto it : unknown) {
+                    const testing::internal::RE unknownKey = it.first;
+                    if (testing::internal::RE::PartialMatch(attr.key, unknownKey)) {
+                        matched = true;
+                        const testing::internal::RE unknownValue = it.second;
+                        EXPECT_EQ(testing::internal::RE::FullMatch(attr.value, unknownValue), true);
+                    }
+                }
+                if (!matched) {
+                    ALOGV("Unrecognized service attribute \"%s\" with value "
+                          "\"%s\".",
+                          attr.key.c_str(), attr.value.c_str());
+                }
+            }
+        }
+    }
 }
 
 // get node prefix
@@ -117,14 +236,190 @@ TEST_P(MasterHidlTest, getNodePrefix) {
     if (prefix.empty()) ALOGV("Warning, Node Prefix empty");
 }
 
-// list roles
+// list roles and validate all RoleInfo objects
 TEST_P(MasterHidlTest, ListRoles) {
     description("list roles");
     hidl_vec<IOmxStore::RoleInfo> roleList;
     omxStore->listRoles([&roleList](hidl_vec<IOmxStore::RoleInfo> const& _nl) {
         roleList = _nl;
     });
-    if (roleList.size() == 0) ALOGV("Warning, RoleInfo list empty");
+    if (roleList.size() == 0) {
+        ALOGV("Warning, RoleInfo list empty");
+        return;
+    }
+    // Basic patterns for matching
+    const std::string toggle = "(0|1)";
+    const std::string string = "(.*)";
+    const std::string num = "(0|([1-9][0-9]*))";
+    const std::string size = "(" + num + "x" + num + ")";
+    const std::string ratio = "(" + num + ":" + num + ")";
+    const std::string range_num = "((" + num + "-" + num + ")|" + num + ")";
+    const std::string range_size = "((" + size + "-" + size + ")|" + size + ")";
+    const std::string range_ratio = "((" + ratio + "-" + ratio + ")|" + ratio + ")";
+    const std::string list_range_num = "(" + range_num + "(," + range_num + ")*)";
+
+    // Matching rules for node attributes with fixed keys
+    const std::map<std::string, testing::internal::RE> attr_re = {
+            {"alignment", size},
+            {"bitrate-range", range_num},
+            {"block-aspect-ratio-range", range_ratio},
+            {"block-count-range", range_num},
+            {"block-size", size},
+            {"blocks-per-second-range", range_num},
+            {"complexity-default", num},
+            {"complexity-range", range_num},
+            {"feature-adaptive-playback", toggle},
+            {"feature-bitrate-control", "(VBR|CBR|CQ)[,(VBR|CBR|CQ)]*"},
+            {"feature-can-swap-width-height", toggle},
+            {"feature-intra-refresh", toggle},
+            {"feature-partial-frame", toggle},
+            {"feature-secure-playback", toggle},
+            {"feature-tunneled-playback", toggle},
+            {"frame-rate-range", range_num},
+            {"max-channel-count", num},
+            {"max-concurrent-instances", num},
+            {"max-supported-instances", num},
+            {"pixel-aspect-ratio-range", range_ratio},
+            {"quality-default", num},
+            {"quality-range", range_num},
+            {"quality-scale", string},
+            {"sample-rate-ranges", list_range_num},
+            {"size-range", range_size},
+    };
+
+    // Strings for matching rules for node attributes with key patterns
+    const std::map<std::string, std::string> attr_pattern = {
+            {"measured-frame-rate-" + size + "-range", range_num},
+            {"feature-[a-zA-Z0-9_-]+", string},
+    };
+
+    // Matching rules for node names and owners
+    const testing::internal::RE node_name_re = "[a-zA-Z0-9.-]+";
+    const testing::internal::RE node_owner_re = "[a-zA-Z0-9._-]+";
+
+    std::set<const std::string> roleSet;
+    std::map<const std::string, std::set<const std::string>> nodeToRoles;
+    std::map<const std::string, std::set<const std::string>> ownerToNodes;
+    for (IOmxStore::RoleInfo role : roleList) {
+        // Make sure there are no duplicates
+        const auto [roleIter, inserted] = roleSet.insert(role.role);
+        EXPECT_EQ(inserted, true);
+
+        // Make sure role name follows expected format based on type and
+        // isEncoder
+        const std::string role_name = getComponentRole(role.isEncoder, role.type);
+        EXPECT_EQ(role_name, role.role);
+
+        // Check the nodes for this role
+        std::set<const std::string> nodeSet;
+        for (IOmxStore::NodeInfo node : role.nodes) {
+            // Make sure there are no duplicates
+            const auto [nodeIter, inserted] = nodeSet.insert(node.name);
+            EXPECT_EQ(inserted, true);
+
+            // Check the format of node name
+            EXPECT_EQ(testing::internal::RE::FullMatch(node.name, node_name_re), true);
+            // Check the format of node owner
+            EXPECT_EQ(testing::internal::RE::FullMatch(node.owner, node_owner_re), true);
+
+            std::set<const std::string> attributeSet;
+            for (const auto attr : node.attributes) {
+                // Make sure there are no duplicates
+                const auto [nodeIter, inserted] = nodeSet.insert(attr.key);
+                EXPECT_EQ(inserted, true);
+
+                // Check the value against the corresponding regular
+                // expression.
+                const auto it = attr_re.find(attr.key);
+                if (it != attr_re.end()) {
+                    EXPECT_EQ(testing::internal::RE::FullMatch(attr.value, it->second), true);
+                } else {
+                    // Failed to find exact attribute, check against
+                    // possible patterns.
+                    bool keyFound = false;
+                    for (auto it : attr_pattern) {
+                        const testing::internal::RE keyPattern = it.first;
+                        if (testing::internal::RE::PartialMatch(attr.key, keyPattern)) {
+                            keyFound = true;
+                            const testing::internal::RE valuePattern = it.second;
+                            EXPECT_EQ(testing::internal::RE::FullMatch(attr.value, valuePattern),
+                                      true);
+                        }
+                    }
+                    if (!keyFound) {
+                        ALOGV("Unrecognized attribute \"%s\" with value "
+                              "\"%s\".",
+                              attr.key.c_str(), attr.value.c_str());
+                    }
+                }
+            }
+            auto it = nodeToRoles.find(node.name);
+            if (it == nodeToRoles.end()) {
+                // Do this only once per node
+                ownerToNodes[node.owner].insert(node.name);
+            }
+            nodeToRoles[node.name].insert(role.role);
+        }
+    }
+    // Verify the information with IOmx::listNodes().
+    // IOmxStore::listRoles() and IOmx::listNodes() should give consistent
+    // information about nodes and roles.
+    for (auto owner : ownerToNodes) {
+        // Obtain the IOmx instance for each "owner"
+        sp<IOmx> omx = omxStore->getOmx(owner.first);
+        EXPECT_NE(nullptr, omx);
+
+        // Obtain node list from IOmx instance
+        android::hardware::media::omx::V1_0::Status status;
+        hidl_vec<IOmx::ComponentInfo> nodeList;
+        EXPECT_TRUE(
+                omx->listNodes([&status, &nodeList](android::hardware::media::omx::V1_0::Status _s,
+                                                    hidl_vec<IOmx::ComponentInfo> const& _nl) {
+                       status = _s;
+                       nodeList = _nl;
+                   }).isOk());
+        ASSERT_EQ(status, android::hardware::media::omx::V1_0::Status::OK);
+
+        // Check the nodes for this role
+        std::set<const std::string> nodeSet;
+        for (IOmx::ComponentInfo node : nodeList) {
+            // Make sure there are no duplicates
+            const auto [nodeIter, inserted] = nodeSet.insert(node.mName);
+            EXPECT_EQ(inserted, true);
+
+            // Skip "hidden" nodes, i.e. those that are not advertised by
+            // IOmxStore::listRoles().
+            auto it = owner.second.find(node.mName);
+            if (it == owner.second.end()) {
+                ALOGV("IOmx::listNodes() lists unknown node \"%s\" for IOmx "
+                      "instance \"%s\".",
+                      node.mName.c_str(), owner.first.c_str());
+                continue;
+            }
+            // All the roles advertised by IOmxStore::listRoles() for this
+            // node must be included in node.mRoles.
+            auto roles = nodeToRoles[node.mName];
+            for (auto role : roles) {
+                auto it = node.mRoles.find(role);
+                EXPECT_NE(node.mRoles.end(), it);
+            }
+        }
+        // Check that all nodes obtained from IOmxStore::listRoles() are
+        // supported by the their corresponding IOmx instances.
+        EXPECT_EQ(nodeSet, owner.second);
+    }
+
+    if (!nodeToRoles.empty()) {
+        // Check that the prefix is a sensible string.
+        hidl_string prefix;
+        omxStore->getNodePrefix([&prefix](hidl_string const& _nl) { prefix = _nl; });
+        EXPECT_EQ(testing::internal::RE::FullMatch(prefix, node_name_re), true);
+
+        // Check that all node names have the said prefix.
+        for (auto node : nodeToRoles) {
+            EXPECT_NE(node.first.rfind(prefix, 0), std::string::npos);
+        }
+    }
 }
 
 // list components and roles.
