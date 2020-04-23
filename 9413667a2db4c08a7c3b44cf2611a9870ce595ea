@@ -1,0 +1,180 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000002638116",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/827860?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "14098e2c_6db9b962",
+          "description": "Change to \"keymaster/5.0/IKeymasterDevice.hal\"",
+          "replacements": [
+            {
+              "path": "keymaster/5.0/IKeymasterDevice.hal",
+              "range": {
+                "startLine": 174,
+                "startChar": 68,
+                "endLine": 174,
+                "endChar": 75
+              },
+              "replacement": "the"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "674475e7_28d1285a",
+        "filename": "keymaster/5.0/IKeymasterDevice.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-04-23T20:41:54Z",
+      "side": 1,
+      "message": "Common typo found: \"the the\" -- should it be \"the\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line.",
+      "range": {
+        "startLine": 174,
+        "startChar": 68,
+        "endLine": 174,
+        "endChar": 75
+      },
+      "revId": "9413667a2db4c08a7c3b44cf2611a9870ce595ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000002638116",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/827860?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "4b879a00_6fc30973",
+          "description": "Change to \"keymaster/5.0/IKeymasterDevice.hal\"",
+          "replacements": [
+            {
+              "path": "keymaster/5.0/IKeymasterDevice.hal",
+              "range": {
+                "startLine": 385,
+                "startChar": 34,
+                "endLine": 385,
+                "endChar": 44
+              },
+              "replacement": "Description"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "41e42115_4b903c8b",
+        "filename": "keymaster/5.0/IKeymasterDevice.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-04-23T20:41:54Z",
+      "side": 1,
+      "message": "Common typo found: \"Decription\" -- should it be \"Description\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line.",
+      "range": {
+        "startLine": 385,
+        "startChar": 34,
+        "endLine": 385,
+        "endChar": 44
+      },
+      "revId": "9413667a2db4c08a7c3b44cf2611a9870ce595ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000002638116",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/827860?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "3b28de57_d281a39f",
+          "description": "Change to \"keymaster/5.0/IKeymasterDevice.hal\"",
+          "replacements": [
+            {
+              "path": "keymaster/5.0/IKeymasterDevice.hal",
+              "range": {
+                "startLine": 499,
+                "startChar": 34,
+                "endLine": 499,
+                "endChar": 44
+              },
+              "replacement": "Description"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "252a2cff_e97a4fac",
+        "filename": "keymaster/5.0/IKeymasterDevice.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-04-23T20:41:54Z",
+      "side": 1,
+      "message": "Common typo found: \"Decription\" -- should it be \"Description\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line.",
+      "range": {
+        "startLine": 499,
+        "startChar": 34,
+        "endLine": 499,
+        "endChar": 44
+      },
+      "revId": "9413667a2db4c08a7c3b44cf2611a9870ce595ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000002638116",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/827860?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "0639353a_4864eb12",
+          "description": "Change to \"keymaster/5.0/types.hal\"",
+          "replacements": [
+            {
+              "path": "keymaster/5.0/types.hal",
+              "range": {
+                "startLine": 962,
+                "startChar": 7,
+                "endLine": 962,
+                "endChar": 13
+              },
+              "replacement": "unknown"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "c5d87654_68a6fe92",
+        "filename": "keymaster/5.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 962,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-04-23T20:41:54Z",
+      "side": 1,
+      "message": "Common typo found: \"unkown\" -- should it be \"unknown\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line.",
+      "range": {
+        "startLine": 962,
+        "startChar": 7,
+        "endLine": 962,
+        "endChar": 13
+      },
+      "revId": "9413667a2db4c08a7c3b44cf2611a9870ce595ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
