@@ -1,0 +1,31 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000002646679",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1250147?revision\u003d9",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "9ff3a734_8ecef287",
+        "filename": "identity/aidl/vts/VtsIdentityTestUtils.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-04-24T06:03:16Z",
+      "side": 1,
+      "message": "This file contains a set of conflict markers.If this is a false alarm, add IGNORE_MERGE_CONFLICT_CHECK\u003d\u003d\u003creason\u003e to your commit message.",
+      "range": {
+        "startLine": 132,
+        "startChar": 1,
+        "endLine": 132,
+        "endChar": 7
+      },
+      "revId": "29b9aa6c990584dd9c950df003284eb83cd32a67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
