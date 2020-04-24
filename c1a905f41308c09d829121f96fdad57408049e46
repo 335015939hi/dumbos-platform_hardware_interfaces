@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1caf66ce_7af7ee2d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-04-24T07:14:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b2c04c75_bbd17ebf",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 36
+      },
+      "revId": "c1a905f41308c09d829121f96fdad57408049e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "655c003e_a65810a9",
         "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialTests.cpp",
         "patchSetId": 8
@@ -45,6 +69,30 @@
       "revId": "c1a905f41308c09d829121f96fdad57408049e46",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce7348e0_0291a1cc",
+        "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-04-24T07:14:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "655c003e_a65810a9",
+      "range": {
+        "startLine": 62,
+        "startChar": 4,
+        "endLine": 62,
+        "endChar": 39
+      },
+      "revId": "c1a905f41308c09d829121f96fdad57408049e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "68ea38d6_33b27169",
+        "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-04-24T07:14:31Z",
+      "side": 1,
+      "message": "I thought your previous comment asked me to check status and error code every time.  I didn\u0027t realize you want it just for failed ones.  removed.",
+      "parentUuid": "50888100_8b697b40",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 85
+      },
+      "revId": "c1a905f41308c09d829121f96fdad57408049e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6e2bbc3e_c403a088",
         "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialTests.cpp",
         "patchSetId": 8
@@ -91,6 +163,30 @@
       "revId": "c1a905f41308c09d829121f96fdad57408049e46",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "993fd759_fd189069",
+        "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-04-24T07:14:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e2bbc3e_c403a088",
+      "range": {
+        "startLine": 120,
+        "startChar": 28,
+        "endLine": 120,
+        "endChar": 34
+      },
+      "revId": "c1a905f41308c09d829121f96fdad57408049e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -140,6 +236,54 @@
     },
     {
       "key": {
+        "uuid": "1d6e56d5_bdd6dee1",
+        "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-04-24T07:14:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "353b590e_2acaf31a",
+      "range": {
+        "startLine": 129,
+        "startChar": 37,
+        "endLine": 129,
+        "endChar": 43
+      },
+      "revId": "c1a905f41308c09d829121f96fdad57408049e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "76eb1e84_14a1ec43",
+        "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-04-24T07:14:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31c46c8c_9ab2dd13",
+      "range": {
+        "startLine": 129,
+        "startChar": 70,
+        "endLine": 129,
+        "endChar": 81
+      },
+      "revId": "c1a905f41308c09d829121f96fdad57408049e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0bc7da09_a8bc698e",
         "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialTests.cpp",
         "patchSetId": 8
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "7b8ad503_712b92a0",
+        "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialTests.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-04-24T07:14:31Z",
+      "side": 1,
+      "message": "I remember I deleted it.  Not sure what happened to caused the reverse.  Now the certificate is deleted for real.",
+      "parentUuid": "0bc7da09_a8bc698e",
+      "range": {
+        "startLine": 231,
+        "startChar": 32,
+        "endLine": 231,
+        "endChar": 56
+      },
+      "revId": "c1a905f41308c09d829121f96fdad57408049e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2ea325aa_a3861736",
         "filename": "identity/aidl/vts/VtsIdentityTestUtils.h",
         "patchSetId": 8
@@ -183,6 +351,30 @@
       "revId": "c1a905f41308c09d829121f96fdad57408049e46",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53d3b741_50652136",
+        "filename": "identity/aidl/vts/VtsIdentityTestUtils.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-04-24T07:14:31Z",
+      "side": 1,
+      "message": "No this is used at many places in the test file.",
+      "parentUuid": "2ea325aa_a3861736",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 2
+      },
+      "revId": "c1a905f41308c09d829121f96fdad57408049e46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
