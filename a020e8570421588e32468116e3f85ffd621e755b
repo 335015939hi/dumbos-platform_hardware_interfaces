@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "108202d0_0726d0fb",
+        "filename": "identity/aidl/vts/VtsAttestationParserSupport.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-24T15:03:01Z",
+      "side": 1,
+      "message": "General issues about this class which are easier to mention in one place instead of drive-by of each and every method.\n\n- Naming of methods is wrong and inconsistent.\n - Method names should never start with a capital and they use camelCase.\n- Visibility is wrong - a lot of internal helper methods are declared public.\n - Move those to private instead.\n\nI also think the design of this class so mimic the way it\u0027s defined, see the Schema section of https://source.android.com/security/keystore/attestation which I\u0027m copying from here:\n\n KeyDescription ::\u003d SEQUENCE {\n   attestationVersion         INTEGER, # KM2 value is 1. KM3 value is 2. KM4 value is 3.\n   attestationSecurityLevel   SecurityLevel,\n   keymasterVersion           INTEGER,\n   keymasterSecurityLevel     SecurityLevel,\n   attestationChallenge       OCTET_STRING,\n   uniqueId                   OCTET_STRING,\n   softwareEnforced           AuthorizationList,\n   teeEnforced                AuthorizationList,\n }\n\nSo, for the methods in the top-level struct we should have accessors\n\n getAttestationVersion()\n getAttestationSecurityLevel()\n getKeymasterVersion()\n getKeymasterSecurityLevel()\n getAttestationChallenge()\n getUniqueId()\n\nand for the softwareEnforced and teeEnforced fields we should have accessors that takes a KeyMaster tag, for example\n\n getSwEnforcedBool()\n getHwEnforcedBool()\n getSwEnforcedBlob()\n getHwEnforcedBlob()\n getSwEnforcedString()\n getHwEnforcedString()\n\nand so on.\n\nWhy this way? The current way it\u0027s designed the tests don\u0027t inform which tag we\u0027re testing for since it\u0027s abstracted away. For example, today we see \n\n  EXPECT_TRUE(certParser_.IncludeIdentityCredentialKey());\n\nwhich doesn\u0027t tell me a lot since the name is so opaque/obtuse. With the proposed way, we\u0027ll see something like\n\n  EXPECT_TRUE(certParser._getSwEnforcedBool(::keymaster::TAG_IDENTITY_CREDENTIAL_KEY));\n\nwhich is an improvement.",
+      "range": {
+        "startLine": 41,
+        "startChar": 6,
+        "endLine": 41,
+        "endChar": 34
+      },
+      "revId": "a020e8570421588e32468116e3f85ffd621e755b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e13e7901_903bb601",
+        "filename": "identity/aidl/vts/VtsAttestationParserSupport.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-24T15:03:01Z",
+      "side": 1,
+      "message": "This is actually a chain of certificates so suggest to call it certChain. Similar, change originalCertificate_ as well (suggest origCertChain_).",
+      "range": {
+        "startLine": 43,
+        "startChar": 60,
+        "endLine": 43,
+        "endChar": 64
+      },
+      "revId": "a020e8570421588e32468116e3f85ffd621e755b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e23d788f_95756942",
+        "filename": "identity/aidl/vts/VtsAttestationParserSupport.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-24T15:03:01Z",
+      "side": 1,
+      "message": "Suggest to call it just parse().",
+      "range": {
+        "startLine": 48,
+        "startChar": 9,
+        "endLine": 48,
+        "endChar": 27
+      },
+      "revId": "a020e8570421588e32468116e3f85ffd621e755b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01eb278e_9beca73a",
+        "filename": "identity/aidl/vts/VtsAttestationParserSupport.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-24T15:03:01Z",
+      "side": 1,
+      "message": "Let\u0027s call it getKeymasterVersion() since that\u0027s what the field is called (we just happen to use it in Identity Credential)... that way this attestation parser is more generic.\n\nAlso, naming convention.",
+      "range": {
+        "startLine": 56,
+        "startChar": 13,
+        "endLine": 56,
+        "endChar": 41
+      },
+      "revId": "a020e8570421588e32468116e3f85ffd621e755b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4770d546_34b17924",
+        "filename": "identity/aidl/vts/VtsAttestationParserSupport.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-24T15:03:01Z",
+      "side": 1,
+      "message": "I think it\u0027s AttestationApplicationId (ApplicationId is actually a different field). I also think it\u0027s a blob so use vector\u003cuint8_t\u003e.",
+      "range": {
+        "startLine": 58,
+        "startChar": 4,
+        "endLine": 58,
+        "endChar": 29
+      },
+      "revId": "a020e8570421588e32468116e3f85ffd621e755b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dbe9c045_a65aff6f",
+        "filename": "identity/aidl/vts/VtsAttestationParserSupport.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-24T15:03:01Z",
+      "side": 1,
+      "message": "Make it return a vector\u003cuint8_t\u003e.",
+      "range": {
+        "startLine": 61,
+        "startChar": 4,
+        "endLine": 61,
+        "endChar": 36
+      },
+      "revId": "a020e8570421588e32468116e3f85ffd621e755b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ffc8cff_cc8cf89b",
+        "filename": "identity/aidl/vts/VtsAttestationParserSupport.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-24T15:03:01Z",
+      "side": 1,
+      "message": "These don\u0027t seem to be used anywhere else so remove.",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 49
+      },
+      "revId": "a020e8570421588e32468116e3f85ffd621e755b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
