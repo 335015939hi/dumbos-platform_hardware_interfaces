@@ -448,9 +448,9 @@ static void keygen(benchmark::State& state, string transform, int keySize) {
     addDefaultLabel(state);
     for (auto _ : state) {
         keymaster->GenerateKey(transform, keySize);
-        state.PauseTiming();
+        // state.PauseTiming();
         keymaster->DeleteKey();
-        state.ResumeTiming();
+        // state.ResumeTiming();
     }
 }
 
@@ -492,14 +492,14 @@ static void sign(benchmark::State& state, string transform, int keySize, int msg
     string message = keymaster->GenerateMessage(msgSize);
 
     for (auto _ : state) {
-        state.PauseTiming();
+        // state.PauseTiming();
         auto opHandle = keymaster->SignBegin(params);
         if (!opHandle) {
             state.SkipWithError(
                     ("Error beginning sign, " + std::to_string(keymaster->getError())).c_str());
             return;
         }
-        state.ResumeTiming();
+        // state.ResumeTiming();
         if (!keymaster->ProcessMessage(*opHandle, message, params)) {
             state.SkipWithError(("Sign error, " + std::to_string(keymaster->getError())).c_str());
             break;
@@ -531,14 +531,14 @@ static void verify(benchmark::State& state, string transform, int keySize, int m
     }
     in_params.push_back(out_params);
     for (auto _ : state) {
-        state.PauseTiming();
+        // state.PauseTiming();
         opHandle = keymaster->VerifyBegin(in_params);
         if (!opHandle) {
             state.SkipWithError(
                     ("Verify begin error, " + std::to_string(keymaster->getError())).c_str());
             return;
         }
-        state.ResumeTiming();
+        // state.ResumeTiming();
         if (!keymaster->ProcessMessage(*opHandle, message, in_params, &out_params, *signature)) {
             state.SkipWithError(("Verify error, " + std::to_string(keymaster->getError())).c_str());
             break;
@@ -610,14 +610,14 @@ static void encrypt(benchmark::State& state, string transform, int keySize, int 
     string message = keymaster->GenerateMessage(msgSize);
 
     for (auto _ : state) {
-        state.PauseTiming();
+        // state.PauseTiming();
         auto opHandle = keymaster->EncryptBegin(params);
         if (!opHandle) {
             state.SkipWithError(
                     ("Encryption begin error, " + std::to_string(keymaster->getError())).c_str());
             return;
         }
-        state.ResumeTiming();
+        // state.ResumeTiming();
         if (!keymaster->ProcessMessage(*opHandle, message, params)) {
             state.SkipWithError(
                     ("Encryption error, " + std::to_string(keymaster->getError())).c_str());
@@ -649,14 +649,14 @@ static void decrypt(benchmark::State& state, string transform, int keySize, int 
     }
     in_params.push_back(out_params);
     for (auto _ : state) {
-        state.PauseTiming();
+        // state.PauseTiming();
         opHandle = keymaster->DecryptBegin(in_params);
         if (!opHandle) {
             state.SkipWithError(
                     ("Decryption begin error, " + std::to_string(keymaster->getError())).c_str());
             return;
         }
-        state.ResumeTiming();
+        // state.ResumeTiming();
         if (!keymaster->ProcessMessage(*opHandle, *encryptedMessage, in_params)) {
             state.SkipWithError(
                     ("Decryption error, " + std::to_string(keymaster->getError())).c_str());
