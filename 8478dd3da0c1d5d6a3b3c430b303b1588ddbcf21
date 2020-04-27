@@ -95,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "38363034_4e8a0b11",
+        "filename": "identity/aidl/vts/VtsAttestationParserSupport.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-27T14:05:04Z",
+      "side": 1,
+      "message": "And, btw, looking at your commented-out code\n\n\u003e // template \u003ckeymaster_tag_t Tag\u003e bool GetSwEnforcedBool(TypedTag\u003cKM_BOOL, Tag\u003e tag)\n\nI think there\u0027s some confusion here. You don\u0027t need any templates for this. The methods I\u0027m asking for would look like the following\n\n optional\u003cbool\u003e GetSwEnforcedBool(int tag);\n optional\u003cbool\u003e GetHwEnforcedBool(int tag);\n optional\u003cstring\u003e GetSwEnforcedString(int tag);\n optional\u003cstring\u003e GetHwEnforcedString(int tag);\n // [...]\n\nand so on for other types e.g. blobs, integers, whatever. This is analogous to the Java code I linked to above\n\n public Optional\u003cInteger\u003e getSoftwareAuthorizationInteger(int tag)\n public Optional\u003cInteger\u003e getTeeAuthorizationInteger(int tag)\n public Optional\u003cInteger\u003e getSoftwareAuthorizationInteger(int tag)\n public Optional\u003cInteger\u003e getTeeAuthorizationInteger(int tag)\n // [...]\n\nHope this helps.",
+      "parentUuid": "14b10cd2_8c58e7a7",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 40
+      },
+      "revId": "8478dd3da0c1d5d6a3b3c430b303b1588ddbcf21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d4864904_335bac78",
         "filename": "identity/aidl/vts/VtsAttestationParserSupport.h",
         "patchSetId": 7
