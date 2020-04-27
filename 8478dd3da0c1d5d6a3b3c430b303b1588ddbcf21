@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4cf63e94_d4f3e5e7",
+        "filename": "identity/aidl/vts/VtsAttestationParserSupport.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-27T13:49:27Z",
+      "side": 1,
+      "message": "\u003e This naming convention is actually correct\n\nAOSP uses a modified coding style where all methods and fields start with lower-case. If you look at other AOSP code it follows that. This code needs to follow it as well. Please do that.",
+      "range": {
+        "startLine": 48,
+        "startChar": 9,
+        "endLine": 48,
+        "endChar": 14
+      },
+      "revId": "8478dd3da0c1d5d6a3b3c430b303b1588ddbcf21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8823718c_0ef38e9c",
+        "filename": "identity/aidl/vts/VtsAttestationParserSupport.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-27T13:49:27Z",
+      "side": 1,
+      "message": "Don\u0027t leave commented-out code in your CL. It\u0027ll just guarantee at least one more round-trip where the reviewer asks you to remove it...",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 89
+      },
+      "revId": "8478dd3da0c1d5d6a3b3c430b303b1588ddbcf21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e4c7798_75f97c7b",
+        "filename": "identity/aidl/vts/VtsAttestationParserSupport.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-27T13:49:27Z",
+      "side": 1,
+      "message": "As I said in the other comment, it needs to looks like this\n\n getAttestationVersion()\n getAttestationSecurityLevel()\n getKeymasterVersion()\n getKeymasterSecurityLevel()\n getAttestationChallenge()\n getUniqueId()\n\nand for the softwareEnforced and teeEnforced fields we should have accessors that takes a KeyMaster tag, for example\n\n getSwEnforcedBool()\n getHwEnforcedBool()\n getSwEnforcedBlob()\n getHwEnforcedBlob()\n getSwEnforcedString()\n getHwEnforcedString()\n\nSpecifically, IncludeUniqueId(), IncludeIdentityCredentialKey(), and GetApplicationId() needs to go and the code using it should be using one of the get{Sw,Hw}Enforced{Bool,Blob,String}() methods instead.",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 40
+      },
+      "revId": "8478dd3da0c1d5d6a3b3c430b303b1588ddbcf21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4864904_335bac78",
+        "filename": "identity/aidl/vts/VtsAttestationParserSupport.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-27T13:49:27Z",
+      "side": 1,
+      "message": "\u003e \u003e These don\u0027t seem to be used anywhere else so remove.\n\u003e Ah these are residues of the history.  I had to write them for the old attestation\n\u003e versions except they kept changing.  I think it is a good idea to keep the various\n\u003e conversion formats in case we need to convert from such formats in the future or\n\u003e for other uses.\n\nI disagree, it\u0027s mixing implementation details with interfaces. Please remove them.",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 49
+      },
+      "revId": "8478dd3da0c1d5d6a3b3c430b303b1588ddbcf21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
