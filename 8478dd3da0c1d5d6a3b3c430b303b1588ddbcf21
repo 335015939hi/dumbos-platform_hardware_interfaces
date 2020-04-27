@@ -71,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "14b10cd2_8c58e7a7",
+        "filename": "identity/aidl/vts/VtsAttestationParserSupport.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-27T13:55:20Z",
+      "side": 1,
+      "message": "Also, if it helps see the CTS equivalent in Java: https://android.googlesource.com/platform/cts/+/refs/heads/master/tests/tests/identity/src/android/security/identity/cts/ParsedAttestationRecord.java#75\n\nEssentially, I\u0027d like this code to have the same kind of interface. That way it\u0027s easier to update both the CTS and VTS attestation tests.",
+      "parentUuid": "8e4c7798_75f97c7b",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 40
+      },
+      "revId": "8478dd3da0c1d5d6a3b3c430b303b1588ddbcf21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d4864904_335bac78",
         "filename": "identity/aidl/vts/VtsAttestationParserSupport.h",
         "patchSetId": 7
