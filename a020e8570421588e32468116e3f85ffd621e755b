@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ae36250e_8da1a701",
+        "filename": "identity/aidl/vts/VtsAttestationParserSupport.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-04-27T08:15:11Z",
+      "side": 1,
+      "message": "I originally coded the functions on the system/keymaster side and later moved it over here as you suggested.  So the function names were corresponding to the keymaster naming styles and I forgot to change it.  Thanks for reminding me, it has been changed.\n\nHowever C++ style guide actually says to start all function names with Capital cases.  https://google.github.io/styleguide/cppguide.html#Function_Names\nhttps://engdoc.corp.google.com/eng/doc/devguide/cpp/styleguide.md?cl\u003dhead#Function_Names\n\nOther suggestions have been incorporated.\n\nI temporarily couldn\u0027t figure out the linker error that comes with templates of getSwEnforcedBool(), so I have temporarily commented them out.  I don\u0027t plan to define getSwEnforcedBlob() and getSwEnforcedString() yet as there is currently no need for them.  We can add them later when there are test cases to use against.",
+      "parentUuid": "108202d0_0726d0fb",
+      "range": {
+        "startLine": 41,
+        "startChar": 6,
+        "endLine": 41,
+        "endChar": 34
+      },
+      "revId": "a020e8570421588e32468116e3f85ffd621e755b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e13e7901_903bb601",
         "filename": "identity/aidl/vts/VtsAttestationParserSupport.h",
         "patchSetId": 4
@@ -45,6 +69,30 @@
       "revId": "a020e8570421588e32468116e3f85ffd621e755b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad9c441b_e83bd86a",
+        "filename": "identity/aidl/vts/VtsAttestationParserSupport.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-04-27T08:15:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e13e7901_903bb601",
+      "range": {
+        "startLine": 43,
+        "startChar": 60,
+        "endLine": 43,
+        "endChar": 64
+      },
+      "revId": "a020e8570421588e32468116e3f85ffd621e755b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "c56c2518_13704b49",
+        "filename": "identity/aidl/vts/VtsAttestationParserSupport.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-04-27T08:15:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e23d788f_95756942",
+      "range": {
+        "startLine": 48,
+        "startChar": 9,
+        "endLine": 48,
+        "endChar": 27
+      },
+      "revId": "a020e8570421588e32468116e3f85ffd621e755b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "01eb278e_9beca73a",
         "filename": "identity/aidl/vts/VtsAttestationParserSupport.h",
         "patchSetId": 4
@@ -91,6 +163,30 @@
       "revId": "a020e8570421588e32468116e3f85ffd621e755b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68e9459d_a53db3fa",
+        "filename": "identity/aidl/vts/VtsAttestationParserSupport.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-04-27T08:15:11Z",
+      "side": 1,
+      "message": "Done.  This naming convention is actually correct. https://engdoc.corp.google.com/eng/doc/devguide/cpp/styleguide.md?cl\u003dhead#Function_Names",
+      "parentUuid": "01eb278e_9beca73a",
+      "range": {
+        "startLine": 56,
+        "startChar": 13,
+        "endLine": 56,
+        "endChar": 41
+      },
+      "revId": "a020e8570421588e32468116e3f85ffd621e755b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "8bcb52c6_324cb4c7",
+        "filename": "identity/aidl/vts/VtsAttestationParserSupport.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-04-27T08:15:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4770d546_34b17924",
+      "range": {
+        "startLine": 58,
+        "startChar": 4,
+        "endLine": 58,
+        "endChar": 29
+      },
+      "revId": "a020e8570421588e32468116e3f85ffd621e755b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dbe9c045_a65aff6f",
         "filename": "identity/aidl/vts/VtsAttestationParserSupport.h",
         "patchSetId": 4
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "d8208b86_52409949",
+        "filename": "identity/aidl/vts/VtsAttestationParserSupport.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-04-27T08:15:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dbe9c045_a65aff6f",
+      "range": {
+        "startLine": 61,
+        "startChar": 4,
+        "endLine": 61,
+        "endChar": 36
+      },
+      "revId": "a020e8570421588e32468116e3f85ffd621e755b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2ffc8cff_cc8cf89b",
         "filename": "identity/aidl/vts/VtsAttestationParserSupport.h",
         "patchSetId": 4
@@ -160,6 +304,30 @@
       "revId": "a020e8570421588e32468116e3f85ffd621e755b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff0bef49_4c119581",
+        "filename": "identity/aidl/vts/VtsAttestationParserSupport.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-04-27T08:15:11Z",
+      "side": 1,
+      "message": "Ah these are residues of the history.  I had to write them for the old attestation versions except they kept changing.  I think it is a good idea to keep the various conversion formats in case we need to convert from such formats in the future or for other uses.",
+      "parentUuid": "2ffc8cff_cc8cf89b",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 49
+      },
+      "revId": "a020e8570421588e32468116e3f85ffd621e755b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
