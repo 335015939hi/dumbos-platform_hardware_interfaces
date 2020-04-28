@@ -1,0 +1,48 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000002700015",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1253079?revision\u003d8",
+      "fixSuggestions": [
+        {
+          "fixId": "0d95038e_c8ae8bf7",
+          "description": "Change to \"identity/aidl/vts/VtsAttestationParserSupport.h\"",
+          "replacements": [
+            {
+              "path": "identity/aidl/vts/VtsAttestationParserSupport.h",
+              "range": {
+                "startLine": 109,
+                "startChar": 15,
+                "endLine": 109,
+                "endChar": 23
+              },
+              "replacement": "variables"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "b6661664_57908add",
+        "filename": "identity/aidl/vts/VtsAttestationParserSupport.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-04-28T05:59:02Z",
+      "side": 1,
+      "message": "Common typo found: \"varibles\" -- should it be \"variables\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line.",
+      "range": {
+        "startLine": 109,
+        "startChar": 15,
+        "endLine": 109,
+        "endChar": 23
+      },
+      "revId": "c1c5cb36d013f952d6ff152b2705b1859f35e847",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
