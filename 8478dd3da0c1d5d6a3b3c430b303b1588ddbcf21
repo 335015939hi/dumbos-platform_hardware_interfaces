@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a0e3c93f_b2b26de4",
+        "filename": "identity/aidl/vts/VtsAttestationParserSupport.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-04-28T06:02:38Z",
+      "side": 1,
+      "message": "Done. BTW naming convension seem to be a mess in Android.  keymaster have a lot of functions like aa_bb.  Then it also have names like GetTagValue().",
+      "parentUuid": "4cf63e94_d4f3e5e7",
+      "range": {
+        "startLine": 48,
+        "startChar": 9,
+        "endLine": 48,
+        "endChar": 14
+      },
+      "revId": "8478dd3da0c1d5d6a3b3c430b303b1588ddbcf21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8823718c_0ef38e9c",
         "filename": "identity/aidl/vts/VtsAttestationParserSupport.h",
         "patchSetId": 7
@@ -45,6 +69,30 @@
       "revId": "8478dd3da0c1d5d6a3b3c430b303b1588ddbcf21",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38d5cc1e_f05913da",
+        "filename": "identity/aidl/vts/VtsAttestationParserSupport.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-04-28T06:02:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8823718c_0ef38e9c",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 89
+      },
+      "revId": "8478dd3da0c1d5d6a3b3c430b303b1588ddbcf21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -119,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "1629d574_250ca9d4",
+        "filename": "identity/aidl/vts/VtsAttestationParserSupport.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-04-28T06:02:38Z",
+      "side": 1,
+      "message": "Done.  BTW that java code does have \"public byte[] getUniqueId()\" which I removed.\n\nAlso I spoke with Janis, template is the only way to invoke .GetTagValue(), so the way I declare the function is correct.\n\nI implemented bool and blob, but not string because I don\u0027t see the use yet.  let\u0027s not define functions that won\u0027t be used or tested.",
+      "parentUuid": "38363034_4e8a0b11",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 40
+      },
+      "revId": "8478dd3da0c1d5d6a3b3c430b303b1588ddbcf21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d4864904_335bac78",
         "filename": "identity/aidl/vts/VtsAttestationParserSupport.h",
         "patchSetId": 7
@@ -139,6 +211,30 @@
       "revId": "8478dd3da0c1d5d6a3b3c430b303b1588ddbcf21",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1509fe8f_f71878a3",
+        "filename": "identity/aidl/vts/VtsAttestationParserSupport.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-04-28T06:02:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d4864904_335bac78",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 49
+      },
+      "revId": "8478dd3da0c1d5d6a3b3c430b303b1588ddbcf21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
