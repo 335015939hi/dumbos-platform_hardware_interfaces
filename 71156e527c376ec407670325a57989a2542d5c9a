@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f833150_ac983d25",
+        "filename": "identity/aidl/vts/VtsHalIdentityEndToEndTest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-28T14:53:17Z",
+      "side": 0,
+      "message": "Looks like you forgot to remove these two lines in the previous CL (and I didn\u0027t catch it on the final review before landing). Please remove it using this CL.",
+      "revId": "71156e527c376ec407670325a57989a2542d5c9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

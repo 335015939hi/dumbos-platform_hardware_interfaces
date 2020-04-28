@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1e71e2b6_956d7c6c",
+        "filename": "identity/aidl/vts/VtsAttestationParserSupport.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-28T14:53:17Z",
+      "side": 1,
+      "message": "This makes an unnecessary copy. Use \"const auto\u0026 c\" instead.",
+      "revId": "446fe417a697fa909efaa75e63629e4ef91e28a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a7cedae_62d3a61a",
+        "filename": "identity/aidl/vts/VtsAttestationParserSupport.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-28T14:53:17Z",
+      "side": 1,
+      "message": "This would fail if the certificate chain is 5 certificates which could happen at some point, who knows. Either way, it\u0027s an unnecessary check, please just check that it\u0027s at least 3 instead.",
+      "revId": "446fe417a697fa909efaa75e63629e4ef91e28a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "651aebaa_77ce9921",
+        "filename": "identity/aidl/vts/VtsAttestationTests.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-28T14:53:17Z",
+      "side": 1,
+      "message": "Remove leading VtsIWritable of that string.",
+      "revId": "446fe417a697fa909efaa75e63629e4ef91e28a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f8aa03a3_1e586aab",
+        "filename": "identity/aidl/vts/VtsAttestationTests.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-28T14:53:17Z",
+      "side": 1,
+      "message": "These two lines are unnecessary. Same for other places below, please fix those too.",
+      "revId": "446fe417a697fa909efaa75e63629e4ef91e28a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b787c86_fc05d1de",
+        "filename": "identity/aidl/vts/VtsIdentityTestUtils.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-28T14:53:17Z",
+      "side": 1,
+      "message": "Actually, we can do this. Have the caller pass in const HardwareInformation\u0026 hwInfo ... then do something like this\n\n if (hwInfo.credentialStoreName \u003d\u003d \"Identity Credential Reference Implementation\" \u0026\u0026\n     hwInfo.credentialStoreAuthorName \u003d\u003d \"Google\") {\n   // Check for KM_SECURITY_LEVEL_SOFTWARE\n } else {\n   // Check for KM_SECURITY_LEVEL_TRUSTED_ENVIRONMENT\n }",
+      "revId": "446fe417a697fa909efaa75e63629e4ef91e28a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38a314d3_f0a3a310",
+        "filename": "identity/aidl/vts/VtsIdentityTestUtils.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-28T14:53:17Z",
+      "side": 1,
+      "message": "Naming, using expectedChallenge and expectedAppId instead.",
+      "revId": "446fe417a697fa909efaa75e63629e4ef91e28a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
