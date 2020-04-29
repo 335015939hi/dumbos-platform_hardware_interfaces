@@ -16,6 +16,24 @@
       "revId": "71156e527c376ec407670325a57989a2542d5c9a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96c5d7b6_ebe691cf",
+        "filename": "identity/aidl/vts/VtsHalIdentityEndToEndTest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-04-29T01:28:45Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "7f833150_ac983d25",
+      "revId": "71156e527c376ec407670325a57989a2542d5c9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

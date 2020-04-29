@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f74d8396_6f1b5a23",
+        "filename": "identity/aidl/vts/VtsAttestationParserSupport.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-04-29T01:28:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e71e2b6_956d7c6c",
+      "revId": "446fe417a697fa909efaa75e63629e4ef91e28a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a7cedae_62d3a61a",
         "filename": "identity/aidl/vts/VtsAttestationParserSupport.cpp",
         "patchSetId": 9
@@ -33,6 +51,24 @@
       "revId": "446fe417a697fa909efaa75e63629e4ef91e28a3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3340ec83_6830144b",
+        "filename": "identity/aidl/vts/VtsAttestationParserSupport.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-04-29T01:28:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a7cedae_62d3a61a",
+      "revId": "446fe417a697fa909efaa75e63629e4ef91e28a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "cca2451b_49fdaf26",
+        "filename": "identity/aidl/vts/VtsAttestationTests.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-04-29T01:28:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "651aebaa_77ce9921",
+      "revId": "446fe417a697fa909efaa75e63629e4ef91e28a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f8aa03a3_1e586aab",
         "filename": "identity/aidl/vts/VtsAttestationTests.cpp",
         "patchSetId": 9
@@ -67,6 +121,24 @@
       "revId": "446fe417a697fa909efaa75e63629e4ef91e28a3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "740df9eb_b16459c6",
+        "filename": "identity/aidl/vts/VtsAttestationTests.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-04-29T01:28:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8aa03a3_1e586aab",
+      "revId": "446fe417a697fa909efaa75e63629e4ef91e28a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "3de06b7b_db7a4b6b",
+        "filename": "identity/aidl/vts/VtsIdentityTestUtils.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-04-29T01:28:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b787c86_fc05d1de",
+      "revId": "446fe417a697fa909efaa75e63629e4ef91e28a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "38a314d3_f0a3a310",
         "filename": "identity/aidl/vts/VtsIdentityTestUtils.h",
         "patchSetId": 9
@@ -101,6 +191,24 @@
       "revId": "446fe417a697fa909efaa75e63629e4ef91e28a3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea125df6_a8108915",
+        "filename": "identity/aidl/vts/VtsIdentityTestUtils.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-04-29T01:28:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38a314d3_f0a3a310",
+      "revId": "446fe417a697fa909efaa75e63629e4ef91e28a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
