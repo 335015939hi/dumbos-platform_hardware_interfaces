@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b96ba88e_0fdd6746",
+        "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-04-29T13:15:20Z",
+      "side": 1,
+      "message": "Maybe create a constant?",
+      "range": {
+        "startLine": 286,
+        "startChar": 29,
+        "endLine": 286,
+        "endChar": 32
+      },
+      "revId": "d03dd7a21b9cb75286acec81ff484fba82d9a8ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a7c878b4_d9072154",
+        "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-04-29T13:15:20Z",
+      "side": 1,
+      "message": "?",
+      "range": {
+        "startLine": 538,
+        "startChar": 4,
+        "endLine": 538,
+        "endChar": 5
+      },
+      "revId": "d03dd7a21b9cb75286acec81ff484fba82d9a8ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
