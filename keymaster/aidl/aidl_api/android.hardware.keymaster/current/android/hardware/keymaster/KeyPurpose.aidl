@@ -16,11 +16,11 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.keymaster;
-@VintfStability
-parcelable VerificationToken {
-  long challenge;
-  android.hardware.keymaster.Timestamp timestamp;
-  android.hardware.keymaster.SecurityLevel securityLevel;
-  byte[] mac;
-  android.hardware.keymaster.KeyParameter[] parametersVerified = {};
+@Backing(type="int") @VintfStability
+enum KeyPurpose {
+  ENCRYPT = 0,
+  DECRYPT = 1,
+  SIGN = 2,
+  VERIFY = 3,
+  WRAP_KEY = 5,
 }

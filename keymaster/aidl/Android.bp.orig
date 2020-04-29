@@ -1,0 +1,38 @@
+aidl_interface {
+    name: "android.hardware.keymaster",
+    vendor_available: true,
+    srcs: [
+        "android/hardware/keymaster/*.aidl",
+    ],
+    stability: "vintf",
+    backend: {
+        java: {
+            platform_apis: true,
+        },
+        cpp: {
+            enabled: true,
+        },
+        ndk: {
+            vndk: {
+                enabled: true,
+            },
+        },
+    },
+<<<<<<< HEAD
+    versions: [
+        "1",
+        "2",
+    ],
+}
+
+// This is a reminder that the next version of keymaster should be frozen at
+// version "5" to avoid confusion with other versions of this interface.
+cc_library {
+    name: "android.hardware.keymaster-V3-java",
+}
+cc_library {
+    name: "android.hardware.keymaster-V4-java",
+=======
+    versions: ["1"], // which versions are considered frozen?
+>>>>>>> 6f505d0324... Add keymaster 5 aidl.
+}

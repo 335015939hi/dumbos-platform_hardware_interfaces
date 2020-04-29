@@ -17,10 +17,9 @@
 
 package android.hardware.keymaster;
 @VintfStability
-parcelable VerificationToken {
-  long challenge;
-  android.hardware.keymaster.Timestamp timestamp;
-  android.hardware.keymaster.SecurityLevel securityLevel;
-  byte[] mac;
-  android.hardware.keymaster.KeyParameter[] parametersVerified = {};
+interface IKeymasterOperation {
+  long getOperationChallenge();
+  int update(in android.hardware.keymaster.KeyParameter[] inParams, in byte[] input, in android.hardware.keymaster.VerificationToken inVerificationToken, out android.hardware.keymaster.KeyParameter[] outParams, out byte[] output);
+  void finish(in android.hardware.keymaster.KeyParameter[] inParams, in byte[] input, in byte[] inSignature, in android.hardware.keymaster.HardwareAuthToken authToken, in android.hardware.keymaster.VerificationToken inVerificationToken, out android.hardware.keymaster.KeyParameter[] outParams, out byte[] output);
+  void abort();
 }
