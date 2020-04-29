@@ -1,0 +1,3 @@
+service vendor.keymaster-default /vendor/bin/hw/android.hardware.keymaster@5.0-service
+    class early-hal
+    user nobody

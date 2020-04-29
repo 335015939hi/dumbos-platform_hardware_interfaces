@@ -233,10 +233,11 @@ class KeymasterHidlTest : public ::testing::TestWithParam<std::string> {
     hidl_string author_;
 };
 
-#define INSTANTIATE_KEYMASTER_HIDL_TEST(name)                                      \
-    INSTANTIATE_TEST_SUITE_P(PerInstance, name,                                    \
-                             testing::ValuesIn(KeymasterHidlTest::build_params()), \
-                             android::hardware::PrintInstanceNameToString)
+#define INSTANTIATE_KEYMASTER_HIDL_TEST(name)                                            \
+    INSTANTIATE_TEST_SUITE_P(                                                            \
+            PerInstance, name,                                                           \
+            testing::ValuesIn(android::getAidlHalInstanceNames(IKeymaster::descriptor)), \
+            android::hardware::PrintInstanceNameToString)
 
 }  // namespace test
 }  // namespace V4_0
