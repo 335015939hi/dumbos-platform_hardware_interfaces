@@ -14,19 +14,16 @@
  * limitations under the License.
  */
 
-package android.hardware.keymaster;
+package android.hardware.keymint;
+
 
 /**
- * Device security levels.
+ * A place to define any needed constants.
  */
 @VintfStability
 @Backing(type="int")
-enum SecurityLevel {
-    SOFTWARE = 0,
-    TRUSTED_ENVIRONMENT = 1,
-    /**
-     * STRONGBOX specifies that the secure hardware satisfies the requirements specified in CDD
-     * 9.11.2.
-     */
-    STRONGBOX = 2,
+enum Constants {
+    AUTH_TOKEN_MAC_LENGTH = 32,
 }
+
+
