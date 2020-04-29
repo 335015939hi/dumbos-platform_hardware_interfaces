@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 The Android Open Source Project
+ * Copyright (C) 2020 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,15 +16,19 @@
 
 package android.hardware.keymaster;
 
-
 /**
- * Time in milliseconds since some arbitrary point in time.  Time must be monotonically increasing,
- * and a secure environment's notion of "current time" must not repeat until the Android device
- * reboots, or until at least 50 million years have elapsed (note that this requirement is satisfied
- * by setting the clock to zero during each boot, and then counting time accurately).
+ * Padding modes that may be applied to plaintext for encryption operations.  This list includes
+ * padding modes for both symmetric and asymmetric algorithms.  Note that implementations should not
+ * provide all possible combinations of algorithm and padding, only the
+ * cryptographically-appropriate pairs.
  */
-
 @VintfStability
-parcelable Timestamp {
-    long milliSeconds;
+@Backing(type="int")
+enum PaddingMode {
+    NONE = 1, /* deprecated */
+    RSA_OAEP = 2,
+    RSA_PSS = 3,
+    RSA_PKCS1_1_5_ENCRYPT = 4,
+    RSA_PKCS1_1_5_SIGN = 5,
+    PKCS7 = 64,
 }

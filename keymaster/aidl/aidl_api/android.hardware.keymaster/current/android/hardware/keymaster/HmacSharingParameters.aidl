@@ -17,10 +17,7 @@
 
 package android.hardware.keymaster;
 @VintfStability
-parcelable VerificationToken {
-  long challenge;
-  android.hardware.keymaster.Timestamp timestamp;
-  android.hardware.keymaster.SecurityLevel securityLevel;
-  byte[] mac;
-  android.hardware.keymaster.KeyParameter[] parametersVerified = {};
+parcelable HmacSharingParameters {
+  byte[] seed;
+  byte[] nonce;
 }
