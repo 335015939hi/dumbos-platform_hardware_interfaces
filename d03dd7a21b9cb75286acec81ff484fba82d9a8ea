@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "04d450c1_1eca1a60",
+        "filename": "identity/aidl/default/IdentityCredential.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-04-29T13:24:11Z",
+      "side": 1,
+      "message": "Would std::binary_search make sense?",
+      "range": {
+        "startLine": 562,
+        "startChar": 20,
+        "endLine": 562,
+        "endChar": 29
+      },
+      "revId": "d03dd7a21b9cb75286acec81ff484fba82d9a8ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b96ba88e_0fdd6746",
         "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialTests.cpp",
         "patchSetId": 1
