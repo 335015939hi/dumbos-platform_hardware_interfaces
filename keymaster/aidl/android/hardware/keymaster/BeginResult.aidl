@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 The Android Open Source Project
+ * Copyright (C) 2020 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,14 +17,23 @@
 package android.hardware.keymaster;
 
 
-/**
- * Time in milliseconds since some arbitrary point in time.  Time must be monotonically increasing,
- * and a secure environment's notion of "current time" must not repeat until the Android device
- * reboots, or until at least 50 million years have elapsed (note that this requirement is satisfied
- * by setting the clock to zero during each boot, and then counting time accurately).
- */
+import android.hardware.keymaster.IKeymasterOperation;
+import android.hardware.keymaster.KeyParameter;
 
+
+
+/**
+ * VerificationToken instances are used for secure environments to authenticate one another.
+ *
+ * This version of the parcelable currently don't use the parametersVerified field since it's not
+ * needed for time-based verification. This can be added in a later version, if needed.
+ */
 @VintfStability
-parcelable Timestamp {
-    long milliSeconds;
+parcelable BeginResult {
+    /**
+     * The operation handle, used to ensure freshness.
+     */
+    long challenge;
+    KeyParameter[] params;
+    IKeymasterOperation operation;
 }

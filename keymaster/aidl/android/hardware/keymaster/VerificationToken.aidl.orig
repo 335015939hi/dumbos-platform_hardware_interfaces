@@ -1,5 +1,9 @@
 /*
+<<<<<<< HEAD
+ * Copyright 2020 The Android Open Source Project
+=======
  * Copyright (C) 2020 The Android Open Source Project
+>>>>>>> 6f505d0324... Add keymaster 5 aidl.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,6 +20,17 @@
 
 package android.hardware.keymaster;
 
+<<<<<<< HEAD
+import android.hardware.keymaster.SecurityLevel;
+import android.hardware.keymaster.Timestamp;
+import android.hardware.keymaster.HardwareAuthenticatorType;
+
+/**
+ * VerificationToken instances are used for secure environments to authenticate one another.
+ *
+ * This version of the parcelable currently don't use the parametersVerified field since it's not
+ * needed for time-based verification. This can be added in a later version, if needed.
+=======
 
 import android.hardware.keymaster.KeyParameter;
 import android.hardware.keymaster.SecurityLevel;
@@ -24,10 +39,9 @@ import android.hardware.keymaster.Timestamp;
 
 
 /**
- * VerificationToken instances are used for secure environments to authenticate one another.
- *
- * This version of the parcelable currently don't use the parametersVerified field since it's not
- * needed for time-based verification. This can be added in a later version, if needed.
+ * VerificationToken enables one Keymaster instance to validate authorizations for another.  See
+ * verifyAuthorizations() in IKeymaster for details.
+>>>>>>> 6f505d0324... Add keymaster 5 aidl.
  */
 @VintfStability
 parcelable VerificationToken {
@@ -43,8 +57,16 @@ parcelable VerificationToken {
      */
     Timestamp timestamp;
 
+    /**
+<<<<<<< HEAD
+=======
+     * A list of the parameters verified.  Empty if the only parameters verified are time-related.
+     * In that case the timestamp is the payload.
+     */
+    KeyParameter[] parametersVerified;
 
     /**
+>>>>>>> 6f505d0324... Add keymaster 5 aidl.
      * SecurityLevel of the secure environment that generated the token.
      */
     SecurityLevel securityLevel;
@@ -70,11 +92,4 @@ parcelable VerificationToken {
      * omitted from the HMAC computation.
      */
     byte[] mac;
-
-
-    /**
-     * A list of the parameters verified.  Empty if the only parameters verified are time-related.
-     * In that case the timestamp is the payload.
-     */
-    KeyParameter[] parametersVerified = {};
 }

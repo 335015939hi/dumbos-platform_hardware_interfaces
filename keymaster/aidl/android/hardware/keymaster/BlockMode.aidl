@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 The Android Open Source Project
+ * Copyright (C) 2020 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,13 +18,22 @@ package android.hardware.keymaster;
 
 
 /**
- * Time in milliseconds since some arbitrary point in time.  Time must be monotonically increasing,
- * and a secure environment's notion of "current time" must not repeat until the Android device
- * reboots, or until at least 50 million years have elapsed (note that this requirement is satisfied
- * by setting the clock to zero during each boot, and then counting time accurately).
+ * Symmetric block cipher modes provided by keymaster implementations.
  */
-
 @VintfStability
-parcelable Timestamp {
-    long milliSeconds;
+@Backing(type="int")
+enum BlockMode {
+    /*
+     * Unauthenticated modes, usable only for encryption/decryption and not generally recommended
+     * except for compatibility with existing other protocols.
+     */
+    ECB = 1,
+    CBC = 2,
+    CTR = 3,
+
+    /*
+     * Authenticated modes, usable for encryption/decryption and signing/verification.  Recommended
+     * over unauthenticated modes for all purposes.
+     */
+    GCM = 32,
 }

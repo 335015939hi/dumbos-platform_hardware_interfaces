@@ -1,0 +1,9 @@
+<manifest version="1.0" type="device">
+    <hal format="aidl">
+        <name>android.hardware.keymaster</name>
+        <interface>
+            <name>IKeymaster</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+</manifest>

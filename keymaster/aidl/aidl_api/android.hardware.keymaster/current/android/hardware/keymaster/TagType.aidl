@@ -16,11 +16,17 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.keymaster;
-@VintfStability
-parcelable VerificationToken {
-  long challenge;
-  android.hardware.keymaster.Timestamp timestamp;
-  android.hardware.keymaster.SecurityLevel securityLevel;
-  byte[] mac;
-  android.hardware.keymaster.KeyParameter[] parametersVerified = {};
+@Backing(type="int") @VintfStability
+enum TagType {
+  INVALID = 0,
+  ENUM = 268435456,
+  ENUM_REP = 536870912,
+  UINT = 805306368,
+  UINT_REP = 1073741824,
+  ULONG = 1342177280,
+  DATE = 1610612736,
+  BOOL = 1879048192,
+  BIGNUM = -2147483648,
+  BYTES = -1879048192,
+  ULONG_REP = -1610612736,
 }
