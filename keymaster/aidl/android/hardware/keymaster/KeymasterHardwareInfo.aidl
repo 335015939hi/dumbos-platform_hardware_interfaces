@@ -16,18 +16,24 @@
 
 package android.hardware.keymaster;
 
+import android.hardware.keymaster.SecurityLevel;
+
+
 /**
- * Device security levels.
+ * KeymasterHardwareInfo is the hardware information returned by calling Keymaster getHardwareInfo()
  */
+
 @VintfStability
-@Backing(type="int")
-enum SecurityLevel {
-    SOFTWARE = 0,
-    TRUSTED_ENVIRONMENT = 1,
-    /**
-     *
-     * STRONGBOX specifies that the secure hardware satisfies the requirements specified in CDD
-     * 9.11.2.
+parcelable KeymasterHardwareInfo {
+    /* securityLevel is the security level of the KeymasterDevice implementation accessed
+     * through this aidl package.  */
+    SecurityLevel securityLevel;
+
+    /* keymasterName is the name of the IKeymasterDevice implementation.  */
+    @utf8InCpp String keymasterName;
+
+    /* keymasterAuthorName is the name of the author of the IKeymasterDevice implementation
+     *         (organization name, not individual).
      */
-    STRONGBOX = 2,
+    @utf8InCpp String keymasterAuthorName;
 }
