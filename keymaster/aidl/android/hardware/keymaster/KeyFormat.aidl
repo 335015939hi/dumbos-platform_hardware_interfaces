@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 The Android Open Source Project
+ * Copyright (C) 2020 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,13 +18,15 @@ package android.hardware.keymaster;
 
 
 /**
- * Time in milliseconds since some arbitrary point in time.  Time must be monotonically increasing,
- * and a secure environment's notion of "current time" must not repeat until the Android device
- * reboots, or until at least 50 million years have elapsed (note that this requirement is satisfied
- * by setting the clock to zero during each boot, and then counting time accurately).
+ * Formats for key import and export.
  */
-
 @VintfStability
-parcelable Timestamp {
-    long milliSeconds;
+@Backing(type="int")
+enum KeyFormat {
+    /** X.509 certificate format, for public key export. */
+    X509 = 0,
+    /** PCKS#8 format, asymmetric key pair import. */
+    PKCS8 = 1,
+    /** Raw bytes, for symmetric key import. */
+    RAW = 3,
 }
