@@ -17,10 +17,11 @@
 
 package android.hardware.keymaster;
 @VintfStability
-parcelable VerificationToken {
-  long challenge;
-  android.hardware.keymaster.Timestamp timestamp;
-  android.hardware.keymaster.SecurityLevel securityLevel;
-  byte[] mac;
-  android.hardware.keymaster.KeyParameter[] parametersVerified = {};
+parcelable KeyParameter {
+  android.hardware.keymaster.Tag tag;
+  boolean boolValue;
+  int integer;
+  long longInteger;
+  long dateTime;
+  byte[] blob;
 }

@@ -1,0 +1,25 @@
+cc_binary {
+    name: "android.hardware.keymaster@5.0-service",
+    relative_install_path: "hw",
+    init_rc: ["android.hardware.keymaster@5.0-service.rc"],
+    vintf_fragments: ["keymaster-default.xml"],
+    vendor: true,
+    cflags: [
+        "-Wall",
+        "-Wextra",
+    ],
+    shared_libs: [
+        //"android.hardware.keymaster-ndk_platform",
+        "android.hardware.keymaster-unstable-ndk_platform",
+        "libbase",
+        "libbinder_ndk",
+        "libcppbor",
+        "libcrypto",
+        "liblog",
+        "libkeymaster5",
+        "libutils",
+    ],
+    srcs: [
+        "service.cpp",
+    ],
+}
