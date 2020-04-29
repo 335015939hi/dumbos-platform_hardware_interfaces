@@ -9,11 +9,14 @@ aidl_interface {
         java: {
             platform_apis: true,
         },
+        cpp: {
+            enabled: true,
+        },
         ndk: {
             vndk: {
                 enabled: true,
             },
         },
     },
-    versions: ["1"],
+    versions: ["1"], // which versions are considered frozen?
 }

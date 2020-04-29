@@ -1,0 +1,5 @@
+service vendor.keymaster-5-0 /vendor/bin/hw/android.hardware.keymaster@5.0-service
+    interface android.hardware.keymaster@5.0::IKeymasterDevice default
+    class hal
+    user system
+    group system drmrpc
