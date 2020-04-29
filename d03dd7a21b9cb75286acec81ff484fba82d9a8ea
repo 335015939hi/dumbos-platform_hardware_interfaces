@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1e275abb_776a975b",
+        "filename": "identity/aidl/default/IdentityCredential.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-29T13:44:48Z",
+      "side": 1,
+      "message": "Actually let me change this to be a set\u003cstring\u003e - this will give us O(log n) for lookup.",
+      "parentUuid": "04d450c1_1eca1a60",
+      "range": {
+        "startLine": 562,
+        "startChar": 20,
+        "endLine": 562,
+        "endChar": 29
+      },
+      "revId": "d03dd7a21b9cb75286acec81ff484fba82d9a8ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b96ba88e_0fdd6746",
         "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialTests.cpp",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "d03dd7a21b9cb75286acec81ff484fba82d9a8ea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80e14fca_11a05c8f",
+        "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-29T13:44:48Z",
+      "side": 1,
+      "message": "I thought about this but it\u0027s only used once and I don\u0027t know what I would call it... kSizeOfTestDataProofOfProvisioningButWithoutTheReaderCertificateSizeBecauseThatOneDoesChangeBecauseThanksEccForRandoms.\n\nIf someone goes in and changes the test data (will likely not happen) or we change the implementation, we\u0027ll just have to update this number (and the CBOR we pretty print and compare to text). Not a big deal, as you can see the error messages helpfully prints out the size it got and the size it expected... so it\u0027s a simple case of arithmetic to update this number (you add the difference from actual and expected to this one).",
+      "parentUuid": "b96ba88e_0fdd6746",
+      "range": {
+        "startLine": 286,
+        "startChar": 29,
+        "endLine": 286,
+        "endChar": 32
+      },
+      "revId": "d03dd7a21b9cb75286acec81ff484fba82d9a8ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
