@@ -116,6 +116,30 @@
       "revId": "d03dd7a21b9cb75286acec81ff484fba82d9a8ea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d636d2cc_2353c12a",
+        "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-29T23:41:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a7c878b4_d9072154",
+      "range": {
+        "startLine": 538,
+        "startChar": 4,
+        "endLine": 538,
+        "endChar": 5
+      },
+      "revId": "d03dd7a21b9cb75286acec81ff484fba82d9a8ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
