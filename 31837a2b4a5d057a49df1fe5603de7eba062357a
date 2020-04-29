@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0b7227e5_8eec10de",
+        "filename": "identity/aidl/android/hardware/identity/IWritableIdentityCredential.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-29T18:24:22Z",
+      "side": 1,
+      "message": "The problem is that the TA (Trusted Application) which the HAL implementation communicates with (Citadel or the TEE, for example) have extremely limited resources, you usually cannot assume more than a couple of hundreds of bytes of RAM to be available for the session [0].\n\nSo you only have maybe 512 bytes where you can store data. At the same time the TA is being asked to return the ECDSA signature of a multi-megabyte CBOR document. So the way you do this is that you don\u0027t keep the document in memory, you incrementally build it, update a SHA-256, and then throw away the pieces you just input into the SHA-256 function. Then at the end, you sign that hash and bingo you have an ECDSA signature covering that entire document. All without using more than a couple of hundred of bytes of RAM.\n\nThat\u0027s all good, the problem is that this CBOR at some point introduced lengths in the middle of the document. Ouch. This means you can no longer build it incrementally [1] because you don\u0027t know how big the document is going to be until you\u0027re finished. This CL fixes that problem by providing this length upfront (we have credstore calculate the length).\n\n[0] : where session is loosely used to mean the period from startPersonalization() to finishAddingEntries() which includes a lot of interim calls to transfer content etc.\n\n[1] : Well, yes, you can still make this work... but you\u0027d need the HAL to cache all data sent to it and then replay it all to the TA for a second pass. This is pretty much a show-stopper as the bandwidth/latency between the AP (on which the HAL is running) and the TA is generally bad.",
+      "parentUuid": "38524758_946f2833",
+      "range": {
+        "startLine": 298,
+        "startChar": 0,
+        "endLine": 300,
+        "endChar": 32
+      },
+      "revId": "31837a2b4a5d057a49df1fe5603de7eba062357a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "012519ba_aa89e344",
         "filename": "identity/aidl/android/hardware/identity/RequestDataItem.aidl",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "4b31e230_60b2e692",
+        "filename": "identity/aidl/android/hardware/identity/RequestDataItem.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-29T18:24:22Z",
+      "side": 1,
+      "message": "Good point, I\u0027ll document all fields here.",
+      "parentUuid": "012519ba_aa89e344",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 27
+      },
+      "revId": "31837a2b4a5d057a49df1fe5603de7eba062357a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ccde6d1_48bd7fad",
         "filename": "identity/aidl/android/hardware/identity/RequestNamespace.aidl",
         "patchSetId": 2
@@ -68,6 +116,30 @@
       "revId": "31837a2b4a5d057a49df1fe5603de7eba062357a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71adcf2d_058eb390",
+        "filename": "identity/aidl/android/hardware/identity/RequestNamespace.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-29T18:24:22Z",
+      "side": 1,
+      "message": "I\u0027ll document all the fields here.",
+      "parentUuid": "3ccde6d1_48bd7fad",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 36
+      },
+      "revId": "31837a2b4a5d057a49df1fe5603de7eba062357a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
