@@ -14,19 +14,20 @@
  * limitations under the License.
  */
 
-package android.hardware.keymaster;
+package android.hardware.keymint;
 
 /**
- * Device security levels.
+ * Usability requirements of key blobs.  This defines what system functionality must be available
+ * for the key to function.  For example, key "blobs" which are actually handles referencing
+ * encrypted key material stored in the file system cannot be used until the file system is
+ * available, and should have BLOB_REQUIRES_FILE_SYSTEM.
+ *
+ * TODO(seleneh) we should delete this file once we removed all references of the keyblob formats
+ * in our codes and vts tests.  format should always be standarized to STANDALONE from now on.
  */
 @VintfStability
 @Backing(type="int")
-enum SecurityLevel {
-    SOFTWARE = 0,
-    TRUSTED_ENVIRONMENT = 1,
-    /**
-     * STRONGBOX specifies that the secure hardware satisfies the requirements specified in CDD
-     * 9.11.2.
-     */
-    STRONGBOX = 2,
+enum KeyBlobUsageRequirements {
+    STANDALONE = 0,
+    REQUIRES_FILE_SYSTEM = 1,
 }
