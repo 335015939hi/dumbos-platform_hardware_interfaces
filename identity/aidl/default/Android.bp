@@ -17,7 +17,7 @@ cc_binary {
         "libutils",
         "android.hardware.identity-support-lib",
         "android.hardware.identity-ndk_platform",
-        "android.hardware.keymaster-ndk_platform",
+        "android.hardware.keymaster-V1-ndk_platform",
     ],
     srcs: [
         "IdentityCredential.cpp",
