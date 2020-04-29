@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 The Android Open Source Project
+ * Copyright 2020 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,19 +14,17 @@
  * limitations under the License.
  */
 
-package android.hardware.keymaster;
+package android.hardware.keymint;
 
-/**
- * Device security levels.
+/* This encodes the IKeyMintDevice attestation generated certificate.
  */
+
 @VintfStability
-@Backing(type="int")
-enum SecurityLevel {
-    SOFTWARE = 0,
-    TRUSTED_ENVIRONMENT = 1,
+parcelable Certificate {
     /**
-     * STRONGBOX specifies that the secure hardware satisfies the requirements specified in CDD
-     * 9.11.2.
+     * encodedCertificate contains the bytes of a DER-encoded X.509 certificate.
+     *
+     * If there is no certificate, this array is empty.
      */
-    STRONGBOX = 2,
+    byte[] encodedCertificate;
 }
