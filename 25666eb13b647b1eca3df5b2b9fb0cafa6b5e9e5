@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a3084b72_34b22a3d",
+        "filename": "identity/aidl/vts/VtsIdentityTestUtils.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-30T16:22:57Z",
+      "side": 1,
+      "message": "Hmm. I don\u0027t think this is accurate. If you look at IWritableIdentityCredential.aidl it says\n\n     *  - The attestationSecurityLevel field must be set to either Software (0),\n     *    TrustedEnvironment (1), or StrongBox (2) depending on how attestation is\n     *    implemented. Only the default AOSP implementation of this HAL may use\n     *    value 0 (additionally, this implementation must not be used on production\n     *    devices).\n\nand\n\n     *  - The keymasterSecurityLevel field in the attestation extension must be set to\n     *    either Software (0), TrustedEnvironment (1), or StrongBox (2) depending on how\n     *    the Trusted Application backing the HAL implementation is implemented. Only\n     *    the default AOSP implementation of this HAL may use value 0 (additionally, this\n     *    implementation must not be used on production devices)\n\nso what we\u0027re doing here is completely fine. In fact, we put exactly that language in there so we could write a test like this 😊... So please update the comment to say something like this:\n\n  // Ensure the attestation conveys that it\u0027s implemented in secure hardware (with carve-out\n  // for the reference implementation which cannot be implemented in secure hardware).",
+      "range": {
+        "startLine": 222,
+        "startChar": 0,
+        "endLine": 224,
+        "endChar": 14
+      },
+      "revId": "25666eb13b647b1eca3df5b2b9fb0cafa6b5e9e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f9a0160_9c487404",
+        "filename": "identity/aidl/vts/VtsIdentityTestUtils.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-04-30T16:22:57Z",
+      "side": 1,
+      "message": "Please capitalize and add \"or StrongBox.\" at the end.",
+      "range": {
+        "startLine": 231,
+        "startChar": 37,
+        "endLine": 231,
+        "endChar": 56
+      },
+      "revId": "25666eb13b647b1eca3df5b2b9fb0cafa6b5e9e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
