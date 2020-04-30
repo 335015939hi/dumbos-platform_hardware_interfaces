@@ -83,6 +83,7 @@ TEST_P(IdentityAidl, createAndRetrieveCredential) {
                                                           {1, {}, false, 0}};
 
     HardwareAuthToken authToken;
+    authToken.userId = 0;
 
     // Here's the actual test data:
     const vector<test_utils::TestEntryData> testEntries = {
