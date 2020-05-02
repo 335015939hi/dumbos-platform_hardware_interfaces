@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dfae3df8_603f1149",
+        "filename": "identity/aidl/ngDefault/common/WritableIdentityCredential.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2020-05-02T02:37:05Z",
+      "side": 1,
+      "message": "Hi David,\n\nBecause this common Hal still use eic API like eicOpsCreateEcKey(), maybe still need to move all eic API out of common Hal.\n\nI address this problem by https://googleplex-android-review.git.corp.google.com/c/platform/hardware/interfaces/+/11262814\n\n\nThank you,\nJoseph.",
+      "range": {
+        "startLine": 63,
+        "startChar": 9,
+        "endLine": 63,
+        "endChar": 26
+      },
+      "revId": "a461001257583de156b021770ba8dece58c15bce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
