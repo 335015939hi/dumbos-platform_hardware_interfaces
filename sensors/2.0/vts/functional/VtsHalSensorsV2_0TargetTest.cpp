@@ -320,11 +320,13 @@ TEST_P(SensorsHidlTest, SensorListValid) {
                          << s.sensorHandle << std::dec << " type=" << static_cast<int>(s.type)
                          << " name=" << s.name);
 
-            // Test non-empty type string
-            EXPECT_FALSE(s.typeAsString.empty());
+            // Test non-empty type string if not a default Android sensor type
+            EXPECT_FALSE(s.typeAsString.empty() && s.type >= SensorType::DEVICE_PRIVATE_BASE);
 
-            // Test defined type matches defined string type
-            EXPECT_NO_FATAL_FAILURE(assertTypeMatchStringType(s.type, s.typeAsString));
+            // Test defined type matches defined string type (if not an empty string)
+            if (!s.typeAsString.empty()) {
+                EXPECT_NO_FATAL_FAILURE(assertTypeMatchStringType(s.type, s.typeAsString));
+            }
 
             // Test if all sensor has name and vendor
             EXPECT_FALSE(s.name.empty());
