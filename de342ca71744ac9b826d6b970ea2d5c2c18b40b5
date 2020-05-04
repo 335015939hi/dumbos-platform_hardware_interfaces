@@ -1,0 +1,48 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000002803311",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1245367?revision\u003d19",
+      "fixSuggestions": [
+        {
+          "fixId": "749be68e_2c31232d",
+          "description": "Change to \"identity/aidl/ngDefault/EmbeddedIc.h\"",
+          "replacements": [
+            {
+              "path": "identity/aidl/ngDefault/EmbeddedIc.h",
+              "range": {
+                "startLine": 120,
+                "startChar": 10,
+                "endLine": 120,
+                "endChar": 18
+              },
+              "replacement": "setting"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "93164342_231523cf",
+        "filename": "identity/aidl/ngDefault/EmbeddedIc.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-05-04T22:32:03Z",
+      "side": 1,
+      "message": "Common typo found: \"settting\" -- should it be \"setting\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line.",
+      "range": {
+        "startLine": 120,
+        "startChar": 10,
+        "endLine": 120,
+        "endChar": 18
+      },
+      "revId": "de342ca71744ac9b826d6b970ea2d5c2c18b40b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
