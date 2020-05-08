@@ -1,0 +1,48 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000002872443",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1306893?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "bccc5666_30d0244f",
+          "description": "Change to \"identity/aidl/android/hardware/identity/IIdentityCredential.aidl\"",
+          "replacements": [
+            {
+              "path": "identity/aidl/android/hardware/identity/IIdentityCredential.aidl",
+              "range": {
+                "startLine": 76,
+                "startChar": 42,
+                "endLine": 76,
+                "endChar": 53
+              },
+              "replacement": "Verification"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "a9c48365_91a3b96a",
+        "filename": "identity/aidl/android/hardware/identity/IIdentityCredential.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-05-08T15:31:02Z",
+      "side": 1,
+      "message": "Common typo found: \"Verfication\" -- should it be \"Verification\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line.",
+      "range": {
+        "startLine": 76,
+        "startChar": 42,
+        "endLine": 76,
+        "endChar": 53
+      },
+      "revId": "e47689377f9a4f1565ade225bbd59346d4f9658a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
