@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "cab3ac16_f93133ef",
+        "filename": "keymaster/aidl/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2020-05-09T01:02:36Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "050d35fa_91803527",
+      "range": {
+        "startLine": 18,
+        "startChar": 15,
+        "endLine": 18,
+        "endChar": 18
+      },
+      "revId": "3aff262cd2dec23b08ae63fc69e12df3b106b023",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b3d1b4bf_625b8e02",
         "filename": "keymaster/aidl/Android.bp",
         "patchSetId": 1
