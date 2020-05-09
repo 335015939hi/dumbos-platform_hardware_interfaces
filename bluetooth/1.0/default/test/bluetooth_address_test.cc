@@ -127,7 +127,7 @@ TEST_F(BluetoothAddressTest, property_set) {
   property_set(FACTORY_BDADDR_PROPERTY, "");
 
   // Get returns 0.
-  char prop[PROP_VALUE_MAX] = "";
+  char prop[PROPERTY_VALUE_MAX] = "";
   EXPECT_TRUE(property_get(PERSIST_BDADDR_PROPERTY, prop, NULL) == 0);
   EXPECT_TRUE(property_get(PROPERTY_BT_BDADDR_PATH, prop, NULL) == 0);
   EXPECT_TRUE(property_get(FACTORY_BDADDR_PROPERTY, prop, NULL) == 0);
@@ -160,7 +160,7 @@ TEST_F(BluetoothAddressTest, property_get) {
   property_set(FACTORY_BDADDR_PROPERTY, FACTORY_BDADDR_PROPERTY);
 
   // Get returns the same strings.
-  char prop[PROP_VALUE_MAX] = "";
+  char prop[PROPERTY_VALUE_MAX] = "";
   EXPECT_TRUE(property_get(PERSIST_BDADDR_PROPERTY, prop, NULL) > 0);
   EXPECT_TRUE(strcmp(PERSIST_BDADDR_PROPERTY, prop) == 0);
 
@@ -171,7 +171,7 @@ TEST_F(BluetoothAddressTest, property_get) {
   EXPECT_TRUE(strcmp(FACTORY_BDADDR_PROPERTY, prop) == 0);
 
   // Set a property to a different known string.
-  char prop2[PROP_VALUE_MAX] = "Erased";
+  char prop2[PROPERTY_VALUE_MAX] = "Erased";
   property_set(PERSIST_BDADDR_PROPERTY, prop2);
 
   // Get returns the correct strings.
@@ -226,7 +226,7 @@ TEST_F(BluetoothAddressTest, get_local_address) {
   EXPECT_TRUE(property_set(PERSIST_BDADDR_PROPERTY, kTestAddrBad1) == 0);
   EXPECT_TRUE(BluetoothAddress::get_local_address(address));
   EXPECT_TRUE(memcmp(address, kZeros_bytes, BluetoothAddress::kBytes) != 0);
-  char prop[PROP_VALUE_MAX] = "Before reading";
+  char prop[PROPERTY_VALUE_MAX] = "Before reading";
   EXPECT_TRUE(property_get(PERSIST_BDADDR_PROPERTY, prop, NULL) ==
               BluetoothAddress::kStringLength);
   char address_str[BluetoothAddress::kStringLength + 1];

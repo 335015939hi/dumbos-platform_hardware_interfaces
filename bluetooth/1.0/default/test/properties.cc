@@ -28,8 +28,8 @@
 static const int MAX_PROPERTIES = 5;
 
 struct property {
-  char key[PROP_KEY_MAX + 2];
-  char value[PROP_VALUE_MAX + 2];
+  char key[PROPERTY_KEY_MAX + 2];
+  char value[PROPERTY_VALUE_MAX + 2];
 };
 
 int num_properties = 0;
@@ -38,7 +38,7 @@ struct property properties[MAX_PROPERTIES];
 // Find the correct entry.
 static int property_find(const char* key) {
   for (int i = 0; i < num_properties; i++) {
-    if (strncmp(properties[i].key, key, PROP_KEY_MAX) == 0) {
+    if (strncmp(properties[i].key, key, PROPERTY_KEY_MAX) == 0) {
       return i;
     }
   }
@@ -46,7 +46,7 @@ static int property_find(const char* key) {
 }
 
 int property_set(const char* key, const char* value) {
-  if (strnlen(value, PROP_VALUE_MAX) > PROP_VALUE_MAX) return -1;
+  if (strnlen(value, PROPERTY_VALUE_MAX) > PROPERTY_VALUE_MAX) return -1;
 
   // Check to see if the property exists.
   int prop_index = property_find(key);
@@ -58,8 +58,8 @@ int property_set(const char* key, const char* value) {
   }
 
   // This is test code.  Be nice and don't push the boundary cases!
-  strncpy(properties[prop_index].key, key, PROP_KEY_MAX + 1);
-  strncpy(properties[prop_index].value, value, PROP_VALUE_MAX + 1);
+  strncpy(properties[prop_index].key, key, PROPERTY_KEY_MAX + 1);
+  strncpy(properties[prop_index].value, value, PROPERTY_VALUE_MAX + 1);
   return 0;
 }
 
