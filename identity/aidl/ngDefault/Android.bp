@@ -1,0 +1,60 @@
+cc_library_static {
+    name: "android.hardware.identity-hal-common",
+    vendor_available: true,
+    srcs: [
+        "common/IdentityCredential.cpp",
+        "common/IdentityCredentialStore.cpp",
+        "common/WritableIdentityCredential.cpp",
+        "common/Util.cpp",
+    ],
+    export_include_dirs: [
+        "common",
+    ],
+    cflags: [
+        "-Wall",
+        "-Wextra",
+    ],
+    shared_libs: [
+        "libbase",
+        "libbinder_ndk",
+        "libcppbor",
+        "libcrypto",
+        "liblog",
+        "libutils",
+        "android.hardware.identity-support-lib",
+        "android.hardware.identity-ndk_platform",
+        "android.hardware.keymaster-ndk_platform",
+    ],
+}
+
+cc_binary {
+    name: "android.hardware.identity-service.ngExample",
+    relative_install_path: "hw",
+    init_rc: ["identity-ngDefault.rc"],
+    vintf_fragments: ["identity-ngDefault.xml"],
+    vendor: true,
+    cflags: [
+        "-Wall",
+        "-Wextra",
+        "-Wno-unused-parameter",
+    ],
+    shared_libs: [
+        "libbase",
+        "libbinder_ndk",
+        "libcppbor",
+        "libcrypto",
+        "liblog",
+        "libutils",
+        "android.hardware.identity-support-lib",
+        "android.hardware.identity-ndk_platform",
+        "android.hardware.keymaster-ndk_platform",
+    ],
+    static_libs: [
+        "android.hardware.identity-hal-common",
+    ],
+    srcs: [
+        "service.cpp",
+        "EmbeddedIc.c",
+        "FakeSecureHardwareProxy.cpp",
+    ],
+}

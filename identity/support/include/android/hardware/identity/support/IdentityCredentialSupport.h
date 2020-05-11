@@ -134,6 +134,11 @@ optional<vector<uint8_t>> ecKeyPairGetPublicKey(const vector<uint8_t>& keyPair);
 //
 optional<vector<uint8_t>> ecKeyPairGetPrivateKey(const vector<uint8_t>& keyPair);
 
+// Creates a PKCS#8 encoded key-pair from a private key (which must be uncompressed,
+// e.g. 32 bytes). The public key is derived from the given private key..
+//
+optional<vector<uint8_t>> ecPrivateKeyToKeyPair(const vector<uint8_t>& privateKey);
+
 // For an EC key |keyPair| encoded in PKCS#8 format, creates a PKCS#12 structure
 // with the key-pair (not using a password to encrypt the data). The public key
 // in the created structure is included as a certificate, using the given fields
@@ -149,6 +154,12 @@ optional<vector<uint8_t>> ecKeyPairGetPkcs12(const vector<uint8_t>& keyPair, con
 // ecKeyPairGetPrivateKey()). Signature is returned and will be in DER format.
 //
 optional<vector<uint8_t>> signEcDsa(const vector<uint8_t>& key, const vector<uint8_t>& data);
+
+// Like signEcDsa() but instead of taking the data to be signed, takes a digest
+// of it instead.
+//
+optional<vector<uint8_t>> signEcDsaDigest(const vector<uint8_t>& key,
+                                          const vector<uint8_t>& dataDigest);
 
 // Calculates the HMAC with SHA-256 for |data| using |key|. The calculated HMAC
 // is returned and will be 32 bytes.
@@ -226,6 +237,11 @@ optional<vector<vector<uint8_t>>> certificateChainSplit(const vector<uint8_t>& c
 //
 bool certificateChainValidate(const vector<uint8_t>& certificateChain);
 
+// Returns true if |certificate| is signed by |publicKey|.
+//
+bool certificateSignedByPublicKey(const vector<uint8_t>& certificate,
+                                  const vector<uint8_t>& publicKey);
+
 // Signs |data| and |detachedContent| with |key| (which must be in the format
 // returned by ecKeyPairGetPrivateKey()).
 //
@@ -238,6 +254,21 @@ optional<vector<uint8_t>> coseSignEcDsa(const vector<uint8_t>& key, const vector
                                         const vector<uint8_t>& detachedContent,
                                         const vector<uint8_t>& certificateChain);
 
+// Creates a COSE_Signature1 where |signatureToBeSigned| is the ECDSA signature
+// of the ToBeSigned CBOR from RFC 8051 "4.4. Signing and Verification Process".
+//
+// The |signatureToBeSigned| is expected to be 64 bytes and contain the R value,
+// then the S value.
+//
+// The |data| parameter will be included in the COSE_Sign1 CBOR.
+//
+// If |certificateChain| is non-empty it's included in the 'x5chain'
+// protected header element (as as described in'draft-ietf-cose-x509-04').
+//
+optional<vector<uint8_t>> coseSignEcDsaWithSignature(const vector<uint8_t>& signatureToBeSigned,
+                                                     const vector<uint8_t>& data,
+                                                     const vector<uint8_t>& certificateChain);
+
 // Checks that |signatureCoseSign1| (in COSE_Sign1 format) is a valid signature
 // made with |public_key| (which must be in the format returned by
 // ecKeyPairGetPublicKey()) where |detachedContent| is the detached content.
@@ -246,8 +277,22 @@ bool coseCheckEcDsaSignature(const vector<uint8_t>& signatureCoseSign1,
                              const vector<uint8_t>& detachedContent,
                              const vector<uint8_t>& publicKey);
 
+// Converts a DER-encoded signature to the format used in 'signature' bstr in COSE_Sign1.
+bool ecdsaSignatureDerToCose(const vector<uint8_t>& ecdsaDerSignature,
+                             vector<uint8_t>& ecdsaCoseSignature);
+
+// Converts from the format in in 'signature' bstr in COSE_Sign1 to DER encoding.
+bool ecdsaSignatureCoseToDer(const vector<uint8_t>& ecdsaCoseSignature,
+                             vector<uint8_t>& ecdsaDerSignature);
+
 // Extracts the payload from a COSE_Sign1.
 optional<vector<uint8_t>> coseSignGetPayload(const vector<uint8_t>& signatureCoseSign1);
+
+// Extracts the signature (of the ToBeSigned CBOR) from a COSE_Sign1.
+optional<vector<uint8_t>> coseSignGetSignature(const vector<uint8_t>& signatureCoseSign1);
+
+// Extracts the signature algorithm from a COSE_Sign1.
+optional<int> coseSignGetAlg(const vector<uint8_t>& signatureCoseSign1);
 
 // Extracts the X.509 certificate chain, if present. Returns the data as a
 // concatenated chain of DER-encoded X.509 certificates
