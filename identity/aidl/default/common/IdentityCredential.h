@@ -29,10 +29,15 @@
 
 #include <cppbor/cppbor.h>
 
+#include "IdentityCredentialStore.h"
+#include "SecureHardwareProxy.h"
+
 namespace aidl::android::hardware::identity {
 
 using ::aidl::android::hardware::keymaster::HardwareAuthToken;
 using ::aidl::android::hardware::keymaster::VerificationToken;
+using ::android::sp;
+using ::android::hardware::identity::SecureHardwarePresentationProxy;
 using ::std::map;
 using ::std::set;
 using ::std::string;
@@ -40,10 +45,11 @@ using ::std::vector;
 
 class IdentityCredential : public BnIdentityCredential {
   public:
-    IdentityCredential(const vector<uint8_t>& credentialData)
-        : credentialData_(credentialData),
+    IdentityCredential(sp<SecureHardwarePresentationProxy> hwProxy,
+                       const vector<uint8_t>& credentialData)
+        : hwProxy_(hwProxy),
+          credentialData_(credentialData),
           numStartRetrievalCalls_(0),
-          authChallenge_(0),
           expectedDeviceNameSpacesSize_(0) {}
 
     // Parses and decrypts credentialData_, return a status code from
@@ -51,47 +57,66 @@ class IdentityCredential : public BnIdentityCredential {
     int initialize();
 
     // Methods from IIdentityCredential follow.
+#ifdef EIC_USE_INT8_IN_HAL
+    ndk::ScopedAStatus deleteCredential(vector<int8_t>* outProofOfDeletionSignature) override;
+    ndk::ScopedAStatus createEphemeralKeyPair(vector<int8_t>* outKeyPair) override;
+    ndk::ScopedAStatus setReaderEphemeralPublicKey(const vector<int8_t>& publicKey) override;
+#else
     ndk::ScopedAStatus deleteCredential(vector<uint8_t>* outProofOfDeletionSignature) override;
     ndk::ScopedAStatus createEphemeralKeyPair(vector<uint8_t>* outKeyPair) override;
     ndk::ScopedAStatus setReaderEphemeralPublicKey(const vector<uint8_t>& publicKey) override;
+#endif
     ndk::ScopedAStatus createAuthChallenge(int64_t* outChallenge) override;
     ndk::ScopedAStatus setRequestedNamespaces(
             const vector<RequestNamespace>& requestNamespaces) override;
     ndk::ScopedAStatus setVerificationToken(const VerificationToken& verificationToken) override;
+#ifdef EIC_USE_INT8_IN_HAL
+    ndk::ScopedAStatus startRetrieval(
+            const vector<SecureAccessControlProfile>& accessControlProfiles,
+            const HardwareAuthToken& authToken, const vector<int8_t>& itemsRequest,
+            const vector<int8_t>& signingKeyBlob, const vector<int8_t>& sessionTranscript,
+            const vector<int8_t>& readerSignature, const vector<int32_t>& requestCounts) override;
+#else
     ndk::ScopedAStatus startRetrieval(
             const vector<SecureAccessControlProfile>& accessControlProfiles,
             const HardwareAuthToken& authToken, const vector<uint8_t>& itemsRequest,
             const vector<uint8_t>& signingKeyBlob, const vector<uint8_t>& sessionTranscript,
             const vector<uint8_t>& readerSignature, const vector<int32_t>& requestCounts) override;
+#endif
     ndk::ScopedAStatus startRetrieveEntryValue(
             const string& nameSpace, const string& name, int32_t entrySize,
             const vector<int32_t>& accessControlProfileIds) override;
+#ifdef EIC_USE_INT8_IN_HAL
+    ndk::ScopedAStatus retrieveEntryValue(const vector<int8_t>& encryptedContent,
+                                          vector<int8_t>* outContent) override;
+    ndk::ScopedAStatus finishRetrieval(vector<int8_t>* outMac,
+                                       vector<int8_t>* outDeviceNameSpaces) override;
+    ndk::ScopedAStatus generateSigningKeyPair(vector<int8_t>* outSigningKeyBlob,
+                                              Certificate* outSigningKeyCertificate) override;
+#else
     ndk::ScopedAStatus retrieveEntryValue(const vector<uint8_t>& encryptedContent,
                                           vector<uint8_t>* outContent) override;
     ndk::ScopedAStatus finishRetrieval(vector<uint8_t>* outMac,
                                        vector<uint8_t>* outDeviceNameSpaces) override;
     ndk::ScopedAStatus generateSigningKeyPair(vector<uint8_t>* outSigningKeyBlob,
                                               Certificate* outSigningKeyCertificate) override;
+#endif
 
   private:
     // Set by constructor
+    sp<SecureHardwarePresentationProxy> hwProxy_;
     vector<uint8_t> credentialData_;
     int numStartRetrievalCalls_;
 
     // Set by initialize()
     string docType_;
     bool testCredential_;
-    vector<uint8_t> storageKey_;
-    vector<uint8_t> credentialPrivKey_;
 
     // Set by createEphemeralKeyPair()
     vector<uint8_t> ephemeralPublicKey_;
 
     // Set by setReaderEphemeralPublicKey()
     vector<uint8_t> readerPublicKey_;
-
-    // Set by createAuthChallenge()
-    uint64_t authChallenge_;
 
     // Set by setRequestedNamespaces()
     vector<RequestNamespace> requestNamespaces_;
@@ -100,7 +125,6 @@ class IdentityCredential : public BnIdentityCredential {
     VerificationToken verificationToken_;
 
     // Set at startRetrieval() time.
-    map<int32_t, int> profileIdToAccessCheckResult_;
     vector<uint8_t> signingKeyBlob_;
     vector<uint8_t> sessionTranscript_;
     std::unique_ptr<cppbor::Item> sessionTranscriptItem_;
@@ -112,15 +136,16 @@ class IdentityCredential : public BnIdentityCredential {
 
     // Calculated at startRetrieval() time.
     size_t expectedDeviceNameSpacesSize_;
+    vector<unsigned int> expectedNumEntriesPerNamespace_;
 
     // Set at startRetrieveEntryValue() time.
     string currentNameSpace_;
     string currentName_;
+    vector<int32_t> currentAccessControlProfileIds_;
     size_t entryRemainingBytes_;
     vector<uint8_t> entryValue_;
-    vector<uint8_t> entryAdditionalData_;
 
-    size_t calcDeviceNameSpacesSize();
+    void calcDeviceNameSpacesSize(uint32_t accessControlProfileMask);
 };
 
 }  // namespace aidl::android::hardware::identity

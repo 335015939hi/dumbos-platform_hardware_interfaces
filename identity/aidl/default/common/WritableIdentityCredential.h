@@ -23,25 +23,39 @@
 #include <cppbor.h>
 #include <set>
 
+#include "IdentityCredentialStore.h"
+#include "SecureHardwareProxy.h"
+
 namespace aidl::android::hardware::identity {
 
+using ::android::sp;
+using ::android::hardware::identity::SecureHardwareProvisioningProxy;
 using ::std::set;
 using ::std::string;
 using ::std::vector;
 
 class WritableIdentityCredential : public BnWritableIdentityCredential {
   public:
-    WritableIdentityCredential(const string& docType, bool testCredential)
-        : docType_(docType), testCredential_(testCredential) {}
+    WritableIdentityCredential(sp<SecureHardwareProvisioningProxy> hwProxy, const string& docType,
+                               bool testCredential)
+        : hwProxy_(hwProxy), docType_(docType), testCredential_(testCredential) {}
+
+    ~WritableIdentityCredential();
 
     // Creates the Credential Key. Returns false on failure. Must be called
     // right after construction.
     bool initialize();
 
     // Methods from IWritableIdentityCredential follow.
+#ifdef EIC_USE_INT8_IN_HAL
+    ndk::ScopedAStatus getAttestationCertificate(const vector<int8_t>& attestationApplicationId,
+                                                 const vector<int8_t>& attestationChallenge,
+                                                 vector<Certificate>* outCertificateChain) override;
+#else
     ndk::ScopedAStatus getAttestationCertificate(const vector<uint8_t>& attestationApplicationId,
                                                  const vector<uint8_t>& attestationChallenge,
                                                  vector<Certificate>* outCertificateChain) override;
+#endif
 
     ndk::ScopedAStatus setExpectedProofOfProvisioningSize(
             int32_t expectedProofOfProvisioningSize) override;
@@ -57,27 +71,35 @@ class WritableIdentityCredential : public BnWritableIdentityCredential {
     ndk::ScopedAStatus beginAddEntry(const vector<int32_t>& accessControlProfileIds,
                                      const string& nameSpace, const string& name,
                                      int32_t entrySize) override;
-
+#ifdef EIC_USE_INT8_IN_HAL
+    ndk::ScopedAStatus addEntryValue(const vector<int8_t>& content,
+                                     vector<int8_t>* outEncryptedContent) override;
+#else
     ndk::ScopedAStatus addEntryValue(const vector<uint8_t>& content,
                                      vector<uint8_t>* outEncryptedContent) override;
+#endif
 
+#ifdef EIC_USE_INT8_IN_HAL
+    ndk::ScopedAStatus finishAddingEntries(
+            vector<int8_t>* outCredentialData,
+            vector<int8_t>* outProofOfProvisioningSignature) override;
+#else
     ndk::ScopedAStatus finishAddingEntries(
             vector<uint8_t>* outCredentialData,
             vector<uint8_t>* outProofOfProvisioningSignature) override;
-
+#endif
   private:
+    // Set by constructor.
+    sp<SecureHardwareProvisioningProxy> hwProxy_;
     string docType_;
     bool testCredential_;
 
     // This is set in initialize().
-    vector<uint8_t> storageKey_;
     bool startPersonalizationCalled_;
     bool firstEntry_;
 
-    // These are set in getAttestationCertificate().
-    vector<uint8_t> credentialPrivKey_;
-    vector<uint8_t> credentialPubKey_;
-    vector<vector<uint8_t>> certificateChain_;
+    // This is set in getAttestationCertificate().
+    bool getAttestationCertificateAlreadyCalled_ = false;
 
     // These fields are initialized during startPersonalization()
     size_t numAccessControlProfileRemaining_;
