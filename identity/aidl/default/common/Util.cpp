@@ -27,6 +27,8 @@
 #include <cppbor.h>
 #include <cppbor_parse.h>
 
+#include "IdentityCredentialStore.h"
+
 namespace aidl::android::hardware::identity {
 
 using namespace ::android::hardware::identity;
@@ -39,12 +41,25 @@ const vector<uint8_t>& getHardwareBoundKey() {
     return hardwareBoundKey;
 }
 
+vector<uint8_t> byteStringToUnsigned(const vector<int8_t>& value) {
+    return vector<uint8_t>(value.begin(), value.end());
+}
+
+vector<int8_t> byteStringToSigned(const vector<uint8_t>& value) {
+    return vector<int8_t>(value.begin(), value.end());
+}
+
 vector<uint8_t> secureAccessControlProfileEncodeCbor(const SecureAccessControlProfile& profile) {
     cppbor::Map map;
     map.add("id", profile.id);
 
     if (profile.readerCertificate.encodedCertificate.size() > 0) {
+#ifdef EIC_USE_INT8_IN_HAL
+        map.add("readerCertificate",
+                cppbor::Bstr(byteStringToUnsigned(profile.readerCertificate.encodedCertificate)));
+#else
         map.add("readerCertificate", cppbor::Bstr(profile.readerCertificate.encodedCertificate));
+#endif
     }
 
     if (profile.userAuthenticationRequired) {
@@ -85,7 +100,11 @@ bool secureAccessControlProfileCheckMac(const SecureAccessControlProfile& profil
     if (!mac) {
         return false;
     }
+#ifdef EIC_USE_INT8_IN_HAL
+    if (mac.value() != byteStringToUnsigned(profile.mac)) {
+#else
     if (mac.value() != profile.mac) {
+#endif
         return false;
     }
     return true;

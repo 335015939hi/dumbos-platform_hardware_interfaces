@@ -1,3 +1,68 @@
+cc_library_static {
+    name: "android.hardware.identity-hal-common",
+    vendor_available: true,
+    srcs: [
+        "common/IdentityCredential.cpp",
+        "common/IdentityCredentialStore.cpp",
+        "common/WritableIdentityCredential.cpp",
+        "common/Util.cpp",
+    ],
+    export_include_dirs: [
+        "common",
+    ],
+    cflags: [
+        "-Wall",
+        "-Wextra",
+    ],
+    shared_libs: [
+        "liblog",
+        "libcrypto",
+        "libbinder_ndk",
+        "libkeymaster_messages",
+    ],
+    static_libs: [
+        "libbase",
+        "libcppbor",
+        "libutils",
+        "libsoft_attestation_cert",
+        "libkeymaster_portable",
+        "libsoft_attestation_cert",
+        "libpuresoftkeymasterdevice",
+        "android.hardware.identity-support-lib",
+        "android.hardware.identity-ndk_platform",
+        "android.hardware.keymaster-ndk_platform",
+    ],
+}
+
+cc_library_static {
+    name: "android.hardware.identity-libeic",
+    vendor_available: true,
+    srcs: [
+        "libeic/EicCbor.c",
+        "libeic/EicPresentation.c",
+        "libeic/EicProvisioning.c",
+        "EicOpsImpl.cc",
+    ],
+    export_include_dirs: [
+        "libeic",
+    ],
+    cflags: [
+        "-DEIC_COMPILATION",
+        "-Wall",
+        "-Wextra",
+        // TODO: remove:
+        "-Wno-unused-parameter",
+        "-Wno-shift-count-overflow",
+    ],
+    shared_libs: [
+        "libbase",
+        "libcrypto",
+    ],
+    static_libs: [
+        "android.hardware.identity-support-lib",
+    ],
+}
+
 cc_binary {
     name: "android.hardware.identity-service.example",
     relative_install_path: "hw",
@@ -7,23 +72,30 @@ cc_binary {
     cflags: [
         "-Wall",
         "-Wextra",
+        "-g",
     ],
     shared_libs: [
-        "libbase",
-        "libbinder_ndk",
-        "libcppbor",
-        "libcrypto",
         "liblog",
+        "libcrypto",
+        "libbinder_ndk",
+        "libkeymaster_messages",
+    ],
+    static_libs: [
+        "libbase",
+        "libcppbor",
         "libutils",
+        "libsoft_attestation_cert",
+        "libkeymaster_portable",
+        "libsoft_attestation_cert",
+        "libpuresoftkeymasterdevice",
         "android.hardware.identity-support-lib",
         "android.hardware.identity-ndk_platform",
         "android.hardware.keymaster-ndk_platform",
+        "android.hardware.identity-hal-common",
+        "android.hardware.identity-libeic",
     ],
     srcs: [
-        "IdentityCredential.cpp",
-        "IdentityCredentialStore.cpp",
-        "WritableIdentityCredential.cpp",
-        "Util.cpp",
         "service.cpp",
+        "FakeSecureHardwareProxy.cpp",
     ],
 }
