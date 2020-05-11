@@ -8,10 +8,13 @@ cc_test {
         "VtsHalIdentityEndToEndTest.cpp",
         "VtsIWritableIdentityCredentialTests.cpp",
         "VtsIdentityTestUtils.cpp",
+        "ReaderAuthTests.cpp",
+        "UserAuthTests.cpp",
     ],
     shared_libs: [
         "libbinder",
         "libcrypto",
+        "android.hardware.keymaster-ndk_platform",
     ],
     static_libs: [
         "libcppbor",
