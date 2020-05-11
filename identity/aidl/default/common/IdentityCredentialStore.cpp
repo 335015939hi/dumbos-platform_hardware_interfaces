@@ -39,8 +39,9 @@ ndk::ScopedAStatus IdentityCredentialStore::getHardwareInformation(
 ndk::ScopedAStatus IdentityCredentialStore::createCredential(
         const string& docType, bool testCredential,
         shared_ptr<IWritableIdentityCredential>* outWritableCredential) {
+    sp<SecureHardwareProvisioningProxy> hwProxy = hwProxyFactory_->createProvisioningProxy();
     shared_ptr<WritableIdentityCredential> wc =
-            ndk::SharedRefBase::make<WritableIdentityCredential>(docType, testCredential);
+            ndk::SharedRefBase::make<WritableIdentityCredential>(hwProxy, docType, testCredential);
     if (!wc->initialize()) {
         return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
                 IIdentityCredentialStore::STATUS_FAILED,
@@ -50,9 +51,15 @@ ndk::ScopedAStatus IdentityCredentialStore::createCredential(
     return ndk::ScopedAStatus::ok();
 }
 
+#ifdef EIC_USE_INT8_IN_HAL
+ndk::ScopedAStatus IdentityCredentialStore::getCredential(
+        CipherSuite cipherSuite, const vector<int8_t>& credentialData,
+        shared_ptr<IIdentityCredential>* outCredential) {
+#else
 ndk::ScopedAStatus IdentityCredentialStore::getCredential(
         CipherSuite cipherSuite, const vector<uint8_t>& credentialData,
         shared_ptr<IIdentityCredential>* outCredential) {
+#endif
     // We only support CIPHERSUITE_ECDHE_HKDF_ECDSA_WITH_AES_256_GCM_SHA256 right now.
     if (cipherSuite != CipherSuite::CIPHERSUITE_ECDHE_HKDF_ECDSA_WITH_AES_256_GCM_SHA256) {
         return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(
@@ -60,8 +67,15 @@ ndk::ScopedAStatus IdentityCredentialStore::getCredential(
                 "Unsupported cipher suite"));
     }
 
+    sp<SecureHardwarePresentationProxy> hwProxy = hwProxyFactory_->createPresentationProxy();
+#ifdef EIC_USE_INT8_IN_HAL
+    vector<uint8_t> data = vector<uint8_t>(credentialData.begin(), credentialData.end());
     shared_ptr<IdentityCredential> credential =
-            ndk::SharedRefBase::make<IdentityCredential>(credentialData);
+            ndk::SharedRefBase::make<IdentityCredential>(hwProxy, data);
+#else
+    shared_ptr<IdentityCredential> credential =
+            ndk::SharedRefBase::make<IdentityCredential>(hwProxy, credentialData);
+#endif
     auto ret = credential->initialize();
     if (ret != IIdentityCredentialStore::STATUS_OK) {
         return ndk::ScopedAStatus(AStatus_fromServiceSpecificErrorWithMessage(

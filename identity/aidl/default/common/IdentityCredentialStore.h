@@ -19,15 +19,23 @@
 
 #include <aidl/android/hardware/identity/BnIdentityCredentialStore.h>
 
+// Uncomment if AIDL uses int8_t for byte.
+//#define EIC_USE_INT8_IN_HAL
+
+#include "SecureHardwareProxy.h"
+
 namespace aidl::android::hardware::identity {
 
+using ::android::sp;
+using ::android::hardware::identity::SecureHardwareProxyFactory;
 using ::std::shared_ptr;
 using ::std::string;
 using ::std::vector;
 
 class IdentityCredentialStore : public BnIdentityCredentialStore {
   public:
-    IdentityCredentialStore() {}
+    IdentityCredentialStore(sp<SecureHardwareProxyFactory> hwProxyFactory)
+        : hwProxyFactory_(hwProxyFactory) {}
 
     // The GCM chunk size used by this implementation is 64 KiB.
     static constexpr size_t kGcmChunkSize = 64 * 1024;
@@ -39,8 +47,16 @@ class IdentityCredentialStore : public BnIdentityCredentialStore {
             const string& docType, bool testCredential,
             shared_ptr<IWritableIdentityCredential>* outWritableCredential) override;
 
+#ifdef EIC_USE_INT8_IN_HAL
+    ndk::ScopedAStatus getCredential(CipherSuite cipherSuite, const vector<int8_t>& credentialData,
+                                     shared_ptr<IIdentityCredential>* outCredential) override;
+#else
     ndk::ScopedAStatus getCredential(CipherSuite cipherSuite, const vector<uint8_t>& credentialData,
                                      shared_ptr<IIdentityCredential>* outCredential) override;
+#endif
+
+  private:
+    sp<SecureHardwareProxyFactory> hwProxyFactory_;
 };
 
 }  // namespace aidl::android::hardware::identity
