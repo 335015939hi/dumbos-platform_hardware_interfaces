@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "14b2ac22_be89cc34",
+        "filename": "boot/1.0/vts/functional/VtsHalBootV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2020-05-13T16:00:09Z",
+      "side": 1,
+      "message": "We need to explicitly disable the test, add DISABLE_ prefix here, and a //TODO to link the bug.",
+      "range": {
+        "startLine": 84,
+        "startChar": 20,
+        "endLine": 84,
+        "endChar": 22
+      },
+      "revId": "766b412f4d155ff39034a7fe217899dac5a514f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
