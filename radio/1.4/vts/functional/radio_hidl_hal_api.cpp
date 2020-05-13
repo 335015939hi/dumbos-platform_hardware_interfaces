@@ -21,7 +21,18 @@
 /*
  * Test IRadio.emergencyDial() for the response returned.
  */
+<<<<<<< HEAD   (89e4ca Merge "Fix GnssMeasurement state range check" into android10)
 TEST_F(RadioHidlTest_v1_4, emergencyDial) {
+=======
+TEST_P(RadioHidlTest_v1_4, emergencyDial) {
+    if (!deviceSupportsFeature(FEATURE_VOICE_CALL)) {
+        ALOGI("Skipping emergencyDial because voice call is not supported in device");
+        return;
+    } else {
+        ALOGI("Running emergencyDial because voice call is supported in device");
+    }
+
+>>>>>>> CHANGE (f2ed9f Skip voice call VTS for devices that don't support voice cal)
     serial = GetRandomSerialNumber();
 
     ::android::hardware::radio::V1_0::Dial dialInfo;
@@ -52,7 +63,18 @@ TEST_F(RadioHidlTest_v1_4, emergencyDial) {
 /*
  * Test IRadio.emergencyDial() with specified service and its response returned.
  */
+<<<<<<< HEAD   (89e4ca Merge "Fix GnssMeasurement state range check" into android10)
 TEST_F(RadioHidlTest_v1_4, emergencyDial_withServices) {
+=======
+TEST_P(RadioHidlTest_v1_4, emergencyDial_withServices) {
+    if (!deviceSupportsFeature(FEATURE_VOICE_CALL)) {
+        ALOGI("Skipping emergencyDial because voice call is not supported in device");
+        return;
+    } else {
+        ALOGI("Running emergencyDial because voice call is supported in device");
+    }
+
+>>>>>>> CHANGE (f2ed9f Skip voice call VTS for devices that don't support voice cal)
     serial = GetRandomSerialNumber();
 
     ::android::hardware::radio::V1_0::Dial dialInfo;
@@ -84,7 +106,18 @@ TEST_F(RadioHidlTest_v1_4, emergencyDial_withServices) {
 /*
  * Test IRadio.emergencyDial() with known emergency call routing and its response returned.
  */
+<<<<<<< HEAD   (89e4ca Merge "Fix GnssMeasurement state range check" into android10)
 TEST_F(RadioHidlTest_v1_4, emergencyDial_withEmergencyRouting) {
+=======
+TEST_P(RadioHidlTest_v1_4, emergencyDial_withEmergencyRouting) {
+    if (!deviceSupportsFeature(FEATURE_VOICE_CALL)) {
+        ALOGI("Skipping emergencyDial because voice call is not supported in device");
+        return;
+    } else {
+        ALOGI("Running emergencyDial because voice call is supported in device");
+    }
+
+>>>>>>> CHANGE (f2ed9f Skip voice call VTS for devices that don't support voice cal)
     serial = GetRandomSerialNumber();
 
     ::android::hardware::radio::V1_0::Dial dialInfo;
