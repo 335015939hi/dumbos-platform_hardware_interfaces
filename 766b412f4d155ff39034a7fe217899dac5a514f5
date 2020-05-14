@@ -22,6 +22,30 @@
       "revId": "766b412f4d155ff39034a7fe217899dac5a514f5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1d9c2db_b4ea6cec",
+        "filename": "boot/1.0/vts/functional/VtsHalBootV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1307893
+      },
+      "writtenOn": "2020-05-14T04:36:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14b2ac22_be89cc34",
+      "range": {
+        "startLine": 84,
+        "startChar": 20,
+        "endLine": 84,
+        "endChar": 22
+      },
+      "revId": "766b412f4d155ff39034a7fe217899dac5a514f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
