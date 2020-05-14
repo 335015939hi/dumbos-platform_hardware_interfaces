@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eca4c7f1_78c6fd27",
+        "filename": "boot/1.0/vts/functional/VtsHalBootV1_0TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2020-05-14T04:39:18Z",
+      "side": 1,
+      "message": "remove",
+      "revId": "9a1e3426ef3271fc7bd0c5fcf3ce0a7f6b50a3e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab07449d_491094b8",
+        "filename": "boot/1.0/vts/functional/VtsHalBootV1_0TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2020-05-14T04:39:18Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "9a1e3426ef3271fc7bd0c5fcf3ce0a7f6b50a3e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
