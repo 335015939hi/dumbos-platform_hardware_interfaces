@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "750245f9_e52f3079",
+        "filename": "current.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2020-05-15T19:41:14Z",
+      "side": 1,
+      "message": "Just like with the BT HAL modification, you will have to bump up the interface to 2.1, and do the required overriding of old interface in new interface.\nBut that\u0027s probably a task for once we get good review from Audio, and are confident with new interface.",
+      "range": {
+        "startLine": 465,
+        "startChar": 98,
+        "endLine": 465,
+        "endChar": 102
+      },
+      "revId": "1e66f0409de8a4b19f351fbfd3f37a2a423238f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
