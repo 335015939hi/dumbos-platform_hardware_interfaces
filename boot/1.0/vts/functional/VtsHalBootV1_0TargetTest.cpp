@@ -56,20 +56,20 @@ auto generate_callback(CommandResult *dest) {
 }
 
 // Sanity check Boot::getNumberSlots().
-TEST_P(BootHidlTest, GetNumberSlots) {
+TEST_P(BootHidlTest, DISABLED_GetNumberSlots) {
     uint32_t slots = boot->getNumberSlots();
     EXPECT_LE((uint32_t)2, slots);
 }
 
 // Sanity check Boot::getCurrentSlot().
-TEST_P(BootHidlTest, GetCurrentSlot) {
+TEST_P(BootHidlTest, DISABLED_GetCurrentSlot) {
     Slot curSlot = boot->getCurrentSlot();
     uint32_t slots = boot->getNumberSlots();
     EXPECT_LT(curSlot, slots);
 }
 
 // Sanity check Boot::markBootSuccessful().
-TEST_P(BootHidlTest, MarkBootSuccessful) {
+TEST_P(BootHidlTest, DISABLED_MarkBootSuccessful) {
     CommandResult cr;
     Return<void> result = boot->markBootSuccessful(generate_callback(&cr));
     ASSERT_TRUE(result.isOk());
@@ -81,7 +81,7 @@ TEST_P(BootHidlTest, MarkBootSuccessful) {
 }
 
 // Sanity check Boot::setActiveBootSlot() on good and bad inputs.
-TEST_P(BootHidlTest, SetActiveBootSlot) {
+TEST_P(BootHidlTest, DISABLED_SetActiveBootSlot) {
     for (Slot s = 0; s < 2; s++) {
         CommandResult cr;
         Return<void> result = boot->setActiveBootSlot(s, generate_callback(&cr));
@@ -104,7 +104,7 @@ TEST_P(BootHidlTest, SetActiveBootSlot) {
 }
 
 // Sanity check Boot::setSlotAsUnbootable() on good and bad inputs.
-TEST_P(BootHidlTest, SetSlotAsUnbootable) {
+TEST_P(BootHidlTest, DISABLED_SetSlotAsUnbootable) {
     {
         CommandResult cr;
         Slot curSlot = boot->getCurrentSlot();
@@ -136,7 +136,7 @@ TEST_P(BootHidlTest, SetSlotAsUnbootable) {
 }
 
 // Sanity check Boot::isSlotBootable() on good and bad inputs.
-TEST_P(BootHidlTest, IsSlotBootable) {
+TEST_P(BootHidlTest, DISABLED_IsSlotBootable) {
     for (Slot s = 0; s < 2; s++) {
         EXPECT_NE(BoolResult::INVALID_SLOT, boot->isSlotBootable(s));
     }
@@ -145,7 +145,7 @@ TEST_P(BootHidlTest, IsSlotBootable) {
 }
 
 // Sanity check Boot::isSlotMarkedSuccessful() on good and bad inputs.
-TEST_P(BootHidlTest, IsSlotMarkedSuccessful) {
+TEST_P(BootHidlTest, DISABLED_IsSlotMarkedSuccessful) {
     for (Slot s = 0; s < 2; s++) {
         EXPECT_NE(BoolResult::INVALID_SLOT, boot->isSlotMarkedSuccessful(s));
     }
@@ -154,7 +154,7 @@ TEST_P(BootHidlTest, IsSlotMarkedSuccessful) {
 }
 
 // Sanity check Boot::getSuffix() on good and bad inputs.
-TEST_P(BootHidlTest, GetSuffix) {
+TEST_P(BootHidlTest, DISABLED_GetSuffix) {
     string suffixStr;
     unordered_set<string> suffixes;
     auto cb = [&](hidl_string suffix) { suffixStr = suffix.c_str(); };
