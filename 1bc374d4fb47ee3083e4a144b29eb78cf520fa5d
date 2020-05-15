@@ -1,0 +1,48 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000002985955",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1312815?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "044c96d8_98c1481f",
+          "description": "Change to \"bluetooth/audio/2.0/default/LeAudioAudioProvider.cpp\"",
+          "replacements": [
+            {
+              "path": "bluetooth/audio/2.0/default/LeAudioAudioProvider.cpp",
+              "range": {
+                "startLine": 141,
+                "startChar": 10,
+                "endLine": 141,
+                "endChar": 17
+              },
+              "replacement": "the"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "e734ca5e_41b3f75a",
+        "filename": "bluetooth/audio/2.0/default/LeAudioAudioProvider.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-05-15T19:15:36Z",
+      "side": 1,
+      "message": "Common typo found: \"the the\" -- should it be \"the\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line.",
+      "range": {
+        "startLine": 141,
+        "startChar": 10,
+        "endLine": 141,
+        "endChar": 17
+      },
+      "revId": "1bc374d4fb47ee3083e4a144b29eb78cf520fa5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
