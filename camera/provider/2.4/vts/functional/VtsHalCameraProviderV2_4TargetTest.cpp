@@ -563,7 +563,10 @@ public:
  }
  virtual void TearDown() override {}
 
- hidl_vec<hidl_string> getCameraDeviceNames(sp<ICameraProvider> provider);
+ hidl_vec<hidl_string> getCameraDeviceNames(sp<ICameraProvider> provider,
+                                            bool addSecureOnly = false);
+
+ bool isSecureOnly(sp<ICameraProvider> provider, const hidl_string& name);
 
     struct EmptyDeviceCb : public V3_5::ICameraDeviceCallback {
      virtual Return<void> processCaptureResult(
@@ -1449,7 +1452,8 @@ Return<void> CameraHidlTest::DeviceCb::returnStreamBuffers(
     return Void();
 }
 
-hidl_vec<hidl_string> CameraHidlTest::getCameraDeviceNames(sp<ICameraProvider> provider) {
+hidl_vec<hidl_string> CameraHidlTest::getCameraDeviceNames(sp<ICameraProvider> provider,
+                                                           bool addSecureOnly) {
     std::vector<std::string> cameraDeviceNames;
     Return<void> ret;
     ret = provider->getCameraIdList(
@@ -1500,9 +1504,51 @@ hidl_vec<hidl_string> CameraHidlTest::getCameraDeviceNames(sp<ICameraProvider> p
 
     hidl_vec<hidl_string> retList(cameraDeviceNames.size());
     for (size_t i = 0; i < cameraDeviceNames.size(); i++) {
-        retList[i] = cameraDeviceNames[i];
+        bool addToList = true;
+        if (addSecureOnly) {
+            addToList = isSecureOnly(mProvider, cameraDeviceNames[i]);
+        }
+        if (addToList) {
+            retList[i] = cameraDeviceNames[i];
+        }
     }
     return retList;
+}
+
+bool CameraHidlTest::isSecureOnly(sp<ICameraProvider> provider, const hidl_string& name) {
+    Return<void> ret;
+    ::android::sp<ICameraDevice> device3_x;
+    bool retVal = false;
+    if (getCameraDeviceVersion(mProviderType, name) == CAMERA_DEVICE_API_VERSION_1_0) {
+        return false;
+    }
+    ret = provider->getCameraDeviceInterface_V3_x(name, [&](auto status, const auto& device) {
+        ALOGI("getCameraDeviceInterface_V3_x returns status:%d", (int)status);
+        ASSERT_EQ(Status::OK, status);
+        ASSERT_NE(device, nullptr);
+        device3_x = device;
+    });
+    if (!ret.isOk()) {
+        ADD_FAILURE();
+    }
+    ret = device3_x->getCameraCharacteristics([&](Status s, CameraMetadata metadata) {
+        ASSERT_EQ(Status::OK, s);
+        camera_metadata_ro_entry scalarEntry;
+        camera_metadata_t* chars = (camera_metadata_t*)metadata.data();
+        int rc = find_camera_metadata_ro_entry(chars, ANDROID_REQUEST_AVAILABLE_CAPABILITIES,
+                                               &scalarEntry);
+        if (rc) {
+            ADD_FAILURE();
+        }
+        if (scalarEntry.count == 1 &&
+            scalarEntry.data.u8[0] == ANDROID_REQUEST_AVAILABLE_CAPABILITIES_SECURE_IMAGE_DATA) {
+            retVal = true;
+        }
+    });
+    if (!ret.isOk()) {
+        ADD_FAILURE();
+    }
+    return retVal;
 }
 
 // Test devices with first_api_level >= P does not advertise device@1.0
