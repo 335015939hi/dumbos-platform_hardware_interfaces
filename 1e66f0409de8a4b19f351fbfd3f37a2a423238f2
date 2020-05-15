@@ -22,6 +22,30 @@
       "revId": "1e66f0409de8a4b19f351fbfd3f37a2a423238f2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9f237e3_ddaf3ce4",
+        "filename": "current.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2020-05-15T20:01:48Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "750245f9_e52f3079",
+      "range": {
+        "startLine": 465,
+        "startChar": 98,
+        "endLine": 465,
+        "endChar": 102
+      },
+      "revId": "1e66f0409de8a4b19f351fbfd3f37a2a423238f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
