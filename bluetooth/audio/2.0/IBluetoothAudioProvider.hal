@@ -50,10 +50,10 @@ interface IBluetoothAudioProvider {
      *        IBluetoothAudioPort with the given codec configuration
      *    FAILURE if the Audio HAL cannot register this IBluetoothAudioPort for
      *        any other reason
-     * @return dataMQ The fast message queue for audio data from this provider.
-     *    Audio data will be in PCM format as specified by the
-     *    audioConfig.pcmConfig parameter.
-     *    Invalid if streaming is offloaded to hardware or on failure.
+     * @return dataMQ The fast message queue for audio data from/to this
+     *    provider. Audio data will be in PCM format as specified by the
+     *    audioConfig.pcmConfig parameter. Invalid if streaming is offloaded
+     *    from/to hardware or on failure.
      */
     startSession(IBluetoothAudioPort hostIf, AudioConfiguration audioConfig)
                 generates (Status status, fmq_sync<uint8_t> dataMQ);

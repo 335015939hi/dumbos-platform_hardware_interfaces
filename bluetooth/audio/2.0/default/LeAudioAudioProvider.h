@@ -34,9 +34,9 @@ using ::android::hardware::MessageQueue;
 
 using DataMQ = MessageQueue<uint8_t, kSynchronizedReadWrite>;
 
-class LeAudioAudioProvider : public BluetoothAudioProvider {
+class LeAudioOutputAudioProvider : public BluetoothAudioProvider {
  public:
-  LeAudioAudioProvider();
+  LeAudioOutputAudioProvider();
 
   bool isValid(const SessionType& sessionType) override;
 
@@ -45,12 +45,28 @@ class LeAudioAudioProvider : public BluetoothAudioProvider {
                             startSession_cb _hidl_cb) override;
 
  private:
-  // audio data queue for software encoding
+  // queue for software encoding audio data
   std::unique_ptr<DataMQ> mDataMQ;
 
   Return<void> onSessionReady(startSession_cb _hidl_cb) override;
 };
 
+class LeAudioInputAudioProvider : public BluetoothAudioProvider {
+ public:
+  LeAudioInputAudioProvider();
+
+  bool isValid(const SessionType& sessionType) override;
+
+  Return<void> startSession(const sp<IBluetoothAudioPort>& hostIf,
+                            const AudioConfiguration& audioConfig,
+                            startSession_cb _hidl_cb) override;
+
+ private:
+  // queue for software decoded audio data
+  std::unique_ptr<DataMQ> mDataMQ;
+
+  Return<void> onSessionReady(startSession_cb _hidl_cb) override;
+};
 }  // namespace implementation
 }  // namespace V2_0
 }  // namespace audio
