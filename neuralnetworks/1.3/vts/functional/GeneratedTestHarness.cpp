@@ -72,7 +72,7 @@ using HidlToken = hidl_array<uint8_t, static_cast<uint32_t>(Constant::BYTE_SIZE_
 
 namespace {
 
-enum class OutputType { FULLY_SPECIFIED, UNSPECIFIED, INSUFFICIENT, MISSED_DEADLINE };
+enum class OutputType { FULLY_SPECIFIED, UNSPECIFIED, INSUFFICIENT, MISSED_DEADLINE, RANDOM };
 
 enum class IOType { INPUT, OUTPUT };
 
@@ -329,8 +329,121 @@ static void makeOutputInsufficientSize(uint32_t outputIndex, Request* request) {
 
 static void makeOutputDimensionsUnspecified(Model* model) {
     for (auto i : model->main.outputIndexes) {
-        auto& dims = model->main.operands[i].dimensions;
-        std::fill(dims.begin(), dims.end(), 0);
+        model->main.operands[i].dimensions = {};
+    }
+}
+
+static std::mt19937 rngFromStr(const std::string& str) {
+    std::seed_seq seedSeq(str.begin(), str.end());
+    return std::mt19937(seedSeq);
+}
+
+static bool getRandomBoolean(double probability, std::mt19937* rng) {
+    std::bernoulli_distribution dis(probability);
+    return dis(*rng);
+}
+
+constexpr double kProbabilityOfUnknownRank = 0.2;
+constexpr double kProbabilityOfUnknownDimensions = 0.5;
+constexpr double kProbabilityOfInsufficientSize = 0.5;
+
+static void randomlyMakeModelOperandDimensionsOrRankUnspecified(const std::string& modelName,
+                                                                Model* model) {
+    std::mt19937 rng = rngFromStr(modelName + "model");
+    for (auto& operand : model->main.operands) {
+        if (operand.lifetime == OperandLifeTime::SUBGRAPH_INPUT ||
+            operand.lifetime == OperandLifeTime::SUBGRAPH_OUTPUT) {
+            const bool isChannelQuant = operand.type == OperandType::TENSOR_QUANT8_SYMM_PER_CHANNEL;
+            const auto channelDim =
+                    isChannelQuant ? operand.extraParams.channelQuant().channelDim : 0;
+            if (!isChannelQuant && getRandomBoolean(kProbabilityOfUnknownRank, &rng)) {
+                // Unspecified rank.
+                operand.dimensions = {};
+            } else {
+                for (uint32_t i = 0; i < operand.dimensions.size(); i++) {
+                    // For per-channel quantization, the channel dimension must be
+                    // fully-specified in model.
+                    if (isChannelQuant && i == channelDim) continue;
+                    if (getRandomBoolean(kProbabilityOfUnknownDimensions, &rng)) {
+                        // Unspecified dimension.
+                        operand.dimensions[i] = 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+constexpr uint32_t kInsufficientOutputIndex = 0;
+
+static bool isOutputsFullySpecified(uint32_t index, const Model& model, const Request& request,
+                                    const TestModel& testModel) {
+    const uint32_t opIndex = testModel.main.outputIndexes[index];
+    const auto& goldenDims = testModel.main.operands[opIndex].dimensions;
+    const auto& modelDims = model.main.operands[opIndex].dimensions;
+    const auto& requestDims = request.outputs[index].dimensions;
+    const auto& combinedDims = (requestDims.size() == 0) ? modelDims : requestDims;
+    return combinedDims == goldenDims;
+}
+
+static bool areOutputsFullySpecified(const Model& model, const Request& request,
+                                     const TestModel& testModel) {
+    for (uint32_t i = 0; i < request.outputs.size(); i++) {
+        if (!isOutputsFullySpecified(i, model, request, testModel)) {
+            return false;
+        }
+    }
+    return true;
+}
+
+static OutputType randomlyUpdateDimensionsInRequest(const std::string& modelName,
+                                                    const TestModel& testModel, const Model& model,
+                                                    Request* request) {
+    std::mt19937 rng = rngFromStr(modelName + "request");
+
+    for (uint32_t i = 0; i < request->inputs.size(); i++) {
+        if (request->inputs[i].hasNoValue) continue;
+        // For a model input, if it is not fully-specified in Model, it must be fully-specified in
+        // Request.
+        const uint32_t opIndex = testModel.main.inputIndexes[i];
+        const auto& goldenDims = testModel.main.operands[opIndex].dimensions;
+        const auto& modelDims = model.main.operands[opIndex].dimensions;
+        const bool fullySpecifiedInModel = modelDims.size() == goldenDims.size() &&
+                                           std::none_of(modelDims.begin(), modelDims.end(),
+                                                        [](uint32_t dim) { return dim == 0; });
+        if (!fullySpecifiedInModel || getRandomBoolean(0.5, &rng)) {
+            request->inputs[i].dimensions = goldenDims;
+        }
+    }
+
+    for (uint32_t i = 0; i < request->outputs.size(); i++) {
+        // For a model output, the request must either be empty, or at least as fully specified as
+        // the model dimensions.
+        if (getRandomBoolean(1 - kProbabilityOfUnknownRank, &rng)) {
+            const uint32_t opIndex = testModel.main.outputIndexes[i];
+            const auto& goldenDims = testModel.main.operands[opIndex].dimensions;
+            const auto& modelDims = model.main.operands[opIndex].dimensions;
+            request->outputs[i].dimensions = goldenDims;
+            for (uint32_t j = 0; j < goldenDims.size(); j++) {
+                if ((modelDims.size() == 0 || modelDims[j] == 0) &&
+                    getRandomBoolean(kProbabilityOfUnknownDimensions, &rng)) {
+                    request->outputs[i].dimensions[j] = 0;
+                }
+            }
+        }
+    }
+
+    if (!isOutputsFullySpecified(kInsufficientOutputIndex, model, *request, testModel) &&
+        isOutputSizeGreaterThanOne(testModel, kInsufficientOutputIndex) &&
+        getRandomBoolean(kProbabilityOfInsufficientSize, &rng)) {
+        makeOutputInsufficientSize(kInsufficientOutputIndex, request);
+        return OutputType::INSUFFICIENT;
+    }
+
+    if (areOutputsFullySpecified(model, *request, testModel)) {
+        return OutputType::FULLY_SPECIFIED;
+    } else {
+        return OutputType::UNSPECIFIED;
     }
 }
 
@@ -548,12 +661,41 @@ static std::shared_ptr<::android::nn::ExecutionBurstController> CreateBurst(
                                                          std::chrono::microseconds{0});
 }
 
+static bool lhsIsAtLeastAsFullSpecifiedAsRhs(const hidl_vec<uint32_t>& lhs,
+                                             const hidl_vec<uint32_t>& rhs) {
+    if (rhs.size() != 0 && lhs.size() != rhs.size()) {
+        return false;
+    }
+    for (uint32_t i = 0; i < lhs.size(); i++) {
+        if (rhs.size() != 0 && rhs[i] != 0 && lhs[i] != rhs[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+static void checkOutputDimensionsWhenInsufficientSize(const hidl_vec<uint32_t>& actual,
+                                                      const hidl_vec<uint32_t>& modelDims,
+                                                      const hidl_vec<uint32_t>& requestDims,
+                                                      const hidl_vec<uint32_t>& golden) {
+    SCOPED_TRACE("Actual: " + toString(actual));
+    SCOPED_TRACE("Model: " + toString(modelDims));
+    SCOPED_TRACE("Request: " + toString(requestDims));
+    SCOPED_TRACE("Golden: " + toString(golden));
+    const hidl_vec<uint32_t>& combined = requestDims.size() == 0 ? modelDims : requestDims;
+    EXPECT_TRUE(lhsIsAtLeastAsFullSpecifiedAsRhs(actual, combined));
+    EXPECT_TRUE(lhsIsAtLeastAsFullSpecifiedAsRhs(golden, actual));
+}
+
 void EvaluatePreparedModel(const sp<IDevice>& device, const sp<IPreparedModel>& preparedModel,
-                           const TestModel& testModel, const TestConfig& testConfig,
+                           const std::string& modelName, const TestModel& testModel,
+                           const Model& model, const TestConfig& testConfig,
                            bool* skipped = nullptr) {
     if (skipped != nullptr) {
         *skipped = false;
     }
+    const bool modelIsFullySpecified = testConfig.outputType == OutputType::FULLY_SPECIFIED;
+
     // If output0 does not have size larger than one byte, we can not test with insufficient buffer.
     if (testConfig.outputType == OutputType::INSUFFICIENT &&
         !isOutputSizeGreaterThanOne(testModel, 0)) {
@@ -568,15 +710,18 @@ void EvaluatePreparedModel(const sp<IDevice>& device, const sp<IPreparedModel>& 
     }
 
     Request request = std::move(maybeRequest.value());
-    if (testConfig.outputType == OutputType::INSUFFICIENT) {
-        makeOutputInsufficientSize(/*outputIndex=*/0, &request);
+    OutputType outputType = testConfig.outputType;
+    if (outputType == OutputType::INSUFFICIENT) {
+        makeOutputInsufficientSize(kInsufficientOutputIndex, &request);
+    } else if (outputType == OutputType::RANDOM) {
+        outputType = randomlyUpdateDimensionsInRequest(modelName, testModel, model, &request);
     }
 
     OptionalTimeoutDuration loopTimeoutDuration;
     // OutputType::MISSED_DEADLINE is only used by
     // TestKind::INTINITE_LOOP_TIMEOUT tests to verify that an infinite loop is
     // aborted after a timeout.
-    if (testConfig.outputType == OutputType::MISSED_DEADLINE) {
+    if (outputType == OutputType::MISSED_DEADLINE) {
         // Override the default loop timeout duration with a small value to
         // speed up test execution.
         constexpr uint64_t kMillisecond = 1'000'000;
@@ -689,8 +834,7 @@ void EvaluatePreparedModel(const sp<IDevice>& device, const sp<IPreparedModel>& 
         }
     }
 
-    if (testConfig.outputType != OutputType::FULLY_SPECIFIED &&
-        executionStatus == ErrorStatus::GENERAL_FAILURE) {
+    if (!modelIsFullySpecified && executionStatus == ErrorStatus::GENERAL_FAILURE) {
         if (skipped != nullptr) {
             *skipped = true;
         }
@@ -713,7 +857,7 @@ void EvaluatePreparedModel(const sp<IDevice>& device, const sp<IPreparedModel>& 
         }
     }
 
-    switch (testConfig.outputType) {
+    switch (outputType) {
         case OutputType::FULLY_SPECIFIED:
             if (testConfig.executor == Executor::FENCED && hasZeroSizedOutput(testModel)) {
                 // Executor::FENCED does not support zero-sized output.
@@ -745,13 +889,26 @@ void EvaluatePreparedModel(const sp<IDevice>& device, const sp<IPreparedModel>& 
             }
             ASSERT_EQ(ErrorStatus::OUTPUT_INSUFFICIENT_SIZE, executionStatus);
             ASSERT_EQ(outputShapes.size(), testModel.main.outputIndexes.size());
-            ASSERT_FALSE(outputShapes[0].isSufficient);
+            ASSERT_FALSE(outputShapes[kInsufficientOutputIndex].isSufficient);
+            // Check that all returned output dimensions are at least as fully specified as the
+            // union of the information about the corresponding operand in the model and in the
+            // request.
+            for (uint32_t i = 0; i < outputShapes.size(); i++) {
+                const auto& actual = outputShapes[i].dimensions;
+                const auto& modelDims = model.main.operands[model.main.outputIndexes[i]].dimensions;
+                const auto& requestDims = request.outputs[i].dimensions;
+                const auto& golden =
+                        testModel.main.operands[testModel.main.outputIndexes[i]].dimensions;
+                checkOutputDimensionsWhenInsufficientSize(actual, modelDims, requestDims, golden);
+            }
             return;
         case OutputType::MISSED_DEADLINE:
             ASSERT_TRUE(executionStatus == ErrorStatus::MISSED_DEADLINE_TRANSIENT ||
                         executionStatus == ErrorStatus::MISSED_DEADLINE_PERSISTENT)
                     << "executionStatus = " << executionStatus;
             return;
+        case OutputType::RANDOM:
+            LOG(FATAL) << "OutputType::RANDOM should not reach here.";
     }
 
     // Go through all outputs, check returned output shapes.
@@ -770,7 +927,8 @@ void EvaluatePreparedModel(const sp<IDevice>& device, const sp<IPreparedModel>& 
 }
 
 void EvaluatePreparedModel(const sp<IDevice>& device, const sp<IPreparedModel>& preparedModel,
-                           const TestModel& testModel, TestKind testKind) {
+                           const std::string& modelName, const TestModel& testModel,
+                           const Model& model, TestKind testKind) {
     std::vector<OutputType> outputTypesList;
     std::vector<MeasureTiming> measureTimingList;
     std::vector<Executor> executorList;
@@ -784,9 +942,15 @@ void EvaluatePreparedModel(const sp<IDevice>& device, const sp<IPreparedModel>& 
             memoryTypeList = {MemoryType::ASHMEM};
         } break;
         case TestKind::DYNAMIC_SHAPE: {
-            outputTypesList = {OutputType::UNSPECIFIED, OutputType::INSUFFICIENT};
+            outputTypesList = {OutputType::UNSPECIFIED};
             measureTimingList = {MeasureTiming::NO, MeasureTiming::YES};
             executorList = {Executor::ASYNC, Executor::SYNC, Executor::BURST, Executor::FENCED};
+            memoryTypeList = {MemoryType::ASHMEM};
+        } break;
+        case TestKind::RANDOM_DIMENSIONS: {
+            outputTypesList = {OutputType::RANDOM};
+            measureTimingList = {MeasureTiming::NO};
+            executorList = {Executor::ASYNC, Executor::SYNC, Executor::BURST};
             memoryTypeList = {MemoryType::ASHMEM};
         } break;
         case TestKind::MEMORY_DOMAIN: {
@@ -819,7 +983,8 @@ void EvaluatePreparedModel(const sp<IDevice>& device, const sp<IPreparedModel>& 
             for (const Executor executor : executorList) {
                 for (const MemoryType memoryType : memoryTypeList) {
                     const TestConfig testConfig(executor, measureTiming, outputType, memoryType);
-                    EvaluatePreparedModel(device, preparedModel, testModel, testConfig);
+                    EvaluatePreparedModel(device, preparedModel, modelName, testModel, model,
+                                          testConfig);
                 }
             }
         }
@@ -842,10 +1007,11 @@ void EvaluatePreparedCoupledModels(const sp<IDevice>& device,
                 const TestConfig testConfig(executor, measureTiming, outputType, MemoryType::ASHMEM,
                                             /*reportSkipping=*/false);
                 bool baseSkipped = false;
-                EvaluatePreparedModel(device, preparedModel, testModel, testConfig, &baseSkipped);
+                EvaluatePreparedModel(device, preparedModel, {}, testModel, {}, testConfig,
+                                      &baseSkipped);
                 bool coupledSkipped = false;
-                EvaluatePreparedModel(device, preparedCoupledModel, coupledModel, testConfig,
-                                      &coupledSkipped);
+                EvaluatePreparedModel(device, preparedCoupledModel, {}, coupledModel, {},
+                                      testConfig, &coupledSkipped);
                 ASSERT_EQ(baseSkipped, coupledSkipped);
                 if (baseSkipped) {
                     LOG(INFO) << "NN VTS: Early termination of test because vendor service cannot "
@@ -861,22 +1027,43 @@ void EvaluatePreparedCoupledModels(const sp<IDevice>& device,
     }
 }
 
-void Execute(const sp<IDevice>& device, const TestModel& testModel, TestKind testKind) {
+static bool modelHasUnknownRank(const Model& model) {
+    for (const auto& operand : model.main.operands) {
+        if (operand.lifetime == OperandLifeTime::SUBGRAPH_INPUT ||
+            operand.lifetime == OperandLifeTime::SUBGRAPH_OUTPUT) {
+            if (!nn::nonExtensionOperandTypeIsScalar(static_cast<int>(operand.type)) &&
+                operand.dimensions.size() == 0) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+void Execute(const sp<IDevice>& device, const std::string& modelName, const TestModel& testModel,
+             TestKind testKind) {
     Model model = createModel(testModel);
     if (testKind == TestKind::DYNAMIC_SHAPE) {
         makeOutputDimensionsUnspecified(&model);
+    } else if (testKind == TestKind::RANDOM_DIMENSIONS) {
+        randomlyMakeModelOperandDimensionsOrRankUnspecified(modelName, &model);
+        if (modelHasUnknownRank(model)) {
+            // NOTE: Uncomment the following if the driver is not built with aosp/1299858.
+            GTEST_SKIP();
+        }
     }
 
     sp<IPreparedModel> preparedModel;
     switch (testKind) {
         case TestKind::GENERAL:
         case TestKind::DYNAMIC_SHAPE:
+        case TestKind::RANDOM_DIMENSIONS:
         case TestKind::MEMORY_DOMAIN:
         case TestKind::FENCED_COMPUTE:
         case TestKind::INTINITE_LOOP_TIMEOUT: {
             createPreparedModel(device, model, &preparedModel);
             if (preparedModel == nullptr) return;
-            EvaluatePreparedModel(device, preparedModel, testModel, testKind);
+            EvaluatePreparedModel(device, preparedModel, modelName, testModel, model, testKind);
         } break;
         case TestKind::QUANTIZATION_COUPLING: {
             ASSERT_TRUE(testModel.hasQuant8CoupledOperands());
@@ -931,6 +1118,9 @@ class GeneratedTest : public GeneratedTestBase {};
 // Tag for the dynamic output shape tests
 class DynamicOutputShapeTest : public GeneratedTest {};
 
+// Tag for the random dimensions tests
+class RandomDimensionsTest : public GeneratedTest {};
+
 // Tag for the memory domain tests
 class MemoryDomainTest : public GeneratedTest {};
 
@@ -944,33 +1134,41 @@ class QuantizationCouplingTest : public GeneratedTest {};
 class InfiniteLoopTimeoutTest : public GeneratedTest {};
 
 TEST_P(GeneratedTest, Test) {
-    Execute(kDevice, kTestModel, TestKind::GENERAL);
+    Execute(kDevice, kModelName, kTestModel, TestKind::GENERAL);
 }
 
 TEST_P(DynamicOutputShapeTest, Test) {
-    Execute(kDevice, kTestModel, TestKind::DYNAMIC_SHAPE);
+    Execute(kDevice, kModelName, kTestModel, TestKind::DYNAMIC_SHAPE);
+}
+
+TEST_P(RandomDimensionsTest, Test) {
+    Execute(kDevice, kModelName, kTestModel, TestKind::RANDOM_DIMENSIONS);
 }
 
 TEST_P(MemoryDomainTest, Test) {
-    Execute(kDevice, kTestModel, TestKind::MEMORY_DOMAIN);
+    Execute(kDevice, kModelName, kTestModel, TestKind::MEMORY_DOMAIN);
 }
 
 TEST_P(FencedComputeTest, Test) {
-    Execute(kDevice, kTestModel, TestKind::FENCED_COMPUTE);
+    Execute(kDevice, kModelName, kTestModel, TestKind::FENCED_COMPUTE);
 }
 
 TEST_P(QuantizationCouplingTest, Test) {
-    Execute(kDevice, kTestModel, TestKind::QUANTIZATION_COUPLING);
+    Execute(kDevice, kModelName, kTestModel, TestKind::QUANTIZATION_COUPLING);
 }
 
 TEST_P(InfiniteLoopTimeoutTest, Test) {
-    Execute(kDevice, kTestModel, TestKind::INTINITE_LOOP_TIMEOUT);
+    Execute(kDevice, kModelName, kTestModel, TestKind::INTINITE_LOOP_TIMEOUT);
 }
 
 INSTANTIATE_GENERATED_TEST(GeneratedTest,
                            [](const TestModel& testModel) { return !testModel.expectFailure; });
 
 INSTANTIATE_GENERATED_TEST(DynamicOutputShapeTest, [](const TestModel& testModel) {
+    return !testModel.expectFailure && !testModel.hasScalarOutputs();
+});
+
+INSTANTIATE_GENERATED_TEST(RandomDimensionsTest, [](const TestModel& testModel) {
     return !testModel.expectFailure && !testModel.hasScalarOutputs();
 });
 

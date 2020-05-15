@@ -36,6 +36,7 @@ class GeneratedTestBase : public testing::TestWithParam<GeneratedTestParam> {
     void SetUp() override;
     const sp<IDevice> kDevice = getData(std::get<NamedDevice>(GetParam()));
     const test_helper::TestModel& kTestModel = *getData(std::get<NamedModel>(GetParam()));
+    const std::string kModelName = getName(std::get<NamedModel>(GetParam()));
 };
 
 using FilterFn = std::function<bool(const test_helper::TestModel&)>;
@@ -63,8 +64,11 @@ void PrepareModel(const sp<IDevice>& device, const Model& model, sp<IPreparedMod
 enum class TestKind {
     // Runs a test model and compares the results to a golden data
     GENERAL,
-    // Same as GENERAL but sets dimensions for the output tensors to zeros
+    // Same as GENERAL but the output tensors have unspecified rank
     DYNAMIC_SHAPE,
+    // Same as GENERAL but the input and output tensors have random unspecified dimensions
+    // or rank in model and request
+    RANDOM_DIMENSIONS,
     // Same as GENERAL but use device memories for inputs and outputs
     MEMORY_DOMAIN,
     // Same as GENERAL but use executeFenced for exeuction
@@ -78,7 +82,15 @@ enum class TestKind {
 };
 
 void EvaluatePreparedModel(const sp<IDevice>& device, const sp<IPreparedModel>& preparedModel,
-                           const test_helper::TestModel& testModel, TestKind testKind);
+                           const std::string& modelName, const test_helper::TestModel& testModel,
+                           const Model& model, TestKind testKind);
+
+inline void EvaluatePreparedModel(const sp<IDevice>& device,
+                                  const sp<IPreparedModel>& preparedModel,
+                                  const test_helper::TestModel& testModel, TestKind testKind) {
+    CHECK(testKind != TestKind::RANDOM_DIMENSIONS);
+    EvaluatePreparedModel(device, preparedModel, {}, testModel, {}, testKind);
+}
 
 void waitForSyncFence(int syncFd);
 
