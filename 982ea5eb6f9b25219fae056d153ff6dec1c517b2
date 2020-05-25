@@ -1,0 +1,69 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000003111691",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/281921?revision\u003d15",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "c672c0dc_c0d986c9",
+        "filename": "boot/1.0/Android.mk",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-05-25T14:11:57Z",
+      "side": 1,
+      "message": "Android.​mk files are being deprecated, please use blueprint files (go/soong) to define the modules",
+      "revId": "982ea5eb6f9b25219fae056d153ff6dec1c517b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000003111668",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/281921?revision\u003d15",
+      "fixSuggestions": [
+        {
+          "fixId": "46af1306_c64483a2",
+          "description": "Change to \"boot/1.0/IBootControl.hal\"",
+          "replacements": [
+            {
+              "path": "boot/1.0/IBootControl.hal",
+              "range": {
+                "startLine": 86,
+                "startChar": 17,
+                "endLine": 86,
+                "endChar": 26
+              },
+              "replacement": "Successful"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "f4fa0b4d_3e76d42a",
+        "filename": "boot/1.0/IBootControl.hal",
+        "patchSetId": 15
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-05-25T14:11:57Z",
+      "side": 1,
+      "message": "Common typo found: \"Sucessful\" -- should it be \"Successful\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line.",
+      "range": {
+        "startLine": 86,
+        "startChar": 17,
+        "endLine": 86,
+        "endChar": 26
+      },
+      "revId": "982ea5eb6f9b25219fae056d153ff6dec1c517b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
