@@ -1,0 +1,43 @@
+cc_defaults {
+    name: "aidlFmqTest_defaults",
+    cflags: [
+        "-Wall",
+        "-Werror",
+    ],
+}
+
+aidl_interface {
+    name: "hardware-common-test",
+    vendor_available: true,
+    vndk: {
+        enabled: true,
+        support_system_process: true,
+    },
+    srcs: [
+        "android/hardware/common/test/*.aidl",
+    ],
+    stability: "vintf",
+    imports: [
+        "vintf-common",
+    ],
+    backend: {
+        java: {
+            enabled: false,
+        },
+    },
+}
+
+cc_test {
+    name: "aidlFmqTest",
+    srcs: ["aidlFmqTest.cpp"],
+    defaults: ["aidlFmqTest_defaults"],
+    shared_libs: [
+        "libcutils",
+        "libutils",
+        "liblog",
+        "hardware-common-test",
+    ],
+    static_libs: ["libbinder"],
+    test_suites: ["device-tests"],
+    require_root: true,
+}
