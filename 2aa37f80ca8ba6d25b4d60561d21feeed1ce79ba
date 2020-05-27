@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5b3b6d86_ae21f5e0",
+        "filename": "common/test/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-05-27T18:09:39Z",
+      "side": 1,
+      "message": "this should be \u0027hardware-common-test-cpp\u0027 right? Actually, I\u0027m surprised that you didn\u0027t get a much worse error.\n\nNotice this code in AIDL:\n\t// Reserve this module name for future use\n\tmctx.CreateModule(phony.PhonyFactory, \u0026phonyProperties{\n\t\tName:     proptools.StringPtr(i.ModuleBase.Name()),\n\t\tRequired: libs,\n\t})\n\nSo it is a valid module, but the reason it is rejected isn\u0027t very clear. I would consider filing a build system bug in this case, maybe, to improve the error message",
+      "range": {
+        "startLine": 38,
+        "startChar": 9,
+        "endLine": 38,
+        "endChar": 30
+      },
+      "revId": "2aa37f80ca8ba6d25b4d60561d21feeed1ce79ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
