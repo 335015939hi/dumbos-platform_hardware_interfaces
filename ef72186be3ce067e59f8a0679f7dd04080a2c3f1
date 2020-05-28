@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b87c79be_6731eb04",
+        "filename": "camera/provider/2.4/vts/functional/VtsHalCameraProviderV2_4TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2020-05-28T19:18:36Z",
+      "side": 1,
+      "message": "the indent here looks inconsistent. Probably should pick one of 2 or 4 spaces and stick with it...",
+      "range": {
+        "startLine": 568,
+        "startChar": 0,
+        "endLine": 576,
+        "endChar": 6
+      },
+      "revId": "ef72186be3ce067e59f8a0679f7dd04080a2c3f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ba6bbc1_186758ce",
+        "filename": "camera/provider/2.4/vts/functional/VtsHalCameraProviderV2_4TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1506,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2020-05-28T19:18:36Z",
+      "side": 1,
+      "message": "I think the intention here should be removing secure only device but the code seems to be doing the opposite?",
+      "range": {
+        "startLine": 1506,
+        "startChar": 20,
+        "endLine": 1506,
+        "endChar": 32
+      },
+      "revId": "ef72186be3ce067e59f8a0679f7dd04080a2c3f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0d2bcfd_1e079703",
+        "filename": "camera/provider/2.4/vts/functional/VtsHalCameraProviderV2_4TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1510,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2020-05-28T19:18:36Z",
+      "side": 1,
+      "message": "If you don\u0027t mind, can you help to add \"mProvider-\u003esetCallback(nullptr);\" before return.\nIt doesn\u0027t seem to fix some VTS failure I am seeing, but still should probably be fixed.",
+      "range": {
+        "startLine": 1510,
+        "startChar": 0,
+        "endLine": 1510,
+        "endChar": 5
+      },
+      "revId": "ef72186be3ce067e59f8a0679f7dd04080a2c3f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
