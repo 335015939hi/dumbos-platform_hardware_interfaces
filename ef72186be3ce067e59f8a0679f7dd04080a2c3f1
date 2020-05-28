@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "8b9c5cc2_0f24d5f0",
+        "filename": "camera/provider/2.4/vts/functional/VtsHalCameraProviderV2_4TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1506,
+      "author": {
+        "id": 1121338
+      },
+      "writtenOn": "2020-05-28T19:22:06Z",
+      "side": 1,
+      "message": "Oops deleted some code mindlessly from PS1, refactoring.",
+      "parentUuid": "7ba6bbc1_186758ce",
+      "range": {
+        "startLine": 1506,
+        "startChar": 20,
+        "endLine": 1506,
+        "endChar": 32
+      },
+      "revId": "ef72186be3ce067e59f8a0679f7dd04080a2c3f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d0d2bcfd_1e079703",
         "filename": "camera/provider/2.4/vts/functional/VtsHalCameraProviderV2_4TargetTest.cpp",
         "patchSetId": 2
@@ -59,6 +83,30 @@
       "writtenOn": "2020-05-28T19:18:36Z",
       "side": 1,
       "message": "If you don\u0027t mind, can you help to add \"mProvider-\u003esetCallback(nullptr);\" before return.\nIt doesn\u0027t seem to fix some VTS failure I am seeing, but still should probably be fixed.",
+      "range": {
+        "startLine": 1510,
+        "startChar": 0,
+        "endLine": 1510,
+        "endChar": 5
+      },
+      "revId": "ef72186be3ce067e59f8a0679f7dd04080a2c3f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e847026c_f8a54d24",
+        "filename": "camera/provider/2.4/vts/functional/VtsHalCameraProviderV2_4TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1510,
+      "author": {
+        "id": 1121338
+      },
+      "writtenOn": "2020-05-28T19:22:06Z",
+      "side": 1,
+      "message": "I did try that. I can still see transport errors very very rarely even with that.",
+      "parentUuid": "d0d2bcfd_1e079703",
       "range": {
         "startLine": 1510,
         "startChar": 0,
