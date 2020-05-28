@@ -19,13 +19,14 @@ cc_library {
     relative_install_path: "hw",
     srcs: [
         "TestMsgQ.cpp",
-        "BenchmarkMsgQ.cpp"
+        "BenchmarkMsgQ.cpp",
     ],
     shared_libs: [
         "libbase",
         "libcutils",
         "libfmq",
         "libhidlbase",
+        "libbinder",
         "liblog",
         "libutils",
     ],
@@ -34,7 +35,7 @@ cc_library {
     // libs should be used on device.
     static_libs: [
         "android.hardware.tests.msgq@1.0",
-    ]
+    ],
 }
 
 cc_test {
@@ -47,9 +48,10 @@ cc_test {
         "libbase",
         "libcutils",
         "libhidlbase",
+        "libbinder",
         "liblog",
         "libutils",
-        "android.hardware.tests.msgq@1.0"
+        "android.hardware.tests.msgq@1.0",
     ],
     test_suites: ["general-tests"],
 }
@@ -65,6 +67,7 @@ cc_test {
         "libcutils",
         "libfmq",
         "libhidlbase",
+        "libbinder",
         "liblog",
         "libutils",
     ],

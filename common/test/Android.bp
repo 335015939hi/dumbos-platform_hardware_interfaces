@@ -1,0 +1,28 @@
+cc_defaults {
+    name: "aidlFmqTest_defaults",
+    cflags: [
+        "-Wall",
+        "-Werror",
+        "-DLIBFMQ_AIDL",
+    ],
+}
+
+cc_test {
+    name: "aidlFmqTest",
+    srcs: ["aidlFmqTest.cpp"],
+    defaults: ["aidlFmqTest_defaults"],
+    shared_libs: [
+        "libcutils",
+        "libutils",
+    ],
+    static_libs: [
+        "libbinder",
+        "android.hardware.common.test-cpp",
+        "libfmq",
+        "libhidlbase",
+        "liblog",
+        "libbase",
+    ],
+    test_suites: ["device-tests"],
+    require_root: true,
+}
