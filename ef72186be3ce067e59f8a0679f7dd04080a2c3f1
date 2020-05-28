@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "3101d94d_8eeb07c5",
+        "filename": "camera/provider/2.4/vts/functional/VtsHalCameraProviderV2_4TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1503,
+      "author": {
+        "id": 1121338
+      },
+      "writtenOn": "2020-05-28T20:29:36Z",
+      "side": 1,
+      "message": "This should also be changed to match non secure camera sizes.",
+      "range": {
+        "startLine": 1503,
+        "startChar": 34,
+        "endLine": 1503,
+        "endChar": 58
+      },
+      "revId": "ef72186be3ce067e59f8a0679f7dd04080a2c3f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7ba6bbc1_186758ce",
         "filename": "camera/provider/2.4/vts/functional/VtsHalCameraProviderV2_4TargetTest.cpp",
         "patchSetId": 2
