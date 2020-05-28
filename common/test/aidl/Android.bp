@@ -1,0 +1,20 @@
+aidl_interface {
+    name: "android.hardware.common.test",
+    host_supported: true,
+    vendor_available: false,
+    unstable: true,
+    srcs: [
+        "android/hardware/common/test/*.aidl",
+    ],
+    imports: [
+        "android.hardware.common",
+    ],
+    backend: {
+        java: {
+            enabled: false,
+        },
+        ndk: {
+            enabled: false,
+        },
+    },
+}

@@ -1,11 +1,8 @@
 aidl_interface {
-    name: "vintf-common",
+    name: "android.hardware.common",
     host_supported: true,
-    vendor_available: true,
-    vndk: {
-        enabled: true,
-        support_system_process: true,
-    },
+    // TODO vendor_available needs to be false to be able to build -ndk interfaces?
+    vendor_available: false,
     srcs: [
         "android/hardware/common/*.aidl",
     ],
@@ -14,8 +11,16 @@ aidl_interface {
         java: {
             enabled: false,
         },
-        cpp: {
-            enabled: false,
+        ndk: {
+            apex_available: [
+                "//apex_available:platform",
+                "com.android.media.swcodec",
+            ],
+            min_sdk_version: "29",
+            vndk: {
+                enabled: true,
+                support_system_process: true,
+            },
         },
     },
 }
