@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "669fed29_b5690a3c",
+        "filename": "camera/provider/2.4/vts/functional/VtsHalCameraProviderV2_4TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1060513
+      },
+      "writtenOn": "2020-05-29T17:29:03Z",
+      "side": 1,
+      "message": "Fine to address it later.",
+      "parentUuid": "b87c79be_6731eb04",
+      "range": {
+        "startLine": 568,
+        "startChar": 0,
+        "endLine": 576,
+        "endChar": 6
+      },
+      "revId": "ef72186be3ce067e59f8a0679f7dd04080a2c3f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3101d94d_8eeb07c5",
         "filename": "camera/provider/2.4/vts/functional/VtsHalCameraProviderV2_4TargetTest.cpp",
         "patchSetId": 2
