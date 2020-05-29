@@ -1,0 +1,268 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000003182057",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1298415?revision\u003d5",
+      "fixSuggestions": [
+        {
+          "fixId": "f8239565_45e2044b",
+          "description": "Change to \"keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl\"",
+          "replacements": [
+            {
+              "path": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
+              "range": {
+                "startLine": 391,
+                "startChar": 63,
+                "endLine": 391,
+                "endChar": 71
+              },
+              "replacement": "specified"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "2b65d543_8dc38058",
+        "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-05-29T10:07:49Z",
+      "side": 1,
+      "message": "Common typo found: \"specifed\" -- should it be \"specified\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line.",
+      "range": {
+        "startLine": 391,
+        "startChar": 63,
+        "endLine": 391,
+        "endChar": 71
+      },
+      "revId": "d8d699bb2689c7caa7ee4c06c5f254a0d01e5746",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000003182057",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1298415?revision\u003d5",
+      "fixSuggestions": [
+        {
+          "fixId": "f5e39d31_f9b79315",
+          "description": "Change to \"keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl\"",
+          "replacements": [
+            {
+              "path": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
+              "range": {
+                "startLine": 397,
+                "startChar": 34,
+                "endLine": 397,
+                "endChar": 44
+              },
+              "replacement": "Decryption"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "4cb178a6_28f688a6",
+        "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-05-29T10:07:49Z",
+      "side": 1,
+      "message": "Common typo found: \"Decription\" -- should it be \"Decryption\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line.",
+      "range": {
+        "startLine": 397,
+        "startChar": 34,
+        "endLine": 397,
+        "endChar": 44
+      },
+      "revId": "d8d699bb2689c7caa7ee4c06c5f254a0d01e5746",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000003182057",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1298415?revision\u003d5",
+      "fixSuggestions": [
+        {
+          "fixId": "d8a99d3f_95338039",
+          "description": "Change to \"keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl\"",
+          "replacements": [
+            {
+              "path": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
+              "range": {
+                "startLine": 486,
+                "startChar": 34,
+                "endLine": 486,
+                "endChar": 44
+              },
+              "replacement": "Decryption"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "91a5ee6b_992c2565",
+        "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-05-29T10:07:49Z",
+      "side": 1,
+      "message": "Common typo found: \"Decription\" -- should it be \"Decryption\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line.",
+      "range": {
+        "startLine": 486,
+        "startChar": 34,
+        "endLine": 486,
+        "endChar": 44
+      },
+      "revId": "d8d699bb2689c7caa7ee4c06c5f254a0d01e5746",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000003182057",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1298415?revision\u003d5",
+      "fixSuggestions": [
+        {
+          "fixId": "599cb435_4cac8ea9",
+          "description": "Change to \"keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl\"",
+          "replacements": [
+            {
+              "path": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
+              "range": {
+                "startLine": 519,
+                "startChar": 34,
+                "endLine": 519,
+                "endChar": 44
+              },
+              "replacement": "Decryption"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "96a4bfa3_544dddfa",
+        "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-05-29T10:07:49Z",
+      "side": 1,
+      "message": "Common typo found: \"Decription\" -- should it be \"Decryption\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line.",
+      "range": {
+        "startLine": 519,
+        "startChar": 34,
+        "endLine": 519,
+        "endChar": 44
+      },
+      "revId": "d8d699bb2689c7caa7ee4c06c5f254a0d01e5746",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000003182057",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1298415?revision\u003d5",
+      "fixSuggestions": [
+        {
+          "fixId": "52b262f1_fd53c560",
+          "description": "Change to \"keymaster/aidl/android/hardware/keymaster/KeyOrigin.aidl\"",
+          "replacements": [
+            {
+              "path": "keymaster/aidl/android/hardware/keymaster/KeyOrigin.aidl",
+              "range": {
+                "startLine": 41,
+                "startChar": 7,
+                "endLine": 41,
+                "endChar": 13
+              },
+              "replacement": "unknown"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "171aaa90_fa4172ae",
+        "filename": "keymaster/aidl/android/hardware/keymaster/KeyOrigin.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-05-29T10:07:49Z",
+      "side": 1,
+      "message": "Common typo found: \"unkown\" -- should it be \"unknown\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line.",
+      "range": {
+        "startLine": 41,
+        "startChar": 7,
+        "endLine": 41,
+        "endChar": 13
+      },
+      "revId": "d8d699bb2689c7caa7ee4c06c5f254a0d01e5746",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000003182057",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1298415?revision\u003d5",
+      "fixSuggestions": [
+        {
+          "fixId": "9ea0700b_ddd954ea",
+          "description": "Change to \"keymaster/aidl/vts/functional/keymaster5Test.cpp\"",
+          "replacements": [
+            {
+              "path": "keymaster/aidl/vts/functional/keymaster5Test.cpp",
+              "range": {
+                "startLine": 4358,
+                "startChar": 56,
+                "endLine": 4358,
+                "endChar": 64
+              },
+              "replacement": "greater"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "149b4255_6e5c8eb1",
+        "filename": "keymaster/aidl/vts/functional/keymaster5Test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 4358,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-05-29T10:07:49Z",
+      "side": 1,
+      "message": "Common typo found: \"greather\" -- should it be \"greater\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line.",
+      "range": {
+        "startLine": 4358,
+        "startChar": 56,
+        "endLine": 4358,
+        "endChar": 64
+      },
+      "revId": "d8d699bb2689c7caa7ee4c06c5f254a0d01e5746",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
