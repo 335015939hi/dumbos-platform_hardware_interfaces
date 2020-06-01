@@ -223,13 +223,30 @@ const ConfigDeclaration kVehicleProperties[]{
                  },
          .initialValue = {.int32Values = {CHARGE_PORT_FRONT_LEFT}}},
 
-        {.config =
+       {.config =
                  {
                          .prop = toInt(VehicleProperty::INFO_MAKE),
                          .access = VehiclePropertyAccess::READ,
                          .changeMode = VehiclePropertyChangeMode::STATIC,
                  },
          .initialValue = {.stringValue = "Toy Vehicle"}},
+
+        {.config =
+                 {
+                         .prop = toInt(VehicleProperty::INFO_MODEL),
+                         .access = VehiclePropertyAccess::READ,
+                         .changeMode = VehiclePropertyChangeMode::STATIC,
+                 },
+         .initialValue = {.stringValue = "Submarine-car"}},
+
+        {.config =
+                 {
+                         .prop = toInt(VehicleProperty::INFO_MODEL_YEAR),
+                         .access = VehiclePropertyAccess::READ,
+                         .changeMode = VehiclePropertyChangeMode::STATIC,
+                 },
+         .initialValue = {.stringValue = "2020"}},
+         
         {.config =
                  {
                          .prop = toInt(VehicleProperty::PERF_VEHICLE_SPEED),
