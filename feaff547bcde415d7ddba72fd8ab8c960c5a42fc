@@ -22,6 +22,30 @@
       "revId": "feaff547bcde415d7ddba72fd8ab8c960c5a42fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b37d3ba5_62857e8d",
+        "filename": "identity/aidl/default/WritableIdentityCredential.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-06-04T15:23:52Z",
+      "side": 1,
+      "message": "Hmm. Barani said challenges cannot be empty. Barani, can you double check?",
+      "parentUuid": "852bed87_bea5d55b",
+      "range": {
+        "startLine": 68,
+        "startChar": 1,
+        "endLine": 71,
+        "endChar": 5
+      },
+      "revId": "feaff547bcde415d7ddba72fd8ab8c960c5a42fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
