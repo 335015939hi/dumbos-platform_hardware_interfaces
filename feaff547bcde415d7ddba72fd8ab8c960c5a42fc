@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "852bed87_bea5d55b",
+        "filename": "identity/aidl/default/WritableIdentityCredential.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-06-04T14:59:52Z",
+      "side": 1,
+      "message": "Challenges can be empty, just not missing.  At the keymaster level, anyway.  It\u0027s possible that  something in keystore or the keystore SPI removes empty challenges.",
+      "range": {
+        "startLine": 68,
+        "startChar": 1,
+        "endLine": 71,
+        "endChar": 5
+      },
+      "revId": "feaff547bcde415d7ddba72fd8ab8c960c5a42fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
