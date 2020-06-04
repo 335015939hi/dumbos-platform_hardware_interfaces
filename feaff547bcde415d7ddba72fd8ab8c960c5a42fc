@@ -46,6 +46,30 @@
       "revId": "feaff547bcde415d7ddba72fd8ab8c960c5a42fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0d2a1d33_06483742",
+        "filename": "identity/aidl/default/WritableIdentityCredential.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-06-04T17:38:49Z",
+      "side": 1,
+      "message": "Talked to Barani. We decided to require it to be non-empty for now and possibly relax the requirement in the future.",
+      "parentUuid": "b37d3ba5_62857e8d",
+      "range": {
+        "startLine": 68,
+        "startChar": 1,
+        "endLine": 71,
+        "endChar": 5
+      },
+      "revId": "feaff547bcde415d7ddba72fd8ab8c960c5a42fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
