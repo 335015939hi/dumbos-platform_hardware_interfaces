@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "678cfe7c_04d333b1",
+        "filename": "bluetooth/audio/2.0/default/LeAudioAudioProvider.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2020-06-05T23:02:58Z",
+      "side": 1,
+      "message": "do we really need a different class for input and output?\nThey seem to do exactly the same thing. \nMaybe use templates",
+      "range": {
+        "startLine": 54,
+        "startChar": 6,
+        "endLine": 54,
+        "endChar": 31
+      },
+      "revId": "c947dfec576972e827c9d4c6eb85d187cca6b414",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "518687dc_0aef2cd9",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSession.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2020-06-05T23:02:58Z",
+      "side": 1,
+      "message": "the expected input stream behavior by default is blocking",
+      "range": {
+        "startLine": 414,
+        "startChar": 0,
+        "endLine": 414,
+        "endChar": 23
+      },
+      "revId": "c947dfec576972e827c9d4c6eb85d187cca6b414",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
