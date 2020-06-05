@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "36171fdd_ccf7c0c9",
+        "filename": "keymaster/5.0/support/include/keymasterV5_0/keymaster_tags.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-06-05T22:43:20Z",
+      "side": 1,
+      "message": "Here is my suggestion for a workaround until AIDL supports unions.\n\nAdd a field_type parameter here.",
+      "range": {
+        "startLine": 171,
+        "startChar": 8,
+        "endLine": 171,
+        "endChar": 59
+      },
+      "revId": "93529d646f4a9c0fb98c0a4f0cc7c5cd4c9df4d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c608812_22363c0b",
+        "filename": "keymaster/5.0/support/include/keymasterV5_0/keymaster_tags.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-06-05T22:43:20Z",
+      "side": 1,
+      "message": "this becomes field_type",
+      "range": {
+        "startLine": 174,
+        "startChar": 16,
+        "endLine": 174,
+        "endChar": 73
+      },
+      "revId": "93529d646f4a9c0fb98c0a4f0cc7c5cd4c9df4d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "732ffa2a_d875a7f5",
+        "filename": "keymaster/5.0/support/include/keymasterV5_0/keymaster_tags.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-06-05T22:43:20Z",
+      "side": 1,
+      "message": "field_type",
+      "range": {
+        "startLine": 177,
+        "startChar": 20,
+        "endLine": 177,
+        "endChar": 46
+      },
+      "revId": "93529d646f4a9c0fb98c0a4f0cc7c5cd4c9df4d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "324d2ee8_a554ab5d",
+        "filename": "keymaster/5.0/support/include/keymasterV5_0/keymaster_tags.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-06-05T22:43:20Z",
+      "side": 1,
+      "message": "here you need a reference of a different type, e.g.:\n\n*reinterpret_cast\u003cconst field_type*\u003e(\u0026param.field_name)",
+      "range": {
+        "startLine": 178,
+        "startChar": 15,
+        "endLine": 178,
+        "endChar": 31
+      },
+      "revId": "93529d646f4a9c0fb98c0a4f0cc7c5cd4c9df4d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23145766_032cafda",
+        "filename": "keymaster/5.0/support/include/keymasterV5_0/keymaster_tags.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-06-05T22:43:20Z",
+      "side": 1,
+      "message": "field_type",
+      "range": {
+        "startLine": 181,
+        "startChar": 14,
+        "endLine": 181,
+        "endChar": 40
+      },
+      "revId": "93529d646f4a9c0fb98c0a4f0cc7c5cd4c9df4d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0810e05b_54690bde",
+        "filename": "keymaster/5.0/support/include/keymasterV5_0/keymaster_tags.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-06-05T22:43:20Z",
+      "side": 1,
+      "message": "here you need a reference of a different type, e.g.:\n\n*reinterpret_cast\u003cfield_type*\u003e(\u0026param.field_name)",
+      "range": {
+        "startLine": 182,
+        "startChar": 15,
+        "endLine": 182,
+        "endChar": 31
+      },
+      "revId": "93529d646f4a9c0fb98c0a4f0cc7c5cd4c9df4d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b0214d6_a297f295",
+        "filename": "keymaster/5.0/support/include/keymasterV5_0/keymaster_tags.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-06-05T22:43:20Z",
+      "side": 1,
+      "message": "You add the correct type to each of these explicitly using the third type_field parameter you added above. E.g.:\nMAKE_TAG_ENUM_VALUE_ACCESSOR(TAG_ALGORITHM, integer, Algorithm)\n\nAlgorithm may need a proper namespace prefix...",
+      "range": {
+        "startLine": 185,
+        "startChar": 0,
+        "endLine": 194,
+        "endChar": 56
+      },
+      "revId": "93529d646f4a9c0fb98c0a4f0cc7c5cd4c9df4d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
