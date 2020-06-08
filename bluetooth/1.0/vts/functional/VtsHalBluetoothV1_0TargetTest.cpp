@@ -166,6 +166,8 @@ class BluetoothHidlTest : public ::testing::TestWithParam<std::string> {
     acl_cb_count = 0;
     sco_cb_count = 0;
 
+    close();
+
     ASSERT_FALSE(initialized);
     // Should not be checked in production code
     ASSERT_TRUE(bluetooth->initialize(bluetooth_cb).isOk());
@@ -189,6 +191,10 @@ class BluetoothHidlTest : public ::testing::TestWithParam<std::string> {
   virtual void TearDown() override {
     ALOGI("TearDown");
     // Should not be checked in production code
+    close();
+  }
+
+  void close() {
     ASSERT_TRUE(bluetooth->close().isOk());
     std::this_thread::sleep_for(INTERFACE_CLOSE_DELAY_MS);
     handle_no_ops();

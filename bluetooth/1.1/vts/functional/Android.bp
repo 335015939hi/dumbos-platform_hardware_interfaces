@@ -23,5 +23,9 @@ cc_test {
         "android.hardware.bluetooth@1.0",
         "libbluetooth-types",
     ],
-    test_suites: ["general-tests", "vts"],
+    disable_framework: true,
+    test_suites: [
+        "general-tests",
+        "vts",
+    ],
 }
