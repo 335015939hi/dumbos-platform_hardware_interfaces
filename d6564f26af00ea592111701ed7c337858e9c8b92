@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "79d8db4e_6c929114",
+        "filename": "keymaster/aidl/android/hardware/keymaster/OperationHandle.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-06-14T04:51:26Z",
+      "side": 1,
+      "message": "This isn\u0027t needed.",
+      "range": {
+        "startLine": 20,
+        "startChar": 1,
+        "endLine": 24,
+        "endChar": 0
+      },
+      "revId": "d6564f26af00ea592111701ed7c337858e9c8b92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

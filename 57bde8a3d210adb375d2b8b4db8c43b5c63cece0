@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e83d9f30_2ac20f7b",
+        "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-06-14T04:51:26Z",
+      "side": 1,
+      "message": "2020",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "57bde8a3d210adb375d2b8b4db8c43b5c63cece0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
