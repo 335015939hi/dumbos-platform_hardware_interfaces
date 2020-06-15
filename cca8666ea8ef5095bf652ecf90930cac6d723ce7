@@ -1016,6 +1016,29 @@
     },
     {
       "key": {
+        "uuid": "f9e2ecd9_35193794",
+        "filename": "keymaster/aidl/android/hardware/keymaster/KeymasterHardwareInfo.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-06-15T03:19:06Z",
+      "side": 1,
+      "message": "These can be Strings.  I think that will be easier to work with that byte arrays.  Also, be sure to add the @utf8InCpp annotation, so if it ever make sense to use the cpp backend we don\u0027t get a different string type.",
+      "range": {
+        "startLine": 30,
+        "startChar": 4,
+        "endLine": 35,
+        "endChar": 31
+      },
+      "revId": "cca8666ea8ef5095bf652ecf90930cac6d723ce7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3305da4b_ecae46a1",
         "filename": "keymaster/aidl/android/hardware/keymaster/OperationHandle.aidl",
         "patchSetId": 11
