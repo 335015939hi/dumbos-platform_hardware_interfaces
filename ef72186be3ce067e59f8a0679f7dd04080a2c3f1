@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "325e4304_f900c92e",
+        "filename": "camera/provider/2.4/vts/functional/VtsHalCameraProviderV2_4TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1121338
+      },
+      "writtenOn": "2020-06-15T17:19:56Z",
+      "side": 1,
+      "message": "Hmmm that seems to be the case for all the functions below. I\u0027ll fix that with a follow up CL.",
+      "parentUuid": "b87c79be_6731eb04",
+      "range": {
+        "startLine": 568,
+        "startChar": 0,
+        "endLine": 576,
+        "endChar": 6
+      },
+      "revId": "ef72186be3ce067e59f8a0679f7dd04080a2c3f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3101d94d_8eeb07c5",
         "filename": "camera/provider/2.4/vts/functional/VtsHalCameraProviderV2_4TargetTest.cpp",
         "patchSetId": 2

@@ -16,6 +16,24 @@
       "revId": "4145fb0358a37a0f81003155891facc4a842aef1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00c6622d_38f9e36a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1121338
+      },
+      "writtenOn": "2020-06-15T17:19:56Z",
+      "side": 1,
+      "message": "Yes sure, I\u0027d left it as WIP since I was waiting for vendor feedback. Need to add a Merged-In tag as well.",
+      "parentUuid": "4011d3f9_29925c9f",
+      "revId": "4145fb0358a37a0f81003155891facc4a842aef1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
