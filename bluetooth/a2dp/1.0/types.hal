@@ -52,6 +52,8 @@ enum ChannelMode : uint8_t {
     UNKNOWN = 0x00,
     MONO = 0x01,
     STEREO = 0x02,
+    DUAL = 0X04,
+    JOINT = 0X08,
 };
 struct CodecConfiguration {
     /** Bluetooth A2DP codec */
