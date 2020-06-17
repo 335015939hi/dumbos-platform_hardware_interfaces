@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5f94cfdf_6c2a8b9b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2020-06-17T08:03:26Z",
+      "side": 1,
+      "message": "That is a general reminder that we\u0027re limited on current audio framework.\n\nIn Le Audio there is no limit in channels routing. Channels could be independent and maintained seperately.\n\nFor example: Film is played on device using stereo channels and dubbing may be send over additional separate channel - not mixed with film etc.\n\nAny commit message editorial suggestions are welcome.",
+      "parentUuid": "0603da47_a11858c2",
+      "range": {
+        "startLine": 15,
+        "startChar": 13,
+        "endLine": 17,
+        "endChar": 13
+      },
+      "revId": "1e66f0409de8a4b19f351fbfd3f37a2a423238f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b9962422_3d1eab45",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -45,6 +69,30 @@
       "revId": "1e66f0409de8a4b19f351fbfd3f37a2a423238f2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c88d6cc1_aaf130cd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2020-06-17T08:03:26Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b9962422_3d1eab45",
+      "range": {
+        "startLine": 18,
+        "startChar": 59,
+        "endLine": 18,
+        "endChar": 70
+      },
+      "revId": "1e66f0409de8a4b19f351fbfd3f37a2a423238f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "fb5f440f_aecb22a1",
+        "filename": "bluetooth/audio/2.0/default/LeAudioAudioProvider.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2020-06-17T08:03:26Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "89cff7c1_dfbc3e4d",
+      "range": {
+        "startLine": 39,
+        "startChar": 26,
+        "endLine": 39,
+        "endChar": 39
+      },
+      "revId": "1e66f0409de8a4b19f351fbfd3f37a2a423238f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ff5f8b2_1a92a74a",
         "filename": "bluetooth/audio/2.0/default/LeAudioAudioProvider.cpp",
         "patchSetId": 2
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "c706b96c_ee5aeec9",
+        "filename": "bluetooth/audio/2.0/default/LeAudioAudioProvider.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2020-06-17T08:03:26Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0ff5f8b2_1a92a74a",
+      "range": {
+        "startLine": 42,
+        "startChar": 26,
+        "endLine": 42,
+        "endChar": 40
+      },
+      "revId": "1e66f0409de8a4b19f351fbfd3f37a2a423238f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "76e813cb_de52119f",
         "filename": "bluetooth/audio/2.0/types.hal",
         "patchSetId": 2
@@ -114,6 +210,30 @@
       "revId": "1e66f0409de8a4b19f351fbfd3f37a2a423238f2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90846166_5d4d1cd8",
+        "filename": "bluetooth/audio/2.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2020-06-17T08:03:26Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "76e813cb_de52119f",
+      "range": {
+        "startLine": 52,
+        "startChar": 4,
+        "endLine": 52,
+        "endChar": 39
+      },
+      "revId": "1e66f0409de8a4b19f351fbfd3f37a2a423238f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
