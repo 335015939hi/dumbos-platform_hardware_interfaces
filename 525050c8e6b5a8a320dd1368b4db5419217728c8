@@ -22,6 +22,30 @@
       "revId": "525050c8e6b5a8a320dd1368b4db5419217728c8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "31e2c239_e1036a4c",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSupportedCodecsDB.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1081223
+      },
+      "writtenOn": "2020-06-18T20:47:42Z",
+      "side": 1,
+      "message": "Actually this would mean a non VRB usecase, ignore me",
+      "parentUuid": "50ff5ed5_4b5fc315",
+      "range": {
+        "startLine": 201,
+        "startChar": 14,
+        "endLine": 201,
+        "endChar": 77
+      },
+      "revId": "525050c8e6b5a8a320dd1368b4db5419217728c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
