@@ -46,6 +46,30 @@
       "revId": "525050c8e6b5a8a320dd1368b4db5419217728c8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "506e2b55_d8aa80db",
+        "filename": "bluetooth/audio/2.0/default/session/BluetoothAudioSupportedCodecsDB.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2020-06-19T01:33:59Z",
+      "side": 1,
+      "message": "This is to check aac_data.variableBitRateEnabled is either DISABLED or ENABLED, and other values are unsupported.",
+      "parentUuid": "31e2c239_e1036a4c",
+      "range": {
+        "startLine": 201,
+        "startChar": 14,
+        "endLine": 201,
+        "endChar": 77
+      },
+      "revId": "525050c8e6b5a8a320dd1368b4db5419217728c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
