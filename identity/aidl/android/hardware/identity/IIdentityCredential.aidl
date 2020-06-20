@@ -278,7 +278,7 @@ interface IIdentityCredential {
      *
      * @param out mac is empty if signingKeyBlob or the sessionTranscript passed to
      *    startRetrieval() is empty. Otherwise it is a COSE_Mac0 with empty payload
-     *    and the detached content is set to DeviceAuthentication as defined below.
+     *    and the detached content is set to DeviceAuthenticationBytes as defined below.
      *    This code is produced by using the key agreement and key derivation function
      *    from the ciphersuite with the authentication private key and the reader
      *    ephemeral public key to compute a shared message authentication code (MAC)
@@ -298,6 +298,8 @@ interface IIdentityCredential {
      *        SessionTranscript = any
      *
      *        DeviceNameSpacesBytes = #6.24(bstr .cbor DeviceNameSpaces)
+     *
+     *        DeviceAuthenticationBytes = #6.24(bstr .cbor DeviceAuthentication)
      *
      *    where
      *
