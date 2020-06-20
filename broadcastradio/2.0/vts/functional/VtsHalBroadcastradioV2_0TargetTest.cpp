@@ -801,7 +801,7 @@ TEST_F(BroadcastRadioHalTest, AnnouncementListenerRegistration) {
 
     if (halResult == Result::NOT_SUPPORTED) {
         ASSERT_EQ(nullptr, closeHandle.get());
-        printSkipped("Announcements not supported");
+        printSkipped("PerInstance/BroadcastRadioHalTest.AnnouncementListenerRegistration/0_default");
         return;
     }
 
