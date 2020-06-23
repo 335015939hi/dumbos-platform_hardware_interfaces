@@ -30,7 +30,10 @@ using ::android::hardware::wifi::V1_0::WifiStatusCode;
 using ::android::sp;
 
 extern WifiHidlEnvironment* gEnv;
+<<<<<<< HEAD   (51e6ef Merge "camera vts: Skip regular vts tests for secure only ca)
 
+=======
+>>>>>>> BRANCH (a5f27a Merge "vts: wifi: softap and p2p are optional feature per CD)
 /**
  * Fixture to use for all AP Iface HIDL interface tests.
  */

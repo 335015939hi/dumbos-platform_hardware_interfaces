@@ -235,6 +235,10 @@ sp<ISupplicant> getSupplicant() {
     // For 1.1 supplicant, we need to add interfaces at initialization.
     if (is_1_1(supplicant)) {
         addSupplicantStaIface_1_1(supplicant);
+<<<<<<< HEAD   (51e6ef Merge "camera vts: Skip regular vts tests for secure only ca)
+=======
+
+>>>>>>> BRANCH (a5f27a Merge "vts: wifi: softap and p2p are optional feature per CD)
         if (gEnv->isP2pOn) {
             addSupplicantP2pIface_1_1(supplicant);
         }

@@ -31,7 +31,10 @@ using ::android::hardware::wifi::supplicant::V1_0::SupplicantStatusCode;
 using ::android::hardware::wifi::supplicant::V1_0::IfaceType;
 
 extern WifiSupplicantHidlEnvironment* gEnv;
+<<<<<<< HEAD   (51e6ef Merge "camera vts: Skip regular vts tests for secure only ca)
 
+=======
+>>>>>>> BRANCH (a5f27a Merge "vts: wifi: softap and p2p are optional feature per CD)
 class SupplicantHidlTest : public ::testing::VtsHalHidlTargetTestBase {
    public:
     virtual void SetUp() override {
@@ -74,6 +77,10 @@ TEST_F(SupplicantHidlTest, ListInterfaces) {
               std::find_if(ifaces.begin(), ifaces.end(), [](const auto& iface) {
                   return iface.type == IfaceType::STA;
               }));
+<<<<<<< HEAD   (51e6ef Merge "camera vts: Skip regular vts tests for secure only ca)
+=======
+
+>>>>>>> BRANCH (a5f27a Merge "vts: wifi: softap and p2p are optional feature per CD)
     if (gEnv->isP2pOn) {
         EXPECT_NE(
             ifaces.end(),
@@ -183,6 +190,10 @@ TEST_F(SupplicantHidlTest, SetConcurrencyPriority) {
         IfaceType::STA, [](const SupplicantStatus& status) {
             EXPECT_EQ(SupplicantStatusCode::SUCCESS, status.code);
         });
+<<<<<<< HEAD   (51e6ef Merge "camera vts: Skip regular vts tests for secure only ca)
+=======
+
+>>>>>>> BRANCH (a5f27a Merge "vts: wifi: softap and p2p are optional feature per CD)
     if (gEnv->isP2pOn) {
         supplicant_->setConcurrencyPriority(
             IfaceType::P2P, [](const SupplicantStatus& status) {
