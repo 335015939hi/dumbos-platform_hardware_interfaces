@@ -744,7 +744,12 @@ TEST_F(WifiChipHidlTest, RemoveStaIface) {
  * CreateRttController
  */
 TEST_F(WifiChipHidlTest, CreateRttController) {
+<<<<<<< TARGET BRANCH (51e6ef Merge "camera vts: Skip regular vts tests for secure only ca)
     configureChipForIfaceType(IfaceType::STA, true);
+=======
+    if (!gEnv->isSoftApOn) return;
+    configureChipForIfaceType(IfaceType::AP, true);
+>>>>>>> SOURCE BRANCH (a5f27a Merge "vts: wifi: softap and p2p are optional feature per CD)
 
     sp<IWifiStaIface> iface;
     EXPECT_EQ(WifiStatusCode::SUCCESS, createStaIface(&iface));

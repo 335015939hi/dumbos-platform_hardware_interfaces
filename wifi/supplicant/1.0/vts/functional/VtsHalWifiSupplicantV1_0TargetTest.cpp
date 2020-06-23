@@ -43,10 +43,20 @@ int main(int argc, char** argv) {
     ::testing::AddGlobalTestEnvironment(gEnv);
     ::testing::InitGoogleTest(&argc, argv);
     gEnv->init(&argc, argv);
+<<<<<<< TARGET BRANCH (51e6ef Merge "camera vts: Skip regular vts tests for secure only ca)
     int status = gEnv->initFromOptions(argc, argv);
     if (status == 0) {
         int status = RUN_ALL_TESTS();
         LOG(INFO) << "Test result = " << status;
     }
+=======
+
+    int status = gEnv->initFromOptions(argc, argv);
+    if (status == 0) {
+        int status = RUN_ALL_TESTS();
+        LOG(INFO) << "Test result = " << status;
+    }
+
+>>>>>>> SOURCE BRANCH (a5f27a Merge "vts: wifi: softap and p2p are optional feature per CD)
     return status;
 }

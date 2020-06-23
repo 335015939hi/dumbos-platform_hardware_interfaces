@@ -24,9 +24,13 @@
 #include <android/hardware/wifi/supplicant/1.1/ISupplicant.h>
 
 #include <getopt.h>
+<<<<<<< TARGET BRANCH (51e6ef Merge "camera vts: Skip regular vts tests for secure only ca)
 
 #include <VtsHalHidlTargetTestEnvBase.h>
+=======
+>>>>>>> SOURCE BRANCH (a5f27a Merge "vts: wifi: softap and p2p are optional feature per CD)
 
+#include <VtsHalHidlTargetTestEnvBase.h>
 // Used to stop the android wifi framework before every test.
 void stopWifiFramework();
 void startWifiFramework();
