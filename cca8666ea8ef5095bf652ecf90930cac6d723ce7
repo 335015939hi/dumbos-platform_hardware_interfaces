@@ -1834,6 +1834,29 @@
     },
     {
       "key": {
+        "uuid": "fc98efe0_4120b4c4",
+        "filename": "keymaster/aidl/android/hardware/keymaster/KeyParameter.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-06-25T19:14:42Z",
+      "side": 1,
+      "message": "There is no f field any more.",
+      "range": {
+        "startLine": 44,
+        "startChar": 15,
+        "endLine": 44,
+        "endChar": 16
+      },
+      "revId": "cca8666ea8ef5095bf652ecf90930cac6d723ce7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "91fde261_b0664b1f",
         "filename": "keymaster/aidl/android/hardware/keymaster/KeyParameter.aidl",
         "patchSetId": 11
