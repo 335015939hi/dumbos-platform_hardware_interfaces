@@ -1,0 +1,180 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000003637296",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1298415?revision\u003d14",
+      "fixSuggestions": [
+        {
+          "fixId": "d310f90a_6f8b4624",
+          "description": "Change to \"keymaster/aidl/vts/functional/VerificationTokenTest.cpp\"",
+          "replacements": [
+            {
+              "path": "keymaster/aidl/vts/functional/VerificationTokenTest.cpp",
+              "range": {
+                "startLine": 80,
+                "startChar": 54,
+                "endLine": 80,
+                "endChar": 63
+              },
+              "replacement": "parameters"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "f64ec63f_feea48e0",
+        "filename": "keymaster/aidl/vts/functional/VerificationTokenTest.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-06-26T09:28:07Z",
+      "side": 1,
+      "message": "Common typo found: \"paramters\" -- should it be \"parameters\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line.",
+      "range": {
+        "startLine": 80,
+        "startChar": 54,
+        "endLine": 80,
+        "endChar": 63
+      },
+      "revId": "22fbf2dbf8b5895f038b2e7c1d70131fbf5ec7a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000003637296",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1298415?revision\u003d14",
+      "fixSuggestions": [
+        {
+          "fixId": "3450f1df_1527c6fa",
+          "description": "Change to \"keymaster/aidl/vts/functional/VerificationTokenTest.cpp\"",
+          "replacements": [
+            {
+              "path": "keymaster/aidl/vts/functional/VerificationTokenTest.cpp",
+              "range": {
+                "startLine": 102,
+                "startChar": 54,
+                "endLine": 102,
+                "endChar": 63
+              },
+              "replacement": "parameters"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "d589b463_6d6cd0be",
+        "filename": "keymaster/aidl/vts/functional/VerificationTokenTest.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-06-26T09:28:07Z",
+      "side": 1,
+      "message": "Common typo found: \"paramters\" -- should it be \"parameters\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line.",
+      "range": {
+        "startLine": 102,
+        "startChar": 54,
+        "endLine": 102,
+        "endChar": 63
+      },
+      "revId": "22fbf2dbf8b5895f038b2e7c1d70131fbf5ec7a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000003637296",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1298415?revision\u003d14",
+      "fixSuggestions": [
+        {
+          "fixId": "02dc7868_f26a30d7",
+          "description": "Change to \"keymaster/aidl/vts/functional/VerificationTokenTest.cpp\"",
+          "replacements": [
+            {
+              "path": "keymaster/aidl/vts/functional/VerificationTokenTest.cpp",
+              "range": {
+                "startLine": 141,
+                "startChar": 54,
+                "endLine": 141,
+                "endChar": 63
+              },
+              "replacement": "parameters"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "3c13322c_40357bfa",
+        "filename": "keymaster/aidl/vts/functional/VerificationTokenTest.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-06-26T09:28:07Z",
+      "side": 1,
+      "message": "Common typo found: \"paramters\" -- should it be \"parameters\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line.",
+      "range": {
+        "startLine": 141,
+        "startChar": 54,
+        "endLine": 141,
+        "endChar": 63
+      },
+      "revId": "22fbf2dbf8b5895f038b2e7c1d70131fbf5ec7a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000003637296",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1298415?revision\u003d14",
+      "fixSuggestions": [
+        {
+          "fixId": "b2ea8355_26b1f994",
+          "description": "Change to \"keymaster/aidl/vts/functional/VerificationTokenTest.cpp\"",
+          "replacements": [
+            {
+              "path": "keymaster/aidl/vts/functional/VerificationTokenTest.cpp",
+              "range": {
+                "startLine": 163,
+                "startChar": 54,
+                "endLine": 163,
+                "endChar": 63
+              },
+              "replacement": "parameters"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "e82916ac_c04a6318",
+        "filename": "keymaster/aidl/vts/functional/VerificationTokenTest.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-06-26T09:28:07Z",
+      "side": 1,
+      "message": "Common typo found: \"paramters\" -- should it be \"parameters\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line.",
+      "range": {
+        "startLine": 163,
+        "startChar": 54,
+        "endLine": 163,
+        "endChar": 63
+      },
+      "revId": "22fbf2dbf8b5895f038b2e7c1d70131fbf5ec7a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
