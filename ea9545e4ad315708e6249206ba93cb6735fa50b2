@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5e849efc_4a50f8a8",
+        "filename": "keymaster/aidl/vts/functional/KeymasterAidlTestBase.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-06-29T20:22:54Z",
+      "side": 1,
+      "message": "Somehow adding test namespace cause the first function operator\u003c\u003c to be not see by compiler when used in the same file same namespace (like line 531).  still need to figure out why.",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 19
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
