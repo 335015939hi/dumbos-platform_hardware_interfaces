@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ed667337_8c4837f3",
+        "filename": "keymaster/5.0/support/attestation_record.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-06-29T20:07:16Z",
+      "side": 1,
+      "message": "these 2 tags are not in 4.0 4.1 at this support file, only system/keymaster and some other areas. but TAG_DEVICE_UNIQUE_ATTESTATION is at all places.  why?",
+      "range": {
+        "startLine": 146,
+        "startChar": 8,
+        "endLine": 148,
+        "endChar": 62
+      },
+      "revId": "8a8833cb1dad9449bc3667b3bf87970efe12fb2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71df4036_59576134",
+        "filename": "keymaster/5.0/support/attestation_record.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-06-29T20:07:16Z",
+      "side": 1,
+      "message": "these 2 tags are not in 4.0 4.1 at this support file, only system/keymaster and some other areas. but TAG_DEVICE_UNIQUE_ATTESTATION is at all places.  why?",
+      "range": {
+        "startLine": 291,
+        "startChar": 3,
+        "endLine": 292,
+        "endChar": 85
+      },
+      "revId": "8a8833cb1dad9449bc3667b3bf87970efe12fb2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a2e6438_c26bd2cf",
+        "filename": "keymaster/aidl/android/hardware/keymaster/HmacSharingParameters.aidl",
+        "patchSetId": 15
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-06-29T20:07:16Z",
+      "side": 1,
+      "message": "I will remove this file, let me know if you disagree.",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 19
+      },
+      "revId": "8a8833cb1dad9449bc3667b3bf87970efe12fb2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4654627_f735bfef",
+        "filename": "keymaster/aidl/android/hardware/keymaster/KeyPurpose.aidl",
+        "patchSetId": 15
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-06-29T20:07:16Z",
+      "side": 1,
+      "message": "should we change this to DERIVE_KEY?",
+      "range": {
+        "startLine": 30,
+        "startChar": 3,
+        "endLine": 30,
+        "endChar": 22
+      },
+      "revId": "8a8833cb1dad9449bc3667b3bf87970efe12fb2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78de3c90_0b117cce",
+        "filename": "keymaster/aidl/android/hardware/keymaster/SecurityLevel.aidl",
+        "patchSetId": 15
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-06-29T20:07:16Z",
+      "side": 1,
+      "message": "is this code still correct?",
+      "range": {
+        "startLine": 31,
+        "startChar": 6,
+        "endLine": 31,
+        "endChar": 14
+      },
+      "revId": "8a8833cb1dad9449bc3667b3bf87970efe12fb2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2c4ee8d_4bc783f9",
+        "filename": "keymaster/aidl/vts/functional/KeymasterAidlTestBase.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-06-29T20:07:16Z",
+      "side": 1,
+      "message": "actually, I\u0027m thinking these checks are no longer necessary, since if return !\u003d .isOk(), then aidl will forbid any of the return variables from been modified.  So it seems there is nothing to check though.",
+      "range": {
+        "startLine": 89,
+        "startChar": 5,
+        "endLine": 94,
+        "endChar": 41
+      },
+      "revId": "8a8833cb1dad9449bc3667b3bf87970efe12fb2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
