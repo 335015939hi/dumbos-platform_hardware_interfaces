@@ -1,0 +1,151 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000003708358",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1245367?revision\u003d34",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "cd24210d_f3dd2da8",
+        "filename": "identity/aidl/ngDefault/Android.bp",
+        "patchSetId": 34
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-07-01T18:13:30Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027primary\u0027 or \u0027secondary\u0027; see https://developers.google.com/style/inclusive-documentation for more details.",
+      "revId": "64d5d21e8532b2c250236a01b7f86dabc7ed20a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000003708358",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1245367?revision\u003d34",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "4698f304_70ea80b0",
+        "filename": "identity/aidl/ngDefault/Android.bp",
+        "patchSetId": 34
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-07-01T18:13:30Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027primary\u0027 or \u0027secondary\u0027; see https://developers.google.com/style/inclusive-documentation for more details.",
+      "revId": "64d5d21e8532b2c250236a01b7f86dabc7ed20a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000003708358",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1245367?revision\u003d34",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "79230202_f964a08a",
+        "filename": "identity/aidl/ngDefault/common/IdentityCredential.cpp",
+        "patchSetId": 34
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-07-01T18:13:30Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027primary\u0027 or \u0027secondary\u0027; see https://developers.google.com/style/inclusive-documentation for more details.",
+      "revId": "64d5d21e8532b2c250236a01b7f86dabc7ed20a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000003708358",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1245367?revision\u003d34",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "f9e40fbb_165a2463",
+        "filename": "identity/aidl/ngDefault/common/IdentityCredential.h",
+        "patchSetId": 34
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-07-01T18:13:30Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027primary\u0027 or \u0027secondary\u0027; see https://developers.google.com/style/inclusive-documentation for more details.",
+      "revId": "64d5d21e8532b2c250236a01b7f86dabc7ed20a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000003708358",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1245367?revision\u003d34",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "48c97d40_880a250b",
+        "filename": "identity/aidl/ngDefault/common/IdentityCredential.h",
+        "patchSetId": 34
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-07-01T18:13:30Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027primary\u0027 or \u0027secondary\u0027; see https://developers.google.com/style/inclusive-documentation for more details.",
+      "revId": "64d5d21e8532b2c250236a01b7f86dabc7ed20a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000003708358",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1245367?revision\u003d34",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "1974f375_7a5d320e",
+        "filename": "identity/aidl/ngDefault/common/IdentityCredential.h",
+        "patchSetId": 34
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-07-01T18:13:30Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027primary\u0027 or \u0027secondary\u0027; see https://developers.google.com/style/inclusive-documentation for more details.",
+      "revId": "64d5d21e8532b2c250236a01b7f86dabc7ed20a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000003708358",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1245367?revision\u003d34",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "22a18970_1359e16a",
+        "filename": "identity/aidl/ngDefault/common/IdentityCredential.h",
+        "patchSetId": 34
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-07-01T18:13:30Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027primary\u0027 or \u0027secondary\u0027; see https://developers.google.com/style/inclusive-documentation for more details.",
+      "revId": "64d5d21e8532b2c250236a01b7f86dabc7ed20a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
