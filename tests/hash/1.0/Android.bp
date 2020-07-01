@@ -3,6 +3,7 @@
 hidl_interface {
     name: "android.hardware.tests.hash@1.0",
     root: "android.hardware",
+    system_ext_specific: true,
     srcs: [
         "IHash.hal",
     ],

@@ -3,6 +3,7 @@
 hidl_interface {
     name: "android.hardware.tests.libhwbinder@1.0",
     root: "android.hardware",
+    system_ext_specific: true,
     srcs: [
         "IBenchmark.hal",
         "IScheduleTest.hal",

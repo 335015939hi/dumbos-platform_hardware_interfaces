@@ -3,10 +3,6 @@
 hidl_interface {
     name: "android.hardware.renderscript@1.0",
     root: "android.hardware",
-    vndk: {
-        enabled: true,
-        support_system_process: true,
-    },
     srcs: [
         "types.hal",
         "IContext.hal",

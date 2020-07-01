@@ -3,6 +3,7 @@
 hidl_interface {
     name: "android.hardware.tests.extension.light@2.0",
     root: "android.hardware",
+    system_ext_specific: true,
     srcs: [
         "types.hal",
         "ILight.hal",

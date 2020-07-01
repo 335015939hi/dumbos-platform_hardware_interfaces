@@ -3,6 +3,7 @@
 hidl_interface {
     name: "android.hardware.tests.inheritance@1.0",
     root: "android.hardware",
+    system_ext_specific: true,
     srcs: [
         "IChild.hal",
         "IFetcher.hal",
