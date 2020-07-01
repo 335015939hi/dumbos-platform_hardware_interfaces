@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "08c2482c_9f6efc9f",
+        "filename": "keymaster/5.0/support/include/keymasterV5_0/keymaster_tags.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-07-01T21:57:58Z",
+      "side": 1,
+      "message": "Okay.  I think we need to provide a more specific ordering.  We can do that by specializing std::less, rather than implementing operator\u003c.  The STL containers/functions actually use std::less by default, but the default std::less implementation uses operator\u003c.  So specializing std::less effectively \"overrides\" operator\u003c for STL containers/functions.",
+      "parentUuid": "9b15017c_26308225",
+      "range": {
+        "startLine": 368,
+        "startChar": 21,
+        "endLine": 368,
+        "endChar": 50
+      },
+      "revId": "cca8666ea8ef5095bf652ecf90930cac6d723ce7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "22a71e1a_071d122d",
         "filename": "keymaster/5.0/support/include/keymasterV5_0/keymaster_utils.h",
         "patchSetId": 11
@@ -554,6 +578,30 @@
       "side": 1,
       "message": "actually I will delete this file.  I defined it before know about removal of hmac sharing.",
       "parentUuid": "5bf9d002_39ec7b9d",
+      "range": {
+        "startLine": 41,
+        "startChar": 21,
+        "endLine": 41,
+        "endChar": 114
+      },
+      "revId": "cca8666ea8ef5095bf652ecf90930cac6d723ce7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "436316bf_bf1d0b77",
+        "filename": "keymaster/aidl/android/hardware/keymaster/HmacSharingParameters.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-07-01T21:57:58Z",
+      "side": 1,
+      "message": "We should keep HMAC sharing for now.  The auth graph stuff may not happen, so let\u0027s keep the old system in place until we know we don\u0027t need it.",
+      "parentUuid": "c3313253_5d28d557",
       "range": {
         "startLine": 41,
         "startChar": 21,

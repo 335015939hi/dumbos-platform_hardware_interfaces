@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c4030bb0_b5b6f74d",
+        "filename": "keymaster/4.0/vts/functional/KeymasterHidlTest.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-07-01T21:57:58Z",
+      "side": 0,
+      "message": "Why did you delete this line?",
+      "range": {
+        "startLine": 235,
+        "startChar": 0,
+        "endLine": 235,
+        "endChar": 0
+      },
+      "revId": "91521ab86b5a7136ac25c33e665f1ca6514755bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
