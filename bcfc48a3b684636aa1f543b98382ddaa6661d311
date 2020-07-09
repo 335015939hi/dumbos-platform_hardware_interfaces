@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b1fccefb_60c43747",
+        "filename": "tests/msgq/1.0/default/mq_test_service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-07-09T20:39:27Z",
+      "side": 1,
+      "message": "fixme",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 52
+      },
+      "revId": "bcfc48a3b684636aa1f543b98382ddaa6661d311",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
