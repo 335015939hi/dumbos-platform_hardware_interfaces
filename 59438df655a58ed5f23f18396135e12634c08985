@@ -16,6 +16,24 @@
       "revId": "59438df655a58ed5f23f18396135e12634c08985",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fbb924c7_65001655",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1321491
+      },
+      "writtenOn": "2020-07-10T22:10:35Z",
+      "side": 1,
+      "message": "1.4? I don\u0027t see 1.4 anywhere.\n\nCan we still get this in rvc-dev?",
+      "parentUuid": "3efac164_ce2521c3",
+      "revId": "59438df655a58ed5f23f18396135e12634c08985",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
