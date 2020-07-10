@@ -52,6 +52,24 @@
       "revId": "59438df655a58ed5f23f18396135e12634c08985",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e8c36bc_6c228777",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1321491
+      },
+      "writtenOn": "2020-07-10T22:31:09Z",
+      "side": 1,
+      "message": "Okay, then it sounds like we\u0027ll just merge this change as-is.",
+      "parentUuid": "1411b50a_74c85228",
+      "revId": "59438df655a58ed5f23f18396135e12634c08985",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
