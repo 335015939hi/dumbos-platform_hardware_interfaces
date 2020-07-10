@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "732d8567_6a0eb511",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1536847
+      },
+      "writtenOn": "2020-07-10T06:45:46Z",
+      "side": 1,
+      "message": "Hi,\n\nDoes anybody has an idea to solve below build error:\n\nAdded VNDK-core: android.hardware.bluetooth.a2dp@1.1.so\n error: VNDK library list has been changed.\n        Changing the VNDK library list is not allowed in API locked branches.\n\nThanks in advance",
+      "revId": "6b9ab27bcf040a42892bce194da8b33b4587133e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
