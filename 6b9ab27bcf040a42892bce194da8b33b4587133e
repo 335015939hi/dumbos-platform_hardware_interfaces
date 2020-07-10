@@ -16,6 +16,24 @@
       "revId": "6b9ab27bcf040a42892bce194da8b33b4587133e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c87f4076_62c0c11a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2020-07-10T08:01:16Z",
+      "side": 1,
+      "message": "If you get approval to make this change, you need to introduce new version in current.txt, rather than modifying existing version",
+      "parentUuid": "732d8567_6a0eb511",
+      "revId": "6b9ab27bcf040a42892bce194da8b33b4587133e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
