@@ -551,6 +551,93 @@
       "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3735bbd6_547d7d27",
+        "filename": "keymaster/aidl/vts/functional/KeymasterAidlTestBase.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-07-13T22:01:33Z",
+      "side": 1,
+      "message": "The lookup is roughly as follows.\n1. Check the enclosing namespace of the call site.\n2. Check the namespace of the argument types, here, \"std\" because of ostream os and \"android::hardware::keymaster\" because of AuthorizationSet set. So if you move operator \u003c\u003c to any other namespace, it can no longer be found. That is true even if you import test with \"using namespace\" or if you import AuthorizationSet into ...::test. Neither will change the lookup strategy.\n\nSo if the operator\u003c\u003c should live only here and not in autorization_set.h/cpp that you will still have to keep it in the namespace android::hardware::keymaster. You can do this by opening the sub namespace test after you defined operator\u003c\u003c.",
+      "parentUuid": "5e849efc_4a50f8a8",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 19
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4868763a_804db8f5",
+        "filename": "keymaster/aidl/vts/functional/KeymasterAidlTestBase.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-07-13T22:01:33Z",
+      "side": 1,
+      "message": "You don\u0027t need this here. you are already in this namespace, even if you begin the sub namespace \"test\".",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 45
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13ad96a8_eaaddce8",
+        "filename": "keymaster/aidl/vts/functional/KeymasterAidlTestBase.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-07-13T22:01:33Z",
+      "side": 1,
+      "message": "Also if you are including this inside a namespace scope you should prefix ::, to disambiguate from \u003ccurrent namspace\u003e::android::hardware::keymaster::test.\n\nBut I doubt that you even need this line here.",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 51
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c69080b6_2a09b6a5",
+        "filename": "keymaster/aidl/vts/functional/KeymasterAidlTestBase.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-07-13T22:01:33Z",
+      "side": 1,
+      "message": "move the \"namespace test {\" here to keep operator\u003c\u003c in the correct namespace.",
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
