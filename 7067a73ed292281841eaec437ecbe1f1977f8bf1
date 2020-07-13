@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "435eb9b4_4efc4a78",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-07-13T16:26:29Z",
+      "side": 1,
+      "message": "Thanks for reviewing.",
+      "revId": "7067a73ed292281841eaec437ecbe1f1977f8bf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b2cd0a3b_271fbe0e",
         "filename": "identity/aidl/vts/VtsHalIdentityEndToEndTest.cpp",
         "patchSetId": 1
@@ -22,6 +39,30 @@
       "revId": "7067a73ed292281841eaec437ecbe1f1977f8bf1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c249a53_9b61ed8c",
+        "filename": "identity/aidl/vts/VtsHalIdentityEndToEndTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2020-07-13T16:26:29Z",
+      "side": 1,
+      "message": "Yes, DeviceSignedItems is indeed required to be empty and I think ISO 18013-5 will likely spell this requirement out in FDIS. Also, IIRC 18013-5 will include additions to the MSO so the issuer can specify exactly which data items the device is allowed to include in DeviceSignedItems. This could be used for things like holder-device binding and other things the issuer may authorize the device to calculate (age attestation, for example).\n\nIt makes sense, I mean, for day 1 the only data which a reader will trust is from IssuerSignedItems. The only use of DeviceSigned in day 1 is for anti-cloning.\n\nAt an earlier point our API had the app include a boolean for each requested data element whether it should be included in DeviceSigned. For simplicity, this was changed to just allowing the app to make multiple requests (for the same ephemeral keys and SessionTranscript) and this is what the app does now.",
+      "parentUuid": "b2cd0a3b_271fbe0e",
+      "range": {
+        "startLine": 472,
+        "startChar": 6,
+        "endLine": 474,
+        "endChar": 56
+      },
+      "revId": "7067a73ed292281841eaec437ecbe1f1977f8bf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
