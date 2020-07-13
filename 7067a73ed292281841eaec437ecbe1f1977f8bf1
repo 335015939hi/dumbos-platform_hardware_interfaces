@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b2cd0a3b_271fbe0e",
+        "filename": "identity/aidl/vts/VtsHalIdentityEndToEndTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-07-13T16:13:24Z",
+      "side": 1,
+      "message": "Why would they call twice, rather than just using the MAC from the first call? Is DeviceSignedItems required to be empty?",
+      "range": {
+        "startLine": 472,
+        "startChar": 6,
+        "endLine": 474,
+        "endChar": 56
+      },
+      "revId": "7067a73ed292281841eaec437ecbe1f1977f8bf1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
