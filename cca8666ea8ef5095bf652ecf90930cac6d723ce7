@@ -2093,6 +2093,30 @@
     },
     {
       "key": {
+        "uuid": "647cff25_e5d654a3",
+        "filename": "keymaster/aidl/android/hardware/keymaster/KeyPurpose.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-07-13T22:06:20Z",
+      "side": 1,
+      "message": "I think this had a meaning once so we can never use it again without aliasing with a different meaning.",
+      "parentUuid": "2b02583a_517b8d62",
+      "range": {
+        "startLine": 30,
+        "startChar": 24,
+        "endLine": 30,
+        "endChar": 58
+      },
+      "revId": "cca8666ea8ef5095bf652ecf90930cac6d723ce7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "db6217b1_85742f09",
         "filename": "keymaster/aidl/android/hardware/keymaster/KeymasterHardwareInfo.aidl",
         "patchSetId": 11
