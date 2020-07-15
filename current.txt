@@ -652,6 +652,8 @@ b809193970a91ca637a4b0184767315601d32e3ef3d5992ffbc7a8d14a14f015 android.hardwar
 
 # ABI preserving changes to HALs during Android S
 cd84ab19c590e0e73dd2307b591a3093ee18147ef95e6d5418644463a6620076 android.hardware.neuralnetworks@1.2::IDevice
+35601a0bf991ffe948778e283a588a8cd3fb88f819c86c33dfd1fb65b1851d77 android.hardware.bluetooth.a2dp@1.1::types
+402cf5569242d643505bd92ff541a52eab2898c8e58802219d8768981f89a127 android.hardware.bluetooth.a2dp@1.1::IBluetoothAudioOffload
 
 # HALs released in Android S
 # NOTE: waiting to freeze HALs until later in the release
