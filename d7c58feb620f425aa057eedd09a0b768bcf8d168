@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "663f4bda_d75d48a1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-07-15T21:35:38Z",
+      "side": 1,
+      "message": "always share commands to generate files, if you can",
+      "revId": "d7c58feb620f425aa057eedd09a0b768bcf8d168",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4098435e_c80cd7a0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-07-15T21:35:38Z",
+      "side": 1,
+      "message": "since these packages were renamed internally, this would cause additional unneeded files to be added internally. So either you need to add a merged-in, to avoid these being landed in master, or what is probably the most simple, since you\u0027ll need to anyway, get the CLs that rename these modules here, then generate these, so that the names are proper. The build system will ensure that they aren\u0027t accidentally double-merged internally, so as long as TH is happy, merged-in or not is fine there.",
+      "revId": "d7c58feb620f425aa057eedd09a0b768bcf8d168",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
