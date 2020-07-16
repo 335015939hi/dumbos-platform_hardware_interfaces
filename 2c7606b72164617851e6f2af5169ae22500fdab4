@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "45157e1e_ed22b965",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1105338
+      },
+      "writtenOn": "2020-07-16T17:39:32Z",
+      "side": 1,
+      "message": "Can we just make this work properly in AIDL without modifying this file?",
+      "revId": "2c7606b72164617851e6f2af5169ae22500fdab4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
