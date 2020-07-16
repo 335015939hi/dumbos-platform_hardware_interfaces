@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "6b9515cf_f7a61b37",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1318371
+      },
+      "writtenOn": "2020-07-16T05:50:16Z",
+      "side": 1,
+      "message": "Hi Seulki,\n\nThanks for this CL, but this interface is replaced by android.hardware.bluetooth.audio@2.0. Since this interface is deprecated, can you kindly move into the new one to do develop?",
+      "revId": "c47d4fe0d5870b586b924ffc64559ee5172ddfbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b562a095_74693668",
         "filename": "bluetooth/a2dp/1.1/Android.bp",
         "patchSetId": 1
