@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b562a095_74693668",
+        "filename": "bluetooth/a2dp/1.1/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2020-07-16T04:55:00Z",
+      "side": 1,
+      "message": "add `apex_available: [\"name of the apex\"]` here",
+      "revId": "c47d4fe0d5870b586b924ffc64559ee5172ddfbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
