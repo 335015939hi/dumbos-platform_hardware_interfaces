@@ -34,6 +34,24 @@
       "revId": "2c7606b72164617851e6f2af5169ae22500fdab4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48c05adf_63e9e260",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1105338
+      },
+      "writtenOn": "2020-07-16T17:44:48Z",
+      "side": 1,
+      "message": "Ah cool. That would be cleaner.",
+      "parentUuid": "d1e47971_104d4af3",
+      "revId": "2c7606b72164617851e6f2af5169ae22500fdab4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
