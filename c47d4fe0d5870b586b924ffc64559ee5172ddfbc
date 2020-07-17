@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "e416be12_dce482aa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-07-17T18:20:19Z",
+      "side": 1,
+      "message": "are you able to add a topic, or do you have a bug where this is being worked on? Specifically, we need to find someone who is familiar with a2dp team. For Android S, ideally this interface can be in AIDL.",
+      "revId": "c47d4fe0d5870b586b924ffc64559ee5172ddfbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6b9515cf_f7a61b37",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -30,6 +47,98 @@
       "writtenOn": "2020-07-16T04:55:00Z",
       "side": 1,
       "message": "add `apex_available: [\"name of the apex\"]` here",
+      "revId": "c47d4fe0d5870b586b924ffc64559ee5172ddfbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b34dbef_7863784b",
+        "filename": "bluetooth/a2dp/1.1/IBluetoothAudioOffload.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-07-17T18:20:19Z",
+      "side": 1,
+      "message": "nit: should be able to delete this if you want",
+      "range": {
+        "startLine": 23,
+        "startChar": 41,
+        "endLine": 23,
+        "endChar": 72
+      },
+      "revId": "c47d4fe0d5870b586b924ffc64559ee5172ddfbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b34ce5da_c3a3ccbe",
+        "filename": "bluetooth/a2dp/1.1/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-07-17T18:20:19Z",
+      "side": 1,
+      "message": "new HALs should have a binderized server, be setup on cuttlefish, and have VTS tests",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 53
+      },
+      "revId": "c47d4fe0d5870b586b924ffc64559ee5172ddfbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6949e520_c64461d8",
+        "filename": "bluetooth/a2dp/1.1/default/BluetoothAudioOffload.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-07-17T18:20:19Z",
+      "side": 1,
+      "message": "fix (void checking in directly auto-generated code)",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 43
+      },
+      "revId": "c47d4fe0d5870b586b924ffc64559ee5172ddfbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd8b7be9_9ab318ee",
+        "filename": "current.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 656,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-07-17T18:20:19Z",
+      "side": 1,
+      "message": "nit: this is a new HAL, so it should be under L658 instead, but see L659 and L660. This can be omitted in Android S",
+      "range": {
+        "startLine": 655,
+        "startChar": 0,
+        "endLine": 656,
+        "endChar": 124
+      },
       "revId": "c47d4fe0d5870b586b924ffc64559ee5172ddfbc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
