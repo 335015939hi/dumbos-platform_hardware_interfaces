@@ -92,7 +92,7 @@ cc_library_shared {
     ],
 }
 
-cc_library_shared {
+cc_library {
     name: "android.hardware.audio@6.0-impl",
     defaults: ["android.hardware.audio-impl_default"],
     shared_libs: [
