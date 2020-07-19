@@ -92,8 +92,8 @@ cc_library_shared {
     ],
 }
 
-cc_library_shared {
-    name: "android.hardware.audio@6.0-impl",
+cc_defaults {
+    name: "android.hardware.audio@6.0-impl_default",
     defaults: ["android.hardware.audio-impl_default"],
     shared_libs: [
         "android.hardware.audio@6.0",
@@ -105,4 +105,16 @@ cc_library_shared {
         "-DMINOR_VERSION=0",
         "-include common/all-versions/VersionMacro.h",
     ],
+}
+
+cc_library_shared {
+    name: "android.hardware.audio@6.0-impl",
+    defaults: ["android.hardware.audio@6.0-impl_default"],
+}
+
+// For use with HIDL HAL implementations, android.hardware.audio.service
+// will not load it.
+cc_library_shared {
+    name: "android.hardware.audio.legacy@6.0-impl",
+    defaults: ["android.hardware.audio@6.0-impl_default"],
 }
