@@ -118,6 +118,30 @@
       "revId": "e05d65a2369aae99455de7896dc506e075f0473a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "878dc8b1_1b65945a",
+        "filename": "audio/core/all-versions/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1278660
+      },
+      "writtenOn": "2020-07-20T20:49:10Z",
+      "side": 1,
+      "message": "The static library approach did not work as intended. I guess whole_static_libs is not transitive enough.",
+      "parentUuid": "a4ecc458_6dc795b0",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 1
+      },
+      "revId": "e05d65a2369aae99455de7896dc506e075f0473a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
