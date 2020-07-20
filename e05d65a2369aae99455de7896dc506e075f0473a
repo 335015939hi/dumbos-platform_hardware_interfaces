@@ -94,6 +94,30 @@
       "revId": "e05d65a2369aae99455de7896dc506e075f0473a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4ecc458_6dc795b0",
+        "filename": "audio/core/all-versions/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2020-07-20T20:05:50Z",
+      "side": 1,
+      "message": "If you want to make the defaults usable in a different package you\u0027ll need to reference all the files through filegroups or header_libs.\n\nThere is no way to make a copy of a shared library with a different name (and that won\u0027t actually work, because the name is embedded in the .so in the DT_SONAME field).  You could make android.hardware.audio@6.0-impl a cc_library, which will build both static and shared variants, and then use:\n\n    cc_library_shared {\n        name: \"android.hardware.audio.legacy@6.0-impl\",\n        whole_static_libs: [\"android.hardware.audio@6.0-impl\"],\n        export_static_lib_headers: [\"android.hardware.audio@6.0-impl\"],\n    }\n\nThat will link the android.hardware.audio@6.0-impl.a file into android.hardware.audio.legacy@6.0-impl.so.",
+      "parentUuid": "b0069a79_54dc49b2",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 1
+      },
+      "revId": "e05d65a2369aae99455de7896dc506e075f0473a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
