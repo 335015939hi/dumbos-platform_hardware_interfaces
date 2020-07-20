@@ -70,6 +70,30 @@
       "revId": "e05d65a2369aae99455de7896dc506e075f0473a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0069a79_54dc49b2",
+        "filename": "audio/core/all-versions/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2020-07-20T19:39:06Z",
+      "side": 1,
+      "message": "Yes, paths for target source files are relative to the .bp location, apologies I didn\u0027t consider that. But there should be a way to tell the build system that you need a particular target deployed under a different name. In this case there are no changes needed in this .bp file.",
+      "parentUuid": "cc5e71bd_964fd9ec",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 1
+      },
+      "revId": "e05d65a2369aae99455de7896dc506e075f0473a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
