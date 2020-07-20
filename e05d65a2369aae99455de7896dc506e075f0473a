@@ -142,6 +142,30 @@
       "revId": "e05d65a2369aae99455de7896dc506e075f0473a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94688a3e_be008af0",
+        "filename": "audio/core/all-versions/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2020-07-20T23:18:52Z",
+      "side": 1,
+      "message": "Ah, yes, static libraries are not transitive.  You could combine the approaches by using a defaults module to list the necessary static libraries and whole_static_libs for the rest, and then you would be less sensitive to changes in to the defaults module here.",
+      "parentUuid": "878dc8b1_1b65945a",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 1
+      },
+      "revId": "e05d65a2369aae99455de7896dc506e075f0473a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
