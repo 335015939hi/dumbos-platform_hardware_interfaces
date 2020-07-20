@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1b014f26_514e54a8",
+        "filename": "audio/core/all-versions/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2020-07-20T19:06:17Z",
+      "side": 1,
+      "message": "I\u0027m OK with splitting android.hardware.audio@6.0-impl definition into \"defaults\" and the library itself. However I would suggest adding android.hardware.audio.legacy@6.0-impl definition into device-specific build rules instead since it exists as a workaround for that particular device.",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 1
+      },
+      "revId": "e05d65a2369aae99455de7896dc506e075f0473a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
