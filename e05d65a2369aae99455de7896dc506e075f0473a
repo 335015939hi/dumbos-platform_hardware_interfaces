@@ -46,6 +46,30 @@
       "revId": "e05d65a2369aae99455de7896dc506e075f0473a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cc5e71bd_964fd9ec",
+        "filename": "audio/core/all-versions/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1278660
+      },
+      "writtenOn": "2020-07-20T19:16:39Z",
+      "side": 1,
+      "message": "It looks like I cannot just move\n\ncc_library_shared {\n    name: \"android.hardware.audio.legacy@6.0-impl\",\n    defaults: [\"android.hardware.audio@6.0-impl_default\"],\n}\n\ninto our bp. It is too much burden for us to maintain the workaround.\n\nerror: device/generic/goldfish/audio/Android.bp:17:1: module \"android.hardware.audio.legacy@6.0-impl\" variant \"android_vendor.S_x86_64_sh\nared\": module source path \"device/generic/goldfish/audio/include\" does not exist\nerror: device/generic/goldfish/audio/Android.bp:17:1: module \"android.hardware.audio.legacy@6.0-impl\" variant \"android_vendor.S_x86_64_sh\nared\": module source path \"device/generic/goldfish/audio/Conversions.cpp\" does not exist",
+      "parentUuid": "caad9fc7_4a85ae61",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 1
+      },
+      "revId": "e05d65a2369aae99455de7896dc506e075f0473a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
