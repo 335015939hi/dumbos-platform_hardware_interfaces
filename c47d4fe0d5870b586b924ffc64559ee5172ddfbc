@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "317ca6c5_25bbaf38",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1536847
+      },
+      "writtenOn": "2020-07-20T02:19:33Z",
+      "side": 1,
+      "message": "OK. Thanks.",
+      "parentUuid": "6b9515cf_f7a61b37",
+      "revId": "c47d4fe0d5870b586b924ffc64559ee5172ddfbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b562a095_74693668",
         "filename": "bluetooth/a2dp/1.1/Android.bp",
         "patchSetId": 1
