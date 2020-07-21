@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f129caca_9fb893e5",
+        "filename": "drm/1.0/default/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1395887
+      },
+      "writtenOn": "2020-07-21T21:00:25Z",
+      "side": 0,
+      "message": "Since this build-time conditional is removed by this change, is the change viable? The associated bugs seem to be resolved, but there could still be targets that don\u0027t set TARGET_ENABLE_MEDIADRM_64?",
+      "range": {
+        "startLine": 77,
+        "startChar": 9,
+        "endLine": 77,
+        "endChar": 34
+      },
+      "revId": "e6849d568a02a151f050767ece0fd90ca68d5698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
