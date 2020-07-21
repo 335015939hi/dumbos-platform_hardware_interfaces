@@ -510,4 +510,11 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="aidl" optional="true">
+      <name>android.hardware.keymint</name>
+      <interface>
+        <name>IRemotelyProvisionedComponent</name>
+        <instance>default</instance>
+      </interface>
+    </hal>
 </compatibility-matrix>

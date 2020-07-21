@@ -1,0 +1,30 @@
+cc_test {
+    name: "VtsHalRemotelyProvisionedComponentTargetTest",
+    defaults: [
+        "VtsHalTargetTestDefaults",
+        "use_libaidlvintf_gtest_helper_static",
+    ],
+    cflags: [
+        "-O0",
+        "-g",
+    ],
+    srcs: [
+        "VtsRemotelyProvisionedComponentTests.cpp",
+    ],
+    shared_libs: [
+        "libbinder_ndk",
+        "libcrypto",
+        "libcppbor",
+        "libcppcose",
+        "lib_keymint_remote_prov_support",
+    ],
+    static_libs: [
+        "android.hardware.keymint-ndk_platform",
+        "libremote_provisioner",
+        "libgmock_ndk",
+    ],
+    test_suites: [
+        "general-tests",
+        "vts",
+    ],
+}

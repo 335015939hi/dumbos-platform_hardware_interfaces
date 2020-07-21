@@ -62,6 +62,10 @@ cc_library {
     name: "libcppbor",
     vendor_available: true,
     host_supported: true,
+    cflags: [
+        "-O0",
+        "-g",
+    ],
     srcs: [
         "src/cppbor.cpp",
         "src/cppbor_parse.cpp",
@@ -71,11 +75,16 @@ cc_library {
     ],
     shared_libs: [
         "libbase",
+        "libcrypto",
     ],
 }
 
 cc_test {
     name: "cppbor_test",
+    cflags: [
+        "-O0",
+        "-g",
+    ],
     srcs: [
         "tests/cppbor_test.cpp",
     ],

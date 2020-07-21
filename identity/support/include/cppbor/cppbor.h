@@ -286,6 +286,9 @@ class Bstr : public Item {
   public:
     static constexpr MajorType kMajorType = BSTR;
 
+    // Construct an empty Bstr
+    explicit Bstr() {}
+
     // Construct from a vector
     explicit Bstr(std::vector<uint8_t> v) : mValue(std::move(v)) {}
 
@@ -443,8 +446,11 @@ class Array : public CompoundItem {
     template <typename T>
     Array&& add(T&& v) &&;
 
-    const std::unique_ptr<Item>& operator[](size_t index) const { return mEntries[index]; }
-    std::unique_ptr<Item>& operator[](size_t index) { return mEntries[index]; }
+    const std::unique_ptr<Item>& operator[](size_t index) const { return get(index); }
+    std::unique_ptr<Item>& operator[](size_t index) { return get(index); }
+
+    const std::unique_ptr<Item>& get(size_t index) const { return mEntries[index]; }
+    std::unique_ptr<Item>& get(size_t index) { return mEntries[index]; }
 
     MajorType type() const override { return kMajorType; }
     const Array* asArray() const override { return this; }
@@ -495,7 +501,7 @@ class Map : public CompoundItem {
     }
 
     template <typename Key, typename Enable>
-    std::pair<std::unique_ptr<Item>&, bool> get(Key key);
+    const std::unique_ptr<Item>& get(Key key) const;
 
     std::pair<const std::unique_ptr<Item>&, const std::unique_ptr<Item>&> operator[](
             size_t index) const {
@@ -510,6 +516,22 @@ class Map : public CompoundItem {
 
     MajorType type() const override { return kMajorType; }
     const Map* asMap() const override { return this; }
+
+    // Sorts the map in canonical order, as defined in RFC 7049. Use this before encoding if you
+    // want canonicalization; cppbor does not canonicalize by default, though the integer encodings
+    // are always canonical and cppbor does not support indefinite-length encodings, so map order
+    // canonicalization is the only thing that needs to be done.
+    //
+    // Note that this canonicalization algorithm moves the map contents twice, so it isn't
+    // particularly efficient. Avoid using it unnecessarily on large maps. It does nothing for empty
+    // or single-entry maps, though, so it's recommended to always call it when you need a canonical
+    // map, even if the map is known to have less than two entries. That way if a maintainer later
+    // adds another item canonicalization will be preserved.
+    Map& canonicalize() &;
+    Map&& canonicalize() && {
+        canonicalize();
+        return std::move(*this);
+    }
 
     virtual std::unique_ptr<Item> clone() const override;
 
@@ -649,6 +671,36 @@ class Null : public Simple {
     virtual std::unique_ptr<Item> clone() const override { return std::make_unique<Null>(); }
 };
 
+/**
+ * Returns pretty-printed CBOR for |item|
+ *
+ * If a byte-string is larger than |maxBStrSize| its contents will not be
+ * printed, instead the value of the form "<bstr size=1099016
+ * sha1=ef549cca331f73dfae2090e6a37c04c23f84b07b>" will be printed. Pass zero
+ * for |maxBStrSize| to disable this.
+ *
+ * The |mapKeysToNotPrint| parameter specifies the name of map values
+ * to not print. This is useful for unit tests.
+ */
+std::string prettyPrint(const Item* item, size_t maxBStrSize = 32,
+                        const std::vector<std::string>& mapKeysNotToPrint = {});
+
+/**
+ * Returns pretty-printed CBOR for |value|.
+ *
+ * Only valid CBOR should be passed to this function.
+ *
+ * If a byte-string is larger than |maxBStrSize| its contents will not be
+ * printed, instead the value of the form "<bstr size=1099016
+ * sha1=ef549cca331f73dfae2090e6a37c04c23f84b07b>" will be printed. Pass zero
+ * for |maxBStrSize| to disable this.
+ *
+ * The |mapKeysToNotPrint| parameter specifies the name of map values
+ * to not print. This is useful for unit tests.
+ */
+std::string prettyPrint(const std::vector<uint8_t>& encodedCbor, size_t maxBStrSize = 32,
+                        const std::vector<std::string>& mapKeysNotToPrint = {});
+
 template <typename T>
 std::unique_ptr<T> downcastItem(std::unique_ptr<Item>&& v) {
     static_assert(std::is_base_of_v<Item, T> && !std::is_abstract_v<T>,
@@ -717,6 +769,7 @@ struct is_text_type_v<
  *     (e1), unique_ptr (e2), reference (e3) or value (e3).  If provided by reference or value, will
  *     be moved if possible.  If provided by pointer, ownership is taken.
  * (f) null pointer;
+ * (g) enums, using the underlying integer value.
  */
 template <typename T>
 std::unique_ptr<Item> makeItem(T v) {
@@ -753,6 +806,8 @@ std::unique_ptr<Item> makeItem(T v) {
         p = new T(std::move(v));
     } else if constexpr (/* case f */ std::is_null_pointer_v<T>) {
         p = new Null();
+    } else if constexpr (/* case g */ std::is_enum_v<T>) {
+        return makeItem(static_cast<std::underlying_type_t<T>>(v));
     } else {
         // It's odd that this can't be static_assert(false), since it shouldn't be evaluated if one
         // of the above ifs matches.  But static_assert(false) always triggers.
@@ -805,17 +860,20 @@ Map&& Map::add(Key&& key, Value&& value) && {
     return std::move(*this);
 }
 
-template <typename Key, typename = std::enable_if_t<std::is_integral_v<Key> ||
-                                                    details::is_text_type_v<Key>::value>>
-std::pair<std::unique_ptr<Item>&, bool> Map::get(Key key) {
+static const std::unique_ptr<Item> kEmptyItemPtr;
+
+template <typename Key,
+          typename = std::enable_if_t<std::is_integral_v<Key> || std::is_enum_v<Key> ||
+                                      details::is_text_type_v<Key>::value>>
+const std::unique_ptr<Item>& Map::get(Key key) const {
     assertInvariant();
     auto keyItem = details::makeItem(key);
     for (size_t i = 0; i < mEntries.size(); i += 2) {
         if (*keyItem == *mEntries[i]) {
-            return {mEntries[i + 1], true};
+            return mEntries[i + 1];
         }
     }
-    return {keyItem, false};
+    return kEmptyItemPtr;
 }
 
 template <typename T>

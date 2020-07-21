@@ -1,0 +1,42 @@
+cc_library {
+    name: "lib_keymint_remote_prov_support",
+    cflags: [
+        "-O0",
+        "-g",
+    ],
+    srcs: [
+        "src/remote_prov_utils.cpp",
+    ],
+    export_include_dirs: [
+        "include",
+    ],
+    shared_libs: [
+        "libcppcose",
+        "libcppbor",
+        "libcrypto",
+    ],
+}
+
+cc_library {
+    name: "libcppcose",
+    cflags: [
+        "-O0",
+        "-g",
+    ],
+    srcs: [
+        "src/cppcose.cpp",
+    ],
+    export_include_dirs: [
+        "include",
+    ],
+    shared_libs: [
+        "libbinder_ndk",
+        "libcppbor",
+        "libcrypto",
+        "liblog",
+    ],
+    static_libs: [
+        // TODO(swillden): Remove keymint NDK
+        "android.hardware.keymint-ndk_platform",
+    ],
+}
