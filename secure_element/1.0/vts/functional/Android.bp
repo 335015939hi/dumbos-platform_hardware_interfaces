@@ -22,4 +22,5 @@ cc_test {
         "android.hardware.secure_element@1.0",
     ],
     test_suites: ["general-tests", "vts"],
+    test_config: "VtsHalSecureElementV1_0TargetTest.config",
 }
