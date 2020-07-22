@@ -1,0 +1,130 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f6afd103_f7cf7f72",
+        "filename": "common/aidl/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-07-22T18:44:54Z",
+      "side": 1,
+      "message": "is this needed?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 10
+      },
+      "revId": "9bccbab9a18d78a67ae49d9e2e778218af2e4c27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35dfe38e_2808a3cc",
+        "filename": "common/aidl/android/hardware/common/AidlMQDescriptor.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-07-22T18:44:54Z",
+      "side": 1,
+      "message": "nit: newline before L18",
+      "revId": "9bccbab9a18d78a67ae49d9e2e778218af2e4c27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0797aa89_85241c96",
+        "filename": "common/aidl/android/hardware/common/AidlMQDescriptor.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-07-22T18:44:54Z",
+      "side": 1,
+      "message": "is this needed?",
+      "range": {
+        "startLine": 21,
+        "startChar": 11,
+        "endLine": 21,
+        "endChar": 15
+      },
+      "revId": "9bccbab9a18d78a67ae49d9e2e778218af2e4c27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cda11430_c20ecfba",
+        "filename": "common/aidl/android/hardware/common/AidlMQDescriptor.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-07-22T18:44:54Z",
+      "side": 1,
+      "message": "4 spaces (assuming that\u0027s consistent with other files here)",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 2
+      },
+      "revId": "9bccbab9a18d78a67ae49d9e2e778218af2e4c27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "518c12ea_b4d65d51",
+        "filename": "common/aidl/android/hardware/common/AidlMQDescriptor.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-07-22T18:44:54Z",
+      "side": 1,
+      "message": "all of these fields will need explicit comments, since they are part of an API",
+      "revId": "9bccbab9a18d78a67ae49d9e2e778218af2e4c27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c48470d4_eeee770e",
+        "filename": "common/aidl/android/hardware/common/AidlMQDescriptor.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-07-22T18:44:54Z",
+      "side": 1,
+      "message": "s/mG/g/ etc",
+      "range": {
+        "startLine": 22,
+        "startChar": 22,
+        "endLine": 22,
+        "endChar": 24
+      },
+      "revId": "9bccbab9a18d78a67ae49d9e2e778218af2e4c27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
