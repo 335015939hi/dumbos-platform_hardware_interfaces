@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8f134a0b_e4c3671a",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1733820
+      },
+      "writtenOn": "2020-07-22T15:44:48Z",
+      "side": 1,
+      "message": "shall we also extend setup data call and maybe a new interface to support qos request and update? that should be standard parameters in 3gpp spec, just aosp does not support yet. in that case, we may also need update NetworkCapabilities, and DataProfileInfo.",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 85
+      },
+      "revId": "a42ac60c960a23cd5feeb0fbab67fa218e10e5ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f2cf132_9eee99c9",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1733820
+      },
+      "writtenOn": "2020-07-22T15:44:48Z",
+      "side": 1,
+      "message": "not sure if it is better to define a more common data struct to follow the qos parameters in 24.008",
+      "range": {
+        "startLine": 44,
+        "startChar": 30,
+        "endLine": 44,
+        "endChar": 31
+      },
+      "revId": "a42ac60c960a23cd5feeb0fbab67fa218e10e5ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
