@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0d70157c_00838280",
+        "filename": "secure_element/1.0/vts/functional/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2020-07-22T16:00:29Z",
+      "side": 1,
+      "message": "you can rename the config file to AndroidTest.xml, and remove this line.\nsame for other Android.bp.",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 60
+      },
+      "revId": "e598bffac960cf9b8be4945fe0a00c948082db58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
