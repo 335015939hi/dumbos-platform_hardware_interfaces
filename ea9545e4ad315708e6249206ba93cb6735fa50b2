@@ -71,6 +71,52 @@
     },
     {
       "key": {
+        "uuid": "d2c4a28f_85843e06",
+        "filename": "keymaster/5.0/support/key_param_output.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-07-22T01:27:02Z",
+      "side": 1,
+      "message": "Delete until then",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 30
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd2c1549_2b278794",
+        "filename": "keymaster/5.0/support/keymaster_utils.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-07-22T01:27:02Z",
+      "side": 1,
+      "message": "Are these used?",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 1
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "29135eb3_1e96b512",
         "filename": "keymaster/aidl/android/hardware/keymaster/BeginResult.aidl",
         "patchSetId": 16
@@ -485,6 +531,52 @@
     },
     {
       "key": {
+        "uuid": "29aa53ec_aafd31ef",
+        "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-07-22T01:27:02Z",
+      "side": 1,
+      "message": "Let\u0027s make this 32.",
+      "range": {
+        "startLine": 588,
+        "startChar": 20,
+        "endLine": 588,
+        "endChar": 22
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d6f006a_191ff94a",
+        "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-07-22T01:27:02Z",
+      "side": 1,
+      "message": "Let\u0027s remove this feature.  It has never been used, and really never even been asked for.",
+      "range": {
+        "startLine": 621,
+        "startChar": 0,
+        "endLine": 625,
+        "endChar": 42
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7f1e27e9_ff1eb4b5",
         "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
         "patchSetId": 16
@@ -501,6 +593,29 @@
         "startChar": 15,
         "endLine": 787,
         "endChar": 37
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a8bf27e_e06490d7",
+        "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterOperation.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-07-22T01:27:02Z",
+      "side": 1,
+      "message": "I think we don\u0027t need this, since it\u0027s being returned in BeginResults.",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 33
       },
       "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
@@ -525,6 +640,230 @@
         "endLine": 45,
         "endChar": 187
       },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "949d9761_1d8744db",
+        "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterOperation.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-07-22T01:27:02Z",
+      "side": 1,
+      "message": "tab",
+      "range": {
+        "startLine": 145,
+        "startChar": 0,
+        "endLine": 145,
+        "endChar": 1
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "30f15e90_8a4d4b98",
+        "filename": "keymaster/aidl/android/hardware/keymaster/KeyBlobUsageRequirements.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-07-22T01:27:02Z",
+      "side": 1,
+      "message": "Add a TODO: We should eliminate this and just require all key blobs to be STANDALONE.  This change will have no effect on the reference implementation.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 1
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c68376b_0fb9f510",
+        "filename": "keymaster/aidl/android/hardware/keymaster/KeyCharacteristics.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-07-22T01:27:02Z",
+      "side": 1,
+      "message": "Add a TODO: Let\u0027s get rid of this, and have TEE-enforced and StrongBox-enforced.",
+      "range": {
+        "startLine": 36,
+        "startChar": 19,
+        "endLine": 36,
+        "endChar": 35
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "09c5287a_17d42960",
+        "filename": "keymaster/aidl/android/hardware/keymaster/KeyOrigin.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-07-22T01:27:02Z",
+      "side": 1,
+      "message": "Add a TODO: We should eliminate this.",
+      "range": {
+        "startLine": 38,
+        "startChar": 2,
+        "endLine": 43,
+        "endChar": 16
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b23ba1e_ef2d0e1f",
+        "filename": "keymaster/aidl/android/hardware/keymaster/KeyPurpose.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-07-22T01:27:02Z",
+      "side": 1,
+      "message": "TODO: Add AGREE_KEY and ATTEST_KEY.",
+      "range": {
+        "startLine": 25,
+        "startChar": 5,
+        "endLine": 25,
+        "endChar": 15
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "09cc9435_01d4e27b",
+        "filename": "keymaster/aidl/android/hardware/keymaster/KeymasterHardwareInfo.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-07-22T01:27:02Z",
+      "side": 1,
+      "message": "Add a TODO: Let\u0027s add an implementation version number.",
+      "range": {
+        "startLine": 27,
+        "startChar": 11,
+        "endLine": 27,
+        "endChar": 32
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "695b1751_6da00fd8",
+        "filename": "keymaster/aidl/android/hardware/keymaster/SecurityLevel.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-07-22T01:27:02Z",
+      "side": 1,
+      "message": "Why this extra line?",
+      "range": {
+        "startLine": 28,
+        "startChar": 3,
+        "endLine": 28,
+        "endChar": 6
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5736944e_f96cbc39",
+        "filename": "keymaster/aidl/android/hardware/keymaster/Tag.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-07-22T01:27:02Z",
+      "side": 1,
+      "message": "Add a TODO: Let\u0027s remove this.",
+      "range": {
+        "startLine": 265,
+        "startChar": 1,
+        "endLine": 284,
+        "endChar": 65
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b113f1ae_d4f3bbc3",
+        "filename": "keymaster/aidl/android/hardware/keymaster/Tag.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-07-22T01:27:02Z",
+      "side": 1,
+      "message": "Break at 100 cols.  Also several places below.",
+      "range": {
+        "startLine": 343,
+        "startChar": 3,
+        "endLine": 345,
+        "endChar": 96
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ca471d0_a635b9ab",
+        "filename": "keymaster/aidl/android/hardware/keymaster/VerificationToken.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-07-22T01:27:02Z",
+      "side": 1,
+      "message": "Why the extra blank line?",
       "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
@@ -635,6 +974,30 @@
       "writtenOn": "2020-07-13T22:01:33Z",
       "side": 1,
       "message": "move the \"namespace test {\" here to keep operator\u003c\u003c in the correct namespace.",
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8babc3f3_e9d8ca1f",
+        "filename": "keymaster/aidl/vts/functional/VerificationTokenTest.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-07-22T01:27:02Z",
+      "side": 1,
+      "message": "\u003e Common typo found: \"paramters\" -- should it be \"parameters\"?\n\u003e Note: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line.\n\nPlease fix.",
+      "parentUuid": "c4dfd579_2ed6a5aa",
+      "range": {
+        "startLine": 135,
+        "startChar": 54,
+        "endLine": 135,
+        "endChar": 63
+      },
       "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
