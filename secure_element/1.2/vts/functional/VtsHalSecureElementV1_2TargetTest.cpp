@@ -92,6 +92,10 @@ TEST_P(SecureElementHidlTest, Reset) {
 
     auto res = se_cb_->WaitForCallback(kCallbackNameOnStateChange);
     EXPECT_TRUE(res.no_timeout);
+    EXPECT_FALSE(res.args->state_);
+
+    res = se_cb_->WaitForCallback(kCallbackNameOnStateChange);
+    EXPECT_TRUE(res.no_timeout);
     EXPECT_TRUE(res.args->state_);
 }
 
