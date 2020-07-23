@@ -22,6 +22,30 @@
       "revId": "e6849d568a02a151f050767ece0fd90ca68d5698",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de0859b0_edf41d12",
+        "filename": "drm/1.0/default/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1395887
+      },
+      "writtenOn": "2020-07-23T21:35:10Z",
+      "side": 0,
+      "message": "Resolved by using Soong Config Variables.",
+      "parentUuid": "f129caca_9fb893e5",
+      "range": {
+        "startLine": 77,
+        "startChar": 9,
+        "endLine": 77,
+        "endChar": 34
+      },
+      "revId": "e6849d568a02a151f050767ece0fd90ca68d5698",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
