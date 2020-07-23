@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1bf3310f_17e6271d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2020-07-23T11:41:02Z",
+      "side": 1,
+      "message": "Shawn, this is a cherry-pick of the CL from the partner-review gerrit. PTAL.",
+      "revId": "569a61290e3b6f3e3be4be2cdb2eda2652e36669",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
