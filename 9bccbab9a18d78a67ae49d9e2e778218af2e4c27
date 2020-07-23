@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1f2c8486_a404b232",
+        "filename": "common/aidl/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2020-07-23T00:17:35Z",
+      "side": 1,
+      "message": "No, I picked it up from internal master. Getting rid of it here.",
+      "parentUuid": "f6afd103_f7cf7f72",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 10
+      },
+      "revId": "9bccbab9a18d78a67ae49d9e2e778218af2e4c27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "35dfe38e_2808a3cc",
         "filename": "common/aidl/android/hardware/common/AidlMQDescriptor.aidl",
         "patchSetId": 2
@@ -39,6 +63,24 @@
       "revId": "9bccbab9a18d78a67ae49d9e2e778218af2e4c27",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40ca7c3b_a42aecbf",
+        "filename": "common/aidl/android/hardware/common/AidlMQDescriptor.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2020-07-23T00:17:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35dfe38e_2808a3cc",
+      "revId": "9bccbab9a18d78a67ae49d9e2e778218af2e4c27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -62,6 +104,30 @@
       "revId": "9bccbab9a18d78a67ae49d9e2e778218af2e4c27",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d940155_f29aaac8",
+        "filename": "common/aidl/android/hardware/common/AidlMQDescriptor.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2020-07-23T00:17:35Z",
+      "side": 1,
+      "message": "no, I removed it.",
+      "parentUuid": "0797aa89_85241c96",
+      "range": {
+        "startLine": 21,
+        "startChar": 11,
+        "endLine": 21,
+        "endChar": 15
+      },
+      "revId": "9bccbab9a18d78a67ae49d9e2e778218af2e4c27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -125,6 +191,72 @@
       "revId": "9bccbab9a18d78a67ae49d9e2e778218af2e4c27",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "093896b1_7b8ee693",
+        "filename": "common/aidl/android/hardware/common/AidlMQDescriptor.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2020-07-23T00:17:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "518c12ea_b4d65d51",
+      "revId": "9bccbab9a18d78a67ae49d9e2e778218af2e4c27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc508e23_07d58965",
+        "filename": "common/aidl/android/hardware/common/AidlMQDescriptor.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2020-07-23T00:17:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c48470d4_eeee770e",
+      "range": {
+        "startLine": 22,
+        "startChar": 22,
+        "endLine": 22,
+        "endChar": 24
+      },
+      "revId": "9bccbab9a18d78a67ae49d9e2e778218af2e4c27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "58ca5b23_90360dfd",
+        "filename": "common/aidl/android/hardware/common/AidlMQDescriptor.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2020-07-23T00:17:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cda11430_c20ecfba",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 2
+      },
+      "revId": "9bccbab9a18d78a67ae49d9e2e778218af2e4c27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
