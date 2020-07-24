@@ -853,6 +853,52 @@
     },
     {
       "key": {
+        "uuid": "ce3c075d_a4a7bc86",
+        "filename": "keymaster/aidl/android/hardware/keymaster/Tag.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-07-24T09:59:30Z",
+      "side": 1,
+      "message": "delete?  not sure which item or items this comment is for?",
+      "range": {
+        "startLine": 480,
+        "startChar": 2,
+        "endLine": 483,
+        "endChar": 7
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d46437b2_198e15d4",
+        "filename": "keymaster/aidl/android/hardware/keymaster/Tag.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 523,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-07-24T09:59:30Z",
+      "side": 1,
+      "message": "this doesn\u0027t match with the defination\n\nRootOfTrust \u003d {\n    \"verified_boot_key\" : bytes,\n    \"device_locked\" : bool,\n    \"verified_boot_state\" : VerifiedBootState\n}",
+      "range": {
+        "startLine": 523,
+        "startChar": 7,
+        "endLine": 523,
+        "endChar": 31
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8ca471d0_a635b9ab",
         "filename": "keymaster/aidl/android/hardware/keymaster/VerificationToken.aidl",
         "patchSetId": 16
