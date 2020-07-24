@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a05867e0_0a87ab4e",
+        "filename": "common/aidl/android/hardware/common/MQDescriptor.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-07-24T00:42:45Z",
+      "side": 1,
+      "message": "space",
+      "range": {
+        "startLine": 23,
+        "startChar": 6,
+        "endLine": 23,
+        "endChar": 7
+      },
+      "revId": "b300f24696d86fb40ae378918e9d9b2bf9a1c900",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9033dca_3b60fcd3",
+        "filename": "common/aidl/android/hardware/common/MQDescriptor.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-07-24T00:42:45Z",
+      "side": 1,
+      "message": "what is this btw?",
+      "range": {
+        "startLine": 24,
+        "startChar": 29,
+        "endLine": 24,
+        "endChar": 37
+      },
+      "revId": "b300f24696d86fb40ae378918e9d9b2bf9a1c900",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68709dcf_d715cc5c",
+        "filename": "common/aidl/android/hardware/common/MQDescriptor.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-07-24T00:42:45Z",
+      "side": 1,
+      "message": "does this imply the array will always be of length 4?",
+      "revId": "b300f24696d86fb40ae378918e9d9b2bf9a1c900",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ae30725_b1684ad5",
+        "filename": "common/aidl/android/hardware/common/MQDescriptor.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-07-24T00:42:45Z",
+      "side": 1,
+      "message": "maybe specify for shared memory?",
+      "range": {
+        "startLine": 28,
+        "startChar": 6,
+        "endLine": 28,
+        "endChar": 48
+      },
+      "revId": "b300f24696d86fb40ae378918e9d9b2bf9a1c900",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
