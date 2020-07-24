@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "49b0742d_fefa2315",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2020-07-24T01:30:51Z",
+      "side": 1,
+      "message": "The presubmit failure is on camera .. not related to this change",
+      "revId": "262b606c1bc61511aad8f065ff1895aa32590bef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
