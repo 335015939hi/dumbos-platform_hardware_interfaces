@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "599b4688_1c7da2cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1206463
+      },
+      "writtenOn": "2020-07-27T06:44:19Z",
+      "side": 1,
+      "message": "Hi Gaurav,\n\nShould we delete the test case instead of adding \"DISABLE_\" to the test name?",
+      "revId": "48f67e8438570eaaba8a4a5e99241ab9fd52293f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
