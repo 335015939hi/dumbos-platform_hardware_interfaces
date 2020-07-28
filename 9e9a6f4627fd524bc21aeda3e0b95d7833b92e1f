@@ -16,6 +16,24 @@
       "revId": "9e9a6f4627fd524bc21aeda3e0b95d7833b92e1f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b38eb406_40b6eb75",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2020-07-28T21:27:19Z",
+      "side": 1,
+      "message": "I hacked together some python code to create the change: gpaste/6509291705991168\n\nsome post editing is still needed.\n\nPatch 3 removed some files due to merge conflict. We need to update the internal one first for these files.",
+      "parentUuid": "e26818a5_357caef2",
+      "revId": "9e9a6f4627fd524bc21aeda3e0b95d7833b92e1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
