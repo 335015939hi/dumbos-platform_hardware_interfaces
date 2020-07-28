@@ -16,6 +16,23 @@
       "revId": "76f296f1484eab2d301151e2b582528a99554fb3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5aa43d45_0f7fd74b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-07-28T17:52:14Z",
+      "side": 1,
+      "message": "jiyong, do you know if this error is expected?",
+      "revId": "76f296f1484eab2d301151e2b582528a99554fb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
