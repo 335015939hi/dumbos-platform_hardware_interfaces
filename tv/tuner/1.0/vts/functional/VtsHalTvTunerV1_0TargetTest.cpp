@@ -1477,6 +1477,7 @@ TEST_P(TunerHidlTest, RecordDataFlowWithTsRecordFilterTest) {
 
 }  // namespace
 
+GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(TunerHidlTest);
 INSTANTIATE_TEST_SUITE_P(
         PerInstance, TunerHidlTest,
         testing::ValuesIn(android::hardware::getAllHalInstanceNames(ITuner::descriptor)),
