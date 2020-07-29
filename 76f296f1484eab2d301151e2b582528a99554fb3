@@ -68,6 +68,24 @@
       "revId": "76f296f1484eab2d301151e2b582528a99554fb3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26b2a4f9_d0869fca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-07-29T17:59:31Z",
+      "side": 1,
+      "message": "system_server_current is a superset of module_current, and it\u0027s what we were using internally, but you\u0027re right, it\u0027s not as good of a test.\n\nStill, I thought we would want system_server_current to work on AOSP, but if module_current works, that\u0027s sufficient for this usecase",
+      "parentUuid": "22988c1c_2753215c",
+      "revId": "76f296f1484eab2d301151e2b582528a99554fb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
