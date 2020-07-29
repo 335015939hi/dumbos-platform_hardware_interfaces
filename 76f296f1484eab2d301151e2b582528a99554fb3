@@ -50,6 +50,24 @@
       "revId": "76f296f1484eab2d301151e2b582528a99554fb3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "22988c1c_2753215c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2020-07-29T02:35:14Z",
+      "side": 1,
+      "message": "I just re-read local_systemsdk.mk and wondered why this \u0027works\u0027 in master. It  understands \u0027system_server_current\u0027 as the \u0027server_current\u0027 version of the \u0027system\u0027 API.\n\nBut why do you use \u0027system_server_current\u0027? Shouldn\u0027t it be \u0027module_current\u0027?  PARCELABLE_STABILITY_VINTF is with SystemApi.Client.MODULE_LIBRARIES.",
+      "parentUuid": "5aa43d45_0f7fd74b",
+      "revId": "76f296f1484eab2d301151e2b582528a99554fb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
