@@ -56,6 +56,30 @@
       "revId": "46b1ce23d1a7f3b591dee8124a3e7f646f91cba7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "099a21d3_f86e7713",
+        "filename": "current.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 653,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2020-07-29T22:23:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b04c724_1a34aa60",
+      "range": {
+        "startLine": 653,
+        "startChar": 0,
+        "endLine": 653,
+        "endChar": 49
+      },
+      "revId": "46b1ce23d1a7f3b591dee8124a3e7f646f91cba7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
