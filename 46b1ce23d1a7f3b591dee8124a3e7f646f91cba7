@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "16aba40c_6b782758",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-07-29T22:00:04Z",
+      "side": 1,
+      "message": "lg",
+      "revId": "46b1ce23d1a7f3b591dee8124a3e7f646f91cba7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b04c724_1a34aa60",
+        "filename": "current.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 653,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-07-29T22:00:04Z",
+      "side": 1,
+      "message": "add new hash in this section",
+      "range": {
+        "startLine": 653,
+        "startChar": 0,
+        "endLine": 653,
+        "endChar": 49
+      },
+      "revId": "46b1ce23d1a7f3b591dee8124a3e7f646f91cba7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

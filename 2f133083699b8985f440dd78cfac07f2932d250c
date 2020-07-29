@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "222d3dde_a47ab122",
+        "filename": "current.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-07-29T22:00:04Z",
+      "side": 0,
+      "message": "can\u0027t delete old hash",
+      "range": {
+        "startLine": 132,
+        "startChar": 0,
+        "endLine": 132,
+        "endChar": 98
+      },
+      "revId": "2f133083699b8985f440dd78cfac07f2932d250c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
