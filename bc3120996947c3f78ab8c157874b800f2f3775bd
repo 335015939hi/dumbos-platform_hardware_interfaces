@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e3266865_4a3a4dd1",
+        "filename": "common/aidl/android/hardware/common/MQDescriptor.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-07-29T23:46:30Z",
+      "side": 1,
+      "message": "trailing space - check editor settings as well",
+      "range": {
+        "startLine": 23,
+        "startChar": 6,
+        "endLine": 23,
+        "endChar": 7
+      },
+      "revId": "bc3120996947c3f78ab8c157874b800f2f3775bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b458ed5a_32e4ea08",
+        "filename": "tests/msgq/1.0/default/mq_test_service.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-07-29T23:46:30Z",
+      "side": 1,
+      "message": "nit: since we are only joining, actually can both of these be removed? idk",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 37
+      },
+      "revId": "bc3120996947c3f78ab8c157874b800f2f3775bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5a0328c_36b981f4",
+        "filename": "tests/msgq/1.0/default/mq_test_service.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-07-29T23:46:30Z",
+      "side": 1,
+      "message": "assert this is ok, otherwise the process will persist without registering this service, since L46 will never return",
+      "range": {
+        "startLine": 45,
+        "startChar": 9,
+        "endLine": 45,
+        "endChar": 15
+      },
+      "revId": "bc3120996947c3f78ab8c157874b800f2f3775bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c05a8501_74dd63aa",
+        "filename": "tests/msgq/1.0/default/mq_test_service.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-07-29T23:46:30Z",
+      "side": 1,
+      "message": "always return a failure",
+      "range": {
+        "startLine": 48,
+        "startChar": 11,
+        "endLine": 48,
+        "endChar": 17
+      },
+      "revId": "bc3120996947c3f78ab8c157874b800f2f3775bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
