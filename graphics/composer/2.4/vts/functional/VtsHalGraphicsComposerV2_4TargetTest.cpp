@@ -438,6 +438,7 @@ void GraphicsComposerHidlCommandTest::sendRefreshFrame(const VsyncPeriodChangeTi
 
     mWriter->presentDisplay();
     execute();
+    mComposerClient->destroyLayer(mPrimaryDisplay, layer);
 }
 
 void GraphicsComposerHidlCommandTest::waitForVsyncPeriodChange(
