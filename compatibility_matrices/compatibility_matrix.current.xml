@@ -344,6 +344,13 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="aidl" optional="true">
+         <name>android.hardware.powerstats</name>
+         <interface>
+             <name>IPowerStats</name>
+             <instance>default</instance>
+         </interface>
+    </hal>
     <hal format="hidl" optional="true">
         <name>android.hardware.radio</name>
         <version>1.6</version>
