@@ -21,6 +21,7 @@ import @1.5::IRadio;
 import @1.5::AccessNetwork;
 import @1.5::DataProfileInfo;
 import @1.5::LinkAddress;
+import @1.6::ImsiEncryptionInfo;
 
 /**
  * This interface is used by telephony and telecom to talk to cellular radio.
@@ -87,4 +88,20 @@ interface IRadio extends @1.5::IRadio {
     oneway setupDataCall_1_6(int32_t serial, AccessNetwork accessNetwork,
             DataProfileInfo dataProfileInfo, bool roamingAllowed,
             DataRequestReason reason, vec<LinkAddress> addresses, vec<string> dnses);
+
+    /**
+     * Provide Carrier specific information to the modem that must be used to
+     * encrypt the IMSI and IMPI. Sent by the framework during boot, carrier
+     * switch and everytime the framework receives a new certificate.
+     *
+     * @param serial Serial number of request.
+     * @param imsiEncryptionInfo ImsiEncryptionInfo as defined in types.hal.
+     *
+     * Response callback is
+     * IRadioResponse.setCarrierInfoForImsiEncryptionResponse_1_6()
+     *
+     * Note this API is the same as the 1.1 version except using the 1.6 ImsiEncryptionInfo
+     * as the input param.
+     */
+    oneway setCarrierInfoForImsiEncryption_1_6(int32_t serial, ImsiEncryptionInfo imsiEncryptionInfo);
 };
