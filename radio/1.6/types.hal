@@ -16,6 +16,7 @@
 
 package android.hardware.radio@1.6;
 
+import @1.1::ImsiEncryptionInfo;
 import @1.5::SetupDataCallResult;
 
 import android.hidl.safe_union@1.0::Monostate;
@@ -187,4 +188,21 @@ struct SetupDataCallResult {
      * PDNs that support dedicated bearers.
      */
     vec<QosSession> qosSessions;
+};
+
+/**
+ * Public key type from carrier certificate.
+ */
+enum PublicKeyType : int32_t {
+    EPDG    = 1,                   // Key type to be used for ePDG
+    WLAN    = 2,                   // Key type to be used for WLAN
+};
+
+/**
+ * Carrier specific Information sent by the carrier,
+ * which will be used to encrypt the IMSI and IMPI.
+ */
+struct ImsiEncryptionInfo {
+    @1.1::ImsiEncryptionInfo base;
+    PublicKeyType keyType;         // Public key type
 };
