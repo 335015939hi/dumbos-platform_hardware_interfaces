@@ -24,6 +24,7 @@ import @1.0::RadioError;
 import @1.0::RadioResponseType;
 import @1.0::RegState;
 import @1.1::ScanStatus;
+import @1.1::ImsiEncryptionInfo;
 import @1.2::Call;
 import @1.2::CellInfoCdma;
 import @1.2::CellConnectionStatus;
@@ -732,4 +733,21 @@ struct Call {
      * Reference: 3GPP TS 24.008 section 10.5.4.21b
      */
     string forwardedNumber;
+};
+
+/**
+ * Public key type from carrier certificate.
+ */
+enum PublicKeyType : int32_t {
+    EPDG    = 1,                   // Key type to be used for ePDG
+    WLAN    = 2,                   // Key type to be used for WLAN
+};
+
+/**
+ * Carrier specific Information sent by the carrier,
+ * which will be used to encrypt the IMSI and IMPI.
+ */
+struct ImsiEncryptionInfo {
+    @1.1::ImsiEncryptionInfo base;
+    PublicKeyType keyType;         // Public key type
 };
