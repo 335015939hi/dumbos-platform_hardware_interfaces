@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5d0bf616_b04c8882",
+        "filename": "common/aidl/android/hardware/common/MQDescriptor.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2020-07-30T01:22:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a05867e0_0a87ab4e",
+      "range": {
+        "startLine": 23,
+        "startChar": 6,
+        "endLine": 23,
+        "endChar": 7
+      },
+      "revId": "b300f24696d86fb40ae378918e9d9b2bf9a1c900",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d9033dca_3b60fcd3",
         "filename": "common/aidl/android/hardware/common/MQDescriptor.aidl",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2020-07-24T00:42:45Z",
       "side": 1,
       "message": "what is this btw?",
+      "range": {
+        "startLine": 24,
+        "startChar": 29,
+        "endLine": 24,
+        "endChar": 37
+      },
+      "revId": "b300f24696d86fb40ae378918e9d9b2bf9a1c900",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "345b50cb_ee1e10bf",
+        "filename": "common/aidl/android/hardware/common/MQDescriptor.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2020-07-30T01:22:18Z",
+      "side": 1,
+      "message": "I reworded it to hopefully be more clear. It\u0027s what that group of things(readptr, writeptr...) is called. They kind of grant access to the message queue by telling you where each one is kept(like writeptr is at offset X in the mmapped file Y). At least that\u0027s been my understanding.",
+      "parentUuid": "d9033dca_3b60fcd3",
       "range": {
         "startLine": 24,
         "startChar": 29,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "afad2f15_ea118815",
+        "filename": "common/aidl/android/hardware/common/MQDescriptor.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2020-07-30T01:22:18Z",
+      "side": 1,
+      "message": "Can be 3 or 4. It\u0027s 3 unless you want blocking operations and require the EventFlag word to be in the shared memory.",
+      "parentUuid": "68709dcf_d715cc5c",
+      "revId": "b300f24696d86fb40ae378918e9d9b2bf9a1c900",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ae30725_b1684ad5",
         "filename": "common/aidl/android/hardware/common/MQDescriptor.aidl",
         "patchSetId": 3
@@ -85,6 +151,30 @@
       "revId": "b300f24696d86fb40ae378918e9d9b2bf9a1c900",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b95f1d9_0c73e917",
+        "filename": "common/aidl/android/hardware/common/MQDescriptor.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2020-07-30T01:22:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ae30725_b1684ad5",
+      "range": {
+        "startLine": 28,
+        "startChar": 6,
+        "endLine": 28,
+        "endChar": 48
+      },
+      "revId": "b300f24696d86fb40ae378918e9d9b2bf9a1c900",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
