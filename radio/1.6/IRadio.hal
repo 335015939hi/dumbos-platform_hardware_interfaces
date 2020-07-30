@@ -17,6 +17,7 @@
 package android.hardware.radio@1.6;
 
 import @1.5::IRadio;
+import @1.6::ImsiEncryptionInfo;
 
 /**
  * This interface is used by telephony and telecom to talk to cellular radio.
@@ -27,4 +28,19 @@ import @1.5::IRadio;
  * setResponseFunctions must work with @1.6:IRadioResponse and @1.6::IRadioIndication.
  */
 interface IRadio extends @1.5::IRadio {
+    /**
+     * Provide Carrier specific information to the modem that must be used to
+     * encrypt the IMSI and IMPI. Sent by the framework during boot, carrier
+     * switch and everytime the framework receives a new certificate.
+     *
+     * @param serial Serial number of request.
+     * @param imsiEncryptionInfo ImsiEncryptionInfo as defined in types.hal.
+     *
+     * Response callback is
+     * IRadioResponse.setCarrierInfoForImsiEncryptionResponse_1_6()
+     *
+     * Note this API is the same as the 1.1 version except using the 1.6 ImsiEncryptionInfo
+     * as the input param.
+     */
+    oneway setCarrierInfoForImsiEncryption_1_6(int32_t serial, ImsiEncryptionInfo imsiEncryptionInfo);
 };

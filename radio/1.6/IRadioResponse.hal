@@ -22,4 +22,16 @@ import @1.5::IRadioResponse;
  * Interface declaring response functions to solicited radio requests.
  */
 interface IRadioResponse extends @1.5::IRadioResponse {
+    /**
+     * @param info Response info struct containing response type, serial no. and error
+     *
+     * Valid errors returned:
+     *   RadioError:RIL_E_SUCCESS
+     *   RadioError:RIL_E_RADIO_NOT_AVAILABLE
+     *   RadioError:SIM_ABSENT
+     *   RadioError:RIL_E_REQUEST_NOT_SUPPORTED
+     *   RadioError:INVALID_ARGUMENTS
+     *   RadioError:MODEM_INTERNAL_FAILURE
+     */
+    oneway setCarrierInfoForImsiEncryptionResponse_1_6(RadioResponseInfo info);
 };
