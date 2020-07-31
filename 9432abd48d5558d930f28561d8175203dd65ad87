@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0fd6fd67_efe2d9fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1021605
+      },
+      "writtenOn": "2020-07-31T04:02:20Z",
+      "side": 1,
+      "message": "Merge errors to internal trees are caused by the dependent patches already being on those internal branches",
+      "revId": "9432abd48d5558d930f28561d8175203dd65ad87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
