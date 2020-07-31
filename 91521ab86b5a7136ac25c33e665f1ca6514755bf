@@ -22,6 +22,30 @@
       "revId": "91521ab86b5a7136ac25c33e665f1ca6514755bf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8d9e2e8_0241e6c5",
+        "filename": "keymaster/4.0/vts/functional/KeymasterHidlTest.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-07-31T12:02:04Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "c4030bb0_b5b6f74d",
+      "range": {
+        "startLine": 235,
+        "startChar": 0,
+        "endLine": 235,
+        "endChar": 0
+      },
+      "revId": "91521ab86b5a7136ac25c33e665f1ca6514755bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

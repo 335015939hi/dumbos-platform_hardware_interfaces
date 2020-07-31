@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0a302f83_c13a0216",
+        "filename": "keymaster/5.0/support/include/keymasterV5_0/keymaster_tags.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-07-31T12:02:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c1e71ff_8cbd8661",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 70
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ac3276c5_142c3b00",
         "filename": "keymaster/5.0/support/include/keymasterV5_0/keymaster_tags.h",
         "patchSetId": 16
@@ -45,6 +69,30 @@
       "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a7f3757_eda6a3a9",
+        "filename": "keymaster/5.0/support/include/keymasterV5_0/keymaster_tags.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-07-31T12:02:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac3276c5_142c3b00",
+      "range": {
+        "startLine": 181,
+        "startChar": 0,
+        "endLine": 196,
+        "endChar": 2
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "9b0d512d_fca461ef",
+        "filename": "keymaster/5.0/support/include/keymasterV5_0/keymaster_tags.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-07-31T12:02:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0947dab0_1797c0b7",
+      "range": {
+        "startLine": 284,
+        "startChar": 1,
+        "endLine": 290,
+        "endChar": 3
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d2c4a28f_85843e06",
         "filename": "keymaster/5.0/support/key_param_output.cpp",
         "patchSetId": 16
@@ -91,6 +163,30 @@
       "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5b20412_2a63e1ad",
+        "filename": "keymaster/5.0/support/key_param_output.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-07-31T12:02:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d2c4a28f_85843e06",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 30
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "ffc17cc8_4bdda9fa",
+        "filename": "keymaster/5.0/support/keymaster_utils.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-07-31T12:02:04Z",
+      "side": 1,
+      "message": "these are used in system/keymaster side, not in the hardware/interface side.  I\u0027ve deleted it.",
+      "parentUuid": "cd2c1549_2b278794",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 1
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "29135eb3_1e96b512",
         "filename": "keymaster/aidl/android/hardware/keymaster/BeginResult.aidl",
         "patchSetId": 16
@@ -137,6 +257,30 @@
       "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1da3c24_9c47742f",
+        "filename": "keymaster/aidl/android/hardware/keymaster/BeginResult.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-07-31T12:02:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "29135eb3_1e96b512",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 7
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "4e8c8667_d944ed7f",
+        "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-07-31T12:02:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f1284c07_f17043ee",
+      "range": {
+        "startLine": 135,
+        "startChar": 61,
+        "endLine": 139,
+        "endChar": 27
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ec8800b_726c8449",
         "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
         "patchSetId": 16
@@ -183,6 +351,30 @@
       "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f81ccf62_f35849ea",
+        "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-07-31T12:02:04Z",
+      "side": 1,
+      "message": "what tag should the caller put the datetime under?  I don\u0027t think we are doing this right now and I dont\u0027 see any appropate tags to put this under?  How about create a new tag called CURRENT_DATETIME and only allow as part of keyParameter input?",
+      "parentUuid": "4ec8800b_726c8449",
+      "range": {
+        "startLine": 145,
+        "startChar": 8,
+        "endLine": 146,
+        "endChar": 30
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "feda9a3b_97fbeffa",
+        "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-07-31T12:02:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a1e0c1d_43e88830",
+      "range": {
+        "startLine": 149,
+        "startChar": 4,
+        "endLine": 150,
+        "endChar": 8
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6924cc2e_98042e49",
         "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
         "patchSetId": 16
@@ -232,6 +448,30 @@
     },
     {
       "key": {
+        "uuid": "94e4bec8_fb7dcd54",
+        "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-07-31T12:02:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6924cc2e_98042e49",
+      "range": {
+        "startLine": 173,
+        "startChar": 56,
+        "endLine": 174,
+        "endChar": 16
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e4693b7_df9fd8c9",
         "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
         "patchSetId": 16
@@ -243,6 +483,30 @@
       "writtenOn": "2020-07-01T21:57:58Z",
       "side": 1,
       "message": "These are not correct.",
+      "range": {
+        "startLine": 214,
+        "startChar": 7,
+        "endLine": 219,
+        "endChar": 51
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57994f98_fe626194",
+        "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-07-31T12:02:04Z",
+      "side": 1,
+      "message": "this is what we currently return in the reference implementation.  if it is not correct.  what should it be?",
+      "parentUuid": "2e4693b7_df9fd8c9",
       "range": {
         "startLine": 214,
         "startChar": 7,
@@ -278,6 +542,30 @@
     },
     {
       "key": {
+        "uuid": "dc9ec104_b91434fc",
+        "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-07-31T12:02:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7171deec_b247a740",
+      "range": {
+        "startLine": 221,
+        "startChar": 3,
+        "endLine": 221,
+        "endChar": 57
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "429aeaab_f880d2c5",
         "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
         "patchSetId": 16
@@ -301,6 +589,30 @@
     },
     {
       "key": {
+        "uuid": "dc4eef0b_578295d7",
+        "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-07-31T12:02:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "429aeaab_f880d2c5",
+      "range": {
+        "startLine": 230,
+        "startChar": 82,
+        "endLine": 230,
+        "endChar": 98
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "35e56332_f6a6b8b0",
         "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
         "patchSetId": 16
@@ -312,6 +624,30 @@
       "writtenOn": "2020-07-01T21:57:58Z",
       "side": 1,
       "message": "This is removed.",
+      "range": {
+        "startLine": 231,
+        "startChar": 39,
+        "endLine": 232,
+        "endChar": 83
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48623e45_a3b0b194",
+        "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-07-31T12:02:04Z",
+      "side": 1,
+      "message": "so what is returned then?  should we not return the verificationtoken?",
+      "parentUuid": "35e56332_f6a6b8b0",
       "range": {
         "startLine": 231,
         "startChar": 39,
@@ -347,6 +683,30 @@
     },
     {
       "key": {
+        "uuid": "9fec25a5_3f784e8c",
+        "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-07-31T12:02:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01985cbb_290679f3",
+      "range": {
+        "startLine": 261,
+        "startChar": 67,
+        "endLine": 261,
+        "endChar": 87
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e874bca0_6f5f98e8",
         "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
         "patchSetId": 16
@@ -367,6 +727,30 @@
       "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d85b4d5_e8f5b167",
+        "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-07-31T12:02:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e874bca0_6f5f98e8",
+      "range": {
+        "startLine": 281,
+        "startChar": 28,
+        "endLine": 282,
+        "endChar": 81
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -393,6 +777,30 @@
     },
     {
       "key": {
+        "uuid": "6839f855_fc578a24",
+        "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-07-31T12:02:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44f51348_7baab26b",
+      "range": {
+        "startLine": 292,
+        "startChar": 8,
+        "endLine": 294,
+        "endChar": 95
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "511cea90_f6637a62",
         "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
         "patchSetId": 16
@@ -413,6 +821,30 @@
       "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a30b6a22_fd89d3a9",
+        "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-07-31T12:02:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "511cea90_f6637a62",
+      "range": {
+        "startLine": 368,
+        "startChar": 27,
+        "endLine": 370,
+        "endChar": 52
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -439,6 +871,30 @@
     },
     {
       "key": {
+        "uuid": "b14e2442_1ac9313f",
+        "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-07-31T12:02:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dadd4186_46101fba",
+      "range": {
+        "startLine": 374,
+        "startChar": 0,
+        "endLine": 374,
+        "endChar": 6
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "57517399_3c29525d",
         "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
         "patchSetId": 16
@@ -459,6 +915,30 @@
       "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90562c29_37f42bf3",
+        "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-07-31T12:02:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57517399_3c29525d",
+      "range": {
+        "startLine": 399,
+        "startChar": 8,
+        "endLine": 399,
+        "endChar": 12
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -485,6 +965,30 @@
     },
     {
       "key": {
+        "uuid": "da35b58d_e014d46b",
+        "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-07-31T12:02:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64ae9b9a_db65ea9a",
+      "range": {
+        "startLine": 401,
+        "startChar": 15,
+        "endLine": 403,
+        "endChar": 51
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b7501192_aae08742",
         "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
         "patchSetId": 16
@@ -496,6 +1000,30 @@
       "writtenOn": "2020-07-01T21:57:58Z",
       "side": 1,
       "message": "We need to define a CBOR format.  I guess maybe we need the CBOR and DER formats.  Ugh.  This needs discussion.",
+      "range": {
+        "startLine": 420,
+        "startChar": 8,
+        "endLine": 421,
+        "endChar": 55
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "388e32cf_a5ede0f8",
+        "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-07-31T12:02:04Z",
+      "side": 1,
+      "message": "I\u0027ll put a todo for now.",
+      "parentUuid": "b7501192_aae08742",
       "range": {
         "startLine": 420,
         "startChar": 8,
@@ -531,6 +1059,30 @@
     },
     {
       "key": {
+        "uuid": "64ca6cdb_32fc2358",
+        "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-07-31T12:02:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17b910b0_e28eedf7",
+      "range": {
+        "startLine": 515,
+        "startChar": 32,
+        "endLine": 515,
+        "endChar": 56
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "29aa53ec_aafd31ef",
         "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
         "patchSetId": 16
@@ -551,6 +1103,30 @@
       "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b322e43_1e4424da",
+        "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-07-31T12:02:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "29aa53ec_aafd31ef",
+      "range": {
+        "startLine": 588,
+        "startChar": 20,
+        "endLine": 588,
+        "endChar": 22
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -577,6 +1153,30 @@
     },
     {
       "key": {
+        "uuid": "23d08b05_0e5690a9",
+        "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-07-31T12:02:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d6f006a_191ff94a",
+      "range": {
+        "startLine": 621,
+        "startChar": 0,
+        "endLine": 625,
+        "endChar": 42
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f1e27e9_ff1eb4b5",
         "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
         "patchSetId": 16
@@ -597,6 +1197,30 @@
       "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "decb8754_b2cdc101",
+        "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 787,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-07-31T12:02:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f1e27e9_ff1eb4b5",
+      "range": {
+        "startLine": 787,
+        "startChar": 15,
+        "endLine": 787,
+        "endChar": 37
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -623,6 +1247,30 @@
     },
     {
       "key": {
+        "uuid": "3142cbdc_3ee318bb",
+        "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterOperation.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-07-31T12:02:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a8bf27e_e06490d7",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 33
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "69cc6a37_6108c0e7",
         "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterOperation.aidl",
         "patchSetId": 16
@@ -634,6 +1282,30 @@
       "writtenOn": "2020-07-01T21:57:58Z",
       "side": 1,
       "message": "Add a TODO to rethink this in the chunking revision.",
+      "range": {
+        "startLine": 44,
+        "startChar": 39,
+        "endLine": 45,
+        "endChar": 187
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4f8f0aa_5b46db90",
+        "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterOperation.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-07-31T12:02:04Z",
+      "side": 1,
+      "message": "added.  but what is the chunking revision?  related to which project?  I don\u0027t see a problem with the current data consumption method?",
+      "parentUuid": "69cc6a37_6108c0e7",
       "range": {
         "startLine": 44,
         "startChar": 39,
@@ -669,6 +1341,30 @@
     },
     {
       "key": {
+        "uuid": "2c4b861a_ea93d729",
+        "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterOperation.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-07-31T12:02:04Z",
+      "side": 1,
+      "message": "this tab is done by gvim somehow.  I don\u0027t know why it would indent first with a tab then with space.",
+      "parentUuid": "949d9761_1d8744db",
+      "range": {
+        "startLine": 145,
+        "startChar": 0,
+        "endLine": 145,
+        "endChar": 1
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "30f15e90_8a4d4b98",
         "filename": "keymaster/aidl/android/hardware/keymaster/KeyBlobUsageRequirements.aidl",
         "patchSetId": 16
@@ -680,6 +1376,30 @@
       "writtenOn": "2020-07-22T01:27:02Z",
       "side": 1,
       "message": "Add a TODO: We should eliminate this and just require all key blobs to be STANDALONE.  This change will have no effect on the reference implementation.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 1
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b19028ad_fd256471",
+        "filename": "keymaster/aidl/android/hardware/keymaster/KeyBlobUsageRequirements.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-07-31T12:02:04Z",
+      "side": 1,
+      "message": "I think we can delete this file all together once we removed all the reference to keyblob format in our vts tests and codes.",
+      "parentUuid": "30f15e90_8a4d4b98",
       "range": {
         "startLine": 19,
         "startChar": 0,
@@ -715,6 +1435,30 @@
     },
     {
       "key": {
+        "uuid": "1f663647_b7b2cc1c",
+        "filename": "keymaster/aidl/android/hardware/keymaster/KeyCharacteristics.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-07-31T12:02:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c68376b_0fb9f510",
+      "range": {
+        "startLine": 36,
+        "startChar": 19,
+        "endLine": 36,
+        "endChar": 35
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "09c5287a_17d42960",
         "filename": "keymaster/aidl/android/hardware/keymaster/KeyOrigin.aidl",
         "patchSetId": 16
@@ -726,6 +1470,30 @@
       "writtenOn": "2020-07-22T01:27:02Z",
       "side": 1,
       "message": "Add a TODO: We should eliminate this.",
+      "range": {
+        "startLine": 38,
+        "startChar": 2,
+        "endLine": 43,
+        "endChar": 16
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c260d3f_dcec1257",
+        "filename": "keymaster/aidl/android/hardware/keymaster/KeyOrigin.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-07-31T12:02:04Z",
+      "side": 1,
+      "message": "sure we can delete it.  but I doubt we should mark this as reserved, because older implementation would use it.  then the vts tests would fail matching to reserved or to the next up definition.  I think leaving this is a better bet.",
+      "parentUuid": "09c5287a_17d42960",
       "range": {
         "startLine": 38,
         "startChar": 2,
@@ -761,6 +1529,30 @@
     },
     {
       "key": {
+        "uuid": "0133be42_91b0ffb4",
+        "filename": "keymaster/aidl/android/hardware/keymaster/KeyPurpose.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-07-31T12:02:04Z",
+      "side": 1,
+      "message": "todo added, but ...... why are you adding all the keymint new changes in as todo now?  It\u0027s on our task list and we can add them together with the coding and tests instead of a bunch of todo now.",
+      "parentUuid": "2b23ba1e_ef2d0e1f",
+      "range": {
+        "startLine": 25,
+        "startChar": 5,
+        "endLine": 25,
+        "endChar": 15
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "09cc9435_01d4e27b",
         "filename": "keymaster/aidl/android/hardware/keymaster/KeymasterHardwareInfo.aidl",
         "patchSetId": 16
@@ -781,6 +1573,30 @@
       "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2834c26c_158507ae",
+        "filename": "keymaster/aidl/android/hardware/keymaster/KeymasterHardwareInfo.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-07-31T12:02:04Z",
+      "side": 1,
+      "message": "I added it now.",
+      "parentUuid": "09cc9435_01d4e27b",
+      "range": {
+        "startLine": 27,
+        "startChar": 11,
+        "endLine": 27,
+        "endChar": 32
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -807,6 +1623,30 @@
     },
     {
       "key": {
+        "uuid": "d0f9920b_e5bad3fd",
+        "filename": "keymaster/aidl/android/hardware/keymaster/SecurityLevel.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-07-31T12:02:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "695b1751_6da00fd8",
+      "range": {
+        "startLine": 28,
+        "startChar": 3,
+        "endLine": 28,
+        "endChar": 6
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5736944e_f96cbc39",
         "filename": "keymaster/aidl/android/hardware/keymaster/Tag.aidl",
         "patchSetId": 16
@@ -830,6 +1670,30 @@
     },
     {
       "key": {
+        "uuid": "d0e69edb_c99ca615",
+        "filename": "keymaster/aidl/android/hardware/keymaster/Tag.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-07-31T12:02:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5736944e_f96cbc39",
+      "range": {
+        "startLine": 265,
+        "startChar": 1,
+        "endLine": 284,
+        "endChar": 65
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b113f1ae_d4f3bbc3",
         "filename": "keymaster/aidl/android/hardware/keymaster/Tag.aidl",
         "patchSetId": 16
@@ -850,6 +1714,30 @@
       "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d0cd9e1_668f7887",
+        "filename": "keymaster/aidl/android/hardware/keymaster/Tag.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-07-31T12:02:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b113f1ae_d4f3bbc3",
+      "range": {
+        "startLine": 343,
+        "startChar": 3,
+        "endLine": 345,
+        "endChar": 96
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -899,6 +1787,29 @@
     },
     {
       "key": {
+        "uuid": "ae7fdf16_74b67320",
+        "filename": "keymaster/aidl/android/hardware/keymaster/Tag.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-07-31T12:02:04Z",
+      "side": 1,
+      "message": "this looks like a duplicate.  I think we should delete this. please confirm.",
+      "range": {
+        "startLine": 708,
+        "startChar": 1,
+        "endLine": 718,
+        "endChar": 114
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8ca471d0_a635b9ab",
         "filename": "keymaster/aidl/android/hardware/keymaster/VerificationToken.aidl",
         "patchSetId": 16
@@ -913,6 +1824,24 @@
       "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "484f781c_626d328e",
+        "filename": "keymaster/aidl/android/hardware/keymaster/VerificationToken.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-07-31T12:02:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ca471d0_a635b9ab",
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -963,6 +1892,30 @@
     },
     {
       "key": {
+        "uuid": "25a210c6_5019243a",
+        "filename": "keymaster/aidl/vts/functional/KeymasterAidlTestBase.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-07-31T12:02:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3735bbd6_547d7d27",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 19
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4868763a_804db8f5",
         "filename": "keymaster/aidl/vts/functional/KeymasterAidlTestBase.cpp",
         "patchSetId": 16
@@ -983,6 +1936,30 @@
       "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3ff495c_dd762933",
+        "filename": "keymaster/aidl/vts/functional/KeymasterAidlTestBase.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-07-31T12:02:04Z",
+      "side": 1,
+      "message": "I left it there when I was trying to figure out the namespace issue and forgot to delete it.",
+      "parentUuid": "4868763a_804db8f5",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 45
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -1009,6 +1986,30 @@
     },
     {
       "key": {
+        "uuid": "9ccb5c51_cfcb5ab6",
+        "filename": "keymaster/aidl/vts/functional/KeymasterAidlTestBase.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-07-31T12:02:04Z",
+      "side": 1,
+      "message": "I left it there when I was trying to figure out the namespace issue and forgot to delete it.",
+      "parentUuid": "13ad96a8_eaaddce8",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 51
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c69080b6_2a09b6a5",
         "filename": "keymaster/aidl/vts/functional/KeymasterAidlTestBase.cpp",
         "patchSetId": 16
@@ -1023,6 +2024,24 @@
       "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3997cea2_0f891254",
+        "filename": "keymaster/aidl/vts/functional/KeymasterAidlTestBase.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-07-31T12:02:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c69080b6_2a09b6a5",
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -1047,6 +2066,30 @@
       "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2be64383_d3e1654d",
+        "filename": "keymaster/aidl/vts/functional/VerificationTokenTest.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-07-31T12:02:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8babc3f3_e9d8ca1f",
+      "range": {
+        "startLine": 135,
+        "startChar": 54,
+        "endLine": 135,
+        "endChar": 63
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
