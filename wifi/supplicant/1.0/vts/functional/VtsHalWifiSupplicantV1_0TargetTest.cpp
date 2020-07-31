@@ -43,10 +43,20 @@ int main(int argc, char** argv) {
     ::testing::AddGlobalTestEnvironment(gEnv);
     ::testing::InitGoogleTest(&argc, argv);
     gEnv->init(&argc, argv);
+<<<<<<< HEAD   (88cc10 wifi: Fix for DPP VTS test failures on 5GHz only devices)
     int status = gEnv->initFromOptions(argc, argv);
     if (status == 0) {
         int status = RUN_ALL_TESTS();
         LOG(INFO) << "Test result = " << status;
     }
+=======
+
+    int status = gEnv->initFromOptions(argc, argv);
+    if (status == 0) {
+        int status = RUN_ALL_TESTS();
+        LOG(INFO) << "Test result = " << status;
+    }
+
+>>>>>>> BRANCH (a5f27a Merge "vts: wifi: softap and p2p are optional feature per CD)
     return status;
 }

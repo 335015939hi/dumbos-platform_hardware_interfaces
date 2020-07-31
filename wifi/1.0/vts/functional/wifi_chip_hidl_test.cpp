@@ -744,7 +744,12 @@ TEST_F(WifiChipHidlTest, RemoveStaIface) {
  * CreateRttController
  */
 TEST_F(WifiChipHidlTest, CreateRttController) {
+<<<<<<< HEAD   (88cc10 wifi: Fix for DPP VTS test failures on 5GHz only devices)
     configureChipForIfaceType(IfaceType::STA, true);
+=======
+    if (!gEnv->isSoftApOn) return;
+    configureChipForIfaceType(IfaceType::AP, true);
+>>>>>>> BRANCH (a5f27a Merge "vts: wifi: softap and p2p are optional feature per CD)
 
     sp<IWifiStaIface> iface;
     EXPECT_EQ(WifiStatusCode::SUCCESS, createStaIface(&iface));
