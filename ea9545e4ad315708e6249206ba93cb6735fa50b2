@@ -378,6 +378,30 @@
     },
     {
       "key": {
+        "uuid": "d997182e_d6476a2a",
+        "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-07-31T23:12:31Z",
+      "side": 1,
+      "message": "CREATION_DATETIME doesn\u0027t go in the TEE or STRONGBOX lists but it does need to go in the attestation, so Keystore should at minimum provide it when attestation is being done.  So we should have VTS tests to ensure that (a) if the CREATION_DATETIME isn\u0027t provided by the caller, it\u0027s not in the attestation cert and (b) if the CREATION_DATETIME is provided by the caller, it\u0027s in the attestation cert.  Then we should have a CTS test that verifies that it\u0027s in the attestation cert.  That way we\u0027ll have verified that the HAL never adds it and keystore always adds it.",
+      "parentUuid": "f81ccf62_f35849ea",
+      "range": {
+        "startLine": 145,
+        "startChar": 8,
+        "endLine": 146,
+        "endChar": 30
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1a1e0c1d_43e88830",
         "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
         "patchSetId": 16
@@ -519,6 +543,30 @@
     },
     {
       "key": {
+        "uuid": "643640da_cb931ce6",
+        "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-07-31T23:12:31Z",
+      "side": 1,
+      "message": "This lists three output arguments.  There\u0027s only one :-)",
+      "parentUuid": "57994f98_fe626194",
+      "range": {
+        "startLine": 214,
+        "startChar": 7,
+        "endLine": 219,
+        "endChar": 51
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7171deec_b247a740",
         "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
         "patchSetId": 16
@@ -648,6 +696,30 @@
       "side": 1,
       "message": "so what is returned then?  should we not return the verificationtoken?",
       "parentUuid": "35e56332_f6a6b8b0",
+      "range": {
+        "startLine": 231,
+        "startChar": 39,
+        "endLine": 232,
+        "endChar": 83
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3daa1348_2f575069",
+        "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-07-31T23:12:31Z",
+      "side": 1,
+      "message": "VerificationToken is only used for the timestamp.  I believe I commented in the VerificationToken that the KeyParameters field should be removed.",
+      "parentUuid": "48623e45_a3b0b194",
       "range": {
         "startLine": 231,
         "startChar": 39,
@@ -1318,6 +1390,30 @@
     },
     {
       "key": {
+        "uuid": "03cc3aca_3b592b7f",
+        "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterOperation.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-07-31T23:12:31Z",
+      "side": 1,
+      "message": "See the \"performance\" section of the features doc.",
+      "parentUuid": "b4f8f0aa_5b46db90",
+      "range": {
+        "startLine": 44,
+        "startChar": 39,
+        "endLine": 45,
+        "endChar": 187
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "949d9761_1d8744db",
         "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterOperation.aidl",
         "patchSetId": 16
@@ -1400,6 +1496,30 @@
       "side": 1,
       "message": "I think we can delete this file all together once we removed all the reference to keyblob format in our vts tests and codes.",
       "parentUuid": "30f15e90_8a4d4b98",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 1
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93314a9a_581ecb48",
+        "filename": "keymaster/aidl/android/hardware/keymaster/KeyBlobUsageRequirements.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-07-31T23:12:31Z",
+      "side": 1,
+      "message": "Agreed.  This file should be deleted.",
+      "parentUuid": "b19028ad_fd256471",
       "range": {
         "startLine": 19,
         "startChar": 0,
@@ -1506,6 +1626,30 @@
     },
     {
       "key": {
+        "uuid": "ad858f44_4b0373a0",
+        "filename": "keymaster/aidl/android/hardware/keymaster/KeyOrigin.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-07-31T23:12:31Z",
+      "side": 1,
+      "message": "The VTS tests for KeyMint will only run against KeyMint, which will never have a key with KeyOrigin::UNKNOWN.",
+      "parentUuid": "1c260d3f_dcec1257",
+      "range": {
+        "startLine": 38,
+        "startChar": 2,
+        "endLine": 43,
+        "endChar": 16
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2b23ba1e_ef2d0e1f",
         "filename": "keymaster/aidl/android/hardware/keymaster/KeyPurpose.aidl",
         "patchSetId": 16
@@ -1550,6 +1694,30 @@
       "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13339738_ff9ed7e8",
+        "filename": "keymaster/aidl/android/hardware/keymaster/KeyPurpose.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-07-31T23:12:31Z",
+      "side": 1,
+      "message": "Agreed.  We don\u0027t need the TODOs.",
+      "parentUuid": "0133be42_91b0ffb4",
+      "range": {
+        "startLine": 25,
+        "startChar": 5,
+        "endLine": 25,
+        "endChar": 15
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -1807,6 +1975,30 @@
       "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ce6f24b_aad30b9e",
+        "filename": "keymaster/aidl/android/hardware/keymaster/Tag.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-07-31T23:12:31Z",
+      "side": 1,
+      "message": "It\u0027s not a duplicate.",
+      "parentUuid": "ae7fdf16_74b67320",
+      "range": {
+        "startLine": 708,
+        "startChar": 1,
+        "endLine": 718,
+        "endChar": 114
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {

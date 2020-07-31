@@ -214,6 +214,30 @@
     },
     {
       "key": {
+        "uuid": "a1d24177_c6c59f5a",
+        "filename": "keymaster/5.0/support/include/keymasterV5_0/keymaster_tags.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-07-31T23:12:31Z",
+      "side": 1,
+      "message": "Reopening this.",
+      "parentUuid": "08c2482c_9f6efc9f",
+      "range": {
+        "startLine": 368,
+        "startChar": 21,
+        "endLine": 368,
+        "endChar": 50
+      },
+      "revId": "cca8666ea8ef5095bf652ecf90930cac6d723ce7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "22a71e1a_071d122d",
         "filename": "keymaster/5.0/support/include/keymasterV5_0/keymaster_utils.h",
         "patchSetId": 11
@@ -399,6 +423,30 @@
       "revId": "cca8666ea8ef5095bf652ecf90930cac6d723ce7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f9d528a_69bb673b",
+        "filename": "keymaster/aidl/Android.bp",
+        "patchSetId": 11
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-07-31T23:12:31Z",
+      "side": 1,
+      "message": "Reopening to make sure the deletion isn\u0027t forgotten.",
+      "parentUuid": "94b4d3a3_5e14767b",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 3
+      },
+      "revId": "cca8666ea8ef5095bf652ecf90930cac6d723ce7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
@@ -614,6 +662,30 @@
     },
     {
       "key": {
+        "uuid": "b099dbdf_0c616715",
+        "filename": "keymaster/aidl/android/hardware/keymaster/HmacSharingParameters.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-07-31T23:12:31Z",
+      "side": 1,
+      "message": "Auth graph has been cancelled, so we need this back.",
+      "parentUuid": "436316bf_bf1d0b77",
+      "range": {
+        "startLine": 41,
+        "startChar": 21,
+        "endLine": 41,
+        "endChar": 114
+      },
+      "revId": "cca8666ea8ef5095bf652ecf90930cac6d723ce7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c048ffd0_1e026531",
         "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
         "patchSetId": 11
@@ -766,6 +838,30 @@
       "writtenOn": "2020-06-24T18:17:50Z",
       "side": 1,
       "message": "shouldn\u0027t the output always be random?  Given that you also use an internally generated entropy, then regardless if the input is random, output should always be random?",
+      "range": {
+        "startLine": 263,
+        "startChar": 49,
+        "endLine": 265,
+        "endChar": 15
+      },
+      "revId": "cca8666ea8ef5095bf652ecf90930cac6d723ce7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f67e29ea_4c82b4b5",
+        "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-07-31T23:12:31Z",
+      "side": 1,
+      "message": "Yes it should be random (more precisely, indistinguishable from random, since it probably is a CPRNG and not actually random), also uniformly distributed. I don\u0027t think I understand the question.",
+      "parentUuid": "19751b07_21ce859a",
       "range": {
         "startLine": 263,
         "startChar": 49,
@@ -1013,6 +1109,30 @@
     },
     {
       "key": {
+        "uuid": "e0c79b0d_cfb6a642",
+        "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-07-31T23:12:31Z",
+      "side": 1,
+      "message": "No. No version should be specified here.",
+      "parentUuid": "98b1cb2f_db5b5b0d",
+      "range": {
+        "startLine": 436,
+        "startChar": 23,
+        "endLine": 436,
+        "endChar": 26
+      },
+      "revId": "cca8666ea8ef5095bf652ecf90930cac6d723ce7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "aab3fff1_a3c244ca",
         "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
         "patchSetId": 11
@@ -1106,6 +1226,30 @@
     },
     {
       "key": {
+        "uuid": "d5caa86e_294e8863",
+        "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-07-31T23:12:31Z",
+      "side": 1,
+      "message": "It\u0027s complicated, and stupid, but real. Ask me about it sometime when we\u0027re talking.",
+      "parentUuid": "6b302097_17b09281",
+      "range": {
+        "startLine": 514,
+        "startChar": 50,
+        "endLine": 514,
+        "endChar": 87
+      },
+      "revId": "cca8666ea8ef5095bf652ecf90930cac6d723ce7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0f182873_92adb1af",
         "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
         "patchSetId": 11
@@ -1117,6 +1261,30 @@
       "writtenOn": "2020-06-24T18:17:50Z",
       "side": 1,
       "message": "why do you want to use a key that was previously deleted?",
+      "range": {
+        "startLine": 536,
+        "startChar": 45,
+        "endLine": 537,
+        "endChar": 36
+      },
+      "revId": "cca8666ea8ef5095bf652ecf90930cac6d723ce7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2eeb32d_912e6508",
+        "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-07-31T23:12:31Z",
+      "side": 1,
+      "message": "You don\u0027t. Generally you don\u0027t care enough to pay the costs of having rollback resistance, but sometimes you do.",
+      "parentUuid": "0f182873_92adb1af",
       "range": {
         "startLine": 536,
         "startChar": 45,
@@ -3386,6 +3554,30 @@
     },
     {
       "key": {
+        "uuid": "fc44e1b8_144646b8",
+        "filename": "keymaster/aidl/vts/functional/KeymasterAidlTestUtil.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-07-31T23:12:31Z",
+      "side": 1,
+      "message": "Re-opening to make sure you don\u0027t forget.",
+      "parentUuid": "a06af847_9da7728b",
+      "range": {
+        "startLine": 293,
+        "startChar": 9,
+        "endLine": 296,
+        "endChar": 26
+      },
+      "revId": "cca8666ea8ef5095bf652ecf90930cac6d723ce7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "489c0681_5ab8010b",
         "filename": "keymaster/aidl/vts/functional/KeymasterAidlTestUtil.cpp",
         "patchSetId": 11
@@ -3810,6 +4002,30 @@
     },
     {
       "key": {
+        "uuid": "87ec362a_2d5aed6a",
+        "filename": "keymaster/aidl/vts/functional/keymaster5Test.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 1744,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-07-31T23:12:31Z",
+      "side": 1,
+      "message": "generateKey() now does what exportKey() used to.  The negative tests and format tests aren\u0027t too interesting, but there are pieces of these tests that still make sense, for example verifying that the public key exported has the expected format and can do the reverse of what the private key does, and verifying that nothing is exported for symmetric keys.",
+      "parentUuid": "6fba8190_2d0e63f8",
+      "range": {
+        "startLine": 1742,
+        "startChar": 2,
+        "endLine": 1744,
+        "endChar": 5
+      },
+      "revId": "cca8666ea8ef5095bf652ecf90930cac6d723ce7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "22da765a_476870f9",
         "filename": "keymaster/aidl/vts/functional/keymaster5Test.cpp",
         "patchSetId": 11
@@ -3901,6 +4117,30 @@
       "revId": "cca8666ea8ef5095bf652ecf90930cac6d723ce7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48b5b10a_28b1546f",
+        "filename": "keymaster/aidl/vts/functional/keymaster5Test.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 4248,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-07-31T23:12:31Z",
+      "side": 1,
+      "message": "Re-opening to make sure you don\u0027t forget.",
+      "parentUuid": "3c6ebeb6_da69528a",
+      "range": {
+        "startLine": 4248,
+        "startChar": 1,
+        "endLine": 4248,
+        "endChar": 37
+      },
+      "revId": "cca8666ea8ef5095bf652ecf90930cac6d723ce7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
