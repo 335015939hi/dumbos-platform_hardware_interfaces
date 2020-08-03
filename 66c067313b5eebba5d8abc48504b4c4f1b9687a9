@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "0ea2a1f5_3d7ebd4b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2020-08-03T22:25:31Z",
+      "side": 1,
+      "message": "This is a great opportunity for a detailed commit message that describes all of what this is adding, what it does, etc.",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 52
+      },
+      "revId": "66c067313b5eebba5d8abc48504b4c4f1b9687a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "729c4e44_7f084841",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 4
