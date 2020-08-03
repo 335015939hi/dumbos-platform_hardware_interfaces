@@ -1,0 +1,366 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "729c4e44_7f084841",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2020-08-03T22:24:49Z",
+      "side": 1,
+      "message": "Overall shape seems fine. Just a few data formatting questions, docstring questions, etc.",
+      "revId": "66c067313b5eebba5d8abc48504b4c4f1b9687a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "571e368f_f8386d47",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2020-08-03T22:24:49Z",
+      "side": 1,
+      "message": "nit",
+      "range": {
+        "startLine": 36,
+        "startChar": 12,
+        "endLine": 36,
+        "endChar": 13
+      },
+      "revId": "66c067313b5eebba5d8abc48504b4c4f1b9687a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3544c965_d53ffc47",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2020-08-03T22:24:49Z",
+      "side": 1,
+      "message": "nit grammar",
+      "range": {
+        "startLine": 66,
+        "startChar": 77,
+        "endLine": 66,
+        "endChar": 92
+      },
+      "revId": "66c067313b5eebba5d8abc48504b4c4f1b9687a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b5f35b7_0892e206",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2020-08-03T22:24:49Z",
+      "side": 1,
+      "message": "Is this proper javadoc formatting?",
+      "range": {
+        "startLine": 70,
+        "startChar": 28,
+        "endLine": 70,
+        "endChar": 29
+      },
+      "revId": "66c067313b5eebba5d8abc48504b4c4f1b9687a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2203bd04_4f31e03e",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2020-08-03T22:24:49Z",
+      "side": 1,
+      "message": "It\u0027s rather burdensome to try and carry forward chunks of duplicate docstrings from version to version (I assume that the strings above are photocopied). Perhaps check with smoreland@ to see if we can reference the 1.5 docstrings in a case like this?",
+      "range": {
+        "startLine": 81,
+        "startChar": 7,
+        "endLine": 81,
+        "endChar": 43
+      },
+      "revId": "66c067313b5eebba5d8abc48504b4c4f1b9687a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f70c834_803b2450",
+        "filename": "radio/1.6/IRadioResponse.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2020-08-03T22:24:49Z",
+      "side": 1,
+      "message": "I think we need to check with Robert. I don\u0027t see any reason why this shouldn\u0027t be supported unless/until we have an overall strategy on how to let the HAL support diverge. Generally speaking, this creates a mess.",
+      "range": {
+        "startLine": 38,
+        "startChar": 9,
+        "endLine": 38,
+        "endChar": 41
+      },
+      "revId": "66c067313b5eebba5d8abc48504b4c4f1b9687a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40cdd3ed_f048e189",
+        "filename": "radio/1.6/IRadioResponse.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2020-08-03T22:24:49Z",
+      "side": 1,
+      "message": "? Under what conditions is NO_RESOURCES allowed?",
+      "range": {
+        "startLine": 41,
+        "startChar": 9,
+        "endLine": 41,
+        "endChar": 32
+      },
+      "revId": "66c067313b5eebba5d8abc48504b4c4f1b9687a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "645bb888_8d7e3d20",
+        "filename": "radio/1.6/IRadioResponse.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2020-08-03T22:24:49Z",
+      "side": 1,
+      "message": "Definitely no reason for this to report NO_RESOURCES - it\u0027s a status API.",
+      "range": {
+        "startLine": 54,
+        "startChar": 9,
+        "endLine": 54,
+        "endChar": 32
+      },
+      "revId": "66c067313b5eebba5d8abc48504b4c4f1b9687a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "676bbe0e_20be13b3",
+        "filename": "radio/1.6/IRadioResponse.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2020-08-03T22:24:49Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 55,
+        "startChar": 9,
+        "endLine": 55,
+        "endChar": 41
+      },
+      "revId": "66c067313b5eebba5d8abc48504b4c4f1b9687a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1d7c4a1_6516564d",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2020-08-03T22:24:49Z",
+      "side": 1,
+      "message": "signed? Also, a signed 32-bit integer in Kbps can represent 2 petabits (2000 terabits). Do we need 64-bit here?",
+      "range": {
+        "startLine": 24,
+        "startChar": 4,
+        "endLine": 24,
+        "endChar": 12
+      },
+      "revId": "66c067313b5eebba5d8abc48504b4c4f1b9687a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ddcd0e7b_2ba2f619",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2020-08-03T22:24:49Z",
+      "side": 1,
+      "message": "suggest an enum. If enum won\u0027t work for some reason, then we should document the specific known values and allowable range (if it\u0027s say a 5-bit number).",
+      "range": {
+        "startLine": 30,
+        "startChar": 4,
+        "endLine": 30,
+        "endChar": 11
+      },
+      "revId": "66c067313b5eebba5d8abc48504b4c4f1b9687a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1703de5a_e635537a",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2020-08-03T22:24:49Z",
+      "side": 1,
+      "message": "Same.",
+      "range": {
+        "startLine": 37,
+        "startChar": 4,
+        "endLine": 38,
+        "endChar": 19
+      },
+      "revId": "66c067313b5eebba5d8abc48504b4c4f1b9687a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f72ba6d_80cd84db",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2020-08-03T22:24:49Z",
+      "side": 1,
+      "message": "nit: Can you use this to describe the purpose of the structure? Then define the range in the comment for start and end separately (it\u0027s redundant, but it\u0027s good documentation).",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 3
+      },
+      "revId": "66c067313b5eebba5d8abc48504b4c4f1b9687a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05d6cd8f_468f0b00",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2020-08-03T22:24:49Z",
+      "side": 1,
+      "message": "Is this actually what it\u0027s called in 3gpp now? The term doesn\u0027t ring a bell.",
+      "range": {
+        "startLine": 96,
+        "startChar": 10,
+        "endLine": 96,
+        "endChar": 16
+      },
+      "revId": "66c067313b5eebba5d8abc48504b4c4f1b9687a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40e26f29_782af2e8",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2020-08-03T22:24:49Z",
+      "side": 1,
+      "message": "enum plz. Also, there\u0027s just no reason to use uint8_t. It\u0027s only likely to end in tears because Java makes it very difficult with a lack of unsigned support. It\u0027s almost certainly going to be aligned anyway, so it won\u0027t even save space over the binder.",
+      "range": {
+        "startLine": 118,
+        "startChar": 9,
+        "endLine": 118,
+        "endChar": 16
+      },
+      "revId": "66c067313b5eebba5d8abc48504b4c4f1b9687a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8cc54151_8bd33788",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2020-08-03T22:24:49Z",
+      "side": 1,
+      "message": "signed?",
+      "range": {
+        "startLine": 130,
+        "startChar": 9,
+        "endLine": 130,
+        "endChar": 17
+      },
+      "revId": "66c067313b5eebba5d8abc48504b4c4f1b9687a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
