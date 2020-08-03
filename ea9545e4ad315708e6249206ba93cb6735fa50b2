@@ -402,6 +402,30 @@
     },
     {
       "key": {
+        "uuid": "ba5063fa_a19a51e2",
+        "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-08-03T12:22:21Z",
+      "side": 1,
+      "message": "I added this to the attestation certificate output description of generateKey and importKey.  if Keymint caller inputted the createion time in the attestation keyparameter, it will be added to certificate, otherwise it won\u0027t.  this is very straight forward and testable in vts.  I\u0027m not sure why you think it has to be, or only can be verified in cts?",
+      "parentUuid": "d997182e_d6476a2a",
+      "range": {
+        "startLine": 145,
+        "startChar": 8,
+        "endLine": 146,
+        "endChar": 30
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1a1e0c1d_43e88830",
         "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
         "patchSetId": 16
@@ -567,6 +591,30 @@
     },
     {
       "key": {
+        "uuid": "328a5c95_ce3a78dc",
+        "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-08-03T12:22:21Z",
+      "side": 1,
+      "message": "they are all inside info....I can add info. in front",
+      "parentUuid": "643640da_cb931ce6",
+      "range": {
+        "startLine": 214,
+        "startChar": 7,
+        "endLine": 219,
+        "endChar": 51
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7171deec_b247a740",
         "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
         "patchSetId": 16
@@ -729,6 +777,30 @@
       "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6652c0a4_f11f3418",
+        "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-08-03T12:22:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3daa1348_2f575069",
+      "range": {
+        "startLine": 231,
+        "startChar": 39,
+        "endLine": 232,
+        "endChar": 83
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -1108,6 +1180,30 @@
     },
     {
       "key": {
+        "uuid": "21ae21c3_21dc42ff",
+        "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-08-03T12:22:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "388e32cf_a5ede0f8",
+      "range": {
+        "startLine": 420,
+        "startChar": 8,
+        "endLine": 421,
+        "endChar": 55
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17b910b0_e28eedf7",
         "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
         "patchSetId": 16
@@ -1414,6 +1510,30 @@
     },
     {
       "key": {
+        "uuid": "fe0189ee_e2c3f088",
+        "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterOperation.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-08-03T12:22:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03cc3aca_3b592b7f",
+      "range": {
+        "startLine": 44,
+        "startChar": 39,
+        "endLine": 45,
+        "endChar": 187
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "949d9761_1d8744db",
         "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterOperation.aidl",
         "patchSetId": 16
@@ -1532,6 +1652,30 @@
     },
     {
       "key": {
+        "uuid": "d5ba0daf_870c5b6b",
+        "filename": "keymaster/aidl/android/hardware/keymaster/KeyBlobUsageRequirements.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-08-03T12:22:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "93314a9a_581ecb48",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 1
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0c68376b_0fb9f510",
         "filename": "keymaster/aidl/android/hardware/keymaster/KeyCharacteristics.aidl",
         "patchSetId": 16
@@ -1638,6 +1782,30 @@
       "side": 1,
       "message": "The VTS tests for KeyMint will only run against KeyMint, which will never have a key with KeyOrigin::UNKNOWN.",
       "parentUuid": "1c260d3f_dcec1257",
+      "range": {
+        "startLine": 38,
+        "startChar": 2,
+        "endLine": 43,
+        "endChar": 16
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08afccf0_d86767f7",
+        "filename": "keymaster/aidl/android/hardware/keymaster/KeyOrigin.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-08-03T12:22:21Z",
+      "side": 1,
+      "message": "delete.  thought I didn\u0027t move up rest of the defination, and left 3 empty.  Unless you have some good reasons I\u0027ll leave it like this to prevent mismatch between versions.",
+      "parentUuid": "ad858f44_4b0373a0",
       "range": {
         "startLine": 38,
         "startChar": 2,

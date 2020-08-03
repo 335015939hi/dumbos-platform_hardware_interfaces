@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "690fc825_46ac3aa6",
+        "filename": "keymaster/aidl/android/hardware/keymaster/HmacSharingParameters.aidl",
+        "patchSetId": 15
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-08-03T12:22:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0980149_2c3f4f13",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 19
+      },
+      "revId": "8a8833cb1dad9449bc3667b3bf87970efe12fb2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d4654627_f735bfef",
         "filename": "keymaster/aidl/android/hardware/keymaster/KeyPurpose.aidl",
         "patchSetId": 15
@@ -187,6 +211,30 @@
       "revId": "8a8833cb1dad9449bc3667b3bf87970efe12fb2a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ca18a81_da8e48fa",
+        "filename": "keymaster/aidl/android/hardware/keymaster/KeyPurpose.aidl",
+        "patchSetId": 15
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-08-03T12:22:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "691ecf59_2f7f96fa",
+      "range": {
+        "startLine": 30,
+        "startChar": 3,
+        "endLine": 30,
+        "endChar": 22
+      },
+      "revId": "8a8833cb1dad9449bc3667b3bf87970efe12fb2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
