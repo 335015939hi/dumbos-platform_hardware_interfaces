@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2b0a3de8_636d329d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2020-08-04T16:23:27Z",
+      "side": 1,
+      "message": "This one can\u0027t land due to r branch difference.",
+      "revId": "761ef252b5c8adcf2325400b8df12ad2db80f3d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
