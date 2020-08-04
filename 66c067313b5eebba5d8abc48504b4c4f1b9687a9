@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "efc9881f_05801cd9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2020-08-04T21:32:18Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0ea2a1f5_3d7ebd4b",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 52
+      },
+      "revId": "66c067313b5eebba5d8abc48504b4c4f1b9687a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "729c4e44_7f084841",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 4
@@ -206,6 +230,30 @@
     },
     {
       "key": {
+        "uuid": "825ce765_a27eb942",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2020-08-04T21:32:18Z",
+      "side": 1,
+      "message": "smoreland@, do you have any suggestions for this?",
+      "parentUuid": "2203bd04_4f31e03e",
+      "range": {
+        "startLine": 81,
+        "startChar": 7,
+        "endLine": 81,
+        "endChar": 43
+      },
+      "revId": "66c067313b5eebba5d8abc48504b4c4f1b9687a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2f70c834_803b2450",
         "filename": "radio/1.6/IRadioResponse.hal",
         "patchSetId": 4
@@ -217,6 +265,30 @@
       "writtenOn": "2020-08-03T22:24:49Z",
       "side": 1,
       "message": "I think we need to check with Robert. I don\u0027t see any reason why this shouldn\u0027t be supported unless/until we have an overall strategy on how to let the HAL support diverge. Generally speaking, this creates a mess.",
+      "range": {
+        "startLine": 38,
+        "startChar": 9,
+        "endLine": 38,
+        "endChar": 41
+      },
+      "revId": "66c067313b5eebba5d8abc48504b4c4f1b9687a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bcdb4f8c_5e847d29",
+        "filename": "radio/1.6/IRadioResponse.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2020-08-04T21:32:18Z",
+      "side": 1,
+      "message": "This is the copy paste from 1.5 HAL and i am afraid if it will hurt any OEMs if i remove it now \njackyu@, what do you think ?",
+      "parentUuid": "2f70c834_803b2450",
       "range": {
         "startLine": 38,
         "startChar": 9,
@@ -252,6 +324,30 @@
     },
     {
       "key": {
+        "uuid": "9e70a86f_18bb1ef7",
+        "filename": "radio/1.6/IRadioResponse.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2020-08-04T21:32:18Z",
+      "side": 1,
+      "message": "Some OEMs use this when the cid is fully occupied in the lower layers.. again this is same as 1.5",
+      "parentUuid": "40cdd3ed_f048e189",
+      "range": {
+        "startLine": 41,
+        "startChar": 9,
+        "endLine": 41,
+        "endChar": 32
+      },
+      "revId": "66c067313b5eebba5d8abc48504b4c4f1b9687a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "645bb888_8d7e3d20",
         "filename": "radio/1.6/IRadioResponse.hal",
         "patchSetId": 4
@@ -263,6 +359,30 @@
       "writtenOn": "2020-08-03T22:24:49Z",
       "side": 1,
       "message": "Definitely no reason for this to report NO_RESOURCES - it\u0027s a status API.",
+      "range": {
+        "startLine": 54,
+        "startChar": 9,
+        "endLine": 54,
+        "endChar": 32
+      },
+      "revId": "66c067313b5eebba5d8abc48504b4c4f1b9687a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e50ba5e_4197f4be",
+        "filename": "radio/1.6/IRadioResponse.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2020-08-04T21:32:18Z",
+      "side": 1,
+      "message": "I think it can be removed .. but wanted Jack to check as well",
+      "parentUuid": "645bb888_8d7e3d20",
       "range": {
         "startLine": 54,
         "startChar": 9,
@@ -321,6 +441,30 @@
     },
     {
       "key": {
+        "uuid": "cfd4becc_39f13660",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2020-08-04T21:32:18Z",
+      "side": 1,
+      "message": "hmm, i think it doesn\u0027t really matter.. i can change it to int32",
+      "parentUuid": "b1d7c4a1_6516564d",
+      "range": {
+        "startLine": 24,
+        "startChar": 4,
+        "endLine": 24,
+        "endChar": 12
+      },
+      "revId": "66c067313b5eebba5d8abc48504b4c4f1b9687a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ddcd0e7b_2ba2f619",
         "filename": "radio/1.6/types.hal",
         "patchSetId": 4
@@ -341,6 +485,30 @@
       "revId": "66c067313b5eebba5d8abc48504b4c4f1b9687a9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6880cf54_018d779b",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2020-08-04T21:32:18Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ddcd0e7b_2ba2f619",
+      "range": {
+        "startLine": 30,
+        "startChar": 4,
+        "endLine": 30,
+        "endChar": 11
+      },
+      "revId": "66c067313b5eebba5d8abc48504b4c4f1b9687a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -367,6 +535,30 @@
     },
     {
       "key": {
+        "uuid": "edc28d64_b8cceb87",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2020-08-04T21:32:18Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1703de5a_e635537a",
+      "range": {
+        "startLine": 37,
+        "startChar": 4,
+        "endLine": 38,
+        "endChar": 19
+      },
+      "revId": "66c067313b5eebba5d8abc48504b4c4f1b9687a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f72ba6d_80cd84db",
         "filename": "radio/1.6/types.hal",
         "patchSetId": 4
@@ -387,6 +579,30 @@
       "revId": "66c067313b5eebba5d8abc48504b4c4f1b9687a9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69ac3f08_ecedfce4",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2020-08-04T21:32:18Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3f72ba6d_80cd84db",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 3
+      },
+      "revId": "66c067313b5eebba5d8abc48504b4c4f1b9687a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
