@@ -693,8 +693,16 @@ TEST_P(BluetoothHidlTest, LoopbackModeSinglePackets) {
     EXPECT_LT(0, max_acl_data_packet_length);
     sendAndCheckACL(1, max_acl_data_packet_length, acl_connection_handles[0]);
     int acl_packets_sent = 1;
-    int completed_packets =
+    int completed_packets = 0;
+    int retry = 0;
+    do {
+      if (retry)
+        std::this_thread::sleep_for(INTERFACE_CLOSE_DELAY_MS);
+      completed_packets +=
         wait_for_completed_packets_event(acl_connection_handles[0]);
+      retry++;
+    } while(acl_packets_sent != completed_packets && retry < 5);
+
     if (acl_packets_sent != completed_packets) {
       ALOGW("%s: packets_sent (%d) != completed_packets (%d)", __func__,
             acl_packets_sent, completed_packets);
@@ -732,8 +740,16 @@ TEST_P(BluetoothHidlTest, LoopbackModeBandwidth) {
     sendAndCheckACL(NUM_ACL_PACKETS_BANDWIDTH, max_acl_data_packet_length,
                     acl_connection_handles[0]);
     int acl_packets_sent = NUM_ACL_PACKETS_BANDWIDTH;
-    int completed_packets =
+    int completed_packets = 0;
+    int retry = 0;
+    do {
+      if (retry)
+        std::this_thread::sleep_for(INTERFACE_CLOSE_DELAY_MS);
+      completed_packets +=
         wait_for_completed_packets_event(acl_connection_handles[0]);
+      retry++;
+    } while(acl_packets_sent != completed_packets && retry < 5);
+
     if (acl_packets_sent != completed_packets) {
       ALOGW("%s: packets_sent (%d) != completed_packets (%d)", __func__,
             acl_packets_sent, completed_packets);
