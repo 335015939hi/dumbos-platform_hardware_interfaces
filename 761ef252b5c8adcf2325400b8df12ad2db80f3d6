@@ -16,6 +16,23 @@
       "revId": "761ef252b5c8adcf2325400b8df12ad2db80f3d6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "875fb68c_9457a224",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1088076
+      },
+      "writtenOn": "2020-08-04T16:27:22Z",
+      "side": 1,
+      "message": "will retry presubmit after aosp/1383509 is merged.",
+      "revId": "761ef252b5c8adcf2325400b8df12ad2db80f3d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
