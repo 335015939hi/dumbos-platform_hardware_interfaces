@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "60f52b8a_72d8fa22",
+        "filename": "keymaster/aidl/android/hardware/keymaster/VerificationToken.aidl",
+        "patchSetId": 20
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-08-04T22:40:54Z",
+      "side": 1,
+      "message": "Remove extra blank line.",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 0
+      },
+      "revId": "711182641ffc24fdc6da6ab728aaa1727adb2832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02327604_ae2f2f54",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 20
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-08-04T22:40:54Z",
+      "side": 1,
+      "message": "Nowhere else do we break down the fields of a returned structure.  Why do it here?",
+      "range": {
+        "startLine": 215,
+        "startChar": 5,
+        "endLine": 222,
+        "endChar": 51
+      },
+      "revId": "711182641ffc24fdc6da6ab728aaa1727adb2832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ee996e1_91052e05",
+        "filename": "keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-08-04T22:40:54Z",
+      "side": 1,
+      "message": "It\u0027s better to make sure the test fails here.  The caller *should* be checking the return value, but might not be.  Ideally, you should use ASSERT_NE(op_, nullptr), but ASSERT_* can\u0027t be used in helper functions.  So you should add an EXPECT_NE(op_, nullptr) here, and then return.",
+      "range": {
+        "startLine": 293,
+        "startChar": 4,
+        "endLine": 296,
+        "endChar": 5
+      },
+      "revId": "711182641ffc24fdc6da6ab728aaa1727adb2832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}

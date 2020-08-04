@@ -426,6 +426,30 @@
     },
     {
       "key": {
+        "uuid": "d87b1f3f_52a9ca37",
+        "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-08-04T22:40:54Z",
+      "side": 1,
+      "message": "VTS should verify the behavior of the HAL, that CREATION_DATETIME is only included if specified by the caller.\n\nCTS should verify the behavior of Keystore, that it always specifies CREATION_DATETIME.\n\nMake sense?",
+      "parentUuid": "ba5063fa_a19a51e2",
+      "range": {
+        "startLine": 145,
+        "startChar": 8,
+        "endLine": 146,
+        "endChar": 30
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1a1e0c1d_43e88830",
         "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
         "patchSetId": 16
@@ -1818,6 +1842,30 @@
     },
     {
       "key": {
+        "uuid": "4355c30e_83ee8ad2",
+        "filename": "keymaster/aidl/android/hardware/keymaster/KeyOrigin.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-08-04T22:40:54Z",
+      "side": 1,
+      "message": "I agree, though you should probably mark it as reserved so someone doesn\u0027t think the omission was a mistake.",
+      "parentUuid": "08afccf0_d86767f7",
+      "range": {
+        "startLine": 38,
+        "startChar": 2,
+        "endLine": 43,
+        "endChar": 16
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2b23ba1e_ef2d0e1f",
         "filename": "keymaster/aidl/android/hardware/keymaster/KeyPurpose.aidl",
         "patchSetId": 16
@@ -2100,6 +2148,30 @@
     },
     {
       "key": {
+        "uuid": "86951ff6_63f7c762",
+        "filename": "keymaster/aidl/android/hardware/keymaster/Tag.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-08-04T22:40:54Z",
+      "side": 1,
+      "message": "It\u0027s for the set of tags below.  Don\u0027t delete.",
+      "parentUuid": "ce3c075d_a4a7bc86",
+      "range": {
+        "startLine": 480,
+        "startChar": 2,
+        "endLine": 483,
+        "endChar": 7
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d46437b2_198e15d4",
         "filename": "keymaster/aidl/android/hardware/keymaster/Tag.aidl",
         "patchSetId": 16
@@ -2111,6 +2183,30 @@
       "writtenOn": "2020-07-24T09:59:30Z",
       "side": 1,
       "message": "this doesn\u0027t match with the defination\n\nRootOfTrust \u003d {\n    \"verified_boot_key\" : bytes,\n    \"device_locked\" : bool,\n    \"verified_boot_state\" : VerifiedBootState\n}",
+      "range": {
+        "startLine": 523,
+        "startChar": 7,
+        "endLine": 523,
+        "endChar": 31
+      },
+      "revId": "ea9545e4ad315708e6249206ba93cb6735fa50b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c98bf86_d1cc24a0",
+        "filename": "keymaster/aidl/android/hardware/keymaster/Tag.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 523,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-08-04T22:40:54Z",
+      "side": 1,
+      "message": "Good point, please correct.",
+      "parentUuid": "d46437b2_198e15d4",
       "range": {
         "startLine": 523,
         "startChar": 7,
