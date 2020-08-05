@@ -3017,6 +3017,30 @@
     },
     {
       "key": {
+        "uuid": "2c548fb6_4e8b2c2c",
+        "filename": "keymaster/aidl/android/hardware/keymaster/Tag.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-08-05T09:16:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "891edad0_639468ab",
+      "range": {
+        "startLine": 181,
+        "startChar": 0,
+        "endLine": 195,
+        "endChar": 46
+      },
+      "revId": "cca8666ea8ef5095bf652ecf90930cac6d723ce7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "039c6d5b_f1aba6a2",
         "filename": "keymaster/aidl/android/hardware/keymaster/Tag.aidl",
         "patchSetId": 11
@@ -3742,6 +3766,30 @@
       "revId": "cca8666ea8ef5095bf652ecf90930cac6d723ce7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e00c7f2a_fe16580a",
+        "filename": "keymaster/aidl/vts/functional/KeymasterAidlTestUtil.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-08-05T09:16:01Z",
+      "side": 1,
+      "message": "this is the difference between aidl and hidl.  this would only be true in aidl if no error is returned.  where as in hidl it is always returned true.",
+      "parentUuid": "50254076_96bc51e1",
+      "range": {
+        "startLine": 200,
+        "startChar": 4,
+        "endLine": 211,
+        "endChar": 0
+      },
+      "revId": "cca8666ea8ef5095bf652ecf90930cac6d723ce7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
