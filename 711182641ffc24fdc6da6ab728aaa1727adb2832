@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "a97ad12b_97a43b8b",
+        "filename": "keymaster/aidl/android/hardware/keymaster/VerificationToken.aidl",
+        "patchSetId": 20
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2020-08-05T22:15:12Z",
+      "side": 1,
+      "message": "There are two blank lines between the timestamp and the beginning of the block comment.  Delete one of them 😊",
+      "parentUuid": "0170d8a0_dbadd94f",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 0
+      },
+      "revId": "711182641ffc24fdc6da6ab728aaa1727adb2832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "02327604_ae2f2f54",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
         "patchSetId": 20
