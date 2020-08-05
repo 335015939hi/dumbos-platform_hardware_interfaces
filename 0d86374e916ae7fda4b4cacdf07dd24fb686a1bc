@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4b08b99a_66295ae4",
+        "filename": "radio/1.6/IRadioResponse.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1199008
+      },
+      "writtenOn": "2020-08-05T19:52:02Z",
+      "side": 1,
+      "message": "we can use the Radio Response 1.5. We are not updating RadioResponseInfo.",
+      "revId": "0d86374e916ae7fda4b4cacdf07dd24fb686a1bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
