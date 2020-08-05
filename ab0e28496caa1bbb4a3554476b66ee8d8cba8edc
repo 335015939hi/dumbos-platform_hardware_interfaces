@@ -1,0 +1,335 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004220399",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1298415?revision\u003d21",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "b47192a0_8d2640bd",
+        "filename": "keymint/aidl/aidl_api/android.hardware.keymint/current/android/hardware/keymint/ErrorCode.aidl",
+        "patchSetId": 21
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-08-05T08:39:01Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027primary/secondary\u0027 or \u0027manager/worker\u0027; see https://source.android.com/setup/contribute/respectful-code for more details.",
+      "range": {
+        "startLine": 83,
+        "startChar": 5,
+        "endLine": 83,
+        "endChar": 11
+      },
+      "revId": "ab0e28496caa1bbb4a3554476b66ee8d8cba8edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004220399",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1298415?revision\u003d21",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "4b388c72_e0c20e51",
+        "filename": "keymint/aidl/android/hardware/keymint/ErrorCode.aidl",
+        "patchSetId": 21
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-08-05T08:39:01Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027primary/secondary\u0027 or \u0027manager/worker\u0027; see https://source.android.com/setup/contribute/respectful-code for more details.",
+      "range": {
+        "startLine": 21,
+        "startChar": 43,
+        "endLine": 21,
+        "endChar": 49
+      },
+      "revId": "ab0e28496caa1bbb4a3554476b66ee8d8cba8edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004220399",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1298415?revision\u003d21",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "cce1edc9_07b3c7db",
+        "filename": "keymint/aidl/android/hardware/keymint/ErrorCode.aidl",
+        "patchSetId": 21
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-08-05T08:39:01Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027primary/secondary\u0027 or \u0027manager/worker\u0027; see https://source.android.com/setup/contribute/respectful-code for more details.",
+      "range": {
+        "startLine": 88,
+        "startChar": 7,
+        "endLine": 88,
+        "endChar": 13
+      },
+      "revId": "ab0e28496caa1bbb4a3554476b66ee8d8cba8edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004220399",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1298415?revision\u003d21",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "94e112ae_b13227ec",
+        "filename": "keymint/aidl/android/hardware/keymint/HardwareAuthToken.aidl",
+        "patchSetId": 21
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-08-05T08:39:01Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027primary/secondary\u0027 or \u0027manager/worker\u0027; see https://source.android.com/setup/contribute/respectful-code for more details.",
+      "range": {
+        "startLine": 69,
+        "startChar": 71,
+        "endLine": 69,
+        "endChar": 77
+      },
+      "revId": "ab0e28496caa1bbb4a3554476b66ee8d8cba8edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004220399",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1298415?revision\u003d21",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "13c216a5_92eff20c",
+        "filename": "keymint/aidl/android/hardware/keymint/HmacSharingParameters.aidl",
+        "patchSetId": 21
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-08-05T08:39:01Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027primary/secondary\u0027 or \u0027manager/worker\u0027; see https://source.android.com/setup/contribute/respectful-code for more details.",
+      "range": {
+        "startLine": 22,
+        "startChar": 23,
+        "endLine": 22,
+        "endChar": 29
+      },
+      "revId": "ab0e28496caa1bbb4a3554476b66ee8d8cba8edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004220399",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1298415?revision\u003d21",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "dee42170_bbdb9908",
+        "filename": "keymint/aidl/android/hardware/keymint/HmacSharingParameters.aidl",
+        "patchSetId": 21
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-08-05T08:39:01Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027primary/secondary\u0027 or \u0027manager/worker\u0027; see https://source.android.com/setup/contribute/respectful-code for more details.",
+      "range": {
+        "startLine": 23,
+        "startChar": 93,
+        "endLine": 23,
+        "endChar": 99
+      },
+      "revId": "ab0e28496caa1bbb4a3554476b66ee8d8cba8edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004220398",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1298415?revision\u003d21",
+      "fixSuggestions": [
+        {
+          "fixId": "2c63ad1c_d67fa4ce",
+          "description": "Change to \"keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl\"",
+          "replacements": [
+            {
+              "path": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+              "range": {
+                "startLine": 358,
+                "startChar": 45,
+                "endLine": 358,
+                "endChar": 54
+              },
+              "replacement": "asymmetric"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "2ae42e05_de91ad6d",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 21
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-08-05T08:39:01Z",
+      "side": 1,
+      "message": "Common typo found: \"asymetric\" -- should it be \"asymmetric\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027NO_TYPO_CHECK\u003d\u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 358,
+        "startChar": 45,
+        "endLine": 358,
+        "endChar": 54
+      },
+      "revId": "ab0e28496caa1bbb4a3554476b66ee8d8cba8edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004220399",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1298415?revision\u003d21",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "583ef787_7c1e11a9",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 21
+      },
+      "lineNbr": 526,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-08-05T08:39:01Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027primary/secondary\u0027 or \u0027manager/worker\u0027; see https://source.android.com/setup/contribute/respectful-code for more details.",
+      "range": {
+        "startLine": 526,
+        "startChar": 20,
+        "endLine": 526,
+        "endChar": 26
+      },
+      "revId": "ab0e28496caa1bbb4a3554476b66ee8d8cba8edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004220399",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1298415?revision\u003d21",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "9c24a06a_9382c5e6",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 21
+      },
+      "lineNbr": 527,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-08-05T08:39:01Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027primary/secondary\u0027 or \u0027manager/worker\u0027; see https://source.android.com/setup/contribute/respectful-code for more details.",
+      "range": {
+        "startLine": 527,
+        "startChar": 77,
+        "endLine": 527,
+        "endChar": 83
+      },
+      "revId": "ab0e28496caa1bbb4a3554476b66ee8d8cba8edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004220399",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1298415?revision\u003d21",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "31ea7fa2_3c470b74",
+        "filename": "keymint/support/include/keymintSupport/keymint_tags.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-08-05T08:39:01Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027primary/secondary\u0027 or \u0027manager/worker\u0027; see https://source.android.com/setup/contribute/respectful-code for more details.",
+      "range": {
+        "startLine": 41,
+        "startChar": 71,
+        "endLine": 41,
+        "endChar": 77
+      },
+      "revId": "ab0e28496caa1bbb4a3554476b66ee8d8cba8edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004220398",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1298415?revision\u003d21",
+      "fixSuggestions": [
+        {
+          "fixId": "d2706f09_84a96764",
+          "description": "Change to \"keymint/support/include/keymintSupport/keymint_tags.h\"",
+          "replacements": [
+            {
+              "path": "keymint/support/include/keymintSupport/keymint_tags.h",
+              "range": {
+                "startLine": 348,
+                "startChar": 30,
+                "endLine": 348,
+                "endChar": 41
+              },
+              "replacement": "comparison"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "cc59f920_1287893b",
+        "filename": "keymint/support/include/keymintSupport/keymint_tags.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-08-05T08:39:01Z",
+      "side": 1,
+      "message": "Common typo found: \"comparision\" -- should it be \"comparison\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027NO_TYPO_CHECK\u003d\u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 348,
+        "startChar": 30,
+        "endLine": 348,
+        "endChar": 41
+      },
+      "revId": "ab0e28496caa1bbb4a3554476b66ee8d8cba8edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
