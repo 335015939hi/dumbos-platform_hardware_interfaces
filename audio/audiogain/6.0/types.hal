@@ -1,0 +1,58 @@
+/*
+ * Copyright (C) 2020 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package android.hardware.audio.audiogain@6.0;
+
+import android.hardware.audio.common@6.0;
+import android.hardware.audio.common@6.0::types;
+
+enum Result : int32_t {
+    OK,
+    NOT_INITIALIZED,
+    INVALID_ARGUMENTS,
+    INVALID_STATE,
+    /**
+     * Methods marked as "Optional method" must return this result value
+     * if the operation is not supported by HAL.
+     */
+    NOT_SUPPORTED
+};
+
+/**
+ * Enum to identify the reason(s) of AudioGain changed event
+ */
+enum Reason : uint32_t {
+    CYBER_MUTE          = 0x1,
+    REMOTE_MUTE_ORDER   = 0x2,
+    TCU_MUTE_ORDER      = 0x4,
+    ADAS_DUCKING        = 0x8,
+    NAV_DUCKING         = 0x10,
+    THERMAL             = 0x20,
+    OTHER               = 0x80000000,
+};
+
+
+enum Constants : int32_t { FACTORY_RESET  = -1 };
+
+/**
+ * Extension of Audio Gain configuration structure used to get gain values of an audio port
+ * identified by its unique id.
+ * See audio/common/6.0/types.hal
+ */
+struct AudioGainConfigExt {
+    AudioPortHandle id;
+    AudioGainConfig gain;
+};

@@ -1,0 +1,7 @@
+#hal_attribute(audiogain);
+attribute hal_audiogain;
+expandattribute hal_audiogain true;
+attribute hal_audiogain_client;
+expandattribute hal_audiogain_client true;
+attribute hal_audiogain_server;
+expandattribute hal_audiogain_server false;
