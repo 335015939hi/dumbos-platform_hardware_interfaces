@@ -16,6 +16,24 @@
       "revId": "0d86374e916ae7fda4b4cacdf07dd24fb686a1bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c3af807_c4248463",
+        "filename": "radio/1.6/IRadioResponse.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1173768
+      },
+      "writtenOn": "2020-08-06T21:13:12Z",
+      "side": 1,
+      "message": "Yes, we can use setCarrierInfoForImsiEncryptionResponse in 1.1.",
+      "parentUuid": "4b08b99a_66295ae4",
+      "revId": "0d86374e916ae7fda4b4cacdf07dd24fb686a1bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
