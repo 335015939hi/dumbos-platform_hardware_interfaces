@@ -1,0 +1,31 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004249733",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1393396?revision\u003d1",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "b3d4899c_faa30adb",
+        "filename": "audio/audiogain/6.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-08-06T16:14:06Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027primary/secondary\u0027 or \u0027manager/worker\u0027; see https://source.android.com/setup/contribute/respectful-code for more details.",
+      "range": {
+        "startLine": 38,
+        "startChar": 10,
+        "endLine": 38,
+        "endChar": 16
+      },
+      "revId": "e40ae938ae4c90a1a386e1aa7c96d98fdccce50b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
