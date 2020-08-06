@@ -322,6 +322,46 @@ Return<Result> PrimaryDevice::updateRotation(IPrimaryDevice::Rotation rotation) 
 }
 #endif
 
+#if MAJOR_VERSION >= 6
+/*static*/
+int PrimaryDevice::audioGainCallback(unsigned int reason, void* param, void* cookie) {
+    PrimaryDevice* self = reinterpret_cast<PrimaryDevice*>(cookie);
+    sp<IAudioGainCallback> callback = self->mAudioGainCallback;
+    if (callback.get() == nullptr) {
+        return 0;
+    }
+    audio_port_config* halConfig = static_cast<struct audio_port_config*>(param);
+
+    AudioGainConfigExt audioGainConfigExt;
+    audioGainConfigExt.id = halConfig->id;
+    HidlUtils::audioGainConfigFromHal(halConfig, &(audioGainConfig.gain));
+    callback->onChanged(reason, {audioGainConfigExt});
+    return 0;
+}
+
+Return<Result> PrimaryDevice::subscribe(const android::sp<IAudioGainCallback> &callback)
+{
+    if (mDevice->device()-set_audio_gain_callback == NULL) {
+        ALOGW("%s set_gain_callback is null", __func__);
+        return Result::NOT_SUPPORTED;
+    }
+    return mDevice->analyzeStatus(
+                "set_audio_gain_callback", mDevice->device()->set_audio_gain_callback(
+                    mDevice->device(), PrimaryDevice::audioGainCallback, this));
+}
+
+Return<Result> PrimaryDevice::unsubscribe(const android::sp<IAudioGainCallback> &callback)
+{
+    if (mDevice->device()-reset_audio_gain_callback == NULL) {
+        ALOGW("%s reset_audio_gain_callback is null", __func__);
+        return Result::NOT_SUPPORTED;
+    }
+    return mDevice->analyzeStatus(
+                "reset_audio_gain_callback", mDevice->device()->reset_audio_gain_callback(
+                    mDevice->device(), PrimaryDevice::audioGainCallback, this));
+}
+#endif
+
 Return<void> PrimaryDevice::debug(const hidl_handle& fd, const hidl_vec<hidl_string>& options) {
     return mDevice->debug(fd, options);
 }
