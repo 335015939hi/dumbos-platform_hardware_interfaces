@@ -17,6 +17,8 @@
 package android.hardware.audio@7.0;
 
 import android.hardware.audio.common@7.0;
+import android.hardware.audio.audiogain@7.0::IAudioGain;
+import android.hardware.audio.audiogain@7.0::IAudioGainCallback;
 import IStreamIn;
 import IStreamOut;
 
@@ -363,4 +365,33 @@ interface IDevice {
      * @return retval operation completion status.
      */
     removeDeviceEffect(AudioPortHandle device, uint64_t effectId) generates (Result retval);
+
+    /**
+     * Register to the events of this HAL.
+     * Set the callback interface for notifying audio gain(s) changed.
+     *
+     * 'unsubscribe' method needs to be called in order to release the local
+     * callback proxy on the server side and thus dereference the callback
+     * implementation on the client side.
+     *
+     * @param callback of the client to register.
+     * @return result operation completion status, A value from Result enum.
+     */
+    registerAudioGainCallback(IAudioGainCallback callback) generates (Result result);
+
+    /**
+     * Unregister to the events of this HAL.
+     * Clears the callback previously set via 'subscribe' method.
+     *
+     * Warning: failure to call this method results in callback implementation
+     * on the client side being held until the HAL server termination.
+     *
+     * If no callback was previously set, the method should be a no-op
+     * and return OK.
+     *
+     * @param callback of the client to unsubscribe.
+     * @return result operation completion status: OK or NOT_SUPPORTED,
+     *         A value from Result enum.
+     */
+    unregisterAudioGainCallback(IAudioGainCallback callback) generates (Result result);
 };

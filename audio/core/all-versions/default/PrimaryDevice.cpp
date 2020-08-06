@@ -29,6 +29,7 @@ namespace audio {
 namespace CPP_VERSION {
 namespace implementation {
 
+
 PrimaryDevice::PrimaryDevice(audio_hw_device_t* device) : mDevice(new Device(device)) {}
 
 PrimaryDevice::~PrimaryDevice() {
@@ -337,6 +338,17 @@ Return<Result> PrimaryDevice::setBtHfpVolume(float volume) {
 Return<Result> PrimaryDevice::updateRotation(IPrimaryDevice::Rotation rotation) {
     // legacy API expects the rotation in degree
     return mDevice->setParam(AUDIO_PARAMETER_KEY_ROTATION, int(rotation) * 90);
+}
+#endif
+
+#if MAJOR_VERSION >= 7
+Return<Result> PrimaryDevice::registerAudioGainCallback(
+        const android::sp<IAudioGainCallback> &callback) {
+    return mDevice->registerAudioGainCallback(callback);
+}
+
+Return<Result> PrimaryDevice::unregisterAudioGainCallback(const android::sp<IAudioGainCallback> &callback) {
+    return mDevice->unregisterAudioGainCallback(callback);
 }
 #endif
 
