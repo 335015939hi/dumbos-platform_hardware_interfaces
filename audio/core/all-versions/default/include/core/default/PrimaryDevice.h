@@ -31,6 +31,9 @@ namespace audio {
 namespace CPP_VERSION {
 namespace implementation {
 
+#if MAJOR_VERSION >= 7
+using ::android::hardware::audio::CPP_VERSION::IAudioGainCallback;
+#endif
 using ::android::sp;
 using ::android::hardware::hidl_string;
 using ::android::hardware::hidl_vec;
@@ -135,7 +138,16 @@ struct PrimaryDevice : public IPrimaryDevice {
     Return<Result> setBtHfpVolume(float volume) override;
     Return<Result> updateRotation(IPrimaryDevice::Rotation rotation) override;
 #endif
+#if MAJOR_VERSION >= 7
+    Return<Result> registerAudioGainCallback(const android::sp<IAudioGainCallback> &callback);
+    Return<Result> unregisterAudioGainCallback(const android::sp<IAudioGainCallback> &callback);
 
+    static int audioGainCallback(audio_gain_mask_t reasons,
+                                 const struct audio_port_config* ports,
+                                 unsigned int num_ports,
+                                 void* cookie);
+    android::sp<IAudioGainCallback> mAudioGainCallback;
+#endif
    private:
     sp<Device> mDevice;
 

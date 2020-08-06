@@ -431,7 +431,7 @@ status_t HidlUtils::audioGainConfigToHal(const AudioGainConfig& config,
         if (config.values.size() > 0) {
             halConfig->values[0] = config.values[0];
         } else {
-            ALOGE("Empty values vector in AudioGainConfig");
+            ALOGE("%s Empty values vector in AudioGainConfig", __func__);
             result = BAD_VALUE;
         }
     }
@@ -439,8 +439,8 @@ status_t HidlUtils::audioGainConfigToHal(const AudioGainConfig& config,
         size_t channelCount = __builtin_popcount(halConfig->channel_mask);
         size_t valuesCount = config.values.size();
         if (channelCount != valuesCount) {
-            ALOGE("Wrong number of values in AudioGainConfig, expected: %zu, found: %zu",
-                  channelCount, valuesCount);
+            ALOGE("%s Wrong number of values in AudioGainConfig, expected: %zu, found: %zu",
+                  __func__, channelCount, valuesCount);
             result = BAD_VALUE;
             if (channelCount < valuesCount) {
                 valuesCount = channelCount;
