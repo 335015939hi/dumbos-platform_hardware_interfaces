@@ -700,6 +700,30 @@
     },
     {
       "key": {
+        "uuid": "6ed4a18f_4be0bec3",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2020-08-06T22:36:24Z",
+      "side": 1,
+      "message": "There may be a bitfield type for this? I can\u0027t remember. Suggest to check with smoreland@.",
+      "parentUuid": "b63b5776_ca61276c",
+      "range": {
+        "startLine": 118,
+        "startChar": 9,
+        "endLine": 118,
+        "endChar": 16
+      },
+      "revId": "66c067313b5eebba5d8abc48504b4c4f1b9687a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8cc54151_8bd33788",
         "filename": "radio/1.6/types.hal",
         "patchSetId": 4
@@ -735,6 +759,30 @@
       "side": 1,
       "message": "As per the RFC, its a 32 bit value (like opaque string) so i am afraid of having signed bit which might change actual value when a larger SPI is used",
       "parentUuid": "8cc54151_8bd33788",
+      "range": {
+        "startLine": 130,
+        "startChar": 9,
+        "endLine": 130,
+        "endChar": 17
+      },
+      "revId": "66c067313b5eebba5d8abc48504b4c4f1b9687a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "98a64e2d_b14ce509",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2020-08-06T22:36:24Z",
+      "side": 1,
+      "message": "I know. It will be treated as signed in Java regardless, but the number being 32-bit means that it won\u0027t get sign-extended at any point.",
+      "parentUuid": "63f72061_e1a09463",
       "range": {
         "startLine": 130,
         "startChar": 9,
