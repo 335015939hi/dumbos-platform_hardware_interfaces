@@ -111,6 +111,7 @@ cc_defaults {
         "android.hardware.audio@6.0",
         "android.hardware.audio.common@6.0",
         "android.hardware.audio.common@6.0-util",
+        "android.hardware.audio.audiogain@6.0",
     ],
     cflags: [
         "-DMAJOR_VERSION=6",
