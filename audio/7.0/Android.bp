@@ -16,6 +16,7 @@ hidl_interface {
     ],
     interfaces: [
         "android.hardware.audio.common@7.0",
+        "android.hardware.audio.audiogain@7.0",
         "android.hardware.audio.effect@7.0",
         "android.hidl.base@1.0",
         "android.hidl.safe_union@1.0",

@@ -1,0 +1,17 @@
+hidl_interface {
+    name: "android.hardware.audio.audiogain@7.0",
+    root: "android.hardware",
+    srcs: [
+        "types.hal",
+        "IAudioGain.hal",
+        "IAudioGainCallback.hal",
+    ],
+    interfaces: [
+        "android.hardware.audio.common@7.0",
+        "android.hidl.base@1.0",
+    ],
+    // Client for this callback may not be media.audio_policy or audio_flinger
+    // but other java services (e.g. CarAudioService)
+    gen_java: true,
+    gen_java_constants: true,
+}

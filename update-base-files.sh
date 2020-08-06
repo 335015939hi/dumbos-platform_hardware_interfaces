@@ -50,3 +50,6 @@ hidl-gen $options \
 hidl-gen $options \
          -o $ANDROID_BUILD_TOP/system/media/audio/include/system/audio_effect-base.h \
          android.hardware.audio.effect@7.0
+hidl-gen $options \
+         -o $ANDROID_BUILD_TOP/system/media/audio/include/system/audio_gain-base.h \
+         android.hardware.audio.audiogain@7.0

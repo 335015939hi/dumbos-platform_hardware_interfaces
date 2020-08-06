@@ -136,6 +136,11 @@ struct PrimaryDevice : public IPrimaryDevice {
     Return<Result> updateRotation(IPrimaryDevice::Rotation rotation) override;
 #endif
 
+#if MAJOR_VERSION >= 7
+    Return<Result> registerAudioGainCallback(const android::sp<IAudioGainCallback> &callback);
+    Return<Result> unregisterAudioGainCallback(const android::sp<IAudioGainCallback> &callback);
+#endif
+
    private:
     sp<Device> mDevice;
 

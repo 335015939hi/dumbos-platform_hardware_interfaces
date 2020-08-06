@@ -136,6 +136,7 @@ cc_library_shared {
         "android.hardware.audio.common@7.0",
         "android.hardware.audio.common@7.0-enums",
         "android.hardware.audio.common@7.0-util",
+        "android.hardware.audio.audiogain@7.0",
         "libbase",
         "libxml2",
     ],
