@@ -629,6 +629,30 @@
     },
     {
       "key": {
+        "uuid": "693eef7b_174f54d1",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2020-08-06T22:32:47Z",
+      "side": 1,
+      "message": "Yes, 3gpp uses the term packet filter",
+      "parentUuid": "05d6cd8f_468f0b00",
+      "range": {
+        "startLine": 96,
+        "startChar": 10,
+        "endLine": 96,
+        "endChar": 16
+      },
+      "revId": "66c067313b5eebba5d8abc48504b4c4f1b9687a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "40e26f29_782af2e8",
         "filename": "radio/1.6/types.hal",
         "patchSetId": 4
@@ -652,6 +676,30 @@
     },
     {
       "key": {
+        "uuid": "b63b5776_ca61276c",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2020-08-06T22:32:47Z",
+      "side": 1,
+      "message": "Its bit complicated to express it in enum because this byte contains 3 different parts. first part is precedence number (3 bits), 2nd part is (4 bits) is TOS and 3rd part (0) is unused as of now. Other option is to get all three parts separately and merge it in implementation which i think is unnecessary as its well defined in protocol.\n\nbtw, i can change it to int32_t",
+      "parentUuid": "40e26f29_782af2e8",
+      "range": {
+        "startLine": 118,
+        "startChar": 9,
+        "endLine": 118,
+        "endChar": 16
+      },
+      "revId": "66c067313b5eebba5d8abc48504b4c4f1b9687a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8cc54151_8bd33788",
         "filename": "radio/1.6/types.hal",
         "patchSetId": 4
@@ -672,6 +720,30 @@
       "revId": "66c067313b5eebba5d8abc48504b4c4f1b9687a9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63f72061_e1a09463",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2020-08-06T22:32:47Z",
+      "side": 1,
+      "message": "As per the RFC, its a 32 bit value (like opaque string) so i am afraid of having signed bit which might change actual value when a larger SPI is used",
+      "parentUuid": "8cc54151_8bd33788",
+      "range": {
+        "startLine": 130,
+        "startChar": 9,
+        "endLine": 130,
+        "endChar": 17
+      },
+      "revId": "66c067313b5eebba5d8abc48504b4c4f1b9687a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
