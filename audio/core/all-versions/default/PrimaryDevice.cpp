@@ -16,6 +16,8 @@
 
 #define LOG_TAG "PrimaryDeviceHAL"
 
+#include <HidlUtils.h>
+
 #include "core/default/PrimaryDevice.h"
 #include "core/default/Util.h"
 
@@ -28,6 +30,10 @@ namespace hardware {
 namespace audio {
 namespace CPP_VERSION {
 namespace implementation {
+
+#if MAJOR_VERSION >= 7
+using ::android::hardware::audio::common::CPP_VERSION::implementation::HidlUtils;
+#endif
 
 PrimaryDevice::PrimaryDevice(audio_hw_device_t* device) : mDevice(new Device(device)) {}
 
@@ -337,6 +343,64 @@ Return<Result> PrimaryDevice::setBtHfpVolume(float volume) {
 Return<Result> PrimaryDevice::updateRotation(IPrimaryDevice::Rotation rotation) {
     // legacy API expects the rotation in degree
     return mDevice->setParam(AUDIO_PARAMETER_KEY_ROTATION, int(rotation) * 90);
+}
+#endif
+
+#if MAJOR_VERSION >= 7
+/*static*/
+int PrimaryDevice::audioGainCallback(unsigned int reasons,
+                              const struct audio_port_config* ports,
+                              unsigned int num_ports,
+                              void* cookie) {
+    // Hal implementer must guaranteed that the audio gain callback thread is joined prior
+    // to exiting from Primary device's destructor. Must *not* use sp<PrimaryDevice>
+    // here because it can make this code the last owner of PrimaryDevice,
+    // and an attempt to run the destructor on the callback thread
+    // will cause a deadlock in the legacy HAL code.
+    status_t result = NO_ERROR;
+    PrimaryDevice* self = reinterpret_cast<PrimaryDevice*>(cookie);
+    sp<IAudioGainCallback> callback = self->mAudioGainCallback;
+    if (callback.get() == nullptr) {
+        return 0;
+    }
+    hidl_vec<AudioGainConfigExt> hidlGains;
+    hidlGains.resize(num_ports);
+    for (unsigned int i = 0; i < num_ports; i++) {
+        hidlGains[i].id = ports[i].id;
+        if (status_t status = HidlUtils::audioGainConfigFromHal(
+                    ports[i].gain, false /*isOut*/, &(hidlGains[i].gain));
+            status != NO_ERROR) {
+            result = status;
+        }
+    }
+    callback->onChanged(reasons, hidlGains);
+    return result;
+}
+
+Return<Result> PrimaryDevice::registerAudioGainCallback(
+        const android::sp<IAudioGainCallback> &callback)
+{
+    if (mDevice->device()->set_audio_gain_callback == NULL) {
+        ALOGW("%s set_gain_callback is null", __func__);
+        return Result::NOT_SUPPORTED;
+    }
+    mAudioGainCallback = callback;
+    return mDevice->analyzeStatus("set_audio_gain_callback",
+                                  mDevice->device()->set_audio_gain_callback(
+                                      mDevice->device(), PrimaryDevice::audioGainCallback, this));
+}
+
+Return<Result> PrimaryDevice::unregisterAudioGainCallback(
+        const android::sp<IAudioGainCallback> &/*callback*/)
+{
+    if (mDevice->device()->reset_audio_gain_callback == NULL) {
+        ALOGW("%s reset_audio_gain_callback is null", __func__);
+        return Result::NOT_SUPPORTED;
+    }
+    mAudioGainCallback.clear();
+    return mDevice->analyzeStatus("reset_audio_gain_callback",
+                                  mDevice->device()->reset_audio_gain_callback(
+                                      mDevice->device(), PrimaryDevice::audioGainCallback, this));
 }
 #endif
 
