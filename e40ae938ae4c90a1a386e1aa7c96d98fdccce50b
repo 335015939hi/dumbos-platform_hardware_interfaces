@@ -2,6 +2,94 @@
   "comments": [
     {
       "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004249737",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1393396?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "e0bf98aa_8ffa0e22",
+          "description": "Change to \"audio/6.0/IPrimaryDevice.hal\"",
+          "replacements": [
+            {
+              "path": "audio/6.0/IPrimaryDevice.hal",
+              "range": {
+                "startLine": 221,
+                "startChar": 23,
+                "endLine": 221,
+                "endChar": 32
+              },
+              "replacement": "Identify"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "b5e0ab03_ffa03705",
+        "filename": "audio/6.0/IPrimaryDevice.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-08-06T16:14:09Z",
+      "side": 1,
+      "message": "Common typo found: \"Indentify\" -- should it be \"Identify\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027NO_TYPO_CHECK\u003d\u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 221,
+        "startChar": 23,
+        "endLine": 221,
+        "endChar": 32
+      },
+      "revId": "e40ae938ae4c90a1a386e1aa7c96d98fdccce50b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004249737",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1393396?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "c40b537a_1ddef643",
+          "description": "Change to \"audio/audiogain/6.0/IAudioGain.hal\"",
+          "replacements": [
+            {
+              "path": "audio/audiogain/6.0/IAudioGain.hal",
+              "range": {
+                "startLine": 55,
+                "startChar": 23,
+                "endLine": 55,
+                "endChar": 32
+              },
+              "replacement": "Identify"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "fff2aa84_8e979449",
+        "filename": "audio/audiogain/6.0/IAudioGain.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-08-06T16:14:09Z",
+      "side": 1,
+      "message": "Common typo found: \"Indentify\" -- should it be \"Identify\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027NO_TYPO_CHECK\u003d\u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 55,
+        "startChar": 23,
+        "endLine": 55,
+        "endChar": 32
+      },
+      "revId": "e40ae938ae4c90a1a386e1aa7c96d98fdccce50b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
       "robotRunId": "AR00000000000004249733",
       "url": "https://android-build.googleplex.com/builds/treetop/android-review/1393396?revision\u003d1",
       "fixSuggestions": [],
@@ -15,6 +103,33 @@
         "id": 1550585
       },
       "writtenOn": "2020-08-06T16:14:06Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027primary/secondary\u0027 or \u0027manager/worker\u0027; see https://source.android.com/setup/contribute/respectful-code for more details.",
+      "range": {
+        "startLine": 38,
+        "startChar": 10,
+        "endLine": 38,
+        "endChar": 16
+      },
+      "revId": "e40ae938ae4c90a1a386e1aa7c96d98fdccce50b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004249733",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1393396?revision\u003d1",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "5057440f_bd5c4d4e",
+        "filename": "audio/audiogain/6.0/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-08-06T16:14:09Z",
       "side": 1,
       "message": "Prefer to use inclusive terms like \u0027primary/secondary\u0027 or \u0027manager/worker\u0027; see https://source.android.com/setup/contribute/respectful-code for more details.",
       "range": {
