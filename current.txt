@@ -649,6 +649,10 @@ a5bcd595a5108312fe2eb402e716d0b7dab8eb689a2a5f54fdef3ff71f3babd5 android.hardwar
 b454df853441c12f6e425e8a60dd29fda20f5e6e39b93d1103e4b37495db38aa android.hardware.radio@1.5::IRadio
 fcbb0742a88215ee7a6d7ce0825d253eb2b50391fc6c8c48667f9fd7f6d4549e android.hardware.radio@1.5::IRadioIndication
 b809193970a91ca637a4b0184767315601d32e3ef3d5992ffbc7a8d14a14f015 android.hardware.radio@1.5::IRadioResponse
+# todo: move to S
+1aaf99a731f1d9ad43abdeadf7bb33d07eb1b4f7a56809013ed183d8d087cb9c android.hardware.audio.audiogain@6.0::IAudioGain
+b4730b6ccfc726f267acac882c311e0962eaf8e8de29cdbe8d4d3d8cc04a65f9 android.hardware.audio.audiogain@6.0::IAudioGainCallback
+529edd329480287b6d4d566673f25d22abb822b8d2f00d11cdb260bc4373f31f android.hardware.audio.audiogain@6.0::types
 
 # ABI preserving changes to HALs during Android S
 cd84ab19c590e0e73dd2307b591a3093ee18147ef95e6d5418644463a6620076 android.hardware.neuralnetworks@1.2::IDevice
