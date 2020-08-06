@@ -32,6 +32,9 @@ namespace CPP_VERSION {
 namespace implementation {
 
 using ::android::sp;
+#if MAJOR_VERSION >= 6
+using ::android::hardware::audio::audiogain::CPP_VERSION::IAudioGainCallback;
+#endif
 using ::android::hardware::hidl_string;
 using ::android::hardware::hidl_vec;
 using ::android::hardware::Return;
@@ -100,6 +103,11 @@ struct PrimaryDevice : public IPrimaryDevice {
     Return<Result> close() override;
     Return<Result> addDeviceEffect(AudioPortHandle device, uint64_t effectId) override;
     Return<Result> removeDeviceEffect(AudioPortHandle device, uint64_t effectId) override;
+    Return<Result> subscribe(const android::sp<IAudioGainCallback> &callback);
+    Return<Result> unsubscribe(const android::sp<IAudioGainCallback> &callback);
+
+    static int audioGainCallback(unsigned int reason, void* param, void* cookie);
+    android::sp<IAudioGainCallback> mAudioGainCallback;
 #endif
 
     Return<void> debug(const hidl_handle& fd, const hidl_vec<hidl_string>& options) override;
