@@ -340,6 +340,18 @@ Return<Result> PrimaryDevice::updateRotation(IPrimaryDevice::Rotation rotation) 
 }
 #endif
 
+#if MAJOR_VERSION >= 7
+Return<Result> PrimaryDevice::registerAudioGainCallback(
+        const android::sp<IAudioGainCallback> &callback) {
+    return mDevice->registerAudioGainCallback(callback);
+}
+
+Return<Result> PrimaryDevice::unregisterAudioGainCallback(
+        const android::sp<IAudioGainCallback> &callback) {
+    return mDevice->unregisterAudioGainCallback(callback);
+}
+#endif
+
 Return<void> PrimaryDevice::debug(const hidl_handle& fd, const hidl_vec<hidl_string>& options) {
     return mDevice->debug(fd, options);
 }
