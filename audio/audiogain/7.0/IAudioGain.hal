@@ -1,0 +1,60 @@
+/*
+ * Copyright (C) 2020 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package android.hardware.audio.audiogain@7.0;
+
+import IAudioGainCallback;
+
+/**
+ * Definition of the AudioGain HAL Interface.
+ *
+ * The AudioGain HAL extends AudioHAL to manage specific cases when
+ * AudioGain is updated directly by AudioHAL (e.g. thermal, ADAS, ...)
+ *
+ * Even if it is expected to be exposed by AudioHAL, it is a separated interface in order to allow
+ * other clients than media service (JAVA side) to use this service.
+ *
+ */
+interface IAudioGain {
+    /**
+     * Subscribe to the events of this HAL.
+     * Set the callback interface for notifying audio gain(s) changed.
+     *
+     * 'unsubscribe' method needs to be called in order to release the local
+     * callback proxy on the server side and thus dereference the callback
+     * implementation on the client side.
+     *
+     * @param callback of the client to register.
+     * @return result operation completion status, A value from Result enum.
+     */
+    registerAudioGainCallback(IAudioGainCallback callback) generates (Result result);
+
+    /**
+     * Unsubscribe to the events of this HAL.
+     * Clears the callback previously set via 'subscribe' method.
+     *
+     * Warning: failure to call this method results in callback implementation
+     * on the client side being held until the HAL server termination.
+     *
+     * If no callback was previously set, the method should be a no-op
+     * and return OK.
+     *
+     * @param callback of the client to unsubscribe.
+     * @return result operation completion status: OK or NOT_SUPPORTED,
+     *         A value from Result enum.
+     */
+    unregisterAudioGainCallback(IAudioGainCallback callback) generates (Result result);
+};

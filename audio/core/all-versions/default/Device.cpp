@@ -41,6 +41,11 @@ namespace implementation {
 
 using ::android::hardware::audio::common::CPP_VERSION::implementation::HidlUtils;
 
+#if MAJOR_VERSION >= 7
+using ::android::hardware::audio::audiogain::CPP_VERSION::AudioGainConfigExt;
+using ::android::hardware::audio::common::CPP_VERSION::implementation::HidlUtils;
+#endif
+
 Device::Device(audio_hw_device_t* device) : mIsClosed(false), mDevice(device) {}
 
 Device::~Device() {
@@ -519,6 +524,58 @@ Return<void> Device::updateAudioPatch(int32_t previousPatch,
     return Void();
 }
 
+#endif
+
+#if MAJOR_VERSION >= 7
+/*static*/
+int Device::audioGainCallback(unsigned int reasons,
+                              const struct audio_port_config* ports,
+                              unsigned int num_ports,
+                              void* cookie) {
+    status_t result = NO_ERROR;
+    Device* self = reinterpret_cast<Device*>(cookie);
+    sp<IAudioGainCallback> callback = self->mAudioGainCallback;
+    if (callback.get() == nullptr) {
+        return 0;
+    }
+    hidl_vec<AudioGainConfigExt> hidlGains;
+    hidlGains.resize(num_ports);
+    for (unsigned int i = 0; i < num_ports; i++) {
+        hidlGains[i].id = ports[i].id;
+        if (status_t status = HidlUtils::audioGainConfigFromHal(
+                    ports[i].gain, false /*isOut*/, &(hidlGains[i].gain));
+            status != NO_ERROR) {
+            result = status;
+        }
+    }
+    callback->onChanged(reasons, hidlGains);
+    return result;
+}
+
+Return<Result> Device::registerAudioGainCallback(
+        const android::sp<IAudioGainCallback> &callback)
+{
+    if (mDevice->set_audio_gain_callback == NULL) {
+        ALOGW("%s set_gain_callback is null", __func__);
+        return Result::NOT_SUPPORTED;
+    }
+    // TODO: manage mutliclients
+    mAudioGainCallback = callback;
+    return analyzeStatus("set_audio_gain_callback", mDevice->set_audio_gain_callback(
+                             mDevice, Device::audioGainCallback, this));
+}
+
+Return<Result> Device::unregisterAudioGainCallback(
+        const android::sp<IAudioGainCallback> &/*callback*/)
+{
+    if (mDevice->reset_audio_gain_callback == NULL) {
+        ALOGW("%s reset_audio_gain_callback is null", __func__);
+        return Result::NOT_SUPPORTED;
+    }
+    mAudioGainCallback.clear();
+    return analyzeStatus("reset_audio_gain_callback", mDevice->reset_audio_gain_callback(
+                             mDevice, Device::audioGainCallback, this));
+}
 #endif
 
 }  // namespace implementation

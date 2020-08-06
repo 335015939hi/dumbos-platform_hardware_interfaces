@@ -1,0 +1,49 @@
+/*
+ * Copyright (C) 2020 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package android.hardware.audio.audiogain@7.0;
+
+import types;
+
+/**
+ * This callback interface defines a set of asynchronous operations used
+ * to inform or notify subscribed clients of various audio gain changes
+ * form the audio HAL.
+ */
+interface IAudioGainCallback {
+
+    /**
+     * This method gets called when AudioHAL changes Audio Gain.
+     * This change may occur:
+     * - when ADAS sound is played
+     * - when Media is ducked by Navigation Announcments
+     * - ...
+     * @param reasonsMask value to set.
+     *        Combination of |Reasons| values, describing  why Audio Gain has changed.
+     * @param gains Vector of AudioGainConfigExt,
+     *   extending android.hardware.audio.common@7.0::AudioGainConfig.
+     *   It allows to get the gain index/values for the given ports.
+     *   See android.hardware.audio.common@7.0::AudioGainConfig for more details.
+     *   AudioHAL must at least provide:
+     *      -android.hardware.audio.common@7.0::AudioGainConfig.index: computed attenuated index,
+     *          in the range of the associated volume group.
+     *          By convention, index = Constants::FACTORY_RESET would be interpreted as a factory
+     *          reset, requesting the client to apply default volumes.
+     *      -android.hardware.audio.common@7.0::AudioGainConfig.values[0]: gain in millibels,
+     *          corresponding to the first channel.
+     */
+    oneway onChanged(bitfield<ReasonMask> reasonsMask, vec<AudioGainConfigExt> gains);
+};
