@@ -94,7 +94,7 @@ int main(int /* argc */, char* /* argv */ []) {
         {
             "Bluetooth Audio Offload API",
             "android.hardware.bluetooth.a2dp@1.0::IBluetoothAudioOffload"
-        }
+        },
     };
     // clang-format on
 

@@ -384,3 +384,30 @@ struct PlaybackRate {
  * list of allowed values.
  */
 typedef string AudioInOutFlag;
+
+/**
+ * Possble mask of values for Reasons param.
+ * Identify the reason(s) of AudioGain changed event.
+ */
+@export(name="audio_gain_mask_t", value_prefix="HAL_AUDIO_GAIN_MASK_")
+enum ReasonMask : uint32_t {
+    CYBER_MUTE          = 1 << 0,
+    REMOTE_MUTE_ORDER   = 1 << 1,
+    TCU_MUTE_ORDER      = 1 << 2,
+    ADAS_DUCKING        = 1 << 3,
+    NAV_DUCKING         = 1 << 4,
+    THERMAL             = 1 << 5,
+    OTHER               = 0x80000000
+};
+
+enum Constants : int32_t { FACTORY_RESET  = -1 };
+
+/**
+ * Extension of Audio Gain configuration structure used to get gain values of an audio port
+ * identified by its unique id.
+ * See audio/common/6.0/types.hal
+ */
+struct AudioGainConfigExt {
+    AudioPortHandle id;
+    AudioGainConfig gain;
+};
