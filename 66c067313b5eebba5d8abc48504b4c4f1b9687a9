@@ -254,6 +254,30 @@
     },
     {
       "key": {
+        "uuid": "88abc4df_e7922a46",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2020-08-07T17:35:32Z",
+      "side": 1,
+      "message": "Checked with smoreland@ offline and his response is below\n\nHIDL needs new APIs for new types. The way to avoid this is switching to AIDL. See http://go/hidl-retrospectives. I\u0027ve been working on fixing this problem, as well as a host of others in AIDL for almost 2 years now.",
+      "parentUuid": "825ce765_a27eb942",
+      "range": {
+        "startLine": 81,
+        "startChar": 7,
+        "endLine": 81,
+        "endChar": 43
+      },
+      "revId": "66c067313b5eebba5d8abc48504b4c4f1b9687a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2f70c834_803b2450",
         "filename": "radio/1.6/IRadioResponse.hal",
         "patchSetId": 4
@@ -462,6 +486,30 @@
       "revId": "66c067313b5eebba5d8abc48504b4c4f1b9687a9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b69b1ee_19152198",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2020-08-07T17:35:32Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "cfd4becc_39f13660",
+      "range": {
+        "startLine": 24,
+        "startChar": 4,
+        "endLine": 24,
+        "endChar": 12
+      },
+      "revId": "66c067313b5eebba5d8abc48504b4c4f1b9687a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -724,6 +772,30 @@
     },
     {
       "key": {
+        "uuid": "753b198a_c210dead",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2020-08-07T17:35:32Z",
+      "side": 1,
+      "message": "you could pass the raw type e.g. int32_t around and document the structure. If subitems are each 16-bits, you could use two separate int16_t types, for instance\n\nSince the items are within a byte i would document it clearly",
+      "parentUuid": "6ed4a18f_4be0bec3",
+      "range": {
+        "startLine": 118,
+        "startChar": 9,
+        "endLine": 118,
+        "endChar": 16
+      },
+      "revId": "66c067313b5eebba5d8abc48504b4c4f1b9687a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8cc54151_8bd33788",
         "filename": "radio/1.6/types.hal",
         "patchSetId": 4
@@ -783,6 +855,30 @@
       "side": 1,
       "message": "I know. It will be treated as signed in Java regardless, but the number being 32-bit means that it won\u0027t get sign-extended at any point.",
       "parentUuid": "63f72061_e1a09463",
+      "range": {
+        "startLine": 130,
+        "startChar": 9,
+        "endLine": 130,
+        "endChar": 17
+      },
+      "revId": "66c067313b5eebba5d8abc48504b4c4f1b9687a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a4c3741_9d7df6a3",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2020-08-07T17:35:32Z",
+      "side": 1,
+      "message": "I see, If java is always going treat it as signed always then i don\u0027t see a value .. I do see in lot of places in IRadio uint32_t is already used. I prefer to uint32_t if this is not going to harm",
+      "parentUuid": "98a64e2d_b14ce509",
       "range": {
         "startLine": 130,
         "startChar": 9,
