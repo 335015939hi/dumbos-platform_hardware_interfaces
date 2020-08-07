@@ -23,8 +23,8 @@
 #include "1.3/Callbacks.h"
 #include "ExecutionBurstController.h"
 #include "GeneratedTestHarness.h"
-#include "TestHarness.h"
 #include "Utils.h"
+#include "TestHarness.h"
 #include "VtsHalNeuralnetworks.h"
 
 namespace android::hardware::neuralnetworks::V1_3::vts::functional {
