@@ -22,6 +22,30 @@
       "revId": "b791e61617b38da0ac921166cb223e48d3220a8e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56e1c8d9_81d1bdc8",
+        "filename": "gnss/2.0/vts/functional/gnss_hal_test_cases.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1601154
+      },
+      "writtenOn": "2020-08-10T20:06:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a56977de_d8777014",
+      "range": {
+        "startLine": 72,
+        "startChar": 4,
+        "endLine": 72,
+        "endChar": 31
+      },
+      "revId": "b791e61617b38da0ac921166cb223e48d3220a8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
