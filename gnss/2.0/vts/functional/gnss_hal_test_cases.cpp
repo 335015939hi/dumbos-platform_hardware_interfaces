@@ -20,6 +20,8 @@
 #include <gnss_hal_test.h>
 #include "Utils.h"
 
+#include <cutils/properties.h>
+
 using android::hardware::hidl_string;
 using android::hardware::hidl_vec;
 
@@ -43,6 +45,12 @@ using android::hardware::gnss::V2_0::ElapsedRealtimeFlags;
 using android::hardware::gnss::V2_0::IGnssCallback;
 using android::hardware::gnss::visibility_control::V1_0::IGnssVisibilityControl;
 
+static bool IsAutomotiveDevice() {
+  char buffer[PROPERTY_VALUE_MAX] = {0};
+  property_get("ro.hardware.type", buffer, "");
+  return strncmp(buffer, "automotive", PROPERTY_VALUE_MAX) == 0;
+}
+
 /*
  * SetupTeardownCreateCleanup:
  * Requests the gnss HAL then calls cleanup
@@ -61,6 +69,13 @@ TEST_F(GnssHalTest, TestGnssMeasurementExtension) {
     auto gnssMeasurement_1_0 = gnss_hal_->getExtensionGnssMeasurement();
     ASSERT_TRUE(gnssMeasurement_2_0.isOk() && gnssMeasurement_1_1.isOk() &&
                 gnssMeasurement_1_0.isOk());
+
+    // CDD does not require Android Automotive OS devices to support
+    // GnssMeasurements.
+    if(IsAutomotiveDevice()) {
+      return;
+    }
+
     sp<IGnssMeasurement_2_0> iGnssMeas_2_0 = gnssMeasurement_2_0;
     sp<IGnssMeasurement_1_1> iGnssMeas_1_1 = gnssMeasurement_1_1;
     sp<IGnssMeasurement_1_0> iGnssMeas_1_0 = gnssMeasurement_1_0;
