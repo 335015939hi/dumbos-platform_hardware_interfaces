@@ -479,7 +479,7 @@ TEST_F(GnssHalTest, GetAllExtensions) {
  * Verifies that modern hardware supports measurement capabilities.
  */
 TEST_F(GnssHalTest, MeasurementCapabilites) {
-  if (info_called_count_ > 0 && last_info_.yearOfHw >= 2016) {
+  if (!IsAutomotiveDevice() && info_called_count_ > 0 && last_info_.yearOfHw >= 2016) {
     EXPECT_TRUE(last_capabilities_ & IGnssCallback::Capabilities::MEASUREMENTS);
   }
 }
