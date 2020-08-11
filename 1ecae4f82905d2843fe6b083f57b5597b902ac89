@@ -131,6 +131,23 @@
       "revId": "1ecae4f82905d2843fe6b083f57b5597b902ac89",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6c83497_445314f8",
+        "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1199008
+      },
+      "writtenOn": "2020-08-11T23:22:22Z",
+      "side": 1,
+      "message": "On recent discussions we think it will be good to enhance the current setDataLimit api with 2 quotas (hard limit and warning). We will need both quotas simultaneously for below scenarios to have the logic work for us and avoid timing issues.\n- User opens up the Usage UI\n- User modifies either the warning or the data limit on the Usage UI\n- Various triggers when framework polls for HW tether stats and recalculate the quota and sets a new limit",
+      "revId": "1ecae4f82905d2843fe6b083f57b5597b902ac89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
