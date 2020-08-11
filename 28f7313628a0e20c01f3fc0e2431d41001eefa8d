@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "951be476_4329f67e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-08-11T00:17:35Z",
+      "side": 1,
+      "message": "are there VTS tests?",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 7
+      },
+      "revId": "28f7313628a0e20c01f3fc0e2431d41001eefa8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b52e494_703b1b02",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-08-11T00:17:35Z",
+      "side": 1,
+      "message": "lgtm (btw, this specific CL technically isn\u0027t needed on AOSP, only sepolicy, but it is nice to have here!)",
+      "revId": "28f7313628a0e20c01f3fc0e2431d41001eefa8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7863d8ea_ec425303",
+        "filename": "powerstats/aidl/android/hardware/powerstats/PowerEntityStateResidencyResult.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-08-11T00:17:35Z",
+      "side": 1,
+      "message": "This is different from powerEntityStateId, right?\n\nEither way, you could get rid of this and other result structs by moving powerEntitytId into PowerEntityStateResidencyData. Of course, it\u0027s not so nice, and this kind of thing is why we should probably switch to nested struct definitions in AIDL. Just a thought.",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 22
+      },
+      "revId": "28f7313628a0e20c01f3fc0e2431d41001eefa8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c137604c_64b3cc99",
+        "filename": "powerstats/aidl/android/hardware/powerstats/RailInfo.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-08-11T00:17:35Z",
+      "side": 1,
+      "message": "this also needs units",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 21
+      },
+      "revId": "28f7313628a0e20c01f3fc0e2431d41001eefa8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
