@@ -272,6 +272,24 @@
     },
     {
       "key": {
+        "uuid": "482c9a8c_77bd5550",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2020-08-11T22:05:08Z",
+      "side": 1,
+      "message": "@Steven, we have had multiple bugs in the past due to uint8_t/uint16_t because java doesn\u0027t support unsigned. I had asked Jaya to use int32 as much as possible to ensure that we don\u0027t end up with signed-promotion bugs or comparison bugs.\n\nUnless the binder is packing structures, which only saves memory at the cost of performance, what are we saving by using smaller data types?",
+      "parentUuid": "8f98a178_f22d90da",
+      "revId": "58a6cf15d906c447ac0036a0b3a8a1ca1b916a5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fe16c28c_04a2b826",
         "filename": "radio/1.6/types.hal",
         "patchSetId": 5
