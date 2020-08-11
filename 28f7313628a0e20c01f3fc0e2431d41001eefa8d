@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "c8af2e53_5b3d5898",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1409782
+      },
+      "writtenOn": "2020-08-11T00:25:33Z",
+      "side": 1,
+      "message": "None yet (this HAL does nothing so far). But I plan on migrating the existing VTS tests for the power stats HAL HIDL interface over.",
+      "parentUuid": "951be476_4329f67e",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 7
+      },
+      "revId": "28f7313628a0e20c01f3fc0e2431d41001eefa8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7b52e494_703b1b02",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
