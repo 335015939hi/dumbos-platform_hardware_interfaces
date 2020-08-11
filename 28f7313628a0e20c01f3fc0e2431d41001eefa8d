@@ -89,6 +89,30 @@
     },
     {
       "key": {
+        "uuid": "340f4155_2c5f94c0",
+        "filename": "powerstats/aidl/android/hardware/powerstats/PowerEntityStateResidencyResult.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1409782
+      },
+      "writtenOn": "2020-08-11T00:37:09Z",
+      "side": 1,
+      "message": "This is different from the powerEntityStateId. The existing HIDL interface for power stats HAL has powerEntityId -- indexing the various power entities -- and powerEntityStateId -- indexing each of a given power entity\u0027s states.\n\nI could move this inside PowerEntityStateResidencyData but I don\u0027t what the advantage of that approach would be. I can definitely consider it, and I do plan on making more changes to this HAL in later CLs.",
+      "parentUuid": "7863d8ea_ec425303",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 22
+      },
+      "revId": "28f7313628a0e20c01f3fc0e2431d41001eefa8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c137604c_64b3cc99",
         "filename": "powerstats/aidl/android/hardware/powerstats/RailInfo.aidl",
         "patchSetId": 2
@@ -109,6 +133,30 @@
       "revId": "28f7313628a0e20c01f3fc0e2431d41001eefa8d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7be1ef82_b3e20bec",
+        "filename": "powerstats/aidl/android/hardware/powerstats/RailInfo.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1409782
+      },
+      "writtenOn": "2020-08-11T00:37:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c137604c_64b3cc99",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 21
+      },
+      "revId": "28f7313628a0e20c01f3fc0e2431d41001eefa8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
