@@ -1,0 +1,320 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ed4ec8f5_436e01e9",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-08-11T01:33:09Z",
+      "side": 1,
+      "message": "when the modem restarts? Is this the only way it can restart?",
+      "range": {
+        "startLine": 36,
+        "startChar": 59,
+        "endLine": 36,
+        "endChar": 91
+      },
+      "revId": "58a6cf15d906c447ac0036a0b3a8a1ca1b916a5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a47bbbc1_31f01cbb",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-08-11T01:33:09Z",
+      "side": 1,
+      "message": "nit: L45 uses HIDL-style single colon \u0027:\u0027, but other places use C++-style double colon",
+      "range": {
+        "startLine": 70,
+        "startChar": 36,
+        "endLine": 70,
+        "endChar": 37
+      },
+      "revId": "58a6cf15d906c447ac0036a0b3a8a1ca1b916a5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "857fe541_78cc1e01",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-08-11T01:33:09Z",
+      "side": 1,
+      "message": "nit: since this and dnses are optional, you consider using safe_union",
+      "range": {
+        "startLine": 71,
+        "startChar": 24,
+        "endLine": 71,
+        "endChar": 37
+      },
+      "revId": "58a6cf15d906c447ac0036a0b3a8a1ca1b916a5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8e871ba_ed7024da",
+        "filename": "radio/1.6/IRadioIndication.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-08-11T01:33:09Z",
+      "side": 1,
+      "message": "are all matched, or any of them are matched?",
+      "range": {
+        "startLine": 37,
+        "startChar": 19,
+        "endLine": 37,
+        "endChar": 24
+      },
+      "revId": "58a6cf15d906c447ac0036a0b3a8a1ca1b916a5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75a20457_aba1d54b",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-08-11T01:33:09Z",
+      "side": 1,
+      "message": "is this always 0? 😊\n\ncomment on what exactly is the guarantee here? is this a network-side min throttle speed?",
+      "range": {
+        "startLine": 25,
+        "startChar": 12,
+        "endLine": 25,
+        "endChar": 22
+      },
+      "revId": "58a6cf15d906c447ac0036a0b3a8a1ca1b916a5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6378653_f39f18fa",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-08-11T01:33:09Z",
+      "side": 1,
+      "message": "since it\u0027s 1..63, should this be int8_t/uint8_t?",
+      "revId": "58a6cf15d906c447ac0036a0b3a8a1ca1b916a5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe16c28c_04a2b826",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-08-11T01:33:09Z",
+      "side": 1,
+      "message": "should this be uint8_t?",
+      "range": {
+        "startLine": 54,
+        "startChar": 18,
+        "endLine": 54,
+        "endChar": 25
+      },
+      "revId": "58a6cf15d906c447ac0036a0b3a8a1ca1b916a5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a46e97c9_d59b9b09",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-08-11T01:33:09Z",
+      "side": 1,
+      "message": "nit: consider using uint8_t instead of this type, and referencing the spec",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 1
+      },
+      "revId": "58a6cf15d906c447ac0036a0b3a8a1ca1b916a5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f491451_56fba401",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-08-11T01:33:09Z",
+      "side": 1,
+      "message": "please reference explicit standard or controlling body for these (for instance, they could move the file)",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 75
+      },
+      "revId": "58a6cf15d906c447ac0036a0b3a8a1ca1b916a5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5a46dbf_8935d474",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-08-11T01:33:09Z",
+      "side": 1,
+      "message": "int16_t",
+      "range": {
+        "startLine": 117,
+        "startChar": 20,
+        "endLine": 117,
+        "endChar": 27
+      },
+      "revId": "58a6cf15d906c447ac0036a0b3a8a1ca1b916a5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "27921cfb_47c3d11c",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-08-11T01:33:09Z",
+      "side": 1,
+      "message": "int16_t on both of these?",
+      "range": {
+        "startLine": 129,
+        "startChar": 0,
+        "endLine": 130,
+        "endChar": 16
+      },
+      "revId": "58a6cf15d906c447ac0036a0b3a8a1ca1b916a5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab6b2ddc_b244d4c3",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-08-11T01:33:09Z",
+      "side": 1,
+      "message": "nit: MaybePort - make null-like nature named",
+      "range": {
+        "startLine": 134,
+        "startChar": 11,
+        "endLine": 134,
+        "endChar": 15
+      },
+      "revId": "58a6cf15d906c447ac0036a0b3a8a1ca1b916a5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2043d92_be8e644c",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-08-11T01:33:09Z",
+      "side": 1,
+      "message": "l",
+      "range": {
+        "startLine": 182,
+        "startChar": 9,
+        "endLine": 182,
+        "endChar": 10
+      },
+      "revId": "58a6cf15d906c447ac0036a0b3a8a1ca1b916a5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43f7b134_b2d90189",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-08-11T01:33:09Z",
+      "side": 1,
+      "message": "\"positive numerical\" or \"positive\". I\u0027m assuming -2 doesn\u0027t have higher precedence than 0?",
+      "range": {
+        "startLine": 182,
+        "startChar": 15,
+        "endLine": 182,
+        "endChar": 24
+      },
+      "revId": "58a6cf15d906c447ac0036a0b3a8a1ca1b916a5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
