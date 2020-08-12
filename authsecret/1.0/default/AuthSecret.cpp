@@ -7,8 +7,10 @@ namespace V1_0 {
 namespace implementation {
 
 // Methods from ::android::hardware::authsecret::V1_0::IAuthSecret follow.
-Return<void> AuthSecret::primaryUserCredential(const hidl_vec<uint8_t>& secret) {
+Return<void> AuthSecret::primaryUserCredential(const hidl_vec<uint8_t>& secret,
+                                               bool installSecret) {
     (void)secret;
+    (void)installSecret;
 
     // To create a dependency on the credential, it is recommended to derive a
     // different value from the provided secret for each purpose e.g.

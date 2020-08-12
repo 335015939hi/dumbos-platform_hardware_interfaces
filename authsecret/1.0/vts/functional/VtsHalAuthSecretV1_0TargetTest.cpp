@@ -36,7 +36,7 @@ class AuthSecretHidlTest : public testing::TestWithParam<std::string> {
 
         // All tests must enroll the correct secret first as this cannot be changed
         // without a factory reset and the order of tests could change.
-        authsecret->primaryUserCredential(CORRECT_SECRET);
+        authsecret->primaryUserCredential(CORRECT_SECRET, true);
     }
 
     sp<IAuthSecret> authsecret;
@@ -52,7 +52,7 @@ TEST_P(AuthSecretHidlTest, provisionPrimaryUserCredential) {
 /* Provision the primary user with a secret and pass the secret again. */
 TEST_P(AuthSecretHidlTest, provisionPrimaryUserCredentialAndPassAgain) {
     // Secret provisioned by SetUp()
-    authsecret->primaryUserCredential(CORRECT_SECRET);
+    authsecret->primaryUserCredential(CORRECT_SECRET, true);
 }
 
 /* Provision the primary user with a secret and pass the secret again repeatedly. */
@@ -60,7 +60,7 @@ TEST_P(AuthSecretHidlTest, provisionPrimaryUserCredentialAndPassAgainMultipleTim
     // Secret provisioned by SetUp()
     constexpr int N = 5;
     for (int i = 0; i < N; ++i) {
-        authsecret->primaryUserCredential(CORRECT_SECRET);
+        authsecret->primaryUserCredential(CORRECT_SECRET, false);
     }
 }
 
@@ -70,7 +70,7 @@ TEST_P(AuthSecretHidlTest, provisionPrimaryUserCredentialAndPassAgainMultipleTim
  * should fail gracefully. */
 TEST_P(AuthSecretHidlTest, provisionPrimaryUserCredentialAndWrongSecret) {
     // Secret provisioned by SetUp()
-    authsecret->primaryUserCredential(WRONG_SECRET);
+    authsecret->primaryUserCredential(WRONG_SECRET, true);
 }
 
 GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(AuthSecretHidlTest);
