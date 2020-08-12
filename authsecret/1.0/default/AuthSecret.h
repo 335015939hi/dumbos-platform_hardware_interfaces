@@ -21,7 +21,8 @@ using ::android::sp;
 
 struct AuthSecret : public IAuthSecret {
     // Methods from ::android::hardware::authsecret::V1_0::IAuthSecret follow.
-    Return<void> primaryUserCredential(const hidl_vec<uint8_t>& secret) override;
+    Return<void> primaryUserCredential(const hidl_vec<uint8_t>& secret,
+                                       bool installSecret) override;) override;
 
     // Methods from ::android::hidl::base::V1_0::IBase follow.
 };
