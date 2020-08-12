@@ -148,6 +148,24 @@
       "revId": "1ecae4f82905d2843fe6b083f57b5597b902ac89",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ddcfa9f_11eaf437",
+        "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2020-08-12T08:22:01Z",
+      "side": 1,
+      "message": "1. If we are going to make new API for both warning and limit, \nis it better if we remove the need of HW to know all traffic (l.29~l.32)?\nConsider that we have more and more implementations of NetworkStatsProvider,\nit might be harder for all OEM to implement this prerequisite.\nNot sure if it is a good idea though.\n\n2. As you might already know, \"The quota must replace any previous call with any quota specified on the same interface.\".\nI\u0027m wondering if there is any real issue that will cause by warning is updated but limit is not. For example:\n  T setWarningAndLimit(2G, 4G)\n  T+1 warning updated somehow, but limit did not\n  T+2 setWarningAndLimit(1G, 4G)\nAt T+2 the limit is also set since NetworkStatsProvider is not aware of any limit update.\nSo the user temporarily get additional limit quota if any traffic is generated between T and T+2 but not reported.\nGiven that we are updating these frenquently maybe it is not a real issue.\nAny thought?",
+      "parentUuid": "a6c83497_445314f8",
+      "revId": "1ecae4f82905d2843fe6b083f57b5597b902ac89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
