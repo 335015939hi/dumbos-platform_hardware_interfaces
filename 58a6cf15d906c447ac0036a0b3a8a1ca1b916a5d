@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "87810406_a7e70389",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-08-12T20:26:41Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "791a2791_a2350296",
+      "range": {
+        "startLine": 71,
+        "startChar": 24,
+        "endLine": 71,
+        "endChar": 37
+      },
+      "revId": "58a6cf15d906c447ac0036a0b3a8a1ca1b916a5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b8e871ba_ed7024da",
         "filename": "radio/1.6/IRadioIndication.hal",
         "patchSetId": 5
@@ -305,6 +329,24 @@
       "revId": "58a6cf15d906c447ac0036a0b3a8a1ca1b916a5d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7eca5e6d_8558d765",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-08-12T20:26:41Z",
+      "side": 1,
+      "message": "The goal is to save size in these structs, yes.\n\nJava 8 introduced unsigned support, albeit very limited support (and it is missing from typing).\n\nFor this though, in range 1..63, even that can be expressed in int8_t.",
+      "parentUuid": "f458f049_e4dbd99a",
+      "revId": "58a6cf15d906c447ac0036a0b3a8a1ca1b916a5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     },
     {
       "key": {
