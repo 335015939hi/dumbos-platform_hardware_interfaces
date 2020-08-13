@@ -96,6 +96,29 @@
     },
     {
       "key": {
+        "uuid": "ace4e8bf_76b2fa38",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2020-08-13T20:31:03Z",
+      "side": 1,
+      "message": "Please add a \u0027Test:\u0027 line with a description how the change can be tested.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 0
+      },
+      "revId": "1e66f0409de8a4b19f351fbfd3f37a2a423238f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "89cff7c1_dfbc3e4d",
         "filename": "bluetooth/audio/2.0/default/LeAudioAudioProvider.cpp",
         "patchSetId": 2
@@ -225,6 +248,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "76e813cb_de52119f",
+      "range": {
+        "startLine": 52,
+        "startChar": 4,
+        "endLine": 52,
+        "endChar": 39
+      },
+      "revId": "1e66f0409de8a4b19f351fbfd3f37a2a423238f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e20479d_37018825",
+        "filename": "bluetooth/audio/2.0/types.hal",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2020-08-13T20:31:03Z",
+      "side": 1,
+      "message": "Eric is right that HAL version change is required (actually that\u0027s true for any change in the interface, not only when adding enum values). However, a major version change isn\u0027t mandatory. Since SessionType is only used as a parameter to IBluetoothAudioProvidersFactory::openProvider and getProviderCapabilities methods, it is possible to use a minor version (V2.1).\n\nIn case of a minor version upgrade you need to do the following:\n- add a new enum type (e.g. SessionType_2_1) that extends SessionType and adds a new enum value;\n- introduce a new IBluetoothAudioProvidersFactory class derived from V2.0 and add \u0027openProvider_2_1\u0027 and \u0027getProviderCapabilities_2_1\u0027 methods that take this new enum type.\n\nYou can see an example of such extension implemented here: https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/vibrator/1.3/",
+      "parentUuid": "90846166_5d4d1cd8",
       "range": {
         "startLine": 52,
         "startChar": 4,
