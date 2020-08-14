@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "38aadd0a_7151ef3d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1315593
+      },
+      "writtenOn": "2020-08-14T00:13:05Z",
+      "side": 1,
+      "message": "Forward looking to R/S wouldn\u0027t it make more sense to put the IsAutomotiveDevice() check into hardware/interfaces/gnss/common/utils/vts/Utils.cpp instead of having the full logic copy/pasted into each version of gnss_hal_test_cases.cpp?",
+      "revId": "1c28cb72f029c6cad139bbb57374fad495b2d1ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
