@@ -66,6 +66,30 @@
     },
     {
       "key": {
+        "uuid": "511eaf7c_53993ec0",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2020-08-14T22:02:51Z",
+      "side": 1,
+      "message": "I\u0027m unsure whether we support a /64 or whether we require a /128.",
+      "parentUuid": "d71942e9_c786870c",
+      "range": {
+        "startLine": 58,
+        "startChar": 30,
+        "endLine": 59,
+        "endChar": 20
+      },
+      "revId": "6b45240bb01195c327b40a7970daac9a8cbe56b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8bcfd047_458005fc",
         "filename": "radio/1.6/IRadioResponse.hal",
         "patchSetId": 7
@@ -289,6 +313,30 @@
       "side": 1,
       "message": "No, i haven\u0027t seen anywhere Optional\u003cT\u003e in the hal files ? the whole purpose Monostate is to represent it as optional isn\u0027t it ?",
       "parentUuid": "5c858e25_f92441c4",
+      "range": {
+        "startLine": 138,
+        "startChar": 0,
+        "endLine": 154,
+        "endChar": 10
+      },
+      "revId": "6b45240bb01195c327b40a7970daac9a8cbe56b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ccaa47c_36680fb8",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2020-08-14T22:02:51Z",
+      "side": 1,
+      "message": "Was hoping that perhaps somebody already defined these structs generically somehow.\n\nsafe_union OptionalU8 {\n    Monostate noinit;\n    uint8_t value;\n};\n\netc etc.",
+      "parentUuid": "d374044c_faafed7a",
       "range": {
         "startLine": 138,
         "startChar": 0,
