@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9fa83653_b3e13893",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2020-08-14T18:43:16Z",
+      "side": 1,
+      "message": "Alright, new comments. In deference to Steven, and while striking a balance with safety, I proposed the following guideline: \"If an unsigned field will not overflow and result in a negative number in Java, go ahead and shrink its size; if the field can overflow, please use the next larger data type to ensure that signed/unsigned is not a problem.\"\n\nThere\u0027s no issue with packing fields that require bitwise interpretation since they can\u0027t be range checked as-is anyway.",
+      "revId": "6b45240bb01195c327b40a7970daac9a8cbe56b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03df9430_22a2b957",
+        "filename": "radio/1.6/IRadio.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2020-08-14T18:43:16Z",
+      "side": 1,
+      "message": "This is a functional interface change. Previously it was allowed to set a smaller prefix length.\n\nIIRC this was always done in practice, at least by some OEMs, but I want to understand if this is a requirement. If so, why and from where?\n\nhttps://source.corp.google.com/android/hardware/interfaces/radio/1.4/IRadio.hal;l\u003d72",
+      "range": {
+        "startLine": 58,
+        "startChar": 30,
+        "endLine": 59,
+        "endChar": 20
+      },
+      "revId": "6b45240bb01195c327b40a7970daac9a8cbe56b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8bcfd047_458005fc",
+        "filename": "radio/1.6/IRadioResponse.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2020-08-14T18:43:16Z",
+      "side": 1,
+      "message": "What\u0027s the error code if framework requests more than MAX_DATA_CALLS?",
+      "range": {
+        "startLine": 40,
+        "startChar": 9,
+        "endLine": 40,
+        "endChar": 32
+      },
+      "revId": "6b45240bb01195c327b40a7970daac9a8cbe56b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b9c00f70_48adae40",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2020-08-14T18:43:16Z",
+      "side": 1,
+      "message": "so... uint16_t?",
+      "range": {
+        "startLine": 35,
+        "startChar": 22,
+        "endLine": 35,
+        "endChar": 77
+      },
+      "revId": "6b45240bb01195c327b40a7970daac9a8cbe56b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "696d70ed_541945d3",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2020-08-14T18:43:16Z",
+      "side": 1,
+      "message": "same?\n\nIf an operator-specific value gets converted here, then it becomes a negative number, so to check for valid operator values in java, we have to check that the value is \u003c 0, which is just asking for trouble.",
+      "range": {
+        "startLine": 47,
+        "startChar": 32,
+        "endLine": 47,
+        "endChar": 77
+      },
+      "revId": "6b45240bb01195c327b40a7970daac9a8cbe56b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "346153e4_225df63a",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2020-08-14T18:43:16Z",
+      "side": 1,
+      "message": "ports about 32767 will be negative numbers. We can\u0027t have negative port values. Note, java.net.Socket() uses an int, probably for this reason.",
+      "range": {
+        "startLine": 108,
+        "startChar": 4,
+        "endLine": 108,
+        "endChar": 12
+      },
+      "revId": "6b45240bb01195c327b40a7970daac9a8cbe56b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c858e25_f92441c4",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2020-08-14T18:43:16Z",
+      "side": 1,
+      "message": "Since these are literally just \"value\" in the field name istm that we should try to define them as Optional\u003cT\u003e. We\u0027re not doing ourselves any favors by defining new structures for them. Maybe Optional\u003cT\u003e already exists in HIDL somewhere?",
+      "range": {
+        "startLine": 138,
+        "startChar": 0,
+        "endLine": 154,
+        "endChar": 10
+      },
+      "revId": "6b45240bb01195c327b40a7970daac9a8cbe56b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
