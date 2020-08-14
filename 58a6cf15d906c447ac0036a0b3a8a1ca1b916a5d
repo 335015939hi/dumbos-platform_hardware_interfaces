@@ -350,6 +350,24 @@
     },
     {
       "key": {
+        "uuid": "919b743c_837e926c",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1060151
+      },
+      "writtenOn": "2020-08-14T16:40:26Z",
+      "side": 1,
+      "message": "I suggest a 15 minute sync on this. It\u0027s not the hill I\u0027m going to die on, but I want full visibility on the tradeoffs for all parties, and then, most of all, I want us to employ a consistent (hopefully documented) strategy. I also want to avoid any more unnecessary churn for Jaya\u0027s sake. :-) @Jack, are you comfortable as the keeper of the telephony HALs? If so, then I suggest, Steven, Jaya, Jack, and myself.",
+      "parentUuid": "7eca5e6d_8558d765",
+      "revId": "58a6cf15d906c447ac0036a0b3a8a1ca1b916a5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fe16c28c_04a2b826",
         "filename": "radio/1.6/types.hal",
         "patchSetId": 5
