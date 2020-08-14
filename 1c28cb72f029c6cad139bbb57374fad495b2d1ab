@@ -16,6 +16,24 @@
       "revId": "1c28cb72f029c6cad139bbb57374fad495b2d1ab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02f3e518_7e102fdf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1601154
+      },
+      "writtenOn": "2020-08-14T19:51:58Z",
+      "side": 1,
+      "message": "Utils.cpp currently depends on Gnss Hal 2.0, and we would need to use it in Gnss Hal 1.0. Should I just create a separate AutomotiveUtils.cpp file?",
+      "parentUuid": "38aadd0a_7151ef3d",
+      "revId": "1c28cb72f029c6cad139bbb57374fad495b2d1ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
