@@ -368,6 +368,24 @@
     },
     {
       "key": {
+        "uuid": "9928a975_2d5945fb",
+        "filename": "radio/1.6/types.hal",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-08-14T17:23:52Z",
+      "side": 1,
+      "message": "so, I understand the unsigned argument; we can forget using any unsigned types here. Still, int8_t wouldn\u0027t have any problem with that though because we never expect to store \u003e\u003d 128 here.\n\nEither save space (which I take as obvious, the onus should be on proving why to use extra space, e.g. I feel like I might as well be arguing against \"why not use int8_t[128] for every field?\". you just don\u0027t). Anyway, it\u0027s your choice.",
+      "parentUuid": "919b743c_837e926c",
+      "revId": "58a6cf15d906c447ac0036a0b3a8a1ca1b916a5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fe16c28c_04a2b826",
         "filename": "radio/1.6/types.hal",
         "patchSetId": 5
