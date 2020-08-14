@@ -372,6 +372,30 @@
     },
     {
       "key": {
+        "uuid": "573eed62_c454fd06",
+        "filename": "radio/1.6/IRadioResponse.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2020-08-14T16:32:25Z",
+      "side": 1,
+      "message": "Modified with details",
+      "parentUuid": "9e70a86f_18bb1ef7",
+      "range": {
+        "startLine": 41,
+        "startChar": 9,
+        "endLine": 41,
+        "endChar": 32
+      },
+      "revId": "66c067313b5eebba5d8abc48504b4c4f1b9687a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "645bb888_8d7e3d20",
         "filename": "radio/1.6/IRadioResponse.hal",
         "patchSetId": 4
@@ -419,6 +443,30 @@
     },
     {
       "key": {
+        "uuid": "7aa4ab0b_75258069",
+        "filename": "radio/1.6/IRadioResponse.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2020-08-14T16:32:25Z",
+      "side": 1,
+      "message": "Removed",
+      "parentUuid": "9e50ba5e_4197f4be",
+      "range": {
+        "startLine": 54,
+        "startChar": 9,
+        "endLine": 54,
+        "endChar": 32
+      },
+      "revId": "66c067313b5eebba5d8abc48504b4c4f1b9687a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "676bbe0e_20be13b3",
         "filename": "radio/1.6/IRadioResponse.hal",
         "patchSetId": 4
@@ -439,6 +487,30 @@
       "revId": "66c067313b5eebba5d8abc48504b4c4f1b9687a9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75a59d2d_515461a7",
+        "filename": "radio/1.6/IRadioResponse.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2020-08-14T16:32:25Z",
+      "side": 1,
+      "message": "Removed",
+      "parentUuid": "676bbe0e_20be13b3",
+      "range": {
+        "startLine": 55,
+        "startChar": 9,
+        "endLine": 55,
+        "endChar": 41
+      },
+      "revId": "66c067313b5eebba5d8abc48504b4c4f1b9687a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
