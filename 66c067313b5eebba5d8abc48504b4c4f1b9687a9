@@ -325,6 +325,30 @@
     },
     {
       "key": {
+        "uuid": "12ba2f77_3378fc10",
+        "filename": "radio/1.6/IRadioResponse.hal",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2020-08-14T16:32:48Z",
+      "side": 1,
+      "message": "Removed",
+      "parentUuid": "bcdb4f8c_5e847d29",
+      "range": {
+        "startLine": 38,
+        "startChar": 9,
+        "endLine": 38,
+        "endChar": 41
+      },
+      "revId": "66c067313b5eebba5d8abc48504b4c4f1b9687a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "40cdd3ed_f048e189",
         "filename": "radio/1.6/IRadioResponse.hal",
         "patchSetId": 4
