@@ -18,7 +18,6 @@
 package android.hardware.common;
 @VintfStability
 parcelable GrantorDescriptor {
-  int flags;
   int fdIndex;
   int offset;
   long extent;

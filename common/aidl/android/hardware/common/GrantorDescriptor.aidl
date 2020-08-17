@@ -16,10 +16,22 @@
 
 package android.hardware.common;
 
+/*
+ * Included in MQDescriptor, for use with libfmq.
+ */
 @VintfStability
 parcelable GrantorDescriptor {
-    int flags;
+    /*
+     * Index of the file descriptor this message queue is using in the
+     * internal native_handle_t. This is always 0 for use with AIDL.
+     */
     int fdIndex;
+    /*
+     * The offset of this descriptor in the shared memory in bytes.
+     */
     int offset;
+    /*
+     * The size of this descriptor in bytes.
+     */
     long extent;
 }
