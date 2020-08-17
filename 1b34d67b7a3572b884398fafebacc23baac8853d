@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "841f1b3e_a6dbc2e2",
+        "filename": "common/aidl/android/hardware/common/GrantorDescriptor.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2020-08-17T20:54:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22c9854a_ce4ffdc6",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 30
+      },
+      "revId": "1b34d67b7a3572b884398fafebacc23baac8853d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d8298096_13aa3bc5",
         "filename": "common/aidl/android/hardware/common/GrantorDescriptor.aidl",
         "patchSetId": 10
@@ -45,6 +69,30 @@
       "revId": "1b34d67b7a3572b884398fafebacc23baac8853d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "825c8207_5328a14b",
+        "filename": "common/aidl/android/hardware/common/GrantorDescriptor.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2020-08-17T20:54:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d8298096_13aa3bc5",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 16
+      },
+      "revId": "1b34d67b7a3572b884398fafebacc23baac8853d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -92,6 +140,30 @@
       "revId": "1b34d67b7a3572b884398fafebacc23baac8853d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2c58b52_1035e5c3",
+        "filename": "common/aidl/android/hardware/common/MQDescriptor.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2020-08-17T20:54:11Z",
+      "side": 1,
+      "message": "https://android-review.googlesource.com/c/platform/hardware/interfaces/+/1402395",
+      "parentUuid": "1030edb9_d0d6b6fb",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 25
+      },
+      "revId": "1b34d67b7a3572b884398fafebacc23baac8853d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
