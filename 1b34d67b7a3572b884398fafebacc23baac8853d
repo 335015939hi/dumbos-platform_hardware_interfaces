@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "22c9854a_ce4ffdc6",
+        "filename": "common/aidl/android/hardware/common/GrantorDescriptor.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-08-17T18:05:18Z",
+      "side": 1,
+      "message": "maybe follow up, but should comment \u0027for use with libfmq\u0027 or similar",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 30
+      },
+      "revId": "1b34d67b7a3572b884398fafebacc23baac8853d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8298096_13aa3bc5",
+        "filename": "common/aidl/android/hardware/common/GrantorDescriptor.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-08-17T18:05:18Z",
+      "side": 1,
+      "message": "comment field meanings",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 16
+      },
+      "revId": "1b34d67b7a3572b884398fafebacc23baac8853d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9cf18ddb_320ff768",
+        "filename": "common/aidl/android/hardware/common/MQDescriptor.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-08-17T18:05:18Z",
+      "side": 1,
+      "message": "also maybe follow-up, but comment that this should be for use w/ libfmq",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 25
+      },
+      "revId": "1b34d67b7a3572b884398fafebacc23baac8853d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
