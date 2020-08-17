@@ -144,6 +144,30 @@
     },
     {
       "key": {
+        "uuid": "6c78fc53_34af07c7",
+        "filename": "common/aidl/android/hardware/common/GrantorDescriptor.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-08-17T23:43:36Z",
+      "side": 1,
+      "message": "I was thinking two options:\n\n1). in the shim, allocate a new array of \"GrantorDescriptorShim\" which has the additional field\n\n2). add asserts in the HIDL code which make sure the fd is 0 and drop use of fdIndex from the base class (this starts the process of simplifying the HIDL side of things)",
+      "parentUuid": "e49b6af0_b3fd4f95",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 16
+      },
+      "revId": "3df619293388dd733625be1b8e382c9c3c6adddd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8a8e46c8_cf534843",
         "filename": "common/aidl/android/hardware/common/MQDescriptor.aidl",
         "patchSetId": 1
