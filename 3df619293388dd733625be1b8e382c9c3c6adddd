@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "126b8330_180f0ab6",
+        "filename": "common/aidl/android/hardware/common/GrantorDescriptor.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-08-17T23:12:32Z",
+      "side": 1,
+      "message": "it\u0027s much preferred if we can avoid unnecessary things in the API. I thought there was a shim for this data anyway? Can\u0027t the shim return 0 here?",
+      "parentUuid": "18a9e78f_dd0c5e0a",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 16
+      },
+      "revId": "3df619293388dd733625be1b8e382c9c3c6adddd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8a8e46c8_cf534843",
         "filename": "common/aidl/android/hardware/common/MQDescriptor.aidl",
         "patchSetId": 1
