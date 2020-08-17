@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dfe7f124_52e7d8a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2020-08-17T23:12:04Z",
+      "side": 1,
+      "message": "Presubmits failed to build in git_master and the -plus_aosp branches. The errors look like they didn\u0027t have one of the CLs in the previous FMQ topic that should have been submitted together. https://android-review.googlesource.com/c/platform/system/libhidl/+/1370777. Just going to try again to see if it was just bad timing.",
+      "revId": "955cd52d21dc6e47f11bf9f9a9dbb1728bb4bd20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
