@@ -192,6 +192,30 @@
     },
     {
       "key": {
+        "uuid": "c8ad7ef3_b794dfc7",
+        "filename": "common/aidl/android/hardware/common/GrantorDescriptor.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-08-18T21:38:38Z",
+      "side": 1,
+      "message": "re 1: sharing is better, agreed\n\nre 2: explicit definitions of FDs, their use etc.. should be used then. Having an opaque list of fds is a really bad API if used for generic things. It\u0027s original purpose was only as a sort of void* for vendors to use for graphics buffers. Using it outside of that or for new cases, IMO is always a mistake.",
+      "parentUuid": "7d1327d7_0d1a232c",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 16
+      },
+      "revId": "3df619293388dd733625be1b8e382c9c3c6adddd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8a8e46c8_cf534843",
         "filename": "common/aidl/android/hardware/common/MQDescriptor.aidl",
         "patchSetId": 1
