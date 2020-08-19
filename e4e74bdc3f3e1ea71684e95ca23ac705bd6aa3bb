@@ -19,6 +19,29 @@
     },
     {
       "key": {
+        "uuid": "7ea885a6_c7426a4b",
+        "filename": "bluetooth/audio/2.1/IBluetoothAudioProvidersFactory.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2020-08-19T23:51:12Z",
+      "side": 1,
+      "message": "AudioCapabilities includes PcmParameters which you have extended in 2,1. Is it OK to return the 2.0 structure here or do you need to define a new one?",
+      "range": {
+        "startLine": 73,
+        "startChar": 24,
+        "endLine": 73,
+        "endChar": 41
+      },
+      "revId": "e4e74bdc3f3e1ea71684e95ca23ac705bd6aa3bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d46d94cb_5ab92494",
         "filename": "bluetooth/audio/2.1/default/A2dpOffloadAudioProvider.cpp",
         "patchSetId": 1
@@ -36,6 +59,98 @@
         "startChar": 10,
         "endLine": 55,
         "endChar": 17
+      },
+      "revId": "e4e74bdc3f3e1ea71684e95ca23ac705bd6aa3bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ee8ceeb_83af0f6f",
+        "filename": "bluetooth/audio/2.1/default/A2dpOffloadAudioProvider.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2020-08-19T23:51:12Z",
+      "side": 1,
+      "message": "Please use the current year.",
+      "range": {
+        "startLine": 2,
+        "startChar": 13,
+        "endLine": 2,
+        "endChar": 17
+      },
+      "revId": "e4e74bdc3f3e1ea71684e95ca23ac705bd6aa3bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70cce2c6_204ad292",
+        "filename": "bluetooth/audio/2.1/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2020-08-19T23:51:12Z",
+      "side": 1,
+      "message": "There should be no need to depend on 2.0 implementation as all of its code is copied in 2.1.",
+      "range": {
+        "startLine": 16,
+        "startChar": 9,
+        "endLine": 16,
+        "endChar": 50
+      },
+      "revId": "e4e74bdc3f3e1ea71684e95ca23ac705bd6aa3bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16b9b3b3_311e57ab",
+        "filename": "bluetooth/audio/2.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2020-08-19T23:51:12Z",
+      "side": 1,
+      "message": "There is no need to use version suffix for types because the types are namespaced. Only new methods accepting new types need to have a suffix, and that\u0027s only because HIDL doesn\u0027t support overloads.",
+      "range": {
+        "startLine": 25,
+        "startChar": 16,
+        "endLine": 25,
+        "endChar": 20
+      },
+      "revId": "e4e74bdc3f3e1ea71684e95ca23ac705bd6aa3bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "915f41bd_a67229e8",
+        "filename": "bluetooth/audio/2.1/types.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2020-08-19T23:51:12Z",
+      "side": 1,
+      "message": "There is a pattern in HIDL to include the previous version of the structure as a field named \u0027base\u0027:\n\n  struct PcmParameters {\n      @2.0:PcmParameters base;\n      /** Please provide a description. */\n      uint32_t dataIntervalMs;\n  };",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 0
       },
       "revId": "e4e74bdc3f3e1ea71684e95ca23ac705bd6aa3bb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
