@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "19eb6949_31699ff3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1315593
+      },
+      "writtenOn": "2020-08-19T15:50:01Z",
+      "side": 1,
+      "message": "indentation is off, you might want to check 1.1 version as well and correct if needed.",
+      "revId": "fb50605cec671b3c8c5eb6b29b2847c670cac3f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c07ffd74_d9c8849d",
+        "filename": "gnss/1.0/vts/functional/VtsHalGnssV1_0TargetTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1315593
+      },
+      "writtenOn": "2020-08-19T15:50:01Z",
+      "side": 1,
+      "message": "indentation",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 2
+      },
+      "revId": "fb50605cec671b3c8c5eb6b29b2847c670cac3f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32f0f55f_37c1ecc5",
+        "filename": "gnss/1.0/vts/functional/VtsHalGnssV1_0TargetTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1315593
+      },
+      "writtenOn": "2020-08-19T15:50:01Z",
+      "side": 1,
+      "message": "indentation",
+      "range": {
+        "startLine": 486,
+        "startChar": 0,
+        "endLine": 486,
+        "endChar": 3
+      },
+      "revId": "fb50605cec671b3c8c5eb6b29b2847c670cac3f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7dcae628_87121297",
+        "filename": "gnss/common/utils/vts/Utils.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1315593
+      },
+      "writtenOn": "2020-08-19T15:50:01Z",
+      "side": 1,
+      "message": "indentation is inconsistent with the rest of file",
+      "range": {
+        "startLine": 170,
+        "startChar": 0,
+        "endLine": 170,
+        "endChar": 2
+      },
+      "revId": "fb50605cec671b3c8c5eb6b29b2847c670cac3f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
