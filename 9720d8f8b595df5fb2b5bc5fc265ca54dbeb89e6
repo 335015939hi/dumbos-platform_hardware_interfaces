@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "563f1a42_43291c04",
+        "filename": "keymint/aidl/default/android.hardware.keymint@1.0-service.rc",
+        "patchSetId": 24
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-08-19T01:57:06Z",
+      "side": 1,
+      "message": "the class is called \"early_hal\", with underscore.",
+      "range": {
+        "startLine": 2,
+        "startChar": 10,
+        "endLine": 2,
+        "endChar": 19
+      },
+      "revId": "9720d8f8b595df5fb2b5bc5fc265ca54dbeb89e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4eb7dcf4_23fca773",
+        "filename": "keymint/aidl/default/keymint-default.xml",
+        "patchSetId": 24
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-08-19T01:57:06Z",
+      "side": 1,
+      "message": "rename this file to android.hardware.keymint@1.0-service.xml",
+      "revId": "9720d8f8b595df5fb2b5bc5fc265ca54dbeb89e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
