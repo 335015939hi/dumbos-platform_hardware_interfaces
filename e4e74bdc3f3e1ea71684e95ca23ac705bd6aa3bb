@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c0d7fc43_4ed89c9b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2020-08-19T22:16:09Z",
+      "side": 1,
+      "message": "Hi, This is an WIP following suggestions on previous CL (\"HAL 3.0) HAL 2.1. This is not compiling yet - I\u0027ll manage it soon. Please check if the way I follow is right now - it\u0027ll help to correct it as soon as possible to not do spare work.\n\nGrzegorz ",
+      "revId": "e4e74bdc3f3e1ea71684e95ca23ac705bd6aa3bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
