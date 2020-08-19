@@ -16,6 +16,30 @@
       "revId": "e4e74bdc3f3e1ea71684e95ca23ac705bd6aa3bb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d46d94cb_5ab92494",
+        "filename": "bluetooth/audio/2.1/default/A2dpOffloadAudioProvider.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2020-08-19T22:27:42Z",
+      "side": 1,
+      "message": "\u003e Common typo found: \"the the\" -- should it be \"the\"?\n\u003e Note: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027NO_TYPO_CHECK\u003d\u003creason\u003e\u0027in the commit message.\n\nPlease fix.",
+      "parentUuid": "1c127266_faa699c8",
+      "range": {
+        "startLine": 55,
+        "startChar": 10,
+        "endLine": 55,
+        "endChar": 17
+      },
+      "revId": "e4e74bdc3f3e1ea71684e95ca23ac705bd6aa3bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
