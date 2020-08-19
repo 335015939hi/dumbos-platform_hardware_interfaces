@@ -34,6 +34,24 @@
       "revId": "1c28cb72f029c6cad139bbb57374fad495b2d1ab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1ebe07e_b688b192",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1315593
+      },
+      "writtenOn": "2020-08-19T03:21:35Z",
+      "side": 1,
+      "message": "I see, sounds like a good idea. But I\u0027ll leave it up to Yu-Han\u0027s preference. I can live with it being used from Utils.cpp moving forward, as long as we don\u0027t make further copies for 2.1, 2.1 ...",
+      "parentUuid": "02f3e518_7e102fdf",
+      "revId": "1c28cb72f029c6cad139bbb57374fad495b2d1ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
