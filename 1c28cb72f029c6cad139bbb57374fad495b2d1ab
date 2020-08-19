@@ -52,6 +52,24 @@
       "revId": "1c28cb72f029c6cad139bbb57374fad495b2d1ab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4fa00c3_aaeaf2a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1358281
+      },
+      "writtenOn": "2020-08-19T03:46:41Z",
+      "side": 1,
+      "message": "Agreed. We can keep 1.0 the way it is. For 2.0 or newer, the helper method can be put in Utils.cpp.",
+      "parentUuid": "e1ebe07e_b688b192",
+      "revId": "1c28cb72f029c6cad139bbb57374fad495b2d1ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
