@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "bc449712_265cc76a",
+        "filename": "bluetooth/audio/2.1/IBluetoothAudioProvidersFactory.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2020-08-20T19:02:13Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e7e46e2f_f6b3ab4c",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 37
+      },
+      "revId": "d39a2590d93825d0b23b976f2c07502c7e5ae3cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3467091_d3605e65",
         "filename": "bluetooth/audio/2.1/default/A2dpOffloadAudioProvider.h",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "d39a2590d93825d0b23b976f2c07502c7e5ae3cd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "635ba583_2f80f7b8",
+        "filename": "bluetooth/audio/2.1/default/A2dpOffloadAudioProvider.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2020-08-20T19:02:13Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c3467091_d3605e65",
+      "range": {
+        "startLine": 33,
+        "startChar": 52,
+        "endLine": 33,
+        "endChar": 53
+      },
+      "revId": "d39a2590d93825d0b23b976f2c07502c7e5ae3cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "32db3afe_045ff573",
+        "filename": "bluetooth/audio/2.1/default/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2020-08-20T19:02:13Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1e642826_c87df530",
+      "range": {
+        "startLine": 20,
+        "startChar": 9,
+        "endLine": 20,
+        "endChar": 35
+      },
+      "revId": "d39a2590d93825d0b23b976f2c07502c7e5ae3cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "16960037_e4155248",
         "filename": "bluetooth/audio/2.1/default/BluetoothAudioProvidersFactory.cpp",
         "patchSetId": 3
@@ -91,6 +163,54 @@
       "revId": "d39a2590d93825d0b23b976f2c07502c7e5ae3cd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bfdb5528_274fbc54",
+        "filename": "bluetooth/audio/2.1/default/BluetoothAudioProvidersFactory.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2020-08-20T19:02:13Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "16960037_e4155248",
+      "range": {
+        "startLine": 81,
+        "startChar": 4,
+        "endLine": 81,
+        "endChar": 12
+      },
+      "revId": "d39a2590d93825d0b23b976f2c07502c7e5ae3cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "42d3160a_ffac5bf6",
+        "filename": "bluetooth/audio/2.1/default/BluetoothAudioProvidersFactory.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2020-08-20T19:02:13Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "16960037_e4155248",
+      "range": {
+        "startLine": 81,
+        "startChar": 4,
+        "endLine": 81,
+        "endChar": 12
+      },
+      "revId": "d39a2590d93825d0b23b976f2c07502c7e5ae3cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "a04e3eec_0d41df4a",
+        "filename": "bluetooth/audio/2.1/default/BluetoothAudioProvidersFactory.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2020-08-20T19:02:13Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d52aa3f5_4b18c0d7",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 2
+      },
+      "revId": "d39a2590d93825d0b23b976f2c07502c7e5ae3cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c6db6ad_4937b2bb",
         "filename": "bluetooth/audio/2.1/types.hal",
         "patchSetId": 3
@@ -137,6 +281,54 @@
       "revId": "d39a2590d93825d0b23b976f2c07502c7e5ae3cd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d73f1ca6_9a5ccc9e",
+        "filename": "bluetooth/audio/2.1/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2020-08-20T19:02:13Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7c6db6ad_4937b2bb",
+      "range": {
+        "startLine": 32,
+        "startChar": 5,
+        "endLine": 32,
+        "endChar": 6
+      },
+      "revId": "d39a2590d93825d0b23b976f2c07502c7e5ae3cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "55f96ed4_3487c704",
+        "filename": "bluetooth/audio/2.1/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2020-08-20T19:02:13Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7c6db6ad_4937b2bb",
+      "range": {
+        "startLine": 32,
+        "startChar": 5,
+        "endLine": 32,
+        "endChar": 6
+      },
+      "revId": "d39a2590d93825d0b23b976f2c07502c7e5ae3cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
