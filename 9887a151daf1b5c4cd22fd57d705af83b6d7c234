@@ -1,0 +1,224 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004541372",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1404810?revision\u003d2",
+      "fixSuggestions": [
+        {
+          "fixId": "904df4a6_1bc6c9fa",
+          "description": "Change to \"bluetooth/audio/2.1/default/A2dpSoftwareAudioProvider.cpp\"",
+          "replacements": [
+            {
+              "path": "bluetooth/audio/2.1/default/A2dpSoftwareAudioProvider.cpp",
+              "range": {
+                "startLine": 73,
+                "startChar": 10,
+                "endLine": 73,
+                "endChar": 17
+              },
+              "replacement": "the"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "4395cd9c_c9f8a669",
+        "filename": "bluetooth/audio/2.1/default/A2dpSoftwareAudioProvider.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-08-20T14:25:53Z",
+      "side": 1,
+      "message": "Common typo found: \"the the\" -- should it be \"the\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027NO_TYPO_CHECK\u003d\u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 73,
+        "startChar": 10,
+        "endLine": 73,
+        "endChar": 17
+      },
+      "revId": "9887a151daf1b5c4cd22fd57d705af83b6d7c234",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004541372",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1404810?revision\u003d2",
+      "fixSuggestions": [
+        {
+          "fixId": "7ec4f624_6d24809c",
+          "description": "Change to \"bluetooth/audio/2.1/default/BluetoothAudioProvider.cpp\"",
+          "replacements": [
+            {
+              "path": "bluetooth/audio/2.1/default/BluetoothAudioProvider.cpp",
+              "range": {
+                "startLine": 78,
+                "startChar": 10,
+                "endLine": 78,
+                "endChar": 17
+              },
+              "replacement": "the"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "f074ee55_62e42927",
+        "filename": "bluetooth/audio/2.1/default/BluetoothAudioProvider.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-08-20T14:25:53Z",
+      "side": 1,
+      "message": "Common typo found: \"the the\" -- should it be \"the\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027NO_TYPO_CHECK\u003d\u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 78,
+        "startChar": 10,
+        "endLine": 78,
+        "endChar": 17
+      },
+      "revId": "9887a151daf1b5c4cd22fd57d705af83b6d7c234",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004541372",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1404810?revision\u003d2",
+      "fixSuggestions": [
+        {
+          "fixId": "1182050a_6a00dd14",
+          "description": "Change to \"bluetooth/audio/2.1/default/HearingAidAudioProvider.cpp\"",
+          "replacements": [
+            {
+              "path": "bluetooth/audio/2.1/default/HearingAidAudioProvider.cpp",
+              "range": {
+                "startLine": 73,
+                "startChar": 10,
+                "endLine": 73,
+                "endChar": 17
+              },
+              "replacement": "the"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "2aa923f1_bfa4a9b2",
+        "filename": "bluetooth/audio/2.1/default/HearingAidAudioProvider.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-08-20T14:25:53Z",
+      "side": 1,
+      "message": "Common typo found: \"the the\" -- should it be \"the\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027NO_TYPO_CHECK\u003d\u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 73,
+        "startChar": 10,
+        "endLine": 73,
+        "endChar": 17
+      },
+      "revId": "9887a151daf1b5c4cd22fd57d705af83b6d7c234",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004541372",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1404810?revision\u003d2",
+      "fixSuggestions": [
+        {
+          "fixId": "31a9e6d5_2b6f144b",
+          "description": "Change to \"bluetooth/audio/2.1/default/session/BluetoothAudioSession.cpp\"",
+          "replacements": [
+            {
+              "path": "bluetooth/audio/2.1/default/session/BluetoothAudioSession.cpp",
+              "range": {
+                "startLine": 389,
+                "startChar": 28,
+                "endLine": 389,
+                "endChar": 36
+              },
+              "replacement": "writing"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "ddb0eeb8_a6d714d3",
+        "filename": "bluetooth/audio/2.1/default/session/BluetoothAudioSession.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-08-20T14:25:53Z",
+      "side": 1,
+      "message": "Common typo found: \"writting\" -- should it be \"writing\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027NO_TYPO_CHECK\u003d\u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 389,
+        "startChar": 28,
+        "endLine": 389,
+        "endChar": 36
+      },
+      "revId": "9887a151daf1b5c4cd22fd57d705af83b6d7c234",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004541372",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1404810?revision\u003d2",
+      "fixSuggestions": [
+        {
+          "fixId": "5ec3f8db_75dd8515",
+          "description": "Change to \"bluetooth/audio/2.1/default/session/BluetoothAudioSession.h\"",
+          "replacements": [
+            {
+              "path": "bluetooth/audio/2.1/default/session/BluetoothAudioSession.h",
+              "range": {
+                "startLine": 84,
+                "startChar": 57,
+                "endLine": 84,
+                "endChar": 62
+              },
+              "replacement": "again"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "d292752d_800cadfd",
+        "filename": "bluetooth/audio/2.1/default/session/BluetoothAudioSession.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-08-20T14:25:53Z",
+      "side": 1,
+      "message": "Common typo found: \"agian\" -- should it be \"again\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027NO_TYPO_CHECK\u003d\u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 84,
+        "startChar": 57,
+        "endLine": 84,
+        "endChar": 62
+      },
+      "revId": "9887a151daf1b5c4cd22fd57d705af83b6d7c234",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
