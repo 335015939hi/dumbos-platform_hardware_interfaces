@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e7e46e2f_f6b3ab4c",
+        "filename": "bluetooth/audio/2.1/IBluetoothAudioProvidersFactory.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2020-08-20T18:32:16Z",
+      "side": 1,
+      "message": "I would recommend removing this import as it makes \u0027openProvider_2_1\u0027 to return 2.0 Provider.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 37
+      },
+      "revId": "d39a2590d93825d0b23b976f2c07502c7e5ae3cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3467091_d3605e65",
+        "filename": "bluetooth/audio/2.1/default/A2dpOffloadAudioProvider.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2020-08-20T18:32:16Z",
+      "side": 1,
+      "message": "missing \u0027override\u0027 on all providers",
+      "range": {
+        "startLine": 33,
+        "startChar": 52,
+        "endLine": 33,
+        "endChar": 53
+      },
+      "revId": "d39a2590d93825d0b23b976f2c07502c7e5ae3cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e642826_c87df530",
+        "filename": "bluetooth/audio/2.1/default/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2020-08-20T18:32:16Z",
+      "side": 1,
+      "message": "This one is likely not needed as _2_1 contains modified copies of the same sources.",
+      "range": {
+        "startLine": 20,
+        "startChar": 9,
+        "endLine": 20,
+        "endChar": 35
+      },
+      "revId": "d39a2590d93825d0b23b976f2c07502c7e5ae3cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16960037_e4155248",
+        "filename": "bluetooth/audio/2.1/default/BluetoothAudioProvidersFactory.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2020-08-20T18:32:16Z",
+      "side": 1,
+      "message": "I would expect \u0027openProvider_2_1\u0027 to support all the session types that 2.0 supports.",
+      "range": {
+        "startLine": 81,
+        "startChar": 4,
+        "endLine": 81,
+        "endChar": 12
+      },
+      "revId": "d39a2590d93825d0b23b976f2c07502c7e5ae3cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d52aa3f5_4b18c0d7",
+        "filename": "bluetooth/audio/2.1/default/BluetoothAudioProvidersFactory.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2020-08-20T18:32:16Z",
+      "side": 1,
+      "message": "Add an empty line between methods for consistency.",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 2
+      },
+      "revId": "d39a2590d93825d0b23b976f2c07502c7e5ae3cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c6db6ad_4937b2bb",
+        "filename": "bluetooth/audio/2.1/types.hal",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2020-08-20T18:32:16Z",
+      "side": 1,
+      "message": "Please use \u0027**\u0027 for a doc comment",
+      "range": {
+        "startLine": 32,
+        "startChar": 5,
+        "endLine": 32,
+        "endChar": 6
+      },
+      "revId": "d39a2590d93825d0b23b976f2c07502c7e5ae3cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
