@@ -84,6 +84,30 @@
     },
     {
       "key": {
+        "uuid": "43692108_6828cfb4",
+        "filename": "gnss/1.0/vts/functional/VtsHalGnssV1_0TargetTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1315593
+      },
+      "writtenOn": "2020-08-20T00:27:39Z",
+      "side": 1,
+      "message": "this file is all over the place, I did not look at the whole thing before. sg",
+      "parentUuid": "653c982a_a49169df",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 2
+      },
+      "revId": "fb50605cec671b3c8c5eb6b29b2847c670cac3f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "32f0f55f_37c1ecc5",
         "filename": "gnss/1.0/vts/functional/VtsHalGnssV1_0TargetTest.cpp",
         "patchSetId": 6
@@ -131,6 +155,30 @@
     },
     {
       "key": {
+        "uuid": "d1703eb1_dbc6a4ed",
+        "filename": "gnss/1.0/vts/functional/VtsHalGnssV1_0TargetTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1315593
+      },
+      "writtenOn": "2020-08-20T00:27:39Z",
+      "side": 1,
+      "message": "I don\u0027t understand the indentation logic of this file either, so sgtm.",
+      "parentUuid": "b665baab_4d2c2192",
+      "range": {
+        "startLine": 486,
+        "startChar": 0,
+        "endLine": 486,
+        "endChar": 3
+      },
+      "revId": "fb50605cec671b3c8c5eb6b29b2847c670cac3f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7dcae628_87121297",
         "filename": "gnss/common/utils/vts/Utils.cpp",
         "patchSetId": 6
@@ -166,6 +214,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "7dcae628_87121297",
+      "range": {
+        "startLine": 170,
+        "startChar": 0,
+        "endLine": 170,
+        "endChar": 2
+      },
+      "revId": "fb50605cec671b3c8c5eb6b29b2847c670cac3f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff9a113e_e23ac30f",
+        "filename": "gnss/common/utils/vts/Utils.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1315593
+      },
+      "writtenOn": "2020-08-20T00:27:39Z",
+      "side": 1,
+      "message": "\u003e Done",
+      "parentUuid": "81bc389f_3a6df1c8",
       "range": {
         "startLine": 170,
         "startChar": 0,
