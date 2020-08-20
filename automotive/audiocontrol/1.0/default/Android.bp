@@ -19,7 +19,7 @@ cc_binary {
     relative_install_path: "hw",
     srcs: [
         "AudioControl.cpp",
-        "service.cpp"
+        "service.cpp",
     ],
     init_rc: ["android.hardware.automotive.audiocontrol@1.0-service.rc"],
 
@@ -30,4 +30,25 @@ cc_binary {
         "libutils",
     ],
     vintf_fragments: ["audiocontrol_manifest.xml"],
+}
+
+cc_fuzz {
+    name: "audiocontrolV1.0_fuzzer",
+    host_supported: true,
+    srcs: [
+        "audiocontrolV1.0_fuzzer.cpp",
+        "AudioControl.cpp",
+    ],
+    shared_libs: [
+        "android.hardware.automotive.audiocontrol@1.0",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+    ],
+    fuzz_config: {
+        cc: [
+            "android-media-fuzzing-reports@google.com",
+        ],
+        componentid: 155276,
+    },
 }
