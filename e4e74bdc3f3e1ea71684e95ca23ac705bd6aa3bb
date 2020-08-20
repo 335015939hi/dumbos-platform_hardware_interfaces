@@ -66,6 +66,30 @@
     },
     {
       "key": {
+        "uuid": "963e72cc_b8ac8ce9",
+        "filename": "bluetooth/audio/2.1/IBluetoothAudioProvidersFactory.hal",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1687135
+      },
+      "writtenOn": "2020-08-20T08:30:39Z",
+      "side": 1,
+      "message": "I\u0027ve reanalyzed your comment and came to conclusion that this should be from 2.1 to by consistent with parameters",
+      "parentUuid": "af714c43_628658d2",
+      "range": {
+        "startLine": 73,
+        "startChar": 24,
+        "endLine": 73,
+        "endChar": 41
+      },
+      "revId": "e4e74bdc3f3e1ea71684e95ca23ac705bd6aa3bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d46d94cb_5ab92494",
         "filename": "bluetooth/audio/2.1/default/A2dpOffloadAudioProvider.cpp",
         "patchSetId": 1
