@@ -20,6 +20,7 @@ package android.hardware.radio@1.6;
 import @1.0::CdmaSmsMessage;
 import @1.0::GsmSmsMessage;
 import @1.2::DataRequestReason;
+import @1.4::RadioAccessFamily;
 import @1.5::IRadio;
 import @1.5::AccessNetwork;
 import @1.5::DataProfileInfo;
@@ -205,4 +206,18 @@ interface IRadio extends @1.5::IRadio {
      * Response callback is IRadioResponse.isNRDualConnectivityEnabledResponse()
      */
     oneway isNrDualConnectivityEnabled(int32_t serial);
+
+    /**
+     * Requests to set the network type for searching and registering.
+     *
+     * Instruct the radio to *only* accept the types of network provided. This
+     * is stronger than setPreferredNetworkType which is a suggestion.
+     *
+     * @param serial Serial number of request.
+     * @param networkTypeBitmap a 32-bit bearer bitmap of RadioAccessFamily
+     *
+     * Response callbask is IRadioResponse.setNetworkTypeBitmapResponse()
+     */
+    oneway setAllowedNetworkTypeBitmap(
+            uint32_t serial, bitfield<RadioAccessFamily> networkTypeBitmap);
 };
