@@ -54,4 +54,23 @@ interface IRadioResponse extends @1.5::IRadioResponse {
      *   RadioError:SIM_ABSENT
      */
     oneway getDataCallListResponse_1_6(RadioResponseInfo info, vec<SetupDataCallResult> dcResponse);
+
+    /**
+     * Callback of IRadio.setNetworkTypeBitmap(int, bitfield<RadioAccessFamily>)
+     *
+     * @param info Response info struct containing response type, serial no. and error
+     *
+     * Valid errors returned:
+     *   RadioError:NONE
+     *   RadioError:RADIO_NOT_AVAILABLE
+     *   RadioError:OPERATION_NOT_ALLOWED
+     *   RadioError:MODE_NOT_SUPPORTED
+     *   RadioError:INTERNAL_ERR
+     *   RadioError:INVALID_ARGUMENTS
+     *   RadioError:MODEM_ERR
+     *   RadioError:REQUEST_NOT_SUPPORTED
+     *   RadioError:NO_RESOURCES
+     */
+    oneway setNetworkTypeBitmapResponse(RadioResponseInfo info);
+
 };

@@ -58,7 +58,7 @@ using ::android::hardware::Void;
 class RadioHidlTest_v1_6;
 extern ::android::hardware::radio::V1_5::CardStatus cardStatus;
 
-/* Callback class for radio response v1_5 */
+/* Callback class for radio response v1_6 */
 class RadioResponse_v1_6 : public ::android::hardware::radio::V1_6::IRadioResponse {
   protected:
     RadioHidlTest_v1_6& parent_v1_6;
@@ -609,6 +609,8 @@ class RadioResponse_v1_6 : public ::android::hardware::radio::V1_6::IRadioRespon
     Return<void> getDataCallListResponse_1_6(
             const RadioResponseInfo& info,
             const hidl_vec<::android::hardware::radio::V1_6::SetupDataCallResult>& dcResponse);
+
+    Return<void> setNetworkTypeBitmapResponse(const RadioResponseInfo& info);
 };
 
 /* Callback class for radio indication */
