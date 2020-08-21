@@ -16,6 +16,7 @@
 
 #include "Sensor.h"
 
+#include <android-base/logging.h>
 #include <utils/SystemClock.h>
 
 #include <cmath>
@@ -104,10 +105,9 @@ void Sensor::run() {
     constexpr int64_t kNanosecondsInSeconds = 1000 * 1000 * 1000;
 
     while (!mStopThread) {
-        if (!mIsEnabled || mMode == OperationMode::DATA_INJECTION) {
-            mWaitCV.wait(runLock, [&] {
-                return ((mIsEnabled && mMode == OperationMode::NORMAL) || mStopThread);
-            });
+        if (!mIsEnabled) {
+            LOG(WARNING) << "mIsEnabled = false";
+            mWaitCV.wait(runLock, [&] { return (mIsEnabled || mStopThread); });
         } else {
             timespec curTime;
             clock_gettime(CLOCK_REALTIME, &curTime);
@@ -135,9 +135,14 @@ std::vector<Event> Sensor::readEvents() {
     event.sensorHandle = mSensorInfo.sensorHandle;
     event.sensorType = mSensorInfo.type;
     event.timestamp = ::android::elapsedRealtimeNano();
-    event.u.vec3.x = 0;
-    event.u.vec3.y = 0;
-    event.u.vec3.z = 0;
+    event.u.vec3.x = 0;  // mInjectedVec3.x;
+    event.u.vec3.y = 0;  // mInjectedVec3.y;
+    event.u.vec3.z = 0;  // mInjectedVec3.z;
+    if (mInjectedEvents.size() > 0) {
+        event.u.vec3.x = mInjectedEvents.at(0).u.vec3.x;
+        event.u.vec3.y = mInjectedEvents.at(0).u.vec3.y;
+        event.u.vec3.z = mInjectedEvents.at(0).u.vec3.z;
+    }
     event.u.vec3.status = SensorStatus::ACCURACY_HIGH;
     events.push_back(event);
     return events;
@@ -157,13 +162,14 @@ bool Sensor::supportsDataInjection() const {
 
 Result Sensor::injectEvent(const Event& event) {
     Result result = Result::OK;
+    // mInjectedVec3 = event.u.vec3;
     if (event.sensorType == SensorType::ADDITIONAL_INFO) {
         // When in OperationMode::NORMAL, SensorType::ADDITIONAL_INFO is used to push operation
         // environment data into the device.
     } else if (!supportsDataInjection()) {
         result = Result::INVALID_OPERATION;
     } else if (mMode == OperationMode::DATA_INJECTION) {
-        mCallback->postEvents(std::vector<Event>{event}, isWakeUpSensor());
+        mInjectedEvents.push_back(event);
     } else {
         result = Result::BAD_VALUE;
     }
