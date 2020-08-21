@@ -30,6 +30,7 @@ using ::android::hardware::sensors::V1_0::OperationMode;
 using ::android::hardware::sensors::V1_0::Result;
 using ::android::hardware::sensors::V1_0::SensorInfo;
 using ::android::hardware::sensors::V1_0::SensorType;
+using ::android::hardware::sensors::V1_0::Vec3;
 
 namespace android {
 namespace hardware {
@@ -68,6 +69,7 @@ class Sensor {
     int64_t mSamplingPeriodNs;
     int64_t mLastSampleTimeNs;
     SensorInfo mSensorInfo;
+    Vec3 mInjectedVec3;
 
     std::atomic_bool mStopThread;
     std::condition_variable mWaitCV;

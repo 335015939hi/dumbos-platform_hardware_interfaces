@@ -135,9 +135,9 @@ std::vector<Event> Sensor::readEvents() {
     event.sensorHandle = mSensorInfo.sensorHandle;
     event.sensorType = mSensorInfo.type;
     event.timestamp = ::android::elapsedRealtimeNano();
-    event.u.vec3.x = 0;
-    event.u.vec3.y = 0;
-    event.u.vec3.z = 0;
+    event.u.vec3.x = mInjectedVec3.x;
+    event.u.vec3.y = mInjectedVec3.y;
+    event.u.vec3.z = mInjectedVec3.z;
     event.u.vec3.status = SensorStatus::ACCURACY_HIGH;
     events.push_back(event);
     return events;
@@ -157,6 +157,7 @@ bool Sensor::supportsDataInjection() const {
 
 Result Sensor::injectEvent(const Event& event) {
     Result result = Result::OK;
+    mInjectedVec3 = event.u.vec3;
     if (event.sensorType == SensorType::ADDITIONAL_INFO) {
         // When in OperationMode::NORMAL, SensorType::ADDITIONAL_INFO is used to push operation
         // environment data into the device.
