@@ -54,6 +54,7 @@ class BluetoothAudioProvidersFactory : public IBluetoothAudioProvidersFactory {
   static A2dpOffloadAudioProvider a2dp_offload_provider_instance_;
   static HearingAidAudioProvider hearing_aid_provider_instance_;
   static LeAudioOutputAudioProvider leaudio_output_provider_instance_;
+  static LeAudioInputAudioProvider leaudio_input_provider_instance_;
 };
 
 extern "C" IBluetoothAudioProvidersFactory*

@@ -38,10 +38,16 @@ using ::android::hardware::bluetooth::audio::V2_0::ChannelMode;
 using ::android::hardware::bluetooth::audio::V2_0::SampleRate;
 
 static constexpr uint32_t kBufferOutCount = 1;  // single buffer
+static constexpr uint32_t kBufferInCount = 1;   // single buffer
 
 LeAudioOutputAudioProvider::LeAudioOutputAudioProvider()
     : LeAudioAudioProvider() {
   session_type_ = SessionType::LE_AUDIO_SOFTWARE_ENCODING_DATAPATH;
+}
+
+LeAudioInputAudioProvider::LeAudioInputAudioProvider()
+    : LeAudioAudioProvider() {
+  session_type_ = SessionType::LE_AUDIO_SOFTWARE_DECODED_DATAPATH;
 }
 
 LeAudioAudioProvider::LeAudioAudioProvider()
@@ -151,6 +157,8 @@ Return<void> LeAudioAudioProvider::startSession_2_1(
 
   if (session_type_ == SessionType::LE_AUDIO_SOFTWARE_ENCODING_DATAPATH)
     kDataMqSize *= kBufferOutCount;
+  else if (session_type_ == SessionType::LE_AUDIO_SOFTWARE_DECODED_DATAPATH)
+    kDataMqSize *= kBufferInCount;
   else
     LOG(WARNING) << __func__ << ", default single buffer used";
 
