@@ -58,6 +58,11 @@ class LeAudioOutputAudioProvider : public LeAudioAudioProvider {
   LeAudioOutputAudioProvider();
 };
 
+class LeAudioInputAudioProvider : public LeAudioAudioProvider {
+ public:
+  LeAudioInputAudioProvider();
+};
+
 }  // namespace implementation
 }  // namespace V2_1
 }  // namespace audio
