@@ -65,6 +65,138 @@
     },
     {
       "key": {
+        "uuid": "f8c49b3e_5527fe34",
+        "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-08-24T18:24:18Z",
+      "side": 1,
+      "message": "you might comment here that the 1.1 callback can be registered with the existing callback registration methods from 1.0",
+      "revId": "1ecae4f82905d2843fe6b083f57b5597b902ac89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9854d53_f1f1f6f6",
+        "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-08-24T18:24:18Z",
+      "side": 1,
+      "message": "consider `hidl-gen -Lformat android.hardware.tetheroffload.control@1.1`",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 2
+      },
+      "revId": "1ecae4f82905d2843fe6b083f57b5597b902ac89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "852f4063_7e706419",
+        "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-08-24T18:24:18Z",
+      "side": 1,
+      "message": "L31 uses single space, but this is double spaced",
+      "range": {
+        "startLine": 34,
+        "startChar": 77,
+        "endLine": 34,
+        "endChar": 79
+      },
+      "revId": "1ecae4f82905d2843fe6b083f57b5597b902ac89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42b4dc04_6d2bb622",
+        "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-08-24T18:24:18Z",
+      "side": 1,
+      "message": "we should be more clear here. It sounds like enforcing the quota is optional, but we want to have the behavior explicitly documented.",
+      "range": {
+        "startLine": 35,
+        "startChar": 24,
+        "endLine": 35,
+        "endChar": 39
+      },
+      "revId": "1ecae4f82905d2843fe6b083f57b5597b902ac89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f39abb67_491428f9",
+        "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-08-24T18:24:18Z",
+      "side": 1,
+      "message": "which value is this referring to? Certainly it needs to keep track of the quota value, right?",
+      "range": {
+        "startLine": 35,
+        "startChar": 43,
+        "endLine": 35,
+        "endChar": 58
+      },
+      "revId": "1ecae4f82905d2843fe6b083f57b5597b902ac89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ffc7d2d4_7eba8ad6",
+        "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-08-24T18:24:18Z",
+      "side": 1,
+      "message": "I don\u0027t understand what this means",
+      "range": {
+        "startLine": 36,
+        "startChar": 15,
+        "endLine": 37,
+        "endChar": 66
+      },
+      "revId": "1ecae4f82905d2843fe6b083f57b5597b902ac89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d3b1365c_ba890ae5",
         "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
         "patchSetId": 7
@@ -181,6 +313,75 @@
       "side": 1,
       "message": "1. In my opinion we cannot remove l29-l32, as both warning and data are applicable to all traffic. Its the count of all the data packets going through one interface.\n\n2. Whenever data usage UI is opened, framework polls for tether stats and updates the quota while user is updating the warning. As per our several iterations of changes with Google after seeing several issues, we agreed that every time you set the new hard quota we reset the counter. But warning coming out of sync can will create a lot of race conditions in our IPA code as per design. It will be much better and bug free if we cna send them together as one API.",
       "parentUuid": "0ddcfa9f_11eaf437",
+      "revId": "1ecae4f82905d2843fe6b083f57b5597b902ac89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4cae3acd_95f358c7",
+        "filename": "tetheroffload/control/1.1/ITetheringOffloadCallback.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-08-24T18:24:18Z",
+      "side": 1,
+      "message": "should both _1_0 and _1_1 be called on existing callbacks (or only one of them)?",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 13
+      },
+      "revId": "1ecae4f82905d2843fe6b083f57b5597b902ac89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c64b4f6c_96319bbf",
+        "filename": "tetheroffload/control/1.1/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-08-24T18:24:18Z",
+      "side": 1,
+      "message": "if you don\u0027t run the hidl-gen format command, then make formatting consistent",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 4
+      },
+      "revId": "1ecae4f82905d2843fe6b083f57b5597b902ac89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db2279ab_c5bdaa49",
+        "filename": "tetheroffload/control/1.1/types.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-08-24T18:24:18Z",
+      "side": 1,
+      "message": "must",
+      "range": {
+        "startLine": 25,
+        "startChar": 39,
+        "endLine": 25,
+        "endChar": 45
+      },
       "revId": "1ecae4f82905d2843fe6b083f57b5597b902ac89",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
