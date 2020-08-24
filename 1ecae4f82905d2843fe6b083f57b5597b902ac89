@@ -166,6 +166,24 @@
       "revId": "1ecae4f82905d2843fe6b083f57b5597b902ac89",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1cd71c95_a131b5e3",
+        "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1199008
+      },
+      "writtenOn": "2020-08-24T17:24:37Z",
+      "side": 1,
+      "message": "1. In my opinion we cannot remove l29-l32, as both warning and data are applicable to all traffic. Its the count of all the data packets going through one interface.\n\n2. Whenever data usage UI is opened, framework polls for tether stats and updates the quota while user is updating the warning. As per our several iterations of changes with Google after seeing several issues, we agreed that every time you set the new hard quota we reset the counter. But warning coming out of sync can will create a lot of race conditions in our IPA code as per design. It will be much better and bug free if we cna send them together as one API.",
+      "parentUuid": "0ddcfa9f_11eaf437",
+      "revId": "1ecae4f82905d2843fe6b083f57b5597b902ac89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
