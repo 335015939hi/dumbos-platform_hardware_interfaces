@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bafc3ba4_dcc2f8a7",
+        "filename": "keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1080813
+      },
+      "writtenOn": "2020-08-26T05:21:14Z",
+      "side": 1,
+      "message": "Per discussion with tyanh@ offline, decided to go for this approach.\n\nThe reason is that it\u0027s hard to list all variants of GSI that way (e.g., Auto/TV has GSI too).\n\nUsing \"mainline\" for is_gsi() is better in terms of maintenance.",
+      "range": {
+        "startLine": 325,
+        "startChar": 0,
+        "endLine": 326,
+        "endChar": 41
+      },
+      "revId": "63c0129fa64838ce2f2b982246d74f683bcd5426",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
