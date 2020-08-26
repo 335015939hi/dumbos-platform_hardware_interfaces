@@ -319,6 +319,24 @@
     },
     {
       "key": {
+        "uuid": "94e9894c_312bd011",
+        "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2020-08-26T03:26:39Z",
+      "side": 1,
+      "message": "Not sure what is the case causes the out of sync problem.\nAs synced offline, please kindly provide the detail of issues you met.",
+      "parentUuid": "1cd71c95_a131b5e3",
+      "revId": "1ecae4f82905d2843fe6b083f57b5597b902ac89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4cae3acd_95f358c7",
         "filename": "tetheroffload/control/1.1/ITetheringOffloadCallback.hal",
         "patchSetId": 7
