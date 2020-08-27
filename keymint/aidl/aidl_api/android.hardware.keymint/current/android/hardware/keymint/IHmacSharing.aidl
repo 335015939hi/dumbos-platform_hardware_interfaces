@@ -16,13 +16,8 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.keymint;
-@Backing(type="int") @VintfStability
-enum KeyPurpose {
-  ENCRYPT = 0,
-  DECRYPT = 1,
-  SIGN = 2,
-  VERIFY = 3,
-  WRAP_KEY = 5,
-  AGREE_KEY = 6,
-  ATTEST_KEY = 7,
+@VintfStability
+interface IHmacSharing {
+  android.hardware.keymint.HmacSharingParameters getHmacSharingParameters();
+  byte[] computeSharedHmac(in android.hardware.keymint.HmacSharingParameters[] params);
 }
