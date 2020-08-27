@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004641873",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1412193?revision\u003d1",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "40166a3a_c764c9e8",
+        "filename": "keymint/aidl/android/hardware/keymint/IHmacSharing.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-08-27T08:47:38Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027they\u0027, \u0027them\u0027, or \u0027person\u0027; see https://developers.google.com/style/word-list#gender for more details.",
+      "range": {
+        "startLine": 99,
+        "startChar": 20,
+        "endLine": 99,
+        "endChar": 23
+      },
+      "revId": "efa170af73ee049d62b87c6c88607425f31fe6b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004641871",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1412193?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "946b3ed2_475a29c8",
+          "description": "Change to \"keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl\"",
+          "replacements": [
+            {
+              "path": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+              "range": {
+                "startLine": 701,
+                "startChar": 23,
+                "endLine": 701,
+                "endChar": 29
+              },
+              "replacement": "single"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "e86375c7_521c7b85",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 701,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-08-27T08:47:38Z",
+      "side": 1,
+      "message": "Common typo found: \"signle\" -- should it be \"single\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027NO_TYPO_CHECK\u003d\u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 701,
+        "startChar": 23,
+        "endLine": 701,
+        "endChar": 29
+      },
+      "revId": "efa170af73ee049d62b87c6c88607425f31fe6b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004641871",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1412193?revision\u003d1",
+      "fixSuggestions": [
+        {
+          "fixId": "6747eccb_032ba9fb",
+          "description": "Change to \"keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl\"",
+          "replacements": [
+            {
+              "path": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+              "range": {
+                "startLine": 704,
+                "startChar": 48,
+                "endLine": 704,
+                "endChar": 54
+              },
+              "replacement": "single"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "ed97b882_0f3946f4",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 704,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-08-27T08:47:38Z",
+      "side": 1,
+      "message": "Common typo found: \"signle\" -- should it be \"single\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027NO_TYPO_CHECK\u003d\u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 704,
+        "startChar": 48,
+        "endLine": 704,
+        "endChar": 54
+      },
+      "revId": "efa170af73ee049d62b87c6c88607425f31fe6b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
