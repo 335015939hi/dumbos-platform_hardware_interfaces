@@ -179,22 +179,7 @@ enum Tag {
      */
     INCLUDE_UNIQUE_ID = (7 << 28) /* TagType:BOOL */ | 202,
 
-    /**
-     * TODO(seleneh) this tag needs to be deleted from all codes.
-     *
-     * Tag::BLOB_USAGE_REQUIREMENTS specifies the necessary system environment conditions for the
-     * generated key to be used.  Possible values are defined by the KeyBlobUsageRequirements enum.
-     *
-     * This tag is specified by the caller during key generation or import to require that the key
-     * is usable in the specified condition.  If the caller specifies Tag::BLOB_USAGE_REQUIREMENTS
-     * with value KeyBlobUsageRequirements::STANDALONE the IKeyMintDevice must return a key blob
-     * that can be used without file system support.  This is critical for devices with encrypted
-     * disks, where the file system may not be available until after a KeyMint key is used to
-     * decrypt the disk.
-     *
-     * Must be hardware-enforced.
-     */
-    BLOB_USAGE_REQUIREMENTS = (1 << 28) /* TagType:ENUM */ | 301,
+    RESERVED1 = (1 << 28) /* TagType:ENUM */ | 301,
 
     /**
      * Tag::BOOTLOADER_ONLY specifies only the bootloader can use the key.
@@ -264,30 +249,7 @@ enum Tag {
      */
     USAGE_EXPIRE_DATETIME = (6 << 28) /* TagType:DATE */ | 402,
 
-    /**
-     * TODO(seleneh) this tag need to be deleted.
-     *
-      * TODO(seleneh) this tag need to be deleted.
-      *
-     * Tag::MIN_SECONDS_BETWEEN_OPS specifies the minimum amount of time that elapses between
-     * allowed operations using a key.  This can be used to rate-limit uses of keys in contexts
-     * where unlimited use may enable brute force attacks.
-     *
-     * The value is a 32-bit integer representing seconds between allowed operations.
-     *
-     * When a key with this tag is used in an operation, the IKeyMintDevice must start a timer
-     * during the finish() or abort() call.  Any call to begin() that is received before the timer
-     * indicates that the interval specified by Tag::MIN_SECONDS_BETWEEN_OPS has elapsed must fail
-     * with ErrorCode::KEY_RATE_LIMIT_EXCEEDED.  This implies that the IKeyMintDevice must keep a
-     * table of use counters for keys with this tag.  Because memory is often limited, this table
-     * may have a fixed maximum size and KeyMint may fail operations that attempt to use keys with
-     * this tag when the table is full.  The table must acommodate at least 8 in-use keys and
-     * aggressively reuse table slots when key minimum-usage intervals expire.  If an operation
-     * fails because the table is full, KeyMint returns ErrorCode::TOO_MANY_OPERATIONS.
-     *
-     * Must be hardware-enforced.
-     */
-    MIN_SECONDS_BETWEEN_OPS = (3 << 28) /* TagType:UINT */ | 403,
+    RESERVED2 = (3 << 28) /* TagType:UINT */ | 403,
 
     /**
      * Tag::MAX_USES_PER_BOOT specifies the maximum number of times that a key may be used between
