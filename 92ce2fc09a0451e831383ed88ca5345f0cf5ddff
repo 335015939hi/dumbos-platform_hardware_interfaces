@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d029f990_99e2909e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2020-08-27T09:18:34Z",
+      "side": 1,
+      "message": "replace\n\u003cfqname\u003e@2.0::IBluetoothAudioProvidersFactory/default\u003c/fqname\u003e\n\nwith \n\u003cfqname\u003e@2.1::IBluetoothAudioProvidersFactory/default\u003c/fqname\u003e\n\nin /vendor/etc/vintf/manifest.xml\n\nfor testing",
+      "revId": "92ce2fc09a0451e831383ed88ca5345f0cf5ddff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce035145_f8591962",
+        "filename": "audio/common/all-versions/default/service/service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2020-08-27T09:18:34Z",
+      "side": 1,
+      "message": "I think you need to keep both 2.0 and 2.1 version, see above for Soundtrigger example",
+      "range": {
+        "startLine": 89,
+        "startChar": 47,
+        "endLine": 89,
+        "endChar": 51
+      },
+      "revId": "92ce2fc09a0451e831383ed88ca5345f0cf5ddff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
