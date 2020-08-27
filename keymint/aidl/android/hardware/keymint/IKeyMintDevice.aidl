@@ -329,8 +329,166 @@ import android.hardware.keymint.VerificationToken;
      * If Tag::BLOCK_MODE is specified with value BlockMode::GCM, then the caller must also provide
      * Tag::MIN_MAC_LENGTH.  If omitted, generateKey must return ErrorCode::MISSING_MIN_MAC_LENGTH.
      *
+     * == Attestation ==
+     *
+     * If the generated key is an asymetric key, and Tag::ATTESTATION_CHALLENGE is included in
+     * attestParams, then an attestation certificate for the generated key in the format of X.509
+     * will be signed and returned in the field outCertChain. If the generated key is an asymetric
+     * signing key, but no challenge is provided, then a self signed signle certificate will be
+     * returned. If the generated key is an asymetric encryption key with no challenge provided,
+     * then a dummy X.509 certificate will be returned with invalid signature.  If the generated
+     * key is a symetric key, then the attestation certificate will return null.
+     *
+     * The certificates in the chain must be ordered such that each certificate is signed by the
+     * subsequent one, up to the root which must be self-signed.  The first certificate in the chain
+     * signs the public key info of the attested key and must contain the following entries (see RFC
+     * 5280 for details on each):
+     *
+     * o version -- with value 2
+     *
+     * o serialNumber -- this is the attestation serial number that is passed from the caller in the
+     *   attestation parameter using ATTESTATION_CERTIFICATE_SERIAL tag.  If the tag is missing, then
+     *   certificate generated with be set with value 1 for the serial, which if multiple keys are
+     *   missing the serial tag, then their attestation certificate will all be set to the same value.
+     *
+     * o signature -- contains an the AlgorithmIdentifier of the algorithm used to sign, must be
+     *   ECDSA for EC keys, RSA for RSA keys.
+     *
+     * o issuer -- must contain the same value as the Subject field of the next certificate. For
+     *   self signed certificates and dummy certificates (no challenge provided and not an signing
+     *   key), the issuer will be the same as subject.
+     *
+     * o validity -- SEQUENCE of two dates, containing the values of Tag::ACTIVE_DATETIME and
+     *   Tag::USAGE_EXPIRE_DATETIME.  The tag values are in milliseconds since Jan 1, 1970; see RFD
+     *   5280 for the correct representation in certificates.  If Tag::ACTIVE_DATETIME is not
+     *   present in the key, the IKeymasterDevice must use the value of Tag::CREATION_DATETIME.  If
+     *   Tag::USAGE_EXPIRE_DATETIME is not present, the IKeymasterDevice must use the expiration
+     *   date of the batch attestation certificate (see below).
+     *
+     * o subject -- this is the attestation subject, which should be passed down from caller. If
+     *   ATTESTATION_CERTIFICATE_SUBJECT is missing in the attestation parameter, then subject of
+     *   CN="Android Keystore Key" will be set (same value for all keys).
+     *
+     * o subjectPublicKeyInfo -- X.509 SubjectPublicKeyInfo containing the attested public key.
+     *
+     * o Key Usage extension -- digitalSignature bit must be set iff the attested key has
+     *   KeyPurpose::SIGN.  dataEncipherment bit must be set iff the attested key has
+     *   KeyPurpose::DECRYPT.  keyEncipherment bit must be set iff the attested key has
+     *   KeyPurpose::KEY_WRAP.  All other bits must be clear.
+     *
+     * In addition to the above, with the exception of dummy certificates and self signed
+     * certificates, the attestation certificate must contain an extension with OID
+     * 1.3.6.1.4.1.11129.2.1.17 and value according to the KeyDescription schema defined as:
+     *
+     * KeyDescription ::= SEQUENCE {
+     *     attestationVersion         INTEGER, # Value 3
+     *     attestationSecurityLevel   SecurityLevel, # See below
+     *     keymasterVersion           INTEGER, # Value 4
+     *     keymasterSecurityLevel     SecurityLevel, # See below
+     *     attestationChallenge       OCTET_STRING, # Tag::ATTESTATION_CHALLENGE from attestParams
+     *     uniqueId                   OCTET_STRING, # Empty unless key has Tag::INCLUDE_UNIQUE_ID
+     *     softwareEnforced           AuthorizationList, # See below
+     *     hardwareEnforced           AuthorizationList, # See below
+     * }
+     *
+     * SecurityLevel ::= ENUMERATED {
+     *     Software                   (0),
+     *     TrustedEnvironment         (1),
+     *     StrongBox                  (2),
+     * }
+     *
+     * RootOfTrust ::= SEQUENCE {
+     *     verifiedBootKey            OCTET_STRING,
+     *     deviceLocked               BOOLEAN,
+     *     verifiedBootState          VerifiedBootState,
+     *     # verifiedBootHash must contain 32-byte value that represents the state of all binaries
+     *     # or other components validated by verified boot.  Updating any verified binary or
+     *     # component must cause this value to change.
+     *     verifiedBootHash           OCTET_STRING,
+     * }
+     *
+     * VerifiedBootState ::= ENUMERATED {
+     *     Verified                   (0),
+     *     SelfSigned                 (1),
+     *     Unverified                 (2),
+     *     Failed                     (3),
+     * }
+     *
+     * AuthorizationList ::= SEQUENCE {
+     *     purpose                    [1] EXPLICIT SET OF INTEGER OPTIONAL,
+     *     algorithm                  [2] EXPLICIT INTEGER OPTIONAL,
+     *     keySize                    [3] EXPLICIT INTEGER OPTIONAL,
+     *     blockMode                  [4] EXPLICIT SET OF INTEGER OPTIONAL,
+     *     digest                     [5] EXPLICIT SET OF INTEGER OPTIONAL,
+     *     padding                    [6] EXPLICIT SET OF INTEGER OPTIONAL,
+     *     callerNonce                [7] EXPLICIT NULL OPTIONAL,
+     *     minMacLength               [8] EXPLICIT INTEGER OPTIONAL,
+     *     ecCurve                    [10] EXPLICIT INTEGER OPTIONAL,
+     *     rsaPublicExponent          [200] EXPLICIT INTEGER OPTIONAL,
+     *     rollbackResistance         [303] EXPLICIT NULL OPTIONAL,
+     *     activeDateTime             [400] EXPLICIT INTEGER OPTIONAL,
+     *     originationExpireDateTime  [401] EXPLICIT INTEGER OPTIONAL,
+     *     usageExpireDateTime        [402] EXPLICIT INTEGER OPTIONAL,
+     *     userSecureId               [502] EXPLICIT INTEGER OPTIONAL,
+     *     noAuthRequired             [503] EXPLICIT NULL OPTIONAL,
+     *     userAuthType               [504] EXPLICIT INTEGER OPTIONAL,
+     *     authTimeout                [505] EXPLICIT INTEGER OPTIONAL,
+     *     allowWhileOnBody           [506] EXPLICIT NULL OPTIONAL,
+     *     trustedUserPresenceReq     [507] EXPLICIT NULL OPTIONAL,
+     *     trustedConfirmationReq     [508] EXPLICIT NULL OPTIONAL,
+     *     unlockedDeviceReq          [509] EXPLICIT NULL OPTIONAL,
+     *     creationDateTime           [701] EXPLICIT INTEGER OPTIONAL,
+     *     origin                     [702] EXPLICIT INTEGER OPTIONAL,
+     *     rootOfTrust                [704] EXPLICIT RootOfTrust OPTIONAL,
+     *     osVersion                  [705] EXPLICIT INTEGER OPTIONAL,
+     *     osPatchLevel               [706] EXPLICIT INTEGER OPTIONAL,
+     *     attestationApplicationId   [709] EXPLICIT OCTET_STRING OPTIONAL,
+     *     attestationIdBrand         [710] EXPLICIT OCTET_STRING OPTIONAL,
+     *     attestationIdDevice        [711] EXPLICIT OCTET_STRING OPTIONAL,
+     *     attestationIdProduct       [712] EXPLICIT OCTET_STRING OPTIONAL,
+     *     attestationIdSerial        [713] EXPLICIT OCTET_STRING OPTIONAL,
+     *     attestationIdImei          [714] EXPLICIT OCTET_STRING OPTIONAL,
+     *     attestationIdMeid          [715] EXPLICIT OCTET_STRING OPTIONAL,
+     *     attestationIdManufacturer  [716] EXPLICIT OCTET_STRING OPTIONAL,
+     *     attestationIdModel         [717] EXPLICIT OCTET_STRING OPTIONAL,
+     *     vendorPatchLevel           [718] EXPLICIT INTEGER OPTIONAL,
+     *     bootPatchLevel             [719] EXPLICIT INTEGER OPTIONAL,
+     * }
+     *
+     * The above schema is mostly a straightforward translation of the IKeymasterDevice tag/value
+     * parameter lists to ASN.1:
+     *
+     * o TagType::ENUM, TagType::UINT, TagType::ULONG and TagType::DATE tags are represented as
+     *   ASN.1 INTEGER.
+     *
+     * o TagType::ENUM_REP, TagType::UINT_REP and TagType::ULONG_REP tags are represented as ASN.1
+     *   SET of INTEGER.
+     *
+     * o TagType::BOOL tags are represented as ASN.1 NULL.  All entries in AuthorizationList are
+     *   OPTIONAL, so the presence of the tag means "true", absence means "false".
+     *
+     * o TagType::BYTES tags are represented as ASN.1 OCTET_STRING.
+     *
+     * The numeric ASN.1 tag numbers are the same values as the IKeymasterDevice Tag enum values,
+     * except with the TagType modifier stripped.
+     *
+     * The attestation certificate must be signed by a "batch" key, which must be securely
+     * pre-installed into the device, generally in the factory, and securely stored to prevent
+     * access or extraction.  The batch key must be used only for signing attestation certificates.
+     * The batch attestation certificate must be signed by a chain or zero or more intermediates
+     * leading to a self-signed roots.  The intermediate and root certificate signing keys must not
+     * exist anywhere on the device.
+     *
+     * == ID Attestation ==
+     *
+     * ID attestation is a special case of key attestation in which unique device ID values are
+     * included in the signed attestation certificate.
      *
      * @param keyParams Key generation parameters are defined as KeyMintDevice tag/value pairs,
+     *        provided in params.  See above for detailed specifications of which tags are required
+     *        for which types of keys.
+     *
+     * @param attestParams Key generation parameters are defined as KeyMintDevice tag/value pairs,
      *        provided in params.  See above for detailed specifications of which tags are required
      *        for which types of keys.
      *
@@ -362,7 +520,8 @@ import android.hardware.keymint.VerificationToken;
      *         the chain is the root certificate.  If the key is a symmetric key, then no
      *         certificate will be returned and this variable will return empty.
      */
-    void generateKey(in KeyParameter[] keyParams, out ByteArray generatedKeyBlob,
+    void generateKey(in KeyParameter[] keyParams, in KeyParameter[] attestParams,
+		     out ByteArray generatedKeyBlob,
                      out KeyCharacteristics generatedKeyCharacteristics,
                      out Certificate[] outCertChain);
 
@@ -387,6 +546,10 @@ import android.hardware.keymint.VerificationToken;
      * @param inKeyParams Key generation parameters are defined as KeyMintDevice tag/value pairs,
      *        provided in params.
      *
+     * @param attestParams Key generation parameters are defined as KeyMintDevice tag/value pairs,
+     *        provided in params.  See generateKey description for detailed specifications of
+     *        which tags are required for which types of keys.
+     *
      * @param inKeyFormat The format of the key material to import.  See KeyFormat in
      *        keyformat.aidl.
      *
@@ -408,11 +571,13 @@ import android.hardware.keymint.VerificationToken;
      *         certificate will not contain the creation datetime.  The first certificate in the
      *         vector is the attestation for the generated key itself, the next certificate is
      *         the key that signs the first certificate, and so forth.  The last certificate in
-     *         the chain is the root certificate.  If the key is a symmetric key, then no
-     *         certificate will be returned and this variable will return empty.
+     *         the chain is the root certificate.  If the key is a symetric key, then no
+     *         certificate will be returned and this variable will return empty. Please see
+     *         generateKey for more details on the attestation certificate and challenge.
      */
-    void importKey(in KeyParameter[] inKeyParams, in KeyFormat inKeyFormat,
-                   in byte[] inKeyData, out ByteArray outImportedKeyBlob,
+    void importKey(in KeyParameter[] inKeyParams, in KeyParameter[] attestParams,
+                   in KeyFormat inKeyFormat, in byte[] inKeyData,
+		   out ByteArray outImportedKeyBlob,
                    out KeyCharacteristics outImportedKeyCharacteristics,
                    out Certificate[] outCertChain);
 

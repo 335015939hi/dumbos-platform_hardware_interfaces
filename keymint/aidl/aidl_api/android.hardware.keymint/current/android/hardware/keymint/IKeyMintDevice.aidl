@@ -21,8 +21,8 @@ interface IKeyMintDevice {
   android.hardware.keymint.KeyMintHardwareInfo getHardwareInfo();
   android.hardware.keymint.VerificationToken verifyAuthorization(in long challenge, in android.hardware.keymint.HardwareAuthToken token);
   void addRngEntropy(in byte[] data);
-  void generateKey(in android.hardware.keymint.KeyParameter[] keyParams, out android.hardware.keymint.ByteArray generatedKeyBlob, out android.hardware.keymint.KeyCharacteristics generatedKeyCharacteristics, out android.hardware.keymint.Certificate[] outCertChain);
-  void importKey(in android.hardware.keymint.KeyParameter[] inKeyParams, in android.hardware.keymint.KeyFormat inKeyFormat, in byte[] inKeyData, out android.hardware.keymint.ByteArray outImportedKeyBlob, out android.hardware.keymint.KeyCharacteristics outImportedKeyCharacteristics, out android.hardware.keymint.Certificate[] outCertChain);
+  void generateKey(in android.hardware.keymint.KeyParameter[] keyParams, in android.hardware.keymint.KeyParameter[] attestParams, out android.hardware.keymint.ByteArray generatedKeyBlob, out android.hardware.keymint.KeyCharacteristics generatedKeyCharacteristics, out android.hardware.keymint.Certificate[] outCertChain);
+  void importKey(in android.hardware.keymint.KeyParameter[] inKeyParams, in android.hardware.keymint.KeyParameter[] attestParams, in android.hardware.keymint.KeyFormat inKeyFormat, in byte[] inKeyData, out android.hardware.keymint.ByteArray outImportedKeyBlob, out android.hardware.keymint.KeyCharacteristics outImportedKeyCharacteristics, out android.hardware.keymint.Certificate[] outCertChain);
   void importWrappedKey(in byte[] inWrappedKeyData, in byte[] inWrappingKeyBlob, in byte[] inMaskingKey, in android.hardware.keymint.KeyParameter[] inUnwrappingParams, in long inPasswordSid, in long inBiometricSid, out android.hardware.keymint.ByteArray outImportedKeyBlob, out android.hardware.keymint.KeyCharacteristics outImportedKeyCharacteristics);
   byte[] upgradeKey(in byte[] inKeyBlobToUpgrade, in android.hardware.keymint.KeyParameter[] inUpgradeParams);
   void deleteKey(in byte[] inKeyBlob);
