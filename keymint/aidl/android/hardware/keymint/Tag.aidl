@@ -889,4 +889,19 @@ enum Tag {
      * Must never appear in KeyCharacteristics.
      */
     CONFIRMATION_TOKEN = (9 << 28) | 1005, /* TagType:BYTES */
+
+    /**
+     * Tag::CERTIFICATE_SERIAL specifies the serial number to be assigned to the
+     * attestation certificate to be generated for the given key.  This parameter should only
+     * be passed to keyMint in the attestation parameters during generateKey() and importKey().
+     */
+    CERTIFICATE_SERIAL = (3 << 28) | 1006, /* TagType:UINT */
+
+    /**
+     * Tag::CERTIFICATE_SUBJECT specify the subject of the certificate to be attached
+     * with the attestation certificate generated for the given key.  This parameter
+     * should only be passed to keyMint in the attestation parameters during generateKey() and
+     * importKey().
+     */
+    CERTIFICATE_SUBJECT = (9 << 28) | 1007, /* TagType:BYTES */
 }
