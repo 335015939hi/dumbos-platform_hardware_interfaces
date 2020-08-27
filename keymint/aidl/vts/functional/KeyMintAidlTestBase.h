@@ -60,14 +60,28 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
     uint32_t os_patch_level() { return os_patch_level_; }
 
     ErrorCode GetReturnErrorCode(Status result);
+
+    ErrorCode GenerateKey(const AuthorizationSet& key_desc, const AuthorizationSet& attest_params,
+                          vector<uint8_t>* key_blob, KeyCharacteristics* key_characteristics);
+
     ErrorCode GenerateKey(const AuthorizationSet& key_desc, vector<uint8_t>* key_blob,
                           KeyCharacteristics* key_characteristics);
 
+    ErrorCode GenerateKey(const AuthorizationSet& key_desc, const AuthorizationSet& attest_params);
+
     ErrorCode GenerateKey(const AuthorizationSet& key_desc);
+
+    ErrorCode ImportKey(const AuthorizationSet& key_desc, const AuthorizationSet& attest_params,
+                        KeyFormat format, const string& key_material, vector<uint8_t>* key_blob,
+                        KeyCharacteristics* key_characteristics);
 
     ErrorCode ImportKey(const AuthorizationSet& key_desc, KeyFormat format,
                         const string& key_material, vector<uint8_t>* key_blob,
                         KeyCharacteristics* key_characteristics);
+
+    ErrorCode ImportKey(const AuthorizationSet& key_desc, const AuthorizationSet& attest_params,
+                        KeyFormat format, const string& key_material);
+
     ErrorCode ImportKey(const AuthorizationSet& key_desc, KeyFormat format,
                         const string& key_material);
 
