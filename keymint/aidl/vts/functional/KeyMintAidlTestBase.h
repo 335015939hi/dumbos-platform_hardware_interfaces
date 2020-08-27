@@ -60,6 +60,7 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
     uint32_t os_patch_level() { return os_patch_level_; }
 
     ErrorCode GetReturnErrorCode(Status result);
+
     ErrorCode GenerateKey(const AuthorizationSet& key_desc, vector<uint8_t>* key_blob,
                           KeyCharacteristics* key_characteristics);
 
@@ -68,6 +69,7 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
     ErrorCode ImportKey(const AuthorizationSet& key_desc, KeyFormat format,
                         const string& key_material, vector<uint8_t>* key_blob,
                         KeyCharacteristics* key_characteristics);
+
     ErrorCode ImportKey(const AuthorizationSet& key_desc, KeyFormat format,
                         const string& key_material);
 
@@ -163,6 +165,8 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
 
     vector<Digest> ValidDigests(bool withNone, bool withMD5);
 
+    void CreateDerSubject(const char subject[]);
+
     static vector<string> build_params() {
         auto params = android::getAidlHalInstanceNames(IKeyMintDevice::descriptor);
         return params;
@@ -172,6 +176,7 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
     vector<Certificate> certChain_;
     vector<uint8_t> key_blob_;
     KeyCharacteristics key_characteristics_;
+    vector<uint8_t> der_subject;
 
   private:
     sp<IKeyMintDevice> keymint_;

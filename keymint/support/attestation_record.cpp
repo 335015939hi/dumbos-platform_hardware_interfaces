@@ -144,7 +144,6 @@ ASN1_SEQUENCE(KM_AUTH_LIST) = {
         ASN1_EXP_OPT(KM_AUTH_LIST, storage_key, ASN1_NULL, TAG_STORAGE_KEY.maskedTag()),
         ASN1_EXP_OPT(KM_AUTH_LIST, identity_credential, ASN1_NULL,
                      TAG_IDENTITY_CREDENTIAL_KEY.maskedTag()),
-
 } ASN1_SEQUENCE_END(KM_AUTH_LIST);
 IMPLEMENT_ASN1_FUNCTIONS(KM_AUTH_LIST);
 
@@ -286,22 +285,21 @@ static ErrorCode extract_auth_list(const KM_AUTH_LIST* record, AuthorizationSet*
     copyAuthTag(record->device_unique_attestation, TAG_DEVICE_UNIQUE_ATTESTATION, auth_list);
     copyAuthTag(record->storage_key, TAG_STORAGE_KEY, auth_list);
     copyAuthTag(record->identity_credential, TAG_IDENTITY_CREDENTIAL_KEY, auth_list);
-
     return ErrorCode::OK;
 }
 
 MAKE_OPENSSL_PTR_TYPE(KM_KEY_DESCRIPTION)
 
-// Parse the DER-encoded attestation record, placing the results in keymint_version,
+// Parse the DER-encoded attestation record, placing the results in keymint version,
 // attestation_challenge, software_enforced, tee_enforced and unique_id.
 ErrorCode parse_attestation_record(const uint8_t* asn1_key_desc, size_t asn1_key_desc_len,
                                    uint32_t* attestation_version,  //
                                    SecurityLevel* attestation_security_level,
                                    uint32_t* keymint_version, SecurityLevel* keymint_security_level,
-                                   vector<uint8_t>* attestation_challenge,
+                                   std::vector<uint8_t>* attestation_challenge,
                                    AuthorizationSet* software_enforced,
                                    AuthorizationSet* tee_enforced,  //
-                                   vector<uint8_t>* unique_id) {
+                                   std::vector<uint8_t>* unique_id) {
     const uint8_t* p = asn1_key_desc;
     KM_KEY_DESCRIPTION_Ptr record(d2i_KM_KEY_DESCRIPTION(nullptr, &p, asn1_key_desc_len));
     if (!record.get()) return ErrorCode::UNKNOWN_ERROR;
@@ -327,13 +325,14 @@ ErrorCode parse_attestation_record(const uint8_t* asn1_key_desc, size_t asn1_key
 }
 
 ErrorCode parse_root_of_trust(const uint8_t* asn1_key_desc, size_t asn1_key_desc_len,
-                              vector<uint8_t>* verified_boot_key,
+                              std::vector<uint8_t>* verified_boot_key,
                               keymint_verified_boot_t* verified_boot_state, bool* device_locked,
-                              vector<uint8_t>* verified_boot_hash) {
+                              std::vector<uint8_t>* verified_boot_hash) {
     if (!verified_boot_key || !verified_boot_state || !device_locked || !verified_boot_hash) {
         LOG(ERROR) << AT << "null pointer input(s)";
         return ErrorCode::INVALID_ARGUMENT;
     }
+
     const uint8_t* p = asn1_key_desc;
     KM_KEY_DESCRIPTION_Ptr record(d2i_KM_KEY_DESCRIPTION(nullptr, &p, asn1_key_desc_len));
     if (!record.get()) {
@@ -350,6 +349,7 @@ ErrorCode parse_root_of_trust(const uint8_t* asn1_key_desc, size_t asn1_key_desc
         LOG(ERROR) << AT << " Failed root of trust parsing";
         return ErrorCode::INVALID_ARGUMENT;
     }
+
     if (!root_of_trust->verified_boot_key) {
         LOG(ERROR) << AT << " Failed verified boot key parsing";
         return ErrorCode::INVALID_ARGUMENT;

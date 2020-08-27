@@ -21,6 +21,8 @@
 
 #include <android-base/logging.h>
 
+#include <openssl/x509.h>
+
 #include <keymintSupport/key_param_output.h>
 #include <keymintSupport/keymint_utils.h>
 
@@ -72,6 +74,36 @@ void KeyMintAidlTestBase::InitializeKeyMint(sp<IKeyMintDevice> keyMint) {
 void KeyMintAidlTestBase::SetUp() {
     InitializeKeyMint(
             android::waitForDeclaredService<IKeyMintDevice>(String16(GetParam().c_str())));
+}
+
+struct X509_NAME_Deleter {
+    void operator()(X509_NAME* value) const {
+        if (value != nullptr) {
+            X509_NAME_free(value);
+        }
+    }
+};
+
+using X509_NAME_Ptr = std::unique_ptr<X509_NAME, X509_NAME_Deleter>;
+
+void KeyMintAidlTestBase::CreateDerSubject(const char subject[]) {
+    X509_NAME_Ptr x509_name(X509_NAME_new());
+    ASSERT_TRUE(x509_name.get());
+
+    ASSERT_TRUE(X509_NAME_add_entry_by_txt(x509_name.get(),  //
+                                           "CN",             //
+                                           MBSTRING_ASC,
+                                           reinterpret_cast<const uint8_t*>(&subject[0]),
+                                           -1,  // len
+                                           -1,  // loc
+                                           0 /* set */));
+
+    int len = i2d_X509_NAME(x509_name.get(), nullptr);
+    ASSERT_GT(len, 0U);
+
+    der_subject.resize(len);
+    unsigned char* ptr = der_subject.data();
+    len = i2d_X509_NAME(x509_name.get(), &ptr);
 }
 
 ErrorCode KeyMintAidlTestBase::GenerateKey(const AuthorizationSet& key_desc,
