@@ -98,6 +98,8 @@ typedef struct km_auth_list {
     ASN1_NULL* device_unique_attestation;
     ASN1_NULL* storage_key;
     ASN1_NULL* identity_credential;
+    ASN1_OCTET_STRING* attestation_certificate_serial;
+    ASN1_OCTET_STRING* attestation_certificate_subject;
 } KM_AUTH_LIST;
 
 ASN1_SEQUENCE(KM_AUTH_LIST) = {
@@ -144,7 +146,10 @@ ASN1_SEQUENCE(KM_AUTH_LIST) = {
         ASN1_EXP_OPT(KM_AUTH_LIST, storage_key, ASN1_NULL, TAG_STORAGE_KEY.maskedTag()),
         ASN1_EXP_OPT(KM_AUTH_LIST, identity_credential, ASN1_NULL,
                      TAG_IDENTITY_CREDENTIAL_KEY.maskedTag()),
-
+        ASN1_EXP_OPT(KM_AUTH_LIST, attestation_certificate_serial, ASN1_OCTET_STRING,
+                     TAG_ATTESTATION_CERTIFICATE_SERIAL.maskedTag()),
+        ASN1_EXP_OPT(KM_AUTH_LIST, attestation_certificate_subject, ASN1_OCTET_STRING,
+                     TAG_ATTESTATION_CERTIFICATE_SUBJECT.maskedTag()),
 } ASN1_SEQUENCE_END(KM_AUTH_LIST);
 IMPLEMENT_ASN1_FUNCTIONS(KM_AUTH_LIST);
 
@@ -286,22 +291,25 @@ static ErrorCode extract_auth_list(const KM_AUTH_LIST* record, AuthorizationSet*
     copyAuthTag(record->device_unique_attestation, TAG_DEVICE_UNIQUE_ATTESTATION, auth_list);
     copyAuthTag(record->storage_key, TAG_STORAGE_KEY, auth_list);
     copyAuthTag(record->identity_credential, TAG_IDENTITY_CREDENTIAL_KEY, auth_list);
-
+    copyAuthTag(record->attestation_certificate_serial, TAG_ATTESTATION_CERTIFICATE_SERIAL,
+                auth_list);
+    copyAuthTag(record->attestation_certificate_subject, TAG_ATTESTATION_CERTIFICATE_SUBJECT,
+                auth_list);
     return ErrorCode::OK;
 }
 
 MAKE_OPENSSL_PTR_TYPE(KM_KEY_DESCRIPTION)
 
-// Parse the DER-encoded attestation record, placing the results in keymint_version,
+// Parse the DER-encoded attestation record, placing the results in keymint version,
 // attestation_challenge, software_enforced, tee_enforced and unique_id.
 ErrorCode parse_attestation_record(const uint8_t* asn1_key_desc, size_t asn1_key_desc_len,
                                    uint32_t* attestation_version,  //
                                    SecurityLevel* attestation_security_level,
                                    uint32_t* keymint_version, SecurityLevel* keymint_security_level,
-                                   vector<uint8_t>* attestation_challenge,
+                                   std::vector<uint8_t>* attestation_challenge,
                                    AuthorizationSet* software_enforced,
                                    AuthorizationSet* tee_enforced,  //
-                                   vector<uint8_t>* unique_id) {
+                                   std::vector<uint8_t>* unique_id) {
     const uint8_t* p = asn1_key_desc;
     KM_KEY_DESCRIPTION_Ptr record(d2i_KM_KEY_DESCRIPTION(nullptr, &p, asn1_key_desc_len));
     if (!record.get()) return ErrorCode::UNKNOWN_ERROR;
@@ -324,62 +332,6 @@ ErrorCode parse_attestation_record(const uint8_t* asn1_key_desc, size_t asn1_key
     if (error != ErrorCode::OK) return error;
 
     return extract_auth_list(record->tee_enforced, tee_enforced);
-}
-
-ErrorCode parse_root_of_trust(const uint8_t* asn1_key_desc, size_t asn1_key_desc_len,
-                              vector<uint8_t>* verified_boot_key,
-                              keymint_verified_boot_t* verified_boot_state, bool* device_locked,
-                              vector<uint8_t>* verified_boot_hash) {
-    if (!verified_boot_key || !verified_boot_state || !device_locked || !verified_boot_hash) {
-        LOG(ERROR) << AT << "null pointer input(s)";
-        return ErrorCode::INVALID_ARGUMENT;
-    }
-    const uint8_t* p = asn1_key_desc;
-    KM_KEY_DESCRIPTION_Ptr record(d2i_KM_KEY_DESCRIPTION(nullptr, &p, asn1_key_desc_len));
-    if (!record.get()) {
-        LOG(ERROR) << AT << "Failed record parsing";
-        return ErrorCode::UNKNOWN_ERROR;
-    }
-
-    KM_ROOT_OF_TRUST* root_of_trust = nullptr;
-    if (record->tee_enforced && record->tee_enforced->root_of_trust) {
-        root_of_trust = record->tee_enforced->root_of_trust;
-    } else if (record->software_enforced && record->software_enforced->root_of_trust) {
-        root_of_trust = record->software_enforced->root_of_trust;
-    } else {
-        LOG(ERROR) << AT << " Failed root of trust parsing";
-        return ErrorCode::INVALID_ARGUMENT;
-    }
-    if (!root_of_trust->verified_boot_key) {
-        LOG(ERROR) << AT << " Failed verified boot key parsing";
-        return ErrorCode::INVALID_ARGUMENT;
-    }
-
-    auto& vb_key = root_of_trust->verified_boot_key;
-    verified_boot_key->resize(vb_key->length);
-    memcpy(verified_boot_key->data(), vb_key->data, vb_key->length);
-
-    *verified_boot_state = static_cast<keymint_verified_boot_t>(
-            ASN1_ENUMERATED_get(root_of_trust->verified_boot_state));
-    if (!verified_boot_state) {
-        LOG(ERROR) << AT << " Failed verified boot state parsing";
-        return ErrorCode::INVALID_ARGUMENT;
-    }
-
-    *device_locked = root_of_trust->device_locked;
-    if (!device_locked) {
-        LOG(ERROR) << AT << " Failed device locked parsing";
-        return ErrorCode::INVALID_ARGUMENT;
-    }
-
-    auto& vb_hash = root_of_trust->verified_boot_hash;
-    if (!vb_hash) {
-        LOG(ERROR) << AT << " Failed verified boot hash parsing";
-        return ErrorCode::INVALID_ARGUMENT;
-    }
-    verified_boot_hash->resize(vb_hash->length);
-    memcpy(verified_boot_hash->data(), vb_hash->data, vb_hash->length);
-    return ErrorCode::OK;  // KM_ERROR_OK;
 }
 
 // Parse the DER-encoded attestation record, placing the results in keymint_version,
@@ -470,6 +422,62 @@ std::tuple<ErrorCode, AttestationRecord> parse_attestation_record(const vector<u
     memcpy(rot.verified_boot_hash.data(), vb_hash->data, vb_hash->length);
 
     return {ErrorCode::OK, result};
+}
+
+ErrorCode parse_root_of_trust(const uint8_t* asn1_key_desc, size_t asn1_key_desc_len,
+                              std::vector<uint8_t>* verified_boot_key,
+                              keymint_verified_boot_t* verified_boot_state, bool* device_locked,
+                              std::vector<uint8_t>* verified_boot_hash) {
+    if (!verified_boot_key || !verified_boot_state || !device_locked || !verified_boot_hash) {
+        LOG(ERROR) << AT << "null pointer input(s)";
+        return ErrorCode::INVALID_ARGUMENT;
+    }
+    const uint8_t* p = asn1_key_desc;
+    KM_KEY_DESCRIPTION_Ptr record(d2i_KM_KEY_DESCRIPTION(nullptr, &p, asn1_key_desc_len));
+    if (!record.get()) {
+        LOG(ERROR) << AT << "Failed record parsing";
+        return ErrorCode::UNKNOWN_ERROR;
+    }
+
+    KM_ROOT_OF_TRUST* root_of_trust = nullptr;
+    if (record->tee_enforced && record->tee_enforced->root_of_trust) {
+        root_of_trust = record->tee_enforced->root_of_trust;
+    } else if (record->software_enforced && record->software_enforced->root_of_trust) {
+        root_of_trust = record->software_enforced->root_of_trust;
+    } else {
+        LOG(ERROR) << AT << " Failed root of trust parsing";
+        return ErrorCode::INVALID_ARGUMENT;
+    }
+    if (!root_of_trust->verified_boot_key) {
+        LOG(ERROR) << AT << " Failed verified boot key parsing";
+        return ErrorCode::INVALID_ARGUMENT;
+    }
+
+    auto& vb_key = root_of_trust->verified_boot_key;
+    verified_boot_key->resize(vb_key->length);
+    memcpy(verified_boot_key->data(), vb_key->data, vb_key->length);
+
+    *verified_boot_state = static_cast<keymint_verified_boot_t>(
+            ASN1_ENUMERATED_get(root_of_trust->verified_boot_state));
+    if (!verified_boot_state) {
+        LOG(ERROR) << AT << " Failed verified boot state parsing";
+        return ErrorCode::INVALID_ARGUMENT;
+    }
+
+    *device_locked = root_of_trust->device_locked;
+    if (!device_locked) {
+        LOG(ERROR) << AT << " Failed device locked parsing";
+        return ErrorCode::INVALID_ARGUMENT;
+    }
+
+    auto& vb_hash = root_of_trust->verified_boot_hash;
+    if (!vb_hash) {
+        LOG(ERROR) << AT << " Failed verified boot hash parsing";
+        return ErrorCode::INVALID_ARGUMENT;
+    }
+    verified_boot_hash->resize(vb_hash->length);
+    memcpy(verified_boot_hash->data(), vb_hash->data, vb_hash->length);
+    return ErrorCode::OK;  // KM_ERROR_OK;
 }
 
 }  // namespace keymint

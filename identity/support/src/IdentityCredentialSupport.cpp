@@ -875,7 +875,7 @@ optional<vector<uint8_t>> hmacSha256(const vector<uint8_t>& key, const vector<ui
 // milli seconds since epoch.  We are setting them to milliseconds due to
 // requirement in AuthorizationSet KM_DATE fields.  The certificate created is
 // actually in seconds.
-optional<vector<vector<uint8_t>>> createAttestation(const EVP_PKEY* key,
+optional<vector<vector<uint8_t>>> createAttestation(EVP_PKEY* key,
                                                     const vector<uint8_t>& applicationId,
                                                     const vector<uint8_t>& challenge,
                                                     uint64_t activeTimeMilliSeconds,
