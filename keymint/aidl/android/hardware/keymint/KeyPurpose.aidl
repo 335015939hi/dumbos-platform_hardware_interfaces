@@ -29,5 +29,6 @@ enum KeyPurpose {
     VERIFY = 3,  /* Usable with RSA, EC and HMAC keys. */
     /* 4 is reserved */
     WRAP_KEY = 5, /* Usable with wrapping keys. */
-    /* TODO(seleneh) add AGREE_KEY and ATTEST_KEY and their corresponding codes and tests later*/
+    AGREE_KEY = 6,  /* usable with ECDH for key exchange shared secret generation */
+    ATTEST_KEY = 7,
 }

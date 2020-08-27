@@ -327,6 +327,12 @@ import android.hardware.keymint.VerificationToken;
      * values P_224, P_256, P_384 and P_521, respectively.  TEE IKeyMintDevice implementations
      * must support all curves.  StrongBox implementations must support P_256.
      *
+     * == ECDH keys ==
+     *
+     * ECDH keys shall be specified with Algorithm::EC, KeyPurpose::AGREE_KEY, EcCurve::CURVE_SIZE.
+     * Only supported key purpose for ECDH with the shared key exchange, defined by
+     * KeyPurpose::AGREE_KEY.  All other key purposes are currently unsupported.
+     *
      * == AES Keys ==
      *
      * Only Tag::KEY_SIZE is required to generate an AES key.  If omitted, generateKey must return
@@ -334,6 +340,158 @@ import android.hardware.keymint.VerificationToken;
      *
      * If Tag::BLOCK_MODE is specified with value BlockMode::GCM, then the caller must also provide
      * Tag::MIN_MAC_LENGTH.  If omitted, generateKey must return ErrorCode::MISSING_MIN_MAC_LENGTH.
+     *
+     * == Key blob ==
+     * The format of the keyblob returned in keyMint should be in the format below, but encrypted.
+     * UNKNOWN_BLOB_VERSION will be returned if version number is higher than interface can handle.
+     * In TEST_MODE, the blob test mode flag will be set, and the blob will be encrypted by a well
+     * known key, and the blob returned is not intended for usage other than test verification.
+     *
+     * testModeKey will be: TODO(seleneh) add a key here later
+     *
+     * KeyBlob = [
+     *    keyBlobVersion : 1,
+     *    KeyCharacteristics,
+     *    KeyMaterial,
+     * ]
+     *
+     * KeyCharacteristics = {
+     *    + SecurityLevel => AuthorizationList
+     * }
+     *
+     * AuthorizationList = {
+     *    ?1   : [ + Purpose ],
+     *    ?2   : Algorithm,
+     *    ?3   : uint,                    		; Key size
+     *    ?4   : [ + BlockMode+ ],
+     *    ?5   : [ + Digest ],
+     *    ?6   : [ + Padding ],
+     *    ?7   : bool,				; Caller nonce
+     *    ?8   : uint,				; Minimum MAC length
+     *    ?10  : EcCurve,
+     *    ?200 : uint,				; RSA public exponent
+     *    ?202 : bool,				; Include unique ID
+     *    ?302 : bool,				; Bootloader only
+     *    ?303 : bool,				; Rollback resistance
+     *    ?305 : bool,                          ; Early boot key
+     *    ?404 : uint,				; Maximum uses per boot 
+     *    ?502 : uint, 			        ; User secure ID
+     *    ?503 : bool,				; No authentication required
+     *    ?504 : AuthType,
+     *    ?505 : uint,				; Authentication timeout
+     *    ?506 : bool,				; Allow while on body
+     *    ?507 : bool,				; User presence required
+     *    ?508 : bool,				; Trusted confirmation required
+     *    ?509 : bool,				; Unlocked device required
+     *    ?702 : Origin,
+     *    ?705 : uint,				; OS version
+     *    ?706 : uint,				; OS patchlevel
+     *    ?718 : uint,				; Vendor patchlevel
+     *    ?719 : uint,				; Boot patchlevel
+     *    ?722 : bool,                          ; Storage key
+     *    ?801 : bool,                          ; test mode
+     * }
+     *
+     * Purpose = &(
+     *     ENCRYPT : 0,
+     *     DECRYPT : 1,
+     *     SIGN : 2,
+     *     VERIFY : 3,
+     *     WRAP_KEY : 5,
+     *     AGREE_KEY : 6,
+     *     ATTEST_KEY : 7,
+     * )
+     *
+     * Algorithm = &(
+     *     RSA : 1,
+     *     EC : 3,
+     *     AES : 32,
+     *     TRIPLE_DES : 33,
+     *     HMAC : 128,
+     * )
+     *
+     * BlockMode = &(
+     *     ECB : 1,
+     *     CBC : 2,
+     *     CTR : 3,
+     *     GCM : 32,
+     * )
+     *
+     * PaddingMode = &(
+     *     NONE : 1,
+     *     RSA_OAEP : 2,
+     *     RSA_PSS : 3,
+     *     RSA_PKCS1_1_5_ENCRYPT : 4,
+     *     RSA_PKCS1_1_5_SIGN : 5,
+     *     PKCS7 : 64,
+     * )
+     *
+     * Digest = &(
+     *     NONE : 0,
+     *     MD5 : 1,
+     *     SHA1 : 2,
+     *     SHA_2_224 : 3,
+     *     SHA_2_256 : 4,
+     *     SHA_2_384 : 5,
+     *     SHA_2_512 : 6,
+     * )
+     *
+     * EcCurve = &(
+     *     P_224 : 0,
+     *     P_256 : 1,
+     *     P_384 : 2,
+     *     P_521 : 3,
+     *     CURVE_25519 : 4,
+     * )
+     *
+     * Origin = &(
+     *     GENERATED : 0,
+     *     DERIVED : 1,
+     *     IMPORTED : 2,
+     *     RESERVED : 3,
+     *     SECURELY_IMPORTED : 4,
+     * )
+     *
+     * HardwareAuthenticatorType = &(
+     *     PASSWORD : 1 << 0,
+     *     BIOMETRIC : 1<<1,
+     *     ANY : 0xFFFFFFFF,
+     * )
+     *
+     * KeyMaterial = [				// COSE_Encrypt0
+     *     protected : bstr .cbor {
+     *         1 : 3				// Algorithm : AES-GCM-256
+     *     }
+     *
+     *     unprotected : {
+     *         5 : bstr .size 12		// IV
+     *     }
+     *
+     *     ciphertext : AES-GCM-256(KeyWrappingKey,
+     *                       .cbor CoseKey,
+     *                       .cbor KeyCharacteristics)
+     * ]
+     *
+     * CoseKey = Key material in COSE format. No public keys included.
+     *
+     * KeyWrappingKey = CKDF(
+     *       key = Key (see below),
+     *       context = CBOR Encoded KeyWrappingContext
+     *       label = "Keymaster key blob"
+     * )
+     *
+     * KeyWrappingContext = [
+     *     RootOfTrust,
+     *     application_id: bytes,
+     *     application_data: bytes,
+     * 	]
+     *
+     * RootOfTrust = {
+     *     "verified_boot_key" : bytes,
+     *     "device_locked" : bool,
+     *     "verified_boot_state" : VerifiedBootState
+     * }
+     *
      *
      * == Attestation ==
      *
@@ -498,9 +656,20 @@ import android.hardware.keymint.VerificationToken;
      *        provided in params.  See above for detailed specifications of which tags are required
      *        for which types of keys.
      *
-     * @return generatedKeyBlob Opaque descriptor of the generated key.  The recommended
-     *         implementation strategy is to include an encrypted copy of the key material, wrapped
-     *         in a key unavailable outside secure hardware.
+     * @parama attestKeyBlob This holds the key blob for the attest key that is used to sign the
+     *         attestation certificate to be returned.
+     *
+     * @param testMode should only be set to true for key blob formation verification testing. When
+     *        this flag is set to true, the Authorization list test mode in the blob will be set
+     *        to true, and the generatedKeyBlob will be encrypted by KeyMint defined well known
+     *        key, such that blob can be decrypted to verify the format.  Note that a test blob
+     *        should be allowed to pass into any KeyMint calls and function should perform
+     *        indifferent than a real key blob.
+     *
+     * @return generatedKeyBlob Descriptor of the generated key blob format as specified in the key.
+     *         blob section above. The recommended implementation strategy is to include an
+     *         encrypted copy of the key material, wrapped in a key unavailable outside secure
+     *         hardware.
      *
      * @return generatedKeyCharacteristics Description of the generated key, divided into two sets:
      *         hardware-enforced and software-enforced.  The description here applies equally
@@ -513,19 +682,31 @@ import android.hardware.keymint.VerificationToken;
      *         the meaning of the tag is fully assured by secure hardware, it is hardware
      *         enforced.  Otherwise, it's software enforced.
      *
-     * @return outCertChain If the key is an asymmetric key, and proper keyparameters for
+     * @return outCert If the key is an asymmetric key, and proper keyparameters for
      *         attestation (such as challenge) is provided, then this parameter will return the
-     *         attestation certificate.  If the signing of the attestation certificate is from a
-     *         factory key, additional certificates back to the root attestation certificate will
-     *         also be provided. Clients will need to check root certificate against a known-good
-     *         value. The certificates must be DER-encoded.  Caller needs to provide
-     *         CREATION_DATETIME as one of the attestation parameters, otherwise the attestation
-     *         certificate will not contain the creation datetime.
+     *         attestation certificate. The certificates must be DER-encoded.  Caller needs to
+     *         provide CREATION_DATETIME as one of the attestation parameters, otherwise the
+     *         attestation certificate will not contain the creation datetime.
      */
-    void generateKey(in KeyParameter[] keyParams, in KeyParameter[] attestParams,
-                     out byte[] generatedKeyBlob,
+    void generateKey(in KeyParameter[] keyParams,
+                     in KeyParameter[] attestParams,
+                     in @nullable byte[] attestKeyBlob,
+		     in boolean testMode,
+		     out byte[] generatedKeyBlob,
                      out KeyCharacteristics generatedKeyCharacteristics,
-                     out Certificate[] outCertChain);
+                     out Certificate outCert);
+
+    /* This returns the attestation chain for factory attestation key used to sign attestation
+     * certificates in generateKey() and importKey() when no ATTEST_KEY is provided. The caller
+     * must thread the signle attestation certificate returned in generateKey() and importKey()
+     * with the attest key certificates to make a complete attestation certificate chain.  In
+     * the case factory key is used sign the new key, then that means thread the certificate
+     * chain returned in this function with the signle attestation certificate returned when
+     * new or import keys is generated.
+     *
+     * Clients will need to check root certificate against a known-good value. The certificates
+     * must be DER-encoded.
+    Certificate[] getFactoryCertChain();
 
     /**
      * Imports key material into an IKeyMintDevice.  Key definition parameters and return values
@@ -552,29 +733,42 @@ import android.hardware.keymint.VerificationToken;
      *        provided in params.  See generateKey description for detailed specifications of
      *        which tags are required for which types of keys.
      *
+     * @parama attestKeyBlob This holds the key blob for the attest key that is used to sign the
+     *         attestation certificate to be returned.
+     *
      * @param inKeyFormat The format of the key material to import.  See KeyFormat in
      *        keyformat.aidl.
      *
      * @param inKeyData The key material to import, in the format specified in keyFormat.
      *
-     * @return outImportedKeyBlob descriptor of the imported key.  The format of the keyblob will
-     *         be the google specified keyblob format.
+     * @param testMode should only be set to true for key blob formation verification testing. When
+     *        this flag is set to true, the Authorization list test mode in the blob will be set
+     *        to true, and the generatedKeyBlob will be encrypted by KeyMint defined well known
+     *        key, such that blob can be decrypted to verify the format.  Note that a test blob
+     *        should be allowed to pass into any KeyMint calls and function should perform
+     *        indifferent than a real key blob.
+     *
+     * @return outImportedKeyBlob Descriptor of the generated key blob format as specified in the
+     *         key blob section in generateKey(). The recommended implementation strategy is to
+     *         include an encrypted copy of the key material, wrapped in a key unavailable
+     *         outside secure hardware.
      *
      * @return outImportedKeyCharacteristics Description of the generated key.  See the
      *         keyCharacteristics description in generateKey.
      *
-     * @return outCertChain The attestation certificate, and additional certificates back to the
-     *         root attestation certificate, which clients will need to check against a known-good
-     *         value. The certificates must be DER-encoded.  Caller needs to provide
+     * @return outCert The attestation certificate for the key imported, signed with challenge and
+     *         attest key if provided. The certificates must be DER-encoded. Caller needs to provide
      *         CREATION_DATETIME as one of the attestation parameters, otherwise the attestation
      *         certificate will not contain the creation datetime.  Please see generateKey for
      *         more details on the attestation certificate and challenge.
      */
-    void importKey(in KeyParameter[] inKeyParams, in KeyParameter[] attestParams,
-                   in KeyFormat inKeyFormat, in byte[] inKeyData,
+    void importKey(in KeyParameter[] inKeyParams, in KeyFormat inKeyFormat, in byte[] inKeyData,
+                   in KeyParameter[] attestParams,
+                   in @nullable byte[] attestKeyBlob,
+		   in boolean testMode,
 		   out byte[] outImportedKeyBlob,
                    out KeyCharacteristics outImportedKeyCharacteristics,
-		   out Certificate[] outCertChain);
+		   out Certificate outCert);
 
     /**
      * Securely imports a key, or key pair, returning a key blob and a description of the imported
@@ -863,8 +1057,8 @@ import android.hardware.keymint.VerificationToken;
      *
      * o PaddingMode::RSA_OAEP padding requires a digest, which may not be Digest::NONE.  If
      *   Digest::NONE is specified, begin() must return ErrorCode::INCOMPATIBLE_DIGEST.  The OAEP
-     *   mask generation function must be MGF1 and the MGF1 digest must be SHA1, regardless of the
-     *   OAEP digest specified.
+     *   mask generation function must be MGF1 and the MGF1 digest defaults to SHA1, if other
+     *   OAEP digests are not specified.
      *
      * -- EC Keys --
      *
