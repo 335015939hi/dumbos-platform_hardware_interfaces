@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "608098e0_c4b736f7",
+        "filename": "bluetooth/audio/2.1/types.hal",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2020-08-27T09:52:01Z",
+      "side": 1,
+      "message": "Please add hardware offloaded version too.\nIt doesn\u0027t need implementation yet, but some vendors might implement that in future.",
+      "range": {
+        "startLine": 26,
+        "startChar": 4,
+        "endLine": 26,
+        "endChar": 39
+      },
+      "revId": "a3c72fc23f251d0eeef3f741d0b75f625f22fb0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6f9be41_94246fe1",
+        "filename": "compatibility_matrices/compatibility_matrix.current.xml",
+        "patchSetId": 6
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2020-08-27T09:52:01Z",
+      "side": 1,
+      "message": "1",
+      "range": {
+        "startLine": 84,
+        "startChar": 19,
+        "endLine": 84,
+        "endChar": 20
+      },
+      "revId": "a3c72fc23f251d0eeef3f741d0b75f625f22fb0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
