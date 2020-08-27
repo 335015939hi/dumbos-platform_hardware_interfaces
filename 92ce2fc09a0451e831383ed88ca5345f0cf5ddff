@@ -39,6 +39,29 @@
       "revId": "92ce2fc09a0451e831383ed88ca5345f0cf5ddff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52e5a6bf_e05e56b9",
+        "filename": "current.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1087037
+      },
+      "writtenOn": "2020-08-27T09:55:36Z",
+      "side": 1,
+      "message": "Move those to the bottom of this file, see how commends specify at which android version given interface was introduced.",
+      "range": {
+        "startLine": 466,
+        "startChar": 0,
+        "endLine": 468,
+        "endChar": 108
+      },
+      "revId": "92ce2fc09a0451e831383ed88ca5345f0cf5ddff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
