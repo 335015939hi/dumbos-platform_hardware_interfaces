@@ -42,6 +42,23 @@
     },
     {
       "key": {
+        "uuid": "8c4471ad_b4f13499",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-08-28T17:13:21Z",
+      "side": 1,
+      "message": "also, please include VTS tests",
+      "revId": "1ecae4f82905d2843fe6b083f57b5597b902ac89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dfda6cbc_60f3ac1c",
         "filename": "compatibility_matrices/compatibility_matrix.current.xml",
         "patchSetId": 7
