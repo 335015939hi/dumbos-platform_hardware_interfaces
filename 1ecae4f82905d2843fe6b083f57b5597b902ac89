@@ -59,6 +59,24 @@
     },
     {
       "key": {
+        "uuid": "75695376_ce62d979",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2020-08-31T02:31:27Z",
+      "side": 1,
+      "message": "Noted, keep this open to track VTS tests.\nWill address your comments once the discussion has been settled.",
+      "parentUuid": "8c4471ad_b4f13499",
+      "revId": "1ecae4f82905d2843fe6b083f57b5597b902ac89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dfda6cbc_60f3ac1c",
         "filename": "compatibility_matrices/compatibility_matrix.current.xml",
         "patchSetId": 7
