@@ -372,6 +372,24 @@
     },
     {
       "key": {
+        "uuid": "059617b3_8eb608c6",
+        "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1199008
+      },
+      "writtenOn": "2020-08-31T20:33:09Z",
+      "side": 1,
+      "message": "The stats are reset whenever a new Quota/Data Warning request is sent. Also whenever stats are queried from HW, the stats are reset at HW.\nFramework would first query the stats and then recalculate the Warning limit and send a message to IPA. IPA would reset the counter and update the Warning limit. But this will affect Quota limit as from the time Quota limit updated to the new Data Warning limit, there will be data flowing to the tethered pipe via HW and so QUOTA will overflow.\n\nEx:-\n1.\tInitially QUOTA was set at 500MB.\n2.\t100MB of data is used.\n3.\tData warning limit is set to 300MB by user. Framework will query the stats and calculate Warning as 200MB (This is the legacy fwk behavior). It can also happen a trigger for quota update occurs and update the quota also to 400MB. The stats need to reset again at IPA but we will have a stale value of warning limit. \n4.\tNow the Data Waning set request is sent to IPA and IPA resets the counter and sets Data Warning as 200MB.\n5.\tBut between 3 and 4, there can be large amount of data flowing through IPA as we are talking about 5G rates which will not be accounted as the counter is reset several time. \n\nThis is just one use case and we can face race conditions like that. Thats why it will be better to recalculate both warning and quota when any triggers happen and send them together for a specific upstream interface.",
+      "parentUuid": "94e9894c_312bd011",
+      "revId": "1ecae4f82905d2843fe6b083f57b5597b902ac89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4cae3acd_95f358c7",
         "filename": "tetheroffload/control/1.1/ITetheringOffloadCallback.hal",
         "patchSetId": 7
