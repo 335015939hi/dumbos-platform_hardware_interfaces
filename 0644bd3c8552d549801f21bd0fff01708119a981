@@ -2,6 +2,98 @@
   "comments": [
     {
       "key": {
+        "uuid": "d0794a6a_9d0e988e",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 25
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-08-31T15:28:57Z",
+      "side": 1,
+      "message": "This should be nullable because it is optional.",
+      "range": {
+        "startLine": 369,
+        "startChar": 25,
+        "endLine": 369,
+        "endChar": 51
+      },
+      "revId": "0644bd3c8552d549801f21bd0fff01708119a981",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b62e39ef_6f45dba4",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 25
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-08-31T15:28:57Z",
+      "side": 1,
+      "message": "nullable",
+      "range": {
+        "startLine": 412,
+        "startChar": 9,
+        "endLine": 412,
+        "endChar": 35
+      },
+      "revId": "0644bd3c8552d549801f21bd0fff01708119a981",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57bce693_f94c9f9e",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 25
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-08-31T15:28:57Z",
+      "side": 1,
+      "message": "no tabs.",
+      "range": {
+        "startLine": 502,
+        "startChar": 2,
+        "endLine": 502,
+        "endChar": 3
+      },
+      "revId": "0644bd3c8552d549801f21bd0fff01708119a981",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b206ffd8_f7f240c0",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 25
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-08-31T15:28:57Z",
+      "side": 1,
+      "message": "not tabs",
+      "range": {
+        "startLine": 504,
+        "startChar": 2,
+        "endLine": 504,
+        "endChar": 3
+      },
+      "revId": "0644bd3c8552d549801f21bd0fff01708119a981",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "43e91db9_94523925",
         "filename": "keymint/aidl/android/hardware/keymint/KeyParameter.aidl",
         "patchSetId": 25
