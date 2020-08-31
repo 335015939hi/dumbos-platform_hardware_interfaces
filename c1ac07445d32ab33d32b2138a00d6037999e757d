@@ -1,0 +1,92 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004700258",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1367566?revision\u003d2",
+      "fixSuggestions": [
+        {
+          "fixId": "c73336c3_75c46d17",
+          "description": "Change to \"keymint/aidl/android/hardware/keymint/IRemotelyProvisionedComponent.aidl\"",
+          "replacements": [
+            {
+              "path": "keymint/aidl/android/hardware/keymint/IRemotelyProvisionedComponent.aidl",
+              "range": {
+                "startLine": 65,
+                "startChar": 32,
+                "endLine": 65,
+                "endChar": 40
+              },
+              "replacement": "receives"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "63830644_8f0d40a8",
+        "filename": "keymint/aidl/android/hardware/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-08-31T16:58:25Z",
+      "side": 1,
+      "message": "Common typo found: \"recieves\" -- should it be \"receives\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027NO_TYPO_CHECK\u003d\u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 65,
+        "startChar": 32,
+        "endLine": 65,
+        "endChar": 40
+      },
+      "revId": "c1ac07445d32ab33d32b2138a00d6037999e757d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004700258",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1367566?revision\u003d2",
+      "fixSuggestions": [
+        {
+          "fixId": "7340a7b3_8686071a",
+          "description": "Change to \"keymint/aidl/android/hardware/keymint/IRemotelyProvisionedComponent.aidl\"",
+          "replacements": [
+            {
+              "path": "keymint/aidl/android/hardware/keymint/IRemotelyProvisionedComponent.aidl",
+              "range": {
+                "startLine": 101,
+                "startChar": 80,
+                "endLine": 101,
+                "endChar": 87
+              },
+              "replacement": "the"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "8bd11389_716e24e0",
+        "filename": "keymint/aidl/android/hardware/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-08-31T16:58:25Z",
+      "side": 1,
+      "message": "Common typo found: \"the the\" -- should it be \"the\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027NO_TYPO_CHECK\u003d\u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 101,
+        "startChar": 80,
+        "endLine": 101,
+        "endChar": 87
+      },
+      "revId": "c1ac07445d32ab33d32b2138a00d6037999e757d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
