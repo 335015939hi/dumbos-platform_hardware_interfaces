@@ -34,6 +34,24 @@
       "revId": "cf6360233b3828d27b6f0b606db30171c4801b46",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fb47d35_d6d9ceca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1080813
+      },
+      "writtenOn": "2020-09-02T09:41:35Z",
+      "side": 1,
+      "message": "Tried `make out/target/product/generic_arm64/system/build.prop` there, it should work. \n(can see ro.product.system.name\u003dmainline there).",
+      "parentUuid": "947d947b_10733f9c",
+      "revId": "cf6360233b3828d27b6f0b606db30171c4801b46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
