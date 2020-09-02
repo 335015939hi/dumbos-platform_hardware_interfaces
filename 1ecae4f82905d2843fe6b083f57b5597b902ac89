@@ -390,6 +390,24 @@
     },
     {
       "key": {
+        "uuid": "dddda6a4_1b92a220",
+        "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2020-09-02T08:12:22Z",
+      "side": 1,
+      "message": "Still get confused about the scenario. I\u0027m not sure if I followed this.\n\nA. IIUC the counter that counts the remaining warning/limit(a.k.a QUOTA) bytes, should be different from the counter that counts stats. Otherwise it does not make senses to me when the setWarning is called, un-queried stats will be lost. Is my understanding correct?\n\nB. Similarly, IIUC for warning and limit bytes , the counter for them should be different. The counter for limit should not be reset when setWarning is called, and vise versa. \n\nC. And when NetworkPolicy calls updateNetworkRulesNL, IIUC there will be several milli-seconds between setWarning and setLimit.\n\nI thought the problem should be in C. But from your point 5, it seems A described above is not true, and that causes your problem. Do I understand this correctly?",
+      "parentUuid": "059617b3_8eb608c6",
+      "revId": "1ecae4f82905d2843fe6b083f57b5597b902ac89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4cae3acd_95f358c7",
         "filename": "tetheroffload/control/1.1/ITetheringOffloadCallback.hal",
         "patchSetId": 7
