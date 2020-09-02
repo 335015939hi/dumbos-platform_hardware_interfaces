@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6c91a02c_54b8d31a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1463284
+      },
+      "writtenOn": "2020-09-02T23:12:14Z",
+      "side": 1,
+      "message": "Can we add in \n\"Merged-In: I542492b7cfa52a3e01ef2f24efe5a30f679e2a15\" to ensure this doesn\u0027t try to get automerged at all? Also, it might be good to include a line saying \"cherry-picked from 96856f48b0a819626fbe846a8f2f18558c4f1018\" or whichever commit you pulled it from.",
+      "revId": "ab42aa7b42d75f9f1d906fc81a43ba2acc48643e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    }
+  ]
+}
