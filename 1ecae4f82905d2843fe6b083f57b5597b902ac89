@@ -408,6 +408,24 @@
     },
     {
       "key": {
+        "uuid": "32b492a9_2d1b705a",
+        "filename": "tetheroffload/control/1.1/IOffloadControl.hal",
+        "patchSetId": 7
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1306837
+      },
+      "writtenOn": "2020-09-02T08:13:57Z",
+      "side": 1,
+      "message": "In case I\u0027m not getting this well, suggest to open a google doc specific for this problem so we can continue discuss on that.",
+      "parentUuid": "dddda6a4_1b92a220",
+      "revId": "1ecae4f82905d2843fe6b083f57b5597b902ac89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4cae3acd_95f358c7",
         "filename": "tetheroffload/control/1.1/ITetheringOffloadCallback.hal",
         "patchSetId": 7
