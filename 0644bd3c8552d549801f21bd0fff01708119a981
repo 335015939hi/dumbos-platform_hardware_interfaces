@@ -206,6 +206,29 @@
       "revId": "0644bd3c8552d549801f21bd0fff01708119a981",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db7e368a_efc12dc5",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 25
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-02T15:53:55Z",
+      "side": 1,
+      "message": "It may make sense to replace this with RESERVED_7_202 to allow handling the legacy case gracefully.",
+      "range": {
+        "startLine": 183,
+        "startChar": 7,
+        "endLine": 183,
+        "endChar": 64
+      },
+      "revId": "0644bd3c8552d549801f21bd0fff01708119a981",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
     }
   ]
 }
