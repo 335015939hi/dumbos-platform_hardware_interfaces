@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "274d3c60_4eaa3fc3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1061057
+      },
+      "writtenOn": "2020-09-02T06:35:12Z",
+      "side": 1,
+      "message": "cherry pick aosp/1189959 to android10-gsi?",
+      "revId": "cf6360233b3828d27b6f0b606db30171c4801b46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
