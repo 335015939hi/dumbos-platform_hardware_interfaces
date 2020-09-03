@@ -1,0 +1,92 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004772544",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1298415?revision\u003d26",
+      "fixSuggestions": [
+        {
+          "fixId": "d49b0664_f54e7fa2",
+          "description": "Change to \"keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl\"",
+          "replacements": [
+            {
+              "path": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+              "range": {
+                "startLine": 368,
+                "startChar": 67,
+                "endLine": 368,
+                "endChar": 75
+              },
+              "replacement": "symmetric"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "7c7548b9_9d8416e8",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 26
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-09-03T08:39:52Z",
+      "side": 1,
+      "message": "Common typo found: \"symetric\" -- should it be \"symmetric\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027NO_TYPO_CHECK\u003d\u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 368,
+        "startChar": 67,
+        "endLine": 368,
+        "endChar": 75
+      },
+      "revId": "1f2ac24777451c70ceafacac8088ca49dc3f0050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004772544",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1298415?revision\u003d26",
+      "fixSuggestions": [
+        {
+          "fixId": "f8846c78_f0120c79",
+          "description": "Change to \"keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl\"",
+          "replacements": [
+            {
+              "path": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+              "range": {
+                "startLine": 417,
+                "startChar": 67,
+                "endLine": 417,
+                "endChar": 75
+              },
+              "replacement": "symmetric"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "21be352e_235110ee",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 26
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1550585
+      },
+      "writtenOn": "2020-09-03T08:39:52Z",
+      "side": 1,
+      "message": "Common typo found: \"symetric\" -- should it be \"symmetric\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027NO_TYPO_CHECK\u003d\u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 417,
+        "startChar": 67,
+        "endLine": 417,
+        "endChar": 75
+      },
+      "revId": "1f2ac24777451c70ceafacac8088ca49dc3f0050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
