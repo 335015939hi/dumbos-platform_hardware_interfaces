@@ -16,6 +16,24 @@
       "revId": "68054b6553d75f72c8005ea8fe7d66cd6a9b088b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a7d8251e_3ee3343b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2020-09-03T00:55:29Z",
+      "side": 1,
+      "message": "Or were we freezing these interfaces as well?",
+      "parentUuid": "4dea53b6_483dadd0",
+      "revId": "68054b6553d75f72c8005ea8fe7d66cd6a9b088b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
