@@ -15,6 +15,7 @@
 
 #pragma once
 
+#include <log/log.h>
 #include <mapper-hal/2.1/MapperHal.h>
 #include <mapper-passthrough/2.0/Gralloc0Hal.h>
 
@@ -38,6 +39,9 @@ class Gralloc0HalImpl : public V2_0::passthrough::detail::Gralloc0HalImpl<Hal> {
                               const IMapper::BufferDescriptorInfo& descriptorInfo,
                               uint32_t stride) override {
          if (descriptorInfo.layerCount != 1) {
+             ALOGE("Gralloc0 does not support layers. Someone is requesting layers %d",
+                   descriptorInfo.layerCount);
+             abort();
              return Error::BAD_VALUE;
          }
 
