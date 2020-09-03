@@ -970,6 +970,30 @@
     },
     {
       "key": {
+        "uuid": "dc439fab_df0e3182",
+        "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-03T08:32:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14668ce7_e3f08499",
+      "range": {
+        "startLine": 263,
+        "startChar": 49,
+        "endLine": 265,
+        "endChar": 15
+      },
+      "revId": "cca8666ea8ef5095bf652ecf90930cac6d723ce7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "21152381_0fbbb943",
         "filename": "keymaster/aidl/android/hardware/keymaster/IKeymasterDevice.aidl",
         "patchSetId": 11
@@ -2241,6 +2265,30 @@
     },
     {
       "key": {
+        "uuid": "66d213fe_7ed83711",
+        "filename": "keymaster/aidl/android/hardware/keymaster/KeyParameter.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-03T08:32:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc98efe0_4120b4c4",
+      "range": {
+        "startLine": 44,
+        "startChar": 15,
+        "endLine": 44,
+        "endChar": 16
+      },
+      "revId": "cca8666ea8ef5095bf652ecf90930cac6d723ce7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "91fde261_b0664b1f",
         "filename": "keymaster/aidl/android/hardware/keymaster/KeyParameter.aidl",
         "patchSetId": 11
@@ -2450,6 +2498,30 @@
       "revId": "cca8666ea8ef5095bf652ecf90930cac6d723ce7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c1e4bd5_6823b088",
+        "filename": "keymaster/aidl/android/hardware/keymaster/KeyPurpose.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-03T08:32:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "647cff25_e5d654a3",
+      "range": {
+        "startLine": 30,
+        "startChar": 24,
+        "endLine": 30,
+        "endChar": 58
+      },
+      "revId": "cca8666ea8ef5095bf652ecf90930cac6d723ce7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {

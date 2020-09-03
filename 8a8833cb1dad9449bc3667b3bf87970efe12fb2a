@@ -285,6 +285,30 @@
     },
     {
       "key": {
+        "uuid": "d4d69092_56460a90",
+        "filename": "keymaster/aidl/android/hardware/keymaster/SecurityLevel.aidl",
+        "patchSetId": 15
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-03T08:32:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c999278_87b783af",
+      "range": {
+        "startLine": 31,
+        "startChar": 6,
+        "endLine": 31,
+        "endChar": 14
+      },
+      "revId": "8a8833cb1dad9449bc3667b3bf87970efe12fb2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b2c4ee8d_4bc783f9",
         "filename": "keymaster/aidl/vts/functional/KeymasterAidlTestBase.cpp",
         "patchSetId": 15

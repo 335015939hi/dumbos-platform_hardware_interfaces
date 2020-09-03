@@ -22,6 +22,30 @@
       "revId": "d6564f26af00ea592111701ed7c337858e9c8b92",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c641393e_4c3d83c9",
+        "filename": "keymaster/aidl/android/hardware/keymaster/OperationHandle.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-03T08:32:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79d8db4e_6c929114",
+      "range": {
+        "startLine": 20,
+        "startChar": 1,
+        "endLine": 24,
+        "endChar": 0
+      },
+      "revId": "d6564f26af00ea592111701ed7c337858e9c8b92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }

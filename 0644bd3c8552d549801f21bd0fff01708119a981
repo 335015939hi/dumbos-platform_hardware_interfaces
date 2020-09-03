@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2642f36a_e7f4ac86",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 25
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-03T08:32:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a90e0792_14407e84",
+      "range": {
+        "startLine": 43,
+        "startChar": 18,
+        "endLine": 43,
+        "endChar": 24
+      },
+      "revId": "0644bd3c8552d549801f21bd0fff01708119a981",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3e2b4971_a71afbe2",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
         "patchSetId": 25
@@ -45,6 +69,30 @@
       "revId": "0644bd3c8552d549801f21bd0fff01708119a981",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3ea77b1_8e7a7641",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 25
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-03T08:32:44Z",
+      "side": 1,
+      "message": "I added a little more description, but in general I have updated the respective fields in the CL that implements the feature.  So this field is updated in the attestation CLs.\n\nFor ordering, did you got it backwards?",
+      "parentUuid": "3e2b4971_a71afbe2",
+      "range": {
+        "startLine": 358,
+        "startChar": 15,
+        "endLine": 358,
+        "endChar": 27
+      },
+      "revId": "0644bd3c8552d549801f21bd0fff01708119a981",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e5b1a2e3_e5424c2b",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 25
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-03T08:32:44Z",
+      "side": 1,
+      "message": "nullable custom defined parciable is not allowed.  only native types are allowed.",
+      "parentUuid": "d0794a6a_9d0e988e",
+      "range": {
+        "startLine": 369,
+        "startChar": 25,
+        "endLine": 369,
+        "endChar": 51
+      },
+      "revId": "0644bd3c8552d549801f21bd0fff01708119a981",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b84b793f_d4fcddd3",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
         "patchSetId": 25
@@ -91,6 +163,30 @@
       "revId": "0644bd3c8552d549801f21bd0fff01708119a981",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50d364fb_cb10de45",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 25
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-03T08:32:44Z",
+      "side": 1,
+      "message": "I am certain I tried nullable before and it won\u0027t compile.  but now it worked.  I guess aidl updated.",
+      "parentUuid": "b84b793f_d4fcddd3",
+      "range": {
+        "startLine": 403,
+        "startChar": 15,
+        "endLine": 403,
+        "endChar": 27
+      },
+      "revId": "0644bd3c8552d549801f21bd0fff01708119a981",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "3df7a940_70c35505",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 25
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-03T08:32:44Z",
+      "side": 1,
+      "message": "nullable custom defined parciable is not allowed.  only native types are allowed.",
+      "parentUuid": "b62e39ef_6f45dba4",
+      "range": {
+        "startLine": 412,
+        "startChar": 9,
+        "endLine": 412,
+        "endChar": 35
+      },
+      "revId": "0644bd3c8552d549801f21bd0fff01708119a981",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "08190274_b46a03c0",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
         "patchSetId": 25
@@ -137,6 +257,30 @@
       "revId": "0644bd3c8552d549801f21bd0fff01708119a981",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40815e8f_7a83eec2",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 25
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-03T08:32:44Z",
+      "side": 1,
+      "message": "I suppose it could.  It\u0027s just not part of the KM 5 requirement.  If shawn is ok with it, we can add it in the next cl.",
+      "parentUuid": "08190274_b46a03c0",
+      "range": {
+        "startLine": 415,
+        "startChar": 34,
+        "endLine": 415,
+        "endChar": 42
+      },
+      "revId": "0644bd3c8552d549801f21bd0fff01708119a981",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "ca9b76b3_38bf3c5e",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 25
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-03T08:32:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57bce693_f94c9f9e",
+      "range": {
+        "startLine": 502,
+        "startChar": 2,
+        "endLine": 502,
+        "endChar": 3
+      },
+      "revId": "0644bd3c8552d549801f21bd0fff01708119a981",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b206ffd8_f7f240c0",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
         "patchSetId": 25
@@ -183,6 +351,30 @@
       "revId": "0644bd3c8552d549801f21bd0fff01708119a981",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "447e37ea_c35d40f9",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 25
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-03T08:32:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b206ffd8_f7f240c0",
+      "range": {
+        "startLine": 504,
+        "startChar": 2,
+        "endLine": 504,
+        "endChar": 3
+      },
+      "revId": "0644bd3c8552d549801f21bd0fff01708119a981",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     },
     {
       "key": {
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "411e1eb3_0dade920",
+        "filename": "keymint/aidl/android/hardware/keymint/KeyParameter.aidl",
+        "patchSetId": 25
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-03T08:32:44Z",
+      "side": 1,
+      "message": "Let\u0027s do this in a different CL.  This causes bunch of changes related to AuthenticationSet metadata programing typecast optional typecase tag ....sort of strange test crashes.",
+      "parentUuid": "43e91db9_94523925",
+      "range": {
+        "startLine": 54,
+        "startChar": 4,
+        "endLine": 54,
+        "endChar": 16
+      },
+      "revId": "0644bd3c8552d549801f21bd0fff01708119a981",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "db7e368a_efc12dc5",
         "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
         "patchSetId": 25
@@ -229,6 +445,30 @@
       "revId": "0644bd3c8552d549801f21bd0fff01708119a981",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad48ba5d_551bda74",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 25
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1589008
+      },
+      "writtenOn": "2020-09-03T08:32:44Z",
+      "side": 1,
+      "message": "yes, this is what I did in cl https://android-review.googlesource.com/c/platform/hardware/interfaces/+/1412193.\n\nHere is just a todo comment.  Shawn somehow wanted me to add todo comments everywhere even though they are in the design doc already.",
+      "parentUuid": "db7e368a_efc12dc5",
+      "range": {
+        "startLine": 183,
+        "startChar": 7,
+        "endLine": 183,
+        "endChar": 64
+      },
+      "revId": "0644bd3c8552d549801f21bd0fff01708119a981",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
     }
   ]
 }
