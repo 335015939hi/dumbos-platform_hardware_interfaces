@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "951bf6b1_b6b19ee0",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 25
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-04T05:52:55Z",
+      "side": 1,
+      "message": "See comment below.",
+      "parentUuid": "e5b1a2e3_e5424c2b",
+      "range": {
+        "startLine": 369,
+        "startChar": 25,
+        "endLine": 369,
+        "endChar": 51
+      },
+      "revId": "0644bd3c8552d549801f21bd0fff01708119a981",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b84b793f_d4fcddd3",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
         "patchSetId": 25

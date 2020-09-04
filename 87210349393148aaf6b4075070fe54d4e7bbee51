@@ -2,6 +2,115 @@
   "comments": [
     {
       "key": {
+        "uuid": "65f662dd_45a43ef5",
+        "filename": "keymint/aidl/android/hardware/keymint/Algorithm.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-04T05:52:55Z",
+      "side": 1,
+      "message": "Consistent comments.",
+      "range": {
+        "startLine": 28,
+        "startChar": 4,
+        "endLine": 28,
+        "endChar": 6
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "755cb923_13b238ac",
+        "filename": "keymint/aidl/android/hardware/keymint/Certificate.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-04T05:52:55Z",
+      "side": 1,
+      "message": "Nit: Sentence. Capital in front and period at the end.",
+      "range": {
+        "startLine": 19,
+        "startChar": 3,
+        "endLine": 19,
+        "endChar": 68
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "84afddf6_d6d83c10",
+        "filename": "keymint/aidl/android/hardware/keymint/Certificate.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-04T05:52:55Z",
+      "side": 1,
+      "message": "Preferably use @nullable Certificate instead.",
+      "range": {
+        "startLine": 27,
+        "startChar": 7,
+        "endLine": 27,
+        "endChar": 55
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e4541d60_8c4936cd",
+        "filename": "keymint/aidl/android/hardware/keymint/HardwareAuthToken.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-04T05:52:55Z",
+      "side": 1,
+      "message": "Nit: biometric authenticators.",
+      "range": {
+        "startLine": 26,
+        "startChar": 3,
+        "endLine": 26,
+        "endChar": 14
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c60ab3cf_dd18313d",
+        "filename": "keymint/aidl/android/hardware/keymint/HmacSharingParameters.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-04T05:52:55Z",
+      "side": 1,
+      "message": "This file is obsolete. AFAIK, the hmac sharing interface is no longer part of the KeyMint spec.",
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c6dbf4bd_c66a173d",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
         "patchSetId": 27
@@ -19,6 +128,293 @@
         "endLine": 423,
         "endChar": 2
       },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d208a596_13ff7afd",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-04T05:52:55Z",
+      "side": 1,
+      "message": "Nit: There is a line break missing. How sneaky. I did not actually see this here, only in my IDE where I applied the patch.",
+      "range": {
+        "startLine": 36,
+        "startChar": 100,
+        "endLine": 36,
+        "endChar": 101
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b68bc2e_49e5708f",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-04T05:52:55Z",
+      "side": 1,
+      "message": "Nit: There is a * missing.",
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9fb2b8f1_2e1595a4",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-04T05:52:55Z",
+      "side": 1,
+      "message": "The Verification token is optional. @nullable.",
+      "range": {
+        "startLine": 135,
+        "startChar": 18,
+        "endLine": 135,
+        "endChar": 35
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e88a814_2a4ef434",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-04T05:52:55Z",
+      "side": 1,
+      "message": "obsolete.",
+      "range": {
+        "startLine": 222,
+        "startChar": 7,
+        "endLine": 223,
+        "endChar": 36
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50596329_006d515b",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-04T05:52:55Z",
+      "side": 1,
+      "message": "How about making this field @nullable instead?\n\nIn fact, pretty much all off the parameters to finish are optional and could be made @nullable.",
+      "range": {
+        "startLine": 234,
+        "startChar": 47,
+        "endLine": 235,
+        "endChar": 64
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1cd8597_c9cf29d6",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-04T05:52:55Z",
+      "side": 1,
+      "message": "Out byte arrays are curious things. In C++ they are represented as std:;vector\u003cuint8_t\u003e*, in rust, they are represented as \u0026mug Vec\u003cu8\u003e. Both allow the caller to pass in a empty object that gets resized by the callee/libbinder to fit the transmitted data.\n\nThe Java API however translates this into ..., byte[] output, ... Which means that the caller has to allocate an array that is large enough for the anticipated data. (I looked at the code and it must be exactly the anticipated size.)\n\nOne way to address this would be to make byte[] the return type. In this case the array can be allocated by the callee.\nAnother would be to add an indirection, e.g., parcelable Bytes { byte[] data } as type for output. The caller would then allocate an empty Bytes object which can be modified with a new array.\nYet another would be to assume that KeyMint has no java clients. In that case we should switch off java code generation in the Android.bp file.\n\nThe same is true for outParams and for the same parameters in `update()`.",
+      "range": {
+        "startLine": 247,
+        "startChar": 46,
+        "endLine": 247,
+        "endChar": 63
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "037960c7_166177d4",
+        "filename": "keymint/aidl/android/hardware/keymint/KeyCharacteristics.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-04T05:52:55Z",
+      "side": 1,
+      "message": "Alternatively, add a security level field to KeyParameter. This is what I am going to do in the Keystore 2.0 interface.",
+      "range": {
+        "startLine": 36,
+        "startChar": 7,
+        "endLine": 37,
+        "endChar": 43
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5043707f_de9a71ed",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-04T05:52:55Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 350,
+        "startChar": 103,
+        "endLine": 350,
+        "endChar": 108
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d083fc5_23b13966",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-04T05:52:55Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 359,
+        "startChar": 100,
+        "endLine": 359,
+        "endChar": 101
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6751843_4b56e0da",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 622,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-04T05:52:55Z",
+      "side": 1,
+      "message": "line too long.",
+      "range": {
+        "startLine": 622,
+        "startChar": 103,
+        "endLine": 622,
+        "endChar": 105
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03fbd7fa_bf928e5a",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 711,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-04T05:52:55Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 711,
+        "startChar": 108,
+        "endLine": 711,
+        "endChar": 110
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8b3b9b3_46d1667f",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 724,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-04T05:52:55Z",
+      "side": 1,
+      "message": "Line too long.",
+      "range": {
+        "startLine": 724,
+        "startChar": 106,
+        "endLine": 724,
+        "endChar": 108
+      },
+      "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e061766_b04078d8",
+        "filename": "keymint/aidl/default/service.cpp",
+        "patchSetId": 27
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-04T05:52:55Z",
+      "side": 1,
+      "message": "Nit: You could put the SoftKeymasterLogger on the stack right here. This would redirect all of the portable keymaster logging to logcat.",
       "revId": "87210349393148aaf6b4075070fe54d4e7bbee51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
       "unresolved": true
