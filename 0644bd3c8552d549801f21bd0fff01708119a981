@@ -237,6 +237,30 @@
     },
     {
       "key": {
+        "uuid": "7fedf8a0_5d301a13",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 25
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1092085
+      },
+      "writtenOn": "2020-09-04T03:55:22Z",
+      "side": 1,
+      "message": "nullable arrays of parcelables are not allowed but nullable parcelables are allowed. So you could make a new type CertificateChain that has an array of Certificates inside:\n\nparcelable CertificateChain {\n    Certificate[] data;\n}\n\nthen ( ... out @nullable CertificateChain outCertChain ... ) works like a charm.",
+      "parentUuid": "3df7a940_70c35505",
+      "range": {
+        "startLine": 412,
+        "startChar": 9,
+        "endLine": 412,
+        "endChar": 35
+      },
+      "revId": "0644bd3c8552d549801f21bd0fff01708119a981",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "08190274_b46a03c0",
         "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
         "patchSetId": 25
