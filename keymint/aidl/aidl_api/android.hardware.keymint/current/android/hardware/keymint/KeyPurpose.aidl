@@ -23,4 +23,5 @@ enum KeyPurpose {
   SIGN = 2,
   VERIFY = 3,
   WRAP_KEY = 5,
+  ATTEST_KEY = 6,
 }

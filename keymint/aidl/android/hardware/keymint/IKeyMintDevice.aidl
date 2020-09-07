@@ -339,6 +339,11 @@ import android.hardware.keymint.VerificationToken;
      * then a dummy X.509 certificate will be returned with invalid signature.  If the generated
      * key is a symetric key, then the attestation certificate will return null.
      *
+     * The attestation certificate can be signed by a special attestation key if provided in
+     * attestKeyBlob.  The key must be an Ecdsa key generated with KeyPurpose:ATTEST_KEY. An
+     * attestation key generated using any other algorithm with be rejected.  If KeyPurpose
+     * ATTEST_KEY is not listed, the blob will also be rejected.
+     *
      * The certificates in the chain must be ordered such that each certificate is signed by the
      * subsequent one, up to the root which must be self-signed.  The first certificate in the chain
      * signs the public key info of the attested key and must contain the following entries (see RFC
@@ -488,9 +493,16 @@ import android.hardware.keymint.VerificationToken;
      *        provided in params.  See above for detailed specifications of which tags are required
      *        for which types of keys.
      *
+     *
      * @param attestParams Key generation parameters are defined as KeyMintDevice tag/value pairs,
      *        provided in params.  See above for detailed specifications of which tags are required
      *        for which types of keys.
+     *
+     * @parama attestKeyBlob This holds the key blob for the attest key that is used to sign the
+     *         implementation strategy is to include an encrypted copy of the key material, wrapped
+     *         attestation certificate to be returned.  Key purpose ATTEST_KEY must be specified,
+     *         and algorithm must be EC. The format of the attestkeyBlob must be the same kind
+     *         keymint generateKey creates and returns in generatedKeyBlob.
      *
      * @return generatedKeyBlob Opaque descriptor of the generated key.  The recommended
      *         implementation strategy is to include an encrypted copy of the key material, wrapped
@@ -521,6 +533,7 @@ import android.hardware.keymint.VerificationToken;
      *         certificate will be returned and this variable will return empty.
      */
     void generateKey(in KeyParameter[] keyParams, in KeyParameter[] attestParams,
+                     in @nullable byte[] attestKeyBlob,
 		     out ByteArray generatedKeyBlob,
                      out KeyCharacteristics generatedKeyCharacteristics,
                      out Certificate[] outCertChain);
@@ -550,6 +563,12 @@ import android.hardware.keymint.VerificationToken;
      *        provided in params.  See generateKey description for detailed specifications of
      *        which tags are required for which types of keys.
      *
+     * @parama attestKeyBlob This holds the key blob for the attest key that is used to sign the
+     *         implementation strategy is to include an encrypted copy of the key material, wrapped
+     *         attestation certificate to be returned.  Key purpose ATTEST_KEY must be specified,
+     *         and algorithm must be EC. The format of the attestkeyBlob must be the same kind
+     *         keymint generateKey creates and returns in generatedKeyBlob.
+     *
      * @param inKeyFormat The format of the key material to import.  See KeyFormat in
      *        keyformat.aidl.
      *
@@ -575,8 +594,9 @@ import android.hardware.keymint.VerificationToken;
      *         certificate will be returned and this variable will return empty. Please see
      *         generateKey for more details on the attestation certificate and challenge.
      */
-    void importKey(in KeyParameter[] inKeyParams, in KeyParameter[] attestParams,
-                   in KeyFormat inKeyFormat, in byte[] inKeyData,
+    void importKey(in KeyParameter[] inKeyParams, in KeyFormat inKeyFormat,
+                   in byte[] inKeyData,  in KeyParameter[] attestParams,
+		   in @nullable byte[] attestKeyBlob,
 		   out ByteArray outImportedKeyBlob,
                    out KeyCharacteristics outImportedKeyCharacteristics,
                    out Certificate[] outCertChain);

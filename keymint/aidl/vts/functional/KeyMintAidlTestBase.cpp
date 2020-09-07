@@ -76,6 +76,7 @@ void KeyMintAidlTestBase::SetUp() {
 
 ErrorCode KeyMintAidlTestBase::GenerateKey(const AuthorizationSet& key_desc,
                                            const AuthorizationSet& attest_params,
+                                           const optional<vector<uint8_t>>& attest_blob,
                                            vector<uint8_t>* keyBlob, KeyCharacteristics* keyChar) {
     EXPECT_NE(keyBlob, nullptr) << "Key blob pointer must not be null.  Test bug";
     EXPECT_NE(keyChar, nullptr)
@@ -93,8 +94,8 @@ ErrorCode KeyMintAidlTestBase::GenerateKey(const AuthorizationSet& key_desc,
     Status result;
     ByteArray blob;
 
-    result = keymint_->generateKey(key_desc.vector_data(), attest_params.vector_data(), &blob,
-                                   keyChar, &certChain_);
+    result = keymint_->generateKey(key_desc.vector_data(), attest_params.vector_data(), attest_blob,
+                                   &blob, keyChar, &certChain_);
 
     // On result, blob & characteristics should be empty.
     if (result.isOk()) {
@@ -110,26 +111,35 @@ ErrorCode KeyMintAidlTestBase::GenerateKey(const AuthorizationSet& key_desc,
 
     return GetReturnErrorCode(result);
 }
+
+ErrorCode KeyMintAidlTestBase::GenerateKey(const AuthorizationSet& key_desc,
+                                           const AuthorizationSet& attest_params,
+                                           vector<uint8_t>* keyBlob, KeyCharacteristics* keyChar) {
+    return GenerateKey(key_desc, attest_params, {}, keyBlob, keyChar);
+}
+
 ErrorCode KeyMintAidlTestBase::GenerateKey(const AuthorizationSet& key_desc,
                                            vector<uint8_t>* keyBlob, KeyCharacteristics* keyChar) {
     AuthorizationSet attest_params;
 
-    return GenerateKey(key_desc, attest_params, keyBlob, keyChar);
+    return GenerateKey(key_desc, attest_params, {}, keyBlob, keyChar);
 }
 
 ErrorCode KeyMintAidlTestBase::GenerateKey(const AuthorizationSet& key_desc,
                                            const AuthorizationSet& attest_params) {
-    return GenerateKey(key_desc, attest_params, &key_blob_, &key_characteristics_);
+    return GenerateKey(key_desc, attest_params, {}, &key_blob_, &key_characteristics_);
 }
 
 ErrorCode KeyMintAidlTestBase::GenerateKey(const AuthorizationSet& key_desc) {
     AuthorizationSet attest_params;
-    return GenerateKey(key_desc, attest_params, &key_blob_, &key_characteristics_);
+    return GenerateKey(key_desc, attest_params, {}, &key_blob_, &key_characteristics_);
 }
 
 ErrorCode KeyMintAidlTestBase::ImportKey(const AuthorizationSet& key_desc,
-                                         const AuthorizationSet& attest_params, KeyFormat format,
-                                         const string& key_material, vector<uint8_t>* key_blob,
+                                         const AuthorizationSet& attest_params,
+                                         const optional<vector<uint8_t>>& attest_blob,
+                                         KeyFormat format, const string& key_material,
+                                         vector<uint8_t>* key_blob,
                                          KeyCharacteristics* key_characteristics) {
     Status result;
 
@@ -139,8 +149,9 @@ ErrorCode KeyMintAidlTestBase::ImportKey(const AuthorizationSet& key_desc,
     key_blob->clear();
 
     ByteArray blob;
-    result = keymint_->importKey(key_desc.vector_data(), attest_params.vector_data(), format,
-                                 vector<uint8_t>(key_material.begin(), key_material.end()), &blob,
+    result = keymint_->importKey(key_desc.vector_data(), format,
+                                 vector<uint8_t>(key_material.begin(), key_material.end()),
+                                 attest_params.vector_data(), attest_blob, &blob,
                                  key_characteristics, &certChain_);
 
     if (result.isOk()) {
@@ -152,6 +163,14 @@ ErrorCode KeyMintAidlTestBase::ImportKey(const AuthorizationSet& key_desc,
     }
 
     return GetReturnErrorCode(result);
+}
+
+ErrorCode KeyMintAidlTestBase::ImportKey(const AuthorizationSet& key_desc,
+                                         const AuthorizationSet& attest_params, KeyFormat format,
+                                         const string& key_material, vector<uint8_t>* key_blob,
+                                         KeyCharacteristics* key_characteristics) {
+    return ImportKey(key_desc, attest_params, {}, format, key_material, key_blob,
+                     key_characteristics);
 }
 
 ErrorCode KeyMintAidlTestBase::ImportKey(const AuthorizationSet& key_desc, KeyFormat format,
@@ -167,7 +186,7 @@ ErrorCode KeyMintAidlTestBase::ImportKey(const AuthorizationSet& key_desc, KeyFo
 ErrorCode KeyMintAidlTestBase::ImportKey(const AuthorizationSet& key_desc,
                                          const AuthorizationSet& attest_params, KeyFormat format,
                                          const string& key_material) {
-    return ImportKey(key_desc, attest_params, format, key_material, &key_blob_,
+    return ImportKey(key_desc, attest_params, {}, format, key_material, &key_blob_,
                      &key_characteristics_);
 }
 
@@ -177,7 +196,7 @@ ErrorCode KeyMintAidlTestBase::ImportKey(const AuthorizationSet& key_desc, KeyFo
                                            .Authorization(TAG_ATTESTATION_CHALLENGE, "challenge")
                                            .Authorization(TAG_ATTESTATION_APPLICATION_ID, "foo"));
 
-    return ImportKey(key_desc, attest_params, format, key_material, &key_blob_,
+    return ImportKey(key_desc, attest_params, {}, format, key_material, &key_blob_,
                      &key_characteristics_);
 }
 
