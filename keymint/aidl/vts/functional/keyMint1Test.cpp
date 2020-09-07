@@ -4961,6 +4961,22 @@ TEST_P(AttestationTest, RsaAttestationDefaultSerialAndSubject) {
 }
 
 /*
+ * AttestationTest.RsaAttestationEncryptKeyFakeSigned
+ *
+ * Verifies that attesting to RSA encryption key with no challenge and app id returns
+ * a fake certificate signed by a random key.
+ */
+TEST_P(AttestationTest, RsaAttestationEncryptKeyFakeSigned) {
+    ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
+                                                 .Authorization(TAG_NO_AUTH_REQUIRED)
+                                                 .RsaEncryptionKey(2048, 65537)
+                                                 .Padding(PaddingMode::NONE)));
+
+    ASSERT_EQ(certChain_.size(), 1U);
+    verify_cert_body(certChain_[0], 1, "", true);
+}
+
+/*
  * AttestationTest.RsaAttestationsMissAppId
  *
  * Verifies that attesting to RSA verifies app ID missing.
