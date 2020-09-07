@@ -1,0 +1,518 @@
+{
+  "comments": [
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004803270",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1412192?revision\u003d3",
+      "fixSuggestions": [
+        {
+          "fixId": "a8ed26ea_123dfb1a",
+          "description": "Change to \"keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl\"",
+          "replacements": [
+            {
+              "path": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+              "range": {
+                "startLine": 340,
+                "startChar": 34,
+                "endLine": 340,
+                "endChar": 43
+              },
+              "replacement": "asymmetric"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "c2b3b9a2_de88d027",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2020-09-07T09:27:27Z",
+      "side": 1,
+      "message": "Common typo found: \"asymetric\" -- should it be \"asymmetric\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027NO_TYPO_CHECK\u003d\u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 340,
+        "startChar": 34,
+        "endLine": 340,
+        "endChar": 43
+      },
+      "revId": "45c5678a9849c4be83b4a6616b90ef0aa32751e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004803270",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1412192?revision\u003d3",
+      "fixSuggestions": [
+        {
+          "fixId": "bf03bbc4_bfadf26f",
+          "description": "Change to \"keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl\"",
+          "replacements": [
+            {
+              "path": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+              "range": {
+                "startLine": 342,
+                "startChar": 89,
+                "endLine": 342,
+                "endChar": 98
+              },
+              "replacement": "asymmetric"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "727a60a3_dc603e12",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2020-09-07T09:27:27Z",
+      "side": 1,
+      "message": "Common typo found: \"asymetric\" -- should it be \"asymmetric\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027NO_TYPO_CHECK\u003d\u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 342,
+        "startChar": 89,
+        "endLine": 342,
+        "endChar": 98
+      },
+      "revId": "45c5678a9849c4be83b4a6616b90ef0aa32751e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004803270",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1412192?revision\u003d3",
+      "fixSuggestions": [
+        {
+          "fixId": "e44caa85_6b066d62",
+          "description": "Change to \"keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl\"",
+          "replacements": [
+            {
+              "path": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+              "range": {
+                "startLine": 343,
+                "startChar": 69,
+                "endLine": 343,
+                "endChar": 75
+              },
+              "replacement": "single"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "383fd2e6_b6d17423",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2020-09-07T09:27:27Z",
+      "side": 1,
+      "message": "Common typo found: \"signle\" -- should it be \"single\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027NO_TYPO_CHECK\u003d\u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 343,
+        "startChar": 69,
+        "endLine": 343,
+        "endChar": 75
+      },
+      "revId": "45c5678a9849c4be83b4a6616b90ef0aa32751e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004803270",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1412192?revision\u003d3",
+      "fixSuggestions": [
+        {
+          "fixId": "46133f6d_6f815b5d",
+          "description": "Change to \"keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl\"",
+          "replacements": [
+            {
+              "path": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+              "range": {
+                "startLine": 344,
+                "startChar": 44,
+                "endLine": 344,
+                "endChar": 53
+              },
+              "replacement": "asymmetric"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "44c50ccc_b8356a54",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2020-09-07T09:27:27Z",
+      "side": 1,
+      "message": "Common typo found: \"asymetric\" -- should it be \"asymmetric\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027NO_TYPO_CHECK\u003d\u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 344,
+        "startChar": 44,
+        "endLine": 344,
+        "endChar": 53
+      },
+      "revId": "45c5678a9849c4be83b4a6616b90ef0aa32751e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004803275",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1412192?revision\u003d3",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "221a30f0_504429af",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2020-09-07T09:27:27Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027complex\u0027, \u0027unexpected\u0027, or \u0027placeholder\u0027; see https://developers.google.com/style/inclusive-documentation#ableist-language for more details.",
+      "range": {
+        "startLine": 345,
+        "startChar": 14,
+        "endLine": 345,
+        "endChar": 19
+      },
+      "revId": "45c5678a9849c4be83b4a6616b90ef0aa32751e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004803270",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1412192?revision\u003d3",
+      "fixSuggestions": [
+        {
+          "fixId": "4fba54ad_52d223f2",
+          "description": "Change to \"keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl\"",
+          "replacements": [
+            {
+              "path": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+              "range": {
+                "startLine": 346,
+                "startChar": 16,
+                "endLine": 346,
+                "endChar": 24
+              },
+              "replacement": "symmetric"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "dac34ed9_aa3e2b4c",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2020-09-07T09:27:27Z",
+      "side": 1,
+      "message": "Common typo found: \"symetric\" -- should it be \"symmetric\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027NO_TYPO_CHECK\u003d\u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 346,
+        "startChar": 16,
+        "endLine": 346,
+        "endChar": 24
+      },
+      "revId": "45c5678a9849c4be83b4a6616b90ef0aa32751e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004803275",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1412192?revision\u003d3",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "db368da3_97ec3a63",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2020-09-07T09:27:27Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027complex\u0027, \u0027unexpected\u0027, or \u0027placeholder\u0027; see https://developers.google.com/style/inclusive-documentation#ableist-language for more details.",
+      "range": {
+        "startLine": 364,
+        "startChar": 38,
+        "endLine": 364,
+        "endChar": 43
+      },
+      "revId": "45c5678a9849c4be83b4a6616b90ef0aa32751e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004803275",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1412192?revision\u003d3",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "a71d34e5_dee1ad61",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2020-09-07T09:27:27Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027complex\u0027, \u0027unexpected\u0027, or \u0027placeholder\u0027; see https://developers.google.com/style/inclusive-documentation#ableist-language for more details.",
+      "range": {
+        "startLine": 385,
+        "startChar": 55,
+        "endLine": 385,
+        "endChar": 60
+      },
+      "revId": "45c5678a9849c4be83b4a6616b90ef0aa32751e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004803270",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1412192?revision\u003d3",
+      "fixSuggestions": [
+        {
+          "fixId": "e8c13294_2b55f3a5",
+          "description": "Change to \"keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl\"",
+          "replacements": [
+            {
+              "path": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+              "range": {
+                "startLine": 580,
+                "startChar": 67,
+                "endLine": 580,
+                "endChar": 75
+              },
+              "replacement": "symmetric"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "dd22c1e4_58ae3c07",
+        "filename": "keymint/aidl/android/hardware/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2020-09-07T09:27:27Z",
+      "side": 1,
+      "message": "Common typo found: \"symetric\" -- should it be \"symmetric\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027NO_TYPO_CHECK\u003d\u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 580,
+        "startChar": 67,
+        "endLine": 580,
+        "endChar": 75
+      },
+      "revId": "45c5678a9849c4be83b4a6616b90ef0aa32751e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004803275",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1412192?revision\u003d3",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "a41faa99_8969a58d",
+        "filename": "keymint/aidl/android/hardware/keymint/Tag.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 899,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2020-09-07T09:27:27Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027they\u0027, \u0027them\u0027, or \u0027person\u0027; see https://developers.google.com/style/word-list#gender for more details.",
+      "range": {
+        "startLine": 899,
+        "startChar": 69,
+        "endLine": 899,
+        "endChar": 73
+      },
+      "revId": "45c5678a9849c4be83b4a6616b90ef0aa32751e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004803275",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1412192?revision\u003d3",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "8d89133b_92aed55b",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2020-09-07T09:27:27Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027complex\u0027, \u0027unexpected\u0027, or \u0027placeholder\u0027; see https://developers.google.com/style/inclusive-documentation#ableist-language for more details.",
+      "range": {
+        "startLine": 414,
+        "startChar": 47,
+        "endLine": 414,
+        "endChar": 52
+      },
+      "revId": "45c5678a9849c4be83b4a6616b90ef0aa32751e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004803275",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1412192?revision\u003d3",
+      "fixSuggestions": [],
+      "key": {
+        "uuid": "38c87eb0_56563ad7",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 464,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2020-09-07T09:27:27Z",
+      "side": 1,
+      "message": "Prefer to use inclusive terms like \u0027complex\u0027, \u0027unexpected\u0027, or \u0027placeholder\u0027; see https://developers.google.com/style/inclusive-documentation#ableist-language for more details.",
+      "range": {
+        "startLine": 464,
+        "startChar": 59,
+        "endLine": 464,
+        "endChar": 64
+      },
+      "revId": "45c5678a9849c4be83b4a6616b90ef0aa32751e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004803270",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1412192?revision\u003d3",
+      "fixSuggestions": [
+        {
+          "fixId": "e968f5e3_d93fbb1e",
+          "description": "Change to \"keymint/aidl/vts/functional/keyMint1Test.cpp\"",
+          "replacements": [
+            {
+              "path": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+              "range": {
+                "startLine": 4470,
+                "startChar": 0,
+                "endLine": 4470,
+                "endChar": 5
+              },
+              "replacement": " */"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "e22073e0_bd57e5b7",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 4470,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2020-09-07T09:27:27Z",
+      "side": 1,
+      "message": "Common typo found: \" * */\" -- should it be \" */\"?\nMalformatted comment.\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027NO_TYPO_CHECK\u003d\u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 4470,
+        "startChar": 0,
+        "endLine": 4470,
+        "endChar": 5
+      },
+      "revId": "45c5678a9849c4be83b4a6616b90ef0aa32751e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    },
+    {
+      "robotId": "ayeaye",
+      "robotRunId": "AR00000000000004803270",
+      "url": "https://android-build.googleplex.com/builds/treetop/android-review/1412192?revision\u003d3",
+      "fixSuggestions": [
+        {
+          "fixId": "a4d2bcff_dfd2552c",
+          "description": "Change to \"keymint/aidl/vts/functional/keyMint1Test.cpp\"",
+          "replacements": [
+            {
+              "path": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+              "range": {
+                "startLine": 4495,
+                "startChar": 56,
+                "endLine": 4495,
+                "endChar": 64
+              },
+              "replacement": "greater"
+            }
+          ]
+        }
+      ],
+      "key": {
+        "uuid": "ee745fa3_b3e712ee",
+        "filename": "keymint/aidl/vts/functional/keyMint1Test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 4495,
+      "author": {
+        "id": 1757831
+      },
+      "writtenOn": "2020-09-07T09:27:27Z",
+      "side": 1,
+      "message": "Common typo found: \"greather\" -- should it be \"greater\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027NO_TYPO_CHECK\u003d\u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 4495,
+        "startChar": 56,
+        "endLine": 4495,
+        "endChar": 64
+      },
+      "revId": "45c5678a9849c4be83b4a6616b90ef0aa32751e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
+      "unresolved": false
+    }
+  ]
+}
