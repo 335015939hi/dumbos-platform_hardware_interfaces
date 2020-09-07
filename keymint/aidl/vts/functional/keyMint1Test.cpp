@@ -4214,6 +4214,648 @@ TEST_P(AddEntropyTest, AddLargeEntropy) {
 
 INSTANTIATE_KEYMINT_AIDL_TEST(AddEntropyTest);
 
+class AttestKeyTest : public KeyMintAidlTestBase {
+  protected:
+    void verify_attest_key_charastics(const KeyCharacteristics& key_characteristics) {
+        AuthorizationSet auths(key_characteristics.hardwareEnforced);
+        auths.push_back(AuthorizationSet(key_characteristics.softwareEnforced));
+
+        EXPECT_TRUE(auths.Contains(TAG_ORIGIN, KeyOrigin::GENERATED));
+        EXPECT_TRUE(auths.Contains(TAG_PURPOSE, KeyPurpose::ATTEST_KEY));
+
+        EXPECT_FALSE(auths.Contains(TAG_PURPOSE, KeyPurpose::SIGN));
+        EXPECT_FALSE(auths.Contains(TAG_PURPOSE, KeyPurpose::VERIFY));
+        EXPECT_FALSE(auths.Contains(TAG_PURPOSE, KeyPurpose::ENCRYPT));
+        EXPECT_FALSE(auths.Contains(TAG_PURPOSE, KeyPurpose::DECRYPT));
+
+        // Verify that App ID, App data and ROT are NOT included.
+        EXPECT_FALSE(auths.Contains(TAG_ROOT_OF_TRUST));
+        EXPECT_FALSE(auths.Contains(TAG_APPLICATION_ID));
+        EXPECT_FALSE(auths.Contains(TAG_APPLICATION_DATA));
+
+        EXPECT_TRUE(auths.Contains(TAG_OS_VERSION, os_version()))
+                << "OS version is " << os_version() << " key reported "
+                << auths.GetTagValue(TAG_OS_VERSION);
+        EXPECT_TRUE(auths.Contains(TAG_OS_PATCHLEVEL, os_patch_level()))
+                << "OS patch level is " << os_patch_level() << " key reported "
+                << auths.GetTagValue(TAG_OS_PATCHLEVEL);
+    }
+};
+
+/*
+ * AttestKeyTest.EcKeyGenerationAuth1
+ *
+ * Verifies that an Ec attestation key can be successfully generated.
+ */
+TEST_P(AttestKeyTest, EcKeyGeneration) {
+    ASSERT_EQ(ErrorCode::OK,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .Authorization(TAG_NO_AUTH_REQUIRED)
+                                  .EcdsaKey(256)
+                                  .Authorization(TAG_PURPOSE, KeyPurpose::ATTEST_KEY)
+                                  .Digest(Digest::SHA_2_256),
+                          AuthorizationSetBuilder()
+                                  .Authorization(TAG_ATTESTATION_CHALLENGE, "challenge")
+                                  .Authorization(TAG_ATTESTATION_APPLICATION_ID, "foo")));
+
+    ASSERT_GT(key_blob_.size(), 0U);
+    verify_attest_key_charastics(key_characteristics_);
+
+    ASSERT_GE(certChain_.size(), 2U);
+
+    verify_cert_body(certChain_[0], 1, "", false);
+    EXPECT_TRUE(verify_attestation_record("challenge", "foo",                     //
+                                          key_characteristics_.softwareEnforced,  //
+                                          key_characteristics_.hardwareEnforced,  //
+                                          SecLevel(), certChain_[0]));
+}
+
+/*
+ * AttestKeyTest.EcKeyGenerationAuth1
+ *
+ * Verifies that an Ec attestation key can be successfully generated with
+ * different forms of the same authenticationSet input.
+ */
+TEST_P(AttestKeyTest, EcKeyGenerationAuth1) {
+    ASSERT_EQ(ErrorCode::OK,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .Authorization(TAG_NO_AUTH_REQUIRED)
+                                  .EcdsaAttestingKey(256)
+                                  .Authorization(TAG_PURPOSE, KeyPurpose::ATTEST_KEY)
+                                  .Digest(Digest::SHA_2_256),
+                          AuthorizationSetBuilder()
+                                  .Authorization(TAG_ATTESTATION_CHALLENGE, "challenge")
+                                  .Authorization(TAG_ATTESTATION_APPLICATION_ID, "foo")));
+
+    ASSERT_GT(key_blob_.size(), 0U);
+    verify_attest_key_charastics(key_characteristics_);
+
+    ASSERT_GE(certChain_.size(), 2U);
+
+    verify_cert_body(certChain_[0], 1, "", false);
+    EXPECT_TRUE(verify_attestation_record("challenge", "foo",                     //
+                                          key_characteristics_.softwareEnforced,  //
+                                          key_characteristics_.hardwareEnforced,  //
+                                          SecLevel(), certChain_[0]));
+}
+
+/*
+ * AttestKeyTest.EcKeyGenerationAuth2
+ *
+ * Verifies that an Ec attestation key can be successfully generated with
+ * different forms of the same authenticationSet input.
+ */
+TEST_P(AttestKeyTest, EcKeyGenerationAuth2) {
+    ASSERT_EQ(ErrorCode::OK,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .Authorization(TAG_NO_AUTH_REQUIRED)
+                                  .EcdsaAttestingKey(EcCurve::P_256)
+                                  .Authorization(TAG_PURPOSE, KeyPurpose::ATTEST_KEY)
+                                  .Digest(Digest::SHA_2_256),
+                          AuthorizationSetBuilder()
+                                  .Authorization(TAG_ATTESTATION_CHALLENGE, "challenge")
+                                  .Authorization(TAG_ATTESTATION_APPLICATION_ID, "foo")));
+
+    ASSERT_GT(key_blob_.size(), 0U);
+    verify_attest_key_charastics(key_characteristics_);
+
+    ASSERT_GE(certChain_.size(), 2U);
+
+    verify_cert_body(certChain_[0], 1, "", false);
+    EXPECT_TRUE(verify_attestation_record("challenge", "foo",                     //
+                                          key_characteristics_.softwareEnforced,  //
+                                          key_characteristics_.hardwareEnforced,  //
+                                          SecLevel(), certChain_[0]));
+}
+
+/*
+ * AttestKeyTest.EcKeyGenerationAuth3
+ *
+ * Verifies that an Ec attestation key can be successfully generated with
+ * different forms of the same authenticationSet input.
+ */
+TEST_P(AttestKeyTest, EcKeyGenerationAuth3) {
+    ASSERT_EQ(ErrorCode::OK,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .Authorization(TAG_NO_AUTH_REQUIRED)
+                                  .EcdsaKey(EcCurve::P_256)
+                                  .AttestingKey()
+                                  .Authorization(TAG_PURPOSE, KeyPurpose::ATTEST_KEY)
+                                  .Digest(Digest::SHA_2_256),
+                          AuthorizationSetBuilder()
+                                  .Authorization(TAG_ATTESTATION_CHALLENGE, "challenge")
+                                  .Authorization(TAG_ATTESTATION_APPLICATION_ID, "foo")));
+
+    ASSERT_GT(key_blob_.size(), 0U);
+    verify_attest_key_charastics(key_characteristics_);
+
+    ASSERT_GE(certChain_.size(), 2U);
+
+    verify_cert_body(certChain_[0], 1, "", false);
+    EXPECT_TRUE(verify_attestation_record("challenge", "foo",                     //
+                                          key_characteristics_.softwareEnforced,  //
+                                          key_characteristics_.hardwareEnforced,  //
+                                          SecLevel(), certChain_[0]));
+}
+
+/*
+ * AttestKeyTest.EcKeyWrongKeyParams1
+ *
+ * Verifies that an Ec attestation key cannot be generated with digest 512.
+ */
+TEST_P(AttestKeyTest, EcKeyWrongKeyParams1) {
+    ASSERT_NE(ErrorCode::OK,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .Authorization(TAG_NO_AUTH_REQUIRED)
+                                  .EcdsaKey(256)
+                                  .Authorization(TAG_PURPOSE, KeyPurpose::ATTEST_KEY)
+                                  .Digest(Digest::SHA_2_512),
+                          AuthorizationSetBuilder()
+                                  .Authorization(TAG_ATTESTATION_CHALLENGE, "challenge")
+                                  .Authorization(TAG_ATTESTATION_APPLICATION_ID, "foo")));
+
+    ASSERT_EQ(key_blob_.size(), 0U);
+    ASSERT_EQ(certChain_.size(), 0U);
+}
+
+/*
+ * AttestKeyTest.EcKeyWrongKeyParams2
+ *
+ * Verifies that an Ec attestation key cannot be generated with 224 bit curve.
+ */
+TEST_P(AttestKeyTest, EcKeyWrongKeyParams2) {
+    ASSERT_NE(ErrorCode::OK,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .Authorization(TAG_NO_AUTH_REQUIRED)
+                                  .EcdsaKey(224)
+                                  .Authorization(TAG_PURPOSE, KeyPurpose::ATTEST_KEY)
+                                  .Digest(Digest::SHA_2_256),
+                          AuthorizationSetBuilder()
+                                  .Authorization(TAG_ATTESTATION_CHALLENGE, "challenge")
+                                  .Authorization(TAG_ATTESTATION_APPLICATION_ID, "foo")));
+
+    ASSERT_EQ(key_blob_.size(), 0U);
+    ASSERT_EQ(certChain_.size(), 0U);
+}
+
+/*
+ * AttestKeyTest.EcKeyWrongKeyParams3
+ *
+ * Verifies that an Ec attestation key cannot be generated with 224 bit curve and
+ * digest 384.
+ */
+TEST_P(AttestKeyTest, EcKeyWrongKeyParams3) {
+    ASSERT_NE(ErrorCode::OK,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .Authorization(TAG_NO_AUTH_REQUIRED)
+                                  .EcdsaKey(224)
+                                  .Authorization(TAG_PURPOSE, KeyPurpose::ATTEST_KEY)
+                                  .Digest(Digest::SHA_2_384),
+                          AuthorizationSetBuilder()
+                                  .Authorization(TAG_ATTESTATION_CHALLENGE, "challenge")
+                                  .Authorization(TAG_ATTESTATION_APPLICATION_ID, "foo")));
+
+    ASSERT_EQ(key_blob_.size(), 0U);
+    ASSERT_EQ(certChain_.size(), 0U);
+}
+
+/*
+ * AttestKeyTest.EcKeyWrongKeyParams4
+ *
+ * Verifies that an Ec attestation key cannot be generated with non-256 bit and
+ * digest none.
+ */
+TEST_P(AttestKeyTest, EcKeyWrongKeyParams4) {
+    ASSERT_NE(ErrorCode::OK,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .Authorization(TAG_NO_AUTH_REQUIRED)
+                                  .EcdsaKey(245)
+                                  .Authorization(TAG_PURPOSE, KeyPurpose::ATTEST_KEY)
+                                  .Digest(Digest::NONE),
+                          AuthorizationSetBuilder()
+                                  .Authorization(TAG_ATTESTATION_CHALLENGE, "challenge")
+                                  .Authorization(TAG_ATTESTATION_APPLICATION_ID, "foo")));
+
+    ASSERT_EQ(key_blob_.size(), 0U);
+    ASSERT_EQ(certChain_.size(), 0U);
+}
+
+/*
+ * AttestKeyTest.RsaAttestKeyGenerationFail
+ *
+ * Verifies that an RSA ATTEST_KEY cannot be generated
+ */
+TEST_P(AttestKeyTest, RsaAttestKeyGenerationFail) {
+    ASSERT_NE(ErrorCode::OK,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .Authorization(TAG_NO_AUTH_REQUIRED)
+                                  .RsaSigningKey(2048, 65537)
+                                  .Authorization(TAG_PURPOSE, KeyPurpose::ATTEST_KEY)
+                                  .Padding(PaddingMode::RSA_PKCS1_1_5_SIGN)
+                                  .Digest(Digest::SHA_2_256),
+                          AuthorizationSetBuilder()
+                                  .Authorization(TAG_ATTESTATION_CHALLENGE, "challenge")
+                                  .Authorization(TAG_ATTESTATION_APPLICATION_ID, "foo")));
+
+    ASSERT_EQ(key_blob_.size(), 0U);
+    ASSERT_EQ(certChain_.size(), 0U);
+}
+
+/*
+ * AttestKeyTest.AesAttestKeyGenerationFail
+ *
+ * Verifies that an ATTEST_KEY can not be generated from Aes algorithm.
+ */
+TEST_P(AttestKeyTest, AesAttestKeyGenerationFail) {
+    ASSERT_NE(ErrorCode::OK,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .Authorization(TAG_NO_AUTH_REQUIRED)
+                                  .AesEncryptionKey(128)
+                                  .EcbMode()
+                                  .AttestingKey()
+                                  .Padding(PaddingMode::PKCS7),
+                          AuthorizationSetBuilder()
+                                  .Authorization(TAG_ATTESTATION_CHALLENGE, "challenge")
+                                  .Authorization(TAG_ATTESTATION_APPLICATION_ID, "foo")));
+
+    ASSERT_EQ(key_blob_.size(), 0U);
+    ASSERT_EQ(certChain_.size(), 0U);
+}
+
+/*
+ * AttestKeyTest.HmacAttestKeyGenerationFail
+ *
+ * Verifies that an ATTEST_KEY can not be generated from Hmac algorithm.
+ */
+TEST_P(AttestKeyTest, HmacAttestKeyGenerationFail) {
+    ASSERT_NE(ErrorCode::OK,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .Authorization(TAG_NO_AUTH_REQUIRED)
+                                  .HmacKey(128)
+                                  .EcbMode()
+                                  .Authorization(TAG_PURPOSE, KeyPurpose::ATTEST_KEY)
+                                  .Digest(Digest::SHA_2_256)
+                                  .Authorization(TAG_MIN_MAC_LENGTH, 128),
+                          AuthorizationSetBuilder()
+                                  .Authorization(TAG_ATTESTATION_CHALLENGE, "challenge")
+                                  .Authorization(TAG_ATTESTATION_APPLICATION_ID, "foo")));
+
+    ASSERT_EQ(key_blob_.size(), 0U);
+    ASSERT_EQ(certChain_.size(), 0U);
+}
+
+/*
+ * AttestKeyTest.TripleDesAttestKeyGenerationFail
+ *
+ * Verifies that an ATTEST_KEY can not be generated from 3DES algorithm.
+ */
+TEST_P(AttestKeyTest, TripleDesAttestKeyGenerationFail) {
+    ASSERT_NE(ErrorCode::OK,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .TripleDesEncryptionKey(168)
+                                  .BlockMode(BlockMode::ECB)
+                                  .Authorization(TAG_NO_AUTH_REQUIRED)
+                                  .Authorization(TAG_PURPOSE, KeyPurpose::ATTEST_KEY)
+                                  .Padding(PaddingMode::NONE),
+                          AuthorizationSetBuilder()
+                                  .Authorization(TAG_ATTESTATION_CHALLENGE, "challenge")
+                                  .Authorization(TAG_ATTESTATION_APPLICATION_ID, "foo")));
+
+    ASSERT_EQ(key_blob_.size(), 0U);
+    ASSERT_EQ(certChain_.size(), 0U);
+}
+
+/*
+ * AttestKeyTest.RsaAttestationUsingAttestKey
+ *
+ * Verifies that an RSA signing key can be attested with an ATTEST key, and all
+ * properties of the RSA key and attestation certificate works correctly.
+ */
+TEST_P(AttestKeyTest, RsaAttestationUsingAttestKey) {
+    ASSERT_EQ(ErrorCode::OK,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .Authorization(TAG_NO_AUTH_REQUIRED)
+                                  .EcdsaKey(256)
+                                  .Authorization(TAG_PURPOSE, KeyPurpose::ATTEST_KEY)
+                                  .Digest(Digest::SHA_2_256),
+                          AuthorizationSetBuilder()
+                                  .Authorization(TAG_ATTESTATION_CHALLENGE, "challenge")
+                                  .Authorization(TAG_ATTESTATION_APPLICATION_ID, "foo")));
+
+    ASSERT_GT(key_blob_.size(), 0U);
+    verify_attest_key_charastics(key_characteristics_);
+    vector<uint8_t> attest_key_blob = std::move(key_blob_);
+    key_blob_.clear();
+
+    ASSERT_EQ(
+            ErrorCode::OK,
+            GenerateKey(AuthorizationSetBuilder()
+                                .Authorization(TAG_NO_AUTH_REQUIRED)
+                                .RsaSigningKey(2048, 65537)
+                                .Digest(Digest::SHA_2_256)
+                                .Padding(PaddingMode::RSA_PKCS1_1_5_SIGN)
+                                .Authorization(TAG_INCLUDE_UNIQUE_ID),
+                        AuthorizationSetBuilder()
+                                .Authorization(TAG_ATTESTATION_CHALLENGE, "challenge")
+                                .Authorization(TAG_ATTESTATION_APPLICATION_ID, "foo")
+                                .Authorization(TAG_ATTESTATION_CERTIFICATE_SERIAL, 55)
+                                .Authorization(TAG_ATTESTATION_CERTIFICATE_SUBJECT, "cert subj 1"),
+                        attest_key_blob, &key_blob_, &key_characteristics_));
+
+    ASSERT_GE(certChain_.size(), 2U);
+
+    string message = "12345678901234567890123456789012";
+    string signature = SignMessage(message, AuthorizationSetBuilder()
+                                                    .Digest(Digest::SHA_2_256)
+                                                    .Padding(PaddingMode::RSA_PKCS1_1_5_SIGN));
+
+    verify_cert_body(certChain_[0], 55, "cert subj 1", false);
+    EXPECT_TRUE(verify_attestation_record("challenge", "foo",                     //
+                                          key_characteristics_.softwareEnforced,  //
+                                          key_characteristics_.hardwareEnforced,  //
+                                          SecLevel(), certChain_[0]));
+}
+
+/*
+ * AttestKeyTest.RsaEncryptionKeyAttestKey
+ *
+ * Verifies that an RSA PKCS encryption/decryption key can be attested with
+ * an ATTEST key, and all properties of the RSA key and attestation
+ * certificate works correctly.
+ */
+TEST_P(AttestKeyTest, RsaEncryptionKeyAttestKey) {
+    ASSERT_EQ(ErrorCode::OK,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .Authorization(TAG_NO_AUTH_REQUIRED)
+                                  .EcdsaKey(256)
+                                  .Authorization(TAG_PURPOSE, KeyPurpose::ATTEST_KEY)
+                                  .Digest(Digest::SHA_2_256),
+                          AuthorizationSetBuilder()
+                                  .Authorization(TAG_ATTESTATION_CHALLENGE, "challenge")
+                                  .Authorization(TAG_ATTESTATION_APPLICATION_ID, "foo")));
+
+    ASSERT_GT(key_blob_.size(), 0U);
+    verify_attest_key_charastics(key_characteristics_);
+    vector<uint8_t> attest_key_blob = std::move(key_blob_);
+    key_blob_.clear();
+
+    ASSERT_EQ(ErrorCode::OK,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .Authorization(TAG_NO_AUTH_REQUIRED)
+                                  .RsaEncryptionKey(2048, 65537)
+                                  .Padding(PaddingMode::RSA_PKCS1_1_5_ENCRYPT),
+                          AuthorizationSetBuilder()
+                                  .Authorization(TAG_ATTESTATION_CHALLENGE, "challenge")
+                                  .Authorization(TAG_ATTESTATION_APPLICATION_ID, "foo"),
+                          attest_key_blob, &key_blob_, &key_characteristics_));
+
+    verify_cert_body(certChain_[0], 1, "", false);
+    EXPECT_TRUE(verify_attestation_record("challenge", "foo",                     //
+                                          key_characteristics_.softwareEnforced,  //
+                                          key_characteristics_.hardwareEnforced,  //
+                                          SecLevel(), certChain_[0]));
+
+    string message = "Hello World!";
+    auto params = AuthorizationSetBuilder().Padding(PaddingMode::RSA_PKCS1_1_5_ENCRYPT);
+    string ciphertext1 = EncryptMessage(message, params);
+    EXPECT_EQ(2048U / 8, ciphertext1.size());
+
+    string ciphertext2 = EncryptMessage(message, params);
+    EXPECT_EQ(2048U / 8, ciphertext2.size());
+
+    // PKCS1 v1.5 randomizes padding so every result should be different.
+    EXPECT_NE(ciphertext1, ciphertext2);
+
+    string plaintext = DecryptMessage(ciphertext1, params);
+    EXPECT_EQ(message, plaintext);
+
+    // Decrypting corrupted ciphertext should fail.
+    size_t offset_to_corrupt = random() % ciphertext1.size();
+    char corrupt_byte;
+    do {
+        corrupt_byte = static_cast<char>(random() % 256);
+    } while (corrupt_byte == ciphertext1[offset_to_corrupt]);
+    ciphertext1[offset_to_corrupt] = corrupt_byte;
+
+    EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, params));
+    string result;
+    EXPECT_EQ(ErrorCode::UNKNOWN_ERROR, Finish(ciphertext1, &result));
+    EXPECT_EQ(0U, result.size());
+}
+
+/*
+ * AttestKeyTest.EcdsaAttestationUsingAttestKey
+ *
+ * Verifies that an Ecdsa signing key can be attested with an ATTEST key, and all
+ * properties of the signing key and attestation certificate works correctly.
+ */
+TEST_P(AttestKeyTest, EcdsaAttestationUsingAttestKey) {
+    ASSERT_EQ(ErrorCode::OK,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .Authorization(TAG_NO_AUTH_REQUIRED)
+                                  .EcdsaKey(256)
+                                  .Authorization(TAG_PURPOSE, KeyPurpose::ATTEST_KEY)
+                                  .Digest(Digest::SHA_2_256),
+                          AuthorizationSetBuilder()
+                                  .Authorization(TAG_ATTESTATION_CHALLENGE, "challenge")
+                                  .Authorization(TAG_ATTESTATION_APPLICATION_ID, "foo")));
+
+    ASSERT_GT(key_blob_.size(), 0U);
+    verify_attest_key_charastics(key_characteristics_);
+    vector<uint8_t> attest_key_blob = std::move(key_blob_);
+    key_blob_.clear();
+
+    ASSERT_EQ(
+            ErrorCode::OK,
+            GenerateKey(AuthorizationSetBuilder()
+                                .Authorization(TAG_NO_AUTH_REQUIRED)
+                                .EcdsaSigningKey(EcCurve::P_256)
+                                .Digest(Digest::SHA_2_256)
+                                .Authorization(TAG_INCLUDE_UNIQUE_ID),
+                        AuthorizationSetBuilder()
+                                .Authorization(TAG_ATTESTATION_CHALLENGE, "challenge")
+                                .Authorization(TAG_ATTESTATION_APPLICATION_ID, "foo")
+                                .Authorization(TAG_ATTESTATION_CERTIFICATE_SERIAL, 55)
+                                .Authorization(TAG_ATTESTATION_CERTIFICATE_SUBJECT, "cert subj 1"),
+                        attest_key_blob, &key_blob_, &key_characteristics_));
+
+    ASSERT_GE(certChain_.size(), 2U);
+
+    string message = "12345678901234567890123456789012";
+    string signature = SignMessage(message, AuthorizationSetBuilder().Digest(Digest::SHA_2_256));
+
+    verify_cert_body(certChain_[0], 55, "cert subj 1", false);
+    EXPECT_TRUE(verify_attestation_record("challenge", "foo",                     //
+                                          key_characteristics_.softwareEnforced,  //
+                                          key_characteristics_.hardwareEnforced,  //
+                                          SecLevel(), certChain_[0]));
+}
+
+/*
+ * AttestKeyTest.NestedAttestKeyGenerationSuccess
+ *
+ * Verifies that an Ecdsa attestation key can be signed by another Ecdsa
+ * attestation key which is signed by another attestation key
+ */
+TEST_P(AttestKeyTest, NestedAttestKeyGenerationSuccess) {
+    ASSERT_EQ(ErrorCode::OK,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .Authorization(TAG_NO_AUTH_REQUIRED)
+                                  .EcdsaAttestingKey(256)
+                                  .Digest(Digest::SHA_2_256),
+                          AuthorizationSetBuilder()
+                                  .Authorization(TAG_ATTESTATION_CHALLENGE, "challenge")
+                                  .Authorization(TAG_ATTESTATION_APPLICATION_ID, "foo")));
+
+    ASSERT_GT(key_blob_.size(), 0U);
+    verify_attest_key_charastics(key_characteristics_);
+    vector<uint8_t> attest_key_blob = std::move(key_blob_);
+    key_blob_.clear();
+
+    ASSERT_EQ(ErrorCode::OK,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .Authorization(TAG_NO_AUTH_REQUIRED)
+                                  .EcdsaAttestingKey(256)
+                                  .Digest(Digest::SHA_2_256),
+                          AuthorizationSetBuilder()
+                                  .Authorization(TAG_ATTESTATION_CHALLENGE, "challenge")
+                                  .Authorization(TAG_ATTESTATION_APPLICATION_ID, "foo"),
+                          attest_key_blob, &key_blob_, &key_characteristics_));
+
+    ASSERT_GT(key_blob_.size(), 0U);
+    verify_attest_key_charastics(key_characteristics_);
+    vector<uint8_t> attest_key_blob2 = std::move(key_blob_);
+    key_blob_.clear();
+
+    ASSERT_EQ(ErrorCode::OK,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .Authorization(TAG_NO_AUTH_REQUIRED)
+                                  .EcdsaAttestingKey(256)
+                                  .Digest(Digest::SHA_2_256),
+                          AuthorizationSetBuilder()
+                                  .Authorization(TAG_ATTESTATION_CHALLENGE, "challenge")
+                                  .Authorization(TAG_ATTESTATION_APPLICATION_ID, "foo"),
+                          attest_key_blob2, &key_blob_, &key_characteristics_));
+
+    ASSERT_GT(key_blob_.size(), 0U);
+    verify_attest_key_charastics(key_characteristics_);
+}
+
+/*
+ * AttestKeyTest.RsaSigningKeyCantAttest
+ *
+ * Verifies that an RSA signing key cannot be used as an ATTEST key for Ecdsa
+ * key generation and attestation.
+ */
+TEST_P(AttestKeyTest, RsaSigningKeyCantAttest) {
+    ASSERT_EQ(ErrorCode::OK,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .Authorization(TAG_NO_AUTH_REQUIRED)
+                                  .RsaSigningKey(2048, 65537)
+                                  .Digest(Digest::SHA_2_256)
+                                  .Padding(PaddingMode::RSA_PKCS1_1_5_SIGN)
+                                  .Authorization(TAG_INCLUDE_UNIQUE_ID),
+                          AuthorizationSetBuilder()
+                                  .Authorization(TAG_ATTESTATION_CHALLENGE, "challenge")
+                                  .Authorization(TAG_ATTESTATION_APPLICATION_ID, "foo")));
+
+    ASSERT_GT(key_blob_.size(), 0U);
+    ASSERT_GE(certChain_.size(), 2U);
+
+    vector<uint8_t> attest_key_blob = std::move(key_blob_);
+    key_blob_.clear();
+
+    ASSERT_NE(ErrorCode::OK,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .Authorization(TAG_NO_AUTH_REQUIRED)
+                                  .EcdsaKey(256)
+                                  .Authorization(TAG_PURPOSE, KeyPurpose::ATTEST_KEY)
+                                  .Digest(Digest::SHA_2_256),
+                          AuthorizationSetBuilder()
+                                  .Authorization(TAG_ATTESTATION_CHALLENGE, "challenge")
+                                  .Authorization(TAG_ATTESTATION_APPLICATION_ID, "foo"),
+                          attest_key_blob, &key_blob_, &key_characteristics_));
+
+    ASSERT_EQ(key_blob_.size(), 0U);
+    ASSERT_EQ(certChain_.size(), 0U);
+}
+
+/*
+ * AttestationTest.RsaEncryptionKeyCantAttest
+ *
+ * Verifies that an RSA Encryption key cannot be used as an ATTEST key for Ecdsa
+ * key Attest key generation and attestation.
+ */
+TEST_P(AttestKeyTest, RsaEncryptionKeyCantAttest) {
+    ASSERT_EQ(ErrorCode::OK,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .Authorization(TAG_NO_AUTH_REQUIRED)
+                                  .RsaEncryptionKey(2048, 65537)
+                                  .Padding(PaddingMode::NONE),
+                          AuthorizationSetBuilder()
+                                  .Authorization(TAG_ATTESTATION_CHALLENGE, "challenge")
+                                  .Authorization(TAG_ATTESTATION_APPLICATION_ID, "foo")));
+
+    ASSERT_GT(key_blob_.size(), 0U);
+    ASSERT_GE(certChain_.size(), 2U);
+
+    vector<uint8_t> attest_key_blob = std::move(key_blob_);
+    key_blob_.clear();
+
+    ASSERT_NE(ErrorCode::OK,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .Authorization(TAG_NO_AUTH_REQUIRED)
+                                  .EcdsaKey(256)
+                                  .Authorization(TAG_PURPOSE, KeyPurpose::ATTEST_KEY)
+                                  .Digest(Digest::SHA_2_256),
+                          AuthorizationSetBuilder()
+                                  .Authorization(TAG_ATTESTATION_CHALLENGE, "challenge")
+                                  .Authorization(TAG_ATTESTATION_APPLICATION_ID, "foo"),
+                          attest_key_blob, &key_blob_, &key_characteristics_));
+
+    ASSERT_EQ(key_blob_.size(), 0U);
+    ASSERT_EQ(certChain_.size(), 0U);
+}
+
+/*
+ * AttestKeyTest.EcdsaSingKeyCantAttest
+ *
+ * Verifies that an Ecdsa signing key cannot be used as an ATTEST key for Ecdsa
+ * key generation and attestation.
+ */
+TEST_P(AttestKeyTest, EcdsaSingKeyCantAttest) {
+    ASSERT_EQ(ErrorCode::OK,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .Authorization(TAG_NO_AUTH_REQUIRED)
+                                  .EcdsaSigningKey(EcCurve::P_256)
+                                  .Digest(Digest::SHA_2_256)
+                                  .Authorization(TAG_INCLUDE_UNIQUE_ID),
+                          AuthorizationSetBuilder()
+                                  .Authorization(TAG_ATTESTATION_CHALLENGE, "challenge")
+                                  .Authorization(TAG_ATTESTATION_APPLICATION_ID, "foo")));
+
+    ASSERT_GT(key_blob_.size(), 0U);
+    ASSERT_GE(certChain_.size(), 2U);
+
+    vector<uint8_t> attest_key_blob = std::move(key_blob_);
+    key_blob_.clear();
+
+    ASSERT_NE(ErrorCode::OK,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .Authorization(TAG_NO_AUTH_REQUIRED)
+                                  .EcdsaSigningKey(EcCurve::P_256)
+                                  .Digest(Digest::SHA_2_256),
+                          AuthorizationSetBuilder()
+                                  .Authorization(TAG_ATTESTATION_CHALLENGE, "challenge")
+                                  .Authorization(TAG_ATTESTATION_APPLICATION_ID, "foo"),
+                          attest_key_blob, &key_blob_, &key_characteristics_));
+
+    ASSERT_EQ(key_blob_.size(), 0U);
+    ASSERT_EQ(certChain_.size(), 0U);
+}
+
+INSTANTIATE_KEYMINT_AIDL_TEST(AttestKeyTest);
+
 typedef KeyMintAidlTestBase AttestationTest;
 
 /*
@@ -4271,13 +4913,13 @@ TEST_P(AttestationTest, RsaAttestationSelfSign) {
                               .Authorization(TAG_ATTESTATION_CERTIFICATE_SERIAL, 66)
                               .Authorization(TAG_ATTESTATION_CERTIFICATE_SUBJECT, "cert subj 2")));
 
-    EXPECT_EQ(certChain_.size(), 1U);
 
     string message = "12345678901234567890123456789012";
     string signature = SignMessage(message, AuthorizationSetBuilder()
                                                     .Digest(Digest::SHA_2_256)
                                                     .Padding(PaddingMode::RSA_PKCS1_1_5_SIGN));
 
+    ASSERT_EQ(certChain_.size(), 1U);
     verify_cert_body(certChain_[0], 66, "cert subj 2", true);
 }
 

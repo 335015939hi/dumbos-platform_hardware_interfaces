@@ -85,7 +85,6 @@ class AuthorizationSet {
         }
         return *this;
     }
-
     /**
      * Clear existing authorization set data
      */
@@ -292,11 +291,16 @@ class AuthorizationSetBuilder : public AuthorizationSet {
     AuthorizationSetBuilder& RsaEncryptionKey(uint32_t key_size, uint64_t public_exponent);
     AuthorizationSetBuilder& EcdsaSigningKey(uint32_t key_size);
     AuthorizationSetBuilder& EcdsaSigningKey(EcCurve curve);
+
+    AuthorizationSetBuilder& EcdsaAttestingKey(uint32_t key_size);
+    AuthorizationSetBuilder& EcdsaAttestingKey(EcCurve curve);
+
     AuthorizationSetBuilder& AesEncryptionKey(uint32_t key_size);
     AuthorizationSetBuilder& TripleDesEncryptionKey(uint32_t key_size);
 
     AuthorizationSetBuilder& SigningKey();
     AuthorizationSetBuilder& EncryptionKey();
+    AuthorizationSetBuilder& AttestingKey();
 
     AuthorizationSetBuilder& NoDigestOrPadding();
 

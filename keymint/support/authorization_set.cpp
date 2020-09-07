@@ -449,6 +449,16 @@ AuthorizationSetBuilder& AuthorizationSetBuilder::RsaEncryptionKey(uint32_t key_
     return EncryptionKey();
 }
 
+AuthorizationSetBuilder& AuthorizationSetBuilder::EcdsaAttestingKey(uint32_t key_size) {
+    EcdsaKey(key_size);
+    return AttestingKey();
+}
+
+AuthorizationSetBuilder& AuthorizationSetBuilder::EcdsaAttestingKey(EcCurve curve) {
+    EcdsaKey(curve);
+    return AttestingKey();
+}
+
 AuthorizationSetBuilder& AuthorizationSetBuilder::EcdsaSigningKey(uint32_t key_size) {
     EcdsaKey(key_size);
     return SigningKey();
@@ -467,6 +477,10 @@ AuthorizationSetBuilder& AuthorizationSetBuilder::AesEncryptionKey(uint32_t key_
 AuthorizationSetBuilder& AuthorizationSetBuilder::TripleDesEncryptionKey(uint32_t key_size) {
     TripleDesKey(key_size);
     return EncryptionKey();
+}
+
+AuthorizationSetBuilder& AuthorizationSetBuilder::AttestingKey() {
+    return Authorization(TAG_PURPOSE, KeyPurpose::ATTEST_KEY);
 }
 
 AuthorizationSetBuilder& AuthorizationSetBuilder::SigningKey() {
