@@ -36,6 +36,7 @@ namespace test {
 
 using ::android::sp;
 using binder::Status;
+using ::std::optional;
 using ::std::shared_ptr;
 using ::std::string;
 using ::std::vector;
@@ -62,6 +63,10 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
     ErrorCode GetReturnErrorCode(Status result);
 
     ErrorCode GenerateKey(const AuthorizationSet& key_desc, const AuthorizationSet& attest_params,
+                          const optional<vector<uint8_t>>& attest_blob, vector<uint8_t>* keyBlob,
+                          KeyCharacteristics* keyChar);
+
+    ErrorCode GenerateKey(const AuthorizationSet& key_desc, const AuthorizationSet& attest_params,
                           vector<uint8_t>* key_blob, KeyCharacteristics* key_characteristics);
 
     ErrorCode GenerateKey(const AuthorizationSet& key_desc, vector<uint8_t>* key_blob,
@@ -70,6 +75,11 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
     ErrorCode GenerateKey(const AuthorizationSet& key_desc, const AuthorizationSet& attest_params);
 
     ErrorCode GenerateKey(const AuthorizationSet& key_desc);
+
+    ErrorCode ImportKey(const AuthorizationSet& key_desc, const AuthorizationSet& attest_params,
+                        const optional<vector<uint8_t>>& attest_blob, KeyFormat format,
+                        const string& key_material, vector<uint8_t>* key_blob,
+                        KeyCharacteristics* key_characteristics);
 
     ErrorCode ImportKey(const AuthorizationSet& key_desc, const AuthorizationSet& attest_params,
                         KeyFormat format, const string& key_material, vector<uint8_t>* key_blob,
