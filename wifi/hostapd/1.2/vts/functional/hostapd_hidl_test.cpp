@@ -72,7 +72,14 @@ class HostapdHidlTest
             "wifi_softap_wpa3_sae_supported");
     }
 
+<<<<<<< HEAD   (2fbbdd Merge "Fix bad test config for VtsHalRadioV1_4TargetTest")
     virtual void TearDown() override { stopHostapd(hostapd_instance_name_); }
+=======
+    virtual void TearDown() override {
+        HIDL_INVOKE_VOID_WITHOUT_ARGUMENTS(hostapd_, terminate);
+        stopHostapd(wifi_instance_name_);
+    }
+>>>>>>> CHANGE (6f326e wifi: Call terminate in VTS teardown)
 
    protected:
     bool isWpa3SaeSupport_ = false;
